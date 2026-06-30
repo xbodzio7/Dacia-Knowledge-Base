@@ -124,3 +124,23 @@ Priorytet
 
 Nigdy odwrotnie.
 
+
+
+Jeżeli użytkownik prześle ZIP repozytorium:
+
+
+
+1\.
+
+Najpierw wykonaj audyt.
+
+
+
+2\.
+
+Dopiero potem generuj nowe pliki.
+
+
+
+Nigdy odwrotnie.
+

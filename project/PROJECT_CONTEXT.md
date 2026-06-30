@@ -178,3 +178,20 @@ Rozwijamy dane.
 
 Nie projektujemy ponownie struktury bez rzeczywistej potrzeby.
 
+
+AKTUALNY STAN
+
+
+
+Projekt jest po audycie.
+
+
+
+Architektura uznana za stabilną.
+
+
+
+Repozytorium wymaga już głównie rozwijania danych.
+
+
+

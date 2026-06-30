@@ -124,3 +124,43 @@ Nie planuje.
 
 Jeżeli AI zaczyna ponownie projektować architekturę, należy przerwać ten kierunek i wrócić do generowania plików repozytorium.
 
+
+
+Aktualny etap
+
+
+
+ETAP 2
+
+
+
+Budowa danych.
+
+
+
+Projektowanie zakończone.
+
+
+
+Nie wracać do architektury.
+
+
+
+Priorytet
+
+
+
+CSV
+
+
+
+Import
+
+
+
+Walidacja
+
+
+
+Raporty
+
