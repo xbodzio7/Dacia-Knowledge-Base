@@ -10,7 +10,7 @@ To jest instrukcja dla AI pracującej nad projektem.
 
 
 
-Repozytorium GitHub jest źródłem prawdy.
+Repozytorium po przesłaniu przez użytkownika jest jedynym źródłem prawdy. Nie polegaj na pamięci poprzednich rozmów. W przypadku rozbieżności zawsze ufaj zawartości repozytorium.
 
 
 
@@ -143,4 +143,33 @@ Dopiero potem generuj nowe pliki.
 
 
 Nigdy odwrotnie.
+
+
+
+Czego NIE robić
+
+
+NIE:
+
+\- nie projektuj architektury od nowa,
+
+\- nie proponuj zmian bez analizy repozytorium,
+
+\- nie twórz nowych katalogów bez uzasadnienia,
+
+\- nie opisuj planów, jeśli możesz wygenerować artefakt,
+
+\- nie zakładaj, że pamiętasz poprzednie czaty.
+
+
+
+ZAWSZE:
+
+\- najpierw analizuj repozytorium,
+
+\- rozwijaj istniejące rozwiązania,
+
+\- proponuj minimalne, uzasadnione zmiany,
+
+\- dostarczaj gotowe pliki i kod.
 
