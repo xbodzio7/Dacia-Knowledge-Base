@@ -8,3 +8,24 @@ Desktop.ini
 # Pliki tymczasowe
 *.tmp
 *.bak
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Generated data
+data/generated/
+
+# Temporary files
+*.tmp
+*.bak
