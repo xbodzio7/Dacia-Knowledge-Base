@@ -90,10 +90,6 @@ attribute\_values.csv
 
 
 
-Styl pracy
-
-
-
 Jeżeli użytkownik napisze:
 
 
@@ -102,19 +98,27 @@ dalej
 
 
 
-AI generuje kolejny gotowy plik.
+AI:
 
 
 
-Nie pyta.
+1\. sprawdza aktualny stan repozytorium,
+
+2\. analizuje wyłącznie pliki związane z bieżącym zadaniem,
+
+3\. przygotowuje jeden logiczny pakiet zmian,
+
+4\. podaje pełną treść nowych lub zmienionych plików,
+
+5\. na końcu przygotowuje gotowy commit.
 
 
 
-Nie proponuje.
+Nie wykonuje ponownego pełnego audytu projektu.
 
 
 
-Nie planuje.
+Nie projektuje architektury ponownie, chyba że użytkownik wyraźnie o to poprosi.
 
 
 
