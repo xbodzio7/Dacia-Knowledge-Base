@@ -204,3 +204,69 @@ Projekt rozwijany jest w małych, kompletnych pakietach zmian.
 
 Każdy pakiet powinien być gotowy do zatwierdzenia i wykonania commitu.
 
+
+
+\## DEC-00X — Zasady prowadzenia kolejnych sesji
+
+
+
+Status: Accepted
+
+Data: 2026-07-01
+
+
+
+\### Decyzja
+
+
+
+Od tego etapu projektu AI nie generuje kolejnych plików "z wyprzedzeniem".
+
+
+
+Każda sesja przebiega według następującego schematu:
+
+
+
+1\. odczyt `project/START\_HERE.md`,
+
+2\. odczyt `project/SESSION\_STATE.md`,
+
+3\. analiza wyłącznie dokumentów związanych z bieżącym zadaniem,
+
+4\. przygotowanie jednego logicznego pakietu zmian,
+
+5\. przedstawienie pełnej treści nowych lub zmienionych plików,
+
+6\. przygotowanie gotowego polecenia `git add` oraz `git commit`.
+
+
+
+\### Uzasadnienie
+
+
+
+Projekt osiągnął etap, na którym repozytorium stanowi jedyne źródło prawdy.
+
+
+
+Generowanie zmian bez analizy aktualnego stanu prowadzi do:
+
+\- proponowania istniejących już plików,
+
+\- niespójności architektury,
+
+\- błędnych commitów.
+
+
+
+\### Konsekwencje
+
+
+
+\- zmiany są przygotowywane wyłącznie na podstawie aktualnego stanu repozytorium,
+
+\- nie wykonuje się pełnego audytu bez wyraźnego polecenia użytkownika,
+
+\- każdy commit obejmuje jeden logiczny pakiet zmian.
+
