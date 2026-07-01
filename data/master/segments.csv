@@ -1,0 +1,7 @@
+id,code,name_pl,name_en,description
+1,A,Segment A,A Segment,Najmniejsze samochody miejskie
+2,B,Segment B,B Segment,Samochody miejskie
+3,C,Segment C,C Segment,Klasa kompaktowa
+4,SUV-B,SUV Segment B,B-SUV,Ma³e SUV-y
+5,SUV-C,SUV Segment C,C-SUV,Kompaktowe SUV-y
+6,LCV,Lekkie pojazdy u¿ytkowe,Light Commercial Vehicle,Samochody dostawcze
