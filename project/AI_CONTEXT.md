@@ -2,31 +2,67 @@
 
 
 
-To jest instrukcja dla AI pracującej nad projektem.
+Instrukcja dla AI pracującej nad projektem Dacia Knowledge Base.
 
 
 
-\## Najważniejsze zasady
+\## Podstawowe zasady
 
 
 
-Repozytorium po przesłaniu przez użytkownika jest jedynym źródłem prawdy. Nie polegaj na pamięci poprzednich rozmów. W przypadku rozbieżności zawsze ufaj zawartości repozytorium.
+Repozytorium przesłane przez użytkownika jest jedynym źródłem prawdy.
 
 
 
-Nie twórz nowych architektur.
+Nie polegaj na pamięci poprzednich rozmów.
 
 
 
-Nie proponuj nowych modeli danych.
+W przypadku rozbieżności zawsze obowiązuje zawartość repozytorium.
 
 
 
-Nie opisuj co zrobisz.
+\## Sposób pracy
 
 
 
-Generuj gotowe artefakty.
+1\. Najpierw wykonaj audyt aktualnego repozytorium.
+
+2\. Dopiero po zakończeniu audytu proponuj zmiany.
+
+3\. Rozwijaj istniejące rozwiązania.
+
+4\. Nie projektuj architektury od nowa bez rzeczywistego uzasadnienia wynikającego z repozytorium.
+
+5\. Nie proponuj zmian „na zapas”.
+
+6\. Jeżeli coś działa poprawnie – pozostaw bez zmian.
+
+7\. Jeżeli podczas dalszego audytu okaże się, że wcześniejsza rekomendacja była błędna lub nieoptymalna, popraw ją.
+
+
+
+\## Tryb pracy
+
+
+
+Domyślnie AI pracuje do momentu przygotowania kompletnego pakietu zmian.
+
+
+
+Nie zatrzymuje się po każdym etapie.
+
+
+
+Nie raportuje postępów, jeżeli nie jest to konieczne.
+
+
+
+Wynikiem pracy powinien być możliwie kompletny pakiet commit-ready.
+
+
+
+\## Polecenie „dalej”
 
 
 
@@ -42,114 +78,77 @@ oznacza to:
 
 
 
-wygeneruj kolejny gotowy plik projektu.
+wykonuj kolejne logiczne etapy wynikające z repozytorium aż do przygotowania gotowych artefaktów.
 
 
 
-\---
+Nie zatrzymuj się po każdym kroku.
 
 
 
-Każda odpowiedź powinna kończyć się czymś gotowym do zapisania w repozytorium.
+\## Artefakty
 
 
 
-CSV
+Preferowane są gotowe artefakty:
 
 
 
-Markdown
+\- Markdown
 
+\- CSV
 
+\- Python
 
-Python
+\- Excel
 
+\- JSON
 
 
-Excel
 
+Opis stosuj tylko wtedy, gdy jest niezbędny.
 
 
-JSON
 
+\## Ograniczenia
 
 
-Nigdy samymi opisami.
 
+Jeżeli czegoś nie można wykonać z powodu ograniczeń narzędzi:
 
 
-\---
 
+\- napisz to jednym zdaniem,
 
+\- zaproponuj najbliższą możliwą alternatywę.
 
-Jeżeli czegoś nie możesz wygenerować z powodu ograniczeń narzędzi:
 
 
+\## Priorytety projektu
 
-napisz to jednym zdaniem.
 
 
+1\. Jakość wiedzy
 
-Nie proponuj kolejnych planów.
+2\. Dane
 
+3\. Import
 
+4\. Walidacja
 
-\---
+5\. Raporty
 
+6\. Dokumentacja techniczna
 
 
-Priorytet
 
+\## Czego NIE robić
 
-
-1\. Dane
-
-
-
-2\. Import
-
-
-
-3\. Walidacja
-
-
-
-4\. Raporty
-
-
-
-5\. Dokumentacja
-
-
-
-Nigdy odwrotnie.
-
-
-
-Jeżeli użytkownik prześle ZIP repozytorium:
-
-
-
-1\.
-
-Najpierw wykonaj audyt.
-
-
-
-2\.
-
-Dopiero potem generuj nowe pliki.
-
-
-
-Nigdy odwrotnie.
-
-
-
-Czego NIE robić
 
 
 NIE:
+
+
 
 \- nie projektuj architektury od nowa,
 
@@ -157,19 +156,83 @@ NIE:
 
 \- nie twórz nowych katalogów bez uzasadnienia,
 
-\- nie opisuj planów, jeśli możesz wygenerować artefakt,
+\- nie powtarzaj wcześniejszych ustaleń,
 
-\- nie zakładaj, że pamiętasz poprzednie czaty.
+\- nie opisuj planów, jeżeli możesz wygenerować gotowe pliki,
+
+\- nie zakładaj, że pamiętasz poprzednie rozmowy.
 
 
 
 ZAWSZE:
 
-\- najpierw analizuj repozytorium,
+
+
+\- analizuj repozytorium przed rozpoczęciem pracy,
 
 \- rozwijaj istniejące rozwiązania,
 
 \- proponuj minimalne, uzasadnione zmiany,
 
-\- dostarczaj gotowe pliki i kod.
+\- oceniaj projekt przede wszystkim jako bazę wiedzy,
+
+\- dostarczaj gotowe, commit-ready artefakty.
+
+
+
+\## Workflow
+
+
+
+Domyślny sposób pracy AI:
+
+
+
+1\. Analiza aktualnego repozytorium.
+
+2\. Identyfikacja problemów.
+
+3\. Analiza wpływu zmian.
+
+4\. Przygotowanie kompletnego pakietu zmian.
+
+5\. Generowanie gotowych artefaktów.
+
+6\. Propozycja commitu.
+
+
+
+AI nie zatrzymuje się po każdym etapie, chyba że wymagana jest decyzja użytkownika lub ograniczenia narzędzi uniemożliwiają dalszą pracę.
+
+
+
+\## Zasady odpowiedzi
+
+
+
+\- Ograniczaj komentarze do minimum.
+
+\- Nie powtarzaj wcześniejszych ustaleń.
+
+\- Nie podsumowuj każdego etapu.
+
+\- Skupiaj się na nowych ustaleniach.
+
+\- Dostarczaj gotowe pliki zamiast opisu planowanych zmian.
+
+
+
+\## Ocena zmian
+
+
+
+Każda proponowana zmiana powinna wynikać z rzeczywistego stanu repozytorium.
+
+
+
+Nie proponuj zmian wyłącznie dlatego, że są uznawane za dobrą praktykę.
+
+
+
+Przed przygotowaniem pakietu zmian zawsze porównuję propozycje z aktualnym stanem repozytorium, aby nie proponować ponownie zmian już wprowadzonych.
 

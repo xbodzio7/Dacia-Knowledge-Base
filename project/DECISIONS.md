@@ -156,3 +156,51 @@ Jedna informacja istnieje tylko raz.
 
 Repozytorium ma być gotowe do migracji do SQLite lub PostgreSQL.
 
+
+
+\---
+
+
+
+\## D-011 — Knowledge First
+
+
+
+Najważniejszym produktem projektu jest wiedza.
+
+
+
+Kod i narzędzia pełnią funkcję pomocniczą.
+
+
+
+\---
+
+
+
+\## D-012 — Stable Architecture
+
+
+
+Architektura repozytorium jest uznana za stabilną.
+
+
+
+Nowe elementy architektury mogą być dodawane wyłącznie po wykazaniu rzeczywistej potrzeby.
+
+
+
+\---
+
+
+
+\## D-013 — Incremental Development
+
+
+
+Projekt rozwijany jest w małych, kompletnych pakietach zmian.
+
+
+
+Każdy pakiet powinien być gotowy do zatwierdzenia i wykonania commitu.
+

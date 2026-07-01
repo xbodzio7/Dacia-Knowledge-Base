@@ -179,6 +179,7 @@ Rozwijamy dane.
 Nie projektujemy ponownie struktury bez rzeczywistej potrzeby.
 
 
+
 AKTUALNY STAN
 
 
@@ -194,4 +195,78 @@ Architektura uznana za stabilną.
 Repozytorium wymaga już głównie rozwijania danych.
 
 
+
+
+
+\----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+\## Aktualny etap projektu
+
+
+
+Projekt znajduje się na etapie systematycznego rozwijania bazy wiedzy.
+
+
+
+Architektura została uznana za stabilną.
+
+
+
+Priorytetem nie jest dalsze projektowanie systemu, lecz rozwój, weryfikacja i utrzymanie wiedzy.
+
+
+
+\---
+
+
+
+\## Filozofia projektu
+
+
+
+Celem DKB nie jest gromadzenie informacji.
+
+
+
+Celem jest tworzenie wiarygodnej, spójnej i łatwej do utrzymania bazy wiedzy o samochodach marki Dacia.
+
+
+
+Największą wartością projektu jest jakość wiedzy oraz możliwość jej długoterminowego utrzymania.
+
+
+
+\---
+
+
+
+\## Aktualny etap
+
+
+
+Projekt osiągnął stabilny etap architektoniczny.
+
+
+
+Priorytetem jest rozwój jakości bazy wiedzy, a nie dalsze projektowanie struktury repozytorium.
+
+
+
+\---
+
+
+
+\## Główna zasada
+
+
+
+DKB rozwijane jest jako referencyjna baza wiedzy.
+
+
+
+Kod, skrypty i narzędzia mają wspierać tworzenie i utrzymanie wiedzy.
 
