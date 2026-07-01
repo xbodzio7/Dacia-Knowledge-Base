@@ -1,0 +1,16 @@
+id,code,name_pl,name_en,description
+CAT001,models,Modele,Models,Modele samochodÛw Dacia
+CAT002,versions,Wersje wyposaøenia,Trim Levels,Wersje wyposaøenia modeli
+CAT003,engines,Silniki,Engines,Jednostki napÍdowe
+CAT004,gearboxes,Skrzynie biegÛw,Gearboxes,Rodzaje skrzyÒ biegÛw
+CAT005,body_types,Nadwozia,Body Types,Typy nadwozi
+CAT006,segments,Segmenty,Segments,Segmenty pojazdÛw
+CAT007,equipment,Wyposaøenie,Equipment,Elementy wyposaøenia seryjnego
+CAT008,packages,Pakiety,Packages,Pakiety wyposaøenia
+CAT009,options,Opcje,Options,Wyposaøenie opcjonalne
+CAT010,colors,Kolory,Colors,DostÍpne kolory nadwozia i wnÍtrza
+CAT011,technical,Dane techniczne,Technical Data,Parametry techniczne
+CAT012,maintenance,Serwis,Maintenance,Czynnoúci serwisowe i harmonogramy
+CAT013,issues,Typowe usterki,Known Issues,NajczÍúciej spotykane problemy
+CAT014,recommendations,Rekomendacje,Recommendations,Zalecenia dotyczπce wyboru i eksploatacji
+CAT015,sources,èrÛd≥a,Sources,èrÛd≥a danych wykorzystanych w projekcie
