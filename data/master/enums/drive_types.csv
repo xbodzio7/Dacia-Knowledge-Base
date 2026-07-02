@@ -1,0 +1,5 @@
+code,name,description,status
+fwd,Front-wheel drive,Front axle driven,active
+rwd,Rear-wheel drive,Rear axle driven,active
+awd,All-wheel drive,All wheels permanently or automatically driven,active
+4x4,Four-wheel drive,Selectable or permanent four-wheel drive,active

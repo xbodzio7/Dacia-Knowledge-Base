@@ -1,0 +1,5 @@
+code,name,description,status
+naturally_aspirated,Naturally Aspirated,Engine without forced induction,active
+turbocharged,Turbocharged,Turbocharger equipped engine,active
+supercharged,Supercharged,Mechanical supercharger,active
+twincharged,Twincharged,Turbocharger and supercharger,active

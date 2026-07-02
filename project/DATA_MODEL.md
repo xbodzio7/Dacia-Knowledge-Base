@@ -386,4 +386,13 @@ Nie definiuje:
 Szczegóły implementacyjne powinny być dokumentowane oddzielnie.
 
 
+## Controlled Enumerations
+
+Attributes with `data_type=enum` shall reference controlled vocabularies stored under:
+
+data/master/enums/
+
+Each enumeration is maintained as an independent CSV file identified by its business code.
+
+
 
