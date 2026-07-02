@@ -7,7 +7,7 @@ id,code,name,generation,production_from,production_to,body_type_code,segment_cod
 6,sandero_i,Sandero,I,2008,2012,hatchback,B,archived,
 7,sandero_ii,Sandero,II,2012,2020,hatchback,B,archived,
 8,sandero_iii,Sandero,III,2020,,hatchback,B,current,
-9,sandero_stepway_ii,Sandero Stepway,II,2012,2020,crossover,B,current,
+9,sandero_stepway_ii,Sandero Stepway,II,2012,2020,crossover,B,archived,
 10,sandero_stepway_iii,Sandero Stepway,III,2020,,crossover,B,current,
 11,duster_i,Duster,I,2010,2017,suv,SUV-C,archived,
 12,duster_ii,Duster,II,2017,2024,suv,SUV-C,archived,
