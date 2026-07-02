@@ -141,3 +141,6 @@ id,code,category,name,data_type,unit,description,status
 142,steering_type,Steering,Steering type,string,,Type of steering system (e.g. hydraulic, electric power steering),active
 143,front_suspension,Suspension,Front suspension,string,,Front suspension design,active
 144,rear_suspension,Suspension,Rear suspension,string,,Rear suspension design,active
+145,front_brake_type,Brakes,Front brake type,string,,Front brake design (e.g. ventilated disc, solid disc),active
+146,rear_brake_type,Brakes,Rear brake type,string,,Rear brake design (e.g. disc, drum),active
+147,parking_brake_type,Brakes,Parking brake type,string,,Type of parking brake (manual or electric),active
