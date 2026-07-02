@@ -120,3 +120,6 @@ id,code,category,name,data_type,unit,description,status
 121,ground_clearance,Dimensions,Ground clearance,integer,mm,Minimum ground clearance,active
 122,cargo_volume_vda,Capacities,Cargo volume (VDA),integer,l,Luggage compartment volume measured according to VDA standard,active
 123,roof_load,Capacities,Maximum roof load,integer,kg,Maximum permitted roof load,active
+124,braked_trailer_weight,Towing,Maximum braked trailer weight,integer,kg,Maximum permitted trailer weight with brakes,active
+125,unbraked_trailer_weight,Towing,Maximum unbraked trailer weight,integer,kg,Maximum permitted trailer weight without brakes,active
+126,tongue_weight,Towing,Maximum tow ball load,integer,kg,Maximum permitted vertical load on the tow ball,active
