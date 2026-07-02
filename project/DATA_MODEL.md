@@ -371,3 +371,19 @@ Kolejne pliki danych oraz struktury CSV powinny być projektowane zgodnie z opis
 
 
 
+## Zakres dokumentu
+
+Niniejszy dokument opisuje wyłącznie logiczny model danych wykorzystywany przez Dacia Knowledge Base.
+
+Nie definiuje:
+
+- struktury plików,
+- nazw kolumn,
+- formatów identyfikatorów,
+- sposobu przechowywania danych,
+- procesu importu lub eksportu danych.
+
+Szczegóły implementacyjne powinny być dokumentowane oddzielnie.
+
+
+
