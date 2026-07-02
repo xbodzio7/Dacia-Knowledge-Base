@@ -104,3 +104,18 @@ id,code,category,name,data_type,unit,description,status
 103,charging_connector_type,Electric System,Charging connector type,enum,,Charging connector standard,active
 104,vehicle_to_load,Electric System,Vehicle-to-load support,boolean,,External power supply capability,active
 105,vehicle_to_grid,Electric System,Vehicle-to-grid support,boolean,,Bidirectional charging capability,active
+106,top_speed,Performance,Top speed,integer,km/h,Maximum vehicle speed,active
+107,acceleration_0_100,Performance,0-100 km/h acceleration,decimal,s,Acceleration from 0 to 100 km/h,active
+108,acceleration_0_50,Performance,0-50 km/h acceleration,decimal,s,Acceleration from 0 to 50 km/h,active
+109,standing_km,Performance,Standing kilometre,decimal,s,Time required to cover one kilometre from standstill,active
+110,elasticity_80_120,Performance,80-120 km/h elasticity,decimal,s,Acceleration from 80 to 120 km/h,active
+111,power_to_weight_ratio,Performance,Power-to-weight ratio,decimal,kW/t,Power to vehicle mass ratio,active
+112,torque_to_weight_ratio,Performance,Torque-to-weight ratio,decimal,Nm/t,Torque to vehicle mass ratio,active
+113,maximum_gradeability,Performance,Maximum gradeability,integer,%,Maximum climb capability,active
+114,turning_circle,Performance,Turning circle,decimal,m,Minimum turning circle diameter,active
+115,minimum_turning_radius,Performance,Minimum turning radius,decimal,m,Minimum turning radius,active
+116,maximum_towing_speed,Performance,Maximum towing speed,integer,km/h,Recommended maximum speed while towing,active
+117,offroad_approach_angle,Performance,Approach angle,decimal,deg,Maximum approach angle,active
+118,offroad_departure_angle,Performance,Departure angle,decimal,deg,Maximum departure angle,active
+119,offroad_breakover_angle,Performance,Breakover angle,decimal,deg,Maximum breakover angle,active
+120,maximum_fording_depth,Performance,Maximum fording depth,integer,mm,Maximum water fording depth,active
