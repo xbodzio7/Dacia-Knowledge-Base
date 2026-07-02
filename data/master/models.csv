@@ -16,5 +16,5 @@ id,code,name,generation,production_from,production_to,body_type_code,segment_cod
 15,dokker,Dokker,I,2012,2021,van,LCV,archived,
 16,dokker_stepway,Dokker Stepway,I,2014,2021,van,LCV,archived,
 17,jogger,Jogger,I,2021,,estate,C,current,
-18,spring,Spring,I,2021,,hatchback,A,current,electric
+18,spring,Spring,I,2021,,hatchback,A,current,
 19,bigster,Bigster,I,2025,,suv,SUV-C,current,
