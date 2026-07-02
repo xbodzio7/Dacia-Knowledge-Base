@@ -123,3 +123,6 @@ id,code,category,name,data_type,unit,description,status
 124,braked_trailer_weight,Towing,Maximum braked trailer weight,integer,kg,Maximum permitted trailer weight with brakes,active
 125,unbraked_trailer_weight,Towing,Maximum unbraked trailer weight,integer,kg,Maximum permitted trailer weight without brakes,active
 126,tongue_weight,Towing,Maximum tow ball load,integer,kg,Maximum permitted vertical load on the tow ball,active
+127,kerb_weight,Weights,Kerb weight,integer,kg,Vehicle kerb weight,active
+128,gross_vehicle_weight,Weights,Gross vehicle weight,integer,kg,Maximum permissible vehicle weight,active
+129,gross_train_weight,Weights,Gross train weight,integer,kg,Maximum permissible combined vehicle and trailer weight,active
