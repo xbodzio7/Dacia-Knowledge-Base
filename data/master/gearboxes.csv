@@ -5,4 +5,4 @@ id,code,name,type,gears,manufacturer,drive_type,status,notes
 4,edc6,EDC 6,dct,6,Getrag,fwd,archived,
 5,e_dht140,e-DHT 140,hybrid,,Renault,fwd,current,Hybrid 140 transmission
 6,e_dht155,e-DHT 155,hybrid,,Renault,fwd,current,Hybrid 155 transmission
-7,at4_ev,Single-speed EV,electric,1,Renault,fwd,current,Electric drive reduction gear
+7,at4_ev,Single-speed EV,reduction,1,Renault,fwd,current,Electric drive reduction gear
