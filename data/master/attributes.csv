@@ -1,7 +1,7 @@
 id,code,category,name,data_type,unit,description,status
 1,engine_power,Engine,Power,integer,kW,Maximum engine power,active
 2,engine_torque,Engine,Torque,integer,Nm,Maximum engine torque,active
-3,fuel_type,Engine,Fuel type,string,,Primary fuel type,active
+3,fuel_type,Engine,Fuel type,enum,,Primary fuel type,active
 6,vehicle_length,Dimensions,Length,integer,mm,Overall vehicle length,active
 7,vehicle_width,Dimensions,Width,integer,mm,Overall vehicle width,active
 8,vehicle_height,Dimensions,Height,integer,mm,Overall vehicle height,active
