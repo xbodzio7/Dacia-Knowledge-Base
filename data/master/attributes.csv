@@ -129,3 +129,6 @@ id,code,category,name,data_type,unit,description,status
 130,fuel_tank_capacity,Capacities,Fuel tank capacity,decimal,l,Fuel tank capacity,active
 131,adblue_tank_capacity,Capacities,AdBlue tank capacity,decimal,l,AdBlue tank capacity for diesel SCR systems,active
 132,washer_fluid_capacity,Capacities,Washer fluid reservoir capacity,decimal,l,Windscreen washer fluid reservoir capacity,active
+133,top_speed,Performance,Top speed,integer,km/h,Maximum vehicle speed,active
+134,acceleration_0_100,Performance,Acceleration 0-100 km/h,decimal,s,Time required to accelerate from 0 to 100 km/h,active
+135,turning_circle,Dimensions,Turning circle,decimal,m,Minimum turning circle measured curb to curb,active
