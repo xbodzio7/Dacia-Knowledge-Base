@@ -1,0 +1,6 @@
+code,name,description,status
+port_injection,Port Injection,Fuel injected into the intake port,active
+direct_injection,Direct Injection,Fuel injected directly into the combustion chamber,active
+multi_point_injection,Multi-point Injection,Fuel injected into multiple intake ports,active
+common_rail,Common Rail,High-pressure common rail fuel injection,active
+not_applicable,Not Applicable,Fuel injection type does not apply,active
