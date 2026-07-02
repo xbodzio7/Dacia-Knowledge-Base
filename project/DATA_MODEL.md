@@ -175,6 +175,35 @@ Przykład:
 Szczegółowy sposób identyfikacji Version zostanie doprecyzowany podczas projektowania struktury danych.
 
 
+### Identyfikacja Version
+
+`Version` reprezentuje pojedynczą, jednoznacznie zidentyfikowaną konfigurację pojazdu.
+
+Powinna być stabilnym identyfikatorem wykorzystywanym przez wszystkie dane przechowywane w DKB.
+
+Przykładowo Version może być definiowana przez następujące elementy:
+
+- Model
+- Generation
+- Model Year (MY)
+- Market
+- Trim
+- Powertrain
+
+Nie oznacza to, że wszystkie powyższe informacje muszą być zapisane w samym identyfikatorze. Są to elementy opisujące konfigurację, której dotyczą wartości atrybutów.
+
+Przykład logiczny:
+
+Model: Duster  
+Generation: III  
+MY: 2025  
+Market: PL  
+Trim: Journey  
+Powertrain: Hybrid 140
+
+Wszystkie wartości (Value) odnoszą się do jednej, konkretnej Version.
+
+
 
 \---
 
