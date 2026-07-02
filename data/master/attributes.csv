@@ -138,3 +138,6 @@ id,code,category,name,data_type,unit,description,status
 139,drive_layout,Drivetrain,Drive layout,string,,Vehicle drive configuration (e.g. FWD, RWD, AWD),active
 140,differential_lock,Drivetrain,Differential lock,boolean,,Vehicle equipped with a differential lock,active
 141,start_stop_system,Engine,Start-stop system,boolean,,Vehicle equipped with an automatic engine start-stop system,active
+142,steering_type,Steering,Steering type,string,,Type of steering system (e.g. hydraulic, electric power steering),active
+143,front_suspension,Suspension,Front suspension,string,,Front suspension design,active
+144,rear_suspension,Suspension,Rear suspension,string,,Rear suspension design,active
