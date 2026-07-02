@@ -147,3 +147,6 @@ id,code,category,name,data_type,unit,description,status
 148,front_tyre_size,Wheels,Front tyre size,string,,Front tyre size specification (e.g. 215/60 R17),active
 149,rear_tyre_size,Wheels,Rear tyre size,string,,Rear tyre size specification (e.g. 215/60 R17),active
 150,wheel_size,Wheels,Wheel size,string,,Wheel rim size specification (e.g. 17x7J),active
+151,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel supplied with the vehicle,active
+152,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
+153,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
