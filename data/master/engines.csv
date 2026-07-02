@@ -1,15 +1,15 @@
 id,code,manufacturer_code,name,displacement_cm3,cylinders,induction,fuel_type,power_hp,power_kw,torque_nm,emission_standard,start_year,end_year,status,notes
-1,sce65,H4D,Sce 65,999,3,naturally_aspirated,petrol,65,48,95,Euro 6,2021,,current,
-2,sce75,H4D,Sce 75,999,3,naturally_aspirated,petrol,75,55,95,Euro 6,2017,2022,archived,
-3,sce90,H4D,Sce 90,999,3,naturally_aspirated,petrol,90,67,160,Euro 6,2021,,current,
-4,tce90,H4Bt,TCe 90,999,3,turbocharged,petrol,90,67,160,Euro 6,2013,2023,archived,
-5,eco_g100,H4D,ECO-G 100,999,3,naturally_aspirated,lpg_petrol,100,74,170,Euro 6,2020,2024,archived,factory LPG
-6,eco_g100_2025,H4D,ECO-G 100,999,3,turbocharged,lpg_petrol,100,74,170,Euro 6e,2025,,current,new generation
-7,tce110,HR10,TCe 110,999,3,turbocharged,petrol,110,81,200,Euro 6e,2024,,current,
-8,tce130,MildHybrid130,TCe 130 Mild Hybrid,1199,3,turbocharged,mhev,130,96,230,Euro 6e,2024,,current,48V
-9,hybrid140,HEV140,Hybrid 140,1598,4,naturally_aspirated,hybrid,140,103,148,Euro 6e,2023,,current,
-10,hybrid155,HEV155,Hybrid 155,1799,4,naturally_aspirated,hybrid,155,114,170,Euro 6e,2025,,current,
-11,blue_dci95,K9K,Blue dCi 95,1461,4,turbocharged,diesel,95,70,220,Euro 6,2018,2024,archived,
-12,blue_dci115,K9K,Blue dCi 115,1461,4,turbocharged,diesel,115,85,260,Euro 6,2018,2024,archived,
-13,electric45,Electric45,Electric 45,0,0,not_applicable,electric,45,33,125,EV,2021,2023,archived,
-14,electric65,Electric65,Electric 65,0,0,not_applicable,electric,65,48,113,EV,2023,,current,
+1,sce65,H4D,Sce 65,999,3,naturally_aspirated,petrol,65,48,95,euro_6,2021,,current,
+2,sce75,H4D,Sce 75,999,3,naturally_aspirated,petrol,75,55,95,euro_6,2017,2022,archived,
+3,sce90,H4D,Sce 90,999,3,naturally_aspirated,petrol,90,67,160,euro_6,2021,,current,
+4,tce90,H4Bt,TCe 90,999,3,turbocharged,petrol,90,67,160,euro_6,2013,2023,archived,
+5,eco_g100,H4D,ECO-G 100,999,3,naturally_aspirated,lpg_petrol,100,74,170,euro_6,2020,2024,archived,factory LPG
+6,eco_g100_2025,H4D,ECO-G 100,999,3,turbocharged,lpg_petrol,100,74,170,euro_6e,2025,,current,new generation
+7,tce110,HR10,TCe 110,999,3,turbocharged,petrol,110,81,200,euro_6e,2024,,current,
+8,tce130,MildHybrid130,TCe 130 Mild Hybrid,1199,3,turbocharged,mhev,130,96,230,euro_6e,2024,,current,48V
+9,hybrid140,HEV140,Hybrid 140,1598,4,naturally_aspirated,hybrid,140,103,148,euro_6e,2023,,current,
+10,hybrid155,HEV155,Hybrid 155,1799,4,naturally_aspirated,hybrid,155,114,170,euro_6e,2025,,current,
+11,blue_dci95,K9K,Blue dCi 95,1461,4,turbocharged,diesel,95,70,220,euro_6,2018,2024,archived,
+12,blue_dci115,K9K,Blue dCi 115,1461,4,turbocharged,diesel,115,85,260,euro_6,2018,2024,archived,
+13,electric45,Electric45,Electric 45,0,0,not_applicable,electric,45,33,125,ev,2021,2023,archived,
+14,electric65,Electric65,Electric 65,0,0,not_applicable,electric,65,48,113,ev,2023,,current,
