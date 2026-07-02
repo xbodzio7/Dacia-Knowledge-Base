@@ -132,3 +132,6 @@ id,code,category,name,data_type,unit,description,status
 133,top_speed,Performance,Top speed,integer,km/h,Maximum vehicle speed,active
 134,acceleration_0_100,Performance,Acceleration 0-100 km/h,decimal,s,Time required to accelerate from 0 to 100 km/h,active
 135,turning_circle,Dimensions,Turning circle,decimal,m,Minimum turning circle measured curb to curb,active
+136,combined_range,Performance,Combined range,integer,km,Maximum driving range under standard test cycle,active
+137,electric_energy_consumption,Efficiency,Electric energy consumption,decimal,kWh/100 km,Average electrical energy consumption under standard test cycle,active
+138,co2_emissions,Efficiency,CO2 emissions,decimal,g/km,Combined carbon dioxide emissions under standard test cycle,active
