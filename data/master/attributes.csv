@@ -126,3 +126,6 @@ id,code,category,name,data_type,unit,description,status
 127,kerb_weight,Weights,Kerb weight,integer,kg,Vehicle kerb weight,active
 128,gross_vehicle_weight,Weights,Gross vehicle weight,integer,kg,Maximum permissible vehicle weight,active
 129,gross_train_weight,Weights,Gross train weight,integer,kg,Maximum permissible combined vehicle and trailer weight,active
+130,fuel_tank_capacity,Capacities,Fuel tank capacity,decimal,l,Fuel tank capacity,active
+131,adblue_tank_capacity,Capacities,AdBlue tank capacity,decimal,l,AdBlue tank capacity for diesel SCR systems,active
+132,washer_fluid_capacity,Capacities,Washer fluid reservoir capacity,decimal,l,Windscreen washer fluid reservoir capacity,active
