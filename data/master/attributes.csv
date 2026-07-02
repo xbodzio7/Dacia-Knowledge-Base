@@ -17,10 +17,10 @@ id,code,category,name,data_type,unit,description,status
 16,engine_code,Engine,Engine code,string,,Manufacturer engine designation,active
 17,engine_family,Engine,Engine family,string,,Engine family or platform,active
 18,engine_manufacturer,Engine,Engine manufacturer,string,,Engine manufacturer,active
-19,engine_type,Engine,Engine type,enum,,Internal combustion, hybrid, plug-in hybrid or electric,active
+19,engine_type,Engine,Engine type,enum,,"Internal combustion, hybrid, plug-in hybrid or electric",active
 20,engine_displacement,Engine,Displacement,integer,cm3,Engine displacement,active
 21,cylinder_count,Engine,Cylinder count,integer,,Number of cylinders,active
-22,cylinder_configuration,Engine,Cylinder configuration,enum,,Inline, V, Boxer etc.,active
+22,cylinder_configuration,Engine,Cylinder configuration,enum,,"Inline, V, Boxer etc.",active
 23,valves_per_cylinder,Engine,Valves per cylinder,integer,,Number of valves per cylinder,active
 24,aspiration_type,Engine,Aspiration,enum,,Naturally aspirated or turbocharged,active
 25,injection_type,Engine,Injection type,enum,,Fuel injection system,active
@@ -35,7 +35,7 @@ id,code,category,name,data_type,unit,description,status
 34,coolant_capacity,Engine,Coolant capacity,decimal,l,Cooling system capacity,active
 35,recommended_fuel,Engine,Recommended fuel,enum,,Recommended fuel grade,active
 36,recommended_engine_oil,Engine,Recommended engine oil,string,,Recommended engine oil specification,active
-37,timing_drive_type,Engine,Timing drive,enum,,Timing belt, chain or gears,active
+37,timing_drive_type,Engine,Timing drive,enum,,"Timing belt, chain or gears",active
 38,engine_orientation,Engine,Engine orientation,enum,,Transverse or longitudinal installation,active
 39,engine_weight,Engine,Engine weight,decimal,kg,Approximate dry engine weight,active
 40,engine_management_system,Engine,Engine management system,string,,Electronic engine control system,active
