@@ -1,0 +1,6 @@
+code,name,description,status
+inline,Inline,Cylinders arranged in a single straight bank,active
+v,V Configuration,Cylinders arranged in two banks forming a V shape,active
+boxer,Boxer,Horizontally opposed cylinders,active
+rotary,Rotary,Rotary engine configuration,active
+not_applicable,Not Applicable,Cylinder configuration does not apply,active
