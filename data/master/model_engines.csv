@@ -4,7 +4,7 @@ id,model_code,engine_code,available_from,available_to,default_fuel,notes
 3,logan_ii,eco_g100,2020,2024,lpg,
 4,sandero_ii,sce75,2017,2020,petrol,
 5,sandero_ii,tce90,2017,2023,petrol,
-6,sandero_ii,eco_g100,2020,2024,lpg,
+6,sandero_ii,eco_g100,2020,2020,lpg,
 7,sandero_iii,sce65,2021,,petrol,
 8,sandero_iii,tce90,2021,2023,petrol,
 9,sandero_iii,eco_g100,2021,2024,lpg,
