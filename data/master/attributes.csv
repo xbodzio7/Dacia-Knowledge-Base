@@ -54,3 +54,23 @@ id,code,category,name,data_type,unit,description,status
 53,awd_control_type,Drivetrain,AWD control type,enum,,All-wheel drive control strategy,active
 54,traction_control,Drivetrain,Traction control,boolean,,Traction control system availability,active
 55,electronic_differential_lock,Drivetrain,Electronic differential lock,boolean,,Electronic differential lock functionality,active
+56,gearbox_code,Transmission,Gearbox code,string,,Manufacturer gearbox designation,active
+57,gearbox_manufacturer,Transmission,Gearbox manufacturer,string,,Gearbox manufacturer,active
+58,gearbox_type,Transmission,Gearbox type,enum,,Manual automatic CVT or dual clutch,active
+59,gear_count,Transmission,Number of gears,integer,,Number of forward gears,active
+60,reverse_gear_count,Transmission,Reverse gears,integer,,Number of reverse gears,active
+61,gearbox_control,Transmission,Gearbox control,enum,,Mechanical electronic or hydraulic control,active
+62,clutch_type,Transmission,Clutch type,enum,,Dry wet single or dual clutch,active
+63,clutch_control,Transmission,Clutch control,enum,,Mechanical hydraulic or electronic clutch control,active
+64,gear_shift_type,Transmission,Gear shift type,enum,,Manual sequential electronic or automatic shifting,active
+65,torque_converter,Transmission,Torque converter,boolean,,Torque converter present,active
+66,gearbox_oil_type,Transmission,Gearbox oil type,string,,Recommended gearbox lubricant,active
+67,gearbox_oil_capacity,Transmission,Gearbox oil capacity,decimal,l,Transmission oil capacity,active
+68,gearbox_service_interval,Transmission,Service interval,integer,km,Recommended gearbox service interval,active
+69,max_input_torque,Transmission,Maximum input torque,decimal,Nm,Maximum gearbox input torque,active
+70,pto_support,Transmission,PTO support,boolean,,Power take-off compatibility,active
+71,creep_function,Transmission,Creep function,boolean,,Low speed creep function available,active
+72,manual_shift_mode,Transmission,Manual shift mode,boolean,,Manual gear selection supported,active
+73,paddle_shifters,Transmission,Paddle shifters,boolean,,Steering wheel paddle shifters available,active
+74,start_gear,Transmission,Default start gear,integer,,Default gear used for vehicle launch,active
+75,gearbox_cooling,Transmission,Gearbox cooling,enum,,Gearbox cooling method,active
