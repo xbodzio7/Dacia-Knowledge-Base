@@ -117,3 +117,6 @@ id,code,category,name,data_type,unit,description,status
 118,offroad_departure_angle,Performance,Departure angle,decimal,deg,Maximum departure angle,active
 119,offroad_breakover_angle,Performance,Breakover angle,decimal,deg,Maximum breakover angle,active
 120,maximum_fording_depth,Performance,Maximum fording depth,integer,mm,Maximum water fording depth,active
+121,ground_clearance,Dimensions,Ground clearance,integer,mm,Minimum ground clearance,active
+122,cargo_volume_vda,Capacities,Cargo volume (VDA),integer,l,Luggage compartment volume measured according to VDA standard,active
+123,roof_load,Capacities,Maximum roof load,integer,kg,Maximum permitted roof load,active
