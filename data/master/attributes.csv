@@ -89,3 +89,18 @@ id,code,category,name,data_type,unit,description,status
 88,ev_mode_support,Hybrid System,EV mode support,boolean,,Vehicle can operate in electric mode,active
 89,ev_mode_max_speed,Hybrid System,EV mode max speed,integer,km/h,Maximum EV mode speed,active
 90,automatic_energy_recovery,Hybrid System,Automatic energy recovery,boolean,,Automatic energy recovery management,active
+91,electric_motor_type,Electric System,Electric motor type,enum,,Traction motor technology,active
+92,electric_motor_count,Electric System,Electric motor count,integer,,Number of traction motors,active
+93,electric_motor_power,Electric System,Electric motor power,decimal,kW,Combined electric motor power,active
+94,electric_motor_torque,Electric System,Electric motor torque,decimal,Nm,Combined electric motor torque,active
+95,traction_battery_type,Electric System,Traction battery type,enum,,Traction battery chemistry,active
+96,traction_battery_capacity_gross,Electric System,Traction battery gross capacity,decimal,kWh,Gross battery capacity,active
+97,traction_battery_capacity_net,Electric System,Traction battery net capacity,decimal,kWh,Usable battery capacity,active
+98,traction_battery_voltage,Electric System,Traction battery voltage,integer,V,Nominal battery voltage,active
+99,traction_battery_location,Electric System,Traction battery location,string,,Battery installation location,active
+100,onboard_charger_power,Electric System,On-board charger power,decimal,kW,Maximum AC charging power,active
+101,dc_charging_supported,Electric System,DC charging support,boolean,,Support for DC fast charging,active
+102,dc_charging_power_max,Electric System,Maximum DC charging power,decimal,kW,Maximum DC charging power,active
+103,charging_connector_type,Electric System,Charging connector type,enum,,Charging connector standard,active
+104,vehicle_to_load,Electric System,Vehicle-to-load support,boolean,,External power supply capability,active
+105,vehicle_to_grid,Electric System,Vehicle-to-grid support,boolean,,Bidirectional charging capability,active
