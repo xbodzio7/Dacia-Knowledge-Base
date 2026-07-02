@@ -1,7 +1,7 @@
 id,code,manufacturer_code,name,displacement_cm3,cylinders,induction,fuel_type,power_hp,power_kw,torque_nm,emission_standard,start_year,end_year,status,notes
 1,sce65,H4D,Sce 65,999,3,naturally_aspirated,petrol,65,48,95,Euro 6,2021,,current,
 2,sce75,H4D,Sce 75,999,3,naturally_aspirated,petrol,75,55,95,Euro 6,2017,2022,archived,
-3,sce90,H4D,Sce 90,999,3,naturally_aspirated,petrol,90,67,160,Euro 6,2021,,current,turbo
+3,sce90,H4D,Sce 90,999,3,naturally_aspirated,petrol,90,67,160,Euro 6,2021,,current,
 4,tce90,H4Bt,TCe 90,999,3,turbocharged,petrol,90,67,160,Euro 6,2013,2023,archived,
 5,eco_g100,H4D,ECO-G 100,999,3,naturally_aspirated,lpg_petrol,100,74,170,Euro 6,2020,2024,archived,factory LPG
 6,eco_g100_2025,H4D,ECO-G 100,999,3,turbocharged,lpg_petrol,100,74,170,Euro 6e,2025,,current,new generation
