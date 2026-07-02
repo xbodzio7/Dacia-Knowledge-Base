@@ -1,0 +1,16 @@
+id,code,category,name,data_type,unit,description,status
+1,engine_power,Engine,Power,integer,kW,Maximum engine power,active
+2,engine_torque,Engine,Torque,integer,Nm,Maximum engine torque,active
+3,fuel_type,Engine,Fuel type,string,,Primary fuel type,active
+4,gearbox_type,Transmission,Gearbox,string,,Transmission type,active
+5,drive_type,Drivetrain,Drive,string,,Driven axle configuration,active
+6,vehicle_length,Dimensions,Length,integer,mm,Overall vehicle length,active
+7,vehicle_width,Dimensions,Width,integer,mm,Overall vehicle width,active
+8,vehicle_height,Dimensions,Height,integer,mm,Overall vehicle height,active
+9,wheelbase,Dimensions,Wheelbase,integer,mm,Distance between axles,active
+10,boot_capacity,Capacities,Boot capacity,integer,l,Luggage compartment volume,active
+11,co2_emissions,Emissions,CO? emissions,decimal,g/km,Combined WLTP CO? emissions,active
+12,fuel_consumption_combined,Consumption,Combined fuel consumption,decimal,l/100 km,Combined WLTP fuel consumption,active
+13,android_auto,Connectivity,Android Auto,boolean,,Android Auto support,active
+14,apple_carplay,Connectivity,Apple CarPlay,boolean,,Apple CarPlay support,active
+15,adaptive_cruise_control,Driver Assistance (ADAS),Adaptive Cruise Control,boolean,,Availability of adaptive cruise control,active
