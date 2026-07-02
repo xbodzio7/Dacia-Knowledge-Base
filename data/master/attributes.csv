@@ -144,3 +144,6 @@ id,code,category,name,data_type,unit,description,status
 145,front_brake_type,Brakes,Front brake type,string,,Front brake design (e.g. ventilated disc, solid disc),active
 146,rear_brake_type,Brakes,Rear brake type,string,,Rear brake design (e.g. disc, drum),active
 147,parking_brake_type,Brakes,Parking brake type,string,,Type of parking brake (manual or electric),active
+148,front_tyre_size,Wheels,Front tyre size,string,,Front tyre size specification (e.g. 215/60 R17),active
+149,rear_tyre_size,Wheels,Rear tyre size,string,,Rear tyre size specification (e.g. 215/60 R17),active
+150,wheel_size,Wheels,Wheel size,string,,Wheel rim size specification (e.g. 17x7J),active
