@@ -39,3 +39,18 @@ id,code,category,name,data_type,unit,description,status
 38,engine_orientation,Engine,Engine orientation,enum,,Transverse or longitudinal installation,active
 39,engine_weight,Engine,Engine weight,decimal,kg,Approximate dry engine weight,active
 40,engine_management_system,Engine,Engine management system,string,,Electronic engine control system,active
+41,drive_type,Drivetrain,Drive type,enum,,Driven axle configuration,active
+42,driven_axles,Drivetrain,Driven axles,integer,,Number of driven axles,active
+43,front_differential,Drivetrain,Front differential,boolean,,Vehicle equipped with front differential,active
+44,rear_differential,Drivetrain,Rear differential,boolean,,Vehicle equipped with rear differential,active
+45,center_differential,Drivetrain,Center differential,boolean,,Vehicle equipped with center differential,active
+46,locking_differential,Drivetrain,Locking differential,boolean,,Availability of locking differential,active
+47,transfer_case,Drivetrain,Transfer case,boolean,,Vehicle equipped with transfer case,active
+48,transfer_case_type,Drivetrain,Transfer case type,enum,,Transfer case design,active
+49,low_range,Drivetrain,Low range gearbox,boolean,,Availability of low range gearing,active
+50,torque_distribution,Drivetrain,Torque distribution,string,,Nominal torque distribution between axles,active
+51,rear_axle_type,Drivetrain,Rear axle type,enum,,Rear axle construction,active
+52,front_axle_type,Drivetrain,Front axle type,enum,,Front axle construction,active
+53,awd_control_type,Drivetrain,AWD control type,enum,,All-wheel drive control strategy,active
+54,traction_control,Drivetrain,Traction control,boolean,,Traction control system availability,active
+55,electronic_differential_lock,Drivetrain,Electronic differential lock,boolean,,Electronic differential lock functionality,active
