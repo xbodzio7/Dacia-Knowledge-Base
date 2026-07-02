@@ -1,5 +1,8 @@
 code,name,description,status
-naturally_aspirated,Naturally Aspirated,Engine without forced induction,active
-turbocharged,Turbocharged,Turbocharger equipped engine,active
-supercharged,Supercharged,Mechanical supercharger,active
-twincharged,Twincharged,Turbocharger and supercharger,active
+petrol,Petrol,Petrol fuel,active
+diesel,Diesel,Diesel fuel,active
+lpg,LPG,Liquefied petroleum gas fuel,active
+lpg_petrol,LPG / Petrol,Bi-fuel LPG and petrol powertrain,active
+mhev,Mild Hybrid Petrol,Petrol powertrain with mild hybrid support,active
+hybrid,Hybrid Petrol,Petrol hybrid powertrain,active
+electric,Electric,Battery electric powertrain,active
