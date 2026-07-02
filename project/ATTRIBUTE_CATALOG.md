@@ -222,14 +222,15 @@ Przykład:
 
 
 
-\## Multimedia \& Connectivity
-
-
+## Multimedia
 
 | Code | Name | Type | Unit | Description |
-
 | ---- | ---- | ---- | ---- | ----------- |
 
+## Connectivity
+
+| Code | Name | Type | Unit | Description |
+| ---- | ---- | ---- | ---- | ----------- |
 
 
 \## Maintenance
