@@ -74,3 +74,18 @@ id,code,category,name,data_type,unit,description,status
 73,paddle_shifters,Transmission,Paddle shifters,boolean,,Steering wheel paddle shifters available,active
 74,start_gear,Transmission,Default start gear,integer,,Default gear used for vehicle launch,active
 75,gearbox_cooling,Transmission,Gearbox cooling,enum,,Gearbox cooling method,active
+76,hybrid_system_type,Hybrid System,Hybrid system type,enum,,MHEV HEV or PHEV architecture,active
+77,traction_motor_count,Hybrid System,Traction motor count,integer,,Number of traction electric motors,active
+78,traction_motor_power,Hybrid System,Traction motor power,decimal,kW,Combined traction motor power,active
+79,traction_motor_torque,Hybrid System,Traction motor torque,decimal,Nm,Combined traction motor torque,active
+80,starter_generator_type,Hybrid System,Starter generator type,enum,,Integrated starter generator architecture,active
+81,starter_generator_power,Hybrid System,Starter generator power,decimal,kW,Starter generator maximum power,active
+82,starter_generator_voltage,Hybrid System,Starter generator voltage,integer,V,Starter generator operating voltage,active
+83,hybrid_battery_type,Hybrid System,Hybrid battery type,enum,,Battery chemistry used by hybrid system,active
+84,hybrid_battery_capacity,Hybrid System,Hybrid battery capacity,decimal,kWh,Usable hybrid battery capacity,active
+85,hybrid_battery_voltage,Hybrid System,Hybrid battery voltage,integer,V,Nominal hybrid battery voltage,active
+86,hybrid_battery_location,Hybrid System,Hybrid battery location,string,,Installation location of hybrid battery,active
+87,regenerative_braking,Hybrid System,Regenerative braking,boolean,,Regenerative braking capability,active
+88,ev_mode_support,Hybrid System,EV mode support,boolean,,Vehicle can operate in electric mode,active
+89,ev_mode_max_speed,Hybrid System,EV mode max speed,integer,km/h,Maximum EV mode speed,active
+90,automatic_energy_recovery,Hybrid System,Automatic energy recovery,boolean,,Automatic energy recovery management,active
