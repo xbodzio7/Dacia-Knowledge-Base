@@ -251,13 +251,13 @@ id,code,category,name,data_type,unit,description,status
 252,side_mirrors_folding,Mirrors,Power folding side mirrors,boolean,,Electrically folding side mirrors,active
 253,auto_dimming_side_mirrors,Mirrors,Auto-dimming side mirrors,boolean,,Electrochromatic side mirrors,active
 254,interior_rearview_auto_dimming,Mirrors,Auto-dimming interior mirror,boolean,,Electrochromatic rearview mirror,active
-255,blind_spot_monitoring,Mirrors,Blind spot monitoring system,boolean,,System detecting vehicles in blind spots,active
+255,blind_spot_monitoring,Driving Systems,Blind spot monitoring system,boolean,,System detecting vehicles in blind spots,active
 256,rear_parking_sensors,Mirrors,Rear parking sensors,boolean,,Rear parking distance sensors,active
 257,front_parking_sensors,Mirrors,Front parking sensors,boolean,,Front parking distance sensors,active
-258,parking_assist_system,Mirrors,Parking assist system,boolean,,Automated parking assistance system,active
-259,rear_view_camera,Mirrors,Rear view camera,boolean,,Rear reversing camera,active
-260,360_camera_system,Mirrors,360-degree camera system,boolean,,Surround view camera system,active
-261,cross_traffic_alert,Mirrors,Cross traffic alert,boolean,,Rear cross traffic warning system,active
+258,parking_assist_system,Driving Systems,Parking assist system,boolean,,Automated parking assistance system,active
+259,rear_view_camera,Driving Systems,Rear view camera,boolean,,Rear reversing camera,active
+260,360_camera_system,Driving Systems,360-degree camera system,boolean,,Surround view camera system,active
+261,cross_traffic_alert,Driving Systems,Cross traffic alert,boolean,,Rear cross traffic warning system,active
 262,headlights_type,Lighting,Headlights type,string,,Type of headlights (halogen, LED, matrix LED),active
 263,automatic_headlights,Lighting,Automatic headlights,boolean,,Automatic headlight activation based on ambient light,active
 264,led_daytime_running_lights,Lighting,LED daytime running lights,boolean,,LED DRL system,active
