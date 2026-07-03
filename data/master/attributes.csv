@@ -210,3 +210,15 @@ id,code,category,name,data_type,unit,description,status
 211,fuel_filler_side,Doors,Fuel filler side,string,,Side of vehicle where fuel filler is located,active
 212,charging_port_location,Doors,Charging port location,string,,Location of EV charging port,active
 213,fuel_filler_locking,Doors,Locking fuel filler,boolean,,Fuel filler protected by central locking,active
+214,number_of_seats,Seats,Number of seats,integer,,Total number of seating positions,active
+215,seat_configuration,Seats,Seat configuration,string,,Seating layout (e.g. 2+3 or 2+3+2),active
+216,front_seat_type,Seats,Front seat type,string,,Type of front seats,active
+217,rear_seat_type,Seats,Rear seat type,string,,Type of rear seats,active
+218,driver_seat_adjustment,Seats,Driver seat adjustment,string,,Driver seat adjustment type,active
+219,passenger_seat_adjustment,Seats,Passenger seat adjustment,string,,Front passenger seat adjustment type,active
+220,driver_seat_height_adjustment,Seats,Driver seat height adjustment,boolean,,Driver seat height adjustment available,active
+221,driver_seat_lumbar_adjustment,Seats,Driver seat lumbar adjustment,boolean,,Driver seat lumbar adjustment available,active
+222,heated_front_seats,Seats,Heated front seats,boolean,,Front seats equipped with heating,active
+223,heated_rear_seats,Seats,Heated rear seats,boolean,,Rear seats equipped with heating,active
+224,ventilated_front_seats,Seats,Ventilated front seats,boolean,,Front seats equipped with ventilation,active
+225,massaging_front_seats,Seats,Massaging front seats,boolean,,Front seats equipped with massage function,active
