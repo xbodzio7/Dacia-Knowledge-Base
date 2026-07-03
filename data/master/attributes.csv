@@ -234,3 +234,18 @@ id,code,category,name,data_type,unit,description,status
 235,wireless_phone_charger,Connectivity,Wireless phone charger,boolean,,Vehicle equipped with wireless phone charging,active
 236,voice_control,Infotainment,Voice control,boolean,,Vehicle equipped with voice control,active
 237,connected_services,Connectivity,Connected services,boolean,,Vehicle supports connected online services,active
+238,air_conditioning,Comfort,Air conditioning,string,,Air conditioning system type (e.g. manual or automatic),active
+239,dual_zone_climate_control,Comfort,Dual-zone climate control,boolean,,Vehicle equipped with dual-zone automatic climate control,active
+240,heated_front_seats,Comfort,Heated front seats,boolean,,Vehicle equipped with heated front seats,active
+241,heated_rear_seats,Comfort,Heated rear seats,boolean,,Vehicle equipped with heated rear seats,active
+242,ventilated_front_seats,Comfort,Ventilated front seats,boolean,,Vehicle equipped with ventilated front seats,active
+243,electric_driver_seat,Comfort,Electric driver's seat adjustment,boolean,,Driver seat features electric adjustment,active
+244,electric_passenger_seat,Comfort,Electric passenger seat adjustment,boolean,,Front passenger seat features electric adjustment,active
+245,memory_driver_seat,Comfort,Driver seat memory,boolean,,Driver seat position memory available,active
+246,heated_steering_wheel,Comfort,Heated steering wheel,boolean,,Vehicle equipped with heated steering wheel,active
+247,keyless_entry,Comfort,Keyless entry,boolean,,Vehicle equipped with keyless entry system,active
+248,keyless_start,Comfort,Keyless start,boolean,,Vehicle equipped with keyless engine start,active
+249,electric_tailgate,Comfort,Electric tailgate,boolean,,Vehicle equipped with power-operated tailgate,active
+250,remote_engine_start,Comfort,Remote engine start,boolean,,Vehicle supports remote engine start,active
+251,auto_dimming_rearview_mirror,Comfort,Auto-dimming rear-view mirror,boolean,,Vehicle equipped with auto-dimming interior mirror,active
+252,rain_sensing_wipers,Comfort,Rain-sensing wipers,boolean,,Vehicle equipped with automatic rain-sensing wipers,active
