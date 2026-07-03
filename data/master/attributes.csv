@@ -309,3 +309,18 @@ id,code,category,name,data_type,unit,description,status
 310,multi_zone_climate_control,Climate,Multi-zone climate control,integer,,Number of independently controlled climate zones,active
 311,heat_recovery_system,Climate,Heat recovery system,boolean,,Vehicle equipped with heat recovery system for HVAC efficiency,active
 312,parking_heater,Climate,Parking heater,boolean,,Vehicle equipped with auxiliary parking heater,active
+313,load_compartment_cover,Cargo,Load compartment cover,boolean,,Vehicle equipped with luggage compartment cover,active
+314,cargo_net,Cargo,Cargo net,boolean,,Vehicle equipped with cargo retaining net,active
+315,cargo_hooks,Cargo,Cargo hooks,integer,,Number of luggage compartment tie-down hooks,active
+316,luggage_compartment_light,Cargo,Luggage compartment light,boolean,,Vehicle equipped with luggage compartment lighting,active
+317,underfloor_storage,Cargo,Underfloor storage,boolean,,Vehicle equipped with underfloor storage compartment,active
+318,fold_flat_rear_seats,Cargo,Fold-flat rear seats,boolean,,Rear seats fold to create a flat load floor,active
+319,split_tailgate,Cargo,Split tailgate,boolean,,Vehicle equipped with split tailgate,active
+320,hands_free_tailgate,Cargo,Hands-free tailgate,boolean,,Power tailgate can be opened hands-free,active
+321,roof_load_capacity,Cargo,Roof load capacity,decimal,kg,Maximum permitted roof load,active
+322,luggage_partition,Cargo,Luggage partition,boolean,,Vehicle equipped with luggage partition or cargo barrier,active
+323,cargo_12v_socket,Cargo,12 V luggage compartment socket,boolean,,12 V power outlet available in luggage compartment,active
+324,cargo_230v_socket,Cargo,230 V luggage compartment socket,boolean,,230 V power outlet available in luggage compartment,active
+325,load_through_hatch,Cargo,Load-through hatch,boolean,,Rear seat load-through hatch available,active
+326,removable_boot_floor,Cargo,Removable boot floor,boolean,,Removable or adjustable luggage compartment floor,active
+327,cargo_management_system,Cargo,Cargo management system,boolean,,Vehicle equipped with configurable cargo management system,active
