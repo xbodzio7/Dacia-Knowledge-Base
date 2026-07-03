@@ -174,3 +174,15 @@ id,code,category,name,data_type,unit,description,status
 175,recommended_wheel_torque,Wheels,Recommended wheel torque,integer,Nm,Recommended wheel bolt tightening torque,active
 176,max_tyre_load_index,Wheels,Maximum tyre load index,integer,,Maximum approved tyre load index,active
 177,max_tyre_speed_rating,Wheels,Maximum tyre speed rating,string,,Maximum approved tyre speed rating,active
+178,overall_length,Dimensions,Overall length,integer,mm,Overall vehicle length,active
+179,overall_width,Dimensions,Overall width,integer,mm,Overall vehicle width excluding mirrors,active
+180,overall_width_with_mirrors,Dimensions,Overall width with mirrors,integer,mm,Overall vehicle width including mirrors,active
+181,overall_height,Dimensions,Overall height,integer,mm,Overall vehicle height,active
+182,wheelbase,Dimensions,Wheelbase,integer,mm,Distance between front and rear axle centres,active
+183,front_track,Dimensions,Front track width,integer,mm,Distance between the centres of the front wheels,active
+184,rear_track,Dimensions,Rear track width,integer,mm,Distance between the centres of the rear wheels,active
+185,front_overhang,Dimensions,Front overhang,integer,mm,Distance from front axle to front end of vehicle,active
+186,rear_overhang,Dimensions,Rear overhang,integer,mm,Distance from rear axle to rear end of vehicle,active
+187,turning_circle,Dimensions,Turning circle,decimal,m,Kerb-to-kerb turning circle diameter,active
+188,approach_angle,Dimensions,Approach angle,decimal,deg,Maximum approach angle,active
+189,departure_angle,Dimensions,Departure angle,decimal,deg,Maximum departure angle,active
