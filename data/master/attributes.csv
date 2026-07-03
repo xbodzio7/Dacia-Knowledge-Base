@@ -198,3 +198,15 @@ id,code,category,name,data_type,unit,description,status
 199,interior_height,Dimensions,Interior height,integer,mm,Maximum usable interior height,active
 200,roof_load_capacity,Dimensions,Roof load capacity,integer,kg,Maximum permitted roof load,active
 201,roof_height_with_rails,Dimensions,Roof height with rails,integer,mm,Vehicle height including roof rails,active
+202,number_of_doors,Doors,Number of doors,integer,,Total number of vehicle doors,active
+203,number_of_side_doors,Doors,Number of side doors,integer,,Number of passenger side doors excluding tailgate,active
+204,tailgate_type,Doors,Tailgate type,string,,Type of rear opening (tailgate, barn doors, sedan boot),active
+205,power_tailgate,Doors,Power tailgate,boolean,,Vehicle equipped with electrically operated tailgate,active
+206,hands_free_tailgate,Doors,Hands-free tailgate,boolean,,Tailgate can be opened hands-free,active
+207,soft_close_doors,Doors,Soft-close doors,boolean,,Doors equipped with soft-close mechanism,active
+208,keyless_entry,Doors,Keyless entry,boolean,,Vehicle equipped with passive keyless entry,active
+209,keyless_start,Doors,Keyless start,boolean,,Vehicle equipped with push-button engine start,active
+210,child_safety_rear_doors,Doors,Rear child safety locks,boolean,,Rear doors equipped with child safety locks,active
+211,fuel_filler_side,Doors,Fuel filler side,string,,Side of vehicle where fuel filler is located,active
+212,charging_port_location,Doors,Charging port location,string,,Location of EV charging port,active
+213,fuel_filler_locking,Doors,Locking fuel filler,boolean,,Fuel filler protected by central locking,active
