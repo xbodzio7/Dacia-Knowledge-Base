@@ -222,3 +222,15 @@ id,code,category,name,data_type,unit,description,status
 223,heated_rear_seats,Seats,Heated rear seats,boolean,,Rear seats equipped with heating,active
 224,ventilated_front_seats,Seats,Ventilated front seats,boolean,,Front seats equipped with ventilation,active
 225,massaging_front_seats,Seats,Massaging front seats,boolean,,Front seats equipped with massage function,active
+226,rear_seat_folding,Seats,Rear seat folding,string,,Rear seat folding configuration (e.g. 60:40 or 40:20:40),active
+227,rear_seat_sliding,Seats,Rear seat sliding,boolean,,Rear seats can slide longitudinally,active
+228,rear_seat_reclining,Seats,Rear seat reclining,boolean,,Rear seat backrest angle adjustable,active
+229,fold_flat_front_passenger_seat,Seats,Fold-flat front passenger seat,boolean,,Front passenger seat can fold flat,active
+230,memory_driver_seat,Seats,Driver seat memory,boolean,,Driver seat position memory available,active
+231,memory_passenger_seat,Seats,Passenger seat memory,boolean,,Front passenger seat position memory available,active
+232,isofix_front,Seats,ISOFIX front,boolean,,ISOFIX anchor points available on front passenger seat,active
+233,isofix_rear,Seats,ISOFIX rear,boolean,,ISOFIX anchor points available on rear seats,active
+234,top_tether_anchor_points,Seats,Top tether anchor points,integer,,Number of top tether anchor points,active
+235,third_row_seats,Seats,Third-row seats,boolean,,Vehicle equipped with third-row seating,active
+236,third_row_folding,Seats,Third-row seat folding,string,,Third-row seat folding configuration,active
+237,easy_entry_second_row,Seats,Easy entry second row,boolean,,Easy-entry mechanism for access to rear seats,active
