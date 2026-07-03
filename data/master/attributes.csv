@@ -150,3 +150,7 @@ id,code,category,name,data_type,unit,description,status
 151,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel supplied with the vehicle,active
 152,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
 153,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
+154,ac_charging_power,Electric System,Maximum AC charging power,decimal,kW,Maximum supported AC charging power,active
+155,dc_charging_power,Electric System,Maximum DC charging power,decimal,kW,Maximum supported DC charging power,active
+156,charging_connector_type,Electric System,Charging connector type,string,,Primary charging connector standard (e.g. Type 2 CCS Combo),active
+
