@@ -153,4 +153,7 @@ id,code,category,name,data_type,unit,description,status
 154,ac_charging_power,Electric System,Maximum AC charging power,decimal,kW,Maximum supported AC charging power,active
 155,dc_charging_power,Electric System,Maximum DC charging power,decimal,kW,Maximum supported DC charging power,active
 156,charging_connector_type,Electric System,Charging connector type,string,,Primary charging connector standard (e.g. Type 2 CCS Combo),active
+157,battery_capacity_gross,Electric System,Gross battery capacity,decimal,kWh,Total installed battery capacity,active
+158,battery_capacity_net,Electric System,Net battery capacity,decimal,kWh,Usable battery capacity available for driving,active
+159,battery_chemistry,Electric System,Battery chemistry,string,,Battery cell chemistry (e.g. LFP or NMC),active
 
