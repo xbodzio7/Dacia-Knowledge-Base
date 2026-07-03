@@ -258,3 +258,16 @@ id,code,category,name,data_type,unit,description,status
 259,rear_view_camera,Mirrors,Rear view camera,boolean,,Rear reversing camera,active
 260,360_camera_system,Mirrors,360-degree camera system,boolean,,Surround view camera system,active
 261,cross_traffic_alert,Mirrors,Cross traffic alert,boolean,,Rear cross traffic warning system,active
+262,headlights_type,Lighting,Headlights type,string,,Type of headlights (halogen, LED, matrix LED),active
+263,automatic_headlights,Lighting,Automatic headlights,boolean,,Automatic headlight activation based on ambient light,active
+264,led_daytime_running_lights,Lighting,LED daytime running lights,boolean,,LED DRL system,active
+265,adaptive_headlights,Lighting,Adaptive headlights,boolean,,Headlights that adjust beam direction,active
+266,cornering_lights,Lighting,Cornering lights,boolean,,Additional lighting when turning,active
+267,fog_lights_front,Lighting,Front fog lights,boolean,,Front fog lamp system,active
+268,fog_lights_rear,Lighting,Rear fog lights,boolean,,Rear fog lamp system,active
+269,high_beam_assist,Lighting,High beam assist,boolean,,Automatic high beam control,active
+270,automatic_headlight_leveling,Lighting,Automatic headlight leveling,boolean,,Self-adjusting headlight beam height,active
+271,coming_home_lighting,Lighting,Coming home lighting,boolean,,Delayed exterior lighting after locking vehicle,active
+272,leaving_home_lighting,Lighting,Leaving home lighting,boolean,,Exterior lighting when unlocking vehicle,active
+273,ambient_interior_lighting,Lighting,Ambient interior lighting,boolean,,Interior mood lighting system,active
+274,interior_lighting_zones,Lighting,Interior lighting zones,integer,,Number of configurable interior lighting zones,active
