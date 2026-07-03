@@ -324,3 +324,18 @@ id,code,category,name,data_type,unit,description,status
 325,load_through_hatch,Cargo,Load-through hatch,boolean,,Rear seat load-through hatch available,active
 326,removable_boot_floor,Cargo,Removable boot floor,boolean,,Removable or adjustable luggage compartment floor,active
 327,cargo_management_system,Cargo,Cargo management system,boolean,,Vehicle equipped with configurable cargo management system,active
+328,audio_system,Audio,Audio system,string,,Primary audio system name,active
+329,number_of_speakers,Audio,Number of speakers,integer,,Total number of audio speakers,active
+330,subwoofer,Audio,Subwoofer,boolean,,Vehicle equipped with subwoofer,active
+331,premium_audio_system,Audio,Premium audio system,boolean,,Vehicle equipped with premium branded audio system,active
+332,audio_brand,Audio,Audio system brand,string,,Audio system manufacturer or brand,active
+333,dab_radio,Audio,DAB radio,boolean,,Vehicle equipped with Digital Audio Broadcasting receiver,active
+334,fm_radio,Audio,FM radio,boolean,,Vehicle equipped with FM radio receiver,active
+335,internet_radio,Audio,Internet radio,boolean,,Vehicle supports internet radio streaming,active
+336,usb_audio_playback,Audio,USB audio playback,boolean,,Vehicle supports audio playback from USB devices,active
+337,bluetooth_audio_streaming,Audio,Bluetooth audio streaming,boolean,,Vehicle supports Bluetooth audio streaming,active
+338,steering_wheel_audio_controls,Audio,Steering wheel audio controls,boolean,,Audio system can be controlled from steering wheel,active
+339,rear_seat_audio_controls,Audio,Rear seat audio controls,boolean,,Rear passengers have dedicated audio controls,active
+340,active_noise_cancellation,Audio,Active noise cancellation,boolean,,Vehicle equipped with active noise cancellation,active
+341,microphone_system,Audio,Integrated microphone system,boolean,,Vehicle equipped with integrated hands-free microphone system,active
+342,voice_amplification_system,Audio,Voice amplification system,boolean,,Vehicle equipped with cabin voice amplification system,active
