@@ -204,3 +204,18 @@ id,code,category,name,data_type,unit,description,status
 205,wrong_way_alert,ADAS,Wrong Way Alert,boolean,,Vehicle warns about driving in the wrong direction,active
 206,exit_warning,ADAS,Exit Warning,boolean,,Vehicle warns occupants before exiting into traffic,active
 207,occupant_detection_rear,ADAS,Rear Occupant Detection,boolean,,Vehicle detects occupants remaining in the rear seats,active
+208,headlight_technology,Lighting,Headlight technology,string,,Primary headlight technology (e.g. Halogen, LED, Full LED),active
+209,daytime_running_lights,Lighting,Daytime running lights,boolean,,Vehicle equipped with daytime running lights,active
+210,automatic_headlights,Lighting,Automatic headlights,boolean,,Vehicle equipped with automatic headlight activation,active
+211,automatic_high_beam_assist,Lighting,Automatic high beam assist,boolean,,Vehicle equipped with automatic high beam assist,active
+212,fog_lights_front,Lighting,Front fog lights,boolean,,Vehicle equipped with front fog lights,active
+213,fog_lights_rear,Lighting,Rear fog lights,boolean,,Vehicle equipped with rear fog lights,active
+214,cornering_lights,Lighting,Cornering lights,boolean,,Vehicle equipped with cornering lights,active
+215,adaptive_headlights,Lighting,Adaptive headlights,boolean,,Vehicle equipped with adaptive headlight system,active
+216,headlight_leveling,Lighting,Headlight leveling,string,,Headlight leveling system (manual or automatic),active
+217,headlight_washers,Lighting,Headlight washers,boolean,,Vehicle equipped with headlight washers,active
+218,rear_led_lights,Lighting,LED rear lights,boolean,,Vehicle equipped with LED rear lights,active
+219,ambient_interior_lighting,Lighting,Ambient interior lighting,boolean,,Vehicle equipped with ambient interior lighting,active
+220,welcome_lighting,Lighting,Welcome lighting,boolean,,Vehicle equipped with welcome lighting,active
+221,follow_me_home_lighting,Lighting,Follow-me-home lighting,boolean,,Vehicle equipped with follow-me-home lighting,active
+222,automatic_hazard_warning,Lighting,Automatic hazard warning,boolean,,Vehicle automatically activates hazard lights during emergency braking,active
