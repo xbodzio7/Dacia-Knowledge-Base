@@ -234,3 +234,15 @@ id,code,category,name,data_type,unit,description,status
 235,third_row_seats,Seats,Third-row seats,boolean,,Vehicle equipped with third-row seating,active
 236,third_row_folding,Seats,Third-row seat folding,string,,Third-row seat folding configuration,active
 237,easy_entry_second_row,Seats,Easy entry second row,boolean,,Easy-entry mechanism for access to rear seats,active
+238,window_type,Windows,Window type,string,,Type of vehicle windows (fixed, sliding, etc.),active
+239,front_windows_power,Windows,Front power windows,boolean,,Front windows electrically operated,active
+240,rear_windows_power,Windows,Rear power windows,boolean,,Rear windows electrically operated,active
+241,one_touch_windows,Windows,One-touch windows,boolean,,One-touch up/down window control,active
+242,heated_front_windscreen,Windows,Heated front windscreen,boolean,,Heated front windscreen available,active
+243,heated_rear_window,Windows,Heated rear window,boolean,,Heated rear window with defrost,active
+244,privacy_glass,Windows,Privacy glass,boolean,,Tinted rear side and rear windows,active
+245,acoustic_glass,Windows,Acoustic glass,boolean,,Noise-reducing laminated glass,active
+246,rain_sensing_wipers,Windows,Rain sensing wipers,boolean,,Automatic rain-sensing wipers,active
+247,intermittent_wiper_control,Windows,Intermittent wiper control,boolean,,Adjustable intermittent wiper speed,active
+248,rear_wiper,Windows,Rear wiper,boolean,,Rear window wiper present,active
+249,windshield_washer_heated,Windows,Heated windshield washer nozzles,boolean,,Heated washer nozzles for windshield,active
