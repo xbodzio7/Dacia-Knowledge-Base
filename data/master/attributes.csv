@@ -249,3 +249,18 @@ id,code,category,name,data_type,unit,description,status
 250,remote_engine_start,Comfort,Remote engine start,boolean,,Vehicle supports remote engine start,active
 251,auto_dimming_rearview_mirror,Comfort,Auto-dimming rear-view mirror,boolean,,Vehicle equipped with auto-dimming interior mirror,active
 252,rain_sensing_wipers,Comfort,Rain-sensing wipers,boolean,,Vehicle equipped with automatic rain-sensing wipers,active
+253,upholstery_material,Interior,Seat upholstery material,string,,Primary seat upholstery material,active
+254,upholstery_color,Interior,Interior upholstery color,string,,Primary interior upholstery color,active
+255,seat_configuration,Interior,Seat configuration,string,,Passenger seating configuration (e.g. 2+3 or 2+3+2),active
+256,number_of_seats,Interior,Number of seats,integer,,Total number of passenger seats,active
+257,rear_seat_split,Interior,Rear seat split,string,,Rear seat folding configuration (e.g. 60:40),active
+258,rear_seat_sliding,Interior,Sliding rear seats,boolean,,Rear seats can slide longitudinally,active
+259,rear_seat_reclining,Interior,Reclining rear seats,boolean,,Rear seat backrests are adjustable,active
+260,fold_flat_front_passenger_seat,Interior,Fold-flat front passenger seat,boolean,,Front passenger seat folds flat,active
+261,adjustable_rear_headrests,Interior,Adjustable rear headrests,boolean,,Rear headrests are height adjustable,active
+262,center_armrest_front,Interior,Front center armrest,boolean,,Vehicle equipped with front center armrest,active
+263,center_armrest_rear,Interior,Rear center armrest,boolean,,Vehicle equipped with rear center armrest,active
+264,multifunction_steering_wheel,Interior,Multifunction steering wheel,boolean,,Vehicle equipped with multifunction steering wheel,active
+265,steering_wheel_material,Interior,Steering wheel material,string,,Primary steering wheel trim material,active
+266,adjustable_steering_column,Interior,Adjustable steering column,string,,Steering column adjustment (height/reach),active
+267,interior_trim_material,Interior,Interior trim material,string,,Primary dashboard and door trim material,active
