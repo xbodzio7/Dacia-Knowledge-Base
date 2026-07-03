@@ -186,3 +186,15 @@ id,code,category,name,data_type,unit,description,status
 187,turning_circle,Dimensions,Turning circle,decimal,m,Kerb-to-kerb turning circle diameter,active
 188,approach_angle,Dimensions,Approach angle,decimal,deg,Maximum approach angle,active
 189,departure_angle,Dimensions,Departure angle,decimal,deg,Maximum departure angle,active
+190,ramp_breakover_angle,Dimensions,Ramp breakover angle,decimal,deg,Maximum ramp breakover angle,active
+191,ground_clearance_unladen,Dimensions,Ground clearance (unladen),integer,mm,Ground clearance with no payload,active
+192,ground_clearance_laden,Dimensions,Ground clearance (laden),integer,mm,Ground clearance at maximum authorised mass,active
+193,maximum_wading_depth,Dimensions,Maximum wading depth,integer,mm,Maximum water fording depth,active
+194,load_sill_height,Dimensions,Load sill height,integer,mm,Height of luggage compartment loading sill,active
+195,cargo_opening_width,Dimensions,Cargo opening width,integer,mm,Width of luggage compartment opening,active
+196,cargo_opening_height,Dimensions,Cargo opening height,integer,mm,Height of luggage compartment opening,active
+197,interior_length,Dimensions,Interior length,integer,mm,Maximum usable interior length,active
+198,interior_width,Dimensions,Interior width,integer,mm,Maximum usable interior width,active
+199,interior_height,Dimensions,Interior height,integer,mm,Maximum usable interior height,active
+200,roof_load_capacity,Dimensions,Roof load capacity,integer,kg,Maximum permitted roof load,active
+201,roof_height_with_rails,Dimensions,Roof height with rails,integer,mm,Vehicle height including roof rails,active
