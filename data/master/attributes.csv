@@ -297,3 +297,15 @@ id,code,category,name,data_type,unit,description,status
 298,wireless_charging,Infotainment,Wireless charging,boolean,,Wireless smartphone charging pad,active
 299,premium_sound_system,Infotainment,Premium sound system,boolean,,Upgraded audio system,active
 300,connected_services,Infotainment,Connected services,boolean,,Online connected vehicle services,active
+301,manual_air_conditioning,HVAC,Manual air conditioning,boolean,,Manual climate control system,active
+302,automatic_climate_control,HVAC,Automatic climate control,boolean,,Automatic temperature regulation system,active
+303,dual_zone_climate_control,HVAC,Dual zone climate control,boolean,,Separate driver and passenger temperature zones,active
+304,triple_zone_climate_control,HVAC,Triple zone climate control,boolean,,Separate rear climate zone control,active
+305,rear_air_vents,HVAC,Rear air vents,boolean,,Air vents for rear passengers,active
+306,air_quality_sensor,HVAC,Air quality sensor,boolean,,Automatic detection of air quality,active
+307,air_recirculation_mode,HVAC,Air recirculation mode,boolean,,Cabin air recirculation system,active
+308,cabin_preconditioning,HVAC,Cabin preconditioning,boolean,,Remote cabin temperature preconditioning,active
+309,heated_windscreen,HVAC,Heated windscreen,boolean,,Front windscreen heating system,active
+310,heated_seats_integration,HVAC,Heated seats integration,boolean,,Integration with seat heating system,active
+311,heated_steering_wheel_integration,HVAC,Heated steering wheel integration,boolean,,Integration with steering wheel heating,active
+312,cooling_glovebox,HVAC,Cooling glovebox,boolean,,Cooled storage compartment,active
