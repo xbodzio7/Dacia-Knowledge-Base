@@ -135,14 +135,14 @@ id,code,category,name,data_type,unit,description,status
 136,combined_range,Performance,Combined range,integer,km,Maximum driving range under standard test cycle,active
 137,electric_energy_consumption,Efficiency,Electric energy consumption,decimal,kWh/100 km,Average electrical energy consumption under standard test cycle,active
 138,co2_emissions,Efficiency,CO2 emissions,decimal,g/km,Combined carbon dioxide emissions under standard test cycle,active
-139,drive_layout,Drivetrain,Drive layout,string,,Vehicle drive configuration (e.g. FWD, RWD, AWD),active
+139,drive_layout,Drivetrain,Drive layout,string,,"Vehicle drive configuration (e.g. FWD, RWD, AWD)",active
 140,differential_lock,Drivetrain,Differential lock,boolean,,Vehicle equipped with a differential lock,active
 141,start_stop_system,Engine,Start-stop system,boolean,,Vehicle equipped with an automatic engine start-stop system,active
-142,steering_type,Steering,Steering type,string,,Type of steering system (e.g. hydraulic, electric power steering),active
+142,steering_type,Steering,Steering type,string,,"Type of steering system (e.g. hydraulic, electric power steering)",active
 143,front_suspension,Suspension,Front suspension,string,,Front suspension design,active
 144,rear_suspension,Suspension,Rear suspension,string,,Rear suspension design,active
-145,front_brake_type,Brakes,Front brake type,string,,Front brake design (e.g. ventilated disc, solid disc),active
-146,rear_brake_type,Brakes,Rear brake type,string,,Rear brake design (e.g. disc, drum),active
+145,front_brake_type,Brakes,Front brake type,string,,"Front brake design (e.g. ventilated disc, solid disc)",active
+146,rear_brake_type,Brakes,Rear brake type,string,,"Rear brake design (e.g. disc, drum)",active
 147,parking_brake_type,Brakes,Parking brake type,string,,Type of parking brake (manual or electric),active
 148,front_tyre_size,Wheels,Front tyre size,string,,Front tyre size specification (e.g. 215/60 R17),active
 149,rear_tyre_size,Wheels,Rear tyre size,string,,Rear tyre size specification (e.g. 215/60 R17),active
