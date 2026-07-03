@@ -162,4 +162,15 @@ id,code,category,name,data_type,unit,description,status
 163,ac_charging_time,Electric System,AC charging time,decimal,h,Time required for a full charge using AC charging under standard conditions,active
 164,dc_charging_time_10_80,Electric System,DC charging time 10-80%,integer,min,Time required to charge the battery from 10% to 80% using DC fast charging,active
 165,onboard_charger_power,Electric System,On-board charger power,decimal,kW,Maximum power of the vehicle's onboard AC charger,active
-
+166,battery_voltage,Electric System,Battery voltage,integer,V,Nominal high-voltage battery voltage,active
+167,battery_modules,Electric System,Number of battery modules,integer,,Number of modules in the traction battery pack,active
+168,battery_cooling_type,Electric System,Battery cooling type,string,,Battery thermal management system (e.g. air cooled or liquid cooled),active
+169,battery_preconditioning,Electric System,Battery preconditioning,boolean,,Vehicle supports battery preconditioning before charging,active
+170,heat_pump,Electric System,Heat pump,boolean,,Vehicle equipped with a heat pump,active
+171,vehicle_to_load,Electric System,Vehicle-to-Load,boolean,,Vehicle supports external power supply (V2L),active
+172,vehicle_to_grid,Electric System,Vehicle-to-Grid,boolean,,Vehicle supports bidirectional charging (V2G),active
+173,max_regenerative_braking_power,Electric System,Maximum regenerative braking power,decimal,kW,Maximum power recovered during regenerative braking,active
+174,charge_port_location,Electric System,Charge port location,string,,Location of the external charging port,active
+175,plug_and_charge,Electric System,Plug and Charge,boolean,,Vehicle supports ISO 15118 Plug and Charge,active
+176,dc_fast_charge_supported,Electric System,DC fast charging support,boolean,,Vehicle supports DC fast charging,active
+177,battery_warranty,Warranty,Battery warranty,string,,Manufacturer battery warranty description,active
