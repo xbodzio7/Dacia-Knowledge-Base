@@ -271,3 +271,15 @@ id,code,category,name,data_type,unit,description,status
 272,leaving_home_lighting,Lighting,Leaving home lighting,boolean,,Exterior lighting when unlocking vehicle,active
 273,ambient_interior_lighting,Lighting,Ambient interior lighting,boolean,,Interior mood lighting system,active
 274,interior_lighting_zones,Lighting,Interior lighting zones,integer,,Number of configurable interior lighting zones,active
+275,adaptive_cruise_control,ADAS,Adaptive cruise control,boolean,,Automatically adjusts speed to maintain distance,active
+276,traffic_sign_recognition,ADAS,Traffic sign recognition,boolean,,Detects and interprets road signs,active
+277,lane_departure_warning,ADAS,Lane departure warning,boolean,,Warns when vehicle leaves lane unintentionally,active
+278,lane_keep_assist,ADAS,Lane keep assist,boolean,,Actively maintains lane position,active
+279,automatic_emergency_braking,ADAS,Automatic emergency braking,boolean,,Automatically applies brakes in critical situations,active
+280,forward_collision_warning,ADAS,Forward collision warning,boolean,,Warns of imminent frontal collision,active
+281,driver_attention_monitoring,ADAS,Driver attention monitoring,boolean,,Detects driver fatigue or inattention,active
+282,traffic_jam_assist,ADAS,Traffic jam assist,boolean,,Assists in stop-and-go traffic conditions,active
+283,speed_limiter_intelligent,ADAS,Intelligent speed limiter,boolean,,Adjusts speed limit based on road signs,active
+284,rear_cross_traffic_alert,ADAS,Rear cross traffic alert,boolean,,Warns of crossing traffic when reversing,active
+285,rear_cross_traffic_braking,ADAS,Rear cross traffic braking,boolean,,Automatically brakes when rear cross traffic detected,active
+286,parking_collision_avoidance,ADAS,Parking collision avoidance,boolean,,Prevents collisions during parking maneuvers,active
