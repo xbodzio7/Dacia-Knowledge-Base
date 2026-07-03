@@ -264,3 +264,18 @@ id,code,category,name,data_type,unit,description,status
 265,steering_wheel_material,Interior,Steering wheel material,string,,Primary steering wheel trim material,active
 266,adjustable_steering_column,Interior,Adjustable steering column,string,,Steering column adjustment (height/reach),active
 267,interior_trim_material,Interior,Interior trim material,string,,Primary dashboard and door trim material,active
+268,body_color,Exterior,Body color,string,,Primary exterior body color,active
+269,roof_color,Exterior,Roof color,string,,Roof color for two-tone configurations,active
+270,paint_finish,Exterior,Paint finish,string,,Exterior paint finish (e.g. solid, metallic, pearl),active
+271,sunroof,Exterior,Sunroof,boolean,,Vehicle equipped with a sunroof,active
+272,panoramic_roof,Exterior,Panoramic roof,boolean,,Vehicle equipped with a panoramic glass roof,active
+273,roof_rails,Exterior,Roof rails,boolean,,Vehicle equipped with roof rails,active
+274,electric_folding_mirrors,Exterior,Electric folding mirrors,boolean,,Vehicle equipped with power-folding exterior mirrors,active
+275,heated_door_mirrors,Exterior,Heated door mirrors,boolean,,Vehicle equipped with heated exterior mirrors,active
+276,auto_dimming_door_mirrors,Exterior,Auto-dimming door mirrors,boolean,,Vehicle equipped with auto-dimming exterior mirrors,active
+277,privacy_glass,Exterior,Privacy glass,boolean,,Rear windows fitted with privacy glass,active
+278,tinted_windows,Exterior,Tinted windows,boolean,,Vehicle equipped with factory tinted windows,active
+279,rear_spoiler,Exterior,Rear spoiler,boolean,,Vehicle equipped with a rear spoiler,active
+280,skid_plates,Exterior,Skid plates,boolean,,Vehicle equipped with protective skid plates,active
+281,tow_bar,Exterior,Tow bar,boolean,,Vehicle equipped with a factory tow bar,active
+282,exhaust_finishers,Exterior,Exhaust finishers,string,,Visible exhaust finisher configuration,active
