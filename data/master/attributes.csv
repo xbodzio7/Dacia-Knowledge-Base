@@ -283,3 +283,17 @@ id,code,category,name,data_type,unit,description,status
 284,rear_cross_traffic_alert,ADAS,Rear cross traffic alert,boolean,,Warns of crossing traffic when reversing,active
 285,rear_cross_traffic_braking,ADAS,Rear cross traffic braking,boolean,,Automatically brakes when rear cross traffic detected,active
 286,parking_collision_avoidance,ADAS,Parking collision avoidance,boolean,,Prevents collisions during parking maneuvers,active
+287,infotainment_screen_size,Infotainment,Screen size,decimal,in,Central display screen size,active
+288,touchscreen,Infotainment,Touchscreen,boolean,,Touch-sensitive infotainment display,active
+289,digital_instrument_cluster,Infotainment,Digital instrument cluster,boolean,,Fully digital driver display,active
+290,head_up_display,Infotainment,Head-up display,boolean,,Projected driving information on windshield,active
+291,navigation_system,Infotainment,Navigation system,boolean,,Built-in GPS navigation system,active
+292,live_traffic_information,Infotainment,Live traffic information,boolean,,Real-time traffic data integration,active
+293,voice_control,Infotainment,Voice control,boolean,,Voice-operated vehicle systems,active
+294,apple_carplay,Infotainment,Apple CarPlay,boolean,,Apple smartphone integration,active
+295,android_auto,Infotainment,Android Auto,boolean,,Android smartphone integration,active
+296,bluetooth_connectivity,Infotainment,Bluetooth connectivity,boolean,,Wireless phone connection via Bluetooth,active
+297,usb_ports_count,Infotainment,USB ports count,integer,,Number of USB charging/data ports,active
+298,wireless_charging,Infotainment,Wireless charging,boolean,,Wireless smartphone charging pad,active
+299,premium_sound_system,Infotainment,Premium sound system,boolean,,Upgraded audio system,active
+300,connected_services,Infotainment,Connected services,boolean,,Online connected vehicle services,active
