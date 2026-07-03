@@ -162,3 +162,15 @@ id,code,category,name,data_type,unit,description,status
 163,maximum_wheel_size,Wheels,Maximum wheel size,string,,Maximum approved wheel size for the vehicle,active
 164,wheel_offset,Wheels,Wheel offset,integer,mm,Wheel offset (ET value),active
 165,centre_bore,Wheels,Centre bore,decimal,mm,Wheel centre bore diameter,active
+166,front_tyre_width,Wheels,Front tyre width,integer,mm,Nominal width of front tyres,active
+167,front_tyre_profile,Wheels,Front tyre profile,integer,,Front tyre aspect ratio,active
+168,front_tyre_diameter,Wheels,Front tyre diameter,integer,in,Front tyre rim diameter,active
+169,rear_tyre_width,Wheels,Rear tyre width,integer,mm,Nominal width of rear tyres,active
+170,rear_tyre_profile,Wheels,Rear tyre profile,integer,,Rear tyre aspect ratio,active
+171,rear_tyre_diameter,Wheels,Rear tyre diameter,integer,in,Rear tyre rim diameter,active
+172,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel (full-size, temporary or repair kit),active
+173,tyre_pressure_monitoring_system,Wheels,Tyre pressure monitoring system,string,,Type of TPMS (direct or indirect),active
+174,wheel_nut_size,Wheels,Wheel nut size,string,,Wheel nut or bolt specification,active
+175,recommended_wheel_torque,Wheels,Recommended wheel torque,integer,Nm,Recommended wheel bolt tightening torque,active
+176,max_tyre_load_index,Wheels,Maximum tyre load index,integer,,Maximum approved tyre load index,active
+177,max_tyre_speed_rating,Wheels,Maximum tyre speed rating,string,,Maximum approved tyre speed rating,active
