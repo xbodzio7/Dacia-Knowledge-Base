@@ -320,5 +320,5 @@ id,code,category,name,data_type,unit,description,status
 321,differential_lock,Powertrain,Differential lock,boolean,,Presence of differential locking system,active
 322,start_stop_system,Powertrain,Start-stop system,boolean,,Engine start-stop functionality,active
 323,regenerative_braking,Powertrain,Regenerative braking,boolean,,Energy recovery during braking (hybrid/EV),active
-324,emission_standard,Powertrain,Emission standard,string,,EU emission compliance standard (e.g. Euro 6d),active
+324,emission_standard,Powertrain,Emission standard,string,,EU emission compliance standard (Euro 6d),active
 
