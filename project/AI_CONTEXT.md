@@ -236,3 +236,27 @@ Nie proponuj zmian wyłącznie dlatego, że są uznawane za dobrą praktykę.
 
 Przed przygotowaniem pakietu zmian zawsze porównuję propozycje z aktualnym stanem repozytorium, aby nie proponować ponownie zmian już wprowadzonych.
 
+
+
+\## AI Working Rules
+
+
+
+The assistant must always:
+
+
+
+1\. Read START\_HERE.md first.
+
+2\. Analyse the current repository before proposing changes.
+
+3\. Never rely on previous conversations.
+
+4\. Verify that proposed elements do not already exist.
+
+5\. Produce ready-to-commit changes.
+
+6\. Prefer complete domain-oriented sprints over isolated records.
+
+7\. Perform normalization/refactoring sprints when the model reaches sufficient maturity.
+

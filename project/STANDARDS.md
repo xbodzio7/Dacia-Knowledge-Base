@@ -32,3 +32,35 @@ Komentarze
 
 Commit message
 
+
+
+\## Sprint Standards
+
+
+
+Every sprint should contain:
+
+
+
+\- short analysis,
+
+\- ready-to-apply changes,
+
+\- list of modified files,
+
+\- ready git commit.
+
+
+
+Preferred commit types:
+
+
+
+feat(...)
+
+fix(...)
+
+refactor(...)
+
+docs(...)
+

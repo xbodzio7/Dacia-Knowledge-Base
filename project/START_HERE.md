@@ -218,3 +218,33 @@ Pakiet powinien zawierać:
 
 \- propozycję commit message.
 
+
+
+\## Development Workflow (DKB v2)
+
+
+
+The repository contained in the current ZIP is the single source of truth.
+
+
+
+Every work session starts with repository analysis.
+
+
+
+Rules:
+
+
+
+\- One sprint = one logical change.
+
+\- Prefer domain-oriented sprints.
+
+\- Typical sprint size: 10–20 records or one coherent refactoring.
+
+\- Never mix unrelated domains in one commit.
+
+\- Data quality has priority over data quantity.
+
+\- Documentation is updated only when required by model changes.
+

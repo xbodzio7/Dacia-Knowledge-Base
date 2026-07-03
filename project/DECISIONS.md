@@ -270,3 +270,16 @@ Generowanie zmian bez analizy aktualnego stanu prowadzi do:
 
 \- każdy commit obejmuje jeden logiczny pakiet zmian.
 
+
+
+## ADR-00X — Domain-oriented development
+
+Status: Accepted
+
+Decision:
+
+The project is developed using domain-oriented sprints.
+
+A sprint should complete one logical area instead of introducing many unrelated changes.
+
+Quality and consistency take precedence over rapid dataset growth.

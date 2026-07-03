@@ -118,3 +118,27 @@ Standardowy przebieg pracy:
 
 Domyślnie AI nie raportuje postępów po każdym etapie.
 
+
+
+\## Current Development Phase
+
+
+
+Current phase:
+
+
+
+Stabilization
+
+
+
+Priority:
+
+
+
+1\. Validate current data model.
+
+2\. Normalize taxonomy when needed.
+
+3\. Continue domain expansion only after validation.
+
