@@ -309,3 +309,15 @@ id,code,category,name,data_type,unit,description,status
 310,heated_seats_integration,HVAC,Heated seats integration,boolean,,Integration with seat heating system,active
 311,heated_steering_wheel_integration,HVAC,Heated steering wheel integration,boolean,,Integration with steering wheel heating,active
 312,cooling_glovebox,HVAC,Cooling glovebox,boolean,,Cooled storage compartment,active
+313,engine_type,Powertrain,Engine type,string,,Type of engine (petrol, diesel, hybrid, electric),active
+314,engine_displacement,Powertrain,Engine displacement,integer,cc,Engine capacity in cubic centimetres,active
+315,engine_power,Powertrain,Engine power,integer,hp,Maximum engine power output,active
+316,engine_torque,Powertrain,Engine torque,integer,Nm,Maximum engine torque,active
+317,number_of_cylinders,Powertrain,Number of cylinders,integer,,Engine cylinder count,active
+318,transmission_type,Powertrain,Transmission type,string,,Type of gearbox (manual, automatic, CVT),active
+319,number_of_gears,Powertrain,Number of gears,integer,,Number of transmission gears,active
+320,drivetrain_type,Powertrain,Drivetrain type,string,,Drivetrain configuration (FWD, RWD, AWD),active
+321,differential_lock,Powertrain,Differential lock,boolean,,Presence of differential locking system,active
+322,start_stop_system,Powertrain,Start-stop system,boolean,,Engine start-stop functionality,active
+323,regenerative_braking,Powertrain,Regenerative braking,boolean,,Energy recovery during braking (hybrid/EV),active
+324,emission_standard,Powertrain,Emission standard,string,,EU emission compliance standard,active
