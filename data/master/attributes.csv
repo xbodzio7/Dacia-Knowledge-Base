@@ -189,3 +189,18 @@ id,code,category,name,data_type,unit,description,status
 190,automatic_high_beam,ADAS,Automatic High Beam,boolean,,Vehicle equipped with automatic high beam assist,active
 191,hill_descent_control,ADAS,Hill Descent Control,boolean,,Vehicle equipped with Hill Descent Control,active
 192,hill_start_assist,ADAS,Hill Start Assist,boolean,,Vehicle equipped with Hill Start Assist,active
+193,adaptive_lane_guidance,ADAS,Adaptive Lane Guidance,boolean,,Vehicle equipped with adaptive lane centering,active
+194,traffic_jam_assist,ADAS,Traffic Jam Assist,boolean,,Vehicle equipped with Traffic Jam Assist,active
+195,highway_assist,ADAS,Highway Assist,boolean,,Vehicle equipped with Highway Assist,active
+196,evasive_steering_assist,ADAS,Evasive Steering Assist,boolean,,Vehicle equipped with Evasive Steering Assist,active
+197,front_collision_warning,ADAS,Front Collision Warning,boolean,,Vehicle equipped with Forward Collision Warning,active
+198,rear_automatic_braking,ADAS,Rear Automatic Braking,boolean,,Vehicle equipped with automatic braking while reversing,active
+199,occupant_safe_exit_alert,ADAS,Safe Exit Warning,boolean,,Vehicle warns about approaching traffic before door opening,active
+200,door_open_warning,ADAS,Door Open Warning,boolean,,Vehicle warns when opening a door into approaching traffic,active
+201,crosswind_assist,ADAS,Crosswind Assist,boolean,,Vehicle equipped with Crosswind Assist,active
+202,trailer_stability_assist,ADAS,Trailer Stability Assist,boolean,,Vehicle equipped with Trailer Stability Assist,active
+203,downhill_speed_regulation,ADAS,Downhill Speed Regulation,boolean,,Vehicle automatically maintains low downhill speed,active
+204,intelligent_speed_assist,ADAS,Intelligent Speed Assist,boolean,,Vehicle equipped with Intelligent Speed Assist,active
+205,wrong_way_alert,ADAS,Wrong Way Alert,boolean,,Vehicle warns about driving in the wrong direction,active
+206,exit_warning,ADAS,Exit Warning,boolean,,Vehicle warns occupants before exiting into traffic,active
+207,occupant_detection_rear,ADAS,Rear Occupant Detection,boolean,,Vehicle detects occupants remaining in the rear seats,active
