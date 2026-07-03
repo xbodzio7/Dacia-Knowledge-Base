@@ -174,3 +174,18 @@ id,code,category,name,data_type,unit,description,status
 175,plug_and_charge,Electric System,Plug and Charge,boolean,,Vehicle supports ISO 15118 Plug and Charge,active
 176,dc_fast_charge_supported,Electric System,DC fast charging support,boolean,,Vehicle supports DC fast charging,active
 177,battery_warranty,Warranty,Battery warranty,string,,Manufacturer battery warranty description,active
+178,adaptive_cruise_control,ADAS,Adaptive Cruise Control,boolean,,Vehicle equipped with Adaptive Cruise Control,active
+179,lane_departure_warning,ADAS,Lane Departure Warning,boolean,,Vehicle equipped with Lane Departure Warning system,active
+180,lane_keeping_assist,ADAS,Lane Keeping Assist,boolean,,Vehicle equipped with Lane Keeping Assist system,active
+181,blind_spot_monitoring,ADAS,Blind Spot Monitoring,boolean,,Vehicle equipped with Blind Spot Monitoring,active
+182,rear_cross_traffic_alert,ADAS,Rear Cross Traffic Alert,boolean,,Vehicle equipped with Rear Cross Traffic Alert,active
+183,traffic_sign_recognition,ADAS,Traffic Sign Recognition,boolean,,Vehicle equipped with Traffic Sign Recognition,active
+184,driver_attention_alert,ADAS,Driver Attention Alert,boolean,,Vehicle equipped with Driver Attention Alert,active
+185,automatic_emergency_braking,ADAS,Automatic Emergency Braking,boolean,,Vehicle equipped with Automatic Emergency Braking,active
+186,front_parking_sensors,ADAS,Front Parking Sensors,boolean,,Vehicle equipped with front parking sensors,active
+187,rear_parking_sensors,ADAS,Rear Parking Sensors,boolean,,Vehicle equipped with rear parking sensors,active
+188,rear_view_camera,ADAS,Rear View Camera,boolean,,Vehicle equipped with rear view camera,active
+189,around_view_monitor,ADAS,Around View Monitor,boolean,,Vehicle equipped with 360-degree camera system,active
+190,automatic_high_beam,ADAS,Automatic High Beam,boolean,,Vehicle equipped with automatic high beam assist,active
+191,hill_descent_control,ADAS,Hill Descent Control,boolean,,Vehicle equipped with Hill Descent Control,active
+192,hill_start_assist,ADAS,Hill Start Assist,boolean,,Vehicle equipped with Hill Start Assist,active
