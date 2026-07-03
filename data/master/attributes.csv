@@ -294,3 +294,18 @@ id,code,category,name,data_type,unit,description,status
 295,immobilizer,Safety,Engine immobilizer,boolean,,Vehicle equipped with engine immobilizer,active
 296,child_safety_locks,Safety,Child safety locks,boolean,,Vehicle equipped with rear child safety locks,active
 297,fire_extinguisher,Safety,Fire extinguisher,boolean,,Vehicle supplied with fire extinguisher,active
+298,cabin_air_filter,Climate,Cabin air filter,string,,Cabin air filter type (e.g. pollen or HEPA),active
+299,air_quality_sensor,Climate,Air quality sensor,boolean,,Vehicle equipped with air quality sensor,active
+300,humidity_sensor,Climate,Humidity sensor,boolean,,Vehicle equipped with humidity sensor for climate control,active
+301,rear_air_vents,Climate,Rear air vents,boolean,,Rear passenger air vents available,active
+302,rear_climate_control,Climate,Rear climate control,boolean,,Independent rear climate control available,active
+303,heated_windshield,Climate,Heated windshield,boolean,,Vehicle equipped with heated windshield,active
+304,heated_washer_nozzles,Climate,Heated washer nozzles,boolean,,Vehicle equipped with heated windshield washer nozzles,active
+305,heated_rear_window,Climate,Heated rear window,boolean,,Vehicle equipped with heated rear window,active
+306,remote_climate_control,Climate,Remote climate control,boolean,,Climate system can be controlled remotely,active
+307,cabin_preconditioning,Climate,Cabin preconditioning,boolean,,Vehicle supports cabin preconditioning before departure,active
+308,air_purification_system,Climate,Air purification system,boolean,,Vehicle equipped with active air purification system,active
+309,fragrance_system,Climate,Cabin fragrance system,boolean,,Vehicle equipped with integrated cabin fragrance system,active
+310,multi_zone_climate_control,Climate,Multi-zone climate control,integer,,Number of independently controlled climate zones,active
+311,heat_recovery_system,Climate,Heat recovery system,boolean,,Vehicle equipped with heat recovery system for HVAC efficiency,active
+312,parking_heater,Climate,Parking heater,boolean,,Vehicle equipped with auxiliary parking heater,active
