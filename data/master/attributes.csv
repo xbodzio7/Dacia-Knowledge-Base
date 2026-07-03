@@ -219,3 +219,18 @@ id,code,category,name,data_type,unit,description,status
 220,welcome_lighting,Lighting,Welcome lighting,boolean,,Vehicle equipped with welcome lighting,active
 221,follow_me_home_lighting,Lighting,Follow-me-home lighting,boolean,,Vehicle equipped with follow-me-home lighting,active
 222,automatic_hazard_warning,Lighting,Automatic hazard warning,boolean,,Vehicle automatically activates hazard lights during emergency braking,active
+223,infotainment_system,Infotainment,Infotainment system,string,,Primary infotainment system name,active
+224,display_size,Infotainment,Display size,decimal,in,Infotainment display diagonal,active
+225,digital_instrument_cluster,Infotainment,Digital instrument cluster,boolean,,Vehicle equipped with a digital instrument cluster,active
+226,digital_instrument_cluster_size,Infotainment,Digital instrument cluster size,decimal,in,Digital instrument cluster diagonal,active
+227,navigation_system,Infotainment,Navigation system,boolean,,Vehicle equipped with integrated navigation,active
+228,apple_carplay,Connectivity,Apple CarPlay,boolean,,Vehicle supports Apple CarPlay,active
+229,android_auto,Connectivity,Android Auto,boolean,,Vehicle supports Android Auto,active
+230,wireless_apple_carplay,Connectivity,Wireless Apple CarPlay,boolean,,Vehicle supports wireless Apple CarPlay,active
+231,wireless_android_auto,Connectivity,Wireless Android Auto,boolean,,Vehicle supports wireless Android Auto,active
+232,bluetooth,Connectivity,Bluetooth,boolean,,Vehicle equipped with Bluetooth connectivity,active
+233,usb_ports_front,Connectivity,Front USB ports,integer,,Number of front USB ports,active
+234,usb_ports_rear,Connectivity,Rear USB ports,integer,,Number of rear USB ports,active
+235,wireless_phone_charger,Connectivity,Wireless phone charger,boolean,,Vehicle equipped with wireless phone charging,active
+236,voice_control,Infotainment,Voice control,boolean,,Vehicle equipped with voice control,active
+237,connected_services,Connectivity,Connected services,boolean,,Vehicle supports connected online services,active
