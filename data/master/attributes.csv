@@ -279,3 +279,18 @@ id,code,category,name,data_type,unit,description,status
 280,skid_plates,Exterior,Skid plates,boolean,,Vehicle equipped with protective skid plates,active
 281,tow_bar,Exterior,Tow bar,boolean,,Vehicle equipped with a factory tow bar,active
 282,exhaust_finishers,Exterior,Exhaust finishers,string,,Visible exhaust finisher configuration,active
+283,front_airbags,Safety,Front airbags,integer,,Number of front airbags,active
+284,side_airbags,Safety,Side airbags,integer,,Number of side airbags,active
+285,curtain_airbags,Safety,Curtain airbags,integer,,Number of curtain airbags,active
+286,driver_knee_airbag,Safety,Driver knee airbag,boolean,,Vehicle equipped with driver knee airbag,active
+287,passenger_airbag_deactivation,Safety,Passenger airbag deactivation,boolean,,Front passenger airbag can be deactivated,active
+288,isofix_mounting_points,Safety,ISOFIX mounting points,integer,,Number of ISOFIX child seat mounting positions,active
+289,top_tether_mounting_points,Safety,Top Tether mounting points,integer,,Number of Top Tether child seat anchors,active
+290,seatbelt_pretensioners,Safety,Seatbelt pretensioners,boolean,,Vehicle equipped with seatbelt pretensioners,active
+291,seatbelt_load_limiters,Safety,Seatbelt load limiters,boolean,,Vehicle equipped with seatbelt load limiters,active
+292,tyre_repair_kit,Safety,Tyre repair kit,boolean,,Vehicle supplied with tyre repair kit,active
+293,emergency_call_system,Safety,eCall system,boolean,,Vehicle equipped with automatic emergency call system,active
+294,alarm_system,Safety,Alarm system,boolean,,Vehicle equipped with factory alarm system,active
+295,immobilizer,Safety,Engine immobilizer,boolean,,Vehicle equipped with engine immobilizer,active
+296,child_safety_locks,Safety,Child safety locks,boolean,,Vehicle equipped with rear child safety locks,active
+297,fire_extinguisher,Safety,Fire extinguisher,boolean,,Vehicle supplied with fire extinguisher,active
