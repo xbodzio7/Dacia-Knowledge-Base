@@ -159,4 +159,7 @@ id,code,category,name,data_type,unit,description,status
 160,motor_type,Electric System,Motor type,string,,Electric motor type (e.g. synchronous permanent magnet),active
 161,number_of_electric_motors,Electric System,Number of electric motors,integer,,Number of traction electric motors,active
 162,regenerative_braking_levels,Electric System,Regenerative braking levels,integer,,Number of selectable regenerative braking levels,active
+163,ac_charging_time,Electric System,AC charging time,decimal,h,Time required for a full charge using AC charging under standard conditions,active
+164,dc_charging_time_10_80,Electric System,DC charging time 10-80%,integer,min,Time required to charge the battery from 10% to 80% using DC fast charging,active
+165,onboard_charger_power,Electric System,On-board charger power,decimal,kW,Maximum power of the vehicle's onboard AC charger,active
 
