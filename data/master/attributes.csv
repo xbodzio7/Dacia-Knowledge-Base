@@ -156,4 +156,7 @@ id,code,category,name,data_type,unit,description,status
 157,battery_capacity_gross,Electric System,Gross battery capacity,decimal,kWh,Total installed battery capacity,active
 158,battery_capacity_net,Electric System,Net battery capacity,decimal,kWh,Usable battery capacity available for driving,active
 159,battery_chemistry,Electric System,Battery chemistry,string,,Battery cell chemistry (e.g. LFP or NMC),active
+160,motor_type,Electric System,Motor type,string,,Electric motor type (e.g. synchronous permanent magnet),active
+161,number_of_electric_motors,Electric System,Number of electric motors,integer,,Number of traction electric motors,active
+162,regenerative_braking_levels,Electric System,Regenerative braking levels,integer,,Number of selectable regenerative braking levels,active
 
