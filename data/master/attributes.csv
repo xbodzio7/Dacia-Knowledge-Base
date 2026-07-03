@@ -150,3 +150,15 @@ id,code,category,name,data_type,unit,description,status
 151,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel supplied with the vehicle,active
 152,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
 153,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
+154,wheel_material,Wheels,Wheel material,string,,Primary wheel material (e.g. steel or alloy),active
+155,wheel_finish,Wheels,Wheel finish,string,,Wheel finish (e.g. painted, machined, diamond-cut),active
+156,locking_wheel_bolts,Wheels,Locking wheel bolts,boolean,,Vehicle equipped with locking wheel bolts,active
+157,self_sealing_tyres,Wheels,Self-sealing tyres,boolean,,Vehicle equipped with self-sealing tyres,active
+158,run_flat_tyres,Wheels,Run-flat tyres,boolean,,Vehicle equipped with run-flat tyres,active
+159,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,Factory supplied tyre season (summer, winter or all-season),active
+160,recommended_front_tyre_pressure,Wheels,Recommended front tyre pressure,decimal,bar,Recommended cold inflation pressure for front tyres,active
+161,recommended_rear_tyre_pressure,Wheels,Recommended rear tyre pressure,decimal,bar,Recommended cold inflation pressure for rear tyres,active
+162,minimum_wheel_size,Wheels,Minimum wheel size,string,,Minimum approved wheel size for the vehicle,active
+163,maximum_wheel_size,Wheels,Maximum wheel size,string,,Maximum approved wheel size for the vehicle,active
+164,wheel_offset,Wheels,Wheel offset,integer,mm,Wheel offset (ET value),active
+165,centre_bore,Wheels,Centre bore,decimal,mm,Wheel centre bore diameter,active
