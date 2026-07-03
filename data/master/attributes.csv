@@ -314,7 +314,7 @@ id,code,category,name,data_type,unit,description,status
 315,engine_power,Powertrain,Engine power,integer,hp,Maximum engine power output,active
 316,engine_torque,Powertrain,Engine torque,integer,Nm,Maximum engine torque,active
 317,number_of_cylinders,Powertrain,Number of cylinders,integer,,Engine cylinder count,active
-318,transmission_type,Powertrain,Transmission type,string,,Type of gearbox (manual, automatic, CVT),active
+318,transmission_type,Powertrain,Transmission type,string,,Type of gearbox (manual, automatic, CVT, DCT),active
 319,number_of_gears,Powertrain,Number of gears,integer,,Number of transmission gears,active
 320,drivetrain_type,Powertrain,Drivetrain type,string,,Drivetrain configuration (FWD, RWD, AWD),active
 321,differential_lock,Powertrain,Differential lock,boolean,,Presence of differential locking system,active
