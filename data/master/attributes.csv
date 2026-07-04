@@ -151,11 +151,11 @@ id,code,category,name,data_type,unit,description,status
 152,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
 153,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
 154,wheel_material,Wheels,Wheel material,string,,Primary wheel material (e.g. steel or alloy),active
-155,wheel_finish,Wheels,Wheel finish,string,,Wheel finish (e.g. painted, machined, diamond-cut),active
+155,wheel_finish,Wheels,Wheel finish,string,,"Wheel finish (e.g. painted, machined, diamond-cut)",active
 156,locking_wheel_bolts,Wheels,Locking wheel bolts,boolean,,Vehicle equipped with locking wheel bolts,active
 157,self_sealing_tyres,Wheels,Self-sealing tyres,boolean,,Vehicle equipped with self-sealing tyres,active
 158,run_flat_tyres,Wheels,Run-flat tyres,boolean,,Vehicle equipped with run-flat tyres,active
-159,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,Factory supplied tyre season (summer, winter or all-season),active
+159,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,"Factory supplied tyre season (summer, winter or all-season)",active
 160,recommended_front_tyre_pressure,Wheels,Recommended front tyre pressure,decimal,bar,Recommended cold inflation pressure for front tyres,active
 161,recommended_rear_tyre_pressure,Wheels,Recommended rear tyre pressure,decimal,bar,Recommended cold inflation pressure for rear tyres,active
 162,minimum_wheel_size,Wheels,Minimum wheel size,string,,Minimum approved wheel size for the vehicle,active
@@ -168,7 +168,7 @@ id,code,category,name,data_type,unit,description,status
 169,rear_tyre_width,Wheels,Rear tyre width,integer,mm,Nominal width of rear tyres,active
 170,rear_tyre_profile,Wheels,Rear tyre profile,integer,,Rear tyre aspect ratio,active
 171,rear_tyre_diameter,Wheels,Rear tyre diameter,integer,in,Rear tyre rim diameter,active
-172,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel (full-size, temporary or repair kit),active
+172,spare_wheel_type,Wheels,Spare wheel type,string,,"Type of spare wheel (full-size, temporary or repair kit)",active
 173,tyre_pressure_monitoring_system,Wheels,Tyre pressure monitoring system,string,,Type of TPMS (direct or indirect),active
 174,wheel_nut_size,Wheels,Wheel nut size,string,,Wheel nut or bolt specification,active
 175,recommended_wheel_torque,Wheels,Recommended wheel torque,integer,Nm,Recommended wheel bolt tightening torque,active
@@ -200,7 +200,7 @@ id,code,category,name,data_type,unit,description,status
 201,roof_height_with_rails,Dimensions,Roof height with rails,integer,mm,Vehicle height including roof rails,active
 202,number_of_doors,Doors,Number of doors,integer,,Total number of vehicle doors,active
 203,number_of_side_doors,Doors,Number of side doors,integer,,Number of passenger side doors excluding tailgate,active
-204,tailgate_type,Doors,Tailgate type,string,,Type of rear opening (tailgate, barn doors, sedan boot),active
+204,tailgate_type,Doors,Tailgate type,string,,"Type of rear opening (tailgate, barn doors, sedan boot)",active
 205,power_tailgate,Doors,Power tailgate,boolean,,Vehicle equipped with electrically operated tailgate,active
 206,hands_free_tailgate,Doors,Hands-free tailgate,boolean,,Tailgate can be opened hands-free,active
 207,soft_close_doors,Doors,Soft-close doors,boolean,,Doors equipped with soft-close mechanism,active
@@ -234,7 +234,7 @@ id,code,category,name,data_type,unit,description,status
 235,third_row_seats,Seats,Third-row seats,boolean,,Vehicle equipped with third-row seating,active
 236,third_row_folding,Seats,Third-row seat folding,string,,Third-row seat folding configuration,active
 237,easy_entry_second_row,Seats,Easy entry second row,boolean,,Easy-entry mechanism for access to rear seats,active
-238,window_type,Windows,Window type,string,,Type of vehicle windows (fixed, sliding, etc.),active
+238,window_type,Windows,Window type,string,,"Type of vehicle windows (fixed, sliding, etc.)",active
 239,front_windows_power,Windows,Front power windows,boolean,,Front windows electrically operated,active
 240,rear_windows_power,Windows,Rear power windows,boolean,,Rear windows electrically operated,active
 241,one_touch_windows,Windows,One-touch windows,boolean,,One-touch up/down window control,active
@@ -258,7 +258,7 @@ id,code,category,name,data_type,unit,description,status
 259,rear_view_camera,Driving Systems,Rear view camera,boolean,,Rear reversing camera,active
 260,360_camera_system,Driving Systems,360-degree camera system,boolean,,Surround view camera system,active
 261,cross_traffic_alert,Driving Systems,Cross traffic alert,boolean,,Rear cross traffic warning system,active
-262,headlights_type,Lighting,Headlights type,string,,Type of headlights (halogen, LED, matrix LED),active
+262,headlights_type,Lighting,Headlights type,string,,"Type of headlights (halogen, LED, matrix LED)",active
 263,automatic_headlights,Lighting,Automatic headlights,boolean,,Automatic headlight activation based on ambient light,active
 264,led_daytime_running_lights,Lighting,LED daytime running lights,boolean,,LED DRL system,active
 265,adaptive_headlights,Lighting,Adaptive headlights,boolean,,Headlights that adjust beam direction,active
@@ -309,14 +309,14 @@ id,code,category,name,data_type,unit,description,status
 310,heated_seats_integration,HVAC,Heated seats integration,boolean,,Integration with seat heating system,active
 311,heated_steering_wheel_integration,HVAC,Heated steering wheel integration,boolean,,Integration with steering wheel heating,active
 312,cooling_glovebox,HVAC,Cooling glovebox,boolean,,Cooled storage compartment,active
-313,engine_type,Powertrain,Engine type,string,,Type of engine (petrol, diesel, hybrid, electric),active
+313,engine_type,Powertrain,Engine type,string,,"Type of engine (petrol, diesel, hybrid, electric)",active
 314,engine_displacement,Powertrain,Engine displacement,integer,cc,Engine capacity in cubic centimetres,active
 315,engine_power,Powertrain,Engine power,integer,hp,Maximum engine power output,active
 316,engine_torque,Powertrain,Engine torque,integer,Nm,Maximum engine torque,active
 317,number_of_cylinders,Powertrain,Number of cylinders,integer,,Engine cylinder count,active
-318,transmission_type,Powertrain,Transmission type,string,,Type of gearbox (manual, automatic, CVT, DCT),active
+318,transmission_type,Powertrain,Transmission type,string,,"Type of gearbox (manual, automatic, CVT, DCT)",active
 319,number_of_gears,Powertrain,Number of gears,integer,,Number of transmission gears,active
-320,drivetrain_type,Powertrain,Drivetrain type,string,,Drivetrain configuration (FWD, RWD, AWD),active
+320,drivetrain_type,Powertrain,Drivetrain type,string,,"Drivetrain configuration (FWD, RWD, AWD)",active
 321,differential_lock,Powertrain,Differential lock,boolean,,Presence of differential locking system,active
 322,start_stop_system,Powertrain,Start-stop system,boolean,,Engine start-stop functionality,active
 323,regenerative_braking,Powertrain,Regenerative braking,boolean,,Energy recovery during braking (hybrid/EV),active
