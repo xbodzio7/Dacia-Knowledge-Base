@@ -70,3 +70,7 @@ docs(...)
 
 Nie wprowadzamy nowych kategorii, jednostek ani typów danych bez wcześniejszej aktualizacji odpowiedniego słownika referencyjnego.
 
+
+
+Każda nowa wartość category, unit lub value\_type musi zostać najpierw dodana do odpowiedniego słownika referencyjnego. Dopiero później może zostać użyta w attributes.csv.
+
