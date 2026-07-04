@@ -29,3 +29,11 @@ data/generated/
 # Temporary files
 *.tmp
 *.bak
+
+# Local backups
+*.7z
+*.zip
+*.bak
+*.old
+*.tmp
+*.orig
