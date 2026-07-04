@@ -1,0 +1,12 @@
+code,symbol,name,description
+length_mm,mm,Millimetre,Length in millimetres
+mass_kg,kg,Kilogram,Mass in kilograms
+volume_l,L,Litre,Volume in litres
+power_hp,hp,Horsepower,Power output
+torque_nm,Nm,Newton metre,Torque
+capacity_cc,cc,Cubic centimetre,Engine displacement
+angle_deg,deg,Degree,Angular measurement
+pressure_bar,bar,Bar,Pressure
+voltage_v,V,Volt,Electrical voltage
+energy_kwh,kWh,Kilowatt-hour,Battery energy
+current_a,A,Ampere,Electrical current
