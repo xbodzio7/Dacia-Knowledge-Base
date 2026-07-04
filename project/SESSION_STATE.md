@@ -120,51 +120,13 @@ Domyślnie AI nie raportuje postępów po każdym etapie.
 
 
 
-\## Current Development Phase
+\## Current phase
 
 
 
-Current phase:
+The current development phase is defined by ROADMAP.md.
 
 
 
-Stabilization
-
-
-
-Priority:
-
-
-
-1\. Validate current data model.
-
-2\. Normalize taxonomy when needed.
-
-3\. Continue domain expansion only after validation.
-
-
-
-\-------------------------------------------------------------------------------
-
-
-
-Current phase:
-
-Data Governance
-
-
-
-Completed:
-
-✔ Domain model
-
-✔ Reference dictionaries
-
-✔ Validation rules
-
-
-
-Next:
-
-Automated validation tooling
+SESSION\_STATE describes only the current working context for the active development session and must remain consistent with ROADMAP.md.
 
