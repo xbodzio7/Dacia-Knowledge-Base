@@ -260,3 +260,23 @@ The assistant must always:
 
 7\. Perform normalization/refactoring sprints when the model reaches sufficient maturity.
 
+
+
+
+
+attributes.csv
+
+&#x20;       │
+
+&#x20;       ├── domains.csv
+
+&#x20;       ├── units.csv
+
+&#x20;       ├── value\_types.csv
+
+&#x20;       └── validation\_rules.csv
+
+
+
+Słowniki referencyjne są źródłem prawdy dla kontrolowanych wartości.
+

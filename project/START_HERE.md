@@ -248,3 +248,23 @@ Rules:
 
 \- Documentation is updated only when required by model changes.
 
+
+
+
+
+\## Current Architecture (DKB v2.1)
+
+
+
+The project is organized around four layers:
+
+
+
+1\. Core data (`attributes.csv`)
+
+2\. Reference dictionaries (`domains.csv`, `units.csv`, `value\_types.csv`)
+
+3\. Validation rules (`validation\_rules.csv`)
+
+4\. Project governance (`project/`)
+

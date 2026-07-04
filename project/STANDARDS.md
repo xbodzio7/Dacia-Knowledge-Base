@@ -64,3 +64,9 @@ refactor(...)
 
 docs(...)
 
+
+
+
+
+Nie wprowadzamy nowych kategorii, jednostek ani typów danych bez wcześniejszej aktualizacji odpowiedniego słownika referencyjnego.
+

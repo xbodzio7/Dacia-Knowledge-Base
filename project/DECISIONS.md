@@ -241,6 +241,18 @@ Każda sesja przebiega według następującego schematu:
 6\. przygotowanie gotowego polecenia `git add` oraz `git commit`.
 
 
+Decision: DKB v2.1 Managed Data Model
+
+Status: Accepted
+
+The project separates:
+
+- core data,
+- reference dictionaries,
+- validation rules,
+- project governance.
+
+This architecture minimizes duplication and enables automated validation.
 
 \### Uzasadnienie
 
