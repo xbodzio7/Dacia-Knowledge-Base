@@ -27,3 +27,11 @@ def validate_repository(root: Path) -> tuple[bool, list[str]]:
             missing.append(relative_path)
 
     return len(missing) == 0, missing
+
+CSV_FILES = [
+    "data/master/attributes.csv",
+    "data/master/domains.csv",
+    "data/master/units.csv",
+    "data/master/value_types.csv",
+    "data/master/validation_rules.csv",
+]

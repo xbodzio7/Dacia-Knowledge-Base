@@ -11,6 +11,8 @@ import platform
 
 from validators.repository import validate_repository
 
+from validators.csv_validator import validate_csv
+from validators.repository import CSV_FILES
 
 def repository_root() -> Path:
     return Path(__file__).resolve().parent.parent
@@ -49,3 +51,24 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+Repository structure
+
+print()
+print("CSV integrity")
+
+csv_ok = True
+
+for relative in CSV_FILES:
+    ok, errors = validate_csv(root / relative)
+
+    if ok:
+        print(f"  PASS  {relative}")
+    else:
+        csv_ok = False
+        print(f"  FAIL  {relative}")
+
+        for error in errors:
+            print(f"        {error}")
+
+return 0 if ok and csv_ok else 1            
