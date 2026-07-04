@@ -1,0 +1,8 @@
+code,description
+boolean,True/False value
+integer,Whole number
+decimal,Floating-point number
+string,Free text
+enum,Value selected from predefined list
+date,Calendar date
+datetime,Date and time
