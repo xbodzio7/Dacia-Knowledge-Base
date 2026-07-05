@@ -4,3 +4,5 @@ automatic,Automatic,Conventional automatic transmission,active
 cvt,CVT,Continuously Variable Transmission,active
 dct,Dual-clutch,Dual-clutch transmission (DCT),active
 amt,Automated Manual,Automated manual transmission,active
+reduction,Single Speed Reduction,Single-speed reduction gearbox,active
+hybrid,Hybrid Transmission,Hybrid transmission with integrated electric drive components,active
