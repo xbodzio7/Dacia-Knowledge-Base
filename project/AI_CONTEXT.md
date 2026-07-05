@@ -238,6 +238,8 @@ Przed przygotowaniem pakietu zmian zawsze porównuję propozycje z aktualnym sta
 
 
 
+\-----------------------------------------------------------------------------
+
 \## AI Working Rules
 
 
@@ -279,4 +281,34 @@ attributes.csv
 
 
 Słowniki referencyjne są źródłem prawdy dla kontrolowanych wartości.
+
+
+
+\-----------------------------------------------------------------------
+
+\## File Modification Policy
+
+
+
+AI preserves existing project knowledge.
+
+
+
+Before replacing an existing file, AI evaluates the scope of changes.
+
+
+
+Rules:
+
+
+
+\- If changes affect less than approximately 50% of the file, generate only the required modifications.
+
+\- If changes affect most of the file or its structure, generate the complete new file.
+
+\- Never replace an existing file without first analysing its current contents.
+
+\- Never remove existing project knowledge unless it is obsolete or duplicated.
+
+
 
