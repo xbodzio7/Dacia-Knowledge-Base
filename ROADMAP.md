@@ -1,16 +1,12 @@
-\# Dacia Knowledge Base (DKB) Roadmap
+\# Dacia Knowledge Base
 
 
 
-\*\*Project:\*\* Dacia Knowledge Base (DKB)
+\# Roadmap
 
 
 
-\*\*Current Version:\*\* v2.1
-
-
-
-\*\*Status:\*\* Active Development
+Ten dokument opisuje plan rozwoju projektu oraz jego aktualny stan.
 
 
 
@@ -22,85 +18,27 @@
 
 
 
-The Dacia Knowledge Base aims to become a comprehensive, structured and validated automotive knowledge model for Dacia vehicles.
+Celem projektu jest stworzenie kompletnej bazy wiedzy dotyczącej samochodów marki Dacia.
 
 
 
-The project focuses on:
+Repozytorium ma umożliwiać:
 
 
 
-\* data quality
+\- przechowywanie danych technicznych,
 
-\* maintainability
+\- przechowywanie danych handlowych,
 
-\* consistency
+\- import danych z katalogów PDF,
 
-\* extensibility
+\- walidację danych,
 
-\* automation
+\- generowanie raportów,
 
-\* future API and database integration
+\- eksport do Excela,
 
-
-
-The repository is treated as the single source of truth for the DKB data model.
-
-
-
-\---
-
-
-
-\# Project Phases
-
-
-
-\## Phase 1 — Foundation ✅ Completed
-
-
-
-\### Data Model
-
-
-
-\* Complete attribute catalogue
-
-\* Stable attribute identifiers
-
-\* Standardized naming
-
-\* CSV integrity validation
-
-
-
-\### Reference Dictionaries
-
-
-
-\* domains.csv
-
-\* units.csv
-
-\* value\_types.csv
-
-\* validation\_rules.csv
-
-
-
-\### Project Governance
-
-
-
-\* Workflow v2
-
-\* Coding standards
-
-\* Architecture decisions
-
-\* Session management
-
-\* Data quality checklist
+\- automatyczne wyszukiwanie informacji.
 
 
 
@@ -108,57 +46,47 @@ The repository is treated as the single source of truth for the DKB data model.
 
 
 
-\## Phase 2 — Tooling 🚧 Current Phase
+\# Current Status
 
 
 
-Objective:
+\## Phase
 
 
 
-Build tools that automatically validate, document and transform the DKB data model.
+Foundation
 
 
 
-Planned deliverables:
+\## Progress
 
 
 
-\### Validator
+🟩 Dokumentacja
 
 
 
-\* CSV validation
-
-\* Duplicate detection
-
-\* Reference dictionary validation
-
-\* Data quality checks
+🟩 Struktura repozytorium
 
 
 
-\### Documentation Generator
+🟩 Master Data
 
 
 
-Generate documentation directly from CSV files.
+🟨 Tooling
 
 
 
-\### JSON Export
+⬜ PDF Import
 
 
 
-Generate machine-readable JSON representations.
+⬜ Reports
 
 
 
-\### SQLite Export
-
-
-
-Generate a relational database for querying and analysis.
+⬜ Tests
 
 
 
@@ -166,89 +94,65 @@ Generate a relational database for querying and analysis.
 
 
 
-\## Phase 3 — Automation
+\# Completed
 
 
 
-Planned work:
+\## Documentation
 
 
 
-\* Automated validation pipeline
+\- README
 
-\* Release generation
+\- START\_HERE
 
-\* Documentation publishing
+\- AI\_CONTEXT
 
-\* CI integration
+\- AI\_WORKING\_AGREEMENT
 
-\* Automated quality reports
+\- DECISIONS
 
-
-
-\---
+\- SESSION\_STATE
 
 
 
-\## Phase 4 — Integration
+\## Repository
 
 
 
-Long-term objectives:
+\- directory structure
+
+\- gitignore
+
+\- license
 
 
 
-\* REST API
-
-\* GraphQL API
-
-\* SQL database
-
-\* Search engine
-
-\* External integrations
+\## Master Data
 
 
 
-\---
+\- categories
 
+\- models
 
+\- engines
 
-\# Current Priorities
+\- gearboxes
 
+\- body types
 
+\- fuel types
 
-1\. Validator framework
+\- drive types
 
-2\. Documentation generator
+\- value types
 
-3\. SQLite exporter
+\- units
 
-4\. JSON exporter
+\- domains
 
-
-
-\---
-
-
-
-\# Technical Debt
-
-
-
-Current known items:
-
-
-
-\* Review ontology consistency
-
-\* Review enum candidates
-
-\* Review duplicated semantic concepts
-
-\* Expand validation rules
-
-\* Improve documentation automation
+\- validation rules
 
 
 
@@ -256,49 +160,27 @@ Current known items:
 
 
 
-\# Design Principles
+\# Current Sprint
 
 
 
-The project follows these principles:
+\## Tooling
 
 
 
-\* Single Source of Truth
-
-\* Incremental Evolution
-
-\* Backward Compatibility
-
-\* Data First
-
-\* Validation Before Expansion
-
-\* Documentation Driven Development
+Pierwszy zestaw narzędzi wspierających projekt.
 
 
 
-\---
+Plan:
 
 
 
-\# Success Criteria
+\- validate\_data.py
 
+\- build.py
 
-
-The project is considered mature when:
-
-
-
-\* all data is automatically validated
-
-\* documentation is generated automatically
-
-\* no manual consistency checks are required
-
-\* data can be exported to multiple formats
-
-\* external applications can consume the model through stable interfaces
+\- import\_pdf.py
 
 
 
@@ -306,23 +188,259 @@ The project is considered mature when:
 
 
 
-\# Current Milestone
+\# Next Sprint
 
 
 
-\*\*DKB v2.1 — Managed Data Model\*\*
+Rozbudowa walidatora.
 
 
 
-Status: Completed
+Zakres:
 
 
 
-Next milestone:
+\- duplicate detection
+
+\- reference validation
+
+\- enum validation
+
+\- integrity checks
 
 
 
-\*\*DKB v2.2 — Tooling \& Automation\*\*
+\---
 
 
+
+\# Backlog
+
+
+
+\## Data
+
+
+
+\- versions
+
+
+
+\- packages
+
+
+
+\- options
+
+
+
+\- prices
+
+
+
+\- attribute\_values
+
+
+
+\- sources
+
+
+
+\---
+
+
+
+\## Import
+
+
+
+\- Sandero
+
+
+
+\- Sandero Stepway
+
+
+
+\- Duster
+
+
+
+\- Jogger
+
+
+
+\- Bigster
+
+
+
+\- Spring
+
+
+
+\---
+
+
+
+\## Reports
+
+
+
+\- Excel generator
+
+
+
+\- Markdown generator
+
+
+
+\- HTML reports
+
+
+
+\---
+
+
+
+\## Quality
+
+
+
+\- automated tests
+
+
+
+\- CI
+
+
+
+\- release automation
+
+
+
+\---
+
+
+
+\# Milestones
+
+
+
+\## M1
+
+
+
+Kompletna dokumentacja.
+
+
+
+Status:
+
+
+
+✅ Completed
+
+
+
+\---
+
+
+
+\## M2
+
+
+
+Master Data.
+
+
+
+Status:
+
+
+
+✅ Completed
+
+
+
+\---
+
+
+
+\## M3
+
+
+
+Tooling.
+
+
+
+Status:
+
+
+
+🟨 In Progress
+
+
+
+\---
+
+
+
+\## M4
+
+
+
+PDF Import.
+
+
+
+Status:
+
+
+
+⬜ Planned
+
+
+
+\---
+
+
+
+\## M5
+
+
+
+Complete Knowledge Base.
+
+
+
+Status:
+
+
+
+⬜ Planned
+
+
+
+\---
+
+
+
+\# Definition of Done
+
+
+
+Projekt uznaje się za gotowy gdy:
+
+
+
+\- wszystkie modele Dacii są zaimportowane,
+
+\- wszystkie dane są zwalidowane,
+
+\- raporty generują się automatycznie,
+
+\- możliwy jest eksport do Excel,
+
+\- dostępne są testy automatyczne.
 

@@ -51,3 +51,20 @@ Docelowo repozytorium będzie zawierało między innymi:
 Architektura projektu została zakończona.
 
 Obecny etap prac obejmuje rozwój danych, przygotowanie plików CSV, walidację oraz narzędzia wspomagające import danych.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+## Data validation
+
+Run:
+
+```bash
+python scripts/validate_data.py
+```
+
+Current validation:
+
+- UTF-8 encoding
+- header presence
+- empty rows
+- consistent column count

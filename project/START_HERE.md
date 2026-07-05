@@ -62,15 +62,15 @@ Przed rozpoczęciem pracy przeczytaj kolejno:
 
 
 
-1\. PROJECT\_CONTEXT.md
+1\. PROJECT_CONTEXT.md
 
-2\. AI\_CONTEXT.md
+2\. AI_CONTEXT.md
 
 3\. DECISIONS.md
 
 4\. ROADMAP.md
 
-5\. SESSION\_STATE.md
+5\. SESSION_STATE.md
 
 
 
