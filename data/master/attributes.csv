@@ -321,4 +321,5 @@ id,code,category,name,data_type,unit,description,status
 322,start_stop_system,Powertrain,Start-stop system,boolean,,Engine start-stop functionality,active
 323,regenerative_braking,Powertrain,Regenerative braking,boolean,,Energy recovery during braking (hybrid/EV),active
 324,emission_standard,Powertrain,Emission standard,string,,EU emission compliance standard (Euro 6d),active
+325,transmission_type,Powertrain,Transmission type,enum,,Type of gearbox (manual, automatic, CVT, dual-clutch, etc.),active
 
