@@ -3,6 +3,17 @@ import csv
 import sys
 
 
+def print_row(row_number: int, row: dict):
+
+    print()
+    print(f"  Row {row_number}")
+
+    width = max(len(key) for key in row.keys())
+
+    for key, value in row.items():
+        print(f"    {key:<{width}} : {value}")
+
+
 def search(root: Path, phrase: str):
 
     phrase = phrase.lower()
@@ -18,7 +29,7 @@ def search(root: Path, phrase: str):
 
             reader = csv.DictReader(f)
 
-            for row in reader:
+            for row_number, row in enumerate(reader, start=2):
 
                 text = " ".join(
                     str(v)
@@ -32,7 +43,7 @@ def search(root: Path, phrase: str):
                         print(csv_file.relative_to(root))
                         found = True
 
-                    print(" ", row)
+                    print_row(row_number, row)
 
 
 if __name__ == "__main__":
