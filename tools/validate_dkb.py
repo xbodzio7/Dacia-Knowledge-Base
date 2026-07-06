@@ -21,6 +21,7 @@ from validators.empty_dataset import validate_empty_dataset
 from validators.required_fields import validate_required_fields
 from reporting.markdown_report import write_validation_report
 from reporting.json_report import write_statistics_json
+from validators.references import validate_references
 
 
 def repository_root() -> Path:
@@ -100,6 +101,18 @@ def main() -> int:
 
         for error in errors:
             print(f"        {error}")
+
+    reference_errors = validate_references(root)
+
+    if reference_errors:
+
+        csv_ok = False
+
+        print()
+        print("Reference validation")
+
+        for error in reference_errors:
+            print(f"  {error}")
             
     #
     # Attribute validation
