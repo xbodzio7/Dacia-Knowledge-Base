@@ -1,7 +1,7 @@
 from pathlib import Path
+import argparse
 import csv
 import re
-import sys
 
 
 def highlight(text: str, phrase: str) -> str:
@@ -10,22 +10,17 @@ def highlight(text: str, phrase: str) -> str:
 
 
 def print_row(row_number: int, row: dict, phrase: str):
-
     print()
     print(f"  Row {row_number}")
 
     width = max(len(key) for key in row.keys())
 
     for key, value in row.items():
-
         value = "" if value is None else str(value)
-
-        print(
-            f"    {key:<{width}} : {highlight(value, phrase)}"
-        )
+        print(f"    {key:<{width}} : {highlight(value, phrase)}")
 
 
-def search(root: Path, phrase: str):
+def search(root: Path, phrase: str, field: str | None):
 
     phrase_lower = phrase.lower()
 
@@ -33,20 +28,20 @@ def search(root: Path, phrase: str):
 
         found = False
 
-        with csv_file.open(
-            encoding="utf-8",
-            newline=""
-        ) as f:
+        with csv_file.open(encoding="utf-8", newline="") as f:
 
             reader = csv.DictReader(f)
 
             for row_number, row in enumerate(reader, start=2):
 
-                text = " ".join(
-                    str(v)
-                    for v in row.values()
-                    if v is not None
-                ).lower()
+                if field:
+                    text = str(row.get(field, "")).lower()
+                else:
+                    text = " ".join(
+                        str(v)
+                        for v in row.values()
+                        if v is not None
+                    ).lower()
 
                 if phrase_lower in text:
 
@@ -58,13 +53,29 @@ def search(root: Path, phrase: str):
                     print_row(row_number, row, phrase)
 
 
-if __name__ == "__main__":
+def main():
 
-    if len(sys.argv) != 2:
-        print("Usage:")
-        print("  python tools/search.py <phrase>")
-        raise SystemExit(1)
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--field",
+        help="Search only selected column",
+    )
+
+    parser.add_argument(
+        "phrase",
+    )
+
+    args = parser.parse_args()
 
     repository = Path(__file__).resolve().parents[1]
 
-    search(repository, sys.argv[1])
+    search(
+        repository,
+        args.phrase,
+        args.field,
+    )
+
+
+if __name__ == "__main__":
+    main()
