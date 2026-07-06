@@ -17,6 +17,7 @@ from validators.repository import (
 from validators.uniqueness import validate_attributes
 from reporting.statistics import collect_statistics
 from validators.duplicates import validate_duplicates
+from validators.empty_dataset import validate_empty_dataset
 
 def repository_root() -> Path:
     """Return repository root directory."""
@@ -72,10 +73,15 @@ def main() -> int:
     valid, errors = validate_csv(csv_path)
 
     duplicate_errors = validate_duplicates(csv_path)
+empty_errors = validate_empty_dataset(csv_path)
 
-    if duplicate_errors:
-        valid = False
-        errors.extend(duplicate_errors)
+if duplicate_errors:
+    valid = False
+    errors.extend(duplicate_errors)
+
+if empty_errors:
+    valid = False
+    errors.extend(empty_errors)
 
     if valid:
         print(f"  PASS  {relative}")
