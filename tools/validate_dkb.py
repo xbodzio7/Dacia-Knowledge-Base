@@ -15,6 +15,7 @@ from validators.repository import (
     validate_repository,
 )
 from validators.uniqueness import validate_attributes
+from reporting.statistics import collect_statistics
 
 
 def repository_root() -> Path:
@@ -95,6 +96,21 @@ def main() -> int:
 
         for error in errors:
             print(f"        {error}")
+
+stats = collect_statistics(root)
+
+print()
+print("Repository statistics")
+print("---------------------")
+print(f"CSV files   : {stats['csv_files']}")
+print(f"Rows        : {stats['rows']}")
+print(f"Empty files : {stats['empty_files']}")
+print()
+
+print("Largest datasets")
+
+for name, rows in stats["datasets"][:10]:
+    print(f"{name:<30} {rows:>8}")
 
     return 0 if repo_ok and csv_ok and attributes_ok else 1
 
