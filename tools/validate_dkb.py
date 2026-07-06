@@ -10,7 +10,10 @@ from pathlib import Path
 import platform
 
 from validators.csv_validator import validate_csv
-from validators.repository import CSV_FILES, validate_repository
+from validators.repository import (
+    discover_csv_files,
+    validate_repository,
+)
 from validators.uniqueness import validate_attributes
 
 
@@ -61,7 +64,7 @@ def main() -> int:
 
     csv_ok = True
 
-    for relative in CSV_FILES:
+    for relative in discover_csv_files(root):
 
         valid, errors = validate_csv(root / relative)
 
