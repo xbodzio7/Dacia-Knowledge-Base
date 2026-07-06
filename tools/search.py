@@ -1,9 +1,15 @@
 from pathlib import Path
 import csv
+import re
 import sys
 
 
-def print_row(row_number: int, row: dict):
+def highlight(text: str, phrase: str) -> str:
+    pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+    return pattern.sub(lambda m: f"[{m.group(0)}]", text)
+
+
+def print_row(row_number: int, row: dict, phrase: str):
 
     print()
     print(f"  Row {row_number}")
@@ -11,12 +17,17 @@ def print_row(row_number: int, row: dict):
     width = max(len(key) for key in row.keys())
 
     for key, value in row.items():
-        print(f"    {key:<{width}} : {value}")
+
+        value = "" if value is None else str(value)
+
+        print(
+            f"    {key:<{width}} : {highlight(value, phrase)}"
+        )
 
 
 def search(root: Path, phrase: str):
 
-    phrase = phrase.lower()
+    phrase_lower = phrase.lower()
 
     for csv_file in sorted(root.rglob("*.csv")):
 
@@ -37,13 +48,14 @@ def search(root: Path, phrase: str):
                     if v is not None
                 ).lower()
 
-                if phrase in text:
+                if phrase_lower in text:
 
                     if not found:
+                        print()
                         print(csv_file.relative_to(root))
                         found = True
 
-                    print_row(row_number, row)
+                    print_row(row_number, row, phrase)
 
 
 if __name__ == "__main__":
