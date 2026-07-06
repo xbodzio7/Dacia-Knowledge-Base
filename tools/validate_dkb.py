@@ -19,6 +19,7 @@ from reporting.statistics import collect_statistics
 from validators.duplicates import validate_duplicates
 from validators.empty_dataset import validate_empty_dataset
 from validators.required_fields import validate_required_fields
+from reporting.markdown_report import write_validation_report
 
 
 def repository_root() -> Path:
@@ -129,6 +130,16 @@ print(f"Empty files : {stats['empty_files']}")
 print()
 
 print("Largest datasets")
+
+write_validation_report(
+    root / "reports" / "validation_report.md",
+    repository_ok=repository_ok,
+    csv_ok=csv_ok,
+    statistics=stats,
+)
+
+print()
+print("Validation report written to reports/validation_report.md")
 
 for name, rows in stats["datasets"][:10]:
     print(f"{name:<30} {rows:>8}")
