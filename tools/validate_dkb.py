@@ -16,7 +16,7 @@ from validators.repository import (
 )
 from validators.uniqueness import validate_attributes
 from reporting.statistics import collect_statistics
-
+from validators.duplicates import validate_duplicates
 
 def repository_root() -> Path:
     """Return repository root directory."""
@@ -65,19 +65,27 @@ def main() -> int:
 
     csv_ok = True
 
-    for relative in discover_csv_files(root):
+   for relative in discover_csv_files(root):
 
-        valid, errors = validate_csv(root / relative)
+    csv_path = root / relative
 
-        if valid:
-            print(f"  PASS  {relative}")
-        else:
-            csv_ok = False
-            print(f"  FAIL  {relative}")
+    valid, errors = validate_csv(csv_path)
 
-            for error in errors:
-                print(f"        {error}")
+    duplicate_errors = validate_duplicates(csv_path)
 
+    if duplicate_errors:
+        valid = False
+        errors.extend(duplicate_errors)
+
+    if valid:
+        print(f"  PASS  {relative}")
+    else:
+        csv_ok = False
+        print(f"  FAIL  {relative}")
+
+        for error in errors:
+            print(f"        {error}")
+            
     #
     # Attribute validation
     #
