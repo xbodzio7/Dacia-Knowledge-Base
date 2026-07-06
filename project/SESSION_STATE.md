@@ -120,6 +120,44 @@ Domyślnie AI nie raportuje postępów po każdym etapie.
 
 
 
+\---
+
+
+
+\## Sprint history
+
+
+
+\### Sprint 001
+
+
+
+Completed.
+
+
+
+Changes:
+
+
+
+\- fixed ROADMAP location referenced by START\_HERE;
+
+\- repository startup procedure aligned with actual repository structure.
+
+
+
+Next priority:
+
+
+
+Continue development of project content and tooling.
+
+
+
+\---
+
+
+
 \## Current phase
 
 
