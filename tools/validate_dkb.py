@@ -20,6 +20,7 @@ from validators.duplicates import validate_duplicates
 from validators.empty_dataset import validate_empty_dataset
 from validators.required_fields import validate_required_fields
 from reporting.markdown_report import write_validation_report
+from reporting.json_report import write_statistics_json
 
 
 def repository_root() -> Path:
@@ -136,6 +137,11 @@ write_validation_report(
     repository_ok=repository_ok,
     csv_ok=csv_ok,
     statistics=stats,
+)
+
+write_statistics_json(
+    root / "reports" / "statistics.json",
+    stats,
 )
 
 print()
