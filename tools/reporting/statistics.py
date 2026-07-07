@@ -11,23 +11,47 @@ def collect_statistics(root: Path):
     }
 
     for csv_file in sorted(root.rglob("*.csv")):
-        with csv_file.open(encoding="utf-8", newline="") as f:
-            rows = list(csv.reader(f))
+        with csv_file.open(encoding="utf-8", newline="", encoding="utf-8") as f:
+            reader = list(csv.reader(f))
 
-        count = max(len(rows) - 1, 0)
+        if reader:
+            header = reader[0]
+            data = reader[1:]
+        else:
+            header = []
+            data = []
+
+        row_count = len(data)
 
         stats["csv_files"] += 1
-        stats["rows"] += count
+        stats["rows"] += row_count
 
-        if count == 0:
+        if row_count == 0:
             stats["empty_files"] += 1
 
+        filled = 0
+        total = 0
+
+        for row in data:
+            padded = row + [""] * (len(header) - len(row))
+            for value in padded[: len(header)]:
+                total += 1
+                if value.strip():
+                    filled += 1
+
+        completeness = (filled / total * 100) if total else 100.0
+
         stats["datasets"].append(
-            (csv_file.name, count)
+            {
+                "name": csv_file.name,
+                "rows": row_count,
+                "columns": len(header),
+                "completeness": completeness,
+            }
         )
 
     stats["datasets"].sort(
-        key=lambda x: x[1],
+        key=lambda x: x["rows"],
         reverse=True,
     )
 

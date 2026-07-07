@@ -4,7 +4,6 @@ from reporting.statistics import collect_statistics
 
 
 def main():
-
     root = Path(__file__).resolve().parents[1]
 
     stats = collect_statistics(root)
@@ -18,9 +17,17 @@ def main():
     print()
 
     print("Largest datasets")
+    print(
+        f"{'Dataset':35} {'Rows':>8} {'Cols':>6} {'Complete':>11}"
+    )
 
-    for name, rows in stats["datasets"][:10]:
-        print(f"{name:<35}{rows:>8}")
+    for dataset in stats["datasets"][:10]:
+        print(
+            f"{dataset['name']:<35}"
+            f"{dataset['rows']:>8}"
+            f"{dataset['columns']:>6}"
+            f"{dataset['completeness']:>10.1f}%"
+        )
 
 
 if __name__ == "__main__":
