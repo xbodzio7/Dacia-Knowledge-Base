@@ -12,11 +12,11 @@ def collect_statistics(root: Path):
 
     for csv_file in sorted(root.rglob("*.csv")):
         with csv_file.open(encoding="utf-8", newline="") as f:
-            reader = list(csv.reader(f))
+            rows = list(csv.reader(f))
 
-        if reader:
-            header = reader[0]
-            data = reader[1:]
+        if rows:
+            header = rows[0]
+            data = rows[1:]
         else:
             header = []
             data = []
@@ -34,12 +34,14 @@ def collect_statistics(root: Path):
 
         for row in data:
             padded = row + [""] * (len(header) - len(row))
+
             for value in padded[: len(header)]:
                 total += 1
+
                 if value.strip():
                     filled += 1
 
-        completeness = 100.0 if total == 0 else (filled / total) * 100
+        completeness = 100.0 if total == 0 else filled / total * 100
 
         stats["datasets"].append(
             {
@@ -51,7 +53,7 @@ def collect_statistics(root: Path):
         )
 
     stats["datasets"].sort(
-        key=lambda item: item["rows"],
+        key=lambda dataset: dataset["rows"],
         reverse=True,
     )
 
