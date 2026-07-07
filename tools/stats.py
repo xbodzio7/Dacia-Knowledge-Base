@@ -17,9 +17,7 @@ def main():
     print()
 
     print("Largest datasets")
-    print(
-        f"{'Dataset':35} {'Rows':>8} {'Cols':>6} {'Complete':>11}"
-    )
+    print(f"{'Dataset':35} {'Rows':>8} {'Cols':>6} {'Complete':>11}")
 
     for dataset in stats["datasets"][:10]:
         print(

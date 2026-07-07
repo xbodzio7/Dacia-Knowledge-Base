@@ -11,7 +11,7 @@ def collect_statistics(root: Path):
     }
 
     for csv_file in sorted(root.rglob("*.csv")):
-        with csv_file.open(encoding="utf-8", newline="", encoding="utf-8") as f:
+        with csv_file.open(encoding="utf-8", newline="") as f:
             reader = list(csv.reader(f))
 
         if reader:
@@ -39,7 +39,7 @@ def collect_statistics(root: Path):
                 if value.strip():
                     filled += 1
 
-        completeness = (filled / total * 100) if total else 100.0
+        completeness = 100.0 if total == 0 else (filled / total) * 100
 
         stats["datasets"].append(
             {
@@ -51,7 +51,7 @@ def collect_statistics(root: Path):
         )
 
     stats["datasets"].sort(
-        key=lambda x: x["rows"],
+        key=lambda item: item["rows"],
         reverse=True,
     )
 
