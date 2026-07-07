@@ -20,42 +20,65 @@ def print_row(row_number: int, row: dict, phrase: str):
         print(f"    {key:<{width}} : {highlight(value, phrase)}")
 
 
-def search(root: Path, phrase: str, field: str | None):
+def search(root: Path, phrase: str, field: str | None, export: Path | None):
 
     phrase_lower = phrase.lower()
 
     matches = 0
     files = 0
 
-    for csv_file in sorted(root.rglob("*.csv")):
+    writer = None
+    export_file = None
 
-        found = False
+    if export is not None:
+        export.parent.mkdir(parents=True, exist_ok=True)
+        export_file = export.open("w", encoding="utf-8", newline="")
+        writer = csv.writer(export_file)
 
-        with csv_file.open(encoding="utf-8", newline="") as f:
+    try:
+        for csv_file in sorted(root.rglob("*.csv")):
 
-            reader = csv.DictReader(f)
+            found = False
 
-            for row_number, row in enumerate(reader, start=2):
+            with csv_file.open(encoding="utf-8", newline="") as f:
 
-                if field:
-                    text = str(row.get(field, "")).lower()
-                else:
-                    text = " ".join(
-                        str(v)
-                        for v in row.values()
-                        if v is not None
-                    ).lower()
+                reader = csv.DictReader(f)
 
-                if phrase_lower in text:
+                for row_number, row in enumerate(reader, start=2):
 
-                    if not found:
-                        print()
-                        print(csv_file.relative_to(root))
-                        found = True
-                        files += 1
+                    if field:
+                        text = str(row.get(field, "")).lower()
+                    else:
+                        text = " ".join(
+                            str(v)
+                            for v in row.values()
+                            if v is not None
+                        ).lower()
 
-                    matches += 1
-                    print_row(row_number, row, phrase)
+                    if phrase_lower in text:
+
+                        if not found:
+                            print()
+                            print(csv_file.relative_to(root))
+                            found = True
+                            files += 1
+
+                        matches += 1
+                        print_row(row_number, row, phrase)
+
+                        if writer:
+                            if matches == 1:
+                                writer.writerow(["file", "row", *row.keys()])
+
+                            writer.writerow([
+                                csv_file.relative_to(root),
+                                row_number,
+                                *row.values(),
+                            ])
+
+    finally:
+        if export_file:
+            export_file.close()
 
     print()
 
@@ -64,28 +87,29 @@ def search(root: Path, phrase: str, field: str | None):
     else:
         print(f"Found {matches} matching record(s) in {files} file(s).")
 
+        if export:
+            print(f"Results exported to {export}")
+
 
 def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "--field",
-        help="Search only selected column",
-    )
-
-    parser.add_argument(
-        "phrase",
-    )
+    parser.add_argument("--field")
+    parser.add_argument("--export")
+    parser.add_argument("phrase")
 
     args = parser.parse_args()
 
     repository = Path(__file__).resolve().parents[1]
 
+    export = Path(args.export) if args.export else None
+
     search(
         repository,
         args.phrase,
         args.field,
+        export,
     )
 
 
