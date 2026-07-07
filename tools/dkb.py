@@ -2,6 +2,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from reporting.entity_catalog import generate_entity_catalog
+
 
 TOOLS = {
     "stats": "stats.py",
@@ -17,10 +19,12 @@ def usage():
     print("  python tools/dkb.py stats")
     print("  python tools/dkb.py search <phrase>")
     print("  python tools/dkb.py validate")
+    print("  python tools/dkb.py catalog")
     print()
     print("Commands:")
     for command in sorted(TOOLS):
         print(f"  {command}")
+    print("  catalog")
     print("  help")
 
 
@@ -31,6 +35,18 @@ def main():
         return
 
     command = sys.argv[1]
+
+    if command == "catalog":
+
+        repository = Path(__file__).resolve().parents[1]
+
+        output = repository / "reports" / "entity_catalog.md"
+
+        generate_entity_catalog(repository, output)
+
+        print(f"Entity catalog written to {output}")
+
+        return
 
     if command not in TOOLS:
         print(f"Unknown command: {command}")
