@@ -17,13 +17,18 @@ def usage():
     print("  python tools/dkb.py stats")
     print("  python tools/dkb.py search <phrase>")
     print("  python tools/dkb.py validate")
+    print()
+    print("Commands:")
+    for command in sorted(TOOLS):
+        print(f"  {command}")
+    print("  help")
 
 
 def main():
 
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ("help", "--help", "-h"):
         usage()
-        raise SystemExit(1)
+        return
 
     command = sys.argv[1]
 
