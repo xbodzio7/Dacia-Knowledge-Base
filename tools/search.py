@@ -24,6 +24,9 @@ def search(root: Path, phrase: str, field: str | None):
 
     phrase_lower = phrase.lower()
 
+    matches = 0
+    files = 0
+
     for csv_file in sorted(root.rglob("*.csv")):
 
         found = False
@@ -49,8 +52,17 @@ def search(root: Path, phrase: str, field: str | None):
                         print()
                         print(csv_file.relative_to(root))
                         found = True
+                        files += 1
 
+                    matches += 1
                     print_row(row_number, row, phrase)
+
+    print()
+
+    if matches == 0:
+        print("No matching records found.")
+    else:
+        print(f"Found {matches} matching record(s) in {files} file(s).")
 
 
 def main():
