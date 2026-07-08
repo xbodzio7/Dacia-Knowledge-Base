@@ -1,9 +1,17 @@
+"""
+Statistics collection for Dacia Knowledge Base.
+"""
+
 from pathlib import Path
 import csv
+from typing import Any
 
 
-def collect_statistics(root: Path):
-    stats = {
+def collect_statistics(root: Path) -> dict[str, Any]:
+    """
+    Collect statistics from all CSV files in the repository.
+    """
+    stats: dict[str, Any] = {
         "csv_files": 0,
         "rows": 0,
         "empty_files": 0,
@@ -11,50 +19,55 @@ def collect_statistics(root: Path):
     }
 
     for csv_file in sorted(root.rglob("*.csv")):
-        with csv_file.open(encoding="utf-8", newline="") as f:
-            rows = list(csv.reader(f))
+        if ".git" in csv_file.parts:
+            continue
 
-        if rows:
-            header = rows[0]
-            data = rows[1:]
-        else:
-            header = []
-            data = []
+        try:
+            with csv_file.open(encoding="utf-8", newline="") as f:
+                rows = list(csv.reader(f))
 
-        row_count = len(data)
+            if rows:
+                header = rows[0]
+                data_rows = rows[1:]
+            else:
+                header = []
+                data_rows = []
 
-        stats["csv_files"] += 1
-        stats["rows"] += row_count
+            row_count = len(data_rows)
 
-        if row_count == 0:
-            stats["empty_files"] += 1
+            stats["csv_files"] += 1
+            stats["rows"] += row_count
 
-        filled = 0
-        total = 0
+            if row_count == 0:
+                stats["empty_files"] += 1
 
-        for row in data:
-            padded = row + [""] * (len(header) - len(row))
+            # Calculate completeness
+            filled = 0
+            total = 0
 
-            for value in padded[: len(header)]:
-                total += 1
+            for row in data_rows:
+                padded = row + [""] * (len(header) - len(row))
+                for value in padded[: len(header)]:
+                    total += 1
+                    if value.strip():
+                        filled += 1
 
-                if value.strip():
-                    filled += 1
+            completeness = round(100.0 * filled / total, 1) if total > 0 else 100.0
 
-        completeness = 100.0 if total == 0 else filled / total * 100
+            stats["datasets"].append(
+                {
+                    "name": csv_file.name,
+                    "path": str(csv_file.relative_to(root)),
+                    "rows": row_count,
+                    "columns": len(header),
+                    "completeness": completeness,
+                }
+            )
 
-        stats["datasets"].append(
-            {
-                "name": csv_file.name,
-                "rows": row_count,
-                "columns": len(header),
-                "completeness": completeness,
-            }
-        )
+        except Exception as e:
+            print(f"Warning: Could not process {csv_file}: {e}")
 
-    stats["datasets"].sort(
-        key=lambda dataset: dataset["rows"],
-        reverse=True,
-    )
+    # Sort by number of rows (descending)
+    stats["datasets"].sort(key=lambda x: x["rows"], reverse=True)
 
     return stats
