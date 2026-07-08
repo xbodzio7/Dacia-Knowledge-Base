@@ -31,8 +31,14 @@ def generate_data_dictionary(root: Path, output: Path):
             report.write(f"## {relative}\n\n")
             report.write(f"Rows: **{len(rows)}**\n\n")
 
-            report.write("| Column | Filled | Coverage |\n")
-            report.write("|--------|-------:|---------:|\n")
+            report.write(
+                "| Column | Filled | Coverage | Status |\n"
+            )
+            report.write(
+                "|--------|-------:|---------:|--------|\n"
+            )
+
+            columns = []
 
             for field in fieldnames:
 
@@ -48,8 +54,23 @@ def generate_data_dictionary(root: Path, output: Path):
                     else filled / len(rows) * 100
                 )
 
+                if coverage == 100.0:
+                    status = "OK"
+                elif coverage == 0.0:
+                    status = "EMPTY"
+                else:
+                    status = "PARTIAL"
+
+                columns.append(
+                    (coverage, field, filled, status)
+                )
+
+            for coverage, field, filled, status in sorted(
+                columns,
+                key=lambda item: (item[0], item[1])
+            ):
                 report.write(
-                    f"| {field} | {filled} | {coverage:.1f}% |\n"
+                    f"| {field} | {filled} | {coverage:.1f}% | {status} |\n"
                 )
 
             report.write("\n")
