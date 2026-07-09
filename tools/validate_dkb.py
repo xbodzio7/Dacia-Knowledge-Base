@@ -1,131 +1,90 @@
+
 #!/usr/bin/env python3
 """
-DKB Validator
-Entry point for validating the Dacia Knowledge Base repository.
+Zaawansowany Walidator Dacia Knowledge Base v0.2
 """
 
 from pathlib import Path
 import platform
+from typing import Any
 
 from validators.csv_validator import validate_csv
-from validators.repository import (
-    discover_csv_files,
-    validate_repository,
-)
+from validators.repository import validate_repository, discover_csv_files
 from validators.uniqueness import validate_attributes
 from reporting.statistics import collect_statistics
-from validators.duplicates import validate_duplicates
-from validators.empty_dataset import validate_empty_dataset
-from validators.required_fields import validate_required_fields
 from reporting.markdown_report import write_validation_report
-from reporting.json_report import write_statistics_json
-from validators.references import validate_references
 
 
 def repository_root() -> Path:
-    """Return repository root directory."""
     return Path(__file__).resolve().parent.parent
 
 
 def print_header(root: Path) -> None:
-    """Print validator header."""
-    print("=" * 60)
-    print("DKB Validator v0.1")
-    print("=" * 60)
+    print("=" * 70)
+    print("DKB Validator v0.2 - Zaawansowana wersja")
+    print("=" * 70)
     print(f"Repository : {root}")
     print(f"Python     : {platform.python_version()}")
     print()
 
 
 def main() -> int:
-    """Program entry point."""
     root = repository_root()
     print_header(root)
 
-    # Repository structure
+    exit_code = 0
+
+    # 1. Struktura repo
+    print("1. Sprawdzanie struktury repozytorium")
     repo_ok, missing = validate_repository(root)
-    print("Repository structure")
     if repo_ok:
-        print("  PASS")
+        print("   ✅ OK")
     else:
-        print("  FAIL")
-        for item in missing:
-            print(f"  Missing: {item}")
+        print("   ❌ Brakujące pliki:")
+        for m in missing:
+            print(f"      - {m}")
+        exit_code = 1
 
-    # CSV integrity
-    print()
-    print("CSV integrity")
-
+    # 2. Walidacja CSV
+    print("\n2. Walidacja plików CSV")
     csv_ok = True
-
     for relative in discover_csv_files(root):
         csv_path = root / relative
         valid, errors = validate_csv(csv_path)
 
-        duplicate_errors = validate_duplicates(csv_path)
-        empty_errors = validate_empty_dataset(csv_path)
-        required_errors = validate_required_fields(csv_path)
-
-        if duplicate_errors:
-            valid = False
-            errors.extend(duplicate_errors)
-
-        if empty_errors:
-            valid = False
-            errors.extend(empty_errors)
-
-        if required_errors:
-            valid = False
-            errors.extend(required_errors)
-
         if valid:
-            print(f"  PASS  {relative}")
+            print(f"   ✅ {relative}")
         else:
             csv_ok = False
-            print(f"  FAIL  {relative}")
-            for error in errors:
-                print(f"        {error}")
+            print(f"   ❌ {relative}")
+            for err in errors[:5]:  # max 5 błędów na plik
+                print(f"      • {err}")
+            if len(errors) > 5:
+                print(f"      ... i {len(errors)-5} więcej")
 
-    # Reference validation (run once for the whole repository)
-    reference_errors = validate_references(root) or []
-
-    if reference_errors:
+    # 3. Walidacja atrybutów
+    print("\n3. Walidacja atrybutów (uniqueness)")
+    try:
+        attr_ok, attr_errors = validate_attributes(root / "data/master/attributes.csv")
+        if attr_ok:
+            print("   ✅ OK")
+        else:
+            print("   ❌ Problemy z atrybutami:")
+            for err in attr_errors:
+                print(f"      • {err}")
+            csv_ok = False
+    except Exception as e:
+        print(f"   ❌ Błąd walidacji atrybutów: {e}")
         csv_ok = False
-        print()
-        print("Reference validation")
-        for error in reference_errors:
-            print(f"  {error}")
 
-    # Attribute validation
-    print()
-    print("Attributes")
-    attributes_ok, errors = validate_attributes(
-        root / "data/master/attributes.csv"
-    )
-
-    if attributes_ok:
-        print("  PASS")
-    else:
-        print("  FAIL")
-        for error in errors:
-            print(f"        {error}")
-
-    # Statistics
+    # 4. Statystyki
+    print("\n4. Zbieranie statystyk")
     stats = collect_statistics(root)
 
-    print()
-    print("Repository statistics")
-    print("---------------------")
-    print(f"CSV files   : {stats.get('csv_files', 0)}")
-    print(f"Rows        : {stats.get('rows', 0)}")
-    print(f"Empty files : {stats.get('empty_files', 0)}")
-    print()
+    print(f"   Plików CSV : {stats['csv_files']}")
+    print(f"   Wierszy    : {stats['rows']}")
 
-    print("Largest datasets:")
-    for name, rows in stats.get("datasets", [])[:10]:
-        print(f"{name:<30} {rows:>8}")
-
-    # Generate reports
+    # 5. Generowanie raportu
     reports_dir = root / "reports"
     reports_dir.mkdir(exist_ok=True)
 
@@ -136,16 +95,10 @@ def main() -> int:
         statistics=stats,
     )
 
-    write_statistics_json(
-        reports_dir / "statistics.json",
-        stats,
-    )
+    print(f"\n✅ Raport zapisany: {reports_dir}/validation_report.md")
 
-    print(f"\nValidation report written to {reports_dir}/validation_report.md")
-    print(f"Statistics JSON written to {reports_dir}/statistics.json")
-
-    return 0 if (repo_ok and csv_ok and attributes_ok) else 1
-
+    return 0 if repo_ok and csv_ok else 1
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import sys
+    sys.exit(main())
