@@ -57,7 +57,6 @@ def main() -> int:
     print("CSV integrity")
 
     csv_ok = True
-    reference_errors = []
 
     for relative in discover_csv_files(root):
         csv_path = root / relative
@@ -70,9 +69,11 @@ def main() -> int:
         if duplicate_errors:
             valid = False
             errors.extend(duplicate_errors)
+
         if empty_errors:
             valid = False
             errors.extend(empty_errors)
+
         if required_errors:
             valid = False
             errors.extend(required_errors)
@@ -85,8 +86,8 @@ def main() -> int:
             for error in errors:
                 print(f"        {error}")
 
-        # Reference validation (moved outside loop)
-        reference_errors.extend(validate_references(root) or [])
+    # Reference validation (run once for the whole repository)
+    reference_errors = validate_references(root) or []
 
     if reference_errors:
         csv_ok = False
@@ -101,6 +102,7 @@ def main() -> int:
     attributes_ok, errors = validate_attributes(
         root / "data/master/attributes.csv"
     )
+
     if attributes_ok:
         print("  PASS")
     else:
@@ -110,6 +112,7 @@ def main() -> int:
 
     # Statistics
     stats = collect_statistics(root)
+
     print()
     print("Repository statistics")
     print("---------------------")
@@ -139,8 +142,9 @@ def main() -> int:
     )
 
     print(f"\nValidation report written to {reports_dir}/validation_report.md")
+    print(f"Statistics JSON written to {reports_dir}/statistics.json")
 
-    return 0 if repo_ok and csv_ok and attributes_ok else 1
+    return 0 if (repo_ok and csv_ok and attributes_ok) else 1
 
 
 if __name__ == "__main__":
