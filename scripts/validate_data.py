@@ -10,6 +10,9 @@ Checks:
 - empty rows
 - consistent number of columns
 - header presence
+- empty column names
+- duplicate column names
+- header whitespace
 - empty IDs
 - duplicate IDs
 
@@ -53,11 +56,32 @@ def validate_csv(path: Path):
 
             expected_columns = len(header)
 
+            seen_columns = set()
             id_index = None
+
             for index, column in enumerate(header):
-                if column.strip().lower() == "id":
+
+                if column != column.strip():
+                    error(
+                        f'{path}: column "{column}" '
+                        "contains leading/trailing whitespace"
+                    )
+
+                normalized = column.strip()
+
+                if not normalized:
+                    error(f"{path}: empty column name")
+                    continue
+
+                lowered = normalized.lower()
+
+                if lowered in seen_columns:
+                    error(f'{path}: duplicate column "{normalized}"')
+                else:
+                    seen_columns.add(lowered)
+
+                if lowered == "id":
                     id_index = index
-                    break
 
             seen_ids = {}
 
