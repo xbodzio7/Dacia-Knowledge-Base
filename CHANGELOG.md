@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 * Unit tests for malformed CSV files and encoding failures.
 * Repository-wide uniqueness validation for `id` and `code` columns.
 * Unit tests for duplicate and missing CSV key values.
+* CLI integration test for the complete validation command.
 
 ### Changed
 
@@ -33,6 +34,11 @@ All notable changes to this project will be documented in this file.
 * The CSV validator no longer accepts legacy Windows-1250 input.
 * Generated validation reports are treated as disposable local and CI artifacts.
 * The attribute-only uniqueness check now covers every master CSV table.
+
+### Fixed
+
+* Restored the executable validation entry point after it was accidentally emptied.
+* Validation CI now detects commands that return success without running the validator.
 
 ### Removed
 
