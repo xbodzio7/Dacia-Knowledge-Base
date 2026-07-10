@@ -1,5 +1,5 @@
 """
-Statistics collection for Dacia Knowledge Base.
+Statistics collection with robust encoding support.
 """
 
 from pathlib import Path
@@ -7,10 +7,23 @@ import csv
 from typing import Any
 
 
+def read_csv_robust(path: Path):
+    """Read CSV with multiple encoding attempts."""
+    encodings = ["utf-8-sig", "utf-8", "windows-1250", "cp1250"]
+    
+    for encoding in encodings:
+        try:
+            with path.open("r", encoding=encoding, newline="") as f:
+                reader = csv.reader(f)
+                rows = list(reader)
+            return rows, encoding
+        except UnicodeDecodeError:
+            continue
+    raise UnicodeDecodeError(f"Failed to read {path} with any encoding")
+
+
 def collect_statistics(root: Path) -> dict[str, Any]:
-    """
-    Collect statistics from all CSV files in the repository.
-    """
+    """Collect statistics from all CSV files."""
     stats: dict[str, Any] = {
         "csv_files": 0,
         "rows": 0,
@@ -23,8 +36,7 @@ def collect_statistics(root: Path) -> dict[str, Any]:
             continue
 
         try:
-            with csv_file.open(encoding="utf-8", newline="") as f:
-                rows = list(csv.reader(f))
+            rows, encoding = read_csv_robust(csv_file)
 
             if rows:
                 header = rows[0]
@@ -44,30 +56,27 @@ def collect_statistics(root: Path) -> dict[str, Any]:
             # Calculate completeness
             filled = 0
             total = 0
-
             for row in data_rows:
                 padded = row + [""] * (len(header) - len(row))
                 for value in padded[: len(header)]:
                     total += 1
-                    if value.strip():
+                    if value and value.strip():
                         filled += 1
 
             completeness = round(100.0 * filled / total, 1) if total > 0 else 100.0
 
-            stats["datasets"].append(
-                {
-                    "name": csv_file.name,
-                    "path": str(csv_file.relative_to(root)),
-                    "rows": row_count,
-                    "columns": len(header),
-                    "completeness": completeness,
-                }
-            )
+            stats["datasets"].append({
+                "name": csv_file.name,
+                "path": str(csv_file.relative_to(root)),
+                "rows": row_count,
+                "columns": len(header),
+                "completeness": completeness,
+                "encoding": encoding
+            })
 
         except Exception as e:
-            print(f"Warning: Could not process {csv_file}: {e}")
+            print(f"Warning: Could not process {csv_file.name}: {e}")
 
-    # Sort by number of rows (descending)
     stats["datasets"].sort(key=lambda x: x["rows"], reverse=True)
 
     return stats
