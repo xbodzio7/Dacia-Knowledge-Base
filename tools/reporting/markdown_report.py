@@ -19,6 +19,8 @@ def write_validation_report(
     uniqueness_errors: Sequence[str] = (),
     references_ok: bool = True,
     reference_errors: Sequence[str] = (),
+    year_ranges_ok: bool = True,
+    year_range_errors: Sequence[str] = (),
 ) -> None:
     """Generate a Markdown validation report."""
 
@@ -29,6 +31,7 @@ def write_validation_report(
         and csv_ok
         and uniqueness_ok
         and references_ok
+        and year_ranges_ok
     )
 
     with output.open(
@@ -62,7 +65,11 @@ def write_validation_report(
         )
         handle.write(
             f"- Cross-file references: "
-            f"**{'PASS' if references_ok else 'FAIL'}**"
+            f"**{'PASS' if references_ok else 'FAIL'}**\n"
+        )
+        handle.write(
+            f"- Year ranges: "
+            f"**{'PASS' if year_ranges_ok else 'FAIL'}**"
             "\n\n"
         )
 
@@ -78,6 +85,14 @@ def write_validation_report(
             handle.write("## Reference errors\n\n")
 
             for error in reference_errors:
+                handle.write(f"- {error}\n")
+
+            handle.write("\n")
+
+        if year_range_errors:
+            handle.write("## Year range errors\n\n")
+
+            for error in year_range_errors:
                 handle.write(f"- {error}\n")
 
             handle.write("\n")

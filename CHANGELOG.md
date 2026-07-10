@@ -20,6 +20,8 @@ All notable changes to this project will be documented in this file.
 * Repository-wide uniqueness validation for `id` and `code` columns.
 * Unit tests for duplicate and missing CSV key values.
 * CLI integration test for the complete validation command.
+* Validation of production and availability year ranges.
+* Unit tests for malformed, missing and reversed year ranges.
 
 ### Changed
 
