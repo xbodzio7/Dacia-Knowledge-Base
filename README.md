@@ -67,7 +67,7 @@ Dostępne komendy:
 
 ### Walidacja
 
-Komenda sprawdza także relacje między tabelami. W sekcji CI lista kontroli powinna obejmować testy jednostkowe oraz walidację referencji.
+Komenda sprawdza strukturę repozytorium, poprawność plików CSV, unikalność atrybutów oraz relacje między tabelami.
 
 ```bash
 python tools/dkb.py validate
@@ -139,10 +139,11 @@ Workflow `.github/workflows/quality.yml` uruchamia kontrolę jakości:
 Kontrola jest wykonywana w Pythonie 3.10 oraz 3.13 i obejmuje:
 
 1. kompilację źródeł Pythona,
-2. kontrolę kodowania CSV,
-3. walidację repozytorium i danych,
-4. próbne zbudowanie bazy SQLite,
-5. kontrolę integralności SQLite i obecności podstawowych tabel.
+2. uruchomienie testów jednostkowych,
+3. kontrolę kodowania CSV,
+4. walidację repozytorium, danych i relacji między tabelami,
+5. próbne zbudowanie bazy SQLite,
+6. kontrolę integralności SQLite i obecności podstawowych tabel.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite oraz raport walidacji jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
 
