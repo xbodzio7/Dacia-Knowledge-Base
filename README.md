@@ -67,6 +67,8 @@ Dostępne komendy:
 
 ### Walidacja
 
+Komenda sprawdza także relacje między tabelami. W sekcji CI lista kontroli powinna obejmować testy jednostkowe oraz walidację referencji.
+
 ```bash
 python tools/dkb.py validate
 ```

@@ -42,7 +42,14 @@ jobs:
         run: python --version
 
       - name: Compile Python sources
-        run: python -m compileall -q tools scripts
+        run: python -m compileall -q tools scripts tests
+
+      - name: Run unit tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_*.py" \
+            -v
 
       - name: Check CSV encoding
         run: python tools/dkb.py normalize
@@ -51,7 +58,9 @@ jobs:
         run: python tools/dkb.py validate
 
       - name: Build SQLite database
-        run: python tools/dkb.py sqlite --output "${RUNNER_TEMP}/dacia_knowledge_base.sqlite"
+        run: |
+          python tools/dkb.py sqlite \
+            --output "${RUNNER_TEMP}/dacia_knowledge_base.sqlite"
 
       - name: Verify SQLite database
         run: |
@@ -60,10 +69,15 @@ jobs:
           import sqlite3
           from pathlib import Path
 
-          database = Path(os.environ["RUNNER_TEMP"]) / "dacia_knowledge_base.sqlite"
+          database = (
+              Path(os.environ["RUNNER_TEMP"])
+              / "dacia_knowledge_base.sqlite"
+          )
 
           if not database.is_file():
-              raise SystemExit(f"SQLite database was not created: {database}")
+              raise SystemExit(
+                  f"SQLite database was not created: {database}"
+              )
 
           required_tables = {
               "attributes",
@@ -73,7 +87,10 @@ jobs:
           }
 
           with sqlite3.connect(database) as connection:
-              integrity = connection.execute("PRAGMA integrity_check").fetchone()[0]
+              integrity = connection.execute(
+                  "PRAGMA integrity_check"
+              ).fetchone()[0]
+
               tables = {
                   row[0]
                   for row in connection.execute(
@@ -86,13 +103,18 @@ jobs:
               }
 
           if integrity != "ok":
-              raise SystemExit(f"SQLite integrity check failed: {integrity}")
+              raise SystemExit(
+                  f"SQLite integrity check failed: {integrity}"
+              )
 
           missing_tables = required_tables - tables
 
           if missing_tables:
               missing = ", ".join(sorted(missing_tables))
-              raise SystemExit(f"SQLite database is missing required tables: {missing}")
+              raise SystemExit(
+                  "SQLite database is missing required tables: "
+                  f"{missing}"
+              )
 
           print(f"SQLite integrity: {integrity}")
           print(f"SQLite tables: {len(tables)}")

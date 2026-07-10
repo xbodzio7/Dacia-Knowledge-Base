@@ -13,6 +13,8 @@ All notable changes to this project will be documented in this file.
 * GitHub Actions workflow for automated data quality checks.
 * Automated SQLite integrity verification on Python 3.10 and 3.13.
 * Temporary CI artifacts containing the generated SQLite database and validation report.
+* Cross-file reference validation for models, engines, gearboxes and lookup tables.
+* Unit tests for CSV reference validation.
 
 ### Changed
 
@@ -22,6 +24,8 @@ All notable changes to this project will be documented in this file.
 * Generated SQLite databases are treated as disposable local artifacts.
 * Project validation is automatically executed for pushes and Pull Requests.
 * Changelog formatting uses standard Markdown syntax.
+* The main validator reports cross-file reference errors.
+* GitHub Actions runs the unit test suite on Python 3.10 and 3.13.
 
 ### Removed
 
