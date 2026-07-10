@@ -73,6 +73,8 @@ Komenda sprawdza strukturę repozytorium, kodowanie UTF-8 i strukturę plików C
 python tools/dkb.py validate
 ```
 
+Walidator zapisuje szczegółowy raport w `reports/validation_report.md`. Jest to generowany artefakt lokalny, ignorowany przez Git i publikowany przez workflow CI.
+
 ### Kontrola kodowania CSV
 
 Tryb kontrolny nie modyfikuje plików:

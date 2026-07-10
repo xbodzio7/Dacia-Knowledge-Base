@@ -29,10 +29,12 @@ All notable changes to this project will be documented in this file.
 * The main validator reports cross-file reference errors.
 * GitHub Actions runs the unit test suite on Python 3.10 and 3.13.
 * The CSV validator no longer accepts legacy Windows-1250 input.
+* Generated validation reports are treated as disposable local and CI artifacts.
 
 ### Removed
 
 * Generated `dacia_knowledge_base.db` from version control.
+* Generated `reports/validation_report.md` from version control.
 
 ### Documentation
 

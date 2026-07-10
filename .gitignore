@@ -37,3 +37,6 @@ data/generated/
 # Local archives and backups
 *.7z
 *.zip
+
+# Generated validation reports
+reports/validation_report.md
