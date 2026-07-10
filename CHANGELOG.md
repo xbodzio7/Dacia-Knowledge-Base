@@ -15,6 +15,8 @@ All notable changes to this project will be documented in this file.
 * Temporary CI artifacts containing the generated SQLite database and validation report.
 * Cross-file reference validation for models, engines, gearboxes and lookup tables.
 * Unit tests for CSV reference validation.
+* Strict UTF-8 CSV structure validation with header and row checks.
+* Unit tests for malformed CSV files and encoding failures.
 
 ### Changed
 
@@ -26,6 +28,7 @@ All notable changes to this project will be documented in this file.
 * Changelog formatting uses standard Markdown syntax.
 * The main validator reports cross-file reference errors.
 * GitHub Actions runs the unit test suite on Python 3.10 and 3.13.
+* The CSV validator no longer accepts legacy Windows-1250 input.
 
 ### Removed
 
