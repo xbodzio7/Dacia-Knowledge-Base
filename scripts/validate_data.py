@@ -10,6 +10,7 @@ Checks:
 - empty rows
 - consistent number of columns
 - header presence
+- empty IDs
 - duplicate IDs
 
 Future versions:
@@ -80,6 +81,7 @@ def validate_csv(path: Path):
                 value = row[id_index].strip()
 
                 if not value:
+                    error(f"{path}:{line_no}: empty id")
                     continue
 
                 if value in seen_ids:
