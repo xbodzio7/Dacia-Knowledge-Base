@@ -16,13 +16,14 @@ Projekt gromadzi ustrukturyzowane dane dotyczące modeli, wersji wyposażenia, s
 ## Struktura repozytorium
 
 ```text
-data/              Znormalizowane dane CSV
-tools/             Walidatory, raporty, wyszukiwanie i eksport
-reports/           Raporty generowane automatycznie
-project/           Dokumentacja projektu i aktualny stan prac
-tests/             Testy automatyczne
-PDF/               Materiały źródłowe w formacie PDF
-Archiwum/           Materiały historyczne
+.github/workflows/  Automatyczna kontrola jakości
+data/               Znormalizowane dane CSV
+tools/              Walidatory, raporty, wyszukiwanie i eksport
+reports/            Raporty generowane automatycznie
+project/            Dokumentacja projektu i aktualny stan prac
+tests/              Testy automatyczne
+PDF/                Materiały źródłowe w formacie PDF
+Archiwum/            Materiały historyczne
 ```
 
 Dodatkowe katalogi modelowe i źródłowe przechowują materiały robocze związane z konkretnymi samochodami.
@@ -125,6 +126,24 @@ python tools/dkb.py catalog
 python tools/dkb.py dictionary
 ```
 
+## Automatyczna kontrola jakości
+
+Workflow `.github/workflows/quality.yml` uruchamia kontrolę jakości:
+
+* po pushu do `main` i gałęzi `dev/**`,
+* dla każdego Pull Requestu,
+* ręcznie przez `workflow_dispatch`.
+
+Kontrola jest wykonywana w Pythonie 3.10 oraz 3.13 i obejmuje:
+
+1. kompilację źródeł Pythona,
+2. kontrolę kodowania CSV,
+3. walidację repozytorium i danych,
+4. próbne zbudowanie bazy SQLite,
+5. kontrolę integralności SQLite i obecności podstawowych tabel.
+
+Dla Pythona 3.13 workflow zapisuje bazę SQLite oraz raport walidacji jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
+
 ## Zasady projektu
 
 * repozytorium GitHub jest jedynym źródłem prawdy,
@@ -132,7 +151,8 @@ python tools/dkb.py dictionary
 * artefakty generowane nie zastępują danych źródłowych,
 * dokumentacja pozostaje zsynchronizowana z kodem i danymi,
 * zmiany wykonywane są w małych, logicznych pakietach,
-* nowa funkcjonalność jest weryfikowana przed utworzeniem commita.
+* nowa funkcjonalność jest weryfikowana przed utworzeniem commita,
+* kontrola jakości musi przejść przed połączeniem zmian z główną gałęzią.
 
 ## Status projektu
 
@@ -145,6 +165,7 @@ Aktualny etap obejmuje:
 * raportowanie jakości oraz kompletności danych,
 * wyszukiwanie informacji,
 * generowanie lokalnej bazy SQLite,
+* automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
 ## Development workflow
@@ -156,6 +177,7 @@ Każdy sprint:
 * rozpoczyna się analizą aktualnego stanu gałęzi,
 * obejmuje jeden spójny zakres zmian,
 * dostarcza kompletne pliki,
-* obejmuje weryfikację działania,
+* obejmuje lokalną weryfikację działania,
 * aktualizuje dokumentację, gdy zmiana wpływa na sposób używania projektu,
-* kończy się jednym logicznym commitem.
+* kończy się jednym logicznym commitem,
+* po pushu jest automatycznie sprawdzany przez GitHub Actions.

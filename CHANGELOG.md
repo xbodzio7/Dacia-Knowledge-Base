@@ -1,55 +1,34 @@
-\# Changelog
-
-
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
 
+### Added
 
-\## Unreleased
+* Reproducible and atomic SQLite database builder.
+* Optional SQLite output path through `--output`.
+* CSV encoding inspection and Windows-1250 to UTF-8 normalization tool.
+* Unified CLI commands for SQLite builds and encoding normalization.
+* GitHub Actions workflow for automated data quality checks.
+* Automated SQLite integrity verification on Python 3.10 and 3.13.
+* Temporary CI artifacts containing the generated SQLite database and validation report.
 
+### Changed
 
+* The unified CLI now propagates command exit codes.
+* All project CSV files are stored as valid UTF-8.
+* Command usage documentation reflects the current tooling.
+* Generated SQLite databases are treated as disposable local artifacts.
+* Project validation is automatically executed for pushes and Pull Requests.
+* Changelog formatting uses standard Markdown syntax.
 
-\### Added
+### Removed
 
+* Generated `dacia_knowledge_base.db` from version control.
 
+### Documentation
 
-\* Reproducible and atomic SQLite database builder.
-
-\* Optional SQLite output path through `--output`.
-
-\* CSV encoding inspection and Windows-1250 to UTF-8 normalization tool.
-
-\* Unified CLI commands for SQLite builds and encoding normalization.
-
-
-
-\### Changed
-
-
-
-\* The unified CLI now propagates command exit codes.
-
-\* All project CSV files are stored as valid UTF-8.
-
-\* Command usage documentation reflects the current tooling.
-
-\* Generated SQLite databases are treated as disposable local artifacts.
-
-
-
-\### Removed
-
-
-
-\* Generated `dacia\_knowledge\_base.db` from version control.
-
-
-
-\### Documentation
-
-
-
-\* Standardized AI-assisted development workflow.
-
-\* Documented validation, normalization, SQLite export, search and reporting commands.
+* Standardized AI-assisted development workflow.
+* Documented validation, normalization, SQLite export, search and reporting commands.
+* Documented the automated GitHub Actions quality workflow.
