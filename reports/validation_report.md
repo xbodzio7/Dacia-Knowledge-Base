@@ -1,6 +1,6 @@
 # DKB Validation Report
 
-**Generated:** 2026-07-09 23:36:48
+**Generated:** 2026-07-10 15:40:44
 
 ## Status
 
@@ -10,12 +10,12 @@
 ## Statistics
 
 - CSV files: 19
-- Total rows: 497
+- Total rows: 495
 - Empty files: 0
 
 ## Largest datasets
 
-- `attributes.csv` — 324 rows (8 cols, 91.2% filled)
+- `attributes.csv` — 322 rows (8 cols, 91.5% filled)
 - `model_engines.csv` — 30 rows (7 cols, 79.0% filled)
 - `models.csv` — 19 rows (10 cols, 86.3% filled)
 - `model_gearboxes.csv` — 15 rows (6 cols, 73.3% filled)
