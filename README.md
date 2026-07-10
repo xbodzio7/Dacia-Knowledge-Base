@@ -2,74 +2,150 @@
 
 Dacia Knowledge Base (DKB) to referencyjna baza wiedzy o samochodach marki Dacia.
 
-Projekt gromadzi ustrukturyzowane dane dotyczące modeli, wersji wyposażenia, silników, skrzyń biegów, wyposażenia opcjonalnego, danych technicznych oraz źródeł informacji.
+Projekt gromadzi ustrukturyzowane dane dotyczące modeli, wersji wyposażenia, silników, skrzyń biegów, wyposażenia, danych technicznych oraz źródeł informacji.
 
 ## Cele projektu
 
-- jedno źródło prawdy dla danych o samochodach Dacia,
-- normalizacja danych w postaci prostych plików CSV,
-- możliwość walidacji i automatycznego importu danych,
-- łatwe generowanie raportów,
-- możliwość eksportu do innych systemów.
+* jedno źródło prawdy dla danych o samochodach Dacia,
+* normalizacja danych w czytelnych plikach CSV,
+* automatyczna walidacja jakości i spójności danych,
+* generowanie raportów i katalogów danych,
+* eksport danych do SQLite i innych systemów,
+* wygodne wyszukiwanie informacji w repozytorium.
 
 ## Struktura repozytorium
 
+```text
+data/              Znormalizowane dane CSV
+tools/             Walidatory, raporty, wyszukiwanie i eksport
+reports/           Raporty generowane automatycznie
+project/           Dokumentacja projektu i aktualny stan prac
+tests/             Testy automatyczne
+PDF/               Materiały źródłowe w formacie PDF
+Archiwum/           Materiały historyczne
 ```
-Archiwum/          Materiały historyczne
-Bigster/           Dane dotyczące modelu Bigster
-Dane/              Dane źródłowe
-Import/            Dane do importu
-Raporty/           Raporty generowane automatycznie
-Skrypty/           Narzędzia pomocnicze
-project/           Dokumentacja projektu
-```
+
+Dodatkowe katalogi modelowe i źródłowe przechowują materiały robocze związane z konkretnymi samochodami.
 
 ## Główne zbiory danych
 
-Docelowo repozytorium będzie zawierało między innymi:
+Repozytorium zawiera między innymi:
 
-- categories.csv
-- models.csv
-- versions.csv
-- engines.csv
-- gearboxes.csv
-- attributes.csv
-- attribute_values.csv
-- packages.csv
-- options.csv
-- sources.csv
+* `categories.csv`,
+* `models.csv`,
+* `engines.csv`,
+* `gearboxes.csv`,
+* `model_engines.csv`,
+* `model_gearboxes.csv`,
+* `attributes.csv`,
+* `body_types.csv`,
+* `segments.csv`,
+* słowniki wartości wyliczeniowych w `data/master/enums/`.
 
-## Zasady
+Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
-- repozytorium jest jedynym źródłem prawdy,
-- dane przechowywane są w postaci czytelnych plików CSV,
-- dokumentacja opisuje strukturę danych i proces ich utrzymania,
-- zmiany wykonywane są w małych, logicznych pakietach.
+## Narzędzia
+
+Głównym punktem wejścia jest:
+
+```bash
+python tools/dkb.py help
+```
+
+Dostępne komendy:
+
+| Komenda      | Zastosowanie                              |
+| ------------ | ----------------------------------------- |
+| `validate`   | Walidacja struktury repozytorium i danych |
+| `normalize`  | Kontrola kodowania plików CSV             |
+| `sqlite`     | Budowanie lokalnej bazy SQLite            |
+| `search`     | Wyszukiwanie danych w plikach CSV         |
+| `stats`      | Statystyki zbiorów danych                 |
+| `catalog`    | Generowanie katalogu encji                |
+| `dictionary` | Generowanie słownika danych               |
+
+### Walidacja
+
+```bash
+python tools/dkb.py validate
+```
+
+### Kontrola kodowania CSV
+
+Tryb kontrolny nie modyfikuje plików:
+
+```bash
+python tools/dkb.py normalize
+```
+
+Konwersja wykrytych plików Windows-1250 do UTF-8:
+
+```bash
+python tools/dkb.py normalize --apply
+```
+
+### Eksport SQLite
+
+Domyślna baza lokalna:
+
+```bash
+python tools/dkb.py sqlite
+```
+
+Własna ścieżka wyjściowa:
+
+```bash
+python tools/dkb.py sqlite --output reports/dkb.sqlite
+```
+
+Wygenerowana baza jest artefaktem lokalnym i nie jest śledzona przez Git.
+
+### Wyszukiwanie
+
+```bash
+python tools/dkb.py search Duster
+```
+
+Wyszukiwanie w konkretnym polu:
+
+```bash
+python tools/dkb.py search Duster --field name
+```
+
+Eksport wyników do CSV:
+
+```bash
+python tools/dkb.py search Duster --export reports/duster_search.csv
+```
+
+### Raporty
+
+```bash
+python tools/dkb.py catalog
+python tools/dkb.py dictionary
+```
+
+## Zasady projektu
+
+* repozytorium GitHub jest jedynym źródłem prawdy,
+* dane źródłowe przechowywane są w plikach CSV zapisanych w UTF-8,
+* artefakty generowane nie zastępują danych źródłowych,
+* dokumentacja pozostaje zsynchronizowana z kodem i danymi,
+* zmiany wykonywane są w małych, logicznych pakietach,
+* nowa funkcjonalność jest weryfikowana przed utworzeniem commita.
 
 ## Status projektu
 
-Architektura projektu została zakończona.
+Architektura repozytorium jest stabilna.
 
-Obecny etap prac obejmuje rozwój danych, przygotowanie plików CSV, walidację oraz narzędzia wspomagające import danych.
+Aktualny etap obejmuje:
 
--------------------------------------------------------------------------------------------------------------------------
-
-## Data validation
-
-Run:
-
-```bash
-python scripts/validate_data.py
-```
-
-Current validation:
-
-- UTF-8 encoding
-- header presence
-- empty rows
-- consistent column count
-
---------------------------------------------------------------------------------------------------------------------------
+* rozwój i uzupełnianie danych,
+* walidację struktury i relacji,
+* raportowanie jakości oraz kompletności danych,
+* wyszukiwanie informacji,
+* generowanie lokalnej bazy SQLite,
+* rozwój spójnego interfejsu narzędziowego.
 
 ## Development workflow
 
@@ -77,8 +153,9 @@ Projekt rozwijany jest iteracyjnie.
 
 Każdy sprint:
 
-- rozpoczyna się analizą aktualnego repozytorium,
-- obejmuje jeden spójny zakres zmian,
-- kończy się kompletnymi plikami gotowymi do zapisania,
-- zawiera propozycję commita Git,
-- aktualizuje dokumentację, jeśli zmiana wpływa na projekt.
+* rozpoczyna się analizą aktualnego stanu gałęzi,
+* obejmuje jeden spójny zakres zmian,
+* dostarcza kompletne pliki,
+* obejmuje weryfikację działania,
+* aktualizuje dokumentację, gdy zmiana wpływa na sposób używania projektu,
+* kończy się jednym logicznym commitem.
