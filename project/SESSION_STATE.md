@@ -56,6 +56,20 @@ AI:
 
 
 
+Każdy sprint kończy się:
+
+
+
+\- kompletnymi plikami gotowymi do zapisania,
+
+\- aktualizacją dokumentacji (jeżeli jest wymagana),
+
+\- przygotowaniem poleceń Git Bash,
+
+\- wskazaniem następnego logicznego sprintu.
+
+
+
 \---
 
 

@@ -68,3 +68,17 @@ Current validation:
 - header presence
 - empty rows
 - consistent column count
+
+--------------------------------------------------------------------------------------------------------------------------
+
+## Development workflow
+
+Projekt rozwijany jest iteracyjnie.
+
+Każdy sprint:
+
+- rozpoczyna się analizą aktualnego repozytorium,
+- obejmuje jeden spójny zakres zmian,
+- kończy się kompletnymi plikami gotowymi do zapisania,
+- zawiera propozycję commita Git,
+- aktualizuje dokumentację, jeśli zmiana wpływa na projekt.

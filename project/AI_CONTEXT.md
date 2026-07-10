@@ -39,6 +39,17 @@ W przypadku rozbieżności zawsze obowiązuje zawartość repozytorium.
 6\. Jeżeli coś działa poprawnie – pozostaw bez zmian.
 
 7\. Jeżeli podczas dalszego audytu okaże się, że wcześniejsza rekomendacja była błędna lub nieoptymalna, popraw ją.
+8. Jeden sprint odpowiada jednemu commitowi.
+
+9\. W ramach jednego sprintu każdy plik powinien być modyfikowany tylko raz.
+
+10\. Generuj kompletne pliki, a nie fragmenty.
+
+11\. Commit jest przygotowywany dopiero po zakończeniu wszystkich zmian.
+
+12\. Jeżeli zmiana wpływa na dokumentację, zaktualizuj ją w tym samym sprincie.
+
+13\. Przed rozpoczęciem każdego sprintu przeanalizuj aktualny stan repozytorium.
 
 
 
@@ -309,6 +320,4 @@ Rules:
 \- Never replace an existing file without first analysing its current contents.
 
 \- Never remove existing project knowledge unless it is obsolete or duplicated.
-
-
 
