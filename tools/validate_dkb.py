@@ -14,6 +14,7 @@ from validators.csv_validator import validate_csv
 from validators.references import REFERENCE_RULES, validate_references
 from validators.repository import discover_csv_files, validate_repository
 from validators.uniqueness import validate_unique_keys
+from validators.statuses import STATUS_RULES, validate_statuses
 from validators.year_ranges import (
     YEAR_RANGE_RULES,
     validate_year_ranges,
@@ -26,7 +27,7 @@ def repository_root() -> Path:
 
 def print_header(root: Path) -> None:
     print("=" * 70)
-    print("DKB Validator v0.5")
+    print("DKB Validator v0.6")
     print("=" * 70)
     print(f"Repository : {root}")
     print(f"Python     : {platform.python_version()}")
@@ -116,13 +117,32 @@ def main() -> int:
         for error in year_range_errors:
             print(f"      • {error}")
 
-    print("\n6. Zbieranie statystyk")
+    print("\n6. Walidacja statusów i cyklu życia")
+    checked_status_records, status_errors = validate_statuses(root)
+    statuses_ok = not status_errors
+
+    if statuses_ok:
+        print(
+            "   ✅ OK "
+            f"({checked_status_records} rekordów, "
+            f"{len(STATUS_RULES)} reguł)"
+        )
+    else:
+        print(
+            "   ❌ Wykryto "
+            f"{len(status_errors)} problemów:"
+        )
+
+        for error in status_errors:
+            print(f"      • {error}")
+
+    print("\n7. Zbieranie statystyk")
     statistics = collect_statistics(root)
 
     print(f"   Plików CSV : {statistics['csv_files']}")
     print(f"   Wierszy    : {statistics['rows']}")
 
-    print("\n7. Generowanie raportu")
+    print("\n8. Generowanie raportu")
     reports_dir = root / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     report_path = reports_dir / "validation_report.md"
@@ -137,6 +157,8 @@ def main() -> int:
         reference_errors=reference_errors,
         year_ranges_ok=year_ranges_ok,
         year_range_errors=year_range_errors,
+        statuses_ok=statuses_ok,
+        status_errors=status_errors,
         statistics=statistics,
     )
 
@@ -148,6 +170,7 @@ def main() -> int:
         and uniqueness_ok
         and references_ok
         and year_ranges_ok
+        and statuses_ok
     )
 
     return 0 if validation_ok else 1

@@ -41,14 +41,15 @@ class ValidateCliIntegrationTests(unittest.TestCase):
         )
 
         expected_fragments = (
-            "DKB Validator v0.5",
+            "DKB Validator v0.6",
             "1. Sprawdzanie struktury repozytorium",
             "2. Walidacja plików CSV",
             "3. Walidacja unikalności kluczy",
             "4. Walidacja relacji między tabelami",
             "5. Walidacja zakresów lat",
-            "6. Zbieranie statystyk",
-            "7. Generowanie raportu",
+            "6. Walidacja statusów i cyklu życia",
+            "7. Zbieranie statystyk",
+            "8. Generowanie raportu",
             "13 relacji",
         )
 
@@ -88,6 +89,10 @@ class ValidateCliIntegrationTests(unittest.TestCase):
         )
         self.assertIn(
             "- Year ranges: **PASS**",
+            report,
+        )
+        self.assertIn(
+            "- Lifecycle statuses: **PASS**",
             report,
         )
 

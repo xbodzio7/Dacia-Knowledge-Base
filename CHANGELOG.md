@@ -22,6 +22,8 @@ All notable changes to this project will be documented in this file.
 * CLI integration test for the complete validation command.
 * Validation of production and availability year ranges.
 * Unit tests for malformed, missing and reversed year ranges.
+* Validation of status vocabularies and lifecycle consistency.
+* Unit tests for invalid statuses and lifecycle mismatches.
 
 ### Changed
 
