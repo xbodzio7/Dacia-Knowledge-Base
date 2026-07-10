@@ -67,7 +67,7 @@ Dostępne komendy:
 
 ### Walidacja
 
-Komenda sprawdza strukturę repozytorium, kodowanie UTF-8 i strukturę plików CSV, unikalność atrybutów oraz relacje między tabelami.
+Komenda sprawdza strukturę repozytorium, kodowanie UTF-8 i strukturę plików CSV, unikalność kluczy `id` i `code` we wszystkich tabelach oraz relacje między tabelami.
 
 ```bash
 python tools/dkb.py validate

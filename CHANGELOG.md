@@ -17,6 +17,8 @@ All notable changes to this project will be documented in this file.
 * Unit tests for CSV reference validation.
 * Strict UTF-8 CSV structure validation with header and row checks.
 * Unit tests for malformed CSV files and encoding failures.
+* Repository-wide uniqueness validation for `id` and `code` columns.
+* Unit tests for duplicate and missing CSV key values.
 
 ### Changed
 
@@ -30,6 +32,7 @@ All notable changes to this project will be documented in this file.
 * GitHub Actions runs the unit test suite on Python 3.10 and 3.13.
 * The CSV validator no longer accepts legacy Windows-1250 input.
 * Generated validation reports are treated as disposable local and CI artifacts.
+* The attribute-only uniqueness check now covers every master CSV table.
 
 ### Removed
 
