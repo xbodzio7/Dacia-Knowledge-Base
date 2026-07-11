@@ -1,9 +1,9 @@
 field,rule,severity,message
 id,unique,error,Attribute ID must be unique
-key,unique,error,Attribute key must be unique
+code,unique,error,Attribute code must be unique
 category,exists(domains.csv.subdomain),error,Category must exist in domains dictionary
-type,exists(value_types.csv.code),error,Value type must exist in value types dictionary
+data_type,exists(value_types.csv.code),error,Data type must exist in value types dictionary
 unit,exists(units.csv.symbol),warning,Unit should exist in units dictionary
-display_name,not_empty,error,Display name cannot be empty
+name,not_empty,error,Attribute name cannot be empty
 description,not_empty,warning,Description should not be empty
 status,in(active|deprecated|draft),error,Invalid status value
