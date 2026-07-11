@@ -24,6 +24,8 @@ All notable changes to this project will be documented in this file.
 * Unit tests for malformed, missing and reversed year ranges.
 * Validation of status vocabularies and lifecycle consistency.
 * Unit tests for invalid statuses and lifecycle mismatches.
+* Validation of association availability against parent lifetimes.
+* Unit tests for association ranges outside parent lifetimes.
 
 ### Changed
 

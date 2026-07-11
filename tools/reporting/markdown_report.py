@@ -23,6 +23,8 @@ def write_validation_report(
     year_range_errors: Sequence[str] = (),
     statuses_ok: bool = True,
     status_errors: Sequence[str] = (),
+    association_ranges_ok: bool = True,
+    association_range_errors: Sequence[str] = (),
 ) -> None:
     """Generate a Markdown validation report."""
 
@@ -35,6 +37,7 @@ def write_validation_report(
         and references_ok
         and year_ranges_ok
         and statuses_ok
+        and association_ranges_ok
     )
 
     with output.open(
@@ -76,7 +79,11 @@ def write_validation_report(
         )
         handle.write(
             f"- Lifecycle statuses: "
-            f"**{'PASS' if statuses_ok else 'FAIL'}**"
+            f"**{'PASS' if statuses_ok else 'FAIL'}**\n"
+        )
+        handle.write(
+            f"- Association ranges: "
+            f"**{'PASS' if association_ranges_ok else 'FAIL'}**"
             "\n\n"
         )
 
@@ -108,6 +115,14 @@ def write_validation_report(
             handle.write("## Status errors\n\n")
 
             for error in status_errors:
+                handle.write(f"- {error}\n")
+
+            handle.write("\n")
+
+        if association_range_errors:
+            handle.write("## Association range errors\n\n")
+
+            for error in association_range_errors:
                 handle.write(f"- {error}\n")
 
             handle.write("\n")
