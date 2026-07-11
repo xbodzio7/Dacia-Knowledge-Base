@@ -163,6 +163,45 @@ class StatisticsTests(unittest.TestCase):
         )
         self.assertEqual(encoding, "utf-8-sig")
 
+    def test_ignores_csv_files_outside_master_data(
+        self,
+    ) -> None:
+        self.write_csv(
+            "data/master/enums/fuels.csv",
+            ["id", "name"],
+            [["1", "Petrol"]],
+        )
+        self.write_csv(
+            "data/generated/cache.csv",
+            ["id"],
+            [
+                ["1"],
+                ["2"],
+            ],
+        )
+        self.write_csv(
+            "reports/search_export.csv",
+            ["id"],
+            [
+                ["1"],
+                ["2"],
+                ["3"],
+            ],
+        )
+
+        stats = collect_statistics(self.root)
+
+        self.assertEqual(stats["csv_files"], 1)
+        self.assertEqual(stats["rows"], 1)
+        self.assertEqual(
+            stats["datasets"][0]["path"],
+            str(
+                Path(
+                    "data/master/enums/fuels.csv"
+                )
+            ),
+        )
+
     def test_ignores_git_directory(
         self,
     ) -> None:

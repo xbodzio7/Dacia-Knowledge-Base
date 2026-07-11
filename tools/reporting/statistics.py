@@ -23,7 +23,9 @@ def read_csv_robust(path: Path):
 
 
 def collect_statistics(root: Path) -> dict[str, Any]:
-    """Collect statistics from all CSV files."""
+    """Collect statistics from master CSV files."""
+    master_dir = root / "data" / "master"
+
     stats: dict[str, Any] = {
         "csv_files": 0,
         "rows": 0,
@@ -31,10 +33,9 @@ def collect_statistics(root: Path) -> dict[str, Any]:
         "datasets": [],
     }
 
-    for csv_file in sorted(root.rglob("*.csv")):
-        if ".git" in csv_file.parts:
-            continue
-
+    for csv_file in sorted(
+        master_dir.rglob("*.csv")
+    ):
         try:
             rows, encoding = read_csv_robust(csv_file)
 
