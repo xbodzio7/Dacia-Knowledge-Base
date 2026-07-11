@@ -21,6 +21,7 @@ from validators.association_ranges import (
 from validators.csv_validator import validate_csv
 from validators.references import REFERENCE_RULES, validate_references
 from validators.rule_contracts import validate_rule_contracts
+from validators.rule_execution import execute_data_rules
 from validators.repository import discover_csv_files, validate_repository
 from validators.uniqueness import validate_unique_keys
 from validators.statuses import STATUS_RULES, validate_statuses
@@ -36,7 +37,7 @@ def repository_root() -> Path:
 
 def print_header(root: Path) -> None:
     print("=" * 70)
-    print("DKB Validator v0.9")
+    print("DKB Validator v0.10")
     print("=" * 70)
     print(f"Repository : {root}")
     print(f"Python     : {platform.python_version()}")
@@ -207,13 +208,64 @@ def main() -> int:
         for error in rule_contract_errors:
             print(f"      • {error}")
 
-    print("\n10. Zbieranie statystyk")
+    print("\n10. Wykonywanie reguł danych")
+
+    if rule_contracts_ok:
+        (
+            checked_data_rules,
+            checked_data_records,
+            data_rule_errors,
+            data_rule_warnings,
+        ) = execute_data_rules(root)
+    else:
+        checked_data_rules = 0
+        checked_data_records = 0
+        data_rule_errors = [
+            "Rule execution skipped because "
+            "the rule contract is invalid."
+        ]
+        data_rule_warnings = []
+
+    data_rules_ok = not data_rule_errors
+
+    if data_rule_errors:
+        print(
+            "   ❌ Wykryto "
+            f"{len(data_rule_errors)} błędów i "
+            f"{len(data_rule_warnings)} ostrzeżeń:"
+        )
+
+        for error in data_rule_errors:
+            print(f"      • {error}")
+
+        for warning in data_rule_warnings:
+            print(f"      ⚠ {warning}")
+
+    elif data_rule_warnings:
+        print(
+            "   ⚠️ OK "
+            f"({checked_data_rules} reguł, "
+            f"{checked_data_records} rekordów, "
+            f"{len(data_rule_warnings)} ostrzeżeń)"
+        )
+
+        for warning in data_rule_warnings:
+            print(f"      ⚠ {warning}")
+
+    else:
+        print(
+            "   ✅ OK "
+            f"({checked_data_rules} reguł, "
+            f"{checked_data_records} rekordów)"
+        )
+
+    print("\n11. Zbieranie statystyk")
     statistics = collect_statistics(root)
 
     print(f"   Plików CSV : {statistics['csv_files']}")
     print(f"   Wierszy    : {statistics['rows']}")
 
-    print("\n11. Generowanie raportu")
+    print("\n12. Generowanie raportu")
     reports_dir = root / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     report_path = reports_dir / "validation_report.md"
@@ -236,6 +288,9 @@ def main() -> int:
         association_interval_errors=association_interval_errors,
         rule_contracts_ok=rule_contracts_ok,
         rule_contract_errors=rule_contract_errors,
+        data_rules_ok=data_rules_ok,
+        data_rule_errors=data_rule_errors,
+        data_rule_warnings=data_rule_warnings,
         statistics=statistics,
     )
 
@@ -251,6 +306,7 @@ def main() -> int:
         and association_ranges_ok
         and association_intervals_ok
         and rule_contracts_ok
+        and data_rules_ok
     )
 
     return 0 if validation_ok else 1

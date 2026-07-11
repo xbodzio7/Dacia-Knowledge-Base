@@ -29,6 +29,9 @@ def write_validation_report(
     association_interval_errors: Sequence[str] = (),
     rule_contracts_ok: bool = True,
     rule_contract_errors: Sequence[str] = (),
+    data_rules_ok: bool = True,
+    data_rule_errors: Sequence[str] = (),
+    data_rule_warnings: Sequence[str] = (),
 ) -> None:
     """Generate a Markdown validation report."""
 
@@ -44,6 +47,15 @@ def write_validation_report(
         and association_ranges_ok
         and association_intervals_ok
         and rule_contracts_ok
+        and data_rules_ok
+    )
+
+    data_rule_status = (
+        "FAIL"
+        if not data_rules_ok
+        else "WARN"
+        if data_rule_warnings
+        else "PASS"
     )
 
     with output.open(
@@ -97,7 +109,11 @@ def write_validation_report(
         )
         handle.write(
             f"- Validation rule contracts: "
-            f"**{'PASS' if rule_contracts_ok else 'FAIL'}**"
+            f"**{'PASS' if rule_contracts_ok else 'FAIL'}**\n"
+        )
+        handle.write(
+            f"- Data rule execution: "
+            f"**{data_rule_status}**"
             "\n\n"
         )
 
@@ -154,6 +170,22 @@ def write_validation_report(
 
             for error in rule_contract_errors:
                 handle.write(f"- {error}\n")
+
+            handle.write("\n")
+
+        if data_rule_errors:
+            handle.write("## Data rule errors\n\n")
+
+            for error in data_rule_errors:
+                handle.write(f"- {error}\n")
+
+            handle.write("\n")
+
+        if data_rule_warnings:
+            handle.write("## Data rule warnings\n\n")
+
+            for warning in data_rule_warnings:
+                handle.write(f"- {warning}\n")
 
             handle.write("\n")
 

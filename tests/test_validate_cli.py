@@ -41,7 +41,7 @@ class ValidateCliIntegrationTests(unittest.TestCase):
         )
 
         expected_fragments = (
-            "DKB Validator v0.9",
+            "DKB Validator v0.10",
             "1. Sprawdzanie struktury repozytorium",
             "2. Walidacja plików CSV",
             "3. Walidacja unikalności kluczy",
@@ -51,8 +51,9 @@ class ValidateCliIntegrationTests(unittest.TestCase):
             "7. Walidacja okresów dostępności powiązań",
             "8. Walidacja nakładających się okresów powiązań",
             "9. Walidacja kontraktu reguł danych",
-            "10. Zbieranie statystyk",
-            "11. Generowanie raportu",
+            "10. Wykonywanie reguł danych",
+            "11. Zbieranie statystyk",
+            "12. Generowanie raportu",
             "14 relacji",
         )
 
@@ -108,6 +109,10 @@ class ValidateCliIntegrationTests(unittest.TestCase):
         )
         self.assertIn(
             "- Validation rule contracts: **PASS**",
+            report,
+        )
+        self.assertIn(
+            "- Data rule execution: **PASS**",
             report,
         )
 

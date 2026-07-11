@@ -32,6 +32,8 @@ All notable changes to this project will be documented in this file.
 * Unit tests for invalid rule fields, syntax, severity and targets.
 * Dedicated dictionary for technical attribute categories.
 * Cross-file validation of attribute category references.
+* Execution of declarative validation rules against attributes.
+* Separate reporting of data-rule errors and warnings.
 
 ### Changed
 
