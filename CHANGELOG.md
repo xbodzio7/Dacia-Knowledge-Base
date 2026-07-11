@@ -36,6 +36,7 @@ All notable changes to this project will be documented in this file.
 * Separate reporting of data-rule errors and warnings.
 * SQLite parity verification for tables and row counts.
 * Unified `sqlite-verify` CLI command.
+* Full SQLite schema and row-content comparison with source CSV files.
 
 ### Changed
 

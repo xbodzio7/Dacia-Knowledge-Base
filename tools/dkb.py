@@ -32,7 +32,7 @@ SCRIPT_COMMANDS = {
     ),
     "sqlite-verify": (
         "verify_sqlite.py",
-        "Verify SQLite tables and row counts against master CSV files.",
+        "Verify SQLite schema and data against master CSV files.",
         "<database>",
     ),
     "stats": (

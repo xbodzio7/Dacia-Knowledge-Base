@@ -143,6 +143,51 @@ class SqliteVerificationTests(unittest.TestCase):
                 database,
             )
 
+    def test_reports_schema_mismatch(self) -> None:
+        database = self.create_valid_database()
+
+        with closing(
+            sqlite3.connect(database)
+        ) as connection:
+            connection.execute(
+                "ALTER TABLE models "
+                "ADD COLUMN unexpected TEXT"
+            )
+            connection.commit()
+
+        with self.assertRaisesRegex(
+            VerificationError,
+            "schema mismatch",
+        ):
+            verify_sqlite_db(
+                self.root,
+                database,
+            )
+
+    def test_reports_data_mismatch_with_same_count(
+        self,
+    ) -> None:
+        database = self.create_valid_database()
+
+        with closing(
+            sqlite3.connect(database)
+        ) as connection:
+            connection.execute(
+                "UPDATE models "
+                "SET code = 'logan' "
+                "WHERE id = '2'"
+            )
+            connection.commit()
+
+        with self.assertRaisesRegex(
+            VerificationError,
+            "data mismatch",
+        ):
+            verify_sqlite_db(
+                self.root,
+                database,
+            )
+
     def test_reports_invalid_database_file(self) -> None:
         self.write_csv(
             "models.csv",

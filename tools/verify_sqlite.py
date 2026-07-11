@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Verify parity between DKB master CSV files and SQLite.
+Verify schema and data parity between DKB master CSV files and SQLite.
 """
 
 from __future__ import annotations
 
 import argparse
 import sqlite3
+from collections import Counter
 from contextlib import closing
 import sys
 from pathlib import Path
@@ -68,7 +69,7 @@ def verify_sqlite_db(
     database: Path,
 ) -> tuple[int, int]:
     """
-    Verify table and row-count parity with master CSV files.
+    Verify table, schema and data parity with master CSV files.
 
     Return the number of tables and total CSV rows verified.
     """
@@ -148,26 +149,73 @@ def verify_sqlite_db(
                 csv_file = expected_tables[key]
                 table_name = actual_tables[key]
 
-                _, csv_rows = read_csv(csv_file)
+                csv_headers, csv_rows = read_csv(csv_file)
                 csv_count = len(csv_rows)
                 total_rows += csv_count
 
-                sqlite_row = connection.execute(
-                    "SELECT COUNT(*) FROM "
-                    f"{quote_identifier(table_name)}"
-                ).fetchone()
-
-                sqlite_count = (
-                    int(sqlite_row[0])
-                    if sqlite_row is not None
-                    else 0
+                sqlite_schema = [
+                    (str(row[1]), str(row[2]).upper())
+                    for row in connection.execute(
+                        "PRAGMA table_info("
+                        f"{quote_identifier(table_name)})"
+                    )
+                ]
+                expected_schema = [
+                    (header, "TEXT")
+                    for header in csv_headers
+                ]
+                schema_matches = (
+                    sqlite_schema == expected_schema
                 )
+
+                if not schema_matches:
+                    problems.append(
+                        f"table '{table_name}' schema mismatch: "
+                        f"CSV={expected_schema}, "
+                        f"SQLite={sqlite_schema}"
+                    )
+
+                sqlite_rows = [
+                    tuple(row)
+                    for row in connection.execute(
+                        "SELECT * FROM "
+                        f"{quote_identifier(table_name)}"
+                    )
+                ]
+                sqlite_count = len(sqlite_rows)
 
                 if sqlite_count != csv_count:
                     problems.append(
                         f"table '{table_name}' row count mismatch: "
                         f"CSV={csv_count}, SQLite={sqlite_count}"
                     )
+                elif schema_matches:
+                    expected_rows = Counter(
+                        tuple(row)
+                        for row in csv_rows
+                    )
+                    actual_rows = Counter(sqlite_rows)
+
+                    if expected_rows != actual_rows:
+                        missing_rows = sum(
+                            (
+                                expected_rows
+                                - actual_rows
+                            ).values()
+                        )
+                        unexpected_rows = sum(
+                            (
+                                actual_rows
+                                - expected_rows
+                            ).values()
+                        )
+
+                        problems.append(
+                            f"table '{table_name}' data mismatch: "
+                            f"missing {missing_rows} CSV row(s), "
+                            f"unexpected {unexpected_rows} "
+                            "SQLite row(s)"
+                        )
 
             if problems:
                 raise VerificationError(
@@ -188,7 +236,7 @@ def parse_args(
 ) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Verify that SQLite tables and row counts "
+            "Verify that SQLite tables, schemas and data "
             "match DKB master CSV files."
         )
     )
