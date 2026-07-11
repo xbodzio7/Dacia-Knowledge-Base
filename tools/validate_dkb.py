@@ -10,6 +10,10 @@ from pathlib import Path
 
 from reporting.markdown_report import write_validation_report
 from reporting.statistics import collect_statistics
+from validators.association_intervals import (
+    ASSOCIATION_INTERVAL_RULES,
+    validate_association_intervals,
+)
 from validators.association_ranges import (
     ASSOCIATION_RANGE_RULES,
     validate_association_ranges,
@@ -31,7 +35,7 @@ def repository_root() -> Path:
 
 def print_header(root: Path) -> None:
     print("=" * 70)
-    print("DKB Validator v0.7")
+    print("DKB Validator v0.8")
     print("=" * 70)
     print(f"Repository : {root}")
     print(f"Python     : {platform.python_version()}")
@@ -161,13 +165,34 @@ def main() -> int:
         for error in association_range_errors:
             print(f"      • {error}")
 
-    print("\n8. Zbieranie statystyk")
+    print("\n8. Walidacja nakładających się okresów powiązań")
+    checked_association_intervals, association_interval_errors = (
+        validate_association_intervals(root)
+    )
+    association_intervals_ok = not association_interval_errors
+
+    if association_intervals_ok:
+        print(
+            "   ✅ OK "
+            f"({checked_association_intervals} rekordów, "
+            f"{len(ASSOCIATION_INTERVAL_RULES)} reguły)"
+        )
+    else:
+        print(
+            "   ❌ Wykryto "
+            f"{len(association_interval_errors)} problemów:"
+        )
+
+        for error in association_interval_errors:
+            print(f"      • {error}")
+
+    print("\n9. Zbieranie statystyk")
     statistics = collect_statistics(root)
 
     print(f"   Plików CSV : {statistics['csv_files']}")
     print(f"   Wierszy    : {statistics['rows']}")
 
-    print("\n9. Generowanie raportu")
+    print("\n10. Generowanie raportu")
     reports_dir = root / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     report_path = reports_dir / "validation_report.md"
@@ -186,6 +211,8 @@ def main() -> int:
         status_errors=status_errors,
         association_ranges_ok=association_ranges_ok,
         association_range_errors=association_range_errors,
+        association_intervals_ok=association_intervals_ok,
+        association_interval_errors=association_interval_errors,
         statistics=statistics,
     )
 
@@ -199,6 +226,7 @@ def main() -> int:
         and year_ranges_ok
         and statuses_ok
         and association_ranges_ok
+        and association_intervals_ok
     )
 
     return 0 if validation_ok else 1
