@@ -30,6 +30,11 @@ SCRIPT_COMMANDS = {
         "Build a local SQLite database from master CSV files.",
         "[--output PATH]",
     ),
+    "sqlite-verify": (
+        "verify_sqlite.py",
+        "Verify SQLite tables and row counts against master CSV files.",
+        "<database>",
+    ),
     "stats": (
         "stats.py",
         "Display repository dataset statistics.",
@@ -87,6 +92,7 @@ def usage() -> None:
     print("  python tools/dkb.py normalize --apply")
     print("  python tools/dkb.py sqlite")
     print("  python tools/dkb.py sqlite --output reports/dkb.sqlite")
+    print("  python tools/dkb.py sqlite-verify reports/dkb.sqlite")
     print("  python tools/dkb.py search Duster")
     print("  python tools/dkb.py search Duster --field name")
     print("  python tools/dkb.py catalog")

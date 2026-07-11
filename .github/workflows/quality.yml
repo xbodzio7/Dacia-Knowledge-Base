@@ -64,61 +64,8 @@ jobs:
 
       - name: Verify SQLite database
         run: |
-          python - <<'PY'
-          import os
-          import sqlite3
-          from pathlib import Path
-
-          database = (
-              Path(os.environ["RUNNER_TEMP"])
-              / "dacia_knowledge_base.sqlite"
-          )
-
-          if not database.is_file():
-              raise SystemExit(
-                  f"SQLite database was not created: {database}"
-              )
-
-          required_tables = {
-              "attributes",
-              "engines",
-              "gearboxes",
-              "models",
-          }
-
-          with sqlite3.connect(database) as connection:
-              integrity = connection.execute(
-                  "PRAGMA integrity_check"
-              ).fetchone()[0]
-
-              tables = {
-                  row[0]
-                  for row in connection.execute(
-                      """
-                      SELECT name
-                      FROM sqlite_master
-                      WHERE type = 'table'
-                      """
-                  )
-              }
-
-          if integrity != "ok":
-              raise SystemExit(
-                  f"SQLite integrity check failed: {integrity}"
-              )
-
-          missing_tables = required_tables - tables
-
-          if missing_tables:
-              missing = ", ".join(sorted(missing_tables))
-              raise SystemExit(
-                  "SQLite database is missing required tables: "
-                  f"{missing}"
-              )
-
-          print(f"SQLite integrity: {integrity}")
-          print(f"SQLite tables: {len(tables)}")
-          PY
+          python tools/dkb.py sqlite-verify \
+            "${RUNNER_TEMP}/dacia_knowledge_base.sqlite"
 
       - name: Upload generated artifacts
         if: matrix.python-version == '3.13'

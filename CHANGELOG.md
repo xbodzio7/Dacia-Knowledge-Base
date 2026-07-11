@@ -34,6 +34,8 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation of attribute category references.
 * Execution of declarative validation rules against attributes.
 * Separate reporting of data-rule errors and warnings.
+* SQLite parity verification for tables and row counts.
+* Unified `sqlite-verify` CLI command.
 
 ### Changed
 

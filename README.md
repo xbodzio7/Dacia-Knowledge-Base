@@ -60,6 +60,7 @@ Dostępne komendy:
 | `validate`   | Walidacja struktury repozytorium i danych |
 | `normalize`  | Kontrola kodowania plików CSV             |
 | `sqlite`     | Budowanie lokalnej bazy SQLite            |
+| `sqlite-verify` | Kontrola zgodności SQLite z CSV       |
 | `search`     | Wyszukiwanie danych w plikach CSV         |
 | `stats`      | Statystyki zbiorów danych                 |
 | `catalog`    | Generowanie katalogu encji                |
@@ -104,6 +105,12 @@ python tools/dkb.py sqlite --output reports/dkb.sqlite
 ```
 
 Wygenerowana baza jest artefaktem lokalnym i nie jest śledzona przez Git.
+
+Kontrola integralności, zestawu tabel i liczby rekordów:
+
+```bash
+python tools/dkb.py sqlite-verify reports/dkb.sqlite
+```
 
 ### Wyszukiwanie
 
