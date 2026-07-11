@@ -10,3 +10,17 @@ pressure_bar,bar,Bar,Pressure
 voltage_v,V,Volt,Electrical voltage
 energy_kwh,kWh,Kilowatt-hour,Battery energy
 current_a,A,Ampere,Electrical current
+percentage,%,Percent,Percentage value
+capacity_cm3,cm3,Cubic centimetre,Volume in cubic centimetres
+emissions_g_per_km,g/km,Grams per kilometre,Emissions per kilometre
+length_in,in,Inch,Length in inches
+distance_km,km,Kilometre,Distance in kilometres
+speed_kmh,km/h,Kilometres per hour,Speed in kilometres per hour
+power_kw,kW,Kilowatt,Power output in kilowatts
+specific_power_kw_per_t,kW/t,Kilowatts per tonne,Power-to-weight ratio
+energy_consumption_kwh_per_100km,kWh/100 km,Kilowatt-hours per 100 kilometres,Electric energy consumption
+fuel_consumption_l_per_100km,l/100 km,Litres per 100 kilometres,Fuel consumption
+length_m,m,Metre,Length in metres
+specific_torque_nm_per_t,Nm/t,Newton metres per tonne,Torque-to-weight ratio
+rotational_speed_rpm,rpm,Revolutions per minute,Rotational speed
+time_s,s,Second,Time in seconds
