@@ -28,6 +28,8 @@ All notable changes to this project will be documented in this file.
 * Unit tests for association ranges outside parent lifetimes.
 * Validation of duplicate and overlapping association intervals.
 * Unit tests for repeated association interval conflicts.
+* Validation of declarative rule contracts against the current schema.
+* Unit tests for invalid rule fields, syntax, severity and targets.
 
 ### Changed
 

@@ -20,6 +20,7 @@ from validators.association_ranges import (
 )
 from validators.csv_validator import validate_csv
 from validators.references import REFERENCE_RULES, validate_references
+from validators.rule_contracts import validate_rule_contracts
 from validators.repository import discover_csv_files, validate_repository
 from validators.uniqueness import validate_unique_keys
 from validators.statuses import STATUS_RULES, validate_statuses
@@ -35,7 +36,7 @@ def repository_root() -> Path:
 
 def print_header(root: Path) -> None:
     print("=" * 70)
-    print("DKB Validator v0.8")
+    print("DKB Validator v0.9")
     print("=" * 70)
     print(f"Repository : {root}")
     print(f"Python     : {platform.python_version()}")
@@ -186,13 +187,33 @@ def main() -> int:
         for error in association_interval_errors:
             print(f"      • {error}")
 
-    print("\n9. Zbieranie statystyk")
+    print("\n9. Walidacja kontraktu reguł danych")
+    checked_rule_contracts, rule_contract_errors = (
+        validate_rule_contracts(root)
+    )
+    rule_contracts_ok = not rule_contract_errors
+
+    if rule_contracts_ok:
+        print(
+            "   ✅ OK "
+            f"({checked_rule_contracts} reguł)"
+        )
+    else:
+        print(
+            "   ❌ Wykryto "
+            f"{len(rule_contract_errors)} problemów:"
+        )
+
+        for error in rule_contract_errors:
+            print(f"      • {error}")
+
+    print("\n10. Zbieranie statystyk")
     statistics = collect_statistics(root)
 
     print(f"   Plików CSV : {statistics['csv_files']}")
     print(f"   Wierszy    : {statistics['rows']}")
 
-    print("\n10. Generowanie raportu")
+    print("\n11. Generowanie raportu")
     reports_dir = root / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     report_path = reports_dir / "validation_report.md"
@@ -213,6 +234,8 @@ def main() -> int:
         association_range_errors=association_range_errors,
         association_intervals_ok=association_intervals_ok,
         association_interval_errors=association_interval_errors,
+        rule_contracts_ok=rule_contracts_ok,
+        rule_contract_errors=rule_contract_errors,
         statistics=statistics,
     )
 
@@ -227,6 +250,7 @@ def main() -> int:
         and statuses_ok
         and association_ranges_ok
         and association_intervals_ok
+        and rule_contracts_ok
     )
 
     return 0 if validation_ok else 1

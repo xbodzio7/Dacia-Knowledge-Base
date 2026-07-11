@@ -27,6 +27,8 @@ def write_validation_report(
     association_range_errors: Sequence[str] = (),
     association_intervals_ok: bool = True,
     association_interval_errors: Sequence[str] = (),
+    rule_contracts_ok: bool = True,
+    rule_contract_errors: Sequence[str] = (),
 ) -> None:
     """Generate a Markdown validation report."""
 
@@ -41,6 +43,7 @@ def write_validation_report(
         and statuses_ok
         and association_ranges_ok
         and association_intervals_ok
+        and rule_contracts_ok
     )
 
     with output.open(
@@ -90,7 +93,11 @@ def write_validation_report(
         )
         handle.write(
             f"- Association interval uniqueness: "
-            f"**{'PASS' if association_intervals_ok else 'FAIL'}**"
+            f"**{'PASS' if association_intervals_ok else 'FAIL'}**\n"
+        )
+        handle.write(
+            f"- Validation rule contracts: "
+            f"**{'PASS' if rule_contracts_ok else 'FAIL'}**"
             "\n\n"
         )
 
@@ -138,6 +145,14 @@ def write_validation_report(
             handle.write("## Association interval errors\n\n")
 
             for error in association_interval_errors:
+                handle.write(f"- {error}\n")
+
+            handle.write("\n")
+
+        if rule_contract_errors:
+            handle.write("## Validation rule contract errors\n\n")
+
+            for error in rule_contract_errors:
                 handle.write(f"- {error}\n")
 
             handle.write("\n")
