@@ -11,7 +11,7 @@ id,code,category,name,data_type,unit,description,status
 10,fuel_consumption_combined,Consumption,Combined fuel consumption,decimal,l/100 km,Combined WLTP fuel consumption,active
 11,android_auto,Infotainment,Android Auto,boolean,,Android Auto support,active
 12,apple_carplay,Infotainment,Apple CarPlay,boolean,,Apple CarPlay support,active
-13,adaptive_cruise_control,driver_assistance,Adaptive Cruise Control,boolean,,Availability of adaptive cruise control,active
+13,adaptive_cruise_control,ADAS,Adaptive Cruise Control,boolean,,Availability of adaptive cruise control,active
 14,engine_code,Engine,Engine code,string,,Manufacturer engine designation,active
 15,engine_family,Engine,Engine family,string,,Engine family or platform,active
 16,engine_manufacturer,Engine,Engine manufacturer,string,,Engine manufacturer,active

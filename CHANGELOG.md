@@ -30,6 +30,8 @@ All notable changes to this project will be documented in this file.
 * Unit tests for repeated association interval conflicts.
 * Validation of declarative rule contracts against the current schema.
 * Unit tests for invalid rule fields, syntax, severity and targets.
+* Dedicated dictionary for technical attribute categories.
+* Cross-file validation of attribute category references.
 
 ### Changed
 

@@ -53,7 +53,7 @@ class ValidateCliIntegrationTests(unittest.TestCase):
             "9. Walidacja kontraktu reguł danych",
             "10. Zbieranie statystyk",
             "11. Generowanie raportu",
-            "13 relacji",
+            "14 relacji",
         )
 
         for fragment in expected_fragments:

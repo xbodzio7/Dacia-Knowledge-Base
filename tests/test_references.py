@@ -61,6 +61,30 @@ class ReferenceValidationTests(unittest.TestCase):
             [],
         )
 
+    def test_accepts_custom_target_column(self) -> None:
+        self.write_csv(
+            "data/target.csv",
+            ["id", "name"],
+            [["1", "Engine"]],
+        )
+        self.write_csv(
+            "data/source.csv",
+            ["id", "category"],
+            [["1", "Engine"]],
+        )
+
+        rule = ReferenceRule(
+            "data/source.csv",
+            "category",
+            "data/target.csv",
+            target_column="name",
+        )
+
+        self.assertEqual(
+            validate_reference_rules(self.root, [rule]),
+            [],
+        )
+
     def test_reports_missing_reference(self) -> None:
         self.write_csv(
             "data/target.csv",
