@@ -1,16 +1,16 @@
 id,code,category,name,data_type,unit,description,status
 1,engine_power,Engine,Power,integer,kW,Maximum engine power,active
 2,engine_torque,Engine,Torque,integer,Nm,Maximum engine torque,active
-3,fuel_type,Engine,Fuel type,enum,,"Primary fuel type",active
+3,fuel_type,Engine,Fuel type,enum,,Primary fuel type,active
 4,vehicle_length,Dimensions,Length,integer,mm,Overall vehicle length,active
 5,vehicle_width,Dimensions,Width,integer,mm,Overall vehicle width,active
 6,vehicle_height,Dimensions,Height,integer,mm,Overall vehicle height,active
 7,wheelbase,Dimensions,Wheelbase,integer,mm,Distance between axles,active
-8,boot_capacity,Capacities,Boot capacity,integer,l,Luggage compartment volume,active
+8,boot_capacity,Capacities,Boot capacity,integer,L,Luggage compartment volume,active
 9,co2_emissions,Emissions,CO2 emissions,decimal,g/km,Combined WLTP CO2 emissions,active
 10,fuel_consumption_combined,Consumption,Combined fuel consumption,decimal,l/100 km,Combined WLTP fuel consumption,active
-11,android_auto,infotainment,Android Auto,boolean,,Android Auto support,active
-12,apple_carplay,infotainment,Apple CarPlay,boolean,,Apple CarPlay support,active
+11,android_auto,Infotainment,Android Auto,boolean,,Android Auto support,active
+12,apple_carplay,Infotainment,Apple CarPlay,boolean,,Apple CarPlay support,active
 13,adaptive_cruise_control,driver_assistance,Adaptive Cruise Control,boolean,,Availability of adaptive cruise control,active
 14,engine_code,Engine,Engine code,string,,Manufacturer engine designation,active
 15,engine_family,Engine,Engine family,string,,Engine family or platform,active
@@ -26,87 +26,87 @@ id,code,category,name,data_type,unit,description,status
 25,max_power_rpm,Engine,Maximum power RPM,integer,rpm,Engine speed at maximum power,active
 26,max_torque_rpm,Engine,Maximum torque RPM,integer,rpm,Engine speed at maximum torque,active
 27,engine_redline_rpm,Engine,Redline RPM,integer,rpm,Maximum permitted engine speed,active
-28,emission_standard,Engine,Emission standard,enum,,"Applicable emission standard",active
-29,start_stop_system,Engine,Start-stop system,boolean,,"Automatic engine stop/start support",active
-30,hybrid_support,Engine,Hybrid support,boolean,,"Engine used in hybrid powertrain",active
-31,engine_oil_capacity,Engine,Engine oil capacity,decimal,l,"Oil capacity including filter replacement",active
-32,coolant_capacity,Engine,Coolant capacity,decimal,l,"Cooling system capacity",active
-33,recommended_fuel,Engine,Recommended fuel,enum,,"Recommended fuel grade",active
-34,recommended_engine_oil,Engine,Recommended engine oil,string,,"Recommended engine oil specification",active
+28,emission_standard,Engine,Emission standard,enum,,Applicable emission standard,active
+29,start_stop_system,Engine,Start-stop system,boolean,,Automatic engine stop/start support,active
+30,hybrid_support,Engine,Hybrid support,boolean,,Engine used in hybrid powertrain,active
+31,engine_oil_capacity,Engine,Engine oil capacity,decimal,L,Oil capacity including filter replacement,active
+32,coolant_capacity,Engine,Coolant capacity,decimal,L,Cooling system capacity,active
+33,recommended_fuel,Engine,Recommended fuel,enum,,Recommended fuel grade,active
+34,recommended_engine_oil,Engine,Recommended engine oil,string,,Recommended engine oil specification,active
 35,timing_drive_type,Engine,Timing drive,enum,,"Timing belt, chain or gears",active
-36,engine_orientation,Engine,Engine orientation,enum,,"Transverse or longitudinal installation",active
-37,engine_weight,Engine,Engine weight,decimal,kg,"Approximate dry engine weight",active
-38,engine_management_system,Engine,Engine management system,string,,"Electronic engine control system",active
-39,drive_type,Drivetrain,Drive type,enum,,"Driven axle configuration",active
-40,driven_axles,Drivetrain,Driven axles,integer,,"Number of driven axles",active
-41,front_differential,Drivetrain,Front differential,boolean,,"Vehicle equipped with front differential",active
-42,rear_differential,Drivetrain,Rear differential,boolean,,"Vehicle equipped with rear differential",active
-43,center_differential,Drivetrain,Center differential,boolean,,"Vehicle equipped with center differential",active
-44,locking_differential,Drivetrain,Locking differential,boolean,,"Availability of locking differential",active
-45,transfer_case,Drivetrain,Transfer case,boolean,,"Vehicle equipped with transfer case",active
-46,transfer_case_type,Drivetrain,Transfer case type,enum,,"Transfer case design",active
-47,low_range,Drivetrain,Low range gearbox,boolean,,"Availability of low range gearing",active
-48,torque_distribution,Drivetrain,Torque distribution,string,,"Nominal torque distribution between axles",active
-49,rear_axle_type,Drivetrain,Rear axle type,enum,,"Rear axle construction",active
-50,front_axle_type,Drivetrain,Front axle type,enum,,"Front axle construction",active
-51,awd_control_type,Drivetrain,AWD control type,enum,,"All-wheel drive control strategy",active
-52,traction_control,Drivetrain,Traction control,boolean,,"Traction control system availability",active
-53,electronic_differential_lock,Drivetrain,Electronic differential lock,boolean,,"Electronic differential lock functionality",active
-54,gearbox_code,Transmission,Gearbox code,string,,"Manufacturer gearbox designation",active
-55,gearbox_manufacturer,Transmission,Gearbox manufacturer,string,,"Gearbox manufacturer",active
-56,gearbox_type,Transmission,Gearbox type,enum,,"Manual automatic CVT or dual clutch",active
-57,gear_count,Transmission,Number of gears,integer,,"Number of forward gears",active
-58,reverse_gear_count,Transmission,Reverse gears,integer,,"Number of reverse gears",active
-59,gearbox_control,Transmission,Gearbox control,enum,,"Mechanical electronic or hydraulic control",active
-60,clutch_type,Transmission,Clutch type,enum,,"Dry wet single or dual clutch",active
-61,clutch_control,Transmission,Clutch control,enum,,"Mechanical hydraulic or electronic clutch control",active
-62,gear_shift_type,Transmission,Gear shift type,enum,,"Manual sequential electronic or automatic shifting",active
-63,torque_converter,Transmission,Torque converter,boolean,,"Torque converter present",active
-64,gearbox_oil_type,Transmission,Gearbox oil type,string,,"Recommended gearbox lubricant",active
-65,gearbox_oil_capacity,Transmission,Gearbox oil capacity,decimal,l,"Transmission oil capacity",active
-66,gearbox_service_interval,Transmission,Service interval,integer,km,"Recommended gearbox service interval",active
-67,max_input_torque,Transmission,Maximum input torque,decimal,Nm,"Maximum gearbox input torque",active
-68,pto_support,Transmission,PTO support,boolean,,"Power take-off compatibility",active
-69,creep_function,Transmission,Creep function,boolean,,"Low speed creep function available",active
-70,manual_shift_mode,Transmission,Manual shift mode,boolean,,"Manual gear selection supported",active
-71,paddle_shifters,Transmission,Paddle shifters,boolean,,"Steering wheel paddle shifters available",active
-72,start_gear,Transmission,Default start gear,integer,,"Default gear used for vehicle launch",active
-73,gearbox_cooling,Transmission,Gearbox cooling,enum,,"Gearbox cooling method",active
-74,hybrid_system_type,Hybrid System,Hybrid system type,enum,,"MHEV HEV or PHEV architecture",active
-75,traction_motor_count,Hybrid System,Traction motor count,integer,,"Number of traction electric motors",active
-76,traction_motor_power,Hybrid System,Traction motor power,decimal,kW,"Combined traction motor power",active
-77,traction_motor_torque,Hybrid System,Traction motor torque,decimal,Nm,"Combined traction motor torque",active
-78,starter_generator_type,Hybrid System,Starter generator type,enum,,"Integrated starter generator architecture",active
-79,starter_generator_power,Hybrid System,Starter generator power,decimal,kW,"Starter generator maximum power",active
-80,starter_generator_voltage,Hybrid System,Starter generator voltage,integer,V,"Starter generator operating voltage",active
-81,hybrid_battery_type,Hybrid System,Hybrid battery type,enum,,"Battery chemistry used by hybrid system",active
-82,hybrid_battery_capacity,Hybrid System,Hybrid battery capacity,decimal,kWh,"Usable hybrid battery capacity",active
-83,hybrid_battery_voltage,Hybrid System,Hybrid battery voltage,integer,V,"Nominal hybrid battery voltage",active
-84,hybrid_battery_location,Hybrid System,Hybrid battery location,string,,"Installation location of hybrid battery",active
-85,regenerative_braking,Hybrid System,Regenerative braking,boolean,,"Regenerative braking capability",active
-86,ev_mode_support,Hybrid System,EV mode support,boolean,,"Vehicle can operate in electric mode",active
-87,ev_mode_max_speed,Hybrid System,EV mode max speed,integer,km/h,"Maximum EV mode speed",active
-88,automatic_energy_recovery,Hybrid System,Automatic energy recovery,boolean,,"Automatic energy recovery management",active
-89,electric_motor_type,Electric System,Electric motor type,enum,,"Traction motor technology",active
-90,electric_motor_count,Electric System,Electric motor count,integer,,"Number of traction motors",active
-91,electric_motor_power,Electric System,Electric motor power,decimal,kW,"Combined electric motor power",active
-92,electric_motor_torque,Electric System,Electric motor torque,decimal,Nm,"Combined electric motor torque",active
-93,traction_battery_type,Electric System,Traction battery type,enum,,"Traction battery chemistry",active
-94,traction_battery_capacity_gross,Electric System,Traction battery gross capacity,decimal,kWh,"Gross battery capacity",active
-95,traction_battery_capacity_net,Electric System,Traction battery net capacity,decimal,kWh,"Usable battery capacity",active
-96,traction_battery_voltage,Electric System,Traction battery voltage,integer,V,"Nominal battery voltage",active
-97,traction_battery_location,Electric System,Traction battery location,string,,"Battery installation location",active
-98,onboard_charger_power,Electric System,On-board charger power,decimal,kW,"Maximum AC charging power",active
-99,dc_charging_supported,Electric System,DC charging support,boolean,,"Support for DC fast charging",active
-100,dc_charging_power_max,Electric System,Maximum DC charging power,decimal,kW,"Maximum DC charging power",active
-101,charging_connector_type,Electric System,Charging connector type,enum,,"Charging connector standard",active
-102,vehicle_to_load,Electric System,Vehicle-to-load support,boolean,,"External power supply capability",active
-103,vehicle_to_grid,Electric System,Vehicle-to-grid support,boolean,,"Bidirectional charging capability",active
-104,top_speed,Performance,Top speed,integer,km/h,"Maximum vehicle speed",active
-105,acceleration_0_100,Performance,0-100 km/h acceleration,decimal,s,"Acceleration from 0 to 100 km/h",active
-106,acceleration_0_50,Performance,0-50 km/h acceleration,decimal,s,"Acceleration from 0 to 50 km/h",active
-107,standing_km,Performance,Standing kilometre,decimal,s,"Time required to cover one kilometre from standstill",active
-108,elasticity_80_120,Performance,80-120 km/h elasticity,decimal,s,"Acceleration from 80 to 120 km/h",active
+36,engine_orientation,Engine,Engine orientation,enum,,Transverse or longitudinal installation,active
+37,engine_weight,Engine,Engine weight,decimal,kg,Approximate dry engine weight,active
+38,engine_management_system,Engine,Engine management system,string,,Electronic engine control system,active
+39,drive_type,Drivetrain,Drive type,enum,,Driven axle configuration,active
+40,driven_axles,Drivetrain,Driven axles,integer,,Number of driven axles,active
+41,front_differential,Drivetrain,Front differential,boolean,,Vehicle equipped with front differential,active
+42,rear_differential,Drivetrain,Rear differential,boolean,,Vehicle equipped with rear differential,active
+43,center_differential,Drivetrain,Center differential,boolean,,Vehicle equipped with center differential,active
+44,locking_differential,Drivetrain,Locking differential,boolean,,Availability of locking differential,active
+45,transfer_case,Drivetrain,Transfer case,boolean,,Vehicle equipped with transfer case,active
+46,transfer_case_type,Drivetrain,Transfer case type,enum,,Transfer case design,active
+47,low_range,Drivetrain,Low range gearbox,boolean,,Availability of low range gearing,active
+48,torque_distribution,Drivetrain,Torque distribution,string,,Nominal torque distribution between axles,active
+49,rear_axle_type,Drivetrain,Rear axle type,enum,,Rear axle construction,active
+50,front_axle_type,Drivetrain,Front axle type,enum,,Front axle construction,active
+51,awd_control_type,Drivetrain,AWD control type,enum,,All-wheel drive control strategy,active
+52,traction_control,Drivetrain,Traction control,boolean,,Traction control system availability,active
+53,electronic_differential_lock,Drivetrain,Electronic differential lock,boolean,,Electronic differential lock functionality,active
+54,gearbox_code,Transmission,Gearbox code,string,,Manufacturer gearbox designation,active
+55,gearbox_manufacturer,Transmission,Gearbox manufacturer,string,,Gearbox manufacturer,active
+56,gearbox_type,Transmission,Gearbox type,enum,,Manual automatic CVT or dual clutch,active
+57,gear_count,Transmission,Number of gears,integer,,Number of forward gears,active
+58,reverse_gear_count,Transmission,Reverse gears,integer,,Number of reverse gears,active
+59,gearbox_control,Transmission,Gearbox control,enum,,Mechanical electronic or hydraulic control,active
+60,clutch_type,Transmission,Clutch type,enum,,Dry wet single or dual clutch,active
+61,clutch_control,Transmission,Clutch control,enum,,Mechanical hydraulic or electronic clutch control,active
+62,gear_shift_type,Transmission,Gear shift type,enum,,Manual sequential electronic or automatic shifting,active
+63,torque_converter,Transmission,Torque converter,boolean,,Torque converter present,active
+64,gearbox_oil_type,Transmission,Gearbox oil type,string,,Recommended gearbox lubricant,active
+65,gearbox_oil_capacity,Transmission,Gearbox oil capacity,decimal,L,Transmission oil capacity,active
+66,gearbox_service_interval,Transmission,Service interval,integer,km,Recommended gearbox service interval,active
+67,max_input_torque,Transmission,Maximum input torque,decimal,Nm,Maximum gearbox input torque,active
+68,pto_support,Transmission,PTO support,boolean,,Power take-off compatibility,active
+69,creep_function,Transmission,Creep function,boolean,,Low speed creep function available,active
+70,manual_shift_mode,Transmission,Manual shift mode,boolean,,Manual gear selection supported,active
+71,paddle_shifters,Transmission,Paddle shifters,boolean,,Steering wheel paddle shifters available,active
+72,start_gear,Transmission,Default start gear,integer,,Default gear used for vehicle launch,active
+73,gearbox_cooling,Transmission,Gearbox cooling,enum,,Gearbox cooling method,active
+74,hybrid_system_type,Hybrid System,Hybrid system type,enum,,MHEV HEV or PHEV architecture,active
+75,traction_motor_count,Hybrid System,Traction motor count,integer,,Number of traction electric motors,active
+76,traction_motor_power,Hybrid System,Traction motor power,decimal,kW,Combined traction motor power,active
+77,traction_motor_torque,Hybrid System,Traction motor torque,decimal,Nm,Combined traction motor torque,active
+78,starter_generator_type,Hybrid System,Starter generator type,enum,,Integrated starter generator architecture,active
+79,starter_generator_power,Hybrid System,Starter generator power,decimal,kW,Starter generator maximum power,active
+80,starter_generator_voltage,Hybrid System,Starter generator voltage,integer,V,Starter generator operating voltage,active
+81,hybrid_battery_type,Hybrid System,Hybrid battery type,enum,,Battery chemistry used by hybrid system,active
+82,hybrid_battery_capacity,Hybrid System,Hybrid battery capacity,decimal,kWh,Usable hybrid battery capacity,active
+83,hybrid_battery_voltage,Hybrid System,Hybrid battery voltage,integer,V,Nominal hybrid battery voltage,active
+84,hybrid_battery_location,Hybrid System,Hybrid battery location,string,,Installation location of hybrid battery,active
+85,regenerative_braking,Hybrid System,Regenerative braking,boolean,,Regenerative braking capability,active
+86,ev_mode_support,Hybrid System,EV mode support,boolean,,Vehicle can operate in electric mode,active
+87,ev_mode_max_speed,Hybrid System,EV mode max speed,integer,km/h,Maximum EV mode speed,active
+88,automatic_energy_recovery,Hybrid System,Automatic energy recovery,boolean,,Automatic energy recovery management,active
+89,electric_motor_type,Electric System,Electric motor type,enum,,Traction motor technology,active
+90,electric_motor_count,Electric System,Electric motor count,integer,,Number of traction motors,active
+91,electric_motor_power,Electric System,Electric motor power,decimal,kW,Combined electric motor power,active
+92,electric_motor_torque,Electric System,Electric motor torque,decimal,Nm,Combined electric motor torque,active
+93,traction_battery_type,Electric System,Traction battery type,enum,,Traction battery chemistry,active
+94,traction_battery_capacity_gross,Electric System,Traction battery gross capacity,decimal,kWh,Gross battery capacity,active
+95,traction_battery_capacity_net,Electric System,Traction battery net capacity,decimal,kWh,Usable battery capacity,active
+96,traction_battery_voltage,Electric System,Traction battery voltage,integer,V,Nominal battery voltage,active
+97,traction_battery_location,Electric System,Traction battery location,string,,Battery installation location,active
+98,onboard_charger_power,Electric System,On-board charger power,decimal,kW,Maximum AC charging power,active
+99,dc_charging_supported,Electric System,DC charging support,boolean,,Support for DC fast charging,active
+100,dc_charging_power_max,Electric System,Maximum DC charging power,decimal,kW,Maximum DC charging power,active
+101,charging_connector_type,Electric System,Charging connector type,enum,,Charging connector standard,active
+102,vehicle_to_load,Electric System,Vehicle-to-load support,boolean,,External power supply capability,active
+103,vehicle_to_grid,Electric System,Vehicle-to-grid support,boolean,,Bidirectional charging capability,active
+104,top_speed,Performance,Top speed,integer,km/h,Maximum vehicle speed,active
+105,acceleration_0_100,Performance,0-100 km/h acceleration,decimal,s,Acceleration from 0 to 100 km/h,active
+106,acceleration_0_50,Performance,0-50 km/h acceleration,decimal,s,Acceleration from 0 to 50 km/h,active
+107,standing_km,Performance,Standing kilometre,decimal,s,Time required to cover one kilometre from standstill,active
+108,elasticity_80_120,Performance,80-120 km/h elasticity,decimal,s,Acceleration from 80 to 120 km/h,active
 109,power_to_weight_ratio,Performance,Power-to-weight ratio,decimal,kW/t,Power to vehicle mass ratio,active
 110,torque_to_weight_ratio,Performance,Torque-to-weight ratio,decimal,Nm/t,Torque to vehicle mass ratio,active
 111,maximum_gradeability,Performance,Maximum gradeability,integer,%,Maximum climb capability,active
@@ -118,7 +118,7 @@ id,code,category,name,data_type,unit,description,status
 117,offroad_breakover_angle,Performance,Breakover angle,decimal,deg,Maximum breakover angle,active
 118,maximum_fording_depth,Performance,Maximum fording depth,integer,mm,Maximum water fording depth,active
 119,ground_clearance,Dimensions,Ground clearance,integer,mm,Minimum ground clearance,active
-120,cargo_volume_vda,Capacities,Cargo volume (VDA),integer,l,Luggage compartment volume measured according to VDA standard,active
+120,cargo_volume_vda,Capacities,Cargo volume (VDA),integer,L,Luggage compartment volume measured according to VDA standard,active
 121,roof_load,Capacities,Maximum roof load,integer,kg,Maximum permitted roof load,active
 122,braked_trailer_weight,Towing,Maximum braked trailer weight,integer,kg,Maximum permitted trailer weight with brakes,active
 123,unbraked_trailer_weight,Towing,Maximum unbraked trailer weight,integer,kg,Maximum permitted trailer weight without brakes,active
@@ -126,39 +126,39 @@ id,code,category,name,data_type,unit,description,status
 125,kerb_weight,Weights,Kerb weight,integer,kg,Vehicle kerb weight,active
 126,gross_vehicle_weight,Weights,Gross vehicle weight,integer,kg,Maximum permissible vehicle weight,active
 127,gross_train_weight,Weights,Gross train weight,integer,kg,Maximum permissible combined vehicle and trailer weight,active
-128,fuel_tank_capacity,Capacities,Fuel tank capacity,decimal,l,Fuel tank capacity,active
-129,adblue_tank_capacity,Capacities,AdBlue tank capacity,decimal,l,AdBlue tank capacity for diesel SCR systems,active
-130,washer_fluid_capacity,Capacities,Washer fluid reservoir capacity,decimal,l,Windscreen washer fluid reservoir capacity,active
+128,fuel_tank_capacity,Capacities,Fuel tank capacity,decimal,L,Fuel tank capacity,active
+129,adblue_tank_capacity,Capacities,AdBlue tank capacity,decimal,L,AdBlue tank capacity for diesel SCR systems,active
+130,washer_fluid_capacity,Capacities,Washer fluid reservoir capacity,decimal,L,Windscreen washer fluid reservoir capacity,active
 132,combined_range,Performance,Combined range,integer,km,Maximum driving range under standard test cycle,active
 133,electric_energy_consumption,Efficiency,Electric energy consumption,decimal,kWh/100 km,Average electrical energy consumption under standard test cycle,active
 135,drive_layout,Drivetrain,Drive layout,string,,"Vehicle drive configuration (e.g. FWD, RWD, AWD)",active
-136,differential_lock,Drivetrain,Differential lock,boolean,,"Vehicle equipped with a differential lock",active
+136,differential_lock,Drivetrain,Differential lock,boolean,,Vehicle equipped with a differential lock,active
 137,steering_type,Steering,Steering type,string,,"Type of steering system (e.g. hydraulic, electric power steering)",active
-138,front_suspension,Suspension,Front suspension,string,,"Front suspension design",active
-139,rear_suspension,Suspension,Rear suspension,string,,"Rear suspension design",active
+138,front_suspension,Suspension,Front suspension,string,,Front suspension design,active
+139,rear_suspension,Suspension,Rear suspension,string,,Rear suspension design,active
 140,front_brake_type,Brakes,Front brake type,string,,"Front brake design (e.g. ventilated disc, solid disc)",active
 141,rear_brake_type,Brakes,Rear brake type,string,,"Rear brake design (e.g. disc, drum)",active
-142,parking_brake_type,Brakes,Parking brake type,string,,"Type of parking brake (manual or electric)",active
-143,front_tyre_size,Wheels,Front tyre size,string,,"Front tyre size specification (e.g. 215/60 R17)",active
-144,rear_tyre_size,Wheels,Rear tyre size,string,,"Rear tyre size specification (e.g. 215/60 R17)",active
-145,wheel_size,Wheels,Wheel size,string,,"Wheel rim size specification (e.g. 17x7J)",active
-146,spare_wheel_type,Wheels,Spare wheel type,string,,"Type of spare wheel supplied with the vehicle",active
-147,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,"Vehicle equipped with a tyre pressure monitoring system (TPMS)",active
-148,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,"Wheel bolt pattern specification (e.g. 5x114.3)",active
-149,wheel_material,Wheels,Wheel material,string,,"Primary wheel material (e.g. steel or alloy)",active
+142,parking_brake_type,Brakes,Parking brake type,string,,Type of parking brake (manual or electric),active
+143,front_tyre_size,Wheels,Front tyre size,string,,Front tyre size specification (e.g. 215/60 R17),active
+144,rear_tyre_size,Wheels,Rear tyre size,string,,Rear tyre size specification (e.g. 215/60 R17),active
+145,wheel_size,Wheels,Wheel size,string,,Wheel rim size specification (e.g. 17x7J),active
+146,spare_wheel_type,Wheels,Spare wheel type,string,,Type of spare wheel supplied with the vehicle,active
+147,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
+148,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
+149,wheel_material,Wheels,Wheel material,string,,Primary wheel material (e.g. steel or alloy),active
 150,wheel_finish,Wheels,Wheel finish,string,,"Wheel finish (e.g. painted, machined, diamond-cut)",active
 151,locking_wheel_bolts,Wheels,Locking wheel bolts,boolean,,Vehicle equipped with locking wheel bolts,active
-152,self_sealing_tyres,Wheels,Self-sealing tyres,boolean,,"Vehicle equipped with self-sealing tyres",active
-153,run_flat_tyres,Wheels,Run-flat tyres,boolean,,"Vehicle equipped with run-flat tyres",active
+152,self_sealing_tyres,Wheels,Self-sealing tyres,boolean,,Vehicle equipped with self-sealing tyres,active
+153,run_flat_tyres,Wheels,Run-flat tyres,boolean,,Vehicle equipped with run-flat tyres,active
 154,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,"Factory supplied tyre season (summer, winter or all-season)",active
 155,recommended_front_tyre_pressure,Wheels,Recommended front tyre pressure,decimal,bar,Recommended cold inflation pressure for front tyres,active
 156,recommended_rear_tyre_pressure,Wheels,Recommended rear tyre pressure,decimal,bar,Recommended cold inflation pressure for rear tyres,active
-157,minimum_wheel_size,Wheels,Minimum wheel size,string,,"Minimum approved wheel size for the vehicle",active
-158,maximum_wheel_size,Wheels,Maximum wheel size,string,,"Maximum approved wheel size for the vehicle",active
+157,minimum_wheel_size,Wheels,Minimum wheel size,string,,Minimum approved wheel size for the vehicle,active
+158,maximum_wheel_size,Wheels,Maximum wheel size,string,,Maximum approved wheel size for the vehicle,active
 159,wheel_offset,Wheels,Wheel offset,integer,mm,Wheel offset (ET value),active
 160,centre_bore,Wheels,Centre bore,decimal,mm,Wheel centre bore diameter,active
 161,front_tyre_width,Wheels,Front tyre width,integer,mm,Nominal width of front tyres,active
-162,front_tyre_profile,Wheels,Front tyre profile,integer,,"Front tyre aspect ratio",active
+162,front_tyre_profile,Wheels,Front tyre profile,integer,,Front tyre aspect ratio,active
 163,front_tyre_diameter,Wheels,Front tyre diameter,integer,in,Front tyre rim diameter,active
 164,rear_tyre_width,Wheels,Rear tyre width,integer,mm,Nominal width of rear tyres,active
 165,rear_tyre_profile,Wheels,Rear tyre profile,integer,,Rear tyre aspect ratio,active
