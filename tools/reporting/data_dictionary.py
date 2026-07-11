@@ -14,12 +14,18 @@ def generate_data_dictionary(root: Path, output: Path):
             f"Generated: {datetime.now():%Y-%m-%d %H:%M:%S}\n\n"
         )
 
-        for csv_file in sorted(root.rglob("*.csv")):
+        master_dir = (
+            root / "data" / "master"
+        )
+
+        for csv_file in sorted(
+            master_dir.rglob("*.csv")
+        ):
 
             relative = csv_file.relative_to(root)
 
             with csv_file.open(
-                encoding="utf-8",
+                encoding="utf-8-sig",
                 newline=""
             ) as f:
 
