@@ -1,0 +1,8 @@
+id,code,version_code,powertrain_label,transmission_type,status,notes
+1,sandero_iii_expression_ecog120_manual,sandero_iii_expression,Eco-G 120,manual,active,
+2,sandero_iii_journey_ecog120_manual,sandero_iii_journey,Eco-G 120,manual,active,
+3,sandero_stepway_iii_essential_ecog120_manual,sandero_stepway_iii_essential,Eco-G 120,manual,active,
+4,sandero_stepway_iii_expression_ecog120_automatic,sandero_stepway_iii_expression,Eco-G 120,automatic,active,
+5,sandero_stepway_iii_expression_ecog120_manual,sandero_stepway_iii_expression,Eco-G 120,manual,active,
+6,sandero_stepway_iii_extreme_ecog120_automatic,sandero_stepway_iii_extreme,Eco-G 120,automatic,active,
+7,sandero_stepway_iii_extreme_ecog120_manual,sandero_stepway_iii_extreme,Eco-G 120,manual,active,
