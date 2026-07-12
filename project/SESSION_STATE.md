@@ -4,12 +4,12 @@
 
 Repozytorium pozostaje jedynym źródłem prawdy.
 
-Gałąź `main` zawiera pakiety źródłowych danych Sandero i Sandero Stepway
-zintegrowane przez Pull Requesty #3–#6. Aktualny punkt odniesienia to
-merge commit `6d427bc`.
+Gałąź `main` zawiera źródłowe pakiety Sandero i Sandero Stepway
+zintegrowane przez Pull Requesty #3–#9. Aktualny punkt odniesienia to
+merge commit `ccb2081`.
 
 Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/sandero-data-sync`.
+`docs/sandero-technical-data-sync`.
 
 ## Verified Quality Baseline
 
@@ -22,18 +22,18 @@ python tools/dkb.py quality
 Wynik:
 
 - 148 testów automatycznych zakończonych powodzeniem,
-- 31 plików CSV w `data/master`,
-- 594 rekordy danych,
-- 26 relacji między tabelami,
+- 32 pliki CSV w `data/master`,
+- 678 rekordów danych,
+- 29 relacji między tabelami,
 - 18 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- baza SQLite obejmująca 31 tabel i 594 rekordy,
+- baza SQLite obejmująca 32 tabele i 678 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Data Baseline Documentation Sync.
+Sandero Technical Data Documentation Sync.
 
 Zakres:
 
@@ -41,26 +41,38 @@ Zakres:
 - aktualizacja `project/ROADMAP.md`,
 - aktualizacja `project/SESSION_STATE.md`,
 - uzupełnienie `CHANGELOG.md`,
-- zapisanie bieżącego stanu po integracji PR-ów #3–#6.
+- zapisanie bieżącego stanu po integracji PR-ów #8 i #9.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Pierwszy spójny pakiet źródłowy dla Sandero i Sandero Stepway jest
-zakończony. Obejmuje dokumenty źródłowe, modele, wersje, konfiguracje
-oraz datowane obserwacje cen.
+Pierwsze dwa pakiety źródłowych danych technicznych są zakończone.
+Tabela `configuration_attribute_values.csv` zawiera 84 datowane
+obserwacje dla siedmiu konfiguracji Sandero i Sandero Stepway.
+
+Zakres obejmuje:
+
+- pojemność zbiornika paliwa,
+- pojemność skokową i liczbę cylindrów,
+- liczbę miejsc i przełożeń,
+- prędkość maksymalną i średnicę zawracania,
+- masę własną i dopuszczalną masę całkowitą,
+- dopuszczalną masę całkowitą zespołu pojazdów,
+- masy przyczepy z hamulcem i bez hamulca.
 
 ## Next Development Package
 
-Source-backed Technical Specifications.
+Source-backed Dimensions and Capacities.
 
 Planowany przebieg:
 
-1. Wybrać mały zestaw parametrów jednoznacznie widocznych w źródłach.
+1. Wybrać mały zestaw wymiarów i pojemności jednoznacznie widocznych
+   w źródłach.
 2. Sprawdzić, czy odpowiadają im istniejące atrybuty i jednostki.
-3. Dodać wartości bez zgadywania brakujących danych.
-4. Powiązać rekordy z dokumentami źródłowymi.
+3. Dodać wartości bez rozdzielania ich na osie lub warianty paliwa,
+   gdy źródło tego nie potwierdza.
+4. Powiązać każdy rekord z konfiguracją, datą i dokumentem źródłowym.
 5. Uruchomić `python tools/dkb.py quality`.
 6. Zintegrować pakiet przez osobną gałąź i Pull Request.
 
@@ -83,12 +95,13 @@ może służyć do przeglądania różnic, stagingu, commitów i pushowania.
 
 - `data/master` zawiera źródłowe dane projektu.
 - Raporty, eksporty wyszukiwania i lokalne bazy SQLite są artefaktami generowanymi.
-- Dane handlowe muszą mieć datę i źródło.
+- Dane handlowe i techniczne muszą mieć datę i źródło.
 - Nie należy zgadywać brakujących parametrów technicznych.
 - Nie należy ponownie projektować stabilnej architektury bez wyraźnej potrzeby.
 - Nie należy deklarować powodzenia CI bez sprawdzenia wyniku.
 - `ROADMAP.md` definiuje fazę i kierunek rozwoju.
-- `SESSION_STATE.md` opisuje bieżący kontekst roboczy i musi pozostawać zgodny z roadmapą.
+- `SESSION_STATE.md` opisuje bieżący kontekst roboczy i musi pozostawać
+  zgodny z roadmapą.
 
 ## Sprint History
 
@@ -120,8 +133,18 @@ Completed:
 - PR #4: pięć wersji oraz powiązania źródło–wersja,
 - PR #5: siedem konfiguracji oraz powiązania źródło–konfiguracja,
 - PR #6: waluta PLN i siedem datowanych obserwacji cen,
+- PR #7: synchronizacja dokumentacji bazowego pakietu danych,
 - rozszerzenie walidacji referencji i statusów dla nowych tabel.
+
+### Sandero Source-backed Technical Data
+
+Completed:
+
+- PR #8: 35 podstawowych obserwacji technicznych i trzy nowe relacje,
+- PR #9: 49 obserwacji osiągów, mas pojazdu i mas przyczep,
+- 84 obserwacje techniczne dla siedmiu konfiguracji,
+- pełna kontrola jakości: 32 pliki CSV, 678 rekordów i 32 tabele SQLite.
 
 Next priority:
 
-Źródłowe dane techniczne dla zarejestrowanych konfiguracji.
+Źródłowe wymiary i pojemności dla zarejestrowanych konfiguracji.
