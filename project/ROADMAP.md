@@ -1,446 +1,152 @@
-\# Dacia Knowledge Base
+# Dacia Knowledge Base
 
-
-
-\# Roadmap
-
-
+# Roadmap
 
 Ten dokument opisuje plan rozwoju projektu oraz jego aktualny stan.
 
+---
 
+# Vision
 
-\---
-
-
-
-\# Vision
-
-
-
-Celem projektu jest stworzenie kompletnej bazy wiedzy dotyczącej samochodów marki Dacia.
-
-
+Celem projektu jest stworzenie kompletnej, weryfikowalnej bazy wiedzy dotyczącej samochodów marki Dacia.
 
 Repozytorium ma umożliwiać:
 
+- przechowywanie danych technicznych i handlowych,
+- powiązanie danych ze źródłami,
+- import danych z katalogów PDF,
+- automatyczną walidację jakości i spójności,
+- generowanie raportów i statystyk,
+- eksport danych do SQLite i Excela,
+- szybkie wyszukiwanie informacji.
 
+---
 
-\- przechowywanie danych technicznych,
+# Current Status
 
-\- przechowywanie danych handlowych,
+## Phase
 
-\- import danych z katalogów PDF,
+Data Expansion
 
-\- walidację danych,
+## Progress
 
-\- generowanie raportów,
-
-\- eksport do Excela,
-
-\- automatyczne wyszukiwanie informacji.
-
-
-
-\---
-
-
-
-\# Current Status
-
-
-
-\## Phase
-
-
-
-Foundation
-
-
-
-\## Progress
-
-
-
-🟩 Dokumentacja
-
-
+🟩 Dokumentacja projektu
 
 🟩 Struktura repozytorium
 
+🟩 Fundament Master Data
 
+🟩 Tooling i automatyzacja
 
-🟩 Master Data
+🟩 Walidacja i testy
 
+🟨 Rozbudowa danych opartych na źródłach
 
+⬜ Automatyczny import PDF
 
-🟨 Tooling
+⬜ Raporty i eksporty użytkowe
 
+---
 
+# Completed
 
-⬜ PDF Import
+## Documentation
 
+- README
+- START_HERE
+- AI_CONTEXT
+- AI_WORKING_AGREEMENT
+- DECISIONS
+- ROADMAP
+- SESSION_STATE
+- CHANGELOG
 
+## Repository
 
-⬜ Reports
+- stabilna struktura katalogów,
+- reguły ignorowania artefaktów generowanych,
+- licencja,
+- GitHub Actions dla kontroli jakości,
+- praca na gałęziach i integracja przez Pull Request.
 
+## Master Data
 
+- modele, silniki, skrzynie biegów i typy nadwozia,
+- relacje model–silnik i model–skrzynia,
+- kategorie, domeny, jednostki i typy wartości,
+- atrybuty oraz dedykowany słownik kategorii atrybutów,
+- słowniki wartości enumeracyjnych,
+- deklaratywne reguły walidacji.
 
-⬜ Tests
+## Tooling
 
+- zunifikowany interfejs `python tools/dkb.py`,
+- pełna lokalna bramka jakości `quality`,
+- walidator repozytorium w wersji 0.10,
+- kontrola UTF-8 i normalizacja kodowania CSV,
+- walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
+- walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
+- wyszukiwanie, statystyki i raporty Markdown,
+- atomowa budowa bazy SQLite,
+- weryfikacja zgodności schematu i danych SQLite z plikami CSV,
+- 148 testów automatycznych,
+- kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
+---
 
-\---
+# Current Sprint
 
+## Project State Synchronization
 
+Cel sprintu:
 
-\# Completed
+- ujednolicić `ROADMAP.md`, `SESSION_STATE.md` i `CHANGELOG.md`,
+- usunąć nieaktualne informacje z okresu budowy fundamentów,
+- zapisać aktualny punkt odniesienia po zakończeniu etapu tooling,
+- przygotować projekt do rozbudowy danych merytorycznych.
 
+---
 
+# Next Sprint
 
-\## Documentation
+## Source-backed Data Expansion
 
+Cel sprintu:
 
+- wybrać pierwszą rodzinę modeli do systematycznego opracowania,
+- zebrać i sklasyfikować wiarygodne materiały źródłowe,
+- rozszerzyć dane techniczne z zachowaniem identyfikowalności źródeł,
+- uruchomić pełną bramkę `python tools/dkb.py quality` przed integracją zmian.
 
-\- README
+---
 
-\- START\_HERE
+# Backlog
 
-\- AI\_CONTEXT
+## Data
 
-\- AI\_WORKING\_AGREEMENT
+- versions
+- packages
+- options
+- prices
+- attribute_values
+- sources
+- powiązania rekordów ze źródłami
 
-\- DECISIONS
+## Import
 
-\- SESSION\_STATE
-
-
-
-\## Repository
-
-
-
-\- directory structure
-
-\- gitignore
-
-\- license
-
-
-
-\## Master Data
-
-
-
-\- categories
-
-\- models
-
-\- engines
-
-\- gearboxes
-
-\- body types
-
-\- fuel types
-
-\- drive types
-
-\- value types
-
-\- units
-
-\- domains
-
-\- validation rules
-
-
-
-\---
-
-
-
-\# Current Sprint
-
-
-
-\## Tooling
-
-
-
-Pierwszy zestaw narzędzi wspierających projekt.
-
-
-
-Plan:
-
-
-
-\- validate\_data.py
-
-\- build.py
-
-\- import\_pdf.py
-
-
-
-\---
-
-
-
-\# Next Sprint
-
-
-
-Rozbudowa walidatora.
-
-
-
-Zakres:
-
-
-
-\- duplicate detection
-
-\- reference validation
-
-\- enum validation
-
-\- integrity checks
-
-
-
-\---
-
-
-
-\# Backlog
-
-
-
-\## Data
-
-
-
-\- versions
-
-
-
-\- packages
-
-
-
-\- options
-
-
-
-\- prices
-
-
-
-\- attribute\_values
-
-
-
-\- sources
-
-
-
-\---
-
-
-
-\## Import
-
-
-
-\- Sandero
-
-
-
-\- Sandero Stepway
-
-
-
-\- Duster
-
-
-
-\- Jogger
-
-
-
-\- Bigster
-
-
-
-\- Spring
-
-
-
-\---
-
-
-
-\## Reports
-
-
-
-\- Excel generator
-
-
-
-\- Markdown generator
-
-
-
-\- HTML reports
-
-
-
-\---
-
-
-
-\## Quality
-
-
-
-\- automated tests
-
-
-
-\- CI
-
-
-
-\- release automation
-
-
-
-\---
-
-
-
-\# Milestones
-
-
-
-\## M1
-
-
-
-Kompletna dokumentacja.
-
-
-
-Status:
-
-
-
-✅ Completed
-
-
-
-\---
-
-
-
-\## M2
-
-
-
-Master Data.
-
-
-
-Status:
-
-
-
-✅ Completed
-
-
-
-\---
-
-
-
-\## M3
-
-
-
-Tooling.
-
-
-
-Status:
-
-
-
-🟨 In Progress
-
-
-
-\---
-
-
-
-\## M4
-
-
-
-PDF Import.
-
-
-
-Status:
-
-
-
-⬜ Planned
-
-
-
-\---
-
-
-
-\## M5
-
-
-
-Complete Knowledge Base.
-
-
-
-Status:
-
-
-
-⬜ Planned
-
-
-
-\---
-
-
-
-\# Definition of Done
-
-
-
-Projekt uznaje się za gotowy gdy:
-
-
-
-\- wszystkie modele Dacii są zaimportowane,
-
-\- wszystkie dane są zwalidowane,
-
-\- raporty generują się automatycznie,
-
-\- możliwy jest eksport do Excel,
-
-\- dostępne są testy automatyczne.
-
+- potok importu PDF,
+- ekstrakcja tabel i specyfikacji,
+- kontrola pochodzenia danych,
+- Sandero,
+- Sandero Stepway,
+- Duster,
+- Jogger,
+- Bigster,
+- Spring
+
+## Reporting
+
+- eksport do Excela,
+- raporty porównawcze modeli i wersji,
+- raport kompletności danych,
+- raport pokrycia źródłami.
