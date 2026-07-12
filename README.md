@@ -50,11 +50,15 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne konfiguracji również są datowanymi obserwacjami
-powiązanymi ze źródłem. Cztery pakiety obejmują 140 wartości dla siedmiu
+powiązanymi ze źródłem. Pięć pakietów obejmuje 168 wartości dla siedmiu
 konfiguracji Sandero i Sandero Stepway. Zakres obejmuje podstawowe dane
 zespołu napędowego, osiągi, masy pojazdu i przyczep, długość, szerokość,
-rozstaw osi, zwisy oraz pojemność bagażnika w wariancie z zestawem
-naprawczym.
+rozstaw osi, zwisy, pojemność bagażnika oraz zużycie paliwa i emisję CO2
+w cyklu WLTP.
+
+Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
+`fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
+zachowują pusty kontekst paliwa zgodnie z decyzją D-014.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -217,6 +221,12 @@ Aktualny etap obejmuje:
 * generowanie lokalnej bazy SQLite,
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
+
+Zweryfikowany punkt odniesienia po integracji PR-ów #13 i #14 na merge
+commit `6224875` obejmuje 149 testów, 32 pliki CSV, 762 rekordy danych,
+30 relacji między tabelami oraz 168 obserwacji konfiguracji. Baza SQLite
+obejmuje 32 tabele i 762 rekordy, pozostaje zgodna z CSV, a wszystkie
+źródłowe pliki CSV są zapisane jako UTF-8.
 
 ## Development workflow
 

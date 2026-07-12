@@ -4,16 +4,18 @@
 
 Repozytorium pozostaje jedynym źródłem prawdy.
 
-Gałąź `main` zawiera źródłowe pakiety Sandero i Sandero Stepway
-zintegrowane przez Pull Requesty #3–#12. Aktualny punkt odniesienia to
-merge commit `17d075d`.
+Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
+Pull Requesty #3–#14. Aktualny punkt odniesienia to merge commit `6224875`.
+
+PR #13 zsynchronizował dokumentację po pakietach wymiarów i pojemności.
+PR #14 dodał obserwacje WLTP z jawnym kontekstem LPG i benzyny.
 
 Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/sandero-dimensions-capacities-sync`.
+`docs/sandero-wltp-sync`.
 
 ## Verified Quality Baseline
 
-Ostatnia pełna lokalna kontrola:
+Zweryfikowany punkt odniesienia po PR #14:
 
 ```bash
 python tools/dkb.py quality
@@ -21,19 +23,21 @@ python tools/dkb.py quality
 
 Wynik:
 
-- 148 testów automatycznych zakończonych powodzeniem,
+- 149 testów automatycznych zakończonych powodzeniem,
 - 32 pliki CSV w `data/master`,
-- 734 rekordy danych,
-- 29 relacji między tabelami,
+- 762 rekordy danych,
+- 30 relacji między tabelami,
 - 18 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- baza SQLite obejmująca 32 tabele i 734 rekordy,
+- 168 obserwacji w `configuration_attribute_values.csv`,
+- baza SQLite obejmująca 32 tabele i 762 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
-- wszystkie źródłowe pliki CSV zapisane jako UTF-8.
+- wszystkie źródłowe pliki CSV zapisane jako UTF-8,
+- GitHub Actions Quality, run #56, zakończony powodzeniem.
 
 ## Current Sprint
 
-Sandero Dimensions and Capacities Documentation Sync.
+Sandero Fuel-aware WLTP Documentation Sync.
 
 Zakres:
 
@@ -41,15 +45,21 @@ Zakres:
 - aktualizacja `project/ROADMAP.md`,
 - aktualizacja `project/SESSION_STATE.md`,
 - uzupełnienie `CHANGELOG.md`,
-- zapisanie bieżącego stanu po integracji PR-ów #11 i #12.
+- zapisanie integracji PR-ów #13 i #14,
+- zapisanie merge commitu `6224875`,
+- zamknięcie pakietu Fuel-mode-aware WLTP Observation Analysis.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Cztery pakiety źródłowych danych technicznych są zakończone.
-Tabela `configuration_attribute_values.csv` zawiera 140 datowanych
+Pięć pakietów źródłowych danych technicznych jest zakończonych.
+Tabela `configuration_attribute_values.csv` zawiera 168 datowanych
 obserwacji dla siedmiu konfiguracji Sandero i Sandero Stepway.
+
+Pierwsze 140 obserwacji jest niezależnych od rodzaju paliwa i zachowuje
+puste `fuel_type_code`. Obserwacje 141–168 zapisują zużycie paliwa oraz
+emisję CO2 oddzielnie dla LPG i benzyny.
 
 Zakres obejmuje:
 
@@ -62,23 +72,29 @@ Zakres obejmuje:
 - masy przyczepy z hamulcem i bez hamulca,
 - długość, szerokość, rozstaw osi oraz zwisy,
 - pojemność bagażnika VDA i w litrach,
-- kontekst wariantu z zestawem naprawczym.
+- kontekst wariantu z zestawem naprawczym,
+- zużycie paliwa w cyklu mieszanym WLTP,
+- emisję CO2 w cyklu mieszanym WLTP.
+
+Opcjonalne `fuel_type_code` wskazuje na
+`data/master/enums/fuel_types.csv`. Decyzja D-014 zachowuje kontekst
+paliwa na poziomie obserwacji bez tworzenia paliwowych duplikatów
+definicji atrybutów.
 
 ## Next Development Package
 
-Fuel-mode-aware WLTP Observation Analysis.
+Sandero PDF Source Coverage Gap Analysis.
 
 Planowany przebieg:
 
-1. Zidentyfikować w źródłach wartości zużycia paliwa i emisji CO2
-   rozdzielone na LPG oraz benzynę.
-2. Sprawdzić, czy aktualny model obserwacji potrafi zachować kontekst
-   rodzaju paliwa bez utraty znaczenia.
-3. Zaprojektować najmniejsze rozszerzenie schematu i walidacji.
-4. Dodać testy modelu przed importem nowych obserwacji.
-5. Powiązać każdy rekord z konfiguracją, datą i dokumentem źródłowym.
-6. Uruchomić `python tools/dkb.py quality`.
-7. Zintegrować pakiet przez osobną gałąź i Pull Request.
+1. Przejrzeć siedem zarejestrowanych źródeł PDF konfiguracji.
+2. Porównać zawartość PDF z aktualnym pokryciem danych.
+3. Wskazać niezaimportowane lub niekompletne obszary.
+4. Powiązać kandydatów z istniejącym modelem danych.
+5. Wykazać rzeczywistą lukę modelu tylko wtedy, gdy istniejące tabele
+   nie mogą zachować znaczenia źródła.
+6. Wybrać jeden mały następny pakiet na podstawie jednoznacznych danych.
+7. Nie importować danych ani nie zgadywać wartości w pakiecie analitycznym.
 
 ## Working Mode
 
@@ -149,9 +165,14 @@ Completed:
 - PR #10: synchronizacja dokumentacji po pierwszych dwóch pakietach,
 - PR #11: 35 obserwacji długości, szerokości, rozstawu osi i zwisów,
 - PR #12: 21 obserwacji pojemności bagażnika i wariantu naprawczego,
-- 140 obserwacji technicznych dla siedmiu konfiguracji,
-- pełna kontrola jakości: 32 pliki CSV, 734 rekordy i 32 tabele SQLite.
+- PR #13: synchronizacja dokumentacji po pakietach wymiarów i pojemności,
+- PR #14: 28 obserwacji WLTP z jawnym kontekstem LPG i benzyny,
+- opcjonalne `fuel_type_code` i decyzja D-014,
+- 168 obserwacji technicznych dla siedmiu konfiguracji,
+- pełna kontrola jakości: 149 testów, 32 pliki CSV, 762 rekordy,
+  30 relacji oraz 32 tabele SQLite.
 
 Next priority:
 
-Analiza modelu obserwacji WLTP z jawnym kontekstem LPG i benzyny.
+Analiza pokrycia siedmiu źródeł PDF i wybór jednego następnego pakietu
+na podstawie jednoznacznych danych źródłowych.

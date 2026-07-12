@@ -84,11 +84,15 @@ Data Expansion
 - pięć wersji wyposażenia,
 - siedem konfiguracji Eco-G 120,
 - waluta PLN i siedem datowanych obserwacji cen katalogowych brutto,
-- 140 datowanych obserwacji technicznych dla siedmiu konfiguracji,
+- 168 datowanych obserwacji technicznych dla siedmiu konfiguracji,
 - podstawowe parametry zespołu napędowego i pojemności,
 - prędkość maksymalna, średnica zawracania, masy pojazdu i przyczep,
 - długość, szerokość, rozstaw osi oraz zwisy,
-- pojemność bagażnika VDA i w litrach z kontekstem zestawu naprawczego.
+- pojemność bagażnika VDA i w litrach z kontekstem zestawu naprawczego,
+- 28 obserwacji zużycia paliwa i emisji CO2 w cyklu WLTP,
+- oddzielny kontekst LPG i benzyny przez opcjonalne `fuel_type_code`,
+- zakończony pakiet Fuel-mode-aware WLTP Observation Analysis,
+- decyzja D-014 — Observation-level fuel context.
 
 ## Tooling
 
@@ -101,39 +105,45 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 148 testów automatycznych,
+- 149 testów automatycznych,
+- 30 deklarowanych relacji między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
 ---
 
 # Current Sprint
 
-## Sandero Dimensions and Capacities Documentation Sync
+## Sandero Fuel-aware WLTP Documentation Sync
 
 Cel sprintu:
 
-- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #11 i #12,
-- zapisać punkt odniesienia: 32 pliki CSV i 734 rekordy,
-- odnotować 29 relacji między tabelami oraz 32 tabele SQLite,
-- udokumentować 140 datowanych obserwacji technicznych,
-- zamknąć pakiet źródłowych wymiarów i pojemności.
+- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #13 i #14,
+- zapisać merge commit `6224875`,
+- zapisać punkt odniesienia: 149 testów, 32 pliki CSV i 762 rekordy,
+- odnotować 30 relacji między tabelami oraz 32 tabele SQLite i 762 rekordy,
+- udokumentować 168 obserwacji konfiguracji,
+- opisać jawny kontekst LPG i benzyny przez opcjonalne `fuel_type_code`,
+- odnotować decyzję D-014,
+- zamknąć pakiet Fuel-mode-aware WLTP Observation Analysis.
 
 ---
 
 # Next Sprint
 
-## Fuel-mode-aware WLTP Observation Analysis
+## Sandero PDF Source Coverage Gap Analysis
 
 Cel sprintu:
 
-- przeanalizować źródłowe wartości zużycia paliwa i emisji CO2 dla LPG
-  oraz benzyny,
-- nie zapisywać dwóch wartości dla tej samej konfiguracji, daty i cechy
-  bez jednoznacznego kontekstu rodzaju paliwa,
-- wybrać najmniejsze rozszerzenie modelu danych pozwalające zachować
-  znaczenie i pochodzenie każdej obserwacji,
-- dodać testy i dane dopiero po zatwierdzeniu jawnego modelu kontekstu,
-- uruchomić pełną bramkę `python tools/dkb.py quality` przed integracją zmian.
+- przejrzeć siedem zarejestrowanych źródeł PDF dla konfiguracji Sandero
+  i Sandero Stepway,
+- porównać zawartość źródeł z aktualnym pokryciem danych,
+- wskazać obszary jeszcze niezaimportowane lub niekompletne,
+- przypisać każdy kandydat do istniejącej części modelu albo wykazać
+  rzeczywistą lukę modelu,
+- wybrać jeden mały następny pakiet dopiero na podstawie jednoznacznych
+  danych źródłowych,
+- nie zgadywać parametrów technicznych i nie importować danych w samym
+  pakiecie analitycznym.
 
 ---
 

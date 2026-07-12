@@ -52,7 +52,12 @@ All notable changes to this project will be documented in this file.
 * Forty-nine performance, towing and weight observations.
 * Thirty-five source-backed dimensional observations.
 * Twenty-one cargo-capacity and tyre-repair-kit observations.
-* One hundred forty source-backed technical observations in total.
+* Optional observation-level `fuel_type_code` context referencing the fuel-type dictionary.
+* Twenty-eight dated WLTP fuel-consumption and CO2-emission observations.
+* Separate LPG and petrol context for fuel-dependent observations.
+* One hundred sixty-eight source-backed technical observations in total.
+* Architecture decision D-014 for observation-level fuel context.
+* Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
 ### Changed
@@ -72,10 +77,11 @@ All notable changes to this project will be documented in this file.
 * Dataset statistics analyze only source CSV files under `data/master`.
 * Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
-* Cross-file validation now covers 29 declared relationships.
+* Cross-file validation now covers 30 declared relationships.
 * Lifecycle and catalogue status validation now covers 18 declared rules.
-* The verified master-data baseline now contains 32 CSV files and 734 rows.
-* SQLite verification now covers 32 tables and 734 rows.
+* The automated test suite now contains 149 tests.
+* The verified master-data baseline now contains 32 CSV files and 762 rows.
+* SQLite verification now covers 32 tables and 762 rows.
 
 ### Fixed
 
@@ -98,3 +104,4 @@ All notable changes to this project will be documented in this file.
 * Synchronized project documentation with the Sandero source, version, configuration and price packages merged through PRs #3–#6.
 * Synchronized project documentation with the technical observation packages merged through PRs #8 and #9.
 * Synchronized project documentation with the dimensions and cargo-capacity packages merged through PRs #11 and #12.
+* Synchronized project documentation after PRs #13 and #14, recorded merge commit `6224875` and closed the Fuel-mode-aware WLTP Observation Analysis package.
