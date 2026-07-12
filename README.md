@@ -50,10 +50,11 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne konfiguracji również są datowanymi obserwacjami
-powiązanymi ze źródłem. Pierwsze dwa pakiety obejmują 84 wartości dla
-siedmiu konfiguracji Sandero i Sandero Stepway: podstawowe dane zespołu
-napędowego i pojemności, prędkość maksymalną, średnicę zawracania oraz
-masy pojazdu i przyczep.
+powiązanymi ze źródłem. Cztery pakiety obejmują 140 wartości dla siedmiu
+konfiguracji Sandero i Sandero Stepway. Zakres obejmuje podstawowe dane
+zespołu napędowego, osiągi, masy pojazdu i przyczep, długość, szerokość,
+rozstaw osi, zwisy oraz pojemność bagażnika w wariancie z zestawem
+naprawczym.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 

@@ -5,11 +5,11 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera źródłowe pakiety Sandero i Sandero Stepway
-zintegrowane przez Pull Requesty #3–#9. Aktualny punkt odniesienia to
-merge commit `ccb2081`.
+zintegrowane przez Pull Requesty #3–#12. Aktualny punkt odniesienia to
+merge commit `17d075d`.
 
 Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/sandero-technical-data-sync`.
+`docs/sandero-dimensions-capacities-sync`.
 
 ## Verified Quality Baseline
 
@@ -23,17 +23,17 @@ Wynik:
 
 - 148 testów automatycznych zakończonych powodzeniem,
 - 32 pliki CSV w `data/master`,
-- 678 rekordów danych,
+- 734 rekordy danych,
 - 29 relacji między tabelami,
 - 18 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- baza SQLite obejmująca 32 tabele i 678 rekordów,
+- baza SQLite obejmująca 32 tabele i 734 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Technical Data Documentation Sync.
+Sandero Dimensions and Capacities Documentation Sync.
 
 Zakres:
 
@@ -41,15 +41,15 @@ Zakres:
 - aktualizacja `project/ROADMAP.md`,
 - aktualizacja `project/SESSION_STATE.md`,
 - uzupełnienie `CHANGELOG.md`,
-- zapisanie bieżącego stanu po integracji PR-ów #8 i #9.
+- zapisanie bieżącego stanu po integracji PR-ów #11 i #12.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Pierwsze dwa pakiety źródłowych danych technicznych są zakończone.
-Tabela `configuration_attribute_values.csv` zawiera 84 datowane
-obserwacje dla siedmiu konfiguracji Sandero i Sandero Stepway.
+Cztery pakiety źródłowych danych technicznych są zakończone.
+Tabela `configuration_attribute_values.csv` zawiera 140 datowanych
+obserwacji dla siedmiu konfiguracji Sandero i Sandero Stepway.
 
 Zakres obejmuje:
 
@@ -59,22 +59,26 @@ Zakres obejmuje:
 - prędkość maksymalną i średnicę zawracania,
 - masę własną i dopuszczalną masę całkowitą,
 - dopuszczalną masę całkowitą zespołu pojazdów,
-- masy przyczepy z hamulcem i bez hamulca.
+- masy przyczepy z hamulcem i bez hamulca,
+- długość, szerokość, rozstaw osi oraz zwisy,
+- pojemność bagażnika VDA i w litrach,
+- kontekst wariantu z zestawem naprawczym.
 
 ## Next Development Package
 
-Source-backed Dimensions and Capacities.
+Fuel-mode-aware WLTP Observation Analysis.
 
 Planowany przebieg:
 
-1. Wybrać mały zestaw wymiarów i pojemności jednoznacznie widocznych
-   w źródłach.
-2. Sprawdzić, czy odpowiadają im istniejące atrybuty i jednostki.
-3. Dodać wartości bez rozdzielania ich na osie lub warianty paliwa,
-   gdy źródło tego nie potwierdza.
-4. Powiązać każdy rekord z konfiguracją, datą i dokumentem źródłowym.
-5. Uruchomić `python tools/dkb.py quality`.
-6. Zintegrować pakiet przez osobną gałąź i Pull Request.
+1. Zidentyfikować w źródłach wartości zużycia paliwa i emisji CO2
+   rozdzielone na LPG oraz benzynę.
+2. Sprawdzić, czy aktualny model obserwacji potrafi zachować kontekst
+   rodzaju paliwa bez utraty znaczenia.
+3. Zaprojektować najmniejsze rozszerzenie schematu i walidacji.
+4. Dodać testy modelu przed importem nowych obserwacji.
+5. Powiązać każdy rekord z konfiguracją, datą i dokumentem źródłowym.
+6. Uruchomić `python tools/dkb.py quality`.
+7. Zintegrować pakiet przez osobną gałąź i Pull Request.
 
 ## Working Mode
 
@@ -142,9 +146,12 @@ Completed:
 
 - PR #8: 35 podstawowych obserwacji technicznych i trzy nowe relacje,
 - PR #9: 49 obserwacji osiągów, mas pojazdu i mas przyczep,
-- 84 obserwacje techniczne dla siedmiu konfiguracji,
-- pełna kontrola jakości: 32 pliki CSV, 678 rekordów i 32 tabele SQLite.
+- PR #10: synchronizacja dokumentacji po pierwszych dwóch pakietach,
+- PR #11: 35 obserwacji długości, szerokości, rozstawu osi i zwisów,
+- PR #12: 21 obserwacji pojemności bagażnika i wariantu naprawczego,
+- 140 obserwacji technicznych dla siedmiu konfiguracji,
+- pełna kontrola jakości: 32 pliki CSV, 734 rekordy i 32 tabele SQLite.
 
 Next priority:
 
-Źródłowe wymiary i pojemności dla zarejestrowanych konfiguracji.
+Analiza modelu obserwacji WLTP z jawnym kontekstem LPG i benzyny.
