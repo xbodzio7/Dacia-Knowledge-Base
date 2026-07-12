@@ -88,6 +88,21 @@ REFERENCE_RULES: tuple[ReferenceRule, ...] = (
         "data/master/gearboxes.csv",
     ),
     ReferenceRule(
+        "data/master/configuration_attribute_values.csv",
+        "configuration_code",
+        "data/master/configurations.csv",
+    ),
+    ReferenceRule(
+        "data/master/configuration_attribute_values.csv",
+        "attribute_code",
+        "data/master/attributes.csv",
+    ),
+    ReferenceRule(
+        "data/master/configuration_attribute_values.csv",
+        "source_code",
+        "data/master/sources.csv",
+    ),
+    ReferenceRule(
         "data/master/configuration_prices.csv",
         "configuration_code",
         "data/master/configurations.csv",
