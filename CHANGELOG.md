@@ -75,3 +75,6 @@ All notable changes to this project will be documented in this file.
 * Standardized AI-assisted development workflow.
 * Documented validation, normalization, SQLite export, search and reporting commands.
 * Documented the automated GitHub Actions quality workflow.
+* Synchronized `ROADMAP.md` and `SESSION_STATE.md` with the completed tooling and quality baseline.
+* Replaced outdated tooling placeholders with the next source-backed data expansion phase.
+* Normalized project state documents to standard Markdown syntax.
