@@ -84,9 +84,11 @@ Data Expansion
 - pięć wersji wyposażenia,
 - siedem konfiguracji Eco-G 120,
 - waluta PLN i siedem datowanych obserwacji cen katalogowych brutto,
-- 84 datowane obserwacje techniczne dla siedmiu konfiguracji,
+- 140 datowanych obserwacji technicznych dla siedmiu konfiguracji,
 - podstawowe parametry zespołu napędowego i pojemności,
-- prędkość maksymalna, średnica zawracania, masy pojazdu i przyczep.
+- prędkość maksymalna, średnica zawracania, masy pojazdu i przyczep,
+- długość, szerokość, rozstaw osi oraz zwisy,
+- pojemność bagażnika VDA i w litrach z kontekstem zestawu naprawczego.
 
 ## Tooling
 
@@ -106,30 +108,31 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Technical Data Documentation Sync
+## Sandero Dimensions and Capacities Documentation Sync
 
 Cel sprintu:
 
-- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #8 i #9,
-- zapisać punkt odniesienia: 32 pliki CSV i 678 rekordów,
+- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #11 i #12,
+- zapisać punkt odniesienia: 32 pliki CSV i 734 rekordy,
 - odnotować 29 relacji między tabelami oraz 32 tabele SQLite,
-- udokumentować 84 datowane obserwacje techniczne,
-- wyznaczyć kolejny mały pakiet danych opartych na źródłach.
+- udokumentować 140 datowanych obserwacji technicznych,
+- zamknąć pakiet źródłowych wymiarów i pojemności.
 
 ---
 
 # Next Sprint
 
-## Source-backed Dimensions and Capacities
+## Fuel-mode-aware WLTP Observation Analysis
 
 Cel sprintu:
 
-- wybrać niewielki zestaw wymiarów i pojemności jednoznacznie podanych
-  w zarejestrowanych dokumentach,
-- mapować wartości wyłącznie do istniejących atrybutów i jednostek,
-- zachować powiązanie każdej wartości z konfiguracją, źródłem i datą,
-- nie rozdzielać wartości na osie ani warianty paliwa bez jednoznacznego
-  potwierdzenia w źródle,
+- przeanalizować źródłowe wartości zużycia paliwa i emisji CO2 dla LPG
+  oraz benzyny,
+- nie zapisywać dwóch wartości dla tej samej konfiguracji, daty i cechy
+  bez jednoznacznego kontekstu rodzaju paliwa,
+- wybrać najmniejsze rozszerzenie modelu danych pozwalające zachować
+  znaczenie i pochodzenie każdej obserwacji,
+- dodać testy i dane dopiero po zatwierdzeniu jawnego modelu kontekstu,
 - uruchomić pełną bramkę `python tools/dkb.py quality` przed integracją zmian.
 
 ---
