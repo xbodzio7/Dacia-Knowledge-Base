@@ -22,7 +22,7 @@ def generate_data_dictionary(root: Path, output: Path):
             master_dir.rglob("*.csv")
         ):
 
-            relative = csv_file.relative_to(root)
+            relative = csv_file.relative_to(root).as_posix()
 
             with csv_file.open(
                 encoding="utf-8-sig",
