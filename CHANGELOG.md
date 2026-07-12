@@ -41,6 +41,13 @@ All notable changes to this project will be documented in this file.
 * Regression tests for CSV search, statistics, CLI routing, encoding normalization and Markdown reporting.
 * Unified `quality` CLI command for the complete local quality gate.
 * Unit tests for quality-step orchestration and failure propagation.
+* Source registry for seven official Sandero and Sandero Stepway configuration documents.
+* Source-to-model, source-to-version and source-to-configuration relationships.
+* Five Sandero and Sandero Stepway trim records.
+* Seven source-backed Eco-G 120 configuration records.
+* PLN currency catalogue entry.
+* Seven dated Polish catalogue gross price observations.
+* Cross-file reference and status rules for the new source-backed data tables.
 
 ### Changed
 
@@ -59,6 +66,9 @@ All notable changes to this project will be documented in this file.
 * Dataset statistics analyze only source CSV files under `data/master`.
 * Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
+* Cross-file validation now covers 26 declared relationships.
+* Lifecycle and catalogue status validation now covers 18 declared rules.
+* The verified master-data baseline now contains 31 CSV files and 594 rows.
 
 ### Fixed
 
@@ -78,3 +88,4 @@ All notable changes to this project will be documented in this file.
 * Synchronized `ROADMAP.md` and `SESSION_STATE.md` with the completed tooling and quality baseline.
 * Replaced outdated tooling placeholders with the next source-backed data expansion phase.
 * Normalized project state documents to standard Markdown syntax.
+* Synchronized project documentation with the Sandero source, version, configuration and price packages merged through PRs #3–#6.

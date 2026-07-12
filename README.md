@@ -32,16 +32,20 @@ Dodatkowe katalogi modelowe i źródłowe przechowują materiały robocze związ
 
 Repozytorium zawiera między innymi:
 
-* `categories.csv`,
-* `models.csv`,
-* `engines.csv`,
-* `gearboxes.csv`,
-* `model_engines.csv`,
-* `model_gearboxes.csv`,
-* `attributes.csv`,
-* `body_types.csv`,
-* `segments.csv`,
-* słowniki wartości wyliczeniowych w `data/master/enums/`.
+* dane pojazdów: `models.csv`, `engines.csv`, `gearboxes.csv`,
+  `model_engines.csv` i `model_gearboxes.csv`,
+* wersje i konfiguracje: `versions.csv`, `configurations.csv`,
+  `source_versions.csv` i `source_configurations.csv`,
+* źródła: `sources.csv` i `source_models.csv`,
+* obserwacje handlowe: `configuration_prices.csv` i `currencies.csv`,
+* katalog atrybutów: `attributes.csv`, `attribute_categories.csv`,
+  `units.csv` i `value_types.csv`,
+* słowniki klasyfikacyjne, w tym `body_types.csv`, `segments.csv`
+  oraz pliki w `data/master/enums/`.
+
+Ceny są zapisywane jako datowane obserwacje powiązane z konkretnym
+dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
+aktualnej oferty.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
