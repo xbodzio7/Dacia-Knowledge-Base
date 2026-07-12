@@ -295,3 +295,42 @@ The project is developed using domain-oriented sprints.
 A sprint should complete one logical area instead of introducing many unrelated changes.
 
 Quality and consistency take precedence over rapid dataset growth.
+
+---
+
+## D-014 — Observation-level fuel context
+
+Status: Accepted
+
+Date: 2026-07-12
+
+### Decision
+
+`configuration_attribute_values.csv` contains an optional
+`fuel_type_code` column referencing `data/master/enums/fuel_types.csv`.
+
+The field is populated when the meaning of an observation depends on the
+fuel used during the measurement, for example LPG or petrol WLTP fuel
+consumption and CO2 emissions. It remains empty for fuel-independent
+observations.
+
+Fuel context is stored separately from `attribute_code`; fuel-specific
+variants are not represented as duplicate attribute definitions.
+
+### Rationale
+
+A bi-fuel configuration can have multiple valid values for the same
+attribute, date and source. The existing observation model could not
+distinguish those values without encoding fuel in identifiers or notes.
+
+An optional referenced column is the smallest extension that preserves
+the source meaning, supports validation and remains compatible with all
+existing observations.
+
+### Consequences
+
+- LPG and petrol observations use the same canonical attribute codes.
+- Populated fuel contexts must exist in the fuel-type dictionary.
+- Existing fuel-independent observations retain an empty context.
+- Future imports may reuse the same mechanism for other fuel-dependent
+  configuration observations.

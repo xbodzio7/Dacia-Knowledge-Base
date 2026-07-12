@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 
 from tools.validators.references import (
+    REFERENCE_RULES,
     ReferenceRule,
     validate_reference_rules,
 )
@@ -149,6 +150,24 @@ class ReferenceValidationTests(unittest.TestCase):
             validate_reference_rules(self.root, [rule]),
             [],
         )
+
+    def test_declares_optional_observation_fuel_type_reference(self) -> None:
+        matching_rules = [
+            rule
+            for rule in REFERENCE_RULES
+            if rule.source_file
+            == "data/master/configuration_attribute_values.csv"
+            and rule.source_column == "fuel_type_code"
+        ]
+
+        self.assertEqual(len(matching_rules), 1)
+        rule = matching_rules[0]
+        self.assertEqual(
+            rule.target_file,
+            "data/master/enums/fuel_types.csv",
+        )
+        self.assertEqual(rule.target_column, "code")
+        self.assertTrue(rule.allow_empty)
 
     def test_reports_duplicate_target_key_once(self) -> None:
         self.write_csv(

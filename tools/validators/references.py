@@ -99,6 +99,12 @@ REFERENCE_RULES: tuple[ReferenceRule, ...] = (
     ),
     ReferenceRule(
         "data/master/configuration_attribute_values.csv",
+        "fuel_type_code",
+        "data/master/enums/fuel_types.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
+        "data/master/configuration_attribute_values.csv",
         "source_code",
         "data/master/sources.csv",
     ),
