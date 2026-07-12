@@ -130,12 +130,24 @@ Eksport wyników do CSV:
 python tools/dkb.py search Duster --export reports/duster_search.csv
 ```
 
+Eksport ma stały układ kolumn zbudowany ze wszystkich przeszukiwanych tabel. Wartości są wyrównywane według nazw kolumn, a sam plik wynikowy jest wykluczany z wyszukiwania.
+
+### Statystyki
+
+```bash
+python tools/dkb.py stats
+```
+
+Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
+
 ### Raporty
 
 ```bash
 python tools/dkb.py catalog
 python tools/dkb.py dictionary
 ```
+
+Katalog encji i słownik danych są generowane wyłącznie na podstawie plików z `data/master`. Eksporty z `reports/` oraz dane generowane są pomijane.
 
 ## Automatyczna kontrola jakości
 
@@ -152,7 +164,7 @@ Kontrola jest wykonywana w Pythonie 3.10 oraz 3.13 i obejmuje:
 3. kontrolę kodowania CSV,
 4. walidację repozytorium, danych i relacji między tabelami,
 5. próbne zbudowanie bazy SQLite,
-6. kontrolę integralności SQLite i obecności podstawowych tabel.
+6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite oraz raport walidacji jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
 

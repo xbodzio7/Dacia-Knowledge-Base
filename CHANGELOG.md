@@ -37,6 +37,8 @@ All notable changes to this project will be documented in this file.
 * SQLite parity verification for tables and row counts.
 * Unified `sqlite-verify` CLI command.
 * Full SQLite schema and row-content comparison with source CSV files.
+* Regression tests for atomic SQLite build safety and failure recovery.
+* Regression tests for CSV search, statistics, CLI routing, encoding normalization and Markdown reporting.
 
 ### Changed
 
@@ -51,6 +53,10 @@ All notable changes to this project will be documented in this file.
 * The CSV validator no longer accepts legacy Windows-1250 input.
 * Generated validation reports are treated as disposable local and CI artifacts.
 * The attribute-only uniqueness check now covers every master CSV table.
+* Cross-file search exports use aligned columns and exclude their own output file from scanning.
+* Dataset statistics analyze only source CSV files under `data/master`.
+* Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
+* Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 
 ### Fixed
 
