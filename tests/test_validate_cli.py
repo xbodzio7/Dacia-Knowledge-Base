@@ -6,6 +6,8 @@ import sys
 import unittest
 from pathlib import Path
 
+from tools.validators.references import REFERENCE_RULES
+
 
 class ValidateCliIntegrationTests(unittest.TestCase):
     def test_validate_command_executes_complete_validator(self) -> None:
@@ -54,7 +56,7 @@ class ValidateCliIntegrationTests(unittest.TestCase):
             "10. Wykonywanie reguł danych",
             "11. Zbieranie statystyk",
             "12. Generowanie raportu",
-            "14 relacji",
+            f"{len(REFERENCE_RULES)} relacji",
         )
 
         for fragment in expected_fragments:
