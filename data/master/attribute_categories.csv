@@ -1,0 +1,29 @@
+code,name,description
+adas,ADAS,Advanced driver assistance systems
+brakes,Brakes,Brake system specifications
+capacities,Capacities,"Vehicle fluid, load and cargo capacities"
+consumption,Consumption,Fuel consumption metrics
+dimensions,Dimensions,Vehicle dimensions and clearances
+doors,Doors,Door and tailgate configuration
+drivetrain,Drivetrain,"Driven axles, differentials and traction layout"
+driving_systems,Driving Systems,"Parking, camera and driving support systems"
+efficiency,Efficiency,Electric energy efficiency metrics
+electric_system,Electric System,Electric propulsion and high-voltage system data
+emissions,Emissions,Exhaust and carbon dioxide emissions
+engine,Engine,Internal combustion engine specifications
+hvac,HVAC,"Heating, ventilation and air-conditioning equipment"
+hybrid_system,Hybrid System,Hybrid propulsion system specifications
+infotainment,Infotainment,"Multimedia, connectivity and display features"
+lighting,Lighting,Exterior and interior lighting equipment
+mirrors,Mirrors,"Mirror adjustment, heating and dimming features"
+performance,Performance,"Acceleration, speed and dynamic performance"
+powertrain,Powertrain,General propulsion and transmission attributes
+safety,Safety,Passive and active safety equipment
+seats,Seats,Seating configuration and comfort features
+steering,Steering,Steering system specifications
+suspension,Suspension,Front and rear suspension specifications
+towing,Towing,Trailer and towing limits
+transmission,Transmission,"Gearbox construction, ratios and service data"
+weights,Weights,Vehicle mass and gross weight ratings
+wheels,Wheels,"Wheels, tyres and tyre-pressure data"
+windows,Windows,Window construction and electrical features

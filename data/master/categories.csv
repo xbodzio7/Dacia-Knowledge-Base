@@ -1,16 +1,16 @@
 id,code,name_pl,name_en,description
-CAT001,models,Modele,Models,Modele samochodÛw Dacia
-CAT002,versions,Wersje wyposaøenia,Trim Levels,Wersje wyposaøenia modeli
-CAT003,engines,Silniki,Engines,Jednostki napÍdowe
-CAT004,gearboxes,Skrzynie biegÛw,Gearboxes,Rodzaje skrzyÒ biegÛw
+CAT001,models,Modele,Models,Modele samochod√≥w Dacia
+CAT002,versions,Wersje wyposa≈ºenia,Trim Levels,Wersje wyposa≈ºenia modeli
+CAT003,engines,Silniki,Engines,Jednostki napƒôdowe
+CAT004,gearboxes,Skrzynie bieg√≥w,Gearboxes,Rodzaje skrzy≈Ñ bieg√≥w
 CAT005,body_types,Nadwozia,Body Types,Typy nadwozi
-CAT006,segments,Segmenty,Segments,Segmenty pojazdÛw
-CAT007,equipment,Wyposaøenie,Equipment,Elementy wyposaøenia seryjnego
-CAT008,packages,Pakiety,Packages,Pakiety wyposaøenia
-CAT009,options,Opcje,Options,Wyposaøenie opcjonalne
-CAT010,colors,Kolory,Colors,DostÍpne kolory nadwozia i wnÍtrza
+CAT006,segments,Segmenty,Segments,Segmenty pojazd√≥w
+CAT007,equipment,Wyposa≈ºenie,Equipment,Elementy wyposa≈ºenia seryjnego
+CAT008,packages,Pakiety,Packages,Pakiety wyposa≈ºenia
+CAT009,options,Opcje,Options,Wyposa≈ºenie opcjonalne
+CAT010,colors,Kolory,Colors,Dostƒôpne kolory nadwozia i wnƒôtrza
 CAT011,technical,Dane techniczne,Technical Data,Parametry techniczne
-CAT012,maintenance,Serwis,Maintenance,Czynnoúci serwisowe i harmonogramy
-CAT013,issues,Typowe usterki,Known Issues,NajczÍúciej spotykane problemy
-CAT014,recommendations,Rekomendacje,Recommendations,Zalecenia dotyczπce wyboru i eksploatacji
-CAT015,sources,èrÛd≥a,Sources,èrÛd≥a danych wykorzystanych w projekcie
+CAT012,maintenance,Serwis,Maintenance,Czynno≈õci serwisowe i harmonogramy
+CAT013,issues,Typowe usterki,Known Issues,Najczƒô≈õciej spotykane problemy
+CAT014,recommendations,Rekomendacje,Recommendations,Zalecenia dotyczƒÖce wyboru i eksploatacji
+CAT015,sources,≈πr√≥d≈Ça,Sources,≈πr√≥d≈Ça danych wykorzystanych w projekcie

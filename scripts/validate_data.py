@@ -2,7 +2,7 @@
 """
 Dacia Knowledge Base
 
-CSV validator v1
+CSV validator v2
 
 Checks:
 - UTF-8 encoding
@@ -10,9 +10,13 @@ Checks:
 - empty rows
 - consistent number of columns
 - header presence
+- empty column names
+- duplicate column names
+- header whitespace
+- empty IDs
+- duplicate IDs
 
 Future versions:
-- duplicate IDs
 - foreign keys
 - dictionary validation
 - cross references
@@ -52,6 +56,35 @@ def validate_csv(path: Path):
 
             expected_columns = len(header)
 
+            seen_columns = set()
+            id_index = None
+
+            for index, column in enumerate(header):
+
+                if column != column.strip():
+                    error(
+                        f'{path}: column "{column}" '
+                        "contains leading/trailing whitespace"
+                    )
+
+                normalized = column.strip()
+
+                if not normalized:
+                    error(f"{path}: empty column name")
+                    continue
+
+                lowered = normalized.lower()
+
+                if lowered in seen_columns:
+                    error(f'{path}: duplicate column "{normalized}"')
+                else:
+                    seen_columns.add(lowered)
+
+                if lowered == "id":
+                    id_index = index
+
+            seen_ids = {}
+
             for line_no, row in enumerate(reader, start=2):
 
                 if not row:
@@ -64,6 +97,24 @@ def validate_csv(path: Path):
                         f"expected {expected_columns} columns "
                         f"but found {len(row)}"
                     )
+                    continue
+
+                if id_index is None:
+                    continue
+
+                value = row[id_index].strip()
+
+                if not value:
+                    error(f"{path}:{line_no}: empty id")
+                    continue
+
+                if value in seen_ids:
+                    error(
+                        f'{path}: duplicate id "{value}" '
+                        f"at lines {seen_ids[value]} and {line_no}"
+                    )
+                else:
+                    seen_ids[value] = line_no
 
     except UnicodeDecodeError:
         error(f"{path}: invalid UTF-8")

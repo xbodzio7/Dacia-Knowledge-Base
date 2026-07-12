@@ -8,6 +8,8 @@ Desktop.ini
 # Pliki tymczasowe
 *.tmp
 *.bak
+*.old
+*.orig
 
 # Python
 __pycache__/
@@ -21,19 +23,23 @@ venv/
 
 # System
 .DS_Store
-Thumbs.db
 
 # Generated data
 data/generated/
 
-# Temporary files
-*.tmp
-*.bak
+# Generated local databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
 
-# Local backups
+# Local archives and backups
 *.7z
 *.zip
-*.bak
-*.old
-*.tmp
-*.orig
+
+# Generated reports and search exports
+reports/validation_report.md
+reports/entity_catalog.md
+reports/data_dictionary.md
+reports/*.csv
