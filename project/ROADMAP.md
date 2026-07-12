@@ -40,6 +40,8 @@ Data Expansion
 
 🟩 Walidacja i testy
 
+🟩 Pierwszy źródłowy pakiet Sandero i Sandero Stepway
+
 🟨 Rozbudowa danych opartych na źródłach
 
 ⬜ Automatyczny import PDF
@@ -76,7 +78,12 @@ Data Expansion
 - kategorie, domeny, jednostki i typy wartości,
 - atrybuty oraz dedykowany słownik kategorii atrybutów,
 - słowniki wartości enumeracyjnych,
-- deklaratywne reguły walidacji.
+- deklaratywne reguły walidacji,
+- rejestr siedmiu oficjalnych dokumentów Sandero i Sandero Stepway,
+- powiązania źródeł z modelami, wersjami i konfiguracjami,
+- pięć wersji wyposażenia,
+- siedem konfiguracji Eco-G 120,
+- waluta PLN i siedem datowanych obserwacji cen katalogowych brutto.
 
 ## Tooling
 
@@ -96,26 +103,27 @@ Data Expansion
 
 # Current Sprint
 
-## Project State Synchronization
+## Sandero Data Baseline Documentation Sync
 
 Cel sprintu:
 
-- ujednolicić `ROADMAP.md`, `SESSION_STATE.md` i `CHANGELOG.md`,
-- usunąć nieaktualne informacje z okresu budowy fundamentów,
-- zapisać aktualny punkt odniesienia po zakończeniu etapu tooling,
-- przygotować projekt do rozbudowy danych merytorycznych.
+- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #3–#6,
+- zapisać punkt odniesienia: 31 plików CSV i 594 rekordy,
+- odnotować 26 relacji między tabelami oraz 31 tabel SQLite,
+- wyznaczyć kolejny mały pakiet danych opartych na źródłach.
 
 ---
 
 # Next Sprint
 
-## Source-backed Data Expansion
+## Source-backed Technical Specifications
 
 Cel sprintu:
 
-- wybrać pierwszą rodzinę modeli do systematycznego opracowania,
-- zebrać i sklasyfikować wiarygodne materiały źródłowe,
-- rozszerzyć dane techniczne z zachowaniem identyfikowalności źródeł,
+- wybrać niewielki zestaw parametrów jednoznacznie podanych w zarejestrowanych dokumentach,
+- mapować wartości do istniejących encji i katalogu atrybutów,
+- zachować powiązanie każdej wartości ze źródłem i datą dokumentu,
+- nie zgadywać kodów silników, skrzyń ani brakujących parametrów,
 - uruchomić pełną bramkę `python tools/dkb.py quality` przed integracją zmian.
 
 ---
@@ -124,21 +132,19 @@ Cel sprintu:
 
 ## Data
 
-- versions
 - packages
 - options
-- prices
 - attribute_values
-- sources
-- powiązania rekordów ze źródłami
+- techniczne wartości konfiguracji
+- wyposażenie wersji i konfiguracji
+- dalsze rozszerzanie pokrycia źródłami
 
 ## Import
 
-- potok importu PDF,
+- automatyczny potok importu PDF,
 - ekstrakcja tabel i specyfikacji,
 - kontrola pochodzenia danych,
-- Sandero,
-- Sandero Stepway,
+- dalsze dane Sandero i Sandero Stepway,
 - Duster,
 - Jogger,
 - Bigster,
