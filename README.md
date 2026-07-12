@@ -38,6 +38,8 @@ Repozytorium zawiera między innymi:
   `source_versions.csv` i `source_configurations.csv`,
 * źródła: `sources.csv` i `source_models.csv`,
 * obserwacje handlowe: `configuration_prices.csv` i `currencies.csv`,
+* obserwacje techniczne konfiguracji:
+  `configuration_attribute_values.csv`,
 * katalog atrybutów: `attributes.csv`, `attribute_categories.csv`,
   `units.csv` i `value_types.csv`,
 * słowniki klasyfikacyjne, w tym `body_types.csv`, `segments.csv`
@@ -46,6 +48,12 @@ Repozytorium zawiera między innymi:
 Ceny są zapisywane jako datowane obserwacje powiązane z konkretnym
 dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
+
+Parametry techniczne konfiguracji również są datowanymi obserwacjami
+powiązanymi ze źródłem. Pierwsze dwa pakiety obejmują 84 wartości dla
+siedmiu konfiguracji Sandero i Sandero Stepway: podstawowe dane zespołu
+napędowego i pojemności, prędkość maksymalną, średnicę zawracania oraz
+masy pojazdu i przyczep.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 

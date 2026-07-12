@@ -47,6 +47,10 @@ All notable changes to this project will be documented in this file.
 * Seven source-backed Eco-G 120 configuration records.
 * PLN currency catalogue entry.
 * Seven dated Polish catalogue gross price observations.
+* Configuration-level technical observation dataset with date and source traceability.
+* Thirty-five basic technical observations for seven Sandero configurations.
+* Forty-nine performance, towing and weight observations.
+* Eighty-four source-backed technical observations in total.
 * Cross-file reference and status rules for the new source-backed data tables.
 
 ### Changed
@@ -66,9 +70,10 @@ All notable changes to this project will be documented in this file.
 * Dataset statistics analyze only source CSV files under `data/master`.
 * Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
-* Cross-file validation now covers 26 declared relationships.
+* Cross-file validation now covers 29 declared relationships.
 * Lifecycle and catalogue status validation now covers 18 declared rules.
-* The verified master-data baseline now contains 31 CSV files and 594 rows.
+* The verified master-data baseline now contains 32 CSV files and 678 rows.
+* SQLite verification now covers 32 tables and 678 rows.
 
 ### Fixed
 
@@ -89,3 +94,4 @@ All notable changes to this project will be documented in this file.
 * Replaced outdated tooling placeholders with the next source-backed data expansion phase.
 * Normalized project state documents to standard Markdown syntax.
 * Synchronized project documentation with the Sandero source, version, configuration and price packages merged through PRs #3–#6.
+* Synchronized project documentation with the technical observation packages merged through PRs #8 and #9.

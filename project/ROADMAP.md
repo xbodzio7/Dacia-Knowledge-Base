@@ -83,7 +83,10 @@ Data Expansion
 - powiązania źródeł z modelami, wersjami i konfiguracjami,
 - pięć wersji wyposażenia,
 - siedem konfiguracji Eco-G 120,
-- waluta PLN i siedem datowanych obserwacji cen katalogowych brutto.
+- waluta PLN i siedem datowanych obserwacji cen katalogowych brutto,
+- 84 datowane obserwacje techniczne dla siedmiu konfiguracji,
+- podstawowe parametry zespołu napędowego i pojemności,
+- prędkość maksymalna, średnica zawracania, masy pojazdu i przyczep.
 
 ## Tooling
 
@@ -103,27 +106,30 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Data Baseline Documentation Sync
+## Sandero Technical Data Documentation Sync
 
 Cel sprintu:
 
-- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #3–#6,
-- zapisać punkt odniesienia: 31 plików CSV i 594 rekordy,
-- odnotować 26 relacji między tabelami oraz 31 tabel SQLite,
+- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #8 i #9,
+- zapisać punkt odniesienia: 32 pliki CSV i 678 rekordów,
+- odnotować 29 relacji między tabelami oraz 32 tabele SQLite,
+- udokumentować 84 datowane obserwacje techniczne,
 - wyznaczyć kolejny mały pakiet danych opartych na źródłach.
 
 ---
 
 # Next Sprint
 
-## Source-backed Technical Specifications
+## Source-backed Dimensions and Capacities
 
 Cel sprintu:
 
-- wybrać niewielki zestaw parametrów jednoznacznie podanych w zarejestrowanych dokumentach,
-- mapować wartości do istniejących encji i katalogu atrybutów,
-- zachować powiązanie każdej wartości ze źródłem i datą dokumentu,
-- nie zgadywać kodów silników, skrzyń ani brakujących parametrów,
+- wybrać niewielki zestaw wymiarów i pojemności jednoznacznie podanych
+  w zarejestrowanych dokumentach,
+- mapować wartości wyłącznie do istniejących atrybutów i jednostek,
+- zachować powiązanie każdej wartości z konfiguracją, źródłem i datą,
+- nie rozdzielać wartości na osie ani warianty paliwa bez jednoznacznego
+  potwierdzenia w źródle,
 - uruchomić pełną bramkę `python tools/dkb.py quality` przed integracją zmian.
 
 ---
@@ -132,10 +138,8 @@ Cel sprintu:
 
 ## Data
 
-- packages
-- options
-- attribute_values
-- techniczne wartości konfiguracji
+- pakiety i opcje
+- dalsze techniczne wartości konfiguracji
 - wyposażenie wersji i konfiguracji
 - dalsze rozszerzanie pokrycia źródłami
 
