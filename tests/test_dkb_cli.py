@@ -34,6 +34,7 @@ class DkbCliTests(unittest.TestCase):
             output,
         )
         self.assertIn("sqlite-verify", output)
+        self.assertIn("quality", output)
         self.assertIn("dictionary", output)
 
     def test_accepts_all_help_aliases(

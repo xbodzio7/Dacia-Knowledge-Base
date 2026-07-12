@@ -59,6 +59,7 @@ Dostępne komendy:
 | ------------ | ----------------------------------------- |
 | `validate`   | Walidacja struktury repozytorium i danych |
 | `normalize`  | Kontrola kodowania plików CSV             |
+| `quality`    | Pełna lokalna kontrola jakości            |
 | `sqlite`     | Budowanie lokalnej bazy SQLite            |
 | `sqlite-verify` | Pełna kontrola zgodności SQLite z CSV |
 | `search`     | Wyszukiwanie danych w plikach CSV         |
@@ -89,6 +90,18 @@ Konwersja wykrytych plików Windows-1250 do UTF-8:
 ```bash
 python tools/dkb.py normalize --apply
 ```
+
+### Lokalna kontrola jakości
+
+```bash
+python tools/dkb.py quality
+```
+
+Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
+GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
+kodowanie i dane, a następnie buduje i porównuje tymczasową
+bazę SQLite. Zatrzymuje się na pierwszym nieudanym etapie.
+Tymczasowa baza jest automatycznie usuwana.
 
 ### Eksport SQLite
 

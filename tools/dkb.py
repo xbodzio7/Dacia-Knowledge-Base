@@ -20,6 +20,11 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "quality": (
+        "quality.py",
+        "Run the complete local quality gate.",
+        "",
+    ),
     "search": (
         "search.py",
         "Search records in repository CSV files.",
@@ -90,6 +95,7 @@ def usage() -> None:
     print("  python tools/dkb.py validate")
     print("  python tools/dkb.py normalize")
     print("  python tools/dkb.py normalize --apply")
+    print("  python tools/dkb.py quality")
     print("  python tools/dkb.py sqlite")
     print("  python tools/dkb.py sqlite --output reports/dkb.sqlite")
     print("  python tools/dkb.py sqlite-verify reports/dkb.sqlite")

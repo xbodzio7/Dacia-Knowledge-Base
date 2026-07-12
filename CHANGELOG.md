@@ -39,6 +39,8 @@ All notable changes to this project will be documented in this file.
 * Full SQLite schema and row-content comparison with source CSV files.
 * Regression tests for atomic SQLite build safety and failure recovery.
 * Regression tests for CSV search, statistics, CLI routing, encoding normalization and Markdown reporting.
+* Unified `quality` CLI command for the complete local quality gate.
+* Unit tests for quality-step orchestration and failure propagation.
 
 ### Changed
 
