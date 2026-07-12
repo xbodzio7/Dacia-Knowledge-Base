@@ -1,0 +1,6 @@
+id,code,model_code,name,status,notes
+1,sandero_iii_expression,sandero_iii,Expression,active,
+2,sandero_iii_journey,sandero_iii,Journey,active,
+3,sandero_stepway_iii_essential,sandero_stepway_iii,Essential,active,
+4,sandero_stepway_iii_expression,sandero_stepway_iii,Expression,active,
+5,sandero_stepway_iii_extreme,sandero_stepway_iii,Extreme,active,

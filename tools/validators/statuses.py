@@ -36,6 +36,10 @@ STATUS_RULES: tuple[StatusRule, ...] = (
         ACTIVE_STATUSES,
     ),
     StatusRule(
+        "data/master/versions.csv",
+        ACTIVE_STATUSES,
+    ),
+    StatusRule(
         "data/master/engines.csv",
         LIFECYCLE_STATUSES,
         "end_year",
