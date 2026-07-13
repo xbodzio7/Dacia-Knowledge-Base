@@ -83,6 +83,9 @@ Dostępne komendy:
 | `stats`      | Statystyki zbiorów danych                 |
 | `catalog`    | Generowanie katalogu encji                |
 | `dictionary` | Generowanie słownika danych               |
+| `package-start` | Synchronizacja `main` i utworzenie gałęzi pakietu |
+| `package-review` | Kontrola zakresu, diffu i opcjonalnie jakości |
+| `package-finish` | Kontrola commitu przed pushem i Pull Requestem |
 
 ### Walidacja
 
@@ -119,6 +122,32 @@ GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, a następnie buduje i porównuje tymczasową
 bazę SQLite. Zatrzymuje się na pierwszym nieudanym etapie.
 Tymczasowa baza jest automatycznie usuwana.
+
+### Automatyzacja pakietów zmian
+
+Rozpoczęcie pakietu synchronizuje `main`, sprawdza czystość repozytorium
+oraz dostępność nazwy i tworzy nową gałąź:
+
+```bash
+python tools/dkb.py package-start tooling/example
+```
+
+Przegląd przed commitem łączy kontrolę zakresu, `diff --check`, statystyki
+zmian, zawartość nowych nieśledzonych plików oraz opcjonalną pełną bramkę
+jakości. `--allow` można powtarzać dla plików i katalogów dozwolonych
+w pakiecie:
+
+```bash
+python tools/dkb.py package-review --allow tools --allow tests --allow README.md --quality --show-diff
+```
+
+Po utworzeniu commitu końcowa kontrola sprawdza czystość katalogu,
+różnicę względem `origin/main`, listę commitów i plików oraz podaje
+bezpieczne polecenie push. Sam push pozostaje operacją jawną:
+
+```bash
+python tools/dkb.py package-finish
+```
 
 ### Eksport SQLite
 

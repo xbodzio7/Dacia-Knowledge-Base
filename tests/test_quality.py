@@ -85,6 +85,23 @@ class QualityTests(unittest.TestCase):
             ],
         )
 
+    def test_quality_environment_forces_utf8(self) -> None:
+        with mock.patch.dict(
+            quality.os.environ,
+            {
+                "PYTHONUTF8": "0",
+                "PYTHONIOENCODING": "cp1250",
+            },
+            clear=False,
+        ):
+            environment = quality.quality_environment()
+
+        self.assertEqual(environment["PYTHONUTF8"], "1")
+        self.assertEqual(
+            environment["PYTHONIOENCODING"],
+            "utf-8",
+        )
+
     def test_run_step_propagates_exit_code(
         self,
     ) -> None:
@@ -109,6 +126,7 @@ class QualityTests(unittest.TestCase):
         run.assert_called_once_with(
             ["example", "--flag"],
             cwd=REPOSITORY,
+            env=mock.ANY,
             check=False,
         )
         self.assertIn("==> Example", stdout.getvalue())

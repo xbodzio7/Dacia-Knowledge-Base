@@ -6,6 +6,7 @@ Run the complete local quality gate for Dacia Knowledge Base.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import tempfile
@@ -81,6 +82,13 @@ def quality_steps(
         ),
     ]
 
+def quality_environment() -> dict[str, str]:
+    """Return an environment forcing UTF-8 for child tools."""
+    environment = os.environ.copy()
+    environment["PYTHONUTF8"] = "1"
+    environment["PYTHONIOENCODING"] = "utf-8"
+    return environment
+
 
 def run_step(
     label: str,
@@ -94,6 +102,7 @@ def run_step(
         completed = subprocess.run(
             command,
             cwd=repository,
+            env=quality_environment(),
             check=False,
         )
     except OSError as exc:
