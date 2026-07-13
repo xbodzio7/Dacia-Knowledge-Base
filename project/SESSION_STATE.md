@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#24. Aktualny punkt odniesienia to merge commit
-`508fd0e`.
+Pull Requesty #3–#25. Aktualny punkt odniesienia to merge commit
+`3c065769`.
 
-PR #24 dodał kategorię `Exterior`, atrybut `exterior_color` i siedem
-datowanych wartości `biel alpejska`. GitHub Actions Quality run #76
-zakończył się powodzeniem.
+PR #25 zaakceptował decyzję D-018 i zdefiniował neutralną dla osi pełną
+specyfikację standardowej opony. GitHub Actions Quality run #78 zakończył
+się powodzeniem.
 
-Bieżący pakiet analityczny jest rozwijany na gałęzi
-`analysis/sandero-remaining-pdf-value-gap`.
+Bieżący pakiet źródłowy jest rozwijany na gałęzi
+`data/sandero-standard-tyre-specification`.
 
 ## Verified Quality Baseline
 
@@ -23,63 +23,58 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 202 testy automatyczne zakończone powodzeniem,
+- 211 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1267 rekordów danych,
+- 1275 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 204 obserwacje w `configuration_attribute_values.csv`,
+- 211 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 347 kanonicznych atrybutów w 29 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1267 rekordów,
+- 348 kanonicznych atrybutów w 29 kategoriach,
+- baza SQLite obejmująca 34 tabele i 1275 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Remaining PDF Value Gap Analysis.
+Sandero Standard Tyre Specification Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- porównanie z 204 wartościami konfiguracji,
-- porównanie z 419 rekordami dostępności wyposażenia,
-- potwierdzenie wspólnego pola `Opony Standardowe 205/60 R16 92H`,
-- wykazanie niedopasowania atrybutów osiowych i maksymalnych,
-- decyzja D-018 o neutralnej dla osi pełnej specyfikacji opony,
-- brak zmian w danych, schemacie, narzędziach i testach.
+- dodanie atrybutu string `standard_tyre_specification`,
+- import siedmiu datowanych wartości `205/60 R16 92H`,
+- zachowanie strony 5, sekcji `Koła i opony` i pełnego brzmienia pola,
+- brak zmian w dostępności wyposażenia i cenach konfiguracji,
+- dziewięć nowych testów regresyjnych,
+- odblokowanie przyszłych importów przez usunięcie globalnego limitu z testu koloru.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 204 datowane wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Koła i
-opony` tę samą wartość: `Opony Standardowe 205/60 R16 92H`.
+Model obejmuje 211 datowanych wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Siedem nowych rekordów przechowuje `205/60 R16 92H` jako pełną,
+neutralną dla osi specyfikację standardowej opony powiązaną z konfiguracją,
+datą i dokumentem źródłowym.
 
-Istniejące `front_tyre_size` i `rear_tyre_size` wymagają znaczenia osiowego,
-którego źródło nie dostarcza. `max_tyre_load_index` i
-`max_tyre_speed_rating` opisują wartości maksymalne, podczas gdy `92H`
-należy do podanej standardowej opony. `wheel_size` opisuje wybraną felgę,
-nie pełną specyfikację opony.
-
-Najmniejszym poprawnym rozszerzeniem jest nowy string
-`standard_tyre_specification` użyty w istniejącej relacji wartości
-konfiguracji.
+Pole źródłowe nie tworzy wartości `front_tyre_size`, `rear_tyre_size`,
+`max_tyre_load_index` ani `max_tyre_speed_rating`. Nie zastępuje też
+`wheel_size`, które zachowuje rozmiar wybranej felgi.
 
 ## Next Development Package
 
-Sandero Standard Tyre Specification Import.
+Sandero Remaining PDF Value Gap Reassessment.
 
 Planowany przebieg:
 
-1. Dodać atrybut string `standard_tyre_specification` w kategorii `Wheels`.
-2. Zaimportować `205/60 R16 92H` dla siedmiu konfiguracji.
-3. Zachować stronę 5, sekcję `Koła i opony` i pełne polskie brzmienie.
-4. Nie duplikować wartości na osie i nie tworzyć maksymalnych indeksów.
-5. Dodać testy granicy modelu i pełną kontrolę jakości.
+1. Porównać siedem PDF z aktualnymi 211 wartościami konfiguracji.
+2. Porównać źródła z 419 rekordami dostępności wyposażenia.
+3. Wskazać wyłącznie jawne fakty, które nadal nie mają rekordów.
+4. Użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła.
+5. Wybrać jeden mały następny pakiet bez zgadywania danych.
 
 ## Working Mode
 
@@ -261,16 +256,29 @@ Completed:
 
 ### Sandero Remaining PDF Value Gap Analysis
 
-Current package:
+Completed:
 
-- zweryfikowano siedem źródeł,
+- PR #25 zweryfikował siedem źródeł,
 - porównano 204 wartości i 419 rekordów dostępności,
 - potwierdzono wspólne pole `Opony Standardowe 205/60 R16 92H`,
 - odrzucono nieuzasadnione przypisanie do osi i wartości maksymalnych,
 - zaakceptowano decyzję D-018,
-- nie zmieniono danych ani schematu.
+- nie zmieniono danych ani schematu,
+- GitHub Actions Quality run #78 zakończył się powodzeniem.
+
+### Sandero Standard Tyre Specification Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- dodano `standard_tyre_specification`,
+- przygotowano 7 wartości `205/60 R16 92H`,
+- zachowano stronę 5, sekcję i pełne źródłowe brzmienie,
+- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
+- dodano dziewięć testów regresyjnych,
+- test koloru ograniczono do własnego pakietu zamiast globalnego rozmiaru tabeli.
 
 Next priority:
 
-Kontrolowany import `standard_tyre_specification = 205/60 R16 92H` dla
-siedmiu konfiguracji.
+Ponowna analiza pozostałych jawnych luk po imporcie specyfikacji standardowej
+opony.
