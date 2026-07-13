@@ -504,3 +504,80 @@ unsupported design.
   by a non-conflicting source.
 - This package records the model and conflict policy only; source-data import
   remains a separate package.
+
+## D-017 — Evidence-gated commercial packages and options
+
+Status: Accepted
+
+Date: 2026-07-13
+
+### Decision
+
+A commercial package or option is modeled only when a source explicitly
+identifies a named selectable commercial item and links it to a vehicle
+configuration, observation date and source document.
+
+A package must not be inferred from:
+
+- a group or section of standard equipment,
+- a trim or version name,
+- simultaneous presence of several equipment attributes,
+- configurator condition codes or ordering criteria,
+- technical wording that merely uses the word `option`.
+
+Individual equipment features remain in
+`configuration_attribute_availability.csv`. Selected descriptive values such
+as exterior colour, wheel variant or upholstery remain in
+`configuration_attribute_values.csv`. Those records must not be relabeled as a
+commercial package.
+
+The package name, its configuration-level availability or selection, its
+price, and its component features are separate facts. A future package model
+must preserve those facts separately instead of collapsing the package into
+its components or duplicating component availability.
+
+### Current source coverage
+
+The seven reviewed Sandero and Sandero Stepway configuration PDFs do not
+contain a named commercial `Pakiety`, `Opcje` or equivalent offer section.
+
+Their configuration summary lists only:
+
+- equipment version,
+- exterior colour,
+- wheels,
+- upholstery.
+
+The following pages list standard equipment and technical specifications.
+The phrase `Minimalna Masa Pojazdu Gotowego Do Jazdy (Bez Opcji)` is a
+technical measurement qualifier. It is not evidence of an offered or selected
+commercial option.
+
+The current sources therefore do not support package or option records and do
+not justify a package-specific schema extension.
+
+### Evidence required for a future package model
+
+A future source-backed package may be modeled only when the source provides
+enough information to preserve at least:
+
+- an explicit commercial package or option name,
+- the affected configuration or offer,
+- the observation date and source,
+- availability or selected state when stated,
+- price and currency when stated,
+- component membership when stated.
+
+Missing component details must remain missing. They must not be reconstructed
+from coincident standard-equipment lists.
+
+### Consequences
+
+- No package or option table is added by this analysis package.
+- No current equipment or configuration value is reclassified as a package.
+- Package and option work remains deferred until explicit source evidence is
+  available.
+- The next source-backed package imports the exterior colour explicitly listed
+  for all seven current configurations.
+- Internal configurator metadata and the technical `Bez Opcji` qualifier remain
+  excluded from commercial package data.

@@ -5,14 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#21. Aktualny punkt odniesienia to merge commit
-`ba615ed0`.
+Pull Requesty #3–#22. Aktualny punkt odniesienia to merge commit
+`f7d7d9bb`.
 
-PR #21 zaakceptował decyzję D-016, rozdzielił wartości kół i tapicerki oraz
-udokumentował konserwatywną granicę konfliktu Stepway Essential.
+PR #22 zaimportował 29 wartości kół i tapicerki, dodał dwa kanoniczne
+atrybuty string i zachował granicę konfliktu Stepway Essential. GitHub
+Actions Quality run #72 zakończył się powodzeniem.
 
-Bieżący pakiet źródłowy jest rozwijany na gałęzi
-`data/sandero-wheel-upholstery-values`.
+Bieżący pakiet analityczny jest rozwijany na gałęzi
+`analysis/sandero-packages-options-gap`.
 
 ## Verified Quality Baseline
 
@@ -39,50 +40,47 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero Wheel and Upholstery Value Import.
+Sandero Packages and Options Gap Analysis.
 
 Zakres:
 
-- weryfikacja siedmiu źródeł PDF przez SHA-256,
-- dodanie `wheel_design` i `upholstery_variant`,
-- import 29 datowanych wartości dla siedmiu konfiguracji,
-- 7 wartości rozmiaru, 7 materiału, 6 wzoru i 2 wykończenia kół,
-- 7 nazwanych wariantów tapicerki,
-- zachowanie strony, sekcji i źródłowego brzmienia w `notes`,
-- brak wzoru i wykończenia dla Stepway Essential,
-- brak zmian w relacji dostępności wyposażenia,
-- wykluczenie wewnętrznych kryteriów zamówieniowych.
+- weryfikacja siedmiu PDF przez SHA-256,
+- przegląd wszystkich stron pod kątem pakietów i opcji handlowych,
+- potwierdzenie braku nazwanych sekcji `Pakiety`, `Opcje` lub odpowiednika,
+- oddzielenie sekcji wyposażenia seryjnego od tożsamości pakietu,
+- sklasyfikowanie `Bez Opcji` jako technicznego kwalifikatora masy,
+- decyzja D-017 o wymaganym źródłowym progu dowodowym,
+- brak zmian w danych, schemacie, narzędziach i testach.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Sześć pakietów wartości konfiguracji obejmuje 197 datowanych obserwacji dla
-siedmiu konfiguracji Sandero i Sandero Stepway. Pierwsze 168 obserwacji
-zachowuje dane techniczne, w tym jawny kontekst LPG i benzyny zgodnie z D-014.
+Po PR #22 model obejmuje 194 testy, 34 pliki CSV i 1258 rekordów. Tabela
+`configuration_attribute_values.csv` zawiera 197 datowanych obserwacji,
+a `configuration_attribute_availability.csv` pozostaje przy 419 rekordach.
 
-Bieżący import dodaje 29 wartości kół i tapicerki zgodnie z D-016. Rozmiar,
-materiał, wzór i wykończenie koła są osobnymi atrybutami, a tapicerka pozostaje
-nazwanym wariantem. Dla Stepway Essential wspólną informacją źródłową jest
-wyłącznie stalowy materiał obręczy; wzór i wykończenie pozostają bez rekordu.
+Przegląd siedmiu bieżących PDF nie wykazał nazwanych pakietów ani opcji
+handlowych. Strona podsumowania konfiguracji wymienia wyłącznie wersję,
+kolor, felgi i tapicerkę, a dalsze strony opisują wyposażenie seryjne oraz
+dane techniczne. Nie ma podstaw do tworzenia encji pakietów ani do
+rekonstruowania ich z grup wyposażenia.
 
-Dwa pakiety dostępności wyposażenia pozostają bez zmian: 419 rekordów,
-w tym 389 `standard` i 30 `not_available`, zgodnie z D-015. Brak rekordu nie
-jest interpretowany jako niedostępność.
+Zwrot `Minimalna Masa Pojazdu Gotowego Do Jazdy (Bez Opcji)` pozostaje
+kwalifikatorem pomiaru technicznego. Nie opisuje oferowanej lub wybranej
+opcji.
 
 ## Next Development Package
 
-Sandero Packages and Options Gap Analysis.
+Sandero Exterior Colour Value Import.
 
 Planowany przebieg:
 
-1. Przejrzeć pakiety i opcje opisane w siedmiu źródłach PDF.
-2. Oddzielić nazwę pakietu od dostępności elementów składowych.
-3. Porównać znaczenie źródła z istniejącymi relacjami wartości i dostępności.
-4. Wykazać potrzebę nowej relacji tylko wtedy, gdy obecny model jest
-   niewystarczający.
-5. Odrzucić kody konfiguratora i kryteria zamówieniowe.
-6. Wybrać jeden kontrolowany pakiet wdrożeniowy bez zgadywania danych.
+1. Dodać atrybut string `exterior_color`.
+2. Zaimportować `biel alpejska` dla siedmiu konfiguracji.
+3. Zachować stronę 2, sekcję `Kolor`, datę, źródło i zapis `0 zł`.
+4. Nie tworzyć rekordu opcji ani osobnej ceny składnika.
+5. Dodać testy granicy modelu i pełną kontrolę jakości.
 
 ## Working Mode
 
@@ -229,17 +227,28 @@ Completed:
 
 ### Sandero Wheel and Upholstery Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #22 zweryfikował siedem PDF przez SHA-256,
 - dodano `wheel_design` i `upholstery_variant`,
-- przygotowano 29 wartości dla siedmiu konfiguracji,
+- zaimportowano 29 wartości dla siedmiu konfiguracji,
 - zachowano proweniencję strony, sekcji i źródłowego brzmienia,
 - Stepway Essential otrzymał wyłącznie wspólną wartość materiału `steel`,
 - wzór ERALIA/TAMIA BI-TON i wykończenie pozostają celowo bez rekordu,
-- wewnętrzne kryteria zamówieniowe nie zostały zaimportowane.
+- GitHub Actions Quality run #72 zakończył się powodzeniem.
+
+### Sandero Packages and Options Gap Analysis
+
+Current package:
+
+- przejrzano komplet siedmiu bieżących źródeł,
+- nie znaleziono nazwanej sekcji pakietów ani opcji handlowych,
+- wyposażenie seryjne pozostaje wyposażeniem, a nie pakietem,
+- `Bez Opcji` sklasyfikowano jako kwalifikator technicznej masy,
+- zaakceptowano decyzję D-017,
+- nie dodano tabel ani rekordów pakietów.
 
 Next priority:
 
-Analiza źródłowych pakietów i opcji oraz wybór następnego małego pakietu
-zgodnego z istniejącym modelem.
+Kontrolowany import koloru nadwozia `biel alpejska` jako wartości
+konfiguracji, bez modelowania ceny `0 zł` jako osobnej opcji.

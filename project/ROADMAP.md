@@ -96,6 +96,8 @@ Data Expansion
 - zakończona analiza pokrycia siedmiu źródeł PDF,
 - decyzja D-015 — Configuration-level equipment availability,
 - decyzja D-016 — Configuration-level wheel and upholstery values,
+- decyzja D-017 — Evidence-gated commercial packages and options,
+- analiza siedmiu źródeł bez potwierdzonych nazwanych pakietów lub opcji,
 - kontrolowany słownik statusów dostępności wyposażenia,
 - schemat `configuration_attribute_availability.csv`,
 - 42 kanoniczne atrybuty funkcjonalnego i pasywnego wyposażenia,
@@ -117,7 +119,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 185 testów automatycznych,
+- 194 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -125,32 +127,32 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Wheel and Upholstery Value Import
+## Sandero Packages and Options Gap Analysis
 
 Cel sprintu:
 
-- dodać atrybuty `wheel_design` i `upholstery_variant`,
-- zaimportować 29 jednoznacznych wartości dla siedmiu konfiguracji,
-- rozdzielić rozmiar, materiał, wzór i wykończenie koła,
-- zachować datę, źródło, stronę, sekcję i oryginalne brzmienie,
-- pominąć wzór i wykończenie Stepway Essential zgodnie z D-016,
-- wykluczyć wewnętrzne kryteria zamówieniowe z danych,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- zweryfikować siedem źródeł PDF przez SHA-256,
+- sprawdzić występowanie nazwanych pakietów i opcji handlowych,
+- oddzielić wyposażenie seryjne od tożsamości pakietu,
+- sklasyfikować techniczne `Bez Opcji` wyłącznie jako kwalifikator masy,
+- zaakceptować decyzję D-017 o wymaganym progu dowodowym,
+- nie tworzyć tabel ani rekordów bez źródłowej oferty handlowej,
+- wybrać następny jednoznaczny pakiet wartości konfiguracji.
 
 ---
 
 # Next Sprint
 
-## Sandero Packages and Options Gap Analysis
+## Sandero Exterior Colour Value Import
 
 Cel sprintu:
 
-- przejrzeć źródłowe opisy pakietów i opcji w siedmiu konfiguracjach,
-- oddzielić pakiet handlowy od dostępności jego elementów składowych,
-- sprawdzić, czy istniejący model zachowuje znaczenie źródła,
-- wskazać rozszerzenie modelu tylko w przypadku rzeczywistej luki,
-- nie importować kodów konfiguratora ani kryteriów zamówieniowych,
-- wybrać jeden mały pakiet wdrożeniowy na podstawie jednoznacznych danych.
+- dodać kanoniczny atrybut string `exterior_color`,
+- zaimportować `biel alpejska` dla siedmiu konfiguracji,
+- zachować datę, źródło, stronę, sekcję i brzmienie `0 zł`,
+- nie interpretować ceny `0 zł` jako osobnej opcji bez modelu cen składników,
+- użyć `configuration_attribute_values.csv`,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
@@ -158,7 +160,7 @@ Cel sprintu:
 
 ## Data
 
-- pakiety i opcje
+- pakiety i opcje po uzyskaniu źródła z jawną ofertą handlową
 - dalsze techniczne wartości konfiguracji
 - wyposażenie wersji i konfiguracji
 - dalsze rozszerzanie pokrycia źródłami
