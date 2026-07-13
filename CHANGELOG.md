@@ -60,6 +60,9 @@ All notable changes to this project will be documented in this file.
 * One hundred sixty-eight source-backed technical observations in total.
 * Architecture decision D-014 for observation-level fuel context.
 * Architecture decision D-015 for configuration-level equipment availability.
+* Architecture decision D-016 for configuration-level wheel and upholstery values.
+* Explicit separation of wheel size, material, commercial design and finish.
+* Conservative source-conflict policy for Stepway Essential wheel descriptions.
 * Controlled dictionary for equipment availability statuses.
 * Header-only `configuration_attribute_availability.csv` relation implementing D-015.
 * Four cross-file references for configuration-level equipment availability.
@@ -127,3 +130,4 @@ All notable changes to this project will be documented in this file.
 * Documented the implemented equipment availability schema and the separate source-import follow-up package.
 * Documented the first functional equipment import and its conservative source-mapping boundary.
 * Documented the passive-safety import and deferred wheel and upholstery value modeling.
+* Documented the wheel and upholstery value model without importing ambiguous source records.
