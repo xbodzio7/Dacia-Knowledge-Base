@@ -402,3 +402,105 @@ meaning, observation date and source provenance.
 - Schema implementation and equipment import remain separate future
   packages.
 - This analysis package records the architectural decision only.
+
+## D-016 — Configuration-level wheel and upholstery values
+
+Status: Accepted
+
+Date: 2026-07-13
+
+### Decision
+
+Wheel and upholstery descriptions are represented as dated configuration
+attribute values in `configuration_attribute_values.csv`. They are not
+modeled as boolean equipment availability records.
+
+Wheel observations use separate canonical attributes:
+
+- existing `wheel_size`,
+- existing `wheel_material`,
+- new `wheel_design`,
+- existing `wheel_finish`.
+
+`wheel_size` stores the explicit rim-size description supplied by the source.
+`wheel_material` stores an explicitly stated material such as `steel` or
+`alloy`. `wheel_design` stores the commercial design name such as `ERALIA` or
+`TAMIA`. `wheel_finish` stores an explicitly stated visual treatment such as
+`bi-tone`.
+
+Compound source wording may be decomposed only into components stated by the
+source. For example, `TAMIA BI-TON` supports design `TAMIA` and finish
+`bi-tone`; wheel material must not be inferred unless the same source wording
+explicitly identifies it.
+
+Upholstery is represented by a new string attribute
+`upholstery_variant`. It stores the named commercial variant or a normalized
+source description. Explicit material details remain part of that normalized
+value, while the exact source wording stays in `notes`. Upholstery presence is
+not represented by a boolean.
+
+Every imported value remains linked to the configuration, observation date
+and source document. The `notes` field preserves the source page, source
+section and original wording needed to audit the normalized value.
+
+### Stepway Essential source conflict
+
+The Stepway Essential source contains incompatible wheel-design assertions:
+
+- the configuration-selection section identifies steel `ERALIA` wheels,
+- the equipment list identifies `TAMIA BI-TON` and also mentions steel rims.
+
+This conflict does not support a single canonical `wheel_design` value.
+The controlled source import must therefore:
+
+- import `wheel_material = steel` only because both source sections explicitly
+  support that material,
+- omit `wheel_design` for Stepway Essential,
+- omit `wheel_finish` for Stepway Essential because `bi-tone` belongs to the
+  conflicting `TAMIA` assertion,
+- preserve the conflict in documentation and regression coverage,
+- wait for an independent source or corrected document before selecting
+  `ERALIA` or `TAMIA`.
+
+Two conflicting values must not be collapsed into one preferred value and
+must not be encoded as simultaneous equipment availability.
+
+### Ordering criteria
+
+Internal ordering criteria, configurator condition codes, technical selection
+keys and similar implementation metadata are not vehicle equipment. They must
+not create attributes, availability records or configuration values.
+
+Such criteria may be mentioned in review notes only when needed to explain
+why a source fragment was excluded.
+
+### Rationale
+
+Boolean modeling would lose the actual wheel or upholstery variant and could
+not distinguish design, material, size and finish. The existing dated
+configuration-value relation already preserves source provenance and is the
+smallest compatible extension of the stable architecture.
+
+Treating the Stepway Essential discrepancy as unresolved prevents the model
+from turning contradictory source claims into false certainty. Importing the
+shared material observation retains useful knowledge without selecting an
+unsupported design.
+
+### Consequences
+
+- Wheel and upholstery records are added to
+  `configuration_attribute_values.csv`, not
+  `configuration_attribute_availability.csv`.
+- The source-import package adds `wheel_design` and
+  `upholstery_variant` to the canonical attribute catalogue before using
+  them.
+- Existing `wheel_size`, `wheel_material` and `wheel_finish` definitions are
+  reused.
+- Values are normalized, while exact Polish wording and page provenance stay
+  in `notes`.
+- Missing value rows mean that a value was not imported; they do not mean
+  `not_available`.
+- Ambiguous Stepway Essential design and finish remain absent until supported
+  by a non-conflicting source.
+- This package records the model and conflict policy only; source-data import
+  remains a separate package.

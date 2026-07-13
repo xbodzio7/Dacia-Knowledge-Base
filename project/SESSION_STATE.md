@@ -5,14 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#19. Aktualny punkt odniesienia to merge commit
-`44fd33c`.
+Pull Requesty #3–#20. Aktualny punkt odniesienia to merge commit
+`1a75581f`.
 
-PR #19 zaimportował 300 źródłowych rekordów funkcjonalnego wyposażenia,
-dodał 25 kanonicznych atrybutów oraz zachował proweniencję stron PDF.
+PR #20 zaimportował 119 źródłowych rekordów bezpieczeństwa pasywnego,
+dodał 17 kanonicznych atrybutów oraz zachował proweniencję stron PDF.
 
-Bieżący pakiet źródłowy jest rozwijany na gałęzi
-`data/sandero-passive-safety-availability`.
+Bieżący pakiet dokumentuje wartościowy model kół i tapicerki bez importowania
+nowych rekordów źródłowych.
 
 ## Verified Quality Baseline
 
@@ -40,18 +40,19 @@ Wynik docelowy:
 
 ## Current Sprint
 
-Sandero Passive Safety Availability Import.
+Sandero Wheel and Upholstery Value Modeling.
 
 Zakres:
 
-- ponowna weryfikacja siedmiu plików PDF przez SHA-256,
-- import 119 datowanych rekordów dla siedmiu konfiguracji,
-- mapowanie 17 funkcji bezpieczeństwa na nowe atrybuty boolean,
-- 112 jawnych pozycji `standard`,
-- 7 jawnych pozycji `not_available`,
-- zachowanie strony i źródłowego brzmienia w `notes`,
-- brak wnioskowania na podstawie nieobecności pozycji,
-- odłożenie kół i tapicerki do osobnego modelowania wartościowego.
+- decyzja D-016 dla wartości kół i tapicerki,
+- użycie istniejącej relacji `configuration_attribute_values.csv`,
+- ponowne użycie `wheel_size`, `wheel_material` i `wheel_finish`,
+- planowane dodanie `wheel_design` i `upholstery_variant`,
+- brak booleanów dla kół i tapicerki,
+- zachowanie strony, sekcji i źródłowego brzmienia w `notes`,
+- konserwatywne potraktowanie konfliktu Stepway Essential,
+- wykluczenie wewnętrznych kryteriów zamówieniowych,
+- brak zmian w danych źródłowych w pakiecie modelowym.
 
 ## Current Phase
 
@@ -95,23 +96,30 @@ więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
 z ponownym użyciem istniejącego katalogu atrybutów.
 
 Pierwszy import dostępności z PR #19 obejmuje 300 funkcjonalnych pozycji.
-Bieżący pakiet dodaje wyłącznie jednoznaczne bezpieczeństwo pasywne, nie
-zmieniając znaczenia istniejących rekordów. Jawne negacje źródłowe są
-zapisywane jako `not_available`; brak wzmianki pozostaje brakiem rekordu.
-Koła i tapicerka wymagają osobnego modelu wartości i pozostają poza zakresem.
+Drugi import z PR #20 dodaje 119 jednoznacznych pozycji bezpieczeństwa
+pasywnego bez zmiany znaczenia wcześniejszych rekordów. Jawne negacje
+źródłowe są zapisywane jako `not_available`; brak wzmianki pozostaje brakiem
+rekordu.
+
+Koła i tapicerka są wartościami konfiguracji, a nie prostymi cechami
+boolean. Decyzja D-016 rozdziela rozmiar, materiał, wzór i wykończenie koła
+oraz zachowuje tapicerkę jako nazwany wariant. Konflikt ERALIA/TAMIA dla
+Stepway Essential pozostaje nierozstrzygnięty na poziomie wzoru i
+wykończenia; wspólną jawną informacją jest wyłącznie stalowy materiał obręczy.
 
 ## Next Development Package
 
-Sandero Wheel and Upholstery Value Modeling.
+Sandero Wheel and Upholstery Value Import.
 
 Planowany przebieg:
 
-1. Udokumentować model wartości dla kół i tapicerki.
-2. Oddzielić rozmiar, materiał, wzór i wykończenie koła.
-3. Rozstrzygnąć konflikt Stepway Essential: ERALIA kontra TAMIA BI-TON.
-4. Zachować tapicerkę jako wariant lub wartość, nie jako prosty boolean.
-5. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
-6. Dopiero po decyzji przygotować osobny kontrolowany import źródłowy.
+1. Dodać atrybuty `wheel_design` i `upholstery_variant`.
+2. Zaimportować jednoznaczne wartości dla siedmiu konfiguracji.
+3. Rozdzielić złożone opisy na jawny rozmiar, materiał, wzór i wykończenie.
+4. Zachować stronę, sekcję i oryginalne brzmienie w `notes`.
+5. Pominąć wzór i wykończenie Stepway Essential do czasu nowego źródła.
+6. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
+7. Dodać testy regresyjne oraz uruchomić pełną bramkę `quality`.
 
 ## Working Mode
 
@@ -237,15 +245,26 @@ Completed:
 
 ### Sandero Passive Safety Availability
 
-Current package:
+Completed:
 
 - potwierdzono 17 jednoznacznych funkcji we wszystkich siedmiu PDF-ach,
-- przygotowano 119 rekordów: 112 `standard` i 7 `not_available`,
+- PR #20 zaimportował 119 rekordów: 112 `standard` i 7 `not_available`,
 - zachowano źródłowe brzmienie i numer strony,
 - nie zmieniono znaczenia pierwszych 300 obserwacji,
 - koła i tapicerka pozostają poza zakresem.
 
+### Sandero Wheel and Upholstery Value Modeling
+
+Current package:
+
+- przygotowano decyzję D-016,
+- wskazano `configuration_attribute_values.csv` jako właściwą relację,
+- rozdzielono rozmiar, materiał, wzór i wykończenie koła,
+- zachowano tapicerkę jako wartość wariantu,
+- konflikt ERALIA/TAMIA sklasyfikowano jako nierozstrzygnięty,
+- wewnętrzne kryteria zamówieniowe wykluczono z modelu wyposażenia,
+- import danych pozostawiono do osobnego pakietu.
+
 Next priority:
 
-Wartościowe modelowanie kół i tapicerki po rozstrzygnięciu konfliktu
-Stepway Essential oraz udokumentowaniu decyzji modelowej.
+Kontrolowany import jednoznacznych wartości kół i tapicerki zgodnie z D-016.

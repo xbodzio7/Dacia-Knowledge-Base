@@ -95,6 +95,7 @@ Data Expansion
 - decyzja D-014 — Observation-level fuel context,
 - zakończona analiza pokrycia siedmiu źródeł PDF,
 - decyzja D-015 — Configuration-level equipment availability,
+- decyzja D-016 — Configuration-level wheel and upholstery values,
 - kontrolowany słownik statusów dostępności wyposażenia,
 - schemat `configuration_attribute_availability.csv`,
 - 42 kanoniczne atrybuty funkcjonalnego i pasywnego wyposażenia,
@@ -121,32 +122,35 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Passive Safety Availability Import
+## Sandero Wheel and Upholstery Value Modeling
 
 Cel sprintu:
 
-- ponownie zweryfikować sumy SHA-256 siedmiu dokumentów PDF,
-- zaimportować 17 jednoznacznych funkcji bezpieczeństwa dla siedmiu konfiguracji,
-- dodać 119 datowanych rekordów bez zmiany pierwszych 300 obserwacji,
-- zachować datę, źródło, stronę i oryginalne brzmienie każdej pozycji,
-- zapisać brak regulacji wysokości pasa jako jawne `not_available`,
-- pozostawić koła i tapicerkę poza zakresem booleanów,
-- zakończyć pakiet pełną kontrolą jakości i weryfikacją SQLite.
+- udokumentować decyzję D-016,
+- użyć `configuration_attribute_values.csv` zamiast relacji boolean,
+- oddzielić rozmiar, materiał, wzór i wykończenie koła,
+- zachować tapicerkę jako nazwany wariant lub wartość,
+- sklasyfikować konflikt ERALIA/TAMIA jako nierozstrzygnięty,
+- dopuścić dla Stepway Essential wyłącznie wspólną wartość materiału `steel`,
+- wykluczyć wewnętrzne kryteria zamówieniowe z modelu wyposażenia,
+- nie importować rekordów źródłowych w pakiecie decyzji.
 
 ---
 
 # Next Sprint
 
-## Sandero Wheel and Upholstery Value Modeling
+## Sandero Wheel and Upholstery Value Import
 
 Cel sprintu:
 
-- zaprojektować wartościowe modelowanie kół i tapicerki,
-- rozstrzygnąć konflikt Stepway Essential między wyborem ERALIA a listą TAMIA,
-- oddzielić materiał, wzór, rozmiar i wykończenie koła,
-- zachować tapicerkę jako wariant lub wartość, a nie prosty boolean,
+- dodać brakujące atrybuty `wheel_design` i `upholstery_variant`,
+- zaimportować wyłącznie jednoznaczne wartości dla siedmiu konfiguracji,
+- zachować datę, źródło, stronę, sekcję i oryginalne brzmienie,
+- rozłożyć złożone opisy kół tylko na jawnie podane komponenty,
+- pominąć wzór i wykończenie koła Stepway Essential do czasu rozstrzygnięcia,
 - nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia,
-- rozpocząć import dopiero po udokumentowaniu decyzji modelowej.
+- dodać testy granic pakietu, konfliktu źródłowego i braku booleanów,
+- zakończyć import pełną kontrolą jakości oraz weryfikacją SQLite.
 
 ---
 
