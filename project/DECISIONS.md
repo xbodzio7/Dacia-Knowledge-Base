@@ -334,3 +334,71 @@ existing observations.
 - Existing fuel-independent observations retain an empty context.
 - Future imports may reuse the same mechanism for other fuel-dependent
   configuration observations.
+
+## D-015 — Configuration-level equipment availability
+
+Status: Accepted
+
+Date: 2026-07-13
+
+### Decision
+
+Standard, optional and unavailable equipment is represented at the
+configuration level in a dedicated
+`configuration_attribute_availability.csv` relation.
+
+The relation reuses canonical `attribute_code` entries from
+`data/master/attributes.csv`. A separate equipment-item catalogue is not
+introduced.
+
+Each availability record contains:
+
+- `id`
+- `code`
+- `configuration_code`
+- `attribute_code`
+- `availability_status`
+- `observation_date`
+- `source_code`
+- `notes`
+
+`availability_status` references a controlled dictionary containing:
+
+- `standard`
+- `optional`
+- `not_available`
+- `unknown`
+
+The absence of a record means that availability has not been imported.
+It must not be interpreted as `unknown` or `not_available`.
+
+### Rationale
+
+The reviewed Sandero and Sandero Stepway configuration PDFs show that
+equipment can differ between manual and automatic configurations of the
+same version. A version-only relationship would therefore lose source
+meaning.
+
+`configuration_attribute_values.csv` stores observed attribute values.
+A boolean value cannot distinguish standard equipment, optional
+equipment, unavailable equipment and missing source coverage.
+
+Reusing the existing attribute catalogue avoids duplicated equipment
+definitions. A dedicated availability relationship preserves commercial
+meaning, observation date and source provenance.
+
+### Consequences
+
+- Equipment availability is linked to `configuration_code`, not only to
+  `version_code`.
+- Existing attributes remain the canonical vocabulary for equipment
+  features.
+- Every imported availability record is dated and linked to a source.
+- `unknown` is used only when the source explicitly prevents reliable
+  classification.
+- A missing record means that the availability has not been imported.
+- Implementation requires status validation, cross-file reference
+  validation, schema documentation, automated tests and SQLite coverage.
+- Schema implementation and equipment import remain separate future
+  packages.
+- This analysis package records the architectural decision only.
