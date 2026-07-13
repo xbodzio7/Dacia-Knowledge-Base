@@ -110,7 +110,10 @@ Data Expansion
 - kategoria `Exterior` i kanoniczny atrybut string `exterior_color`,
 - 7 datowanych wartości koloru `biel alpejska` z zachowanym zapisem `0 zł` w proweniencji,
 - decyzja D-018 — axle-neutral standard tyre specification,
-- analiza pozostałych wartości PDF z wyborem specyfikacji opony jako następnego importu.
+- analiza pozostałych wartości PDF z wyborem specyfikacji opony jako następnego importu,
+- kanoniczny atrybut string `standard_tyre_specification`,
+- 7 datowanych wartości `205/60 R16 92H` z zachowaną stroną i brzmieniem źródła,
+- zachowana granica między pełną specyfikacją opony, osiami, indeksami maksymalnymi i rozmiarem felgi.
 
 ## Tooling
 
@@ -123,7 +126,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 202 testy automatyczne,
+- 211 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -131,27 +134,11 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Remaining PDF Value Gap Analysis
-
-Cel sprintu:
-
-- zweryfikować siedem źródeł PDF przez SHA-256,
-- porównać źródła z 204 wartościami konfiguracji i 419 rekordami dostępności,
-- potwierdzić brak rekordu dla `Opony Standardowe 205/60 R16 92H`,
-- odróżnić pełną specyfikację opony od rozmiaru felgi,
-- nie przypisywać źródła do osi przedniej lub tylnej bez jawnego wskazania,
-- nie interpretować indeksu `92H` jako maksymalnej homologowanej wartości,
-- zaakceptować decyzję D-018,
-- wybrać osobny import specyfikacji standardowej opony.
-
----
-
-# Next Sprint
-
 ## Sandero Standard Tyre Specification Import
 
 Cel sprintu:
 
+- zweryfikować siedem źródeł PDF przez SHA-256,
 - dodać kanoniczny atrybut string `standard_tyre_specification`,
 - zaimportować `205/60 R16 92H` dla siedmiu konfiguracji,
 - zachować datę, źródło, stronę 5, sekcję `Koła i opony` i pełne brzmienie pola,
@@ -159,6 +146,20 @@ Cel sprintu:
 - nie tworzyć osiowych ani maksymalnych wartości z neutralnego pola źródłowego,
 - nie zmieniać dostępności wyposażenia ani cen konfiguracji,
 - dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+
+---
+
+# Next Sprint
+
+## Sandero Remaining PDF Value Gap Reassessment
+
+Cel sprintu:
+
+- ponownie porównać siedem źródeł z 211 wartościami konfiguracji,
+- porównać źródła z 419 rekordami dostępności wyposażenia,
+- wskazać wyłącznie jawne fakty nadal pozbawione rekordu,
+- użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła,
+- wybrać jeden mały następny pakiet bez zgadywania danych.
 
 ---
 

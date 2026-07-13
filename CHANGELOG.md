@@ -82,6 +82,9 @@ All notable changes to this project will be documented in this file.
 * Exterior attribute category and canonical `exterior_color` string attribute.
 * Seven source-backed exterior-colour values for the current Sandero configurations.
 * Regression coverage for source mapping, provenance, zero-price boundaries and non-boolean colour modeling.
+* Canonical `standard_tyre_specification` string attribute in the `Wheels` category.
+* Seven source-backed standard-tyre-specification values for the current Sandero configurations.
+* Regression coverage for source mapping, provenance, axle-neutral semantics, rating boundaries and separation from rim size.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -105,10 +108,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 202 tests.
-* The verified master-data baseline now contains 34 CSV files and 1267 rows.
-* SQLite verification now covers 34 tables and 1267 rows.
-* Configuration attribute values now contain 204 dated records.
+* The automated test suite now contains 211 tests.
+* The verified master-data baseline now contains 34 CSV files and 1275 rows.
+* SQLite verification now covers 34 tables and 1275 rows.
+* Configuration attribute values now contain 211 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
@@ -144,3 +147,4 @@ All notable changes to this project will be documented in this file.
 * Analyzed all seven current sources for commercial packages and options and deferred schema work because no named offer records are present.
 * Imported `biel alpejska` as a dated exterior-colour value for all seven current configurations while retaining `0 zł` only as source provenance.
 * Analyzed the remaining explicit PDF values and selected the axle-neutral standard tyre specification as the next controlled import.
+* Imported `205/60 R16 92H` as an axle-neutral dated standard-tyre specification for all seven current configurations.
