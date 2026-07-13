@@ -57,6 +57,7 @@ All notable changes to this project will be documented in this file.
 * Separate LPG and petrol context for fuel-dependent observations.
 * One hundred sixty-eight source-backed technical observations in total.
 * Architecture decision D-014 for observation-level fuel context.
+* Architecture decision D-015 for configuration-level equipment availability.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -105,3 +106,5 @@ All notable changes to this project will be documented in this file.
 * Synchronized project documentation with the technical observation packages merged through PRs #8 and #9.
 * Synchronized project documentation with the dimensions and cargo-capacity packages merged through PRs #11 and #12.
 * Synchronized project documentation after PRs #13 and #14, recorded merge commit `6224875` and closed the Fuel-mode-aware WLTP Observation Analysis package.
+* Analyzed coverage of all seven registered Sandero and Sandero Stepway PDF sources.
+* Identified configuration-level equipment availability as the next model gap and separated schema implementation from source-data import.

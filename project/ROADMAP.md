@@ -92,7 +92,9 @@ Data Expansion
 - 28 obserwacji zużycia paliwa i emisji CO2 w cyklu WLTP,
 - oddzielny kontekst LPG i benzyny przez opcjonalne `fuel_type_code`,
 - zakończony pakiet Fuel-mode-aware WLTP Observation Analysis,
-- decyzja D-014 — Observation-level fuel context.
+- decyzja D-014 — Observation-level fuel context,
+- zakończona analiza pokrycia siedmiu źródeł PDF,
+- decyzja D-015 — Configuration-level equipment availability.
 
 ## Tooling
 
@@ -113,23 +115,6 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Fuel-aware WLTP Documentation Sync
-
-Cel sprintu:
-
-- zsynchronizować README, roadmapę, stan sesji i changelog po PR-ach #13 i #14,
-- zapisać merge commit `6224875`,
-- zapisać punkt odniesienia: 149 testów, 32 pliki CSV i 762 rekordy,
-- odnotować 30 relacji między tabelami oraz 32 tabele SQLite i 762 rekordy,
-- udokumentować 168 obserwacji konfiguracji,
-- opisać jawny kontekst LPG i benzyny przez opcjonalne `fuel_type_code`,
-- odnotować decyzję D-014,
-- zamknąć pakiet Fuel-mode-aware WLTP Observation Analysis.
-
----
-
-# Next Sprint
-
 ## Sandero PDF Source Coverage Gap Analysis
 
 Cel sprintu:
@@ -137,13 +122,33 @@ Cel sprintu:
 - przejrzeć siedem zarejestrowanych źródeł PDF dla konfiguracji Sandero
   i Sandero Stepway,
 - porównać zawartość źródeł z aktualnym pokryciem danych,
-- wskazać obszary jeszcze niezaimportowane lub niekompletne,
-- przypisać każdy kandydat do istniejącej części modelu albo wykazać
-  rzeczywistą lukę modelu,
-- wybrać jeden mały następny pakiet dopiero na podstawie jednoznacznych
-  danych źródłowych,
-- nie zgadywać parametrów technicznych i nie importować danych w samym
-  pakiecie analitycznym.
+- potwierdzić, że dotychczasowe pakiety obejmują główne dane techniczne,
+- wskazać wyposażenie seryjne jako największy jednoznaczny obszar
+  niezaimportowany,
+- wykazać różnice wyposażenia między konfiguracjami manualnymi
+  i automatycznymi tej samej wersji,
+- zaakceptować decyzję D-015 o konfiguracyjnym poziomie dostępności
+  wyposażenia,
+- nie implementować schematu ani nie importować wyposażenia w pakiecie
+  analitycznym.
+
+---
+
+# Next Sprint
+
+## Equipment Availability Schema Implementation
+
+Cel sprintu:
+
+- dodać kontrolowany słownik statusów `standard`, `optional`,
+  `not_available` i `unknown`,
+- dodać relację `configuration_attribute_availability.csv` zgodną
+  z decyzją D-015,
+- powiązać rekordy z konfiguracjami, atrybutami i źródłami,
+- dodać walidację statusów, referencji i unikalności,
+- objąć nowy schemat testami automatycznymi oraz weryfikacją SQLite,
+- zaktualizować dokumentację schematu,
+- nie importować jeszcze rekordów wyposażenia z PDF.
 
 ---
 

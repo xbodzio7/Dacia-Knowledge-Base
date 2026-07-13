@@ -5,17 +5,19 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#14. Aktualny punkt odniesienia to merge commit `6224875`.
+Pull Requesty #3–#15. Aktualny punkt odniesienia to merge commit
+`ee67670`.
 
-PR #13 zsynchronizował dokumentację po pakietach wymiarów i pojemności.
 PR #14 dodał obserwacje WLTP z jawnym kontekstem LPG i benzyny.
+PR #15 zsynchronizował dokumentację projektu po pakietach technicznych
+i decyzji D-014.
 
-Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/sandero-wltp-sync`.
+Bieżący pakiet analityczny jest rozwijany na gałęzi
+`analysis/sandero-pdf-source-coverage`.
 
 ## Verified Quality Baseline
 
-Zweryfikowany punkt odniesienia po PR #14:
+Zweryfikowany punkt odniesienia po PR #15:
 
 ```bash
 python tools/dkb.py quality
@@ -33,21 +35,22 @@ Wynik:
 - baza SQLite obejmująca 32 tabele i 762 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8,
-- GitHub Actions Quality, run #56, zakończony powodzeniem.
+- GitHub Actions Quality, run #58, zakończony powodzeniem.
 
 ## Current Sprint
 
-Sandero Fuel-aware WLTP Documentation Sync.
+Sandero PDF Source Coverage Gap Analysis.
 
 Zakres:
 
-- aktualizacja `README.md`,
-- aktualizacja `project/ROADMAP.md`,
-- aktualizacja `project/SESSION_STATE.md`,
-- uzupełnienie `CHANGELOG.md`,
-- zapisanie integracji PR-ów #13 i #14,
-- zapisanie merge commitu `6224875`,
-- zamknięcie pakietu Fuel-mode-aware WLTP Observation Analysis.
+- ekstrakcja tekstu ze wszystkich siedmiu zarejestrowanych PDF,
+- porównanie zawartości źródeł z obecnym modelem i danymi,
+- potwierdzenie pokrycia głównych danych technicznych,
+- identyfikacja wyposażenia seryjnego jako największej luki,
+- porównanie wyposażenia konfiguracji manualnych i automatycznych,
+- wykazanie potrzeby reprezentacji na poziomie konfiguracji,
+- zapisanie zaakceptowanej decyzji D-015,
+- brak implementacji schematu i brak importu wyposażenia.
 
 ## Current Phase
 
@@ -81,20 +84,30 @@ Opcjonalne `fuel_type_code` wskazuje na
 paliwa na poziomie obserwacji bez tworzenia paliwowych duplikatów
 definicji atrybutów.
 
+Analiza siedmiu źródeł PDF wykazała, że główne obszary danych technicznych
+są już reprezentowane, natomiast wyposażenie seryjne pozostaje największym
+jednoznacznym obszarem niezaimportowanym.
+
+Porównanie konfiguracji Stepway Expression i Extreme wykazało, że
+wyposażenie może zależeć od rodzaju skrzyni biegów. Decyzja D-015 przyjmuje
+więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
+z ponownym użyciem istniejącego katalogu atrybutów.
+
 ## Next Development Package
 
-Sandero PDF Source Coverage Gap Analysis.
+Equipment Availability Schema Implementation.
 
 Planowany przebieg:
 
-1. Przejrzeć siedem zarejestrowanych źródeł PDF konfiguracji.
-2. Porównać zawartość PDF z aktualnym pokryciem danych.
-3. Wskazać niezaimportowane lub niekompletne obszary.
-4. Powiązać kandydatów z istniejącym modelem danych.
-5. Wykazać rzeczywistą lukę modelu tylko wtedy, gdy istniejące tabele
-   nie mogą zachować znaczenia źródła.
-6. Wybrać jeden mały następny pakiet na podstawie jednoznacznych danych.
-7. Nie importować danych ani nie zgadywać wartości w pakiecie analitycznym.
+1. Dodać kontrolowany słownik statusów dostępności wyposażenia.
+2. Dodać `configuration_attribute_availability.csv` zgodnie z D-015.
+3. Powiązać rekordy z konfiguracjami, atrybutami i źródłami.
+4. Dodać walidację statusów, referencji i unikalności.
+5. Dodać testy automatyczne dla nowego modelu.
+6. Rozszerzyć budowę i weryfikację SQLite.
+7. Zaktualizować dokumentację modelu oraz schematu.
+8. Nie importować jeszcze wyposażenia z PDF; import pozostaje osobnym
+   pakietem źródłowym.
 
 ## Working Mode
 
@@ -168,11 +181,23 @@ Completed:
 - PR #13: synchronizacja dokumentacji po pakietach wymiarów i pojemności,
 - PR #14: 28 obserwacji WLTP z jawnym kontekstem LPG i benzyny,
 - opcjonalne `fuel_type_code` i decyzja D-014,
+- PR #15: synchronizacja dokumentacji po pakietach technicznych i WLTP,
 - 168 obserwacji technicznych dla siedmiu konfiguracji,
 - pełna kontrola jakości: 149 testów, 32 pliki CSV, 762 rekordy,
   30 relacji oraz 32 tabele SQLite.
 
+### Sandero PDF Source Coverage Analysis
+
+Current package:
+
+- siedem PDF zostało poprawnie odczytanych bez zmiany repozytorium,
+- główne dane techniczne są już objęte wcześniejszymi pakietami,
+- wyposażenie seryjne zostało wskazane jako największa luka,
+- różnice manual–automatic potwierdziły poziom konfiguracji,
+- zaakceptowano decyzję D-015,
+- pakiet nie implementuje tabel ani nie importuje wyposażenia.
+
 Next priority:
 
-Analiza pokrycia siedmiu źródeł PDF i wybór jednego następnego pakietu
-na podstawie jednoznacznych danych źródłowych.
+Implementacja schematu dostępności wyposażenia zgodnego z D-015, bez
+importowania rekordów wyposażenia.
