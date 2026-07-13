@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#25. Aktualny punkt odniesienia to merge commit
-`3c065769`.
+Pull Requesty #3–#26. Aktualny punkt odniesienia to merge commit
+`2c3bf3ee`.
 
-PR #25 zaakceptował decyzję D-018 i zdefiniował neutralną dla osi pełną
-specyfikację standardowej opony. GitHub Actions Quality run #78 zakończył
-się powodzeniem.
+PR #26 dodał atrybut `standard_tyre_specification` i siedem datowanych
+wartości `205/60 R16 92H`. GitHub Actions Quality run #81 zakończył się
+powodzeniem.
 
-Bieżący pakiet źródłowy jest rozwijany na gałęzi
-`data/sandero-standard-tyre-specification`.
+Bieżący pakiet analityczny jest rozwijany na gałęzi
+`analysis/sandero-remaining-pdf-value-gap-reassessment`.
 
 ## Verified Quality Baseline
 
@@ -39,42 +39,49 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero Standard Tyre Specification Import.
+Sandero Remaining PDF Value Gap Reassessment.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- dodanie atrybutu string `standard_tyre_specification`,
-- import siedmiu datowanych wartości `205/60 R16 92H`,
-- zachowanie strony 5, sekcji `Koła i opony` i pełnego brzmienia pola,
-- brak zmian w dostępności wyposażenia i cenach konfiguracji,
-- dziewięć nowych testów regresyjnych,
-- odblokowanie przyszłych importów przez usunięcie globalnego limitu z testu koloru.
+- porównanie z 211 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
+- ręczna klasyfikacja wyników raportu heurystycznego,
+- odrzucenie nagłówków, tekstu marketingowego, wariantów brzmienia i już pokrytych faktów,
+- potwierdzenie wspólnego pola `Liczba Drzwi 5` na stronie 5,
+- potwierdzenie aktywnego atrybutu `number_of_doors` i braku jego rekordów,
+- wybór osobnego małego importu bez zmian danych w bieżącym pakiecie.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 211 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Siedem nowych rekordów przechowuje `205/60 R16 92H` jako pełną,
-neutralną dla osi specyfikację standardowej opony powiązaną z konfiguracją,
-datą i dokumentem źródłowym.
+Model pozostaje na poziomie 211 datowanych wartości konfiguracji i 419 rekordów
+dostępności wyposażenia. Raport pomocniczy wskazał 1364 wystąpienia kandydatów,
+z których 1031 nie dopasowało się tekstowo do proweniencji, lecz ręczna kontrola
+wykazała, że większość stanowią inne brzmienia już zaimportowanych faktów,
+nagłówki, fragmenty tabel i tekst niedanych.
 
-Pole źródłowe nie tworzy wartości `front_tyre_size`, `rear_tyre_size`,
-`max_tyre_load_index` ani `max_tyre_speed_rating`. Nie zastępuje też
-`wheel_size`, które zachowuje rozmiar wybranej felgi.
+Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Typ nadwozia` wartość
+`Liczba Drzwi 5`. Katalog zawiera aktywny atrybut integer `number_of_doors`,
+a `configuration_attribute_values.csv` nie zawiera jeszcze tego atrybutu.
+Nie jest potrzebna zmiana schematu ani decyzja architektoniczna.
+
+Wspólne pole `Poziom Hałasu Przy 50 Km/H (DB) 67` wymaga osobnego modelowania
+atrybutu i jednostki. `Norma Emisji Spalin Euro 6e BIS` wymaga zachowania
+dokładniejszej wartości niż obecny słownik `Euro 6e`. Oba kandydaty pozostają
+do późniejszych, osobnych pakietów.
 
 ## Next Development Package
 
-Sandero Remaining PDF Value Gap Reassessment.
+Sandero Number of Doors Value Import.
 
 Planowany przebieg:
 
-1. Porównać siedem PDF z aktualnymi 211 wartościami konfiguracji.
-2. Porównać źródła z 419 rekordami dostępności wyposażenia.
-3. Wskazać wyłącznie jawne fakty, które nadal nie mają rekordów.
-4. Użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła.
-5. Wybrać jeden mały następny pakiet bez zgadywania danych.
+1. Zaimportować `number_of_doors = 5` dla siedmiu konfiguracji.
+2. Użyć istniejącego atrybutu integer w kategorii `Doors`.
+3. Zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i pełne brzmienie.
+4. Nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji.
+5. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ## Working Mode
 
@@ -268,17 +275,28 @@ Completed:
 
 ### Sandero Standard Tyre Specification Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #26 zweryfikował siedem PDF przez SHA-256,
 - dodano `standard_tyre_specification`,
-- przygotowano 7 wartości `205/60 R16 92H`,
+- zaimportowano 7 wartości `205/60 R16 92H`,
 - zachowano stronę 5, sekcję i pełne źródłowe brzmienie,
 - nie zmieniono dostępności wyposażenia ani cen konfiguracji,
 - dodano dziewięć testów regresyjnych,
-- test koloru ograniczono do własnego pakietu zamiast globalnego rozmiaru tabeli.
+- test koloru ograniczono do własnego pakietu zamiast globalnego rozmiaru tabeli,
+- GitHub Actions Quality run #81 zakończył się powodzeniem.
+
+### Sandero Remaining PDF Value Gap Reassessment
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- porównano 211 wartości, 419 rekordów dostępności i 7 cen,
+- przeanalizowano raport kandydatów oraz odrzucono fałszywie dodatnie luki,
+- potwierdzono `Liczba Drzwi 5` na stronie 5 we wszystkich źródłach,
+- potwierdzono aktywny atrybut `number_of_doors` i brak odpowiadających rekordów,
+- wybrano osobny import bez zmian danych ani schematu.
 
 Next priority:
 
-Ponowna analiza pozostałych jawnych luk po imporcie specyfikacji standardowej
-opony.
+Kontrolowany import `number_of_doors = 5` dla siedmiu konfiguracji.
