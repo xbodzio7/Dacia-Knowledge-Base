@@ -61,6 +61,7 @@ All notable changes to this project will be documented in this file.
 * Architecture decision D-014 for observation-level fuel context.
 * Architecture decision D-015 for configuration-level equipment availability.
 * Architecture decision D-016 for configuration-level wheel and upholstery values.
+* Architecture decision D-017 for evidence-gated commercial packages and options.
 * Explicit separation of wheel size, material, commercial design and finish.
 * Conservative source-conflict policy for Stepway Essential wheel descriptions.
 * Controlled dictionary for equipment availability statuses.
@@ -135,3 +136,4 @@ All notable changes to this project will be documented in this file.
 * Documented the passive-safety import and deferred wheel and upholstery value modeling.
 * Documented the wheel and upholstery value model without importing ambiguous source records.
 * Documented the controlled wheel and upholstery value import and the preserved Stepway Essential conflict boundary.
+* Analyzed all seven current sources for commercial packages and options and deferred schema work because no named offer records are present.
