@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#22. Aktualny punkt odniesienia to merge commit
-`f7d7d9bb`.
+Pull Requesty #3–#23. Aktualny punkt odniesienia to merge commit
+`431e4fb9`.
 
-PR #22 zaimportował 29 wartości kół i tapicerki, dodał dwa kanoniczne
-atrybuty string i zachował granicę konfliktu Stepway Essential. GitHub
-Actions Quality run #72 zakończył się powodzeniem.
+PR #23 zaakceptował decyzję D-017, potwierdził brak źródłowych pakietów
+handlowych i odroczył dedykowany model do czasu uzyskania właściwych danych.
+GitHub Actions Quality run #74 zakończył się powodzeniem.
 
-Bieżący pakiet analityczny jest rozwijany na gałęzi
-`analysis/sandero-packages-options-gap`.
+Bieżący pakiet źródłowy jest rozwijany na gałęzi
+`data/sandero-exterior-colour-values`.
 
 ## Verified Quality Baseline
 
@@ -23,64 +23,60 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 194 testy automatyczne zakończone powodzeniem,
+- 202 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1258 rekordów danych,
+- 1267 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 197 obserwacji w `configuration_attribute_values.csv`,
+- 204 obserwacje w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 42 kanoniczne atrybuty boolean wyposażenia w dwóch pakietach,
-- 2 nowe kanoniczne atrybuty string dla kół i tapicerki,
-- baza SQLite obejmująca 34 tabele i 1258 rekordów,
+- 347 kanonicznych atrybutów w 29 kategoriach,
+- baza SQLite obejmująca 34 tabele i 1267 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Packages and Options Gap Analysis.
+Sandero Exterior Colour Value Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- przegląd wszystkich stron pod kątem pakietów i opcji handlowych,
-- potwierdzenie braku nazwanych sekcji `Pakiety`, `Opcje` lub odpowiednika,
-- oddzielenie sekcji wyposażenia seryjnego od tożsamości pakietu,
-- sklasyfikowanie `Bez Opcji` jako technicznego kwalifikatora masy,
-- decyzja D-017 o wymaganym źródłowym progu dowodowym,
-- brak zmian w danych, schemacie, narzędziach i testach.
+- dodanie kategorii `Exterior`,
+- dodanie atrybutu string `exterior_color`,
+- import siedmiu datowanych wartości `biel alpejska`,
+- zachowanie strony 2, sekcji `Kolor` i zapisu `0 zł` w `notes`,
+- brak zmian w dostępności wyposażenia i cenach konfiguracji,
+- osiem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Po PR #22 model obejmuje 194 testy, 34 pliki CSV i 1258 rekordów. Tabela
-`configuration_attribute_values.csv` zawiera 197 datowanych obserwacji,
-a `configuration_attribute_availability.csv` pozostaje przy 419 rekordach.
+Po bieżącym imporcie model obejmuje 204 datowane wartości konfiguracji.
+Siedem nowych rekordów przechowuje wybrany kolor nadwozia `biel alpejska`
+jako wartość string powiązaną z konfiguracją, datą i dokumentem źródłowym.
 
-Przegląd siedmiu bieżących PDF nie wykazał nazwanych pakietów ani opcji
-handlowych. Strona podsumowania konfiguracji wymienia wyłącznie wersję,
-kolor, felgi i tapicerkę, a dalsze strony opisują wyposażenie seryjne oraz
-dane techniczne. Nie ma podstaw do tworzenia encji pakietów ani do
-rekonstruowania ich z grup wyposażenia.
+Zapis `0 zł` pozostaje wyłącznie w `notes`, ponieważ źródło przedstawia go
+jako część podsumowania wybranego składnika. Nie jest to samodzielna wartość
+koloru, rekord opcji ani cena składnika w istniejącym modelu.
 
-Zwrot `Minimalna Masa Pojazdu Gotowego Do Jazdy (Bez Opcji)` pozostaje
-kwalifikatorem pomiaru technicznego. Nie opisuje oferowanej lub wybranej
-opcji.
+Dostępność wyposażenia pozostaje bez zmian: 419 rekordów, w tym 389
+`standard` i 30 `not_available`.
 
 ## Next Development Package
 
-Sandero Exterior Colour Value Import.
+Sandero Remaining PDF Value Gap Analysis.
 
 Planowany przebieg:
 
-1. Dodać atrybut string `exterior_color`.
-2. Zaimportować `biel alpejska` dla siedmiu konfiguracji.
-3. Zachować stronę 2, sekcję `Kolor`, datę, źródło i zapis `0 zł`.
-4. Nie tworzyć rekordu opcji ani osobnej ceny składnika.
-5. Dodać testy granicy modelu i pełną kontrolę jakości.
+1. Porównać siedem PDF z aktualnymi 204 wartościami konfiguracji.
+2. Porównać źródła z 419 rekordami dostępności wyposażenia.
+3. Wskazać jednoznaczne fakty, które nadal nie mają rekordów.
+4. Użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła.
+5. Wybrać jeden mały następny pakiet bez zgadywania danych.
 
 ## Working Mode
 
@@ -239,16 +235,27 @@ Completed:
 
 ### Sandero Packages and Options Gap Analysis
 
-Current package:
+Completed:
 
-- przejrzano komplet siedmiu bieżących źródeł,
+- PR #23 przejrzał komplet siedmiu bieżących źródeł,
 - nie znaleziono nazwanej sekcji pakietów ani opcji handlowych,
-- wyposażenie seryjne pozostaje wyposażeniem, a nie pakietem,
+- wyposażenie seryjne pozostało wyposażeniem, a nie pakietem,
 - `Bez Opcji` sklasyfikowano jako kwalifikator technicznej masy,
 - zaakceptowano decyzję D-017,
-- nie dodano tabel ani rekordów pakietów.
+- GitHub Actions Quality run #74 zakończył się powodzeniem.
+
+### Sandero Exterior Colour Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- dodano kategorię `Exterior` i atrybut `exterior_color`,
+- przygotowano 7 wartości `biel alpejska`,
+- zachowano stronę, sekcję, źródłowe brzmienie i zapis `0 zł`,
+- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
+- dodano osiem testów regresyjnych.
 
 Next priority:
 
-Kontrolowany import koloru nadwozia `biel alpejska` jako wartości
-konfiguracji, bez modelowania ceny `0 zł` jako osobnej opcji.
+Analiza pozostałych luk wartości w siedmiu źródłach PDF i wybór jednego
+następnego kontrolowanego pakietu.

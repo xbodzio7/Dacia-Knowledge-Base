@@ -345,3 +345,4 @@ id,code,category,name,data_type,unit,description,status
 351,alcohol_interlock_preparation,Safety,Alcohol interlock preparation,boolean,,Vehicle is prepared for installation of an alcohol interlock.,active
 352,wheel_design,Wheels,Wheel design,string,,Commercial wheel design name.,active
 353,upholstery_variant,Seats,Upholstery variant,string,,Commercial upholstery variant or normalized source description.,active
+354,exterior_color,Exterior,Exterior colour,string,,Commercial exterior body colour or normalized source description.,active

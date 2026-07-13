@@ -27,3 +27,4 @@ transmission,Transmission,"Gearbox construction, ratios and service data"
 weights,Weights,Vehicle mass and gross weight ratings
 wheels,Wheels,"Wheels, tyres and tyre-pressure data"
 windows,Windows,Window construction and electrical features
+exterior,Exterior,Exterior body finish and appearance

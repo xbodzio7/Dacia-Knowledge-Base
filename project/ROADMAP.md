@@ -106,7 +106,9 @@ Data Expansion
 - jednoznaczne wyposażenie bezpieczeństwa pasywnego z zachowaną proweniencją,
 - dwa kanoniczne atrybuty wartościowe `wheel_design` i `upholstery_variant`,
 - 29 datowanych wartości kół i tapicerki dla siedmiu konfiguracji,
-- zachowana granica konfliktu ERALIA/TAMIA BI-TON dla Stepway Essential.
+- zachowana granica konfliktu ERALIA/TAMIA BI-TON dla Stepway Essential,
+- kategoria `Exterior` i kanoniczny atrybut string `exterior_color`,
+- 7 datowanych wartości koloru `biel alpejska` z zachowanym zapisem `0 zł` w proweniencji.
 
 ## Tooling
 
@@ -119,7 +121,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 194 testy automatyczne,
+- 202 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -127,32 +129,31 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Packages and Options Gap Analysis
+## Sandero Exterior Colour Value Import
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- sprawdzić występowanie nazwanych pakietów i opcji handlowych,
-- oddzielić wyposażenie seryjne od tożsamości pakietu,
-- sklasyfikować techniczne `Bez Opcji` wyłącznie jako kwalifikator masy,
-- zaakceptować decyzję D-017 o wymaganym progu dowodowym,
-- nie tworzyć tabel ani rekordów bez źródłowej oferty handlowej,
-- wybrać następny jednoznaczny pakiet wartości konfiguracji.
+- dodać kategorię `Exterior` i atrybut string `exterior_color`,
+- zaimportować `biel alpejska` dla siedmiu konfiguracji,
+- zachować datę, źródło, stronę, sekcję i brzmienie `0 zł`,
+- pozostawić `0 zł` wyłącznie w proweniencji, bez osobnej opcji lub ceny,
+- użyć `configuration_attribute_values.csv`,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Exterior Colour Value Import
+## Sandero Remaining PDF Value Gap Analysis
 
 Cel sprintu:
 
-- dodać kanoniczny atrybut string `exterior_color`,
-- zaimportować `biel alpejska` dla siedmiu konfiguracji,
-- zachować datę, źródło, stronę, sekcję i brzmienie `0 zł`,
-- nie interpretować ceny `0 zł` jako osobnej opcji bez modelu cen składników,
-- użyć `configuration_attribute_values.csv`,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- ponownie porównać siedem źródeł z aktualnym pokryciem wartości i dostępności,
+- wskazać wyłącznie jawne, niezaimportowane fakty,
+- przypisać każdy kandydat do istniejącej relacji danych,
+- wykazać nową lukę modelu tylko wtedy, gdy obecne relacje nie zachowują znaczenia,
+- wybrać jeden mały pakiet wdrożeniowy bez zgadywania danych.
 
 ---
 
