@@ -148,3 +148,4 @@ All notable changes to this project will be documented in this file.
 * Imported `biel alpejska` as a dated exterior-colour value for all seven current configurations while retaining `0 zł` only as source provenance.
 * Analyzed the remaining explicit PDF values and selected the axle-neutral standard tyre specification as the next controlled import.
 * Imported `205/60 R16 92H` as an axle-neutral dated standard-tyre specification for all seven current configurations.
+* Reassessed the remaining explicit Sandero PDF value gaps, rejected already-modeled and non-data candidates, and selected `number_of_doors` for the next controlled import.

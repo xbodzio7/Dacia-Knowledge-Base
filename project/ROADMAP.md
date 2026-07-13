@@ -113,7 +113,10 @@ Data Expansion
 - analiza pozostałych wartości PDF z wyborem specyfikacji opony jako następnego importu,
 - kanoniczny atrybut string `standard_tyre_specification`,
 - 7 datowanych wartości `205/60 R16 92H` z zachowaną stroną i brzmieniem źródła,
-- zachowana granica między pełną specyfikacją opony, osiami, indeksami maksymalnymi i rozmiarem felgi.
+- zachowana granica między pełną specyfikacją opony, osiami, indeksami maksymalnymi i rozmiarem felgi,
+- ponowna analiza pozostałych jawnych wartości po imporcie specyfikacji opony,
+- ręczna klasyfikacja kandydatów z odrzuceniem nagłówków, wariantów brzmienia i już pokrytych faktów,
+- wybór istniejącego atrybutu `number_of_doors` dla następnego kontrolowanego importu.
 
 ## Tooling
 
@@ -134,32 +137,32 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Standard Tyre Specification Import
+## Sandero Remaining PDF Value Gap Reassessment
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- dodać kanoniczny atrybut string `standard_tyre_specification`,
-- zaimportować `205/60 R16 92H` dla siedmiu konfiguracji,
-- zachować datę, źródło, stronę 5, sekcję `Koła i opony` i pełne brzmienie pola,
-- użyć `configuration_attribute_values.csv`,
-- nie tworzyć osiowych ani maksymalnych wartości z neutralnego pola źródłowego,
-- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- porównać źródła z 211 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
+- odrzucić nagłówki, tekst marketingowy, warianty brzmienia i fakty już reprezentowane w modelu,
+- potwierdzić na stronie 5 wspólne pole `Liczba Drzwi 5`,
+- potwierdzić aktywny atrybut `number_of_doors` i brak odpowiadających mu rekordów,
+- nie zmieniać danych ani schematu w pakiecie analitycznym,
+- wybrać jeden mały następny pakiet bez zgadywania danych.
 
 ---
 
 # Next Sprint
 
-## Sandero Remaining PDF Value Gap Reassessment
+## Sandero Number of Doors Value Import
 
 Cel sprintu:
 
-- ponownie porównać siedem źródeł z 211 wartościami konfiguracji,
-- porównać źródła z 419 rekordami dostępności wyposażenia,
-- wskazać wyłącznie jawne fakty nadal pozbawione rekordu,
-- użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła,
-- wybrać jeden mały następny pakiet bez zgadywania danych.
+- zaimportować `number_of_doors = 5` dla siedmiu konfiguracji,
+- użyć istniejącego atrybutu integer w kategorii `Doors`,
+- zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i brzmienie `Liczba Drzwi 5`,
+- użyć `configuration_attribute_values.csv`,
+- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
