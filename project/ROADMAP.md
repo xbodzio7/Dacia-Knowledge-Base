@@ -108,7 +108,9 @@ Data Expansion
 - 29 datowanych wartości kół i tapicerki dla siedmiu konfiguracji,
 - zachowana granica konfliktu ERALIA/TAMIA BI-TON dla Stepway Essential,
 - kategoria `Exterior` i kanoniczny atrybut string `exterior_color`,
-- 7 datowanych wartości koloru `biel alpejska` z zachowanym zapisem `0 zł` w proweniencji.
+- 7 datowanych wartości koloru `biel alpejska` z zachowanym zapisem `0 zł` w proweniencji,
+- decyzja D-018 — axle-neutral standard tyre specification,
+- analiza pozostałych wartości PDF z wyborem specyfikacji opony jako następnego importu.
 
 ## Tooling
 
@@ -129,31 +131,34 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Exterior Colour Value Import
+## Sandero Remaining PDF Value Gap Analysis
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- dodać kategorię `Exterior` i atrybut string `exterior_color`,
-- zaimportować `biel alpejska` dla siedmiu konfiguracji,
-- zachować datę, źródło, stronę, sekcję i brzmienie `0 zł`,
-- pozostawić `0 zł` wyłącznie w proweniencji, bez osobnej opcji lub ceny,
-- użyć `configuration_attribute_values.csv`,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- porównać źródła z 204 wartościami konfiguracji i 419 rekordami dostępności,
+- potwierdzić brak rekordu dla `Opony Standardowe 205/60 R16 92H`,
+- odróżnić pełną specyfikację opony od rozmiaru felgi,
+- nie przypisywać źródła do osi przedniej lub tylnej bez jawnego wskazania,
+- nie interpretować indeksu `92H` jako maksymalnej homologowanej wartości,
+- zaakceptować decyzję D-018,
+- wybrać osobny import specyfikacji standardowej opony.
 
 ---
 
 # Next Sprint
 
-## Sandero Remaining PDF Value Gap Analysis
+## Sandero Standard Tyre Specification Import
 
 Cel sprintu:
 
-- ponownie porównać siedem źródeł z aktualnym pokryciem wartości i dostępności,
-- wskazać wyłącznie jawne, niezaimportowane fakty,
-- przypisać każdy kandydat do istniejącej relacji danych,
-- wykazać nową lukę modelu tylko wtedy, gdy obecne relacje nie zachowują znaczenia,
-- wybrać jeden mały pakiet wdrożeniowy bez zgadywania danych.
+- dodać kanoniczny atrybut string `standard_tyre_specification`,
+- zaimportować `205/60 R16 92H` dla siedmiu konfiguracji,
+- zachować datę, źródło, stronę 5, sekcję `Koła i opony` i pełne brzmienie pola,
+- użyć `configuration_attribute_values.csv`,
+- nie tworzyć osiowych ani maksymalnych wartości z neutralnego pola źródłowego,
+- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
