@@ -581,3 +581,67 @@ from coincident standard-equipment lists.
   for all seven current configurations.
 - Internal configurator metadata and the technical `Bez Opcji` qualifier remain
   excluded from commercial package data.
+
+## D-018 — Axle-neutral standard tyre specification
+
+Status: Accepted
+
+Date: 2026-07-13
+
+### Decision
+
+A source field that identifies one standard tyre specification for the complete
+vehicle without distinguishing front and rear axles is represented as a dated
+configuration-level string value.
+
+The canonical attribute for this fact is `standard_tyre_specification` in the
+`Wheels` category. The normalized value preserves the complete source
+specification, including nominal size, load index and speed symbol. For the
+seven current Sandero sources the normalized value is `205/60 R16 92H`.
+
+The exact source wording, page and section remain in `notes`. The planned
+import uses `configuration_attribute_values.csv` and does not create an
+equipment-availability record.
+
+The source wording must not be decomposed into:
+
+- `front_tyre_size` and `rear_tyre_size`, because the source does not state an
+  axle assignment,
+- `max_tyre_load_index` and `max_tyre_speed_rating`, because `92H` identifies
+  the stated standard tyre and is not described as a maximum approved rating,
+- `wheel_size`, because that attribute stores the selected rim size rather
+  than the complete tyre specification.
+
+Axle-specific sizes or maximum approved ratings may be imported separately
+only when a source explicitly provides those meanings.
+
+### Current source coverage
+
+All seven reviewed Sandero and Sandero Stepway configuration PDFs contain the
+same technical field on page 5 under `Koła i opony`:
+
+`Opony Standardowe 205/60 R16 92H`
+
+The current dataset contains selected rim descriptions, wheel material,
+commercial wheel design, wheel finish and exterior colour. It does not contain
+a standard-tyre-specification value.
+
+The attribute catalogue already contains axle-specific tyre-size attributes
+and maximum-rating attributes, but their meanings do not match the
+axle-neutral source field. Reusing them would add unsupported axle or maximum
+semantics.
+
+### Consequences
+
+- The next source-backed package adds the active string attribute
+  `standard_tyre_specification`.
+- The next package imports seven dated values, one for each current
+  configuration.
+- The normalized value is `205/60 R16 92H`.
+- Source page 5, section `Koła i opony` and the original Polish field remain in
+  `notes`.
+- Existing `front_tyre_size`, `rear_tyre_size`, `max_tyre_load_index`,
+  `max_tyre_speed_rating` and `wheel_size` records are not populated from this
+  field.
+- Equipment availability and configuration prices remain unchanged.
+- This analysis package changes documentation only.

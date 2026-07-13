@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#23. Aktualny punkt odniesienia to merge commit
-`431e4fb9`.
+Pull Requesty #3–#24. Aktualny punkt odniesienia to merge commit
+`508fd0e`.
 
-PR #23 zaakceptował decyzję D-017, potwierdził brak źródłowych pakietów
-handlowych i odroczył dedykowany model do czasu uzyskania właściwych danych.
-GitHub Actions Quality run #74 zakończył się powodzeniem.
+PR #24 dodał kategorię `Exterior`, atrybut `exterior_color` i siedem
+datowanych wartości `biel alpejska`. GitHub Actions Quality run #76
+zakończył się powodzeniem.
 
-Bieżący pakiet źródłowy jest rozwijany na gałęzi
-`data/sandero-exterior-colour-values`.
+Bieżący pakiet analityczny jest rozwijany na gałęzi
+`analysis/sandero-remaining-pdf-value-gap`.
 
 ## Verified Quality Baseline
 
@@ -39,44 +39,47 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero Exterior Colour Value Import.
+Sandero Remaining PDF Value Gap Analysis.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- dodanie kategorii `Exterior`,
-- dodanie atrybutu string `exterior_color`,
-- import siedmiu datowanych wartości `biel alpejska`,
-- zachowanie strony 2, sekcji `Kolor` i zapisu `0 zł` w `notes`,
-- brak zmian w dostępności wyposażenia i cenach konfiguracji,
-- osiem nowych testów regresyjnych.
+- porównanie z 204 wartościami konfiguracji,
+- porównanie z 419 rekordami dostępności wyposażenia,
+- potwierdzenie wspólnego pola `Opony Standardowe 205/60 R16 92H`,
+- wykazanie niedopasowania atrybutów osiowych i maksymalnych,
+- decyzja D-018 o neutralnej dla osi pełnej specyfikacji opony,
+- brak zmian w danych, schemacie, narzędziach i testach.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Po bieżącym imporcie model obejmuje 204 datowane wartości konfiguracji.
-Siedem nowych rekordów przechowuje wybrany kolor nadwozia `biel alpejska`
-jako wartość string powiązaną z konfiguracją, datą i dokumentem źródłowym.
+Model obejmuje 204 datowane wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Koła i
+opony` tę samą wartość: `Opony Standardowe 205/60 R16 92H`.
 
-Zapis `0 zł` pozostaje wyłącznie w `notes`, ponieważ źródło przedstawia go
-jako część podsumowania wybranego składnika. Nie jest to samodzielna wartość
-koloru, rekord opcji ani cena składnika w istniejącym modelu.
+Istniejące `front_tyre_size` i `rear_tyre_size` wymagają znaczenia osiowego,
+którego źródło nie dostarcza. `max_tyre_load_index` i
+`max_tyre_speed_rating` opisują wartości maksymalne, podczas gdy `92H`
+należy do podanej standardowej opony. `wheel_size` opisuje wybraną felgę,
+nie pełną specyfikację opony.
 
-Dostępność wyposażenia pozostaje bez zmian: 419 rekordów, w tym 389
-`standard` i 30 `not_available`.
+Najmniejszym poprawnym rozszerzeniem jest nowy string
+`standard_tyre_specification` użyty w istniejącej relacji wartości
+konfiguracji.
 
 ## Next Development Package
 
-Sandero Remaining PDF Value Gap Analysis.
+Sandero Standard Tyre Specification Import.
 
 Planowany przebieg:
 
-1. Porównać siedem PDF z aktualnymi 204 wartościami konfiguracji.
-2. Porównać źródła z 419 rekordami dostępności wyposażenia.
-3. Wskazać jednoznaczne fakty, które nadal nie mają rekordów.
-4. Użyć istniejącego modelu wszędzie, gdzie zachowuje znaczenie źródła.
-5. Wybrać jeden mały następny pakiet bez zgadywania danych.
+1. Dodać atrybut string `standard_tyre_specification` w kategorii `Wheels`.
+2. Zaimportować `205/60 R16 92H` dla siedmiu konfiguracji.
+3. Zachować stronę 5, sekcję `Koła i opony` i pełne polskie brzmienie.
+4. Nie duplikować wartości na osie i nie tworzyć maksymalnych indeksów.
+5. Dodać testy granicy modelu i pełną kontrolę jakości.
 
 ## Working Mode
 
@@ -246,16 +249,28 @@ Completed:
 
 ### Sandero Exterior Colour Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #24 zweryfikował siedem PDF przez SHA-256,
 - dodano kategorię `Exterior` i atrybut `exterior_color`,
-- przygotowano 7 wartości `biel alpejska`,
+- zaimportowano 7 wartości `biel alpejska`,
 - zachowano stronę, sekcję, źródłowe brzmienie i zapis `0 zł`,
 - nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych.
+- dodano osiem testów regresyjnych,
+- GitHub Actions Quality run #76 zakończył się powodzeniem.
+
+### Sandero Remaining PDF Value Gap Analysis
+
+Current package:
+
+- zweryfikowano siedem źródeł,
+- porównano 204 wartości i 419 rekordów dostępności,
+- potwierdzono wspólne pole `Opony Standardowe 205/60 R16 92H`,
+- odrzucono nieuzasadnione przypisanie do osi i wartości maksymalnych,
+- zaakceptowano decyzję D-018,
+- nie zmieniono danych ani schematu.
 
 Next priority:
 
-Analiza pozostałych luk wartości w siedmiu źródłach PDF i wybór jednego
-następnego kontrolowanego pakietu.
+Kontrolowany import `standard_tyre_specification = 205/60 R16 92H` dla
+siedmiu konfiguracji.
