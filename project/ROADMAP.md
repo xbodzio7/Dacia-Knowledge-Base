@@ -40,7 +40,7 @@ Data Expansion
 
 🟩 Walidacja i testy
 
-🟩 Pierwszy źródłowy pakiet Sandero i Sandero Stepway
+🟩 Dwa źródłowe pakiety Sandero i Sandero Stepway
 
 🟨 Rozbudowa danych opartych na źródłach
 
@@ -97,9 +97,10 @@ Data Expansion
 - decyzja D-015 — Configuration-level equipment availability,
 - kontrolowany słownik statusów dostępności wyposażenia,
 - schemat `configuration_attribute_availability.csv`,
-- 25 kanonicznych atrybutów funkcjonalnego wyposażenia,
-- 300 datowanych rekordów dostępności dla siedmiu konfiguracji,
-- jawne rozróżnienie 277 pozycji `standard` i 23 `not_available`.
+- 42 kanoniczne atrybuty funkcjonalnego i pasywnego wyposażenia,
+- 419 datowanych rekordów dostępności dla siedmiu konfiguracji,
+- jawne rozróżnienie 389 pozycji `standard` i 30 `not_available`,
+- jednoznaczne wyposażenie bezpieczeństwa pasywnego z zachowaną proweniencją.
 
 ## Tooling
 
@@ -112,7 +113,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 177 testów automatycznych,
+- 185 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -120,33 +121,32 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Core Equipment Availability Source Import
+## Sandero Passive Safety Availability Import
 
 Cel sprintu:
 
-- zweryfikować sumy SHA-256 siedmiu zarejestrowanych dokumentów PDF,
-- zaimportować jednoznaczne funkcjonalne wyposażenie na poziomie konfiguracji,
-- dodać wyłącznie brakujące kanoniczne atrybuty typu boolean,
+- ponownie zweryfikować sumy SHA-256 siedmiu dokumentów PDF,
+- zaimportować 17 jednoznacznych funkcji bezpieczeństwa dla siedmiu konfiguracji,
+- dodać 119 datowanych rekordów bez zmiany pierwszych 300 obserwacji,
 - zachować datę, źródło, stronę i oryginalne brzmienie każdej pozycji,
-- zapisać jawne negacje jako `not_available`,
-- nie interpretować braku rekordu jako informacji o dostępności,
-- objąć import testami i pełną weryfikacją SQLite.
+- zapisać brak regulacji wysokości pasa jako jawne `not_available`,
+- pozostawić koła i tapicerkę poza zakresem booleanów,
+- zakończyć pakiet pełną kontrolą jakości i weryfikacją SQLite.
 
 ---
 
 # Next Sprint
 
-## Sandero Safety and Trim Availability Import
+## Sandero Wheel and Upholstery Value Modeling
 
 Cel sprintu:
 
-- przeanalizować pozostałe pozycje bezpieczeństwa pasywnego i wyglądu,
-- rozstrzygnąć sprzeczne lub redundantne opisy kół i tapicerki,
-- dodać wyłącznie minimalne brakujące atrybuty kanoniczne,
-- zachować rozróżnienie między cechą, wariantem stylistycznym i wartością,
+- zaprojektować wartościowe modelowanie kół i tapicerki,
+- rozstrzygnąć konflikt Stepway Essential między wyborem ERALIA a listą TAMIA,
+- oddzielić materiał, wzór, rozmiar i wykończenie koła,
+- zachować tapicerkę jako wariant lub wartość, a nie prosty boolean,
 - nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia,
-- uzupełnić relację bez nadpisywania pierwszego pakietu,
-- zakończyć pakiet pełną kontrolą jakości.
+- rozpocząć import dopiero po udokumentowaniu decyzji modelowej.
 
 ---
 

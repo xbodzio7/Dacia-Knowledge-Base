@@ -5,14 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#18. Aktualny punkt odniesienia to merge commit
-`4bb28d6`.
+Pull Requesty #3–#19. Aktualny punkt odniesienia to merge commit
+`44fd33c`.
 
-PR #18 zaimplementował schemat dostępności wyposażenia zgodny z D-015,
-kontrolowany słownik statusów oraz pokrycie testami i SQLite.
+PR #19 zaimportował 300 źródłowych rekordów funkcjonalnego wyposażenia,
+dodał 25 kanonicznych atrybutów oraz zachował proweniencję stron PDF.
 
 Bieżący pakiet źródłowy jest rozwijany na gałęzi
-`data/sandero-equipment-availability`.
+`data/sandero-passive-safety-availability`.
 
 ## Verified Quality Baseline
 
@@ -24,35 +24,34 @@ python tools/dkb.py quality
 
 Wynik docelowy:
 
-- 177 testów automatycznych zakończonych powodzeniem,
+- 185 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1091 rekordów danych,
+- 1227 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 168 obserwacji w `configuration_attribute_values.csv`,
-- 300 rekordów w `configuration_attribute_availability.csv`,
-- 277 rekordów `standard` i 23 rekordy `not_available`,
-- 25 nowych kanonicznych atrybutów wyposażenia,
-- baza SQLite obejmująca 34 tabele i 1091 rekordów,
+- 419 rekordów w `configuration_attribute_availability.csv`,
+- 389 rekordów `standard` i 30 rekordów `not_available`,
+- 42 nowe kanoniczne atrybuty wyposażenia w dwóch pakietach,
+- baza SQLite obejmująca 34 tabele i 1227 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Core Equipment Availability Source Import.
+Sandero Passive Safety Availability Import.
 
 Zakres:
 
-- weryfikacja siedmiu plików PDF przez SHA-256,
-- import 300 datowanych rekordów dla siedmiu konfiguracji,
-- mapowanie 52 funkcji wyposażenia na katalog atrybutów,
-- dodanie 25 brakujących atrybutów typu boolean,
-- 277 jawnych pozycji `standard`,
-- 23 jawne pozycje `not_available`,
+- ponowna weryfikacja siedmiu plików PDF przez SHA-256,
+- import 119 datowanych rekordów dla siedmiu konfiguracji,
+- mapowanie 17 funkcji bezpieczeństwa na nowe atrybuty boolean,
+- 112 jawnych pozycji `standard`,
+- 7 jawnych pozycji `not_available`,
 - zachowanie strony i źródłowego brzmienia w `notes`,
 - brak wnioskowania na podstawie nieobecności pozycji,
-- odłożenie wyglądu, tapicerki i pozostałego bezpieczeństwa pasywnego.
+- odłożenie kół i tapicerki do osobnego modelowania wartościowego.
 
 ## Current Phase
 
@@ -95,24 +94,24 @@ wyposażenie może zależeć od rodzaju skrzyni biegów. Decyzja D-015 przyjmuje
 więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
 z ponownym użyciem istniejącego katalogu atrybutów.
 
-Schemat dostępności z PR #18 jest wypełniany pierwszym kontrolowanym
-pakietem źródłowym. Import obejmuje funkcjonalne wyposażenie możliwe do
-jednoznacznego powiązania z katalogiem atrybutów. Jawne negacje źródłowe są
+Pierwszy import dostępności z PR #19 obejmuje 300 funkcjonalnych pozycji.
+Bieżący pakiet dodaje wyłącznie jednoznaczne bezpieczeństwo pasywne, nie
+zmieniając znaczenia istniejących rekordów. Jawne negacje źródłowe są
 zapisywane jako `not_available`; brak wzmianki pozostaje brakiem rekordu.
+Koła i tapicerka wymagają osobnego modelu wartości i pozostają poza zakresem.
 
 ## Next Development Package
 
-Sandero Safety and Trim Availability Import.
+Sandero Wheel and Upholstery Value Modeling.
 
 Planowany przebieg:
 
-1. Przeanalizować pozostałe pozycje bezpieczeństwa pasywnego i wyglądu.
-2. Oddzielić funkcje wyposażenia od wariantów stylistycznych i wartości.
-3. Rozstrzygnąć sprzeczne lub redundantne opisy kół i tapicerki.
-4. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
-5. Dodać tylko minimalne brakujące atrybuty kanoniczne.
-6. Uzupełnić istniejącą relację bez zmiany znaczenia pierwszych 300 rekordów.
-7. Zakończyć pakiet pełną bramką jakości i weryfikacją SQLite.
+1. Udokumentować model wartości dla kół i tapicerki.
+2. Oddzielić rozmiar, materiał, wzór i wykończenie koła.
+3. Rozstrzygnąć konflikt Stepway Essential: ERALIA kontra TAMIA BI-TON.
+4. Zachować tapicerkę jako wariant lub wartość, nie jako prosty boolean.
+5. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
+6. Dopiero po decyzji przygotować osobny kontrolowany import źródłowy.
 
 ## Working Mode
 
@@ -228,16 +227,25 @@ Completed:
 
 ### Sandero Core Equipment Availability
 
-Current package:
+Completed:
 
-- zweryfikowano siedem dokumentów PDF przez SHA-256,
-- przygotowano 300 rekordów dostępności dla siedmiu konfiguracji,
+- PR #19: zweryfikowano siedem dokumentów PDF przez SHA-256,
+- zaimportowano 300 rekordów dostępności dla siedmiu konfiguracji,
 - wykorzystano 27 istniejących i 25 nowych atrybutów kanonicznych,
 - zachowano 277 statusów `standard` i 23 jawne `not_available`,
-- nie wyprowadzono żadnego statusu z samego braku wzmianki,
-- wygląd, tapicerka i pozostałe bezpieczeństwo pasywne pozostają poza zakresem.
+- GitHub Actions Quality run #66 zakończył się powodzeniem.
+
+### Sandero Passive Safety Availability
+
+Current package:
+
+- potwierdzono 17 jednoznacznych funkcji we wszystkich siedmiu PDF-ach,
+- przygotowano 119 rekordów: 112 `standard` i 7 `not_available`,
+- zachowano źródłowe brzmienie i numer strony,
+- nie zmieniono znaczenia pierwszych 300 obserwacji,
+- koła i tapicerka pozostają poza zakresem.
 
 Next priority:
 
-Źródłowe uzupełnienie pozostałych jednoznacznych pozycji bezpieczeństwa
-i wyglądu po rozstrzygnięciu wariantów stylistycznych.
+Wartościowe modelowanie kół i tapicerki po rozstrzygnięciu konfliktu
+Stepway Essential oraz udokumentowaniu decyzji modelowej.

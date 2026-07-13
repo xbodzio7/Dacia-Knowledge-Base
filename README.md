@@ -69,14 +69,17 @@ z decyzją D-015. Pole `availability_status` przyjmuje kontrolowane wartości
 że dostępność nie została zaimportowana; nie oznacza wartości `unknown` ani
 `not_available`.
 
-Pierwszy źródłowy pakiet dostępności obejmuje 300 datowanych rekordów dla
-siedmiu konfiguracji Sandero i Sandero Stepway oraz 52 funkcje wyposażenia.
-Import zachowuje 277 jawnych pozycji `standard` i 23 jawne wartości
-`not_available`. Zakres obejmuje multimedia, komfort, szyby i lusterka,
-oświetlenie, parkowanie, wybrane systemy ADAS oraz klimatyzację. Oryginalne
-brzmienie pozycji i numer strony PDF są zachowane w polu `notes`. Wygląd,
-tapicerka i pozostałe pasywne wyposażenie bezpieczeństwa pozostają odrębnym
-pakietem; brak ich rekordów nie stanowi informacji o dostępności.
+Pierwsze dwa źródłowe pakiety dostępności obejmują 419 datowanych
+rekordów dla siedmiu konfiguracji Sandero i Sandero Stepway oraz 69 funkcji
+wyposażenia. Import zachowuje 389 jawnych pozycji `standard` i 30 jawnych
+wartości `not_available`. Pierwszy pakiet obejmuje multimedia, komfort,
+szyby i lusterka, oświetlenie, parkowanie, wybrane systemy ADAS oraz
+klimatyzację. Drugi dodaje jednoznaczne wyposażenie bezpieczeństwa pasywnego,
+w tym poduszki powietrzne, napinacze pasów, przypomnienia o pasach, ABS,
+eCall, automatyczne blokowanie drzwi, ostrzeżenie o bezpiecznej odległości
+i przygotowanie do blokady alkoholowej. Oryginalne brzmienie pozycji i numer
+strony PDF są zachowane w polu `notes`. Koła i tapicerka pozostają osobnym
+pakietem wartościowym; brak ich rekordów nie stanowi informacji o dostępności.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -269,12 +272,13 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model po pierwszym źródłowym imporcie dostępności wyposażenia
-obejmuje 177 testów, 34 pliki CSV, 1091 rekordów danych, 34 relacje między
-tabelami, 168 technicznych obserwacji konfiguracji oraz 300 rekordów
-dostępności wyposażenia. Katalog zawiera 25 nowych kanonicznych atrybutów
-wyposażenia. Baza SQLite obejmuje 34 tabele i 1091 rekordów, pozostaje zgodna
-z CSV, a wszystkie źródłowe pliki CSV są zapisane jako UTF-8.
+Zweryfikowany model po dwóch źródłowych importach dostępności wyposażenia
+obejmuje 185 testów, 34 pliki CSV, 1227 rekordów danych, 34 relacje między
+tabelami, 168 technicznych obserwacji konfiguracji oraz 419 rekordów
+dostępności wyposażenia. Katalog zawiera 42 nowe kanoniczne atrybuty
+wyposażenia dodane przez oba pakiety. Baza SQLite obejmuje 34 tabele i 1227
+rekordów, pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane
+jako UTF-8.
 
 ## Development workflow
 
