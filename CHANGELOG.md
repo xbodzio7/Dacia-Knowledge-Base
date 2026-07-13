@@ -68,6 +68,9 @@ All notable changes to this project will be documented in this file.
 * Three hundred source-backed equipment availability observations for seven Sandero configurations.
 * Source-page and original-wording provenance for every imported equipment observation.
 * Regression coverage for equipment counts, statuses, uniqueness and configuration differences.
+* Seventeen canonical boolean attributes for explicit passive-safety equipment.
+* One hundred nineteen source-backed passive-safety observations across seven configurations.
+* Regression coverage for passive-safety counts, source wording, statuses and package boundaries.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -91,10 +94,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 177 tests.
-* The verified master-data baseline now contains 34 CSV files and 1091 rows.
-* SQLite verification now covers 34 tables and 1091 rows.
-* Equipment availability now contains 277 `standard` and 23 explicit `not_available` records.
+* The automated test suite now contains 185 tests.
+* The verified master-data baseline now contains 34 CSV files and 1227 rows.
+* SQLite verification now covers 34 tables and 1227 rows.
+* Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
 
@@ -123,3 +126,4 @@ All notable changes to this project will be documented in this file.
 * Identified configuration-level equipment availability as the next model gap and separated schema implementation from source-data import.
 * Documented the implemented equipment availability schema and the separate source-import follow-up package.
 * Documented the first functional equipment import and its conservative source-mapping boundary.
+* Documented the passive-safety import and deferred wheel and upholstery value modeling.

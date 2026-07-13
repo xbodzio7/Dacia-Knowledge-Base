@@ -326,3 +326,20 @@ id,code,category,name,data_type,unit,description,status
 332,electronic_parking_brake,Brakes,Electronic parking brake,boolean,,Parking brake is electrically operated,active
 333,extended_grip,Drivetrain,Extended Grip,boolean,,Dacia Extended Grip traction assistance,active
 334,heated_steering_wheel,HVAC,Heated steering wheel,boolean,,Steering wheel includes an electric heating function,active
+335,rear_seat_belt_pretensioners,Safety,Rear seat-belt pretensioners,boolean,,Rear seating positions include seat-belt pretensioning.,active
+336,seat_belt_reminder,Safety,Seat-belt reminder,boolean,,Vehicle warns occupants when a seat belt is not fastened.,active
+337,driver_front_airbag,Safety,Driver front airbag,boolean,,Frontal airbag for the driver.,active
+338,passenger_front_airbag,Safety,Passenger front airbag,boolean,,Frontal airbag for the front passenger.,active
+339,emergency_stop_signal,Safety,Emergency stop signal,boolean,,Hazard warning lights activate automatically under hard braking.,active
+340,rear_three_point_seat_belts,Safety,Rear three-point seat belts,boolean,,Rear seating positions use three-point seat belts.,active
+341,emergency_call_ecall,Safety,Emergency call eCall,boolean,,Vehicle supports the European eCall emergency-call function.,active
+342,central_locking,Doors,Central locking,boolean,,Vehicle doors are controlled by a central locking system.,active
+343,front_side_airbags,Safety,Front side airbags,boolean,,Front occupants are protected by side airbags.,active
+344,curtain_airbags,Safety,Curtain airbags,boolean,,Vehicle is equipped with curtain airbags.,active
+345,anti_lock_braking_system,Brakes,Anti-lock braking system,boolean,,Anti-lock braking system prevents wheel lock under braking.,active
+346,tyre_repair_kit,Wheels,Tyre repair kit,boolean,,Vehicle includes a tyre puncture repair kit.,active
+347,front_seat_belt_pretensioners,Safety,Front seat-belt pretensioners,boolean,,Front seat belts include pyrotechnic pretensioners.,active
+348,safe_distance_warning,ADAS,Safe-distance warning,boolean,,Vehicle warns when the following distance is unsafe.,active
+349,driver_seat_belt_height_adjustment,Safety,Driver seat-belt height adjustment,boolean,,Driver seat-belt upper anchorage can be adjusted for height.,active
+350,automatic_door_locking,Doors,Automatic door locking,boolean,,Doors lock automatically after the vehicle starts moving.,active
+351,alcohol_interlock_preparation,Safety,Alcohol interlock preparation,boolean,,Vehicle is prepared for installation of an alcohol interlock.,active
