@@ -5,52 +5,51 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#15. Aktualny punkt odniesienia to merge commit
-`ee67670`.
+Pull Requesty #3–#17. Aktualny punkt odniesienia to merge commit
+`39b2c3a`.
 
-PR #14 dodał obserwacje WLTP z jawnym kontekstem LPG i benzyny.
-PR #15 zsynchronizował dokumentację projektu po pakietach technicznych
-i decyzji D-014.
+PR #16 zakończył analizę pokrycia siedmiu źródeł PDF i zapisał decyzję
+D-015. PR #17 dodał automatyzację bezpiecznego workflow pakietów oraz
+poprawkę UTF-8 dla lokalnej bramki jakości na Windows.
 
-Bieżący pakiet analityczny jest rozwijany na gałęzi
-`analysis/sandero-pdf-source-coverage`.
+Bieżący pakiet schematu jest rozwijany na gałęzi
+`feature/equipment-availability-schema`.
 
 ## Verified Quality Baseline
 
-Zweryfikowany punkt odniesienia po PR #15:
+Zweryfikowany lokalnie punkt odniesienia dla bieżącego pakietu:
 
 ```bash
 python tools/dkb.py quality
 ```
 
-Wynik:
+Wynik docelowy:
 
-- 149 testów automatycznych zakończonych powodzeniem,
-- 32 pliki CSV w `data/master`,
-- 762 rekordy danych,
-- 30 relacji między tabelami,
-- 18 reguł statusów,
+- 169 testów automatycznych zakończonych powodzeniem,
+- 34 pliki CSV w `data/master`,
+- 766 rekordów danych,
+- 34 relacje między tabelami,
+- 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 168 obserwacji w `configuration_attribute_values.csv`,
-- baza SQLite obejmująca 32 tabele i 762 rekordy,
+- zero rekordów w pustym schemacie dostępności wyposażenia,
+- baza SQLite obejmująca 34 tabele i 766 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
-- wszystkie źródłowe pliki CSV zapisane jako UTF-8,
-- GitHub Actions Quality, run #58, zakończony powodzeniem.
+- wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero PDF Source Coverage Gap Analysis.
+Equipment Availability Schema Implementation.
 
 Zakres:
 
-- ekstrakcja tekstu ze wszystkich siedmiu zarejestrowanych PDF,
-- porównanie zawartości źródeł z obecnym modelem i danymi,
-- potwierdzenie pokrycia głównych danych technicznych,
-- identyfikacja wyposażenia seryjnego jako największej luki,
-- porównanie wyposażenia konfiguracji manualnych i automatycznych,
-- wykazanie potrzeby reprezentacji na poziomie konfiguracji,
-- zapisanie zaakceptowanej decyzji D-015,
-- brak implementacji schematu i brak importu wyposażenia.
+- kontrolowany słownik statusów dostępności wyposażenia,
+- pusty schemat `configuration_attribute_availability.csv`,
+- referencje do konfiguracji, atrybutów, statusów i źródeł,
+- walidacja statusów oraz automatyczna unikalność `id` i `code`,
+- testy deklaracji schematu i wykrywania tabel przez SQLite,
+- synchronizacja dokumentacji,
+- brak importu rekordów wyposażenia z PDF.
 
 ## Current Phase
 
@@ -93,21 +92,24 @@ wyposażenie może zależeć od rodzaju skrzyni biegów. Decyzja D-015 przyjmuje
 więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
 z ponownym użyciem istniejącego katalogu atrybutów.
 
+Bieżący pakiet implementuje kontrolowany słownik statusów i pustą relację
+zgodną z D-015. Brak rekordu nadal oznacza brak importu, a nie status
+`unknown` lub `not_available`. Wypełnienie relacji pozostaje osobnym
+pakietem źródłowym.
+
 ## Next Development Package
 
-Equipment Availability Schema Implementation.
+Sandero Equipment Availability Source Import.
 
 Planowany przebieg:
 
-1. Dodać kontrolowany słownik statusów dostępności wyposażenia.
-2. Dodać `configuration_attribute_availability.csv` zgodnie z D-015.
-3. Powiązać rekordy z konfiguracjami, atrybutami i źródłami.
-4. Dodać walidację statusów, referencji i unikalności.
-5. Dodać testy automatyczne dla nowego modelu.
-6. Rozszerzyć budowę i weryfikację SQLite.
-7. Zaktualizować dokumentację modelu oraz schematu.
-8. Nie importować jeszcze wyposażenia z PDF; import pozostaje osobnym
-   pakietem źródłowym.
+1. Odczytać wyposażenie z siedmiu zarejestrowanych źródeł PDF.
+2. Powiązać pozycje z kanonicznym katalogiem atrybutów.
+3. Zapisać dostępność na poziomie konfiguracji.
+4. Zachować status, datę obserwacji, źródło i niezbędne uwagi.
+5. Nie interpretować braku rekordu jako `unknown` lub `not_available`.
+6. Nie zgadywać wyposażenia niewskazanego jednoznacznie w źródle.
+7. Zakończyć pakiet pełną bramką jakości i weryfikacją SQLite.
 
 ## Working Mode
 
@@ -123,6 +125,10 @@ Każdy pakiet:
 
 Git Bash służy do generowania zmian, testów i kontroli stanu. Git GUI
 może służyć do przeglądania różnic, stagingu, commitów i pushowania.
+
+Powtarzalne kontrole pakietu są dostępne przez `package-start`,
+`package-review` i `package-finish`. Commit, push, utworzenie Pull Requestu
+oraz merge pozostają operacjami jawnymi.
 
 ## Project Rules
 
@@ -188,16 +194,37 @@ Completed:
 
 ### Sandero PDF Source Coverage Analysis
 
-Current package:
+Completed:
 
-- siedem PDF zostało poprawnie odczytanych bez zmiany repozytorium,
-- główne dane techniczne są już objęte wcześniejszymi pakietami,
-- wyposażenie seryjne zostało wskazane jako największa luka,
+- PR #16: przeanalizowano siedem zarejestrowanych źródeł PDF,
+- główne dane techniczne potwierdzono jako objęte wcześniejszymi pakietami,
+- wyposażenie seryjne wskazano jako największą lukę,
 - różnice manual–automatic potwierdziły poziom konfiguracji,
 - zaakceptowano decyzję D-015,
-- pakiet nie implementuje tabel ani nie importuje wyposażenia.
+- oddzielono implementację schematu od importu danych.
+
+### Package Workflow Automation
+
+Completed:
+
+- PR #17: dodano `package-start`, `package-review` i `package-finish`,
+- zachowano jawne commit, push, PR i merge,
+- dodano testy workflow izolowane od konfiguracji Git i zakończeń linii,
+- wymuszono UTF-8 dla procesów lokalnej bramki jakości na Windows,
+- GitHub Actions Quality run #62 zakończył się powodzeniem.
+
+### Equipment Availability Schema
+
+Current package:
+
+- kontrolowany słownik czterech statusów,
+- pusty schemat relacji zgodny z D-015,
+- cztery deklarowane referencje,
+- walidacja statusu słownika,
+- testy schematu i automatyczne pokrycie SQLite,
+- brak importowanych rekordów wyposażenia.
 
 Next priority:
 
-Implementacja schematu dostępności wyposażenia zgodnego z D-015, bez
-importowania rekordów wyposażenia.
+Źródłowy import dostępności wyposażenia Sandero i Sandero Stepway do
+przygotowanego schematu.

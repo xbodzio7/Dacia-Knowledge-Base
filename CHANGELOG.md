@@ -60,6 +60,10 @@ All notable changes to this project will be documented in this file.
 * One hundred sixty-eight source-backed technical observations in total.
 * Architecture decision D-014 for observation-level fuel context.
 * Architecture decision D-015 for configuration-level equipment availability.
+* Controlled dictionary for equipment availability statuses.
+* Header-only `configuration_attribute_availability.csv` relation implementing D-015.
+* Four cross-file references for configuration-level equipment availability.
+* Regression coverage for the equipment availability schema and SQLite discovery.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -81,11 +85,11 @@ All notable changes to this project will be documented in this file.
 * Dataset statistics analyze only source CSV files under `data/master`.
 * Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
-* Cross-file validation now covers 30 declared relationships.
-* Lifecycle and catalogue status validation now covers 18 declared rules.
-* The automated test suite now contains 149 tests.
-* The verified master-data baseline now contains 32 CSV files and 762 rows.
-* SQLite verification now covers 32 tables and 762 rows.
+* Cross-file validation now covers 34 declared relationships.
+* Lifecycle and catalogue status validation now covers 19 declared rules.
+* The automated test suite now contains 169 tests.
+* The verified master-data baseline now contains 34 CSV files and 766 rows.
+* SQLite verification now covers 34 tables and 766 rows.
 
 ### Fixed
 
@@ -112,3 +116,4 @@ All notable changes to this project will be documented in this file.
 * Synchronized project documentation after PRs #13 and #14, recorded merge commit `6224875` and closed the Fuel-mode-aware WLTP Observation Analysis package.
 * Analyzed coverage of all seven registered Sandero and Sandero Stepway PDF sources.
 * Identified configuration-level equipment availability as the next model gap and separated schema implementation from source-data import.
+* Documented the implemented equipment availability schema and the separate source-import follow-up package.

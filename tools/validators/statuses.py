@@ -69,6 +69,10 @@ STATUS_RULES: tuple[StatusRule, ...] = (
         ACTIVE_STATUSES,
     ),
     StatusRule(
+        "data/master/enums/equipment_availability_statuses.csv",
+        ACTIVE_STATUSES,
+    ),
+    StatusRule(
         "data/master/enums/engine_types.csv",
         ACTIVE_STATUSES,
     ),
