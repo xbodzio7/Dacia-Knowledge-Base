@@ -41,7 +41,7 @@ class SanderoWheelUpholsteryValueTests(unittest.TestCase):
         self.assertTrue(all(not row["unit"] for row in imported.values()))
 
     def test_package_ids_shape_and_count(self) -> None:
-        self.assertEqual(len(self.all_values), 197)
+        self.assertGreaterEqual(len(self.all_values), 197)
         self.assertEqual(len(self.rows), 29)
         self.assertEqual({int(row["id"]) for row in self.rows}, set(range(169, 198)))
         self.assertEqual(

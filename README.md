@@ -53,11 +53,11 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Sześć pakietów obejmuje
-197 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
-obserwacji technicznych oraz 29 wartości kół i tapicerki. Zakres techniczny
-obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika,
-zużycie paliwa i emisję CO2 w cyklu WLTP.
+datowanymi obserwacjami powiązanymi ze źródłem. Siedem pakietów obejmuje
+204 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+obserwacji technicznych, 29 wartości kół i tapicerki oraz 7 wartości koloru
+nadwozia. Zakres techniczny obejmuje zespół napędowy, osiągi, masy, wymiary,
+pojemność bagażnika, zużycie paliwa i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -85,6 +85,11 @@ Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
 tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wyłącznie
 wspólny materiał `steel`; sprzeczne wzory ERALIA/TAMIA BI-TON i wynikające
 z nich wykończenie pozostają celowo bez rekordu.
+
+Kolor nadwozia jest datowaną wartością konfiguracji. Siedem bieżących źródeł
+wskazuje `biel alpejska`; zapis `0 zł` pozostaje w `notes` jako część
+źródłowego opisu wybranego składnika i nie tworzy osobnej opcji ani ceny
+składnika.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -277,13 +282,12 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model po dwóch źródłowych importach dostępności wyposażenia
-obejmuje 185 testów, 34 pliki CSV, 1227 rekordów danych, 34 relacje między
-tabelami, 168 technicznych obserwacji konfiguracji oraz 419 rekordów
-dostępności wyposażenia. Katalog zawiera 42 nowe kanoniczne atrybuty
-wyposażenia dodane przez oba pakiety. Baza SQLite obejmuje 34 tabele i 1227
-rekordów, pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane
-jako UTF-8.
+Zweryfikowany model obejmuje 202 testy, 34 pliki CSV, 1267 rekordów
+danych, 34 relacje między tabelami, 204 wartości konfiguracji oraz 419
+rekordów dostępności wyposażenia. Katalog zawiera 347 kanonicznych atrybutów
+i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1267 rekordów,
+pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
+UTF-8.
 
 ## Development workflow
 
