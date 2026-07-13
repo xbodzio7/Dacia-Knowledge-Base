@@ -63,6 +63,24 @@ REPORT_COMMANDS = {
     ),
 }
 
+WORKFLOW_COMMANDS = {
+    "package-start": (
+        "start",
+        "Synchronize main and create a safe package branch.",
+        "<branch>",
+    ),
+    "package-review": (
+        "review",
+        "Review package scope, diffs and optional quality checks.",
+        "[--allow PATH] [--quality] [--show-diff]",
+    ),
+    "package-finish": (
+        "finish",
+        "Verify a committed package before push.",
+        "[--base-ref REF]",
+    ),
+}
+
 
 def usage() -> None:
     """Print CLI usage and available commands."""
@@ -81,6 +99,12 @@ def usage() -> None:
         {
             command: details[0]
             for command, details in REPORT_COMMANDS.items()
+        }
+    )
+    descriptions.update(
+        {
+            command: details[1]
+            for command, details in WORKFLOW_COMMANDS.items()
         }
     )
 
@@ -103,6 +127,9 @@ def usage() -> None:
     print("  python tools/dkb.py search Duster --field name")
     print("  python tools/dkb.py catalog")
     print("  python tools/dkb.py dictionary")
+    print("  python tools/dkb.py package-start tooling/example")
+    print("  python tools/dkb.py package-review --quality")
+    print("  python tools/dkb.py package-finish")
     print()
     print("Command-specific help:")
     print("  python tools/dkb.py <command> --help")
@@ -122,6 +149,25 @@ def run_script(command: str, arguments: list[str]) -> int:
 
     completed = subprocess.run(
         [sys.executable, str(script), *arguments],
+        check=False,
+    )
+    return completed.returncode
+
+
+def run_workflow(command: str, arguments: list[str]) -> int:
+    """Run a package workflow action and propagate its exit code."""
+    action = WORKFLOW_COMMANDS[command][0]
+    script = Path(__file__).resolve().parent / "package_workflow.py"
+
+    if not script.is_file():
+        print(
+            f"ERROR: workflow script does not exist: {script}",
+            file=sys.stderr,
+        )
+        return 1
+
+    completed = subprocess.run(
+        [sys.executable, str(script), action, *arguments],
         check=False,
     )
     return completed.returncode
@@ -162,6 +208,9 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if command in SCRIPT_COMMANDS:
         return run_script(command, command_arguments)
+
+    if command in WORKFLOW_COMMANDS:
+        return run_workflow(command, command_arguments)
 
     if command in REPORT_COMMANDS:
         if command_arguments:

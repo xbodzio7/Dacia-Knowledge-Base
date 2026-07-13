@@ -36,6 +36,7 @@ class DkbCliTests(unittest.TestCase):
         self.assertIn("sqlite-verify", output)
         self.assertIn("quality", output)
         self.assertIn("dictionary", output)
+        self.assertIn("package-review", output)
 
     def test_accepts_all_help_aliases(
         self,
@@ -124,6 +125,50 @@ class DkbCliTests(unittest.TestCase):
                 "name",
             ],
             check=False,
+        )
+
+    def test_forwards_workflow_arguments_and_exit_code(
+        self,
+    ) -> None:
+        completed = SimpleNamespace(returncode=6)
+
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_workflow(
+                "package-review",
+                ["--quality"],
+            )
+
+        self.assertEqual(result, 6)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "package_workflow.py"),
+                "review",
+                "--quality",
+            ],
+            check=False,
+        )
+
+    def test_main_dispatches_workflow_command(
+        self,
+    ) -> None:
+        with mock.patch.object(
+            dkb,
+            "run_workflow",
+            return_value=4,
+        ) as run_workflow:
+            result = dkb.main(
+                ["package-finish", "--base-ref", "origin/main"]
+            )
+
+        self.assertEqual(result, 4)
+        run_workflow.assert_called_once_with(
+            "package-finish",
+            ["--base-ref", "origin/main"],
         )
 
     def test_main_dispatches_script_command(

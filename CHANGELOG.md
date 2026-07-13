@@ -41,6 +41,8 @@ All notable changes to this project will be documented in this file.
 * Regression tests for CSV search, statistics, CLI routing, encoding normalization and Markdown reporting.
 * Unified `quality` CLI command for the complete local quality gate.
 * Unit tests for quality-step orchestration and failure propagation.
+* Safe package workflow commands for branch creation, review and finish checks.
+* Integration tests for package workflow behavior in temporary Git repositories.
 * Source registry for seven official Sandero and Sandero Stepway configuration documents.
 * Source-to-model, source-to-version and source-to-configuration relationships.
 * Five Sandero and Sandero Stepway trim records.
@@ -64,6 +66,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 * The unified CLI now propagates command exit codes.
+* Repetitive Git package checks are consolidated into three CLI commands while commit, push and merge remain explicit operations.
 * All project CSV files are stored as valid UTF-8.
 * Command usage documentation reflects the current tooling.
 * Generated SQLite databases are treated as disposable local artifacts.
@@ -86,6 +89,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+* Local quality subprocesses force UTF-8 output on Windows consoles and redirected logs.
 * Restored the executable validation entry point after it was accidentally emptied.
 * Validation CI now detects commands that return success without running the validator.
 
