@@ -301,3 +301,28 @@ id,code,category,name,data_type,unit,description,status
 307,transmission_type,Powertrain,Transmission type,string,,"Drivetrain configuration (FWD, RWD, AWD)",active
 308,number_of_gears,Powertrain,Number of gears,integer,,Number of transmission gears,active
 309,drivetrain_type,Powertrain,Drivetrain type,string,,"Drivetrain configuration (FWD, RWD, AWD)",active
+310,onboard_computer,Infotainment,On-board computer,boolean,,Vehicle information computer available to the driver,active
+311,media_display_system,Infotainment,Media Display system,boolean,,Dacia Media Display multimedia system,active
+312,media_control_system,Infotainment,Media Control system,boolean,,Dacia Media Control multimedia system,active
+313,wireless_smartphone_replication,Infotainment,Wireless smartphone replication,boolean,,Wireless smartphone screen and application replication,active
+314,instrument_cluster_colour_7,Infotainment,7-inch colour instrument display,boolean,,Seven-inch colour driver information display,active
+315,instrument_cluster_tft_3_5,Infotainment,3.5-inch TFT instrument display,boolean,,Three-and-a-half-inch TFT driver information display,active
+316,steering_wheel_height_adjustment,Steering,Steering wheel height adjustment,boolean,,Steering wheel can be adjusted vertically,active
+317,steering_wheel_reach_adjustment,Steering,Steering wheel reach adjustment,boolean,,Steering wheel can be adjusted longitudinally,active
+318,front_centre_armrest,Seats,Front centre armrest,boolean,,Front centre console includes an armrest,active
+319,adjustable_boot_floor,Capacities,Adjustable boot floor,boolean,,Luggage compartment floor has multiple height positions,active
+320,manual_day_night_rearview_mirror,Mirrors,Manual day/night rear-view mirror,boolean,,Interior rear-view mirror has manual day and night positions,active
+321,high_filtering_glass,Windows,High-filtering glass,boolean,,Vehicle glazing has enhanced light or heat filtering,active
+322,led_headlights,Lighting,LED headlights,boolean,,Main headlight system uses LED technology,active
+323,fog_lights,Lighting,Fog lights,boolean,,Vehicle is equipped with fog lights,active
+324,boot_compartment_lighting,Lighting,Boot compartment lighting,boolean,,Luggage compartment has dedicated lighting,active
+325,third_brake_light,Lighting,Third brake light,boolean,,Vehicle has a high-mounted third stop lamp,active
+326,cruise_control,Driving Systems,Cruise control,boolean,,Vehicle speed can be maintained automatically,active
+327,speed_limiter,Driving Systems,Speed limiter,boolean,,Driver-selectable maximum speed limiter,active
+328,one_touch_turn_signals,Driving Systems,One-touch turn signals,boolean,,Brief indicator input triggers a programmed flash sequence,active
+329,gear_shift_indicator,Driving Systems,Gear shift indicator,boolean,,Driver display provides gear-change recommendations,active
+330,electronic_stability_control,Safety,Electronic stability control,boolean,,Electronic stability control system,active
+331,hill_start_assist,Driving Systems,Hill-start assist,boolean,,Vehicle assists the driver when starting on a gradient,active
+332,electronic_parking_brake,Brakes,Electronic parking brake,boolean,,Parking brake is electrically operated,active
+333,extended_grip,Drivetrain,Extended Grip,boolean,,Dacia Extended Grip traction assistance,active
+334,heated_steering_wheel,HVAC,Heated steering wheel,boolean,,Steering wheel includes an electric heating function,active

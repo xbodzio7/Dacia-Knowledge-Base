@@ -96,8 +96,10 @@ Data Expansion
 - zakończona analiza pokrycia siedmiu źródeł PDF,
 - decyzja D-015 — Configuration-level equipment availability,
 - kontrolowany słownik statusów dostępności wyposażenia,
-- pusty schemat `configuration_attribute_availability.csv` gotowy na
-  źródłowy import wyposażenia.
+- schemat `configuration_attribute_availability.csv`,
+- 25 kanonicznych atrybutów funkcjonalnego wyposażenia,
+- 300 datowanych rekordów dostępności dla siedmiu konfiguracji,
+- jawne rozróżnienie 277 pozycji `standard` i 23 `not_available`.
 
 ## Tooling
 
@@ -110,7 +112,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 169 testów automatycznych,
+- 177 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -118,35 +120,33 @@ Data Expansion
 
 # Current Sprint
 
-## Equipment Availability Schema Implementation
+## Sandero Core Equipment Availability Source Import
 
 Cel sprintu:
 
-- dodać kontrolowany słownik statusów `standard`, `optional`,
-  `not_available` i `unknown`,
-- dodać pustą relację `configuration_attribute_availability.csv`
-  zgodną z decyzją D-015,
-- zadeklarować referencje do konfiguracji, atrybutów, statusów i źródeł,
-- objąć słownik istniejącą walidacją statusów,
-- wykorzystać repozytoryjną walidację unikalności `id` i `code`,
-- objąć nowy schemat testami oraz automatyczną budową i weryfikacją SQLite,
-- zaktualizować dokumentację bez importowania rekordów wyposażenia.
+- zweryfikować sumy SHA-256 siedmiu zarejestrowanych dokumentów PDF,
+- zaimportować jednoznaczne funkcjonalne wyposażenie na poziomie konfiguracji,
+- dodać wyłącznie brakujące kanoniczne atrybuty typu boolean,
+- zachować datę, źródło, stronę i oryginalne brzmienie każdej pozycji,
+- zapisać jawne negacje jako `not_available`,
+- nie interpretować braku rekordu jako informacji o dostępności,
+- objąć import testami i pełną weryfikacją SQLite.
 
 ---
 
 # Next Sprint
 
-## Sandero Equipment Availability Source Import
+## Sandero Safety and Trim Availability Import
 
 Cel sprintu:
 
-- wyodrębnić wyposażenie z siedmiu zarejestrowanych dokumentów PDF,
-- mapować pozycje źródłowe na kanoniczne rekordy `attributes.csv`,
-- zapisać statusy na poziomie konkretnych konfiguracji,
-- zachować datę obserwacji i źródło każdego rekordu,
-- rozróżniać brak importu od jawnego `unknown` i `not_available`,
-- dodać wyłącznie dane potwierdzone w źródłach,
-- zakończyć pakiet pełną walidacją i porównaniem SQLite.
+- przeanalizować pozostałe pozycje bezpieczeństwa pasywnego i wyglądu,
+- rozstrzygnąć sprzeczne lub redundantne opisy kół i tapicerki,
+- dodać wyłącznie minimalne brakujące atrybuty kanoniczne,
+- zachować rozróżnienie między cechą, wariantem stylistycznym i wartością,
+- nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia,
+- uzupełnić relację bez nadpisywania pierwszego pakietu,
+- zakończyć pakiet pełną kontrolą jakości.
 
 ---
 

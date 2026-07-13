@@ -44,11 +44,13 @@ class EquipmentAvailabilitySchemaTests(unittest.TestCase):
             self.assertIsNotNone(reader.fieldnames)
             return list(reader.fieldnames or []), list(reader)
 
-    def test_relation_matches_d015_and_is_header_only(self) -> None:
+    def test_relation_matches_d015_schema(self) -> None:
         columns, rows = self.read_rows(RELATION_PATH)
 
         self.assertEqual(columns, EXPECTED_RELATION_COLUMNS)
-        self.assertEqual(rows, [])
+        self.assertTrue(
+            all(set(row) == set(EXPECTED_RELATION_COLUMNS) for row in rows)
+        )
 
     def test_status_dictionary_contains_controlled_values(self) -> None:
         columns, rows = self.read_rows(STATUS_PATH)
