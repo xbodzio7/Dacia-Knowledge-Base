@@ -52,12 +52,12 @@ Ceny są zapisywane jako datowane obserwacje powiązane z konkretnym
 dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
-Parametry techniczne konfiguracji również są datowanymi obserwacjami
-powiązanymi ze źródłem. Pięć pakietów obejmuje 168 wartości dla siedmiu
-konfiguracji Sandero i Sandero Stepway. Zakres obejmuje podstawowe dane
-zespołu napędowego, osiągi, masy pojazdu i przyczep, długość, szerokość,
-rozstaw osi, zwisy, pojemność bagażnika oraz zużycie paliwa i emisję CO2
-w cyklu WLTP.
+Parametry techniczne i pozostałe wartości konfiguracji również są
+datowanymi obserwacjami powiązanymi ze źródłem. Sześć pakietów obejmuje
+197 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+obserwacji technicznych oraz 29 wartości kół i tapicerki. Zakres techniczny
+obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika,
+zużycie paliwa i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -78,8 +78,13 @@ klimatyzację. Drugi dodaje jednoznaczne wyposażenie bezpieczeństwa pasywnego,
 w tym poduszki powietrzne, napinacze pasów, przypomnienia o pasach, ABS,
 eCall, automatyczne blokowanie drzwi, ostrzeżenie o bezpiecznej odległości
 i przygotowanie do blokady alkoholowej. Oryginalne brzmienie pozycji i numer
-strony PDF są zachowane w polu `notes`. Koła i tapicerka pozostają osobnym
-pakietem wartościowym; brak ich rekordów nie stanowi informacji o dostępności.
+strony PDF są zachowane w polu `notes`.
+
+Koła i tapicerka są modelowane jako wartości konfiguracji zgodnie z D-016.
+Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
+tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wyłącznie
+wspólny materiał `steel`; sprzeczne wzory ERALIA/TAMIA BI-TON i wynikające
+z nich wykończenie pozostają celowo bez rekordu.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 

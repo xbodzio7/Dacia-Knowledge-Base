@@ -343,3 +343,5 @@ id,code,category,name,data_type,unit,description,status
 349,driver_seat_belt_height_adjustment,Safety,Driver seat-belt height adjustment,boolean,,Driver seat-belt upper anchorage can be adjusted for height.,active
 350,automatic_door_locking,Doors,Automatic door locking,boolean,,Doors lock automatically after the vehicle starts moving.,active
 351,alcohol_interlock_preparation,Safety,Alcohol interlock preparation,boolean,,Vehicle is prepared for installation of an alcohol interlock.,active
+352,wheel_design,Wheels,Wheel design,string,,Commercial wheel design name.,active
+353,upholstery_variant,Seats,Upholstery variant,string,,Commercial upholstery variant or normalized source description.,active

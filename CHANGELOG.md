@@ -74,6 +74,9 @@ All notable changes to this project will be documented in this file.
 * Seventeen canonical boolean attributes for explicit passive-safety equipment.
 * One hundred nineteen source-backed passive-safety observations across seven configurations.
 * Regression coverage for passive-safety counts, source wording, statuses and package boundaries.
+* Two canonical string attributes for wheel design and upholstery variant.
+* Twenty-nine source-backed wheel and upholstery values across seven configurations.
+* Regression coverage for normalized values, provenance, conflict boundaries and non-boolean modeling.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -97,9 +100,9 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 185 tests.
-* The verified master-data baseline now contains 34 CSV files and 1227 rows.
-* SQLite verification now covers 34 tables and 1227 rows.
+* The automated test suite now contains 194 tests.
+* The verified master-data baseline now contains 34 CSV files and 1258 rows.
+* SQLite verification now covers 34 tables and 1258 rows.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
@@ -131,3 +134,4 @@ All notable changes to this project will be documented in this file.
 * Documented the first functional equipment import and its conservative source-mapping boundary.
 * Documented the passive-safety import and deferred wheel and upholstery value modeling.
 * Documented the wheel and upholstery value model without importing ambiguous source records.
+* Documented the controlled wheel and upholstery value import and the preserved Stepway Essential conflict boundary.

@@ -5,121 +5,84 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#20. Aktualny punkt odniesienia to merge commit
-`1a75581f`.
+Pull Requesty #3–#21. Aktualny punkt odniesienia to merge commit
+`ba615ed0`.
 
-PR #20 zaimportował 119 źródłowych rekordów bezpieczeństwa pasywnego,
-dodał 17 kanonicznych atrybutów oraz zachował proweniencję stron PDF.
+PR #21 zaakceptował decyzję D-016, rozdzielił wartości kół i tapicerki oraz
+udokumentował konserwatywną granicę konfliktu Stepway Essential.
 
-Bieżący pakiet dokumentuje wartościowy model kół i tapicerki bez importowania
-nowych rekordów źródłowych.
+Bieżący pakiet źródłowy jest rozwijany na gałęzi
+`data/sandero-wheel-upholstery-values`.
 
 ## Verified Quality Baseline
 
-Zweryfikowany lokalnie punkt odniesienia dla bieżącego pakietu:
+Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 
 ```bash
 python tools/dkb.py quality
 ```
 
-Wynik docelowy:
-
-- 185 testów automatycznych zakończonych powodzeniem,
+- 194 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1227 rekordów danych,
+- 1258 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 168 obserwacji w `configuration_attribute_values.csv`,
+- 197 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 42 nowe kanoniczne atrybuty wyposażenia w dwóch pakietach,
-- baza SQLite obejmująca 34 tabele i 1227 rekordów,
+- 42 kanoniczne atrybuty boolean wyposażenia w dwóch pakietach,
+- 2 nowe kanoniczne atrybuty string dla kół i tapicerki,
+- baza SQLite obejmująca 34 tabele i 1258 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Wheel and Upholstery Value Modeling.
+Sandero Wheel and Upholstery Value Import.
 
 Zakres:
 
-- decyzja D-016 dla wartości kół i tapicerki,
-- użycie istniejącej relacji `configuration_attribute_values.csv`,
-- ponowne użycie `wheel_size`, `wheel_material` i `wheel_finish`,
-- planowane dodanie `wheel_design` i `upholstery_variant`,
-- brak booleanów dla kół i tapicerki,
+- weryfikacja siedmiu źródeł PDF przez SHA-256,
+- dodanie `wheel_design` i `upholstery_variant`,
+- import 29 datowanych wartości dla siedmiu konfiguracji,
+- 7 wartości rozmiaru, 7 materiału, 6 wzoru i 2 wykończenia kół,
+- 7 nazwanych wariantów tapicerki,
 - zachowanie strony, sekcji i źródłowego brzmienia w `notes`,
-- konserwatywne potraktowanie konfliktu Stepway Essential,
-- wykluczenie wewnętrznych kryteriów zamówieniowych,
-- brak zmian w danych źródłowych w pakiecie modelowym.
+- brak wzoru i wykończenia dla Stepway Essential,
+- brak zmian w relacji dostępności wyposażenia,
+- wykluczenie wewnętrznych kryteriów zamówieniowych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Pięć pakietów źródłowych danych technicznych jest zakończonych.
-Tabela `configuration_attribute_values.csv` zawiera 168 datowanych
-obserwacji dla siedmiu konfiguracji Sandero i Sandero Stepway.
+Sześć pakietów wartości konfiguracji obejmuje 197 datowanych obserwacji dla
+siedmiu konfiguracji Sandero i Sandero Stepway. Pierwsze 168 obserwacji
+zachowuje dane techniczne, w tym jawny kontekst LPG i benzyny zgodnie z D-014.
 
-Pierwsze 140 obserwacji jest niezależnych od rodzaju paliwa i zachowuje
-puste `fuel_type_code`. Obserwacje 141–168 zapisują zużycie paliwa oraz
-emisję CO2 oddzielnie dla LPG i benzyny.
+Bieżący import dodaje 29 wartości kół i tapicerki zgodnie z D-016. Rozmiar,
+materiał, wzór i wykończenie koła są osobnymi atrybutami, a tapicerka pozostaje
+nazwanym wariantem. Dla Stepway Essential wspólną informacją źródłową jest
+wyłącznie stalowy materiał obręczy; wzór i wykończenie pozostają bez rekordu.
 
-Zakres obejmuje:
-
-- pojemność zbiornika paliwa,
-- pojemność skokową i liczbę cylindrów,
-- liczbę miejsc i przełożeń,
-- prędkość maksymalną i średnicę zawracania,
-- masę własną i dopuszczalną masę całkowitą,
-- dopuszczalną masę całkowitą zespołu pojazdów,
-- masy przyczepy z hamulcem i bez hamulca,
-- długość, szerokość, rozstaw osi oraz zwisy,
-- pojemność bagażnika VDA i w litrach,
-- kontekst wariantu z zestawem naprawczym,
-- zużycie paliwa w cyklu mieszanym WLTP,
-- emisję CO2 w cyklu mieszanym WLTP.
-
-Opcjonalne `fuel_type_code` wskazuje na
-`data/master/enums/fuel_types.csv`. Decyzja D-014 zachowuje kontekst
-paliwa na poziomie obserwacji bez tworzenia paliwowych duplikatów
-definicji atrybutów.
-
-Analiza siedmiu źródeł PDF wykazała, że główne obszary danych technicznych
-są już reprezentowane, natomiast wyposażenie seryjne pozostaje największym
-jednoznacznym obszarem niezaimportowanym.
-
-Porównanie konfiguracji Stepway Expression i Extreme wykazało, że
-wyposażenie może zależeć od rodzaju skrzyni biegów. Decyzja D-015 przyjmuje
-więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
-z ponownym użyciem istniejącego katalogu atrybutów.
-
-Pierwszy import dostępności z PR #19 obejmuje 300 funkcjonalnych pozycji.
-Drugi import z PR #20 dodaje 119 jednoznacznych pozycji bezpieczeństwa
-pasywnego bez zmiany znaczenia wcześniejszych rekordów. Jawne negacje
-źródłowe są zapisywane jako `not_available`; brak wzmianki pozostaje brakiem
-rekordu.
-
-Koła i tapicerka są wartościami konfiguracji, a nie prostymi cechami
-boolean. Decyzja D-016 rozdziela rozmiar, materiał, wzór i wykończenie koła
-oraz zachowuje tapicerkę jako nazwany wariant. Konflikt ERALIA/TAMIA dla
-Stepway Essential pozostaje nierozstrzygnięty na poziomie wzoru i
-wykończenia; wspólną jawną informacją jest wyłącznie stalowy materiał obręczy.
+Dwa pakiety dostępności wyposażenia pozostają bez zmian: 419 rekordów,
+w tym 389 `standard` i 30 `not_available`, zgodnie z D-015. Brak rekordu nie
+jest interpretowany jako niedostępność.
 
 ## Next Development Package
 
-Sandero Wheel and Upholstery Value Import.
+Sandero Packages and Options Gap Analysis.
 
 Planowany przebieg:
 
-1. Dodać atrybuty `wheel_design` i `upholstery_variant`.
-2. Zaimportować jednoznaczne wartości dla siedmiu konfiguracji.
-3. Rozdzielić złożone opisy na jawny rozmiar, materiał, wzór i wykończenie.
-4. Zachować stronę, sekcję i oryginalne brzmienie w `notes`.
-5. Pominąć wzór i wykończenie Stepway Essential do czasu nowego źródła.
-6. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
-7. Dodać testy regresyjne oraz uruchomić pełną bramkę `quality`.
+1. Przejrzeć pakiety i opcje opisane w siedmiu źródłach PDF.
+2. Oddzielić nazwę pakietu od dostępności elementów składowych.
+3. Porównać znaczenie źródła z istniejącymi relacjami wartości i dostępności.
+4. Wykazać potrzebę nowej relacji tylko wtedy, gdy obecny model jest
+   niewystarczający.
+5. Odrzucić kody konfiguratora i kryteria zamówieniowe.
+6. Wybrać jeden kontrolowany pakiet wdrożeniowy bez zgadywania danych.
 
 ## Working Mode
 
@@ -255,16 +218,28 @@ Completed:
 
 ### Sandero Wheel and Upholstery Value Modeling
 
-Current package:
+Completed:
 
-- przygotowano decyzję D-016,
+- PR #21 zaakceptował decyzję D-016,
 - wskazano `configuration_attribute_values.csv` jako właściwą relację,
 - rozdzielono rozmiar, materiał, wzór i wykończenie koła,
 - zachowano tapicerkę jako wartość wariantu,
 - konflikt ERALIA/TAMIA sklasyfikowano jako nierozstrzygnięty,
-- wewnętrzne kryteria zamówieniowe wykluczono z modelu wyposażenia,
 - import danych pozostawiono do osobnego pakietu.
+
+### Sandero Wheel and Upholstery Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- dodano `wheel_design` i `upholstery_variant`,
+- przygotowano 29 wartości dla siedmiu konfiguracji,
+- zachowano proweniencję strony, sekcji i źródłowego brzmienia,
+- Stepway Essential otrzymał wyłącznie wspólną wartość materiału `steel`,
+- wzór ERALIA/TAMIA BI-TON i wykończenie pozostają celowo bez rekordu,
+- wewnętrzne kryteria zamówieniowe nie zostały zaimportowane.
 
 Next priority:
 
-Kontrolowany import jednoznacznych wartości kół i tapicerki zgodnie z D-016.
+Analiza źródłowych pakietów i opcji oraz wybór następnego małego pakietu
+zgodnego z istniejącym modelem.
