@@ -5,15 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#17. Aktualny punkt odniesienia to merge commit
-`39b2c3a`.
+Pull Requesty #3–#18. Aktualny punkt odniesienia to merge commit
+`4bb28d6`.
 
-PR #16 zakończył analizę pokrycia siedmiu źródeł PDF i zapisał decyzję
-D-015. PR #17 dodał automatyzację bezpiecznego workflow pakietów oraz
-poprawkę UTF-8 dla lokalnej bramki jakości na Windows.
+PR #18 zaimplementował schemat dostępności wyposażenia zgodny z D-015,
+kontrolowany słownik statusów oraz pokrycie testami i SQLite.
 
-Bieżący pakiet schematu jest rozwijany na gałęzi
-`feature/equipment-availability-schema`.
+Bieżący pakiet źródłowy jest rozwijany na gałęzi
+`data/sandero-equipment-availability`.
 
 ## Verified Quality Baseline
 
@@ -25,31 +24,35 @@ python tools/dkb.py quality
 
 Wynik docelowy:
 
-- 169 testów automatycznych zakończonych powodzeniem,
+- 177 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 766 rekordów danych,
+- 1091 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 168 obserwacji w `configuration_attribute_values.csv`,
-- zero rekordów w pustym schemacie dostępności wyposażenia,
-- baza SQLite obejmująca 34 tabele i 766 rekordów,
+- 300 rekordów w `configuration_attribute_availability.csv`,
+- 277 rekordów `standard` i 23 rekordy `not_available`,
+- 25 nowych kanonicznych atrybutów wyposażenia,
+- baza SQLite obejmująca 34 tabele i 1091 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Equipment Availability Schema Implementation.
+Sandero Core Equipment Availability Source Import.
 
 Zakres:
 
-- kontrolowany słownik statusów dostępności wyposażenia,
-- pusty schemat `configuration_attribute_availability.csv`,
-- referencje do konfiguracji, atrybutów, statusów i źródeł,
-- walidacja statusów oraz automatyczna unikalność `id` i `code`,
-- testy deklaracji schematu i wykrywania tabel przez SQLite,
-- synchronizacja dokumentacji,
-- brak importu rekordów wyposażenia z PDF.
+- weryfikacja siedmiu plików PDF przez SHA-256,
+- import 300 datowanych rekordów dla siedmiu konfiguracji,
+- mapowanie 52 funkcji wyposażenia na katalog atrybutów,
+- dodanie 25 brakujących atrybutów typu boolean,
+- 277 jawnych pozycji `standard`,
+- 23 jawne pozycje `not_available`,
+- zachowanie strony i źródłowego brzmienia w `notes`,
+- brak wnioskowania na podstawie nieobecności pozycji,
+- odłożenie wyglądu, tapicerki i pozostałego bezpieczeństwa pasywnego.
 
 ## Current Phase
 
@@ -92,23 +95,23 @@ wyposażenie może zależeć od rodzaju skrzyni biegów. Decyzja D-015 przyjmuje
 więc dedykowaną relację dostępności wyposażenia na poziomie konfiguracji,
 z ponownym użyciem istniejącego katalogu atrybutów.
 
-Bieżący pakiet implementuje kontrolowany słownik statusów i pustą relację
-zgodną z D-015. Brak rekordu nadal oznacza brak importu, a nie status
-`unknown` lub `not_available`. Wypełnienie relacji pozostaje osobnym
-pakietem źródłowym.
+Schemat dostępności z PR #18 jest wypełniany pierwszym kontrolowanym
+pakietem źródłowym. Import obejmuje funkcjonalne wyposażenie możliwe do
+jednoznacznego powiązania z katalogiem atrybutów. Jawne negacje źródłowe są
+zapisywane jako `not_available`; brak wzmianki pozostaje brakiem rekordu.
 
 ## Next Development Package
 
-Sandero Equipment Availability Source Import.
+Sandero Safety and Trim Availability Import.
 
 Planowany przebieg:
 
-1. Odczytać wyposażenie z siedmiu zarejestrowanych źródeł PDF.
-2. Powiązać pozycje z kanonicznym katalogiem atrybutów.
-3. Zapisać dostępność na poziomie konfiguracji.
-4. Zachować status, datę obserwacji, źródło i niezbędne uwagi.
-5. Nie interpretować braku rekordu jako `unknown` lub `not_available`.
-6. Nie zgadywać wyposażenia niewskazanego jednoznacznie w źródle.
+1. Przeanalizować pozostałe pozycje bezpieczeństwa pasywnego i wyglądu.
+2. Oddzielić funkcje wyposażenia od wariantów stylistycznych i wartości.
+3. Rozstrzygnąć sprzeczne lub redundantne opisy kół i tapicerki.
+4. Nie importować wewnętrznych kryteriów zamówieniowych jako wyposażenia.
+5. Dodać tylko minimalne brakujące atrybuty kanoniczne.
+6. Uzupełnić istniejącą relację bez zmiany znaczenia pierwszych 300 rekordów.
 7. Zakończyć pakiet pełną bramką jakości i weryfikacją SQLite.
 
 ## Working Mode
@@ -215,16 +218,26 @@ Completed:
 
 ### Equipment Availability Schema
 
+Completed:
+
+- PR #18: dodano kontrolowany słownik czterech statusów,
+- dodano pusty schemat relacji zgodny z D-015,
+- zadeklarowano cztery referencje i walidację statusów,
+- dodano testy schematu oraz automatyczne pokrycie SQLite,
+- GitHub Actions Quality run #64 zakończył się powodzeniem.
+
+### Sandero Core Equipment Availability
+
 Current package:
 
-- kontrolowany słownik czterech statusów,
-- pusty schemat relacji zgodny z D-015,
-- cztery deklarowane referencje,
-- walidacja statusu słownika,
-- testy schematu i automatyczne pokrycie SQLite,
-- brak importowanych rekordów wyposażenia.
+- zweryfikowano siedem dokumentów PDF przez SHA-256,
+- przygotowano 300 rekordów dostępności dla siedmiu konfiguracji,
+- wykorzystano 27 istniejących i 25 nowych atrybutów kanonicznych,
+- zachowano 277 statusów `standard` i 23 jawne `not_available`,
+- nie wyprowadzono żadnego statusu z samego braku wzmianki,
+- wygląd, tapicerka i pozostałe bezpieczeństwo pasywne pozostają poza zakresem.
 
 Next priority:
 
-Źródłowy import dostępności wyposażenia Sandero i Sandero Stepway do
-przygotowanego schematu.
+Źródłowe uzupełnienie pozostałych jednoznacznych pozycji bezpieczeństwa
+i wyglądu po rozstrzygnięciu wariantów stylistycznych.

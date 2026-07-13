@@ -64,6 +64,10 @@ All notable changes to this project will be documented in this file.
 * Header-only `configuration_attribute_availability.csv` relation implementing D-015.
 * Four cross-file references for configuration-level equipment availability.
 * Regression coverage for the equipment availability schema and SQLite discovery.
+* Twenty-five canonical boolean attributes for functional equipment.
+* Three hundred source-backed equipment availability observations for seven Sandero configurations.
+* Source-page and original-wording provenance for every imported equipment observation.
+* Regression coverage for equipment counts, statuses, uniqueness and configuration differences.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -87,9 +91,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 169 tests.
-* The verified master-data baseline now contains 34 CSV files and 766 rows.
-* SQLite verification now covers 34 tables and 766 rows.
+* The automated test suite now contains 177 tests.
+* The verified master-data baseline now contains 34 CSV files and 1091 rows.
+* SQLite verification now covers 34 tables and 1091 rows.
+* Equipment availability now contains 277 `standard` and 23 explicit `not_available` records.
 
 ### Fixed
 
@@ -117,3 +122,4 @@ All notable changes to this project will be documented in this file.
 * Analyzed coverage of all seven registered Sandero and Sandero Stepway PDF sources.
 * Identified configuration-level equipment availability as the next model gap and separated schema implementation from source-data import.
 * Documented the implemented equipment availability schema and the separate source-import follow-up package.
+* Documented the first functional equipment import and its conservative source-mapping boundary.
