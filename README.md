@@ -40,6 +40,9 @@ Repozytorium zawiera między innymi:
 * obserwacje handlowe: `configuration_prices.csv` i `currencies.csv`,
 * obserwacje techniczne konfiguracji:
   `configuration_attribute_values.csv`,
+* dostępność wyposażenia konfiguracji:
+  `configuration_attribute_availability.csv` oraz kontrolowany słownik
+  `equipment_availability_statuses.csv`,
 * katalog atrybutów: `attributes.csv`, `attribute_categories.csv`,
   `units.csv` i `value_types.csv`,
 * słowniki klasyfikacyjne, w tym `body_types.csv`, `segments.csv`
@@ -59,6 +62,13 @@ w cyklu WLTP.
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
 zachowują pusty kontekst paliwa zgodnie z decyzją D-014.
+
+Dostępność wyposażenia jest reprezentowana na poziomie konfiguracji zgodnie
+z decyzją D-015. Pole `availability_status` przyjmuje kontrolowane wartości
+`standard`, `optional`, `not_available` albo `unknown`. Brak rekordu oznacza,
+że dostępność nie została jeszcze zaimportowana; nie oznacza wartości
+`unknown` ani `not_available`. Relacja pozostaje pusta do czasu osobnego
+pakietu importu danych ze źródeł PDF.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -251,10 +261,11 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany punkt odniesienia po integracji PR-ów #13 i #14 na merge
-commit `6224875` obejmuje 149 testów, 32 pliki CSV, 762 rekordy danych,
-30 relacji między tabelami oraz 168 obserwacji konfiguracji. Baza SQLite
-obejmuje 32 tabele i 762 rekordy, pozostaje zgodna z CSV, a wszystkie
+Zweryfikowany model po implementacji schematu dostępności wyposażenia
+obejmuje 169 testów, 34 pliki CSV, 766 rekordów danych, 34 relacje między
+tabelami oraz 168 technicznych obserwacji konfiguracji. Nowa relacja
+dostępności jest celowo pusta do czasu pakietu importu źródłowego. Baza
+SQLite obejmuje 34 tabele i 766 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 
 ## Development workflow

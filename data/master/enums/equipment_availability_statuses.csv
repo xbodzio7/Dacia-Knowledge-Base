@@ -1,0 +1,5 @@
+code,name,description,status
+standard,Standard,Equipment included as standard,active
+optional,Optional,Equipment available as a paid or selectable option,active
+not_available,Not Available,Equipment explicitly unavailable for the configuration,active
+unknown,Unknown,Source explicitly prevents reliable availability classification,active

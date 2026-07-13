@@ -94,7 +94,10 @@ Data Expansion
 - zakończony pakiet Fuel-mode-aware WLTP Observation Analysis,
 - decyzja D-014 — Observation-level fuel context,
 - zakończona analiza pokrycia siedmiu źródeł PDF,
-- decyzja D-015 — Configuration-level equipment availability.
+- decyzja D-015 — Configuration-level equipment availability,
+- kontrolowany słownik statusów dostępności wyposażenia,
+- pusty schemat `configuration_attribute_availability.csv` gotowy na
+  źródłowy import wyposażenia.
 
 ## Tooling
 
@@ -107,34 +110,13 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 149 testów automatycznych,
-- 30 deklarowanych relacji między tabelami,
+- 169 testów automatycznych,
+- 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
 ---
 
 # Current Sprint
-
-## Sandero PDF Source Coverage Gap Analysis
-
-Cel sprintu:
-
-- przejrzeć siedem zarejestrowanych źródeł PDF dla konfiguracji Sandero
-  i Sandero Stepway,
-- porównać zawartość źródeł z aktualnym pokryciem danych,
-- potwierdzić, że dotychczasowe pakiety obejmują główne dane techniczne,
-- wskazać wyposażenie seryjne jako największy jednoznaczny obszar
-  niezaimportowany,
-- wykazać różnice wyposażenia między konfiguracjami manualnymi
-  i automatycznymi tej samej wersji,
-- zaakceptować decyzję D-015 o konfiguracyjnym poziomie dostępności
-  wyposażenia,
-- nie implementować schematu ani nie importować wyposażenia w pakiecie
-  analitycznym.
-
----
-
-# Next Sprint
 
 ## Equipment Availability Schema Implementation
 
@@ -142,13 +124,29 @@ Cel sprintu:
 
 - dodać kontrolowany słownik statusów `standard`, `optional`,
   `not_available` i `unknown`,
-- dodać relację `configuration_attribute_availability.csv` zgodną
-  z decyzją D-015,
-- powiązać rekordy z konfiguracjami, atrybutami i źródłami,
-- dodać walidację statusów, referencji i unikalności,
-- objąć nowy schemat testami automatycznymi oraz weryfikacją SQLite,
-- zaktualizować dokumentację schematu,
-- nie importować jeszcze rekordów wyposażenia z PDF.
+- dodać pustą relację `configuration_attribute_availability.csv`
+  zgodną z decyzją D-015,
+- zadeklarować referencje do konfiguracji, atrybutów, statusów i źródeł,
+- objąć słownik istniejącą walidacją statusów,
+- wykorzystać repozytoryjną walidację unikalności `id` i `code`,
+- objąć nowy schemat testami oraz automatyczną budową i weryfikacją SQLite,
+- zaktualizować dokumentację bez importowania rekordów wyposażenia.
+
+---
+
+# Next Sprint
+
+## Sandero Equipment Availability Source Import
+
+Cel sprintu:
+
+- wyodrębnić wyposażenie z siedmiu zarejestrowanych dokumentów PDF,
+- mapować pozycje źródłowe na kanoniczne rekordy `attributes.csv`,
+- zapisać statusy na poziomie konkretnych konfiguracji,
+- zachować datę obserwacji i źródło każdego rekordu,
+- rozróżniać brak importu od jawnego `unknown` i `not_available`,
+- dodać wyłącznie dane potwierdzone w źródłach,
+- zakończyć pakiet pełną walidacją i porównaniem SQLite.
 
 ---
 
