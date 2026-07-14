@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#26. Aktualny punkt odniesienia to merge commit
-`2c3bf3ee`.
+Pull Requesty #3–#27. Aktualny punkt odniesienia to merge commit
+`acee57fe`.
 
-PR #26 dodał atrybut `standard_tyre_specification` i siedem datowanych
-wartości `205/60 R16 92H`. GitHub Actions Quality run #81 zakończył się
-powodzeniem.
+PR #27 zamknął ponowną analizę jawnych luk i wybrał istniejący atrybut
+`number_of_doors` dla następnego importu. GitHub Actions Quality run #83
+zakończył się powodzeniem.
 
-Bieżący pakiet analityczny jest rozwijany na gałęzi
-`analysis/sandero-remaining-pdf-value-gap-reassessment`.
+Bieżący pakiet danych jest rozwijany na gałęzi
+`data/sandero-number-of-doors-values`.
 
 ## Verified Quality Baseline
 
@@ -23,65 +23,57 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 211 testów automatycznych zakończonych powodzeniem,
+- 219 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1275 rekordów danych,
+- 1282 rekordy danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 211 obserwacji w `configuration_attribute_values.csv`,
+- 218 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 348 kanonicznych atrybutów w 29 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1275 rekordów,
+- baza SQLite obejmująca 34 tabele i 1282 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Remaining PDF Value Gap Reassessment.
+Sandero Number of Doors Value Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- porównanie z 211 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
-- ręczna klasyfikacja wyników raportu heurystycznego,
-- odrzucenie nagłówków, tekstu marketingowego, wariantów brzmienia i już pokrytych faktów,
-- potwierdzenie wspólnego pola `Liczba Drzwi 5` na stronie 5,
-- potwierdzenie aktywnego atrybutu `number_of_doors` i braku jego rekordów,
-- wybór osobnego małego importu bez zmian danych w bieżącym pakiecie.
+- import siedmiu datowanych wartości `number_of_doors = 5`,
+- użycie istniejącego atrybutu integer w kategorii `Doors`,
+- zachowanie strony 5, sekcji `Typ nadwozia` i pełnego brzmienia źródła,
+- brak wartości dla `number_of_side_doors`,
+- brak zmian w schemacie, dostępności wyposażenia i cenach konfiguracji,
+- osiem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model pozostaje na poziomie 211 datowanych wartości konfiguracji i 419 rekordów
-dostępności wyposażenia. Raport pomocniczy wskazał 1364 wystąpienia kandydatów,
-z których 1031 nie dopasowało się tekstowo do proweniencji, lecz ręczna kontrola
-wykazała, że większość stanowią inne brzmienia już zaimportowanych faktów,
-nagłówki, fragmenty tabel i tekst niedanych.
+Model obejmuje 218 datowanych wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Siedem nowych rekordów przechowuje całkowitą liczbę drzwi równą
+`5` dla każdej bieżącej konfiguracji, z datą 2026-06-26 i dokumentem źródłowym.
 
-Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Typ nadwozia` wartość
-`Liczba Drzwi 5`. Katalog zawiera aktywny atrybut integer `number_of_doors`,
-a `configuration_attribute_values.csv` nie zawiera jeszcze tego atrybutu.
-Nie jest potrzebna zmiana schematu ani decyzja architektoniczna.
-
-Wspólne pole `Poziom Hałasu Przy 50 Km/H (DB) 67` wymaga osobnego modelowania
-atrybutu i jednostki. `Norma Emisji Spalin Euro 6e BIS` wymaga zachowania
-dokładniejszej wartości niż obecny słownik `Euro 6e`. Oba kandydaty pozostają
-do późniejszych, osobnych pakietów.
+Wartość `number_of_doors` obejmuje całkowitą liczbę drzwi zgodnie z jawnym polem
+`Liczba Drzwi 5`. Nie tworzy wartości `number_of_side_doors` i nie zmienia
+informacji o typie nadwozia, wersji wyposażenia ani dostępności wyposażenia.
 
 ## Next Development Package
 
-Sandero Number of Doors Value Import.
+Sandero Euro 6e BIS Emission Standard Modeling.
 
 Planowany przebieg:
 
-1. Zaimportować `number_of_doors = 5` dla siedmiu konfiguracji.
-2. Użyć istniejącego atrybutu integer w kategorii `Doors`.
-3. Zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i pełne brzmienie.
-4. Nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji.
-5. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+1. Zweryfikować `Norma Emisji Spalin Euro 6e BIS` na stronie 6 wszystkich źródeł.
+2. Ocenić rozszerzenie słownika norm emisji o dokładną wartość `Euro 6e BIS`.
+3. Nie mapować automatycznie wartości źródłowej do ogólniejszego `Euro 6e`.
+4. Użyć `emission_standard` tylko po zachowaniu dokładnego znaczenia.
+5. Pozostawić poziom hałasu 67 dB do osobnego pakietu.
 
 ## Working Mode
 
@@ -288,15 +280,27 @@ Completed:
 
 ### Sandero Remaining PDF Value Gap Reassessment
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #27 zweryfikował siedem PDF przez SHA-256,
 - porównano 211 wartości, 419 rekordów dostępności i 7 cen,
 - przeanalizowano raport kandydatów oraz odrzucono fałszywie dodatnie luki,
 - potwierdzono `Liczba Drzwi 5` na stronie 5 we wszystkich źródłach,
 - potwierdzono aktywny atrybut `number_of_doors` i brak odpowiadających rekordów,
-- wybrano osobny import bez zmian danych ani schematu.
+- wybrano osobny import bez zmian danych ani schematu,
+- GitHub Actions Quality run #83 zakończył się powodzeniem.
+
+### Sandero Number of Doors Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- przygotowano 7 wartości `number_of_doors = 5`,
+- zachowano stronę 5, sekcję `Typ nadwozia` i pełne brzmienie źródła,
+- użyto istniejącego atrybutu integer bez zmiany schematu,
+- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
+- dodano osiem testów regresyjnych.
 
 Next priority:
 
-Kontrolowany import `number_of_doors = 5` dla siedmiu konfiguracji.
+Modelowanie dokładnej wartości `Euro 6e BIS` bez upraszczania jej do `Euro 6e`.

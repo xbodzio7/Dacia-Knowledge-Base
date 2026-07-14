@@ -85,6 +85,8 @@ All notable changes to this project will be documented in this file.
 * Canonical `standard_tyre_specification` string attribute in the `Wheels` category.
 * Seven source-backed standard-tyre-specification values for the current Sandero configurations.
 * Regression coverage for source mapping, provenance, axle-neutral semantics, rating boundaries and separation from rim size.
+* Seven source-backed number-of-doors values for the current Sandero configurations.
+* Regression coverage for source mapping, provenance, total-versus-side-door semantics and package boundaries.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -108,10 +110,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 211 tests.
-* The verified master-data baseline now contains 34 CSV files and 1275 rows.
-* SQLite verification now covers 34 tables and 1275 rows.
-* Configuration attribute values now contain 211 dated records.
+* The automated test suite now contains 219 tests.
+* The verified master-data baseline now contains 34 CSV files and 1282 rows.
+* SQLite verification now covers 34 tables and 1282 rows.
+* Configuration attribute values now contain 218 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
@@ -149,3 +151,4 @@ All notable changes to this project will be documented in this file.
 * Analyzed the remaining explicit PDF values and selected the axle-neutral standard tyre specification as the next controlled import.
 * Imported `205/60 R16 92H` as an axle-neutral dated standard-tyre specification for all seven current configurations.
 * Reassessed the remaining explicit Sandero PDF value gaps, rejected already-modeled and non-data candidates, and selected `number_of_doors` for the next controlled import.
+* Imported `number_of_doors = 5` as a dated value for all seven current configurations using the existing integer attribute.

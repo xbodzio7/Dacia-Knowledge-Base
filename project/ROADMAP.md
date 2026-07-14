@@ -116,7 +116,9 @@ Data Expansion
 - zachowana granica między pełną specyfikacją opony, osiami, indeksami maksymalnymi i rozmiarem felgi,
 - ponowna analiza pozostałych jawnych wartości po imporcie specyfikacji opony,
 - ręczna klasyfikacja kandydatów z odrzuceniem nagłówków, wariantów brzmienia i już pokrytych faktów,
-- wybór istniejącego atrybutu `number_of_doors` dla następnego kontrolowanego importu.
+- wybór istniejącego atrybutu `number_of_doors` dla następnego kontrolowanego importu,
+- 7 datowanych wartości `number_of_doors = 5` z zachowaną stroną, sekcją i brzmieniem źródła,
+- zachowana granica między całkowitą liczbą drzwi i liczbą drzwi bocznych.
 
 ## Tooling
 
@@ -129,7 +131,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 211 testów automatycznych,
+- 219 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -137,32 +139,33 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Remaining PDF Value Gap Reassessment
+## Sandero Number of Doors Value Import
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- porównać źródła z 211 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
-- odrzucić nagłówki, tekst marketingowy, warianty brzmienia i fakty już reprezentowane w modelu,
-- potwierdzić na stronie 5 wspólne pole `Liczba Drzwi 5`,
-- potwierdzić aktywny atrybut `number_of_doors` i brak odpowiadających mu rekordów,
-- nie zmieniać danych ani schematu w pakiecie analitycznym,
-- wybrać jeden mały następny pakiet bez zgadywania danych.
+- zaimportować `number_of_doors = 5` dla siedmiu konfiguracji,
+- użyć istniejącego atrybutu integer w kategorii `Doors`,
+- zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i brzmienie `Liczba Drzwi 5`,
+- użyć `configuration_attribute_values.csv`,
+- nie tworzyć wartości dla `number_of_side_doors`,
+- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Number of Doors Value Import
+## Sandero Euro 6e BIS Emission Standard Modeling
 
 Cel sprintu:
 
-- zaimportować `number_of_doors = 5` dla siedmiu konfiguracji,
-- użyć istniejącego atrybutu integer w kategorii `Doors`,
-- zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i brzmienie `Liczba Drzwi 5`,
-- użyć `configuration_attribute_values.csv`,
-- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- zweryfikować wspólne pole `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
+- ocenić rozszerzenie istniejącego słownika norm emisji o dokładną wartość `Euro 6e BIS`,
+- zachować granicę między `Euro 6e BIS` i istniejącą wartością `Euro 6e`,
+- użyć istniejącego atrybutu `emission_standard` wyłącznie po zachowaniu znaczenia źródła,
+- pozostawić poziom hałasu 67 dB do osobnego pakietu,
+- nie zgadywać ani nie upraszczać wartości źródłowej.
 
 ---
 
