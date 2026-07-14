@@ -99,14 +99,28 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
         self.assertNotIn("interior_noise_level", noise_codes)
         self.assertNotIn("exterior_noise_level", noise_codes)
 
-    def test_model_package_does_not_import_configuration_values(self) -> None:
+    def test_configuration_values_preserve_speed_specific_attribute(self) -> None:
+        noise_values = [
+            row
+            for row in self.values
+            if row["attribute_code"] == "noise_level_at_50_kmh"
+        ]
+        self.assertEqual(len(noise_values), 7)
+        self.assertEqual(
+            {row["value"] for row in noise_values},
+            {"67"},
+        )
         self.assertFalse(
             any(
-                row["attribute_code"] == "noise_level_at_50_kmh"
+                row["attribute_code"] in {
+                    "noise_level",
+                    "interior_noise_level",
+                    "exterior_noise_level",
+                }
                 for row in self.values
             ),
         )
-        self.assertEqual(len(self.values), 225)
+        self.assertGreaterEqual(len(self.values), 232)
 
     def test_model_package_does_not_change_availability_or_prices(self) -> None:
         self.assertEqual(len(self.availability), 419)

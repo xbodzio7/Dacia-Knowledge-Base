@@ -112,9 +112,11 @@ brzmienia źródła. Poziom hałasu 67 dB pozostaje osobnym faktem.
 
 Poziom hałasu przy 50 km/h jest odrębnym pomiarem akustycznym. Decyzja D-020
 wprowadza kategorię `Acoustics`, jednostkę `dB` i atrybut decimal
-`noise_level_at_50_kmh`. Warunek 50 km/h pozostaje częścią znaczenia; model nie
-zakłada, czy pomiar jest wewnętrzny, zewnętrzny, stacjonarny ani przejazdowy.
-Pakiet modelujący nie importuje jeszcze wartości konfiguracji.
+`noise_level_at_50_kmh`. Wszystkie siedem bieżących konfiguracji ma datowaną
+wartość `noise_level_at_50_kmh = 67` z zachowaniem strony 6 i dokładnego
+brzmienia źródła. Warunek 50 km/h pozostaje częścią znaczenia; import nie
+zakłada pomiaru wewnętrznego, zewnętrznego, stacjonarnego, przejazdowego ani
+ważenia `dB(A)`.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -307,10 +309,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 241 testów, 34 pliki CSV, 1293 rekordy
-danych, 34 relacje między tabelami, 225 wartości konfiguracji oraz 419
+Zweryfikowany model obejmuje 249 testów, 34 pliki CSV, 1300 rekordów
+danych, 34 relacje między tabelami, 232 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 349 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1293 rekordy,
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1300 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 

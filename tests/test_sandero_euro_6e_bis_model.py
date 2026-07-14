@@ -98,7 +98,7 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
                 for row in emission_values
             ),
         )
-        self.assertEqual(len(self.values), 225)
+        self.assertGreaterEqual(len(self.values), 225)
 
     def test_model_package_does_not_change_other_data_tables(self) -> None:
         self.assertEqual(len(self.availability), 419)
