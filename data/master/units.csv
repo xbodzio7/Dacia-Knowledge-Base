@@ -24,3 +24,4 @@ length_m,m,Metre,Length in metres
 specific_torque_nm_per_t,Nm/t,Newton metres per tonne,Torque-to-weight ratio
 rotational_speed_rpm,rpm,Revolutions per minute,Rotational speed
 time_s,s,Second,Time in seconds
+sound_level_db,dB,Decibel,Noise or sound level in decibels

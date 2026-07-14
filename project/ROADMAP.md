@@ -124,6 +124,9 @@ Data Expansion
 - zachowana granica między `Euro 6e BIS`, `Euro 6e` i poziomem hałasu 67 dB.
 - 7 datowanych wartości `emission_standard = euro_6e_bis` z zachowaną stroną 6 i brzmieniem źródła,
 - zachowany rozdział między normą emisji i poziomem hałasu przy 50 km/h.
+- decyzja D-020 — speed-specific vehicle noise measurement,
+- kategoria `Acoustics`, jednostka `dB` i atrybut decimal `noise_level_at_50_kmh`,
+- zachowana granica między warunkiem 50 km/h a niepotwierdzoną lokalizacją i procedurą pomiaru.
 
 ## Tooling
 
@@ -136,7 +139,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 234 testy automatyczne,
+- 241 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -144,33 +147,34 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Euro 6e BIS Emission Standard Value Import
+## Sandero 50 km/h Noise Level Modeling
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji,
-- zachować datę 2026-06-26, stronę 6 i brzmienie `Norma Emisji Spalin Euro 6e BIS`,
-- użyć istniejącego atrybutu enum i kontrolowanej wartości słownikowej,
-- nie mapować wartości do `euro_6e`,
-- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
-- pozostawić poziom hałasu 67 dB poza pakietem,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- potwierdzić `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6,
+- dodać kategorię `Acoustics` i jednostkę `dB`,
+- dodać aktywny atrybut decimal `noise_level_at_50_kmh`,
+- zachować warunek pomiaru przy 50 km/h,
+- nie zakładać lokalizacji, ważenia ani procedury pomiaru,
+- nie importować wartości konfiguracji w pakiecie modelującym,
+- dodać decyzję D-020 i testy regresyjne.
 
 ---
 
 # Next Sprint
 
-## Sandero 50 km/h Noise Level Modeling
+## Sandero 50 km/h Noise Level Value Import
 
 Cel sprintu:
 
-- zweryfikować wspólne pole `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6,
-- ocenić istniejący katalog atrybutów i jednostek bez zgadywania semantyki,
-- zachować warunek pomiaru przy 50 km/h,
-- nie łączyć poziomu hałasu z normą emisji,
-- rozdzielić modelowanie od późniejszego importu wartości,
-- nie tworzyć rekordów danych przed zaakceptowaniem dokładnego modelu.
+- zaimportować `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji,
+- zachować datę 2026-06-26, stronę 6 i dokładne brzmienie źródła,
+- użyć istniejącego atrybutu decimal i jednostki `dB`,
+- pozostawić puste pole kontekstu paliwa,
+- nie tworzyć wartości ogólnego, wewnętrznego ani zewnętrznego poziomu hałasu,
+- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 # Backlog
 
