@@ -110,6 +110,12 @@ ogólniejszego `Euro 6e`. Wszystkie siedem bieżących konfiguracji ma datowaną
 wartość `emission_standard = euro_6e_bis` z zachowaniem strony 6 i dokładnego
 brzmienia źródła. Poziom hałasu 67 dB pozostaje osobnym faktem.
 
+Poziom hałasu przy 50 km/h jest odrębnym pomiarem akustycznym. Decyzja D-020
+wprowadza kategorię `Acoustics`, jednostkę `dB` i atrybut decimal
+`noise_level_at_50_kmh`. Warunek 50 km/h pozostaje częścią znaczenia; model nie
+zakłada, czy pomiar jest wewnętrzny, zewnętrzny, stacjonarny ani przejazdowy.
+Pakiet modelujący nie importuje jeszcze wartości konfiguracji.
+
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
 ## Narzędzia
@@ -301,10 +307,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 234 testy, 34 pliki CSV, 1290 rekordów
+Zweryfikowany model obejmuje 241 testów, 34 pliki CSV, 1293 rekordy
 danych, 34 relacje między tabelami, 225 wartości konfiguracji oraz 419
-rekordów dostępności wyposażenia. Katalog zawiera 348 kanonicznych atrybutów
-i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1290 rekordów,
+rekordów dostępności wyposażenia. Katalog zawiera 349 kanonicznych atrybutów
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1293 rekordy,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 

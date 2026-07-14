@@ -5,14 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#29. Aktualny punkt odniesienia to merge commit
-`70b55029`.
+Pull Requesty #3–#30. Aktualny punkt odniesienia to merge commit
+`d3f9e61a`.
 
-PR #29 dodał dokładną kontrolowaną wartość `euro_6e_bis` i decyzję D-019.
-GitHub Actions Quality run #87 zakończył się powodzeniem.
+PR #30 zaimportował siedem datowanych wartości
+`emission_standard = euro_6e_bis`. GitHub Actions Quality run #89 zakończył
+się powodzeniem.
 
-Bieżący pakiet danych jest rozwijany na gałęzi
-`data/sandero-euro-6e-bis-values`.
+Bieżący pakiet modelujący jest rozwijany na gałęzi
+`model/sandero-50-kmh-noise-level`.
 
 ## Verified Quality Baseline
 
@@ -22,58 +23,58 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 234 testy automatyczne zakończone powodzeniem,
+- 241 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1290 rekordów danych,
+- 1293 rekordy danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 225 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 348 kanonicznych atrybutów w 29 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1290 rekordów,
+- 349 kanonicznych atrybutów w 30 kategoriach,
+- baza SQLite obejmująca 34 tabele i 1293 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Euro 6e BIS Emission Standard Value Import.
+Sandero 50 km/h Noise Level Modeling.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- import siedmiu datowanych wartości `emission_standard = euro_6e_bis`,
-- użycie istniejącego atrybutu enum i kontrolowanej wartości słownikowej,
-- zachowanie strony 6 i pełnego brzmienia źródła,
-- brak wartości `euro_6e` dla tego pola,
-- brak zmian dostępności wyposażenia i cen konfiguracji,
-- pozostawienie poziomu hałasu 67 dB poza pakietem,
-- osiem nowych testów regresyjnych.
+- potwierdzenie pola `Poziom Hałasu Przy 50 Km/H (DB) 67`,
+- dodanie kategorii `Acoustics` i jednostki `dB`,
+- dodanie aktywnego atrybutu decimal `noise_level_at_50_kmh`,
+- zachowanie warunku pomiaru przy 50 km/h,
+- brak założeń o lokalizacji, ważeniu i procedurze pomiaru,
+- brak wartości konfiguracji, zmian dostępności i zmian cen,
+- siedem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
 Model obejmuje 225 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Siedem nowych rekordów przechowuje dokładną wartość
-`emission_standard = euro_6e_bis` dla każdej bieżącej konfiguracji, z datą
-2026-06-26 i dokumentem źródłowym.
+wyposażenia. Katalog zawiera 349 atrybutów w 30 kategoriach oraz 26 jednostek.
 
-Wartość `Euro 6e BIS` pozostaje odrębna od `Euro 6e`. Pole poziomu hałasu
-przy 50 km/h nie jest wartością normy emisji i nie jest importowane w tym pakiecie.
+Pole strony 6 jest modelowane jako `noise_level_at_50_kmh` w jednostce `dB`.
+Warunek 50 km/h pozostaje częścią znaczenia. Model nie rozstrzyga, czy pomiar
+jest wewnętrzny, zewnętrzny, stacjonarny, przejazdowy ani ważony jako `dB(A)`.
+Pakiet modelujący nie tworzy jeszcze rekordów wartości.
 
 ## Next Development Package
 
-Sandero 50 km/h Noise Level Modeling.
+Sandero 50 km/h Noise Level Value Import.
 
 Planowany przebieg:
 
-1. Zweryfikować `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6 wszystkich źródeł.
-2. Ocenić katalog atrybutów i jednostek bez zgadywania znaczenia.
-3. Zachować warunek pomiaru przy 50 km/h.
-4. Nie łączyć poziomu hałasu z normą emisji.
-5. Rozdzielić modelowanie od późniejszego importu wartości.
+1. Zaimportować `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji.
+2. Zachować datę, źródło, stronę 6 i pełne brzmienie pola.
+3. Użyć jednostki `dB` bez dopisywania niepotwierdzonego ważenia.
+4. Pozostawić kontekst paliwa pusty.
+5. Nie zmieniać dostępności wyposażenia ani cen konfiguracji.
 
 ## Working Mode
 
@@ -317,16 +318,30 @@ Completed:
 
 ### Sandero Euro 6e BIS Emission Standard Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
-- przygotowano 7 wartości `emission_standard = euro_6e_bis`,
+- PR #30 zweryfikował siedem PDF przez SHA-256,
+- zaimportowano 7 wartości `emission_standard = euro_6e_bis`,
 - zachowano datę, stronę 6 i dokładne brzmienie źródła,
 - nie użyto ogólniejszej wartości `euro_6e`,
 - nie zmieniono dostępności wyposażenia ani cen konfiguracji,
 - pozostawiono poziom hałasu 67 dB poza pakietem,
-- dodano osiem testów regresyjnych.
+- dodano osiem testów regresyjnych,
+- GitHub Actions Quality run #89 zakończył się powodzeniem.
+
+### Sandero 50 km/h Noise Level Modeling
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- potwierdzono `Poziom Hałasu Przy 50 Km/H (DB) 67`,
+- dodano kategorię `Acoustics` i jednostkę `dB`,
+- dodano atrybut decimal `noise_level_at_50_kmh`,
+- zachowano warunek pomiaru przy 50 km/h,
+- nie przyjęto niepotwierdzonej lokalizacji ani procedury pomiaru,
+- nie zaimportowano wartości konfiguracji,
+- dodano siedem testów regresyjnych.
 
 Next priority:
 
-Modelowanie poziomu hałasu przy 50 km/h bez łączenia go z normą emisji.
+Kontrolowany import `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji.

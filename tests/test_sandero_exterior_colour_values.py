@@ -74,7 +74,7 @@ class SanderoExteriorColourValueTests(unittest.TestCase):
         self.assertEqual(attribute["unit"], "")
 
     def test_package_ids_shape_and_count(self) -> None:
-        self.assertEqual(len(self.categories), 29)
+        self.assertGreaterEqual(len(self.categories), 29)
         self.assertGreaterEqual(len(self.attributes), 347)
         self.assertGreaterEqual(len(self.all_values), 204)
         self.assertEqual(len(self.rows), 7)

@@ -691,3 +691,53 @@ configuration value uses `emission_standard`.
   one for each current configuration.
 - `euro_6e_bis` and `euro_6e` remain distinct controlled values.
 - The 67 dB source field remains outside this package.
+
+## D-020 — Speed-specific vehicle noise measurement
+
+Status: Accepted
+
+Date: 2026-07-14
+
+### Decision
+
+A source field that states a noise level together with an explicit vehicle speed
+is modeled as a speed-specific configuration attribute. The page-6 field
+`Poziom Hałasu Przy 50 Km/H (DB) 67` is therefore represented by the active
+decimal attribute `noise_level_at_50_kmh` in the new `Acoustics` category.
+
+The measurement unit is the new `dB` unit. The condition `at 50 km/h` is part of
+the attribute meaning and must not be dropped or replaced by a generic noise
+level. A future source-data import stores the normalized numeric value `67` and
+preserves the exact Polish wording and page in `notes`.
+
+The source does not identify the measurement as interior, exterior, stationary,
+pass-by or tied to a named test standard. It also states `DB`, not `dB(A)`.
+Those meanings must not be inferred. They may be modeled separately only when
+an explicit source provides them.
+
+### Current source coverage
+
+All seven reviewed Sandero and Sandero Stepway configuration PDFs contain the
+same page-6 technical field:
+
+`Poziom Hałasu Przy 50 Km/H (DB) 67`
+
+The current attribute catalogue contains no canonical noise-level attribute.
+The unit catalogue contains no decibel unit, and the category catalogue has no
+dedicated acoustics category. Existing emission, performance and equipment
+attributes do not preserve this measurement's exact meaning.
+
+### Consequences
+
+- This modeling package adds the `Acoustics` category.
+- This modeling package adds the `dB` unit.
+- This modeling package adds the active decimal attribute
+  `noise_level_at_50_kmh`.
+- No configuration value, availability record or price is introduced by the
+  modeling package.
+- The next source-backed package imports seven dated values of `67`, one for
+  each current configuration.
+- The future import preserves page 6, the observation date and the exact source
+  wording.
+- No interior/exterior location, acoustic weighting or test procedure is
+  inferred.
