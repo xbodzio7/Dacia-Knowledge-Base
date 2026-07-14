@@ -127,6 +127,8 @@ Data Expansion
 - decyzja D-020 — speed-specific vehicle noise measurement,
 - kategoria `Acoustics`, jednostka `dB` i atrybut decimal `noise_level_at_50_kmh`,
 - zachowana granica między warunkiem 50 km/h a niepotwierdzoną lokalizacją i procedurą pomiaru.
+- 7 datowanych wartości `noise_level_at_50_kmh = 67` z zachowaną stroną 6 i brzmieniem źródła,
+- zachowany rozdział między pomiarem przy 50 km/h a ogólnym, wewnętrznym i zewnętrznym poziomem hałasu.
 
 ## Tooling
 
@@ -139,7 +141,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 241 testów automatycznych,
+- 249 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -147,34 +149,33 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero 50 km/h Noise Level Modeling
-
-Cel sprintu:
-
-- zweryfikować siedem źródeł PDF przez SHA-256,
-- potwierdzić `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6,
-- dodać kategorię `Acoustics` i jednostkę `dB`,
-- dodać aktywny atrybut decimal `noise_level_at_50_kmh`,
-- zachować warunek pomiaru przy 50 km/h,
-- nie zakładać lokalizacji, ważenia ani procedury pomiaru,
-- nie importować wartości konfiguracji w pakiecie modelującym,
-- dodać decyzję D-020 i testy regresyjne.
-
----
-
-# Next Sprint
-
 ## Sandero 50 km/h Noise Level Value Import
 
 Cel sprintu:
 
+- zweryfikować siedem źródeł PDF przez SHA-256,
 - zaimportować `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji,
 - zachować datę 2026-06-26, stronę 6 i dokładne brzmienie źródła,
 - użyć istniejącego atrybutu decimal i jednostki `dB`,
 - pozostawić puste pole kontekstu paliwa,
 - nie tworzyć wartości ogólnego, wewnętrznego ani zewnętrznego poziomu hałasu,
 - nie zmieniać dostępności wyposażenia ani cen konfiguracji,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- zaktualizować granicę model/import i dodać testy regresyjne.
+
+---
+
+# Next Sprint
+
+## Sandero Remaining Technical Value Candidate Review
+
+Cel sprintu:
+
+- ponownie przejrzeć wszystkie siedem źródeł pod kątem jawnych wartości technicznych,
+- odrzucić nagłówki, duplikaty, warianty brzmienia i fakty już zaimportowane,
+- wskazać wyłącznie kandydatów z jednoznaczną semantyką konfiguracji,
+- sprawdzić istniejące atrybuty, jednostki i słowniki przed projektowaniem nowych,
+- zachować granicę między modelowaniem i późniejszym importem,
+- nie tworzyć rekordów danych przed wyborem dokładnego następnego pakietu.
 
 # Backlog
 

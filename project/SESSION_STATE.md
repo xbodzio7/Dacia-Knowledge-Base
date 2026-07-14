@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#30. Aktualny punkt odniesienia to merge commit
-`d3f9e61a`.
+Pull Requesty #3–#31. Aktualny punkt odniesienia to merge commit
+`0e46419d`.
 
-PR #30 zaimportował siedem datowanych wartości
-`emission_standard = euro_6e_bis`. GitHub Actions Quality run #89 zakończył
-się powodzeniem.
+PR #31 dodał kategorię `Acoustics`, jednostkę `dB`, atrybut
+`noise_level_at_50_kmh` i decyzję D-020. GitHub Actions Quality run #91
+zakończył się powodzeniem.
 
-Bieżący pakiet modelujący jest rozwijany na gałęzi
-`model/sandero-50-kmh-noise-level`.
+Bieżący pakiet danych jest rozwijany na gałęzi
+`data/sandero-50-kmh-noise-level-values`.
 
 ## Verified Quality Baseline
 
@@ -23,58 +23,59 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 241 testów automatycznych zakończonych powodzeniem,
+- 249 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1293 rekordy danych,
+- 1300 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 225 obserwacji w `configuration_attribute_values.csv`,
+- 232 obserwacje w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 349 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1293 rekordy,
+- baza SQLite obejmująca 34 tabele i 1300 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero 50 km/h Noise Level Modeling.
+Sandero 50 km/h Noise Level Value Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- potwierdzenie pola `Poziom Hałasu Przy 50 Km/H (DB) 67`,
-- dodanie kategorii `Acoustics` i jednostki `dB`,
-- dodanie aktywnego atrybutu decimal `noise_level_at_50_kmh`,
-- zachowanie warunku pomiaru przy 50 km/h,
-- brak założeń o lokalizacji, ważeniu i procedurze pomiaru,
-- brak wartości konfiguracji, zmian dostępności i zmian cen,
-- siedem nowych testów regresyjnych.
+- import siedmiu datowanych wartości `noise_level_at_50_kmh = 67`,
+- użycie istniejącego atrybutu decimal i jednostki `dB`,
+- zachowanie strony 6 i pełnego brzmienia źródła,
+- pusty kontekst paliwa,
+- brak ogólnej, wewnętrznej i zewnętrznej wartości poziomu hałasu,
+- brak zmian dostępności wyposażenia i cen konfiguracji,
+- osiem nowych testów regresyjnych i trwała granica model/import.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 225 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Katalog zawiera 349 atrybutów w 30 kategoriach oraz 26 jednostek.
+Model obejmuje 232 datowane wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Siedem nowych rekordów przechowuje dokładną wartość
+`noise_level_at_50_kmh = 67` dla każdej bieżącej konfiguracji, z datą
+2026-06-26 i dokumentem źródłowym.
 
-Pole strony 6 jest modelowane jako `noise_level_at_50_kmh` w jednostce `dB`.
-Warunek 50 km/h pozostaje częścią znaczenia. Model nie rozstrzyga, czy pomiar
-jest wewnętrzny, zewnętrzny, stacjonarny, przejazdowy ani ważony jako `dB(A)`.
-Pakiet modelujący nie tworzy jeszcze rekordów wartości.
+Warunek 50 km/h pozostaje częścią znaczenia. Import nie tworzy wartości
+ogólnego, wewnętrznego ani zewnętrznego poziomu hałasu i nie dopisuje
+niepotwierdzonego ważenia `dB(A)` ani procedury pomiaru.
 
 ## Next Development Package
 
-Sandero 50 km/h Noise Level Value Import.
+Sandero Remaining Technical Value Candidate Review.
 
 Planowany przebieg:
 
-1. Zaimportować `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji.
-2. Zachować datę, źródło, stronę 6 i pełne brzmienie pola.
-3. Użyć jednostki `dB` bez dopisywania niepotwierdzonego ważenia.
-4. Pozostawić kontekst paliwa pusty.
-5. Nie zmieniać dostępności wyposażenia ani cen konfiguracji.
+1. Ponownie przejrzeć wszystkie siedem źródeł pod kątem jawnych wartości technicznych.
+2. Odrzucić nagłówki, duplikaty, warianty brzmienia i fakty już zaimportowane.
+3. Wskazać wyłącznie kandydatów z jednoznaczną semantyką konfiguracji.
+4. Sprawdzić istniejący katalog przed projektowaniem nowych elementów.
+5. Nie tworzyć rekordów przed wyborem dokładnego następnego pakietu.
 
 ## Working Mode
 
@@ -331,17 +332,31 @@ Completed:
 
 ### Sandero 50 km/h Noise Level Modeling
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #31 zweryfikował siedem PDF przez SHA-256,
 - potwierdzono `Poziom Hałasu Przy 50 Km/H (DB) 67`,
 - dodano kategorię `Acoustics` i jednostkę `dB`,
 - dodano atrybut decimal `noise_level_at_50_kmh`,
 - zachowano warunek pomiaru przy 50 km/h,
 - nie przyjęto niepotwierdzonej lokalizacji ani procedury pomiaru,
 - nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych.
+- dodano siedem testów regresyjnych,
+- GitHub Actions Quality run #91 zakończył się powodzeniem.
+
+### Sandero 50 km/h Noise Level Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- przygotowano 7 wartości `noise_level_at_50_kmh = 67`,
+- zachowano datę, stronę 6 i dokładne brzmienie źródła,
+- pozostawiono kontekst paliwa pusty,
+- nie utworzono wartości ogólnego, wewnętrznego ani zewnętrznego hałasu,
+- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
+- zaktualizowano trwałą granicę model/import,
+- dodano osiem testów regresyjnych.
 
 Next priority:
 
-Kontrolowany import `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji.
+Ponowna klasyfikacja pozostałych jawnych wartości technicznych w siedmiu źródłach.
