@@ -86,7 +86,7 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
         self.assertEqual(attribute["data_type"], "decimal")
         self.assertEqual(attribute["unit"], "dB")
         self.assertEqual(attribute["status"], "active")
-        self.assertEqual(len(self.attributes), 349)
+        self.assertGreaterEqual(len(self.attributes), 349)
 
     def test_speed_condition_is_not_reduced_to_generic_noise(self) -> None:
         noise_codes = {

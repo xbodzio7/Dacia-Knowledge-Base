@@ -124,6 +124,13 @@ wskazuje na stronie 5 w sekcji `Układ napędowy` pole
 `drive_type` i kontrolowanej wartości `fwd`; nie tworzy równoległych wartości
 string `drive_layout` ani `drivetrain_type`.
 
+Maksymalna ładowność jest modelowana zgodnie z D-021 jako aktywny atrybut
+integer `maximum_payload` w kategorii `Weights`, z jednostką `kg`. Pole
+`Maksymalna Ładowność (Kg)` występuje jawnie na stronie 5 wszystkich siedmiu
+źródeł. Model nie wylicza tej wartości z różnicy `gross_vehicle_weight` i
+`kerb_weight` oraz nie utożsamia jej z obciążeniem dachu, masą przyczepy ani
+masą zespołu pojazdów. Wartości konfiguracji pozostają do osobnego importu.
+
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
 ## Narzędzia
@@ -315,10 +322,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 257 testów, 34 pliki CSV, 1307 rekordów
+Zweryfikowany model obejmuje 264 testy, 34 pliki CSV, 1308 rekordów
 danych, 34 relacje między tabelami, 239 wartości konfiguracji oraz 419
-rekordów dostępności wyposażenia. Katalog zawiera 349 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1307 rekordów,
+rekordów dostępności wyposażenia. Katalog zawiera 350 kanonicznych atrybutów
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1308 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 
