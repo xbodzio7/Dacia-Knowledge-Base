@@ -132,7 +132,9 @@ Data Expansion
 - przegląd 1371 wystąpień kandydatów po imporcie poziomu hałasu,
 - ręczna klasyfikacja 1010 niedopasowanych wystąpień i odrzucenie pozycji już reprezentowanych, wyposażenia, nagłówków oraz fragmentów tabel,
 - wybór istniejącego atrybutu enum `drive_type` i aktywnej wartości `fwd` dla następnego kontrolowanego importu,
-- zachowana granica względem ogólniejszych atrybutów string `drive_layout` i `drivetrain_type`.
+- zachowana granica względem ogólniejszych atrybutów string `drive_layout` i `drivetrain_type`,
+- 7 datowanych wartości `drive_type = fwd` z zachowaną stroną 5, sekcją i brzmieniem źródła,
+- zachowana granica między kontrolowanym enumem `drive_type` i ogólniejszymi atrybutami string.
 
 ## Tooling
 
@@ -145,7 +147,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 249 testów automatycznych,
+- 257 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -153,26 +155,11 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Remaining Technical Value Candidate Review
-
-Cel sprintu:
-
-- zweryfikować siedem źródeł PDF przez SHA-256,
-- porównać źródła z 232 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
-- przeanalizować 1371 wystąpień kandydatów, w tym 1010 niedopasowanych heurystycznie,
-- odrzucić nagłówki, tekst marketingowy, fragmenty tabel, wyposażenie i fakty już reprezentowane pod innym brzmieniem,
-- potwierdzić na stronie 5 wspólne pole `Rodzaj Napędu przedni`,
-- potwierdzić aktywny atrybut enum `drive_type`, aktywną wartość `fwd` i brak odpowiadających rekordów,
-- nie zmieniać danych ani schematu w pakiecie analitycznym.
-
----
-
-# Next Sprint
-
 ## Sandero Front-Wheel Drive Value Import
 
 Cel sprintu:
 
+- zweryfikować siedem źródeł PDF przez SHA-256,
 - zaimportować `drive_type = fwd` dla siedmiu konfiguracji,
 - użyć istniejącego aktywnego atrybutu enum `drive_type`,
 - użyć istniejącej aktywnej wartości słownikowej `fwd`,
@@ -181,6 +168,21 @@ Cel sprintu:
 - nie tworzyć równoległych wartości `drive_layout` ani `drivetrain_type`,
 - nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
 - dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+
+---
+
+# Next Sprint
+
+## Sandero Maximum Payload Modeling
+
+Cel sprintu:
+
+- zweryfikować jawne pole `Maksymalna Ładowność (Kg)` na stronie 5 wszystkich siedmiu źródeł,
+- zaprojektować kanoniczny atrybut `maximum_payload` w kategorii `Weights`,
+- użyć istniejącej jednostki `kg`,
+- zachować wartość źródłową jako samodzielny fakt zamiast wyliczać ją z masy całkowitej i masy własnej,
+- zachować granicę względem masy całkowitej pojazdu, masy zespołu pojazdów, obciążeń dachu i wartości holowniczych,
+- nie importować wartości konfiguracji przed zatwierdzeniem modelu.
 
 # Backlog
 
