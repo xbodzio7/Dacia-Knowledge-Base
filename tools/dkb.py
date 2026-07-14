@@ -72,12 +72,13 @@ WORKFLOW_COMMANDS = {
     "package-review": (
         "review",
         "Review package scope, diffs and optional quality checks.",
-        "[--allow PATH] [--quality] [--show-diff]",
+        "[--allow PATH | --manifest FILE] [--base-ref REF] "
+        "[--quality] [--show-diff]",
     ),
     "package-finish": (
         "finish",
         "Verify a committed package before push.",
-        "[--base-ref REF]",
+        "[--base-ref REF] [--manifest FILE]",
     ),
 }
 
@@ -128,8 +129,14 @@ def usage() -> None:
     print("  python tools/dkb.py catalog")
     print("  python tools/dkb.py dictionary")
     print("  python tools/dkb.py package-start tooling/example")
-    print("  python tools/dkb.py package-review --quality")
-    print("  python tools/dkb.py package-finish")
+    print(
+        "  python tools/dkb.py package-review "
+        "--manifest ../package.json --quality --show-diff"
+    )
+    print(
+        "  python tools/dkb.py package-finish "
+        "--manifest ../package.json"
+    )
     print()
     print("Command-specific help:")
     print("  python tools/dkb.py <command> --help")

@@ -87,6 +87,8 @@ def quality_environment() -> dict[str, str]:
     environment = os.environ.copy()
     environment["PYTHONUTF8"] = "1"
     environment["PYTHONIOENCODING"] = "utf-8"
+    environment["LANG"] = "C.UTF-8"
+    environment["LC_ALL"] = "C.UTF-8"
     return environment
 
 

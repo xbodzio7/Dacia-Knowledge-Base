@@ -150,42 +150,48 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 264 testy automatyczne,
+- 272 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
-- kontrola jakości w CI na Pythonie 3.10 i 3.13.
+- kontrola jakości w CI na Pythonie 3.10 i 3.13,
+- wersjonowany manifest pakietu z dokładną gałęzią, bazą, tematem i zakresem,
+- bezpieczne dekodowanie UTF-8 oraz bajtowe listy ścieżek Git,
+- polityka LF w `.gitattributes`,
+- regresyjne testy workflow na Windows.
 
 ---
 
 # Current Sprint
 
-## Sandero Maximum Payload Modeling
+## Package Workflow Hardening
 
 Cel sprintu:
 
-- zweryfikować siedem źródeł PDF przez SHA-256,
-- potwierdzić jawne pole `Maksymalna Ładowność (Kg)` na stronie 5,
-- dodać kanoniczny atrybut integer `maximum_payload` w kategorii `Weights`,
-- użyć istniejącej jednostki `kg` opartej na wpisie `mass_kg`,
-- zachować ładowność jako samodzielny fakt źródłowy zamiast wyliczać ją z innych mas,
-- oddzielić ładowność od mas całkowitych, obciążenia dachu i parametrów holowania,
-- zaakceptować decyzję D-021,
-- nie importować wartości konfiguracji w pakiecie modelującym,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- wymusić deterministyczne UTF-8 dla procesów Git i jakości,
+- zachować bajtowe, NUL-separowane odczyty ścieżek,
+- dodać wersjonowany manifest JSON do `package-review` i `package-finish`,
+- wymagać dokładnej gałęzi, bazowego SHA i manifestu plików przed commitem,
+- wymagać jednego commitu, dokładnego rodzica i zgodnego tematu po commicie,
+- dodać `.gitattributes` z polityką LF,
+- uruchamiać regresyjne testy workflow na Windows,
+- zachować kompatybilność dotychczasowych komend bez manifestu,
+- zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Maximum Payload Value Import
+## Manifest-driven Package Publishing
 
 Cel sprintu:
 
-- zaimportować siedem jawnych wartości `maximum_payload`,
-- zachować dokładną wartość każdej konfiguracji bez obliczania jej z innych pól,
-- zachować datę 2026-06-26, źródło, stronę 5, sekcję i pełne brzmienie,
-- pozostawić kontekst paliwa pusty,
-- nie zmieniać istniejących mas, dostępności wyposażenia ani cen konfiguracji,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- dodać trwałą komendę `package-publish`,
+- generować receipt jakości związany z hashem stanu pakietu,
+- pomijać ponowną pełną jakość tylko dla niezmienionego, zweryfikowanego stanu,
+- generować mały `handoff.json` obok pełnego logu,
+- skrócić log sukcesu bez utraty szczegółów błędów,
+- ograniczyć duplikację walidacji danych i SQLite w CI,
+- po zakończeniu toolingowego usprawnienia wrócić do importu
+  `maximum_payload`.
 
 # Backlog
 

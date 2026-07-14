@@ -77,3 +77,28 @@ jobs:
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7
+
+  workflow-windows:
+    name: Package workflow / Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Show Python version
+        run: python --version
+
+      - name: Run package workflow tests
+        run: |
+          python -m unittest -v `
+            tests.test_package_workflow `
+            tests.test_dkb_cli `
+            tests.test_quality
