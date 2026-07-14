@@ -95,6 +95,8 @@ All notable changes to this project will be documented in this file.
 * Regression coverage for speed-specific noise semantics and the model/import boundary.
 * Seven source-backed 50 km/h noise-level values for the current Sandero configurations.
 * Regression coverage for source mapping, exact speed semantics, provenance and package boundaries.
+* Seven source-backed front-wheel-drive values for the current Sandero configurations.
+* Regression coverage for controlled drive-type semantics, source mapping, provenance and duplicate-string boundaries.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -118,10 +120,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 249 tests.
-* The verified master-data baseline now contains 34 CSV files and 1300 rows.
-* SQLite verification now covers 34 tables and 1300 rows.
-* Configuration attribute values now contain 232 dated records.
+* The automated test suite now contains 257 tests.
+* The verified master-data baseline now contains 34 CSV files and 1307 rows.
+* SQLite verification now covers 34 tables and 1307 rows.
+* Configuration attribute values now contain 239 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
@@ -165,3 +167,4 @@ All notable changes to this project will be documented in this file.
 * Modeled the page-6 50 km/h noise field as a speed-specific `dB` measurement and deferred configuration records to a separate import.
 * Imported `noise_level_at_50_kmh = 67` as a dated value for all seven current configurations.
 * Reviewed the remaining Sandero technical-value candidates, rejected already-modeled and non-data matches, and selected `drive_type = fwd` for the next controlled import.
+* Imported `drive_type = fwd` as a dated value for all seven current configurations using the existing controlled enum.

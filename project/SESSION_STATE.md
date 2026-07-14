@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#32. Aktualny punkt odniesienia to merge commit
-`26b0a312`.
+Pull Requesty #3–#33. Aktualny punkt odniesienia to merge commit
+`ff63a6f3`.
 
-PR #32 zaimportował siedem datowanych wartości
-`noise_level_at_50_kmh = 67`. GitHub Actions Quality run #93 zakończył
-się powodzeniem.
+PR #33 zamknął przegląd pozostałych kandydatów technicznych i wybrał
+`drive_type = fwd` dla następnego importu. GitHub Actions Quality run #95
+zakończył się powodzeniem.
 
-Bieżący pakiet analityczny jest rozwijany na gałęzi
-`analysis/sandero-remaining-technical-value-candidate-review`.
+Bieżący pakiet danych jest rozwijany na gałęzi
+`data/sandero-front-wheel-drive-values`.
 
 ## Verified Quality Baseline
 
@@ -23,74 +23,61 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 249 testów automatycznych zakończonych powodzeniem,
+- 257 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1300 rekordów danych,
+- 1307 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 232 obserwacje w `configuration_attribute_values.csv`,
+- 239 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 349 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1300 rekordów,
+- baza SQLite obejmująca 34 tabele i 1307 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Remaining Technical Value Candidate Review.
+Sandero Front-Wheel Drive Value Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- porównanie z 232 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
-- klasyfikacja 1371 wystąpień kandydatów i 1010 niedopasowanych wystąpień,
-- odrzucenie nagłówków, tekstu marketingowego, fragmentów tabel, wyposażenia i faktów już zaimportowanych pod innym brzmieniem,
-- potwierdzenie wspólnego pola `Rodzaj Napędu przedni` na stronie 5,
-- potwierdzenie aktywnego atrybutu enum `drive_type` i aktywnej wartości `fwd`,
-- wybór osobnego małego importu bez zmian danych w bieżącym pakiecie.
+- import siedmiu datowanych wartości `drive_type = fwd`,
+- użycie istniejącego aktywnego atrybutu enum i wartości słownikowej `fwd`,
+- zachowanie strony 5, sekcji `Układ napędowy` i dokładnego brzmienia źródła,
+- pusty kontekst paliwa,
+- brak równoległych wartości `drive_layout` i `drivetrain_type`,
+- brak zmian schematu, dostępności wyposażenia i cen konfiguracji,
+- osiem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model pozostaje na poziomie 232 datowanych wartości konfiguracji i 419 rekordów
-dostępności wyposażenia. Raport pomocniczy wskazał 1371 wystąpień kandydatów,
-z których 1010 nie dopasowało się tekstowo do proweniencji, a 62 podpisy
-wystąpiły we wszystkich siedmiu źródłach.
+Model obejmuje 239 datowanych wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Siedem nowych rekordów przechowuje kontrolowaną wartość
+`drive_type = fwd` dla każdej bieżącej konfiguracji, z datą 2026-06-26
+i dokumentem źródłowym.
 
-Ręczna kontrola wykazała, że większość wyników to inne brzmienia już
-zaimportowanych parametrów, wyposażenie, nagłówki, stopki i fragmenty tabel.
-Obecne rekordy obejmują między innymi zbiornik paliwa, pojemność silnika,
-cylindry, miejsca, biegi, prędkość maksymalną, średnicę zawracania, masy,
-wymiary, pojemność bagażnika, WLTP, koła, tapicerkę, kolor, drzwi, normę
-emisji i poziom hałasu przy 50 km/h.
-
-Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Układ napędowy` wartość
-`Rodzaj Napędu przedni`. Katalog zawiera aktywny atrybut enum `drive_type`,
-a słownik `drive_types.csv` zawiera aktywną wartość `fwd`. Tabela wartości
-konfiguracji nie zawiera jeszcze `drive_type`. Nie jest potrzebna zmiana
-schematu ani nowa decyzja architektoniczna.
-
-Ogólniejsze atrybuty string `drive_layout` i `drivetrain_type` nie powinny
-duplikować dokładnej wartości kontrolowanej. Kandydaci wymagający nowego modelu,
-na przykład maksymalna ładowność, całkowita liczba zaworów oraz moc i moment z
-kontekstem paliwa i zakresem obrotów, pozostają do późniejszych pakietów.
+Źródłowe pole `Rodzaj Napędu przedni` jest mapowane do istniejącego aktywnego
+enumu `drive_type` i wartości `fwd`. Import nie tworzy równoległych stringów
+`drive_layout` ani `drivetrain_type` i nie zmienia informacji o skrzyni biegów,
+silniku, wyposażeniu ani cenie.
 
 ## Next Development Package
 
-Sandero Front-Wheel Drive Value Import.
+Sandero Maximum Payload Modeling.
 
 Planowany przebieg:
 
-1. Zaimportować `drive_type = fwd` dla siedmiu konfiguracji.
-2. Użyć istniejącego aktywnego atrybutu enum i kontrolowanej wartości.
-3. Zachować datę, źródło, stronę 5, sekcję `Układ napędowy` i pełne brzmienie.
-4. Pozostawić kontekst paliwa pusty.
-5. Nie tworzyć wartości `drive_layout` ani `drivetrain_type`.
-6. Nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji.
-7. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+1. Zweryfikować `Maksymalna Ładowność (Kg)` na stronie 5 wszystkich źródeł.
+2. Zaprojektować kanoniczny atrybut `maximum_payload` w kategorii `Weights`.
+3. Użyć istniejącej jednostki `kg`.
+4. Zachować jawne wartości źródłowe bez wyliczania ich z innych mas.
+5. Oddzielić ładowność od mas całkowitych, obciążeń dachu i parametrów holowania.
+6. Nie importować wartości konfiguracji przed zatwierdzeniem modelu.
 
 ## Working Mode
 
@@ -375,16 +362,29 @@ Completed:
 
 ### Sandero Remaining Technical Value Candidate Review
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #33 zweryfikował siedem PDF przez SHA-256,
 - porównano 232 wartości, 419 rekordów dostępności i 7 cen,
 - sklasyfikowano 1371 wystąpień kandydatów i odrzucono fałszywie dodatnie luki,
 - potwierdzono `Rodzaj Napędu przedni` na stronie 5 we wszystkich źródłach,
 - potwierdzono aktywny enum `drive_type`, wartość `fwd` i brak odpowiadających rekordów,
 - zachowano granicę względem `drive_layout` i `drivetrain_type`,
-- wybrano osobny import bez zmian danych ani schematu.
+- wybrano osobny import bez zmian danych ani schematu,
+- GitHub Actions Quality run #95 zakończył się powodzeniem.
+
+### Sandero Front-Wheel Drive Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- przygotowano 7 wartości `drive_type = fwd`,
+- zachowano datę, stronę 5, sekcję `Układ napędowy` i dokładne brzmienie źródła,
+- użyto istniejącego aktywnego atrybutu enum i wartości słownikowej,
+- nie utworzono wartości `drive_layout` ani `drivetrain_type`,
+- nie zmieniono schematu, dostępności wyposażenia ani cen konfiguracji,
+- dodano osiem testów regresyjnych.
 
 Next priority:
 
-Kontrolowany import `drive_type = fwd` dla siedmiu konfiguracji.
+Modelowanie jawnego pola `Maksymalna Ładowność (Kg)` bez wyliczania go z innych mas.

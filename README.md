@@ -53,13 +53,13 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Dziewięć pakietów obejmuje
-218 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+datowanymi obserwacjami powiązanymi ze źródłem. Dwanaście pakietów obejmuje
+239 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
 obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
-nadwozia, 7 pełnych specyfikacji standardowej opony oraz 7 wartości liczby
-drzwi. Zakres techniczny
-obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika,
-zużycie paliwa i emisję CO2 w cyklu WLTP.
+nadwozia, 7 pełnych specyfikacji standardowej opony, 7 wartości liczby
+drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu oraz 7 wartości
+rodzaju napędu. Zakres techniczny obejmuje zespół napędowy, osiągi, masy,
+wymiary, pojemność bagażnika, zużycie paliwa i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -117,6 +117,12 @@ wartość `noise_level_at_50_kmh = 67` z zachowaniem strony 6 i dokładnego
 brzmienia źródła. Warunek 50 km/h pozostaje częścią znaczenia; import nie
 zakłada pomiaru wewnętrznego, zewnętrznego, stacjonarnego, przejazdowego ani
 ważenia `dB(A)`.
+
+Rodzaj napędu jest datowaną wartością konfiguracji. Wszystkie siedem źródeł
+wskazuje na stronie 5 w sekcji `Układ napędowy` pole
+`Rodzaj Napędu przedni`. Import używa istniejącego aktywnego enumu
+`drive_type` i kontrolowanej wartości `fwd`; nie tworzy równoległych wartości
+string `drive_layout` ani `drivetrain_type`.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -309,10 +315,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 249 testów, 34 pliki CSV, 1300 rekordów
-danych, 34 relacje między tabelami, 232 wartości konfiguracji oraz 419
+Zweryfikowany model obejmuje 257 testów, 34 pliki CSV, 1307 rekordów
+danych, 34 relacje między tabelami, 239 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 349 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1300 rekordów,
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1307 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 
