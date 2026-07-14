@@ -5,15 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#31. Aktualny punkt odniesienia to merge commit
-`0e46419d`.
+Pull Requesty #3–#32. Aktualny punkt odniesienia to merge commit
+`26b0a312`.
 
-PR #31 dodał kategorię `Acoustics`, jednostkę `dB`, atrybut
-`noise_level_at_50_kmh` i decyzję D-020. GitHub Actions Quality run #91
-zakończył się powodzeniem.
+PR #32 zaimportował siedem datowanych wartości
+`noise_level_at_50_kmh = 67`. GitHub Actions Quality run #93 zakończył
+się powodzeniem.
 
-Bieżący pakiet danych jest rozwijany na gałęzi
-`data/sandero-50-kmh-noise-level-values`.
+Bieżący pakiet analityczny jest rozwijany na gałęzi
+`analysis/sandero-remaining-technical-value-candidate-review`.
 
 ## Verified Quality Baseline
 
@@ -39,43 +39,58 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero 50 km/h Noise Level Value Import.
+Sandero Remaining Technical Value Candidate Review.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- import siedmiu datowanych wartości `noise_level_at_50_kmh = 67`,
-- użycie istniejącego atrybutu decimal i jednostki `dB`,
-- zachowanie strony 6 i pełnego brzmienia źródła,
-- pusty kontekst paliwa,
-- brak ogólnej, wewnętrznej i zewnętrznej wartości poziomu hałasu,
-- brak zmian dostępności wyposażenia i cen konfiguracji,
-- osiem nowych testów regresyjnych i trwała granica model/import.
+- porównanie z 232 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
+- klasyfikacja 1371 wystąpień kandydatów i 1010 niedopasowanych wystąpień,
+- odrzucenie nagłówków, tekstu marketingowego, fragmentów tabel, wyposażenia i faktów już zaimportowanych pod innym brzmieniem,
+- potwierdzenie wspólnego pola `Rodzaj Napędu przedni` na stronie 5,
+- potwierdzenie aktywnego atrybutu enum `drive_type` i aktywnej wartości `fwd`,
+- wybór osobnego małego importu bez zmian danych w bieżącym pakiecie.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 232 datowane wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Siedem nowych rekordów przechowuje dokładną wartość
-`noise_level_at_50_kmh = 67` dla każdej bieżącej konfiguracji, z datą
-2026-06-26 i dokumentem źródłowym.
+Model pozostaje na poziomie 232 datowanych wartości konfiguracji i 419 rekordów
+dostępności wyposażenia. Raport pomocniczy wskazał 1371 wystąpień kandydatów,
+z których 1010 nie dopasowało się tekstowo do proweniencji, a 62 podpisy
+wystąpiły we wszystkich siedmiu źródłach.
 
-Warunek 50 km/h pozostaje częścią znaczenia. Import nie tworzy wartości
-ogólnego, wewnętrznego ani zewnętrznego poziomu hałasu i nie dopisuje
-niepotwierdzonego ważenia `dB(A)` ani procedury pomiaru.
+Ręczna kontrola wykazała, że większość wyników to inne brzmienia już
+zaimportowanych parametrów, wyposażenie, nagłówki, stopki i fragmenty tabel.
+Obecne rekordy obejmują między innymi zbiornik paliwa, pojemność silnika,
+cylindry, miejsca, biegi, prędkość maksymalną, średnicę zawracania, masy,
+wymiary, pojemność bagażnika, WLTP, koła, tapicerkę, kolor, drzwi, normę
+emisji i poziom hałasu przy 50 km/h.
+
+Wszystkie siedem źródeł podaje na stronie 5 w sekcji `Układ napędowy` wartość
+`Rodzaj Napędu przedni`. Katalog zawiera aktywny atrybut enum `drive_type`,
+a słownik `drive_types.csv` zawiera aktywną wartość `fwd`. Tabela wartości
+konfiguracji nie zawiera jeszcze `drive_type`. Nie jest potrzebna zmiana
+schematu ani nowa decyzja architektoniczna.
+
+Ogólniejsze atrybuty string `drive_layout` i `drivetrain_type` nie powinny
+duplikować dokładnej wartości kontrolowanej. Kandydaci wymagający nowego modelu,
+na przykład maksymalna ładowność, całkowita liczba zaworów oraz moc i moment z
+kontekstem paliwa i zakresem obrotów, pozostają do późniejszych pakietów.
 
 ## Next Development Package
 
-Sandero Remaining Technical Value Candidate Review.
+Sandero Front-Wheel Drive Value Import.
 
 Planowany przebieg:
 
-1. Ponownie przejrzeć wszystkie siedem źródeł pod kątem jawnych wartości technicznych.
-2. Odrzucić nagłówki, duplikaty, warianty brzmienia i fakty już zaimportowane.
-3. Wskazać wyłącznie kandydatów z jednoznaczną semantyką konfiguracji.
-4. Sprawdzić istniejący katalog przed projektowaniem nowych elementów.
-5. Nie tworzyć rekordów przed wyborem dokładnego następnego pakietu.
+1. Zaimportować `drive_type = fwd` dla siedmiu konfiguracji.
+2. Użyć istniejącego aktywnego atrybutu enum i kontrolowanej wartości.
+3. Zachować datę, źródło, stronę 5, sekcję `Układ napędowy` i pełne brzmienie.
+4. Pozostawić kontekst paliwa pusty.
+5. Nie tworzyć wartości `drive_layout` ani `drivetrain_type`.
+6. Nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji.
+7. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ## Working Mode
 
@@ -346,17 +361,30 @@ Completed:
 
 ### Sandero 50 km/h Noise Level Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
-- przygotowano 7 wartości `noise_level_at_50_kmh = 67`,
+- PR #32 zweryfikował siedem PDF przez SHA-256,
+- zaimportowano 7 wartości `noise_level_at_50_kmh = 67`,
 - zachowano datę, stronę 6 i dokładne brzmienie źródła,
 - pozostawiono kontekst paliwa pusty,
 - nie utworzono wartości ogólnego, wewnętrznego ani zewnętrznego hałasu,
 - nie zmieniono dostępności wyposażenia ani cen konfiguracji,
 - zaktualizowano trwałą granicę model/import,
-- dodano osiem testów regresyjnych.
+- dodano osiem testów regresyjnych,
+- GitHub Actions Quality run #93 zakończył się powodzeniem.
+
+### Sandero Remaining Technical Value Candidate Review
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- porównano 232 wartości, 419 rekordów dostępności i 7 cen,
+- sklasyfikowano 1371 wystąpień kandydatów i odrzucono fałszywie dodatnie luki,
+- potwierdzono `Rodzaj Napędu przedni` na stronie 5 we wszystkich źródłach,
+- potwierdzono aktywny enum `drive_type`, wartość `fwd` i brak odpowiadających rekordów,
+- zachowano granicę względem `drive_layout` i `drivetrain_type`,
+- wybrano osobny import bez zmian danych ani schematu.
 
 Next priority:
 
-Ponowna klasyfikacja pozostałych jawnych wartości technicznych w siedmiu źródłach.
+Kontrolowany import `drive_type = fwd` dla siedmiu konfiguracji.

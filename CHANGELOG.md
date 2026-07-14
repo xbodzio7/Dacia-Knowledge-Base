@@ -164,3 +164,4 @@ All notable changes to this project will be documented in this file.
 * Imported `emission_standard = euro_6e_bis` as a dated value for all seven current configurations.
 * Modeled the page-6 50 km/h noise field as a speed-specific `dB` measurement and deferred configuration records to a separate import.
 * Imported `noise_level_at_50_kmh = 67` as a dated value for all seven current configurations.
+* Reviewed the remaining Sandero technical-value candidates, rejected already-modeled and non-data matches, and selected `drive_type = fwd` for the next controlled import.
