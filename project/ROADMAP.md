@@ -122,6 +122,8 @@ Data Expansion
 - decyzja D-019 — exact emission-standard variants,
 - kontrolowana wartość `euro_6e_bis` zachowująca dokładne `Euro 6e BIS`,
 - zachowana granica między `Euro 6e BIS`, `Euro 6e` i poziomem hałasu 67 dB.
+- 7 datowanych wartości `emission_standard = euro_6e_bis` z zachowaną stroną 6 i brzmieniem źródła,
+- zachowany rozdział między normą emisji i poziomem hałasu przy 50 km/h.
 
 ## Tooling
 
@@ -134,7 +136,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 226 testów automatycznych,
+- 234 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -142,34 +144,33 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Euro 6e BIS Emission Standard Modeling
+## Sandero Euro 6e BIS Emission Standard Value Import
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- potwierdzić `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
-- dodać dokładną aktywną wartość słownikową `euro_6e_bis`,
-- użyć istniejącego atrybutu enum `emission_standard`,
-- zachować granicę między `Euro 6e BIS` i `Euro 6e`,
-- pozostawić poziom hałasu 67 dB do osobnego pakietu,
-- nie importować wartości konfiguracji w pakiecie modelującym,
-- dodać decyzję D-019 i testy regresyjne.
+- zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji,
+- zachować datę 2026-06-26, stronę 6 i brzmienie `Norma Emisji Spalin Euro 6e BIS`,
+- użyć istniejącego atrybutu enum i kontrolowanej wartości słownikowej,
+- nie mapować wartości do `euro_6e`,
+- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
+- pozostawić poziom hałasu 67 dB poza pakietem,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Euro 6e BIS Emission Standard Value Import
+## Sandero 50 km/h Noise Level Modeling
 
 Cel sprintu:
 
-- zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji,
-- zachować datę 2026-06-26, stronę 6 i brzmienie `Norma Emisji Spalin Euro 6e BIS`,
-- użyć istniejącego atrybutu i kontrolowanej wartości słownikowej,
-- nie mapować wartości do `euro_6e`,
-- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
-- pozostawić poziom hałasu 67 dB do osobnego modelowania,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- zweryfikować wspólne pole `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6,
+- ocenić istniejący katalog atrybutów i jednostek bez zgadywania semantyki,
+- zachować warunek pomiaru przy 50 km/h,
+- nie łączyć poziomu hałasu z normą emisji,
+- rozdzielić modelowanie od późniejszego importu wartości,
+- nie tworzyć rekordów danych przed zaakceptowaniem dokładnego modelu.
 
 # Backlog
 
