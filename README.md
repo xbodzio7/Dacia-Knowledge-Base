@@ -53,10 +53,11 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Osiem pakietów obejmuje
-211 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+datowanymi obserwacjami powiązanymi ze źródłem. Dziewięć pakietów obejmuje
+218 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
 obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
-nadwozia oraz 7 pełnych specyfikacji standardowej opony. Zakres techniczny
+nadwozia, 7 pełnych specyfikacji standardowej opony oraz 7 wartości liczby
+drzwi. Zakres techniczny
 obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika,
 zużycie paliwa i emisję CO2 w cyklu WLTP.
 
@@ -97,6 +98,11 @@ Siedem bieżących źródeł wskazuje `205/60 R16 92H`. Wartość zachowuje peł
 specyfikację bez przypisywania jej do osi i bez reinterpretowania `92H` jako
 maksymalnego indeksu. Nie zastępuje też rozmiaru felgi przechowywanego w
 `wheel_size`.
+
+Liczba drzwi jest datowaną wartością konfiguracji. Wszystkie siedem źródeł
+wskazuje na stronie 5 w sekcji `Typ nadwozia` wartość `Liczba Drzwi 5`.
+Import używa istniejącego atrybutu integer `number_of_doors` i nie tworzy
+wartości dla `number_of_side_doors`.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -289,10 +295,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 211 testów, 34 pliki CSV, 1275 rekordów
-danych, 34 relacje między tabelami, 211 wartości konfiguracji oraz 419
+Zweryfikowany model obejmuje 219 testów, 34 pliki CSV, 1282 rekordy
+danych, 34 relacje między tabelami, 218 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 348 kanonicznych atrybutów
-i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1275 rekordów,
+i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1282 rekordy,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 
