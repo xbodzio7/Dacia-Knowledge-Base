@@ -104,6 +104,11 @@ wskazuje na stronie 5 w sekcji `Typ nadwozia` wartość `Liczba Drzwi 5`.
 Import używa istniejącego atrybutu integer `number_of_doors` i nie tworzy
 wartości dla `number_of_side_doors`.
 
+Normy emisji korzystają z kontrolowanego słownika. Decyzja D-019 zachowuje
+`Euro 6e BIS` jako odrębną aktywną wartość `euro_6e_bis`; nie redukuje jej do
+ogólniejszego `Euro 6e`. Pakiet modelujący rozszerza słownik, ale nie importuje
+jeszcze wartości konfiguracji.
+
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
 ## Narzędzia
@@ -295,10 +300,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 219 testów, 34 pliki CSV, 1282 rekordy
+Zweryfikowany model obejmuje 226 testów, 34 pliki CSV, 1283 rekordy
 danych, 34 relacje między tabelami, 218 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 348 kanonicznych atrybutów
-i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1282 rekordy,
+i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1283 rekordy,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 
