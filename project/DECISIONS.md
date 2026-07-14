@@ -741,3 +741,60 @@ attributes do not preserve this measurement's exact meaning.
   wording.
 - No interior/exterior location, acoustic weighting or test procedure is
   inferred.
+
+## D-021 — Source-stated maximum payload
+
+Status: Accepted
+
+Date: 2026-07-14
+
+### Decision
+
+The explicit page-5 source field `Maksymalna Ładowność (Kg)` is represented
+by the active integer attribute `maximum_payload` in the existing `Weights`
+category. The attribute uses the `kg` unit backed by the existing `mass_kg`
+unit-catalogue entry.
+
+Maximum payload is stored as a source-stated configuration observation. It is
+not calculated from `gross_vehicle_weight - kerb_weight`, even when the source
+figures appear arithmetically consistent. Source definitions, rounding,
+equipment assumptions and option treatment may differ, so the explicit source
+value remains the authoritative fact.
+
+`maximum_payload` is separate from:
+
+- `kerb_weight`,
+- `gross_vehicle_weight`,
+- `gross_train_weight`,
+- `roof_load`,
+- `braked_trailer_weight`,
+- `unbraked_trailer_weight`,
+- tow-ball or other local load limits.
+
+A future source-data import stores the numeric payload value in
+`configuration_attribute_values.csv`, leaves fuel context empty, and preserves
+the observation date, page 5, the `Dopuszczalna masa całkowita` section and the
+exact Polish field in `notes`.
+
+### Current source coverage
+
+All seven reviewed Sandero and Sandero Stepway configuration PDFs contain the
+explicit page-5 field `Maksymalna Ładowność (Kg)` under
+`Dopuszczalna masa całkowita`. The values vary by configuration.
+
+The attribute catalogue already contains kerb weight, gross vehicle weight,
+gross train weight, roof load and trailer-weight concepts, but none represents
+the source-stated maximum payload. No current configuration value uses
+`maximum_payload`.
+
+### Consequences
+
+- This modeling package adds the active integer attribute `maximum_payload`.
+- The existing `Weights` category and `kg` unit are reused.
+- No category, unit, configuration value, availability record or price is
+  introduced by the modeling package.
+- Existing mass observations are not rewritten or used to derive payload.
+- The next source-backed package imports seven dated payload values, one for
+  each current configuration.
+- The future import preserves page 5, section, observation date and exact
+  source wording.

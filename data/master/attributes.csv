@@ -348,3 +348,4 @@ id,code,category,name,data_type,unit,description,status
 354,exterior_color,Exterior,Exterior colour,string,,Commercial exterior body colour or normalized source description.,active
 355,standard_tyre_specification,Wheels,Standard tyre specification,string,,"Complete axle-neutral standard tyre specification including nominal size, load index and speed symbol.",active
 356,noise_level_at_50_kmh,Acoustics,Noise level at 50 km/h,decimal,dB,Vehicle noise level measured at 50 km/h without inferring measurement location or test procedure,active
+357,maximum_payload,Weights,Maximum payload,integer,kg,Maximum permitted payload stated explicitly by the source without deriving it from other mass values,active

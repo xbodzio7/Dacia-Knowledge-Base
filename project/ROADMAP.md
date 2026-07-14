@@ -135,6 +135,9 @@ Data Expansion
 - zachowana granica względem ogólniejszych atrybutów string `drive_layout` i `drivetrain_type`,
 - 7 datowanych wartości `drive_type = fwd` z zachowaną stroną 5, sekcją i brzmieniem źródła,
 - zachowana granica między kontrolowanym enumem `drive_type` i ogólniejszymi atrybutami string.
+- decyzja D-021 — source-stated maximum payload,
+- aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
+- zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
 
 ## Tooling
 
@@ -147,7 +150,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 257 testów automatycznych,
+- 264 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -155,34 +158,34 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Front-Wheel Drive Value Import
+## Sandero Maximum Payload Modeling
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- zaimportować `drive_type = fwd` dla siedmiu konfiguracji,
-- użyć istniejącego aktywnego atrybutu enum `drive_type`,
-- użyć istniejącej aktywnej wartości słownikowej `fwd`,
-- zachować datę, źródło, stronę 5, sekcję `Układ napędowy` i brzmienie `Rodzaj Napędu przedni`,
-- pozostawić puste pole kontekstu paliwa,
-- nie tworzyć równoległych wartości `drive_layout` ani `drivetrain_type`,
-- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
+- potwierdzić jawne pole `Maksymalna Ładowność (Kg)` na stronie 5,
+- dodać kanoniczny atrybut integer `maximum_payload` w kategorii `Weights`,
+- użyć istniejącej jednostki `kg` opartej na wpisie `mass_kg`,
+- zachować ładowność jako samodzielny fakt źródłowy zamiast wyliczać ją z innych mas,
+- oddzielić ładowność od mas całkowitych, obciążenia dachu i parametrów holowania,
+- zaakceptować decyzję D-021,
+- nie importować wartości konfiguracji w pakiecie modelującym,
 - dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Maximum Payload Modeling
+## Sandero Maximum Payload Value Import
 
 Cel sprintu:
 
-- zweryfikować jawne pole `Maksymalna Ładowność (Kg)` na stronie 5 wszystkich siedmiu źródeł,
-- zaprojektować kanoniczny atrybut `maximum_payload` w kategorii `Weights`,
-- użyć istniejącej jednostki `kg`,
-- zachować wartość źródłową jako samodzielny fakt zamiast wyliczać ją z masy całkowitej i masy własnej,
-- zachować granicę względem masy całkowitej pojazdu, masy zespołu pojazdów, obciążeń dachu i wartości holowniczych,
-- nie importować wartości konfiguracji przed zatwierdzeniem modelu.
+- zaimportować siedem jawnych wartości `maximum_payload`,
+- zachować dokładną wartość każdej konfiguracji bez obliczania jej z innych pól,
+- zachować datę 2026-06-26, źródło, stronę 5, sekcję i pełne brzmienie,
+- pozostawić kontekst paliwa pusty,
+- nie zmieniać istniejących mas, dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 # Backlog
 

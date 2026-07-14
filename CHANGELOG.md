@@ -97,6 +97,8 @@ All notable changes to this project will be documented in this file.
 * Regression coverage for source mapping, exact speed semantics, provenance and package boundaries.
 * Seven source-backed front-wheel-drive values for the current Sandero configurations.
 * Regression coverage for controlled drive-type semantics, source mapping, provenance and duplicate-string boundaries.
+* Canonical `maximum_payload` integer attribute in the existing `Weights` category using the existing `kg` unit.
+* Regression coverage for source-stated payload semantics, mass-concept boundaries and the model/import split.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -120,9 +122,9 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 257 tests.
-* The verified master-data baseline now contains 34 CSV files and 1307 rows.
-* SQLite verification now covers 34 tables and 1307 rows.
+* The automated test suite now contains 264 tests.
+* The verified master-data baseline now contains 34 CSV files and 1308 rows.
+* SQLite verification now covers 34 tables and 1308 rows.
 * Configuration attribute values now contain 239 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
@@ -168,3 +170,4 @@ All notable changes to this project will be documented in this file.
 * Imported `noise_level_at_50_kmh = 67` as a dated value for all seven current configurations.
 * Reviewed the remaining Sandero technical-value candidates, rejected already-modeled and non-data matches, and selected `drive_type = fwd` for the next controlled import.
 * Imported `drive_type = fwd` as a dated value for all seven current configurations using the existing controlled enum.
+* Modeled the explicit page-5 maximum-payload field as an independent integer `kg` observation under decision D-021 and deferred configuration records to a separate import.

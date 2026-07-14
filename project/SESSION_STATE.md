@@ -5,15 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#33. Aktualny punkt odniesienia to merge commit
-`ff63a6f3`.
+Pull Requesty #3–#34. Aktualny punkt odniesienia to merge commit
+`504b7b0c`.
 
-PR #33 zamknął przegląd pozostałych kandydatów technicznych i wybrał
-`drive_type = fwd` dla następnego importu. GitHub Actions Quality run #95
-zakończył się powodzeniem.
+PR #34 zaimportował siedem datowanych wartości `drive_type = fwd`.
+GitHub Actions Quality run #97 zakończył się powodzeniem.
 
-Bieżący pakiet danych jest rozwijany na gałęzi
-`data/sandero-front-wheel-drive-values`.
+Bieżący pakiet modelujący jest rozwijany na gałęzi
+`model/sandero-maximum-payload`.
 
 ## Verified Quality Baseline
 
@@ -23,61 +22,62 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 257 testów automatycznych zakończonych powodzeniem,
+- 264 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1307 rekordów danych,
+- 1308 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 239 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 349 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1307 rekordów,
+- 350 kanonicznych atrybutów w 30 kategoriach,
+- baza SQLite obejmująca 34 tabele i 1308 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Front-Wheel Drive Value Import.
+Sandero Maximum Payload Modeling.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- import siedmiu datowanych wartości `drive_type = fwd`,
-- użycie istniejącego aktywnego atrybutu enum i wartości słownikowej `fwd`,
-- zachowanie strony 5, sekcji `Układ napędowy` i dokładnego brzmienia źródła,
-- pusty kontekst paliwa,
-- brak równoległych wartości `drive_layout` i `drivetrain_type`,
-- brak zmian schematu, dostępności wyposażenia i cen konfiguracji,
-- osiem nowych testów regresyjnych.
+- potwierdzenie jawnego pola `Maksymalna Ładowność (Kg)` na stronie 5,
+- nowy aktywny atrybut integer `maximum_payload` w kategorii `Weights`,
+- użycie istniejącej jednostki `kg` opartej na wpisie `mass_kg`,
+- zachowanie wartości źródłowej bez wyliczania jej z innych mas,
+- granica względem mas całkowitych, obciążenia dachu i parametrów holowania,
+- decyzja D-021,
+- brak importu wartości konfiguracji,
+- siedem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 239 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Siedem nowych rekordów przechowuje kontrolowaną wartość
-`drive_type = fwd` dla każdej bieżącej konfiguracji, z datą 2026-06-26
-i dokumentem źródłowym.
+Model obejmuje 350 kanonicznych atrybutów, 239 datowanych wartości konfiguracji
+i 419 rekordów dostępności wyposażenia. Nowy atrybut `maximum_payload`
+przechowuje jawną maksymalną ładowność podaną przez źródło jako liczbę całkowitą
+w kilogramach.
 
-Źródłowe pole `Rodzaj Napędu przedni` jest mapowane do istniejącego aktywnego
-enumu `drive_type` i wartości `fwd`. Import nie tworzy równoległych stringów
-`drive_layout` ani `drivetrain_type` i nie zmienia informacji o skrzyni biegów,
-silniku, wyposażeniu ani cenie.
+Ładowność pozostaje odrębna od `kerb_weight`, `gross_vehicle_weight`,
+`gross_train_weight`, `roof_load`, `braked_trailer_weight` i
+`unbraked_trailer_weight`. Pakiet modelujący nie wylicza jej z różnicy mas i
+nie dodaje jeszcze wartości konfiguracji.
 
 ## Next Development Package
 
-Sandero Maximum Payload Modeling.
+Sandero Maximum Payload Value Import.
 
 Planowany przebieg:
 
-1. Zweryfikować `Maksymalna Ładowność (Kg)` na stronie 5 wszystkich źródeł.
-2. Zaprojektować kanoniczny atrybut `maximum_payload` w kategorii `Weights`.
-3. Użyć istniejącej jednostki `kg`.
-4. Zachować jawne wartości źródłowe bez wyliczania ich z innych mas.
-5. Oddzielić ładowność od mas całkowitych, obciążeń dachu i parametrów holowania.
-6. Nie importować wartości konfiguracji przed zatwierdzeniem modelu.
+1. Zaimportować siedem jawnych wartości `maximum_payload`.
+2. Zachować każdą wartość dokładnie tak, jak podaje ją źródło.
+3. Zachować datę 2026-06-26, stronę 5, sekcję i pełne brzmienie.
+4. Pozostawić kontekst paliwa pusty.
+5. Nie zmieniać istniejących mas, dostępności wyposażenia ani cen.
+6. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ## Working Mode
 
@@ -375,16 +375,31 @@ Completed:
 
 ### Sandero Front-Wheel Drive Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
-- przygotowano 7 wartości `drive_type = fwd`,
+- PR #34 zweryfikował siedem PDF przez SHA-256,
+- zaimportowano 7 wartości `drive_type = fwd`,
 - zachowano datę, stronę 5, sekcję `Układ napędowy` i dokładne brzmienie źródła,
 - użyto istniejącego aktywnego atrybutu enum i wartości słownikowej,
 - nie utworzono wartości `drive_layout` ani `drivetrain_type`,
 - nie zmieniono schematu, dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych.
+- dodano osiem testów regresyjnych,
+- GitHub Actions Quality run #97 zakończył się powodzeniem.
+
+### Sandero Maximum Payload Modeling
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- potwierdzono jawne pole `Maksymalna Ładowność (Kg)` na stronie 5,
+- przygotowano atrybut integer `maximum_payload` w kategorii `Weights`,
+- użyto istniejącej jednostki `kg`,
+- zachowano wartość jako fakt źródłowy bez wyliczania jej z innych mas,
+- zapisano decyzję D-021 i granice modelu,
+- nie zaimportowano wartości konfiguracji,
+- dodano siedem testów regresyjnych.
 
 Next priority:
 
-Modelowanie jawnego pola `Maksymalna Ładowność (Kg)` bez wyliczania go z innych mas.
+Import siedmiu jawnych wartości `maximum_payload` z zachowaniem dokładnej
+proweniencji źródłowej.
