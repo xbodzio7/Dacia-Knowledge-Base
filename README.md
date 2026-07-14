@@ -106,8 +106,9 @@ wartości dla `number_of_side_doors`.
 
 Normy emisji korzystają z kontrolowanego słownika. Decyzja D-019 zachowuje
 `Euro 6e BIS` jako odrębną aktywną wartość `euro_6e_bis`; nie redukuje jej do
-ogólniejszego `Euro 6e`. Pakiet modelujący rozszerza słownik, ale nie importuje
-jeszcze wartości konfiguracji.
+ogólniejszego `Euro 6e`. Wszystkie siedem bieżących konfiguracji ma datowaną
+wartość `emission_standard = euro_6e_bis` z zachowaniem strony 6 i dokładnego
+brzmienia źródła. Poziom hałasu 67 dB pozostaje osobnym faktem.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -300,10 +301,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 226 testów, 34 pliki CSV, 1283 rekordy
-danych, 34 relacje między tabelami, 218 wartości konfiguracji oraz 419
+Zweryfikowany model obejmuje 234 testy, 34 pliki CSV, 1290 rekordów
+danych, 34 relacje między tabelami, 225 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 348 kanonicznych atrybutów
-i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1283 rekordy,
+i 29 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1290 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 

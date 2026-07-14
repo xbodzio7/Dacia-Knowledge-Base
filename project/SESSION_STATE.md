@@ -5,14 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#28. Aktualny punkt odniesienia to merge commit
-`b46ea875`.
+Pull Requesty #3–#29. Aktualny punkt odniesienia to merge commit
+`70b55029`.
 
-PR #28 zaimportował siedem datowanych wartości `number_of_doors = 5`.
-GitHub Actions Quality run #85 zakończył się powodzeniem.
+PR #29 dodał dokładną kontrolowaną wartość `euro_6e_bis` i decyzję D-019.
+GitHub Actions Quality run #87 zakończył się powodzeniem.
 
-Bieżący pakiet modelujący jest rozwijany na gałęzi
-`model/sandero-euro-6e-bis-emission-standard`.
+Bieżący pakiet danych jest rozwijany na gałęzi
+`data/sandero-euro-6e-bis-values`.
 
 ## Verified Quality Baseline
 
@@ -22,59 +22,58 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 226 testów automatycznych zakończonych powodzeniem,
+- 234 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1283 rekordy danych,
+- 1290 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 218 obserwacji w `configuration_attribute_values.csv`,
+- 225 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 348 kanonicznych atrybutów w 29 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1283 rekordy,
+- baza SQLite obejmująca 34 tabele i 1290 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Euro 6e BIS Emission Standard Modeling.
+Sandero Euro 6e BIS Emission Standard Value Import.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- potwierdzenie pola `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
-- dodanie aktywnej wartości słownikowej `euro_6e_bis`,
-- użycie istniejącego atrybutu enum `emission_standard`,
-- zapisanie decyzji D-019 o zachowaniu dokładnych wariantów norm,
-- brak wartości konfiguracji, zmian dostępności i zmian cen,
-- odroczenie poziomu hałasu 67 dB do osobnego pakietu,
-- siedem nowych testów regresyjnych.
+- import siedmiu datowanych wartości `emission_standard = euro_6e_bis`,
+- użycie istniejącego atrybutu enum i kontrolowanej wartości słownikowej,
+- zachowanie strony 6 i pełnego brzmienia źródła,
+- brak wartości `euro_6e` dla tego pola,
+- brak zmian dostępności wyposażenia i cen konfiguracji,
+- pozostawienie poziomu hałasu 67 dB poza pakietem,
+- osiem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
-Model obejmuje 218 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Słownik norm emisji zawiera teraz cztery aktywne wartości, w tym
-odrębne `euro_6e` oraz `euro_6e_bis`.
+Model obejmuje 225 datowanych wartości konfiguracji i 419 rekordów dostępności
+wyposażenia. Siedem nowych rekordów przechowuje dokładną wartość
+`emission_standard = euro_6e_bis` dla każdej bieżącej konfiguracji, z datą
+2026-06-26 i dokumentem źródłowym.
 
-Wszystkie siedem źródeł podaje na stronie 6 `Norma Emisji Spalin Euro 6e BIS`.
-Dokładniejsza wartość nie jest redukowana do `Euro 6e`. Pakiet modelujący nie
-tworzy jeszcze rekordów `emission_standard`; zachowuje rozdział modelu i importu.
-Pole hałasu 67 dB pozostaje poza zakresem.
+Wartość `Euro 6e BIS` pozostaje odrębna od `Euro 6e`. Pole poziomu hałasu
+przy 50 km/h nie jest wartością normy emisji i nie jest importowane w tym pakiecie.
 
 ## Next Development Package
 
-Sandero Euro 6e BIS Emission Standard Value Import.
+Sandero 50 km/h Noise Level Modeling.
 
 Planowany przebieg:
 
-1. Zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji.
-2. Zachować datę, źródło, stronę 6 i pełne brzmienie pola.
-3. Nie używać ogólniejszego `euro_6e` jako zamiennika.
-4. Nie zmieniać dostępności wyposażenia ani cen konfiguracji.
-5. Pozostawić poziom hałasu 67 dB do osobnego modelowania.
+1. Zweryfikować `Poziom Hałasu Przy 50 Km/H (DB) 67` na stronie 6 wszystkich źródeł.
+2. Ocenić katalog atrybutów i jednostek bez zgadywania znaczenia.
+3. Zachować warunek pomiaru przy 50 km/h.
+4. Nie łączyć poziomu hałasu z normą emisji.
+5. Rozdzielić modelowanie od późniejszego importu wartości.
 
 ## Working Mode
 
@@ -305,16 +304,29 @@ Completed:
 
 ### Sandero Euro 6e BIS Emission Standard Modeling
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
+- PR #29 zweryfikował siedem PDF przez SHA-256,
 - potwierdzono `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
 - dodano kontrolowaną wartość `euro_6e_bis`,
 - zachowano odrębność od `euro_6e`,
 - zaakceptowano decyzję D-019,
 - nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych.
+- dodano siedem testów regresyjnych,
+- GitHub Actions Quality run #87 zakończył się powodzeniem.
+
+### Sandero Euro 6e BIS Emission Standard Value Import
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- przygotowano 7 wartości `emission_standard = euro_6e_bis`,
+- zachowano datę, stronę 6 i dokładne brzmienie źródła,
+- nie użyto ogólniejszej wartości `euro_6e`,
+- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
+- pozostawiono poziom hałasu 67 dB poza pakietem,
+- dodano osiem testów regresyjnych.
 
 Next priority:
 
-Kontrolowany import `emission_standard = euro_6e_bis` dla siedmiu konfiguracji.
+Modelowanie poziomu hałasu przy 50 km/h bez łączenia go z normą emisji.

@@ -80,17 +80,25 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         )
         self.assertEqual(standards["euro_6e"]["name"], "Euro 6e")
 
-    def test_model_package_does_not_import_configuration_values(self) -> None:
-        source_codes = set(EXPECTED.values())
-        self.assertFalse(
-            any(
-                row["attribute_code"] == "emission_standard"
-                and row["source_code"] in source_codes
-                and row["observation_date"] == "2026-06-26"
-                for row in self.values
+    def test_configuration_values_reference_controlled_standards(self) -> None:
+        standard_codes = {row["code"] for row in self.standards}
+        emission_values = [
+            row
+            for row in self.values
+            if row["attribute_code"] == "emission_standard"
+        ]
+        self.assertEqual(len(emission_values), 7)
+        self.assertEqual(
+            {row["value"] for row in emission_values},
+            {"euro_6e_bis"},
+        )
+        self.assertTrue(
+            all(
+                row["value"] in standard_codes
+                for row in emission_values
             ),
         )
-        self.assertEqual(len(self.values), 218)
+        self.assertEqual(len(self.values), 225)
 
     def test_model_package_does_not_change_other_data_tables(self) -> None:
         self.assertEqual(len(self.availability), 419)
