@@ -205,20 +205,39 @@ python tools/dkb.py package-start tooling/example
 
 Przegląd przed commitem łączy kontrolę zakresu, `diff --check`, statystyki
 zmian, zawartość nowych nieśledzonych plików oraz opcjonalną pełną bramkę
-jakości. `--allow` można powtarzać dla plików i katalogów dozwolonych
-w pakiecie:
+jakości. Proste pakiety mogą nadal używać powtarzalnego `--allow`.
 
-```bash
-python tools/dkb.py package-review --allow tools --allow tests --allow README.md --quality --show-diff
+Dla pakietów publikowanych zalecany jest manifest JSON przechowywany poza
+repozytorium:
+
+```json
+{
+  "version": 1,
+  "branch": "tooling/example",
+  "base_sha": "0123456789abcdef0123456789abcdef01234567",
+  "commit_message": "tooling: example change",
+  "expected_commits": 1,
+  "paths": ["README.md", "tools/example.py"]
+}
 ```
 
-Po utworzeniu commitu końcowa kontrola sprawdza czystość katalogu,
-różnicę względem `origin/main`, listę commitów i plików oraz podaje
-bezpieczne polecenie push. Sam push pozostaje operacją jawną:
+Przegląd z manifestem wymaga dokładnej gałęzi, niezmienionego SHA bazowego,
+pre-commitowego `HEAD` równego bazie oraz dokładnego zestawu plików:
 
 ```bash
-python tools/dkb.py package-finish
+python tools/dkb.py package-review --manifest ../package.json --quality --show-diff
 ```
+
+Po utworzeniu commitu końcowa kontrola dodatkowo wymaga dokładnie jednego
+commitu, rodzica równego `base_sha`, zgodnego tematu i identycznego manifestu
+zatwierdzonych plików. Sam push pozostaje operacją jawną:
+
+```bash
+python tools/dkb.py package-finish --manifest ../package.json
+```
+
+Procesy Git i lokalnej jakości wymuszają UTF-8. Plik `.gitattributes`
+utrzymuje zakończenia LF dla źródeł, dokumentacji, CSV, JSON i YAML.
 
 ### Eksport SQLite
 
@@ -287,7 +306,10 @@ Workflow `.github/workflows/quality.yml` uruchamia kontrolę jakości:
 * dla każdego Pull Requestu,
 * ręcznie przez `workflow_dispatch`.
 
-Kontrola jest wykonywana w Pythonie 3.10 oraz 3.13 i obejmuje:
+Pełna kontrola jest wykonywana w Pythonie 3.10 oraz 3.13. Dodatkowy
+job Windows uruchamia testy workflow pakietów, CLI i środowiska UTF-8.
+
+Kontrola obejmuje:
 
 1. kompilację źródeł Pythona,
 2. uruchomienie testów jednostkowych,
@@ -322,7 +344,7 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 264 testy, 34 pliki CSV, 1308 rekordów
+Zweryfikowany model obejmuje 272 testy, 34 pliki CSV, 1308 rekordów
 danych, 34 relacje między tabelami, 239 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 350 kanonicznych atrybutów
 i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1308 rekordów,

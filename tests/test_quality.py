@@ -91,6 +91,8 @@ class QualityTests(unittest.TestCase):
             {
                 "PYTHONUTF8": "0",
                 "PYTHONIOENCODING": "cp1250",
+                "LANG": "pl_PL.cp1250",
+                "LC_ALL": "pl_PL.cp1250",
             },
             clear=False,
         ):
@@ -101,6 +103,8 @@ class QualityTests(unittest.TestCase):
             environment["PYTHONIOENCODING"],
             "utf-8",
         )
+        self.assertEqual(environment["LANG"], "C.UTF-8")
+        self.assertEqual(environment["LC_ALL"], "C.UTF-8")
 
     def test_run_step_propagates_exit_code(
         self,

@@ -106,6 +106,10 @@ All notable changes to this project will be documented in this file.
 
 * The unified CLI now propagates command exit codes.
 * Repetitive Git package checks are consolidated into three CLI commands while commit, push and merge remain explicit operations.
+* Package review and finish commands accept a versioned JSON manifest with exact branch, base SHA, commit subject and path scope.
+* Package finish enforces one commit, its exact parent and an exact committed-file manifest when a package manifest is supplied.
+* Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
+* Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
 * All project CSV files are stored as valid UTF-8.
 * Command usage documentation reflects the current tooling.
 * Generated SQLite databases are treated as disposable local artifacts.
@@ -122,7 +126,7 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 264 tests.
+* The automated test suite now contains 272 tests.
 * The verified master-data baseline now contains 34 CSV files and 1308 rows.
 * SQLite verification now covers 34 tables and 1308 rows.
 * Configuration attribute values now contain 239 dated records.
@@ -131,6 +135,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 * Local quality subprocesses force UTF-8 output on Windows consoles and redirected logs.
+* Package workflow Git commands no longer depend on the Windows console code page when displaying Polish paths and diff content.
 * Restored the executable validation entry point after it was accidentally emptied.
 * Validation CI now detects commands that return success without running the validator.
 

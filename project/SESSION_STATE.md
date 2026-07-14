@@ -5,14 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#34. Aktualny punkt odniesienia to merge commit
-`504b7b0c`.
+Pull Requesty #3–#35. Aktualny punkt odniesienia to merge commit
+`2dc82ea0`.
 
-PR #34 zaimportował siedem datowanych wartości `drive_type = fwd`.
-GitHub Actions Quality run #97 zakończył się powodzeniem.
+PR #35 dodał kanoniczny atrybut `maximum_payload` i decyzję D-021.
+GitHub Actions Quality run #99 zakończył się powodzeniem.
 
-Bieżący pakiet modelujący jest rozwijany na gałęzi
-`model/sandero-maximum-payload`.
+Bieżący pakiet toolingowy jest rozwijany na gałęzi
+`tooling/package-workflow-hardening`.
 
 ## Verified Quality Baseline
 
@@ -22,7 +22,7 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 264 testy automatyczne zakończone powodzeniem,
+- 272 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1308 rekordów danych,
 - 34 relacje między tabelami,
@@ -38,46 +38,44 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero Maximum Payload Modeling.
+Package Workflow Hardening.
 
 Zakres:
 
-- weryfikacja siedmiu PDF przez SHA-256,
-- potwierdzenie jawnego pola `Maksymalna Ładowność (Kg)` na stronie 5,
-- nowy aktywny atrybut integer `maximum_payload` w kategorii `Weights`,
-- użycie istniejącej jednostki `kg` opartej na wpisie `mass_kg`,
-- zachowanie wartości źródłowej bez wyliczania jej z innych mas,
-- granica względem mas całkowitych, obciążenia dachu i parametrów holowania,
-- decyzja D-021,
-- brak importu wartości konfiguracji,
-- siedem nowych testów regresyjnych.
+- deterministyczne UTF-8 dla procesów Git i jakości,
+- bajtowe odczyty NUL-separowanych ścieżek,
+- wersjonowany manifest JSON dla kontroli przed i po commicie,
+- dokładna gałąź, baza SHA, temat, rodzic i zestaw plików,
+- polityka LF w `.gitattributes`,
+- osiem nowych testów regresyjnych manifestu,
+- regresyjne testy workflow na Windows,
+- zachowanie kompatybilności komend bez manifestu.
 
 ## Current Phase
 
-Aktualna faza to **Data Expansion**.
+Aktualna faza to **Tooling Hardening**.
 
-Model obejmuje 350 kanonicznych atrybutów, 239 datowanych wartości konfiguracji
-i 419 rekordów dostępności wyposażenia. Nowy atrybut `maximum_payload`
-przechowuje jawną maksymalną ładowność podaną przez źródło jako liczbę całkowitą
-w kilogramach.
+Pakiet usuwa konieczność kopiowania podstawowych kontraktów Git do każdego
+runnera. Manifest pakietu staje się pojedynczym kontraktem dla kontroli przed
+commitem i `package-finish`, natomiast commit, push, Pull Request i merge
+pozostają operacjami jawnymi.
 
-Ładowność pozostaje odrębna od `kerb_weight`, `gross_vehicle_weight`,
-`gross_train_weight`, `roof_load`, `braked_trailer_weight` i
-`unbraked_trailer_weight`. Pakiet modelujący nie wylicza jej z różnicy mas i
-nie dodaje jeszcze wartości konfiguracji.
+Model danych pozostaje bez zmian: 34 pliki CSV, 1308 rekordów, 350 atrybutów,
+239 wartości konfiguracji, 419 rekordów dostępności i 7 cen.
 
 ## Next Development Package
 
-Sandero Maximum Payload Value Import.
+Manifest-driven Package Publishing.
 
 Planowany przebieg:
 
-1. Zaimportować siedem jawnych wartości `maximum_payload`.
-2. Zachować każdą wartość dokładnie tak, jak podaje ją źródło.
-3. Zachować datę 2026-06-26, stronę 5, sekcję i pełne brzmienie.
-4. Pozostawić kontekst paliwa pusty.
-5. Nie zmieniać istniejących mas, dostępności wyposażenia ani cen.
-6. Dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+1. Dodać trwałą komendę `package-publish`.
+2. Zapisać receipt jakości związany z dokładnym stanem plików.
+3. Ponownie użyć wyniku jakości wyłącznie dla niezmienionego stanu.
+4. Generować mały `handoff.json` obok pełnego logu.
+5. Skrócić log sukcesu i zachować pełne informacje przy błędzie.
+6. Ograniczyć podwójne wykonywanie walidacji danych i SQLite w CI.
+7. Następnie wrócić do Sandero Maximum Payload Value Import.
 
 ## Working Mode
 
@@ -95,8 +93,9 @@ Git Bash służy do generowania zmian, testów i kontroli stanu. Git GUI
 może służyć do przeglądania różnic, stagingu, commitów i pushowania.
 
 Powtarzalne kontrole pakietu są dostępne przez `package-start`,
-`package-review` i `package-finish`. Commit, push, utworzenie Pull Requestu
-oraz merge pozostają operacjami jawnymi.
+`package-review` i `package-finish`. Publikowane pakiety używają manifestu
+JSON z dokładną gałęzią, bazą SHA, tematem commitu i zestawem plików. Commit,
+push, utworzenie Pull Requestu oraz merge pozostają operacjami jawnymi.
 
 ## Project Rules
 
@@ -388,18 +387,29 @@ Completed:
 
 ### Sandero Maximum Payload Modeling
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
-- potwierdzono jawne pole `Maksymalna Ładowność (Kg)` na stronie 5,
-- przygotowano atrybut integer `maximum_payload` w kategorii `Weights`,
+- PR #35 zweryfikował siedem PDF przez SHA-256,
+- dodano atrybut integer `maximum_payload` w kategorii `Weights`,
 - użyto istniejącej jednostki `kg`,
 - zachowano wartość jako fakt źródłowy bez wyliczania jej z innych mas,
 - zapisano decyzję D-021 i granice modelu,
 - nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych.
+- dodano siedem testów regresyjnych,
+- GitHub Actions Quality run #99 zakończył się powodzeniem.
+
+### Package Workflow Hardening
+
+Current package:
+
+- przygotowano deterministyczne UTF-8 dla Git i jakości,
+- dodano wersjonowany manifest pakietu,
+- wymuszono dokładną gałąź, bazę SHA, temat, rodzica i zestaw plików,
+- przygotowano `.gitattributes` z polityką LF,
+- dodano osiem testów manifestu i job Windows,
+- zachowano kompatybilność komend bez manifestu.
 
 Next priority:
 
-Import siedmiu jawnych wartości `maximum_payload` z zachowaniem dokładnej
-proweniencji źródłowej.
+Dodać trwałe publikowanie sterowane manifestem, receipt jakości i
+ustrukturyzowany handoff, a następnie wrócić do importu `maximum_payload`.

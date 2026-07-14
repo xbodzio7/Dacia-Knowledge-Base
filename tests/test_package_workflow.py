@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import json
 import os
 import subprocess
 import sys
@@ -24,6 +25,7 @@ class PackageWorkflowTests(unittest.TestCase):
             dir=REPOSITORY.parent,
         )
         root = Path(self.temporary_directory.name)
+        self.root = root
         self.remote = root / "remote.git"
         self.repository = root / "repository"
 
@@ -65,6 +67,7 @@ class PackageWorkflowTests(unittest.TestCase):
             "origin/main",
             "main",
         )
+        self.base_sha = self.run_git("rev-parse", "main")
 
     def tearDown(self) -> None:
         self.temporary_directory.cleanup()
@@ -140,6 +143,34 @@ class PackageWorkflowTests(unittest.TestCase):
         target.write_text(content, encoding="utf-8", newline="\n")
         self.run_git("add", path)
         self.run_git("commit", "-m", "package change")
+
+    def write_manifest(
+        self,
+        *,
+        branch: str = "tooling/test",
+        base_sha: str | None = None,
+        commit_message: str = "package change",
+        paths: list[str] | None = None,
+    ) -> Path:
+        manifest = self.root / "package.json"
+        manifest.write_text(
+            json.dumps(
+                {
+                    "version": 1,
+                    "branch": branch,
+                    "base_sha": base_sha or self.base_sha,
+                    "commit_message": commit_message,
+                    "expected_commits": 1,
+                    "paths": paths or ["tools/example.py"],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        return manifest
 
     def test_run_git_ignores_ambient_git_context(self) -> None:
         hostile_environment = {
@@ -272,6 +303,139 @@ class PackageWorkflowTests(unittest.TestCase):
 
         self.assertEqual(result, 0, stderr)
         run_quality.assert_called_once_with(self.repository)
+
+    def test_review_manifest_accepts_exact_scope_and_utf8_diff(
+        self,
+    ) -> None:
+        self.start_branch()
+        target = self.repository / "tools" / "zażółć.py"
+        target.parent.mkdir()
+        target.write_text(
+            'print("gęślą jaźń")\n',
+            encoding="utf-8",
+            newline="\n",
+        )
+        manifest = self.write_manifest(
+            paths=["tools/zażółć.py"],
+        )
+
+        result, stdout, stderr = self.run_main(
+            [
+                "review",
+                "--manifest",
+                str(manifest),
+                "--show-diff",
+            ]
+        )
+
+        self.assertEqual(result, 0, stderr)
+        self.assertIn("PACKAGE MANIFEST", stdout)
+        self.assertIn("tools/zażółć.py", stdout)
+        self.assertIn('+print("gęślą jaźń")', stdout)
+
+    def test_review_manifest_rejects_wrong_branch(self) -> None:
+        self.start_branch()
+        target = self.repository / "tools" / "example.py"
+        target.parent.mkdir()
+        target.write_text("print('ok')\n", encoding="utf-8")
+        manifest = self.write_manifest(branch="tooling/other")
+
+        result, _, stderr = self.run_main(
+            ["review", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("manifest branch", stderr)
+
+    def test_review_manifest_rejects_wrong_base_sha(self) -> None:
+        self.start_branch()
+        target = self.repository / "tools" / "example.py"
+        target.parent.mkdir()
+        target.write_text("print('ok')\n", encoding="utf-8")
+        manifest = self.write_manifest(base_sha="0" * 40)
+
+        result, _, stderr = self.run_main(
+            ["review", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("origin/main moved", stderr)
+
+    def test_review_manifest_rejects_path_mismatch(self) -> None:
+        self.start_branch()
+        (self.repository / "README.md").write_text(
+            "changed\n",
+            encoding="utf-8",
+        )
+        manifest = self.write_manifest(
+            paths=["tools/example.py"],
+        )
+
+        result, _, stderr = self.run_main(
+            ["review", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("working tree path manifest differs", stderr)
+
+    def test_finish_manifest_accepts_exact_commit(self) -> None:
+        self.start_branch()
+        self.commit_file()
+        manifest = self.write_manifest()
+
+        result, stdout, stderr = self.run_main(
+            ["finish", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 0, stderr)
+        self.assertIn("Manifest: PASS", stdout)
+        self.assertIn("Subject: package change", stdout)
+
+    def test_finish_manifest_rejects_multiple_commits(self) -> None:
+        self.start_branch()
+        self.commit_file()
+        self.commit_file(
+            path="tools/second.py",
+            content="print('second')\n",
+        )
+        manifest = self.write_manifest(
+            paths=["tools/example.py", "tools/second.py"],
+        )
+
+        result, _, stderr = self.run_main(
+            ["finish", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("expected exactly 1 commit", stderr)
+
+    def test_finish_manifest_rejects_wrong_subject(self) -> None:
+        self.start_branch()
+        self.commit_file()
+        manifest = self.write_manifest(
+            commit_message="different subject",
+        )
+
+        result, _, stderr = self.run_main(
+            ["finish", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("commit subject differs", stderr)
+
+    def test_finish_manifest_rejects_wrong_paths(self) -> None:
+        self.start_branch()
+        self.commit_file()
+        manifest = self.write_manifest(
+            paths=["README.md"],
+        )
+
+        result, _, stderr = self.run_main(
+            ["finish", "--manifest", str(manifest)]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("committed path manifest differs", stderr)
 
     def test_finish_reports_clean_committed_package(self) -> None:
         self.start_branch()
