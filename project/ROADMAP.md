@@ -128,7 +128,11 @@ Data Expansion
 - kategoria `Acoustics`, jednostka `dB` i atrybut decimal `noise_level_at_50_kmh`,
 - zachowana granica między warunkiem 50 km/h a niepotwierdzoną lokalizacją i procedurą pomiaru.
 - 7 datowanych wartości `noise_level_at_50_kmh = 67` z zachowaną stroną 6 i brzmieniem źródła,
-- zachowany rozdział między pomiarem przy 50 km/h a ogólnym, wewnętrznym i zewnętrznym poziomem hałasu.
+- zachowany rozdział między pomiarem przy 50 km/h a ogólnym, wewnętrznym i zewnętrznym poziomem hałasu,
+- przegląd 1371 wystąpień kandydatów po imporcie poziomu hałasu,
+- ręczna klasyfikacja 1010 niedopasowanych wystąpień i odrzucenie pozycji już reprezentowanych, wyposażenia, nagłówków oraz fragmentów tabel,
+- wybór istniejącego atrybutu enum `drive_type` i aktywnej wartości `fwd` dla następnego kontrolowanego importu,
+- zachowana granica względem ogólniejszych atrybutów string `drive_layout` i `drivetrain_type`.
 
 ## Tooling
 
@@ -149,33 +153,34 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero 50 km/h Noise Level Value Import
+## Sandero Remaining Technical Value Candidate Review
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- zaimportować `noise_level_at_50_kmh = 67` dla siedmiu konfiguracji,
-- zachować datę 2026-06-26, stronę 6 i dokładne brzmienie źródła,
-- użyć istniejącego atrybutu decimal i jednostki `dB`,
-- pozostawić puste pole kontekstu paliwa,
-- nie tworzyć wartości ogólnego, wewnętrznego ani zewnętrznego poziomu hałasu,
-- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
-- zaktualizować granicę model/import i dodać testy regresyjne.
+- porównać źródła z 232 wartościami konfiguracji, 419 rekordami dostępności i 7 cenami,
+- przeanalizować 1371 wystąpień kandydatów, w tym 1010 niedopasowanych heurystycznie,
+- odrzucić nagłówki, tekst marketingowy, fragmenty tabel, wyposażenie i fakty już reprezentowane pod innym brzmieniem,
+- potwierdzić na stronie 5 wspólne pole `Rodzaj Napędu przedni`,
+- potwierdzić aktywny atrybut enum `drive_type`, aktywną wartość `fwd` i brak odpowiadających rekordów,
+- nie zmieniać danych ani schematu w pakiecie analitycznym.
 
 ---
 
 # Next Sprint
 
-## Sandero Remaining Technical Value Candidate Review
+## Sandero Front-Wheel Drive Value Import
 
 Cel sprintu:
 
-- ponownie przejrzeć wszystkie siedem źródeł pod kątem jawnych wartości technicznych,
-- odrzucić nagłówki, duplikaty, warianty brzmienia i fakty już zaimportowane,
-- wskazać wyłącznie kandydatów z jednoznaczną semantyką konfiguracji,
-- sprawdzić istniejące atrybuty, jednostki i słowniki przed projektowaniem nowych,
-- zachować granicę między modelowaniem i późniejszym importem,
-- nie tworzyć rekordów danych przed wyborem dokładnego następnego pakietu.
+- zaimportować `drive_type = fwd` dla siedmiu konfiguracji,
+- użyć istniejącego aktywnego atrybutu enum `drive_type`,
+- użyć istniejącej aktywnej wartości słownikowej `fwd`,
+- zachować datę, źródło, stronę 5, sekcję `Układ napędowy` i brzmienie `Rodzaj Napędu przedni`,
+- pozostawić puste pole kontekstu paliwa,
+- nie tworzyć równoległych wartości `drive_layout` ani `drivetrain_type`,
+- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 # Backlog
 
