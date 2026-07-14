@@ -87,6 +87,8 @@ All notable changes to this project will be documented in this file.
 * Regression coverage for source mapping, provenance, axle-neutral semantics, rating boundaries and separation from rim size.
 * Seven source-backed number-of-doors values for the current Sandero configurations.
 * Regression coverage for source mapping, provenance, total-versus-side-door semantics and package boundaries.
+* Controlled `euro_6e_bis` emission-standard dictionary value.
+* Regression coverage for exact emission-standard variants and the model/import boundary.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -110,9 +112,9 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 219 tests.
-* The verified master-data baseline now contains 34 CSV files and 1282 rows.
-* SQLite verification now covers 34 tables and 1282 rows.
+* The automated test suite now contains 226 tests.
+* The verified master-data baseline now contains 34 CSV files and 1283 rows.
+* SQLite verification now covers 34 tables and 1283 rows.
 * Configuration attribute values now contain 218 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
@@ -152,3 +154,4 @@ All notable changes to this project will be documented in this file.
 * Imported `205/60 R16 92H` as an axle-neutral dated standard-tyre specification for all seven current configurations.
 * Reassessed the remaining explicit Sandero PDF value gaps, rejected already-modeled and non-data candidates, and selected `number_of_doors` for the next controlled import.
 * Imported `number_of_doors = 5` as a dated value for all seven current configurations using the existing integer attribute.
+* Modeled exact `Euro 6e BIS` semantics as a distinct controlled value and deferred configuration records to a separate import.

@@ -119,6 +119,9 @@ Data Expansion
 - wybór istniejącego atrybutu `number_of_doors` dla następnego kontrolowanego importu,
 - 7 datowanych wartości `number_of_doors = 5` z zachowaną stroną, sekcją i brzmieniem źródła,
 - zachowana granica między całkowitą liczbą drzwi i liczbą drzwi bocznych.
+- decyzja D-019 — exact emission-standard variants,
+- kontrolowana wartość `euro_6e_bis` zachowująca dokładne `Euro 6e BIS`,
+- zachowana granica między `Euro 6e BIS`, `Euro 6e` i poziomem hałasu 67 dB.
 
 ## Tooling
 
@@ -131,7 +134,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 219 testów automatycznych,
+- 226 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kontrola jakości w CI na Pythonie 3.10 i 3.13.
 
@@ -139,35 +142,34 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Number of Doors Value Import
+## Sandero Euro 6e BIS Emission Standard Modeling
 
 Cel sprintu:
 
 - zweryfikować siedem źródeł PDF przez SHA-256,
-- zaimportować `number_of_doors = 5` dla siedmiu konfiguracji,
-- użyć istniejącego atrybutu integer w kategorii `Doors`,
-- zachować datę, źródło, stronę 5, sekcję `Typ nadwozia` i brzmienie `Liczba Drzwi 5`,
-- użyć `configuration_attribute_values.csv`,
-- nie tworzyć wartości dla `number_of_side_doors`,
-- nie zmieniać schematu, dostępności wyposażenia ani cen konfiguracji,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- potwierdzić `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
+- dodać dokładną aktywną wartość słownikową `euro_6e_bis`,
+- użyć istniejącego atrybutu enum `emission_standard`,
+- zachować granicę między `Euro 6e BIS` i `Euro 6e`,
+- pozostawić poziom hałasu 67 dB do osobnego pakietu,
+- nie importować wartości konfiguracji w pakiecie modelującym,
+- dodać decyzję D-019 i testy regresyjne.
 
 ---
 
 # Next Sprint
 
-## Sandero Euro 6e BIS Emission Standard Modeling
+## Sandero Euro 6e BIS Emission Standard Value Import
 
 Cel sprintu:
 
-- zweryfikować wspólne pole `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
-- ocenić rozszerzenie istniejącego słownika norm emisji o dokładną wartość `Euro 6e BIS`,
-- zachować granicę między `Euro 6e BIS` i istniejącą wartością `Euro 6e`,
-- użyć istniejącego atrybutu `emission_standard` wyłącznie po zachowaniu znaczenia źródła,
-- pozostawić poziom hałasu 67 dB do osobnego pakietu,
-- nie zgadywać ani nie upraszczać wartości źródłowej.
-
----
+- zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji,
+- zachować datę 2026-06-26, stronę 6 i brzmienie `Norma Emisji Spalin Euro 6e BIS`,
+- użyć istniejącego atrybutu i kontrolowanej wartości słownikowej,
+- nie mapować wartości do `euro_6e`,
+- nie zmieniać dostępności wyposażenia ani cen konfiguracji,
+- pozostawić poziom hałasu 67 dB do osobnego modelowania,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 # Backlog
 

@@ -5,15 +5,14 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#27. Aktualny punkt odniesienia to merge commit
-`acee57fe`.
+Pull Requesty #3–#28. Aktualny punkt odniesienia to merge commit
+`b46ea875`.
 
-PR #27 zamknął ponowną analizę jawnych luk i wybrał istniejący atrybut
-`number_of_doors` dla następnego importu. GitHub Actions Quality run #83
-zakończył się powodzeniem.
+PR #28 zaimportował siedem datowanych wartości `number_of_doors = 5`.
+GitHub Actions Quality run #85 zakończył się powodzeniem.
 
-Bieżący pakiet danych jest rozwijany na gałęzi
-`data/sandero-number-of-doors-values`.
+Bieżący pakiet modelujący jest rozwijany na gałęzi
+`model/sandero-euro-6e-bis-emission-standard`.
 
 ## Verified Quality Baseline
 
@@ -23,9 +22,9 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 219 testów automatycznych zakończonych powodzeniem,
+- 226 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1282 rekordy danych,
+- 1283 rekordy danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -33,47 +32,49 @@ python tools/dkb.py quality
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 348 kanonicznych atrybutów w 29 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1282 rekordy,
+- baza SQLite obejmująca 34 tabele i 1283 rekordy,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Sandero Number of Doors Value Import.
+Sandero Euro 6e BIS Emission Standard Modeling.
 
 Zakres:
 
 - weryfikacja siedmiu PDF przez SHA-256,
-- import siedmiu datowanych wartości `number_of_doors = 5`,
-- użycie istniejącego atrybutu integer w kategorii `Doors`,
-- zachowanie strony 5, sekcji `Typ nadwozia` i pełnego brzmienia źródła,
-- brak wartości dla `number_of_side_doors`,
-- brak zmian w schemacie, dostępności wyposażenia i cenach konfiguracji,
-- osiem nowych testów regresyjnych.
+- potwierdzenie pola `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
+- dodanie aktywnej wartości słownikowej `euro_6e_bis`,
+- użycie istniejącego atrybutu enum `emission_standard`,
+- zapisanie decyzji D-019 o zachowaniu dokładnych wariantów norm,
+- brak wartości konfiguracji, zmian dostępności i zmian cen,
+- odroczenie poziomu hałasu 67 dB do osobnego pakietu,
+- siedem nowych testów regresyjnych.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion**.
 
 Model obejmuje 218 datowanych wartości konfiguracji i 419 rekordów dostępności
-wyposażenia. Siedem nowych rekordów przechowuje całkowitą liczbę drzwi równą
-`5` dla każdej bieżącej konfiguracji, z datą 2026-06-26 i dokumentem źródłowym.
+wyposażenia. Słownik norm emisji zawiera teraz cztery aktywne wartości, w tym
+odrębne `euro_6e` oraz `euro_6e_bis`.
 
-Wartość `number_of_doors` obejmuje całkowitą liczbę drzwi zgodnie z jawnym polem
-`Liczba Drzwi 5`. Nie tworzy wartości `number_of_side_doors` i nie zmienia
-informacji o typie nadwozia, wersji wyposażenia ani dostępności wyposażenia.
+Wszystkie siedem źródeł podaje na stronie 6 `Norma Emisji Spalin Euro 6e BIS`.
+Dokładniejsza wartość nie jest redukowana do `Euro 6e`. Pakiet modelujący nie
+tworzy jeszcze rekordów `emission_standard`; zachowuje rozdział modelu i importu.
+Pole hałasu 67 dB pozostaje poza zakresem.
 
 ## Next Development Package
 
-Sandero Euro 6e BIS Emission Standard Modeling.
+Sandero Euro 6e BIS Emission Standard Value Import.
 
 Planowany przebieg:
 
-1. Zweryfikować `Norma Emisji Spalin Euro 6e BIS` na stronie 6 wszystkich źródeł.
-2. Ocenić rozszerzenie słownika norm emisji o dokładną wartość `Euro 6e BIS`.
-3. Nie mapować automatycznie wartości źródłowej do ogólniejszego `Euro 6e`.
-4. Użyć `emission_standard` tylko po zachowaniu dokładnego znaczenia.
-5. Pozostawić poziom hałasu 67 dB do osobnego pakietu.
+1. Zaimportować `emission_standard = euro_6e_bis` dla siedmiu konfiguracji.
+2. Zachować datę, źródło, stronę 6 i pełne brzmienie pola.
+3. Nie używać ogólniejszego `euro_6e` jako zamiennika.
+4. Nie zmieniać dostępności wyposażenia ani cen konfiguracji.
+5. Pozostawić poziom hałasu 67 dB do osobnego modelowania.
 
 ## Working Mode
 
@@ -292,15 +293,28 @@ Completed:
 
 ### Sandero Number of Doors Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem PDF przez SHA-256,
-- przygotowano 7 wartości `number_of_doors = 5`,
+- PR #28 zweryfikował siedem PDF przez SHA-256,
+- zaimportowano 7 wartości `number_of_doors = 5`,
 - zachowano stronę 5, sekcję `Typ nadwozia` i pełne brzmienie źródła,
 - użyto istniejącego atrybutu integer bez zmiany schematu,
 - nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych.
+- dodano osiem testów regresyjnych,
+- GitHub Actions Quality run #85 zakończył się powodzeniem.
+
+### Sandero Euro 6e BIS Emission Standard Modeling
+
+Current package:
+
+- zweryfikowano siedem PDF przez SHA-256,
+- potwierdzono `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
+- dodano kontrolowaną wartość `euro_6e_bis`,
+- zachowano odrębność od `euro_6e`,
+- zaakceptowano decyzję D-019,
+- nie zaimportowano wartości konfiguracji,
+- dodano siedem testów regresyjnych.
 
 Next priority:
 
-Modelowanie dokładnej wartości `Euro 6e BIS` bez upraszczania jej do `Euro 6e`.
+Kontrolowany import `emission_standard = euro_6e_bis` dla siedmiu konfiguracji.

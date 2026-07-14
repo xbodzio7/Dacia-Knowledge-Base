@@ -645,3 +645,49 @@ semantics.
   field.
 - Equipment availability and configuration prices remain unchanged.
 - This analysis package changes documentation only.
+
+## D-019 — Exact emission-standard variants
+
+Status: Accepted
+
+Date: 2026-07-14
+
+### Decision
+
+An explicitly stated emission-standard variant is preserved as its own controlled
+dictionary value when reducing it to an existing broader value would lose source
+meaning. The page-6 source field `Norma Emisji Spalin Euro 6e BIS` is therefore
+represented by the active code `euro_6e_bis` with the display name `Euro 6e BIS`.
+
+The existing `emission_standard` attribute is reused. The existing `euro_6e`
+dictionary entry remains a separate value and must not be used as an automatic
+substitute for `euro_6e_bis`. A future source-data import stores the normalized
+controlled value `euro_6e_bis` and preserves the exact Polish wording, page and
+section in `notes`.
+
+The source field `Poziom Hałasu Przy 50 Km/H (DB) 67` is a different fact. It
+does not create an emission-standard value and remains deferred to a separate
+attribute-and-unit modeling package.
+
+### Current source coverage
+
+All seven reviewed Sandero and Sandero Stepway configuration PDFs contain the
+same page-6 technical field:
+
+`Norma Emisji Spalin Euro 6e BIS`
+
+The canonical attribute catalogue already contains the active enum attribute
+`emission_standard`. The emission-standard dictionary currently contains
+`Euro 6`, `Euro 6e` and `EV`, but not the exact `Euro 6e BIS` variant. No current
+configuration value uses `emission_standard`.
+
+### Consequences
+
+- This modeling package adds `euro_6e_bis` to the existing emission-standard
+  dictionary.
+- No new attribute, relation, availability record, price or configuration value
+  is introduced by the modeling package.
+- The next source-backed package imports seven dated `emission_standard` values,
+  one for each current configuration.
+- `euro_6e_bis` and `euro_6e` remain distinct controlled values.
+- The 67 dB source field remains outside this package.
