@@ -43,6 +43,10 @@ All notable changes to this project will be documented in this file.
 * Unit tests for quality-step orchestration and failure propagation.
 * Safe package workflow commands for branch creation, review and finish checks.
 * Integration tests for package workflow behavior in temporary Git repositories.
+* Durable `package-publish` command for exact manifest-driven staging, commit, finish and explicitly authorized push.
+* Versioned quality receipts bound to branch, base SHA, commit subject, exact paths, an isolated Git tree and raw file bytes.
+* Stable `handoff.json` and complete publication logs for machine-verifiable package transfer.
+* Regression coverage for receipt rejection, one-byte changes, exact staging, failed finish, failed push, safe resume and Polish UTF-8 paths.
 * Source registry for seven official Sandero and Sandero Stepway configuration documents.
 * Source-to-model, source-to-version and source-to-configuration relationships.
 * Five Sandero and Sandero Stepway trim records.
@@ -110,6 +114,8 @@ All notable changes to this project will be documented in this file.
 * Package finish enforces one commit, its exact parent and an exact committed-file manifest when a package manifest is supplied.
 * Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
 * Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
+* Successful quality output is concise while complete verbose output remains available in a file and failures replay names and tracebacks.
+* Python 3.10 keeps compile-and-test compatibility coverage, while Python 3.13 owns full data, SQLite and artifact validation.
 * All project CSV files are stored as valid UTF-8.
 * Command usage documentation reflects the current tooling.
 * Generated SQLite databases are treated as disposable local artifacts.
@@ -126,7 +132,7 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 272 tests.
+* The automated test suite now contains 298 tests.
 * The verified master-data baseline now contains 34 CSV files and 1308 rows.
 * SQLite verification now covers 34 tables and 1308 rows.
 * Configuration attribute values now contain 239 dated records.

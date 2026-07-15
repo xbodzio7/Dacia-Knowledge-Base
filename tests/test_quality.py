@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import io
+import json
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
@@ -241,6 +243,163 @@ class QualityTests(unittest.TestCase):
             "(exit code 5)",
             stderr.getvalue(),
         )
+
+
+    def test_concise_success_writes_full_log_and_summary(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            log = root / "quality.log"
+            summary = root / "summary.json"
+            database = root / "quality.sqlite"
+            steps = [
+                ("Run unit tests", ["tests"]),
+                ("Validate", ["validate"]),
+            ]
+            results = [
+                SimpleNamespace(
+                    returncode=0,
+                    stdout="",
+                    stderr=(
+                        "test_x ... ok\\n"
+                        "Ran 298 tests in 1.0s\\n"
+                        "OK\\n"
+                    ),
+                ),
+                SimpleNamespace(
+                    returncode=0,
+                    stdout="validated\\n",
+                    stderr="",
+                ),
+            ]
+            stdout = io.StringIO()
+
+            with (
+                mock.patch.object(
+                    quality,
+                    "quality_steps",
+                    return_value=steps,
+                ),
+                mock.patch.object(
+                    quality.subprocess,
+                    "run",
+                    side_effect=results,
+                ),
+                redirect_stdout(stdout),
+            ):
+                result = quality.run_quality_checks(
+                    REPOSITORY,
+                    database=database,
+                    concise=True,
+                    log_file=log,
+                    summary_file=summary,
+                )
+
+            self.assertEqual(result, 0)
+            self.assertIn("298 tests", stdout.getvalue())
+            self.assertIn(
+                "test_x ... ok",
+                log.read_text(encoding="utf-8"),
+            )
+            payload = json.loads(summary.read_text(encoding="utf-8"))
+            self.assertEqual(payload["status"], "PASS")
+            self.assertEqual(payload["tests"], 298)
+            self.assertEqual(payload["exit_code"], 0)
+
+    def test_concise_failure_replays_name_and_traceback(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            log = root / "quality.log"
+            summary = root / "summary.json"
+            failed = SimpleNamespace(
+                returncode=1,
+                stdout="",
+                stderr=(
+                    "test_polskie_znaki (tests.test_x.Case) ... FAIL\\n"
+                    "Traceback (most recent call last):\\n"
+                    "AssertionError\\n"
+                    "Ran 1 test in 0.1s\\n"
+                    "FAILED\\n"
+                ),
+            )
+            stderr = io.StringIO()
+
+            with (
+                mock.patch.object(
+                    quality,
+                    "quality_steps",
+                    return_value=[("Run unit tests", ["tests"])],
+                ),
+                mock.patch.object(
+                    quality.subprocess,
+                    "run",
+                    return_value=failed,
+                ),
+                redirect_stderr(stderr),
+            ):
+                result = quality.run_quality_checks(
+                    REPOSITORY,
+                    concise=True,
+                    log_file=log,
+                    summary_file=summary,
+                )
+
+            self.assertEqual(result, 1)
+            self.assertIn("test_polskie_znaki", stderr.getvalue())
+            self.assertIn("Traceback", stderr.getvalue())
+            payload = json.loads(summary.read_text(encoding="utf-8"))
+            self.assertEqual(payload["status"], "FAIL")
+            self.assertEqual(payload["tests"], 1)
+
+    def test_captured_mode_stops_after_first_failure(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+
+            with (
+                mock.patch.object(
+                    quality,
+                    "quality_steps",
+                    return_value=[
+                        ("First", ["first"]),
+                        ("Second", ["second"]),
+                    ],
+                ),
+                mock.patch.object(
+                    quality.subprocess,
+                    "run",
+                    return_value=SimpleNamespace(
+                        returncode=5,
+                        stdout="",
+                        stderr="boom\\n",
+                    ),
+                ) as run,
+            ):
+                result = quality.run_quality_checks(
+                    REPOSITORY,
+                    database=root / "db.sqlite",
+                    concise=True,
+                    log_file=root / "quality.log",
+                )
+
+            self.assertEqual(result, 5)
+            self.assertEqual(run.call_count, 1)
+
+    def test_parse_args_accepts_structured_outputs(self) -> None:
+        arguments = quality.parse_args(
+            [
+                "--concise",
+                "--log-file",
+                "quality.log",
+                "--summary-json",
+                "quality.json",
+                "--database",
+                "quality.sqlite",
+            ]
+        )
+
+        self.assertTrue(arguments.concise)
+        self.assertEqual(arguments.log_file, Path("quality.log"))
+        self.assertEqual(arguments.summary_json, Path("quality.json"))
+        self.assertEqual(arguments.database, Path("quality.sqlite"))
 
 
 if __name__ == "__main__":

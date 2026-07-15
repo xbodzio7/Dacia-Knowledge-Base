@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Automate safe Git package workflow checks for Dacia Knowledge Base.
-"""
+"""Automate safe Git package workflows for Dacia Knowledge Base."""
 
 from __future__ import annotations
 
@@ -13,7 +11,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import Mapping, Sequence
 
 
 class GitCommandError(RuntimeError):
@@ -41,8 +39,10 @@ GIT_CONTEXT_VARIABLES = (
 )
 
 
-def git_environment() -> dict[str, str]:
-    """Return the process environment without inherited Git context."""
+def git_environment(
+    extra: Mapping[str, str] | None = None,
+) -> dict[str, str]:
+    """Return a deterministic UTF-8 environment without ambient Git context."""
     environment = os.environ.copy()
     for variable in GIT_CONTEXT_VARIABLES:
         environment.pop(variable, None)
@@ -50,6 +50,8 @@ def git_environment() -> dict[str, str]:
     environment["PYTHONIOENCODING"] = "utf-8"
     environment["LANG"] = "C.UTF-8"
     environment["LC_ALL"] = "C.UTF-8"
+    if extra:
+        environment.update(extra)
     return environment
 
 
@@ -63,15 +65,15 @@ def run_git(
     *arguments: str,
     check: bool = True,
     capture_output: bool = True,
+    extra_environment: Mapping[str, str] | None = None,
 ) -> subprocess.CompletedProcess[str]:
     """Run Git with deterministic UTF-8 text decoding."""
     command = ["git", *arguments]
-
     try:
         completed = subprocess.run(
             command,
             cwd=repository,
-            env=git_environment(),
+            env=git_environment(extra_environment),
             check=False,
             capture_output=capture_output,
             text=True,
@@ -92,7 +94,6 @@ def run_git(
         if detail:
             message = f"{message}\n{detail}"
         raise GitCommandError(message)
-
     return completed
 
 
@@ -100,15 +101,15 @@ def run_git_bytes(
     repository: Path,
     *arguments: str,
     check: bool = True,
+    extra_environment: Mapping[str, str] | None = None,
 ) -> subprocess.CompletedProcess[bytes]:
     """Run Git and preserve byte-exact NUL-separated path output."""
     command = ["git", *arguments]
-
     try:
         completed = subprocess.run(
             command,
             cwd=repository,
-            env=git_environment(),
+            env=git_environment(extra_environment),
             check=False,
             capture_output=True,
         )
@@ -118,9 +119,9 @@ def run_git_bytes(
         ) from exc
 
     if check and completed.returncode != 0:
-        detail = (
-            completed.stderr or completed.stdout or b""
-        ).decode("utf-8", errors="replace").strip()
+        detail = (completed.stderr or completed.stdout or b"").decode(
+            "utf-8", errors="replace"
+        ).strip()
         message = (
             f"command failed ({completed.returncode}): "
             f"{' '.join(command)}"
@@ -128,7 +129,6 @@ def run_git_bytes(
         if detail:
             message = f"{message}\n{detail}"
         raise GitCommandError(message)
-
     return completed
 
 
@@ -156,10 +156,7 @@ def ensure_clean(repository: Path) -> None:
     """Require a clean index and working tree."""
     status = working_tree_status(repository)
     if status:
-        raise GitCommandError(
-            "working tree is not clean:\n"
-            f"{status}"
-        )
+        raise GitCommandError(f"working tree is not clean:\n{status}")
 
 
 def ref_exists(repository: Path, ref: str) -> bool:
@@ -178,11 +175,15 @@ def ref_exists(repository: Path, ref: str) -> bool:
 def null_separated_paths(
     repository: Path,
     *arguments: str,
+    extra_environment: Mapping[str, str] | None = None,
 ) -> set[str]:
     """Return UTF-8 paths from byte-exact NUL-separated Git output."""
-    output = run_git_bytes(repository, *arguments).stdout
+    output = run_git_bytes(
+        repository,
+        *arguments,
+        extra_environment=extra_environment,
+    ).stdout
     paths: set[str] = set()
-
     for raw_path in output.split(b"\0"):
         if not raw_path:
             continue
@@ -193,7 +194,6 @@ def null_separated_paths(
                 "Git returned a path that is not valid UTF-8"
             ) from exc
         paths.add(path.replace("\\", "/"))
-
     return paths
 
 
@@ -210,18 +210,9 @@ def untracked_paths(repository: Path) -> list[str]:
     )
 
 
-def changed_paths(repository: Path) -> list[str]:
-    """Return staged, unstaged and untracked paths."""
-    paths: set[str] = set()
-    paths.update(
-        null_separated_paths(
-            repository,
-            "diff",
-            "--name-only",
-            "-z",
-        )
-    )
-    paths.update(
+def staged_paths(repository: Path) -> list[str]:
+    """Return staged paths."""
+    return sorted(
         null_separated_paths(
             repository,
             "diff",
@@ -230,14 +221,30 @@ def changed_paths(repository: Path) -> list[str]:
             "-z",
         )
     )
-    paths.update(untracked_paths(repository))
-    return sorted(paths)
 
 
-def committed_paths(
-    repository: Path,
-    base_ref: str,
-) -> list[str]:
+def unstaged_paths(repository: Path) -> list[str]:
+    """Return tracked unstaged paths."""
+    return sorted(
+        null_separated_paths(
+            repository,
+            "diff",
+            "--name-only",
+            "-z",
+        )
+    )
+
+
+def changed_paths(repository: Path) -> list[str]:
+    """Return staged, unstaged and untracked paths."""
+    return sorted(
+        set(staged_paths(repository))
+        | set(unstaged_paths(repository))
+        | set(untracked_paths(repository))
+    )
+
+
+def committed_paths(repository: Path, base_ref: str) -> list[str]:
     """Return paths changed between the base ref and HEAD."""
     return sorted(
         null_separated_paths(
@@ -248,8 +255,6 @@ def committed_paths(
             f"{base_ref}...HEAD",
         )
     )
-
-
 
 
 def normalize_manifest_path(path: str) -> str:
@@ -263,11 +268,9 @@ def normalize_manifest_path(path: str) -> str:
         raise GitCommandError(
             f"manifest path must be repository-relative: {path!r}"
         )
-
     parts = normalized.split("/")
     if any(part in {"", ".", ".."} for part in parts):
         raise GitCommandError(f"invalid manifest path: {path!r}")
-
     return normalized
 
 
@@ -283,7 +286,6 @@ def load_manifest(path: Path) -> PackageManifest:
         raise GitCommandError(
             f"invalid package manifest JSON {path}: {exc}"
         ) from exc
-
     if not isinstance(payload, dict):
         raise GitCommandError("package manifest root must be an object")
 
@@ -300,7 +302,6 @@ def load_manifest(path: Path) -> PackageManifest:
         raise GitCommandError(
             f"unknown package manifest fields: {unknown_keys}"
         )
-
     if payload.get("version") != 1:
         raise GitCommandError("package manifest version must be 1")
 
@@ -333,16 +334,13 @@ def load_manifest(path: Path) -> PackageManifest:
             "package workflow requires expected_commits = 1"
         )
     if not isinstance(raw_paths, list) or not raw_paths:
-        raise GitCommandError(
-            "manifest paths must be a non-empty list"
-        )
+        raise GitCommandError("manifest paths must be a non-empty list")
     if not all(isinstance(item, str) for item in raw_paths):
         raise GitCommandError("manifest paths must contain only strings")
 
     paths = tuple(normalize_manifest_path(item) for item in raw_paths)
     if len(set(paths)) != len(paths):
         raise GitCommandError("manifest paths must be unique")
-
     return PackageManifest(
         branch=branch.strip(),
         base_sha=base_sha,
@@ -384,10 +382,7 @@ def verify_manifest_base(
         check=False,
     )
     if base_check.returncode != 0:
-        raise GitCommandError(
-            f"base reference does not exist: {base_ref}"
-        )
-
+        raise GitCommandError(f"base reference does not exist: {base_ref}")
     actual_base_sha = git_output(
         repository,
         "rev-parse",
@@ -413,21 +408,14 @@ def verify_review_manifest(
             f"manifest branch is {manifest.branch!r}, "
             f"current branch is {branch!r}"
         )
-
     verify_manifest_base(repository, manifest, base_ref)
-
     head_sha = git_output(repository, "rev-parse", "HEAD")
     if head_sha != manifest.base_sha:
         raise GitCommandError(
-            f"pre-commit HEAD must equal manifest base SHA "
+            "pre-commit HEAD must equal manifest base SHA "
             f"{manifest.base_sha}; found {head_sha}"
         )
-
-    exact_paths(
-        paths,
-        manifest.paths,
-        label="working tree",
-    )
+    exact_paths(paths, manifest.paths, label="working tree")
 
 
 def verify_finish_manifest(
@@ -442,9 +430,7 @@ def verify_finish_manifest(
             f"manifest branch is {manifest.branch!r}, "
             f"current branch is {branch!r}"
         )
-
     verify_manifest_base(repository, manifest, base_ref)
-
     ahead = int(
         git_output(
             repository,
@@ -458,28 +444,21 @@ def verify_finish_manifest(
             f"expected exactly {manifest.expected_commits} commit(s) "
             f"after {manifest.base_sha}; found {ahead}"
         )
-
     parent_sha = git_output(repository, "rev-parse", "HEAD^")
     if parent_sha != manifest.base_sha:
         raise GitCommandError(
             f"package commit parent must equal {manifest.base_sha}; "
             f"found {parent_sha}"
         )
-
     subject = git_output(repository, "log", "-1", "--pretty=%s")
     if subject != manifest.commit_message:
         raise GitCommandError(
-            f"commit subject differs\n"
+            "commit subject differs\n"
             f"expected: {manifest.commit_message}\n"
             f"actual:   {subject}"
         )
-
     paths = committed_paths(repository, manifest.base_sha)
-    exact_paths(
-        paths,
-        manifest.paths,
-        label="committed",
-    )
+    exact_paths(paths, manifest.paths, label="committed")
     return paths
 
 
@@ -487,27 +466,19 @@ def path_is_allowed(path: str, allowed: Sequence[str]) -> bool:
     """Return whether a path is covered by an allowed file or directory."""
     if not allowed:
         return True
-
     normalized_path = path.replace("\\", "/")
-
     for candidate in allowed:
-        normalized_candidate = (
-            candidate.replace("\\", "/").rstrip("/")
-        )
+        normalized_candidate = candidate.replace("\\", "/").rstrip("/")
         if not normalized_candidate:
             continue
         if normalized_path == normalized_candidate:
             return True
         if normalized_path.startswith(f"{normalized_candidate}/"):
             return True
-
     return False
 
 
-def ahead_behind(
-    repository: Path,
-    base_ref: str,
-) -> tuple[int, int]:
+def ahead_behind(repository: Path, base_ref: str) -> tuple[int, int]:
     """Return commits behind and ahead of the base ref."""
     output = git_output(
         repository,
@@ -526,51 +497,39 @@ def print_section(title: str) -> None:
     print(f"===== {title} =====")
 
 
-def print_git_output(
-    repository: Path,
-    *arguments: str,
-) -> None:
+def print_git_output(repository: Path, *arguments: str) -> None:
     """Print output from a Git command when it is not empty."""
     output = git_output(repository, *arguments)
     if output:
         print(output)
 
 
-def print_untracked_files(
-    repository: Path,
-    paths: Sequence[str],
-) -> None:
+def print_untracked_files(repository: Path, paths: Sequence[str]) -> None:
     """Print reviewable pseudo-diffs for untracked files."""
     print_section("UNTRACKED FILES")
     if not paths:
         print("(none)")
         return
-
     for path in paths:
         target = repository / path
         print("--- /dev/null")
         print(f"+++ b/{path}")
-
         try:
             data = target.read_bytes()
         except OSError as exc:
             print(f"[cannot read file: {exc}]")
             continue
-
         if b"\0" in data:
             print(f"[binary file: {len(data)} bytes]")
             continue
-
         try:
             text = data.decode("utf-8")
         except UnicodeDecodeError:
             print(f"[non-UTF-8 file: {len(data)} bytes]")
             continue
-
         if not text:
             print("[empty file]")
             continue
-
         for line in text.splitlines():
             print(f"+{line}")
         if not text.endswith(("\n", "\r")):
@@ -580,7 +539,6 @@ def print_untracked_files(
 def run_quality(repository: Path) -> int:
     """Run the complete project quality gate."""
     dkb = repository / "tools" / "dkb.py"
-
     try:
         completed = subprocess.run(
             [sys.executable, str(dkb), "quality"],
@@ -594,7 +552,6 @@ def run_quality(repository: Path) -> int:
             file=sys.stderr,
         )
         return 1
-
     return completed.returncode
 
 
@@ -607,12 +564,8 @@ def start_package(
 ) -> int:
     """Synchronize the base branch and create a package branch."""
     if current_branch(repository) != base:
-        raise GitCommandError(
-            f"package start requires branch {base!r}"
-        )
-
+        raise GitCommandError(f"package start requires branch {base!r}")
     ensure_clean(repository)
-
     branch_check = run_git(
         repository,
         "check-ref-format",
@@ -639,27 +592,19 @@ def start_package(
         base,
         capture_output=False,
     )
-
     ensure_clean(repository)
 
     local_ref = f"refs/heads/{branch}"
     remote_ref = f"refs/remotes/{remote}/{branch}"
-
     if ref_exists(repository, local_ref):
-        raise GitCommandError(
-            f"local branch already exists: {branch}"
-        )
+        raise GitCommandError(f"local branch already exists: {branch}")
     if ref_exists(repository, remote_ref):
         raise GitCommandError(
             f"remote branch already exists: {remote}/{branch}"
         )
 
     base_sha = git_output(repository, "rev-parse", base)
-    remote_sha = git_output(
-        repository,
-        "rev-parse",
-        f"{remote}/{base}",
-    )
+    remote_sha = git_output(repository, "rev-parse", f"{remote}/{base}")
     if base_sha != remote_sha:
         raise GitCommandError(
             f"{base} is not synchronized with {remote}/{base}"
@@ -673,17 +618,11 @@ def start_package(
         branch,
         capture_output=False,
     )
-
     print_section("PACKAGE STARTED")
     print(f"Branch : {current_branch(repository)}")
     print(f"Base   : {remote}/{base}")
     print(f"Commit : {git_output(repository, 'rev-parse', 'HEAD')}")
-    print_git_output(
-        repository,
-        "status",
-        "--short",
-        "--branch",
-    )
+    print_git_output(repository, "status", "--short", "--branch")
     return 0
 
 
@@ -695,6 +634,8 @@ def review_package(
     base_ref: str = "origin/main",
     quality: bool = False,
     show_diff: bool = False,
+    receipt_path: Path | None = None,
+    quality_log: Path | None = None,
 ) -> int:
     """Review working-tree scope and optionally run quality checks."""
     branch = current_branch(repository)
@@ -702,7 +643,6 @@ def review_package(
         raise GitCommandError(
             "package review must run on a package branch"
         )
-
     paths = changed_paths(repository)
     untracked = untracked_paths(repository)
     if not paths:
@@ -715,38 +655,27 @@ def review_package(
             raise GitCommandError(
                 "--allow cannot be combined with --manifest"
             )
-        verify_review_manifest(
-            repository,
-            manifest,
-            base_ref,
-            paths,
-        )
+        verify_review_manifest(repository, manifest, base_ref, paths)
         allowed = manifest.paths
-
         print_section("PACKAGE MANIFEST")
         print(f"Branch : {manifest.branch}")
         print(f"Base   : {manifest.base_sha}")
         print(f"Subject: {manifest.commit_message}")
         print(f"Files  : {len(manifest.paths)}")
+    elif receipt_path is not None or quality_log is not None:
+        raise GitCommandError(
+            "quality receipt options require --manifest"
+        )
 
     print_section("PACKAGE STATUS")
-    print_git_output(
-        repository,
-        "status",
-        "--short",
-        "--branch",
-    )
-
+    print_git_output(repository, "status", "--short", "--branch")
     print_section("CHANGED PATHS")
     for path in paths:
         print(path)
 
     outside_scope = [
-        path
-        for path in paths
-        if not path_is_allowed(path, allowed)
+        path for path in paths if not path_is_allowed(path, allowed)
     ]
-
     if allowed:
         print_section("ALLOWED SCOPE")
         for item in allowed:
@@ -808,7 +737,18 @@ def review_package(
 
     if quality:
         print_section("QUALITY")
-        quality_result = run_quality(repository)
+        if manifest is not None and receipt_path is not None:
+            from package_receipt import run_quality_and_write_receipt
+
+            quality_result = run_quality_and_write_receipt(
+                repository,
+                manifest,
+                base_ref=base_ref,
+                receipt_path=receipt_path,
+                log_path=quality_log,
+            )
+        else:
+            quality_result = run_quality(repository)
         if quality_result != 0:
             return quality_result
 
@@ -829,15 +769,10 @@ def finish_package(
         raise GitCommandError(
             "package finish must run on a package branch"
         )
-
     ensure_clean(repository)
 
     if manifest is not None:
-        paths = verify_finish_manifest(
-            repository,
-            manifest,
-            base_ref,
-        )
+        paths = verify_finish_manifest(repository, manifest, base_ref)
         comparison_ref = manifest.base_sha
         ahead = manifest.expected_commits
     else:
@@ -850,10 +785,7 @@ def finish_package(
             check=False,
         )
         if base_check.returncode != 0:
-            raise GitCommandError(
-                f"base reference does not exist: {base_ref}"
-            )
-
+            raise GitCommandError(f"base reference does not exist: {base_ref}")
         behind, ahead = ahead_behind(repository, base_ref)
         if ahead == 0:
             raise GitCommandError(
@@ -863,7 +795,6 @@ def finish_package(
             raise GitCommandError(
                 f"branch is {behind} commit(s) behind {base_ref}"
             )
-
         comparison_ref = base_ref
         paths = committed_paths(repository, base_ref)
 
@@ -886,7 +817,6 @@ def finish_package(
     print(f"HEAD   : {git_output(repository, 'rev-parse', 'HEAD')}")
     print(f"Commits: {ahead}")
     print(f"Files  : {len(paths)}")
-
     if manifest is not None:
         print(f"Subject: {manifest.commit_message}")
         print("Manifest: PASS")
@@ -899,11 +829,9 @@ def finish_package(
         "--decorate",
         f"{comparison_ref}..HEAD",
     )
-
     print_section("CHANGED PATHS")
     for path in paths:
         print(path)
-
     print_section("DIFF STAT")
     print_git_output(
         repository,
@@ -928,23 +856,17 @@ def finish_package(
     else:
         print("Upstream: not configured")
         print(f"Command : git push -u origin {branch}")
-
     print_section("PACKAGE FINISH CHECK")
     print("PASS")
     return 0
 
 
-def parse_args(
-    argv: Sequence[str] | None = None,
-) -> argparse.Namespace:
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     """Parse package workflow arguments."""
     parser = argparse.ArgumentParser(
         description="Automate safe Git package workflow checks."
     )
-    subparsers = parser.add_subparsers(
-        dest="action",
-        required=True,
-    )
+    subparsers = parser.add_subparsers(dest="action", required=True)
 
     start_parser = subparsers.add_parser(
         "start",
@@ -968,8 +890,7 @@ def parse_args(
             "scope entries."
         ),
     )
-    review_scope = review_parser.add_mutually_exclusive_group()
-    review_scope.add_argument(
+    review_parser.add_argument(
         "--manifest",
         type=Path,
         help="Validate exact branch, base SHA, subject and path manifest.",
@@ -989,21 +910,33 @@ def parse_args(
         action="store_true",
         help="Print staged and unstaged diffs.",
     )
+    review_parser.add_argument(
+        "--receipt",
+        type=Path,
+        help=(
+            "Write a reusable quality receipt. Requires --manifest and "
+            "--quality. Defaults beside the manifest."
+        ),
+    )
+    review_parser.add_argument(
+        "--quality-log",
+        type=Path,
+        help=(
+            "Write the full quality log. Requires --manifest and "
+            "--quality. Defaults beside the manifest."
+        ),
+    )
 
     finish_parser = subparsers.add_parser(
         "finish",
         help="Verify committed package state before push.",
     )
-    finish_parser.add_argument(
-        "--base-ref",
-        default="origin/main",
-    )
+    finish_parser.add_argument("--base-ref", default="origin/main")
     finish_parser.add_argument(
         "--manifest",
         type=Path,
         help="Validate the exact one-commit package contract.",
     )
-
     return parser.parse_args(argv)
 
 
@@ -1011,7 +944,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     """Run the selected package workflow action."""
     arguments = parse_args(argv)
     repository = repository_root()
-
     try:
         if arguments.action == "start":
             return start_package(
@@ -1026,6 +958,22 @@ def main(argv: Sequence[str] | None = None) -> int:
                 if arguments.manifest is not None
                 else None
             )
+            if (
+                (arguments.receipt is not None or arguments.quality_log is not None)
+                and (arguments.manifest is None or not arguments.quality)
+            ):
+                raise GitCommandError(
+                    "--receipt and --quality-log require --manifest --quality"
+                )
+            receipt_path = arguments.receipt
+            quality_log = arguments.quality_log
+            if manifest is not None and arguments.quality:
+                receipt_path = receipt_path or arguments.manifest.with_name(
+                    "quality-receipt.json"
+                )
+                quality_log = quality_log or arguments.manifest.with_name(
+                    "quality.log"
+                )
             return review_package(
                 repository,
                 allowed=arguments.allow,
@@ -1033,6 +981,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 base_ref=arguments.base_ref,
                 quality=arguments.quality,
                 show_diff=arguments.show_diff,
+                receipt_path=receipt_path,
+                quality_log=quality_log,
             )
         if arguments.action == "finish":
             manifest = (

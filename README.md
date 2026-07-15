@@ -194,6 +194,17 @@ kodowanie i dane, a następnie buduje i porównuje tymczasową
 bazę SQLite. Zatrzymuje się na pierwszym nieudanym etapie.
 Tymczasowa baza jest automatycznie usuwana.
 
+Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
+wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
+nazwy testów oraz tracebacki:
+
+```bash
+python tools/dkb.py quality \
+  --concise \
+  --log-file ../quality.log \
+  --summary-json ../quality-summary.json
+```
+
 ### Automatyzacja pakietów zmian
 
 Rozpoczęcie pakietu synchronizuje `main`, sprawdza czystość repozytorium
@@ -228,9 +239,25 @@ pre-commitowego `HEAD` równego bazie oraz dokładnego zestawu plików:
 python tools/dkb.py package-review --manifest ../package.json --quality --show-diff
 ```
 
-Po utworzeniu commitu końcowa kontrola dodatkowo wymaga dokładnie jednego
-commitu, rodzica równego `base_sha`, zgodnego tematu i identycznego manifestu
-zatwierdzonych plików. Sam push pozostaje operacją jawną:
+Przegląd z pełną jakością zapisuje obok manifestu `quality-receipt.json` oraz
+pełny `quality.log`. Receipt jest związany z gałęzią, bazowym SHA, tematem,
+dokładnym zestawem ścieżek, drzewem z tymczasowego indeksu Git i surowym
+SHA-256 bajtów plików.
+
+Trwała publikacja sprawdza pusty staging i brak dodatkowych zmian, bezpiecznie
+ponownie używa wyłącznie dokładnego receipt, stage'uje tylko manifest, wykonuje
+`git diff --cached --check`, tworzy jeden commit i uruchamia `package-finish`:
+
+```bash
+python tools/dkb.py package-publish --manifest ../package.json
+```
+
+Obok `package-publish.log` powstaje mały `handoff.json`. Push jest wykonywany
+wyłącznie po jawnej fladze `--push`; bez niej publikacja kończy się na lokalnym
+commicie i kontroli finish. Ponowne uruchomienie bezpiecznie wznawia dokładny,
+już utworzony commit zamiast tworzyć drugi.
+
+Końcową kontrolę można nadal uruchomić osobno:
 
 ```bash
 python tools/dkb.py package-finish --manifest ../package.json
@@ -306,8 +333,10 @@ Workflow `.github/workflows/quality.yml` uruchamia kontrolę jakości:
 * dla każdego Pull Requestu,
 * ręcznie przez `workflow_dispatch`.
 
-Pełna kontrola jest wykonywana w Pythonie 3.10 oraz 3.13. Dodatkowy
-job Windows uruchamia testy workflow pakietów, CLI i środowiska UTF-8.
+Python 3.10 wykonuje kompilację i pełny zestaw testów kompatybilności.
+Python 3.13 wykonuje kompilację, testy, kontrolę CSV, walidację danych, budowę
+i weryfikację SQLite oraz generowanie artefaktów. Dodatkowy job Windows
+uruchamia regresje workflow, receipt, publikacji, CLI i UTF-8.
 
 Kontrola obejmuje:
 
@@ -344,7 +373,7 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 272 testy, 34 pliki CSV, 1308 rekordów
+Zweryfikowany model obejmuje 298 testów, 34 pliki CSV, 1308 rekordów
 danych, 34 relacje między tabelami, 239 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 350 kanonicznych atrybutów
 i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1308 rekordów,

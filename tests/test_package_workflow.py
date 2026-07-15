@@ -491,5 +491,51 @@ class PackageWorkflowTests(unittest.TestCase):
         )
 
 
+    def test_review_manifest_quality_writes_default_receipt(self) -> None:
+        self.start_branch()
+        target = self.repository / "tools" / "example.py"
+        target.parent.mkdir()
+        target.write_text("print('ok')\\n", encoding="utf-8")
+        manifest = self.write_manifest()
+
+        with mock.patch(
+            "package_receipt.run_quality_and_write_receipt",
+            return_value=0,
+        ) as run_quality:
+            result, _, stderr = self.run_main(
+                [
+                    "review",
+                    "--manifest",
+                    str(manifest),
+                    "--quality",
+                ]
+            )
+
+        self.assertEqual(result, 0, stderr)
+        run_quality.assert_called_once_with(
+            self.repository,
+            mock.ANY,
+            base_ref="origin/main",
+            receipt_path=self.root / "quality-receipt.json",
+            log_path=self.root / "quality.log",
+        )
+
+    def test_review_rejects_receipt_without_quality(self) -> None:
+        manifest = self.write_manifest()
+
+        result, _, stderr = self.run_main(
+            [
+                "review",
+                "--manifest",
+                str(manifest),
+                "--receipt",
+                str(self.root / "receipt.json"),
+            ]
+        )
+
+        self.assertEqual(result, 1)
+        self.assertIn("require --manifest --quality", stderr)
+
+
 if __name__ == "__main__":
     unittest.main()

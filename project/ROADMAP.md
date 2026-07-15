@@ -150,48 +150,50 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 272 testy automatyczne,
+- 298 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
-- kontrola jakości w CI na Pythonie 3.10 i 3.13,
+- kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
+- pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
 - wersjonowany manifest pakietu z dokładną gałęzią, bazą, tematem i zakresem,
+- receipt jakości z drzewem tymczasowego indeksu Git i surowym hashem bajtów,
+- trwała, wznowialna komenda `package-publish` z dokładnym stagingiem,
+- mały `handoff.json`, pełny log i zwięzłe logi sukcesu,
 - bezpieczne dekodowanie UTF-8 oraz bajtowe listy ścieżek Git,
 - polityka LF w `.gitattributes`,
-- regresyjne testy workflow na Windows.
+- regresyjne testy workflow, receipt i publikacji na Windows.
 
 ---
 
 # Current Sprint
 
-## Package Workflow Hardening
+## Manifest-driven Package Publishing
 
 Cel sprintu:
 
-- wymusić deterministyczne UTF-8 dla procesów Git i jakości,
-- zachować bajtowe, NUL-separowane odczyty ścieżek,
-- dodać wersjonowany manifest JSON do `package-review` i `package-finish`,
-- wymagać dokładnej gałęzi, bazowego SHA i manifestu plików przed commitem,
-- wymagać jednego commitu, dokładnego rodzica i zgodnego tematu po commicie,
-- dodać `.gitattributes` z polityką LF,
-- uruchamiać regresyjne testy workflow na Windows,
-- zachować kompatybilność dotychczasowych komend bez manifestu,
-- zakończyć pakiet pełną kontrolą jakości.
+- dodać trwałą i wznowialną komendę `package-publish`,
+- wiązać receipt jakości z dokładnym manifestem, drzewem Git i surowymi bajtami,
+- odrzucać każdą zmianę gałęzi, bazy, tematu, ścieżek lub zawartości,
+- wymagać pustego stagingu i stage'ować wyłącznie ścieżki manifestu,
+- tworzyć dokładnie jeden commit i uruchamiać `package-finish`,
+- generować mały `handoff.json` obok pełnego logu,
+- skrócić log sukcesu bez utraty pełnych błędów,
+- ograniczyć duplikację walidacji danych i SQLite w CI,
+- zachować kompatybilność testów na Pythonie 3.10, 3.13 i Windows.
 
 ---
 
 # Next Sprint
 
-## Manifest-driven Package Publishing
+## Sandero Maximum Payload Value Import
 
 Cel sprintu:
 
-- dodać trwałą komendę `package-publish`,
-- generować receipt jakości związany z hashem stanu pakietu,
-- pomijać ponowną pełną jakość tylko dla niezmienionego, zweryfikowanego stanu,
-- generować mały `handoff.json` obok pełnego logu,
-- skrócić log sukcesu bez utraty szczegółów błędów,
-- ograniczyć duplikację walidacji danych i SQLite w CI,
-- po zakończeniu toolingowego usprawnienia wrócić do importu
-  `maximum_payload`.
+- zaimportować siedem jawnych wartości `maximum_payload` dla konfiguracji Sandero,
+- użyć kolejnych ID 240-246 i daty obserwacji 2026-06-26,
+- zachować stronę 5, sekcję `Dopuszczalna masa całkowita` i dokładne pole źródłowe,
+- pozostawić `fuel_type_code` puste,
+- nie wyliczać ładowności z innych mas i nie zmieniać istniejących wartości,
+- nie zmieniać dostępności wyposażenia ani cen.
 
 # Backlog
 

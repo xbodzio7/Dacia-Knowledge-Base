@@ -5,14 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#35. Aktualny punkt odniesienia to merge commit
-`2dc82ea0`.
+Pull Requesty #3–#36. Aktualny punkt odniesienia to merge commit
+`2b316718245bd19918cf44afc2da7a45d4cebaf0`.
 
-PR #35 dodał kanoniczny atrybut `maximum_payload` i decyzję D-021.
-GitHub Actions Quality run #99 zakończył się powodzeniem.
+PR #36 utwardził workflow pakietów, manifesty, UTF-8, politykę LF i regresje
+Windows. GitHub Actions Quality run #101 zakończył się powodzeniem.
 
 Bieżący pakiet toolingowy jest rozwijany na gałęzi
-`tooling/package-workflow-hardening`.
+`tooling/manifest-driven-package-publishing` z bazą dokładnie
+`2b316718245bd19918cf44afc2da7a45d4cebaf0`.
 
 ## Verified Quality Baseline
 
@@ -22,7 +23,7 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 272 testy automatyczne zakończone powodzeniem,
+- 298 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1308 rekordów danych,
 - 34 relacje między tabelami,
@@ -38,44 +39,45 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Package Workflow Hardening.
+Manifest-driven Package Publishing.
 
 Zakres:
 
-- deterministyczne UTF-8 dla procesów Git i jakości,
-- bajtowe odczyty NUL-separowanych ścieżek,
-- wersjonowany manifest JSON dla kontroli przed i po commicie,
-- dokładna gałąź, baza SHA, temat, rodzic i zestaw plików,
-- polityka LF w `.gitattributes`,
-- osiem nowych testów regresyjnych manifestu,
-- regresyjne testy workflow na Windows,
-- zachowanie kompatybilności komend bez manifestu.
+- trwała komenda `package-publish`,
+- receipt jakości związany z gałęzią, bazą, tematem, ścieżkami i bajtami,
+- stabilne drzewo obliczane przez tymczasowy indeks Git,
+- pusty staging i dokładne stage'owanie manifestu,
+- dokładnie jeden commit, obowiązkowy `package-finish` i jawny push,
+- wznowienie po nieudanym finish lub push bez drugiego commitu,
+- mały `handoff.json` i pełny log publikacji,
+- zwięzłe logi sukcesu z pełnymi nazwami i tracebackami przy błędzie,
+- 26 nowych testów regresyjnych, w tym polskie znaki i Windows,
+- ograniczenie duplikacji walidacji danych oraz SQLite w CI.
 
 ## Current Phase
 
 Aktualna faza to **Tooling Hardening**.
 
-Pakiet usuwa konieczność kopiowania podstawowych kontraktów Git do każdego
-runnera. Manifest pakietu staje się pojedynczym kontraktem dla kontroli przed
-commitem i `package-finish`, natomiast commit, push, Pull Request i merge
-pozostają operacjami jawnymi.
+Pakiet przenosi publikację do trwałego narzędzia repozytorium. Receipt może
+zostać użyty ponownie tylko dla bajtowo identycznego stanu, a `package-publish`
+samodzielnie kontroluje staging, commit, finish, handoff i opcjonalny jawny push.
+Pull Request i merge pozostają operacjami wykonywanymi przez GitHub po
+przedstawieniu handoffu PASS.
 
 Model danych pozostaje bez zmian: 34 pliki CSV, 1308 rekordów, 350 atrybutów,
 239 wartości konfiguracji, 419 rekordów dostępności i 7 cen.
 
 ## Next Development Package
 
-Manifest-driven Package Publishing.
+Sandero Maximum Payload Value Import.
 
 Planowany przebieg:
 
-1. Dodać trwałą komendę `package-publish`.
-2. Zapisać receipt jakości związany z dokładnym stanem plików.
-3. Ponownie użyć wyniku jakości wyłącznie dla niezmienionego stanu.
-4. Generować mały `handoff.json` obok pełnego logu.
-5. Skrócić log sukcesu i zachować pełne informacje przy błędzie.
-6. Ograniczyć podwójne wykonywanie walidacji danych i SQLite w CI.
-7. Następnie wrócić do Sandero Maximum Payload Value Import.
+1. Dodać siedem jawnych wartości `maximum_payload` z ID 240-246.
+2. Zachować datę 2026-06-26, dokładne źródła, stronę 5, sekcję i pole.
+3. Pozostawić `fuel_type_code` puste.
+4. Nie wyliczać ładowności z masy całkowitej i masy własnej.
+5. Nie zmieniać dostępności, cen ani istniejących wartości mas.
 
 ## Working Mode
 
@@ -93,9 +95,10 @@ Git Bash służy do generowania zmian, testów i kontroli stanu. Git GUI
 może służyć do przeglądania różnic, stagingu, commitów i pushowania.
 
 Powtarzalne kontrole pakietu są dostępne przez `package-start`,
-`package-review` i `package-finish`. Publikowane pakiety używają manifestu
-JSON z dokładną gałęzią, bazą SHA, tematem commitu i zestawem plików. Commit,
-push, utworzenie Pull Requestu oraz merge pozostają operacjami jawnymi.
+`package-review`, `package-publish` i `package-finish`. Publikowane pakiety
+używają manifestu JSON oraz receipt z dokładnym stanem plików. `package-publish`
+może utworzyć lokalny commit, natomiast push wymaga jawnej flagi `--push`.
+Utworzenie Pull Requestu oraz merge pozostają osobnymi operacjami GitHub.
 
 ## Project Rules
 
