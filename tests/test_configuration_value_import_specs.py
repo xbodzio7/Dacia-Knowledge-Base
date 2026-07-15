@@ -43,6 +43,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-engine-torque-lpg-20260626.json",
                 "sandero-engine-torque-petrol-20260626.json",
                 "sandero-maximum-payload-20260626.json",
+                "sandero-total-valve-count-20260626.json",
             ],
         )
         self.assertTrue(
