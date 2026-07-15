@@ -18,6 +18,12 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "import-configuration-values": (
+        "import_configuration_values.py",
+        "Apply or verify one declarative configuration-value import.",
+        "--spec FILE [--apply | --verify] [--skip-source-text] "
+        "[--skip-source-files]",
+    ),
     "package-publish": (
         "package_publish.py",
         "Publish one exact manifest-driven package.",
@@ -124,6 +130,11 @@ def usage() -> None:
     print("  python tools/dkb.py validate")
     print("  python tools/dkb.py normalize")
     print("  python tools/dkb.py normalize --apply")
+    print(
+        "  python tools/dkb.py import-configuration-values "
+        "--spec data/imports/configuration_values/example.json "
+        "--verify"
+    )
     print("  python tools/dkb.py quality")
     print(
         "  python tools/dkb.py quality --concise "
