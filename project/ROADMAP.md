@@ -138,6 +138,7 @@ Data Expansion
 - decyzja D-021 — source-stated maximum payload,
 - aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
 - zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
+- 7 datowanych wartości `maximum_payload` od 371 do 385 kg z pełną proweniencją.
 
 ## Tooling
 
@@ -150,7 +151,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 306 testów automatycznych,
+- 324 testy automatyczne,
 - 34 deklarowane relacje między tabelami,
 - kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
 - pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
@@ -161,37 +162,41 @@ Data Expansion
 - bezpieczne dekodowanie UTF-8 oraz bajtowe listy ścieżek Git,
 - polityka LF w `.gitattributes`,
 - regresyjne testy workflow, receipt i publikacji na Windows.
+- deklaratywne specyfikacje JSON dla importów wartości konfiguracji,
+- wspólne testy kontraktu skanujące wszystkie specyfikacje importów,
+- zbiorcza aktualizacja README i changeloga zamiast zmian w każdym małym imporcie.
 
 ---
 
 # Current Sprint
 
-## Sandero Maximum Payload Value Import
+## Declarative Configuration Value Imports
 
 Cel sprintu:
 
-- zweryfikować siedem źródeł PDF przez SHA-256,
-- zaimportować siedem jawnych wartości `maximum_payload`,
-- użyć kolejnych ID 240-246 i daty obserwacji 2026-06-26,
-- zachować dokładne wartości 371-385 kg bez wyliczania ich z innych mas,
-- zachować stronę 5, sekcję `Dopuszczalna masa całkowita` i pole `Maksymalna Ładowność (Kg)`,
-- pozostawić `fuel_type_code` puste,
-- nie zmieniać istniejących wartości mas, dostępności wyposażenia ani cen,
-- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
+- dodać wersjonowane specyfikacje JSON dla importów wartości konfiguracji,
+- dodać bezpieczne tryby planowania, `--apply` i `--verify`,
+- walidować kontrakt atrybutu, ID, kody, konfiguracje, źródła i kontekst paliwa,
+- weryfikować zarejestrowany SHA-256 źródła oraz dokładny tekst strony PDF,
+- zapisać istniejący import `maximum_payload` jako pierwszą specyfikację,
+- zastąpić jednorazowy duży moduł testowy wspólnymi testami wszystkich specyfikacji,
+- ograniczyć aktualizacje README i changeloga do pakietów zbiorczych lub kamieni milowych,
+- zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Data Expansion Continuation
+## Sandero Data Expansion with Declarative Specs
 
 Cel sprintu:
 
-- przejrzeć pozostałe jawne, źródłowe wartości techniczne dla bieżących konfiguracji,
-- wybierać wyłącznie fakty obecne w zarejestrowanych źródłach,
-- nie wyliczać ani nie zgadywać brakujących parametrów,
-- rozdzielać modelowanie nowych pojęć od importu wartości,
-- zachować datę, źródło i dokładne brzmienie każdej obserwacji.
+- wybrać kilka jednoznacznych, istniejących atrybutów z bieżących źródeł,
+- opisać import małymi specyfikacjami JSON zamiast osobnymi dużymi runnerami,
+- użyć wspólnych testów kontraktu bez tworzenia testu dla każdego pola,
+- grupować wyłącznie fakty niewymagające nowej decyzji architektonicznej,
+- zachować datę, źródło, stronę i dokładne brzmienie każdej obserwacji,
+- nie aktualizować README ani changeloga do najbliższego pakietu zbiorczego.
 
 # Backlog
 

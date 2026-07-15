@@ -244,6 +244,47 @@ class DkbCliTests(unittest.TestCase):
         )
 
 
+
+    def test_help_includes_configuration_value_import(self) -> None:
+        stdout = io.StringIO()
+
+        with redirect_stdout(stdout):
+            result = dkb.main([])
+
+        self.assertEqual(result, 0)
+        self.assertIn(
+            "import-configuration-values",
+            stdout.getvalue(),
+        )
+
+    def test_forwards_configuration_value_import_arguments(self) -> None:
+        completed = SimpleNamespace(returncode=9)
+
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "import-configuration-values",
+                ["--spec", "spec.json", "--verify"],
+            )
+
+        self.assertEqual(result, 9)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(
+                    TOOLS_DIRECTORY
+                    / "import_configuration_values.py"
+                ),
+                "--spec",
+                "spec.json",
+                "--verify",
+            ],
+            check=False,
+        )
+
     def test_help_includes_package_publish(self) -> None:
         stdout = io.StringIO()
 

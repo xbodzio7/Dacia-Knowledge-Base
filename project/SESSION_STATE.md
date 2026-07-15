@@ -5,16 +5,15 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#37. Aktualny punkt odniesienia to merge commit
-`d4da4a7045078930522aa01e7ad1d26afa14dabf`.
+Pull Requesty #3–#38. Aktualny punkt odniesienia to merge commit
+`414c72920f4431b0a70a61913bf8206b0875eb03`.
 
-PR #37 dodał trwałe publikowanie sterowane manifestem, receipt jakości,
-ustrukturyzowany handoff i zwięzłe logi. GitHub Actions Quality run #103
-zakończył się powodzeniem.
+PR #38 zaimportował siedem źródłowych wartości `maximum_payload`.
+GitHub Actions Quality run #105 zakończył się powodzeniem.
 
-Bieżący pakiet danych jest rozwijany na gałęzi
-`data/sandero-maximum-payload-values` z bazą dokładnie
-`d4da4a7045078930522aa01e7ad1d26afa14dabf`.
+Bieżący pakiet toolingowy jest rozwijany na gałęzi
+`tooling/declarative-configuration-value-imports` z bazą dokładnie
+`414c72920f4431b0a70a61913bf8206b0875eb03`.
 
 ## Verified Quality Baseline
 
@@ -24,7 +23,7 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 306 testów automatycznych zakończonych powodzeniem,
+- 324 testy automatyczne zakończone powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1315 rekordów danych,
 - 34 relacje między tabelami,
@@ -40,43 +39,43 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Sandero Maximum Payload Value Import.
+Declarative Configuration Value Imports.
 
 Zakres:
 
-- weryfikacja siedmiu PDF przez SHA-256,
-- import siedmiu datowanych wartości `maximum_payload`,
-- dokładne wartości 373, 371, 385, 380, 376, 377 i 375 kg,
-- kolejne ID 240-246 i data obserwacji 2026-06-26,
-- strona 5, sekcja `Dopuszczalna masa całkowita` i dokładne pole źródłowe,
-- pusty kontekst paliwa,
-- brak zmian istniejących mas, dostępności wyposażenia i cen,
-- osiem nowych testów regresyjnych i trwała granica model/import.
+- wersjonowany format JSON dla importów `configuration_attribute_values`,
+- deterministyczne generowanie ID, kodów, notatek i rekordów CSV,
+- tryby planowania, atomowego zastosowania i dokładnej weryfikacji,
+- kontrola kontraktu atrybutu, referencji, źródeł i kontekstu paliwa,
+- weryfikacja SHA-256 oraz tekstu wskazanej strony PDF,
+- pierwsza specyfikacja odtwarzająca import `maximum_payload`,
+- wspólne testy parametryczne zamiast jednorazowego modułu 196 linii,
+- rzadsza, zbiorcza aktualizacja README i changeloga.
 
 ## Current Phase
 
-Aktualna faza to **Data Expansion**.
+Aktualna faza to **Tooling Acceleration within Data Expansion**.
 
-Model obejmuje 350 kanonicznych atrybutów, 246 datowanych wartości konfiguracji
-i 419 rekordów dostępności wyposażenia. Siedem nowych rekordów przechowuje
-jawną maksymalną ładowność podaną przez źródło dla każdej bieżącej
-konfiguracji Sandero i Sandero Stepway.
+Pakiet nie zmienia danych master. Wprowadza trwały mechanizm, dzięki któremu
+kolejne proste importy mogą ograniczać się do małej specyfikacji JSON i rekordów
+CSV. Wspólne testy skanują wszystkie specyfikacje i porównują je z dokładnym
+stanem danych.
 
-Wartości `maximum_payload` są przechowywane jako samodzielne fakty źródłowe.
-Nie są wyliczane z `gross_vehicle_weight - kerb_weight` i pozostają odrębne od
-masy zespołu pojazdów, obciążenia dachu oraz parametrów holowania.
+Dokumentacja operacyjna pozostaje aktualizowana przy zmianie sposobu pracy.
+README, changelog i pełne podsumowania liczników są aktualizowane zbiorczo po
+kilku importach albo przy kamieniu milowym, a nie w każdym małym pakiecie.
 
 ## Next Development Package
 
-Sandero Data Expansion Continuation.
+Sandero Data Expansion with Declarative Specs.
 
 Planowany przebieg:
 
-1. Przejrzeć pozostałe jawne wartości techniczne w siedmiu źródłach.
-2. Wybrać wyłącznie fakty nieobjęte obecnym modelem i importami.
-3. Nie wyliczać ani nie zgadywać brakujących wartości.
-4. Dla nowych pojęć oddzielić modelowanie od importu.
-5. Zachować dokładną proweniencję źródłową.
+1. Wybrać kilka jednoznacznych wartości istniejących atrybutów.
+2. Przygotować małe specyfikacje JSON i zastosować importer.
+3. Korzystać ze wspólnych testów zamiast osobnych modułów dla każdego pola.
+4. Grupować tylko fakty niewymagające nowego modelowania.
+5. Odłożyć README i changelog do pakietu zbiorczego.
 
 ## Working Mode
 
@@ -88,7 +87,14 @@ Każdy pakiet:
 - obejmuje wyłącznie pliki związane z bieżącym zadaniem,
 - jest przeglądany przed commitem,
 - przechodzi odpowiednie testy lub pełną bramkę `quality`,
-- kończy się aktualizacją dokumentacji tylko wtedy, gdy zmienia stan projektu.
+- aktualizuje dokumentację operacyjną tylko wtedy, gdy zmienia sposób pracy.
+
+Pakiety prostych importów danych:
+
+- używają deklaratywnej specyfikacji JSON i wspólnych testów kontraktu,
+- nie tworzą osobnego dużego testu dla każdego importowanego pola,
+- nie aktualizują README, changeloga, roadmapy i historii sprintów pojedynczo,
+- są podsumowywane dokumentacyjnie po kilku importach lub przy kamieniu milowym.
 
 Git Bash służy do generowania zmian, testów i kontroli stanu. Git GUI
 może służyć do przeglądania różnic, stagingu, commitów i pushowania.
@@ -422,16 +428,29 @@ Completed:
 
 ### Sandero Maximum Payload Value Import
 
-Current package:
+Completed:
 
-- zweryfikowano siedem źródeł PDF przez SHA-256,
-- przygotowano siedem wartości `maximum_payload` z ID 240-246,
+- PR #38 zweryfikował siedem źródeł PDF przez SHA-256,
+- zaimportowano siedem wartości `maximum_payload` z ID 240-246,
 - zachowano datę, stronę 5, sekcję i dokładne pole źródłowe,
 - pozostawiono kontekst paliwa pusty,
 - nie zmieniono istniejących mas, dostępności wyposażenia ani cen,
-- dodano osiem testów regresyjnych i zaktualizowano granicę model/import.
+- dodano osiem testów regresyjnych i zaktualizowano granicę model/import,
+- GitHub Actions Quality run #105 zakończył się powodzeniem.
+
+### Declarative Configuration Value Imports
+
+Current package:
+
+- przygotowano ścisły, wersjonowany format specyfikacji JSON,
+- importer planuje, stosuje atomowo i weryfikuje dokładne rekordy,
+- kontrolowane są ID, kody, referencje, typ wartości, źródła i kontekst paliwa,
+- źródła są sprawdzane przez rejestr, SHA-256 i tekst wskazanej strony,
+- istniejący import `maximum_payload` jest pierwszą specyfikacją,
+- duży test jednorazowy zastępują wspólne testy wszystkich specyfikacji,
+- README i changelog przechodzą na aktualizacje zbiorcze.
 
 Next priority:
 
-Kontynuować źródłowe rozszerzanie danych bez wyliczania lub zgadywania
-brakujących parametrów.
+Wykorzystać deklaratywny importer do grupowego importu kilku jednoznacznych
+wartości istniejących atrybutów.
