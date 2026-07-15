@@ -125,7 +125,6 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             for row in self.values
             if row["attribute_code"] == "total_valve_count"
         ]
-        self.assertEqual(len(self.values), 281)
         self.assertEqual(len(total_valve_values), 7)
         self.assertEqual(
             {

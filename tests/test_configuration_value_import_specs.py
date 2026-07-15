@@ -38,6 +38,8 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
         self.assertEqual(
             [path.name for path in self.paths],
             [
+                "sandero-acceleration-0-100-lpg-20260626.json",
+                "sandero-acceleration-0-100-petrol-20260626.json",
                 "sandero-engine-power-lpg-20260626.json",
                 "sandero-engine-power-petrol-20260626.json",
                 "sandero-engine-torque-lpg-20260626.json",
