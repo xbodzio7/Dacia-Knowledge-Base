@@ -119,13 +119,28 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
         self.assertNotIn("valve_count", actual)
         self.assertNotIn("number_of_valves", actual)
 
-    def test_model_package_adds_no_total_valve_configuration_values(self) -> None:
-        self.assertEqual(len(self.values), 274)
-        self.assertFalse(
-            any(
-                row["attribute_code"] == "total_valve_count"
-                for row in self.values
-            )
+    def test_import_uses_existing_total_valve_count_attribute(self) -> None:
+        total_valve_values = [
+            row
+            for row in self.values
+            if row["attribute_code"] == "total_valve_count"
+        ]
+        self.assertEqual(len(self.values), 281)
+        self.assertEqual(len(total_valve_values), 7)
+        self.assertEqual(
+            {
+                row["configuration_code"]
+                for row in total_valve_values
+            },
+            set(EXPECTED_MAPPING),
+        )
+        self.assertEqual(
+            {row["value"] for row in total_valve_values},
+            {"12"},
+        )
+        self.assertEqual(
+            {row["fuel_type_code"] for row in total_valve_values},
+            {""},
         )
 
     def test_existing_engine_observations_are_not_rewritten(self) -> None:
