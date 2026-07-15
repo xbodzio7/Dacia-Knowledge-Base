@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 296,
+  "attribute_code": "standing_km",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "s",
+    "status": "active"
+  },
+  "observation_date": "2026-06-26",
+  "fuel_type_code": "lpg",
+  "source_page": 5,
+  "source_section": "Osiągi",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "value": "32.1",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,1 (LPG) / 33,1"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "value": "32.1",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,1 (LPG) / 33,1"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "value": "32.4",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,4 (LPG) / 33,4"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "value": "32.1",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,1 (LPG) / 33,1"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "value": "32.4",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,4 (LPG) / 33,4"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "value": "32.1",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,1 (LPG) / 33,1"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "value": "32.4",
+      "source_text": "1000 M Ze Startu Zatrzymanego (S) 32,4 (LPG) / 33,4"
+    }
+  ]
+}
