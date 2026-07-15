@@ -42,30 +42,25 @@ jobs:
         run: python --version
 
       - name: Compile Python sources
+        if: matrix.python-version == '3.10'
         run: python -m compileall -q tools scripts tests
 
       - name: Run unit tests
+        if: matrix.python-version == '3.10'
         run: |
           python -m unittest discover \
             -s tests \
             -p "test_*.py" \
-            -v
+            -q
 
-      - name: Check CSV encoding
-        run: python tools/dkb.py normalize
-
-      - name: Validate repository data
-        run: python tools/dkb.py validate
-
-      - name: Build SQLite database
+      - name: Run full quality gate
+        if: matrix.python-version == '3.13'
         run: |
-          python tools/dkb.py sqlite \
-            --output "${RUNNER_TEMP}/dacia_knowledge_base.sqlite"
-
-      - name: Verify SQLite database
-        run: |
-          python tools/dkb.py sqlite-verify \
-            "${RUNNER_TEMP}/dacia_knowledge_base.sqlite"
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
 
       - name: Upload generated artifacts
         if: matrix.python-version == '3.13'
@@ -74,6 +69,8 @@ jobs:
           name: dacia-knowledge-base-build
           path: |
             ${{ runner.temp }}/dacia_knowledge_base.sqlite
+            ${{ runner.temp }}/quality.log
+            ${{ runner.temp }}/quality-summary.json
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7
@@ -96,9 +93,11 @@ jobs:
       - name: Show Python version
         run: python --version
 
-      - name: Run package workflow tests
+      - name: Run package publishing tests
         run: |
-          python -m unittest -v `
+          python -m unittest -q `
             tests.test_package_workflow `
+            tests.test_package_receipt `
+            tests.test_package_publish `
             tests.test_dkb_cli `
             tests.test_quality

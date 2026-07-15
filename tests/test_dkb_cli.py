@@ -244,5 +244,39 @@ class DkbCliTests(unittest.TestCase):
         )
 
 
+    def test_help_includes_package_publish(self) -> None:
+        stdout = io.StringIO()
+
+        with redirect_stdout(stdout):
+            result = dkb.main([])
+
+        self.assertEqual(result, 0)
+        self.assertIn("package-publish", stdout.getvalue())
+
+    def test_forwards_package_publish_arguments_and_exit_code(self) -> None:
+        completed = SimpleNamespace(returncode=8)
+
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "package-publish",
+                ["--manifest", "package.json"],
+            )
+
+        self.assertEqual(result, 8)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "package_publish.py"),
+                "--manifest",
+                "package.json",
+            ],
+            check=False,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
