@@ -103,6 +103,8 @@ All notable changes to this project will be documented in this file.
 * Regression coverage for controlled drive-type semantics, source mapping, provenance and duplicate-string boundaries.
 * Canonical `maximum_payload` integer attribute in the existing `Weights` category using the existing `kg` unit.
 * Regression coverage for source-stated payload semantics, mass-concept boundaries and the model/import split.
+* Seven source-backed maximum-payload values for the current Sandero configurations.
+* Regression coverage for exact payload values, source mapping, provenance, mass boundaries and package isolation.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -132,10 +134,10 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 298 tests.
-* The verified master-data baseline now contains 34 CSV files and 1308 rows.
-* SQLite verification now covers 34 tables and 1308 rows.
-* Configuration attribute values now contain 239 dated records.
+* The automated test suite now contains 306 tests.
+* The verified master-data baseline now contains 34 CSV files and 1315 rows.
+* SQLite verification now covers 34 tables and 1315 rows.
+* Configuration attribute values now contain 246 dated records.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
