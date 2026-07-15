@@ -139,6 +139,11 @@ Data Expansion
 - aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
 - zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
 - 7 datowanych wartości `maximum_payload` od 371 do 385 kg z pełną proweniencją.
+- deklaratywny importer wartości konfiguracji oraz sześć wersjonowanych specyfikacji JSON,
+- 28 datowanych wartości mocy i momentu obrotowego z jawnym kontekstem benzyny i LPG,
+- decyzja D-022 — source-stated total engine valve count,
+- aktywny atrybut integer `total_valve_count` w kategorii `Engine`,
+- 7 datowanych wartości `total_valve_count = 12` z pustym kontekstem paliwa i pełną proweniencją.
 
 ## Tooling
 
@@ -151,7 +156,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 324 testy automatyczne,
+- 330 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
 - pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
@@ -170,33 +175,31 @@ Data Expansion
 
 # Current Sprint
 
-## Declarative Configuration Value Imports
+## Declarative Import Documentation Milestone
 
 Cel sprintu:
 
-- dodać wersjonowane specyfikacje JSON dla importów wartości konfiguracji,
-- dodać bezpieczne tryby planowania, `--apply` i `--verify`,
-- walidować kontrakt atrybutu, ID, kody, konfiguracje, źródła i kontekst paliwa,
-- weryfikować zarejestrowany SHA-256 źródła oraz dokładny tekst strony PDF,
-- zapisać istniejący import `maximum_payload` jako pierwszą specyfikację,
-- zastąpić jednorazowy duży moduł testowy wspólnymi testami wszystkich specyfikacji,
-- ograniczyć aktualizacje README i changeloga do pakietów zbiorczych lub kamieni milowych,
-- zakończyć pakiet pełną kontrolą jakości.
+- zsynchronizować README, changelog, roadmapę i stan sesji z PR-ami #39–#42,
+- zapisać aktualne liczniki danych, testów, atrybutów i tabel SQLite,
+- udokumentować deklaratywny importer oraz sześć bieżących specyfikacji,
+- udokumentować wartości mocy i momentu dla benzyny i LPG,
+- udokumentować decyzję D-022 oraz import całkowitej liczby zaworów,
+- nie zmieniać danych master, schematu ani narzędzi.
 
 ---
 
 # Next Sprint
 
-## Sandero Data Expansion with Declarative Specs
+## Sandero Remaining Technical Value Reassessment
 
 Cel sprintu:
 
-- wybrać kilka jednoznacznych, istniejących atrybutów z bieżących źródeł,
-- opisać import małymi specyfikacjami JSON zamiast osobnymi dużymi runnerami,
-- użyć wspólnych testów kontraktu bez tworzenia testu dla każdego pola,
-- grupować wyłącznie fakty niewymagające nowej decyzji architektonicznej,
-- zachować datę, źródło, stronę i dokładne brzmienie każdej obserwacji,
-- nie aktualizować README ani changeloga do najbliższego pakietu zbiorczego.
+- ponownie przeskanować wszystkie siedem bieżących źródeł po 281 wartościach,
+- odjąć fakty już reprezentowane przez wartości, dostępność i ceny,
+- odrzucić nagłówki, etykiety, fragmenty tabel i duplikaty semantyczne,
+- wybrać następny jawny fakt dopiero po potwierdzeniu modelu i braku rekordu,
+- użyć deklaratywnej specyfikacji, gdy istniejący atrybut ma jednoznaczną semantykę,
+- utworzyć osobny pakiet modelowy tylko wtedy, gdy źródło ujawnia rzeczywistą lukę.
 
 # Backlog
 
