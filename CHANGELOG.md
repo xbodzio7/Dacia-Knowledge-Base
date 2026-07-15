@@ -105,6 +105,11 @@ All notable changes to this project will be documented in this file.
 * Regression coverage for source-stated payload semantics, mass-concept boundaries and the model/import split.
 * Seven source-backed maximum-payload values for the current Sandero configurations.
 * Regression coverage for exact payload values, source mapping, provenance, mass boundaries and package isolation.
+* Versioned declarative JSON specifications and a repository-owned importer for planning, atomic application and exact verification of configuration values.
+* Shared contract tests for all declarative import specifications, registered source mappings, SHA-256 hashes and identifier uniqueness.
+* Twenty-eight source-backed engine-power and engine-torque values with separate petrol and LPG context.
+* Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
+* Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -134,10 +139,11 @@ All notable changes to this project will be documented in this file.
 * Search and reporting tools accept UTF-8 CSV files with an optional BOM.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
-* The automated test suite now contains 306 tests.
-* The verified master-data baseline now contains 34 CSV files and 1315 rows.
-* SQLite verification now covers 34 tables and 1315 rows.
-* Configuration attribute values now contain 246 dated records.
+* The automated test suite now contains 330 tests.
+* The verified master-data baseline now contains 34 CSV files and 1351 rows.
+* SQLite verification now covers 34 tables and 1351 rows.
+* Configuration attribute values now contain 281 dated records.
+* The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
 ### Fixed
@@ -184,3 +190,5 @@ All notable changes to this project will be documented in this file.
 * Reviewed the remaining Sandero technical-value candidates, rejected already-modeled and non-data matches, and selected `drive_type = fwd` for the next controlled import.
 * Imported `drive_type = fwd` as a dated value for all seven current configurations using the existing controlled enum.
 * Modeled the explicit page-5 maximum-payload field as an independent integer `kg` observation under decision D-021 and deferred configuration records to a separate import.
+* Synchronized the documentation milestone after PRs #39–#42.
+* Documented declarative configuration-value imports, the petrol/LPG engine-output observations, decision D-022 and the total-valve-count import.

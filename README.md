@@ -53,14 +53,15 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Trzynaście pakietów obejmuje
-246 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+datowanymi obserwacjami powiązanymi ze źródłem. Piętnaście pakietów obejmuje
+281 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
 obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
 nadwozia, 7 pełnych specyfikacji standardowej opony, 7 wartości liczby
 drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu, 7 wartości rodzaju
-napędu oraz 7 wartości maksymalnej ładowności. Zakres techniczny obejmuje
-zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika, zużycie paliwa
-i emisję CO2 w cyklu WLTP.
+napędu, 7 wartości maksymalnej ładowności, 28 wartości mocy i momentu
+obrotowego oraz 7 wartości całkowitej liczby zaworów. Zakres techniczny
+obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika, zużycie
+paliwa i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -133,6 +134,19 @@ stronę 5, sekcję `Dopuszczalna masa całkowita` i pole
 `gross_vehicle_weight` i `kerb_weight` oraz nie utożsamia jej z obciążeniem
 dachu, masą przyczepy ani masą zespołu pojazdów.
 
+Moc i moment obrotowy silnika są datowanymi obserwacjami z jawnym kontekstem
+paliwa. Dla każdej z siedmiu konfiguracji zapisano `engine_power = 84 kW` i
+`engine_torque = 190 Nm` dla benzyny oraz `engine_power = 90 kW` i
+`engine_torque = 197 Nm` dla LPG. Import zachowuje stronę 6, sekcję `Silnik`
+i pełne źródłowe brzmienie, w tym zakresy obrotów pozostawione w `notes`;
+nie tworzy z nich osobnych, wyprowadzonych rekordów.
+
+Całkowita liczba zaworów jest modelowana zgodnie z D-022 jako aktywny atrybut
+integer `total_valve_count` w kategorii `Engine`, bez jednostki. Wszystkie
+siedem konfiguracji ma datowaną wartość `12`, z pustym kontekstem paliwa,
+stroną 6, sekcją `Silnik` i polem `Liczba Zaworów 12`. Wartość pozostaje
+odrębna od `valves_per_cylinder` i nie jest dzielona przez liczbę cylindrów.
+
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
 ## Narzędzia
@@ -145,19 +159,21 @@ python tools/dkb.py help
 
 Dostępne komendy:
 
-| Komenda      | Zastosowanie                              |
-| ------------ | ----------------------------------------- |
-| `validate`   | Walidacja struktury repozytorium i danych |
-| `normalize`  | Kontrola kodowania plików CSV             |
-| `quality`    | Pełna lokalna kontrola jakości            |
-| `sqlite`     | Budowanie lokalnej bazy SQLite            |
+| Komenda | Zastosowanie |
+| --- | --- |
+| `validate` | Walidacja struktury repozytorium i danych |
+| `normalize` | Kontrola kodowania plików CSV |
+| `quality` | Pełna lokalna kontrola jakości |
+| `sqlite` | Budowanie lokalnej bazy SQLite |
 | `sqlite-verify` | Pełna kontrola zgodności SQLite z CSV |
-| `search`     | Wyszukiwanie danych w plikach CSV         |
-| `stats`      | Statystyki zbiorów danych                 |
-| `catalog`    | Generowanie katalogu encji                |
-| `dictionary` | Generowanie słownika danych               |
+| `search` | Wyszukiwanie danych w plikach CSV |
+| `stats` | Statystyki zbiorów danych |
+| `catalog` | Generowanie katalogu encji |
+| `dictionary` | Generowanie słownika danych |
+| `import-configuration-values` | Planowanie, stosowanie i weryfikacja deklaratywnych importów |
 | `package-start` | Synchronizacja `main` i utworzenie gałęzi pakietu |
 | `package-review` | Kontrola zakresu, diffu i opcjonalnie jakości |
+| `package-publish` | Dokładny staging, jeden commit, finish i opcjonalny push |
 | `package-finish` | Kontrola commitu przed pushem i Pull Requestem |
 
 ### Walidacja
@@ -375,10 +391,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 306 testów, 34 pliki CSV, 1315 rekordów
-danych, 34 relacje między tabelami, 246 wartości konfiguracji oraz 419
-rekordów dostępności wyposażenia. Katalog zawiera 350 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1315 rekordów,
+Zweryfikowany model obejmuje 330 testów, 34 pliki CSV, 1351 rekordów
+danych, 34 relacje między tabelami, 281 wartości konfiguracji oraz 419
+rekordów dostępności wyposażenia. Katalog zawiera 351 kanonicznych atrybutów
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1351 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 

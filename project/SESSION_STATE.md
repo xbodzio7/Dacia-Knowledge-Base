@@ -5,15 +5,17 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#38. Aktualny punkt odniesienia to merge commit
-`414c72920f4431b0a70a61913bf8206b0875eb03`.
+Pull Requesty #3–#42. Aktualny punkt odniesienia to merge commit
+`c10f95075431bcfabd7efe7880a9eb183dd90d2b`.
 
-PR #38 zaimportował siedem źródłowych wartości `maximum_payload`.
-GitHub Actions Quality run #105 zakończył się powodzeniem.
+PR #39 dodał deklaratywny importer wartości konfiguracji. PR #40 zaimportował
+28 wartości mocy i momentu obrotowego, PR #41 dodał model
+`total_valve_count`, a PR #42 zaimportował siedem źródłowych wartości `12`.
+GitHub Actions Quality run #113 zakończył się powodzeniem.
 
-Bieżący pakiet toolingowy jest rozwijany na gałęzi
-`tooling/declarative-configuration-value-imports` z bazą dokładnie
-`414c72920f4431b0a70a61913bf8206b0875eb03`.
+Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
+`docs/synchronize-declarative-import-milestone` z bazą dokładnie
+`c10f95075431bcfabd7efe7880a9eb183dd90d2b`.
 
 ## Verified Quality Baseline
 
@@ -23,59 +25,57 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 324 testy automatyczne zakończone powodzeniem,
+- 330 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1315 rekordów danych,
+- 1351 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 246 obserwacji w `configuration_attribute_values.csv`,
+- 281 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
-- 350 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1315 rekordów,
+- 351 kanonicznych atrybutów w 30 kategoriach,
+- baza SQLite obejmująca 34 tabele i 1351 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Declarative Configuration Value Imports.
+Declarative Import Documentation Milestone.
 
 Zakres:
 
-- wersjonowany format JSON dla importów `configuration_attribute_values`,
-- deterministyczne generowanie ID, kodów, notatek i rekordów CSV,
-- tryby planowania, atomowego zastosowania i dokładnej weryfikacji,
-- kontrola kontraktu atrybutu, referencji, źródeł i kontekstu paliwa,
-- weryfikacja SHA-256 oraz tekstu wskazanej strony PDF,
-- pierwsza specyfikacja odtwarzająca import `maximum_payload`,
-- wspólne testy parametryczne zamiast jednorazowego modułu 196 linii,
-- rzadsza, zbiorcza aktualizacja README i changeloga.
+- synchronizacja README, changeloga, roadmapy i stanu sesji z PR-ami #39–#42,
+- aktualizacja liczników danych, testów, atrybutów i tabel SQLite,
+- opis sześciu deklaratywnych specyfikacji wartości konfiguracji,
+- opis wartości mocy i momentu obrotowego z kontekstem benzyny i LPG,
+- opis decyzji D-022 i importu całkowitej liczby zaworów,
+- brak zmian danych master, schematu i narzędzi.
 
 ## Current Phase
 
-Aktualna faza to **Tooling Acceleration within Data Expansion**.
+Aktualna faza to **Data Expansion Documentation Milestone**.
 
-Pakiet nie zmienia danych master. Wprowadza trwały mechanizm, dzięki któremu
-kolejne proste importy mogą ograniczać się do małej specyfikacji JSON i rekordów
-CSV. Wspólne testy skanują wszystkie specyfikacje i porównują je z dokładnym
-stanem danych.
+Deklaratywny importer został wykorzystany do sześciu wersjonowanych
+specyfikacji, a po pakietach PR #39–#42 dokumentacja osiągnęła uzgodniony próg
+aktualizacji zbiorczej. Bieżący pakiet synchronizuje opis projektu z dokładnym
+stanem danych i nie zmienia źródłowych rekordów.
 
-Dokumentacja operacyjna pozostaje aktualizowana przy zmianie sposobu pracy.
-README, changelog i pełne podsumowania liczników są aktualizowane zbiorczo po
-kilku importach albo przy kamieniu milowym, a nie w każdym małym pakiecie.
+Po tym kamieniu milowym rozwój wraca do analizy pozostałych faktów technicznych.
+Nowy import zostanie wybrany dopiero po ponownym odjęciu już pokrytych wartości,
+dostępności wyposażenia i cen.
 
 ## Next Development Package
 
-Sandero Data Expansion with Declarative Specs.
+Sandero Remaining Technical Value Reassessment.
 
 Planowany przebieg:
 
-1. Wybrać kilka jednoznacznych wartości istniejących atrybutów.
-2. Przygotować małe specyfikacje JSON i zastosować importer.
-3. Korzystać ze wspólnych testów zamiast osobnych modułów dla każdego pola.
-4. Grupować tylko fakty niewymagające nowego modelowania.
-5. Odłożyć README i changelog do pakietu zbiorczego.
+1. Ponownie przeskanować wszystkie siedem bieżących źródeł.
+2. Odjąć 281 wartości, 419 rekordów dostępności i 7 cen.
+3. Odrzucić nagłówki, warianty brzmienia i duplikaty semantyczne.
+4. Potwierdzić istniejący atrybut i brak rekordu przed prostym importem.
+5. Utworzyć osobny model wyłącznie dla rzeczywistej luki semantycznej.
 
 ## Working Mode
 
@@ -440,17 +440,55 @@ Completed:
 
 ### Declarative Configuration Value Imports
 
-Current package:
+Completed:
 
-- przygotowano ścisły, wersjonowany format specyfikacji JSON,
+- PR #39 dodał ścisły, wersjonowany format specyfikacji JSON,
 - importer planuje, stosuje atomowo i weryfikuje dokładne rekordy,
 - kontrolowane są ID, kody, referencje, typ wartości, źródła i kontekst paliwa,
 - źródła są sprawdzane przez rejestr, SHA-256 i tekst wskazanej strony,
-- istniejący import `maximum_payload` jest pierwszą specyfikacją,
-- duży test jednorazowy zastępują wspólne testy wszystkich specyfikacji,
-- README i changelog przechodzą na aktualizacje zbiorcze.
+- import `maximum_payload` został zapisany jako pierwsza specyfikacja,
+- wspólne testy zastąpiły duży test jednorazowy,
+- GitHub Actions Quality run #107 zakończył się powodzeniem.
+
+### Sandero Engine Output Value Import
+
+Completed:
+
+- PR #40 dodał cztery deklaratywne specyfikacje,
+- zaimportowano 28 wartości `engine_power` i `engine_torque`,
+- zachowano jawny kontekst benzyny i LPG,
+- nie utworzono wyprowadzonych rekordów zakresów obrotów,
+- GitHub Actions Quality run #109 zakończył się powodzeniem.
+
+### Sandero Total Valve Count Modeling
+
+Completed:
+
+- PR #41 dodał atrybut integer `total_valve_count` z ID 358,
+- zaakceptowano decyzję D-022,
+- zachowano rozdział względem `valves_per_cylinder` i `cylinder_count`,
+- nie zaimportowano wartości konfiguracji,
+- GitHub Actions Quality run #111 zakończył się powodzeniem.
+
+### Sandero Total Valve Count Value Import
+
+Completed:
+
+- PR #42 dodał szóstą deklaratywną specyfikację,
+- zaimportowano 7 wartości `total_valve_count = 12` z ID 275–281,
+- pozostawiono kontekst paliwa pusty,
+- zachowano stronę 6, sekcję `Silnik` i dokładne brzmienie źródła,
+- GitHub Actions Quality run #113 zakończył się powodzeniem.
+
+### Declarative Import Documentation Milestone
+
+Current package:
+
+- synchronizuje README, changelog, roadmapę i stan sesji,
+- zapisuje aktualne liczniki 330 testów, 1351 rekordów, 281 wartości i 351 atrybutów,
+- nie zmienia danych master, schematu ani narzędzi.
 
 Next priority:
 
-Wykorzystać deklaratywny importer do grupowego importu kilku jednoznacznych
-wartości istniejących atrybutów.
+Ponownie przeanalizować pozostałe jawne wartości techniczne we wszystkich
+siedmiu bieżących źródłach.
