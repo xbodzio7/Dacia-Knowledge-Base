@@ -798,3 +798,57 @@ the source-stated maximum payload. No current configuration value uses
   each current configuration.
 - The future import preserves page 5, section, observation date and exact
   source wording.
+
+## D-022 — Source-stated total engine valve count
+
+Status: Accepted
+
+Date: 2026-07-15
+
+### Decision
+
+The explicit page-6 source field `Liczba Zaworów 12` is represented by the
+active integer attribute `total_valve_count` in the existing `Engine` category.
+The attribute has no unit because it stores a count.
+
+`total_valve_count` preserves the source-stated total number of engine valves.
+It is separate from:
+
+- `valves_per_cylinder`, which stores a count for one cylinder,
+- `cylinder_count`, which stores the number of engine cylinders,
+- power, torque, displacement and other engine observations.
+
+The per-cylinder valve count must not be calculated by dividing the source
+total by `cylinder_count`, even when the current source values make that
+arithmetic possible. The explicit total and any future explicit per-cylinder
+value remain separate facts with their own provenance.
+
+A future source-data import stores the numeric value `12` in
+`configuration_attribute_values.csv`, leaves fuel context empty, and preserves
+the observation date, page 6, the `Silnik` section and the exact Polish field in
+`notes`.
+
+### Current source coverage
+
+All seven reviewed Sandero and Sandero Stepway configuration PDFs contain the
+same page-6 field under `Silnik`:
+
+`Liczba Zaworów 12`
+
+The attribute catalogue already contains `valves_per_cylinder` and
+`cylinder_count`, but neither represents the source-stated total valve count.
+No current configuration value uses `total_valve_count`.
+
+### Consequences
+
+- This modeling package adds the active integer attribute
+  `total_valve_count`.
+- The existing `Engine` category is reused and no unit is added.
+- No configuration value, availability record, price or source relationship is
+  introduced or changed by the modeling package.
+- Existing cylinder, power and torque observations are not rewritten or used
+  to derive a per-cylinder valve count.
+- The next source-backed package imports seven dated values of `12`, one for
+  each current configuration.
+- The future import preserves page 6, section, observation date and exact
+  source wording.
