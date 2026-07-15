@@ -135,14 +135,18 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
         self.assertNotIn("payload", actual)
         self.assertNotIn("cargo_payload", actual)
 
-    def test_model_package_does_not_import_payload_values(self) -> None:
-        self.assertFalse(
-            any(
-                row["attribute_code"] == "maximum_payload"
-                for row in self.values
-            ),
+    def test_import_uses_existing_maximum_payload_attribute(self) -> None:
+        payload_values = [
+            row
+            for row in self.values
+            if row["attribute_code"] == "maximum_payload"
+        ]
+        self.assertEqual(len(payload_values), 7)
+        self.assertEqual(
+            {row["configuration_code"] for row in payload_values},
+            set(EXPECTED_MAPPING),
         )
-        self.assertEqual(len(self.values), 239)
+        self.assertGreaterEqual(len(self.values), 246)
 
     def test_existing_mass_values_are_not_rewritten(self) -> None:
         counts = {

@@ -53,13 +53,14 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Dwanaście pakietów obejmuje
-239 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
+datowanymi obserwacjami powiązanymi ze źródłem. Trzynaście pakietów obejmuje
+246 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168
 obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
 nadwozia, 7 pełnych specyfikacji standardowej opony, 7 wartości liczby
-drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu oraz 7 wartości
-rodzaju napędu. Zakres techniczny obejmuje zespół napędowy, osiągi, masy,
-wymiary, pojemność bagażnika, zużycie paliwa i emisję CO2 w cyklu WLTP.
+drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu, 7 wartości rodzaju
+napędu oraz 7 wartości maksymalnej ładowności. Zakres techniczny obejmuje
+zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika, zużycie paliwa
+i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -125,11 +126,12 @@ wskazuje na stronie 5 w sekcji `Układ napędowy` pole
 string `drive_layout` ani `drivetrain_type`.
 
 Maksymalna ładowność jest modelowana zgodnie z D-021 jako aktywny atrybut
-integer `maximum_payload` w kategorii `Weights`, z jednostką `kg`. Pole
-`Maksymalna Ładowność (Kg)` występuje jawnie na stronie 5 wszystkich siedmiu
-źródeł. Model nie wylicza tej wartości z różnicy `gross_vehicle_weight` i
-`kerb_weight` oraz nie utożsamia jej z obciążeniem dachu, masą przyczepy ani
-masą zespołu pojazdów. Wartości konfiguracji pozostają do osobnego importu.
+integer `maximum_payload` w kategorii `Weights`, z jednostką `kg`. Wszystkie
+siedem konfiguracji ma datowaną, źródłową wartość od 371 do 385 kg, zachowującą
+stronę 5, sekcję `Dopuszczalna masa całkowita` i pole
+`Maksymalna Ładowność (Kg)`. Import nie wylicza wartości z różnicy
+`gross_vehicle_weight` i `kerb_weight` oraz nie utożsamia jej z obciążeniem
+dachu, masą przyczepy ani masą zespołu pojazdów.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -373,10 +375,10 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 298 testów, 34 pliki CSV, 1308 rekordów
-danych, 34 relacje między tabelami, 239 wartości konfiguracji oraz 419
+Zweryfikowany model obejmuje 306 testów, 34 pliki CSV, 1315 rekordów
+danych, 34 relacje między tabelami, 246 wartości konfiguracji oraz 419
 rekordów dostępności wyposażenia. Katalog zawiera 350 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1308 rekordów,
+i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1315 rekordów,
 pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
 UTF-8.
 

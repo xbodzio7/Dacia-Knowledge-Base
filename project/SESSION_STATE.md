@@ -5,15 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#36. Aktualny punkt odniesienia to merge commit
-`2b316718245bd19918cf44afc2da7a45d4cebaf0`.
+Pull Requesty #3–#37. Aktualny punkt odniesienia to merge commit
+`d4da4a7045078930522aa01e7ad1d26afa14dabf`.
 
-PR #36 utwardził workflow pakietów, manifesty, UTF-8, politykę LF i regresje
-Windows. GitHub Actions Quality run #101 zakończył się powodzeniem.
+PR #37 dodał trwałe publikowanie sterowane manifestem, receipt jakości,
+ustrukturyzowany handoff i zwięzłe logi. GitHub Actions Quality run #103
+zakończył się powodzeniem.
 
-Bieżący pakiet toolingowy jest rozwijany na gałęzi
-`tooling/manifest-driven-package-publishing` z bazą dokładnie
-`2b316718245bd19918cf44afc2da7a45d4cebaf0`.
+Bieżący pakiet danych jest rozwijany na gałęzi
+`data/sandero-maximum-payload-values` z bazą dokładnie
+`d4da4a7045078930522aa01e7ad1d26afa14dabf`.
 
 ## Verified Quality Baseline
 
@@ -23,61 +24,59 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 298 testów automatycznych zakończonych powodzeniem,
+- 306 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1308 rekordów danych,
+- 1315 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 239 obserwacji w `configuration_attribute_values.csv`,
+- 246 obserwacji w `configuration_attribute_values.csv`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 350 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1308 rekordów,
+- baza SQLite obejmująca 34 tabele i 1315 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Manifest-driven Package Publishing.
+Sandero Maximum Payload Value Import.
 
 Zakres:
 
-- trwała komenda `package-publish`,
-- receipt jakości związany z gałęzią, bazą, tematem, ścieżkami i bajtami,
-- stabilne drzewo obliczane przez tymczasowy indeks Git,
-- pusty staging i dokładne stage'owanie manifestu,
-- dokładnie jeden commit, obowiązkowy `package-finish` i jawny push,
-- wznowienie po nieudanym finish lub push bez drugiego commitu,
-- mały `handoff.json` i pełny log publikacji,
-- zwięzłe logi sukcesu z pełnymi nazwami i tracebackami przy błędzie,
-- 26 nowych testów regresyjnych, w tym polskie znaki i Windows,
-- ograniczenie duplikacji walidacji danych oraz SQLite w CI.
+- weryfikacja siedmiu PDF przez SHA-256,
+- import siedmiu datowanych wartości `maximum_payload`,
+- dokładne wartości 373, 371, 385, 380, 376, 377 i 375 kg,
+- kolejne ID 240-246 i data obserwacji 2026-06-26,
+- strona 5, sekcja `Dopuszczalna masa całkowita` i dokładne pole źródłowe,
+- pusty kontekst paliwa,
+- brak zmian istniejących mas, dostępności wyposażenia i cen,
+- osiem nowych testów regresyjnych i trwała granica model/import.
 
 ## Current Phase
 
-Aktualna faza to **Tooling Hardening**.
+Aktualna faza to **Data Expansion**.
 
-Pakiet przenosi publikację do trwałego narzędzia repozytorium. Receipt może
-zostać użyty ponownie tylko dla bajtowo identycznego stanu, a `package-publish`
-samodzielnie kontroluje staging, commit, finish, handoff i opcjonalny jawny push.
-Pull Request i merge pozostają operacjami wykonywanymi przez GitHub po
-przedstawieniu handoffu PASS.
+Model obejmuje 350 kanonicznych atrybutów, 246 datowanych wartości konfiguracji
+i 419 rekordów dostępności wyposażenia. Siedem nowych rekordów przechowuje
+jawną maksymalną ładowność podaną przez źródło dla każdej bieżącej
+konfiguracji Sandero i Sandero Stepway.
 
-Model danych pozostaje bez zmian: 34 pliki CSV, 1308 rekordów, 350 atrybutów,
-239 wartości konfiguracji, 419 rekordów dostępności i 7 cen.
+Wartości `maximum_payload` są przechowywane jako samodzielne fakty źródłowe.
+Nie są wyliczane z `gross_vehicle_weight - kerb_weight` i pozostają odrębne od
+masy zespołu pojazdów, obciążenia dachu oraz parametrów holowania.
 
 ## Next Development Package
 
-Sandero Maximum Payload Value Import.
+Sandero Data Expansion Continuation.
 
 Planowany przebieg:
 
-1. Dodać siedem jawnych wartości `maximum_payload` z ID 240-246.
-2. Zachować datę 2026-06-26, dokładne źródła, stronę 5, sekcję i pole.
-3. Pozostawić `fuel_type_code` puste.
-4. Nie wyliczać ładowności z masy całkowitej i masy własnej.
-5. Nie zmieniać dostępności, cen ani istniejących wartości mas.
+1. Przejrzeć pozostałe jawne wartości techniczne w siedmiu źródłach.
+2. Wybrać wyłącznie fakty nieobjęte obecnym modelem i importami.
+3. Nie wyliczać ani nie zgadywać brakujących wartości.
+4. Dla nowych pojęć oddzielić modelowanie od importu.
+5. Zachować dokładną proweniencję źródłową.
 
 ## Working Mode
 
@@ -403,16 +402,36 @@ Completed:
 
 ### Package Workflow Hardening
 
+Completed:
+
+- PR #36 dodał deterministyczne UTF-8 dla Git i jakości,
+- dodano wersjonowany manifest pakietu i dokładne kontrole przed oraz po commicie,
+- zadeklarowano politykę LF i regresje Windows,
+- GitHub Actions Quality run #101 zakończył się powodzeniem.
+
+### Manifest-driven Package Publishing
+
+Completed:
+
+- PR #37 dodał trwałe i wznowialne `package-publish`,
+- receipt jakości jest związany z dokładnym drzewem Git i surowymi bajtami,
+- publikacja kontroluje staging, jeden commit, finish, handoff i jawny push,
+- sukces jakości ma zwięzły output, pełny log i ustrukturyzowane podsumowanie,
+- ograniczono duplikację pracy CI bez utraty pokrycia 3.10, 3.13 i Windows,
+- GitHub Actions Quality run #103 zakończył się powodzeniem.
+
+### Sandero Maximum Payload Value Import
+
 Current package:
 
-- przygotowano deterministyczne UTF-8 dla Git i jakości,
-- dodano wersjonowany manifest pakietu,
-- wymuszono dokładną gałąź, bazę SHA, temat, rodzica i zestaw plików,
-- przygotowano `.gitattributes` z polityką LF,
-- dodano osiem testów manifestu i job Windows,
-- zachowano kompatybilność komend bez manifestu.
+- zweryfikowano siedem źródeł PDF przez SHA-256,
+- przygotowano siedem wartości `maximum_payload` z ID 240-246,
+- zachowano datę, stronę 5, sekcję i dokładne pole źródłowe,
+- pozostawiono kontekst paliwa pusty,
+- nie zmieniono istniejących mas, dostępności wyposażenia ani cen,
+- dodano osiem testów regresyjnych i zaktualizowano granicę model/import.
 
 Next priority:
 
-Dodać trwałe publikowanie sterowane manifestem, receipt jakości i
-ustrukturyzowany handoff, a następnie wrócić do importu `maximum_payload`.
+Kontynuować źródłowe rozszerzanie danych bez wyliczania lub zgadywania
+brakujących parametrów.

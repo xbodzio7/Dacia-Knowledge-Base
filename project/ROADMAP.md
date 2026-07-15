@@ -150,7 +150,7 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 298 testów automatycznych,
+- 306 testów automatycznych,
 - 34 deklarowane relacje między tabelami,
 - kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
 - pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
@@ -166,34 +166,32 @@ Data Expansion
 
 # Current Sprint
 
-## Manifest-driven Package Publishing
+## Sandero Maximum Payload Value Import
 
 Cel sprintu:
 
-- dodać trwałą i wznowialną komendę `package-publish`,
-- wiązać receipt jakości z dokładnym manifestem, drzewem Git i surowymi bajtami,
-- odrzucać każdą zmianę gałęzi, bazy, tematu, ścieżek lub zawartości,
-- wymagać pustego stagingu i stage'ować wyłącznie ścieżki manifestu,
-- tworzyć dokładnie jeden commit i uruchamiać `package-finish`,
-- generować mały `handoff.json` obok pełnego logu,
-- skrócić log sukcesu bez utraty pełnych błędów,
-- ograniczyć duplikację walidacji danych i SQLite w CI,
-- zachować kompatybilność testów na Pythonie 3.10, 3.13 i Windows.
+- zweryfikować siedem źródeł PDF przez SHA-256,
+- zaimportować siedem jawnych wartości `maximum_payload`,
+- użyć kolejnych ID 240-246 i daty obserwacji 2026-06-26,
+- zachować dokładne wartości 371-385 kg bez wyliczania ich z innych mas,
+- zachować stronę 5, sekcję `Dopuszczalna masa całkowita` i pole `Maksymalna Ładowność (Kg)`,
+- pozostawić `fuel_type_code` puste,
+- nie zmieniać istniejących wartości mas, dostępności wyposażenia ani cen,
+- dodać testy regresyjne i zakończyć pakiet pełną kontrolą jakości.
 
 ---
 
 # Next Sprint
 
-## Sandero Maximum Payload Value Import
+## Sandero Data Expansion Continuation
 
 Cel sprintu:
 
-- zaimportować siedem jawnych wartości `maximum_payload` dla konfiguracji Sandero,
-- użyć kolejnych ID 240-246 i daty obserwacji 2026-06-26,
-- zachować stronę 5, sekcję `Dopuszczalna masa całkowita` i dokładne pole źródłowe,
-- pozostawić `fuel_type_code` puste,
-- nie wyliczać ładowności z innych mas i nie zmieniać istniejących wartości,
-- nie zmieniać dostępności wyposażenia ani cen.
+- przejrzeć pozostałe jawne, źródłowe wartości techniczne dla bieżących konfiguracji,
+- wybierać wyłącznie fakty obecne w zarejestrowanych źródłach,
+- nie wyliczać ani nie zgadywać brakujących parametrów,
+- rozdzielać modelowanie nowych pojęć od importu wartości,
+- zachować datę, źródło i dokładne brzmienie każdej obserwacji.
 
 # Backlog
 
