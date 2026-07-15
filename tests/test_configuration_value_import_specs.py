@@ -37,7 +37,13 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
         self.assertTrue(self.paths)
         self.assertEqual(
             [path.name for path in self.paths],
-            ["sandero-maximum-payload-20260626.json"],
+            [
+                "sandero-engine-power-lpg-20260626.json",
+                "sandero-engine-power-petrol-20260626.json",
+                "sandero-engine-torque-lpg-20260626.json",
+                "sandero-engine-torque-petrol-20260626.json",
+                "sandero-maximum-payload-20260626.json",
+            ],
         )
         self.assertTrue(
             all(spec.path.is_absolute() for spec in self.specs),
