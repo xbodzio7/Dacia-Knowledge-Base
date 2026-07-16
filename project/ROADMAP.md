@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 362 testów automatycznych,
+- 372 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,30 +182,30 @@ Data Expansion
 
 # Current Sprint
 
-## Configuration Gap Triage Report
+## Configuration Gap Evidence Review
 
 Cel sprintu:
 
-- połączyć raporty kompletności i pokrycia źródłami jeden-do-jednego,
-- utworzyć neutralną kolejkę 6 luk technicznych i 64 luk wyposażenia,
-- grupować zadania według konfiguracji, kategorii, źródła i sekcji,
-- zachować rozdział między brakiem rekordu a jawnymi statusami,
-- wskazywać wyłącznie kandydatów do ręcznej weryfikacji źródłowej,
-- wyłączyć automatyczny import i subiektywne priorytetyzowanie.
+- dopasować 70 wersjonowanych decyzji jeden-do-jednego do kolejki triage,
+- klasyfikować wyłącznie stany poparte istniejącym dowodem strukturalnym,
+- oznaczyć 25 pozycji jako `out_of_scope` na podstawie jawnych alternatyw,
+- pozostawić 45 pozycji `ambiguous` do ręcznego przeglądu stron PDF,
+- wymagać strony, sekcji i tekstu przed klasyfikacją `found`,
+- utrzymać zero kandydatów importu i wyłączony automatyczny import.
 
 ---
 
 # Next Sprint
 
-## Configuration Gap Evidence Review
+## Configuration Gap Source Page Review
 
 Cel sprintu:
 
-- przejrzeć 70 pozycji kolejki względem siedmiu zarejestrowanych PDF,
-- klasyfikować wynik jako `found`, `not_stated`, `ambiguous` lub `out_of_scope`,
-- zapisywać stronę, sekcję i brzmienie źródłowe dla potwierdzonych wyników,
+- przejrzeć 45 pozycji `ambiguous` względem siedmiu zarejestrowanych PDF,
+- klasyfikować wynik jako `found`, `not_stated` albo nadal `ambiguous`,
+- zapisywać stronę, sekcję i dokładne brzmienie źródłowe,
+- dokumentować listę przejrzanych stron dla `not_stated`,
 - oddzielić decyzję dowodową od późniejszego modelowania i importu,
-- kierować jednoznaczne wartości do osobnych małych pakietów,
 - nie wnioskować danych, których dokument nie stwierdza.
 
 # Backlog
