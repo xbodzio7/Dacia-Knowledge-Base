@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `documentation-baseline` | Generowanie i kontrola bieżących liczników dokumentacji |
 | `import-configuration-values` | Planowanie, stosowanie i weryfikacja deklaratywnych importów |
 | `package-start` | Synchronizacja `main` i utworzenie gałęzi pakietu |
 | `package-review` | Kontrola zakresu, diffu i opcjonalnie jakości |
@@ -226,9 +227,10 @@ python tools/dkb.py quality
 
 Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
-kodowanie i dane, a następnie buduje i porównuje tymczasową
-bazę SQLite. Zatrzymuje się na pierwszym nieudanym etapie.
-Tymczasowa baza jest automatycznie usuwana.
+kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
+a następnie weryfikuje bieżące liczniki dokumentacji. Zatrzymuje
+się na pierwszym nieudanym etapie. Tymczasowa baza jest
+automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -352,6 +354,18 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Bieżące liczniki dokumentacji
+
+Komenda generuje deterministyczny zestaw liczników używanych w bieżących podsumowaniach projektu:
+
+```bash
+python tools/dkb.py documentation-baseline \
+  --json ../documentation-baseline.json \
+  --markdown ../documentation-baseline.md
+```
+
+Tryb `--check` porównuje wyliczone wartości z czterema zarządzanymi blokami README, changeloga, roadmapy i stanu sesji. Tryb `--apply` aktualizuje wyłącznie te bloki. Po przekazaniu `--database` liczba tabel i rekordów SQLite musi być zgodna z plikami master CSV.
+
 ### Raporty
 
 ```bash
@@ -381,9 +395,10 @@ Kontrola obejmuje:
 3. kontrolę kodowania CSV,
 4. walidację repozytorium, danych i relacji między tabelami,
 5. próbne zbudowanie bazy SQLite,
-6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV.
+6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV,
+7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji.
 
-Dla Pythona 3.13 workflow zapisuje bazę SQLite oraz raport walidacji jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
+Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji oraz bazowe liczniki JSON i Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -409,12 +424,14 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 330 testów, 34 pliki CSV, 1379 rekordów
+<!-- dkb:documentation-baseline:readme:start -->
+Zweryfikowany model obejmuje 338 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
 SQLite obejmuje 34 tabele i 1379 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
+<!-- dkb:documentation-baseline:readme:end -->
 
 ## Development workflow
 

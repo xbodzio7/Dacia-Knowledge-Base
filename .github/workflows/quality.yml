@@ -71,6 +71,8 @@ jobs:
             ${{ runner.temp }}/dacia_knowledge_base.sqlite
             ${{ runner.temp }}/quality.log
             ${{ runner.temp }}/quality-summary.json
+            ${{ runner.temp }}/documentation-baseline.json
+            ${{ runner.temp }}/documentation-baseline.md
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7

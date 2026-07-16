@@ -29,6 +29,12 @@ def quality_steps(
     """Build the commands that mirror the GitHub Actions quality job."""
     tools = repository / "tools"
     dkb = tools / "dkb.py"
+    baseline_json = database.with_name(
+        "documentation-baseline.json"
+    )
+    baseline_markdown = database.with_name(
+        "documentation-baseline.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -81,6 +87,21 @@ def quality_steps(
                 str(dkb),
                 "sqlite-verify",
                 str(database),
+            ],
+        ),
+        (
+            "Check documentation baseline",
+            [
+                sys.executable,
+                str(dkb),
+                "documentation-baseline",
+                "--check",
+                "--database",
+                str(database),
+                "--json",
+                str(baseline_json),
+                "--markdown",
+                str(baseline_markdown),
             ],
         ),
     ]

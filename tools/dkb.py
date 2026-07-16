@@ -18,6 +18,12 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "documentation-baseline": (
+        "documentation_baseline.py",
+        "Generate or verify documentation baseline counters.",
+        "[--check | --apply] [--database FILE] [--json FILE] "
+        "[--markdown FILE]",
+    ),
     "import-configuration-values": (
         "import_configuration_values.py",
         "Apply or verify one declarative configuration-value import.",
@@ -146,6 +152,7 @@ def usage() -> None:
     print("  python tools/dkb.py search Duster")
     print("  python tools/dkb.py search Duster --field name")
     print("  python tools/dkb.py catalog")
+    print("  python tools/dkb.py documentation-baseline --check")
     print("  python tools/dkb.py dictionary")
     print("  python tools/dkb.py package-start tooling/example")
     print(
