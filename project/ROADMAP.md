@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 385 testów automatycznych,
+- 396 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Configuration Gap Source Page Review
+## Configuration Gap Resolution Planning
 
 Cel sprintu:
 
-- zweryfikować 45 pozycji względem istotnych stron siedmiu PDF,
-- kontrolować każdy plik przez rejestr źródeł i SHA-256,
-- zachować dokładny fragment i stronę dla decyzji `found`,
-- zapisać listę przejrzanych stron dla decyzji `not_stated`,
-- uzyskać 1 `found`, 44 `not_stated` i 0 `ambiguous`,
-- utrzymać rozdział między dowodem, modelowaniem i importem.
+- przypisać jawny stan wykonawczy każdej z 70 decyzji dowodowych,
+- potwierdzić granice istniejącego modelu dla jedynego wyniku `found`,
+- skierować `wheel_design = ERALIA` do małego importu wartości konfiguracji,
+- zamknąć 44 wyniki `not_stated` bez tworzenia danych,
+- zamknąć 25 wyników `out_of_scope` bez tworzenia danych,
+- utrzymać `auto_import = false` i nie zmieniać `data/master`.
 
 ---
 
 # Next Sprint
 
-## Configuration Gap Resolution Planning
+## Sandero Stepway Essential Wheel Design Value Import
 
 Cel sprintu:
 
-- pogrupować decyzje `found` według atrybutu i rodzaju danych,
-- oddzielić dostępność wyposażenia od technicznych wartości konfiguracji,
-- sprawdzić granice istniejącego modelu kanonicznego,
-- przygotować małe pakiety modelowania albo importu,
-- zachować `not_stated` jako jawny wynik przeglądu,
-- nie wykonywać automatycznego importu.
+- dodać jedną deklaratywną specyfikację wartości `wheel_design`,
+- zaimportować `ERALIA` dla Stepway Essential Eco-G 120 manual,
+- rozpocząć od ID 310 i zachować pusty kontekst paliwa,
+- zachować stronę 2, sekcję `Felgi` i dokładny tekst źródłowy,
+- użyć istniejącego atrybutu tekstowego bez zmiany modelu,
+- zweryfikować import wspólnym kontraktem i pełną jakością.
 
 # Backlog
 

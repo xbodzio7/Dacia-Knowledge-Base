@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-gap-resolution-plan` | Planowanie małych pakietów rozstrzygających luki konfiguracji |
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
@@ -234,9 +235,9 @@ Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
 weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
-kompletności konfiguracji, pokrycia źródłami, kolejkę triage, przegląd stron
-źródłowych i klasyfikację dowodów. Zatrzymuje się na pierwszym nieudanym
-etapie. Tymczasowa baza jest automatycznie usuwana.
+kompletności konfiguracji, pokrycia źródłami, kolejkę triage, przegląd stron,
+klasyfikację dowodów i plan rozstrzygnięcia. Zatrzymuje się na pierwszym
+nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -360,6 +361,27 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Plan rozstrzygnięcia luk konfiguracji
+
+Komenda `configuration-gap-resolution-plan` łączy ukończony raport dowodowy
+z aktualnym modelem kanonicznym, istniejącymi wartościami i deklaratywnymi
+specyfikacjami importu. Każda z 70 decyzji otrzymuje jawny stan wykonawczy.
+
+Bieżący plan kieruje jedyny wynik `found` do małego pakietu
+**Sandero Stepway Essential Wheel Design Value Import**. Atrybut
+`wheel_design` jest już aktywnym polem tekstowym, dlatego nie jest potrzebna
+zmiana modelu. Proponowana specyfikacja zawiera jeden wiersz
+`wheel_design = ERALIA`, pusty kontekst paliwa, stronę 2 i sekcję `Felgi`,
+rozpoczynając od ID 310.
+
+```bash
+python tools/dkb.py configuration-gap-resolution-plan   --json ../configuration-gap-resolution-plan.json   --markdown ../configuration-gap-resolution-plan.md
+```
+
+Pozostałe 44 decyzje `not_stated` i 25 decyzji `out_of_scope` są zamykane bez
+zmiany danych. Plan nie zapisuje specyfikacji importu w katalogu wykonawczym,
+nie modyfikuje `data/master` i utrzymuje `auto_import = false`.
+
 ### Przegląd stron źródłowych dla luk konfiguracji
 
 Komenda `configuration-gap-source-review` ponownie wylicza decyzje dla 45
@@ -389,22 +411,20 @@ wyłączony.
 ### Przegląd dowodowy luk konfiguracji
 
 Komenda `configuration-gap-evidence` łączy wersjonowaną specyfikację decyzji
-z dokładną kolejką `configuration-gap-triage`. Każda decyzja musi zachować
+z dokładną kolejką `configuration-gap-triage`. Każda decyzja zachowuje
 konfigurację, źródło, datę dokumentu, ścieżkę i SHA-256.
 
-Bieżąca specyfikacja jest celowo konserwatywna. Klasyfikuje 25 pozycji jako
-`out_of_scope` wyłącznie na podstawie jawnego alternatywnego stanu w tym samym
-źródle albo automatycznej skrzyni i kanonicznej definicji wskaźnika zmiany
-biegów. Pozostałe 45 pozycji pozostaje `ambiguous` i wymaga ręcznego przeglądu
-stron PDF. Raport nie deklaruje pełnego przeglądu siedmiu dokumentów.
+Bieżąca specyfikacja obejmuje ukończony przegląd stron: 1 decyzję `found`,
+44 decyzje `not_stated`, 25 decyzji `out_of_scope` i 0 `ambiguous`.
+Jedyny kandydat to `wheel_design = ERALIA` dla Stepway Essential. Jest to
+wynik dowodowy, a nie automatyczny import.
 
 ```bash
 python tools/dkb.py configuration-gap-evidence   --json ../configuration-gap-evidence.json   --markdown ../configuration-gap-evidence.md
 ```
 
-Klasyfikacje `found` i `not_stated` wymagają odpowiednio bezpośredniego tekstu
-źródłowego albo jawnej listy przejrzanych stron. Bieżący raport nie tworzy
-kandydatów importu i utrzymuje `auto_import = false`.
+Klasyfikacje `found` i `not_stated` zachowują odpowiednio dokładny tekst
+źródłowy albo listę przejrzanych stron. `auto_import` pozostaje wyłączony.
 
 ### Triage luk konfiguracji
 
@@ -517,12 +537,14 @@ Kontrola obejmuje:
 9. deterministyczne wygenerowanie raportu pokrycia źródłami,
 10. deterministyczne wygenerowanie kolejki triage luk konfiguracji,
 11. weryfikację przeglądu istotnych stron źródłowych,
-12. deterministyczne wygenerowanie klasyfikacji dowodów dla luk.
+12. deterministyczne wygenerowanie klasyfikacji dowodów dla luk,
+13. deterministyczne wygenerowanie planu rozstrzygnięcia luk.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
 liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage,
-przegląd stron źródłowych i klasyfikację dowodów w formatach JSON oraz
-Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
+przegląd stron źródłowych, klasyfikację dowodów i plan rozstrzygnięcia
+w formatach JSON oraz Markdown jako tymczasowy artefakt GitHub Actions
+przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -549,7 +571,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 385 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 396 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
