@@ -25,18 +25,18 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 396 testów automatycznych zakończonych powodzeniem,
+- 397 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1379 rekordów danych,
+- 1380 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 309 obserwacji w `configuration_attribute_values.csv`,
-- 10 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 310 obserwacji w `configuration_attribute_values.csv`,
+- 11 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard`, 0 `optional`, 30 `not_available` i 0 `unknown`,
 - 351 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1379 rekordów,
+- baza SQLite obejmująca 34 tabele i 1380 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->

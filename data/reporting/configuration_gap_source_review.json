@@ -6,7 +6,6 @@
   "review_triage_keys": [
     "technical|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Wheels|wheel_finish|none",
     "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none",
-    "technical|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Wheels|wheel_design|none",
     "technical|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Wheels|wheel_finish|none",
     "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|wheel_finish|none",
     "technical|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Wheels|wheel_finish|none",
@@ -456,35 +455,6 @@
         4
       ],
       "source_section": "Wyposażenie"
-    },
-    {
-      "attribute_code": "wheel_design",
-      "matches": [
-        {
-          "candidate_value": "ATARA",
-          "exclude_needles": [],
-          "needle": "ATARA"
-        },
-        {
-          "candidate_value": "TAMIA",
-          "exclude_needles": [],
-          "needle": "TAMIA"
-        },
-        {
-          "candidate_value": "ERALIA",
-          "exclude_needles": [],
-          "needle": "ERALIA"
-        },
-        {
-          "candidate_value": "MAHALIA",
-          "exclude_needles": [],
-          "needle": "MAHALIA"
-        }
-      ],
-      "review_pages": [
-        2
-      ],
-      "source_section": "Felgi"
     },
     {
       "attribute_code": "wheel_finish",

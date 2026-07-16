@@ -52,31 +52,6 @@
       "triage_key": "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none"
     },
     {
-      "attribute_code": "wheel_design",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "ERALIA",
-      "category": "Wheels",
-      "classification": "found",
-      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "direct_source_statement_found",
-      "review_note": "A direct source statement was retained from the registered PDF page; modeling and import remain separate.",
-      "reviewed_pages": [
-        2
-      ],
-      "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
-      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
-      "source_page": 2,
-      "source_section": "Felgi",
-      "source_text": "ERALIA",
-      "triage_key": "technical|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Wheels|wheel_design|none"
-    },
-    {
       "attribute_code": "wheel_finish",
       "auto_import": false,
       "basis": null,

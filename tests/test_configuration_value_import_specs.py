@@ -47,6 +47,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-maximum-payload-20260626.json",
                 "sandero-standing-km-lpg-20260626.json",
                 "sandero-standing-km-petrol-20260626.json",
+                "sandero-stepway-essential-wheel-design-20260626.json",
                 "sandero-total-valve-count-20260626.json",
             ],
         )
