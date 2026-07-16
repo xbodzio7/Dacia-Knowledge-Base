@@ -77,6 +77,8 @@ jobs:
             ${{ runner.temp }}/configuration-completeness.md
             ${{ runner.temp }}/source-coverage.json
             ${{ runner.temp }}/source-coverage.md
+            ${{ runner.temp }}/configuration-gap-triage.json
+            ${{ runner.temp }}/configuration-gap-triage.md
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7

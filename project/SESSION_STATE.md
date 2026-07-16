@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#48. Aktualny punkt odniesienia to merge commit
-`3e68484b8d071b1c16583ac22c0eddebd474ae51`.
+Pull Requesty #3–#49. Aktualny punkt odniesienia to merge commit
+`d27508d52f12207397440d410e4e3eb6bfe88633`.
 
-PR #48 dodał raport kompletności konfiguracji z jawnym mianownikiem i
-artefaktami JSON oraz Markdown. GitHub Actions Quality run #125 zakończył się
-powodzeniem.
+PR #49 dodał raport pokrycia źródłami, rozdział `source_missing` od
+`record_missing` oraz artefakty JSON i Markdown. GitHub Actions Quality run
+#127 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/source-coverage` z bazą dokładnie
-`3e68484b8d071b1c16583ac22c0eddebd474ae51`.
+`reporting/configuration-gap-triage` z bazą dokładnie
+`d27508d52f12207397440d410e4e3eb6bfe88633`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 353 testów automatycznych zakończonych powodzeniem,
+- 362 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,38 +43,38 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Source Coverage Report.
+Configuration Gap Triage Report.
 
 Zakres:
 
-- rejestracja siedmiu aktywnych źródeł wraz z datą, ścieżką i SHA-256,
-- powiązania źródło–model–wersja–konfiguracja oraz datowane ceny,
-- pokrycie technicznych slotów i atrybutów wyposażenia według źródła,
-- statusy sekcji `covered`, `partial`, `missing` i `source_missing`,
-- osobne luki `source_missing` oraz `record_missing`,
-- deterministyczny JSON i raport Markdown,
-- generowanie raportów w pełnej jakości bez zmiany danych master.
+- ścisłe połączenie luk z raportów kompletności i pokrycia źródłami,
+- neutralna kolejka 6 luk technicznych i 64 luk wyposażenia,
+- grupowanie według konfiguracji, kategorii, źródła i sekcji,
+- daty dokumentów, ścieżki i SHA-256 przy każdej pozycji,
+- stan `source_verification_required` i priorytet `unassigned`,
+- wyłączony automatyczny import,
+- deterministyczny JSON i raport Markdown.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `source-coverage` używa istniejącego mianownika kompletności i nie
-tworzy drugiej listy oczekiwanych atrybutów. Metadane źródła są kontrolowane
-przez datę dokumentu, ścieżkę i SHA-256. Brak rekordu w zarejestrowanym źródle
-nie jest utożsamiany z brakiem źródła ani z brakiem cechy w dokumencie.
+Komenda `configuration-gap-triage` odrzuca rozjazd obu raportów wejściowych.
+Numer kolejki wynika wyłącznie ze stabilnego porządku leksykograficznego i nie
+jest oceną ważności. Raport wskazuje miejsca do ręcznej weryfikacji, nie
+sugeruje wartości i nie modyfikuje danych master.
 
 ## Next Development Package
 
-Configuration Gap Triage Report.
+Configuration Gap Evidence Review.
 
 Planowany przebieg:
 
-1. Połączyć wyniki kompletności i pokrycia źródłami.
-2. Utworzyć kolejkę 6 luk technicznych i 64 luk wyposażenia.
-3. Grupować luki według konfiguracji, kategorii, źródła i sekcji.
-4. Zachować wszystkie jawne stany bez automatycznego importu.
-5. Nie priorytetyzować ani nie uzupełniać danych przez zgadywanie.
+1. Zweryfikować 70 pozycji kolejki względem siedmiu PDF.
+2. Klasyfikować `found`, `not_stated`, `ambiguous` i `out_of_scope`.
+3. Zachować stronę, sekcję i brzmienie źródłowe.
+4. Oddzielić decyzję dowodową od modelowania i importu.
+5. Nie wnioskować treści, których dokument nie stwierdza.
 
 ## Working Mode
 
@@ -547,16 +547,26 @@ Completed:
 
 ### Source Coverage Report
 
+Completed:
+
+- PR #49 dodał raport rejestracji źródeł, obszarów, sekcji i rekordów,
+- zachowano daty dokumentów, ścieżki i SHA-256,
+- rozdzielono `source_missing` od `record_missing`,
+- raporty JSON i Markdown są publikowane jako artefakty CI,
+- GitHub Actions Quality run #127 zakończył się powodzeniem.
+
+### Configuration Gap Triage Report
+
 Current package:
 
-- kontroluje rejestrację źródeł, daty dokumentów, ścieżki i SHA-256,
-- raportuje powiązania encji, ceny, wartości techniczne i wyposażenie,
-- wskazuje pokryte, częściowe oraz puste sekcje,
-- rozdziela `source_missing` od `record_missing`,
-- generuje deterministyczny JSON i raport Markdown,
+- łączy luki kompletności i pokrycia źródłami jeden-do-jednego,
+- tworzy neutralną kolejkę 6 luk technicznych i 64 luk wyposażenia,
+- grupuje zadania według konfiguracji, kategorii, źródła i sekcji,
+- zachowuje metadane dokumentu przy każdej pozycji,
+- wyłącza priorytetyzowanie i automatyczny import,
 - nie zmienia danych master ani modelu kanonicznego.
 
 Next priority:
 
-Przygotować deterministyczną kolejkę triage dla 6 luk technicznych i 64 luk
-wyposażenia bez automatycznego importu ani zgadywania.
+Przeprowadzić dowodowy przegląd 70 pozycji bez wnioskowania treści
+niewskazanych przez dokumenty.

@@ -41,6 +41,7 @@ class QualityTests(unittest.TestCase):
                 "Check documentation baseline",
                 "Generate configuration completeness report",
                 "Generate source coverage report",
+                "Generate configuration gap triage report",
             ],
         )
 
@@ -71,7 +72,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-5][1],
+            steps[-6][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -81,7 +82,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-4][1],
+            steps[-5][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -90,7 +91,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-3][1],
+            steps[-4][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -105,7 +106,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -117,7 +118,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-1][1],
+            steps[-2][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -126,6 +127,18 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("source-coverage.json")),
                 "--markdown",
                 str(database.with_name("source-coverage.md")),
+            ],
+        )
+        self.assertEqual(
+            steps[-1][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "configuration-gap-triage",
+                "--json",
+                str(database.with_name("configuration-gap-triage.json")),
+                "--markdown",
+                str(database.with_name("configuration-gap-triage.md")),
             ],
         )
 

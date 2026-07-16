@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 353 testów automatycznych,
+- 362 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Source Coverage Report
+## Configuration Gap Triage Report
 
 Cel sprintu:
 
-- raportować rejestrację siedmiu aktywnych źródeł i ich metadane,
-- kontrolować powiązania źródło–model–wersja–konfiguracja i ceny,
-- wskazywać pokryte, częściowe i puste sekcje techniczne oraz wyposażenia,
-- rozdzielić `source_missing` od `record_missing`,
-- generować deterministyczny JSON i czytelny Markdown,
-- publikować raport w CI bez wnioskowania treści dokumentów.
+- połączyć raporty kompletności i pokrycia źródłami jeden-do-jednego,
+- utworzyć neutralną kolejkę 6 luk technicznych i 64 luk wyposażenia,
+- grupować zadania według konfiguracji, kategorii, źródła i sekcji,
+- zachować rozdział między brakiem rekordu a jawnymi statusami,
+- wskazywać wyłącznie kandydatów do ręcznej weryfikacji źródłowej,
+- wyłączyć automatyczny import i subiektywne priorytetyzowanie.
 
 ---
 
 # Next Sprint
 
-## Configuration Gap Triage Report
+## Configuration Gap Evidence Review
 
 Cel sprintu:
 
-- wykorzystać raporty kompletności i pokrycia źródłami jako wejście,
-- utworzyć deterministyczną kolejkę 6 luk technicznych i 64 luk wyposażenia,
-- grupować zadania według konfiguracji, kategorii, źródła i sekcji,
-- zachować rozdział między brakiem rekordu a jawnymi statusami,
-- wskazywać kandydatów do weryfikacji źródłowej bez automatycznego importu,
-- nie uzupełniać ani nie priorytetyzować danych przez zgadywanie.
+- przejrzeć 70 pozycji kolejki względem siedmiu zarejestrowanych PDF,
+- klasyfikować wynik jako `found`, `not_stated`, `ambiguous` lub `out_of_scope`,
+- zapisywać stronę, sekcję i brzmienie źródłowe dla potwierdzonych wyników,
+- oddzielić decyzję dowodową od późniejszego modelowania i importu,
+- kierować jednoznaczne wartości do osobnych małych pakietów,
+- nie wnioskować danych, których dokument nie stwierdza.
 
 # Backlog
 

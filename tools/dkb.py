@@ -18,6 +18,12 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "configuration-gap-triage": (
+        "configuration_gap_triage.py",
+        "Generate a deterministic source-verification queue for gaps.",
+        "[--spec FILE] [--as-of YYYY-MM-DD] "
+        "[--json FILE] [--markdown FILE]",
+    ),
     "source-coverage": (
         "source_coverage.py",
         "Generate source registration and record coverage reports.",
@@ -153,6 +159,7 @@ def usage() -> None:
         "--spec data/imports/configuration_values/example.json "
         "--verify"
     )
+    print("  python tools/dkb.py configuration-gap-triage --json ../configuration-gap-triage.json")
     print("  python tools/dkb.py source-coverage --json ../source-coverage.json")
     print("  python tools/dkb.py configuration-completeness --json ../configuration-completeness.json")
     print("  python tools/dkb.py quality")
