@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 396 testów automatycznych,
+- 397 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,

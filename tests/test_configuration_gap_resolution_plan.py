@@ -253,6 +253,27 @@ class ConfigurationGapResolutionPlanTests(unittest.TestCase):
         self.assertEqual(report["summary"]["candidate_packages"], 1)
         self.assertEqual(report["summary"]["planned_rows"], 1)
 
+    def test_zero_candidates_route_to_closure_milestone(self) -> None:
+        temporary, repository, evidence = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        evidence["decisions"] = [
+            decision
+            for decision in evidence["decisions"]
+            if decision["classification"] != "found"
+        ]
+
+        spec = planning.build_expected_plan_spec(repository, evidence)
+        report = planning.build_report(repository, evidence, spec)
+
+        self.assertEqual(report["summary"]["total_decisions"], 2)
+        self.assertEqual(report["summary"]["ready_for_import"], 0)
+        self.assertEqual(report["summary"]["candidate_packages"], 0)
+        self.assertEqual(report["summary"]["planned_rows"], 0)
+        self.assertEqual(
+            report["next_package"],
+            "Configuration Gap Closure Documentation Milestone",
+        )
+
     def test_found_candidate_reuses_existing_string_model(self) -> None:
         temporary, repository, evidence = self.fixture()
         self.addCleanup(temporary.cleanup)

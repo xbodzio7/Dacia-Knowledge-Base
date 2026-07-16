@@ -742,11 +742,12 @@ def build_report(
         int(package.get("planned_rows", 0))
         for package in packages
     )
-    next_package = (
-        packages[0]["package_name"]
-        if len(packages) == 1
-        else "Configuration Gap Resolution Execution"
-    )
+    if len(packages) == 1:
+        next_package = packages[0]["package_name"]
+    elif packages:
+        next_package = "Configuration Gap Resolution Execution"
+    else:
+        next_package = "Configuration Gap Closure Documentation Milestone"
     return {
         **dict(plan_spec),
         "summary": {
