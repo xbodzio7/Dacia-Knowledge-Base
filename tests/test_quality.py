@@ -44,6 +44,7 @@ class QualityTests(unittest.TestCase):
                 "Generate configuration gap triage report",
                 "Verify configuration gap source page review",
                 "Generate configuration gap evidence report",
+                "Generate configuration gap resolution plan",
             ],
         )
 
@@ -74,7 +75,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-8][1],
+            steps[-9][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -84,7 +85,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-7][1],
+            steps[-8][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -93,7 +94,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-6][1],
+            steps[-7][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -108,7 +109,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-5][1],
+            steps[-6][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -120,7 +121,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-4][1],
+            steps[-5][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -132,7 +133,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-3][1],
+            steps[-4][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -144,7 +145,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -165,7 +166,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-1][1],
+            steps[-2][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -174,6 +175,26 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("configuration-gap-evidence.json")),
                 "--markdown",
                 str(database.with_name("configuration-gap-evidence.md")),
+            ],
+        )
+        self.assertEqual(
+            steps[-1][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "configuration-gap-resolution-plan",
+                "--json",
+                str(
+                    database.with_name(
+                        "configuration-gap-resolution-plan.json"
+                    )
+                ),
+                "--markdown",
+                str(
+                    database.with_name(
+                        "configuration-gap-resolution-plan.md"
+                    )
+                ),
             ],
         )
 

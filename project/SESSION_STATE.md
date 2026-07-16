@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#51. Aktualny punkt odniesienia to merge commit
-`b138100299f8e057db4195211a03930e6f890ace`.
+Pull Requesty #3–#52. Aktualny punkt odniesienia to merge commit
+`16f0104629f92f750122de700485d6d2c7412145`.
 
-PR #51 dodał wersjonowaną klasyfikację 70 decyzji, zachował 45 pozycji
-`ambiguous` do przeglądu stron i utrzymał zero automatycznych importów.
-GitHub Actions Quality run #131 zakończył się powodzeniem.
+PR #52 zakończył przegląd 45 pozycji na 19 parach źródło–strona, uzyskał
+1 `found`, 44 `not_stated` i 0 `ambiguous` oraz utrzymał zero automatycznych
+importów. GitHub Actions Quality run #134 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-gap-source-review` z bazą dokładnie
-`b138100299f8e057db4195211a03930e6f890ace`.
+`reporting/configuration-gap-resolution-plan` z bazą dokładnie
+`16f0104629f92f750122de700485d6d2c7412145`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 385 testów automatycznych zakończonych powodzeniem,
+- 396 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,39 +43,39 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Gap Source Page Review.
+Configuration Gap Resolution Planning.
 
 Zakres:
 
-- wersjonowane reguły dla 45 docelowych decyzji,
-- kontrola siedmiu PDF przez ścieżkę i SHA-256,
-- kalibracja tekstu stron względem istniejących kotwic proweniencji,
-- 1 decyzji `found` z bezpośrednim fragmentem źródłowym,
-- 44 decyzji `not_stated` z listą przejrzanych stron,
-- 0 decyzji nadal `ambiguous`,
-- 19 przejrzanych par źródło–strona i zero niekompletnych ekstrakcji.
+- wersjonowany plan dla wszystkich 70 decyzji dowodowych,
+- 1 decyzja `ready_for_import`,
+- 44 decyzje `closed_not_stated`,
+- 25 decyzji `closed_out_of_scope`,
+- zero wymaganych zmian modelu,
+- jeden planowany wiersz wartości konfiguracji,
+- wyłączony automatyczny import i brak zmian `data/master`.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `configuration-gap-source-review` weryfikuje istotne strony 2–4,
-nie interpretuje braku dopasowania jako braku wyposażenia i nie modyfikuje
-danych master. Kandydat `found` pozostaje wyłącznie wynikiem dowodowym.
-Pełny przegląd stron jest zamknięty
-z punktu widzenia pozycji wymagających ręcznej decyzji semantycznej.
+Komenda `configuration-gap-resolution-plan` kontroluje bieżący model,
+istniejące wartości, parę źródło–konfiguracja i wcześniejsze specyfikacje
+importu. Dla `wheel_design = ERALIA` potwierdza istniejący aktywny kontrakt
+tekstowy i przygotowuje dokładny projekt specyfikacji od ID 310. Plan nie
+zapisuje danych i nie interpretuje `not_stated` jako wartości negatywnej.
 
 ## Next Development Package
 
-Configuration Gap Resolution Planning.
+Sandero Stepway Essential Wheel Design Value Import.
 
 Planowany przebieg:
 
-1. Zachować wszystkie wyniki źródłowe bez automatycznego importu.
-2. Rozpatrzyć pozostałe konflikty albo kandydatów w osobnych grupach.
-3. Oddzielić dostępność, techniczne wartości i granice modelu.
-4. Nie uzupełniać danych na podstawie samego braku tekstu.
-5. Kierować każdą zmianę danych do osobnego kontrolowanego pakietu.
+1. Dodać jedną deklaratywną specyfikację `wheel_design`.
+2. Zaimportować `ERALIA` dla Stepway Essential Eco-G 120 manual.
+3. Zachować pusty kontekst paliwa, stronę 2 i sekcję `Felgi`.
+4. Rozpocząć od ID 310 bez zmiany modelu kanonicznego.
+5. Zweryfikować import wspólnym kontraktem i pełną jakością.
 
 ## Working Mode
 
@@ -578,15 +578,27 @@ Completed:
 
 ### Configuration Gap Source Page Review
 
+Completed:
+
+- PR #52 zweryfikował 45 celów na 19 istotnych stronach siedmiu PDF,
+- uzyskano 1 `found`, 44 `not_stated` i 0 `ambiguous`,
+- kontrolowano ekstrakcję przez istniejące kotwice i SHA-256,
+- zachowano dokładny fragment `ERALIA` dla Stepway Essential,
+- nie zmieniono danych master ani modelu kanonicznego,
+- GitHub Actions Quality run #134 zakończył się powodzeniem.
+
+### Configuration Gap Resolution Planning
+
 Current package:
 
-- weryfikuje 45 celów na 19 istotnych stronach siedmiu PDF,
-- uzyskuje 1 `found`, 44 `not_stated` i 0 `ambiguous`,
-- kontroluje ekstrakcję przez istniejące kotwice i SHA-256,
-- zachowuje dokładne fragmenty dla bezpośrednich dopasowań,
-- nie zmienia danych master ani modelu kanonicznego,
+- przypisuje stan wykonawczy wszystkim 70 decyzjom,
+- kieruje jeden wynik do deklaratywnego importu wartości konfiguracji,
+- potwierdza brak potrzeby zmiany modelu dla `wheel_design`,
+- zamyka 44 `not_stated` i 25 `out_of_scope` bez danych,
+- proponuje jeden wiersz od ID 310,
 - utrzymuje `auto_import = false`.
 
 Next priority:
 
-Przejść do pakietu Configuration Gap Resolution Planning bez automatycznego modelowania lub importu.
+Wykonać pakiet Sandero Stepway Essential Wheel Design Value Import jako
+osobny, dokładny import jednej wartości.

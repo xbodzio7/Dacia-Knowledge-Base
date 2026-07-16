@@ -111,6 +111,9 @@ All notable changes to this project will be documented in this file.
 * Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
 * Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
 * Fourteen source-backed `acceleration_0_100` values with separate LPG and petrol context and exact page-5 provenance.
+* Versioned resolution plan covering all 70 configuration-gap evidence decisions.
+* One evidence-backed `wheel_design = ERALIA` candidate routed to a one-row declarative value import without a model change.
+* Explicit closure of 44 `not_stated` and 25 `out_of_scope` decisions with automatic import disabled.
 * Versioned source-page review rules for all 45 evidence-review targets.
 * SHA-256-verified review of 19 relevant source pages across seven registered PDFs.
 * Source-page results: 1 `found`, 44 `not_stated` and 0 still `ambiguous`, with zero automatic imports.
@@ -141,6 +144,7 @@ All notable changes to this project will be documented in this file.
 * Package finish enforces one commit, its exact parent and an exact committed-file manifest when a package manifest is supplied.
 * Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
 * Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
+* Full quality now generates and publishes both configuration-gap-resolution-plan report formats.
 * Full quality now verifies and publishes both configuration-gap-source-review report formats.
 * Full quality now generates and publishes both configuration-gap-evidence report formats.
 * Full quality now generates and publishes both configuration-gap-triage report formats.
@@ -166,7 +170,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 385 tests.
+* The automated test suite now contains 396 tests.
 * The verified master-data baseline now contains 34 CSV files and 1379 rows.
 * SQLite verification now covers 34 tables and 1379 rows.
 * Configuration attribute values now contain 309 dated records.

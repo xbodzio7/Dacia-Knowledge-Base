@@ -65,6 +65,12 @@ def quality_steps(
     gap_source_review_markdown = database.with_name(
         "configuration-gap-source-review.md"
     )
+    gap_resolution_json = database.with_name(
+        "configuration-gap-resolution-plan.json"
+    )
+    gap_resolution_markdown = database.with_name(
+        "configuration-gap-resolution-plan.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -193,6 +199,18 @@ def quality_steps(
                 str(gap_evidence_json),
                 "--markdown",
                 str(gap_evidence_markdown),
+            ],
+        ),
+        (
+            "Generate configuration gap resolution plan",
+            [
+                sys.executable,
+                str(dkb),
+                "configuration-gap-resolution-plan",
+                "--json",
+                str(gap_resolution_json),
+                "--markdown",
+                str(gap_resolution_markdown),
             ],
         ),
     ]
