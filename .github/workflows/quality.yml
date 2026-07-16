@@ -41,6 +41,15 @@ jobs:
       - name: Show Python version
         run: python --version
 
+      - name: Install PDF text extraction backend
+        if: matrix.python-version == '3.13'
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          pdftotext -v
+
       - name: Compile Python sources
         if: matrix.python-version == '3.10'
         run: python -m compileall -q tools scripts tests
@@ -79,6 +88,8 @@ jobs:
             ${{ runner.temp }}/source-coverage.md
             ${{ runner.temp }}/configuration-gap-triage.json
             ${{ runner.temp }}/configuration-gap-triage.md
+            ${{ runner.temp }}/configuration-gap-source-review.json
+            ${{ runner.temp }}/configuration-gap-source-review.md
             ${{ runner.temp }}/configuration-gap-evidence.json
             ${{ runner.temp }}/configuration-gap-evidence.md
             reports/validation_report.md

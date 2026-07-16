@@ -18,6 +18,13 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "configuration-gap-source-review": (
+        "configuration_gap_source_review.py",
+        "Review ambiguous gaps against registered PDF source pages.",
+        "[--review-spec FILE] [--evidence-spec FILE] "
+        "[--write-evidence-spec FILE] [--verify] "
+        "[--json FILE] [--markdown FILE]",
+    ),
     "configuration-gap-evidence": (
         "configuration_gap_evidence.py",
         "Classify gap evidence without inferring source content.",
@@ -165,6 +172,7 @@ def usage() -> None:
         "--spec data/imports/configuration_values/example.json "
         "--verify"
     )
+    print("  python tools/dkb.py configuration-gap-source-review --verify --json ../configuration-gap-source-review.json")
     print("  python tools/dkb.py configuration-gap-evidence --json ../configuration-gap-evidence.json")
     print("  python tools/dkb.py configuration-gap-triage --json ../configuration-gap-triage.json")
     print("  python tools/dkb.py source-coverage --json ../source-coverage.json")

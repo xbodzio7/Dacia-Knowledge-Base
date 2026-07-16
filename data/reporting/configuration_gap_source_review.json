@@ -1,0 +1,515 @@
+{
+  "as_of": "2026-06-26",
+  "auto_import": false,
+  "kind": "configuration_gap_source_page_review",
+  "review_scope": "relevant_source_pages",
+  "review_triage_keys": [
+    "technical|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Wheels|wheel_finish|none",
+    "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none",
+    "technical|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Wheels|wheel_design|none",
+    "technical|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Wheels|wheel_finish|none",
+    "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|wheel_finish|none",
+    "technical|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Wheels|wheel_finish|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Brakes|electronic_parking_brake|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Capacities|adjustable_boot_floor|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Drivetrain|extended_grip|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Driving Systems|blind_spot_monitoring|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Driving Systems|rear_view_camera|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Infotainment|bluetooth_connectivity|none",
+    "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Mirrors|front_parking_sensors|none",
+    "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Drivetrain|extended_grip|none",
+    "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Driving Systems|parking_assist_system|none",
+    "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Infotainment|bluetooth_connectivity|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Brakes|electronic_parking_brake|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Capacities|adjustable_boot_floor|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Drivetrain|extended_grip|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Driving Systems|blind_spot_monitoring|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Driving Systems|rear_view_camera|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Lighting|fog_lights|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Mirrors|front_parking_sensors|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Mirrors|side_mirrors_heated|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Seats|front_centre_armrest|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Steering|steering_wheel_reach_adjustment|none",
+    "equipment|src_pl_sandero_stepway_essential_ecog120_mt_20260626|sandero_stepway_iii_essential_ecog120_manual|Windows|one_touch_windows|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Capacities|adjustable_boot_floor|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Drivetrain|extended_grip|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Driving Systems|blind_spot_monitoring|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Driving Systems|parking_assist_system|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Infotainment|bluetooth_connectivity|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Mirrors|front_parking_sensors|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Brakes|electronic_parking_brake|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Capacities|adjustable_boot_floor|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Drivetrain|extended_grip|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Driving Systems|blind_spot_monitoring|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Infotainment|bluetooth_connectivity|none",
+    "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Mirrors|front_parking_sensors|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Driving Systems|hill_start_assist|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Driving Systems|parking_assist_system|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Infotainment|bluetooth_connectivity|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Driving Systems|hill_start_assist|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Driving Systems|parking_assist_system|none",
+    "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Infotainment|bluetooth_connectivity|none"
+  ],
+  "rules": [
+    {
+      "attribute_code": "adjustable_boot_floor",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez regulowanej podłogi bagażnika"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez regulowanej podłogi bagażnika"
+          ],
+          "needle": "podłoga bagażnika ustawiana w dwóch płaszczyznach"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez regulowanej podłogi bagażnika"
+          ],
+          "needle": "regulowana podłoga bagażnika"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez regulowanej podłogi bagażnika"
+          ],
+          "needle": "podwójna podłoga bagażnika"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "blind_spot_monitoring",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez systemu kontroli martwego pola"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez systemu kontroli martwego pola"
+          ],
+          "needle": "system kontroli martwego pola"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez systemu kontroli martwego pola"
+          ],
+          "needle": "monitorowanie martwego pola"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "bluetooth_connectivity",
+      "matches": [
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [],
+          "needle": "Bluetooth"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "electronic_parking_brake",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "manualny hamulec ręczny"
+        },
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "hamulec ręczny manualny"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "manualny hamulec ręczny",
+            "hamulec ręczny manualny"
+          ],
+          "needle": "automatyczny hamulec ręczny"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "manualny hamulec ręczny",
+            "hamulec ręczny manualny"
+          ],
+          "needle": "elektryczny hamulec postojowy"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "extended_grip",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez Extended Grip"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez Extended Grip"
+          ],
+          "needle": "Extened Grip"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez Extended Grip"
+          ],
+          "needle": "Extended Grip"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "fog_lights",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez świateł przeciwmgłowych"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez świateł przeciwmgłowych"
+          ],
+          "needle": "światła przeciwmgłowe"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "front_centre_armrest",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez podłokietnika"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez podłokietnika"
+          ],
+          "needle": "środkowa konsola ze schowkiem i podłokietnikiem"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez podłokietnika"
+          ],
+          "needle": "podłokietnik przedni"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "front_parking_sensors",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez czujników parkowania z przodu"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez czujników parkowania z przodu"
+          ],
+          "needle": "system wspomagania parkowania przód/tył"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez czujników parkowania z przodu"
+          ],
+          "needle": "czujniki parkowania z przodu"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez czujników parkowania z przodu"
+          ],
+          "needle": "czujniki parkowania przód"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "hill_start_assist",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez systemu wspomagania ruszania pod górę"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez systemu wspomagania ruszania pod górę"
+          ],
+          "needle": "systemem wspomagania ruszania pod górę"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez systemu wspomagania ruszania pod górę"
+          ],
+          "needle": "wspomaganie ruszania pod górę"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "one_touch_windows",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez funkcji impulsowej"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez funkcji impulsowej"
+          ],
+          "needle": "włącznikiem impulsowym"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez funkcji impulsowej"
+          ],
+          "needle": "szyba kierowcy impulsowa"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "parking_assist_system",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez automatycznego parkowania"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez automatycznego parkowania"
+          ],
+          "needle": "system automatycznego parkowania"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez automatycznego parkowania"
+          ],
+          "needle": "automatyczne parkowanie"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "rear_view_camera",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "bez kamery cofania"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez kamery cofania"
+          ],
+          "needle": "kamera cofania"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "bez kamery cofania"
+          ],
+          "needle": "kamera tylna"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "side_mirrors_heated",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "lusterka niepodgrzewane"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "lusterka niepodgrzewane"
+          ],
+          "needle": "funkcją rozmrażania"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "lusterka niepodgrzewane"
+          ],
+          "needle": "podgrzewane lusterka"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "steering_wheel_reach_adjustment",
+      "matches": [
+        {
+          "candidate_value": "not_available",
+          "exclude_needles": [],
+          "needle": "kierownica tylko z regulacją wysokości"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "kierownica tylko z regulacją wysokości"
+          ],
+          "needle": "kierownica z regulacją wysokości i głębokości"
+        },
+        {
+          "candidate_value": "standard",
+          "exclude_needles": [
+            "kierownica tylko z regulacją wysokości"
+          ],
+          "needle": "regulacją w dwóch płaszczyznach"
+        }
+      ],
+      "review_pages": [
+        3,
+        4
+      ],
+      "source_section": "Wyposażenie"
+    },
+    {
+      "attribute_code": "wheel_design",
+      "matches": [
+        {
+          "candidate_value": "ATARA",
+          "exclude_needles": [],
+          "needle": "ATARA"
+        },
+        {
+          "candidate_value": "TAMIA",
+          "exclude_needles": [],
+          "needle": "TAMIA"
+        },
+        {
+          "candidate_value": "ERALIA",
+          "exclude_needles": [],
+          "needle": "ERALIA"
+        },
+        {
+          "candidate_value": "MAHALIA",
+          "exclude_needles": [],
+          "needle": "MAHALIA"
+        }
+      ],
+      "review_pages": [
+        2
+      ],
+      "source_section": "Felgi"
+    },
+    {
+      "attribute_code": "wheel_finish",
+      "matches": [
+        {
+          "candidate_value": "black",
+          "exclude_needles": [],
+          "needle": "TAMIA BLACK"
+        },
+        {
+          "candidate_value": "bi-tone",
+          "exclude_needles": [],
+          "needle": "TAMIA BI-TON"
+        },
+        {
+          "candidate_value": "bi-tone",
+          "exclude_needles": [],
+          "needle": "ERALIA BI-TON"
+        }
+      ],
+      "review_pages": [
+        2
+      ],
+      "source_section": "Felgi"
+    }
+  ],
+  "version": 1
+}

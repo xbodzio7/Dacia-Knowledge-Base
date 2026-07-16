@@ -59,6 +59,12 @@ def quality_steps(
     gap_evidence_markdown = database.with_name(
         "configuration-gap-evidence.md"
     )
+    gap_source_review_json = database.with_name(
+        "configuration-gap-source-review.json"
+    )
+    gap_source_review_markdown = database.with_name(
+        "configuration-gap-source-review.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -162,6 +168,19 @@ def quality_steps(
                 str(gap_triage_json),
                 "--markdown",
                 str(gap_triage_markdown),
+            ],
+        ),
+        (
+            "Verify configuration gap source page review",
+            [
+                sys.executable,
+                str(dkb),
+                "configuration-gap-source-review",
+                "--verify",
+                "--json",
+                str(gap_source_review_json),
+                "--markdown",
+                str(gap_source_review_markdown),
             ],
         ),
         (

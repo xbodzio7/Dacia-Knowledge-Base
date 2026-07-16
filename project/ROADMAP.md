@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 372 testów automatycznych,
+- 385 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Configuration Gap Evidence Review
+## Configuration Gap Source Page Review
 
 Cel sprintu:
 
-- dopasować 70 wersjonowanych decyzji jeden-do-jednego do kolejki triage,
-- klasyfikować wyłącznie stany poparte istniejącym dowodem strukturalnym,
-- oznaczyć 25 pozycji jako `out_of_scope` na podstawie jawnych alternatyw,
-- pozostawić 45 pozycji `ambiguous` do ręcznego przeglądu stron PDF,
-- wymagać strony, sekcji i tekstu przed klasyfikacją `found`,
-- utrzymać zero kandydatów importu i wyłączony automatyczny import.
+- zweryfikować 45 pozycji względem istotnych stron siedmiu PDF,
+- kontrolować każdy plik przez rejestr źródeł i SHA-256,
+- zachować dokładny fragment i stronę dla decyzji `found`,
+- zapisać listę przejrzanych stron dla decyzji `not_stated`,
+- uzyskać 1 `found`, 44 `not_stated` i 0 `ambiguous`,
+- utrzymać rozdział między dowodem, modelowaniem i importem.
 
 ---
 
 # Next Sprint
 
-## Configuration Gap Source Page Review
+## Configuration Gap Resolution Planning
 
 Cel sprintu:
 
-- przejrzeć 45 pozycji `ambiguous` względem siedmiu zarejestrowanych PDF,
-- klasyfikować wynik jako `found`, `not_stated` albo nadal `ambiguous`,
-- zapisywać stronę, sekcję i dokładne brzmienie źródłowe,
-- dokumentować listę przejrzanych stron dla `not_stated`,
-- oddzielić decyzję dowodową od późniejszego modelowania i importu,
-- nie wnioskować danych, których dokument nie stwierdza.
+- pogrupować decyzje `found` według atrybutu i rodzaju danych,
+- oddzielić dostępność wyposażenia od technicznych wartości konfiguracji,
+- sprawdzić granice istniejącego modelu kanonicznego,
+- przygotować małe pakiety modelowania albo importu,
+- zachować `not_stated` jako jawny wynik przeglądu,
+- nie wykonywać automatycznego importu.
 
 # Backlog
 

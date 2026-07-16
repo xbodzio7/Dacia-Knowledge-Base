@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#50. Aktualny punkt odniesienia to merge commit
-`4533fb5e79a9d3a2c14760fc709e52e3d9022e58`.
+Pull Requesty #3–#51. Aktualny punkt odniesienia to merge commit
+`b138100299f8e057db4195211a03930e6f890ace`.
 
-PR #50 dodał deterministyczną kolejkę 70 luk, wyłączył priorytetyzowanie i
-automatyczny import oraz opublikował raporty JSON i Markdown. GitHub Actions
-Quality run #129 zakończył się powodzeniem.
+PR #51 dodał wersjonowaną klasyfikację 70 decyzji, zachował 45 pozycji
+`ambiguous` do przeglądu stron i utrzymał zero automatycznych importów.
+GitHub Actions Quality run #131 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-gap-evidence` z bazą dokładnie
-`4533fb5e79a9d3a2c14760fc709e52e3d9022e58`.
+`reporting/configuration-gap-source-review` z bazą dokładnie
+`b138100299f8e057db4195211a03930e6f890ace`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 372 testów automatycznych zakończonych powodzeniem,
+- 385 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,38 +43,39 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Gap Evidence Review.
+Configuration Gap Source Page Review.
 
 Zakres:
 
-- wersjonowana decyzja dla każdej z 70 pozycji kolejki triage,
-- dokładna zgodność źródła, konfiguracji, daty, ścieżki i SHA-256,
-- 25 decyzji `out_of_scope` opartych na jawnych alternatywach,
-- 45 decyzji `ambiguous` wymagających ręcznego przeglądu PDF,
-- kontrakty strony, sekcji i tekstu dla przyszłych decyzji `found`,
-- zero kandydatów importu i wyłączony automatyczny import,
-- deterministyczny JSON i raport Markdown.
+- wersjonowane reguły dla 45 docelowych decyzji,
+- kontrola siedmiu PDF przez ścieżkę i SHA-256,
+- kalibracja tekstu stron względem istniejących kotwic proweniencji,
+- 1 decyzji `found` z bezpośrednim fragmentem źródłowym,
+- 44 decyzji `not_stated` z listą przejrzanych stron,
+- 0 decyzji nadal `ambiguous`,
+- 19 przejrzanych par źródło–strona i zero niekompletnych ekstrakcji.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `configuration-gap-evidence` nie deklaruje pełnego przeglądu stron
-siedmiu PDF. Rozstrzyga wyłącznie przypadki poparte bieżącym dowodem
-strukturalnym, a pozostałe utrzymuje jako `ambiguous`. Brak tekstu źródłowego
-nie jest interpretowany jako `not_stated`.
+Komenda `configuration-gap-source-review` weryfikuje istotne strony 2–4,
+nie interpretuje braku dopasowania jako braku wyposażenia i nie modyfikuje
+danych master. Kandydat `found` pozostaje wyłącznie wynikiem dowodowym.
+Pełny przegląd stron jest zamknięty
+z punktu widzenia pozycji wymagających ręcznej decyzji semantycznej.
 
 ## Next Development Package
 
-Configuration Gap Source Page Review.
+Configuration Gap Resolution Planning.
 
 Planowany przebieg:
 
-1. Zweryfikować 45 pozycji `ambiguous` względem siedmiu PDF.
-2. Zapisać stronę, sekcję i dokładne brzmienie źródłowe dla `found`.
-3. Zapisać listę przejrzanych stron dla `not_stated`.
-4. Pozostawić nierozstrzygnięte przypadki jako `ambiguous`.
-5. Nie wnioskować treści, których dokument nie stwierdza.
+1. Zachować wszystkie wyniki źródłowe bez automatycznego importu.
+2. Rozpatrzyć pozostałe konflikty albo kandydatów w osobnych grupach.
+3. Oddzielić dostępność, techniczne wartości i granice modelu.
+4. Nie uzupełniać danych na podstawie samego braku tekstu.
+5. Kierować każdą zmianę danych do osobnego kontrolowanego pakietu.
 
 ## Working Mode
 
@@ -567,16 +568,25 @@ Completed:
 
 ### Configuration Gap Evidence Review
 
+Completed:
+
+- PR #51 dopasował 70 decyzji jeden-do-jednego do kolejki triage,
+- zachowano 25 pozycji `out_of_scope` i 45 `ambiguous`,
+- wymagane są jawne strony i tekst dla `found`,
+- automatyczny import pozostał wyłączony,
+- GitHub Actions Quality run #131 zakończył się powodzeniem.
+
+### Configuration Gap Source Page Review
+
 Current package:
 
-- dopasowuje 70 decyzji jeden-do-jednego do kolejki triage,
-- klasyfikuje 25 pozycji `out_of_scope` na podstawie jawnego dowodu,
-- pozostawia 45 pozycji `ambiguous` do ręcznego przeglądu stron,
-- nie tworzy decyzji `found` ani `not_stated` bez wymaganych dowodów,
-- utrzymuje zero kandydatów importu i `auto_import = false`,
-- nie zmienia danych master ani modelu kanonicznego.
+- weryfikuje 45 celów na 19 istotnych stronach siedmiu PDF,
+- uzyskuje 1 `found`, 44 `not_stated` i 0 `ambiguous`,
+- kontroluje ekstrakcję przez istniejące kotwice i SHA-256,
+- zachowuje dokładne fragmenty dla bezpośrednich dopasowań,
+- nie zmienia danych master ani modelu kanonicznego,
+- utrzymuje `auto_import = false`.
 
 Next priority:
 
-Przejrzeć strony siedmiu PDF dla 45 pozycji `ambiguous` i zachować dokładny
-tekst źródłowy bez automatycznego modelowania lub importu.
+Przejść do pakietu Configuration Gap Resolution Planning bez automatycznego modelowania lub importu.
