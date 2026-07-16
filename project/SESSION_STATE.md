@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#49. Aktualny punkt odniesienia to merge commit
-`d27508d52f12207397440d410e4e3eb6bfe88633`.
+Pull Requesty #3–#50. Aktualny punkt odniesienia to merge commit
+`4533fb5e79a9d3a2c14760fc709e52e3d9022e58`.
 
-PR #49 dodał raport pokrycia źródłami, rozdział `source_missing` od
-`record_missing` oraz artefakty JSON i Markdown. GitHub Actions Quality run
-#127 zakończył się powodzeniem.
+PR #50 dodał deterministyczną kolejkę 70 luk, wyłączył priorytetyzowanie i
+automatyczny import oraz opublikował raporty JSON i Markdown. GitHub Actions
+Quality run #129 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-gap-triage` z bazą dokładnie
-`d27508d52f12207397440d410e4e3eb6bfe88633`.
+`reporting/configuration-gap-evidence` z bazą dokładnie
+`4533fb5e79a9d3a2c14760fc709e52e3d9022e58`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 362 testów automatycznych zakończonych powodzeniem,
+- 372 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,37 +43,37 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Gap Triage Report.
+Configuration Gap Evidence Review.
 
 Zakres:
 
-- ścisłe połączenie luk z raportów kompletności i pokrycia źródłami,
-- neutralna kolejka 6 luk technicznych i 64 luk wyposażenia,
-- grupowanie według konfiguracji, kategorii, źródła i sekcji,
-- daty dokumentów, ścieżki i SHA-256 przy każdej pozycji,
-- stan `source_verification_required` i priorytet `unassigned`,
-- wyłączony automatyczny import,
+- wersjonowana decyzja dla każdej z 70 pozycji kolejki triage,
+- dokładna zgodność źródła, konfiguracji, daty, ścieżki i SHA-256,
+- 25 decyzji `out_of_scope` opartych na jawnych alternatywach,
+- 45 decyzji `ambiguous` wymagających ręcznego przeglądu PDF,
+- kontrakty strony, sekcji i tekstu dla przyszłych decyzji `found`,
+- zero kandydatów importu i wyłączony automatyczny import,
 - deterministyczny JSON i raport Markdown.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `configuration-gap-triage` odrzuca rozjazd obu raportów wejściowych.
-Numer kolejki wynika wyłącznie ze stabilnego porządku leksykograficznego i nie
-jest oceną ważności. Raport wskazuje miejsca do ręcznej weryfikacji, nie
-sugeruje wartości i nie modyfikuje danych master.
+Komenda `configuration-gap-evidence` nie deklaruje pełnego przeglądu stron
+siedmiu PDF. Rozstrzyga wyłącznie przypadki poparte bieżącym dowodem
+strukturalnym, a pozostałe utrzymuje jako `ambiguous`. Brak tekstu źródłowego
+nie jest interpretowany jako `not_stated`.
 
 ## Next Development Package
 
-Configuration Gap Evidence Review.
+Configuration Gap Source Page Review.
 
 Planowany przebieg:
 
-1. Zweryfikować 70 pozycji kolejki względem siedmiu PDF.
-2. Klasyfikować `found`, `not_stated`, `ambiguous` i `out_of_scope`.
-3. Zachować stronę, sekcję i brzmienie źródłowe.
-4. Oddzielić decyzję dowodową od modelowania i importu.
+1. Zweryfikować 45 pozycji `ambiguous` względem siedmiu PDF.
+2. Zapisać stronę, sekcję i dokładne brzmienie źródłowe dla `found`.
+3. Zapisać listę przejrzanych stron dla `not_stated`.
+4. Pozostawić nierozstrzygnięte przypadki jako `ambiguous`.
 5. Nie wnioskować treści, których dokument nie stwierdza.
 
 ## Working Mode
@@ -557,16 +557,26 @@ Completed:
 
 ### Configuration Gap Triage Report
 
+Completed:
+
+- PR #50 dodał kolejkę 6 luk technicznych i 64 luk wyposażenia,
+- zachowano neutralny porządek, metadane źródła i dokładne klucze triage,
+- wyłączono priorytetyzowanie i automatyczny import,
+- raporty JSON i Markdown są publikowane jako artefakty CI,
+- GitHub Actions Quality run #129 zakończył się powodzeniem.
+
+### Configuration Gap Evidence Review
+
 Current package:
 
-- łączy luki kompletności i pokrycia źródłami jeden-do-jednego,
-- tworzy neutralną kolejkę 6 luk technicznych i 64 luk wyposażenia,
-- grupuje zadania według konfiguracji, kategorii, źródła i sekcji,
-- zachowuje metadane dokumentu przy każdej pozycji,
-- wyłącza priorytetyzowanie i automatyczny import,
+- dopasowuje 70 decyzji jeden-do-jednego do kolejki triage,
+- klasyfikuje 25 pozycji `out_of_scope` na podstawie jawnego dowodu,
+- pozostawia 45 pozycji `ambiguous` do ręcznego przeglądu stron,
+- nie tworzy decyzji `found` ani `not_stated` bez wymaganych dowodów,
+- utrzymuje zero kandydatów importu i `auto_import = false`,
 - nie zmienia danych master ani modelu kanonicznego.
 
 Next priority:
 
-Przeprowadzić dowodowy przegląd 70 pozycji bez wnioskowania treści
-niewskazanych przez dokumenty.
+Przejrzeć strony siedmiu PDF dla 45 pozycji `ambiguous` i zachować dokładny
+tekst źródłowy bez automatycznego modelowania lub importu.

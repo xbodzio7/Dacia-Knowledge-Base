@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
 | `configuration-completeness` | Raport kompletności danych aktywnych konfiguracji |
@@ -232,8 +233,9 @@ Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
 weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
-kompletności konfiguracji, pokrycia źródłami i kolejkę triage. Zatrzymuje się
-na pierwszym nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
+kompletności konfiguracji, pokrycia źródłami, kolejkę triage i klasyfikację
+dowodów. Zatrzymuje się na pierwszym nieudanym etapie. Tymczasowa baza jest
+automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -357,6 +359,26 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Przegląd dowodowy luk konfiguracji
+
+Komenda `configuration-gap-evidence` łączy wersjonowaną specyfikację decyzji
+z dokładną kolejką `configuration-gap-triage`. Każda decyzja musi zachować
+konfigurację, źródło, datę dokumentu, ścieżkę i SHA-256.
+
+Bieżąca specyfikacja jest celowo konserwatywna. Klasyfikuje 25 pozycji jako
+`out_of_scope` wyłącznie na podstawie jawnego alternatywnego stanu w tym samym
+źródle albo automatycznej skrzyni i kanonicznej definicji wskaźnika zmiany
+biegów. Pozostałe 45 pozycji pozostaje `ambiguous` i wymaga ręcznego przeglądu
+stron PDF. Raport nie deklaruje pełnego przeglądu siedmiu dokumentów.
+
+```bash
+python tools/dkb.py configuration-gap-evidence   --json ../configuration-gap-evidence.json   --markdown ../configuration-gap-evidence.md
+```
+
+Klasyfikacje `found` i `not_stated` wymagają odpowiednio bezpośredniego tekstu
+źródłowego albo jawnej listy przejrzanych stron. Bieżący raport nie tworzy
+kandydatów importu i utrzymuje `auto_import = false`.
+
 ### Triage luk konfiguracji
 
 Komenda `configuration-gap-triage` łączy raport kompletności z raportem
@@ -466,12 +488,13 @@ Kontrola obejmuje:
 7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji,
 8. deterministyczne wygenerowanie raportu kompletności konfiguracji,
 9. deterministyczne wygenerowanie raportu pokrycia źródłami,
-10. deterministyczne wygenerowanie kolejki triage luk konfiguracji.
+10. deterministyczne wygenerowanie kolejki triage luk konfiguracji,
+11. deterministyczne wygenerowanie klasyfikacji dowodów dla luk.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
-liczniki, raport kompletności, raport pokrycia źródłami i kolejkę triage
-w formatach JSON oraz Markdown jako tymczasowy artefakt GitHub Actions
-przechowywany przez 7 dni.
+liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage
+i klasyfikację dowodów w formatach JSON oraz Markdown jako tymczasowy artefakt
+GitHub Actions przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -498,7 +521,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 362 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 372 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
