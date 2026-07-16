@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 338 testów automatycznych,
+- 345 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Generated Documentation Baseline Counters
+## Configuration Data Completeness Report
 
 Cel sprintu:
 
-- dodać deterministyczne generowanie bieżących liczników danych i jakości,
-- objąć liczbę testów, CSV, rekordów, tabel SQLite, atrybutów, dostępności i specyfikacji importu,
-- udostępnić maszynowo czytelny wynik JSON i Markdown,
-- zarządzać czterema czytelnymi blokami bieżących liczników,
-- odrzucać rozjazd dokumentacji w pełnej bramce jakości i CI,
-- nie zmieniać znaczenia danych źródłowych ani bieżącego modelu.
+- zdefiniować wersjonowany mianownik dla siedmiu aktywnych konfiguracji,
+- rozdzielić brak rekordu od `unknown`, `not_available` i jawnego `not_applicable`,
+- raportować wartości techniczne i dostępność wyposażenia,
+- generować deterministyczny JSON i czytelny Markdown,
+- wskazywać luki według konfiguracji, kategorii i źródła,
+- publikować raport w CI bez wymuszania sztucznego 100% pokrycia.
 
 ---
 
 # Next Sprint
 
-## Configuration Data Completeness Report
+## Source Coverage Report
 
 Cel sprintu:
 
-- zdefiniować jawny mianownik kompletności dla aktywnych konfiguracji,
-- rozdzielić brak rekordu od `unknown`, `not_available` i wartości nieadekwatnej,
-- raportować pokrycie wartości technicznych oraz dostępności wyposażenia,
+- raportować pokrycie rekordów aktywnymi źródłami,
+- wskazywać źródła, sekcje i obszary danych bez obserwacji,
+- rozdzielić brak źródła od braku wartości w zarejestrowanym źródle,
 - generować deterministyczny JSON i czytelny Markdown,
-- wskazywać luki według konfiguracji, kategorii i źródła,
-- nie uzupełniać brakujących danych przez zgadywanie.
+- zachować ścisłe powiązanie z datami i hashami źródeł,
+- nie wnioskować treści, których dokument nie stwierdza.
 
 # Backlog
 

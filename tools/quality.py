@@ -35,6 +35,12 @@ def quality_steps(
     baseline_markdown = database.with_name(
         "documentation-baseline.md"
     )
+    completeness_json = database.with_name(
+        "configuration-completeness.json"
+    )
+    completeness_markdown = database.with_name(
+        "configuration-completeness.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -102,6 +108,18 @@ def quality_steps(
                 str(baseline_json),
                 "--markdown",
                 str(baseline_markdown),
+            ],
+        ),
+        (
+            "Generate configuration completeness report",
+            [
+                sys.executable,
+                str(dkb),
+                "configuration-completeness",
+                "--json",
+                str(completeness_json),
+                "--markdown",
+                str(completeness_markdown),
             ],
         ),
     ]

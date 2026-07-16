@@ -18,6 +18,12 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "configuration-completeness": (
+        "configuration_completeness.py",
+        "Generate configuration-data completeness reports.",
+        "[--spec FILE] [--as-of YYYY-MM-DD] "
+        "[--json FILE] [--markdown FILE]",
+    ),
     "documentation-baseline": (
         "documentation_baseline.py",
         "Generate or verify documentation baseline counters.",
@@ -141,6 +147,7 @@ def usage() -> None:
         "--spec data/imports/configuration_values/example.json "
         "--verify"
     )
+    print("  python tools/dkb.py configuration-completeness --json ../configuration-completeness.json")
     print("  python tools/dkb.py quality")
     print(
         "  python tools/dkb.py quality --concise "
