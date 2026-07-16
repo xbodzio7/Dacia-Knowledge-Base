@@ -39,6 +39,7 @@ class QualityTests(unittest.TestCase):
                 "Build SQLite database",
                 "Verify SQLite database",
                 "Check documentation baseline",
+                "Generate configuration completeness report",
             ],
         )
 
@@ -69,7 +70,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-3][1],
+            steps[-4][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -79,7 +80,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -88,7 +89,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-1][1],
+            steps[-2][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -100,6 +101,18 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("documentation-baseline.json")),
                 "--markdown",
                 str(database.with_name("documentation-baseline.md")),
+            ],
+        )
+        self.assertEqual(
+            steps[-1][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "configuration-completeness",
+                "--json",
+                str(database.with_name("configuration-completeness.json")),
+                "--markdown",
+                str(database.with_name("configuration-completeness.md")),
             ],
         )
 

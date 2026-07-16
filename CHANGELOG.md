@@ -111,6 +111,9 @@ All notable changes to this project will be documented in this file.
 * Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
 * Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
 * Fourteen source-backed `acceleration_0_100` values with separate LPG and petrol context and exact page-5 provenance.
+* Explicit, versioned denominator specification for configuration-data completeness.
+* Deterministic JSON and Markdown completeness reports grouped by configuration, category and source.
+* Separate reporting for missing records, `unknown`, `not_available` and declared `not_applicable` slots.
 * Deterministic `documentation-baseline` command for current project counters.
 * Machine-readable JSON and human-readable Markdown baseline reports.
 * Managed documentation blocks for README, changelog, roadmap and session state.
@@ -126,6 +129,7 @@ All notable changes to this project will be documented in this file.
 * Package finish enforces one commit, its exact parent and an exact committed-file manifest when a package manifest is supplied.
 * Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
 * Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
+* Full quality now generates and publishes both configuration-completeness report formats.
 * Full quality now verifies documentation counters against the built SQLite database and publishes both baseline report formats.
 * Successful quality output is concise while complete verbose output remains available in a file and failures replay names and tracebacks.
 * Python 3.10 keeps compile-and-test compatibility coverage, while Python 3.13 owns full data, SQLite and artifact validation.
@@ -146,7 +150,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 338 tests.
+* The automated test suite now contains 345 tests.
 * The verified master-data baseline now contains 34 CSV files and 1379 rows.
 * SQLite verification now covers 34 tables and 1379 rows.
 * Configuration attribute values now contain 309 dated records.
@@ -204,5 +208,6 @@ All notable changes to this project will be documented in this file.
 * Imported and documented separate LPG and petrol `acceleration_0_100` observations for all seven current configurations.
 * Imported and documented separate LPG and petrol `standing_km` observations for all seven current configurations.
 * Reassessed 43 remaining technical-value groups after 309 observations and found no additional group satisfying the complete import contract.
+* Documented the explicit configuration-completeness denominator and non-guessing gap semantics.
 * Added generated baseline counters and drift-checked current documentation summaries.
 * Synchronized README, changelog, roadmap and session state after PRs #44–#45 and closed the current explicit technical-value sweep.

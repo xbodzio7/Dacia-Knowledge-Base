@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#46. Aktualny punkt odniesienia to merge commit
-`05639822124783a6ef8c98b787d02e963620aeeb`.
+Pull Requesty #3–#47. Aktualny punkt odniesienia to merge commit
+`a1b4533d7bc4a34ec5abce3d6e53c95b51f290bf`.
 
-PR #46 zsynchronizował dokumentację po importach osiągów i zamknął bieżący
-sweep jawnych wartości technicznych. GitHub Actions Quality run #121
-zakończył się powodzeniem.
+PR #47 dodał generowane liczniki dokumentacji, kontrolę rozjazdu oraz
+artefakty JSON i Markdown. GitHub Actions Quality run #123 zakończył się
+powodzeniem.
 
-Bieżący pakiet narzędziowy jest rozwijany na gałęzi
-`tooling/generated-documentation-baseline` z bazą dokładnie
-`05639822124783a6ef8c98b787d02e963620aeeb`.
+Bieżący pakiet raportowy jest rozwijany na gałęzi
+`reporting/configuration-data-completeness` z bazą dokładnie
+`a1b4533d7bc4a34ec5abce3d6e53c95b51f290bf`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 338 testów automatycznych zakończonych powodzeniem,
+- 345 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,37 +43,38 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Generated Documentation Baseline Counters.
+Configuration Data Completeness Report.
 
 Zakres:
 
-- deterministyczne liczniki testów, CSV, rekordów, relacji i reguł statusów,
-- liczniki wartości konfiguracji, specyfikacji importu i dostępności,
-- liczniki katalogu atrybutów oraz rzeczywistej bazy SQLite,
-- maszynowo czytelny JSON i raport Markdown,
-- cztery zarządzane, czytelne bloki dokumentacji,
-- kontrola rozjazdu w pełnej jakości i GitHub Actions.
+- wersjonowany mianownik siedmiu aktywnych konfiguracji i ich źródeł,
+- jawne techniczne sloty atrybutu i kontekstu paliwa,
+- jawny zakres atrybutów dostępności wyposażenia,
+- osobne stany `missing`, `unknown`, `not_available` i `not_applicable`,
+- deterministyczny JSON i raport Markdown,
+- grupowanie luk według konfiguracji, kategorii i źródła,
+- generowanie raportów w pełnej jakości bez zmiany danych master.
 
 ## Current Phase
 
-Aktualna faza to **Tooling and Automation**.
+Aktualna faza to **Reporting and Completeness**.
 
-Komenda `documentation-baseline` nie zmienia danych źródłowych. Tryb
-`--check` porównuje bieżące liczniki z zarządzanymi blokami README,
-changeloga, roadmapy i stanu sesji, a `--apply` aktualizuje wyłącznie te
-bloki. Pełna jakość uruchamia kontrolę po zbudowaniu i zweryfikowaniu SQLite.
+Komenda `configuration-completeness` używa wyłącznie wersjonowanego
+mianownika. Brak rekordu nie jest utożsamiany z brakiem wyposażenia, a
+`not_applicable` wymaga jawnego wyjątku. Raport opisuje stan danych i nie
+powoduje niepowodzenia jakości tylko dlatego, że istnieją rzeczywiste luki.
 
 ## Next Development Package
 
-Configuration Data Completeness Report.
+Source Coverage Report.
 
 Planowany przebieg:
 
-1. Zdefiniować jawny mianownik kompletności dla aktywnych konfiguracji.
-2. Rozdzielić brak rekordu od jawnych statusów i wartości nieadekwatnych.
-3. Raportować pokrycie według konfiguracji, kategorii i źródła.
+1. Powiązać pokrycie rekordów z aktywnymi źródłami.
+2. Raportować źródła i obszary bez obserwacji.
+3. Rozdzielić brak źródła od luki w zarejestrowanym źródle.
 4. Generować deterministyczny JSON i czytelny Markdown.
-5. Nie uzupełniać brakujących danych przez zgadywanie.
+5. Nie wnioskować danych niewskazanych przez dokumenty.
 
 ## Working Mode
 
@@ -526,16 +527,26 @@ Completed:
 
 ### Generated Documentation Baseline Counters
 
+Completed:
+
+- PR #47 dodał komendę `documentation-baseline`,
+- dodano deterministyczny JSON i raport Markdown,
+- cztery bloki dokumentacji są kontrolowane w pełnej jakości,
+- raporty baseline są publikowane jako artefakty CI,
+- GitHub Actions Quality run #123 zakończył się powodzeniem.
+
+### Configuration Data Completeness Report
+
 Current package:
 
-- dodaje komendę `documentation-baseline` do zunifikowanego CLI,
+- dodaje jawny, wersjonowany mianownik aktywnych konfiguracji,
+- raportuje techniczne wartości i dostępność wyposażenia,
+- rozdziela `missing`, `unknown`, `not_available` i `not_applicable`,
+- grupuje luki według konfiguracji, kategorii i źródła,
 - generuje deterministyczny JSON i raport Markdown,
-- zarządza czterema czytelnymi blokami bieżących liczników,
-- sprawdza bazę SQLite i rozjazd dokumentacji w pełnej jakości,
-- publikuje raporty baseline jako tymczasowe artefakty CI,
 - nie zmienia danych master ani modelu kanonicznego.
 
 Next priority:
 
-Przygotować raport kompletności danych konfiguracji z jawnym mianownikiem
-i bez zgadywania brakujących wartości.
+Przygotować raport pokrycia źródłami bez wnioskowania danych niewskazanych
+przez dokumenty.

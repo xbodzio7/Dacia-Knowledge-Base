@@ -73,6 +73,8 @@ jobs:
             ${{ runner.temp }}/quality-summary.json
             ${{ runner.temp }}/documentation-baseline.json
             ${{ runner.temp }}/documentation-baseline.md
+            ${{ runner.temp }}/configuration-completeness.json
+            ${{ runner.temp }}/configuration-completeness.md
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7

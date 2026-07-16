@@ -245,6 +245,36 @@ class DkbCliTests(unittest.TestCase):
 
 
 
+    def test_configuration_completeness_help_and_forwarding(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            help_result = dkb.main([])
+        self.assertEqual(help_result, 0)
+        self.assertIn("configuration-completeness", stdout.getvalue())
+        completed = SimpleNamespace(returncode=11)
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "configuration-completeness",
+                ["--json", "completeness.json"],
+            )
+        self.assertEqual(result, 11)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "configuration_completeness.py"),
+                "--json",
+                "completeness.json",
+            ],
+            check=False,
+        )
+
+
     def test_documentation_baseline_help_and_forwarding(self) -> None:
         stdout = io.StringIO()
 

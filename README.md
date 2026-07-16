@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-completeness` | Raport kompletności danych aktywnych konfiguracji |
 | `documentation-baseline` | Generowanie i kontrola bieżących liczników dokumentacji |
 | `import-configuration-values` | Planowanie, stosowanie i weryfikacja deklaratywnych importów |
 | `package-start` | Synchronizacja `main` i utworzenie gałęzi pakietu |
@@ -228,9 +229,9 @@ python tools/dkb.py quality
 Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
-a następnie weryfikuje bieżące liczniki dokumentacji. Zatrzymuje
-się na pierwszym nieudanym etapie. Tymczasowa baza jest
-automatycznie usuwana.
+weryfikuje bieżące liczniki dokumentacji, a następnie generuje raport
+kompletności konfiguracji. Zatrzymuje się na pierwszym nieudanym etapie.
+Tymczasowa baza jest automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -354,6 +355,27 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Kompletność danych konfiguracji
+
+Raport używa wersjonowanej specyfikacji
+`data/reporting/configuration_completeness.json`. Specyfikacja jawnie określa
+aktywne konfiguracje i źródła, techniczne sloty atrybutu i kontekstu paliwa,
+atrybuty dostępności wyposażenia oraz wyjątki `not_applicable`.
+
+Brak rekordu jest raportowany jako `missing`. Jawne stany `unknown` i
+`not_available` pozostają osobnymi wynikami, a `not_applicable` może wynikać
+wyłącznie z wersjonowanego wyjątku. Raport niczego nie uzupełnia przez
+zgadywanie.
+
+```bash
+python tools/dkb.py configuration-completeness \
+  --json ../configuration-completeness.json \
+  --markdown ../configuration-completeness.md
+```
+
+Opcjonalne `--as-of YYYY-MM-DD` ogranicza obserwacje do wskazanej daty.
+Raport grupuje luki według konfiguracji, kategorii i źródła.
+
 ### Bieżące liczniki dokumentacji
 
 Komenda generuje deterministyczny zestaw liczników używanych w bieżących podsumowaniach projektu:
@@ -396,9 +418,12 @@ Kontrola obejmuje:
 4. walidację repozytorium, danych i relacji między tabelami,
 5. próbne zbudowanie bazy SQLite,
 6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV,
-7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji.
+7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji,
+8. deterministyczne wygenerowanie raportu kompletności konfiguracji.
 
-Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji oraz bazowe liczniki JSON i Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
+Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
+liczniki oraz raport kompletności w formatach JSON i Markdown jako tymczasowy
+artefakt GitHub Actions przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -425,7 +450,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 338 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 345 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
