@@ -47,6 +47,12 @@ def quality_steps(
     source_coverage_markdown = database.with_name(
         "source-coverage.md"
     )
+    gap_triage_json = database.with_name(
+        "configuration-gap-triage.json"
+    )
+    gap_triage_markdown = database.with_name(
+        "configuration-gap-triage.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -138,6 +144,18 @@ def quality_steps(
                 str(source_coverage_json),
                 "--markdown",
                 str(source_coverage_markdown),
+            ],
+        ),
+        (
+            "Generate configuration gap triage report",
+            [
+                sys.executable,
+                str(dkb),
+                "configuration-gap-triage",
+                "--json",
+                str(gap_triage_json),
+                "--markdown",
+                str(gap_triage_markdown),
             ],
         ),
     ]

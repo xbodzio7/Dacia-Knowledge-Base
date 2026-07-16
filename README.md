@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
 | `configuration-completeness` | Raport kompletności danych aktywnych konfiguracji |
 | `documentation-baseline` | Generowanie i kontrola bieżących liczników dokumentacji |
@@ -231,8 +232,8 @@ Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
 weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
-kompletności konfiguracji i pokrycia źródłami. Zatrzymuje się na pierwszym
-nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
+kompletności konfiguracji, pokrycia źródłami i kolejkę triage. Zatrzymuje się
+na pierwszym nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -356,6 +357,25 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Triage luk konfiguracji
+
+Komenda `configuration-gap-triage` łączy raport kompletności z raportem
+pokrycia źródłami. Oba wejścia muszą wskazywać dokładnie ten sam zestaw luk,
+datę, konfigurację, źródło, kategorię, atrybut i kontekst paliwa.
+
+Kolejka ma neutralny, leksykograficzny porządek służący wyłącznie
+powtarzalności. Nie jest to priorytet biznesowy. Każdy wpis otrzymuje stan
+`source_verification_required`, priorytet `unassigned` oraz
+`auto_import = false`.
+
+```bash
+python tools/dkb.py configuration-gap-triage   --json ../configuration-gap-triage.json   --markdown ../configuration-gap-triage.md
+```
+
+Raport zachowuje datę dokumentu, ścieżkę i SHA-256. Wskazuje kandydatów do
+ręcznej weryfikacji w zarejestrowanym źródle, ale nie sugeruje wartości i nie
+uruchamia importu.
+
 ### Pokrycie źródłami
 
 Raport `source-coverage` używa tego samego wersjonowanego mianownika co raport
@@ -445,11 +465,13 @@ Kontrola obejmuje:
 6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV,
 7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji,
 8. deterministyczne wygenerowanie raportu kompletności konfiguracji,
-9. deterministyczne wygenerowanie raportu pokrycia źródłami.
+9. deterministyczne wygenerowanie raportu pokrycia źródłami,
+10. deterministyczne wygenerowanie kolejki triage luk konfiguracji.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
-liczniki, raport kompletności oraz raport pokrycia źródłami w formatach JSON
-i Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
+liczniki, raport kompletności, raport pokrycia źródłami i kolejkę triage
+w formatach JSON oraz Markdown jako tymczasowy artefakt GitHub Actions
+przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -476,7 +498,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 353 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 362 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
