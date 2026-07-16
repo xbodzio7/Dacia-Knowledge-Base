@@ -38,6 +38,7 @@ class QualityTests(unittest.TestCase):
                 "Validate repository data",
                 "Build SQLite database",
                 "Verify SQLite database",
+                "Check documentation baseline",
             ],
         )
 
@@ -68,7 +69,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -78,12 +79,27 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-1][1],
+            steps[-2][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
                 "sqlite-verify",
                 str(database),
+            ],
+        )
+        self.assertEqual(
+            steps[-1][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "documentation-baseline",
+                "--check",
+                "--database",
+                str(database),
+                "--json",
+                str(database.with_name("documentation-baseline.json")),
+                "--markdown",
+                str(database.with_name("documentation-baseline.md")),
             ],
         )
 

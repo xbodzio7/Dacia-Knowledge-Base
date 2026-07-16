@@ -5,21 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#45. Aktualny punkt odniesienia to merge commit
-`163b3141ce6c3ced45c2926e21c1ed1c8ec6ae77`.
+Pull Requesty #3–#46. Aktualny punkt odniesienia to merge commit
+`05639822124783a6ef8c98b787d02e963620aeeb`.
 
-PR #43 zsynchronizował dokumentację deklaratywnych importów. PR #44
-zaimportował 14 wartości `acceleration_0_100`, a PR #45 zaimportował 14
-wartości `standing_km`, każdorazowo z osobnym kontekstem LPG i benzyny.
-GitHub Actions Quality run #119 zakończył się powodzeniem.
+PR #46 zsynchronizował dokumentację po importach osiągów i zamknął bieżący
+sweep jawnych wartości technicznych. GitHub Actions Quality run #121
+zakończył się powodzeniem.
 
-Końcowa ponowna ocena 43 grup technicznych na stanie 309 wartości nie
-wskazała kolejnego kandydata spełniającego pełny kontrakt importu i nie
-zmieniła repozytorium.
-
-Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/synchronize-technical-value-closure` z bazą dokładnie
-`163b3141ce6c3ced45c2926e21c1ed1c8ec6ae77`.
+Bieżący pakiet narzędziowy jest rozwijany na gałęzi
+`tooling/generated-documentation-baseline` z bazą dokładnie
+`05639822124783a6ef8c98b787d02e963620aeeb`.
 
 ## Verified Quality Baseline
 
@@ -29,7 +24,8 @@ Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
 python tools/dkb.py quality
 ```
 
-- 330 testów automatycznych zakończonych powodzeniem,
+<!-- dkb:documentation-baseline:session:start -->
+- 338 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -38,49 +34,46 @@ python tools/dkb.py quality
 - 309 obserwacji w `configuration_attribute_values.csv`,
 - 10 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
-- 389 rekordów `standard` i 30 rekordów `not_available`,
+- 389 rekordów `standard`, 0 `optional`, 30 `not_available` i 0 `unknown`,
 - 351 kanonicznych atrybutów w 30 kategoriach,
 - baza SQLite obejmująca 34 tabele i 1379 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
+<!-- dkb:documentation-baseline:session:end -->
 
 ## Current Sprint
 
-Sandero Technical Value Closure Documentation Milestone.
+Generated Documentation Baseline Counters.
 
 Zakres:
 
-- synchronizacja README, changeloga, roadmapy i stanu sesji z PR-ami #44–#45,
-- opis 14 wartości `acceleration_0_100` i 14 wartości `standing_km`,
-- zapis wyniku końcowej ponownej oceny 43 grup technicznych,
-- aktualizacja liczników do 309 wartości, 10 specyfikacji i 1379 rekordów,
-- zamknięcie bieżącego sweepu jawnych wartości technicznych,
-- brak zmian danych master, schematu i narzędzi.
+- deterministyczne liczniki testów, CSV, rekordów, relacji i reguł statusów,
+- liczniki wartości konfiguracji, specyfikacji importu i dostępności,
+- liczniki katalogu atrybutów oraz rzeczywistej bazy SQLite,
+- maszynowo czytelny JSON i raport Markdown,
+- cztery zarządzane, czytelne bloki dokumentacji,
+- kontrola rozjazdu w pełnej jakości i GitHub Actions.
 
 ## Current Phase
 
-Aktualna faza to **Data Expansion Documentation Milestone**.
+Aktualna faza to **Tooling and Automation**.
 
-Deklaratywny importer obejmuje dziesięć wersjonowanych specyfikacji. Importy
-osiągów z PR #44 i #45 zwiększyły zbiór do 309 datowanych wartości bez zmiany
-modelu kanonicznego. Końcowa ponowna ocena 43 grup nie znalazła następnego
-jednoznacznego faktu, dlatego nie jest przygotowywany sztuczny import ani nowy
-atrybut.
-
-Po tym kamieniu milowym następny mały pakiet ograniczy ryzyko ręcznego
-rozjeżdżania liczników w dokumentacji.
+Komenda `documentation-baseline` nie zmienia danych źródłowych. Tryb
+`--check` porównuje bieżące liczniki z zarządzanymi blokami README,
+changeloga, roadmapy i stanu sesji, a `--apply` aktualizuje wyłącznie te
+bloki. Pełna jakość uruchamia kontrolę po zbudowaniu i zweryfikowaniu SQLite.
 
 ## Next Development Package
 
-Generated Documentation Baseline Counters.
+Configuration Data Completeness Report.
 
 Planowany przebieg:
 
-1. Wyliczać bieżące liczniki danych, specyfikacji, atrybutów, tabel i testów.
-2. Zapisywać deterministyczny, maszynowo czytelny wynik.
-3. Udostępnić kontrolę rozjazdu podsumowań dokumentacji.
-4. Zachować dokumenty jako czytelne opisy, a nie kopie surowego raportu.
-5. Nie zmieniać znaczenia danych ani modelu kanonicznego.
+1. Zdefiniować jawny mianownik kompletności dla aktywnych konfiguracji.
+2. Rozdzielić brak rekordu od jawnych statusów i wartości nieadekwatnych.
+3. Raportować pokrycie według konfiguracji, kategorii i źródła.
+4. Generować deterministyczny JSON i czytelny Markdown.
+5. Nie uzupełniać brakujących danych przez zgadywanie.
 
 ## Working Mode
 
@@ -524,15 +517,25 @@ Completed:
 
 ### Sandero Technical Value Closure Documentation Milestone
 
+Completed:
+
+- PR #46 zsynchronizował README, changelog, roadmapę i stan sesji,
+- zapisano 309 wartości, 10 specyfikacji i 1379 rekordów,
+- zamknięto bieżący sweep jawnych wartości technicznych,
+- GitHub Actions Quality run #121 zakończył się powodzeniem.
+
+### Generated Documentation Baseline Counters
+
 Current package:
 
-- synchronizuje README, changelog, roadmapę i stan sesji po PR-ach #44–#45,
-- zapisuje aktualne liczniki 330 testów, 1379 rekordów, 309 wartości,
-  10 specyfikacji i 351 atrybutów,
-- zamyka bieżący sweep jawnych wartości technicznych,
-- nie zmienia danych master, schematu ani narzędzi.
+- dodaje komendę `documentation-baseline` do zunifikowanego CLI,
+- generuje deterministyczny JSON i raport Markdown,
+- zarządza czterema czytelnymi blokami bieżących liczników,
+- sprawdza bazę SQLite i rozjazd dokumentacji w pełnej jakości,
+- publikuje raporty baseline jako tymczasowe artefakty CI,
+- nie zmienia danych master ani modelu kanonicznego.
 
 Next priority:
 
-Dodać deterministyczne, maszynowo czytelne liczniki bazowe dla dokumentacji
-i kontroli rozjazdu w CI.
+Przygotować raport kompletności danych konfiguracji z jawnym mianownikiem
+i bez zgadywania brakujących wartości.

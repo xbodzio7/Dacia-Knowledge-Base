@@ -245,6 +245,39 @@ class DkbCliTests(unittest.TestCase):
 
 
 
+    def test_documentation_baseline_help_and_forwarding(self) -> None:
+        stdout = io.StringIO()
+
+        with redirect_stdout(stdout):
+            help_result = dkb.main([])
+
+        self.assertEqual(help_result, 0)
+        self.assertIn("documentation-baseline", stdout.getvalue())
+
+        completed = SimpleNamespace(returncode=10)
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "documentation-baseline",
+                ["--check", "--json", "baseline.json"],
+            )
+
+        self.assertEqual(result, 10)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "documentation_baseline.py"),
+                "--check",
+                "--json",
+                "baseline.json",
+            ],
+            check=False,
+        )
+
+
     def test_help_includes_configuration_value_import(self) -> None:
         stdout = io.StringIO()
 

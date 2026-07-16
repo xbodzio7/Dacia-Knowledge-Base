@@ -160,7 +160,10 @@ Data Expansion
 - wyszukiwanie, statystyki i raporty Markdown,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
-- 330 testów automatycznych,
+<!-- dkb:documentation-baseline:roadmap:start -->
+- 338 testów automatycznych,
+- deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
+<!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
 - kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
 - pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
@@ -179,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Sandero Technical Value Closure Documentation Milestone
-
-Cel sprintu:
-
-- zsynchronizować README, changelog, roadmapę i stan sesji z PR-ami #44–#45,
-- udokumentować 14 wartości `acceleration_0_100` i 14 wartości `standing_km`,
-- zapisać wynik końcowej ponownej oceny 43 grup technicznych,
-- zaktualizować bieżące liczniki do 309 wartości, 10 specyfikacji i 1379 rekordów,
-- zamknąć obecny sweep jawnych wartości technicznych bez tworzenia sztucznej luki modelowej,
-- nie zmieniać danych master, schematu ani narzędzi.
-
----
-
-# Next Sprint
-
 ## Generated Documentation Baseline Counters
 
 Cel sprintu:
 
 - dodać deterministyczne generowanie bieżących liczników danych i jakości,
 - objąć liczbę testów, CSV, rekordów, tabel SQLite, atrybutów, dostępności i specyfikacji importu,
-- udostępnić maszynowo czytelny wynik dla dokumentacji i kontroli CI,
-- wykrywać rozjazd bieżących podsumowań bez ręcznego wyszukiwania wszystkich liczb,
-- zachować README, roadmapę i stan sesji jako czytelną dokumentację, a nie artefakty surowego raportu,
+- udostępnić maszynowo czytelny wynik JSON i Markdown,
+- zarządzać czterema czytelnymi blokami bieżących liczników,
+- odrzucać rozjazd dokumentacji w pełnej bramce jakości i CI,
 - nie zmieniać znaczenia danych źródłowych ani bieżącego modelu.
+
+---
+
+# Next Sprint
+
+## Configuration Data Completeness Report
+
+Cel sprintu:
+
+- zdefiniować jawny mianownik kompletności dla aktywnych konfiguracji,
+- rozdzielić brak rekordu od `unknown`, `not_available` i wartości nieadekwatnej,
+- raportować pokrycie wartości technicznych oraz dostępności wyposażenia,
+- generować deterministyczny JSON i czytelny Markdown,
+- wskazywać luki według konfiguracji, kategorii i źródła,
+- nie uzupełniać brakujących danych przez zgadywanie.
 
 # Backlog
 
