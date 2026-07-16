@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#47. Aktualny punkt odniesienia to merge commit
-`a1b4533d7bc4a34ec5abce3d6e53c95b51f290bf`.
+Pull Requesty #3–#48. Aktualny punkt odniesienia to merge commit
+`3e68484b8d071b1c16583ac22c0eddebd474ae51`.
 
-PR #47 dodał generowane liczniki dokumentacji, kontrolę rozjazdu oraz
-artefakty JSON i Markdown. GitHub Actions Quality run #123 zakończył się
+PR #48 dodał raport kompletności konfiguracji z jawnym mianownikiem i
+artefaktami JSON oraz Markdown. GitHub Actions Quality run #125 zakończył się
 powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-data-completeness` z bazą dokładnie
-`a1b4533d7bc4a34ec5abce3d6e53c95b51f290bf`.
+`reporting/source-coverage` z bazą dokładnie
+`3e68484b8d071b1c16583ac22c0eddebd474ae51`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 345 testów automatycznych zakończonych powodzeniem,
+- 353 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1379 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,38 +43,38 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Data Completeness Report.
+Source Coverage Report.
 
 Zakres:
 
-- wersjonowany mianownik siedmiu aktywnych konfiguracji i ich źródeł,
-- jawne techniczne sloty atrybutu i kontekstu paliwa,
-- jawny zakres atrybutów dostępności wyposażenia,
-- osobne stany `missing`, `unknown`, `not_available` i `not_applicable`,
+- rejestracja siedmiu aktywnych źródeł wraz z datą, ścieżką i SHA-256,
+- powiązania źródło–model–wersja–konfiguracja oraz datowane ceny,
+- pokrycie technicznych slotów i atrybutów wyposażenia według źródła,
+- statusy sekcji `covered`, `partial`, `missing` i `source_missing`,
+- osobne luki `source_missing` oraz `record_missing`,
 - deterministyczny JSON i raport Markdown,
-- grupowanie luk według konfiguracji, kategorii i źródła,
 - generowanie raportów w pełnej jakości bez zmiany danych master.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `configuration-completeness` używa wyłącznie wersjonowanego
-mianownika. Brak rekordu nie jest utożsamiany z brakiem wyposażenia, a
-`not_applicable` wymaga jawnego wyjątku. Raport opisuje stan danych i nie
-powoduje niepowodzenia jakości tylko dlatego, że istnieją rzeczywiste luki.
+Komenda `source-coverage` używa istniejącego mianownika kompletności i nie
+tworzy drugiej listy oczekiwanych atrybutów. Metadane źródła są kontrolowane
+przez datę dokumentu, ścieżkę i SHA-256. Brak rekordu w zarejestrowanym źródle
+nie jest utożsamiany z brakiem źródła ani z brakiem cechy w dokumencie.
 
 ## Next Development Package
 
-Source Coverage Report.
+Configuration Gap Triage Report.
 
 Planowany przebieg:
 
-1. Powiązać pokrycie rekordów z aktywnymi źródłami.
-2. Raportować źródła i obszary bez obserwacji.
-3. Rozdzielić brak źródła od luki w zarejestrowanym źródle.
-4. Generować deterministyczny JSON i czytelny Markdown.
-5. Nie wnioskować danych niewskazanych przez dokumenty.
+1. Połączyć wyniki kompletności i pokrycia źródłami.
+2. Utworzyć kolejkę 6 luk technicznych i 64 luk wyposażenia.
+3. Grupować luki według konfiguracji, kategorii, źródła i sekcji.
+4. Zachować wszystkie jawne stany bez automatycznego importu.
+5. Nie priorytetyzować ani nie uzupełniać danych przez zgadywanie.
 
 ## Working Mode
 
@@ -537,16 +537,26 @@ Completed:
 
 ### Configuration Data Completeness Report
 
+Completed:
+
+- PR #48 dodał jawny, wersjonowany mianownik aktywnych konfiguracji,
+- raport obejmuje 309 z 315 slotów technicznych oraz 419 z 483 slotów wyposażenia,
+- rozdzielono `missing`, `unknown`, `not_available` i `not_applicable`,
+- raporty JSON i Markdown są publikowane jako artefakty CI,
+- GitHub Actions Quality run #125 zakończył się powodzeniem.
+
+### Source Coverage Report
+
 Current package:
 
-- dodaje jawny, wersjonowany mianownik aktywnych konfiguracji,
-- raportuje techniczne wartości i dostępność wyposażenia,
-- rozdziela `missing`, `unknown`, `not_available` i `not_applicable`,
-- grupuje luki według konfiguracji, kategorii i źródła,
+- kontroluje rejestrację źródeł, daty dokumentów, ścieżki i SHA-256,
+- raportuje powiązania encji, ceny, wartości techniczne i wyposażenie,
+- wskazuje pokryte, częściowe oraz puste sekcje,
+- rozdziela `source_missing` od `record_missing`,
 - generuje deterministyczny JSON i raport Markdown,
 - nie zmienia danych master ani modelu kanonicznego.
 
 Next priority:
 
-Przygotować raport pokrycia źródłami bez wnioskowania danych niewskazanych
-przez dokumenty.
+Przygotować deterministyczną kolejkę triage dla 6 luk technicznych i 64 luk
+wyposażenia bez automatycznego importu ani zgadywania.

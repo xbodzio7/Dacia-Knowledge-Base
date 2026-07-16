@@ -75,6 +75,8 @@ jobs:
             ${{ runner.temp }}/documentation-baseline.md
             ${{ runner.temp }}/configuration-completeness.json
             ${{ runner.temp }}/configuration-completeness.md
+            ${{ runner.temp }}/source-coverage.json
+            ${{ runner.temp }}/source-coverage.md
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7

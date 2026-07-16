@@ -161,7 +161,7 @@ Data Expansion
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 345 testów automatycznych,
+- 353 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -182,31 +182,31 @@ Data Expansion
 
 # Current Sprint
 
-## Configuration Data Completeness Report
+## Source Coverage Report
 
 Cel sprintu:
 
-- zdefiniować wersjonowany mianownik dla siedmiu aktywnych konfiguracji,
-- rozdzielić brak rekordu od `unknown`, `not_available` i jawnego `not_applicable`,
-- raportować wartości techniczne i dostępność wyposażenia,
+- raportować rejestrację siedmiu aktywnych źródeł i ich metadane,
+- kontrolować powiązania źródło–model–wersja–konfiguracja i ceny,
+- wskazywać pokryte, częściowe i puste sekcje techniczne oraz wyposażenia,
+- rozdzielić `source_missing` od `record_missing`,
 - generować deterministyczny JSON i czytelny Markdown,
-- wskazywać luki według konfiguracji, kategorii i źródła,
-- publikować raport w CI bez wymuszania sztucznego 100% pokrycia.
+- publikować raport w CI bez wnioskowania treści dokumentów.
 
 ---
 
 # Next Sprint
 
-## Source Coverage Report
+## Configuration Gap Triage Report
 
 Cel sprintu:
 
-- raportować pokrycie rekordów aktywnymi źródłami,
-- wskazywać źródła, sekcje i obszary danych bez obserwacji,
-- rozdzielić brak źródła od braku wartości w zarejestrowanym źródle,
-- generować deterministyczny JSON i czytelny Markdown,
-- zachować ścisłe powiązanie z datami i hashami źródeł,
-- nie wnioskować treści, których dokument nie stwierdza.
+- wykorzystać raporty kompletności i pokrycia źródłami jako wejście,
+- utworzyć deterministyczną kolejkę 6 luk technicznych i 64 luk wyposażenia,
+- grupować zadania według konfiguracji, kategorii, źródła i sekcji,
+- zachować rozdział między brakiem rekordu a jawnymi statusami,
+- wskazywać kandydatów do weryfikacji źródłowej bez automatycznego importu,
+- nie uzupełniać ani nie priorytetyzować danych przez zgadywanie.
 
 # Backlog
 

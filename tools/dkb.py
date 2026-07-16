@@ -18,6 +18,12 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "source-coverage": (
+        "source_coverage.py",
+        "Generate source registration and record coverage reports.",
+        "[--spec FILE] [--as-of YYYY-MM-DD] "
+        "[--json FILE] [--markdown FILE]",
+    ),
     "configuration-completeness": (
         "configuration_completeness.py",
         "Generate configuration-data completeness reports.",
@@ -147,6 +153,7 @@ def usage() -> None:
         "--spec data/imports/configuration_values/example.json "
         "--verify"
     )
+    print("  python tools/dkb.py source-coverage --json ../source-coverage.json")
     print("  python tools/dkb.py configuration-completeness --json ../configuration-completeness.json")
     print("  python tools/dkb.py quality")
     print(
