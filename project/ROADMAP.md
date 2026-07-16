@@ -139,11 +139,15 @@ Data Expansion
 - aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
 - zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
 - 7 datowanych wartości `maximum_payload` od 371 do 385 kg z pełną proweniencją.
-- deklaratywny importer wartości konfiguracji oraz sześć wersjonowanych specyfikacji JSON,
+- deklaratywny importer wartości konfiguracji oraz dziesięć wersjonowanych specyfikacji JSON,
 - 28 datowanych wartości mocy i momentu obrotowego z jawnym kontekstem benzyny i LPG,
 - decyzja D-022 — source-stated total engine valve count,
 - aktywny atrybut integer `total_valve_count` w kategorii `Engine`,
-- 7 datowanych wartości `total_valve_count = 12` z pustym kontekstem paliwa i pełną proweniencją.
+- 7 datowanych wartości `total_valve_count = 12` z pustym kontekstem paliwa i pełną proweniencją,
+- 14 datowanych wartości `acceleration_0_100` z osobnym kontekstem LPG i benzyny,
+- 14 datowanych wartości `standing_km` z osobnym kontekstem LPG i benzyny,
+- końcowa ponowna ocena 43 grup technicznych po 309 wartościach,
+- brak kolejnego jednoznacznego kandydata w siedmiu bieżących źródłach PDF.
 
 ## Tooling
 
@@ -175,31 +179,31 @@ Data Expansion
 
 # Current Sprint
 
-## Declarative Import Documentation Milestone
+## Sandero Technical Value Closure Documentation Milestone
 
 Cel sprintu:
 
-- zsynchronizować README, changelog, roadmapę i stan sesji z PR-ami #39–#42,
-- zapisać aktualne liczniki danych, testów, atrybutów i tabel SQLite,
-- udokumentować deklaratywny importer oraz sześć bieżących specyfikacji,
-- udokumentować wartości mocy i momentu dla benzyny i LPG,
-- udokumentować decyzję D-022 oraz import całkowitej liczby zaworów,
+- zsynchronizować README, changelog, roadmapę i stan sesji z PR-ami #44–#45,
+- udokumentować 14 wartości `acceleration_0_100` i 14 wartości `standing_km`,
+- zapisać wynik końcowej ponownej oceny 43 grup technicznych,
+- zaktualizować bieżące liczniki do 309 wartości, 10 specyfikacji i 1379 rekordów,
+- zamknąć obecny sweep jawnych wartości technicznych bez tworzenia sztucznej luki modelowej,
 - nie zmieniać danych master, schematu ani narzędzi.
 
 ---
 
 # Next Sprint
 
-## Sandero Remaining Technical Value Reassessment
+## Generated Documentation Baseline Counters
 
 Cel sprintu:
 
-- ponownie przeskanować wszystkie siedem bieżących źródeł po 281 wartościach,
-- odjąć fakty już reprezentowane przez wartości, dostępność i ceny,
-- odrzucić nagłówki, etykiety, fragmenty tabel i duplikaty semantyczne,
-- wybrać następny jawny fakt dopiero po potwierdzeniu modelu i braku rekordu,
-- użyć deklaratywnej specyfikacji, gdy istniejący atrybut ma jednoznaczną semantykę,
-- utworzyć osobny pakiet modelowy tylko wtedy, gdy źródło ujawnia rzeczywistą lukę.
+- dodać deterministyczne generowanie bieżących liczników danych i jakości,
+- objąć liczbę testów, CSV, rekordów, tabel SQLite, atrybutów, dostępności i specyfikacji importu,
+- udostępnić maszynowo czytelny wynik dla dokumentacji i kontroli CI,
+- wykrywać rozjazd bieżących podsumowań bez ręcznego wyszukiwania wszystkich liczb,
+- zachować README, roadmapę i stan sesji jako czytelną dokumentację, a nie artefakty surowego raportu,
+- nie zmieniać znaczenia danych źródłowych ani bieżącego modelu.
 
 # Backlog
 

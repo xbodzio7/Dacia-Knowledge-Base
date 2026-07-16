@@ -53,15 +53,16 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Piętnaście pakietów obejmuje
-281 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
+datowanymi obserwacjami powiązanymi ze źródłem. Siedemnaście pakietów obejmuje
+309 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
 obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
 nadwozia, 7 pełnych specyfikacji standardowej opony, 7 wartości liczby
 drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu, 7 wartości rodzaju
 napędu, 7 wartości maksymalnej ładowności, 28 wartości mocy i momentu
-obrotowego oraz 7 wartości całkowitej liczby zaworów. Zakres techniczny
-obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność bagażnika, zużycie
-paliwa i emisję CO2 w cyklu WLTP.
+obrotowego, 7 wartości całkowitej liczby zaworów, 14 wartości przyspieszenia
+0–100 km/h oraz 14 czasów przejazdu kilometra ze startu zatrzymanego. Zakres
+techniczny obejmuje zespół napędowy, osiągi, masy, wymiary, pojemność
+bagażnika, zużycie paliwa i emisję CO2 w cyklu WLTP.
 
 Dla obserwacji, których znaczenie zależy od użytego paliwa, opcjonalne pole
 `fuel_type_code` wskazuje jawnie LPG albo benzynę. Pozostałe obserwacje
@@ -146,6 +147,23 @@ integer `total_valve_count` w kategorii `Engine`, bez jednostki. Wszystkie
 siedem konfiguracji ma datowaną wartość `12`, z pustym kontekstem paliwa,
 stroną 6, sekcją `Silnik` i polem `Liczba Zaworów 12`. Wartość pozostaje
 odrębna od `valves_per_cylinder` i nie jest dzielona przez liczbę cylindrów.
+
+Przyspieszenie 0–100 km/h jest datowaną obserwacją osiągów z jawnym
+kontekstem paliwa. Wszystkie siedem konfiguracji ma osobne wartości LPG
+od 10,0 do 10,4 s oraz benzyny od 11,0 do 11,4 s. Import używa istniejącego
+aktywnego atrybutu decimal `acceleration_0_100`, zachowuje stronę 5, sekcję
+`Osiągi` i pełne źródłowe brzmienie każdej pary paliwowej.
+
+Przejazd 1000 m ze startu zatrzymanego jest przechowywany w istniejącym
+aktywnym atrybucie decimal `standing_km` z jednostką `s`. Wszystkie siedem
+konfiguracji ma osobne wartości LPG 32,1 lub 32,4 s oraz benzyny 33,1 lub
+33,4 s, z datą obserwacji, stroną 5, sekcją `Osiągi` i pełną proweniencją.
+
+Końcowa ponowna ocena 43 grup technicznych po 309 wartościach nie wskazała
+żadnego kolejnego kandydata spełniającego jednocześnie wymagania kompletności
+siedmiu źródeł, jednoznacznego mapowania modelu, braku istniejącego rekordu
+i bezpiecznego formatu wartości. Obecny sweep jawnych wartości technicznych
+Sandero jest zamknięty bez tworzenia dodatkowego modelu.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -391,12 +409,12 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-Zweryfikowany model obejmuje 330 testów, 34 pliki CSV, 1351 rekordów
-danych, 34 relacje między tabelami, 281 wartości konfiguracji oraz 419
-rekordów dostępności wyposażenia. Katalog zawiera 351 kanonicznych atrybutów
-i 30 kategorii atrybutów. Baza SQLite obejmuje 34 tabele i 1351 rekordów,
-pozostaje zgodna z CSV, a wszystkie źródłowe pliki CSV są zapisane jako
-UTF-8.
+Zweryfikowany model obejmuje 330 testów, 34 pliki CSV, 1379 rekordów
+danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
+deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
+Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 34 tabele i 1379 rekordów, pozostaje zgodna z CSV, a wszystkie
+źródłowe pliki CSV są zapisane jako UTF-8.
 
 ## Development workflow
 
