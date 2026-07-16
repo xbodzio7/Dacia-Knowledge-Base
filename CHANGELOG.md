@@ -110,6 +110,8 @@ All notable changes to this project will be documented in this file.
 * Twenty-eight source-backed engine-power and engine-torque values with separate petrol and LPG context.
 * Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
 * Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
+* Fourteen source-backed `acceleration_0_100` values with separate LPG and petrol context and exact page-5 provenance.
+* Fourteen source-backed `standing_km` values with separate LPG and petrol context and exact page-5 provenance.
 * Regression coverage for the optional fuel-context relationship.
 * Cross-file reference and status rules for the new source-backed data tables.
 
@@ -140,9 +142,10 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 * The automated test suite now contains 330 tests.
-* The verified master-data baseline now contains 34 CSV files and 1351 rows.
-* SQLite verification now covers 34 tables and 1351 rows.
-* Configuration attribute values now contain 281 dated records.
+* The verified master-data baseline now contains 34 CSV files and 1379 rows.
+* SQLite verification now covers 34 tables and 1379 rows.
+* Configuration attribute values now contain 309 dated records.
+* Declarative configuration-value imports now contain 10 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 389 `standard` and 30 explicit `not_available` records.
 
@@ -192,3 +195,7 @@ All notable changes to this project will be documented in this file.
 * Modeled the explicit page-5 maximum-payload field as an independent integer `kg` observation under decision D-021 and deferred configuration records to a separate import.
 * Synchronized the documentation milestone after PRs #39–#42.
 * Documented declarative configuration-value imports, the petrol/LPG engine-output observations, decision D-022 and the total-valve-count import.
+* Imported and documented separate LPG and petrol `acceleration_0_100` observations for all seven current configurations.
+* Imported and documented separate LPG and petrol `standing_km` observations for all seven current configurations.
+* Reassessed 43 remaining technical-value groups after 309 observations and found no additional group satisfying the complete import contract.
+* Synchronized README, changelog, roadmap and session state after PRs #44–#45 and closed the current explicit technical-value sweep.

@@ -5,17 +5,21 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#42. Aktualny punkt odniesienia to merge commit
-`c10f95075431bcfabd7efe7880a9eb183dd90d2b`.
+Pull Requesty #3–#45. Aktualny punkt odniesienia to merge commit
+`163b3141ce6c3ced45c2926e21c1ed1c8ec6ae77`.
 
-PR #39 dodał deklaratywny importer wartości konfiguracji. PR #40 zaimportował
-28 wartości mocy i momentu obrotowego, PR #41 dodał model
-`total_valve_count`, a PR #42 zaimportował siedem źródłowych wartości `12`.
-GitHub Actions Quality run #113 zakończył się powodzeniem.
+PR #43 zsynchronizował dokumentację deklaratywnych importów. PR #44
+zaimportował 14 wartości `acceleration_0_100`, a PR #45 zaimportował 14
+wartości `standing_km`, każdorazowo z osobnym kontekstem LPG i benzyny.
+GitHub Actions Quality run #119 zakończył się powodzeniem.
+
+Końcowa ponowna ocena 43 grup technicznych na stanie 309 wartości nie
+wskazała kolejnego kandydata spełniającego pełny kontrakt importu i nie
+zmieniła repozytorium.
 
 Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/synchronize-declarative-import-milestone` z bazą dokładnie
-`c10f95075431bcfabd7efe7880a9eb183dd90d2b`.
+`docs/synchronize-technical-value-closure` z bazą dokładnie
+`163b3141ce6c3ced45c2926e21c1ed1c8ec6ae77`.
 
 ## Verified Quality Baseline
 
@@ -27,55 +31,56 @@ python tools/dkb.py quality
 
 - 330 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
-- 1351 rekordów danych,
+- 1379 rekordów danych,
 - 34 relacje między tabelami,
 - 19 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 281 obserwacji w `configuration_attribute_values.csv`,
+- 309 obserwacji w `configuration_attribute_values.csv`,
+- 10 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 419 rekordów w `configuration_attribute_availability.csv`,
 - 389 rekordów `standard` i 30 rekordów `not_available`,
 - 351 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 34 tabele i 1351 rekordów,
+- baza SQLite obejmująca 34 tabele i 1379 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 
 ## Current Sprint
 
-Declarative Import Documentation Milestone.
+Sandero Technical Value Closure Documentation Milestone.
 
 Zakres:
 
-- synchronizacja README, changeloga, roadmapy i stanu sesji z PR-ami #39–#42,
-- aktualizacja liczników danych, testów, atrybutów i tabel SQLite,
-- opis sześciu deklaratywnych specyfikacji wartości konfiguracji,
-- opis wartości mocy i momentu obrotowego z kontekstem benzyny i LPG,
-- opis decyzji D-022 i importu całkowitej liczby zaworów,
+- synchronizacja README, changeloga, roadmapy i stanu sesji z PR-ami #44–#45,
+- opis 14 wartości `acceleration_0_100` i 14 wartości `standing_km`,
+- zapis wyniku końcowej ponownej oceny 43 grup technicznych,
+- aktualizacja liczników do 309 wartości, 10 specyfikacji i 1379 rekordów,
+- zamknięcie bieżącego sweepu jawnych wartości technicznych,
 - brak zmian danych master, schematu i narzędzi.
 
 ## Current Phase
 
 Aktualna faza to **Data Expansion Documentation Milestone**.
 
-Deklaratywny importer został wykorzystany do sześciu wersjonowanych
-specyfikacji, a po pakietach PR #39–#42 dokumentacja osiągnęła uzgodniony próg
-aktualizacji zbiorczej. Bieżący pakiet synchronizuje opis projektu z dokładnym
-stanem danych i nie zmienia źródłowych rekordów.
+Deklaratywny importer obejmuje dziesięć wersjonowanych specyfikacji. Importy
+osiągów z PR #44 i #45 zwiększyły zbiór do 309 datowanych wartości bez zmiany
+modelu kanonicznego. Końcowa ponowna ocena 43 grup nie znalazła następnego
+jednoznacznego faktu, dlatego nie jest przygotowywany sztuczny import ani nowy
+atrybut.
 
-Po tym kamieniu milowym rozwój wraca do analizy pozostałych faktów technicznych.
-Nowy import zostanie wybrany dopiero po ponownym odjęciu już pokrytych wartości,
-dostępności wyposażenia i cen.
+Po tym kamieniu milowym następny mały pakiet ograniczy ryzyko ręcznego
+rozjeżdżania liczników w dokumentacji.
 
 ## Next Development Package
 
-Sandero Remaining Technical Value Reassessment.
+Generated Documentation Baseline Counters.
 
 Planowany przebieg:
 
-1. Ponownie przeskanować wszystkie siedem bieżących źródeł.
-2. Odjąć 281 wartości, 419 rekordów dostępności i 7 cen.
-3. Odrzucić nagłówki, warianty brzmienia i duplikaty semantyczne.
-4. Potwierdzić istniejący atrybut i brak rekordu przed prostym importem.
-5. Utworzyć osobny model wyłącznie dla rzeczywistej luki semantycznej.
+1. Wyliczać bieżące liczniki danych, specyfikacji, atrybutów, tabel i testów.
+2. Zapisywać deterministyczny, maszynowo czytelny wynik.
+3. Udostępnić kontrolę rozjazdu podsumowań dokumentacji.
+4. Zachować dokumenty jako czytelne opisy, a nie kopie surowego raportu.
+5. Nie zmieniać znaczenia danych ani modelu kanonicznego.
 
 ## Working Mode
 
@@ -482,13 +487,52 @@ Completed:
 
 ### Declarative Import Documentation Milestone
 
+Completed:
+
+- PR #43 zsynchronizował README, changelog, roadmapę i stan sesji po PR-ach #39–#42,
+- zapisano bazę 330 testów, 1351 rekordów, 281 wartości i 351 atrybutów,
+- GitHub Actions Quality run #115 zakończył się powodzeniem.
+
+### Sandero 0-100 Acceleration Value Import
+
+Completed:
+
+- PR #44 dodał dwie deklaratywne specyfikacje,
+- zaimportowano 14 wartości `acceleration_0_100` z ID 282–295,
+- zachowano osobny kontekst LPG i benzyny, stronę 5 oraz sekcję `Osiągi`,
+- nie zmieniono modelu kanonicznego ani dokumentacji zbiorczej,
+- GitHub Actions Quality run #117 zakończył się powodzeniem.
+
+### Sandero Standing Kilometre Value Import
+
+Completed:
+
+- PR #45 dodał dwie deklaratywne specyfikacje,
+- zaimportowano 14 wartości `standing_km` z ID 296–309,
+- zachowano osobny kontekst LPG i benzyny, stronę 5 oraz sekcję `Osiągi`,
+- nie zmieniono modelu kanonicznego ani dokumentacji zbiorczej,
+- GitHub Actions Quality run #119 zakończył się powodzeniem.
+
+### Sandero Remaining Technical Value Reassessment v4
+
+Completed:
+
+- ponownie oceniono 43 grupy raportu technicznego względem 309 wartości,
+- zweryfikowano wszystkie siedem bieżących źródeł,
+- nie znaleziono grupy spełniającej pełny kontrakt kolejnego importu,
+- nie utworzono gałęzi, zmian danych, commitu ani Pull Requestu.
+
+### Sandero Technical Value Closure Documentation Milestone
+
 Current package:
 
-- synchronizuje README, changelog, roadmapę i stan sesji,
-- zapisuje aktualne liczniki 330 testów, 1351 rekordów, 281 wartości i 351 atrybutów,
+- synchronizuje README, changelog, roadmapę i stan sesji po PR-ach #44–#45,
+- zapisuje aktualne liczniki 330 testów, 1379 rekordów, 309 wartości,
+  10 specyfikacji i 351 atrybutów,
+- zamyka bieżący sweep jawnych wartości technicznych,
 - nie zmienia danych master, schematu ani narzędzi.
 
 Next priority:
 
-Ponownie przeanalizować pozostałe jawne wartości techniczne we wszystkich
-siedmiu bieżących źródłach.
+Dodać deterministyczne, maszynowo czytelne liczniki bazowe dla dokumentacji
+i kontroli rozjazdu w CI.
