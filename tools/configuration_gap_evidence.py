@@ -28,6 +28,10 @@ CLASSIFICATIONS = {
     "ambiguous",
     "out_of_scope",
 }
+REVIEW_SCOPES = {
+    "structured_evidence_only",
+    "source_page_evidence",
+}
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 SOURCE_NOTE_PATTERN = re.compile(
     r"^Source page (?P<page>[1-9][0-9]*)"
@@ -609,9 +613,8 @@ def build_evidence_report(
         raise GapEvidenceError(
             "evidence specification date differs from triage"
         )
-    if evidence_spec.get("review_scope") != (
-        "structured_evidence_only"
-    ):
+    review_scope = evidence_spec.get("review_scope")
+    if review_scope not in REVIEW_SCOPES:
         raise GapEvidenceError(
             "evidence specification review_scope differs"
         )
@@ -724,11 +727,23 @@ def build_evidence_report(
         for row in normalized_decisions
     )
 
+    pdf_page_review_complete = (
+        review_scope == "source_page_evidence"
+        and manual_review == 0
+    )
+    next_action = (
+        "plan_evidence_backed_resolution"
+        if pdf_page_review_complete
+        else "resolve_remaining_source_ambiguity"
+        if review_scope == "source_page_evidence"
+        else "manual_pdf_page_review"
+    )
+
     return {
         "version": 1,
         "as_of": triage_report["as_of"],
-        "review_scope": "structured_evidence_only",
-        "pdf_page_review_complete": False,
+        "review_scope": review_scope,
+        "pdf_page_review_complete": pdf_page_review_complete,
         "summary": {
             "total_decisions": len(normalized_decisions),
             "found": counts["found"],
@@ -746,7 +761,7 @@ def build_evidence_report(
                 "configuration_field"
             ],
         },
-        "next_action": "manual_pdf_page_review",
+        "next_action": next_action,
         "groups": {
             "by_source": grouped_counts(
                 normalized_decisions,
@@ -847,17 +862,38 @@ def render_group_table(
 
 def render_markdown(report: Mapping[str, Any]) -> str:
     summary = require_mapping(report.get("summary"), "summary")
+    review_scope = report.get("review_scope")
+    if review_scope == "source_page_evidence":
+        scope_lines = [
+            (
+                "Relevant registered PDF pages were reviewed through "
+                "deterministic text extraction with source hashes preserved."
+            ),
+            (
+                "Unresolved ambiguous decisions remain explicit; "
+                "modeling and import are separate."
+            ),
+        ]
+    else:
+        scope_lines = [
+            (
+                "This is a conservative structured-evidence classification. "
+                "It does not claim that the seven registered PDFs have been "
+                "exhaustively reviewed page by page."
+            ),
+            (
+                "Ambiguous decisions remain queued for manual PDF page review."
+            ),
+        ]
     lines = [
         "# Configuration Gap Evidence Review",
         "",
         f"As of: `{report['as_of']}`",
         "",
-        "This is a conservative structured-evidence classification. "
-        "It does not claim that the seven registered PDFs have been "
-        "exhaustively reviewed page by page.",
+        scope_lines[0],
         "",
         "No value is inferred and automatic import is disabled. "
-        "Ambiguous decisions remain queued for manual PDF page review.",
+        + scope_lines[1],
         "",
         "## Summary",
         "",
@@ -914,6 +950,13 @@ def render_markdown(report: Mapping[str, Any]) -> str:
         basis = row.get("basis")
         if isinstance(basis, Mapping):
             evidence = str(basis.get("type", ""))
+        elif row.get("classification") == "found":
+            evidence = f"source page {row['source_page']}"
+        elif row.get("classification") == "not_stated":
+            pages = ", ".join(
+                str(page) for page in row.get("reviewed_pages", [])
+            )
+            evidence = f"reviewed pages {pages}"
         else:
             evidence = "manual PDF review required"
         lines.append(
@@ -1013,6 +1056,15 @@ def main(argv: Sequence[str] | None = None) -> int:
         print("Configuration gap evidence review")
         print("---------------------------------")
         print(f"As of                 : {report['as_of']}")
+        print(f"Review scope          : {report['review_scope']}")
+        print(
+            "PDF page review       : "
+            + (
+                "complete"
+                if report["pdf_page_review_complete"]
+                else "incomplete"
+            )
+        )
         print(
             f"Total decisions       : "
             f"{summary['total_decisions']}"

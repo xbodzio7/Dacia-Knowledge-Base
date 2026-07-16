@@ -245,6 +245,44 @@ class DkbCliTests(unittest.TestCase):
 
 
 
+    def test_configuration_gap_source_review_help_and_forwarding(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            help_result = dkb.main([])
+        self.assertEqual(help_result, 0)
+        self.assertIn(
+            "configuration-gap-source-review",
+            stdout.getvalue(),
+        )
+
+        completed = SimpleNamespace(returncode=15)
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "configuration-gap-source-review",
+                ["--verify", "--json", "source-review.json"],
+            )
+        self.assertEqual(result, 15)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(
+                    TOOLS_DIRECTORY
+                    / "configuration_gap_source_review.py"
+                ),
+                "--verify",
+                "--json",
+                "source-review.json",
+            ],
+            check=False,
+        )
+
+
     def test_configuration_gap_evidence_help_and_forwarding(
         self,
     ) -> None:

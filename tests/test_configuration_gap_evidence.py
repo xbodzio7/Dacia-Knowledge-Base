@@ -457,6 +457,50 @@ class ConfigurationGapEvidenceTests(unittest.TestCase):
         self.assertIn("| Ambiguous | 1 |", markdown)
         self.assertIn("| Out of scope | 2 |", markdown)
 
+    def test_source_page_scope_reports_completed_review(self) -> None:
+        temporary, repository, triage, spec = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        spec["review_scope"] = "source_page_evidence"
+        decision = spec["decisions"][2]
+        decision.update(
+            {
+                "classification": "not_stated",
+                "manual_source_review_required": False,
+                "reason_code": "not_stated_on_relevant_pages",
+                "review_note": "Relevant pages were reviewed.",
+                "candidate_value": "",
+                "source_page": None,
+                "source_section": "",
+                "source_text": "",
+                "reviewed_pages": [3, 4],
+                "basis": None,
+                "auto_import": False,
+            }
+        )
+
+        report = evidence.build_evidence_report(
+            repository,
+            triage,
+            spec,
+        )
+
+        self.assertEqual(
+            report["review_scope"],
+            "source_page_evidence",
+        )
+        self.assertTrue(report["pdf_page_review_complete"])
+        self.assertEqual(
+            report["next_action"],
+            "plan_evidence_backed_resolution",
+        )
+        self.assertEqual(report["summary"]["not_stated"], 1)
+        markdown = evidence.render_markdown(report)
+        self.assertIn(
+            "Relevant registered PDF pages were reviewed",
+            markdown,
+        )
+        self.assertIn("reviewed pages 3, 4", markdown)
+
     def test_parse_args_accepts_specs_snapshot_and_outputs(self) -> None:
         arguments = evidence.parse_args(
             [

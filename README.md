@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -233,9 +234,9 @@ Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
 weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
-kompletności konfiguracji, pokrycia źródłami, kolejkę triage i klasyfikację
-dowodów. Zatrzymuje się na pierwszym nieudanym etapie. Tymczasowa baza jest
-automatycznie usuwana.
+kompletności konfiguracji, pokrycia źródłami, kolejkę triage, przegląd stron
+źródłowych i klasyfikację dowodów. Zatrzymuje się na pierwszym nieudanym
+etapie. Tymczasowa baza jest automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -358,6 +359,32 @@ python tools/dkb.py stats
 ```
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
+
+### Przegląd stron źródłowych dla luk konfiguracji
+
+Komenda `configuration-gap-source-review` ponownie wylicza decyzje dla 45
+pozycji wskazanych w wersjonowanej specyfikacji. Każdy PDF jest sprawdzany
+przez rejestr źródeł i SHA-256. Ekstrakcja wybiera najlepiej skalibrowany tekst
+strony na podstawie istniejących kotwic proweniencji.
+
+Bieżący wynik obejmuje 1 decyzji `found`, 44 decyzji
+`not_stated` i 0 nadal `ambiguous`. Przejrzano 19 par
+źródło–strona w siedmiu dokumentach, bez niekompletnych ekstrakcji.
+Bezpośrednie dopasowanie tworzy wyłącznie kandydata dowodowego; modelowanie,
+import i decyzja o zmianie danych pozostają osobnymi pakietami.
+
+```bash
+python tools/dkb.py configuration-gap-source-review \
+  --verify \
+  --json ../configuration-gap-source-review.json \
+  --markdown ../configuration-gap-source-review.md
+```
+
+Reguły przeglądu są wersjonowane w
+`data/reporting/configuration_gap_source_review.json`. Brak dopasowania na
+wszystkich istotnych stronach daje `not_stated`; wiele różnych dopasowań albo
+niedostateczna ekstrakcja pozostawiają `ambiguous`. Automatyczny import jest
+wyłączony.
 
 ### Przegląd dowodowy luk konfiguracji
 
@@ -489,12 +516,13 @@ Kontrola obejmuje:
 8. deterministyczne wygenerowanie raportu kompletności konfiguracji,
 9. deterministyczne wygenerowanie raportu pokrycia źródłami,
 10. deterministyczne wygenerowanie kolejki triage luk konfiguracji,
-11. deterministyczne wygenerowanie klasyfikacji dowodów dla luk.
+11. weryfikację przeglądu istotnych stron źródłowych,
+12. deterministyczne wygenerowanie klasyfikacji dowodów dla luk.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
-liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage
-i klasyfikację dowodów w formatach JSON oraz Markdown jako tymczasowy artefakt
-GitHub Actions przechowywany przez 7 dni.
+liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage,
+przegląd stron źródłowych i klasyfikację dowodów w formatach JSON oraz
+Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -521,7 +549,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 372 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 385 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

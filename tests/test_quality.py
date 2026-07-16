@@ -42,6 +42,7 @@ class QualityTests(unittest.TestCase):
                 "Generate configuration completeness report",
                 "Generate source coverage report",
                 "Generate configuration gap triage report",
+                "Verify configuration gap source page review",
                 "Generate configuration gap evidence report",
             ],
         )
@@ -73,7 +74,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-7][1],
+            steps[-8][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -83,7 +84,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-6][1],
+            steps[-7][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -92,7 +93,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-5][1],
+            steps[-6][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -107,7 +108,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-4][1],
+            steps[-5][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -119,7 +120,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-3][1],
+            steps[-4][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -131,7 +132,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -140,6 +141,27 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("configuration-gap-triage.json")),
                 "--markdown",
                 str(database.with_name("configuration-gap-triage.md")),
+            ],
+        )
+        self.assertEqual(
+            steps[-2][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "configuration-gap-source-review",
+                "--verify",
+                "--json",
+                str(
+                    database.with_name(
+                        "configuration-gap-source-review.json"
+                    )
+                ),
+                "--markdown",
+                str(
+                    database.with_name(
+                        "configuration-gap-source-review.md"
+                    )
+                ),
             ],
         )
         self.assertEqual(
