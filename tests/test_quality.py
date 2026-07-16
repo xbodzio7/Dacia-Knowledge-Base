@@ -40,6 +40,7 @@ class QualityTests(unittest.TestCase):
                 "Verify SQLite database",
                 "Check documentation baseline",
                 "Generate configuration completeness report",
+                "Generate source coverage report",
             ],
         )
 
@@ -70,7 +71,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-4][1],
+            steps[-5][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -80,7 +81,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-3][1],
+            steps[-4][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -89,7 +90,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-2][1],
+            steps[-3][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -104,7 +105,7 @@ class QualityTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            steps[-1][1],
+            steps[-2][1],
             [
                 sys.executable,
                 str(TOOLS_DIRECTORY / "dkb.py"),
@@ -113,6 +114,18 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("configuration-completeness.json")),
                 "--markdown",
                 str(database.with_name("configuration-completeness.md")),
+            ],
+        )
+        self.assertEqual(
+            steps[-1][1],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "source-coverage",
+                "--json",
+                str(database.with_name("source-coverage.json")),
+                "--markdown",
+                str(database.with_name("source-coverage.md")),
             ],
         )
 

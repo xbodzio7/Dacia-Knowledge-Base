@@ -41,6 +41,12 @@ def quality_steps(
     completeness_markdown = database.with_name(
         "configuration-completeness.md"
     )
+    source_coverage_json = database.with_name(
+        "source-coverage.json"
+    )
+    source_coverage_markdown = database.with_name(
+        "source-coverage.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -120,6 +126,18 @@ def quality_steps(
                 str(completeness_json),
                 "--markdown",
                 str(completeness_markdown),
+            ],
+        ),
+        (
+            "Generate source coverage report",
+            [
+                sys.executable,
+                str(dkb),
+                "source-coverage",
+                "--json",
+                str(source_coverage_json),
+                "--markdown",
+                str(source_coverage_markdown),
             ],
         ),
     ]

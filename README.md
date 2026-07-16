@@ -188,6 +188,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
 | `configuration-completeness` | Raport kompletności danych aktywnych konfiguracji |
 | `documentation-baseline` | Generowanie i kontrola bieżących liczników dokumentacji |
 | `import-configuration-values` | Planowanie, stosowanie i weryfikacja deklaratywnych importów |
@@ -229,9 +230,9 @@ python tools/dkb.py quality
 Komenda odtwarza lokalnie pełną kontrolę wykonywaną przez
 GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
-weryfikuje bieżące liczniki dokumentacji, a następnie generuje raport
-kompletności konfiguracji. Zatrzymuje się na pierwszym nieudanym etapie.
-Tymczasowa baza jest automatycznie usuwana.
+weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
+kompletności konfiguracji i pokrycia źródłami. Zatrzymuje się na pierwszym
+nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -355,6 +356,30 @@ python tools/dkb.py stats
 
 Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/master`, również w jego podkatalogach. Lokalne eksporty i dane generowane nie wpływają na wynik.
 
+### Pokrycie źródłami
+
+Raport `source-coverage` używa tego samego wersjonowanego mianownika co raport
+kompletności konfiguracji. Dla każdego oczekiwanego źródła sprawdza osobno:
+
+* rejestrację aktywnego źródła, datę dokumentu, ścieżkę i SHA-256,
+* powiązania z modelem, wersją i konfiguracją,
+* obecność datowanej ceny,
+* pokrycie technicznych slotów i atrybutów wyposażenia,
+* sekcje całkowicie pokryte, częściowe i bez obserwacji.
+
+Brak lub nieaktywność źródła jest raportowana jako `source_missing`, natomiast
+brak wartości przy poprawnie zarejestrowanym źródle jako `record_missing`.
+Raport nie zakłada, że brak rekordu oznacza brak cechy w dokumencie.
+
+```bash
+python tools/dkb.py source-coverage \
+  --json ../source-coverage.json \
+  --markdown ../source-coverage.md
+```
+
+Opcjonalne `--as-of YYYY-MM-DD` tworzy historyczny snapshot względem dat
+źródeł, cen i obserwacji.
+
 ### Kompletność danych konfiguracji
 
 Raport używa wersjonowanej specyfikacji
@@ -419,11 +444,12 @@ Kontrola obejmuje:
 5. próbne zbudowanie bazy SQLite,
 6. pełną kontrolę zgodności tabel, schematów kolumn i zawartości SQLite ze źródłowymi plikami CSV,
 7. kontrolę generowanych liczników i zarządzanych bloków dokumentacji,
-8. deterministyczne wygenerowanie raportu kompletności konfiguracji.
+8. deterministyczne wygenerowanie raportu kompletności konfiguracji,
+9. deterministyczne wygenerowanie raportu pokrycia źródłami.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
-liczniki oraz raport kompletności w formatach JSON i Markdown jako tymczasowy
-artefakt GitHub Actions przechowywany przez 7 dni.
+liczniki, raport kompletności oraz raport pokrycia źródłami w formatach JSON
+i Markdown jako tymczasowy artefakt GitHub Actions przechowywany przez 7 dni.
 
 ## Zasady projektu
 
@@ -450,7 +476,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 345 testów, 34 pliki CSV, 1379 rekordów
+Zweryfikowany model obejmuje 353 testów, 34 pliki CSV, 1379 rekordów
 danych, 34 relacje między tabelami, 309 wartości konfiguracji, 10
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
