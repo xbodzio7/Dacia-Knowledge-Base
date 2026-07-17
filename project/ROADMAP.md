@@ -26,7 +26,7 @@ Repozytorium ma umożliwiać:
 
 ## Phase
 
-Data Expansion
+Reporting and Completeness
 
 ## Progress
 
@@ -42,11 +42,13 @@ Data Expansion
 
 🟩 Dwa źródłowe pakiety Sandero i Sandero Stepway
 
+🟩 Deterministyczne raporty kompletności, pokrycia i luk
+
 🟨 Rozbudowa danych opartych na źródłach
 
 ⬜ Automatyczny import PDF
 
-⬜ Raporty i eksporty użytkowe
+🟨 Raporty porównawcze i eksporty użytkowe
 
 ---
 
@@ -139,15 +141,18 @@ Data Expansion
 - aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
 - zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
 - 7 datowanych wartości `maximum_payload` od 371 do 385 kg z pełną proweniencją.
-- deklaratywny importer wartości konfiguracji oraz dziesięć wersjonowanych specyfikacji JSON,
+- deklaratywny importer wartości konfiguracji oraz jedenaście wersjonowanych specyfikacji JSON,
 - 28 datowanych wartości mocy i momentu obrotowego z jawnym kontekstem benzyny i LPG,
 - decyzja D-022 — source-stated total engine valve count,
 - aktywny atrybut integer `total_valve_count` w kategorii `Engine`,
 - 7 datowanych wartości `total_valve_count = 12` z pustym kontekstem paliwa i pełną proweniencją,
 - 14 datowanych wartości `acceleration_0_100` z osobnym kontekstem LPG i benzyny,
 - 14 datowanych wartości `standing_km` z osobnym kontekstem LPG i benzyny,
-- końcowa ponowna ocena 43 grup technicznych po 309 wartościach,
-- brak kolejnego jednoznacznego kandydata w siedmiu bieżących źródłach PDF.
+- 310 datowanych wartości konfiguracji, w tym źródłowy wzór `wheel_design = ERALIA` dla Stepway Essential,
+- raporty kompletności, pokrycia źródeł, triage, przeglądu stron, dowodów i planowania luk,
+- pokrycie 310 z 315 slotów technicznych oraz 419 z 483 slotów wyposażenia,
+- zamknięty aktywny cykl 69 decyzji: 44 `not_stated`, 25 `out_of_scope`, bez kandydatów i planowanych wierszy,
+- wyłączony automatyczny import i zachowana zasada niewnioskowania wartości z braku stwierdzenia w źródle.
 
 ## Tooling
 
@@ -182,31 +187,31 @@ Data Expansion
 
 # Current Sprint
 
-## Configuration Gap Resolution Planning
+## Configuration Gap Closure Documentation Milestone
 
 Cel sprintu:
 
-- przypisać jawny stan wykonawczy każdej z 70 decyzji dowodowych,
-- potwierdzić granice istniejącego modelu dla jedynego wyniku `found`,
-- skierować `wheel_design = ERALIA` do małego importu wartości konfiguracji,
-- zamknąć 44 wyniki `not_stated` bez tworzenia danych,
-- zamknąć 25 wyników `out_of_scope` bez tworzenia danych,
-- utrzymać `auto_import = false` i nie zmieniać `data/master`.
+- zsynchronizować README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
+- udokumentować wykonany import `wheel_design = ERALIA` jako ID 310,
+- zapisać bieżące pokrycie 310/315 slotów technicznych i 419/483 slotów wyposażenia,
+- zamknąć cykl 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
+- potwierdzić zero kandydatów, zero planowanych wierszy i `auto_import = false`,
+- nie zmieniać danych master, modelu ani narzędzi.
 
 ---
 
 # Next Sprint
 
-## Sandero Stepway Essential Wheel Design Value Import
+## Configuration Comparison Report
 
 Cel sprintu:
 
-- dodać jedną deklaratywną specyfikację wartości `wheel_design`,
-- zaimportować `ERALIA` dla Stepway Essential Eco-G 120 manual,
-- rozpocząć od ID 310 i zachować pusty kontekst paliwa,
-- zachować stronę 2, sekcję `Felgi` i dokładny tekst źródłowy,
-- użyć istniejącego atrybutu tekstowego bez zmiany modelu,
-- zweryfikować import wspólnym kontraktem i pełną jakością.
+- dodać deterministyczny raport JSON i Markdown dla aktywnych konfiguracji,
+- porównywać wyłącznie źródłowe ceny, wartości techniczne i dostępność wyposażenia,
+- odróżniać brak rekordu od `not_available`, `not_stated` i różnicy rzeczywistej,
+- pokazywać różnice między wersjami oraz skrzynią manualną i automatyczną,
+- publikować raport jako artefakt pełnej jakości i GitHub Actions,
+- nie wyprowadzać wartości, których nie stwierdzono w źródłach.
 
 # Backlog
 

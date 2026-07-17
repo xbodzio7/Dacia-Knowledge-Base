@@ -5,16 +5,18 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#52. Aktualny punkt odniesienia to merge commit
-`16f0104629f92f750122de700485d6d2c7412145`.
+Pull Requesty #3–#54. Aktualny punkt odniesienia to merge commit
+`24a3fb9979236a2d9c23cfc054beac962dceedec`.
 
-PR #52 zakończył przegląd 45 pozycji na 19 parach źródło–strona, uzyskał
-1 `found`, 44 `not_stated` i 0 `ambiguous` oraz utrzymał zero automatycznych
-importów. GitHub Actions Quality run #134 zakończył się powodzeniem.
+PR #53 przypisał stany wykonawcze 70 decyzjom i skierował jeden wynik
+`wheel_design = ERALIA` do osobnego importu. PR #54 zaimportował dokładnie
+jeden wiersz ID 310, po czym aktywny pipeline raportowy obejmuje 69 decyzji:
+44 `not_stated`, 25 `out_of_scope`, 0 kandydatów i 0 planowanych wierszy.
+GitHub Actions Quality run #138 zakończył się powodzeniem.
 
-Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-gap-resolution-plan` z bazą dokładnie
-`16f0104629f92f750122de700485d6d2c7412145`.
+Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
+`docs/configuration-gap-closure-milestone` z bazą dokładnie
+`24a3fb9979236a2d9c23cfc054beac962dceedec`.
 
 ## Verified Quality Baseline
 
@@ -43,39 +45,41 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Gap Resolution Planning.
+Configuration Gap Closure Documentation Milestone.
 
 Zakres:
 
-- wersjonowany plan dla wszystkich 70 decyzji dowodowych,
-- 1 decyzja `ready_for_import`,
-- 44 decyzje `closed_not_stated`,
-- 25 decyzji `closed_out_of_scope`,
-- zero wymaganych zmian modelu,
-- jeden planowany wiersz wartości konfiguracji,
-- wyłączony automatyczny import i brak zmian `data/master`.
+- synchronizacja README, changeloga, roadmapy i stanu sesji po PR-ach #53–#54,
+- opis źródłowego importu `wheel_design = ERALIA` jako ID 310,
+- zapis pokrycia 310/315 slotów technicznych i 419/483 slotów wyposażenia,
+- zamknięcie 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
+- potwierdzenie 0 kandydatów, 0 planowanych wierszy i `auto_import = false`,
+- brak zmian danych master, modelu i narzędzi.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Komenda `configuration-gap-resolution-plan` kontroluje bieżący model,
-istniejące wartości, parę źródło–konfiguracja i wcześniejsze specyfikacje
-importu. Dla `wheel_design = ERALIA` potwierdza istniejący aktywny kontrakt
-tekstowy i przygotowuje dokładny projekt specyfikacji od ID 310. Plan nie
-zapisuje danych i nie interpretuje `not_stated` jako wartości negatywnej.
+Deterministyczny pipeline obejmuje kompletność, pokrycie źródłami, triage,
+przegląd stron, klasyfikację dowodów i planowanie rozstrzygnięć. Po wykonaniu
+jedynego wyniku `found` nie pozostaje żaden kandydat wymagający zmiany danych
+ani modelu. Wyniki `not_stated` i `out_of_scope` pozostają jawnymi decyzjami
+dowodowymi i nie są zamieniane w negatywne rekordy.
+
+Następny pakiet wykorzysta stabilny snapshot do przygotowania raportu
+porównawczego bez rozszerzania zakresu danych źródłowych.
 
 ## Next Development Package
 
-Sandero Stepway Essential Wheel Design Value Import.
+Configuration Comparison Report.
 
 Planowany przebieg:
 
-1. Dodać jedną deklaratywną specyfikację `wheel_design`.
-2. Zaimportować `ERALIA` dla Stepway Essential Eco-G 120 manual.
-3. Zachować pusty kontekst paliwa, stronę 2 i sekcję `Felgi`.
-4. Rozpocząć od ID 310 bez zmiany modelu kanonicznego.
-5. Zweryfikować import wspólnym kontraktem i pełną jakością.
+1. Zdefiniować deterministyczny zakres aktywnych konfiguracji.
+2. Porównać źródłowe ceny, wartości techniczne i dostępność wyposażenia.
+3. Rozróżnić brak rekordu, `not_available`, `not_stated` i rzeczywistą różnicę.
+4. Wygenerować JSON i Markdown bez wnioskowania brakujących wartości.
+5. Włączyć raport do pełnej jakości i artefaktów GitHub Actions.
 
 ## Working Mode
 
@@ -589,16 +593,37 @@ Completed:
 
 ### Configuration Gap Resolution Planning
 
+Completed:
+
+- PR #53 przypisał stan wykonawczy wszystkim 70 decyzjom,
+- skierował jeden wynik do deklaratywnego importu wartości konfiguracji,
+- potwierdził brak potrzeby zmiany modelu dla `wheel_design`,
+- zamknął 44 `not_stated` i 25 `out_of_scope` bez danych,
+- zaplanował jeden wiersz od ID 310 przy `auto_import = false`,
+- GitHub Actions Quality run #136 zakończył się powodzeniem.
+
+### Sandero Stepway Essential Wheel Design Value Import
+
+Completed:
+
+- PR #54 dodał jedenastą deklaratywną specyfikację,
+- zaimportował `wheel_design = ERALIA` jako ID 310,
+- zachował pusty kontekst paliwa, stronę 2, sekcję `Felgi` i tekst źródłowy,
+- nie zmienił modelu kanonicznego,
+- zredukował aktywny pipeline do 69 decyzji bez kandydatów i planowanych wierszy,
+- GitHub Actions Quality run #138 zakończył się powodzeniem.
+
+### Configuration Gap Closure Documentation Milestone
+
 Current package:
 
-- przypisuje stan wykonawczy wszystkim 70 decyzjom,
-- kieruje jeden wynik do deklaratywnego importu wartości konfiguracji,
-- potwierdza brak potrzeby zmiany modelu dla `wheel_design`,
-- zamyka 44 `not_stated` i 25 `out_of_scope` bez danych,
-- proponuje jeden wiersz od ID 310,
-- utrzymuje `auto_import = false`.
+- synchronizuje README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
+- zapisuje 310 wartości, 11 specyfikacji, 1380 rekordów i 397 testów,
+- dokumentuje 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
+- potwierdza zero kandydatów, zero planowanych wierszy i wyłączony auto-import,
+- nie zmienia danych master, modelu ani narzędzi.
 
 Next priority:
 
-Wykonać pakiet Sandero Stepway Essential Wheel Design Value Import jako
-osobny, dokładny import jednej wartości.
+Dodać deterministyczny raport porównujący aktywne konfiguracje bez
+wnioskowania brakujących wartości.

@@ -53,9 +53,9 @@ dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
-datowanymi obserwacjami powiązanymi ze źródłem. Siedemnaście pakietów obejmuje
-309 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
-obserwacji technicznych, 29 wartości kół i tapicerki, 7 wartości koloru
+datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
+310 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
+obserwacji technicznych, 30 wartości kół i tapicerki, 7 wartości koloru
 nadwozia, 7 pełnych specyfikacji standardowej opony, 7 wartości liczby
 drzwi, 7 wartości normy emisji, 7 wartości poziomu hałasu, 7 wartości rodzaju
 napędu, 7 wartości maksymalnej ładowności, 28 wartości mocy i momentu
@@ -87,9 +87,11 @@ strony PDF są zachowane w polu `notes`.
 
 Koła i tapicerka są modelowane jako wartości konfiguracji zgodnie z D-016.
 Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
-tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wyłącznie
-wspólny materiał `steel`; sprzeczne wzory ERALIA/TAMIA BI-TON i wynikające
-z nich wykończenie pozostają celowo bez rekordu.
+tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wspólny
+materiał `steel` oraz źródłowy wzór `ERALIA`, potwierdzony na stronie 2
+w sekcji `Felgi`. Wcześniejsza granica konfliktu została rozstrzygnięta
+wyłącznie dla `wheel_design`; brak podstaw do wyprowadzania `wheel_finish`
+ani drugiej aktywnej wartości wzoru.
 
 Kolor nadwozia jest datowaną wartością konfiguracji. Siedem bieżących źródeł
 wskazuje `biel alpejska`; zapis `0 zł` pozostaje w `notes` jako część
@@ -164,6 +166,15 @@ Końcowa ponowna ocena 43 grup technicznych po 309 wartościach nie wskazała
 siedmiu źródeł, jednoznacznego mapowania modelu, braku istniejącego rekordu
 i bezpiecznego formatu wartości. Obecny sweep jawnych wartości technicznych
 Sandero jest zamknięty bez tworzenia dodatkowego modelu.
+
+Po imporcie `wheel_design = ERALIA` deterministyczny pipeline kompletności,
+pokrycia źródłami, triage, przeglądu stron, klasyfikacji dowodów i planowania
+obejmuje 69 aktywnych luk. Zakres techniczny zawiera 310 z 315 oczekiwanych
+slotów (98,41%, 5 braków), a wyposażenie 419 z 483 slotów (86,75%, 64 braki).
+Aktywne decyzje obejmują 44 wyniki `not_stated` i 25 wyników `out_of_scope`,
+przy 0 `found`, 0 `ambiguous`, 0 pakietach kandydackich i 0 planowanych
+wierszach. `auto_import` pozostaje wyłączony, a brak stwierdzenia w źródle nie
+jest interpretowany jako wartość negatywna.
 
 Pliki CSV są podstawowym i nadrzędnym źródłem danych. Baza SQLite oraz raporty są artefaktami generowanymi na ich podstawie.
 
@@ -365,35 +376,36 @@ Statystyki obejmują wyłącznie źródłowe pliki CSV znajdujące się w `data/
 
 Komenda `configuration-gap-resolution-plan` łączy ukończony raport dowodowy
 z aktualnym modelem kanonicznym, istniejącymi wartościami i deklaratywnymi
-specyfikacjami importu. Każda z 70 decyzji otrzymuje jawny stan wykonawczy.
+specyfikacjami importu. Każda z 69 aktywnych decyzji otrzymuje jawny stan
+wykonawczy.
 
-Bieżący plan kieruje jedyny wynik `found` do małego pakietu
-**Sandero Stepway Essential Wheel Design Value Import**. Atrybut
-`wheel_design` jest już aktywnym polem tekstowym, dlatego nie jest potrzebna
-zmiana modelu. Proponowana specyfikacja zawiera jeden wiersz
-`wheel_design = ERALIA`, pusty kontekst paliwa, stronę 2 i sekcję `Felgi`,
-rozpoczynając od ID 310.
+Wcześniejszy wynik `wheel_design = ERALIA` został wykonany jako jeden
+deklaratywny wiersz ID 310 bez zmiany modelu. Bieżący plan nie zawiera pozycji
+`ready_for_import`, pakietów kandydackich ani planowanych wierszy. Zamyka
+44 decyzje jako `closed_not_stated` i 25 jako `closed_out_of_scope`, nie
+wymaga zmiany modelu ani danych i kieruje następny krok do kamienia milowego
+dokumentującego zamknięcie cyklu.
 
 ```bash
 python tools/dkb.py configuration-gap-resolution-plan   --json ../configuration-gap-resolution-plan.json   --markdown ../configuration-gap-resolution-plan.md
 ```
 
-Pozostałe 44 decyzje `not_stated` i 25 decyzji `out_of_scope` są zamykane bez
-zmiany danych. Plan nie zapisuje specyfikacji importu w katalogu wykonawczym,
-nie modyfikuje `data/master` i utrzymuje `auto_import = false`.
+Plan nie zapisuje nowych specyfikacji importu, nie modyfikuje `data/master`
+i utrzymuje `auto_import = false`. Brak kandydata oznacza zamknięcie bieżącego
+cyklu weryfikacji, a nie deklarację kompletności wszystkich danych pojazdu.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
-Komenda `configuration-gap-source-review` ponownie wylicza decyzje dla 45
-pozycji wskazanych w wersjonowanej specyfikacji. Każdy PDF jest sprawdzany
-przez rejestr źródeł i SHA-256. Ekstrakcja wybiera najlepiej skalibrowany tekst
-strony na podstawie istniejących kotwic proweniencji.
+Komenda `configuration-gap-source-review` ponownie wylicza decyzje dla 44
+aktywnych pozycji wskazanych w wersjonowanej specyfikacji. Każdy PDF jest
+sprawdzany przez rejestr źródeł i SHA-256. Ekstrakcja wybiera najlepiej
+skalibrowany tekst strony na podstawie istniejących kotwic proweniencji.
 
-Bieżący wynik obejmuje 1 decyzji `found`, 44 decyzji
-`not_stated` i 0 nadal `ambiguous`. Przejrzano 19 par
-źródło–strona w siedmiu dokumentach, bez niekompletnych ekstrakcji.
-Bezpośrednie dopasowanie tworzy wyłącznie kandydata dowodowego; modelowanie,
-import i decyzja o zmianie danych pozostają osobnymi pakietami.
+Bieżący wynik obejmuje 0 decyzji `found`, 44 decyzje `not_stated` i 0
+`ambiguous`; 25 decyzji `out_of_scope` pozostaje poza przeglądem stron.
+Przejrzano 19 par źródło–strona w siedmiu dokumentach, bez niekompletnych
+ekstrakcji i bez wartości kandydackich. Wykonany wynik `ERALIA` został usunięty
+z aktywnej kolejki po źródłowym imporcie.
 
 ```bash
 python tools/dkb.py configuration-gap-source-review \
@@ -414,10 +426,10 @@ Komenda `configuration-gap-evidence` łączy wersjonowaną specyfikację decyzji
 z dokładną kolejką `configuration-gap-triage`. Każda decyzja zachowuje
 konfigurację, źródło, datę dokumentu, ścieżkę i SHA-256.
 
-Bieżąca specyfikacja obejmuje ukończony przegląd stron: 1 decyzję `found`,
-44 decyzje `not_stated`, 25 decyzji `out_of_scope` i 0 `ambiguous`.
-Jedyny kandydat to `wheel_design = ERALIA` dla Stepway Essential. Jest to
-wynik dowodowy, a nie automatyczny import.
+Bieżąca specyfikacja obejmuje 69 aktywnych decyzji: 0 `found`, 44
+`not_stated`, 25 `out_of_scope` i 0 `ambiguous`. Nie ma kandydatów importu ani
+pozycji wymagających dalszego ręcznego przeglądu stron. Wcześniejszy wynik
+`wheel_design = ERALIA` został zamknięty przez kontrolowany import ID 310.
 
 ```bash
 python tools/dkb.py configuration-gap-evidence   --json ../configuration-gap-evidence.json   --markdown ../configuration-gap-evidence.md
@@ -432,8 +444,10 @@ Komenda `configuration-gap-triage` łączy raport kompletności z raportem
 pokrycia źródłami. Oba wejścia muszą wskazywać dokładnie ten sam zestaw luk,
 datę, konfigurację, źródło, kategorię, atrybut i kontekst paliwa.
 
-Kolejka ma neutralny, leksykograficzny porządek służący wyłącznie
-powtarzalności. Nie jest to priorytet biznesowy. Każdy wpis otrzymuje stan
+Kolejka obejmuje 69 brakujących rekordów przy 0 brakujących źródłach:
+5 kandydatów technicznych i 64 kandydatów wyposażenia. Ma neutralny,
+leksykograficzny porządek służący wyłącznie powtarzalności; nie jest to
+priorytet biznesowy. Każdy wpis otrzymuje stan
 `source_verification_required`, priorytet `unassigned` oraz
 `auto_import = false`.
 
@@ -489,6 +503,11 @@ python tools/dkb.py configuration-completeness \
 
 Opcjonalne `--as-of YYYY-MM-DD` ogranicza obserwacje do wskazanej daty.
 Raport grupuje luki według konfiguracji, kategorii i źródła.
+
+Bieżący snapshot obejmuje siedem aktywnych konfiguracji i siedem źródeł.
+Zakres techniczny ma 310 z 315 slotów, 5 braków i pokrycie 98,41%.
+Wyposażenie ma 419 z 483 slotów, 64 braki i pokrycie 86,75%, w tym 389
+rekordów `standard` oraz 30 `not_available`.
 
 ### Bieżące liczniki dokumentacji
 
