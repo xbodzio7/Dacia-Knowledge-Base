@@ -38,6 +38,12 @@ SCRIPT_COMMANDS = {
         "[--completeness-spec FILE] [--evidence-spec FILE] "
         "[--as-of YYYY-MM-DD] [--csv FILE]",
     ),
+    "configuration-comparison-pair-summary": (
+        "configuration_comparison_pair_summary.py",
+        "Generate a one-row-per-pair comparison summary CSV.",
+        "[--completeness-spec FILE] [--evidence-spec FILE] "
+        "[--as-of YYYY-MM-DD] [--pair-type TYPE] --csv FILE",
+    ),
     "configuration-gap-resolution-plan": (
         "configuration_gap_resolution_plan.py",
         "Plan evidence-backed gap resolution without importing data.",
@@ -164,31 +170,22 @@ WORKFLOW_COMMANDS = {
 
 
 def usage() -> None:
-    """Print CLI usage and available commands."""
     print("Dacia Knowledge Base")
     print()
     print("Usage:")
     print("  python tools/dkb.py <command> [arguments]")
     print()
     print("Commands:")
-
     descriptions = {
         command: details[1]
         for command, details in SCRIPT_COMMANDS.items()
     }
     descriptions.update(
-        {
-            command: details[0]
-            for command, details in REPORT_COMMANDS.items()
-        }
+        {command: details[0] for command, details in REPORT_COMMANDS.items()}
     )
     descriptions.update(
-        {
-            command: details[1]
-            for command, details in WORKFLOW_COMMANDS.items()
-        }
+        {command: details[1] for command, details in WORKFLOW_COMMANDS.items()}
     )
-
     width = max(len(command) for command in descriptions)
     for command in sorted(descriptions):
         print(f"  {command:<{width}}  {descriptions[command]}")
@@ -211,6 +208,10 @@ def usage() -> None:
     print(
         "  python tools/dkb.py configuration-comparison-item-catalog "
         "--csv ../configuration-comparison-item-catalog.csv"
+    )
+    print(
+        "  python tools/dkb.py configuration-comparison-pair-summary "
+        "--csv ../configuration-comparison-pair-summary.csv"
     )
     print(
         "  python tools/dkb.py configuration-gap-resolution-plan "
@@ -282,7 +283,6 @@ def _configuration_comparison_script(arguments: Sequence[str]) -> str:
 
 
 def run_script(command: str, arguments: list[str]) -> int:
-    """Run a script-backed command and propagate its exit code."""
     script_name = SCRIPT_COMMANDS[command][0]
     if command == "configuration-comparison":
         script_name = _configuration_comparison_script(arguments)
@@ -301,7 +301,6 @@ def run_script(command: str, arguments: list[str]) -> int:
 
 
 def run_workflow(command: str, arguments: list[str]) -> int:
-    """Run a package workflow action and propagate its exit code."""
     action = WORKFLOW_COMMANDS[command][0]
     script = Path(__file__).resolve().parent / "package_workflow.py"
     if not script.is_file():
@@ -318,7 +317,6 @@ def run_workflow(command: str, arguments: list[str]) -> int:
 
 
 def generate_report(command: str, repository: Path) -> int:
-    """Generate one of the built-in Markdown reports."""
     reports_dir = repository / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     output_name = REPORT_COMMANDS[command][1]
@@ -336,12 +334,10 @@ def generate_report(command: str, repository: Path) -> int:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    """Run the selected DKB command."""
     arguments = list(sys.argv[1:] if argv is None else argv)
     if not arguments or arguments[0] in {"help", "--help", "-h"}:
         usage()
         return 0
-
     command = arguments[0]
     command_arguments = arguments[1:]
     if command in SCRIPT_COMMANDS:
@@ -357,7 +353,6 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 2
         repository = Path(__file__).resolve().parents[1]
         return generate_report(command, repository)
-
     print(f"ERROR: unknown command: {command}", file=sys.stderr)
     print(file=sys.stderr)
     usage()
