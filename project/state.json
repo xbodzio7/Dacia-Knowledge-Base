@@ -9,10 +9,10 @@
   },
   "phase": "Tooling and Autonomous Operations",
   "reference_delivery": {
-    "name": "Project State Single Source of Truth",
-    "pull_request": 67,
-    "head_sha": "d3062cd0074895c2f7b96ab2ffa4650777f8a983",
-    "quality_run": 168
+    "name": "Automated Documentation and Baseline Sync",
+    "pull_request": 68,
+    "head_sha": "d2b5fd33febb675317a2db8bc6b89a5c66c08d5b",
+    "quality_run": 170
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Autonomous Collaboration Policy Enforcement",
-    "status": "planned",
-    "goal": "Make the autonomous-until-action-required workflow executable across package publication, Pull Requests, CI repair and merge decisions."
-  },
-  "next_package": {
     "name": "Legacy Narrative Documentation Migration",
     "status": "planned",
     "goal": "Replace stale current-sprint sections in ROADMAP and SESSION_STATE with generated references to canonical state while preserving historical records."
+  },
+  "next_package": {
+    "name": "Reporting Roadmap Selection",
+    "status": "planned",
+    "goal": "Review the reporting milestone after the tooling migration and select the highest-value next domain or reporting package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

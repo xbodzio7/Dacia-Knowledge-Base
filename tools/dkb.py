@@ -13,6 +13,11 @@ from reporting.entity_catalog import generate_entity_catalog
 
 
 SCRIPT_COMMANDS = {
+    "autonomy-decision": (
+        "autonomy_decision.py",
+        "Resolve the next autonomous workflow action from an event.",
+        "--event FILE [--state FILE] [--json FILE]",
+    ),
     "normalize": (
         "normalize_csv_encoding.py",
         "Check CSV encoding or convert files to UTF-8.",
@@ -192,6 +197,7 @@ def usage() -> None:
     print("  python tools/dkb.py validate")
     print("  python tools/dkb.py normalize")
     print("  python tools/dkb.py normalize --apply")
+    print("  python tools/dkb.py autonomy-decision --event ../event.json")
     print(
         "  python tools/dkb.py import-configuration-values "
         "--spec data/imports/configuration_values/example.json "
