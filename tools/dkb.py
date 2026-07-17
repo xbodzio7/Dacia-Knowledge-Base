@@ -29,6 +29,7 @@ SCRIPT_COMMANDS = {
         "[--completeness-spec FILE] [--evidence-spec FILE] "
         "[--as-of YYYY-MM-DD] [--pair-type TYPE] "
         "[--difference-domain DOMAIN] [--difference-item-code CODE] "
+        "[--difference-context CONTEXT] "
         "[--json FILE] [--markdown FILE] [--csv FILE]",
     ),
     "configuration-comparison-item-catalog": (
@@ -200,20 +201,41 @@ def usage() -> None:
     print("  python tools/dkb.py autonomy-decision --event ../event.json")
     print(
         "  python tools/dkb.py import-configuration-values "
-        "--spec data/imports/configuration_values/example.json "
-        "--verify"
+        "--spec data/imports/configuration_values/example.json --verify"
     )
-    print("  python tools/dkb.py configuration-comparison --json ../configuration-comparison.json")
+    print(
+        "  python tools/dkb.py configuration-comparison "
+        "--difference-context fuel_type_code=lpg "
+        "--csv ../configuration-comparison-differences.csv"
+    )
     print(
         "  python tools/dkb.py configuration-comparison-item-catalog "
         "--csv ../configuration-comparison-item-catalog.csv"
     )
-    print("  python tools/dkb.py configuration-gap-resolution-plan --json ../configuration-gap-resolution-plan.json")
-    print("  python tools/dkb.py configuration-gap-source-review --verify --json ../configuration-gap-source-review.json")
-    print("  python tools/dkb.py configuration-gap-evidence --json ../configuration-gap-evidence.json")
-    print("  python tools/dkb.py configuration-gap-triage --json ../configuration-gap-triage.json")
-    print("  python tools/dkb.py source-coverage --json ../source-coverage.json")
-    print("  python tools/dkb.py configuration-completeness --json ../configuration-completeness.json")
+    print(
+        "  python tools/dkb.py configuration-gap-resolution-plan "
+        "--json ../configuration-gap-resolution-plan.json"
+    )
+    print(
+        "  python tools/dkb.py configuration-gap-source-review "
+        "--verify --json ../configuration-gap-source-review.json"
+    )
+    print(
+        "  python tools/dkb.py configuration-gap-evidence "
+        "--json ../configuration-gap-evidence.json"
+    )
+    print(
+        "  python tools/dkb.py configuration-gap-triage "
+        "--json ../configuration-gap-triage.json"
+    )
+    print(
+        "  python tools/dkb.py source-coverage "
+        "--json ../source-coverage.json"
+    )
+    print(
+        "  python tools/dkb.py configuration-completeness "
+        "--json ../configuration-completeness.json"
+    )
     print("  python tools/dkb.py project-state --check")
     print("  python tools/dkb.py quality")
     print(
@@ -246,9 +268,24 @@ def usage() -> None:
     print("  python tools/dkb.py <command> --help")
 
 
+def _configuration_comparison_script(arguments: Sequence[str]) -> str:
+    use_context_wrapper = any(
+        argument in {"--difference-context", "--help", "-h"}
+        or argument.startswith("--difference-context=")
+        for argument in arguments
+    )
+    return (
+        "configuration_comparison_context.py"
+        if use_context_wrapper
+        else "configuration_comparison.py"
+    )
+
+
 def run_script(command: str, arguments: list[str]) -> int:
     """Run a script-backed command and propagate its exit code."""
     script_name = SCRIPT_COMMANDS[command][0]
+    if command == "configuration-comparison":
+        script_name = _configuration_comparison_script(arguments)
     script = Path(__file__).resolve().parent / script_name
     if not script.is_file():
         print(
