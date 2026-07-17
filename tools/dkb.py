@@ -26,6 +26,12 @@ SCRIPT_COMMANDS = {
         "[--difference-domain DOMAIN] [--difference-item-code CODE] "
         "[--json FILE] [--markdown FILE] [--csv FILE]",
     ),
+    "configuration-comparison-item-catalog": (
+        "configuration_comparison_item_catalog.py",
+        "Catalog item codes available to configuration comparison.",
+        "[--completeness-spec FILE] [--evidence-spec FILE] "
+        "[--as-of YYYY-MM-DD] [--csv FILE]",
+    ),
     "configuration-gap-resolution-plan": (
         "configuration_gap_resolution_plan.py",
         "Plan evidence-backed gap resolution without importing data.",
@@ -187,6 +193,10 @@ def usage() -> None:
         "--verify"
     )
     print("  python tools/dkb.py configuration-comparison --json ../configuration-comparison.json")
+    print(
+        "  python tools/dkb.py configuration-comparison-item-catalog "
+        "--csv ../configuration-comparison-item-catalog.csv"
+    )
     print("  python tools/dkb.py configuration-gap-resolution-plan --json ../configuration-gap-resolution-plan.json")
     print("  python tools/dkb.py configuration-gap-source-review --verify --json ../configuration-gap-source-review.json")
     print("  python tools/dkb.py configuration-gap-evidence --json ../configuration-gap-evidence.json")
