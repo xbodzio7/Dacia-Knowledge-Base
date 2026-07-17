@@ -9,10 +9,10 @@
   },
   "phase": "Reporting and Completeness",
   "reference_delivery": {
-    "name": "Autonomous Collaboration Policy Enforcement",
-    "pull_request": 69,
-    "head_sha": "5769c4857899e461455d077a66ef585165ce9dd6",
-    "quality_run": 172
+    "name": "Legacy Narrative Documentation Migration",
+    "pull_request": 70,
+    "head_sha": "afc8935e3139b406afdb262ddb2c8ebc4323578d",
+    "quality_run": 174
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Reporting Roadmap Selection",
+    "name": "Reporting Artifact Portfolio Review",
     "status": "planned",
-    "goal": "Review the completed reporting and tooling milestone, rank bounded next-package candidates and select the highest-value implementation without changing master data."
+    "goal": "Review the standard Quality artifact bundle, identify the highest-value missing reporting surface and select one bounded enhancement without changing master data."
   },
   "next_package": {
-    "name": "Selected Reporting Package Implementation",
+    "name": "Selected Reporting Enhancement Implementation",
     "status": "planned",
-    "goal": "Implement the bounded reporting package selected from repository evidence, validate it across supported platforms and update canonical state in the same delivery cycle."
+    "goal": "Implement the selected reporting enhancement, preserve deterministic outputs and publish it through the existing Quality artifact workflow."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
