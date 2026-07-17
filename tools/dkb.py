@@ -75,6 +75,11 @@ SCRIPT_COMMANDS = {
         "[--check | --apply] [--database FILE] [--json FILE] "
         "[--markdown FILE]",
     ),
+    "project-state": (
+        "project_state.py",
+        "Validate canonical project state and generated summary.",
+        "[--check | --apply] [--state FILE] [--summary FILE]",
+    ),
     "import-configuration-values": (
         "import_configuration_values.py",
         "Apply or verify one declarative configuration-value import.",
@@ -203,6 +208,7 @@ def usage() -> None:
     print("  python tools/dkb.py configuration-gap-triage --json ../configuration-gap-triage.json")
     print("  python tools/dkb.py source-coverage --json ../source-coverage.json")
     print("  python tools/dkb.py configuration-completeness --json ../configuration-completeness.json")
+    print("  python tools/dkb.py project-state --check")
     print("  python tools/dkb.py quality")
     print(
         "  python tools/dkb.py quality --concise "
