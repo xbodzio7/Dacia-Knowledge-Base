@@ -77,6 +77,9 @@ def quality_steps(
     comparison_markdown = database.with_name(
         "configuration-comparison.md"
     )
+    comparison_csv = database.with_name(
+        "configuration-comparison-differences.csv"
+    )
     return [
         (
             "Compile Python sources",
@@ -229,6 +232,8 @@ def quality_steps(
                 str(comparison_json),
                 "--markdown",
                 str(comparison_markdown),
+                "--csv",
+                str(comparison_csv),
             ],
         ),
     ]

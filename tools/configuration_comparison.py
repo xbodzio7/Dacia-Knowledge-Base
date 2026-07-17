@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import json
 import os
 import sys
@@ -37,6 +38,32 @@ PAIR_TYPES = (
     "different_version_same_transmission",
     "same_version_different_transmission",
     "same_version_same_transmission",
+)
+DIFFERENCE_CSV_FIELDS = (
+    "pair_code",
+    "pair_type",
+    "domain",
+    "comparison",
+    "item_code",
+    "item_name",
+    "category",
+    "context",
+    "unit",
+    "left_configuration_code",
+    "left_version_code",
+    "left_transmission_type",
+    "left_state",
+    "left_value",
+    "left_source_code",
+    "left_observation_date",
+    "right_configuration_code",
+    "right_version_code",
+    "right_transmission_type",
+    "right_state",
+    "right_value",
+    "right_source_code",
+    "right_observation_date",
+    "delta_right_minus_left",
 )
 
 
@@ -892,6 +919,151 @@ def render_json(report: Mapping[str, Any]) -> str:
     )
 
 
+def difference_state_value(
+    state: Mapping[str, Any],
+    domain: str,
+) -> str:
+    if domain == "prices":
+        return str(state.get("amount", ""))
+    if domain == "technical":
+        return str(state.get("value", ""))
+    return str(state.get("availability_status", ""))
+
+
+def difference_state_date(
+    state: Mapping[str, Any],
+    domain: str,
+) -> str:
+    key = "price_date" if domain == "prices" else "observation_date"
+    return str(state.get(key, ""))
+
+
+def difference_csv_rows(
+    report: Mapping[str, Any],
+) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    for pair in report["pairs"]:
+        left_configuration = pair["left_configuration"]
+        right_configuration = pair["right_configuration"]
+        for domain in ("prices", "technical", "equipment"):
+            for item in pair[domain]:
+                if item["comparison"] != "different":
+                    continue
+                left = item["left"]
+                right = item["right"]
+                if (
+                    left.get("state") != "recorded"
+                    or right.get("state") != "recorded"
+                ):
+                    raise ComparisonError(
+                        "difference export requires two recorded states"
+                    )
+
+                if domain == "prices":
+                    item_code = str(item["price_type"])
+                    item_name = ""
+                    category = ""
+                    context = (
+                        f"market={item['market']};"
+                        f"price_type={item['price_type']};"
+                        f"currency_code={item['currency_code']}"
+                    )
+                    unit = str(item["currency_code"])
+                    delta = str(
+                        item.get("amount_delta_right_minus_left", "")
+                    )
+                elif domain == "technical":
+                    item_code = str(item["attribute_code"])
+                    item_name = str(item["attribute_name"])
+                    category = str(item["category"])
+                    fuel = str(item["fuel_type_code"])
+                    context = (
+                        f"fuel_type_code={fuel}"
+                        if fuel
+                        else "fuel_type_code="
+                    )
+                    unit = str(item["unit"])
+                    delta = ""
+                else:
+                    item_code = str(item["attribute_code"])
+                    item_name = str(item["attribute_name"])
+                    category = str(item["category"])
+                    context = ""
+                    unit = ""
+                    delta = ""
+
+                rows.append(
+                    {
+                        "pair_code": str(pair["pair_code"]),
+                        "pair_type": str(pair["pair_type"]),
+                        "domain": domain,
+                        "comparison": "different",
+                        "item_code": item_code,
+                        "item_name": item_name,
+                        "category": category,
+                        "context": context,
+                        "unit": unit,
+                        "left_configuration_code": str(
+                            left_configuration["configuration_code"]
+                        ),
+                        "left_version_code": str(
+                            left_configuration["version_code"]
+                        ),
+                        "left_transmission_type": str(
+                            left_configuration["transmission_type"]
+                        ),
+                        "left_state": str(left["state"]),
+                        "left_value": difference_state_value(
+                            left,
+                            domain,
+                        ),
+                        "left_source_code": str(
+                            left.get("source_code", "")
+                        ),
+                        "left_observation_date": difference_state_date(
+                            left,
+                            domain,
+                        ),
+                        "right_configuration_code": str(
+                            right_configuration["configuration_code"]
+                        ),
+                        "right_version_code": str(
+                            right_configuration["version_code"]
+                        ),
+                        "right_transmission_type": str(
+                            right_configuration["transmission_type"]
+                        ),
+                        "right_state": str(right["state"]),
+                        "right_value": difference_state_value(
+                            right,
+                            domain,
+                        ),
+                        "right_source_code": str(
+                            right.get("source_code", "")
+                        ),
+                        "right_observation_date": difference_state_date(
+                            right,
+                            domain,
+                        ),
+                        "delta_right_minus_left": delta,
+                    }
+                )
+    return rows
+
+
+def render_difference_csv(report: Mapping[str, Any]) -> str:
+    output = io.StringIO(newline="")
+    writer = csv.DictWriter(
+        output,
+        fieldnames=DIFFERENCE_CSV_FIELDS,
+        lineterminator="\n",
+        extrasaction="raise",
+    )
+    writer.writeheader()
+    writer.writerows(difference_csv_rows(report))
+    return output.getvalue()
+
+
 def markdown_cell(value: Any) -> str:
     text = str(value)
     return text.replace("|", r"\|").replace("\n", " ")
@@ -1101,6 +1273,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--json", dest="json_path", type=Path)
     parser.add_argument("--markdown", type=Path)
+    parser.add_argument(
+        "--csv",
+        dest="csv_path",
+        type=Path,
+        help="Write a flat CSV containing only actual differences.",
+    )
     return parser.parse_args(argv)
 
 
@@ -1137,6 +1315,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "Markdown configuration comparison report written to "
                 f"{arguments.markdown}"
             )
+        if arguments.csv_path is not None:
+            write_atomic(
+                arguments.csv_path,
+                render_difference_csv(report),
+            )
+            print(
+                "CSV configuration differences written to "
+                f"{arguments.csv_path}"
+            )
         print("Configuration comparison")
         print("------------------------")
         print(f"As of                  : {report['as_of']}")
@@ -1164,6 +1351,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             "Equipment differences  : "
             f"{report['summary']['equipment']['different']}"
+        )
+        print(
+            "CSV difference rows     : "
+            f"{report['summary']['total_differences']}"
         )
         print(
             "Not-comparable states  : "

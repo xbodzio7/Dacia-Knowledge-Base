@@ -551,6 +551,73 @@ class ConfigurationComparisonTests(unittest.TestCase):
                     pair_type_filter="unsupported",
                 )
 
+    def test_difference_csv_contains_only_recorded_differences(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        rendered = comparison.render_difference_csv(report)
+        self.assertEqual(
+            rendered,
+            comparison.render_difference_csv(report),
+        )
+        reader = csv.DictReader(rendered.splitlines())
+        rows = list(reader)
+        self.assertEqual(
+            reader.fieldnames,
+            list(comparison.DIFFERENCE_CSV_FIELDS),
+        )
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["domain"] for row in rows],
+            ["prices", "equipment"],
+        )
+        for row in rows:
+            self.assertEqual(row["comparison"], "different")
+            self.assertEqual(row["left_state"], "recorded")
+            self.assertEqual(row["right_state"], "recorded")
+            self.assertNotEqual(row["left_value"], row["right_value"])
+            self.assertTrue(row["left_source_code"])
+            self.assertTrue(row["right_source_code"])
+            self.assertTrue(row["left_observation_date"])
+            self.assertTrue(row["right_observation_date"])
+        self.assertEqual(rows[0]["item_code"], "catalog_gross")
+        self.assertEqual(rows[0]["unit"], "PLN")
+        self.assertEqual(rows[0]["delta_right_minus_left"], "20")
+        self.assertEqual(rows[1]["item_code"], "fog_lights")
+        self.assertEqual(rows[1]["left_value"], "standard")
+        self.assertEqual(rows[1]["right_value"], "not_available")
+        self.assertEqual(rows[1]["delta_right_minus_left"], "")
+
+    def test_difference_csv_empty_filter_has_header_only(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter="same_version_different_transmission",
+            )
+
+        rendered = comparison.render_difference_csv(report)
+        reader = csv.DictReader(rendered.splitlines())
+        self.assertEqual(list(reader), [])
+        self.assertEqual(
+            reader.fieldnames,
+            list(comparison.DIFFERENCE_CSV_FIELDS),
+        )
+        self.assertEqual(rendered.count("\n"), 1)
+
     def test_rejects_evidence_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, completeness, evidence = self.fixture(

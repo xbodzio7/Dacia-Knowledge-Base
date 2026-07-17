@@ -514,17 +514,32 @@ rekordów `standard` oraz 30 `not_available`.
 ### Porównanie konfiguracji
 
 Komenda `configuration-comparison` generuje deterministyczny raport JSON
-i Markdown dla wszystkich par aktywnych konfiguracji. Bieżący zakres siedmiu
-konfiguracji tworzy 21 par. Każda para jest porównywana osobno dla źródłowych
-cen, 45 slotów technicznych oraz 69 atrybutów dostępności wyposażenia.
+i Markdown dla wszystkich par aktywnych konfiguracji oraz opcjonalny płaski
+CSV zawierający wyłącznie rzeczywiste różnice. Bieżący zakres siedmiu
+konfiguracji tworzy 21 par i 305 wierszy różnic.
 
 ```bash
 python tools/dkb.py configuration-comparison \
   --json ../configuration-comparison.json \
-  --markdown ../configuration-comparison.md
+  --markdown ../configuration-comparison.md \
+  --csv ../configuration-comparison-differences.csv
 ```
 
-Opcjonalny `--pair-type` ogranicza wynik do jednej istniejącej klasy pary:
+JSON i Markdown pozostają pełnymi formatami: zawierają stany równe,
+`different` oraz `not_comparable`. CSV jest eksportem użytkowym i pomija
+wszystkie wyniki inne niż `different`.
+
+Każdy wiersz CSV zachowuje:
+
+- kod i typ pary,
+- domenę oraz kod i nazwę atrybutu albo wymiar ceny,
+- kategorię, kontekst paliwa lub rynku i jednostkę,
+- konfigurację, wersję i typ skrzyni po obu stronach,
+- oba stany, wartości, źródła oraz daty obserwacji,
+- różnicę kwotową dla cen bez wyliczania różnic technicznych.
+
+Opcjonalny `--pair-type` ogranicza wszystkie trzy wyjścia do jednej istniejącej
+klasy pary:
 
 - `same_version_different_transmission`,
 - `different_version_same_transmission`,
@@ -539,23 +554,22 @@ Globalne podsumowanie 69 aktywnych decyzji dowodowych pozostaje niezmienione.
 python tools/dkb.py configuration-comparison \
   --pair-type same_version_different_transmission \
   --json ../configuration-comparison-transmission.json \
-  --markdown ../configuration-comparison-transmission.md
+  --markdown ../configuration-comparison-transmission.md \
+  --csv ../configuration-comparison-transmission-differences.csv
 ```
 
 Bieżący filtr skrzyni wybiera dwie pary Stepway Expression i Extreme:
-2 różnice cenowe, 21 technicznych, 0 wyposażeniowych oraz 19 stanów
-`not_comparable`.
+2 różnice cenowe, 21 technicznych, 0 wyposażeniowych, 19 stanów
+`not_comparable` w pełnym raporcie oraz 23 wiersze CSV.
 
 Wynik `different` może powstać wyłącznie wtedy, gdy obie konfiguracje mają
 zapisane, źródłowe stany. Brak rekordu, `not_stated`, `out_of_scope`,
-`ambiguous` i `not_applicable` pozostają `not_comparable`. Jawne
-`not_available` jest natomiast pełnoprawnym zapisanym stanem wyposażenia
+`ambiguous` i `not_applicable` pozostają `not_comparable` i nigdy nie trafiają
+do CSV. Jawne `not_available` jest pełnoprawnym zapisanym stanem wyposażenia
 i może tworzyć rzeczywistą różnicę względem `standard`, `optional` albo
 `unknown`.
 
-Raport klasyfikuje pary wersji i skrzyń biegów, pokazuje różnice cenowe,
-techniczne i wyposażeniowe oraz zachowuje dokładny stan dowodowy wszystkich
-nieporównywalnych slotów. Nie uzupełnia ani nie wyprowadza wartości brakujących.
+Raport nie uzupełnia ani nie wyprowadza wartości brakujących.
 
 ### Bieżące liczniki dokumentacji
 
@@ -611,7 +625,7 @@ Kontrola obejmuje:
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
 liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage,
 przegląd stron źródłowych, klasyfikację dowodów, plan rozstrzygnięcia
-i porównanie konfiguracji w formatach JSON oraz Markdown jako tymczasowy
+oraz porównanie konfiguracji w formatach JSON, Markdown i CSV jako tymczasowy
 artefakt GitHub Actions
 przechowywany przez 7 dni.
 
@@ -640,7 +654,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 404 testów, 34 pliki CSV, 1380 rekordów
+Zweryfikowany model obejmuje 406 testów, 34 pliki CSV, 1380 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
