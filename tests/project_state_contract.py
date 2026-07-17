@@ -10,6 +10,7 @@ REPOSITORY = Path(__file__).resolve().parents[1]
 TOOLS = REPOSITORY / "tools"
 sys.path.insert(0, str(TOOLS))
 
+import documentation_baseline  # noqa: E402
 import project_state  # noqa: E402
 
 
@@ -70,6 +71,30 @@ class ProjectStateContractTests(unittest.TestCase):
             },
         }
 
+    def baseline(self) -> documentation_baseline.Baseline:
+        return documentation_baseline.Baseline(
+            version=1,
+            tests=11,
+            csv_files=3,
+            master_rows=21,
+            empty_csv_files=0,
+            relationships=2,
+            status_rules=3,
+            validator_version="1.0",
+            configuration_values=4,
+            configuration_import_specs=2,
+            configuration_availability=5,
+            availability_standard=4,
+            availability_optional=0,
+            availability_not_available=1,
+            availability_unknown=0,
+            attributes=6,
+            attribute_categories=3,
+            sqlite_tables=3,
+            sqlite_rows=21,
+            sqlite_verified=False,
+        )
+
     def test_repository_state_is_valid_and_summary_is_current(self) -> None:
         state = project_state.read_state(REPOSITORY / "project" / "state.json")
         project_state.validate_state(state)
@@ -79,6 +104,15 @@ class ProjectStateContractTests(unittest.TestCase):
         )
         self.assertEqual(actual, expected)
         self.assertEqual(project_state.check_references(REPOSITORY), [])
+
+    def test_repository_baseline_matches_canonical_state(self) -> None:
+        state = project_state.read_state(REPOSITORY / "project" / "state.json")
+        live = documentation_baseline.collect_baseline(REPOSITORY)
+        self.assertEqual(project_state.baseline_drift(state, live), [])
+        self.assertEqual(
+            documentation_baseline.check_documents(REPOSITORY, live),
+            [],
+        )
 
     def test_summary_is_deterministic(self) -> None:
         state = self.fixture()
@@ -103,16 +137,45 @@ class ProjectStateContractTests(unittest.TestCase):
         with self.assertRaisesRegex(project_state.StateError, "duplicates"):
             project_state.validate_state(state)
 
-    def test_apply_writes_exact_summary(self) -> None:
+    def test_live_baseline_projection_detects_drift(self) -> None:
+        state = self.fixture()
+        live = self.baseline()
+        projection = project_state.live_baseline_payload(live)
+        self.assertEqual(
+            projection,
+            {
+                "tests": 11,
+                "csv_files": 3,
+                "rows": 21,
+                "configuration_values": 4,
+                "configuration_import_specs": 2,
+                "availability_records": 5,
+                "attributes": 6,
+                "attribute_categories": 3,
+            },
+        )
+        drift = project_state.baseline_drift(state, live)
+        self.assertEqual(len(drift), 8)
+        self.assertTrue(all("live value" in item for item in drift))
+
+    def test_synchronized_state_updates_only_live_fields(self) -> None:
+        state = self.fixture()
+        synchronized = project_state.synchronized_state(state, self.baseline())
+        self.assertEqual(synchronized["baseline"]["tests"], 11)
+        self.assertEqual(synchronized["baseline"]["rows"], 21)
+        self.assertEqual(
+            synchronized["current_package"],
+            state["current_package"],
+        )
+        self.assertEqual(state["baseline"]["tests"], 10)
+
+    def test_apply_writes_exact_summary_and_state(self) -> None:
         state = self.fixture()
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             state_path = root / "state.json"
             summary_path = root / "summary.md"
-            state_path.write_text(
-                json.dumps(state, ensure_ascii=False),
-                encoding="utf-8",
-            )
+            project_state.write_state(state_path, state)
             loaded = project_state.read_state(state_path)
             project_state.write_atomic(
                 summary_path,
@@ -121,6 +184,10 @@ class ProjectStateContractTests(unittest.TestCase):
             self.assertEqual(
                 summary_path.read_text(encoding="utf-8"),
                 project_state.render_summary(state),
+            )
+            self.assertEqual(
+                project_state.read_state(state_path),
+                state,
             )
 
 

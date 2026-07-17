@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Validate canonical project state and its generated human summary."""
+"""Validate and synchronize canonical project state and documentation."""
 
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 import re
@@ -11,6 +12,8 @@ import sys
 from datetime import date
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+
+import documentation_baseline
 
 
 STATE_VERSION = 1
@@ -27,6 +30,21 @@ REQUIRED_REFERENCES = {
         "ACTION_REQUIRED",
         "autonomous",
     ),
+    "project/DOCUMENTATION_SYNC.md": (
+        "project-state --check",
+        "project-state --apply",
+        "documentation-baseline",
+    ),
+}
+STATE_BASELINE_FIELDS = {
+    "tests": "tests",
+    "csv_files": "csv_files",
+    "rows": "master_rows",
+    "configuration_values": "configuration_values",
+    "configuration_import_specs": "configuration_import_specs",
+    "availability_records": "configuration_availability",
+    "attributes": "attributes",
+    "attribute_categories": "attribute_categories",
 }
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 PACKAGE_STATUSES = {"planned", "active", "blocked", "complete"}
@@ -130,16 +148,7 @@ def validate_state(state: Mapping[str, Any]) -> None:
     _integer(reference, "quality_run", "state.reference_delivery")
 
     baseline = _object(state.get("baseline"), "state.baseline")
-    for key in (
-        "tests",
-        "csv_files",
-        "rows",
-        "configuration_values",
-        "configuration_import_specs",
-        "availability_records",
-        "attributes",
-        "attribute_categories",
-    ):
+    for key in STATE_BASELINE_FIELDS:
         _integer(baseline, key, "state.baseline")
 
     for key in ("current_package", "next_package"):
@@ -200,6 +209,45 @@ def validate_state(state: Mapping[str, Any]) -> None:
     )
 
 
+def live_baseline_payload(
+    value: documentation_baseline.Baseline,
+) -> dict[str, int]:
+    """Project the repository baseline into canonical state fields."""
+    return {
+        state_field: int(getattr(value, baseline_field))
+        for state_field, baseline_field in STATE_BASELINE_FIELDS.items()
+    }
+
+
+def baseline_drift(
+    state: Mapping[str, Any],
+    value: documentation_baseline.Baseline,
+) -> list[str]:
+    """Return canonical baseline differences from the live repository."""
+    current = _object(state.get("baseline"), "state.baseline")
+    expected = live_baseline_payload(value)
+    return [
+        (
+            f"project/state.json: baseline.{field} is {current.get(field)!r}; "
+            f"live value is {expected_value}"
+        )
+        for field, expected_value in expected.items()
+        if current.get(field) != expected_value
+    ]
+
+
+def synchronized_state(
+    state: Mapping[str, Any],
+    value: documentation_baseline.Baseline,
+) -> dict[str, Any]:
+    """Return a copy with live counters and the current update date."""
+    result = copy.deepcopy(dict(state))
+    result["baseline"] = live_baseline_payload(value)
+    result["updated_on"] = date.today().isoformat()
+    validate_state(result)
+    return result
+
+
 def render_summary(state: Mapping[str, Any]) -> str:
     repository = state["repository"]
     reference = state["reference_delivery"]
@@ -208,7 +256,10 @@ def render_summary(state: Mapping[str, Any]) -> str:
     following = state["next_package"]
     autonomy = state["autonomy"]
     review = state["review_policy"]
-    yes_no = lambda value: "yes" if value else "no"
+
+    def yes_no(value: bool) -> str:
+        return "yes" if value else "no"
+
     lines = [
         "# Project State Summary",
         "",
@@ -308,6 +359,13 @@ def write_atomic(path: Path, content: str) -> None:
         temporary.unlink(missing_ok=True)
 
 
+def write_state(path: Path, state: Mapping[str, Any]) -> None:
+    write_atomic(
+        path,
+        json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+    )
+
+
 def check_references(repository: Path) -> list[str]:
     drift: list[str] = []
     for relative_path, required_values in REQUIRED_REFERENCES.items():
@@ -322,14 +380,19 @@ def check_references(repository: Path) -> list[str]:
     return drift
 
 
-def check_state(
+def project_drift(
     repository: Path,
-    state_path: Path,
+    state: Mapping[str, Any],
     summary_path: Path,
+    value: documentation_baseline.Baseline,
 ) -> list[str]:
-    state = read_state(state_path)
-    validate_state(state)
+    """Return state, generated-summary and managed-documentation drift."""
     drift = check_references(repository)
+    drift.extend(baseline_drift(state, value))
+    drift.extend(
+        f"{path}: documentation baseline block differs"
+        for path in documentation_baseline.check_documents(repository, value)
+    )
     expected = render_summary(state)
     try:
         current = summary_path.read_text(encoding="utf-8")
@@ -340,14 +403,35 @@ def check_state(
             str(summary_path.relative_to(repository)).replace("\\", "/")
             + ": generated summary differs"
         )
-    return drift
+    return sorted(set(drift))
+
+
+def apply_synchronization(
+    repository: Path,
+    state_path: Path,
+    summary_path: Path,
+    state: Mapping[str, Any],
+    value: documentation_baseline.Baseline,
+) -> tuple[dict[str, Any], list[str]]:
+    """Synchronize canonical counters, summary and managed document blocks."""
+    synchronized = synchronized_state(state, value)
+    changed = documentation_baseline.apply_documents(repository, value)
+    write_state(state_path, synchronized)
+    write_atomic(summary_path, render_summary(synchronized))
+    changed.extend(
+        [
+            str(state_path.relative_to(repository)).replace("\\", "/"),
+            str(summary_path.relative_to(repository)).replace("\\", "/"),
+        ]
+    )
+    return synchronized, sorted(set(changed))
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Validate canonical project state and verify or regenerate its "
-            "human-readable summary."
+            "baseline counters and human-readable documentation."
         )
     )
     mode = parser.add_mutually_exclusive_group()
@@ -371,13 +455,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         state = read_state(state_path)
         validate_state(state)
-        expected = render_summary(state)
+        live = documentation_baseline.collect_baseline(repository)
         if arguments.apply:
-            write_atomic(summary_path, expected)
-            print(f"Project state summary written to {summary_path}")
-        drift = check_references(repository)
-        if summary_path.read_text(encoding="utf-8") != expected:
-            drift.append("generated project state summary differs")
+            state, changed = apply_synchronization(
+                repository,
+                state_path,
+                summary_path,
+                state,
+                live,
+            )
+            print("Synchronized project state and documentation:")
+            for relative_path in changed:
+                print(f"  {relative_path}")
+        drift = project_drift(repository, state, summary_path, live)
         if drift:
             print("ERROR: project state drift detected:", file=sys.stderr)
             for item in drift:
@@ -388,12 +478,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             return 1
         print("Project state: PASS")
+        print(f"Tests          : {live.tests}")
+        print(f"Master rows    : {live.master_rows}")
         print(f"Phase          : {state['phase']}")
         print(f"Current package: {state['current_package']['name']}")
         print(f"Next package   : {state['next_package']['name']}")
         print(f"Autonomy mode  : {state['autonomy']['mode']}")
         return 0
-    except (OSError, StateError) as exc:
+    except (
+        OSError,
+        StateError,
+        documentation_baseline.BaselineError,
+    ) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
 
