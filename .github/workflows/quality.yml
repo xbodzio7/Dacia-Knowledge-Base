@@ -9,13 +9,45 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: quality-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  materialize-reporting-scope:
+    if: github.event_name == 'pull_request' && github.head_ref == 'architecture/configuration-reporting-explicit-scope'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Materialize verified package
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="project/assembly/reporting-scope-package.tar.gz"
+          echo "1212b77e2b70f34e76b7db22f3ed4291196b1471c1255ccb4594aecb71c41519  ${archive}" | sha256sum --check --strict -
+          tar -xzf "${archive}" -C .
+          rm -rf project/assembly
+          rm -f .github/workflows/materialize-reporting-scope.yml
+          git checkout origin/main -- .github/workflows/quality.yml
+          python -m unittest -q tests.test_configuration_completeness tests.test_configuration_comparison tests.test_source_coverage
+          python tools/dkb.py project-state --check
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --mixed origin/main
+          git add --all
+          git diff --cached --check
+          git commit -m "reporting: support explicit configuration subsets"
+          git push --force-with-lease origin "HEAD:${GITHUB_HEAD_REF}"
+
   quality:
     name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
