@@ -268,6 +268,8 @@ class DkbCliTests(unittest.TestCase):
                 [
                     "--pair-type",
                     "same_version_different_transmission",
+                    "--difference-domain",
+                    "prices",
                     "--json",
                     "comparison.json",
                     "--csv",
@@ -284,6 +286,8 @@ class DkbCliTests(unittest.TestCase):
                 ),
                 "--pair-type",
                 "same_version_different_transmission",
+                "--difference-domain",
+                "prices",
                 "--json",
                 "comparison.json",
                 "--csv",

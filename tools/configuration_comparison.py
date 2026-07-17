@@ -39,6 +39,11 @@ PAIR_TYPES = (
     "same_version_different_transmission",
     "same_version_same_transmission",
 )
+DIFFERENCE_DOMAINS = (
+    "prices",
+    "technical",
+    "equipment",
+)
 DIFFERENCE_CSV_FIELDS = (
     "pair_code",
     "pair_type",
@@ -940,12 +945,25 @@ def difference_state_date(
 
 def difference_csv_rows(
     report: Mapping[str, Any],
+    difference_domain: str | None = None,
 ) -> list[dict[str, str]]:
+    if (
+        difference_domain is not None
+        and difference_domain not in DIFFERENCE_DOMAINS
+    ):
+        raise ComparisonError(
+            f"unsupported difference domain: {difference_domain!r}"
+        )
     rows: list[dict[str, str]] = []
     for pair in report["pairs"]:
         left_configuration = pair["left_configuration"]
         right_configuration = pair["right_configuration"]
-        for domain in ("prices", "technical", "equipment"):
+        for domain in DIFFERENCE_DOMAINS:
+            if (
+                difference_domain is not None
+                and domain != difference_domain
+            ):
+                continue
             for item in pair[domain]:
                 if item["comparison"] != "different":
                     continue
@@ -1051,7 +1069,10 @@ def difference_csv_rows(
     return rows
 
 
-def render_difference_csv(report: Mapping[str, Any]) -> str:
+def render_difference_csv(
+    report: Mapping[str, Any],
+    difference_domain: str | None = None,
+) -> str:
     output = io.StringIO(newline="")
     writer = csv.DictWriter(
         output,
@@ -1060,7 +1081,12 @@ def render_difference_csv(report: Mapping[str, Any]) -> str:
         extrasaction="raise",
     )
     writer.writeheader()
-    writer.writerows(difference_csv_rows(report))
+    writer.writerows(
+        difference_csv_rows(
+            report,
+            difference_domain,
+        )
+    )
     return output.getvalue()
 
 
@@ -1274,6 +1300,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--json", dest="json_path", type=Path)
     parser.add_argument("--markdown", type=Path)
     parser.add_argument(
+        "--difference-domain",
+        choices=DIFFERENCE_DOMAINS,
+        help=(
+            "Limit the flat CSV to price, technical or equipment "
+            "differences without changing JSON or Markdown."
+        ),
+    )
+    parser.add_argument(
         "--csv",
         dest="csv_path",
         type=Path,
@@ -1318,7 +1352,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         if arguments.csv_path is not None:
             write_atomic(
                 arguments.csv_path,
-                render_difference_csv(report),
+                render_difference_csv(
+                    report,
+                    arguments.difference_domain,
+                ),
             )
             print(
                 "CSV configuration differences written to "
@@ -1353,8 +1390,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             f"{report['summary']['equipment']['different']}"
         )
         print(
+            "CSV difference domain   : "
+            f"{arguments.difference_domain or 'all'}"
+        )
+        print(
             "CSV difference rows     : "
-            f"{report['summary']['total_differences']}"
+            f"{len(difference_csv_rows(report, arguments.difference_domain))}"
         )
         print(
             "Not-comparable states  : "

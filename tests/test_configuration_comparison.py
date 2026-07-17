@@ -618,6 +618,83 @@ class ConfigurationComparisonTests(unittest.TestCase):
         )
         self.assertEqual(rendered.count("\n"), 1)
 
+    def test_difference_csv_domain_filter_composes_with_pair_type(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+
+        prices = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "prices",
+                ).splitlines()
+            )
+        )
+        technical = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "technical",
+                ).splitlines()
+            )
+        )
+        equipment = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "equipment",
+                ).splitlines()
+            )
+        )
+
+        self.assertEqual(len(prices), 1)
+        self.assertEqual(prices[0]["domain"], "prices")
+        self.assertEqual(prices[0]["item_code"], "catalog_gross")
+        self.assertEqual(prices[0]["delta_right_minus_left"], "20")
+        self.assertEqual(technical, [])
+        self.assertEqual(len(equipment), 1)
+        self.assertEqual(equipment[0]["domain"], "equipment")
+        self.assertEqual(equipment[0]["item_code"], "fog_lights")
+        self.assertEqual(
+            {
+                prices[0]["pair_type"],
+                equipment[0]["pair_type"],
+            },
+            {"different_version_different_transmission"},
+        )
+
+    def test_rejects_unknown_difference_domain(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        with self.assertRaisesRegex(
+            comparison.ComparisonError,
+            "unsupported difference domain",
+        ):
+            comparison.render_difference_csv(
+                report,
+                "unsupported",
+            )
+
     def test_rejects_evidence_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, completeness, evidence = self.fixture(

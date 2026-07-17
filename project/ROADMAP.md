@@ -163,11 +163,11 @@ Reporting and Completeness
 - walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
 - walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
 - wyszukiwanie, statystyki i raporty Markdown,
-- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnym filtrem typu pary i płaskim eksportem różnic do CSV,
+- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnymi filtrami typu pary i domeny płaskiego eksportu różnic CSV,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 406 testów automatycznych,
+- 408 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -188,29 +188,29 @@ Reporting and Completeness
 
 # Current Sprint
 
-## Configuration Comparison Difference Export
+## Configuration Comparison Difference Domain Filter
 
 Cel sprintu:
 
-- dodać opcjonalny płaski eksport `--csv` bez zmiany JSON i Markdown,
-- eksportować wyłącznie wyniki `different`,
-- zachować kod i typ pary, domenę, atrybut lub wymiar oraz kontekst,
-- zachować oba zapisane stany, wartości, daty i źródła,
-- współpracować z opcjonalnym filtrem `--pair-type`,
-- publikować CSV w istniejącym czternastym kroku quality i artefakcie CI.
+- dodać opcjonalny filtr `--difference-domain` wyłącznie dla płaskiego CSV,
+- obsłużyć kontrolowane domeny `prices`, `technical` i `equipment`,
+- zachować pełny 305-wierszowy CSV jako zachowanie domyślne,
+- zachować JSON, Markdown, podsumowania i globalny snapshot dowodowy,
+- łączyć filtr domeny z istniejącym `--pair-type`,
+- nie zmieniać danych master, quality ani workflow.
 
 ---
 
 # Next Sprint
 
-## Configuration Comparison Difference Export Review
+## Configuration Comparison Difference Domain Filter Review
 
 Cel sprintu:
 
-- przeanalizować pełne 305 wierszy i filtrowane 23 wiersze CSV,
-- sprawdzić użyteczność kolumn, kolejności i proweniencji,
-- zweryfikować otwieranie eksportu w typowych narzędziach tabelarycznych,
-- zdecydować, czy potrzebny jest filtr domeny lub konfiguracji,
+- przeanalizować eksporty 21 cen, 260 parametrów technicznych i 24 pozycji wyposażenia,
+- sprawdzić złożenie filtra domeny z klasami par,
+- ocenić czytelność i przydatność osobnych domen,
+- zweryfikować brak zmian w JSON, Markdown i pełnym CSV,
 - wybrać jeden mały kolejny pakiet raportowy,
 - nie zmieniać danych master ani klasyfikacji dowodowych.
 
