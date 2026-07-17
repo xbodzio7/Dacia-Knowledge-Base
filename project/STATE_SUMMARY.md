@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Project State Single Source of Truth
-- Pull Request: #67
-- Verified head: `d3062cd0074895c2f7b96ab2ffa4650777f8a983`
-- Quality run: #168
+- Package: Automated Documentation and Baseline Sync
+- Pull Request: #68
+- Verified head: `d2b5fd33febb675317a2db8bc6b89a5c66c08d5b`
+- Quality run: #170
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Autonomous Collaboration Policy Enforcement** — `planned`
-
-Make the autonomous-until-action-required workflow executable across package publication, Pull Requests, CI repair and merge decisions.
-
-## Next package
-
 **Legacy Narrative Documentation Migration** — `planned`
 
 Replace stale current-sprint sections in ROADMAP and SESSION_STATE with generated references to canonical state while preserving historical records.
+
+## Next package
+
+**Reporting Roadmap Selection** — `planned`
+
+Review the reporting milestone after the tooling migration and select the highest-value next domain or reporting package.
 
 ## Autonomy
 
