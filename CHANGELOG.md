@@ -134,6 +134,8 @@ All notable changes to this project will be documented in this file.
 * Pair classification for version and transmission comparisons while preserving source-backed `not_available` differences.
 * Optional deterministic configuration-comparison filtering by existing version/transmission pair type.
 * Filtered reports recalculate selected pairs, selected configurations and all domain summaries while keeping the unfiltered 21-pair report as the default.
+* Deterministic flat CSV export containing only actual configuration differences.
+* Difference rows retain pair metadata, domain context, both recorded values, dates and source codes.
 * Separate reporting for missing records, `unknown`, `not_available` and declared `not_applicable` slots.
 * Deterministic `documentation-baseline` command for current project counters.
 * Machine-readable JSON and human-readable Markdown baseline reports.
@@ -151,7 +153,7 @@ All notable changes to this project will be documented in this file.
 * Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
 * Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
 * Full quality now generates and publishes both configuration-gap-resolution-plan report formats.
-* Full quality now generates and publishes both configuration-comparison report formats.
+* Full quality now generates and publishes configuration-comparison JSON, Markdown and difference-CSV formats.
 * Configuration comparison preserves the global evidence summary when pair filtering narrows the displayed comparisons.
 * Full quality now verifies and publishes both configuration-gap-source-review report formats.
 * Full quality now generates and publishes both configuration-gap-evidence report formats.
@@ -178,7 +180,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 404 tests.
+* The automated test suite now contains 406 tests.
 * The verified master-data baseline now contains 34 CSV files and 1380 rows.
 * SQLite verification now covers 34 tables and 1380 rows.
 * Configuration attribute values now contain 310 dated records.
@@ -248,3 +250,4 @@ All notable changes to this project will be documented in this file.
 * Synchronized README, changelog, roadmap and session state after PRs #53–#54 and selected a configuration comparison report as the next reporting package.
 * Added and documented deterministic configuration comparison as the next reporting capability.
 * Reviewed the 21-pair comparison snapshot and selected same-version transmission filtering as the highest-signal follow-up.
+* Documented the flat comparison-difference CSV contract and its compatibility with pair-type filtering.

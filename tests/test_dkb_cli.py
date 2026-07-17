@@ -270,6 +270,8 @@ class DkbCliTests(unittest.TestCase):
                     "same_version_different_transmission",
                     "--json",
                     "comparison.json",
+                    "--csv",
+                    "differences.csv",
                 ],
             )
         self.assertEqual(result, 17)
@@ -284,6 +286,8 @@ class DkbCliTests(unittest.TestCase):
                 "same_version_different_transmission",
                 "--json",
                 "comparison.json",
+                "--csv",
+                "differences.csv",
             ],
             check=False,
         )

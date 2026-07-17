@@ -163,11 +163,11 @@ Reporting and Completeness
 - walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
 - walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
 - wyszukiwanie, statystyki i raporty Markdown,
-- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnym filtrem typu pary,
+- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnym filtrem typu pary i płaskim eksportem różnic do CSV,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 404 testów automatycznych,
+- 406 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -188,30 +188,30 @@ Reporting and Completeness
 
 # Current Sprint
 
-## Configuration Comparison Pair-Type Filter
+## Configuration Comparison Difference Export
 
 Cel sprintu:
 
-- dodać opcjonalny filtr `--pair-type` bez zmiany domyślnego raportu 21 par,
-- użyć czterech istniejących klasyfikacji wersji i skrzyni biegów,
-- ponownie wyliczać liczbę par, wybrane konfiguracje i podsumowania domen,
-- zachować globalny snapshot 69 decyzji dowodowych,
-- zweryfikować dwie pary `same_version_different_transmission`,
-- nie zmieniać danych master, modelu, quality ani workflow.
+- dodać opcjonalny płaski eksport `--csv` bez zmiany JSON i Markdown,
+- eksportować wyłącznie wyniki `different`,
+- zachować kod i typ pary, domenę, atrybut lub wymiar oraz kontekst,
+- zachować oba zapisane stany, wartości, daty i źródła,
+- współpracować z opcjonalnym filtrem `--pair-type`,
+- publikować CSV w istniejącym czternastym kroku quality i artefakcie CI.
 
 ---
 
 # Next Sprint
 
-## Configuration Comparison Difference Export
+## Configuration Comparison Difference Export Review
 
 Cel sprintu:
 
-- zaprojektować płaski, deterministyczny eksport różnic do CSV,
-- zachować kod pary, typ pary, domenę, atrybut, kontekst i oba stany,
-- współpracować z opcjonalnym filtrem `--pair-type`,
-- eksportować wyłącznie wyniki `different`, bez stanów `not_comparable`,
-- utrzymać JSON i Markdown jako podstawowe pełne formaty raportu,
+- przeanalizować pełne 305 wierszy i filtrowane 23 wiersze CSV,
+- sprawdzić użyteczność kolumn, kolejności i proweniencji,
+- zweryfikować otwieranie eksportu w typowych narzędziach tabelarycznych,
+- zdecydować, czy potrzebny jest filtr domeny lub konfiguracji,
+- wybrać jeden mały kolejny pakiet raportowy,
 - nie zmieniać danych master ani klasyfikacji dowodowych.
 
 # Backlog

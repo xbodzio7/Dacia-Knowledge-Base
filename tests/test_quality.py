@@ -112,6 +112,12 @@ class QualityTests(unittest.TestCase):
                 str(database.with_name("configuration-comparison.json")),
                 "--markdown",
                 str(database.with_name("configuration-comparison.md")),
+                "--csv",
+                str(
+                    database.with_name(
+                        "configuration-comparison-differences.csv"
+                    )
+                ),
             ],
         )
 
