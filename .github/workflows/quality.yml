@@ -94,6 +94,8 @@ jobs:
             ${{ runner.temp }}/configuration-gap-evidence.md
             ${{ runner.temp }}/configuration-gap-resolution-plan.json
             ${{ runner.temp }}/configuration-gap-resolution-plan.md
+            ${{ runner.temp }}/configuration-comparison.json
+            ${{ runner.temp }}/configuration-comparison.md
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7

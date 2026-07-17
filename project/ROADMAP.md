@@ -163,10 +163,11 @@ Reporting and Completeness
 - walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
 - walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
 - wyszukiwanie, statystyki i raporty Markdown,
+- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 397 testów automatycznych,
+- 402 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -187,31 +188,31 @@ Reporting and Completeness
 
 # Current Sprint
 
-## Configuration Gap Closure Documentation Milestone
+## Configuration Comparison Report
 
 Cel sprintu:
 
-- zsynchronizować README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
-- udokumentować wykonany import `wheel_design = ERALIA` jako ID 310,
-- zapisać bieżące pokrycie 310/315 slotów technicznych i 419/483 slotów wyposażenia,
-- zamknąć cykl 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
-- potwierdzić zero kandydatów, zero planowanych wierszy i `auto_import = false`,
-- nie zmieniać danych master, modelu ani narzędzi.
+- dodać deterministyczny raport JSON i Markdown dla 21 par aktywnych konfiguracji,
+- porównywać wyłącznie źródłowe ceny, wartości techniczne i dostępność wyposażenia,
+- odróżniać brak rekordu, `not_stated`, `out_of_scope` i `not_applicable` od rzeczywistej różnicy,
+- zachować `not_available` jako jawny, porównywalny stan wyposażenia,
+- klasyfikować pary wersji oraz skrzyń manualnych i automatycznych,
+- publikować raport jako czternasty krok pełnej jakości i artefakt GitHub Actions.
 
 ---
 
 # Next Sprint
 
-## Configuration Comparison Report
+## Configuration Comparison Snapshot Review
 
 Cel sprintu:
 
-- dodać deterministyczny raport JSON i Markdown dla aktywnych konfiguracji,
-- porównywać wyłącznie źródłowe ceny, wartości techniczne i dostępność wyposażenia,
-- odróżniać brak rekordu od `not_available`, `not_stated` i różnicy rzeczywistej,
-- pokazywać różnice między wersjami oraz skrzynią manualną i automatyczną,
-- publikować raport jako artefakt pełnej jakości i GitHub Actions,
-- nie wyprowadzać wartości, których nie stwierdzono w źródłach.
+- przeanalizować wygenerowany snapshot porównań bez zmiany danych,
+- oddzielić różnice handlowe, techniczne i wyposażeniowe od ograniczeń dowodowych,
+- wskazać najbardziej użyteczne porównania wersji i skrzyń biegów,
+- zweryfikować, czy raport wymaga dodatkowych filtrów lub eksportów użytkowych,
+- wybrać jeden mały, źródłowy pakiet dalszego rozwoju,
+- nie tworzyć danych na podstawie stanów `not_comparable`.
 
 # Backlog
 
