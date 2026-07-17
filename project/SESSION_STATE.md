@@ -5,18 +5,17 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#54. Aktualny punkt odniesienia to merge commit
-`24a3fb9979236a2d9c23cfc054beac962dceedec`.
+Pull Requesty #3–#55. Aktualny punkt odniesienia to merge commit
+`12fde52d83e60689485f18fb099cf5bdbde8f21e`.
 
-PR #53 przypisał stany wykonawcze 70 decyzjom i skierował jeden wynik
-`wheel_design = ERALIA` do osobnego importu. PR #54 zaimportował dokładnie
-jeden wiersz ID 310, po czym aktywny pipeline raportowy obejmuje 69 decyzji:
-44 `not_stated`, 25 `out_of_scope`, 0 kandydatów i 0 planowanych wierszy.
-GitHub Actions Quality run #138 zakończył się powodzeniem.
+PR #55 zamknął dokumentacyjnie cykl 69 aktywnych decyzji po wykonaniu importu
+`wheel_design = ERALIA`: 44 `not_stated`, 25 `out_of_scope`, 0 kandydatów
+i 0 planowanych wierszy. GitHub Actions Quality run #140 zakończył się
+powodzeniem.
 
-Bieżący pakiet dokumentacyjny jest rozwijany na gałęzi
-`docs/configuration-gap-closure-milestone` z bazą dokładnie
-`24a3fb9979236a2d9c23cfc054beac962dceedec`.
+Bieżący pakiet raportowy jest rozwijany na gałęzi
+`reporting/configuration-comparison` z bazą dokładnie
+`12fde52d83e60689485f18fb099cf5bdbde8f21e`.
 
 ## Verified Quality Baseline
 
@@ -27,7 +26,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 397 testów automatycznych zakończonych powodzeniem,
+- 402 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1380 rekordów danych,
 - 34 relacje między tabelami,
@@ -45,41 +44,37 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Gap Closure Documentation Milestone.
+Configuration Comparison Report.
 
 Zakres:
 
-- synchronizacja README, changeloga, roadmapy i stanu sesji po PR-ach #53–#54,
-- opis źródłowego importu `wheel_design = ERALIA` jako ID 310,
-- zapis pokrycia 310/315 slotów technicznych i 419/483 slotów wyposażenia,
-- zamknięcie 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
-- potwierdzenie 0 kandydatów, 0 planowanych wierszy i `auto_import = false`,
-- brak zmian danych master, modelu i narzędzi.
+- deterministyczne porównanie siedmiu aktywnych konfiguracji w 21 parach,
+- osobne domeny cen, 45 slotów technicznych i 69 atrybutów wyposażenia,
+- różnica wyłącznie między dwoma zapisanymi stanami źródłowymi,
+- zachowanie `missing`, `not_stated`, `out_of_scope`, `ambiguous` i `not_applicable` jako `not_comparable`,
+- zachowanie `not_available` jako porównywalnego stanu wyposażenia,
+- integracja JSON/Markdown z CLI, pełną jakością i artefaktami GitHub Actions.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Deterministyczny pipeline obejmuje kompletność, pokrycie źródłami, triage,
-przegląd stron, klasyfikację dowodów i planowanie rozstrzygnięć. Po wykonaniu
-jedynego wyniku `found` nie pozostaje żaden kandydat wymagający zmiany danych
-ani modelu. Wyniki `not_stated` i `out_of_scope` pozostają jawnymi decyzjami
-dowodowymi i nie są zamieniane w negatywne rekordy.
-
-Następny pakiet wykorzysta stabilny snapshot do przygotowania raportu
-porównawczego bez rozszerzania zakresu danych źródłowych.
+Raport korzysta z bieżącego mianownika kompletności i wersjonowanej
+klasyfikacji dowodów. Nie zmienia danych master ani specyfikacji raportowych.
+Każdy stan nieporównywalny zachowuje przyczynę i proweniencję; tylko dwa
+zapisane stany mogą zostać sklasyfikowane jako równe albo różne.
 
 ## Next Development Package
 
-Configuration Comparison Report.
+Configuration Comparison Snapshot Review.
 
 Planowany przebieg:
 
-1. Zdefiniować deterministyczny zakres aktywnych konfiguracji.
-2. Porównać źródłowe ceny, wartości techniczne i dostępność wyposażenia.
-3. Rozróżnić brak rekordu, `not_available`, `not_stated` i rzeczywistą różnicę.
-4. Wygenerować JSON i Markdown bez wnioskowania brakujących wartości.
-5. Włączyć raport do pełnej jakości i artefaktów GitHub Actions.
+1. Przejrzeć wynik dla wszystkich 21 par konfiguracji.
+2. Oddzielić różnice cenowe, techniczne i wyposażeniowe.
+3. Ocenić użyteczność porównań wersji oraz skrzyń manualnych i automatycznych.
+4. Zweryfikować potrzebę filtrów lub dodatkowego eksportu użytkowego.
+5. Wybrać jeden mały pakiet dalszego rozwoju bez tworzenia danych z braków.
 
 ## Working Mode
 
@@ -615,15 +610,25 @@ Completed:
 
 ### Configuration Gap Closure Documentation Milestone
 
+Completed:
+
+- PR #55 zsynchronizował README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
+- zapisano 310 wartości, 11 specyfikacji, 1380 rekordów i 397 testów,
+- udokumentowano 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
+- potwierdzono zero kandydatów, zero planowanych wierszy i wyłączony auto-import,
+- GitHub Actions Quality run #140 zakończył się powodzeniem.
+
+### Configuration Comparison Report
+
 Current package:
 
-- synchronizuje README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
-- zapisuje 310 wartości, 11 specyfikacji, 1380 rekordów i 397 testów,
-- dokumentuje 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
-- potwierdza zero kandydatów, zero planowanych wierszy i wyłączony auto-import,
-- nie zmienia danych master, modelu ani narzędzi.
+- porównuje siedem aktywnych konfiguracji w 21 parach,
+- obejmuje ceny, 45 slotów technicznych i 69 atrybutów wyposażenia,
+- rozdziela rzeczywiste różnice od stanów `not_comparable`,
+- zachowuje klasyfikacje dowodowe i jawne `not_available`,
+- publikuje deterministyczny JSON i Markdown w pełnej jakości.
 
 Next priority:
 
-Dodać deterministyczny raport porównujący aktywne konfiguracje bez
-wnioskowania brakujących wartości.
+Przeanalizować wygenerowany snapshot i wybrać jeden mały pakiet dalszego
+rozwoju bez tworzenia danych na podstawie braków.

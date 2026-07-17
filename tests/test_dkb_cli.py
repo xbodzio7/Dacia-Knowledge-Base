@@ -245,6 +245,43 @@ class DkbCliTests(unittest.TestCase):
 
 
 
+    def test_configuration_comparison_help_and_forwarding(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            help_result = dkb.main([])
+        self.assertEqual(help_result, 0)
+        self.assertIn(
+            "configuration-comparison",
+            stdout.getvalue(),
+        )
+
+        completed = SimpleNamespace(returncode=17)
+        with mock.patch.object(
+            dkb.subprocess,
+            "run",
+            return_value=completed,
+        ) as run:
+            result = dkb.run_script(
+                "configuration-comparison",
+                ["--json", "comparison.json"],
+            )
+        self.assertEqual(result, 17)
+        run.assert_called_once_with(
+            [
+                sys.executable,
+                str(
+                    TOOLS_DIRECTORY
+                    / "configuration_comparison.py"
+                ),
+                "--json",
+                "comparison.json",
+            ],
+            check=False,
+        )
+
+
     def test_configuration_gap_resolution_plan_help_and_forwarding(
         self,
     ) -> None:

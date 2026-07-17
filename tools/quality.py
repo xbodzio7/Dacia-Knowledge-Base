@@ -71,6 +71,12 @@ def quality_steps(
     gap_resolution_markdown = database.with_name(
         "configuration-gap-resolution-plan.md"
     )
+    comparison_json = database.with_name(
+        "configuration-comparison.json"
+    )
+    comparison_markdown = database.with_name(
+        "configuration-comparison.md"
+    )
     return [
         (
             "Compile Python sources",
@@ -211,6 +217,18 @@ def quality_steps(
                 str(gap_resolution_json),
                 "--markdown",
                 str(gap_resolution_markdown),
+            ],
+        ),
+        (
+            "Generate configuration comparison report",
+            [
+                sys.executable,
+                str(dkb),
+                "configuration-comparison",
+                "--json",
+                str(comparison_json),
+                "--markdown",
+                str(comparison_markdown),
             ],
         ),
     ]

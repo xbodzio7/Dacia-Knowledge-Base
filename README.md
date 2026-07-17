@@ -199,6 +199,7 @@ Dostępne komendy:
 | `stats` | Statystyki zbiorów danych |
 | `catalog` | Generowanie katalogu encji |
 | `dictionary` | Generowanie słownika danych |
+| `configuration-comparison` | Porównanie cen, wartości technicznych i wyposażenia konfiguracji |
 | `configuration-gap-resolution-plan` | Planowanie małych pakietów rozstrzygających luki konfiguracji |
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -247,8 +248,9 @@ GitHub Actions: kompiluje źródła, uruchamia testy, sprawdza
 kodowanie i dane, buduje i porównuje tymczasową bazę SQLite,
 weryfikuje bieżące liczniki dokumentacji, a następnie generuje raporty
 kompletności konfiguracji, pokrycia źródłami, kolejkę triage, przegląd stron,
-klasyfikację dowodów i plan rozstrzygnięcia. Zatrzymuje się na pierwszym
-nieudanym etapie. Tymczasowa baza jest automatycznie usuwana.
+klasyfikację dowodów, plan rozstrzygnięcia i porównanie konfiguracji.
+Zatrzymuje się na pierwszym nieudanym etapie. Tymczasowa baza jest
+automatycznie usuwana.
 
 Tryb zwięzły zachowuje pełny verbose log w pliku, przy sukcesie pokazuje
 wyłącznie liczbę testów i podsumowania etapów, a przy błędzie odtwarza pełne
@@ -509,6 +511,30 @@ Zakres techniczny ma 310 z 315 slotów, 5 braków i pokrycie 98,41%.
 Wyposażenie ma 419 z 483 slotów, 64 braki i pokrycie 86,75%, w tym 389
 rekordów `standard` oraz 30 `not_available`.
 
+### Porównanie konfiguracji
+
+Komenda `configuration-comparison` generuje deterministyczny raport JSON
+i Markdown dla wszystkich par aktywnych konfiguracji. Bieżący zakres siedmiu
+konfiguracji tworzy 21 par. Każda para jest porównywana osobno dla źródłowych
+cen, 45 slotów technicznych oraz 69 atrybutów dostępności wyposażenia.
+
+```bash
+python tools/dkb.py configuration-comparison \
+  --json ../configuration-comparison.json \
+  --markdown ../configuration-comparison.md
+```
+
+Wynik `different` może powstać wyłącznie wtedy, gdy obie konfiguracje mają
+zapisane, źródłowe stany. Brak rekordu, `not_stated`, `out_of_scope`,
+`ambiguous` i `not_applicable` pozostają `not_comparable`. Jawne
+`not_available` jest natomiast pełnoprawnym zapisanym stanem wyposażenia
+i może tworzyć rzeczywistą różnicę względem `standard`, `optional` albo
+`unknown`.
+
+Raport klasyfikuje pary wersji i skrzyń biegów, pokazuje różnice cenowe,
+techniczne i wyposażeniowe oraz zachowuje dokładny stan dowodowy wszystkich
+nieporównywalnych slotów. Nie uzupełnia ani nie wyprowadza wartości brakujących.
+
 ### Bieżące liczniki dokumentacji
 
 Komenda generuje deterministyczny zestaw liczników używanych w bieżących podsumowaniach projektu:
@@ -558,6 +584,7 @@ Kontrola obejmuje:
 11. weryfikację przeglądu istotnych stron źródłowych,
 12. deterministyczne wygenerowanie klasyfikacji dowodów dla luk,
 13. deterministyczne wygenerowanie planu rozstrzygnięcia luk.
+14. deterministyczne wygenerowanie raportu porównania konfiguracji.
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
 liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage,
@@ -590,7 +617,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 397 testów, 34 pliki CSV, 1380 rekordów
+Zweryfikowany model obejmuje 402 testów, 34 pliki CSV, 1380 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

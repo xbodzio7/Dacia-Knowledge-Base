@@ -128,6 +128,10 @@ All notable changes to this project will be documented in this file.
 * Separate `source_missing` and `record_missing` states for source-backed gaps.
 * Explicit, versioned denominator specification for configuration-data completeness.
 * Deterministic JSON and Markdown completeness reports grouped by configuration, category and source.
+* Deterministic JSON and Markdown configuration comparison reports for all 21 active configuration pairs.
+* Separate price, technical-value and equipment-availability comparison domains.
+* Explicit `not_comparable` handling for missing, `not_stated`, `out_of_scope`, `ambiguous` and `not_applicable` states.
+* Pair classification for version and transmission comparisons while preserving source-backed `not_available` differences.
 * Separate reporting for missing records, `unknown`, `not_available` and declared `not_applicable` slots.
 * Deterministic `documentation-baseline` command for current project counters.
 * Machine-readable JSON and human-readable Markdown baseline reports.
@@ -145,6 +149,7 @@ All notable changes to this project will be documented in this file.
 * Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
 * Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
 * Full quality now generates and publishes both configuration-gap-resolution-plan report formats.
+* Full quality now generates and publishes both configuration-comparison report formats.
 * Full quality now verifies and publishes both configuration-gap-source-review report formats.
 * Full quality now generates and publishes both configuration-gap-evidence report formats.
 * Full quality now generates and publishes both configuration-gap-triage report formats.
@@ -170,7 +175,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 397 tests.
+* The automated test suite now contains 402 tests.
 * The verified master-data baseline now contains 34 CSV files and 1380 rows.
 * SQLite verification now covers 34 tables and 1380 rows.
 * Configuration attribute values now contain 310 dated records.
@@ -238,3 +243,4 @@ All notable changes to this project will be documented in this file.
 * Planned and imported the source-backed Stepway Essential `wheel_design = ERALIA` value as ID 310 through PRs #53–#54.
 * Closed the active configuration-gap cycle at 69 decisions: 44 `not_stated`, 25 `out_of_scope`, zero candidates, zero planned rows and automatic import disabled.
 * Synchronized README, changelog, roadmap and session state after PRs #53–#54 and selected a configuration comparison report as the next reporting package.
+* Added and documented deterministic configuration comparison as the next reporting capability.
