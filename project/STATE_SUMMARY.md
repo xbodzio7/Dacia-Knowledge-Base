@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Item Catalog Context Values
-- Pull Request: #66
-- Verified head: `59448dbb0ff3c2d81a3940b9225586ef63fd8c75`
-- Quality run: #166
+- Package: Project State Single Source of Truth
+- Pull Request: #67
+- Verified head: `d3062cd0074895c2f7b96ab2ffa4650777f8a983`
+- Quality run: #168
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Automated Documentation and Baseline Sync** — `planned`
+**Autonomous Collaboration Policy Enforcement** — `planned`
 
-Synchronize readable project documentation and generated counters from canonical machine-readable state.
+Make the autonomous-until-action-required workflow executable across package publication, Pull Requests, CI repair and merge decisions.
 
 ## Next package
 
-**Autonomous Collaboration Policy Enforcement** — `planned`
+**Legacy Narrative Documentation Migration** — `planned`
 
-Make the autonomous-until-action-required workflow executable across package publication, pull requests, CI and merge.
+Replace stale current-sprint sections in ROADMAP and SESSION_STATE with generated references to canonical state while preserving historical records.
 
 ## Autonomy
 
