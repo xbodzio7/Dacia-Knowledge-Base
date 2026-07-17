@@ -82,6 +82,12 @@ jobs:
             --log-file "${RUNNER_TEMP}/quality.log" \
             --summary-json "${RUNNER_TEMP}/quality-summary.json"
 
+      - name: Generate configuration comparison item catalog artifact
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-comparison-item-catalog \
+            --csv "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv"
+
       - name: Upload generated artifacts
         if: matrix.python-version == '3.13'
         uses: actions/upload-artifact@v7
@@ -108,6 +114,7 @@ jobs:
             ${{ runner.temp }}/configuration-comparison.json
             ${{ runner.temp }}/configuration-comparison.md
             ${{ runner.temp }}/configuration-comparison-differences.csv
+            ${{ runner.temp }}/configuration-comparison-item-catalog.csv
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7
