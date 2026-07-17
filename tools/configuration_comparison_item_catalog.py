@@ -20,12 +20,14 @@ from configuration_comparison import (
     write_atomic,
 )
 
+CONTEXT_SEPARATOR = "|"
 CATALOG_CSV_FIELDS = (
     "domain",
     "item_code",
     "item_name",
     "category",
     "context_count",
+    "contexts",
     "comparison_count",
     "equal_count",
     "different_count",
@@ -73,6 +75,11 @@ def catalog_rows(report: Mapping[str, Any]) -> list[dict[str, str]]:
                         "unsupported comparison state in item catalog: "
                         f"{comparison!r}"
                     )
+                if CONTEXT_SEPARATOR in context:
+                    raise ComparisonError(
+                        "item catalog context contains reserved separator: "
+                        f"{context!r}"
+                    )
 
                 domains_by_code[item_code].add(domain)
                 key = (domain, item_code)
@@ -117,13 +124,15 @@ def catalog_rows(report: Mapping[str, Any]) -> list[dict[str, str]]:
     ):
         counts = entry["counts"]
         comparison_count = sum(counts[state] for state in COMPARISON_STATES)
+        contexts = sorted(str(value) for value in entry["contexts"])
         rows.append(
             {
                 "domain": domain,
                 "item_code": item_code,
                 "item_name": str(entry["item_name"]),
                 "category": str(entry["category"]),
-                "context_count": str(len(entry["contexts"])),
+                "context_count": str(len(contexts)),
+                "contexts": CONTEXT_SEPARATOR.join(contexts),
                 "comparison_count": str(comparison_count),
                 "equal_count": str(counts["equal"]),
                 "different_count": str(counts["different"]),
