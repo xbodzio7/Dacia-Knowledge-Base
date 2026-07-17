@@ -62,9 +62,12 @@ jobs:
             -p "test_*.py" \
             -q
 
-      - name: Run project state contract tests
+      - name: Run orchestration contract tests
         if: matrix.python-version == '3.10'
-        run: python -m unittest -q tests.project_state_contract
+        run: |
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract
 
       - name: Check canonical project state
         if: matrix.python-version == '3.10'
@@ -135,7 +138,8 @@ jobs:
             tests.test_package_publish `
             tests.test_dkb_cli `
             tests.test_quality `
-            tests.project_state_contract
+            tests.project_state_contract `
+            tests.autonomy_policy_contract
 
       - name: Check canonical project state
         run: python tools/dkb.py project-state --check
