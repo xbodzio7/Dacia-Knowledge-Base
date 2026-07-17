@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Difference Context Filter
-- Pull Request: #73
-- Verified head: `d4d52bca0190d3ae633004c65c3d8f4e16065043`
-- Quality run: #182
+- Package: Configuration Comparison Pair Summary Artifact
+- Pull Request: #74
+- Verified head: `138e0618719397051b2a6923a2094f30245d72d9`
+- Quality run: #185
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Source-Backed Model Expansion Readiness Review** — `planned`
+**Duster Source Intake** — `blocked`
 
-Inspect registered sources, schemas and import boundaries for the next model expansion and determine whether a complete Duster source intake can start without weakening evidence rules.
+Receive the original official Dacia Duster price-list PDF identified by the readiness review, calculate its SHA-256, store or reference the exact binary and register its model relationship without weakening source validation.
 
 ## Next package
 
-**Duster Source Intake** — `blocked`
+**Duster Catalog Bootstrap** — `planned`
 
-Register and validate an authoritative Duster source package, then define the first bounded source-backed master-data import; remain blocked until the required source files are available.
+Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed.
 
 ## Autonomy
 
