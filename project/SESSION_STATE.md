@@ -1,28 +1,23 @@
 # Session State
 
-## Repository Status
+Ten dokument przechowuje trwały kontekst operacyjny potrzebny do rozpoczęcia kolejnej sesji. Nie przechowuje ręcznie aktualizowanych nazw bieżącego sprintu, gałęzi ani SHA.
 
-Repozytorium pozostaje jedynym źródłem prawdy.
+## Canonical Current State
 
-Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#59. Aktualny punkt odniesienia to merge commit
-`49e27de50009fb583e5bc11f25eaf783b900d808`.
+Jedynym źródłem bieżącego stanu jest:
 
-PR #59 dodał opcjonalny filtr jednej z trzech domen płaskiego CSV, zachowując
-pełne 305 wierszy jako zachowanie domyślne. GitHub Actions Quality run #150
-zakończył się powodzeniem.
+- `project/state.json` — stan maszynowy,
+- `project/STATE_SUMMARY.md` — generowane podsumowanie.
 
-Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-comparison-difference-item-filter` z bazą dokładnie
-`49e27de50009fb583e5bc11f25eaf783b900d808`.
-
-## Verified Quality Baseline
-
-Zweryfikowany lokalnie wynik docelowy bieżącego pakietu:
+Przed rozpoczęciem pracy należy uruchomić:
 
 ```bash
-python tools/dkb.py quality
+python tools/dkb.py project-state --check
 ```
+
+Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu.
+
+## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
 - 410 testów automatycznych zakończonych powodzeniem,
@@ -41,39 +36,7 @@ python tools/dkb.py quality
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
 
-## Current Sprint
-
-Configuration Comparison Difference Item Filter.
-
-Zakres:
-
-- opcjonalny filtr `--difference-item-code` wyłącznie dla płaskiego CSV,
-- walidacja kodu względem pełnego aktywnego raportu przed innymi filtrami,
-- pełny CSV 305 różnic jako zachowanie domyślne,
-- niezmienione JSON, Markdown, podsumowania i globalny snapshot dowodowy,
-- złożenie z filtrami `--difference-domain` i `--pair-type`,
-- brak zmian danych master, quality i workflow.
-
-## Current Phase
-
-Aktualna faza to **Reporting and Completeness**.
-
-Przegląd domen potwierdził 109 poprawnych kodów pozycji bez kolizji. Technika
-nadal zawiera 260 wierszy, lecz pojedynczy kod daje od 10 do 34 wierszy
-różnic, z medianą 16. `co2_emissions` daje 34 wiersze w pełnym raporcie oraz
-2 wiersze dla dwóch par tej samej wersji z inną skrzynią.
-
-## Next Development Package
-
-Configuration Comparison Difference Item Filter Review.
-
-Planowany przebieg:
-
-1. Przejrzeć pełne i złożone eksporty wybranych kodów pozycji.
-2. Sprawdzić poprawne kody bez różnic i odrzucanie kodów nieznanych.
-3. Potwierdzić brak kolizji kodów między domenami.
-4. Zweryfikować brak zmian w JSON, Markdown i pełnym CSV.
-5. Wybrać jeden mały kolejny pakiet raportowy.
+Dodatkowe kontrakty stanu projektu i autonomii są uruchamiane jawnie w CI poza historycznym licznikiem discovery `test_*.py`.
 
 ## Working Mode
 
@@ -81,27 +44,17 @@ Projekt jest rozwijany w małych, kontrolowanych pakietach.
 
 Każdy pakiet:
 
-- rozpoczyna się od sprawdzenia gałęzi i czystości katalogu roboczego,
-- obejmuje wyłącznie pliki związane z bieżącym zadaniem,
-- jest przeglądany przed commitem,
-- przechodzi odpowiednie testy lub pełną bramkę `quality`,
-- aktualizuje dokumentację operacyjną tylko wtedy, gdy zmienia sposób pracy.
+- wynika z kanonicznej kolejki w `project/state.json`,
+- rozpoczyna się od aktualnego `main`,
+- obejmuje wyłącznie jawnie określony zakres,
+- przechodzi odpowiednie testy i pełną bramkę jakości,
+- jest publikowany przez Pull Request,
+- jest scalany po zielonym CI i potwierdzeniu aktualnego head,
+- kończy się aktualizacją stanu oraz wymaganej dokumentacji.
 
-Pakiety prostych importów danych:
+Zwykłe etapy implementacji, PR, CI, naprawy należącej do zakresu i merge nie wymagają polecenia `kontynuuj`.
 
-- używają deklaratywnej specyfikacji JSON i wspólnych testów kontraktu,
-- nie tworzą osobnego dużego testu dla każdego importowanego pola,
-- nie aktualizują README, changeloga, roadmapy i historii sprintów pojedynczo,
-- są podsumowywane dokumentacyjnie po kilku importach lub przy kamieniu milowym.
-
-Git Bash służy do generowania zmian, testów i kontroli stanu. Git GUI
-może służyć do przeglądania różnic, stagingu, commitów i pushowania.
-
-Powtarzalne kontrole pakietu są dostępne przez `package-start`,
-`package-review`, `package-publish` i `package-finish`. Publikowane pakiety
-używają manifestu JSON oraz receipt z dokładnym stanem plików. `package-publish`
-może utworzyć lokalny commit, natomiast push wymaga jawnej flagi `--push`.
-Utworzenie Pull Requestu oraz merge pozostają osobnymi operacjami GitHub.
+Praca zatrzymuje się wyłącznie na granicy opisanej przez `ACTION_REQUIRED` w `project/AUTONOMOUS_MAINTAINER.md` i `project/AUTONOMY_EVENTS.md`.
 
 ## Project Rules
 
@@ -109,594 +62,52 @@ Utworzenie Pull Requestu oraz merge pozostają osobnymi operacjami GitHub.
 - Raporty, eksporty wyszukiwania i lokalne bazy SQLite są artefaktami generowanymi.
 - Dane handlowe i techniczne muszą mieć datę i źródło.
 - Nie należy zgadywać brakujących parametrów technicznych.
+- Brak stwierdzenia w źródle nie oznacza wartości negatywnej.
 - Nie należy ponownie projektować stabilnej architektury bez wyraźnej potrzeby.
 - Nie należy deklarować powodzenia CI bez sprawdzenia wyniku.
-- `ROADMAP.md` definiuje fazę i kierunek rozwoju.
-- `SESSION_STATE.md` opisuje bieżący kontekst roboczy i musi pozostawać
-  zgodny z roadmapą.
+- `project/state.json` definiuje bieżący pakiet, następny pakiet, fazę i politykę zatrzymania.
+- `project/ROADMAP.md` definiuje trwały kierunek i backlog, nie chwilowy stan.
+- Dokumentacja operacyjna musi być synchronizowana w tym samym pakiecie, w którym zmienia się sposób pracy.
 
-## Sprint History
+## Package Workflow
 
-### Sprint 001 — Repository Startup Alignment
+Powtarzalne kontrole są dostępne przez:
 
-Completed:
+```bash
+python tools/dkb.py package-start <branch>
+python tools/dkb.py package-review --manifest ../package.json --quality
+python tools/dkb.py package-publish --manifest ../package.json --push
+python tools/dkb.py package-finish --manifest ../package.json
+```
 
-- poprawiono lokalizację roadmapy wskazywaną przez `START_HERE`,
-- procedurę rozpoczęcia pracy dopasowano do rzeczywistej struktury repozytorium.
+Decyzję o kolejnym kroku workflow może rozstrzygnąć:
 
-### Tooling and Data Quality Phase
+```bash
+python tools/dkb.py autonomy-decision --event ../event.json
+```
 
-Completed:
+## Documentation Synchronization
 
-- zunifikowany CLI,
-- rozbudowany walidator danych,
-- normalizacja kodowania CSV,
-- wyszukiwanie, statystyki i raporty,
-- bezpieczna budowa i pełna weryfikacja SQLite,
-- testy regresyjne,
-- lokalna bramka `quality`,
-- automatyczna kontrola jakości w GitHub Actions.
+Liczniki oraz generowane powierzchnie stanu są kontrolowane przez:
 
-### Sandero Source-backed Baseline
+```bash
+python tools/dkb.py project-state --check
+python tools/dkb.py project-state --apply
+```
 
-Completed:
+Szczegóły kontraktu znajdują się w `project/DOCUMENTATION_SYNC.md`.
 
-- PR #3: rejestr siedmiu dokumentów i powiązania z modelami,
-- PR #4: pięć wersji oraz powiązania źródło–wersja,
-- PR #5: siedem konfiguracji oraz powiązania źródło–konfiguracja,
-- PR #6: waluta PLN i siedem datowanych obserwacji cen,
-- PR #7: synchronizacja dokumentacji bazowego pakietu danych,
-- rozszerzenie walidacji referencji i statusów dla nowych tabel.
+## Historical Record
 
-### Sandero Source-backed Technical Data
+Dawna wersja tego dokumentu zawierała setki linii historii sprintów oraz nieaktualne odwołania do gałęzi, PR-ów i commitów. Pełny stan sprzed migracji pozostaje dostępny w Git pod commitem:
 
-Completed:
+```text
+bceab5405a294b0b785b4fd206f3af37e164e85c
+```
 
-- PR #8: 35 podstawowych obserwacji technicznych i trzy nowe relacje,
-- PR #9: 49 obserwacji osiągów, mas pojazdu i mas przyczep,
-- PR #10: synchronizacja dokumentacji po pierwszych dwóch pakietach,
-- PR #11: 35 obserwacji długości, szerokości, rozstawu osi i zwisów,
-- PR #12: 21 obserwacji pojemności bagażnika i wariantu naprawczego,
-- PR #13: synchronizacja dokumentacji po pakietach wymiarów i pojemności,
-- PR #14: 28 obserwacji WLTP z jawnym kontekstem LPG i benzyny,
-- opcjonalne `fuel_type_code` i decyzja D-014,
-- PR #15: synchronizacja dokumentacji po pakietach technicznych i WLTP,
-- 168 obserwacji technicznych dla siedmiu konfiguracji,
-- pełna kontrola jakości: 149 testów, 32 pliki CSV, 762 rekordy,
-  30 relacji oraz 32 tabele SQLite.
+Granica migracji i lokalizacja pozostałych zapisów historycznych są opisane w:
 
-### Sandero PDF Source Coverage Analysis
-
-Completed:
-
-- PR #16: przeanalizowano siedem zarejestrowanych źródeł PDF,
-- główne dane techniczne potwierdzono jako objęte wcześniejszymi pakietami,
-- wyposażenie seryjne wskazano jako największą lukę,
-- różnice manual–automatic potwierdziły poziom konfiguracji,
-- zaakceptowano decyzję D-015,
-- oddzielono implementację schematu od importu danych.
-
-### Package Workflow Automation
-
-Completed:
-
-- PR #17: dodano `package-start`, `package-review` i `package-finish`,
-- zachowano jawne commit, push, PR i merge,
-- dodano testy workflow izolowane od konfiguracji Git i zakończeń linii,
-- wymuszono UTF-8 dla procesów lokalnej bramki jakości na Windows,
-- GitHub Actions Quality run #62 zakończył się powodzeniem.
-
-### Equipment Availability Schema
-
-Completed:
-
-- PR #18: dodano kontrolowany słownik czterech statusów,
-- dodano pusty schemat relacji zgodny z D-015,
-- zadeklarowano cztery referencje i walidację statusów,
-- dodano testy schematu oraz automatyczne pokrycie SQLite,
-- GitHub Actions Quality run #64 zakończył się powodzeniem.
-
-### Sandero Core Equipment Availability
-
-Completed:
-
-- PR #19: zweryfikowano siedem dokumentów PDF przez SHA-256,
-- zaimportowano 300 rekordów dostępności dla siedmiu konfiguracji,
-- wykorzystano 27 istniejących i 25 nowych atrybutów kanonicznych,
-- zachowano 277 statusów `standard` i 23 jawne `not_available`,
-- GitHub Actions Quality run #66 zakończył się powodzeniem.
-
-### Sandero Passive Safety Availability
-
-Completed:
-
-- potwierdzono 17 jednoznacznych funkcji we wszystkich siedmiu PDF-ach,
-- PR #20 zaimportował 119 rekordów: 112 `standard` i 7 `not_available`,
-- zachowano źródłowe brzmienie i numer strony,
-- nie zmieniono znaczenia pierwszych 300 obserwacji,
-- koła i tapicerka pozostają poza zakresem.
-
-### Sandero Wheel and Upholstery Value Modeling
-
-Completed:
-
-- PR #21 zaakceptował decyzję D-016,
-- wskazano `configuration_attribute_values.csv` jako właściwą relację,
-- rozdzielono rozmiar, materiał, wzór i wykończenie koła,
-- zachowano tapicerkę jako wartość wariantu,
-- konflikt ERALIA/TAMIA sklasyfikowano jako nierozstrzygnięty,
-- import danych pozostawiono do osobnego pakietu.
-
-### Sandero Wheel and Upholstery Value Import
-
-Completed:
-
-- PR #22 zweryfikował siedem PDF przez SHA-256,
-- dodano `wheel_design` i `upholstery_variant`,
-- zaimportowano 29 wartości dla siedmiu konfiguracji,
-- zachowano proweniencję strony, sekcji i źródłowego brzmienia,
-- Stepway Essential otrzymał wyłącznie wspólną wartość materiału `steel`,
-- wzór ERALIA/TAMIA BI-TON i wykończenie pozostają celowo bez rekordu,
-- GitHub Actions Quality run #72 zakończył się powodzeniem.
-
-### Sandero Packages and Options Gap Analysis
-
-Completed:
-
-- PR #23 przejrzał komplet siedmiu bieżących źródeł,
-- nie znaleziono nazwanej sekcji pakietów ani opcji handlowych,
-- wyposażenie seryjne pozostało wyposażeniem, a nie pakietem,
-- `Bez Opcji` sklasyfikowano jako kwalifikator technicznej masy,
-- zaakceptowano decyzję D-017,
-- GitHub Actions Quality run #74 zakończył się powodzeniem.
-
-### Sandero Exterior Colour Value Import
-
-Completed:
-
-- PR #24 zweryfikował siedem PDF przez SHA-256,
-- dodano kategorię `Exterior` i atrybut `exterior_color`,
-- zaimportowano 7 wartości `biel alpejska`,
-- zachowano stronę, sekcję, źródłowe brzmienie i zapis `0 zł`,
-- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych,
-- GitHub Actions Quality run #76 zakończył się powodzeniem.
-
-### Sandero Remaining PDF Value Gap Analysis
-
-Completed:
-
-- PR #25 zweryfikował siedem źródeł,
-- porównano 204 wartości i 419 rekordów dostępności,
-- potwierdzono wspólne pole `Opony Standardowe 205/60 R16 92H`,
-- odrzucono nieuzasadnione przypisanie do osi i wartości maksymalnych,
-- zaakceptowano decyzję D-018,
-- nie zmieniono danych ani schematu,
-- GitHub Actions Quality run #78 zakończył się powodzeniem.
-
-### Sandero Standard Tyre Specification Import
-
-Completed:
-
-- PR #26 zweryfikował siedem PDF przez SHA-256,
-- dodano `standard_tyre_specification`,
-- zaimportowano 7 wartości `205/60 R16 92H`,
-- zachowano stronę 5, sekcję i pełne źródłowe brzmienie,
-- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- dodano dziewięć testów regresyjnych,
-- test koloru ograniczono do własnego pakietu zamiast globalnego rozmiaru tabeli,
-- GitHub Actions Quality run #81 zakończył się powodzeniem.
-
-### Sandero Remaining PDF Value Gap Reassessment
-
-Completed:
-
-- PR #27 zweryfikował siedem PDF przez SHA-256,
-- porównano 211 wartości, 419 rekordów dostępności i 7 cen,
-- przeanalizowano raport kandydatów oraz odrzucono fałszywie dodatnie luki,
-- potwierdzono `Liczba Drzwi 5` na stronie 5 we wszystkich źródłach,
-- potwierdzono aktywny atrybut `number_of_doors` i brak odpowiadających rekordów,
-- wybrano osobny import bez zmian danych ani schematu,
-- GitHub Actions Quality run #83 zakończył się powodzeniem.
-
-### Sandero Number of Doors Value Import
-
-Completed:
-
-- PR #28 zweryfikował siedem PDF przez SHA-256,
-- zaimportowano 7 wartości `number_of_doors = 5`,
-- zachowano stronę 5, sekcję `Typ nadwozia` i pełne brzmienie źródła,
-- użyto istniejącego atrybutu integer bez zmiany schematu,
-- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych,
-- GitHub Actions Quality run #85 zakończył się powodzeniem.
-
-### Sandero Euro 6e BIS Emission Standard Modeling
-
-Completed:
-
-- PR #29 zweryfikował siedem PDF przez SHA-256,
-- potwierdzono `Norma Emisji Spalin Euro 6e BIS` na stronie 6,
-- dodano kontrolowaną wartość `euro_6e_bis`,
-- zachowano odrębność od `euro_6e`,
-- zaakceptowano decyzję D-019,
-- nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych,
-- GitHub Actions Quality run #87 zakończył się powodzeniem.
-
-### Sandero Euro 6e BIS Emission Standard Value Import
-
-Completed:
-
-- PR #30 zweryfikował siedem PDF przez SHA-256,
-- zaimportowano 7 wartości `emission_standard = euro_6e_bis`,
-- zachowano datę, stronę 6 i dokładne brzmienie źródła,
-- nie użyto ogólniejszej wartości `euro_6e`,
-- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- pozostawiono poziom hałasu 67 dB poza pakietem,
-- dodano osiem testów regresyjnych,
-- GitHub Actions Quality run #89 zakończył się powodzeniem.
-
-### Sandero 50 km/h Noise Level Modeling
-
-Completed:
-
-- PR #31 zweryfikował siedem PDF przez SHA-256,
-- potwierdzono `Poziom Hałasu Przy 50 Km/H (DB) 67`,
-- dodano kategorię `Acoustics` i jednostkę `dB`,
-- dodano atrybut decimal `noise_level_at_50_kmh`,
-- zachowano warunek pomiaru przy 50 km/h,
-- nie przyjęto niepotwierdzonej lokalizacji ani procedury pomiaru,
-- nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych,
-- GitHub Actions Quality run #91 zakończył się powodzeniem.
-
-### Sandero 50 km/h Noise Level Value Import
-
-Completed:
-
-- PR #32 zweryfikował siedem PDF przez SHA-256,
-- zaimportowano 7 wartości `noise_level_at_50_kmh = 67`,
-- zachowano datę, stronę 6 i dokładne brzmienie źródła,
-- pozostawiono kontekst paliwa pusty,
-- nie utworzono wartości ogólnego, wewnętrznego ani zewnętrznego hałasu,
-- nie zmieniono dostępności wyposażenia ani cen konfiguracji,
-- zaktualizowano trwałą granicę model/import,
-- dodano osiem testów regresyjnych,
-- GitHub Actions Quality run #93 zakończył się powodzeniem.
-
-### Sandero Remaining Technical Value Candidate Review
-
-Completed:
-
-- PR #33 zweryfikował siedem PDF przez SHA-256,
-- porównano 232 wartości, 419 rekordów dostępności i 7 cen,
-- sklasyfikowano 1371 wystąpień kandydatów i odrzucono fałszywie dodatnie luki,
-- potwierdzono `Rodzaj Napędu przedni` na stronie 5 we wszystkich źródłach,
-- potwierdzono aktywny enum `drive_type`, wartość `fwd` i brak odpowiadających rekordów,
-- zachowano granicę względem `drive_layout` i `drivetrain_type`,
-- wybrano osobny import bez zmian danych ani schematu,
-- GitHub Actions Quality run #95 zakończył się powodzeniem.
-
-### Sandero Front-Wheel Drive Value Import
-
-Completed:
-
-- PR #34 zweryfikował siedem PDF przez SHA-256,
-- zaimportowano 7 wartości `drive_type = fwd`,
-- zachowano datę, stronę 5, sekcję `Układ napędowy` i dokładne brzmienie źródła,
-- użyto istniejącego aktywnego atrybutu enum i wartości słownikowej,
-- nie utworzono wartości `drive_layout` ani `drivetrain_type`,
-- nie zmieniono schematu, dostępności wyposażenia ani cen konfiguracji,
-- dodano osiem testów regresyjnych,
-- GitHub Actions Quality run #97 zakończył się powodzeniem.
-
-### Sandero Maximum Payload Modeling
-
-Completed:
-
-- PR #35 zweryfikował siedem PDF przez SHA-256,
-- dodano atrybut integer `maximum_payload` w kategorii `Weights`,
-- użyto istniejącej jednostki `kg`,
-- zachowano wartość jako fakt źródłowy bez wyliczania jej z innych mas,
-- zapisano decyzję D-021 i granice modelu,
-- nie zaimportowano wartości konfiguracji,
-- dodano siedem testów regresyjnych,
-- GitHub Actions Quality run #99 zakończył się powodzeniem.
-
-### Package Workflow Hardening
-
-Completed:
-
-- PR #36 dodał deterministyczne UTF-8 dla Git i jakości,
-- dodano wersjonowany manifest pakietu i dokładne kontrole przed oraz po commicie,
-- zadeklarowano politykę LF i regresje Windows,
-- GitHub Actions Quality run #101 zakończył się powodzeniem.
-
-### Manifest-driven Package Publishing
-
-Completed:
-
-- PR #37 dodał trwałe i wznowialne `package-publish`,
-- receipt jakości jest związany z dokładnym drzewem Git i surowymi bajtami,
-- publikacja kontroluje staging, jeden commit, finish, handoff i jawny push,
-- sukces jakości ma zwięzły output, pełny log i ustrukturyzowane podsumowanie,
-- ograniczono duplikację pracy CI bez utraty pokrycia 3.10, 3.13 i Windows,
-- GitHub Actions Quality run #103 zakończył się powodzeniem.
-
-### Sandero Maximum Payload Value Import
-
-Completed:
-
-- PR #38 zweryfikował siedem źródeł PDF przez SHA-256,
-- zaimportowano siedem wartości `maximum_payload` z ID 240-246,
-- zachowano datę, stronę 5, sekcję i dokładne pole źródłowe,
-- pozostawiono kontekst paliwa pusty,
-- nie zmieniono istniejących mas, dostępności wyposażenia ani cen,
-- dodano osiem testów regresyjnych i zaktualizowano granicę model/import,
-- GitHub Actions Quality run #105 zakończył się powodzeniem.
-
-### Declarative Configuration Value Imports
-
-Completed:
-
-- PR #39 dodał ścisły, wersjonowany format specyfikacji JSON,
-- importer planuje, stosuje atomowo i weryfikuje dokładne rekordy,
-- kontrolowane są ID, kody, referencje, typ wartości, źródła i kontekst paliwa,
-- źródła są sprawdzane przez rejestr, SHA-256 i tekst wskazanej strony,
-- import `maximum_payload` został zapisany jako pierwsza specyfikacja,
-- wspólne testy zastąpiły duży test jednorazowy,
-- GitHub Actions Quality run #107 zakończył się powodzeniem.
-
-### Sandero Engine Output Value Import
-
-Completed:
-
-- PR #40 dodał cztery deklaratywne specyfikacje,
-- zaimportowano 28 wartości `engine_power` i `engine_torque`,
-- zachowano jawny kontekst benzyny i LPG,
-- nie utworzono wyprowadzonych rekordów zakresów obrotów,
-- GitHub Actions Quality run #109 zakończył się powodzeniem.
-
-### Sandero Total Valve Count Modeling
-
-Completed:
-
-- PR #41 dodał atrybut integer `total_valve_count` z ID 358,
-- zaakceptowano decyzję D-022,
-- zachowano rozdział względem `valves_per_cylinder` i `cylinder_count`,
-- nie zaimportowano wartości konfiguracji,
-- GitHub Actions Quality run #111 zakończył się powodzeniem.
-
-### Sandero Total Valve Count Value Import
-
-Completed:
-
-- PR #42 dodał szóstą deklaratywną specyfikację,
-- zaimportowano 7 wartości `total_valve_count = 12` z ID 275–281,
-- pozostawiono kontekst paliwa pusty,
-- zachowano stronę 6, sekcję `Silnik` i dokładne brzmienie źródła,
-- GitHub Actions Quality run #113 zakończył się powodzeniem.
-
-### Declarative Import Documentation Milestone
-
-Completed:
-
-- PR #43 zsynchronizował README, changelog, roadmapę i stan sesji po PR-ach #39–#42,
-- zapisano bazę 330 testów, 1351 rekordów, 281 wartości i 351 atrybutów,
-- GitHub Actions Quality run #115 zakończył się powodzeniem.
-
-### Sandero 0-100 Acceleration Value Import
-
-Completed:
-
-- PR #44 dodał dwie deklaratywne specyfikacje,
-- zaimportowano 14 wartości `acceleration_0_100` z ID 282–295,
-- zachowano osobny kontekst LPG i benzyny, stronę 5 oraz sekcję `Osiągi`,
-- nie zmieniono modelu kanonicznego ani dokumentacji zbiorczej,
-- GitHub Actions Quality run #117 zakończył się powodzeniem.
-
-### Sandero Standing Kilometre Value Import
-
-Completed:
-
-- PR #45 dodał dwie deklaratywne specyfikacje,
-- zaimportowano 14 wartości `standing_km` z ID 296–309,
-- zachowano osobny kontekst LPG i benzyny, stronę 5 oraz sekcję `Osiągi`,
-- nie zmieniono modelu kanonicznego ani dokumentacji zbiorczej,
-- GitHub Actions Quality run #119 zakończył się powodzeniem.
-
-### Sandero Remaining Technical Value Reassessment v4
-
-Completed:
-
-- ponownie oceniono 43 grupy raportu technicznego względem 309 wartości,
-- zweryfikowano wszystkie siedem bieżących źródeł,
-- nie znaleziono grupy spełniającej pełny kontrakt kolejnego importu,
-- nie utworzono gałęzi, zmian danych, commitu ani Pull Requestu.
-
-### Sandero Technical Value Closure Documentation Milestone
-
-Completed:
-
-- PR #46 zsynchronizował README, changelog, roadmapę i stan sesji,
-- zapisano 309 wartości, 10 specyfikacji i 1379 rekordów,
-- zamknięto bieżący sweep jawnych wartości technicznych,
-- GitHub Actions Quality run #121 zakończył się powodzeniem.
-
-### Generated Documentation Baseline Counters
-
-Completed:
-
-- PR #47 dodał komendę `documentation-baseline`,
-- dodano deterministyczny JSON i raport Markdown,
-- cztery bloki dokumentacji są kontrolowane w pełnej jakości,
-- raporty baseline są publikowane jako artefakty CI,
-- GitHub Actions Quality run #123 zakończył się powodzeniem.
-
-### Configuration Data Completeness Report
-
-Completed:
-
-- PR #48 dodał jawny, wersjonowany mianownik aktywnych konfiguracji,
-- raport obejmuje 309 z 315 slotów technicznych oraz 419 z 483 slotów wyposażenia,
-- rozdzielono `missing`, `unknown`, `not_available` i `not_applicable`,
-- raporty JSON i Markdown są publikowane jako artefakty CI,
-- GitHub Actions Quality run #125 zakończył się powodzeniem.
-
-### Source Coverage Report
-
-Completed:
-
-- PR #49 dodał raport rejestracji źródeł, obszarów, sekcji i rekordów,
-- zachowano daty dokumentów, ścieżki i SHA-256,
-- rozdzielono `source_missing` od `record_missing`,
-- raporty JSON i Markdown są publikowane jako artefakty CI,
-- GitHub Actions Quality run #127 zakończył się powodzeniem.
-
-### Configuration Gap Triage Report
-
-Completed:
-
-- PR #50 dodał kolejkę 6 luk technicznych i 64 luk wyposażenia,
-- zachowano neutralny porządek, metadane źródła i dokładne klucze triage,
-- wyłączono priorytetyzowanie i automatyczny import,
-- raporty JSON i Markdown są publikowane jako artefakty CI,
-- GitHub Actions Quality run #129 zakończył się powodzeniem.
-
-### Configuration Gap Evidence Review
-
-Completed:
-
-- PR #51 dopasował 70 decyzji jeden-do-jednego do kolejki triage,
-- zachowano 25 pozycji `out_of_scope` i 45 `ambiguous`,
-- wymagane są jawne strony i tekst dla `found`,
-- automatyczny import pozostał wyłączony,
-- GitHub Actions Quality run #131 zakończył się powodzeniem.
-
-### Configuration Gap Source Page Review
-
-Completed:
-
-- PR #52 zweryfikował 45 celów na 19 istotnych stronach siedmiu PDF,
-- uzyskano 1 `found`, 44 `not_stated` i 0 `ambiguous`,
-- kontrolowano ekstrakcję przez istniejące kotwice i SHA-256,
-- zachowano dokładny fragment `ERALIA` dla Stepway Essential,
-- nie zmieniono danych master ani modelu kanonicznego,
-- GitHub Actions Quality run #134 zakończył się powodzeniem.
-
-### Configuration Gap Resolution Planning
-
-Completed:
-
-- PR #53 przypisał stan wykonawczy wszystkim 70 decyzjom,
-- skierował jeden wynik do deklaratywnego importu wartości konfiguracji,
-- potwierdził brak potrzeby zmiany modelu dla `wheel_design`,
-- zamknął 44 `not_stated` i 25 `out_of_scope` bez danych,
-- zaplanował jeden wiersz od ID 310 przy `auto_import = false`,
-- GitHub Actions Quality run #136 zakończył się powodzeniem.
-
-### Sandero Stepway Essential Wheel Design Value Import
-
-Completed:
-
-- PR #54 dodał jedenastą deklaratywną specyfikację,
-- zaimportował `wheel_design = ERALIA` jako ID 310,
-- zachował pusty kontekst paliwa, stronę 2, sekcję `Felgi` i tekst źródłowy,
-- nie zmienił modelu kanonicznego,
-- zredukował aktywny pipeline do 69 decyzji bez kandydatów i planowanych wierszy,
-- GitHub Actions Quality run #138 zakończył się powodzeniem.
-
-### Configuration Gap Closure Documentation Milestone
-
-Completed:
-
-- PR #55 zsynchronizował README, changelog, roadmapę i stan sesji po PR-ach #53–#54,
-- zapisano 310 wartości, 11 specyfikacji, 1380 rekordów i 397 testów,
-- udokumentowano 69 aktywnych decyzji: 44 `not_stated` i 25 `out_of_scope`,
-- potwierdzono zero kandydatów, zero planowanych wierszy i wyłączony auto-import,
-- GitHub Actions Quality run #140 zakończył się powodzeniem.
-
-### Configuration Comparison Report
-
-Completed:
-
-- PR #56 dodał raport JSON i Markdown dla siedmiu konfiguracji i 21 par,
-- objął ceny, 45 slotów technicznych i 69 atrybutów wyposażenia,
-- rozdzielił rzeczywiste różnice od stanów `not_comparable`,
-- zachował klasyfikacje dowodowe i jawne `not_available`,
-- GitHub Actions Quality run #142 zakończył się powodzeniem.
-
-### Configuration Comparison Snapshot Review
-
-Completed:
-
-- przeanalizowano 2 415 porównań z artefaktu CI PR #56,
-- potwierdzono 305 różnic i 316 stanów `not_comparable`,
-- wybrano dwie pary tej samej wersji z inną skrzynią jako najwyższy sygnał,
-- w obu automat kosztuje 6 900 PLN więcej bez różnicy wyposażenia,
-- nie utworzono danych, gałęzi, commitu ani Pull Requestu.
-
-### Configuration Comparison Pair-Type Filter
-
-Completed:
-
-- PR #57 dodał opcjonalny filtr jednej z czterech istniejących klas par,
-- zachował pełny raport 21 par jako zachowanie domyślne,
-- ponownie wylicza wybrane konfiguracje i podsumowania domen,
-- utrzymuje globalny snapshot 69 decyzji dowodowych,
-- GitHub Actions Quality run #144 zakończył się powodzeniem.
-
-### Configuration Comparison Difference Export
-
-Completed:
-
-- PR #58 dodał płaski CSV wyłącznie dla rzeczywistych różnic,
-- zachował parę, domenę, kontekst, oba zapisane stany i proweniencję,
-- publikuje pełne 305 albo filtrowane 23 wiersze różnic,
-- zintegrował CSV z istniejącym quality i artefaktem CI,
-- GitHub Actions Quality run #146 zakończył się powodzeniem.
-
-### Configuration Comparison Difference Export Review
-
-Completed:
-
-- zweryfikowano strukturę 305 × 24 oraz pełną proweniencję,
-- potwierdzono 260 wierszy technicznych, 21 cenowych i 24 wyposażeniowe,
-- CSV działa poprawnie w parserach tabelarycznych UTF-8,
-- filtr konfiguracji odroczono jako nadal zbyt szeroki,
-- wybrano filtr domeny jako najwyższy sygnał.
-
-### Configuration Comparison Difference Domain Filter
-
-Completed:
-
-- PR #59 dodał opcjonalny filtr jednej z trzech domen płaskiego CSV,
-- zachował pełny CSV jako zachowanie domyślne,
-- nie zmienił JSON, Markdown ani podsumowań raportu,
-- współpracuje z filtrem `--pair-type`,
-- GitHub Actions Quality run #150 zakończył się powodzeniem.
-
-### Configuration Comparison Difference Domain Filter Review
-
-Completed:
-
-- potwierdzono eksporty 21 cen, 260 parametrów technicznych i 24 pozycji wyposażenia,
-- zweryfikowano złożenie domeny z filtrem typu pary,
-- potwierdzono 109 kodów pozycji bez kolizji między domenami,
-- filtr konfiguracji nadal pozostawiałby 78–95 wierszy,
-- wybrano dokładny filtr kodu pozycji jako najwyższy sygnał.
-
-### Configuration Comparison Difference Item Filter
-
-Current package:
-
-- dodaje opcjonalny filtr jednego dokładnego kodu pozycji,
-- waliduje kod względem pełnego aktywnego raportu,
-- zachowuje pełny CSV jako zachowanie domyślne,
-- współpracuje z filtrami domeny i typu pary,
-- nie zmienia quality, workflow ani danych master.
-
-Next priority:
-
-Przeanalizować filtrowane eksporty pozycji i wybrać jeden mały kolejny pakiet.
+- `project/history/legacy-narrative-migration-2026-07-17.md`,
+- `project/reviews/`,
+- `CHANGELOG.md`,
+- historii commitów i scalonych Pull Requestów.

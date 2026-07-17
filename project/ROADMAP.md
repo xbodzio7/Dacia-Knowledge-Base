@@ -2,241 +2,144 @@
 
 # Roadmap
 
-Ten dokument opisuje plan rozwoju projektu oraz jego aktualny stan.
+Ten dokument opisuje trwały kierunek rozwoju projektu. Bieżący i następny pakiet nie są tutaj duplikowane.
+
+Aktualny stan operacyjny znajduje się w:
+
+- `project/state.json` — kanoniczny stan maszynowy,
+- `project/STATE_SUMMARY.md` — generowane podsumowanie dla człowieka.
+
+Kontrola spójności:
+
+```bash
+python tools/dkb.py project-state --check
+```
 
 ---
 
 # Vision
 
-Celem projektu jest stworzenie kompletnej, weryfikowalnej bazy wiedzy dotyczącej samochodów marki Dacia.
+Celem projektu jest stworzenie kompletnej, weryfikowalnej i maszynowo czytelnej bazy wiedzy dotyczącej samochodów marki Dacia.
 
 Repozytorium ma umożliwiać:
 
 - przechowywanie danych technicznych i handlowych,
-- powiązanie danych ze źródłami,
-- import danych z katalogów PDF,
+- powiązanie każdej obserwacji ze źródłem i datą,
 - automatyczną walidację jakości i spójności,
-- generowanie raportów i statystyk,
-- eksport danych do SQLite i Excela,
-- szybkie wyszukiwanie informacji.
+- deterministyczne raporty kompletności, porównania i eksporty,
+- eksport danych do SQLite oraz innych formatów użytkowych,
+- stopniowe rozszerzanie zakresu modeli bez osłabiania modelu danych.
 
 ---
 
-# Current Status
+# Strategic Direction
 
-## Phase
+## 1. Source-backed data quality
 
-Reporting and Completeness
+- utrzymywać konserwatywną zasadę niewnioskowania brakujących wartości,
+- zachowywać dokładną proweniencję i kontekst obserwacji,
+- rozwijać dane wyłącznie na podstawie zweryfikowanych źródeł,
+- rozstrzygać niejednoznaczności przez jawne decyzje architektoniczne.
 
-## Progress
+## 2. Reporting and completeness
 
-🟩 Dokumentacja projektu
+- rozwijać porównania konfiguracji, modeli i wersji,
+- poprawiać użyteczność raportów bez zmiany semantyki danych,
+- utrzymywać deterministyczne katalogi kodów, filtrów i kontekstów,
+- publikować artefakty jakościowe możliwe do ponownego odtworzenia.
 
-🟩 Struktura repozytorium
+## 3. Import automation
 
-🟩 Fundament Master Data
+- rozszerzać deklaratywne importy wartości,
+- automatyzować ekstrakcję PDF dopiero po zachowaniu granic dowodowych,
+- oddzielać ekstrakcję kandydatów od zatwierdzonego importu do master data,
+- zapewniać pełną możliwość weryfikacji i wycofania każdej operacji.
 
-🟩 Tooling i automatyzacja
+## 4. Model and source expansion
 
-🟩 Walidacja i testy
+Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 
-🟩 Dwa źródłowe pakiety Sandero i Sandero Stepway
-
-🟩 Deterministyczne raporty kompletności, pokrycia i luk
-
-🟨 Rozbudowa danych opartych na źródłach
-
-⬜ Automatyczny import PDF
-
-🟨 Raporty porównawcze i eksporty użytkowe
+- Duster,
+- Jogger,
+- Bigster,
+- Spring,
+- dalsze warianty Sandero i Sandero Stepway.
 
 ---
 
-# Completed
+# Completed Foundations
 
-## Documentation
-
-- README
-- START_HERE
-- AI_CONTEXT
-- AI_WORKING_AGREEMENT
-- DECISIONS
-- ROADMAP
-- SESSION_STATE
-- CHANGELOG
-
-## Repository
-
-- stabilna struktura katalogów,
-- reguły ignorowania artefaktów generowanych,
-- licencja,
-- GitHub Actions dla kontroli jakości,
-- praca na gałęziach i integracja przez Pull Request.
-
-## Master Data
-
-- modele, silniki, skrzynie biegów i typy nadwozia,
-- relacje model–silnik i model–skrzynia,
-- kategorie, domeny, jednostki i typy wartości,
-- atrybuty oraz dedykowany słownik kategorii atrybutów,
-- słowniki wartości enumeracyjnych,
-- deklaratywne reguły walidacji,
-- rejestr siedmiu oficjalnych dokumentów Sandero i Sandero Stepway,
-- powiązania źródeł z modelami, wersjami i konfiguracjami,
-- pięć wersji wyposażenia,
-- siedem konfiguracji Eco-G 120,
-- waluta PLN i siedem datowanych obserwacji cen katalogowych brutto,
-- 168 datowanych obserwacji technicznych dla siedmiu konfiguracji,
-- podstawowe parametry zespołu napędowego i pojemności,
-- prędkość maksymalna, średnica zawracania, masy pojazdu i przyczep,
-- długość, szerokość, rozstaw osi oraz zwisy,
-- pojemność bagażnika VDA i w litrach z kontekstem zestawu naprawczego,
-- 28 obserwacji zużycia paliwa i emisji CO2 w cyklu WLTP,
-- oddzielny kontekst LPG i benzyny przez opcjonalne `fuel_type_code`,
-- zakończony pakiet Fuel-mode-aware WLTP Observation Analysis,
-- decyzja D-014 — Observation-level fuel context,
-- zakończona analiza pokrycia siedmiu źródeł PDF,
-- decyzja D-015 — Configuration-level equipment availability,
-- decyzja D-016 — Configuration-level wheel and upholstery values,
-- decyzja D-017 — Evidence-gated commercial packages and options,
-- analiza siedmiu źródeł bez potwierdzonych nazwanych pakietów lub opcji,
-- kontrolowany słownik statusów dostępności wyposażenia,
-- schemat `configuration_attribute_availability.csv`,
-- 42 kanoniczne atrybuty funkcjonalnego i pasywnego wyposażenia,
-- 419 datowanych rekordów dostępności dla siedmiu konfiguracji,
-- jawne rozróżnienie 389 pozycji `standard` i 30 `not_available`,
-- jednoznaczne wyposażenie bezpieczeństwa pasywnego z zachowaną proweniencją,
-- dwa kanoniczne atrybuty wartościowe `wheel_design` i `upholstery_variant`,
-- 29 datowanych wartości kół i tapicerki dla siedmiu konfiguracji,
-- zachowana granica konfliktu ERALIA/TAMIA BI-TON dla Stepway Essential,
-- kategoria `Exterior` i kanoniczny atrybut string `exterior_color`,
-- 7 datowanych wartości koloru `biel alpejska` z zachowanym zapisem `0 zł` w proweniencji,
-- decyzja D-018 — axle-neutral standard tyre specification,
-- analiza pozostałych wartości PDF z wyborem specyfikacji opony jako następnego importu,
-- kanoniczny atrybut string `standard_tyre_specification`,
-- 7 datowanych wartości `205/60 R16 92H` z zachowaną stroną i brzmieniem źródła,
-- zachowana granica między pełną specyfikacją opony, osiami, indeksami maksymalnymi i rozmiarem felgi,
-- ponowna analiza pozostałych jawnych wartości po imporcie specyfikacji opony,
-- ręczna klasyfikacja kandydatów z odrzuceniem nagłówków, wariantów brzmienia i już pokrytych faktów,
-- wybór istniejącego atrybutu `number_of_doors` dla następnego kontrolowanego importu,
-- 7 datowanych wartości `number_of_doors = 5` z zachowaną stroną, sekcją i brzmieniem źródła,
-- zachowana granica między całkowitą liczbą drzwi i liczbą drzwi bocznych.
-- decyzja D-019 — exact emission-standard variants,
-- kontrolowana wartość `euro_6e_bis` zachowująca dokładne `Euro 6e BIS`,
-- zachowana granica między `Euro 6e BIS`, `Euro 6e` i poziomem hałasu 67 dB.
-- 7 datowanych wartości `emission_standard = euro_6e_bis` z zachowaną stroną 6 i brzmieniem źródła,
-- zachowany rozdział między normą emisji i poziomem hałasu przy 50 km/h.
-- decyzja D-020 — speed-specific vehicle noise measurement,
-- kategoria `Acoustics`, jednostka `dB` i atrybut decimal `noise_level_at_50_kmh`,
-- zachowana granica między warunkiem 50 km/h a niepotwierdzoną lokalizacją i procedurą pomiaru.
-- 7 datowanych wartości `noise_level_at_50_kmh = 67` z zachowaną stroną 6 i brzmieniem źródła,
-- zachowany rozdział między pomiarem przy 50 km/h a ogólnym, wewnętrznym i zewnętrznym poziomem hałasu,
-- przegląd 1371 wystąpień kandydatów po imporcie poziomu hałasu,
-- ręczna klasyfikacja 1010 niedopasowanych wystąpień i odrzucenie pozycji już reprezentowanych, wyposażenia, nagłówków oraz fragmentów tabel,
-- wybór istniejącego atrybutu enum `drive_type` i aktywnej wartości `fwd` dla następnego kontrolowanego importu,
-- zachowana granica względem ogólniejszych atrybutów string `drive_layout` i `drivetrain_type`,
-- 7 datowanych wartości `drive_type = fwd` z zachowaną stroną 5, sekcją i brzmieniem źródła,
-- zachowana granica między kontrolowanym enumem `drive_type` i ogólniejszymi atrybutami string.
-- decyzja D-021 — source-stated maximum payload,
-- aktywny atrybut integer `maximum_payload` w kategorii `Weights` z jednostką `kg`,
-- zachowana granica między jawną ładownością, masami całkowitymi, obciążeniem dachu i parametrami holowania.
-- 7 datowanych wartości `maximum_payload` od 371 do 385 kg z pełną proweniencją.
-- deklaratywny importer wartości konfiguracji oraz jedenaście wersjonowanych specyfikacji JSON,
-- 28 datowanych wartości mocy i momentu obrotowego z jawnym kontekstem benzyny i LPG,
-- decyzja D-022 — source-stated total engine valve count,
-- aktywny atrybut integer `total_valve_count` w kategorii `Engine`,
-- 7 datowanych wartości `total_valve_count = 12` z pustym kontekstem paliwa i pełną proweniencją,
-- 14 datowanych wartości `acceleration_0_100` z osobnym kontekstem LPG i benzyny,
-- 14 datowanych wartości `standing_km` z osobnym kontekstem LPG i benzyny,
-- 310 datowanych wartości konfiguracji, w tym źródłowy wzór `wheel_design = ERALIA` dla Stepway Essential,
-- raporty kompletności, pokrycia źródeł, triage, przeglądu stron, dowodów i planowania luk,
-- pokrycie 310 z 315 slotów technicznych oraz 419 z 483 slotów wyposażenia,
-- zamknięty aktywny cykl 69 decyzji: 44 `not_stated`, 25 `out_of_scope`, bez kandydatów i planowanych wierszy,
-- wyłączony automatyczny import i zachowana zasada niewnioskowania wartości z braku stwierdzenia w źródle.
-
-## Tooling
-
+- stabilna struktura repozytorium i praca przez Pull Requesty,
 - zunifikowany interfejs `python tools/dkb.py`,
-- pełna lokalna bramka jakości `quality`,
-- walidator repozytorium w wersji 0.10,
-- kontrola UTF-8 i normalizacja kodowania CSV,
-- walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
-- walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
-- wyszukiwanie, statystyki i raporty Markdown,
-- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnymi filtrami typu pary, domeny i kodu pozycji płaskiego eksportu różnic CSV,
-- atomowa budowa bazy SQLite,
-- weryfikacja zgodności schematu i danych SQLite z plikami CSV,
+- walidacja struktury, referencji, statusów, reguł i UTF-8,
+- atomowa budowa oraz pełna weryfikacja SQLite,
+- źródłowy baseline Sandero i Sandero Stepway,
+- model datowanych cen, wartości technicznych i dostępności wyposażenia,
+- paliwowy kontekst obserwacji LPG i benzyny,
+- deklaratywne importy wartości konfiguracji,
+- pipeline kompletności, pokrycia źródeł, triage, dowodów i planowania luk,
+- raporty porównawcze konfiguracji i katalog kodów pozycji,
+- wersjonowany workflow publikacji pakietów,
+- kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
+
+## Verified tooling baseline
+
 <!-- dkb:documentation-baseline:roadmap:start -->
 - 410 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
+
 - 34 deklarowane relacje między tabelami,
 - kompatybilność kompilacji i testów w Pythonie 3.10 i 3.13,
 - pełna walidacja danych, SQLite i artefaktów w Pythonie 3.13,
-- wersjonowany manifest pakietu z dokładną gałęzią, bazą, tematem i zakresem,
-- receipt jakości z drzewem tymczasowego indeksu Git i surowym hashem bajtów,
-- trwała, wznowialna komenda `package-publish` z dokładnym stagingiem,
-- mały `handoff.json`, pełny log i zwięzłe logi sukcesu,
-- bezpieczne dekodowanie UTF-8 oraz bajtowe listy ścieżek Git,
-- polityka LF w `.gitattributes`,
-- regresyjne testy workflow, receipt i publikacji na Windows.
-- deklaratywne specyfikacje JSON dla importów wartości konfiguracji,
-- wspólne testy kontraktu skanujące wszystkie specyfikacje importów,
-- zbiorcza aktualizacja README i changeloga zamiast zmian w każdym małym imporcie.
+- kontrole stanu projektu i autonomii na Linuxie oraz Windows.
 
 ---
-
-# Current Sprint
-
-## Configuration Comparison Difference Item Filter
-
-Cel sprintu:
-
-- dodać opcjonalny filtr `--difference-item-code` wyłącznie dla płaskiego CSV,
-- walidować kod względem pełnego aktywnego raportu przed innymi filtrami,
-- zachować pełny 305-wierszowy CSV jako zachowanie domyślne,
-- zachować JSON, Markdown, podsumowania i globalny snapshot dowodowy,
-- łączyć filtr pozycji z `--difference-domain` i `--pair-type`,
-- nie zmieniać danych master, quality ani workflow.
-
----
-
-# Next Sprint
-
-## Configuration Comparison Difference Item Filter Review
-
-Cel sprintu:
-
-- przeanalizować pełne i złożone eksporty wybranych kodów pozycji,
-- sprawdzić znane kody bez różnic i odrzucanie kodów nieznanych,
-- potwierdzić brak kolizji kodów między domenami,
-- zweryfikować brak zmian w JSON, Markdown i pełnym CSV,
-- wybrać jeden mały kolejny pakiet raportowy,
-- nie zmieniać danych master ani klasyfikacji dowodowych.
 
 # Backlog
 
+## Reporting
+
+- wybór najwyżej wartościowego kolejnego pakietu raportowego,
+- porównania modeli i wersji wykraczające poza bieżące konfiguracje,
+- eksport do Excela,
+- stabilne formaty raportów dla użytkowników zewnętrznych.
+
 ## Data
 
-- pakiety i opcje po uzyskaniu źródła z jawną ofertą handlową
-- dalsze techniczne wartości konfiguracji
-- wyposażenie wersji i konfiguracji
-- dalsze rozszerzanie pokrycia źródłami
+- pakiety i opcje po uzyskaniu źródła z jawną ofertą handlową,
+- dalsze techniczne wartości konfiguracji,
+- dalsze wyposażenie wersji i konfiguracji,
+- rozszerzanie pokrycia źródłami.
 
 ## Import
 
-- automatyczny potok importu PDF,
+- automatyczny potok ekstrakcji PDF,
 - ekstrakcja tabel i specyfikacji,
-- kontrola pochodzenia danych,
-- dalsze dane Sandero i Sandero Stepway,
-- Duster,
-- Jogger,
-- Bigster,
-- Spring
+- kontrola pochodzenia kandydatów,
+- bezpieczne generowanie deklaratywnych specyfikacji importu.
 
-## Reporting
+## Tooling
 
-- eksport do Excela,
-- raporty porównawcze modeli i wersji,
-- raport kompletności danych,
-- raport pokrycia źródłami.
+- dalsza redukcja ręcznego powielania stanu,
+- automatyczne kontrole zgodności dokumentów kontraktowych,
+- czytelniejsze raportowanie przyczyn `ACTION_REQUIRED`,
+- okresowe przeglądy utrzymywalności workflow.
+
+---
+
+# Current Work
+
+Nazwy, cele i statusy bieżącego oraz następnego pakietu są generowane wyłącznie z `project/state.json` do `project/STATE_SUMMARY.md`.
+
+Nie należy dodawać do tego dokumentu ręcznych sekcji `Current Sprint` ani `Next Sprint`.
+
+---
+
+# Historical Record
+
+Szczegółowe dawne sekcje sprintów pozostają dostępne w historii Git oraz w `project/reviews/`.
+
+Granica migracji została opisana w:
+
+- `project/history/legacy-narrative-migration-2026-07-17.md`.

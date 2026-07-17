@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Tooling and Autonomous Operations**
+**Reporting and Completeness**
 
 ## Reference delivery
 
-- Package: Automated Documentation and Baseline Sync
-- Pull Request: #68
-- Verified head: `d2b5fd33febb675317a2db8bc6b89a5c66c08d5b`
-- Quality run: #170
+- Package: Autonomous Collaboration Policy Enforcement
+- Pull Request: #69
+- Verified head: `5769c4857899e461455d077a66ef585165ce9dd6`
+- Quality run: #172
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Legacy Narrative Documentation Migration** — `planned`
+**Reporting Roadmap Selection** — `planned`
 
-Replace stale current-sprint sections in ROADMAP and SESSION_STATE with generated references to canonical state while preserving historical records.
+Review the completed reporting and tooling milestone, rank bounded next-package candidates and select the highest-value implementation without changing master data.
 
 ## Next package
 
-**Reporting Roadmap Selection** — `planned`
+**Selected Reporting Package Implementation** — `planned`
 
-Review the reporting milestone after the tooling migration and select the highest-value next domain or reporting package.
+Implement the bounded reporting package selected from repository evidence, validate it across supported platforms and update canonical state in the same delivery cycle.
 
 ## Autonomy
 
