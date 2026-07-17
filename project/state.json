@@ -9,10 +9,10 @@
   },
   "phase": "Tooling and Autonomous Operations",
   "reference_delivery": {
-    "name": "Configuration Comparison Item Catalog Context Values",
-    "pull_request": 66,
-    "head_sha": "59448dbb0ff3c2d81a3940b9225586ef63fd8c75",
-    "quality_run": 166
+    "name": "Project State Single Source of Truth",
+    "pull_request": 67,
+    "head_sha": "d3062cd0074895c2f7b96ab2ffa4650777f8a983",
+    "quality_run": 168
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Automated Documentation and Baseline Sync",
-    "status": "planned",
-    "goal": "Synchronize readable project documentation and generated counters from canonical machine-readable state."
-  },
-  "next_package": {
     "name": "Autonomous Collaboration Policy Enforcement",
     "status": "planned",
-    "goal": "Make the autonomous-until-action-required workflow executable across package publication, pull requests, CI and merge."
+    "goal": "Make the autonomous-until-action-required workflow executable across package publication, Pull Requests, CI repair and merge decisions."
+  },
+  "next_package": {
+    "name": "Legacy Narrative Documentation Migration",
+    "status": "planned",
+    "goal": "Replace stale current-sprint sections in ROADMAP and SESSION_STATE with generated references to canonical state while preserving historical records."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
