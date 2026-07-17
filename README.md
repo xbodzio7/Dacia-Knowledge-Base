@@ -686,11 +686,11 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 410 testów, 34 pliki CSV, 1380 rekordów
+Zweryfikowany model obejmuje 410 testów, 34 pliki CSV, 1382 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 1380 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 1382 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-17
+- State updated: 2026-07-18
 
 ## Phase
 
@@ -25,7 +25,7 @@
 
 - Tests: 410
 - Master CSV files: 34
-- Master rows: 1380
+- Master rows: 1382
 - Configuration values: 310
 - Configuration import specifications: 11
 - Availability records: 419
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Source Intake** — `blocked`
+**Duster Catalog Bootstrap** — `active`
 
-Receive the original official Dacia Duster price-list PDF identified by the readiness review, calculate its SHA-256, store or reference the exact binary and register its model relationship without weakening source validation.
+Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed.
 
 ## Next package
 
-**Duster Catalog Bootstrap** — `planned`
+**Duster Catalog Price Import** — `planned`
 
-Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed.
+Import only explicit page-1 catalogue gross prices for source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations.
 
 ## Autonomy
 

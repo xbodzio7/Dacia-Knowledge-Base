@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-07-17",
+  "updated_on": "2026-07-18",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -17,7 +17,7 @@
   "baseline": {
     "tests": 410,
     "csv_files": 34,
-    "rows": 1380,
+    "rows": 1382,
     "configuration_values": 310,
     "configuration_import_specs": 11,
     "availability_records": 419,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Source Intake",
-    "status": "blocked",
-    "goal": "Receive the original official Dacia Duster price-list PDF identified by the readiness review, calculate its SHA-256, store or reference the exact binary and register its model relationship without weakening source validation."
+    "name": "Duster Catalog Bootstrap",
+    "status": "active",
+    "goal": "Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed."
   },
   "next_package": {
-    "name": "Duster Catalog Bootstrap",
+    "name": "Duster Catalog Price Import",
     "status": "planned",
-    "goal": "Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed."
+    "goal": "Import only explicit page-1 catalogue gross prices for source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
