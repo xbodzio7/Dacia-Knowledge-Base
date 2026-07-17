@@ -24,6 +24,7 @@ The CSV contains one deterministic row per `(domain, item_code)` with these colu
 - `item_name`,
 - `category`,
 - `context_count`,
+- `contexts`,
 - `comparison_count`,
 - `equal_count`,
 - `different_count`,
@@ -31,7 +32,9 @@ The CSV contains one deterministic row per `(domain, item_code)` with these colu
 
 Rows are ordered by the controlled domain order `prices`, `technical`, `equipment`, then by `item_code`.
 
-Technical fuel contexts are aggregated into `context_count`. Price contexts retain the market and currency boundary. Equipment uses one empty context because availability comparisons are configuration-level states.
+Unique context values are sorted lexically and joined with the reserved `|` separator. `context_count` remains the machine-friendly cardinality and must equal the number of serialized context values, with one deliberate exception in representation: the single empty equipment context is serialized as an empty `contexts` field while retaining `context_count = 1`.
+
+Technical contexts expose `fuel_type_code`, price contexts expose the market and currency boundary, and equipment uses one empty context because availability comparisons are configuration-level states. A context containing the reserved separator is rejected rather than emitted ambiguously.
 
 ## Safety boundaries
 
@@ -41,20 +44,23 @@ Technical fuel contexts are aggregated into `context_count`. Price contexts reta
 - it does not change master data or evidence classifications,
 - unsupported comparison states are rejected,
 - inconsistent name or category metadata for one domain/code is rejected,
-- item codes appearing in more than one domain are rejected explicitly.
+- item codes appearing in more than one domain are rejected explicitly,
+- context values containing the reserved `|` separator are rejected.
 
 The collision rule turns the current collision-free snapshot into an executable contract. If domain-qualified item selection is introduced later, that rule may be reviewed separately.
 
 ## Validation performed before publication
 
-The new module was compiled with Python and exercised against a synthetic two-pair report covering:
+The module and its repository contract cover:
 
 - deterministic domain and code ordering,
-- aggregation of two fuel contexts,
+- aggregation and lexical serialization of two fuel contexts,
+- explicit price and empty equipment context representation,
 - counts for `equal`, `different` and `not_comparable`,
-- CSV round-trip parsing,
+- deterministic CSV round-trip parsing,
 - rejection of a cross-domain item-code collision,
-- registration and help visibility in the unified `dkb.py` CLI.
+- rejection of a context containing the reserved separator,
+- registration and forwarding through the unified `dkb.py` CLI.
 
 The catalog was also executed against the full configuration-comparison JSON artifact produced by successful Quality run #153. The real 21-pair snapshot produced:
 
@@ -66,8 +72,8 @@ The catalog was also executed against the full configuration-comparison JSON art
 - `co2_emissions` with 42 comparisons: 8 equal and 34 different,
 - a CSV that parsed back to the exact generated row sequence.
 
-Repository-wide behavior is delegated to the pull-request Quality workflow because the execution environment used for this package did not have a network-accessible local checkout.
+Repository-wide behavior is verified by the pull-request Quality workflow.
 
 ## Scope
 
-Changed behavior is limited to the new catalog command and unified CLI registration. Existing comparison outputs, master data, evidence specifications, quality steps and workflow structure remain unchanged.
+Changed behavior is limited to the catalog CSV contract and its regression guard. Existing comparison outputs, master data, evidence specifications, quality steps and workflow structure remain unchanged.
