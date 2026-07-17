@@ -111,6 +111,7 @@ def verify_catalog_contract(case: unittest.TestCase) -> None:
             "item_name": "",
             "category": "",
             "context_count": "1",
+            "contexts": "market=PL;currency_code=PLN",
             "comparison_count": "2",
             "equal_count": "1",
             "different_count": "1",
@@ -118,10 +119,16 @@ def verify_catalog_contract(case: unittest.TestCase) -> None:
         },
     )
     case.assertEqual(rows[1]["context_count"], "2")
+    case.assertEqual(
+        rows[1]["contexts"],
+        "fuel_type_code=lpg|fuel_type_code=petrol",
+    )
     case.assertEqual(rows[1]["comparison_count"], "4")
     case.assertEqual(rows[1]["equal_count"], "1")
     case.assertEqual(rows[1]["different_count"], "2")
     case.assertEqual(rows[1]["not_comparable_count"], "1")
+    case.assertEqual(rows[2]["context_count"], "1")
+    case.assertEqual(rows[2]["contexts"], "")
     case.assertEqual(rows[2]["equal_count"], "1")
     case.assertEqual(rows[2]["different_count"], "1")
 
@@ -146,6 +153,17 @@ def verify_collision_rejection(case: unittest.TestCase) -> None:
     with case.assertRaisesRegex(
         catalog.ComparisonError,
         "difference item code collision across domains: catalog_gross",
+    ):
+        catalog.catalog_rows(report)
+
+
+def verify_reserved_separator_rejection(case: unittest.TestCase) -> None:
+    report = fixture_report()
+    report["pairs"][0]["prices"][0]["market"] = "P|L"
+
+    with case.assertRaisesRegex(
+        catalog.ComparisonError,
+        "item catalog context contains reserved separator",
     ):
         catalog.catalog_rows(report)
 
@@ -194,5 +212,6 @@ def load_tests(
     case = unittest.TestCase()
     verify_catalog_contract(case)
     verify_collision_rejection(case)
+    verify_reserved_separator_rejection(case)
     verify_unified_cli_contract(case)
     return tests
