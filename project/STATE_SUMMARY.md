@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Pair Summary Artifact
-- Pull Request: #74
-- Verified head: `138e0618719397051b2a6923a2094f30245d72d9`
-- Quality run: #185
+- Package: Duster Source Intake
+- Pull Request: #76
+- Verified head: `4c33a90a779aed30ab73cd8df5d75302e11c59ae`
+- Quality run: #225
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Catalog Bootstrap** — `active`
+**Duster Catalog Reporting Scope Decision** — `blocked`
 
-Derive the first bounded Duster III version and configuration catalog from the accepted source, add source-version and source-configuration relationships, and defer detailed values until every mapping is source-backed.
+Choose whether source-backed Duster catalogue entities remain active under an explicit reporting subset or use a new catalogue lifecycle status before creating the five versions and 24 configurations.
 
 ## Next package
 
-**Duster Catalog Price Import** — `planned`
+**Duster Catalog Bootstrap** — `planned`
 
-Import only explicit page-1 catalogue gross prices for source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations.
+After the reporting-scope decision is implemented, create the five explicit Duster III versions, the 24 source-backed version and powertrain configurations, and their source relationships without importing prices or detailed observations.
 
 ## Autonomy
 
