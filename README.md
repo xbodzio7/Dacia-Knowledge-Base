@@ -552,6 +552,21 @@ python tools/dkb.py configuration-comparison \
 Bieżący pełny zakres daje 21 cenowych, 260 technicznych albo 24 wyposażeniowe
 wiersze po wybraniu pojedynczej domeny.
 
+Opcjonalny `--difference-item-code` ogranicza wyłącznie płaski CSV do jednego
+dokładnego kodu pozycji znanego pełnemu aktywnemu raportowi. Bieżący raport
+zawiera 109 poprawnych kodów bez kolizji między domenami. Nieznany kod jest
+odrzucany, natomiast poprawny kod bez różnic po zastosowaniu innych filtrów
+tworzy prawidłowy CSV zawierający sam nagłówek.
+
+```bash
+python tools/dkb.py configuration-comparison \
+  --difference-domain technical \
+  --difference-item-code co2_emissions \
+  --csv ../configuration-comparison-co2-differences.csv
+```
+
+Bieżący `co2_emissions` daje 34 wiersze w pełnym raporcie.
+
 Opcjonalny `--pair-type` ogranicza wszystkie trzy wyjścia do jednej istniejącej
 klasy pary:
 
@@ -560,22 +575,24 @@ klasy pary:
 - `same_version_same_transmission`,
 - `different_version_different_transmission`.
 
-Filtry `--pair-type` i `--difference-domain` można łączyć. Pierwszy ogranicza
-pary i przelicza pełny raport, natomiast drugi filtruje wyłącznie wiersze CSV.
+Filtry `--pair-type`, `--difference-domain` i `--difference-item-code` można
+łączyć. Pierwszy ogranicza pary i przelicza pełny raport, natomiast dwa
+pozostałe filtrują wyłącznie wiersze CSV.
 
 ```bash
 python tools/dkb.py configuration-comparison \
   --pair-type same_version_different_transmission \
-  --difference-domain prices \
+  --difference-domain technical \
+  --difference-item-code co2_emissions \
   --json ../configuration-comparison-transmission.json \
   --markdown ../configuration-comparison-transmission.md \
-  --csv ../configuration-comparison-transmission-price-differences.csv
+  --csv ../configuration-comparison-transmission-co2-differences.csv
 ```
 
 Bieżący filtr skrzyni wybiera dwie pary Stepway Expression i Extreme:
 2 różnice cenowe, 21 technicznych, 0 wyposażeniowych, 19 stanów
-`not_comparable` w pełnym raporcie. Filtr domeny daje odpowiednio 2, 21 albo
-0 wierszy CSV.
+`not_comparable` w pełnym raporcie. Złożony filtr `co2_emissions` daje
+2 wiersze CSV.
 
 Wynik `different` może powstać wyłącznie wtedy, gdy obie konfiguracje mają
 zapisane, źródłowe stany. Brak rekordu, `not_stated`, `out_of_scope`,
@@ -669,7 +686,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 408 testów, 34 pliki CSV, 1380 rekordów
+Zweryfikowany model obejmuje 410 testów, 34 pliki CSV, 1380 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

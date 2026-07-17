@@ -163,11 +163,11 @@ Reporting and Completeness
 - walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
 - walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
 - wyszukiwanie, statystyki i raporty Markdown,
-- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnymi filtrami typu pary i domeny płaskiego eksportu różnic CSV,
+- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnymi filtrami typu pary, domeny i kodu pozycji płaskiego eksportu różnic CSV,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 408 testów automatycznych,
+- 410 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -188,28 +188,28 @@ Reporting and Completeness
 
 # Current Sprint
 
-## Configuration Comparison Difference Domain Filter
+## Configuration Comparison Difference Item Filter
 
 Cel sprintu:
 
-- dodać opcjonalny filtr `--difference-domain` wyłącznie dla płaskiego CSV,
-- obsłużyć kontrolowane domeny `prices`, `technical` i `equipment`,
+- dodać opcjonalny filtr `--difference-item-code` wyłącznie dla płaskiego CSV,
+- walidować kod względem pełnego aktywnego raportu przed innymi filtrami,
 - zachować pełny 305-wierszowy CSV jako zachowanie domyślne,
 - zachować JSON, Markdown, podsumowania i globalny snapshot dowodowy,
-- łączyć filtr domeny z istniejącym `--pair-type`,
+- łączyć filtr pozycji z `--difference-domain` i `--pair-type`,
 - nie zmieniać danych master, quality ani workflow.
 
 ---
 
 # Next Sprint
 
-## Configuration Comparison Difference Domain Filter Review
+## Configuration Comparison Difference Item Filter Review
 
 Cel sprintu:
 
-- przeanalizować eksporty 21 cen, 260 parametrów technicznych i 24 pozycji wyposażenia,
-- sprawdzić złożenie filtra domeny z klasami par,
-- ocenić czytelność i przydatność osobnych domen,
+- przeanalizować pełne i złożone eksporty wybranych kodów pozycji,
+- sprawdzić znane kody bez różnic i odrzucanie kodów nieznanych,
+- potwierdzić brak kolizji kodów między domenami,
 - zweryfikować brak zmian w JSON, Markdown i pełnym CSV,
 - wybrać jeden mały kolejny pakiet raportowy,
 - nie zmieniać danych master ani klasyfikacji dowodowych.

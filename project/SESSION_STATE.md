@@ -5,16 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#58. Aktualny punkt odniesienia to merge commit
-`d9f3210d5639974ccf51bda8133c02fa5354adab`.
+Pull Requesty #3–#59. Aktualny punkt odniesienia to merge commit
+`49e27de50009fb583e5bc11f25eaf783b900d808`.
 
-PR #58 dodał płaski CSV z 24 kolumnami i 305 źródłowymi różnicami:
-21 cenowymi, 260 technicznymi oraz 24 wyposażeniowymi. GitHub Actions Quality
-run #146 zakończył się powodzeniem.
+PR #59 dodał opcjonalny filtr jednej z trzech domen płaskiego CSV, zachowując
+pełne 305 wierszy jako zachowanie domyślne. GitHub Actions Quality run #150
+zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-comparison-difference-domain-filter` z bazą dokładnie
-`d9f3210d5639974ccf51bda8133c02fa5354adab`.
+`reporting/configuration-comparison-difference-item-filter` z bazą dokładnie
+`49e27de50009fb583e5bc11f25eaf783b900d808`.
 
 ## Verified Quality Baseline
 
@@ -25,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 408 testów automatycznych zakończonych powodzeniem,
+- 410 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1380 rekordów danych,
 - 34 relacje między tabelami,
@@ -43,36 +43,36 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Comparison Difference Domain Filter.
+Configuration Comparison Difference Item Filter.
 
 Zakres:
 
-- opcjonalny filtr `--difference-domain` wyłącznie dla płaskiego CSV,
-- kontrolowane domeny `prices`, `technical` i `equipment`,
+- opcjonalny filtr `--difference-item-code` wyłącznie dla płaskiego CSV,
+- walidacja kodu względem pełnego aktywnego raportu przed innymi filtrami,
 - pełny CSV 305 różnic jako zachowanie domyślne,
 - niezmienione JSON, Markdown, podsumowania i globalny snapshot dowodowy,
-- złożenie z istniejącym filtrem `--pair-type`,
+- złożenie z filtrami `--difference-domain` i `--pair-type`,
 - brak zmian danych master, quality i workflow.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Przegląd pełnego eksportu potwierdził poprawny kontrakt 24 kolumn oraz kompletną
-proweniencję. Technika stanowi 260 z 305 wierszy, czyli 85,25%. Filtr domeny
-wydziela 21 cen, 260 parametrów technicznych albo 24 pozycje wyposażenia.
-Dla dwóch par skrzyni daje odpowiednio 2, 21 albo 0 wierszy.
+Przegląd domen potwierdził 109 poprawnych kodów pozycji bez kolizji. Technika
+nadal zawiera 260 wierszy, lecz pojedynczy kod daje od 10 do 34 wierszy
+różnic, z medianą 16. `co2_emissions` daje 34 wiersze w pełnym raporcie oraz
+2 wiersze dla dwóch par tej samej wersji z inną skrzynią.
 
 ## Next Development Package
 
-Configuration Comparison Difference Domain Filter Review.
+Configuration Comparison Difference Item Filter Review.
 
 Planowany przebieg:
 
-1. Przejrzeć osobne eksporty cen, techniki i wyposażenia.
-2. Sprawdzić złożenie z filtrem typu pary.
-3. Potwierdzić niezmienność JSON, Markdown i pełnego CSV.
-4. Ocenić przydatność osobnych domen.
+1. Przejrzeć pełne i złożone eksporty wybranych kodów pozycji.
+2. Sprawdzić poprawne kody bez różnic i odrzucanie kodów nieznanych.
+3. Potwierdzić brak kolizji kodów między domenami.
+4. Zweryfikować brak zmian w JSON, Markdown i pełnym CSV.
 5. Wybrać jeden mały kolejny pakiet raportowy.
 
 ## Working Mode
@@ -669,14 +669,34 @@ Completed:
 
 ### Configuration Comparison Difference Domain Filter
 
+Completed:
+
+- PR #59 dodał opcjonalny filtr jednej z trzech domen płaskiego CSV,
+- zachował pełny CSV jako zachowanie domyślne,
+- nie zmienił JSON, Markdown ani podsumowań raportu,
+- współpracuje z filtrem `--pair-type`,
+- GitHub Actions Quality run #150 zakończył się powodzeniem.
+
+### Configuration Comparison Difference Domain Filter Review
+
+Completed:
+
+- potwierdzono eksporty 21 cen, 260 parametrów technicznych i 24 pozycji wyposażenia,
+- zweryfikowano złożenie domeny z filtrem typu pary,
+- potwierdzono 109 kodów pozycji bez kolizji między domenami,
+- filtr konfiguracji nadal pozostawiałby 78–95 wierszy,
+- wybrano dokładny filtr kodu pozycji jako najwyższy sygnał.
+
+### Configuration Comparison Difference Item Filter
+
 Current package:
 
-- dodaje opcjonalny filtr jednej z trzech domen płaskiego CSV,
+- dodaje opcjonalny filtr jednego dokładnego kodu pozycji,
+- waliduje kod względem pełnego aktywnego raportu,
 - zachowuje pełny CSV jako zachowanie domyślne,
-- nie zmienia JSON, Markdown ani podsumowań raportu,
-- współpracuje z filtrem `--pair-type`,
+- współpracuje z filtrami domeny i typu pary,
 - nie zmienia quality, workflow ani danych master.
 
 Next priority:
 
-Przeanalizować osobne eksporty domen i wybrać jeden mały kolejny pakiet.
+Przeanalizować filtrowane eksporty pozycji i wybrać jeden mały kolejny pakiet.
