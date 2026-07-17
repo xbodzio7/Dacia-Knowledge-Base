@@ -265,7 +265,12 @@ class DkbCliTests(unittest.TestCase):
         ) as run:
             result = dkb.run_script(
                 "configuration-comparison",
-                ["--json", "comparison.json"],
+                [
+                    "--pair-type",
+                    "same_version_different_transmission",
+                    "--json",
+                    "comparison.json",
+                ],
             )
         self.assertEqual(result, 17)
         run.assert_called_once_with(
@@ -275,6 +280,8 @@ class DkbCliTests(unittest.TestCase):
                     TOOLS_DIRECTORY
                     / "configuration_comparison.py"
                 ),
+                "--pair-type",
+                "same_version_different_transmission",
                 "--json",
                 "comparison.json",
             ],

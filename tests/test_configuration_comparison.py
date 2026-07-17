@@ -472,6 +472,85 @@ class ConfigurationComparisonTests(unittest.TestCase):
         self.assertIn("`fog_lights`", markdown)
         self.assertIn("not_stated=2", markdown)
 
+    def test_pair_type_filter_recalculates_scope_and_summary(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            matching = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+            empty = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter="same_version_different_transmission",
+            )
+
+        self.assertEqual(
+            matching["scope"]["pair_type_filter"],
+            "different_version_different_transmission",
+        )
+        self.assertEqual(
+            matching["scope"]["unfiltered_pair_count"],
+            1,
+        )
+        self.assertEqual(matching["scope"]["pair_count"], 1)
+        self.assertEqual(
+            matching["scope"]["selected_configurations"],
+            2,
+        )
+        self.assertEqual(
+            matching["scope"]["selected_configuration_codes"],
+            ["cfg_a", "cfg_b"],
+        )
+        self.assertEqual(
+            matching["summary"]["total_differences"],
+            2,
+        )
+        self.assertEqual(
+            empty["scope"]["pair_type_filter"],
+            "same_version_different_transmission",
+        )
+        self.assertEqual(empty["scope"]["unfiltered_pair_count"], 1)
+        self.assertEqual(empty["scope"]["pair_count"], 0)
+        self.assertEqual(empty["scope"]["selected_configurations"], 0)
+        self.assertEqual(empty["pairs"], [])
+        self.assertEqual(empty["summary"]["total_differences"], 0)
+        for domain in ("prices", "technical", "equipment"):
+            self.assertEqual(
+                empty["summary"][domain],
+                {
+                    "comparisons": 0,
+                    "equal": 0,
+                    "different": 0,
+                    "not_comparable": 0,
+                },
+            )
+
+    def test_rejects_unknown_pair_type_filter(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            with self.assertRaisesRegex(
+                comparison.ComparisonError,
+                "unsupported pair type filter",
+            ):
+                comparison.collect_report(
+                    repository,
+                    completeness,
+                    evidence,
+                    pair_type_filter="unsupported",
+                )
+
     def test_rejects_evidence_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, completeness, evidence = self.fixture(

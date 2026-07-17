@@ -32,6 +32,12 @@ EVIDENCE_STATES = {
     "not_stated",
     "out_of_scope",
 }
+PAIR_TYPES = (
+    "different_version_different_transmission",
+    "different_version_same_transmission",
+    "same_version_different_transmission",
+    "same_version_same_transmission",
+)
 
 
 class ComparisonError(RuntimeError):
@@ -420,7 +426,15 @@ def collect_report(
     completeness_spec: Path,
     evidence_spec: Path,
     as_of_value: str | None = None,
+    pair_type_filter: str | None = None,
 ) -> dict[str, Any]:
+    if (
+        pair_type_filter is not None
+        and pair_type_filter not in PAIR_TYPES
+    ):
+        raise ComparisonError(
+            f"unsupported pair type filter: {pair_type_filter!r}"
+        )
     scope = parse_scope(repository, completeness_spec)
     evidence_payload = read_json(evidence_spec)
     evidence_date_value = str(evidence_payload.get("as_of", ""))
@@ -576,6 +590,15 @@ def collect_report(
     for left_code, right_code in combinations(configuration_codes, 2):
         left_configuration = scope["configurations"][left_code]
         right_configuration = scope["configurations"][right_code]
+        current_pair_type = pair_type(
+            left_configuration,
+            right_configuration,
+        )
+        if (
+            pair_type_filter is not None
+            and current_pair_type != pair_type_filter
+        ):
+            continue
 
         price_items: list[dict[str, Any]] = []
         for market, price_kind, currency in price_dimensions:
@@ -782,10 +805,7 @@ def collect_report(
         pairs.append(
             {
                 "pair_code": f"{left_code}__vs__{right_code}",
-                "pair_type": pair_type(
-                    left_configuration,
-                    right_configuration,
-                ),
+                "pair_type": current_pair_type,
                 "left_configuration": dict(left_configuration),
                 "right_configuration": dict(right_configuration),
                 "summary": summaries,
@@ -812,6 +832,19 @@ def collect_report(
         int(summary[domain]["different"])
         for domain in ("prices", "technical", "equipment")
     )
+    selected_configuration_codes = sorted(
+        {
+            configuration["configuration_code"]
+            for pair in pairs
+            for configuration in (
+                pair["left_configuration"],
+                pair["right_configuration"],
+            )
+        }
+    )
+    unfiltered_pair_count = (
+        len(configuration_codes) * (len(configuration_codes) - 1) // 2
+    )
 
     return {
         "version": 1,
@@ -820,7 +853,15 @@ def collect_report(
             "configuration_status": scope["status"],
             "active_configurations": len(configuration_codes),
             "configuration_codes": configuration_codes,
+            "pair_type_filter": pair_type_filter,
+            "unfiltered_pair_count": unfiltered_pair_count,
             "pair_count": len(pairs),
+            "selected_configurations": len(
+                selected_configuration_codes
+            ),
+            "selected_configuration_codes": (
+                selected_configuration_codes
+            ),
             "price_dimensions": len(price_dimensions),
             "technical_slots": len(scope["technical_slots"]),
             "equipment_attributes": len(
@@ -883,7 +924,19 @@ def render_markdown(report: Mapping[str, Any]) -> str:
         "| Metric | Value |",
         "| --- | ---: |",
         f"| Active configurations | {scope['active_configurations']} |",
-        f"| Configuration pairs | {scope['pair_count']} |",
+        (
+            "| Pair type filter | "
+            f"`{scope['pair_type_filter'] or 'all'}` |"
+        ),
+        (
+            "| Available configuration pairs | "
+            f"{scope['unfiltered_pair_count']} |"
+        ),
+        f"| Selected configuration pairs | {scope['pair_count']} |",
+        (
+            "| Selected configurations | "
+            f"{scope['selected_configurations']} |"
+        ),
         f"| Price dimensions | {scope['price_dimensions']} |",
         f"| Technical slots per configuration | {scope['technical_slots']} |",
         f"| Equipment attributes per configuration | {scope['equipment_attributes']} |",
@@ -902,6 +955,17 @@ def render_markdown(report: Mapping[str, Any]) -> str:
         lines.append(
             f"| {label} | {item['comparisons']} | {item['equal']} | "
             f"{item['different']} | {item['not_comparable']} |"
+        )
+
+    if scope["pair_type_filter"] is not None:
+        lines.extend(
+            [
+                "",
+                (
+                    "The evidence summary remains global to the active "
+                    "configuration scope and is not reduced by pair filtering."
+                ),
+            ]
         )
 
     lines.extend(
@@ -1027,6 +1091,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         default=DEFAULT_EVIDENCE_SPEC,
     )
     parser.add_argument("--as-of")
+    parser.add_argument(
+        "--pair-type",
+        choices=PAIR_TYPES,
+        help=(
+            "Limit output to one deterministic version/transmission "
+            "pair classification."
+        ),
+    )
     parser.add_argument("--json", dest="json_path", type=Path)
     parser.add_argument("--markdown", type=Path)
     return parser.parse_args(argv)
@@ -1048,6 +1120,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             completeness_spec,
             evidence_spec,
             arguments.as_of,
+            arguments.pair_type,
         )
         if arguments.json_path is not None:
             write_atomic(arguments.json_path, render_json(report))
@@ -1071,7 +1144,15 @@ def main(argv: Sequence[str] | None = None) -> int:
             "Active configurations  : "
             f"{report['scope']['active_configurations']}"
         )
-        print(f"Configuration pairs    : {report['scope']['pair_count']}")
+        print(
+            "Pair type filter       : "
+            f"{report['scope']['pair_type_filter'] or 'all'}"
+        )
+        print(
+            "Available pairs        : "
+            f"{report['scope']['unfiltered_pair_count']}"
+        )
+        print(f"Selected pairs         : {report['scope']['pair_count']}")
         print(
             "Price differences      : "
             f"{report['summary']['prices']['different']}"

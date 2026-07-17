@@ -163,11 +163,11 @@ Reporting and Completeness
 - walidacja struktury, unikalności, referencji, zakresów lat, statusów i okresów powiązań,
 - walidacja kontraktów oraz wykonywanie deklaratywnych reguł danych,
 - wyszukiwanie, statystyki i raporty Markdown,
-- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji,
+- deterministyczne porównanie cen, wartości technicznych i wyposażenia aktywnych konfiguracji z opcjonalnym filtrem typu pary,
 - atomowa budowa bazy SQLite,
 - weryfikacja zgodności schematu i danych SQLite z plikami CSV,
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 402 testów automatycznych,
+- 404 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 - 34 deklarowane relacje między tabelami,
@@ -188,31 +188,31 @@ Reporting and Completeness
 
 # Current Sprint
 
-## Configuration Comparison Report
+## Configuration Comparison Pair-Type Filter
 
 Cel sprintu:
 
-- dodać deterministyczny raport JSON i Markdown dla 21 par aktywnych konfiguracji,
-- porównywać wyłącznie źródłowe ceny, wartości techniczne i dostępność wyposażenia,
-- odróżniać brak rekordu, `not_stated`, `out_of_scope` i `not_applicable` od rzeczywistej różnicy,
-- zachować `not_available` jako jawny, porównywalny stan wyposażenia,
-- klasyfikować pary wersji oraz skrzyń manualnych i automatycznych,
-- publikować raport jako czternasty krok pełnej jakości i artefakt GitHub Actions.
+- dodać opcjonalny filtr `--pair-type` bez zmiany domyślnego raportu 21 par,
+- użyć czterech istniejących klasyfikacji wersji i skrzyni biegów,
+- ponownie wyliczać liczbę par, wybrane konfiguracje i podsumowania domen,
+- zachować globalny snapshot 69 decyzji dowodowych,
+- zweryfikować dwie pary `same_version_different_transmission`,
+- nie zmieniać danych master, modelu, quality ani workflow.
 
 ---
 
 # Next Sprint
 
-## Configuration Comparison Snapshot Review
+## Configuration Comparison Difference Export
 
 Cel sprintu:
 
-- przeanalizować wygenerowany snapshot porównań bez zmiany danych,
-- oddzielić różnice handlowe, techniczne i wyposażeniowe od ograniczeń dowodowych,
-- wskazać najbardziej użyteczne porównania wersji i skrzyń biegów,
-- zweryfikować, czy raport wymaga dodatkowych filtrów lub eksportów użytkowych,
-- wybrać jeden mały, źródłowy pakiet dalszego rozwoju,
-- nie tworzyć danych na podstawie stanów `not_comparable`.
+- zaprojektować płaski, deterministyczny eksport różnic do CSV,
+- zachować kod pary, typ pary, domenę, atrybut, kontekst i oba stany,
+- współpracować z opcjonalnym filtrem `--pair-type`,
+- eksportować wyłącznie wyniki `different`, bez stanów `not_comparable`,
+- utrzymać JSON i Markdown jako podstawowe pełne formaty raportu,
+- nie zmieniać danych master ani klasyfikacji dowodowych.
 
 # Backlog
 

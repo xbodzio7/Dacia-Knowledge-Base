@@ -524,6 +524,28 @@ python tools/dkb.py configuration-comparison \
   --markdown ../configuration-comparison.md
 ```
 
+Opcjonalny `--pair-type` ogranicza wynik do jednej istniejącej klasy pary:
+
+- `same_version_different_transmission`,
+- `different_version_same_transmission`,
+- `same_version_same_transmission`,
+- `different_version_different_transmission`.
+
+Pełny raport 21 par pozostaje zachowaniem domyślnym. Filtr ponownie wylicza
+liczbę wybranych par, konfiguracji oraz podsumowania cen, techniki i wyposażenia.
+Globalne podsumowanie 69 aktywnych decyzji dowodowych pozostaje niezmienione.
+
+```bash
+python tools/dkb.py configuration-comparison \
+  --pair-type same_version_different_transmission \
+  --json ../configuration-comparison-transmission.json \
+  --markdown ../configuration-comparison-transmission.md
+```
+
+Bieżący filtr skrzyni wybiera dwie pary Stepway Expression i Extreme:
+2 różnice cenowe, 21 technicznych, 0 wyposażeniowych oraz 19 stanów
+`not_comparable`.
+
 Wynik `different` może powstać wyłącznie wtedy, gdy obie konfiguracje mają
 zapisane, źródłowe stany. Brak rekordu, `not_stated`, `out_of_scope`,
 `ambiguous` i `not_applicable` pozostają `not_comparable`. Jawne
@@ -588,8 +610,9 @@ Kontrola obejmuje:
 
 Dla Pythona 3.13 workflow zapisuje bazę SQLite, raport walidacji, bazowe
 liczniki, raport kompletności, raport pokrycia źródłami, kolejkę triage,
-przegląd stron źródłowych, klasyfikację dowodów i plan rozstrzygnięcia
-w formatach JSON oraz Markdown jako tymczasowy artefakt GitHub Actions
+przegląd stron źródłowych, klasyfikację dowodów, plan rozstrzygnięcia
+i porównanie konfiguracji w formatach JSON oraz Markdown jako tymczasowy
+artefakt GitHub Actions
 przechowywany przez 7 dni.
 
 ## Zasady projektu
@@ -617,7 +640,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 402 testów, 34 pliki CSV, 1380 rekordów
+Zweryfikowany model obejmuje 404 testów, 34 pliki CSV, 1380 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
