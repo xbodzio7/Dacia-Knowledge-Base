@@ -69,7 +69,8 @@ jobs:
             tests.project_state_contract \
             tests.autonomy_policy_contract \
             tests.quality_artifact_manifest_contract \
-            tests.configuration_comparison_context_filter_contract
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
 
       - name: Check canonical project state
         if: matrix.python-version == '3.10'
@@ -89,6 +90,12 @@ jobs:
         run: |
           python tools/dkb.py configuration-comparison-item-catalog \
             --csv "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv"
+
+      - name: Generate configuration comparison pair summary artifact
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-comparison-pair-summary \
+            --csv "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv"
 
       - name: Generate Quality artifact manifest
         if: matrix.python-version == '3.13'
@@ -116,6 +123,7 @@ jobs:
             --file "${RUNNER_TEMP}/configuration-comparison.md" \
             --file "${RUNNER_TEMP}/configuration-comparison-differences.csv" \
             --file "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv" \
+            --file "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv" \
             --file "reports/validation_report.md"
 
       - name: Upload generated artifacts
@@ -145,6 +153,7 @@ jobs:
             ${{ runner.temp }}/configuration-comparison.md
             ${{ runner.temp }}/configuration-comparison-differences.csv
             ${{ runner.temp }}/configuration-comparison-item-catalog.csv
+            ${{ runner.temp }}/configuration-comparison-pair-summary.csv
             ${{ runner.temp }}/artifact-manifest.json
             reports/validation_report.md
           if-no-files-found: error
@@ -179,7 +188,8 @@ jobs:
             tests.project_state_contract `
             tests.autonomy_policy_contract `
             tests.quality_artifact_manifest_contract `
-            tests.configuration_comparison_context_filter_contract
+            tests.configuration_comparison_context_filter_contract `
+            tests.configuration_comparison_pair_summary_contract
 
       - name: Check canonical project state
         run: python tools/dkb.py project-state --check

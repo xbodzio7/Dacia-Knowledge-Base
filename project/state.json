@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Reporting and Completeness",
+  "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Quality Artifact Manifest",
-    "pull_request": 72,
-    "head_sha": "e9e63301d2304523069e24bcd44224f4aa88a69d",
-    "quality_run": 180
+    "name": "Configuration Comparison Difference Context Filter",
+    "pull_request": 73,
+    "head_sha": "d4d52bca0190d3ae633004c65c3d8f4e16065043",
+    "quality_run": 182
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Reporting Milestone Review",
+    "name": "Source-Backed Model Expansion Readiness Review",
     "status": "planned",
-    "goal": "Review the completed comparison discovery, filtering and Quality artifact surfaces, rank bounded next-package candidates and select the highest-value implementation without changing master data."
+    "goal": "Inspect registered sources, schemas and import boundaries for the next model expansion and determine whether a complete Duster source intake can start without weakening evidence rules."
   },
   "next_package": {
-    "name": "Selected Reporting Package Implementation",
-    "status": "planned",
-    "goal": "Implement the bounded reporting package selected from repository evidence, preserve deterministic outputs and update canonical state in the same delivery cycle."
+    "name": "Duster Source Intake",
+    "status": "blocked",
+    "goal": "Register and validate an authoritative Duster source package, then define the first bounded source-backed master-data import; remain blocked until the required source files are available."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

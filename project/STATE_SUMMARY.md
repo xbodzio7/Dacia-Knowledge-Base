@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Reporting and Completeness**
+**Source-Backed Model Expansion**
 
 ## Reference delivery
 
-- Package: Quality Artifact Manifest
-- Pull Request: #72
-- Verified head: `e9e63301d2304523069e24bcd44224f4aa88a69d`
-- Quality run: #180
+- Package: Configuration Comparison Difference Context Filter
+- Pull Request: #73
+- Verified head: `d4d52bca0190d3ae633004c65c3d8f4e16065043`
+- Quality run: #182
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Reporting Milestone Review** — `planned`
+**Source-Backed Model Expansion Readiness Review** — `planned`
 
-Review the completed comparison discovery, filtering and Quality artifact surfaces, rank bounded next-package candidates and select the highest-value implementation without changing master data.
+Inspect registered sources, schemas and import boundaries for the next model expansion and determine whether a complete Duster source intake can start without weakening evidence rules.
 
 ## Next package
 
-**Selected Reporting Package Implementation** — `planned`
+**Duster Source Intake** — `blocked`
 
-Implement the bounded reporting package selected from repository evidence, preserve deterministic outputs and update canonical state in the same delivery cycle.
+Register and validate an authoritative Duster source package, then define the first bounded source-backed master-data import; remain blocked until the required source files are available.
 
 ## Autonomy
 
