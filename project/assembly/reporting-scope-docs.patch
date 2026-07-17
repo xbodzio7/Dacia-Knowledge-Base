@@ -1,0 +1,73 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 8c65e16..bb0bbb7 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -127,6 +127,7 @@ All notable changes to this project will be documented in this file.
+ * Source metadata verification retaining document dates, paths and SHA-256 hashes.
+ * Separate `source_missing` and `record_missing` states for source-backed gaps.
+ * Explicit, versioned denominator specification for configuration-data completeness.
++* Shared `explicit_subset` configuration-reporting scope contract for completeness, source coverage and comparison reports.
+ * Deterministic JSON and Markdown completeness reports grouped by configuration, category and source.
+ * Deterministic JSON and Markdown configuration comparison reports for all 21 active configuration pairs.
+ * Separate price, technical-value and equipment-availability comparison domains.
+@@ -166,6 +167,7 @@ All notable changes to this project will be documented in this file.
+ * Full quality now generates and publishes both configuration-gap-triage report formats.
+ * Full quality now generates and publishes both source-coverage report formats.
+ * Full quality now generates and publishes both configuration-completeness report formats.
++* Active catalogue configurations may remain outside the explicit reporting subset; generated reports disclose selected, repository-wide and excluded counts.
+ * Full quality now verifies documentation counters against the built SQLite database and publishes both baseline report formats.
+ * Successful quality output is concise while complete verbose output remains available in a file and failures replay names and tracebacks.
+ * Python 3.10 keeps compile-and-test compatibility coverage, while Python 3.13 owns full data, SQLite and artifact validation.
+diff --git a/README.md b/README.md
+index 3ef02cb..860dcd6 100644
+--- a/README.md
++++ b/README.md
+@@ -205,7 +205,7 @@ Dostępne komendy:
+ | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
+ | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
+ | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
+-| `configuration-completeness` | Raport kompletności danych aktywnych konfiguracji |
++| `configuration-completeness` | Raport kompletności jawnie wybranego podzbioru aktywnych konfiguracji |
+ | `documentation-baseline` | Generowanie i kontrola bieżących liczników dokumentacji |
+ | `import-configuration-values` | Planowanie, stosowanie i weryfikacja deklaratywnych importów |
+ | `package-start` | Synchronizacja `main` i utworzenie gałęzi pakietu |
+@@ -488,9 +488,12 @@ Opcjonalne `--as-of YYYY-MM-DD` tworzy historyczny snapshot względem dat
+ ### Kompletność danych konfiguracji
+ 
+ Raport używa wersjonowanej specyfikacji
+-`data/reporting/configuration_completeness.json`. Specyfikacja jawnie określa
+-aktywne konfiguracje i źródła, techniczne sloty atrybutu i kontekstu paliwa,
+-atrybuty dostępności wyposażenia oraz wyjątki `not_applicable`.
++`data/reporting/configuration_completeness.json`. Specyfikacja używa `configuration_scope = explicit_subset` i jawnie określa
++podzbiór aktywnych konfiguracji oraz ich źródła, techniczne sloty atrybutu
++i kontekstu paliwa, atrybuty dostępności wyposażenia oraz wyjątki
++`not_applicable`. Pozostałe aktywne konfiguracje mogą istnieć w katalogu bez
++automatycznego rozszerzania mianownika raportu; każdy raport ujawnia liczby
++konfiguracji wybranych, aktywnych w repozytorium i wyłączonych z zakresu.
+ 
+ Brak rekordu jest raportowany jako `missing`. Jawne stany `unknown` i
+ `not_available` pozostają osobnymi wynikami, a `not_applicable` może wynikać
+@@ -506,7 +509,7 @@ python tools/dkb.py configuration-completeness \
+ Opcjonalne `--as-of YYYY-MM-DD` ogranicza obserwacje do wskazanej daty.
+ Raport grupuje luki według konfiguracji, kategorii i źródła.
+ 
+-Bieżący snapshot obejmuje siedem aktywnych konfiguracji i siedem źródeł.
++Bieżący snapshot obejmuje siedem raportowanych aktywnych konfiguracji i siedem źródeł.
+ Zakres techniczny ma 310 z 315 slotów, 5 braków i pokrycie 98,41%.
+ Wyposażenie ma 419 z 483 slotów, 64 braki i pokrycie 86,75%, w tym 389
+ rekordów `standard` oraz 30 `not_available`.
+@@ -514,9 +517,11 @@ rekordów `standard` oraz 30 `not_available`.
+ ### Porównanie konfiguracji
+ 
+ Komenda `configuration-comparison` generuje deterministyczny raport JSON
+-i Markdown dla wszystkich par aktywnych konfiguracji oraz opcjonalny płaski
+-CSV zawierający wyłącznie rzeczywiste różnice. Bieżący zakres siedmiu
+-konfiguracji tworzy 21 par i 305 wierszy różnic.
++i Markdown dla wszystkich par aktywnych konfiguracji jawnie wybranych przez
++tę samą specyfikację raportową oraz opcjonalny płaski CSV zawierający wyłącznie
++rzeczywiste różnice. Bieżący zakres siedmiu konfiguracji tworzy 21 par i 305
++wierszy różnic, niezależnie od aktywnych konfiguracji katalogowych pozostających
++poza podzbiorem raportowym.
+ 
+ ```bash
+ python tools/dkb.py configuration-comparison \
