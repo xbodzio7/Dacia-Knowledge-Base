@@ -943,9 +943,35 @@ def difference_state_date(
     return str(state.get(key, ""))
 
 
+def comparison_item_code(
+    item: Mapping[str, Any],
+    domain: str,
+) -> str:
+    if domain == "prices":
+        return str(item["price_type"])
+    return str(item["attribute_code"])
+
+
+def difference_item_codes(
+    report: Mapping[str, Any],
+) -> tuple[str, ...]:
+    return tuple(
+        sorted(
+            {
+                comparison_item_code(item, domain)
+                for pair in report["pairs"]
+                for domain in DIFFERENCE_DOMAINS
+                for item in pair[domain]
+            }
+        )
+    )
+
+
 def difference_csv_rows(
     report: Mapping[str, Any],
     difference_domain: str | None = None,
+    difference_item_code: str | None = None,
+    known_item_codes: Sequence[str] | None = None,
 ) -> list[dict[str, str]]:
     if (
         difference_domain is not None
@@ -954,6 +980,17 @@ def difference_csv_rows(
         raise ComparisonError(
             f"unsupported difference domain: {difference_domain!r}"
         )
+    if difference_item_code is not None:
+        available_item_codes = set(
+            known_item_codes
+            if known_item_codes is not None
+            else difference_item_codes(report)
+        )
+        if difference_item_code not in available_item_codes:
+            raise ComparisonError(
+                "unsupported difference item code: "
+                f"{difference_item_code!r}"
+            )
     rows: list[dict[str, str]] = []
     for pair in report["pairs"]:
         left_configuration = pair["left_configuration"]
@@ -965,6 +1002,15 @@ def difference_csv_rows(
             ):
                 continue
             for item in pair[domain]:
+                current_item_code = comparison_item_code(
+                    item,
+                    domain,
+                )
+                if (
+                    difference_item_code is not None
+                    and current_item_code != difference_item_code
+                ):
+                    continue
                 if item["comparison"] != "different":
                     continue
                 left = item["left"]
@@ -1072,6 +1118,8 @@ def difference_csv_rows(
 def render_difference_csv(
     report: Mapping[str, Any],
     difference_domain: str | None = None,
+    difference_item_code: str | None = None,
+    known_item_codes: Sequence[str] | None = None,
 ) -> str:
     output = io.StringIO(newline="")
     writer = csv.DictWriter(
@@ -1085,6 +1133,8 @@ def render_difference_csv(
         difference_csv_rows(
             report,
             difference_domain,
+            difference_item_code,
+            known_item_codes,
         )
     )
     return output.getvalue()
@@ -1308,6 +1358,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--difference-item-code",
+        help=(
+            "Limit the flat CSV to one exact item code known to the "
+            "full active comparison report."
+        ),
+    )
+    parser.add_argument(
         "--csv",
         dest="csv_path",
         type=Path,
@@ -1334,6 +1391,20 @@ def main(argv: Sequence[str] | None = None) -> int:
             arguments.as_of,
             arguments.pair_type,
         )
+        known_item_codes: tuple[str, ...] | None = None
+        if arguments.difference_item_code is not None:
+            validation_report = report
+            if arguments.pair_type is not None:
+                validation_report = collect_report(
+                    repository,
+                    completeness_spec,
+                    evidence_spec,
+                    arguments.as_of,
+                    None,
+                )
+            known_item_codes = difference_item_codes(
+                validation_report
+            )
         if arguments.json_path is not None:
             write_atomic(arguments.json_path, render_json(report))
             print(
@@ -1355,6 +1426,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 render_difference_csv(
                     report,
                     arguments.difference_domain,
+                    arguments.difference_item_code,
+                    known_item_codes,
                 ),
             )
             print(
@@ -1394,8 +1467,20 @@ def main(argv: Sequence[str] | None = None) -> int:
             f"{arguments.difference_domain or 'all'}"
         )
         print(
+            "CSV difference item     : "
+            f"{arguments.difference_item_code or 'all'}"
+        )
+        csv_difference_row_count = len(
+            difference_csv_rows(
+                report,
+                arguments.difference_domain,
+                arguments.difference_item_code,
+                known_item_codes,
+            )
+        )
+        print(
             "CSV difference rows     : "
-            f"{len(difference_csv_rows(report, arguments.difference_domain))}"
+            f"{csv_difference_row_count}"
         )
         print(
             "Not-comparable states  : "

@@ -695,6 +695,92 @@ class ConfigurationComparisonTests(unittest.TestCase):
                 "unsupported",
             )
 
+    def test_difference_csv_item_filter_composes_with_other_filters(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            full_report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+            filtered_report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+
+        known_item_codes = comparison.difference_item_codes(
+            full_report
+        )
+        self.assertEqual(
+            known_item_codes,
+            (
+                "catalog_gross",
+                "engine_power",
+                "engine_torque",
+                "fog_lights",
+                "heated_seat",
+                "vehicle_height",
+            ),
+        )
+
+        prices = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    filtered_report,
+                    "prices",
+                    "catalog_gross",
+                    known_item_codes,
+                ).splitlines()
+            )
+        )
+        header_only = comparison.render_difference_csv(
+            filtered_report,
+            "technical",
+            "fog_lights",
+            known_item_codes,
+        )
+        header_only_rows = list(
+            csv.DictReader(header_only.splitlines())
+        )
+
+        self.assertEqual(len(prices), 1)
+        self.assertEqual(prices[0]["domain"], "prices")
+        self.assertEqual(prices[0]["item_code"], "catalog_gross")
+        self.assertEqual(prices[0]["delta_right_minus_left"], "20")
+        self.assertEqual(header_only_rows, [])
+        self.assertEqual(header_only.count("\n"), 1)
+
+    def test_rejects_unknown_difference_item_code(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        with self.assertRaisesRegex(
+            comparison.ComparisonError,
+            "unsupported difference item code",
+        ):
+            comparison.render_difference_csv(
+                report,
+                difference_item_code="unsupported",
+                known_item_codes=comparison.difference_item_codes(
+                    report
+                ),
+            )
+
     def test_rejects_evidence_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, completeness, evidence = self.fixture(

@@ -138,6 +138,8 @@ All notable changes to this project will be documented in this file.
 * Difference rows retain pair metadata, domain context, both recorded values, dates and source codes.
 * Optional deterministic filtering of the flat difference CSV by price, technical or equipment domain.
 * Difference-domain filtering composes with pair-type filtering while leaving JSON, Markdown and the full CSV unchanged by default.
+* Optional exact item-code filtering for the flat configuration-difference CSV.
+* Item-code validation uses the full active comparison report before pair and domain filtering.
 * Separate reporting for missing records, `unknown`, `not_available` and declared `not_applicable` slots.
 * Deterministic `documentation-baseline` command for current project counters.
 * Machine-readable JSON and human-readable Markdown baseline reports.
@@ -158,6 +160,7 @@ All notable changes to this project will be documented in this file.
 * Full quality now generates and publishes configuration-comparison JSON, Markdown and difference-CSV formats.
 * Configuration comparison preserves the global evidence summary when pair filtering narrows the displayed comparisons.
 * Difference-domain filtering affects only the flat CSV export and does not narrow report summaries or evidence scope.
+* Difference item filtering affects only flat CSV rows; known codes may yield header-only output after other filters.
 * Full quality now verifies and publishes both configuration-gap-source-review report formats.
 * Full quality now generates and publishes both configuration-gap-evidence report formats.
 * Full quality now generates and publishes both configuration-gap-triage report formats.
@@ -183,7 +186,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 408 tests.
+* The automated test suite now contains 410 tests.
 * The verified master-data baseline now contains 34 CSV files and 1380 rows.
 * SQLite verification now covers 34 tables and 1380 rows.
 * Configuration attribute values now contain 310 dated records.
@@ -255,3 +258,4 @@ All notable changes to this project will be documented in this file.
 * Reviewed the 21-pair comparison snapshot and selected same-version transmission filtering as the highest-signal follow-up.
 * Documented the flat comparison-difference CSV contract and its compatibility with pair-type filtering.
 * Reviewed the 305-row difference export and selected domain filtering over configuration filtering as the next reporting package.
+* Reviewed the three domain exports and selected exact item-code filtering over configuration filtering.
