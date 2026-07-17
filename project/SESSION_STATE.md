@@ -5,17 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#57. Aktualny punkt odniesienia to merge commit
-`f70589684873416cca948198509cd4c06508529d`.
+Pull Requesty #3–#58. Aktualny punkt odniesienia to merge commit
+`d9f3210d5639974ccf51bda8133c02fa5354adab`.
 
-PR #57 dodał opcjonalny filtr jednej z czterech klas par, zachowując pełny
-raport 21 par jako zachowanie domyślne. Kontrolny filtr skrzyni wybiera dwie
-pary, 23 różnice i 19 stanów `not_comparable`. GitHub Actions Quality run #144
-zakończył się powodzeniem.
+PR #58 dodał płaski CSV z 24 kolumnami i 305 źródłowymi różnicami:
+21 cenowymi, 260 technicznymi oraz 24 wyposażeniowymi. GitHub Actions Quality
+run #146 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-comparison-difference-export` z bazą dokładnie
-`f70589684873416cca948198509cd4c06508529d`.
+`reporting/configuration-comparison-difference-domain-filter` z bazą dokładnie
+`d9f3210d5639974ccf51bda8133c02fa5354adab`.
 
 ## Verified Quality Baseline
 
@@ -26,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 406 testów automatycznych zakończonych powodzeniem,
+- 408 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1380 rekordów danych,
 - 34 relacje między tabelami,
@@ -44,36 +43,36 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Comparison Difference Export.
+Configuration Comparison Difference Domain Filter.
 
 Zakres:
 
-- opcjonalny płaski eksport `--csv` przy JSON i Markdown bez zmian semantyki,
-- wyłącznie wyniki `different`, bez `equal` i `not_comparable`,
-- kod i typ pary, domena, atrybut lub wymiar oraz kontekst,
-- oba zapisane stany, wartości, daty obserwacji i źródła,
-- współpraca z opcjonalnym filtrem `--pair-type`,
-- integracja z istniejącym czternastym krokiem quality i artefaktem CI.
+- opcjonalny filtr `--difference-domain` wyłącznie dla płaskiego CSV,
+- kontrolowane domeny `prices`, `technical` i `equipment`,
+- pełny CSV 305 różnic jako zachowanie domyślne,
+- niezmienione JSON, Markdown, podsumowania i globalny snapshot dowodowy,
+- złożenie z istniejącym filtrem `--pair-type`,
+- brak zmian danych master, quality i workflow.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Pełny eksport zawiera 305 różnic: 21 cenowych, 260 technicznych i 24
-wyposażeniowe. Filtr `same_version_different_transmission` redukuje wynik do
-23 wierszy: 2 cenowych i 21 technicznych. CSV nie zmienia raportu źródłowego,
-nie zawiera stanów nieporównywalnych i nie wylicza brakujących wartości.
+Przegląd pełnego eksportu potwierdził poprawny kontrakt 24 kolumn oraz kompletną
+proweniencję. Technika stanowi 260 z 305 wierszy, czyli 85,25%. Filtr domeny
+wydziela 21 cen, 260 parametrów technicznych albo 24 pozycje wyposażenia.
+Dla dwóch par skrzyni daje odpowiednio 2, 21 albo 0 wierszy.
 
 ## Next Development Package
 
-Configuration Comparison Difference Export Review.
+Configuration Comparison Difference Domain Filter Review.
 
 Planowany przebieg:
 
-1. Przejrzeć pełne 305 i filtrowane 23 wiersze CSV.
-2. Ocenić układ kolumn, kolejność i kompletność proweniencji.
-3. Zweryfikować użycie w typowych narzędziach tabelarycznych.
-4. Ocenić potrzebę filtra domeny lub konfiguracji.
+1. Przejrzeć osobne eksporty cen, techniki i wyposażenia.
+2. Sprawdzić złożenie z filtrem typu pary.
+3. Potwierdzić niezmienność JSON, Markdown i pełnego CSV.
+4. Ocenić przydatność osobnych domen.
 5. Wybrać jeden mały kolejny pakiet raportowy.
 
 ## Working Mode
@@ -650,14 +649,34 @@ Completed:
 
 ### Configuration Comparison Difference Export
 
+Completed:
+
+- PR #58 dodał płaski CSV wyłącznie dla rzeczywistych różnic,
+- zachował parę, domenę, kontekst, oba zapisane stany i proweniencję,
+- publikuje pełne 305 albo filtrowane 23 wiersze różnic,
+- zintegrował CSV z istniejącym quality i artefaktem CI,
+- GitHub Actions Quality run #146 zakończył się powodzeniem.
+
+### Configuration Comparison Difference Export Review
+
+Completed:
+
+- zweryfikowano strukturę 305 × 24 oraz pełną proweniencję,
+- potwierdzono 260 wierszy technicznych, 21 cenowych i 24 wyposażeniowe,
+- CSV działa poprawnie w parserach tabelarycznych UTF-8,
+- filtr konfiguracji odroczono jako nadal zbyt szeroki,
+- wybrano filtr domeny jako najwyższy sygnał.
+
+### Configuration Comparison Difference Domain Filter
+
 Current package:
 
-- dodaje opcjonalny płaski CSV wyłącznie dla rzeczywistych różnic,
-- zachowuje parę, domenę, kontekst, oba zapisane stany i proweniencję,
+- dodaje opcjonalny filtr jednej z trzech domen płaskiego CSV,
+- zachowuje pełny CSV jako zachowanie domyślne,
+- nie zmienia JSON, Markdown ani podsumowań raportu,
 - współpracuje z filtrem `--pair-type`,
-- publikuje pełne 305 lub filtrowane 23 wiersze różnic,
-- integruje CSV z istniejącym quality i artefaktem CI.
+- nie zmienia quality, workflow ani danych master.
 
 Next priority:
 
-Przeanalizować eksport różnic i wybrać jeden mały kolejny pakiet raportowy.
+Przeanalizować osobne eksporty domen i wybrać jeden mały kolejny pakiet.
