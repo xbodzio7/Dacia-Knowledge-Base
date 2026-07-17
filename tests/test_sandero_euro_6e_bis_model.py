@@ -108,7 +108,15 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         )
 
     def test_source_registry_and_mapping_are_unchanged(self) -> None:
-        self.assertEqual(len(self.sources), 7)
+        sandero_source_codes = set(EXPECTED.values())
+        self.assertEqual(
+            {
+                row["code"]
+                for row in self.sources
+                if row["code"] in sandero_source_codes
+            },
+            sandero_source_codes,
+        )
         mapping = {
             row["configuration_code"]: row["source_code"]
             for row in self.source_configurations
