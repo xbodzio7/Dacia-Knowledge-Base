@@ -9,10 +9,10 @@
   },
   "phase": "Reporting and Completeness",
   "reference_delivery": {
-    "name": "Legacy Narrative Documentation Migration",
-    "pull_request": 70,
-    "head_sha": "afc8935e3139b406afdb262ddb2c8ebc4323578d",
-    "quality_run": 174
+    "name": "Configuration Comparison Item Catalog Quality Artifact",
+    "pull_request": 71,
+    "head_sha": "83d9f7e0c4741b9ce68ae69810408c56cd3758e2",
+    "quality_run": 177
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Reporting Artifact Portfolio Review",
+    "name": "Configuration Comparison Difference Context Filter",
     "status": "planned",
-    "goal": "Review the standard Quality artifact bundle, identify the highest-value missing reporting surface and select one bounded enhancement without changing master data."
+    "goal": "Add an optional exact-context filter to the flat comparison-differences CSV, compose it with pair, domain and item filters, and preserve all default JSON, Markdown and full-CSV outputs."
   },
   "next_package": {
-    "name": "Selected Reporting Enhancement Implementation",
+    "name": "Reporting Milestone Review",
     "status": "planned",
-    "goal": "Implement the selected reporting enhancement, preserve deterministic outputs and publish it through the existing Quality artifact workflow."
+    "goal": "Review the completed reporting surfaces and Quality artifact contract, then select the highest-value bounded package without changing master data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

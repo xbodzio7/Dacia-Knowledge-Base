@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Legacy Narrative Documentation Migration
-- Pull Request: #70
-- Verified head: `afc8935e3139b406afdb262ddb2c8ebc4323578d`
-- Quality run: #174
+- Package: Configuration Comparison Item Catalog Quality Artifact
+- Pull Request: #71
+- Verified head: `83d9f7e0c4741b9ce68ae69810408c56cd3758e2`
+- Quality run: #177
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Reporting Artifact Portfolio Review** — `planned`
+**Configuration Comparison Difference Context Filter** — `planned`
 
-Review the standard Quality artifact bundle, identify the highest-value missing reporting surface and select one bounded enhancement without changing master data.
+Add an optional exact-context filter to the flat comparison-differences CSV, compose it with pair, domain and item filters, and preserve all default JSON, Markdown and full-CSV outputs.
 
 ## Next package
 
-**Selected Reporting Enhancement Implementation** — `planned`
+**Reporting Milestone Review** — `planned`
 
-Implement the selected reporting enhancement, preserve deterministic outputs and publish it through the existing Quality artifact workflow.
+Review the completed reporting surfaces and Quality artifact contract, then select the highest-value bounded package without changing master data.
 
 ## Autonomy
 
