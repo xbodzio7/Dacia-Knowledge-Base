@@ -111,15 +111,15 @@ All notable changes to this project will be documented in this file.
 * Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
 * Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
 * Fourteen source-backed `acceleration_0_100` values with separate LPG and petrol context and exact page-5 provenance.
-* Versioned resolution plan covering all 70 configuration-gap evidence decisions.
-* One evidence-backed `wheel_design = ERALIA` candidate routed to a one-row declarative value import without a model change.
-* Explicit closure of 44 `not_stated` and 25 `out_of_scope` decisions with automatic import disabled.
-* Versioned source-page review rules for all 45 evidence-review targets.
+* Versioned resolution planning for 69 active configuration-gap decisions after the evidence-backed import.
+* One source-backed `wheel_design = ERALIA` value imported as ID 310 through the eleventh declarative specification without a model change.
+* Explicit closure of 44 `not_stated` and 25 `out_of_scope` decisions with zero remaining candidates, zero planned rows and automatic import disabled.
+* Versioned source-page review rules for all 44 active evidence-review targets.
 * SHA-256-verified review of 19 relevant source pages across seven registered PDFs.
-* Source-page results: 1 `found`, 44 `not_stated` and 0 still `ambiguous`, with zero automatic imports.
-* Versioned configuration-gap evidence decisions matched one-to-one with the triage queue.
-* Conservative `out_of_scope` and `ambiguous` classifications that do not claim unreviewed PDF text.
-* Explicit source-page evidence contracts for future `found` and `not_stated` decisions with automatic import disabled.
+* Active source-page results: 0 `found`, 44 `not_stated`, 0 `ambiguous`, 25 unchanged `out_of_scope` decisions and zero candidate values.
+* Versioned configuration-gap evidence decisions matched one-to-one with the 69-entry triage queue.
+* Conservative classifications that do not convert absent source statements into negative data.
+* Resolution planning routes the next package to the configuration-gap closure documentation milestone.
 * Deterministic, non-prioritized verification queue for configuration gaps.
 * One-to-one consistency checks between completeness and source-coverage gaps.
 * Source-verification tasks retaining document dates, paths and SHA-256 hashes with automatic import disabled.
@@ -235,3 +235,6 @@ All notable changes to this project will be documented in this file.
 * Documented the explicit configuration-completeness denominator and non-guessing gap semantics.
 * Added generated baseline counters and drift-checked current documentation summaries.
 * Synchronized README, changelog, roadmap and session state after PRs #44–#45 and closed the current explicit technical-value sweep.
+* Planned and imported the source-backed Stepway Essential `wheel_design = ERALIA` value as ID 310 through PRs #53–#54.
+* Closed the active configuration-gap cycle at 69 decisions: 44 `not_stated`, 25 `out_of_scope`, zero candidates, zero planned rows and automatic import disabled.
+* Synchronized README, changelog, roadmap and session state after PRs #53–#54 and selected a configuration comparison report as the next reporting package.
