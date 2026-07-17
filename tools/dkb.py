@@ -22,7 +22,8 @@ SCRIPT_COMMANDS = {
         "configuration_comparison.py",
         "Compare active configuration prices, values and equipment.",
         "[--completeness-spec FILE] [--evidence-spec FILE] "
-        "[--as-of YYYY-MM-DD] [--json FILE] [--markdown FILE]",
+        "[--as-of YYYY-MM-DD] [--pair-type TYPE] "
+        "[--json FILE] [--markdown FILE]",
     ),
     "configuration-gap-resolution-plan": (
         "configuration_gap_resolution_plan.py",

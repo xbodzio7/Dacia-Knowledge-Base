@@ -5,17 +5,16 @@
 Repozytorium pozostaje jedynym źródłem prawdy.
 
 Gałąź `main` zawiera pakiety Sandero i Sandero Stepway zintegrowane przez
-Pull Requesty #3–#55. Aktualny punkt odniesienia to merge commit
-`12fde52d83e60689485f18fb099cf5bdbde8f21e`.
+Pull Requesty #3–#56. Aktualny punkt odniesienia to merge commit
+`5ee44f6f1d0fe92eea58a55ca8825e1977d1377f`.
 
-PR #55 zamknął dokumentacyjnie cykl 69 aktywnych decyzji po wykonaniu importu
-`wheel_design = ERALIA`: 44 `not_stated`, 25 `out_of_scope`, 0 kandydatów
-i 0 planowanych wierszy. GitHub Actions Quality run #140 zakończył się
-powodzeniem.
+PR #56 dodał deterministyczne porównanie siedmiu konfiguracji w 21 parach:
+21 różnic cenowych, 260 technicznych, 24 wyposażeniowe oraz jawne stany
+`not_comparable`. GitHub Actions Quality run #142 zakończył się powodzeniem.
 
 Bieżący pakiet raportowy jest rozwijany na gałęzi
-`reporting/configuration-comparison` z bazą dokładnie
-`12fde52d83e60689485f18fb099cf5bdbde8f21e`.
+`reporting/configuration-comparison-pair-type-filter` z bazą dokładnie
+`5ee44f6f1d0fe92eea58a55ca8825e1977d1377f`.
 
 ## Verified Quality Baseline
 
@@ -26,7 +25,7 @@ python tools/dkb.py quality
 ```
 
 <!-- dkb:documentation-baseline:session:start -->
-- 402 testów automatycznych zakończonych powodzeniem,
+- 404 testów automatycznych zakończonych powodzeniem,
 - 34 pliki CSV w `data/master`,
 - 1380 rekordów danych,
 - 34 relacje między tabelami,
@@ -44,37 +43,38 @@ python tools/dkb.py quality
 
 ## Current Sprint
 
-Configuration Comparison Report.
+Configuration Comparison Pair-Type Filter.
 
 Zakres:
 
-- deterministyczne porównanie siedmiu aktywnych konfiguracji w 21 parach,
-- osobne domeny cen, 45 slotów technicznych i 69 atrybutów wyposażenia,
-- różnica wyłącznie między dwoma zapisanymi stanami źródłowymi,
-- zachowanie `missing`, `not_stated`, `out_of_scope`, `ambiguous` i `not_applicable` jako `not_comparable`,
-- zachowanie `not_available` jako porównywalnego stanu wyposażenia,
-- integracja JSON/Markdown z CLI, pełną jakością i artefaktami GitHub Actions.
+- opcjonalny filtr `--pair-type` przy pełnym raporcie jako zachowaniu domyślnym,
+- cztery istniejące klasyfikacje wersji i skrzyni biegów,
+- ponowne wyliczanie par, wybranych konfiguracji i podsumowań domen,
+- globalne podsumowanie 69 decyzji dowodowych niezależne od filtra,
+- kontrolny snapshot dwóch par `same_version_different_transmission`,
+- brak zmian danych master, modelu, quality i workflow.
 
 ## Current Phase
 
 Aktualna faza to **Reporting and Completeness**.
 
-Raport korzysta z bieżącego mianownika kompletności i wersjonowanej
-klasyfikacji dowodów. Nie zmienia danych master ani specyfikacji raportowych.
-Każdy stan nieporównywalny zachowuje przyczynę i proweniencję; tylko dwa
-zapisane stany mogą zostać sklasyfikowane jako równe albo różne.
+Przegląd snapshotu wskazał dwie pary tej samej wersji z inną skrzynią jako
+najbardziej użyteczny, niski-szum zakres. W obu automat kosztuje 6 900 PLN
+więcej, nie ma potwierdzonej różnicy wyposażenia, a różnice techniczne obejmują
+łącznie 21 porównań. Filtr nie zmienia zasad `recorded`, `different` ani
+`not_comparable`.
 
 ## Next Development Package
 
-Configuration Comparison Snapshot Review.
+Configuration Comparison Difference Export.
 
 Planowany przebieg:
 
-1. Przejrzeć wynik dla wszystkich 21 par konfiguracji.
-2. Oddzielić różnice cenowe, techniczne i wyposażeniowe.
-3. Ocenić użyteczność porównań wersji oraz skrzyń manualnych i automatycznych.
-4. Zweryfikować potrzebę filtrów lub dodatkowego eksportu użytkowego.
-5. Wybrać jeden mały pakiet dalszego rozwoju bez tworzenia danych z braków.
+1. Zdefiniować płaski, deterministyczny format CSV różnic.
+2. Zachować kod i typ pary, domenę, atrybut, kontekst oraz oba stany.
+3. Obsłużyć opcjonalny filtr `--pair-type`.
+4. Eksportować wyłącznie wyniki `different`.
+5. Nie zmieniać danych master ani klasyfikacji dowodowych.
 
 ## Working Mode
 
@@ -620,15 +620,34 @@ Completed:
 
 ### Configuration Comparison Report
 
+Completed:
+
+- PR #56 dodał raport JSON i Markdown dla siedmiu konfiguracji i 21 par,
+- objął ceny, 45 slotów technicznych i 69 atrybutów wyposażenia,
+- rozdzielił rzeczywiste różnice od stanów `not_comparable`,
+- zachował klasyfikacje dowodowe i jawne `not_available`,
+- GitHub Actions Quality run #142 zakończył się powodzeniem.
+
+### Configuration Comparison Snapshot Review
+
+Completed:
+
+- przeanalizowano 2 415 porównań z artefaktu CI PR #56,
+- potwierdzono 305 różnic i 316 stanów `not_comparable`,
+- wybrano dwie pary tej samej wersji z inną skrzynią jako najwyższy sygnał,
+- w obu automat kosztuje 6 900 PLN więcej bez różnicy wyposażenia,
+- nie utworzono danych, gałęzi, commitu ani Pull Requestu.
+
+### Configuration Comparison Pair-Type Filter
+
 Current package:
 
-- porównuje siedem aktywnych konfiguracji w 21 parach,
-- obejmuje ceny, 45 slotów technicznych i 69 atrybutów wyposażenia,
-- rozdziela rzeczywiste różnice od stanów `not_comparable`,
-- zachowuje klasyfikacje dowodowe i jawne `not_available`,
-- publikuje deterministyczny JSON i Markdown w pełnej jakości.
+- dodaje opcjonalny filtr jednej z czterech istniejących klas par,
+- zachowuje pełny raport 21 par jako zachowanie domyślne,
+- ponownie wylicza wybrane konfiguracje i podsumowania domen,
+- utrzymuje globalny snapshot 69 decyzji dowodowych,
+- kontroluje wynik dwóch par skrzyni bez zmian danych i workflow.
 
 Next priority:
 
-Przeanalizować wygenerowany snapshot i wybrać jeden mały pakiet dalszego
-rozwoju bez tworzenia danych na podstawie braków.
+Dodać deterministyczny, płaski eksport CSV wyłącznie dla rzeczywistych różnic.
