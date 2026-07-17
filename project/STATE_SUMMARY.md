@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Item Catalog Quality Artifact
-- Pull Request: #71
-- Verified head: `83d9f7e0c4741b9ce68ae69810408c56cd3758e2`
-- Quality run: #177
+- Package: Quality Artifact Manifest
+- Pull Request: #72
+- Verified head: `e9e63301d2304523069e24bcd44224f4aa88a69d`
+- Quality run: #180
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Configuration Comparison Difference Context Filter** — `planned`
+**Reporting Milestone Review** — `planned`
 
-Add an optional exact-context filter to the flat comparison-differences CSV, compose it with pair, domain and item filters, and preserve all default JSON, Markdown and full-CSV outputs.
+Review the completed comparison discovery, filtering and Quality artifact surfaces, rank bounded next-package candidates and select the highest-value implementation without changing master data.
 
 ## Next package
 
-**Reporting Milestone Review** — `planned`
+**Selected Reporting Package Implementation** — `planned`
 
-Review the completed reporting surfaces and Quality artifact contract, then select the highest-value bounded package without changing master data.
+Implement the bounded reporting package selected from repository evidence, preserve deterministic outputs and update canonical state in the same delivery cycle.
 
 ## Autonomy
 

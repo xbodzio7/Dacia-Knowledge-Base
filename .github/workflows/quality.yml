@@ -68,7 +68,8 @@ jobs:
           python -m unittest -q \
             tests.project_state_contract \
             tests.autonomy_policy_contract \
-            tests.quality_artifact_manifest_contract
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract
 
       - name: Check canonical project state
         if: matrix.python-version == '3.10'
@@ -177,7 +178,8 @@ jobs:
             tests.test_quality `
             tests.project_state_contract `
             tests.autonomy_policy_contract `
-            tests.quality_artifact_manifest_contract
+            tests.quality_artifact_manifest_contract `
+            tests.configuration_comparison_context_filter_contract
 
       - name: Check canonical project state
         run: python tools/dkb.py project-state --check

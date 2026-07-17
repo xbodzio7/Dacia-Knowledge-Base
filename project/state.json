@@ -9,10 +9,10 @@
   },
   "phase": "Reporting and Completeness",
   "reference_delivery": {
-    "name": "Configuration Comparison Item Catalog Quality Artifact",
-    "pull_request": 71,
-    "head_sha": "83d9f7e0c4741b9ce68ae69810408c56cd3758e2",
-    "quality_run": 177
+    "name": "Quality Artifact Manifest",
+    "pull_request": 72,
+    "head_sha": "e9e63301d2304523069e24bcd44224f4aa88a69d",
+    "quality_run": 180
   },
   "baseline": {
     "tests": 410,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Comparison Difference Context Filter",
-    "status": "planned",
-    "goal": "Add an optional exact-context filter to the flat comparison-differences CSV, compose it with pair, domain and item filters, and preserve all default JSON, Markdown and full-CSV outputs."
-  },
-  "next_package": {
     "name": "Reporting Milestone Review",
     "status": "planned",
-    "goal": "Review the completed reporting surfaces and Quality artifact contract, then select the highest-value bounded package without changing master data."
+    "goal": "Review the completed comparison discovery, filtering and Quality artifact surfaces, rank bounded next-package candidates and select the highest-value implementation without changing master data."
+  },
+  "next_package": {
+    "name": "Selected Reporting Package Implementation",
+    "status": "planned",
+    "goal": "Implement the bounded reporting package selected from repository evidence, preserve deterministic outputs and update canonical state in the same delivery cycle."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
