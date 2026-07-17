@@ -56,6 +56,16 @@ The new module was compiled with Python and exercised against a synthetic two-pa
 - rejection of a cross-domain item-code collision,
 - registration and help visibility in the unified `dkb.py` CLI.
 
+The catalog was also executed against the full configuration-comparison JSON artifact produced by successful Quality run #153. The real 21-pair snapshot produced:
+
+- 109 catalog rows,
+- 1 price code,
+- 39 technical codes,
+- 69 equipment codes,
+- 103 codes with one context and 6 technical codes with two fuel contexts,
+- `co2_emissions` with 42 comparisons: 8 equal and 34 different,
+- a CSV that parsed back to the exact generated row sequence.
+
 Repository-wide behavior is delegated to the pull-request Quality workflow because the execution environment used for this package did not have a network-accessible local checkout.
 
 ## Scope
