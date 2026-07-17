@@ -38,13 +38,21 @@ It retains the existing deterministic columns:
 - `item_name`,
 - `category`,
 - `context_count`,
-- `context_values`,
+- `contexts`,
 - `comparison_count`,
 - `equal_count`,
 - `different_count`,
 - `not_comparable_count`.
 
 The command remains the single implementation of catalog generation. The workflow does not duplicate report logic or hard-code the current 109-row baseline.
+
+## Verified artifact
+
+Quality run #176 published artifact `dacia-knowledge-base-build` with digest recorded by GitHub Actions. Inspection of the downloaded ZIP confirmed:
+
+- exactly one `_temp/configuration-comparison-item-catalog.csv`,
+- 109 data rows plus the CSV header,
+- the expected ten-column header including `contexts`.
 
 ## Failure behavior
 
