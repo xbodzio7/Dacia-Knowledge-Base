@@ -67,7 +67,8 @@ jobs:
         run: |
           python -m unittest -q \
             tests.project_state_contract \
-            tests.autonomy_policy_contract
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract
 
       - name: Check canonical project state
         if: matrix.python-version == '3.10'
@@ -87,6 +88,34 @@ jobs:
         run: |
           python tools/dkb.py configuration-comparison-item-catalog \
             --csv "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv"
+
+      - name: Generate Quality artifact manifest
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/artifact-manifest.json" \
+            --file "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --file "${RUNNER_TEMP}/quality.log" \
+            --file "${RUNNER_TEMP}/quality-summary.json" \
+            --file "${RUNNER_TEMP}/documentation-baseline.json" \
+            --file "${RUNNER_TEMP}/documentation-baseline.md" \
+            --file "${RUNNER_TEMP}/configuration-completeness.json" \
+            --file "${RUNNER_TEMP}/configuration-completeness.md" \
+            --file "${RUNNER_TEMP}/source-coverage.json" \
+            --file "${RUNNER_TEMP}/source-coverage.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-triage.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-triage.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-source-review.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-source-review.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-evidence.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-evidence.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-resolution-plan.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-resolution-plan.md" \
+            --file "${RUNNER_TEMP}/configuration-comparison.json" \
+            --file "${RUNNER_TEMP}/configuration-comparison.md" \
+            --file "${RUNNER_TEMP}/configuration-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv" \
+            --file "reports/validation_report.md"
 
       - name: Upload generated artifacts
         if: matrix.python-version == '3.13'
@@ -115,6 +144,7 @@ jobs:
             ${{ runner.temp }}/configuration-comparison.md
             ${{ runner.temp }}/configuration-comparison-differences.csv
             ${{ runner.temp }}/configuration-comparison-item-catalog.csv
+            ${{ runner.temp }}/artifact-manifest.json
             reports/validation_report.md
           if-no-files-found: error
           retention-days: 7
@@ -146,7 +176,8 @@ jobs:
             tests.test_dkb_cli `
             tests.test_quality `
             tests.project_state_contract `
-            tests.autonomy_policy_contract
+            tests.autonomy_policy_contract `
+            tests.quality_artifact_manifest_contract
 
       - name: Check canonical project state
         run: python tools/dkb.py project-state --check
