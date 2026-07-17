@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Autonomous Collaboration Policy Enforcement
-- Pull Request: #69
-- Verified head: `5769c4857899e461455d077a66ef585165ce9dd6`
-- Quality run: #172
+- Package: Legacy Narrative Documentation Migration
+- Pull Request: #70
+- Verified head: `afc8935e3139b406afdb262ddb2c8ebc4323578d`
+- Quality run: #174
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Reporting Roadmap Selection** — `planned`
+**Reporting Artifact Portfolio Review** — `planned`
 
-Review the completed reporting and tooling milestone, rank bounded next-package candidates and select the highest-value implementation without changing master data.
+Review the standard Quality artifact bundle, identify the highest-value missing reporting surface and select one bounded enhancement without changing master data.
 
 ## Next package
 
-**Selected Reporting Package Implementation** — `planned`
+**Selected Reporting Enhancement Implementation** — `planned`
 
-Implement the bounded reporting package selected from repository evidence, validate it across supported platforms and update canonical state in the same delivery cycle.
+Implement the selected reporting enhancement, preserve deterministic outputs and publish it through the existing Quality artifact workflow.
 
 ## Autonomy
 
