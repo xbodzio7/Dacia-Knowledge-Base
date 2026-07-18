@@ -90,6 +90,24 @@ SCOPES = {
         "equipment_differences": 28,
         "total_differences": 31,
     },
+    "mildhybrid130_4x2": {
+        "spec": REPOSITORY / "data" / "reporting" / "duster_mildhybrid130_4x2_completeness.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "duster_mildhybrid130_4x2_gap_evidence.spec",
+        "configurations": {
+            "duster_iii_expression_mildhybrid130_4x2_manual",
+            "duster_iii_extreme_mildhybrid130_4x2_manual",
+            "duster_iii_journey_mildhybrid130_4x2_manual",
+        },
+        "technical_slots": 15,
+        "technical_records": 45,
+        "technical_comparisons": 45,
+        "equipment_records": 174,
+        "pair_count": 3,
+        "equal_prices": 0,
+        "different_prices": 3,
+        "equipment_differences": 28,
+        "total_differences": 31,
+    },
 }
 
 
