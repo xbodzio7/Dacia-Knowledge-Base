@@ -193,3 +193,39 @@ jobs:
 
       - name: Check canonical project state
         run: python tools/dkb.py project-state --check
+
+  sync-price-documentation:
+    name: Sync Duster price documentation
+    if: github.event_name == 'pull_request' && github.head_ref == 'data/duster-catalog-price-import'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: data/duster-catalog-price-import
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Apply deterministic documentation sync
+        run: python project/sync_price_documentation.py
+
+      - name: Verify canonical state
+        run: python tools/dkb.py project-state --check
+
+      - name: Remove transport files and publish clean documentation
+        run: |
+          git fetch origin main
+          git show origin/main:.github/workflows/quality.yml > .github/workflows/quality.yml
+          rm project/sync_price_documentation.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md CHANGELOG.md .github/workflows/quality.yml project/sync_price_documentation.py
+          git commit -m "docs: sync Duster price import"
+          git push origin HEAD:data/duster-catalog-price-import
