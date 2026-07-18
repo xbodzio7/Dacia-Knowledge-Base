@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Final Duster Mild Hybrid 140 4x2 Reporting Selection
-- Pull Request: #97
-- Verified head: `1c6309f648b033d360c0c30c0cdce7d000f44bc6`
-- Quality run: #354
+- Package: Final Duster Mild Hybrid 140 4x2 Reporting Promotion
+- Pull Request: #98
+- Verified head: `83775c2aef05dc6649f78c3a07a77ed35e8720fe`
+- Quality run: #356
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Reporting Portfolio Completion Review** — `active`
+**Jogger Source Intake** — `blocked`
 
-Verify that all seven homogeneous Duster powertrain groups and all 24 source-supported Duster configurations have independent complete reporting portfolios, preserve their source-specific denominators and select the next bounded repository milestone.
+Acquire or approve one authoritative Jogger catalogue, price list or specification document with explicit market and date, register it with provenance and define the first bounded source-backed Jogger intake.
 
 ## Next package
 
-**Post-Duster Source Expansion Planning** — `planned`
+**Jogger Catalogue Reporting Scope Review** — `planned`
 
-Select the next bounded source-backed model expansion after the complete Duster reporting portfolio is verified, without introducing cross-powertrain aggregation implicitly.
+After source intake, review the source-backed Jogger catalogue candidate and decide the explicit reporting-scope boundary before creating active versions and configurations.
 
 ## Autonomy
 

@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Final Duster Mild Hybrid 140 4x2 Reporting Selection",
-    "pull_request": 97,
-    "head_sha": "1c6309f648b033d360c0c30c0cdce7d000f44bc6",
-    "quality_run": 354
+    "name": "Final Duster Mild Hybrid 140 4x2 Reporting Promotion",
+    "pull_request": 98,
+    "head_sha": "83775c2aef05dc6649f78c3a07a77ed35e8720fe",
+    "quality_run": 356
   },
   "baseline": {
     "tests": 446,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Reporting Portfolio Completion Review",
-    "status": "active",
-    "goal": "Verify that all seven homogeneous Duster powertrain groups and all 24 source-supported Duster configurations have independent complete reporting portfolios, preserve their source-specific denominators and select the next bounded repository milestone."
+    "name": "Jogger Source Intake",
+    "status": "blocked",
+    "goal": "Acquire or approve one authoritative Jogger catalogue, price list or specification document with explicit market and date, register it with provenance and define the first bounded source-backed Jogger intake."
   },
   "next_package": {
-    "name": "Post-Duster Source Expansion Planning",
+    "name": "Jogger Catalogue Reporting Scope Review",
     "status": "planned",
-    "goal": "Select the next bounded source-backed model expansion after the complete Duster reporting portfolio is verified, without introducing cross-powertrain aggregation implicitly."
+    "goal": "After source intake, review the source-backed Jogger catalogue candidate and decide the explicit reporting-scope boundary before creating active versions and configurations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
