@@ -50,3 +50,5 @@ Acceptance requires:
 - SQLite parity at 34 tables and 1,464 rows,
 - unchanged explicit Sandero reporting subset,
 - full Quality and Windows checks.
+
+The final Quality run must use the clean branch head after README and changelog synchronization; no transport workflow or synchronization script is part of the package diff.
