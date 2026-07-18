@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Duster III Equipment Availability Import",
-    "pull_request": 84,
-    "head_sha": "13eb8741b50324e4cfdd7f6761123428a8ec0e0a",
-    "quality_run": 315
+    "name": "Duster Eco-G 120 Reporting Scope Promotion",
+    "pull_request": 86,
+    "head_sha": "c47a3d93beaff1ce47c77a85831f52ae15149baf",
+    "quality_run": 326
   },
   "baseline": {
     "tests": 446,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Remaining Duster Powertrain Reporting Portfolio Review",
+    "name": "Duster Eco-G 100 Reporting Scope Promotion",
     "status": "active",
-    "goal": "Review the six remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing the Sandero or Eco-G 120 denominators."
+    "goal": "Publish the four Eco-G 100 4x2 manual configurations as an explicit reporting subset with 21 technical slots, 58 equipment attributes, dated prices and six deterministic trim comparisons while preserving the Sandero and Eco-G 120 outputs."
   },
   "next_package": {
-    "name": "Selected Remaining Duster Reporting Promotion Implementation",
+    "name": "Remaining Duster Powertrain Reporting Portfolio Review",
     "status": "planned",
-    "goal": "Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs."
+    "goal": "Review the five remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset after the Eco-G 100 promotion."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
