@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Catalogue Scope Selection
-- Pull Request: #101
-- Verified head: `f197080438b1bd591521df02a43243a909530a83`
-- Quality run: #362
+- Package: Jogger MY26 Catalogue Entity Foundation
+- Pull Request: #102
+- Verified head: `b871a92b988da5ab43788697f6c283a44b951182`
+- Quality run: #401
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Source Binary Archival** — `blocked`
+**Jogger Technical Denominator Review** — `active`
 
-Archive the supplied official Jogger MY26 PDF at the reserved repository path and verify its exact SHA-256 so the shared declarative import contract and further source-page review can operate entirely from repository state.
+Review the accepted Jogger page-6 technical table and classify exact powertrain-wide values, explicit five- and seven-seat observations and source ranges without flattening range-valued or condition-dependent evidence into unsupported scalar configuration values.
 
 ## Next package
 
-**Jogger Technical Denominator Review** — `planned`
+**Selected Jogger Technical Specification Import** — `planned`
 
-After binary archival, review the Jogger page-6 technical table and separate exact powertrain-wide values, explicit five-/seven-seat observations and source ranges before importing scalar technical data.
+Import the selected exact scalar Jogger technical observations under the approved source-stated denominator while preserving seat-count semantics and leaving source ranges or unresolved dependent values outside the scalar import.
 
 ## Autonomy
 
