@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Final Duster Mild Hybrid 140 4x2 Reporting Promotion
-- Pull Request: #98
-- Verified head: `83775c2aef05dc6649f78c3a07a77ed35e8720fe`
-- Quality run: #356
+- Package: Duster Reporting Portfolio Completion Review
+- Pull Request: #99
+- Verified head: `a491ddcb588b3150a8078cc6913948686ff26f0b`
+- Quality run: #358
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Source Intake** — `blocked`
+**Jogger Catalogue Reporting Scope Review** — `active`
 
-Acquire or approve one authoritative Jogger catalogue, price list or specification document with explicit market and date, register it with provenance and define the first bounded source-backed Jogger intake.
+Review the accepted Polish Jogger MY26 price list dated 2026-04-01, decide the first explicit source-backed catalogue boundary across trims, seat counts and powertrains, and define a representation that preserves seat-count semantics without overloading the powertrain label.
 
 ## Next package
 
-**Jogger Catalogue Reporting Scope Review** — `planned`
+**Jogger Catalogue Entity Foundation** — `planned`
 
-After source intake, review the source-backed Jogger catalogue candidate and decide the explicit reporting-scope boundary before creating active versions and configurations.
+Register the accepted source in master data and create the selected source-backed Jogger versions and configurations with dated catalogue prices and explicit seating-capacity observations.
 
 ## Autonomy
 
