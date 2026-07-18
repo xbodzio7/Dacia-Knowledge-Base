@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger MY26 Catalogue Entity Foundation",
-    "pull_request": 102,
-    "head_sha": "b871a92b988da5ab43788697f6c283a44b951182",
-    "quality_run": 401
+    "name": "Jogger MY26 Exact Source Binary Archival",
+    "pull_request": 103,
+    "head_sha": "38861121b9abcdd2af483c9a7942b16f13229e19",
+    "quality_run": 412
   },
   "baseline": {
     "tests": 451,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Technical Denominator Review",
+    "name": "Selected Jogger Technical Specification Import",
     "status": "active",
-    "goal": "Review the accepted Jogger page-6 technical table and classify exact powertrain-wide values, explicit five- and seven-seat observations and source ranges without flattening range-valued or condition-dependent evidence into unsupported scalar configuration values."
+    "goal": "Materialize 312 exact page-6 Jogger configuration observations in 17 declarative import specifications across the four homogeneous powertrain groups while preserving fuel and seat-count contexts and excluding every documented range or semantic mismatch."
   },
   "next_package": {
-    "name": "Selected Jogger Technical Specification Import",
+    "name": "Jogger Deferred Technical Evidence Reconciliation",
     "status": "planned",
-    "goal": "Import the selected exact scalar Jogger technical observations under the approved source-stated denominator while preserving seat-count semantics and leaving source ranges or unresolved dependent values outside the scalar import."
+    "goal": "Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Catalogue Entity Foundation
-- Pull Request: #102
-- Verified head: `b871a92b988da5ab43788697f6c283a44b951182`
-- Quality run: #401
+- Package: Jogger MY26 Exact Source Binary Archival
+- Pull Request: #103
+- Verified head: `38861121b9abcdd2af483c9a7942b16f13229e19`
+- Quality run: #412
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Technical Denominator Review** — `active`
+**Selected Jogger Technical Specification Import** — `active`
 
-Review the accepted Jogger page-6 technical table and classify exact powertrain-wide values, explicit five- and seven-seat observations and source ranges without flattening range-valued or condition-dependent evidence into unsupported scalar configuration values.
+Materialize 312 exact page-6 Jogger configuration observations in 17 declarative import specifications across the four homogeneous powertrain groups while preserving fuel and seat-count contexts and excluding every documented range or semantic mismatch.
 
 ## Next package
 
-**Selected Jogger Technical Specification Import** — `planned`
+**Jogger Deferred Technical Evidence Reconciliation** — `planned`
 
-Import the selected exact scalar Jogger technical observations under the approved source-stated denominator while preserving seat-count semantics and leaving source ranges or unresolved dependent values outside the scalar import.
+Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics.
 
 ## Autonomy
 
