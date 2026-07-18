@@ -70,7 +70,10 @@ def generated_rows() -> list[dict[str, str]]:
     if missing:
         raise ContractError("inactive or missing attributes: " + ", ".join(missing))
     active_statuses = {
-        row["code"] for row in read_rows(MASTER / "equipment_availability_statuses.csv")
+        row["code"]
+        for row in read_rows(
+            MASTER / "enums" / "equipment_availability_statuses.csv"
+        )
         if row.get("status") == "active"
     }
     if not STATUSES <= active_statuses:
