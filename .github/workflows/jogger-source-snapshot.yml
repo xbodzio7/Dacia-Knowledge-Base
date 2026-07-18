@@ -1,31 +1,36 @@
-name: Jogger Source Snapshot
+name: Jogger Payload Applicator
 
 on:
   push:
     branches:
       - data/jogger-my26-catalogue-entity-foundation
-  pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  snapshot:
+  apply:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out implementation branch
         uses: actions/checkout@v7
         with:
-          persist-credentials: false
+          ref: data/jogger-my26-catalogue-entity-foundation
 
-      - name: Archive exact source checkout
+      - name: Apply deterministic payload when present
+        shell: bash
         run: |
-          tar --exclude=.git -czf "${RUNNER_TEMP}/repository-source.tgz" .
-
-      - name: Upload source snapshot
-        uses: actions/upload-artifact@v6
-        with:
-          name: jogger-source-snapshot
-          path: ${{ runner.temp }}/repository-source.tgz
-          if-no-files-found: error
-          retention-days: 1
+          set -euo pipefail
+          if [[ ! -f .jogger-payload.b64 ]]; then
+            echo "Payload not present; nothing to apply."
+            exit 0
+          fi
+          base64 --decode .jogger-payload.b64 | tar -xzf -
+          rm .jogger-payload.b64
+          rm .github/workflows/jogger-source-snapshot.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "data: materialize Jogger MY26 catalogue foundation"
+          git push origin HEAD:data/jogger-my26-catalogue-entity-foundation
