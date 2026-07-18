@@ -126,6 +126,24 @@ SCOPES = {
         "equipment_differences": 28,
         "total_differences": 30,
     },
+    "mildhybrid140_4x2": {
+        "spec": REPOSITORY / "data" / "reporting" / "duster_mildhybrid140_4x2_completeness.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "duster_mildhybrid140_4x2_gap_evidence.spec",
+        "configurations": {
+            "duster_iii_expression_mildhybrid140_4x2_manual",
+            "duster_iii_extreme_mildhybrid140_4x2_manual",
+            "duster_iii_journey_mildhybrid140_4x2_manual",
+        },
+        "technical_slots": 14,
+        "technical_records": 42,
+        "technical_comparisons": 42,
+        "equipment_records": 174,
+        "pair_count": 3,
+        "equal_prices": 0,
+        "different_prices": 3,
+        "equipment_differences": 28,
+        "total_differences": 31,
+    },
 }
 
 
@@ -287,6 +305,7 @@ class DusterReportingScopeTests(unittest.TestCase):
         for index, current in enumerate(scope_sets):
             for other in scope_sets[index + 1:]:
                 self.assertTrue(current.isdisjoint(other))
+        self.assertEqual(sum(len(scope) for scope in scope_sets), 24)
 
 
 if __name__ == "__main__":
