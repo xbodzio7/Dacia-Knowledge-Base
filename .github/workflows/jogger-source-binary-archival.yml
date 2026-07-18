@@ -1,0 +1,81 @@
+name: Jogger Source Binary Archival
+
+on:
+  push:
+    branches:
+      - source/jogger-my26-binary-archival
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out archival branch
+        uses: actions/checkout@v7
+        with:
+          ref: source/jogger-my26-binary-archival
+
+      - name: Resolve exact official source binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_sha="a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b"
+          expected_size="2031453"
+          target="PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf"
+          mkdir -p "$(dirname "$target")" "${RUNNER_TEMP}/jogger-candidates"
+
+          candidates=(
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/89aced76f5.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/7e010fc863.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/da64d05c49.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/48033f0d85.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/8c5b22ebd1.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf"
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/new-jogger-price.pdf"
+          )
+
+          matched=""
+          index=0
+          for url in "${candidates[@]}"; do
+            candidate="${RUNNER_TEMP}/jogger-candidates/candidate-${index}.pdf"
+            index=$((index + 1))
+            echo "Checking ${url}"
+            if ! curl --fail --location --retry 3 --retry-all-errors \
+              --connect-timeout 20 --max-time 180 \
+              --user-agent "Dacia-Knowledge-Base source verification" \
+              "$url" --output "$candidate"; then
+              echo "Candidate unavailable: ${url}"
+              continue
+            fi
+            actual_sha="$(sha256sum "$candidate" | awk '{print $1}')"
+            actual_size="$(stat --format='%s' "$candidate")"
+            echo "Candidate size=${actual_size} sha256=${actual_sha}"
+            if [[ "$actual_sha" == "$expected_sha" && "$actual_size" == "$expected_size" ]]; then
+              matched="$candidate"
+              break
+            fi
+          done
+
+          if [[ -z "$matched" ]]; then
+            echo "No official CDN candidate matched the accepted owner-supplied binary." >&2
+            exit 1
+          fi
+
+          cp "$matched" "$target"
+          test "$(stat --format='%s' "$target")" = "$expected_size"
+          echo "${expected_sha}  ${target}" | sha256sum --check --strict
+
+      - name: Materialize archival commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .jogger-archive-parts
+          rm .github/workflows/jogger-source-binary-archival.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "sources: archive exact Jogger MY26 source PDF"
+          git push origin HEAD:source/jogger-my26-binary-archival
