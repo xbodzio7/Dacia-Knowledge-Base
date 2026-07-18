@@ -1,0 +1,34 @@
+attribute_code,source_pages,source_label,legacy_essential,legacy_expression,legacy_extreme,legacy_journey,legacy_journey_plus,current_essential,current_expression,current_extreme,current_journey,notes
+rear_seat_folding,4/6,Oparcie tylnej kanapy składane w układzie 1/3 – 2/3,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+adjustable_boot_floor,4/6,Podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół),not_available,not_available,not_available,standard,not_available,not_available,not_available,not_available,standard,not available with spare-wheel option; source version status preserved
+driver_seat_height_adjustment,4/6,Fotel kierowcy z regulacją wysokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+heated_front_seats,4/6,Fotele przednie podgrzewane,not_available,optional,optional,optional,standard,not_available,optional,optional,optional,P/package or stated option price is normalized to optional
+front_centre_armrest,4/6,Konsola centralna z podłokietnikiem i schowkiem,not_available,standard,standard,standard,standard,not_available,standard,standard,standard,direct row
+automatic_emergency_braking,4/6,Aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych i rowerzystów (AEBS),standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+anti_lock_braking_system,4/6,ABS z układem wspomagania nagłego hamowania (AFU),standard,standard,standard,standard,standard,standard,standard,standard,standard,ABS capability only
+electronic_stability_control,4/6,System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA),standard,standard,standard,standard,standard,standard,standard,standard,standard,ESC component
+hill_start_assist,4/6,System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA),standard,standard,standard,standard,standard,standard,standard,standard,standard,HSA component
+lane_keep_assist,4/6,System utrzymania pasa ruchu (LKA),standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+traffic_sign_recognition,4/6,System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości (ISA),standard,standard,standard,standard,standard,standard,standard,standard,standard,traffic-sign component only
+blind_spot_monitoring,4/6,System monitorowania martwego pola (BSW),not_available,not_available,optional,optional,standard,not_available,not_available,optional,optional,P/package is normalized to optional
+driver_front_airbag,4/6,Czołowa poduszka powietrzna kierowcy,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+passenger_front_airbag,4/6,Czołowa poduszka powietrzna pasażera z możliwością wyłączenia,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+front_side_airbags,4/6,Boczne poduszki powietrzne z przodu chroniące głowę i klatkę piersiową,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+curtain_airbags,4/6,Poduszki powietrzne kurtynowe,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+front_seat_belt_pretensioners,4/6,Przednie i tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi bez regulacji wysokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,front component
+rear_seat_belt_pretensioners,4/6,Przednie i tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi bez regulacji wysokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,rear component
+driver_seat_belt_height_adjustment,4/6,Przednie i tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi bez regulacji wysokości,not_available,not_available,not_available,not_available,not_available,not_available,not_available,not_available,not_available,explicit absence of height adjustment
+rear_three_point_seat_belts,4/6,3 tylne pasy bezpieczeństwa 3-punktowe,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+isofix_rear,4/6,System mocowania fotelika dla dziecka Isofix na bocznych miejscach z tyłu,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+emergency_call_ecall,4/6,Funkcja połączenia alarmowego e-Call,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+gear_shift_indicator,4/6,Wskaźnik zmiany biegów,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+tyre_pressure_monitoring_system,4/6,System kontroli ciśnienia w oponach,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+tyre_repair_kit,4/6,Zestaw do naprawy uszkodzenia opony,standard,standard,standard,standard,standard,standard,standard,standard,standard,base equipment row; incompatibility with spare-wheel option retained in notes
+led_daytime_running_lights,4/6,Światła do jazdy dziennej LED w kształcie litery Y,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+automatic_headlights,4/6,Automatycznie włączane światła mijania / wycieraczki,standard,standard,standard,standard,standard,standard,standard,standard,standard,headlight component
+rain_sensing_wipers,4/6,Automatycznie włączane światła mijania / wycieraczki,not_available,standard,standard,standard,standard,not_available,standard,standard,standard,wiper component
+led_headlights,4/6,Światła mijania LED,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
+high_beam_assist,4/6,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),not_available,not_available,standard,standard,standard,not_available,not_available,standard,standard,direct row
+fog_lights,4/6,Światła przeciwmgłowe,not_available,not_available,standard,standard,standard,not_available,not_available,standard,standard,direct row
+side_mirrors_electric_adjustment,4/6,Zewnętrzne lusterka boczne regulowane elektrycznie i podgrzewane / regulowane podgrzewane i składane elektrycznie,standard,standard,standard,standard,standard,standard,standard,standard,standard,capability union across explicit mirror variants
+side_mirrors_heated,4/6,Zewnętrzne lusterka boczne regulowane elektrycznie i podgrzewane / regulowane podgrzewane i składane elektrycznie,standard,standard,standard,standard,standard,standard,standard,standard,standard,capability union across explicit mirror variants
