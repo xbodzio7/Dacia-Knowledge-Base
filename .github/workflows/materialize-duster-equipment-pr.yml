@@ -1,4 +1,4 @@
-name: Materialize Duster equipment from PR
+name: Repair Duster equipment regression contracts
 
 on:
   pull_request:
@@ -7,127 +7,119 @@ permissions:
   contents: write
 
 jobs:
-  materialize:
+  repair:
     if: github.head_ref == 'dev/duster-equipment-materialize'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out materializer branch
+      - name: Check out package branch
         uses: actions/checkout@v7
         with:
-          ref: dev/duster-equipment-materialize
+          ref: data/duster-equipment-availability-import
           fetch-depth: 0
           persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.10"
 
-      - name: Generate source-backed availability
-        run: python tools/import_duster_equipment_availability.py --apply
-
-      - name: Advance project state
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          path = Path('project/state.json')
-          state = json.loads(path.read_text(encoding='utf-8'))
-          state['updated_on'] = '2026-07-18'
-          state['reference_delivery'] = {
-              'name': 'Duster III Technical Specification Import',
-              'pull_request': 82,
-              'head_sha': '9d0a44589f5f9cd60207b88d9dea0a42e9088110',
-              'quality_run': 290,
-          }
-          state['baseline'].update({
-              'tests': 438,
-              'csv_files': 34,
-              'rows': 3248,
-              'configuration_values': 702,
-              'configuration_import_specs': 44,
-              'availability_records': 1811,
-              'attributes': 351,
-              'attribute_categories': 30,
-          })
-          state['current_package'] = {
-              'name': 'Duster Reporting Scope Promotion Review',
-              'status': 'active',
-              'goal': 'Review Duster catalogue, price, technical and equipment coverage against the explicit reporting-scope contract and select one bounded promotion path without changing the stable Sandero denominator.',
-          }
-          state['next_package'] = {
-              'name': 'Selected Duster Reporting Scope Promotion Implementation',
-              'status': 'planned',
-              'goal': 'Implement the selected Duster reporting-scope promotion as an explicit validated subset while preserving deterministic Sandero reports and source-backed evidence boundaries.',
-          }
-          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          PY
-          python tools/dkb.py project-state --apply
-
-      - name: Synchronize documentation
+      - name: Scope historical availability contracts
         run: |
           python - <<'PY'
           from pathlib import Path
-          readme = Path('README.md')
-          text = readme.read_text(encoding='utf-8')
-          old = '''Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
-          kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
-          Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
-          podzbiorem raportowym Sandero do czasu osobnych, źródłowych importów cen,
-          parametrów technicznych i wyposażenia.
+
+          availability_files = [
+              'tests/test_sandero_50_kmh_noise_level_model.py',
+              'tests/test_sandero_50_kmh_noise_level_values.py',
+              'tests/test_sandero_euro_6e_bis_model.py',
+              'tests/test_sandero_euro_6e_bis_values.py',
+              'tests/test_sandero_exterior_colour_values.py',
+              'tests/test_sandero_front_wheel_drive_values.py',
+              'tests/test_sandero_maximum_payload_model.py',
+              'tests/test_sandero_number_of_doors_values.py',
+              'tests/test_sandero_standard_tyre_specification.py',
+              'tests/test_sandero_total_valve_count_model.py',
+          ]
+          old = 'self.assertEqual(len(self.availability), 419)'
+          new = '''self.assertEqual(
+                      len([
+                          row for row in self.availability
+                          if not row["configuration_code"].startswith("duster_iii_")
+                      ]),
+                      419,
+                  )'''
+          for name in availability_files:
+              path = Path(name)
+              text = path.read_text(encoding='utf-8')
+              if text.count(old) != 1:
+                  raise SystemExit(f'{name}: expected one global availability assertion')
+              path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
+
+          path = Path('tests/test_sandero_passive_safety_availability.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'self.assertEqual(len(self.all_rows), 419)'
+          new = '''self.assertEqual(
+                      len([
+                          row for row in self.all_rows
+                          if not row["configuration_code"].startswith("duster_iii_")
+                      ]),
+                      419,
+                  )'''
+          if text.count(old) != 1:
+              raise SystemExit('passive-safety global assertion not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
+
+          path = Path('tests/test_sandero_equipment_availability.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''        cls.attributes = read_rows(ATTRIBUTES_PATH)
+                  cls.rows = read_rows(AVAILABILITY_PATH)
           '''
-          new = '''Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
-          kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
-          Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
-          podzbiorem raportowym Sandero do czasu jawnej decyzji o promocji zakresu
-          raportowego Duster.
+          new = '''        cls.attributes = read_rows(ATTRIBUTES_PATH)
+                  cls.rows = [
+                      row for row in read_rows(AVAILABILITY_PATH)
+                      if row["configuration_code"] in EXPECTED_CONFIGURATION_COUNTS
+                  ]
           '''
-          if old not in text:
-              raise SystemExit('README Duster scope paragraph not found')
-          text = text.replace(old, new, 1)
-          anchor = '''Techniczne tabele stron 8-9 dostarczają 392 datowane obserwacje dla 17
-          kanonicznych atrybutów Duster. Import zachowuje rozróżnienie LPG i benzyny,
-          oddzielne moce silnika spalinowego, silnika trakcyjnego i HSG oraz pomija
-          wartości zależne od wersji, których źródło nie przypisuje do konkretnego trimu.
+          if text.count(old) != 1:
+              raise SystemExit('Sandero equipment setup not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
+
+          path = Path('tests/test_duster_catalog_bootstrap.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''    def test_catalog_configurations_have_no_equipment_availability_yet(self) -> None:
+                  configuration_codes = set(self.expected)
+                  self.assertFalse(
+                      [
+                          row for row in rows("configuration_attribute_availability.csv")
+                          if row["configuration_code"] in configuration_codes
+                      ],
+                  )
           '''
-          addition = '''
-          Macierze wyposażenia stron 4-7 dostarczają 1 392 datowane rekordy
-          dostępności dla 58 kanonicznych atrybutów i 24 konfiguracji Duster.
-          Import zachowuje jawne statusy `standard`, `optional` i `not_available`,
-          a pozycje warunkowe lub bez bezpiecznego mapowania pozostawia poza zakresem.
+          new = '''    def test_catalog_identity_remains_valid_after_equipment_enrichment(self) -> None:
+                  configuration_codes = set(self.expected)
+                  availability = [
+                      row for row in rows("configuration_attribute_availability.csv")
+                      if row["configuration_code"].startswith("duster_iii_")
+                  ]
+                  self.assertTrue(
+                      all(row["configuration_code"] in configuration_codes for row in availability)
+                  )
           '''
-          if addition.strip() not in text:
-              if anchor not in text:
-                  raise SystemExit('README technical anchor not found')
-              text = text.replace(anchor, anchor + addition, 1)
-          readme.write_text(text, encoding='utf-8', newline='\n')
-          changelog = Path('CHANGELOG.md')
-          text = changelog.read_text(encoding='utf-8')
-          bullet = '* Source-backed Duster III equipment availability with 1,392 records across 58 canonical attributes and explicit standard, optional and unavailable semantics.\n'
-          if bullet not in text:
-              text = text.replace('### Added\n\n', '### Added\n\n' + bullet, 1)
-          changelog.write_text(text, encoding='utf-8', newline='\n')
+          if text.count(old) != 1:
+              raise SystemExit('Duster bootstrap availability assertion not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8', newline='\n')
           PY
-          python tools/dkb.py documentation-baseline --apply
 
-      - name: Verify materialized package
-        run: |
-          python tools/import_duster_equipment_availability.py --check
-          python -m unittest -q tests.test_duster_equipment_availability_import
-          python tools/dkb.py project-state --check
+      - name: Run full regression suite
+        run: python -m unittest discover -s tests -p "test_*.py" -q
 
-      - name: Publish clean package branch
+      - name: Publish clean repair commit
         run: |
-          rm -f \
-            .github/workflows/materialize-duster-equipment.yml \
-            .github/workflows/materialize-duster-equipment-pr.yml \
-            .github/workflows/debug-duster-equipment.yml \
-            project/.materialize-trigger
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add tests
           git diff --cached --check
           tree=$(git write-tree)
           parent=$(git rev-parse origin/data/duster-equipment-availability-import)
-          commit=$(printf '%s\n' 'Duster III Equipment Availability Import' | git commit-tree "$tree" -p "$parent")
+          commit=$(printf '%s\n' 'Scope historical availability regression contracts' | git commit-tree "$tree" -p "$parent")
           git push origin "$commit":refs/heads/data/duster-equipment-availability-import
