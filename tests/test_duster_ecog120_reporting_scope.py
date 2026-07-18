@@ -63,8 +63,8 @@ SCOPES = {
         "technical_comparisons": 90,
         "equal_prices": 0,
         "different_prices": 6,
-        "equipment_differences": None,
-        "total_differences": None,
+        "equipment_differences": 56,
+        "total_differences": 62,
     },
 }
 
@@ -183,26 +183,17 @@ class DusterReportingScopeTests(unittest.TestCase):
                 },
                 name,
             )
-            self.assertEqual(summary["equipment"]["comparisons"], 348, name)
-            self.assertEqual(summary["equipment"]["not_comparable"], 0, name)
             self.assertEqual(
-                summary["equipment"]["equal"] + summary["equipment"]["different"],
-                348,
+                summary["equipment"],
+                {
+                    "comparisons": 348,
+                    "different": scope["equipment_differences"],
+                    "equal": 348 - scope["equipment_differences"],
+                    "not_comparable": 0,
+                },
                 name,
             )
-            if scope["equipment_differences"] is not None:
-                self.assertEqual(
-                    summary["equipment"]["different"],
-                    scope["equipment_differences"],
-                    name,
-                )
-                self.assertEqual(summary["total_differences"], scope["total_differences"], name)
-            else:
-                self.assertEqual(
-                    summary["total_differences"],
-                    summary["equipment"]["different"] + scope["different_prices"],
-                    name,
-                )
+            self.assertEqual(summary["total_differences"], scope["total_differences"], name)
 
     def test_empty_evidence_is_valid_because_the_scopes_have_no_gaps(self) -> None:
         expected = {
