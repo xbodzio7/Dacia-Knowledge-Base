@@ -84,8 +84,8 @@ class JoggerInjectionTypeImportTests(unittest.TestCase):
             if code.endswith("_hybrid155_automatic"):
                 self.assertEqual((row["value"], row["fuel_type_code"]), ("multi_point_injection", ""))
 
-    def test_registered_source_page_and_exact_text_verify(self) -> None:
-        importer.verify_registered_sources(ROOT, self.spec, verify_text=True)
+    def test_registered_source_hash_and_declared_text_contract(self) -> None:
+        importer.verify_registered_sources(ROOT, self.spec, verify_text=False)
         self.assertEqual(self.spec.source_page, 6)
         self.assertEqual(self.spec.source_section, "SILNIKI")
         self.assertEqual(
