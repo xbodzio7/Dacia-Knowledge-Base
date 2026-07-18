@@ -60,5 +60,8 @@ The package preserves the existing Sandero default reporting scope and all seven
 Duster powertrain reporting scopes. The new Jogger entities are not silently
 added to any existing completeness denominator.
 
+Legacy Duster tests now distinguish their fixed 24-configuration subset from the
+repository-wide totals of 53 active configurations and 724 configuration values.
+
 The synchronized repository baseline is 451 automated tests, 3,346 master rows
 and 724 configuration values.
