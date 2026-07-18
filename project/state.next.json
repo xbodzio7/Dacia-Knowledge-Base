@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "updated_on": "2026-07-18",
+  "repository": {
+    "full_name": "xbodzio7/Dacia-Knowledge-Base",
+    "default_branch": "main",
+    "source_of_truth": "repository",
+    "main_sha_tracking": "dynamic"
+  },
+  "phase": "Source-Backed Model Expansion",
+  "reference_delivery": {
+    "name": "Duster III Catalog Price Import",
+    "pull_request": 81,
+    "head_sha": "2918141d1cf9b53951fed2e71c62519b00f524c9",
+    "quality_run": 283
+  },
+  "baseline": {
+    "tests": 430,
+    "csv_files": 34,
+    "rows": 1856,
+    "configuration_values": 702,
+    "configuration_import_specs": 44,
+    "availability_records": 419,
+    "attributes": 351,
+    "attribute_categories": 30
+  },
+  "current_package": {
+    "name": "Duster Equipment Availability Import",
+    "status": "active",
+    "goal": "Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences."
+  },
+  "next_package": {
+    "name": "Duster Reporting Scope Promotion Review",
+    "status": "planned",
+    "goal": "Review whether Duster catalogue, price, technical and equipment coverage is sufficient for an explicit Duster reporting subset without changing the stable Sandero denominator."
+  },
+  "autonomy": {
+    "mode": "autonomous_until_action_required",
+    "allowed_operations": [
+      "create_package_branch",
+      "modify_manifest_paths",
+      "run_tests_and_quality",
+      "create_package_commit",
+      "push_package_branch",
+      "create_and_update_pull_request",
+      "repair_in_scope_ci_failures",
+      "merge_green_pull_request",
+      "update_project_state_and_generated_documentation"
+    ],
+    "stop_conditions": [
+      "missing_source_file_or_local_access",
+      "authentication_mfa_secret_or_new_permission",
+      "ambiguous_source_evidence",
+      "new_domain_or_architecture_decision",
+      "scope_expansion_beyond_current_milestone",
+      "destructive_costly_or_irreversible_operation",
+      "manual_github_policy_block",
+      "conflict_not_resolvable_from_repository_evidence"
+    ],
+    "action_required_fields": [
+      "reason",
+      "required_action",
+      "options_and_consequences",
+      "resume_stage"
+    ]
+  },
+  "review_policy": {
+    "review_only_pull_requests": "exception_only",
+    "milestone_review_interval_packages": 5,
+    "one_logical_package_per_pull_request": true,
+    "delete_remote_branches_automatically": false
+  }
+}
