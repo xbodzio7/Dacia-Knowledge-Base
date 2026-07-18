@@ -16,16 +16,16 @@
 
 ## Reference delivery
 
-- Package: Configuration Reporting Explicit Scope
-- Pull Request: #79
-- Verified head: `498805d714a43ca8efbbd1edd2802a42da142dff`
-- Quality run: #270
+- Package: Duster III Catalog Bootstrap
+- Pull Request: #80
+- Verified head: `edec71fcb2b761f19d8b8742446c7c0045c5c6f7`
+- Quality run: #279
 
 ## Verified baseline
 
-- Tests: 416
+- Tests: 422
 - Master CSV files: 34
-- Master rows: 1440
+- Master rows: 1464
 - Configuration values: 310
 - Configuration import specifications: 11
 - Availability records: 419
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Catalog Price Import** — `active`
+**Duster Technical Specification Import** — `active`
 
-Import only explicit page-1 catalogue gross prices for the 24 source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations.
+Import only source-explicit technical values from pages 8-9 for the Duster III configurations, preserving drive, transmission, fuel and hybrid context without inferring trim-dependent values.
 
 ## Next package
 
-**Duster Technical Specification Import** — `planned`
+**Duster Equipment Availability Import** — `planned`
 
-Import only source-explicit technical values from pages 8-9 for the Duster III configurations, preserving drive, transmission, fuel and hybrid context without inferring trim-dependent values.
+Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences.
 
 ## Autonomy
 
