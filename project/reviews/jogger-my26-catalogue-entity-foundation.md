@@ -10,12 +10,12 @@ catalogue entity foundation covering every non-empty page-1 price cell.
 ## Materialized scope
 
 - one active source registration retaining the verified original PDF SHA-256 and reserved archive path;
-- one active source registration and one source-to-model relationship;
+- one source-to-model relationship;
 - four active Jogger versions: Essential, Expression, Extreme and Journey;
 - 22 active configurations: 11 five-seat and 11 seven-seat;
 - four source-to-version and 22 source-to-configuration relationships;
 - 22 dated PL gross catalogue prices;
-- 22 dated `number_of_seats` observations;
+- 22 dated `number_of_seats` observations.
 
 The original PDF SHA-256 is
 `a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b`. The
@@ -59,3 +59,6 @@ reviews so the entity package does not manufacture trim-specific scalar facts.
 The package preserves the existing Sandero default reporting scope and all seven
 Duster powertrain reporting scopes. The new Jogger entities are not silently
 added to any existing completeness denominator.
+
+The synchronized repository baseline is 451 automated tests, 3,346 master rows
+and 724 configuration values.
