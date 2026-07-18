@@ -2,7 +2,7 @@ id,code,name,type,gears,manufacturer,drive_type,status,notes
 1,mt5,Manual 5,manual,5,Renault,fwd,current,
 2,mt6,Manual 6,manual,6,Renault,fwd,current,
 3,cvt_xtronic,CVT X-Tronic,cvt,,Jatco,fwd,archived,
-4,edc6,EDC 6,dct,6,Getrag,fwd,archived,
+4,edc6,EDC 6,dct,6,Getrag,fwd,current,Six-speed dual-clutch transmission reintroduced for Jogger Eco-G 120 automatic in the MY26 source dated 2026-04-01.
 5,e_dht140,e-DHT 140,hybrid,,Renault,fwd,current,Hybrid 140 transmission
 6,e_dht155,e-DHT 155,hybrid,,Renault,fwd,current,Hybrid 155 transmission
 7,at4_ev,Single-speed EV,reduction,1,Renault,fwd,current,Electric drive reduction gear
