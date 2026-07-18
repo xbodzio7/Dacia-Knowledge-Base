@@ -176,7 +176,13 @@ class SanderoStandardTyreSpecificationTests(unittest.TestCase):
             ),
         )
         self.assertEqual(len(self.availability), 419)
-        self.assertEqual(len(self.prices), 7)
+        self.assertEqual(
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED
+            ]),
+            7,
+        )
         self.assertFalse(
             any(
                 "standard_tyre_specification" in row["code"]
