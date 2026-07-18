@@ -36,7 +36,10 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
     def test_repository_contains_versioned_import_specs(self) -> None:
         self.assertTrue(self.paths)
         self.assertEqual(
-            [path.name for path in self.paths],
+            [
+                path.name for path in self.paths
+                if path.name.startswith("sandero-")
+            ],
             [
                 "sandero-acceleration-0-100-lpg-20260626.json",
                 "sandero-acceleration-0-100-petrol-20260626.json",

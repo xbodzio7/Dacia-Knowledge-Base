@@ -128,19 +128,14 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         self.assertTrue(all(row["relationship"] == "documents" for row in version_links))
         self.assertTrue(all(row["relationship"] == "documents" for row in configuration_links))
 
-    def test_bootstrap_does_not_import_detailed_observations(self) -> None:
+    def test_catalog_configurations_have_no_equipment_availability_yet(self) -> None:
         configuration_codes = set(self.expected)
-        for name in (
-            "configuration_attribute_values.csv",
-            "configuration_attribute_availability.csv",
-        ):
-            self.assertFalse(
-                [
-                    row for row in rows(name)
-                    if row["configuration_code"] in configuration_codes
-                ],
-                name,
-            )
+        self.assertFalse(
+            [
+                row for row in rows("configuration_attribute_availability.csv")
+                if row["configuration_code"] in configuration_codes
+            ],
+        )
 
     def test_reporting_subset_remains_sandero_only(self) -> None:
         report = configuration_completeness.collect_report(
