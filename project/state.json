@@ -9,13 +9,13 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Duster III Technical Specification Import",
-    "pull_request": 82,
-    "head_sha": "9d0a44589f5f9cd60207b88d9dea0a42e9088110",
-    "quality_run": 290
+    "name": "Duster III Equipment Availability Import",
+    "pull_request": 84,
+    "head_sha": "13eb8741b50324e4cfdd7f6761123428a8ec0e0a",
+    "quality_run": 315
   },
   "baseline": {
-    "tests": 438,
+    "tests": 446,
     "csv_files": 34,
     "rows": 3248,
     "configuration_values": 702,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Reporting Scope Promotion Review",
+    "name": "Remaining Duster Powertrain Reporting Portfolio Review",
     "status": "active",
-    "goal": "Review Duster catalogue, price, technical and equipment coverage against the explicit reporting-scope contract and select one bounded promotion path without changing the stable Sandero denominator."
+    "goal": "Review the six remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing the Sandero or Eco-G 120 denominators."
   },
   "next_package": {
-    "name": "Selected Duster Reporting Scope Promotion Implementation",
+    "name": "Selected Remaining Duster Reporting Promotion Implementation",
     "status": "planned",
-    "goal": "Implement the selected Duster reporting-scope promotion as an explicit validated subset while preserving deterministic Sandero reports and source-backed evidence boundaries."
+    "goal": "Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

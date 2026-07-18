@@ -72,6 +72,11 @@ dostępności dla 58 kanonicznych atrybutów i 24 konfiguracji Duster.
 Import zachowuje jawne statusy `standard`, `optional` i `not_available`,
 a pozycje warunkowe lub bez bezpiecznego mapowania pozostawia poza zakresem.
 
+Pierwszy jawnie promowany podzbiór raportowy Duster obejmuje cztery aktualne
+konfiguracje Eco-G 120. Ma pełne pokrycie 17 slotów technicznych, 58 atrybutów
+wyposażenia i cen, a jego sześć porównań jest publikowanych jako oddzielne
+artefakty bez zmiany domyślnego zakresu Sandero.
+
 Parametry techniczne i pozostałe wartości konfiguracji również są
 datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
 310 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
@@ -706,7 +711,7 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 438 testów, 34 pliki CSV, 3248 rekordów
+Zweryfikowany model obejmuje 446 testów, 34 pliki CSV, 3248 rekordów
 danych, 34 relacje między tabelami, 702 wartości konfiguracji, 44
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

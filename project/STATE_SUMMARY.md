@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Duster III Technical Specification Import
-- Pull Request: #82
-- Verified head: `9d0a44589f5f9cd60207b88d9dea0a42e9088110`
-- Quality run: #290
+- Package: Duster III Equipment Availability Import
+- Pull Request: #84
+- Verified head: `13eb8741b50324e4cfdd7f6761123428a8ec0e0a`
+- Quality run: #315
 
 ## Verified baseline
 
-- Tests: 438
+- Tests: 446
 - Master CSV files: 34
 - Master rows: 3248
 - Configuration values: 702
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Reporting Scope Promotion Review** — `active`
+**Remaining Duster Powertrain Reporting Portfolio Review** — `active`
 
-Review Duster catalogue, price, technical and equipment coverage against the explicit reporting-scope contract and select one bounded promotion path without changing the stable Sandero denominator.
+Review the six remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing the Sandero or Eco-G 120 denominators.
 
 ## Next package
 
-**Selected Duster Reporting Scope Promotion Implementation** — `planned`
+**Selected Remaining Duster Reporting Promotion Implementation** — `planned`
 
-Implement the selected Duster reporting-scope promotion as an explicit validated subset while preserving deterministic Sandero reports and source-backed evidence boundaries.
+Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs.
 
 ## Autonomy
 
