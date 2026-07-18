@@ -1,5 +1,5 @@
 attribute_code,source_pages,source_label,legacy_essential,legacy_expression,legacy_extreme,legacy_journey,legacy_journey_plus,current_essential,current_expression,current_extreme,current_journey,notes
-instrument_cluster_colour_7,5/7,"7\" cyfrowy kolorowy konfigurowalny wyświetlacz zespołu wskaźników",not_available,standard,standard,standard,standard,not_available,standard,standard,standard,direct row
+instrument_cluster_colour_7,5/7,"7"" cyfrowy, kolorowy, konfigurowalny, wyświetlacz zespołu wskaźników",not_available,standard,standard,standard,standard,not_available,standard,standard,standard,direct row
 onboard_computer,5/7,Komputer pokładowy,standard,standard,standard,standard,standard,standard,standard,standard,standard,direct row
 speed_limiter,5/7,Ogranicznik / Regulator prędkości,standard,standard,standard,standard,standard,standard,standard,standard,standard,limiter component
 cruise_control,5/7,Ogranicznik / Regulator prędkości,standard,standard,standard,standard,standard,standard,standard,standard,standard,cruise-control component
@@ -17,8 +17,8 @@ one_touch_windows,5/7,Szyby przednie regulowane elektrycznie z włącznikiem imp
 rear_windows_power,5/7,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,not_available,standard,standard,standard,standard,not_available,standard,standard,standard,duplicate printed row normalized once
 heated_windscreen,5/7,Szyba przednia podgrzewana,not_available,not_available,optional,optional,not_available,not_available,not_available,optional,optional,P/package normalized to optional
 heated_steering_wheel,5/7,Kierownica podgrzewana,not_available,optional,optional,optional,standard,not_available,optional,optional,optional,P/package normalized to optional
-steering_wheel_height_adjustment,5/7,Kierownica z regulacją wysokości / głębokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,height component
-steering_wheel_reach_adjustment,5/7,Kierownica z regulacją wysokości / głębokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,reach component
+steering_wheel_height_adjustment,5/7,Kierownica z regulacją: wysokości / głębokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,height component
+steering_wheel_reach_adjustment,5/7,Kierownica z regulacją: wysokości / głębokości,standard,standard,standard,standard,standard,standard,standard,standard,standard,reach component
 wireless_charging,5/7,Ładowarka indukcyjna,not_available,not_available,optional,standard,standard,not_available,not_available,optional,standard,package marker normalized to optional
 media_control_system,5/7,Nowy system multimedialny Media Control,standard,not_available,not_available,not_available,not_available,standard,not_available,not_available,not_available,direct system row
 media_display_system,5/7,Nowy system Media Display,not_available,standard,standard,not_available,not_available,not_available,standard,standard,not_available,direct system row
