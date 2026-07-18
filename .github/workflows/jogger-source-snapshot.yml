@@ -1,0 +1,30 @@
+name: Jogger Source Snapshot
+
+on:
+  push:
+    branches:
+      - data/jogger-my26-catalogue-entity-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Archive exact source checkout
+        run: |
+          tar --exclude=.git -czf "${RUNNER_TEMP}/repository-source.tgz" .
+
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@v6
+        with:
+          name: jogger-source-snapshot
+          path: ${{ runner.temp }}/repository-source.tgz
+          if-no-files-found: error
+          retention-days: 1
