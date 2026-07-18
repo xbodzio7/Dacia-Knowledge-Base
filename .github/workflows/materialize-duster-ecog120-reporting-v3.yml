@@ -1,0 +1,58 @@
+name: Materialize Duster Eco-G 120 reporting v3
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.head_ref == 'dev/duster-ecog120-reporting-materialize'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out materializer branch
+        uses: actions/checkout@v7
+        with:
+          ref: dev/duster-ecog120-reporting-materialize
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Apply and verify package
+        run: |
+          python project/materialize_duster_ecog120_reporting.py
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python -m unittest discover -s tests -p "test_*.py" -q
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+
+      - name: Upload updated Quality workflow
+        uses: actions/upload-artifact@v7
+        with:
+          name: duster-ecog120-quality-workflow
+          path: .github/workflows/quality.yml
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Publish non-workflow package files
+        run: |
+          git checkout origin/reporting/duster-ecog120-scope-promotion -- .github/workflows/quality.yml
+          rm -f \
+            .github/workflows/materialize-duster-ecog120-reporting.yml \
+            .github/workflows/materialize-duster-ecog120-reporting-v2.yml \
+            .github/workflows/materialize-duster-ecog120-reporting-v3.yml \
+            project/materialize_duster_ecog120_reporting.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          tree=$(git write-tree)
+          parent=$(git rev-parse origin/reporting/duster-ecog120-scope-promotion)
+          commit=$(printf '%s\n' 'Materialize Duster Eco-G 120 reporting state' | git commit-tree "$tree" -p "$parent")
+          git push origin "$commit":refs/heads/reporting/duster-ecog120-scope-promotion
