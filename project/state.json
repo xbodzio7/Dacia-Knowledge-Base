@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Catalog Reporting Scope Decision",
-    "status": "blocked",
-    "goal": "Choose whether source-backed Duster catalogue entities remain active under an explicit reporting subset or use a new catalogue lifecycle status before creating the five versions and 24 configurations."
+    "name": "Duster Catalog Bootstrap",
+    "status": "active",
+    "goal": "Create the five explicit Duster III versions, the 24 source-backed version and powertrain configurations, and their source relationships without importing prices or detailed observations."
   },
   "next_package": {
-    "name": "Duster Catalog Bootstrap",
+    "name": "Duster Catalog Price Import",
     "status": "planned",
-    "goal": "After the reporting-scope decision is implemented, create the five explicit Duster III versions, the 24 source-backed version and powertrain configurations, and their source relationships without importing prices or detailed observations."
+    "goal": "Import only explicit page-1 catalogue gross prices for source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
