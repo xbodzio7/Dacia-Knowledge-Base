@@ -722,14 +722,16 @@ deklaratywnych specyfikacjach. Zachowuje konteksty LPG i benzyny, rozróżnia
 wartości dla 5 i 7 miejsc oraz przechowuje oddzielnie silnik spalinowy, silnik
 trakcyjny i HSG układu Hybrid 155. Zakresy WLTP, masy minimalne, ładowność,
 pomiary bagażnika, para pojemności LPG i pozostałe niezgodne semantycznie pola
-pozostają jawnym zakresem odroczonym.
+pozostają jawnym zakresem odroczonym. Dodatkowy kontrolowany import obejmuje
+32 dokładne wartości `injection_type`: osobne układy benzyny i LPG dla Eco-G
+oraz źródłowe wartości TCe 110 i Hybrid 155.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 459 testów, 34 pliki CSV, 3658 rekordów
-danych, 34 relacje między tabelami, 1036 wartości konfiguracji, 61
+Zweryfikowany model obejmuje 464 testów, 34 pliki CSV, 3690 rekordów
+danych, 34 relacje między tabelami, 1068 wartości konfiguracji, 62
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3658 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3690 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
