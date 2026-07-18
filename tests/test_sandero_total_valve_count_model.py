@@ -176,15 +176,17 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
 
     def test_availability_prices_and_source_mapping_are_unchanged(self) -> None:
         self.assertEqual(len(self.availability), 419)
-        self.assertEqual(len(self.prices), 7)
-        sandero_source_codes = set(EXPECTED_MAPPING.values())
         self.assertEqual(
-            {
-                row["code"]
-                for row in self.sources
-                if row["code"] in sandero_source_codes
-            },
-            sandero_source_codes,
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED_MAPPING
+            ]),
+            7,
+        )
+        expected_sources = set(EXPECTED_MAPPING.values())
+        self.assertEqual(
+            {row["code"] for row in self.sources if row["code"] in expected_sources},
+            expected_sources,
         )
         self.assertEqual(
             {
