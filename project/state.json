@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger MY26 Source Intake",
-    "pull_request": 100,
-    "head_sha": "f84bf75ef099260a5d097d31b3c8df3a9edef5f4",
-    "quality_run": 360
+    "name": "Jogger MY26 Catalogue Scope Selection",
+    "pull_request": 101,
+    "head_sha": "f197080438b1bd591521df02a43243a909530a83",
+    "quality_run": 362
   },
   "baseline": {
-    "tests": 446,
+    "tests": 451,
     "csv_files": 34,
-    "rows": 3248,
-    "configuration_values": 702,
+    "rows": 3346,
+    "configuration_values": 724,
     "configuration_import_specs": 44,
     "availability_records": 1811,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Catalogue Entity Foundation",
-    "status": "active",
-    "goal": "Register the accepted Polish Jogger MY26 source and create all 22 source-backed catalogue configurations across four trims, two seat counts and four powertrain/transmission groups with dated catalogue prices and explicit number_of_seats observations while preserving every existing Sandero and Duster reporting denominator."
+    "name": "Jogger Source Binary Archival",
+    "status": "blocked",
+    "goal": "Archive the supplied official Jogger MY26 PDF at the reserved repository path and verify its exact SHA-256 so the shared declarative import contract and further source-page review can operate entirely from repository state."
   },
   "next_package": {
     "name": "Jogger Technical Denominator Review",
     "status": "planned",
-    "goal": "Review the Jogger technical table and separate exact powertrain-wide values, explicit five-/seven-seat values and unassignable ranges before importing any scalar technical observations."
+    "goal": "After binary archival, review the Jogger page-6 technical table and separate exact powertrain-wide values, explicit five-/seven-seat observations and source ranges before importing scalar technical data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

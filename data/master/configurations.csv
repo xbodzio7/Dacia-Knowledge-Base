@@ -30,3 +30,25 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 29,duster_iii_expression_hybrid155_4x2_automatic,duster_iii_expression,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
 30,duster_iii_extreme_hybrid155_4x2_automatic,duster_iii_extreme,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
 31,duster_iii_journey_hybrid155_4x2_automatic,duster_iii_journey,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+32,jogger_essential_5seat_ecog120_manual,jogger_essential,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+33,jogger_expression_5seat_ecog120_manual,jogger_expression,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+34,jogger_extreme_5seat_ecog120_manual,jogger_extreme,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+35,jogger_extreme_5seat_ecog120_automatic,jogger_extreme,Eco-G 120,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+36,jogger_journey_5seat_ecog120_automatic,jogger_journey,Eco-G 120,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+37,jogger_expression_5seat_tce110_manual,jogger_expression,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+38,jogger_extreme_5seat_tce110_manual,jogger_extreme,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+39,jogger_journey_5seat_tce110_manual,jogger_journey,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+40,jogger_expression_5seat_hybrid155_automatic,jogger_expression,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+41,jogger_extreme_5seat_hybrid155_automatic,jogger_extreme,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+42,jogger_journey_5seat_hybrid155_automatic,jogger_journey,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+43,jogger_essential_7seat_ecog120_manual,jogger_essential,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+44,jogger_expression_7seat_ecog120_manual,jogger_expression,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+45,jogger_extreme_7seat_ecog120_manual,jogger_extreme,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+46,jogger_extreme_7seat_ecog120_automatic,jogger_extreme,Eco-G 120,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+47,jogger_journey_7seat_ecog120_automatic,jogger_journey,Eco-G 120,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+48,jogger_expression_7seat_tce110_manual,jogger_expression,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+49,jogger_extreme_7seat_tce110_manual,jogger_extreme,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+50,jogger_journey_7seat_tce110_manual,jogger_journey,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+51,jogger_expression_7seat_hybrid155_automatic,jogger_expression,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+52,jogger_extreme_7seat_hybrid155_automatic,jogger_extreme,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+53,jogger_journey_7seat_hybrid155_automatic,jogger_journey,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
