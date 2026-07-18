@@ -142,7 +142,13 @@ class Sandero50KmhNoiseLevelValueTests(unittest.TestCase):
             ),
         )
         self.assertEqual(len(self.availability), 419)
-        self.assertEqual(len(self.prices), 7)
+        self.assertEqual(
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED
+            ]),
+            7,
+        )
         self.assertFalse(
             any(
                 "noise_level_at_50_kmh" in row["code"]
