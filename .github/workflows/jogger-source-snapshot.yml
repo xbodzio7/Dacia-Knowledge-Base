@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - data/jogger-my26-catalogue-entity-foundation
+  pull_request:
 
 permissions:
   contents: read
