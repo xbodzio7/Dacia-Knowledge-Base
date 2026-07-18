@@ -124,7 +124,13 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
 
     def test_model_package_does_not_change_availability_or_prices(self) -> None:
         self.assertEqual(len(self.availability), 419)
-        self.assertEqual(len(self.prices), 7)
+        self.assertEqual(
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED
+            ]),
+            7,
+        )
         self.assertFalse(
             any(
                 "noise_level_at_50_kmh" in row["code"]
@@ -133,14 +139,10 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
         )
 
     def test_source_registry_and_mapping_are_unchanged(self) -> None:
-        sandero_source_codes = set(EXPECTED.values())
+        expected_sources = set(EXPECTED.values())
         self.assertEqual(
-            {
-                row["code"]
-                for row in self.sources
-                if row["code"] in sandero_source_codes
-            },
-            sandero_source_codes,
+            {row["code"] for row in self.sources if row["code"] in expected_sources},
+            expected_sources,
         )
         self.assertEqual(
             {

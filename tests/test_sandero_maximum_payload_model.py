@@ -177,7 +177,13 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
         self,
     ) -> None:
         self.assertEqual(len(self.availability), 419)
-        self.assertEqual(len(self.prices), 7)
+        self.assertEqual(
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED_MAPPING
+            ]),
+            7,
+        )
         self.assertFalse(
             any(
                 "maximum_payload" in row["code"]
@@ -186,14 +192,10 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
         )
 
     def test_source_registry_and_mapping_are_unchanged(self) -> None:
-        sandero_source_codes = set(EXPECTED_MAPPING.values())
+        expected_sources = set(EXPECTED_MAPPING.values())
         self.assertEqual(
-            {
-                row["code"]
-                for row in self.sources
-                if row["code"] in sandero_source_codes
-            },
-            sandero_source_codes,
+            {row["code"] for row in self.sources if row["code"] in expected_sources},
+            expected_sources,
         )
         self.assertEqual(
             {

@@ -124,7 +124,13 @@ class SanderoExteriorColourValueTests(unittest.TestCase):
     def test_zero_price_is_provenance_not_configuration_value(self) -> None:
         self.assertTrue(all(row["value"] != "0 zł" for row in self.rows))
         self.assertTrue(all("0 zł" in row["notes"] for row in self.rows))
-        self.assertEqual(len(self.prices), 7)
+        self.assertEqual(
+            len([
+                row for row in self.prices
+                if row["configuration_code"] in EXPECTED
+            ]),
+            7,
+        )
         self.assertFalse(
             any("exterior_color" in row["code"] for row in self.prices)
         )
