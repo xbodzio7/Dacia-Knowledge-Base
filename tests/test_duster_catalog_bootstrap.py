@@ -128,10 +128,9 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         self.assertTrue(all(row["relationship"] == "documents" for row in version_links))
         self.assertTrue(all(row["relationship"] == "documents" for row in configuration_links))
 
-    def test_bootstrap_does_not_import_prices_or_observations(self) -> None:
+    def test_bootstrap_does_not_import_detailed_observations(self) -> None:
         configuration_codes = set(self.expected)
         for name in (
-            "configuration_prices.csv",
             "configuration_attribute_values.csv",
             "configuration_attribute_availability.csv",
         ):
