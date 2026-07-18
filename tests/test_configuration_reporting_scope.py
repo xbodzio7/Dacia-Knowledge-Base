@@ -6,7 +6,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import configuration_completeness as completeness  # noqa: E402
-from tests.test_configuration_completeness import ConfigurationCompletenessTests  # noqa: E402
+try:
+    from tests.test_configuration_completeness import ConfigurationCompletenessTests  # noqa: E402
+except ModuleNotFoundError:
+    from test_configuration_completeness import ConfigurationCompletenessTests  # type: ignore[no-redef]  # noqa: E402
 
 
 def _contract() -> None:
