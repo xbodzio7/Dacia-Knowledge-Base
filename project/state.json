@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Injection-Type Import Selection",
-    "pull_request": 107,
-    "head_sha": "c3ebb86dff245e2e5c2566781e4dc19cfcc02928",
-    "quality_run": 437
+    "name": "Jogger Injection-Type Import",
+    "pull_request": 108,
+    "head_sha": "1443e00b4572bde3a8b3166f2b75f7f36ec43783",
+    "quality_run": 448
   },
   "baseline": {
     "tests": 464,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Remaining Deferred Technical Evidence Review",
+    "name": "Jogger Gearbox Association and Observation Reconciliation",
     "status": "active",
-    "goal": "Reassess the remaining range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and engine-speed evidence after completing the bounded injection-type import."
+    "goal": "Reconcile the returning six-speed dual-clutch and Hybrid 155 transmissions with Jogger model associations and materialize 38 exact gearbox-type and source-stated gear-count observations without inventing a Hybrid numeric gear count."
   },
   "next_package": {
-    "name": "Selected Jogger Remaining Deferred Modeling Package",
+    "name": "Jogger Range and Qualifier Modeling Review",
     "status": "planned",
-    "goal": "Implement one selected bounded Jogger technical modelling or import decision with explicit source semantics and no reinterpretation of the completed exact scalar and injection-type denominators."
+    "goal": "Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
