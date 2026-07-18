@@ -33,9 +33,13 @@ result rather than a substitute for missing data.
 - 6 deterministic trim-pair comparisons,
 - 126 equal technical comparisons,
 - 81 equipment differences,
-- 6 price differences,
-- 87 total differences,
+- 5 price differences and 1 equal-price pair,
+- 86 total differences,
 - zero not-comparable states.
+
+The equal-price pair is `extreme` versus `journey`: both source-backed catalogue
+observations are 96,000 PLN on 2026-02-06. Equality is preserved as a reportable
+result rather than forced into a difference.
 
 ## Artifact contract
 
