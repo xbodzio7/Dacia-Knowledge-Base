@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Duster Mild Hybrid 130 4x2 Reporting Selection",
-    "pull_request": 93,
-    "head_sha": "ffb727fd80b8747e4607811a24e12ab04d4ed9c9",
-    "quality_run": 346
+    "name": "Duster Mild Hybrid 130 4x2 Reporting Scope Promotion",
+    "pull_request": 94,
+    "head_sha": "9a25b70d9c150f543d913d8fb8d8702a79be4f3a",
+    "quality_run": 348
   },
   "baseline": {
     "tests": 446,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Remaining Duster Powertrain Reporting Portfolio Review",
+    "name": "Duster Mild Hybrid 130 4x4 Reporting Scope Promotion",
     "status": "active",
-    "goal": "Review the two remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing any existing Sandero or Duster reporting denominator."
+    "goal": "Publish the three mild hybrid 130 4x4 manual configurations as an explicit reporting subset with 15 technical slots, 58 equipment attributes, dated prices and three deterministic trim comparisons while preserving every existing Sandero and Duster reporting output."
   },
   "next_package": {
-    "name": "Selected Remaining Duster Reporting Promotion Implementation",
+    "name": "Final Duster Powertrain Reporting Portfolio Review",
     "status": "planned",
-    "goal": "Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs."
+    "goal": "Review the remaining mild hybrid 140 4x2 group and prepare its final source-complete Duster reporting promotion."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
