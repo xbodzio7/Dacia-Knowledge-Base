@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Explicit Duster Eco-G 120 reporting subset with complete technical, equipment, price and source coverage plus six deterministic trim comparisons.
 * Source-backed Duster III equipment availability with 1,392 records across 58 canonical attributes and explicit standard, optional and unavailable semantics.
 * Source-backed Duster III technical import with 392 observations across 17 canonical attributes, explicit fuel context and conservative exclusion of trim-ambiguous values.
 * Duster III catalogue gross prices for all 24 source-supported configurations, dated 2026-02-06 and separated from promotional discount and financing claims.
@@ -190,7 +191,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 438 tests.
+* The automated test suite now contains 446 tests.
 * The verified master-data baseline now contains 34 CSV files and 3248 rows.
 * SQLite verification now covers 34 tables and 3248 rows.
 * Configuration attribute values now contain 702 dated records.
