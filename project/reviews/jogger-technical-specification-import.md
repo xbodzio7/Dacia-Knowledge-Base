@@ -74,6 +74,10 @@ Eight dedicated tests lock:
 - absence of every deferred attribute;
 - page-6 provenance and the exact 2,031,453-byte PDF SHA-256.
 
+The resulting verified repository baseline is 459 tests, 3,658 master-data
+rows, 1,036 dated configuration values and 61 declarative configuration-value
+import specifications.
+
 ## Next package
 
 The project advances to **Jogger Deferred Technical Evidence Reconciliation**.
