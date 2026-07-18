@@ -141,7 +141,13 @@ class Sandero50KmhNoiseLevelValueTests(unittest.TestCase):
                 for row in self.availability
             ),
         )
-        self.assertEqual(len(self.availability), 419)
+        self.assertEqual(
+            len([
+                row for row in self.availability
+                if not row["configuration_code"].startswith("duster_iii_")
+            ]),
+            419,
+        )
         self.assertEqual(
             len([
                 row for row in self.prices

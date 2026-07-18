@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Duster III Catalog Price Import
-- Pull Request: #81
-- Verified head: `2918141d1cf9b53951fed2e71c62519b00f524c9`
-- Quality run: #283
+- Package: Duster III Technical Specification Import
+- Pull Request: #82
+- Verified head: `9d0a44589f5f9cd60207b88d9dea0a42e9088110`
+- Quality run: #290
 
 ## Verified baseline
 
-- Tests: 430
+- Tests: 438
 - Master CSV files: 34
-- Master rows: 1856
+- Master rows: 3248
 - Configuration values: 702
 - Configuration import specifications: 44
-- Availability records: 419
+- Availability records: 1811
 - Canonical attributes: 351
 - Attribute categories: 30
 
 ## Current package
 
-**Duster Equipment Availability Import** — `active`
+**Duster Reporting Scope Promotion Review** — `active`
 
-Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences.
+Review Duster catalogue, price, technical and equipment coverage against the explicit reporting-scope contract and select one bounded promotion path without changing the stable Sandero denominator.
 
 ## Next package
 
-**Duster Reporting Scope Promotion Review** — `planned`
+**Selected Duster Reporting Scope Promotion Implementation** — `planned`
 
-Review whether Duster catalogue, price, technical and equipment coverage is sufficient for an explicit Duster reporting subset without changing the stable Sandero denominator.
+Implement the selected Duster reporting-scope promotion as an explicit validated subset while preserving deterministic Sandero reports and source-backed evidence boundaries.
 
 ## Autonomy
 

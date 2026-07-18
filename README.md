@@ -55,8 +55,8 @@ aktualnej oferty.
 Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
 kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
 Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
-podzbiorem raportowym Sandero do czasu osobnych, źródłowych importów cen,
-parametrów technicznych i wyposażenia.
+podzbiorem raportowym Sandero do czasu jawnej decyzji o promocji zakresu
+raportowego Duster.
 
 Dla wszystkich 24 konfiguracji Duster zapisano również datowane ceny katalogowe
 brutto obowiązujące od 6 lutego 2026 r. Promocyjny rabat oraz korzyści finansowania
@@ -66,6 +66,11 @@ Techniczne tabele stron 8-9 dostarczają 392 datowane obserwacje dla 17
 kanonicznych atrybutów Duster. Import zachowuje rozróżnienie LPG i benzyny,
 oddzielne moce silnika spalinowego, silnika trakcyjnego i HSG oraz pomija
 wartości zależne od wersji, których źródło nie przypisuje do konkretnego trimu.
+
+Macierze wyposażenia stron 4-7 dostarczają 1 392 datowane rekordy
+dostępności dla 58 kanonicznych atrybutów i 24 konfiguracji Duster.
+Import zachowuje jawne statusy `standard`, `optional` i `not_available`,
+a pozycje warunkowe lub bez bezpiecznego mapowania pozostawia poza zakresem.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
 datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
@@ -701,11 +706,11 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 430 testów, 34 pliki CSV, 1856 rekordów
+Zweryfikowany model obejmuje 438 testów, 34 pliki CSV, 3248 rekordów
 danych, 34 relacje między tabelami, 702 wartości konfiguracji, 44
-deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
+deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 1856 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3248 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

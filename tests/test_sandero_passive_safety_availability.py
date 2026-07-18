@@ -94,7 +94,13 @@ class SanderoPassiveSafetyAvailabilityTests(unittest.TestCase):
         self.assertTrue(all(not row["unit"] for row in imported.values()))
 
     def test_package_has_expected_ids_shape_and_count(self) -> None:
-        self.assertEqual(len(self.all_rows), 419)
+        self.assertEqual(
+            len([
+                row for row in self.all_rows
+                if not row["configuration_code"].startswith("duster_iii_")
+            ]),
+            419,
+        )
         self.assertEqual(len(self.rows), 119)
         self.assertEqual(
             {int(row["id"]) for row in self.rows},

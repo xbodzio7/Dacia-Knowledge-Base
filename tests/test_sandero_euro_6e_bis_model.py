@@ -101,7 +101,13 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         self.assertGreaterEqual(len(self.values), 225)
 
     def test_model_package_does_not_change_other_data_tables(self) -> None:
-        self.assertEqual(len(self.availability), 419)
+        self.assertEqual(
+            len([
+                row for row in self.availability
+                if not row["configuration_code"].startswith("duster_iii_")
+            ]),
+            419,
+        )
         self.assertEqual(
             len([
                 row for row in self.prices
