@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - source/jogger-my26-binary-archival
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -79,5 +82,3 @@ jobs:
           git diff --cached --check
           git commit -m "sources: archive exact Jogger MY26 source PDF"
           git push origin HEAD:source/jogger-my26-binary-archival
-
-# Triggered after branch registration through draft PR #103.
