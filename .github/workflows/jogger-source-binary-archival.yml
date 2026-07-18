@@ -9,47 +9,143 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  archive-candidates:
+  archive:
     runs-on: ubuntu-latest
     steps:
       - name: Check out archival branch
         uses: actions/checkout@v7
         with:
           ref: source/jogger-my26-binary-archival
-          persist-credentials: false
 
-      - name: Download immutable official candidates
+      - name: Resolve exact source from archived official CDN snapshots
+        id: resolve
         shell: bash
         run: |
           set -euo pipefail
-          output="${RUNNER_TEMP}/jogger-candidates"
-          mkdir -p "$output"
-          candidates=(
-            "89aced76f5"
-            "7e010fc863"
-          )
-          for asset in "${candidates[@]}"; do
-            url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/${asset}.pdf"
-            curl --fail --location --retry 3 --retry-all-errors \
-              --connect-timeout 20 --max-time 180 \
-              --user-agent "Dacia-Knowledge-Base source verification" \
-              "$url" --output "${output}/${asset}.pdf"
-          done
-          (
-            cd "$output"
-            sha256sum *.pdf > candidate-hashes.txt
-            stat --format='%n %s' *.pdf > candidate-sizes.txt
-          )
-          cat "${output}/candidate-hashes.txt"
-          cat "${output}/candidate-sizes.txt"
+          expected_sha="a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b"
+          expected_size="2031453"
+          work="${RUNNER_TEMP}/jogger-wayback"
+          mkdir -p "$work/cdx" "$work/downloads"
 
-      - name: Upload exact CDN candidate bytes
+          queries=(
+            "cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/*"
+            "cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/89aced76f5.pdf"
+            "cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/7e010fc863.pdf"
+            "cdn.group.renault.com/dac/pl/pdf/cenniki/new-jogger-price.pdf"
+          )
+
+          index=0
+          for pattern in "${queries[@]}"; do
+            encoded="$(python -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "$pattern")"
+            url="https://web.archive.org/cdx/search/cdx?url=${encoded}&output=json&filter=statuscode:200&fl=timestamp,original,statuscode,mimetype,digest,length&collapse=digest&from=2026&to=2026"
+            echo "Querying ${pattern}"
+            curl --fail --location --retry 4 --retry-all-errors \
+              --connect-timeout 30 --max-time 240 \
+              --user-agent "Dacia-Knowledge-Base source verification" \
+              "$url" --output "$work/cdx/query-${index}.json" || true
+            index=$((index + 1))
+          done
+
+          python - "$work" <<'PY'
+          import json
+          import pathlib
+          import sys
+
+          root = pathlib.Path(sys.argv[1])
+          rows = []
+          seen = set()
+          for path in sorted((root / "cdx").glob("*.json")):
+              try:
+                  payload = json.loads(path.read_text(encoding="utf-8"))
+              except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                  continue
+              if not isinstance(payload, list) or len(payload) < 2:
+                  continue
+              header = payload[0]
+              for values in payload[1:]:
+                  if not isinstance(values, list) or len(values) != len(header):
+                      continue
+                  row = dict(zip(header, values))
+                  key = (row.get("timestamp", ""), row.get("original", ""))
+                  if not all(key) or key in seen:
+                      continue
+                  seen.add(key)
+                  rows.append(row)
+          rows.sort(key=lambda row: (row["timestamp"], row["original"]))
+          (root / "snapshots.json").write_text(
+              json.dumps(rows, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          with (root / "snapshots.tsv").open("w", encoding="utf-8") as handle:
+              for row in rows:
+                  handle.write(f'{row["timestamp"]}\t{row["original"]}\n')
+          print(f"Discovered {len(rows)} unique snapshots")
+          PY
+
+          : > "$work/candidate-hashes.tsv"
+          matched=""
+          counter=0
+          while IFS=$'\t' read -r timestamp original; do
+            [[ -n "$timestamp" && -n "$original" ]] || continue
+            candidate="$work/downloads/candidate-${counter}.pdf"
+            counter=$((counter + 1))
+            archive_url="https://web.archive.org/web/${timestamp}id_/${original}"
+            echo "Checking ${archive_url}"
+            if ! curl --fail --location --retry 4 --retry-all-errors \
+              --connect-timeout 30 --max-time 300 \
+              --user-agent "Dacia-Knowledge-Base source verification" \
+              "$archive_url" --output "$candidate"; then
+              printf '%s\t%s\tDOWNLOAD_FAILED\n' "$timestamp" "$original" >> "$work/candidate-hashes.tsv"
+              continue
+            fi
+            actual_sha="$(sha256sum "$candidate" | awk '{print $1}')"
+            actual_size="$(stat --format='%s' "$candidate")"
+            printf '%s\t%s\t%s\t%s\n' "$timestamp" "$original" "$actual_size" "$actual_sha" >> "$work/candidate-hashes.tsv"
+            if [[ "$actual_sha" == "$expected_sha" && "$actual_size" == "$expected_size" ]]; then
+              matched="$candidate"
+              break
+            fi
+          done < "$work/snapshots.tsv"
+
+          if [[ -n "$matched" ]]; then
+            target="PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf"
+            mkdir -p "$(dirname "$target")"
+            cp "$matched" "$target"
+            test "$(stat --format='%s' "$target")" = "$expected_size"
+            echo "${expected_sha}  ${target}" | sha256sum --check --strict
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload Wayback verification report
+        if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: jogger-official-cdn-candidates
-          path: ${{ runner.temp }}/jogger-candidates
-          if-no-files-found: error
+          name: jogger-wayback-verification
+          path: ${{ runner.temp }}/jogger-wayback
+          if-no-files-found: warn
           retention-days: 1
+
+      - name: Materialize exact archival commit
+        if: steps.resolve.outputs.found == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .jogger-archive-parts
+          rm .github/workflows/jogger-source-binary-archival.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "sources: archive exact Jogger MY26 source PDF"
+          git push origin HEAD:source/jogger-my26-binary-archival
+
+      - name: Fail when exact snapshot is absent
+        if: steps.resolve.outputs.found != 'true'
+        run: |
+          echo "No archived official CDN snapshot matched the accepted owner-supplied binary." >&2
+          exit 1
