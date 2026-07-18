@@ -97,6 +97,27 @@ jobs:
           python tools/dkb.py configuration-comparison-pair-summary \
             --csv "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv"
 
+      - name: Generate Duster mild hybrid 130 4x4 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --evidence-spec data/reporting/duster_mildhybrid130_4x4_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison-differences.csv"
+
       - name: Generate Duster mild hybrid 130 4x2 reporting artifacts
         if: matrix.python-version == '3.13'
         run: |
@@ -229,6 +250,13 @@ jobs:
             --file "${RUNNER_TEMP}/configuration-comparison-differences.csv" \
             --file "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv" \
             --file "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison-differences.csv" \
             --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.json" \
             --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.md" \
             --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-source-coverage.json" \
@@ -294,6 +322,13 @@ jobs:
             ${{ runner.temp }}/configuration-comparison-differences.csv
             ${{ runner.temp }}/configuration-comparison-item-catalog.csv
             ${{ runner.temp }}/configuration-comparison-pair-summary.csv
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-completeness.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-completeness.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-source-coverage.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-source-coverage.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison-differences.csv
             ${{ runner.temp }}/duster-mildhybrid130-4x2-completeness.json
             ${{ runner.temp }}/duster-mildhybrid130-4x2-completeness.md
             ${{ runner.temp }}/duster-mildhybrid130-4x2-source-coverage.json
