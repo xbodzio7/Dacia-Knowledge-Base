@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTED`
+`COMPLETE`
 
 The accepted Jogger MY26 page-6 gearbox evidence is represented by exact
 configuration observations and reconciled against the repository's existing
@@ -61,7 +61,7 @@ Six dedicated tests require:
 
 ## Verified baseline
 
-After materialization the expected repository baseline is:
+The verified repository baseline is:
 
 - 470 tests;
 - 34 master CSV files and 3,730 rows;
