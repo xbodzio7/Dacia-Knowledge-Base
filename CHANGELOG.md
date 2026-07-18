@@ -191,11 +191,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 451 tests.
-* The verified master-data baseline now contains 34 CSV files and 3346 rows.
-* SQLite verification now covers 34 tables and 3346 rows.
-* Configuration attribute values now contain 724 dated records.
-* Declarative configuration-value imports now contain 44 versioned JSON specifications.
+* The automated test suite now contains 459 tests.
+* The verified master-data baseline now contains 34 CSV files and 3658 rows.
+* SQLite verification now covers 34 tables and 3658 rows.
+* Configuration attribute values now contain 1036 dated records.
+* Declarative configuration-value imports now contain 61 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 1811 records: 1481 `standard`, 112 `optional`, 218 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->

@@ -720,11 +720,11 @@ wymaga jeszcze transferu do repozytorium; technika i wyposażenie pozostają
 oddzielnymi pakietami dowodowymi.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 451 testów, 34 pliki CSV, 3346 rekordów
-danych, 34 relacje między tabelami, 724 wartości konfiguracji, 44
+Zweryfikowany model obejmuje 459 testów, 34 pliki CSV, 3658 rekordów
+danych, 34 relacje między tabelami, 1036 wartości konfiguracji, 61
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3346 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3658 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
