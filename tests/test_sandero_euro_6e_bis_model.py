@@ -82,10 +82,15 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
 
     def test_configuration_values_reference_controlled_standards(self) -> None:
         standard_codes = {row["code"] for row in self.standards}
-        emission_values = [
+        all_emission_values = [
             row
             for row in self.values
             if row["attribute_code"] == "emission_standard"
+        ]
+        emission_values = [
+            row
+            for row in all_emission_values
+            if row["configuration_code"] in EXPECTED
         ]
         self.assertEqual(len(emission_values), 7)
         self.assertEqual(
@@ -95,9 +100,10 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         self.assertTrue(
             all(
                 row["value"] in standard_codes
-                for row in emission_values
+                for row in all_emission_values
             ),
         )
+        self.assertEqual(len(all_emission_values), 29)
         self.assertGreaterEqual(len(self.values), 225)
 
     def test_model_package_does_not_change_other_data_tables(self) -> None:

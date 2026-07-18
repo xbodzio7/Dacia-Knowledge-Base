@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Exact Source Binary Archival
-- Pull Request: #103
-- Verified head: `38861121b9abcdd2af483c9a7942b16f13229e19`
-- Quality run: #412
+- Package: Jogger Technical Denominator Selection
+- Pull Request: #104
+- Verified head: `1721ec6b1c2f24decd5a97e1d65abc7b6dec1dbb`
+- Quality run: #414
 
 ## Verified baseline
 
-- Tests: 451
+- Tests: 459
 - Master CSV files: 34
-- Master rows: 3346
-- Configuration values: 724
-- Configuration import specifications: 44
+- Master rows: 3658
+- Configuration values: 1036
+- Configuration import specifications: 61
 - Availability records: 1811
 - Canonical attributes: 351
 - Attribute categories: 30
 
 ## Current package
 
-**Selected Jogger Technical Specification Import** — `active`
+**Jogger Deferred Technical Evidence Reconciliation** — `active`
 
-Materialize 312 exact page-6 Jogger configuration observations in 17 declarative import specifications across the four homogeneous powertrain groups while preserving fuel and seat-count contexts and excluding every documented range or semantic mismatch.
+Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics.
 
 ## Next package
 
-**Jogger Deferred Technical Evidence Reconciliation** — `planned`
+**Selected Jogger Deferred Technical Modeling Package** — `planned`
 
-Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics.
+Implement the single selected deferred Jogger technical modelling or import decision with explicit source semantics, tests and no reinterpretation of the completed 312-value exact scalar denominator.
 
 ## Autonomy
 

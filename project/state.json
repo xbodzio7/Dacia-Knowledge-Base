@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger MY26 Exact Source Binary Archival",
-    "pull_request": 103,
-    "head_sha": "38861121b9abcdd2af483c9a7942b16f13229e19",
-    "quality_run": 412
+    "name": "Jogger Technical Denominator Selection",
+    "pull_request": 104,
+    "head_sha": "1721ec6b1c2f24decd5a97e1d65abc7b6dec1dbb",
+    "quality_run": 414
   },
   "baseline": {
-    "tests": 451,
+    "tests": 459,
     "csv_files": 34,
-    "rows": 3346,
-    "configuration_values": 724,
-    "configuration_import_specs": 44,
+    "rows": 3658,
+    "configuration_values": 1036,
+    "configuration_import_specs": 61,
     "availability_records": 1811,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Selected Jogger Technical Specification Import",
+    "name": "Jogger Deferred Technical Evidence Reconciliation",
     "status": "active",
-    "goal": "Materialize 312 exact page-6 Jogger configuration observations in 17 declarative import specifications across the four homogeneous powertrain groups while preserving fuel and seat-count contexts and excluding every documented range or semantic mismatch."
+    "goal": "Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics."
   },
   "next_package": {
-    "name": "Jogger Deferred Technical Evidence Reconciliation",
+    "name": "Selected Jogger Deferred Technical Modeling Package",
     "status": "planned",
-    "goal": "Review the deferred range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and injection evidence and select the next bounded modelling or import package without weakening source semantics."
+    "goal": "Implement the single selected deferred Jogger technical modelling or import decision with explicit source semantics, tests and no reinterpretation of the completed 312-value exact scalar denominator."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
