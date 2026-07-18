@@ -145,11 +145,10 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         )
         scope = report["scope"]
         self.assertEqual(scope["reporting_configurations"], 7)
-        self.assertEqual(scope["repository_status_configurations"], 31)
-        self.assertEqual(scope["excluded_configurations"], 24)
-        self.assertEqual(
-            set(scope["excluded_configuration_codes"]),
-            set(self.expected),
+        self.assertEqual(scope["repository_status_configurations"], 53)
+        self.assertEqual(scope["excluded_configurations"], 46)
+        self.assertTrue(
+            set(self.expected).issubset(scope["excluded_configuration_codes"])
         )
 
 

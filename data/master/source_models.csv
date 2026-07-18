@@ -7,3 +7,4 @@ id,source_code,model_code,relationship,notes
 6,src_pl_sandero_stepway_extreme_ecog120_at_20260626,sandero_stepway_iii,configuration_for,
 7,src_pl_sandero_stepway_extreme_ecog120_mt_20260626,sandero_stepway_iii,configuration_for,
 8,src_pl_duster_price_my26_py25_20260206,duster_iii,configuration_for,
+9,src_pl_jogger_price_my26_20260401,jogger,configuration_for,Official MY26 Jogger catalogue and price matrix.

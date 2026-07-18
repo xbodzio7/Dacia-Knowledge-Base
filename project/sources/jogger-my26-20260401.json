@@ -39,8 +39,16 @@
   },
   "catalogue_candidate": {
     "model_code": "jogger",
-    "trims": ["essential", "expression", "extreme", "journey"],
-    "seat_counts": [5, 7],
+    "trims": [
+      "essential",
+      "expression",
+      "extreme",
+      "journey"
+    ],
+    "seat_counts": [
+      5,
+      7
+    ],
     "powertrains": [
       "Eco-G 120 manual",
       "Eco-G 120 automatic",
@@ -55,5 +63,15 @@
     "five- and seven-seat variants remain distinct configuration candidates",
     "conditional equipment remains conditional until an explicit mapping decision",
     "master-data registration is deferred to the first catalogue entity package so documentation counters change atomically"
-  ]
+  ],
+  "master_registration": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "registered": true,
+    "versions": 4,
+    "configurations": 22,
+    "prices": 22,
+    "number_of_seats_observations": 22,
+    "declarative_import_spec": false,
+    "binary_archive_pending": true
+  }
 }

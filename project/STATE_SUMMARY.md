@@ -16,17 +16,17 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Source Intake
-- Pull Request: #100
-- Verified head: `f84bf75ef099260a5d097d31b3c8df3a9edef5f4`
-- Quality run: #360
+- Package: Jogger MY26 Catalogue Scope Selection
+- Pull Request: #101
+- Verified head: `f197080438b1bd591521df02a43243a909530a83`
+- Quality run: #362
 
 ## Verified baseline
 
-- Tests: 446
+- Tests: 451
 - Master CSV files: 34
-- Master rows: 3248
-- Configuration values: 702
+- Master rows: 3346
+- Configuration values: 724
 - Configuration import specifications: 44
 - Availability records: 1811
 - Canonical attributes: 351
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Catalogue Entity Foundation** — `active`
+**Jogger Source Binary Archival** — `blocked`
 
-Register the accepted Polish Jogger MY26 source and create all 22 source-backed catalogue configurations across four trims, two seat counts and four powertrain/transmission groups with dated catalogue prices and explicit number_of_seats observations while preserving every existing Sandero and Duster reporting denominator.
+Archive the supplied official Jogger MY26 PDF at the reserved repository path and verify its exact SHA-256 so the shared declarative import contract and further source-page review can operate entirely from repository state.
 
 ## Next package
 
 **Jogger Technical Denominator Review** — `planned`
 
-Review the Jogger technical table and separate exact powertrain-wide values, explicit five-/seven-seat values and unassignable ranges before importing any scalar technical observations.
+After binary archival, review the Jogger page-6 technical table and separate exact powertrain-wide values, explicit five-/seven-seat observations and source ranges before importing scalar technical data.
 
 ## Autonomy
 

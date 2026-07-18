@@ -9,3 +9,7 @@ id,code,model_code,name,status,notes
 8,duster_iii_extreme,duster_iii,Extreme,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
 9,duster_iii_journey,duster_iii,Journey,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
 10,duster_iii_journey_plus,duster_iii,Journey+,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
+11,jogger_essential,jogger,Essential,active,Source-backed trim from the Jogger MY26 price matrix (page 1).
+12,jogger_expression,jogger,Expression,active,Source-backed trim from the Jogger MY26 price matrix (page 1).
+13,jogger_extreme,jogger,Extreme,active,Source-backed trim from the Jogger MY26 price matrix (page 1).
+14,jogger_journey,jogger,Journey,active,Source-backed trim from the Jogger MY26 price matrix (page 1).

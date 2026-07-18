@@ -710,12 +710,21 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
+### Jogger MY26 catalogue foundation
+
+Oficjalny polski cennik Jogger MY26 z 1.04.2026 jest zarejestrowany z
+zweryfikowanym SHA-256 i zastrzeżoną ścieżką archiwum. Katalog obejmuje 4
+wersje, 22 konfiguracje (11 pięciomiejscowych i 11 siedmiomiejscowych), 22
+ceny katalogowe oraz 22 datowane wartości `number_of_seats`. Binarny PDF
+wymaga jeszcze transferu do repozytorium; technika i wyposażenie pozostają
+oddzielnymi pakietami dowodowymi.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 446 testów, 34 pliki CSV, 3248 rekordów
-danych, 34 relacje między tabelami, 702 wartości konfiguracji, 44
+Zweryfikowany model obejmuje 451 testów, 34 pliki CSV, 3346 rekordów
+danych, 34 relacje między tabelami, 724 wartości konfiguracji, 44
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3248 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3346 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
