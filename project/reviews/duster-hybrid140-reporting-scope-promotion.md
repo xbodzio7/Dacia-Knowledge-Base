@@ -19,7 +19,7 @@ and starter-generator power as separate canonical attributes. The companion
 evidence specification contains no decisions because the promoted scope has no
 technical or equipment gaps.
 
-## Verified completeness contract
+## Verified result
 
 - 4 reporting configurations,
 - 60/60 technical observations,
@@ -28,11 +28,10 @@ technical or equipment gaps.
 - complete source registration, area, section and record coverage,
 - 6 deterministic trim-pair comparisons,
 - 90 equal technical comparisons,
-- zero not-comparable technical states.
-
-The generated comparison artifact is the source of truth for the exact
-trim-equipment difference count. Prices are pairwise distinct in the selected
-catalogue observations.
+- 56 equipment differences and 292 equipment equalities,
+- 6 price differences,
+- 62 total differences,
+- zero not-comparable states.
 
 ## Artifact contract
 
