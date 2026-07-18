@@ -1,0 +1,34 @@
+name: Jogger Technical Source Snapshot
+
+on:
+  push:
+    branches:
+      - data/jogger-technical-specifications
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v7
+        with:
+          ref: data/jogger-technical-specifications
+          persist-credentials: false
+
+      - name: Archive exact source checkout
+        run: |
+          tar --exclude=.git -czf "${RUNNER_TEMP}/repository-source.tgz" .
+
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@v6
+        with:
+          name: jogger-technical-source-snapshot
+          path: ${{ runner.temp }}/repository-source.tgz
+          if-no-files-found: error
+          retention-days: 1
