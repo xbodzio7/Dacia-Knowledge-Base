@@ -17,16 +17,16 @@ jobs:
         with:
           ref: data/jogger-my26-catalogue-entity-foundation
 
-      - name: Apply deterministic payload when present
+      - name: Apply deterministic payload when complete
         shell: bash
         run: |
           set -euo pipefail
-          if [[ ! -f .jogger-payload.b64 ]]; then
-            echo "Payload not present; nothing to apply."
+          if [[ ! -f .jogger-payload.ready ]]; then
+            echo "Payload is not complete; nothing to apply."
             exit 0
           fi
-          base64 --decode .jogger-payload.b64 | tar -xzf -
-          rm .jogger-payload.b64
+          cat .jogger-payload.part* | base64 --decode | tar -xzf -
+          rm .jogger-payload.part* .jogger-payload.ready
           rm .github/workflows/jogger-source-snapshot.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
