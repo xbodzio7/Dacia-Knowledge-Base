@@ -6,3 +6,8 @@ id,source_code,version_code,relationship,notes
 5,src_pl_sandero_stepway_expression_ecog120_mt_20260626,sandero_stepway_iii_expression,documents,
 6,src_pl_sandero_stepway_extreme_ecog120_at_20260626,sandero_stepway_iii_extreme,documents,
 7,src_pl_sandero_stepway_extreme_ecog120_mt_20260626,sandero_stepway_iii_extreme,documents,
+8,src_pl_duster_price_my26_py25_20260206,duster_iii_essential,documents,Version column in the page-1 price matrix.
+9,src_pl_duster_price_my26_py25_20260206,duster_iii_expression,documents,Version column in the page-1 price matrix.
+10,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme,documents,Version column in the page-1 price matrix.
+11,src_pl_duster_price_my26_py25_20260206,duster_iii_journey,documents,Version column in the page-1 price matrix.
+12,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_plus,documents,Version column in the page-1 price matrix.

@@ -52,6 +52,12 @@ Ceny są zapisywane jako datowane obserwacje powiązane z konkretnym
 dokumentem źródłowym. Nie są traktowane jako bezterminowa deklaracja
 aktualnej oferty.
 
+Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
+kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
+Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
+podzbiorem raportowym Sandero do czasu osobnych, źródłowych importów cen,
+parametrów technicznych i wyposażenia.
+
 Parametry techniczne i pozostałe wartości konfiguracji również są
 datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
 310 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
@@ -686,11 +692,11 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 410 testów, 34 pliki CSV, 1382 rekordów
+Zweryfikowany model obejmuje 416 testów, 34 pliki CSV, 1440 rekordów
 danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 1382 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 1440 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

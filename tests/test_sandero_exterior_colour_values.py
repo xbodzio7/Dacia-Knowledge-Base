@@ -142,6 +142,7 @@ class SanderoExteriorColourValueTests(unittest.TestCase):
         actual = {
             row["configuration_code"]: row["source_code"]
             for row in self.source_configurations
+            if row["configuration_code"] in EXPECTED
         }
         self.assertEqual(actual, EXPECTED)
 

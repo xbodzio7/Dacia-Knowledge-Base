@@ -6,3 +6,27 @@ id,source_code,configuration_code,relationship,notes
 5,src_pl_sandero_stepway_expression_ecog120_mt_20260626,sandero_stepway_iii_expression_ecog120_manual,documents,
 6,src_pl_sandero_stepway_extreme_ecog120_at_20260626,sandero_stepway_iii_extreme_ecog120_automatic,documents,
 7,src_pl_sandero_stepway_extreme_ecog120_mt_20260626,sandero_stepway_iii_extreme_ecog120_manual,documents,
+8,src_pl_duster_price_my26_py25_20260206,duster_iii_essential_ecog100_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+9,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_ecog100_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+10,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_ecog100_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+11,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_ecog100_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+12,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_mildhybrid130_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+13,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_mildhybrid130_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+14,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_mildhybrid130_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+15,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_hybrid140_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+16,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_hybrid140_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+17,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_hybrid140_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+18,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_plus_hybrid140_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+19,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_mildhybrid130_4x4_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+20,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_mildhybrid130_4x4_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+21,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_mildhybrid130_4x4_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+22,src_pl_duster_price_my26_py25_20260206,duster_iii_essential_ecog120_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+23,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_ecog120_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+24,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_ecog120_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+25,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_ecog120_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+26,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_mildhybrid140_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+27,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_mildhybrid140_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+28,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_mildhybrid140_4x2_manual,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+29,src_pl_duster_price_my26_py25_20260206,duster_iii_expression_hybrid155_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+30,src_pl_duster_price_my26_py25_20260206,duster_iii_extreme_hybrid155_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.
+31,src_pl_duster_price_my26_py25_20260206,duster_iii_journey_hybrid155_4x2_automatic,documents,Page-1 combination; transmission type confirmed on pages 8-9.

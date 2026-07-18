@@ -120,6 +120,7 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         mapping = {
             row["configuration_code"]: row["source_code"]
             for row in self.source_configurations
+            if row["configuration_code"] in EXPECTED
         }
         self.assertEqual(mapping, EXPECTED)
 

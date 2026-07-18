@@ -6,3 +6,27 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 5,sandero_stepway_iii_expression_ecog120_manual,sandero_stepway_iii_expression,Eco-G 120,manual,active,
 6,sandero_stepway_iii_extreme_ecog120_automatic,sandero_stepway_iii_extreme,Eco-G 120,automatic,active,
 7,sandero_stepway_iii_extreme_ecog120_manual,sandero_stepway_iii_extreme,Eco-G 120,manual,active,
+8,duster_iii_essential_ecog100_4x2_manual,duster_iii_essential,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+9,duster_iii_expression_ecog100_4x2_manual,duster_iii_expression,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+10,duster_iii_extreme_ecog100_4x2_manual,duster_iii_extreme,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+11,duster_iii_journey_ecog100_4x2_manual,duster_iii_journey,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+12,duster_iii_expression_mildhybrid130_4x2_manual,duster_iii_expression,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+13,duster_iii_extreme_mildhybrid130_4x2_manual,duster_iii_extreme,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+14,duster_iii_journey_mildhybrid130_4x2_manual,duster_iii_journey,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+15,duster_iii_expression_hybrid140_4x2_automatic,duster_iii_expression,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+16,duster_iii_extreme_hybrid140_4x2_automatic,duster_iii_extreme,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+17,duster_iii_journey_hybrid140_4x2_automatic,duster_iii_journey,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+18,duster_iii_journey_plus_hybrid140_4x2_automatic,duster_iii_journey_plus,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+19,duster_iii_expression_mildhybrid130_4x4_manual,duster_iii_expression,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+20,duster_iii_extreme_mildhybrid130_4x4_manual,duster_iii_extreme,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+21,duster_iii_journey_mildhybrid130_4x4_manual,duster_iii_journey,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+22,duster_iii_essential_ecog120_4x2_manual,duster_iii_essential,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+23,duster_iii_expression_ecog120_4x2_manual,duster_iii_expression,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+24,duster_iii_extreme_ecog120_4x2_manual,duster_iii_extreme,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+25,duster_iii_journey_ecog120_4x2_manual,duster_iii_journey,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+26,duster_iii_expression_mildhybrid140_4x2_manual,duster_iii_expression,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+27,duster_iii_extreme_mildhybrid140_4x2_manual,duster_iii_extreme,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+28,duster_iii_journey_mildhybrid140_4x2_manual,duster_iii_journey,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+29,duster_iii_expression_hybrid155_4x2_automatic,duster_iii_expression,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+30,duster_iii_extreme_hybrid155_4x2_automatic,duster_iii_extreme,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+31,duster_iii_journey_hybrid155_4x2_automatic,duster_iii_journey,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.

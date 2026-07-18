@@ -16,16 +16,16 @@
 
 ## Reference delivery
 
-- Package: Duster Source Intake
-- Pull Request: #76
-- Verified head: `4c33a90a779aed30ab73cd8df5d75302e11c59ae`
-- Quality run: #225
+- Package: Configuration Reporting Explicit Scope
+- Pull Request: #79
+- Verified head: `498805d714a43ca8efbbd1edd2802a42da142dff`
+- Quality run: #270
 
 ## Verified baseline
 
-- Tests: 410
+- Tests: 416
 - Master CSV files: 34
-- Master rows: 1382
+- Master rows: 1440
 - Configuration values: 310
 - Configuration import specifications: 11
 - Availability records: 419
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Catalog Bootstrap** — `active`
+**Duster Catalog Price Import** — `active`
 
-Create the five explicit Duster III versions, the 24 source-backed version and powertrain configurations, and their source relationships without importing prices or detailed observations.
+Import only explicit page-1 catalogue gross prices for the 24 source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations.
 
 ## Next package
 
-**Duster Catalog Price Import** — `planned`
+**Duster Technical Specification Import** — `planned`
 
-Import only explicit page-1 catalogue gross prices for source-supported Duster III configurations, preserving date and source provenance while excluding discounts, financing benefits and unsupported combinations.
+Import only source-explicit technical values from pages 8-9 for the Duster III configurations, preserving drive, transmission, fuel and hybrid context without inferring trim-dependent values.
 
 ## Autonomy
 

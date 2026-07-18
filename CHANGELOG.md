@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Source-backed Duster III catalogue bootstrap with 5 active versions, 24 explicit version/powertrain configurations and complete source relationships.
 * Reproducible and atomic SQLite database builder.
 * Optional SQLite output path through `--output`.
 * CSV encoding inspection and Windows-1250 to UTF-8 normalization tool.
@@ -186,9 +187,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 410 tests.
-* The verified master-data baseline now contains 34 CSV files and 1382 rows.
-* SQLite verification now covers 34 tables and 1382 rows.
+* The automated test suite now contains 416 tests.
+* The verified master-data baseline now contains 34 CSV files and 1440 rows.
+* SQLite verification now covers 34 tables and 1440 rows.
 * Configuration attribute values now contain 310 dated records.
 * Declarative configuration-value imports now contain 11 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
