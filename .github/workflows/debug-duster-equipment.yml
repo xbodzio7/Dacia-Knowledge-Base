@@ -1,34 +1,24 @@
-name: Debug Duster equipment tests
+name: Snapshot Duster equipment branch
 
 on:
   pull_request:
 
 jobs:
-  debug:
+  snapshot:
     if: github.head_ref == 'dev/duster-equipment-materialize'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
           ref: data/duster-equipment-availability-import
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.10"
-      - name: Capture full unit-test output
+      - name: Create source snapshot
         shell: bash
         run: |
-          set +e
-          python -m unittest discover -s tests -p 'test_*.py' -q > unit-tests.log 2>&1
-          status=$?
-          cat unit-tests.log
-          echo "$status" > unit-tests.status
-          exit 0
-      - name: Upload diagnostic
+          zip -qr duster-equipment-source.zip . -x '.git/*'
+      - name: Upload source snapshot
         uses: actions/upload-artifact@v7
         with:
-          name: duster-equipment-unit-test-debug
-          path: |
-            unit-tests.log
-            unit-tests.status
+          name: duster-equipment-source-snapshot
+          path: duster-equipment-source.zip
           if-no-files-found: error
           retention-days: 1
