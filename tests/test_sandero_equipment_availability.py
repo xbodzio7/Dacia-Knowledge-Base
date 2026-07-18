@@ -59,7 +59,10 @@ class SanderoCoreEquipmentAvailabilityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.attributes = read_rows(ATTRIBUTES_PATH)
-        cls.rows = read_rows(AVAILABILITY_PATH)
+        cls.rows = [
+            row for row in read_rows(AVAILABILITY_PATH)
+            if row["configuration_code"] in EXPECTED_CONFIGURATION_COUNTS
+        ]
 
     def test_imported_attribute_definitions_are_boolean_active(self) -> None:
         imported = {
