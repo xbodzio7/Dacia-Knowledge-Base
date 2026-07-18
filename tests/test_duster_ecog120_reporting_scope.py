@@ -27,6 +27,9 @@ SCOPES = {
         "technical_slots": 21,
         "technical_records": 84,
         "technical_comparisons": 126,
+        "equal_prices": 1,
+        "different_prices": 5,
+        "total_differences": 86,
     },
     "ecog120": {
         "spec": REPOSITORY / "data" / "reporting" / "duster_ecog120_completeness.json",
@@ -40,6 +43,9 @@ SCOPES = {
         "technical_slots": 17,
         "technical_records": 68,
         "technical_comparisons": 102,
+        "equal_prices": 0,
+        "different_prices": 6,
+        "total_differences": 87,
     },
 }
 
@@ -148,8 +154,8 @@ class DusterEcoGReportingScopeTests(unittest.TestCase):
                     },
                     "prices": {
                         "comparisons": 6,
-                        "different": 6,
-                        "equal": 0,
+                        "different": scope["different_prices"],
+                        "equal": scope["equal_prices"],
                         "not_comparable": 0,
                     },
                     "technical": {
@@ -158,7 +164,7 @@ class DusterEcoGReportingScopeTests(unittest.TestCase):
                         "equal": technical_comparisons,
                         "not_comparable": 0,
                     },
-                    "total_differences": 87,
+                    "total_differences": scope["total_differences"],
                 },
                 name,
             )
