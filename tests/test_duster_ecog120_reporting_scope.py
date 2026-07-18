@@ -27,6 +27,8 @@ SCOPES = {
         "technical_slots": 21,
         "technical_records": 84,
         "technical_comparisons": 126,
+        "equipment_records": 232,
+        "pair_count": 6,
         "equal_prices": 1,
         "different_prices": 5,
         "equipment_differences": 81,
@@ -44,6 +46,8 @@ SCOPES = {
         "technical_slots": 17,
         "technical_records": 68,
         "technical_comparisons": 102,
+        "equipment_records": 232,
+        "pair_count": 6,
         "equal_prices": 0,
         "different_prices": 6,
         "equipment_differences": 81,
@@ -61,10 +65,30 @@ SCOPES = {
         "technical_slots": 15,
         "technical_records": 60,
         "technical_comparisons": 90,
+        "equipment_records": 232,
+        "pair_count": 6,
         "equal_prices": 0,
         "different_prices": 6,
         "equipment_differences": 56,
         "total_differences": 62,
+    },
+    "hybrid155": {
+        "spec": REPOSITORY / "data" / "reporting" / "duster_hybrid155_completeness.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "duster_hybrid155_gap_evidence.spec",
+        "configurations": {
+            "duster_iii_expression_hybrid155_4x2_automatic",
+            "duster_iii_extreme_hybrid155_4x2_automatic",
+            "duster_iii_journey_hybrid155_4x2_automatic",
+        },
+        "technical_slots": 16,
+        "technical_records": 48,
+        "technical_comparisons": 48,
+        "equipment_records": 174,
+        "pair_count": 3,
+        "equal_prices": 0,
+        "different_prices": 3,
+        "equipment_differences": 28,
+        "total_differences": 31,
     },
 }
 
@@ -98,7 +122,11 @@ class DusterReportingScopeTests(unittest.TestCase):
                 scope["configurations"],
                 name,
             )
-            self.assertEqual(report["scope"]["reporting_configurations"], 4, name)
+            self.assertEqual(
+                report["scope"]["reporting_configurations"],
+                len(scope["configurations"]),
+                name,
+            )
             self.assertEqual(report["scope"]["sources"], 1, name)
 
     def test_scopes_have_expected_technical_slots_and_fifty_eight_equipment_attributes(self) -> None:
@@ -124,7 +152,7 @@ class DusterReportingScopeTests(unittest.TestCase):
                 name,
             )
             self.assertEqual(report["equipment"]["coverage_percent"], "100.00", name)
-            self.assertEqual(report["equipment"]["recorded"], 232, name)
+            self.assertEqual(report["equipment"]["recorded"], scope["equipment_records"], name)
             self.assertEqual(report["gaps"], {"equipment": [], "technical": []}, name)
 
     def test_source_coverage_is_complete(self) -> None:
@@ -145,12 +173,14 @@ class DusterReportingScopeTests(unittest.TestCase):
             self.assertEqual(report["sections"]["missing"], 0, name)
             self.assertEqual(report["gaps"], [], name)
 
-    def test_comparisons_have_six_complete_pairs(self) -> None:
-        for name, report in self.comparison.items():
-            self.assertEqual(len(report["pairs"]), 6, name)
+    def test_comparisons_have_expected_complete_pairs(self) -> None:
+        for name, scope in SCOPES.items():
+            report = self.comparison[name]
+            pair_count = scope["pair_count"]
+            self.assertEqual(len(report["pairs"]), pair_count, name)
             self.assertEqual(
                 Counter(pair["pair_type"] for pair in report["pairs"]),
-                Counter({"different_version_same_transmission": 6}),
+                Counter({"different_version_same_transmission": pair_count}),
                 name,
             )
             self.assertEqual(
@@ -163,6 +193,8 @@ class DusterReportingScopeTests(unittest.TestCase):
         for name, scope in SCOPES.items():
             summary = self.comparison[name]["summary"]
             technical_comparisons = scope["technical_comparisons"]
+            pair_count = scope["pair_count"]
+            equipment_comparisons = pair_count * 58
             self.assertEqual(
                 summary["technical"],
                 {
@@ -176,7 +208,7 @@ class DusterReportingScopeTests(unittest.TestCase):
             self.assertEqual(
                 summary["prices"],
                 {
-                    "comparisons": 6,
+                    "comparisons": pair_count,
                     "different": scope["different_prices"],
                     "equal": scope["equal_prices"],
                     "not_comparable": 0,
@@ -186,9 +218,9 @@ class DusterReportingScopeTests(unittest.TestCase):
             self.assertEqual(
                 summary["equipment"],
                 {
-                    "comparisons": 348,
+                    "comparisons": equipment_comparisons,
                     "different": scope["equipment_differences"],
-                    "equal": 348 - scope["equipment_differences"],
+                    "equal": equipment_comparisons - scope["equipment_differences"],
                     "not_comparable": 0,
                 },
                 name,
