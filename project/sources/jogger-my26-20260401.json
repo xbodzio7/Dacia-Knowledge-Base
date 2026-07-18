@@ -11,7 +11,19 @@
     "session_filename": "37157751-7b0c-40b4-897d-202b1d488d2d.pdf",
     "sha256": "a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b",
     "expected_repository_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf",
-    "binary_archived_in_repository": false
+    "binary_archived_in_repository": true
+  },
+  "binary_archive": {
+    "repository_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf",
+    "size_bytes": 2031453,
+    "sha256": "a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b",
+    "verified_against_owner_upload": true,
+    "retrieval": {
+      "archive_provider": "Internet Archive Wayback Machine",
+      "snapshot_timestamp": "20260519160349",
+      "original_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/0913ceb856.pdf",
+      "method": "raw id_ snapshot"
+    }
   },
   "text_extraction": {
     "method": "pdftotext -layout",
@@ -72,6 +84,6 @@
     "prices": 22,
     "number_of_seats_observations": 22,
     "declarative_import_spec": false,
-    "binary_archive_pending": true
+    "binary_archive_pending": false
   }
 }
