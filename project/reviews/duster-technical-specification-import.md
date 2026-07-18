@@ -40,3 +40,5 @@ General observations use 2026-02-06. The 20 page-9 WLTP consumption and CO2 obse
 - 36 LPG-context observations,
 - unchanged 24 Duster prices,
 - unchanged seven-configuration Sandero reporting subset.
+
+The final Quality run is anchored to the clean post-materialization branch head; no temporary workflow or staging state file remains in the package diff.
