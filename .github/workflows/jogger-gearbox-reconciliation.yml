@@ -1,0 +1,131 @@
+name: Jogger Gearbox Reconciliation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jogger-gearbox-reconciliation
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v7
+        with:
+          ref: data/jogger-gearbox-reconciliation
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install PDF extraction backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+
+      - name: Materialize exact gearbox observations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/import_configuration_values.py \
+            --spec data/imports/configuration_values/jogger-page6-gearbox-type-20260401.json \
+            --apply
+          python tools/import_configuration_values.py \
+            --spec data/imports/configuration_values/jogger-page6-gear-count-20260401.json \
+            --apply
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path.cwd()
+
+          duster_test = root / "tests" / "test_duster_technical_specifications.py"
+          text = duster_test.read_text(encoding="utf-8")
+          old = (
+              '        self.assertEqual(len(self.all_values), 1068)\n'
+              '        self.assertEqual(len(list(SPECS.glob("*.json"))), 62)\n'
+          )
+          new = (
+              '        self.assertEqual(len(self.all_values), 1106)\n'
+              '        self.assertEqual(len(list(SPECS.glob("*.json"))), 64)\n'
+          )
+          if old not in text:
+              raise SystemExit("repository total contract marker not found")
+          duster_test.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+
+          readme_path = root / "README.md"
+          readme = readme_path.read_text(encoding="utf-8")
+          paragraph = (
+              "Dalsza rekonsyliacja skrzyń biegów dodaje 38 dokładnych obserwacji "
+              "`gearbox_type` i `gear_count`, zachowuje brak liczby przełożeń dla "
+              "Hybrid 155 Multi-mode oraz aktualizuje asocjacje Jogger z `mt6`, "
+              "`edc6`, `e_dht140` i `e_dht155`.\n\n"
+          )
+          marker = "<!-- dkb:documentation-baseline:readme:start -->"
+          if marker not in readme:
+              raise SystemExit("README baseline marker not found")
+          if paragraph not in readme:
+              readme = readme.replace(marker, paragraph + marker, 1)
+          readme_path.write_text(readme, encoding="utf-8", newline="\n")
+
+          changelog_path = root / "CHANGELOG.md"
+          changelog = changelog_path.read_text(encoding="utf-8")
+          bullet = (
+              "* Jogger MY26 gearbox reconciliation with 38 exact configuration "
+              "observations and current mt6, EDC6 and e-DHT 155 model associations.\n"
+          )
+          added = "### Added\n\n"
+          if bullet not in changelog:
+              changelog = changelog.replace(added, added + bullet, 1)
+          changelog_path.write_text(changelog, encoding="utf-8", newline="\n")
+          PY
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+
+      - name: Verify complete package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/import_configuration_values.py \
+            --spec data/imports/configuration_values/jogger-page6-gearbox-type-20260401.json \
+            --verify
+          python tools/import_configuration_values.py \
+            --spec data/imports/configuration_values/jogger-page6-gear-count-20260401.json \
+            --verify
+          python -m compileall -q tools scripts tests
+          python -m unittest discover -s tests -p "test_*.py" -q
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+      - name: Commit final package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/jogger-gearbox-reconciliation.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "data: reconcile Jogger gearboxes"
+          git push origin HEAD:data/jogger-gearbox-reconciliation
