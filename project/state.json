@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Final Duster Mild Hybrid 140 4x2 Reporting Promotion",
-    "pull_request": 98,
-    "head_sha": "83775c2aef05dc6649f78c3a07a77ed35e8720fe",
-    "quality_run": 356
+    "name": "Duster Reporting Portfolio Completion Review",
+    "pull_request": 99,
+    "head_sha": "a491ddcb588b3150a8078cc6913948686ff26f0b",
+    "quality_run": 358
   },
   "baseline": {
     "tests": 446,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Source Intake",
-    "status": "blocked",
-    "goal": "Acquire or approve one authoritative Jogger catalogue, price list or specification document with explicit market and date, register it with provenance and define the first bounded source-backed Jogger intake."
+    "name": "Jogger Catalogue Reporting Scope Review",
+    "status": "active",
+    "goal": "Review the accepted Polish Jogger MY26 price list dated 2026-04-01, decide the first explicit source-backed catalogue boundary across trims, seat counts and powertrains, and define a representation that preserves seat-count semantics without overloading the powertrain label."
   },
   "next_package": {
-    "name": "Jogger Catalogue Reporting Scope Review",
+    "name": "Jogger Catalogue Entity Foundation",
     "status": "planned",
-    "goal": "After source intake, review the source-backed Jogger catalogue candidate and decide the explicit reporting-scope boundary before creating active versions and configurations."
+    "goal": "Register the accepted source in master data and create the selected source-backed Jogger versions and configurations with dated catalogue prices and explicit seating-capacity observations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
