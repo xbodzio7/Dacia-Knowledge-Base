@@ -1,9 +1,6 @@
 name: Jogger Technical Payload
 
 on:
-  push:
-    branches:
-      - data/jogger-my26-technical-specifications
   pull_request:
     branches:
       - main
@@ -13,7 +10,7 @@ permissions:
 
 concurrency:
   group: jogger-technical-payload
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   materialize:
@@ -118,6 +115,6 @@ jobs:
           git add -A
           git diff --cached --check
           test "$(git diff --cached --name-only | wc -l)" -eq 33
-          test "$(git diff --cached --name-only origin/main... | wc -l)" -eq 28
+          test "$(git diff --cached --name-only origin/main | wc -l)" -eq 28
           git commit -m "data: import Jogger MY26 technical specifications"
           git push origin HEAD:data/jogger-my26-technical-specifications
