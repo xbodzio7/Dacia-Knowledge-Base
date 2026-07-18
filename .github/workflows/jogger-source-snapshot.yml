@@ -28,6 +28,10 @@ jobs:
             echo "Payload is not complete; nothing to apply."
             exit 0
           fi
+          for part in .jogger-payload.part*; do
+            wc -c "${part}"
+            sha256sum "${part}"
+          done
           cat .jogger-payload.part* > "${RUNNER_TEMP}/jogger-payload.b64"
           test "$(wc -c < "${RUNNER_TEMP}/jogger-payload.b64")" -eq 57088
           echo "b438e81995e8ac88b22f3344f05f83802ff748e009d236e3fee068287862fb0b  ${RUNNER_TEMP}/jogger-payload.b64" | sha256sum --check
