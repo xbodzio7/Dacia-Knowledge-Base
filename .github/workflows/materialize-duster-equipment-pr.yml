@@ -121,10 +121,13 @@ jobs:
           rm -f \
             .github/workflows/materialize-duster-equipment.yml \
             .github/workflows/materialize-duster-equipment-pr.yml \
+            .github/workflows/debug-duster-equipment.yml \
             project/.materialize-trigger
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git diff --cached --check
-          git commit -m 'Materialize Duster equipment availability'
-          git push origin HEAD:data/duster-equipment-availability-import
+          tree=$(git write-tree)
+          parent=$(git rev-parse origin/data/duster-equipment-availability-import)
+          commit=$(printf '%s\n' 'Duster III Equipment Availability Import' | git commit-tree "$tree" -p "$parent")
+          git push origin "$commit":refs/heads/data/duster-equipment-availability-import
