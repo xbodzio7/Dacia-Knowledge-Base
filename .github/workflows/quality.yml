@@ -57,10 +57,20 @@ jobs:
       - name: Run unit tests
         if: matrix.python-version == '3.10'
         run: |
+          set -o pipefail
           python -m unittest discover \
             -s tests \
             -p "test_*.py" \
-            -q
+            -q 2>&1 | tee "${RUNNER_TEMP}/unit-tests.log"
+
+      - name: Upload unit test diagnostics
+        if: failure() && matrix.python-version == '3.10'
+        uses: actions/upload-artifact@v7
+        with:
+          name: unit-test-diagnostics
+          path: ${{ runner.temp }}/unit-tests.log
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Run orchestration contract tests
         if: matrix.python-version == '3.10'
