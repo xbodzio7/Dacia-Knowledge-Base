@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "planned_source_code": "src_pl_jogger_price_my26_20260401",
+  "source_type": "configuration_pdf",
+  "title": "DACIA JOGGER cennik MY26",
+  "publisher": "Dacia",
+  "market": "PL",
+  "document_date": "2026-04-01",
+  "page_count": 9,
+  "original_file": {
+    "session_filename": "37157751-7b0c-40b4-897d-202b1d488d2d.pdf",
+    "sha256": "a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b",
+    "expected_repository_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf",
+    "binary_archived_in_repository": false
+  },
+  "text_extraction": {
+    "method": "pdftotext -layout",
+    "sha256": "25ccc6825f52f6357d882d869df7058ce44af425ad054d9136bd33b8c51e6ecc",
+    "role": "review aid only; the PDF remains the authoritative source"
+  },
+  "date_resolution": {
+    "canonical_date": "2026-04-01",
+    "evidence": [
+      "page 1 footer: cennik obowiązuje od 1.04.2026",
+      "page 9 legal section: stan oferty na dzień 01.04.2026"
+    ],
+    "ignored_stale_text": "page 1 contains a carried-over promotional sentence dated 19.12.2025"
+  },
+  "page_index": {
+    "1": "catalogue prices by seat count, powertrain and trim",
+    "2": "financing illustration and condensed trim highlights",
+    "3": "model overview",
+    "4": "equipment: exterior, interior and safety",
+    "5": "equipment: visibility, driving, comfort, multimedia and packages",
+    "6": "technical data by powertrain",
+    "7": "dimensions for five- and seven-seat bodies",
+    "8": "accessories",
+    "9": "legal terms and offer date"
+  },
+  "catalogue_candidate": {
+    "model_code": "jogger",
+    "trims": ["essential", "expression", "extreme", "journey"],
+    "seat_counts": [5, 7],
+    "powertrains": [
+      "Eco-G 120 manual",
+      "Eco-G 120 automatic",
+      "TCe 110 manual",
+      "hybrid 155 automatic"
+    ],
+    "priced_configuration_cells": 22
+  },
+  "intake_boundaries": [
+    "catalogue prices are distinct from financing instalments and promotions",
+    "technical ranges are not assigned to trims unless the source makes that assignment",
+    "five- and seven-seat variants remain distinct configuration candidates",
+    "conditional equipment remains conditional until an explicit mapping decision",
+    "master-data registration is deferred to the first catalogue entity package so documentation counters change atomically"
+  ]
+}
