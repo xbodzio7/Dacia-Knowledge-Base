@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Source-backed Duster III technical import with 392 observations across 17 canonical attributes, explicit fuel context and conservative exclusion of trim-ambiguous values.
 * Duster III catalogue gross prices for all 24 source-supported configurations, dated 2026-02-06 and separated from promotional discount and financing claims.
 * Source-backed Duster III catalogue bootstrap with 5 active versions, 24 explicit version/powertrain configurations and complete source relationships.
 * Reproducible and atomic SQLite database builder.
@@ -188,11 +189,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 422 tests.
-* The verified master-data baseline now contains 34 CSV files and 1464 rows.
-* SQLite verification now covers 34 tables and 1464 rows.
-* Configuration attribute values now contain 310 dated records.
-* Declarative configuration-value imports now contain 11 versioned JSON specifications.
+* The automated test suite now contains 430 tests.
+* The verified master-data baseline now contains 34 CSV files and 1856 rows.
+* SQLite verification now covers 34 tables and 1856 rows.
+* Configuration attribute values now contain 702 dated records.
+* Declarative configuration-value imports now contain 44 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 419 records: 389 `standard`, 0 `optional`, 30 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->

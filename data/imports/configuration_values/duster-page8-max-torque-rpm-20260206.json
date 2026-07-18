@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 477,
+  "attribute_code": "max_torque_rpm",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "rpm",
+    "status": "active"
+  },
+  "observation_date": "2026-02-06",
+  "fuel_type_code": "",
+  "source_page": 8,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_essential_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2000",
+      "source_text": "przy 2 000"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2000",
+      "source_text": "przy 2 000"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2000",
+      "source_text": "przy 2 000"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2000",
+      "source_text": "przy 2 000"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "2250",
+      "source_text": "przy 2 250"
+    }
+  ]
+}
