@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - data/jogger-my26-technical-specifications
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
