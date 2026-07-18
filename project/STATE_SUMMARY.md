@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Duster Remaining Powertrain Reporting Portfolio Review
-- Pull Request: #87
-- Verified head: `99663f239cff67cd6ec775324c35ed93fe8d8ece`
-- Quality run: #328
+- Package: Duster Eco-G 100 Reporting Scope Promotion
+- Pull Request: #88
+- Verified head: `6b051f37bd10297b5a0ba0e6889448c4537822ab`
+- Quality run: #334
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Remaining Duster Powertrain Reporting Portfolio Review** — `active`
+**Duster Hybrid 140 Reporting Scope Promotion** — `active`
 
-Review the five remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing the Sandero, Eco-G 100 or Eco-G 120 denominators.
+Publish the four Hybrid 140 4x2 automatic configurations as an explicit reporting subset with 15 technical slots, 58 equipment attributes, dated prices and six deterministic trim comparisons while preserving all existing reporting portfolios.
 
 ## Next package
 
-**Selected Remaining Duster Reporting Promotion Implementation** — `planned`
+**Remaining Duster Powertrain Reporting Portfolio Review** — `planned`
 
-Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs.
+Review the four remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset after the Hybrid 140 promotion.
 
 ## Autonomy
 
