@@ -21,7 +21,7 @@ powertrain groups remain outside Duster reporting scope:
 | hybrid 155 4x2 automatic | 3 | 16 | 48 | 174 | 3 | 3 |
 
 All five groups are source-complete within their own explicit technical
-mianowniki and have one dated catalogue price plus 58 equipment observations
+denominators and have one dated catalogue price plus 58 equipment observations
 per configuration.
 
 ## Selection rationale
