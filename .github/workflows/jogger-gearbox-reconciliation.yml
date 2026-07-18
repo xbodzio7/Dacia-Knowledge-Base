@@ -48,7 +48,6 @@ jobs:
           from pathlib import Path
 
           root = Path.cwd()
-
           duster_test = root / "tests" / "test_duster_technical_specifications.py"
           text = duster_test.read_text(encoding="utf-8")
           old = (
@@ -59,9 +58,10 @@ jobs:
               '        self.assertEqual(len(self.all_values), 1106)\n'
               '        self.assertEqual(len(list(SPECS.glob("*.json"))), 64)\n'
           )
-          if old not in text:
+          if old in text:
+              duster_test.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+          elif new not in text:
               raise SystemExit("repository total contract marker not found")
-          duster_test.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
 
           readme_path = root / "README.md"
           readme = readme_path.read_text(encoding="utf-8")
@@ -93,32 +93,54 @@ jobs:
           python tools/dkb.py project-state --apply
 
       - name: Verify complete package
+        id: verify
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          {
+            set -euo pipefail
+            python tools/import_configuration_values.py \
+              --spec data/imports/configuration_values/jogger-page6-gearbox-type-20260401.json \
+              --verify
+            python tools/import_configuration_values.py \
+              --spec data/imports/configuration_values/jogger-page6-gear-count-20260401.json \
+              --verify
+            python -m compileall -q tools scripts tests
+            python -m unittest discover -s tests -p "test_*.py" -q
+            python -m unittest -q \
+              tests.project_state_contract \
+              tests.autonomy_policy_contract \
+              tests.quality_artifact_manifest_contract \
+              tests.configuration_comparison_context_filter_contract \
+              tests.configuration_comparison_pair_summary_contract
+            python tools/dkb.py project-state --check
+            python tools/dkb.py documentation-baseline --check
+            python tools/dkb.py quality \
+              --concise \
+              --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+              --log-file "${RUNNER_TEMP}/quality.log" \
+              --summary-json "${RUNNER_TEMP}/quality-summary.json"
+          } 2>&1 | tee "${RUNNER_TEMP}/jogger-gearbox-verify.log"
+
+      - name: Commit diagnostic package on failure
+        if: steps.verify.outcome != 'success'
         shell: bash
         run: |
           set -euo pipefail
-          python tools/import_configuration_values.py \
-            --spec data/imports/configuration_values/jogger-page6-gearbox-type-20260401.json \
-            --verify
-          python tools/import_configuration_values.py \
-            --spec data/imports/configuration_values/jogger-page6-gear-count-20260401.json \
-            --verify
-          python -m compileall -q tools scripts tests
-          python -m unittest discover -s tests -p "test_*.py" -q
-          python -m unittest -q \
-            tests.project_state_contract \
-            tests.autonomy_policy_contract \
-            tests.quality_artifact_manifest_contract \
-            tests.configuration_comparison_context_filter_contract \
-            tests.configuration_comparison_pair_summary_contract
-          python tools/dkb.py project-state --check
-          python tools/dkb.py documentation-baseline --check
-          python tools/dkb.py quality \
-            --concise \
-            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
-            --log-file "${RUNNER_TEMP}/quality.log" \
-            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+          cp "${RUNNER_TEMP}/jogger-gearbox-verify.log" \
+            project/reviews/jogger-gearbox-reconciliation-failure.log
+          rm .github/workflows/jogger-gearbox-reconciliation.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "chore: capture Jogger gearbox reconciliation failure"
+          git push origin HEAD:data/jogger-gearbox-reconciliation
+          exit 1
 
       - name: Commit final package
+        if: steps.verify.outcome == 'success'
         shell: bash
         run: |
           set -euo pipefail
