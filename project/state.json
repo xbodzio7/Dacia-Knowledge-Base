@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Injection-Type Import",
-    "pull_request": 108,
-    "head_sha": "1443e00b4572bde3a8b3166f2b75f7f36ec43783",
-    "quality_run": 448
+    "name": "Jogger Gearbox Reconciliation Selection",
+    "pull_request": 109,
+    "head_sha": "8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d",
+    "quality_run": 450
   },
   "baseline": {
-    "tests": 464,
+    "tests": 470,
     "csv_files": 34,
-    "rows": 3690,
-    "configuration_values": 1068,
-    "configuration_import_specs": 62,
+    "rows": 3730,
+    "configuration_values": 1106,
+    "configuration_import_specs": 64,
     "availability_records": 1811,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Gearbox Association and Observation Reconciliation",
+    "name": "Jogger Range and Qualifier Modeling Review",
     "status": "active",
-    "goal": "Reconcile the returning six-speed dual-clutch and Hybrid 155 transmissions with Jogger model associations and materialize 38 exact gearbox-type and source-stated gear-count observations without inventing a Hybrid numeric gear count."
+    "goal": "Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model."
   },
   "next_package": {
-    "name": "Jogger Range and Qualifier Modeling Review",
+    "name": "Selected Jogger Range or Qualifier Modeling Package",
     "status": "planned",
-    "goal": "Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model."
+    "goal": "Implement one selected bounded Jogger range, qualifier or measurement-semantic package while preserving the completed exact scalar, injection and gearbox denominators."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
