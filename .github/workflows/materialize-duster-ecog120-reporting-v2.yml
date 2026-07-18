@@ -1,0 +1,69 @@
+name: Materialize Duster Eco-G 120 reporting v2
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.head_ref == 'dev/duster-ecog120-reporting-materialize'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out materializer branch
+        uses: actions/checkout@v7
+        with:
+          ref: dev/duster-ecog120-reporting-materialize
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Apply package updates
+        run: |
+          python project/materialize_duster_ecog120_reporting.py
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+
+      - name: Verify package
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -q
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+          mkdir -p "${RUNNER_TEMP}/duster-ecog120"
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_ecog120_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120/completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120/completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_ecog120_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120/source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120/source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_ecog120_completeness.json \
+            --evidence-spec data/reporting/duster_ecog120_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120/comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120/comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-ecog120/differences.csv"
+
+      - name: Publish clean package commit
+        run: |
+          rm -f \
+            .github/workflows/materialize-duster-ecog120-reporting.yml \
+            .github/workflows/materialize-duster-ecog120-reporting-v2.yml \
+            project/materialize_duster_ecog120_reporting.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          tree=$(git write-tree)
+          parent=$(git rev-parse origin/reporting/duster-ecog120-scope-promotion)
+          commit=$(printf '%s\n' 'Duster Eco-G 120 Reporting Scope Promotion' | git commit-tree "$tree" -p "$parent")
+          git push origin "$commit":refs/heads/reporting/duster-ecog120-scope-promotion
