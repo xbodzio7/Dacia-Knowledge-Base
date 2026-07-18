@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Jogger MY26 gearbox reconciliation with 38 exact configuration observations and current mt6, EDC6 and e-DHT 155 model associations.
 * Thirty-two exact Jogger injection-type observations with explicit petrol/LPG contexts and controlled existing-enum mappings.
 * Exact repository archival of the official Polish Jogger MY26 PDF with verified SHA-256.
 * Source-backed Jogger catalogue foundation with 4 versions, 22 configurations, 22 prices and explicit five-/seven-seat observations.
@@ -196,11 +197,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 464 tests.
-* The verified master-data baseline now contains 34 CSV files and 3690 rows.
-* SQLite verification now covers 34 tables and 3690 rows.
-* Configuration attribute values now contain 1068 dated records.
-* Declarative configuration-value imports now contain 62 versioned JSON specifications.
+* The automated test suite now contains 470 tests.
+* The verified master-data baseline now contains 34 CSV files and 3730 rows.
+* SQLite verification now covers 34 tables and 3730 rows.
+* Configuration attribute values now contain 1106 dated records.
+* Declarative configuration-value imports now contain 64 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 1811 records: 1481 `standard`, 112 `optional`, 218 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
