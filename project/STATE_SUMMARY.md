@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Technical Specification Import
-- Pull Request: #106
-- Verified head: `c7466757c247c503f2da5cd73de544b595ec2d1e`
-- Quality run: #435
+- Package: Jogger Injection-Type Import Selection
+- Pull Request: #107
+- Verified head: `c3ebb86dff245e2e5c2566781e4dc19cfcc02928`
+- Quality run: #437
 
 ## Verified baseline
 
-- Tests: 459
+- Tests: 464
 - Master CSV files: 34
-- Master rows: 3658
-- Configuration values: 1036
-- Configuration import specifications: 61
+- Master rows: 3690
+- Configuration values: 1068
+- Configuration import specifications: 62
 - Availability records: 1811
 - Canonical attributes: 351
 - Attribute categories: 30
 
 ## Current package
 
-**Selected Jogger Injection-Type Import** — `active`
+**Jogger Remaining Deferred Technical Evidence Review** — `active`
 
-Materialize 32 exact page-6 Jogger injection-type observations in one declarative import specification, preserving separate petrol and LPG contexts and mapping only to the existing active injection-type enum values.
+Reassess the remaining range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and engine-speed evidence after completing the bounded injection-type import.
 
 ## Next package
 
-**Jogger Remaining Deferred Technical Evidence Review** — `planned`
+**Selected Jogger Remaining Deferred Modeling Package** — `planned`
 
-Reassess the remaining range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and engine-speed evidence after completing the bounded injection-type import.
+Implement one selected bounded Jogger technical modelling or import decision with explicit source semantics and no reinterpretation of the completed exact scalar and injection-type denominators.
 
 ## Autonomy
 

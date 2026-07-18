@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger MY26 Technical Specification Import",
-    "pull_request": 106,
-    "head_sha": "c7466757c247c503f2da5cd73de544b595ec2d1e",
-    "quality_run": 435
+    "name": "Jogger Injection-Type Import Selection",
+    "pull_request": 107,
+    "head_sha": "c3ebb86dff245e2e5c2566781e4dc19cfcc02928",
+    "quality_run": 437
   },
   "baseline": {
-    "tests": 459,
+    "tests": 464,
     "csv_files": 34,
-    "rows": 3658,
-    "configuration_values": 1036,
-    "configuration_import_specs": 61,
+    "rows": 3690,
+    "configuration_values": 1068,
+    "configuration_import_specs": 62,
     "availability_records": 1811,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Selected Jogger Injection-Type Import",
+    "name": "Jogger Remaining Deferred Technical Evidence Review",
     "status": "active",
-    "goal": "Materialize 32 exact page-6 Jogger injection-type observations in one declarative import specification, preserving separate petrol and LPG contexts and mapping only to the existing active injection-type enum values."
+    "goal": "Reassess the remaining range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and engine-speed evidence after completing the bounded injection-type import."
   },
   "next_package": {
-    "name": "Jogger Remaining Deferred Technical Evidence Review",
+    "name": "Selected Jogger Remaining Deferred Modeling Package",
     "status": "planned",
-    "goal": "Reassess the remaining range-valued, minimum-qualified, cargo-measurement, LPG-capacity, battery, gearbox and engine-speed evidence after completing the bounded injection-type import."
+    "goal": "Implement one selected bounded Jogger technical modelling or import decision with explicit source semantics and no reinterpretation of the completed exact scalar and injection-type denominators."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
