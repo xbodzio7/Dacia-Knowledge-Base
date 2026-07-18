@@ -1,0 +1,561 @@
+/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:306: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpc_6n3iie/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-7bouwl39/output/handoff.json
+ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-t4klyr4m/output/handoff.json
+ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-uom7vp5n/output/handoff.json
+ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-momv7xmd/output/handoff.json
+Building SQLite database: /tmp/tmpm50vnx1x/reports/test.sqlite
+Source directory: /tmp/tmpm50vnx1x/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpm50vnx1x/reports/test.sqlite
+Building SQLite database: /tmp/tmpdzh0xsx7/nested/directory/test.sqlite
+Source directory: /tmp/tmpdzh0xsx7/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpdzh0xsx7/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmpza1ofja0/test.sqlite
+Source directory: /tmp/tmpza1ofja0/data/master
+Building SQLite database: /tmp/tmpuui2fy_o/test.sqlite
+Source directory: /tmp/tmpuui2fy_o/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpuui2fy_o/test.sqlite
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 29d577859445db1c69647bbb3d79a5d892a0d564
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e7aad3ac78c7d757db0336d18a0e17e6f62b4010
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 29d577859445db1c69647bbb3d79a5d892a0d564
+HEAD   : e7aad3ac78c7d757db0336d18a0e17e6f62b4010
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e7aad3a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: e7aad3ac78c7d757db0336d18a0e17e6f62b4010
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-89m2_6xi/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 29d577859445db1c69647bbb3d79a5d892a0d564
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 4a9542a17297e5af2bc1aeb528510d19f7a15586
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 29d577859445db1c69647bbb3d79a5d892a0d564
+HEAD   : 4a9542a17297e5af2bc1aeb528510d19f7a15586
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+4a9542a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+HEAD   : 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+7c8515a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-_mb1qijf/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+HEAD   : 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+7c8515a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-ba_6xmub/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+HEAD   : 7c8515a2c7f56c3dc0a63ab5ac4f104adebe47e8
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+7c8515a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-5c2e0v6z/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 204d42449c565870126584a6591b3323dec56507
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : a0d2c07c64c7a83b1f92213548dde45a07dcc324
+HEAD   : 204d42449c565870126584a6591b3323dec56507
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+204d424 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-7obb635g/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ad988a505f3dbcfea81e8be94a490e8169c167e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: eeb6c4258429bc4b98c14337ac37b8fbdf4f35b5
+
+===== PACKAGE FINISH =====
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vis6oae0/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-e9uzk_a3/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-03teqbuk/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-o7x_sn2y/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-wlsvisnu/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-n6kksgaw/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-x12618gz/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-5nuldzx8/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-zn65kx9j/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-xu2h9b65/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vk3p9w77/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-_z7fl1kr/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-sb6x4na7/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-n1h7k3kg/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-n03h34_c/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-x09yyw3q/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-kpu067sr/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/workflow-test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vlc7awtr/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpu_5g8ohw/quality.log
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ad988a505f3dbcfea81e8be94a490e8169c167e5
+HEAD   : eeb6c4258429bc4b98c14337ac37b8fbdf4f35b5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+eeb6c42 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-25j7a39b/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ad988a505f3dbcfea81e8be94a490e8169c167e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: eeb6c4258429bc4b98c14337ac37b8fbdf4f35b5
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ad988a505f3dbcfea81e8be94a490e8169c167e5
+HEAD   : eeb6c4258429bc4b98c14337ac37b8fbdf4f35b5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+eeb6c42 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-25j7a39b/output/handoff.json
+PASS
+
+==> Broken
+ERROR: SQLite database does not exist: /tmp/tmpiaqs7ftl/missing.sqlite
+======================================================================
+ERROR: test_registered_source_page_and_exact_text_verify (test_jogger_injection_type_import.JoggerInjectionTypeImportTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_injection_type_import.py", line 88, in test_registered_source_page_and_exact_text_verify
+    importer.verify_registered_sources(ROOT, self.spec, verify_text=True)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py", line 659, in verify_registered_sources
+    for _, text in extract_page_candidates(path, spec.source_page):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py", line 629, in extract_page_candidates
+    _ensure(unique, f"cannot extract page {page}: {path}")
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py", line 107, in _ensure
+    raise ImportSpecError(message)
+import_configuration_values.ImportSpecError: cannot extract page 6: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf
+
+----------------------------------------------------------------------
+Ran 464 tests in 7.547s
+
+FAILED (errors=1)
+Building SQLite database: /tmp/tmpbvqqshu7/test.sqlite
+Source directory: /tmp/tmpbvqqshu7/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpbvqqshu7/test.sqlite
+Building SQLite database: /tmp/tmpfpx_sej7/test.sqlite
+Source directory: /tmp/tmpfpx_sej7/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpfpx_sej7/test.sqlite
+Building SQLite database: /tmp/tmp8js_2md4/test.sqlite
+Source directory: /tmp/tmp8js_2md4/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp8js_2md4/test.sqlite
+Building SQLite database: /tmp/tmp10xgbtzw/test.sqlite
+Source directory: /tmp/tmp10xgbtzw/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp10xgbtzw/test.sqlite
+Building SQLite database: /tmp/tmpnoaf3_g7/test.sqlite
+Source directory: /tmp/tmpnoaf3_g7/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpnoaf3_g7/test.sqlite
+Building SQLite database: /tmp/tmp7lye_01u/test.sqlite
+Source directory: /tmp/tmp7lye_01u/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp7lye_01u/test.sqlite
