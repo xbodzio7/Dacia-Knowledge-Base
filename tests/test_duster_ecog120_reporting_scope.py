@@ -29,6 +29,7 @@ SCOPES = {
         "technical_comparisons": 126,
         "equal_prices": 1,
         "different_prices": 5,
+        "equipment_differences": 81,
         "total_differences": 86,
     },
     "ecog120": {
@@ -45,12 +46,30 @@ SCOPES = {
         "technical_comparisons": 102,
         "equal_prices": 0,
         "different_prices": 6,
+        "equipment_differences": 81,
         "total_differences": 87,
+    },
+    "hybrid140": {
+        "spec": REPOSITORY / "data" / "reporting" / "duster_hybrid140_completeness.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "duster_hybrid140_gap_evidence.spec",
+        "configurations": {
+            "duster_iii_expression_hybrid140_4x2_automatic",
+            "duster_iii_extreme_hybrid140_4x2_automatic",
+            "duster_iii_journey_hybrid140_4x2_automatic",
+            "duster_iii_journey_plus_hybrid140_4x2_automatic",
+        },
+        "technical_slots": 15,
+        "technical_records": 60,
+        "technical_comparisons": 90,
+        "equal_prices": 0,
+        "different_prices": 6,
+        "equipment_differences": 56,
+        "total_differences": 62,
     },
 }
 
 
-class DusterEcoGReportingScopeTests(unittest.TestCase):
+class DusterReportingScopeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.completeness = {
@@ -71,7 +90,7 @@ class DusterEcoGReportingScopeTests(unittest.TestCase):
             for name, scope in SCOPES.items()
         }
 
-    def test_scopes_select_four_current_ecog_configurations(self) -> None:
+    def test_scopes_select_expected_current_configurations(self) -> None:
         for name, scope in SCOPES.items():
             report = self.completeness[name]
             self.assertEqual(
@@ -142,32 +161,39 @@ class DusterEcoGReportingScopeTests(unittest.TestCase):
 
     def test_comparison_summaries_are_stable(self) -> None:
         for name, scope in SCOPES.items():
+            summary = self.comparison[name]["summary"]
             technical_comparisons = scope["technical_comparisons"]
             self.assertEqual(
-                self.comparison[name]["summary"],
+                summary["technical"],
                 {
-                    "equipment": {
-                        "comparisons": 348,
-                        "different": 81,
-                        "equal": 267,
-                        "not_comparable": 0,
-                    },
-                    "prices": {
-                        "comparisons": 6,
-                        "different": scope["different_prices"],
-                        "equal": scope["equal_prices"],
-                        "not_comparable": 0,
-                    },
-                    "technical": {
-                        "comparisons": technical_comparisons,
-                        "different": 0,
-                        "equal": technical_comparisons,
-                        "not_comparable": 0,
-                    },
-                    "total_differences": scope["total_differences"],
+                    "comparisons": technical_comparisons,
+                    "different": 0,
+                    "equal": technical_comparisons,
+                    "not_comparable": 0,
                 },
                 name,
             )
+            self.assertEqual(
+                summary["prices"],
+                {
+                    "comparisons": 6,
+                    "different": scope["different_prices"],
+                    "equal": scope["equal_prices"],
+                    "not_comparable": 0,
+                },
+                name,
+            )
+            self.assertEqual(
+                summary["equipment"],
+                {
+                    "comparisons": 348,
+                    "different": scope["equipment_differences"],
+                    "equal": 348 - scope["equipment_differences"],
+                    "not_comparable": 0,
+                },
+                name,
+            )
+            self.assertEqual(summary["total_differences"], scope["total_differences"], name)
 
     def test_empty_evidence_is_valid_because_the_scopes_have_no_gaps(self) -> None:
         expected = {
@@ -189,11 +215,10 @@ class DusterEcoGReportingScopeTests(unittest.TestCase):
         self.assertEqual(default["scope"]["reporting_configurations"], 7)
         self.assertEqual(len(default["pairs"]), 21)
         self.assertEqual(default["summary"]["total_differences"], 305)
-        self.assertTrue(
-            SCOPES["ecog100"]["configurations"].isdisjoint(
-                SCOPES["ecog120"]["configurations"]
-            )
-        )
+        scope_sets = [scope["configurations"] for scope in SCOPES.values()]
+        for index, current in enumerate(scope_sets):
+            for other in scope_sets[index + 1:]:
+                self.assertTrue(current.isdisjoint(other))
 
 
 if __name__ == "__main__":
