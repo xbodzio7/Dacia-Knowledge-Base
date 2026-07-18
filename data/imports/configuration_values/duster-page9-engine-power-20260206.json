@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 605,
+  "attribute_code": "engine_power",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-02-06",
+  "fuel_type_code": "",
+  "source_page": 9,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "90",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "84",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "90",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "84",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "80",
+      "source_text": "80 (109)"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "103",
+      "source_text": "103 (140)"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "90",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "84",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "80",
+      "source_text": "80 (109)"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "103",
+      "source_text": "103 (140)"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "90",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "84",
+      "source_text": "LPG: 90 (120), PB: 84 (114)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "80",
+      "source_text": "80 (109)"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "103",
+      "source_text": "103 (140)"
+    }
+  ]
+}

@@ -124,6 +124,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             row
             for row in self.values
             if row["attribute_code"] == "total_valve_count"
+            and row["configuration_code"] in EXPECTED_MAPPING
         ]
         self.assertEqual(len(total_valve_values), 7)
         self.assertEqual(
@@ -146,6 +147,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
         counts = {
             code: sum(
                 row["attribute_code"] == code
+                and row["configuration_code"] in EXPECTED_MAPPING
                 for row in self.values
             )
             for code in {

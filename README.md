@@ -62,6 +62,11 @@ Dla wszystkich 24 konfiguracji Duster zapisano również datowane ceny katalogow
 brutto obowiązujące od 6 lutego 2026 r. Promocyjny rabat oraz korzyści finansowania
 nie są cenami katalogowymi i nie zostały zaimportowane.
 
+Techniczne tabele stron 8-9 dostarczają 392 datowane obserwacje dla 17
+kanonicznych atrybutów Duster. Import zachowuje rozróżnienie LPG i benzyny,
+oddzielne moce silnika spalinowego, silnika trakcyjnego i HSG oraz pomija
+wartości zależne od wersji, których źródło nie przypisuje do konkretnego trimu.
+
 Parametry techniczne i pozostałe wartości konfiguracji również są
 datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
 310 wartości dla siedmiu konfiguracji Sandero i Sandero Stepway: 168 bazowych
@@ -696,11 +701,11 @@ Aktualny etap obejmuje:
 * rozwój spójnego interfejsu narzędziowego.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 422 testów, 34 pliki CSV, 1464 rekordów
-danych, 34 relacje między tabelami, 310 wartości konfiguracji, 11
+Zweryfikowany model obejmuje 430 testów, 34 pliki CSV, 1856 rekordów
+danych, 34 relacje między tabelami, 702 wartości konfiguracji, 44
 deklaratywnych specyfikacji importu oraz 419 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 1464 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 1856 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

@@ -152,6 +152,7 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
         counts = {
             code: sum(
                 row["attribute_code"] == code
+                and row["configuration_code"] in EXPECTED_MAPPING
                 for row in self.values
             )
             for code in {

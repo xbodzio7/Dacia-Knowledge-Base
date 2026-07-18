@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Duster III Catalog Bootstrap",
-    "pull_request": 80,
-    "head_sha": "edec71fcb2b761f19d8b8742446c7c0045c5c6f7",
-    "quality_run": 279
+    "name": "Duster III Catalog Price Import",
+    "pull_request": 81,
+    "head_sha": "2918141d1cf9b53951fed2e71c62519b00f524c9",
+    "quality_run": 283
   },
   "baseline": {
-    "tests": 422,
+    "tests": 430,
     "csv_files": 34,
-    "rows": 1464,
-    "configuration_values": 310,
-    "configuration_import_specs": 11,
+    "rows": 1856,
+    "configuration_values": 702,
+    "configuration_import_specs": 44,
     "availability_records": 419,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Technical Specification Import",
+    "name": "Duster Equipment Availability Import",
     "status": "active",
-    "goal": "Import only source-explicit technical values from pages 8-9 for the Duster III configurations, preserving drive, transmission, fuel and hybrid context without inferring trim-dependent values."
+    "goal": "Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences."
   },
   "next_package": {
-    "name": "Duster Equipment Availability Import",
+    "name": "Duster Reporting Scope Promotion Review",
     "status": "planned",
-    "goal": "Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences."
+    "goal": "Review whether Duster catalogue, price, technical and equipment coverage is sufficient for an explicit Duster reporting subset without changing the stable Sandero denominator."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
