@@ -99,6 +99,7 @@ class SanderoStandardTyreSpecificationTests(unittest.TestCase):
         source_mapping = {
             row["configuration_code"]: row["source_code"]
             for row in self.source_configurations
+            if row["configuration_code"] in EXPECTED
         }
         self.assertEqual(source_mapping, EXPECTED)
 

@@ -98,6 +98,7 @@ class SanderoEuro6eBisValueTests(unittest.TestCase):
             {
                 row["configuration_code"]: row["source_code"]
                 for row in self.source_configurations
+                if row["configuration_code"] in EXPECTED
             },
             EXPECTED,
         )

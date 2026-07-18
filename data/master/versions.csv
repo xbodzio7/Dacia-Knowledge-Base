@@ -4,3 +4,8 @@ id,code,model_code,name,status,notes
 3,sandero_stepway_iii_essential,sandero_stepway_iii,Essential,active,
 4,sandero_stepway_iii_expression,sandero_stepway_iii,Expression,active,
 5,sandero_stepway_iii_extreme,sandero_stepway_iii,Extreme,active,
+6,duster_iii_essential,duster_iii,Essential,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
+7,duster_iii_expression,duster_iii,Expression,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
+8,duster_iii_extreme,duster_iii,Extreme,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
+9,duster_iii_journey,duster_iii,Journey,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
+10,duster_iii_journey_plus,duster_iii,Journey+,active,Source-backed trim from the Duster MY26/PY25 price matrix (page 1).
