@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger Injection-Type Import
-- Pull Request: #108
-- Verified head: `1443e00b4572bde3a8b3166f2b75f7f36ec43783`
-- Quality run: #448
+- Package: Jogger Gearbox Reconciliation Selection
+- Pull Request: #109
+- Verified head: `8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d`
+- Quality run: #450
 
 ## Verified baseline
 
-- Tests: 464
+- Tests: 470
 - Master CSV files: 34
-- Master rows: 3690
-- Configuration values: 1068
-- Configuration import specifications: 62
+- Master rows: 3730
+- Configuration values: 1106
+- Configuration import specifications: 64
 - Availability records: 1811
 - Canonical attributes: 351
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Gearbox Association and Observation Reconciliation** — `active`
+**Jogger Range and Qualifier Modeling Review** — `active`
 
-Reconcile the returning six-speed dual-clutch and Hybrid 155 transmissions with Jogger model associations and materialize 38 exact gearbox-type and source-stated gear-count observations without inventing a Hybrid numeric gear count.
+Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model.
 
 ## Next package
 
-**Jogger Range and Qualifier Modeling Review** — `planned`
+**Selected Jogger Range or Qualifier Modeling Package** — `planned`
 
-Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model.
+Implement one selected bounded Jogger range, qualifier or measurement-semantic package while preserving the completed exact scalar, injection and gearbox denominators.
 
 ## Autonomy
 
