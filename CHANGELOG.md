@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Exact repository archival of the official Polish Jogger MY26 PDF with verified SHA-256.
+* Source-backed Jogger catalogue foundation with 4 versions, 22 configurations, 22 prices and explicit five-/seven-seat observations.
+* 312 exact Jogger page-6 technical observations in 17 declarative import specifications with fuel and seat-count contexts.
+* Regression coverage for the Jogger source hash, group denominators, context preservation and deferred ranges.
 * Explicit Duster Eco-G 120 reporting subset with complete technical, equipment, price and source coverage plus six deterministic trim comparisons.
 * Source-backed Duster III equipment availability with 1,392 records across 58 canonical attributes and explicit standard, optional and unavailable semantics.
 * Source-backed Duster III technical import with 392 observations across 17 canonical attributes, explicit fuel context and conservative exclusion of trim-ambiguous values.
@@ -191,11 +195,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 451 tests.
-* The verified master-data baseline now contains 34 CSV files and 3346 rows.
-* SQLite verification now covers 34 tables and 3346 rows.
-* Configuration attribute values now contain 724 dated records.
-* Declarative configuration-value imports now contain 44 versioned JSON specifications.
+* The automated test suite now contains 459 tests.
+* The verified master-data baseline now contains 34 CSV files and 3658 rows.
+* SQLite verification now covers 34 tables and 3658 rows.
+* Configuration attribute values now contain 1036 dated records.
+* Declarative configuration-value imports now contain 61 versioned JSON specifications.
 * The canonical catalogue now contains 351 attributes in 30 categories.
 * Equipment availability now contains 1811 records: 1481 `standard`, 112 `optional`, 218 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->

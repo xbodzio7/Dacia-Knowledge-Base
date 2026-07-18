@@ -710,21 +710,26 @@ Aktualny etap obejmuje:
 * automatyzację kontroli jakości,
 * rozwój spójnego interfejsu narzędziowego.
 
-### Jogger MY26 catalogue foundation
+### Jogger MY26 source-backed catalogue and technical foundation
 
-Oficjalny polski cennik Jogger MY26 z 1.04.2026 jest zarejestrowany z
-zweryfikowanym SHA-256 i zastrzeżoną ścieżką archiwum. Katalog obejmuje 4
-wersje, 22 konfiguracje (11 pięciomiejscowych i 11 siedmiomiejscowych), 22
-ceny katalogowe oraz 22 datowane wartości `number_of_seats`. Binarny PDF
-wymaga jeszcze transferu do repozytorium; technika i wyposażenie pozostają
-oddzielnymi pakietami dowodowymi.
+Oficjalny polski cennik Jogger MY26 z 1.04.2026 jest przechowywany w
+repozytorium z dokładnym SHA-256. Katalog obejmuje 4 wersje, 22 konfiguracje
+(11 pięciomiejscowych i 11 siedmiomiejscowych), 22 ceny katalogowe oraz 22
+datowane wartości `number_of_seats`.
+
+Pierwszy pakiet techniczny dodaje 312 dokładnych obserwacji ze strony 6 w 17
+deklaratywnych specyfikacjach. Zachowuje konteksty LPG i benzyny, rozróżnia
+wartości dla 5 i 7 miejsc oraz przechowuje oddzielnie silnik spalinowy, silnik
+trakcyjny i HSG układu Hybrid 155. Zakresy WLTP, masy minimalne, ładowność,
+pomiary bagażnika, para pojemności LPG i pozostałe niezgodne semantycznie pola
+pozostają jawnym zakresem odroczonym.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 451 testów, 34 pliki CSV, 3346 rekordów
-danych, 34 relacje między tabelami, 724 wartości konfiguracji, 44
+Zweryfikowany model obejmuje 459 testów, 34 pliki CSV, 3658 rekordów
+danych, 34 relacje między tabelami, 1036 wartości konfiguracji, 61
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3346 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3658 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
