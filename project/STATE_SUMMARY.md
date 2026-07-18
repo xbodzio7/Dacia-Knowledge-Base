@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Duster Eco-G 120 Reporting Scope Promotion
-- Pull Request: #86
-- Verified head: `c47a3d93beaff1ce47c77a85831f52ae15149baf`
-- Quality run: #326
+- Package: Duster Remaining Powertrain Reporting Portfolio Review
+- Pull Request: #87
+- Verified head: `99663f239cff67cd6ec775324c35ed93fe8d8ece`
+- Quality run: #328
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Duster Eco-G 100 Reporting Scope Promotion** — `active`
+**Remaining Duster Powertrain Reporting Portfolio Review** — `active`
 
-Publish the four Eco-G 100 4x2 manual configurations as an explicit reporting subset with 21 technical slots, 58 equipment attributes, dated prices and six deterministic trim comparisons while preserving the Sandero and Eco-G 120 outputs.
+Review the five remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset without changing the Sandero, Eco-G 100 or Eco-G 120 denominators.
 
 ## Next package
 
-**Remaining Duster Powertrain Reporting Portfolio Review** — `planned`
+**Selected Remaining Duster Reporting Promotion Implementation** — `planned`
 
-Review the five remaining homogeneous Duster powertrain groups and select the next source-complete reporting subset after the Eco-G 100 promotion.
+Publish the next selected homogeneous Duster reporting subset through the existing Quality artifact workflow with deterministic comparison outputs.
 
 ## Autonomy
 
