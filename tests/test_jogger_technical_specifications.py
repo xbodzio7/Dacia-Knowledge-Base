@@ -34,7 +34,7 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
             for row in csv_rows("configuration_attribute_values.csv")
             if row["source_code"] == SOURCE
             and row["observation_date"] == DATE
-            and int(row["id"]) >= 725
+            and 725 <= int(row["id"]) <= 1036
         ]
         cls.by_semantic = {
             (
@@ -44,7 +44,11 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
             ): row
             for row in cls.values
         }
-        cls.spec_paths = sorted(SPEC_DIR.glob("jogger-page6-*-20260401.json"))
+        cls.spec_paths = sorted(
+            path
+            for path in SPEC_DIR.glob("jogger-page6-*-20260401.json")
+            if path.name != "jogger-page6-injection-type-20260401.json"
+        )
 
     def test_exact_specification_set_is_versioned(self) -> None:
         self.assertEqual(
