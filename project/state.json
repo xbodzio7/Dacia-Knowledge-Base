@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Duster III Catalog Price Import",
-    "pull_request": 81,
-    "head_sha": "2918141d1cf9b53951fed2e71c62519b00f524c9",
-    "quality_run": 283
+    "name": "Duster III Technical Specification Import",
+    "pull_request": 82,
+    "head_sha": "9d0a44589f5f9cd60207b88d9dea0a42e9088110",
+    "quality_run": 290
   },
   "baseline": {
-    "tests": 430,
+    "tests": 438,
     "csv_files": 34,
-    "rows": 1856,
+    "rows": 3248,
     "configuration_values": 702,
     "configuration_import_specs": 44,
-    "availability_records": 419,
+    "availability_records": 1811,
     "attributes": 351,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Equipment Availability Import",
+    "name": "Duster Reporting Scope Promotion Review",
     "status": "active",
-    "goal": "Import version-level equipment availability stated explicitly in the official Duster price list, preserving standard, optional and unavailable semantics without inferring configuration-level differences."
+    "goal": "Review Duster catalogue, price, technical and equipment coverage against the explicit reporting-scope contract and select one bounded promotion path without changing the stable Sandero denominator."
   },
   "next_package": {
-    "name": "Duster Reporting Scope Promotion Review",
+    "name": "Selected Duster Reporting Scope Promotion Implementation",
     "status": "planned",
-    "goal": "Review whether Duster catalogue, price, technical and equipment coverage is sufficient for an explicit Duster reporting subset without changing the stable Sandero denominator."
+    "goal": "Implement the selected Duster reporting-scope promotion as an explicit validated subset while preserving deterministic Sandero reports and source-backed evidence boundaries."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
