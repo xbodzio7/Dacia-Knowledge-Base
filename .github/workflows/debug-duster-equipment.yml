@@ -1,4 +1,4 @@
-name: Debug Duster equipment materializer
+name: Debug Duster equipment tests
 
 on:
   pull_request:
@@ -10,25 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: dev/duster-equipment-materialize
+          ref: data/duster-equipment-availability-import
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
-      - name: Capture importer output
+          python-version: "3.10"
+      - name: Capture full unit-test output
         shell: bash
         run: |
           set +e
-          python tools/import_duster_equipment_availability.py --apply > materializer.log 2>&1
+          python -m unittest discover -s tests -p 'test_*.py' -q > unit-tests.log 2>&1
           status=$?
-          cat materializer.log
-          echo "$status" > materializer.status
+          cat unit-tests.log
+          echo "$status" > unit-tests.status
           exit 0
       - name: Upload diagnostic
         uses: actions/upload-artifact@v7
         with:
-          name: duster-equipment-materializer-debug
+          name: duster-equipment-unit-test-debug
           path: |
-            materializer.log
-            materializer.status
+            unit-tests.log
+            unit-tests.status
           if-no-files-found: error
           retention-days: 1
