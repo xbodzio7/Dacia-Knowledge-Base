@@ -110,11 +110,11 @@ def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
         if not isinstance(code, str) or not code:
             raise ReleaseError("configuration shortlist result has no code")
         codes.append(code)
-    if len(codes) != len(set(codes)) or codes != sorted(codes):
+    if len(codes) != len(set(codes)):
         raise ReleaseError(
-            "complete release shortlist codes must be unique and sorted"
+            "complete release shortlist codes must be unique"
         )
-    return tuple(codes)
+    return tuple(sorted(codes))
 
 
 def _release_notes(
