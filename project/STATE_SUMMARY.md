@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger LPG Capacity Modeling Selection
-- Pull Request: #115
-- Verified head: `19a6f286b007a56c3975d95188ac4712ebfc4f80`
-- Quality run: #480
+- Package: Jogger LPG Capacity Modeling and Import
+- Pull Request: #116
+- Verified head: `8668217081aa8d3195e08733bdd205ac4f7bfdcf`
+- Quality run: #484
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Hybrid System Semantics Review** — `active`
+**Jogger Total Hybrid System Power Modeling and Import** — `active`
 
-Assess source-stated Hybrid 155 total system power and lithium-ion chemistry while preserving the unresolved gross, nominal or usable basis of the 1.4 kWh battery value.
+Add a dedicated hybrid_system_power_total attribute and materialize 6 exact 116 kW observations for all active Hybrid 155 configurations without summing component powers.
 
 ## Next package
 
-**Selected Jogger Hybrid System Modeling and Import** — `planned`
+**Jogger Remaining Technical Architecture Review** — `planned`
 
-Implement the bounded source-backed Hybrid 155 system-power and battery-chemistry decision without importing the unresolved 1.4 kWh capacity basis.
+Resolve the controlled battery-chemistry mapping, battery-capacity basis and explicit interval representation required by the remaining Jogger page-6 evidence.
 
 ## Autonomy
 
