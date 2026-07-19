@@ -5,6 +5,7 @@
 - Release tag: [`data-products-v1.0.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.0.0)
 - GitHub Release ID: `356447618`
 - Published at: `2026-07-19T22:35:40Z`
+- Publication status: verified and immutable
 - Tested main commit: `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e`
 - Source snapshot date: `2026-06-26`
 
