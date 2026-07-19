@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Interactive Configuration Comparison HTML
-- Pull Request: #143
-- Verified head: `910bc7a010cf50359be1650b6a61a45ecc9f8d82`
-- Quality run: #710
+- Package: Configuration Discovery and Shortlist Planning Review
+- Pull Request: #144
+- Verified head: `8fa744b00f2c1a5e5cab12f1bb79b8166d94980c`
+- Quality run: #713
 
 ## Verified baseline
 
-- Tests: 593
+- Tests: 603
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Discovery and Shortlist Planning Review** — `complete`
+**Configuration Shortlist CLI** — `active`
 
-Select an evidence-aware user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio.
+Filter active configurations by metadata, current catalogue price, seat count and evidence-aware equipment requirements, with deterministic JSON, Markdown and CSV outputs.
 
 ## Next package
 
-**Configuration Shortlist CLI** — `planned`
+**Interactive Configuration Shortlist HTML Planning Review** — `planned`
 
-Filter all active configurations by model, version, powertrain, transmission, price, seat count and evidence-aware equipment requirements, then export deterministic JSON, Markdown and CSV shortlists.
+Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values.
 
 ## Autonomy
 
