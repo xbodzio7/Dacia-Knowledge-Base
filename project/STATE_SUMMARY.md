@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Payload and Performance Range Modeling and Import
-- Pull Request: #126
-- Verified head: `f7cedcfc740fcbc888b5f172bed3f1d79477dad9`
-- Quality run: #575
+- Package: Jogger MY26 Page-6 Source Completion Review
+- Pull Request: #127
+- Verified head: `3242cad48103214be7f23fabc0da31b19c4b8cff`
+- Quality run: #577
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 Page-6 Source Completion Review** — `active`
+**Jogger Equipment Matrix Intake Selection** — `active`
 
-Verify complete page-6 coverage and document the deferred unqualified battery-capacity value.
+Select the source-backed pages 4-5 equipment availability denominator for all 22 active Jogger configurations without importing data.
 
 ## Next package
 
-**Jogger Technical Reporting Scope Selection** — `planned`
+**Jogger Equipment Availability Import** — `planned`
 
-Select the first bounded homogeneous Jogger reporting group without changing source data.
+Materialize 53 selected equipment attributes as 1166 dated standard, optional or not-available records while preserving existing availability data.
 
 ## Autonomy
 
