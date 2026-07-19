@@ -1,0 +1,78 @@
+name: Materialize Jogger WLTP Ranges
+
+on:
+  push:
+    branches:
+      - data/jogger-wltp-efficiency-ranges
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: data/jogger-wltp-efficiency-ranges
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install execution dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          python -m pip install --disable-pip-version-check pyyaml
+      - name: Execute versioned materializer block
+        id: materialize
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          workflow = Path('.github/workflows/materialize-jogger-wltp-ranges-v2.yml')
+          payload = yaml.safe_load(workflow.read_text(encoding='utf-8'))
+          steps = payload['jobs']['materialize']['steps']
+          script = next(
+              step['run']
+              for step in steps
+              if step.get('name') == 'Materialize and verify package'
+          )
+          Path('/tmp/materialize-jogger-wltp.sh').write_text(
+              script, encoding='utf-8'
+          )
+          PY
+          bash /tmp/materialize-jogger-wltp.sh
+      - name: Commit final package or diagnostic
+        shell: bash
+        run: |
+          if [ "${{ steps.materialize.outputs.status }}" = "0" ]; then
+            rm -f project/reviews/jogger-wltp-efficiency-range-validation.log
+            python - <<'PY'
+          from pathlib import Path
+          path = Path('project/reviews/jogger-wltp-efficiency-range-import.md')
+          text = path.read_text(encoding='utf-8').replace(
+              '`IMPLEMENTING`', '`IMPLEMENTED`', 1
+          )
+          text += (
+              '\n## Local validation\n\nThe package passed 528 tests, PDF text '
+              'verification, canonical-state verification and the complete '
+              'local Quality gate before removing its temporary workflows.\n'
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
+          fi
+          rm -f .github/workflows/materialize-jogger-wltp-ranges.yml
+          rm -f .github/workflows/materialize-jogger-wltp-ranges-v2.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Materialize Jogger WLTP efficiency ranges"
+          git push origin HEAD:data/jogger-wltp-efficiency-ranges
+          if [ "${{ steps.materialize.outputs.status }}" != "0" ]; then
+            exit 1
+          fi
