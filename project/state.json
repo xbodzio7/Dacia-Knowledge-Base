@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Configuration Discovery and Shortlist Planning Review",
-    "pull_request": 144,
-    "head_sha": "8fa744b00f2c1a5e5cab12f1bb79b8166d94980c",
-    "quality_run": 713
+    "name": "Configuration Shortlist CLI",
+    "pull_request": 145,
+    "head_sha": "943c35929779183dcfe575fbe92dd7e004a771c9",
+    "quality_run": 721
   },
   "baseline": {
     "tests": 603,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Shortlist CLI",
-    "status": "active",
-    "goal": "Filter active configurations by metadata, current catalogue price, seat count and evidence-aware equipment requirements, with deterministic JSON, Markdown and CSV outputs."
+    "name": "Interactive Configuration Shortlist HTML Planning Review",
+    "status": "complete",
+    "goal": "Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values."
   },
   "next_package": {
-    "name": "Interactive Configuration Shortlist HTML Planning Review",
+    "name": "Interactive Configuration Shortlist HTML",
     "status": "planned",
-    "goal": "Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values."
+    "goal": "Extend configuration-shortlist with a self-contained browser catalog, initial CLI filter state and JavaScript filtering verified against Python semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
