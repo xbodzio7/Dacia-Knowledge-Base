@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package materializes the denominator selected in PR #123 through the separate range table. Scalar configuration values remain unchanged.
 
@@ -26,7 +26,7 @@ The canonical baseline separately tracks scalar values, scalar specifications, v
 
 Payload, acceleration, RPM and battery-capacity evidence remain outside this package. No scalar row is added or replaced.
 
-## Expected baseline
+## Verified baseline
 
 - 528 tests;
 - 37 master CSV files and 3,909 rows;
@@ -34,6 +34,10 @@ Payload, acceleration, RPM and battery-capacity evidence remain outside this pac
 - 64 range values and 8 range specifications;
 - 1,811 availability records;
 - 357 attributes in 30 categories.
+
+## Validation
+
+Quality #561 passed on Python 3.10, the full Python 3.13 gate with page-6 PDF text verification, and Windows.
 
 ## Next package
 
