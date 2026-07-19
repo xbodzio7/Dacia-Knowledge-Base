@@ -19,6 +19,10 @@ from reporting.configuration_shortlist import (
     repository_root,
     write_atomic,
 )
+from reporting.configuration_shortlist_html import (
+    collect_browser_catalog,
+    render_html,
+)
 
 
 def _price(value: str) -> Decimal:
@@ -123,6 +127,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         type=Path,
         help="Write matched configurations as a flat CSV.",
     )
+    parser.add_argument(
+        "--html",
+        type=Path,
+        help=(
+            "Write a self-contained interactive HTML browser containing "
+            "the complete snapshot and the CLI criteria as its initial state."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -186,11 +198,12 @@ def main(
     repository: Path | None = None,
 ) -> int:
     arguments = parse_args(argv)
+    selected_repository = (
+        repository if repository is not None else repository_root()
+    )
+    criteria = _criteria(arguments)
     try:
-        report = collect_report(
-            repository if repository is not None else repository_root(),
-            _criteria(arguments),
-        )
+        report = collect_report(selected_repository, criteria)
         if arguments.json_path is not None:
             write_atomic(arguments.json_path, render_json(report))
             print(f"JSON configuration shortlist written to {arguments.json_path}")
@@ -203,6 +216,16 @@ def main(
         if arguments.csv is not None:
             write_atomic(arguments.csv, render_csv(report))
             print(f"CSV configuration shortlist written to {arguments.csv}")
+        if arguments.html is not None:
+            catalog = collect_browser_catalog(
+                selected_repository,
+                criteria,
+            )
+            write_atomic(arguments.html, render_html(catalog))
+            print(
+                "Interactive HTML configuration shortlist written to "
+                f"{arguments.html}"
+            )
         _print_summary(report)
     except (ShortlistError, OSError) as exc:
         print(f"error: {exc}", file=sys.stderr)

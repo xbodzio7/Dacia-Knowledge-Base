@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Self-contained interactive configuration shortlist HTML with a full source-backed browser catalog and CLI-defined initial filters.
+* JavaScript/Python semantic parity tests for metadata, price, seat and equipment shortlist filters.
 * Evidence-aware configuration shortlist CLI with model, version, powertrain, transmission, price, seat and equipment filters.
 * Deterministic JSON, Markdown and CSV shortlist artifacts with explicit unknown and exclusion reporting.
 * Self-contained interactive HTML configuration comparison reports with offline filtering, source provenance and evidence-aware states.
@@ -206,7 +208,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 603 tests.
+* The automated test suite now contains 610 tests.
 * The verified master-data baseline now contains 37 CSV files and 5155 rows.
 * SQLite verification now covers 37 tables and 5155 rows.
 * Configuration attribute values now contain 1204 dated records.
