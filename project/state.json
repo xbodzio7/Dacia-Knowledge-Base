@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Interactive Configuration Shortlist HTML Planning Review",
-    "pull_request": 146,
-    "head_sha": "c5571a9006143da3afcff7ebb9534d5cd1f9f982",
-    "quality_run": 723
+    "name": "Interactive Configuration Shortlist HTML",
+    "pull_request": 147,
+    "head_sha": "9fa22b0a842880d34a1c489a059de44f3b7e4324",
+    "quality_run": 731
   },
   "baseline": {
     "tests": 610,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Interactive Configuration Shortlist HTML",
-    "status": "active",
-    "goal": "Publish a self-contained 53-configuration browser catalog with CLI-defined initial filters and JavaScript semantics verified against the Python shortlist engine."
+    "name": "Shortlist-to-Comparison Workflow Planning Review",
+    "status": "complete",
+    "goal": "Select a transparent workflow that turns explicitly selected shortlist results into existing source-backed comparisons while preserving independent reporting scopes."
   },
   "next_package": {
-    "name": "Shortlist-to-Comparison Workflow Planning Review",
+    "name": "Configuration Comparison Bundle CLI",
     "status": "planned",
-    "goal": "Select a transparent workflow that turns explicitly selected shortlist results into an existing source-backed configuration comparison without adding ranking or inferred values."
+    "goal": "Group explicit configuration selections by independent scope, filter completeness and evidence contracts, and publish a manifest plus existing JSON, Markdown, CSV and HTML comparisons for every comparable group."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
