@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Sandero Eco-G 120 Manual Reporting Scope Promotion
-- Pull Request: #139
-- Verified head: `b0995c3b5ef41fb368ad5e759f12a97dabd41b80`
-- Quality run: #677
+- Package: Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion
+- Pull Request: #140
+- Verified head: `f2d414dedd68a153b505d1211feba3329096cb5d`
+- Quality run: #681
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** — `active`
+**Sandero Reporting Portfolio Completion Review** — `complete`
 
-Promote two source-backed automatic Stepway configurations with 45 technical slots, 69 equipment attributes, two prices, one deterministic comparison and 18 preserved evidence decisions.
+Confirm isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone.
 
 ## Next package
 
-**Sandero Reporting Portfolio Completion Review** — `planned`
+**Registered Source Reporting Portfolio Completion Review** — `planned`
 
-Verify isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone.
+Verify independent reporting coverage for all 53 active configurations and determine whether any further model expansion can proceed from existing registered sources.
 
 ## Autonomy
 

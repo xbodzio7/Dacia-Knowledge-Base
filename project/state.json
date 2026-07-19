@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Sandero Eco-G 120 Manual Reporting Scope Promotion",
-    "pull_request": 139,
-    "head_sha": "b0995c3b5ef41fb368ad5e759f12a97dabd41b80",
-    "quality_run": 677
+    "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
+    "pull_request": 140,
+    "head_sha": "f2d414dedd68a153b505d1211feba3329096cb5d",
+    "quality_run": 681
   },
   "baseline": {
     "tests": 586,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
-    "status": "active",
-    "goal": "Promote two source-backed automatic Stepway configurations with 45 technical slots, 69 equipment attributes, two prices, one deterministic comparison and 18 preserved evidence decisions."
+    "name": "Sandero Reporting Portfolio Completion Review",
+    "status": "complete",
+    "goal": "Confirm isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone."
   },
   "next_package": {
-    "name": "Sandero Reporting Portfolio Completion Review",
+    "name": "Registered Source Reporting Portfolio Completion Review",
     "status": "planned",
-    "goal": "Verify isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone."
+    "goal": "Verify independent reporting coverage for all 53 active configurations and determine whether any further model expansion can proceed from existing registered sources."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
