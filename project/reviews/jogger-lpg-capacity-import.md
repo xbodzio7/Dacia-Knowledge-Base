@@ -60,9 +60,13 @@ Six dedicated tests require:
 - unchanged petrol tank rows and absence of generic LPG tank rows;
 - registered source, page, source text and PDF SHA-256.
 
-## Expected verified baseline
+## Verified local baseline
 
-After materialization:
+The one-shot materializer passed compilation, 488 unit tests, orchestration
+contracts, registered-source and PDF verification, canonical project-state and
+documentation checks, and the complete local Quality gate.
+
+The resulting repository baseline is:
 
 - 488 tests;
 - 34 master CSV files and 3,821 rows;
