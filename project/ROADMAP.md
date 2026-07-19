@@ -85,13 +85,14 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - transakcyjny pakiet porównań z shortlisty z grupowaniem według jednorodnych zakresów i manifestem SHA-256,
 - trwały wybór konfiguracji w przeglądarce z deterministycznym eksportem JSON i TXT zgodnym z pakietem porównań,
 - deterministyczny XLSX z sześcioma arkuszami i identycznymi bajtami na Linuxie oraz Windows,
+- wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 640 testów automatycznych,
+- 654 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

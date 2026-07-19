@@ -1,0 +1,165 @@
+name: Versioned Data Product Release
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Semantic data-product version MAJOR.MINOR.PATCH
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: ${{ github.event.inputs.version || '0.0.0' }}
+      RELEASE_DIR: release-candidate
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Run release regression tests
+        run: python -m unittest -q tests.test_data_product_release
+      - name: Build release candidate
+        run: |
+          python tools/data_product_release.py \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${GITHUB_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Verify release candidate
+        run: |
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${GITHUB_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Upload verified release candidate
+        uses: actions/upload-artifact@v7
+        with:
+          name: versioned-data-product-release-candidate
+          path: release-candidate
+          if-no-files-found: error
+          retention-days: 7
+
+  publish-release:
+    if: github.event_name == 'workflow_dispatch'
+    needs: build-and-verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: ${{ github.event.inputs.version }}
+      RELEASE_DIR: release-candidate
+    steps:
+      - name: Require main branch
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Release publication is allowed only from main." >&2
+            exit 1
+          fi
+      - name: Check out tested commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Download verified candidate
+        uses: actions/download-artifact@v7
+        with:
+          name: versioned-data-product-release-candidate
+          path: release-candidate
+      - name: Verify downloaded candidate
+        run: |
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${GITHUB_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Resolve release identity
+        id: identity
+        shell: bash
+        run: |
+          python - <<'PY' >> "${GITHUB_OUTPUT}"
+          import os
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, str(Path.cwd() / "tools"))
+          from reporting.data_product_release_model import archive_name, release_tag
+
+          version = os.environ["RELEASE_VERSION"]
+          print(f"tag={release_tag(version)}")
+          print(f"archive={archive_name(version)}")
+          PY
+      - name: Reject existing tag or release
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ steps.identity.outputs.tag }}
+        run: |
+          check_absent() {
+            local endpoint="$1"
+            local label="$2"
+            local output
+            local status
+            set +e
+            output="$(gh api --silent "${endpoint}" 2>&1)"
+            status=$?
+            set -e
+            if [[ ${status} -eq 0 ]]; then
+              echo "${label} already exists: ${RELEASE_TAG}" >&2
+              exit 1
+            fi
+            if [[ "${output}" != *"(HTTP 404)"* ]]; then
+              echo "Unable to prove ${label} absence; refusing publication." >&2
+              printf '%s\n' "${output}" >&2
+              exit 1
+            fi
+          }
+          check_absent \
+            "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+            "Release"
+          check_absent \
+            "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" \
+            "Tag"
+      - name: Extract deterministic release notes
+        shell: bash
+        env:
+          ARCHIVE_NAME: ${{ steps.identity.outputs.archive }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          root = Path(os.environ["RELEASE_DIR"])
+          with ZipFile(root / os.environ["ARCHIVE_NAME"]) as archive:
+              notes = archive.read("RELEASE_NOTES.md")
+          (root / "RELEASE_NOTES.md").write_bytes(notes)
+          PY
+      - name: Publish immutable GitHub Release
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ steps.identity.outputs.tag }}
+          ARCHIVE_NAME: ${{ steps.identity.outputs.archive }}
+        run: |
+          gh release create "${RELEASE_TAG}" \
+            "${RELEASE_DIR}/${ARCHIVE_NAME}" \
+            "${RELEASE_DIR}/data-product-release-manifest.json" \
+            "${RELEASE_DIR}/SHA256SUMS" \
+            --target "${GITHUB_SHA}" \
+            --title "Dacia Knowledge Base Data Products v${RELEASE_VERSION}" \
+            --notes-file "${RELEASE_DIR}/RELEASE_NOTES.md"

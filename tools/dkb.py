@@ -34,6 +34,12 @@ SCRIPT_COMMANDS = {
         "[--json FILE] [--markdown FILE] [--csv FILE] "
         "[--html FILE]",
     ),
+    "data-product-release": (
+        "data_product_release.py",
+        "Build or verify deterministic versioned data-product release assets.",
+        "--output-directory DIR [--version MAJOR.MINOR.PATCH] "
+        "[--commit-sha SHA] [--verify]",
+    ),
     "configuration-comparison-bundle": (
         "configuration_comparison_bundle.py",
         "Generate scope-safe comparison bundles from explicit selections.",
@@ -230,6 +236,11 @@ def usage() -> None:
     print(
         "  python tools/dkb.py configuration-shortlist --transmission automatic "
         "--max-price 100000 --html ../configuration-shortlist.html"
+    )
+    print(
+        "  python tools/dkb.py data-product-release --version 1.0.0 "
+        "--commit-sha 0123456789012345678901234567890123456789 "
+        "--output-directory ../data-product-release"
     )
     print(
         "  python tools/dkb.py configuration-comparison-bundle "
