@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Equipment Matrix Intake Selection
-- Pull Request: #128
-- Verified head: `56fbefc78e7f83225b5374b11b8dd1a562eef681`
-- Quality run: #589
+- Package: Jogger Equipment Availability Import
+- Pull Request: #129
+- Verified head: `07939ef1d49b25819e59ef56634e5039a588950d`
+- Quality run: #601
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Equipment Availability Import** — `active`
+**Jogger Eco-G 120 Automatic Reporting Scope Promotion** — `active`
 
-Materialize 53 selected pages 4-5 equipment attributes as 1166 dated availability records for all 22 active Jogger configurations.
+Publish four Eco-G 120 automatic configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and six deterministic comparisons.
 
 ## Next package
 
-**Jogger Technical Reporting Scope Selection** — `planned`
+**Remaining Jogger Reporting Portfolio Review** — `planned`
 
-Select the first bounded homogeneous Jogger reporting group after technical, price and equipment source coverage is complete.
+Review the three remaining homogeneous Jogger powertrain groups after the first reporting promotion.
 
 ## Autonomy
 
