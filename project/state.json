@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Data Product Distribution Planning Review",
-    "pull_request": 155,
-    "head_sha": "5c861728f32eafaa52db0ef72974d841d599b530",
-    "quality_run": 805
+    "name": "Versioned Data Product Release Publication",
+    "pull_request": 156,
+    "head_sha": "e7e5df25308b775e0b0b526baf6790d8616e5068",
+    "quality_run": 828
   },
   "baseline": {
     "tests": 654,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Versioned Data Product Release Publication",
-    "status": "active",
-    "goal": "Publish deterministic versioned GitHub Release assets for the existing offline data products."
+    "name": "Initial Data Product Release Readiness Review",
+    "status": "complete",
+    "goal": "Verify the immutable publication contract and select the first public release version without publishing it."
   },
   "next_package": {
-    "name": "Initial Data Product Release Readiness Review",
+    "name": "Initial Data Product Release Publication",
     "status": "planned",
-    "goal": "Verify the immutable publication contract and select the first public release version without publishing it."
+    "goal": "Create data-products-v1.0.0 from the verified main commit after explicit owner authorization."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
