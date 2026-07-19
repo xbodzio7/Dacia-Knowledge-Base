@@ -838,6 +838,39 @@ class ConfigurationComparisonTests(unittest.TestCase):
                     evidence,
                 )
 
+    def test_overlapping_ranges_preserve_relation_and_endpoints(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(Path(directory))
+            master = repository / 'data' / 'master'
+            self.write_csv(
+                master / 'configuration_attribute_value_ranges.csv',
+                ['id', 'code', 'configuration_code', 'attribute_code',
+                 'fuel_type_code', 'minimum_value', 'maximum_value',
+                 'lower_inclusive', 'upper_inclusive', 'observation_date',
+                 'source_code', 'notes'],
+                [
+                    ['1', 'a_height', 'cfg_a', 'vehicle_height', '', '1600', '1650', 'true', 'true', '2026-06-01', 'src_a', ''],
+                    ['2', 'b_height', 'cfg_b', 'vehicle_height', '', '1640', '1700', 'true', 'true', '2026-06-01', 'src_b', ''],
+                ],
+            )
+            payload = json.loads(evidence.read_text(encoding='utf-8'))
+            payload['decisions'] = [
+                item for item in payload['decisions']
+                if item['attribute_code'] != 'vehicle_height'
+            ]
+            evidence.write_text(json.dumps(payload), encoding='utf-8')
+            report = comparison.collect_report(repository, completeness, evidence)
+            item = next(
+                item for item in report['pairs'][0]['technical']
+                if item['attribute_code'] == 'vehicle_height'
+            )
+            differences = comparison.render_difference_csv(report)
+        self.assertEqual(item['comparison'], 'different')
+        self.assertEqual(item['range_relation'], 'overlapping')
+        self.assertIn('[1600,1650]', differences)
+        self.assertIn('[1640,1700]', differences)
+        self.assertIn('range_relation=overlapping', differences)
+
 
 if __name__ == "__main__":
     unittest.main()

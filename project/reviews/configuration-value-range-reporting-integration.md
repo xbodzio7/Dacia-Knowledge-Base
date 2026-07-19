@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package integrates the approved separate range table with technical
 completeness, source coverage and pairwise configuration comparison. It imports
@@ -78,3 +78,7 @@ After implementation:
 **Jogger WLTP Efficiency Range Import Selection** will define the first bounded
 set of fuel-consumption and CO2 ranges, exact configuration/fuel context and
 source-text denominator before materialization.
+
+## Local validation
+
+The package passed 520 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.

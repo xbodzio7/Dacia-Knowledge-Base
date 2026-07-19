@@ -14,6 +14,12 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from configuration_value_range_reporting import (
+    combine_latest_observations,
+    range_relation,
+    read_optional_ranges,
+)
+
 
 DEFAULT_COMPLETENESS_SPEC = Path(
     "data/reporting/configuration_completeness.json"
@@ -398,6 +404,39 @@ def recorded_technical_state(
     }
 
 
+def recorded_range_state(
+    row: Mapping[str, str],
+    attribute: Mapping[str, str],
+) -> dict[str, Any]:
+    data_type = str(attribute.get("data_type", ""))
+    return {
+        "state": "recorded",
+        "minimum_value": normalize_value(str(row.get("minimum_value", "")), data_type),
+        "maximum_value": normalize_value(str(row.get("maximum_value", "")), data_type),
+        "lower_inclusive": str(row.get("lower_inclusive", "")) == "true",
+        "upper_inclusive": str(row.get("upper_inclusive", "")) == "true",
+        "data_type": data_type,
+        "unit": str(attribute.get("unit", "")),
+        "observation_date": str(row.get("observation_date", "")),
+        "source_code": str(row.get("source_code", "")),
+    }
+
+
+def technical_comparison_result(
+    left: Mapping[str, Any],
+    right: Mapping[str, Any],
+) -> tuple[str, str | None]:
+    if left.get("state") != "recorded" or right.get("state") != "recorded":
+        return "not_comparable", None
+    if "minimum_value" not in left and "minimum_value" not in right:
+        return comparison_result(left, right, comparable_key="normalized_value"), None
+    try:
+        relation = range_relation(left, right)
+    except ValueError as exc:
+        raise ComparisonError(str(exc)) from exc
+    return ("equal" if relation == "identical" else "different"), relation
+
+
 def evidence_state(decision: Mapping[str, Any]) -> dict[str, Any]:
     result: dict[str, Any] = {
         "state": str(decision.get("classification", "")),
@@ -479,6 +518,7 @@ def collect_report(
     master = repository / "data" / "master"
     prices = read_csv(master / "configuration_prices.csv")
     values = read_csv(master / "configuration_attribute_values.csv")
+    ranges = read_optional_ranges(master, read_csv)
     availability = read_csv(
         master / "configuration_attribute_availability.csv"
     )
@@ -493,6 +533,11 @@ def collect_report(
     scoped_values = [
         row
         for row in values
+        if row.get("configuration_code") in configuration_set
+    ]
+    scoped_ranges = [
+        row
+        for row in ranges
         if row.get("configuration_code") in configuration_set
     ]
     scoped_availability = [
@@ -513,7 +558,7 @@ def collect_report(
         as_of,
         "configuration prices",
     )
-    current_values = latest(
+    current_scalar_values = latest(
         scoped_values,
         (
             "configuration_code",
@@ -523,6 +568,20 @@ def collect_report(
         "observation_date",
         as_of,
         "configuration values",
+    )
+    current_range_values = latest(
+        scoped_ranges,
+        (
+            "configuration_code",
+            "attribute_code",
+            "fuel_type_code",
+        ),
+        "observation_date",
+        as_of,
+        "configuration value ranges",
+    )
+    current_values = combine_latest_observations(
+        current_scalar_values, current_range_values, ComparisonError
     )
     current_availability = latest(
         scoped_availability,
@@ -702,9 +761,11 @@ def collect_report(
             if left_key in scope["technical_na"]:
                 left_state = {"state": "not_applicable"}
             elif left_key in current_values:
-                left_state = recorded_technical_state(
-                    current_values[left_key],
-                    attribute,
+                left_row = current_values[left_key]
+                left_state = (
+                    recorded_range_state(left_row, attribute)
+                    if left_row.get("_observation_kind") == "range"
+                    else recorded_technical_state(left_row, attribute)
                 )
             else:
                 left_state = evidence_state(
@@ -721,9 +782,11 @@ def collect_report(
             if right_key in scope["technical_na"]:
                 right_state = {"state": "not_applicable"}
             elif right_key in current_values:
-                right_state = recorded_technical_state(
-                    current_values[right_key],
-                    attribute,
+                right_row = current_values[right_key]
+                right_state = (
+                    recorded_range_state(right_row, attribute)
+                    if right_row.get("_observation_kind") == "range"
+                    else recorded_technical_state(right_row, attribute)
                 )
             else:
                 right_state = evidence_state(
@@ -737,22 +800,22 @@ def collect_report(
                     ]
                 )
 
-            technical_items.append(
-                {
-                    "attribute_code": attribute_code,
-                    "attribute_name": attribute["name"],
-                    "category": attribute["category"],
-                    "fuel_type_code": fuel,
-                    "unit": attribute["unit"],
-                    "left": left_state,
-                    "right": right_state,
-                    "comparison": comparison_result(
-                        left_state,
-                        right_state,
-                        comparable_key="normalized_value",
-                    ),
-                }
+            technical_comparison, relation = technical_comparison_result(
+                left_state, right_state
             )
+            technical_item = {
+                "attribute_code": attribute_code,
+                "attribute_name": attribute["name"],
+                "category": attribute["category"],
+                "fuel_type_code": fuel,
+                "unit": attribute["unit"],
+                "left": left_state,
+                "right": right_state,
+                "comparison": technical_comparison,
+            }
+            if relation is not None:
+                technical_item["range_relation"] = relation
+            technical_items.append(technical_item)
 
         equipment_items: list[dict[str, Any]] = []
         for attribute_code in scope["equipment_attributes"]:
@@ -924,6 +987,15 @@ def render_json(report: Mapping[str, Any]) -> str:
     )
 
 
+def range_state_value(state: Mapping[str, Any]) -> str:
+    lower = "[" if state.get("lower_inclusive") else "("
+    upper = "]" if state.get("upper_inclusive") else ")"
+    return (
+        f"{lower}{state.get('minimum_value', '')},"
+        f"{state.get('maximum_value', '')}{upper}"
+    )
+
+
 def difference_state_value(
     state: Mapping[str, Any],
     domain: str,
@@ -931,6 +1003,8 @@ def difference_state_value(
     if domain == "prices":
         return str(state.get("amount", ""))
     if domain == "technical":
+        if "minimum_value" in state:
+            return range_state_value(state)
         return str(state.get("value", ""))
     return str(state.get("availability_status", ""))
 
@@ -1046,6 +1120,10 @@ def difference_csv_rows(
                         if fuel
                         else "fuel_type_code="
                     )
+                    if item.get("range_relation"):
+                        context += (
+                            f";range_relation={item['range_relation']}"
+                        )
                     unit = str(item["unit"])
                     delta = ""
                 else:
@@ -1152,7 +1230,11 @@ def state_label(state: Mapping[str, Any], domain: str) -> str:
     if domain == "prices":
         return str(state.get("amount", ""))
     if domain == "technical":
-        value = str(state.get("value", ""))
+        value = (
+            range_state_value(state)
+            if "minimum_value" in state
+            else str(state.get("value", ""))
+        )
         unit = str(state.get("unit", ""))
         return f"{value} {unit}".strip()
     return str(state.get("availability_status", ""))

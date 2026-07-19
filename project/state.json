@@ -9,13 +9,13 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Attribute Enum Domain Registry and Jogger Battery Chemistry",
-    "pull_request": 120,
-    "head_sha": "b5c5520822474fe3c76987485540133b3a2c8b9a",
-    "quality_run": 514
+    "name": "Configuration Value Range Storage and Import Architecture",
+    "pull_request": 121,
+    "head_sha": "98d99b570c09c5d2a180e81c53221ddd1f02e68c",
+    "quality_run": 527
   },
   "baseline": {
-    "tests": 512,
+    "tests": 520,
     "csv_files": 37,
     "rows": 3845,
     "configuration_values": 1204,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Value Range Storage and Import Architecture",
+    "name": "Configuration Value Range Reporting Integration",
     "status": "active",
-    "goal": "Add a separate header-only numeric range table, strict declarative importer, global validation and automatic SQLite support without changing scalar observations."
+    "goal": "Count current ranges as technical evidence and preserve identical, overlapping and disjoint relation semantics in pairwise reports without importing source data."
   },
   "next_package": {
-    "name": "Configuration Value Range Reporting Integration",
+    "name": "Jogger WLTP Efficiency Range Import Selection",
     "status": "planned",
-    "goal": "Integrate ranges with completeness, source coverage and comparison states for identical, overlapping and disjoint evidence before importing Jogger ranges."
+    "goal": "Define the exact fuel-consumption and CO2 range denominator, configuration and fuel contexts, source text and first bounded import package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

@@ -14,6 +14,11 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from configuration_value_range_reporting import (
+    combine_latest_observations,
+    read_optional_ranges,
+)
+
 
 DEFAULT_SPEC = Path("data/reporting/configuration_completeness.json")
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
@@ -289,6 +294,7 @@ def collect_report(
     source_configurations = read_csv(master / "source_configurations.csv")
     prices = read_csv(master / "configuration_prices.csv")
     values = read_csv(master / "configuration_attribute_values.csv")
+    ranges = read_optional_ranges(master, read_csv)
     availability = read_csv(
         master / "configuration_attribute_availability.csv"
     )
@@ -316,6 +322,7 @@ def collect_report(
         for rows, field, label in (
             (prices, "price_date", "configuration price"),
             (values, "observation_date", "configuration value"),
+            (ranges, "observation_date", "configuration value range"),
             (
                 availability,
                 "observation_date",
@@ -391,6 +398,10 @@ def collect_report(
         row for row in values
         if row.get("configuration_code") in scoped_configurations
     ]
+    scoped_ranges = [
+        row for row in ranges
+        if row.get("configuration_code") in scoped_configurations
+    ]
     scoped_availability = [
         row for row in availability
         if row.get("configuration_code") in scoped_configurations
@@ -400,12 +411,22 @@ def collect_report(
         if row.get("configuration_code") in scoped_configurations
     ]
 
-    current_values = latest_records(
+    current_scalar_values = latest_records(
         scoped_values,
         ("configuration_code", "attribute_code", "fuel_type_code"),
         "observation_date",
         as_of,
         "configuration values",
+    )
+    current_range_values = latest_records(
+        scoped_ranges,
+        ("configuration_code", "attribute_code", "fuel_type_code"),
+        "observation_date",
+        as_of,
+        "configuration value ranges",
+    )
+    current_values = combine_latest_observations(
+        current_scalar_values, current_range_values, SourceCoverageError
     )
     current_availability = latest_records(
         scoped_availability,
@@ -761,6 +782,7 @@ def collect_report(
         ("source_configurations", source_configurations),
         ("configuration_prices", prices),
         ("configuration_attribute_values", values),
+        ("configuration_attribute_value_ranges", ranges),
         ("configuration_attribute_availability", availability),
     ):
         codes = sorted(
