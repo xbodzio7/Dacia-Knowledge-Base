@@ -30,7 +30,7 @@ SCRIPT_COMMANDS = {
         "[--as-of YYYY-MM-DD] [--pair-type TYPE] "
         "[--difference-domain DOMAIN] [--difference-item-code CODE] "
         "[--difference-context CONTEXT] "
-        "[--json FILE] [--markdown FILE] [--csv FILE]",
+        "[--json FILE] [--markdown FILE] [--csv FILE] [--html FILE]",
     ),
     "configuration-comparison-item-catalog": (
         "configuration_comparison_item_catalog.py",
@@ -210,6 +210,10 @@ def usage() -> None:
         "  python tools/dkb.py configuration-comparison "
         "--difference-context fuel_type_code=lpg "
         "--csv ../configuration-comparison-differences.csv"
+    )
+    print(
+        "  python tools/dkb.py configuration-comparison "
+        "--html ../configuration-comparison.html"
     )
     print(
         "  python tools/dkb.py configuration-comparison-item-catalog "

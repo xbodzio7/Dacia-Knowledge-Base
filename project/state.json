@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Registered Source Portfolio Complete",
+  "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
-    "pull_request": 140,
-    "head_sha": "f2d414dedd68a153b505d1211feba3329096cb5d",
-    "quality_run": 681
+    "name": "Registered Source Reporting Portfolio Completion Review",
+    "pull_request": 142,
+    "head_sha": "fd1e1a9bbe8b1acd52dc21c8b0818fd252519223",
+    "quality_run": 689
   },
   "baseline": {
-    "tests": 586,
+    "tests": 593,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Registered Source Reporting Portfolio Completion Review",
-    "status": "complete",
-    "goal": "Confirm that 13 independent scopes cover all 53 active configurations and all nine active registered sources without overlap or unused source material."
+    "name": "Interactive Configuration Comparison HTML",
+    "status": "active",
+    "goal": "Publish deterministic browser-ready configuration comparisons with offline filters, source provenance and unchanged evidence semantics."
   },
   "next_package": {
-    "name": "New Official Source Acquisition",
-    "status": "blocked",
-    "goal": "Register and import at least one new official Dacia model, model-year or market source before creating another reporting expansion package."
+    "name": "Configuration Discovery and Shortlist Planning Review",
+    "status": "planned",
+    "goal": "Select the next user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

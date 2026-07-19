@@ -538,21 +538,23 @@ rekordów `standard` oraz 30 `not_available`.
 
 ### Porównanie konfiguracji
 
-Komenda `configuration-comparison` generuje deterministyczny raport JSON
-i Markdown dla wszystkich par aktywnych konfiguracji oraz opcjonalny płaski
-CSV zawierający wyłącznie rzeczywiste różnice. Bieżący zakres siedmiu
+Komenda `configuration-comparison` generuje deterministyczny raport JSON,
+Markdown i samodzielny interaktywny HTML dla wszystkich par aktywnych
+konfiguracji oraz opcjonalny płaski CSV zawierający wyłącznie rzeczywiste różnice. Bieżący zakres siedmiu
 konfiguracji tworzy 21 par i 305 wierszy różnic.
 
 ```bash
 python tools/dkb.py configuration-comparison \
   --json ../configuration-comparison.json \
   --markdown ../configuration-comparison.md \
-  --csv ../configuration-comparison-differences.csv
+  --csv ../configuration-comparison-differences.csv \
+  --html ../configuration-comparison.html
 ```
 
-JSON i Markdown pozostają pełnymi formatami: zawierają stany równe,
-`different` oraz `not_comparable`. CSV jest eksportem użytkowym i pomija
-wszystkie wyniki inne niż `different`.
+JSON, Markdown i HTML pozostają pełnymi formatami: zawierają stany równe,
+`different` oraz `not_comparable`. HTML zawiera wbudowane style i skrypt
+filtrowania, działa bez serwera i nie pobiera zewnętrznych zasobów. CSV jest
+eksportem użytkowym i pomija wszystkie wyniki inne niż `different`.
 
 Każdy wiersz CSV zachowuje:
 
@@ -702,7 +704,8 @@ Architektura repozytorium jest stabilna.
 
 Aktualny etap obejmuje:
 
-* rozwój i uzupełnianie danych,
+* praktyczne wykorzystanie zamkniętego portfela danych,
+* interaktywne i eksportowalne porównania konfiguracji,
 * walidację struktury i relacji,
 * raportowanie jakości oraz kompletności danych,
 * wyszukiwanie informacji,
@@ -739,7 +742,7 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 586 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 593 testów, 37 pliki CSV, 5155 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

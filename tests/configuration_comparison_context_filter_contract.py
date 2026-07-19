@@ -177,6 +177,7 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             repository, completeness, evidence = self.fixture(root)
             json_path = root / "comparison.json"
             markdown_path = root / "comparison.md"
+            html_path = root / "comparison.html"
             csv_path = root / "differences.csv"
             expected_report = core.collect_report(
                 repository,
@@ -201,6 +202,8 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
                         str(json_path),
                         "--markdown",
                         str(markdown_path),
+                        "--html",
+                        str(html_path),
                         "--csv",
                         str(csv_path),
                     ]
@@ -214,6 +217,10 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             self.assertEqual(
                 markdown_path.read_text(encoding="utf-8"),
                 core.render_markdown(expected_report),
+            )
+            self.assertEqual(
+                html_path.read_text(encoding="utf-8"),
+                core.render_html(expected_report),
             )
             reader = csv.DictReader(
                 csv_path.read_text(encoding="utf-8").splitlines()

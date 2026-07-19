@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Self-contained interactive HTML configuration comparison reports with offline filtering, source provenance and evidence-aware states.
+* GitHub Actions publication of current Sandero browser reports with a SHA-256 artifact manifest.
 * Source-backed Jogger equipment availability with 1,166 records across 53 canonical attributes and explicit standard, optional and unavailable semantics.
 * Jogger Hybrid 155 total system power modeled as a dedicated attribute with six source-backed 116 kW observations.
 * Jogger MY26 total LPG vessel and filling capacities modeled as separate attributes with 20 source-backed LPG observations.
@@ -202,7 +204,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 586 tests.
+* The automated test suite now contains 593 tests.
 * The verified master-data baseline now contains 37 CSV files and 5155 rows.
 * SQLite verification now covers 37 tables and 5155 rows.
 * Configuration attribute values now contain 1204 dated records.
