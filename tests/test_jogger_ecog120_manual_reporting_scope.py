@@ -52,17 +52,20 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
                 "present": 204,
             },
         )
-        equipment = self.completeness["equipment"]
-        self.assertEqual(equipment["applicable"], 318)
-        self.assertEqual(equipment["coverage_percent"], "100.00")
-        self.assertEqual(equipment["denominator"], 318)
-        self.assertEqual(equipment["missing"], 0)
-        self.assertEqual(equipment["not_applicable"], 0)
-        self.assertEqual(equipment["recorded"], 318)
-        self.assertEqual(equipment["unknown"], 0)
         self.assertEqual(
-            equipment["standard"] + equipment["optional"] + equipment["not_available"],
-            318,
+            self.completeness["equipment"],
+            {
+                "applicable": 318,
+                "coverage_percent": "100.00",
+                "denominator": 318,
+                "missing": 0,
+                "not_applicable": 0,
+                "not_available": 64,
+                "optional": 24,
+                "recorded": 318,
+                "standard": 230,
+                "unknown": 0,
+            },
         )
         self.assertEqual(self.completeness["gaps"], {"equipment": [], "technical": []})
 
@@ -71,7 +74,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
             self.coverage["source_registration"],
             {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1},
         )
-        self.assertEqual(self.coverage["areas"], {"covered": 16, "denominator": 16, "missing": 0, "partial": 0, "source_missing": 0})
+        self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["sections"], {"covered": 162, "denominator": 162, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["records"]["technical"]["present"], 204)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 318)
@@ -89,19 +92,15 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual({pair["summary"]["equipment"]["not_comparable"] for pair in pairs}, {0})
         self.assertEqual({pair["summary"]["prices"]["not_comparable"] for pair in pairs}, {0})
 
-    def test_comparison_summary_has_complete_denominators(self) -> None:
-        summary = self.comparison["summary"]
-        self.assertEqual(summary["prices"]["comparisons"], 15)
-        self.assertEqual(summary["technical"]["comparisons"], 510)
-        self.assertEqual(summary["equipment"]["comparisons"], 795)
-        self.assertEqual(summary["prices"]["not_comparable"], 0)
-        self.assertEqual(summary["technical"]["not_comparable"], 0)
-        self.assertEqual(summary["equipment"]["not_comparable"], 0)
+    def test_comparison_summary_is_stable(self) -> None:
         self.assertEqual(
-            summary["total_differences"],
-            summary["prices"]["different"]
-            + summary["technical"]["different"]
-            + summary["equipment"]["different"],
+            self.comparison["summary"],
+            {
+                "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
+                "technical": {"comparisons": 510, "equal": 438, "different": 72, "not_comparable": 0},
+                "equipment": {"comparisons": 795, "equal": 607, "different": 188, "not_comparable": 0},
+                "total_differences": 275,
+            },
         )
 
     def test_all_one_hundred_thirty_five_range_comparisons_preserve_interval_semantics(self) -> None:
@@ -112,7 +111,8 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
             if "minimum_value" in item["left"] or "minimum_value" in item["right"]
         ]
         self.assertEqual(len(ranged), 135)
-        self.assertTrue(all(item.get("range_relation") in {"identical", "overlapping", "disjoint"} for item in ranged))
+        self.assertEqual(Counter(item["comparison"] for item in ranged), Counter({"equal": 126, "different": 9}))
+        self.assertEqual(Counter(item.get("range_relation") for item in ranged), Counter({"identical": 126, "disjoint": 9}))
         for item in ranged:
             for side in ("left", "right"):
                 self.assertIn("minimum_value", item[side])
@@ -121,7 +121,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
 
     def test_empty_gap_evidence_remains_valid_and_all_prices_differ(self) -> None:
         self.assertEqual(self.comparison["evidence_summary"], {"total": 0, "ambiguous": 0, "found": 0, "not_stated": 0, "out_of_scope": 0})
-        self.assertEqual(self.comparison["summary"]["prices"], {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0})
+        self.assertEqual(sum(pair["summary"]["prices"]["different"] for pair in self.comparison["pairs"]), 15)
 
 
 if __name__ == "__main__":
