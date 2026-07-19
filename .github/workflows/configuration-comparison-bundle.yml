@@ -1,0 +1,72 @@
+name: Configuration Comparison Bundle
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  comparison-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Run comparison bundle regression tests
+        run: python -m unittest -v tests.test_configuration_comparison_bundle
+      - name: Generate example shortlist
+        run: |
+          python tools/dkb.py configuration-shortlist \
+            --transmission automatic \
+            --max-price 100000 \
+            --json "${RUNNER_TEMP}/automatic-under-100000.json"
+      - name: Generate comparison bundle
+        run: |
+          python tools/configuration_comparison_bundle.py \
+            --shortlist-json "${RUNNER_TEMP}/automatic-under-100000.json" \
+            --configuration-code duster_iii_expression_ecog100_4x2_manual \
+            --output-directory "${RUNNER_TEMP}/comparison-bundle"
+      - name: Verify bundle manifest and checksums
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ["RUNNER_TEMP"]) / "comparison-bundle"
+          manifest = json.loads(
+              (root / "comparison-bundle-manifest.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          assert manifest["selected_configuration_count"] == 5
+          assert manifest["scope_group_count"] == 3
+          assert manifest["comparable_scope_count"] == 2
+          assert manifest["singleton_scope_count"] == 1
+          assert manifest["cross_scope_pairs_generated"] is False
+          for group in manifest["groups"]:
+              for record in group["files"].values():
+                  path = root / record["path"]
+                  assert path.is_file(), path
+                  assert path.stat().st_size == record["size_bytes"]
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  assert digest == record["sha256"]
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+      - name: Upload comparison bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-comparison-bundle
+          path: ${{ runner.temp }}/comparison-bundle
+          if-no-files-found: error
+          retention-days: 7

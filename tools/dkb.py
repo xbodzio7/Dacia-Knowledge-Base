@@ -34,6 +34,12 @@ SCRIPT_COMMANDS = {
         "[--json FILE] [--markdown FILE] [--csv FILE] "
         "[--html FILE]",
     ),
+    "configuration-comparison-bundle": (
+        "configuration_comparison_bundle.py",
+        "Generate scope-safe comparison bundles from explicit selections.",
+        "[--configuration-code CODE] [--shortlist-json FILE] "
+        "--output-directory DIR",
+    ),
     "configuration-comparison": (
         "configuration_comparison.py",
         "Compare active configuration prices, values and equipment.",
@@ -224,6 +230,11 @@ def usage() -> None:
     print(
         "  python tools/dkb.py configuration-shortlist --transmission automatic "
         "--max-price 100000 --html ../configuration-shortlist.html"
+    )
+    print(
+        "  python tools/dkb.py configuration-comparison-bundle "
+        "--shortlist-json ../configuration-shortlist.json "
+        "--output-directory ../comparison-bundle"
     )
     print(
         "  python tools/dkb.py configuration-comparison "

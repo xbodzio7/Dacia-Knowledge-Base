@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Interactive Configuration Shortlist HTML
-- Pull Request: #147
-- Verified head: `9fa22b0a842880d34a1c489a059de44f3b7e4324`
-- Quality run: #731
+- Package: Shortlist-to-Comparison Workflow Planning Review
+- Pull Request: #148
+- Verified head: `b55b09f8e27108a242fca10a4be46b92533f1c6f`
+- Quality run: #737
 
 ## Verified baseline
 
-- Tests: 610
+- Tests: 620
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Shortlist-to-Comparison Workflow Planning Review** — `complete`
+**Configuration Comparison Bundle CLI** — `active`
 
-Select a transparent workflow that turns explicitly selected shortlist results into existing source-backed comparisons while preserving independent reporting scopes.
+Group explicit selections by independent scope, filter completeness and evidence contracts, and publish transactional JSON, Markdown, CSV and HTML comparison bundles with singleton and checksum manifests.
 
 ## Next package
 
-**Configuration Comparison Bundle CLI** — `planned`
+**Interactive Selection Export Planning Review** — `planned`
 
-Group explicit configuration selections by independent scope, filter completeness and evidence contracts, and publish a manifest plus existing JSON, Markdown, CSV and HTML comparisons for every comparable group.
+Select a browser workflow for explicitly selecting shortlist results and exporting codes or shortlist JSON consumable by the comparison bundle without ranking or inferred values.
 
 ## Autonomy
 

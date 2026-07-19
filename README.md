@@ -576,6 +576,37 @@ katalog, podczas gdy JSON, Markdown i CSV pozostają wynikami filtrów
 wykonanych po stronie Pythona. Plik działa bez serwera i nie pobiera
 zewnętrznych skryptów, stylów ani fontów.
 
+### Pakiet porównań z shortlisty
+
+Komenda `configuration-comparison-bundle` łączy jawnie wybrane konfiguracje z
+istniejącymi, jednorodnymi zakresami raportowymi. Przyjmuje powtarzalne kody
+konfiguracji oraz raporty JSON wygenerowane przez `configuration-shortlist`.
+Ich suma jest deterministycznie deduplikowana.
+
+```bash
+python tools/dkb.py configuration-comparison-bundle \
+  --shortlist-json ../configuration-shortlist.json \
+  --configuration-code duster_iii_expression_ecog100_4x2_manual \
+  --output-directory ../comparison-bundle
+```
+
+Wybrane konfiguracje są grupowane według 13 bieżących specyfikacji
+kompletności. Grupy zawierające co najmniej dwie konfiguracje generują
+istniejące raporty JSON, Markdown, CSV różnic i interaktywny HTML. Grupy
+jednoelementowe są zapisane jako singletony bez sztucznego porównania.
+Konfiguracje z różnych zakresów nigdy nie tworzą wspólnej pary.
+
+Dla każdej porównywalnej grupy filtrowane są zarówno wpisy konfiguracji w
+specyfikacji kompletności, jak i decyzje w specyfikacji dowodowej. Mianowniki,
+algorytm par i klasyfikacje dowodowe pozostają bez zmian, a istniejący silnik
+porównawczy wykonuje raporty bez osłabienia walidacji.
+
+Publikacja katalogu jest transakcyjna. Niepusty katalog wyjściowy nie jest
+nadpisywany, a błąd wejścia lub raportowania nie pozostawia częściowego
+pakietu. `comparison-bundle-manifest.json` zawiera wybór, grupy, singletony,
+liczby par i różnic oraz ścieżki, rozmiary i SHA-256 wszystkich raportów. Pole
+`cross_scope_pairs_generated` zawsze ma wartość `false`.
+
 ### Porównanie konfiguracji
 
 Komenda `configuration-comparison` generuje deterministyczny raport JSON,
@@ -747,6 +778,7 @@ Aktualny etap obejmuje:
 * praktyczne wykorzystanie zamkniętego portfela danych,
 * interaktywne i eksportowalne porównania konfiguracji,
 * filtrowanie i tworzenie shortlist konfiguracji,
+* transakcyjne pakiety porównań z jawnych wyborów shortlisty,
 * walidację struktury i relacji,
 * raportowanie jakości oraz kompletności danych,
 * wyszukiwanie informacji,
@@ -783,7 +815,7 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 610 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 620 testów, 37 pliki CSV, 5155 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

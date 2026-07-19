@@ -82,13 +82,14 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - samodzielny interaktywny HTML porównań z filtrowaniem i proweniencją,
 - deterministyczna shortlista konfiguracji z filtrami ceny, napędu, skrzyni, miejsc i wyposażenia,
 - interaktywna przeglądarkowa shortlista konfiguracji z pełnym snapshotem i testami parytetu semantyki,
+- transakcyjny pakiet porównań z shortlisty z grupowaniem według jednorodnych zakresów i manifestem SHA-256,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 610 testów automatycznych,
+- 620 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
@@ -103,7 +104,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 
 ## Reporting
 
-- przepływ shortlisty do porównania wybranych konfiguracji,
+- przeglądarkowy eksport jawnie wybranych konfiguracji do pakietu porównań,
 - wybór najwyżej wartościowego kolejnego pakietu raportowego,
 - porównania modeli i wersji wykraczające poza bieżące konfiguracje,
 - eksport do Excela,
