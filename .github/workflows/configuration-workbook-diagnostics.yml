@@ -20,11 +20,6 @@ jobs:
           python-version: '3.13'
       - name: Apply bundle test contract
         run: python tools/_update_workbook_bundle_contract.py
-      - name: Run workbook and bundle tests
-        run: |
-          python -m unittest -v \
-            tests.test_configuration_comparison_bundle \
-            tests.test_configuration_comparison_workbook
       - name: Commit bundle test contract
         run: |
           git config user.name 'github-actions[bot]'
@@ -36,3 +31,20 @@ jobs:
             git commit -m 'test: include workbook in bundle contract'
             git push origin HEAD:${{ github.head_ref }}
           fi
+      - name: Capture workbook and bundle tests
+        shell: bash
+        run: |
+          set +e
+          python -m unittest -v \
+            tests.test_configuration_comparison_bundle \
+            tests.test_configuration_comparison_workbook \
+            > "${RUNNER_TEMP}/workbook-tests.log" 2>&1
+          echo $? > "${RUNNER_TEMP}/workbook-tests.exit"
+          set -e
+      - uses: actions/upload-artifact@v7
+        with:
+          name: configuration-workbook-test-diagnostics
+          path: |
+            ${{ runner.temp }}/workbook-tests.log
+            ${{ runner.temp }}/workbook-tests.exit
+          if-no-files-found: error
