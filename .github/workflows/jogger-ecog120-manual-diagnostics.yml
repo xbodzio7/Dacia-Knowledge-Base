@@ -1,0 +1,36 @@
+name: Jogger Eco-G 120 Manual Diagnostics
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  unit-test-log:
+    if: github.head_ref == 'reporting/jogger-ecog120-manual'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Capture unit-test output
+        run: |
+          set +e
+          python -m unittest discover -s tests -p 'test_*.py' -v > "${RUNNER_TEMP}/unit-tests.txt" 2>&1
+          status=$?
+          echo "exit_status=${status}" >> "${RUNNER_TEMP}/unit-tests.txt"
+          exit 0
+      - name: Upload diagnostic log
+        uses: actions/upload-artifact@v7
+        with:
+          name: jogger-ecog120-manual-unit-test-log
+          path: ${{ runner.temp }}/unit-tests.txt
+          if-no-files-found: error
+          retention-days: 1
