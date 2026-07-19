@@ -15,7 +15,7 @@
     "quality_run": 626
   },
   "baseline": {
-    "tests": 551,
+    "tests": 558,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
