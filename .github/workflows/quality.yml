@@ -1,66 +1,440 @@
 name: Quality
 
 on:
+  push:
+    branches:
+      - main
+      - "dev/**"
   pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: jogger-wltp-unit-diagnostic
+  group: quality-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  diagnose:
+  quality:
+    name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.13"
+
     steps:
-      - name: Check out implementation branch
+      - name: Check out repository
         uses: actions/checkout@v7
         with:
-          ref: data/jogger-wltp-efficiency-ranges
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.10"
+          python-version: ${{ matrix.python-version }}
 
-      - name: Capture concise unit-test failure
-        id: tests
-        shell: bash
-        run: |
-          set +e
-          python -m unittest discover -s tests -p "test_*.py" -q > "${RUNNER_TEMP}/unit.log" 2>&1
-          status=$?
-          python - <<'PY'
-          import os
-          from pathlib import Path
-          source = Path(os.environ["RUNNER_TEMP"]) / "unit.log"
-          text = source.read_text(encoding="utf-8", errors="replace")
-          start = text.rfind("======================================================================")
-          if start < 0:
-              lines = text.splitlines()
-              excerpt = "\n".join(lines[-240:])
-          else:
-              excerpt = text[start:]
-          Path("project/reviews/jogger-wltp-unit-test-diagnostic.log").write_text(
-              excerpt.rstrip() + "\n",
-              encoding="utf-8",
-          )
-          PY
-          echo "status=${status}" >> "$GITHUB_OUTPUT"
-          exit 0
+      - name: Show Python version
+        run: python --version
 
-      - name: Restore Quality and commit diagnostic
-        if: always()
-        shell: bash
+      - name: Install PDF text extraction backend
+        if: matrix.python-version == '3.13'
         run: |
-          git fetch origin main --no-tags
-          git show FETCH_HEAD:.github/workflows/quality.yml > .github/workflows/quality.yml
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -A
-          git commit -m "Capture Jogger WLTP unit-test diagnostic"
-          git push origin HEAD:data/jogger-wltp-efficiency-ranges
-          exit "${{ steps.tests.outputs.status }}"
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          pdftotext -v
+
+      - name: Compile Python sources
+        if: matrix.python-version == '3.10'
+        run: python -m compileall -q tools scripts tests
+
+      - name: Run unit tests
+        if: matrix.python-version == '3.10'
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_*.py" \
+            -q
+
+      - name: Run orchestration contract tests
+        if: matrix.python-version == '3.10'
+        run: |
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+
+      - name: Check canonical project state
+        if: matrix.python-version == '3.10'
+        run: python tools/dkb.py project-state --check
+
+      - name: Run full quality gate
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+      - name: Generate configuration comparison item catalog artifact
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-comparison-item-catalog \
+            --csv "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv"
+
+      - name: Generate configuration comparison pair summary artifact
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-comparison-pair-summary \
+            --csv "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv"
+
+      - name: Generate Duster mild hybrid 140 4x2 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_mildhybrid140_4x2_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid140-4x2-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid140-4x2-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_mildhybrid140_4x2_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid140-4x2-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid140-4x2-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_mildhybrid140_4x2_completeness.json \
+            --evidence-spec data/reporting/duster_mildhybrid140_4x2_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison-differences.csv"
+
+      - name: Generate Duster mild hybrid 130 4x4 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
+            --evidence-spec data/reporting/duster_mildhybrid130_4x4_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison-differences.csv"
+
+      - name: Generate Duster mild hybrid 130 4x2 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_mildhybrid130_4x2_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_mildhybrid130_4x2_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x2-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x2-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_mildhybrid130_4x2_completeness.json \
+            --evidence-spec data/reporting/duster_mildhybrid130_4x2_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison-differences.csv"
+
+      - name: Generate Duster Hybrid 155 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_hybrid155_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid155-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid155-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_hybrid155_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid155-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid155-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_hybrid155_completeness.json \
+            --evidence-spec data/reporting/duster_hybrid155_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid155-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid155-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-hybrid155-comparison-differences.csv"
+
+      - name: Generate Duster Hybrid 140 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_hybrid140_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid140-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid140-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_hybrid140_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid140-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid140-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_hybrid140_completeness.json \
+            --evidence-spec data/reporting/duster_hybrid140_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-hybrid140-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-hybrid140-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-hybrid140-comparison-differences.csv"
+
+      - name: Generate Duster Eco-G 100 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_ecog100_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog100-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog100-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_ecog100_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog100-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog100-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_ecog100_completeness.json \
+            --evidence-spec data/reporting/duster_ecog100_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog100-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog100-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-ecog100-comparison-differences.csv"
+
+      - name: Generate Duster Eco-G 120 reporting artifacts
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/duster_ecog120_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120-completeness.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/duster_ecog120_completeness.json \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/duster_ecog120_completeness.json \
+            --evidence-spec data/reporting/duster_ecog120_gap_evidence.spec \
+            --as-of 2026-02-06 \
+            --json "${RUNNER_TEMP}/duster-ecog120-comparison.json" \
+            --markdown "${RUNNER_TEMP}/duster-ecog120-comparison.md" \
+            --csv "${RUNNER_TEMP}/duster-ecog120-comparison-differences.csv"
+
+      - name: Generate Quality artifact manifest
+        if: matrix.python-version == '3.13'
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/artifact-manifest.json" \
+            --file "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --file "${RUNNER_TEMP}/quality.log" \
+            --file "${RUNNER_TEMP}/quality-summary.json" \
+            --file "${RUNNER_TEMP}/documentation-baseline.json" \
+            --file "${RUNNER_TEMP}/documentation-baseline.md" \
+            --file "${RUNNER_TEMP}/configuration-completeness.json" \
+            --file "${RUNNER_TEMP}/configuration-completeness.md" \
+            --file "${RUNNER_TEMP}/source-coverage.json" \
+            --file "${RUNNER_TEMP}/source-coverage.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-triage.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-triage.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-source-review.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-source-review.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-evidence.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-evidence.md" \
+            --file "${RUNNER_TEMP}/configuration-gap-resolution-plan.json" \
+            --file "${RUNNER_TEMP}/configuration-gap-resolution-plan.md" \
+            --file "${RUNNER_TEMP}/configuration-comparison.json" \
+            --file "${RUNNER_TEMP}/configuration-comparison.md" \
+            --file "${RUNNER_TEMP}/configuration-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv" \
+            --file "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid155-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-hybrid140-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-ecog100-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-ecog100-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-ecog100-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-ecog100-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-ecog100-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-ecog100-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-ecog100-comparison-differences.csv" \
+            --file "${RUNNER_TEMP}/duster-ecog120-completeness.json" \
+            --file "${RUNNER_TEMP}/duster-ecog120-completeness.md" \
+            --file "${RUNNER_TEMP}/duster-ecog120-source-coverage.json" \
+            --file "${RUNNER_TEMP}/duster-ecog120-source-coverage.md" \
+            --file "${RUNNER_TEMP}/duster-ecog120-comparison.json" \
+            --file "${RUNNER_TEMP}/duster-ecog120-comparison.md" \
+            --file "${RUNNER_TEMP}/duster-ecog120-comparison-differences.csv" \
+            --file "reports/validation_report.md"
+
+      - name: Upload generated artifacts
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v7
+        with:
+          name: dacia-knowledge-base-build
+          path: |
+            ${{ runner.temp }}/dacia_knowledge_base.sqlite
+            ${{ runner.temp }}/quality.log
+            ${{ runner.temp }}/quality-summary.json
+            ${{ runner.temp }}/documentation-baseline.json
+            ${{ runner.temp }}/documentation-baseline.md
+            ${{ runner.temp }}/configuration-completeness.json
+            ${{ runner.temp }}/configuration-completeness.md
+            ${{ runner.temp }}/source-coverage.json
+            ${{ runner.temp }}/source-coverage.md
+            ${{ runner.temp }}/configuration-gap-triage.json
+            ${{ runner.temp }}/configuration-gap-triage.md
+            ${{ runner.temp }}/configuration-gap-source-review.json
+            ${{ runner.temp }}/configuration-gap-source-review.md
+            ${{ runner.temp }}/configuration-gap-evidence.json
+            ${{ runner.temp }}/configuration-gap-evidence.md
+            ${{ runner.temp }}/configuration-gap-resolution-plan.json
+            ${{ runner.temp }}/configuration-gap-resolution-plan.md
+            ${{ runner.temp }}/configuration-comparison.json
+            ${{ runner.temp }}/configuration-comparison.md
+            ${{ runner.temp }}/configuration-comparison-differences.csv
+            ${{ runner.temp }}/configuration-comparison-item-catalog.csv
+            ${{ runner.temp }}/configuration-comparison-pair-summary.csv
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-completeness.json
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-completeness.md
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-source-coverage.json
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-source-coverage.md
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-comparison.json
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-comparison.md
+            ${{ runner.temp }}/duster-mildhybrid140-4x2-comparison-differences.csv
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-completeness.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-completeness.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-source-coverage.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-source-coverage.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x4-comparison-differences.csv
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-completeness.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-completeness.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-source-coverage.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-source-coverage.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-comparison.json
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-comparison.md
+            ${{ runner.temp }}/duster-mildhybrid130-4x2-comparison-differences.csv
+            ${{ runner.temp }}/duster-hybrid155-completeness.json
+            ${{ runner.temp }}/duster-hybrid155-completeness.md
+            ${{ runner.temp }}/duster-hybrid155-source-coverage.json
+            ${{ runner.temp }}/duster-hybrid155-source-coverage.md
+            ${{ runner.temp }}/duster-hybrid155-comparison.json
+            ${{ runner.temp }}/duster-hybrid155-comparison.md
+            ${{ runner.temp }}/duster-hybrid155-comparison-differences.csv
+            ${{ runner.temp }}/duster-hybrid140-completeness.json
+            ${{ runner.temp }}/duster-hybrid140-completeness.md
+            ${{ runner.temp }}/duster-hybrid140-source-coverage.json
+            ${{ runner.temp }}/duster-hybrid140-source-coverage.md
+            ${{ runner.temp }}/duster-hybrid140-comparison.json
+            ${{ runner.temp }}/duster-hybrid140-comparison.md
+            ${{ runner.temp }}/duster-hybrid140-comparison-differences.csv
+            ${{ runner.temp }}/duster-ecog100-completeness.json
+            ${{ runner.temp }}/duster-ecog100-completeness.md
+            ${{ runner.temp }}/duster-ecog100-source-coverage.json
+            ${{ runner.temp }}/duster-ecog100-source-coverage.md
+            ${{ runner.temp }}/duster-ecog100-comparison.json
+            ${{ runner.temp }}/duster-ecog100-comparison.md
+            ${{ runner.temp }}/duster-ecog100-comparison-differences.csv
+            ${{ runner.temp }}/duster-ecog120-completeness.json
+            ${{ runner.temp }}/duster-ecog120-completeness.md
+            ${{ runner.temp }}/duster-ecog120-source-coverage.json
+            ${{ runner.temp }}/duster-ecog120-source-coverage.md
+            ${{ runner.temp }}/duster-ecog120-comparison.json
+            ${{ runner.temp }}/duster-ecog120-comparison.md
+            ${{ runner.temp }}/duster-ecog120-comparison-differences.csv
+            ${{ runner.temp }}/artifact-manifest.json
+            reports/validation_report.md
+          if-no-files-found: error
+          retention-days: 7
+
+  workflow-windows:
+    name: Package workflow / Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Show Python version
+        run: python --version
+
+      - name: Run package publishing tests
+        run: |
+          python -m unittest -q `
+            tests.test_package_workflow `
+            tests.test_package_receipt `
+            tests.test_package_publish `
+            tests.test_dkb_cli `
+            tests.test_quality `
+            tests.project_state_contract `
+            tests.autonomy_policy_contract `
+            tests.quality_artifact_manifest_contract `
+            tests.configuration_comparison_context_filter_contract `
+            tests.configuration_comparison_pair_summary_contract
+
+      - name: Check canonical project state
+        run: python tools/dkb.py project-state --check

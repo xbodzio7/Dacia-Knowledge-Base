@@ -1,0 +1,46 @@
+======================================================================
+ERROR: test_registered_pdf_hash_and_unique_source_texts_are_verified (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_wltp_efficiency_ranges.py", line 142, in test_registered_pdf_hash_and_unique_source_texts_are_verified
+    candidates = extract_page_candidates(PDF, 6)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py", line 653, in extract_page_candidates
+    _ensure(unique, f"cannot extract page {page}: {path}")
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py", line 112, in _ensure
+    raise ImportSpecError(message)
+tools.import_configuration_values.ImportSpecError: cannot extract page 6: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf
+
+----------------------------------------------------------------------
+Ran 528 tests in 8.903s
+
+FAILED (errors=1)
+Building SQLite database: /tmp/tmp2dz5lzro/test.sqlite
+Source directory: /tmp/tmp2dz5lzro/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp2dz5lzro/test.sqlite
+Building SQLite database: /tmp/tmpi8_cl2yd/test.sqlite
+Source directory: /tmp/tmpi8_cl2yd/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpi8_cl2yd/test.sqlite
+Building SQLite database: /tmp/tmp8h0ali5f/test.sqlite
+Source directory: /tmp/tmp8h0ali5f/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp8h0ali5f/test.sqlite
+Building SQLite database: /tmp/tmp_5sps_cc/test.sqlite
+Source directory: /tmp/tmp_5sps_cc/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp_5sps_cc/test.sqlite
+Building SQLite database: /tmp/tmpf9w64i1t/test.sqlite
+Source directory: /tmp/tmpf9w64i1t/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpf9w64i1t/test.sqlite
+Building SQLite database: /tmp/tmpik_ieycc/test.sqlite
+Source directory: /tmp/tmpik_ieycc/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpik_ieycc/test.sqlite
