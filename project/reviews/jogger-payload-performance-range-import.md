@@ -18,6 +18,10 @@ Eleven strict specifications create 80 closed page-6 ranges with IDs `65-144`:
 
 Range IDs `1-64` and all 1,204 scalar observations remain unchanged. Exact Hybrid combustion-engine and electric-motor RPM evidence is not remapped.
 
+## Test scope
+
+The first WLTP package is tested against IDs `1-64` and its original eight specifications. Repository-wide storage tests use the current total of 144 ranges.
+
 ## Expected baseline
 
 - 536 tests;
