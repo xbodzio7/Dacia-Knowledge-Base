@@ -8,6 +8,8 @@ import csv
 from dataclasses import dataclass
 from pathlib import Path
 
+from validators.enum_domains import load_enum_domain_rules
+
 
 @dataclass(frozen=True)
 class StatusRule:
@@ -21,10 +23,16 @@ class StatusRule:
 ACTIVE_STATUSES = frozenset({"active"})
 LIFECYCLE_STATUSES = frozenset({"current", "archived"})
 
-
+# Static rules cover entity tables and the equipment-availability status domain,
+# which is not the controlled domain of an attribute. Attribute enum-domain files
+# are appended dynamically from data/master/attribute_enum_domains.csv.
 STATUS_RULES: tuple[StatusRule, ...] = (
     StatusRule(
         "data/master/attributes.csv",
+        ACTIVE_STATUSES,
+    ),
+    StatusRule(
+        "data/master/attribute_enum_domains.csv",
         ACTIVE_STATUSES,
     ),
     StatusRule(
@@ -53,43 +61,7 @@ STATUS_RULES: tuple[StatusRule, ...] = (
         "end_year",
     ),
     StatusRule(
-        "data/master/enums/aspiration_types.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/cylinder_configurations.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/drive_types.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/emission_standards.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
         "data/master/enums/equipment_availability_statuses.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/engine_types.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/fuel_types.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/injection_types.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/recommended_fuels.csv",
-        ACTIVE_STATUSES,
-    ),
-    StatusRule(
-        "data/master/enums/transmission_type.csv",
         ACTIVE_STATUSES,
     ),
     StatusRule(
@@ -102,6 +74,22 @@ STATUS_RULES: tuple[StatusRule, ...] = (
         "production_to",
     ),
 )
+
+
+def configured_status_rules(root: Path) -> tuple[tuple[StatusRule, ...], list[str]]:
+    """Return static rules plus unique enum-domain files from the registry."""
+
+    root = root.resolve()
+    enum_rules, errors = load_enum_domain_rules(root)
+    rules = list(STATUS_RULES)
+    existing_paths = {rule.path for rule in rules}
+    for enum_rule in enum_rules:
+        path = enum_rule.relative_path.as_posix()
+        if path in existing_paths:
+            continue
+        rules.append(StatusRule(path, ACTIVE_STATUSES))
+        existing_paths.add(path)
+    return tuple(rules), errors
 
 
 def validate_status_file(
@@ -224,9 +212,9 @@ def validate_statuses(root: Path) -> tuple[int, list[str]]:
 
     root = root.resolve()
     checked_records = 0
-    errors: list[str] = []
+    rules, errors = configured_status_rules(root)
 
-    for rule in STATUS_RULES:
+    for rule in rules:
         file_records, file_errors = validate_status_file(
             root / rule.path,
             rule.allowed_statuses,
