@@ -110,7 +110,7 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
         self.assertEqual(
             len([
                 row for row in self.availability
-                if not row["configuration_code"].startswith("duster_iii_")
+                if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
             ]),
             419,
         )
