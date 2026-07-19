@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Registered Source Reporting Portfolio Completion Review",
-    "pull_request": 142,
-    "head_sha": "fd1e1a9bbe8b1acd52dc21c8b0818fd252519223",
-    "quality_run": 689
+    "name": "Interactive Configuration Comparison HTML",
+    "pull_request": 143,
+    "head_sha": "910bc7a010cf50359be1650b6a61a45ecc9f8d82",
+    "quality_run": 710
   },
   "baseline": {
     "tests": 593,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Interactive Configuration Comparison HTML",
-    "status": "active",
-    "goal": "Publish deterministic browser-ready configuration comparisons with offline filters, source provenance and unchanged evidence semantics."
+    "name": "Configuration Discovery and Shortlist Planning Review",
+    "status": "complete",
+    "goal": "Select an evidence-aware user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio."
   },
   "next_package": {
-    "name": "Configuration Discovery and Shortlist Planning Review",
+    "name": "Configuration Shortlist CLI",
     "status": "planned",
-    "goal": "Select the next user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio."
+    "goal": "Filter all active configurations by model, version, powertrain, transmission, price, seat count and evidence-aware equipment requirements, then export deterministic JSON, Markdown and CSV shortlists."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
