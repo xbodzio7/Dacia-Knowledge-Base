@@ -97,17 +97,17 @@ class ConfigurationValueRangeTests(unittest.TestCase):
         )
         return repository, spec
 
-    def test_master_table_has_exact_empty_schema(self) -> None:
+    def test_master_table_has_exact_schema_and_first_import(self) -> None:
         path = MASTER / "configuration_attribute_value_ranges.csv"
         with path.open(encoding="utf-8", newline="") as handle:
             reader = csv.reader(handle)
             rows = list(reader)
         self.assertEqual(tuple(rows[0]), RANGE_FIELDS)
-        self.assertEqual(rows[1:], [])
+        self.assertEqual(len(rows[1:]), 64)
 
-    def test_repository_empty_range_table_is_valid(self) -> None:
+    def test_repository_range_table_is_valid(self) -> None:
         checked, errors = validate_configuration_value_ranges(ROOT)
-        self.assertEqual(checked, 0)
+        self.assertEqual(checked, 64)
         self.assertEqual(errors, [])
 
     def test_strict_spec_loads_numeric_closed_range(self) -> None:
@@ -178,7 +178,7 @@ class ConfigurationValueRangeTests(unittest.TestCase):
         _, errors = validate_configuration_value_ranges(repository)
         self.assertTrue(any("lower_inclusive must be true or false" in error for error in errors))
 
-    def test_sqlite_builder_discovers_header_only_range_table(self) -> None:
+    def test_sqlite_builder_discovers_populated_range_table(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             database = Path(temporary) / "dkb.sqlite"
             build_sqlite.build_sqlite_db(ROOT, database)
@@ -193,7 +193,7 @@ class ConfigurationValueRangeTests(unittest.TestCase):
                     "SELECT COUNT(*) FROM configuration_attribute_value_ranges"
                 ).fetchone()[0]
             self.assertEqual(tuple(columns), RANGE_FIELDS)
-            self.assertEqual(count, 0)
+            self.assertEqual(count, 64)
 
 
 if __name__ == "__main__":
