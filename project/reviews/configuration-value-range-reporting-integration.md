@@ -81,4 +81,7 @@ source-text denominator before materialization.
 
 ## Local validation
 
-The package passed 520 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.
+The package passed 520 tests, canonical-state verification and the complete
+local Quality gate before removing its temporary workflow. The final branch
+contains no temporary workflow or diagnostic artifact, and scalar-only generated
+reports retain their established comparison counters and values.
