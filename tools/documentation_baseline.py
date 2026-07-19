@@ -17,7 +17,7 @@ from typing import Any, Sequence
 
 from reporting.statistics import collect_statistics
 from validators.references import REFERENCE_RULES
-from validators.statuses import configured_status_rules
+from validators.statuses import STATUS_RULES, configured_status_rules
 
 MARKERS = {
     "README.md": (
@@ -203,11 +203,15 @@ def collect_baseline(
     database: Path | None = None,
 ) -> Baseline:
     statistics = collect_statistics(repository)
-    configured_rules, status_rule_errors = configured_status_rules(repository)
-    if status_rule_errors:
-        raise BaselineError(
-            "cannot resolve status rules: " + "; ".join(status_rule_errors)
-        )
+    registry = repository / "data/master/attribute_enum_domains.csv"
+    if registry.is_file():
+        configured_rules, status_rule_errors = configured_status_rules(repository)
+        if status_rule_errors:
+            raise BaselineError(
+                "cannot resolve status rules: " + "; ".join(status_rule_errors)
+            )
+    else:
+        configured_rules = STATUS_RULES
     master = repository / "data" / "master"
     values = read_csv_rows(master / "configuration_attribute_values.csv")
     availability = read_csv_rows(

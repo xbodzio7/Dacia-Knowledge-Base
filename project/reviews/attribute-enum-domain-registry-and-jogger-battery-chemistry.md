@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package implements the controlled-value stage of approved Option A. Enum
 configuration observations are resolved through one reusable attribute-to-domain
@@ -81,3 +81,7 @@ After materialization:
 **Jogger Range Observation Architecture** will add a separate range-observation
 table, importer, validators, SQLite support and reporting semantics without
 changing the stable scalar observation table.
+
+## Local validation
+
+The repaired package passed 502 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.
