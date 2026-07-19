@@ -20,14 +20,17 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
-      - name: Build homogeneous Sandero candidate specifications
+      - name: Build and evaluate homogeneous Sandero candidates
         run: |
           python - <<'PY'
           import csv
           import json
+          import subprocess
           from pathlib import Path
 
           root = Path.cwd()
+          out = root / "candidate-reporting"
+          out.mkdir()
           source = json.loads((root / "data/reporting/configuration_completeness.json").read_text(encoding="utf-8"))
           with (root / "data/master/configurations.csv").open(encoding="utf-8-sig", newline="") as handle:
               configurations = {row["code"]: row for row in csv.DictReader(handle)}
@@ -43,13 +46,11 @@ jobs:
               ],
           }
           expected = {"sandero-ecog120-manual": 5, "sandero-stepway-ecog120-automatic": 2}
-          temporary = Path("candidate-reporting")
-          temporary.mkdir()
           evidence = {"version": 1, "as_of": "2026-06-26", "decisions": []}
-          (temporary / "empty-gap-evidence.spec").write_text(
-              json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
+          evidence_path = out / "empty-gap-evidence.spec"
+          evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          commands = []
           for name, selected in candidates.items():
               assert len(selected) == expected[name], (name, selected)
               spec = {
@@ -60,62 +61,62 @@ jobs:
                   "equipment_attributes": source["equipment_attributes"],
                   "not_applicable": source["not_applicable"],
               }
-              (temporary / f"{name}-completeness.json").write_text(
-                  json.dumps(spec, ensure_ascii=False, indent=2) + "\n",
+              spec_path = out / f"{name}-completeness.json"
+              spec_path.write_text(json.dumps(spec, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+              commands.extend([
+                  (name, "completeness", [
+                      "python", "tools/dkb.py", "configuration-completeness",
+                      "--spec", str(spec_path), "--as-of", "2026-06-26",
+                      "--json", str(out / f"{name}-completeness-report.json"),
+                      "--markdown", str(out / f"{name}-completeness-report.md"),
+                  ]),
+                  (name, "source-coverage", [
+                      "python", "tools/dkb.py", "source-coverage",
+                      "--spec", str(spec_path), "--as-of", "2026-06-26",
+                      "--json", str(out / f"{name}-source-coverage.json"),
+                      "--markdown", str(out / f"{name}-source-coverage.md"),
+                  ]),
+                  (name, "comparison", [
+                      "python", "tools/dkb.py", "configuration-comparison",
+                      "--completeness-spec", str(spec_path),
+                      "--evidence-spec", str(evidence_path),
+                      "--as-of", "2026-06-26",
+                      "--json", str(out / f"{name}-comparison.json"),
+                      "--markdown", str(out / f"{name}-comparison.md"),
+                      "--csv", str(out / f"{name}-comparison-differences.csv"),
+                  ]),
+              ])
+
+          diagnostics = []
+          for name, command_type, command in commands:
+              completed = subprocess.run(command, cwd=root, text=True, capture_output=True, check=False)
+              log_path = out / f"{name}-{command_type}.log"
+              log_path.write_text(
+                  "$ " + " ".join(command) + "\n\nSTDOUT\n" + completed.stdout + "\nSTDERR\n" + completed.stderr,
                   encoding="utf-8",
               )
-          PY
-      - name: Generate candidate reporting artifacts
-        run: |
-          for name in sandero-ecog120-manual sandero-stepway-ecog120-automatic; do
-            python tools/dkb.py configuration-completeness \
-              --spec "candidate-reporting/${name}-completeness.json" \
-              --as-of 2026-06-26 \
-              --json "candidate-reporting/${name}-completeness-report.json" \
-              --markdown "candidate-reporting/${name}-completeness-report.md"
-            python tools/dkb.py source-coverage \
-              --spec "candidate-reporting/${name}-completeness.json" \
-              --as-of 2026-06-26 \
-              --json "candidate-reporting/${name}-source-coverage.json" \
-              --markdown "candidate-reporting/${name}-source-coverage.md"
-            python tools/dkb.py configuration-comparison \
-              --completeness-spec "candidate-reporting/${name}-completeness.json" \
-              --evidence-spec candidate-reporting/empty-gap-evidence.spec \
-              --as-of 2026-06-26 \
-              --json "candidate-reporting/${name}-comparison.json" \
-              --markdown "candidate-reporting/${name}-comparison.md" \
-              --csv "candidate-reporting/${name}-comparison-differences.csv"
-          done
-      - name: Summarize planning decision inputs
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
+              diagnostics.append({
+                  "candidate": name,
+                  "command": command_type,
+                  "returncode": completed.returncode,
+                  "log": log_path.name,
+              })
 
-          root = Path("candidate-reporting")
-          output = {}
-          for name in ("sandero-ecog120-manual", "sandero-stepway-ecog120-automatic"):
-              completeness = json.loads((root / f"{name}-completeness-report.json").read_text(encoding="utf-8"))
-              coverage = json.loads((root / f"{name}-source-coverage.json").read_text(encoding="utf-8"))
-              comparison = json.loads((root / f"{name}-comparison.json").read_text(encoding="utf-8"))
-              output[name] = {
-                  "scope": completeness["scope"],
-                  "technical": completeness["technical"],
-                  "equipment": completeness["equipment"],
-                  "gaps": completeness["gaps"],
-                  "source_registration": coverage["source_registration"],
-                  "areas": coverage["areas"],
-                  "sections": coverage["sections"],
-                  "records": coverage["records"],
-                  "source_gaps": coverage["gaps"],
-                  "comparison_summary": comparison["summary"],
-                  "evidence_summary": comparison["evidence_summary"],
-                  "pair_count": len(comparison["pairs"]),
-                  "pair_types": sorted({pair["pair_type"] for pair in comparison["pairs"]}),
-              }
-          path = root / "source-backed-model-expansion-decision-inputs.json"
-          path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-          print(path.read_text(encoding="utf-8"))
+          summary = {"diagnostics": diagnostics, "candidates": {}}
+          for name in candidates:
+              item = {}
+              for key, filename in (
+                  ("completeness", f"{name}-completeness-report.json"),
+                  ("source_coverage", f"{name}-source-coverage.json"),
+                  ("comparison", f"{name}-comparison.json"),
+              ):
+                  path = out / filename
+                  if path.exists():
+                      item[key] = json.loads(path.read_text(encoding="utf-8"))
+              summary["candidates"][name] = item
+          summary_path = out / "source-backed-model-expansion-decision-inputs.json"
+          summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(summary_path.read_text(encoding="utf-8"))
           PY
       - name: Upload discovery artifact
         uses: actions/upload-artifact@v7
