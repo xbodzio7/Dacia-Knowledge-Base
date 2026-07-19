@@ -1,0 +1,11 @@
+attribute_code,domain_file,status
+aspiration_type,aspiration_types.csv,active
+cylinder_configuration,cylinder_configurations.csv,active
+drive_type,drive_types.csv,active
+emission_standard,emission_standards.csv,active
+engine_type,engine_types.csv,active
+fuel_type,fuel_types.csv,active
+gearbox_type,transmission_type.csv,active
+hybrid_battery_type,battery_chemistries.csv,active
+injection_type,injection_types.csv,active
+recommended_fuel,recommended_fuels.csv,active
