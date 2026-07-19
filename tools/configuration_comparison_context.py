@@ -179,6 +179,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--html",
+        dest="html_path",
+        type=Path,
+        help="Write a self-contained interactive HTML report.",
+    )
+    parser.add_argument(
         "--csv",
         dest="csv_path",
         type=Path,
@@ -256,6 +262,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(
                 "Markdown configuration comparison report written to "
                 f"{arguments.markdown}"
+            )
+
+        if arguments.html_path is not None:
+            core.write_atomic(
+                arguments.html_path,
+                core.render_html(report),
+            )
+            print(
+                "HTML configuration comparison report written to "
+                f"{arguments.html_path}"
             )
 
         rows = difference_csv_rows(

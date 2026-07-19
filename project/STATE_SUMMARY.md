@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Registered Source Portfolio Complete**
+**Data Product Utilization**
 
 ## Reference delivery
 
-- Package: Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion
-- Pull Request: #140
-- Verified head: `f2d414dedd68a153b505d1211feba3329096cb5d`
-- Quality run: #681
+- Package: Registered Source Reporting Portfolio Completion Review
+- Pull Request: #142
+- Verified head: `fd1e1a9bbe8b1acd52dc21c8b0818fd252519223`
+- Quality run: #689
 
 ## Verified baseline
 
-- Tests: 586
+- Tests: 593
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Registered Source Reporting Portfolio Completion Review** — `complete`
+**Interactive Configuration Comparison HTML** — `active`
 
-Confirm that 13 independent scopes cover all 53 active configurations and all nine active registered sources without overlap or unused source material.
+Publish deterministic browser-ready configuration comparisons with offline filters, source provenance and unchanged evidence semantics.
 
 ## Next package
 
-**New Official Source Acquisition** — `blocked`
+**Configuration Discovery and Shortlist Planning Review** — `planned`
 
-Register and import at least one new official Dacia model, model-year or market source before creating another reporting expansion package.
+Select the next user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio.
 
 ## Autonomy
 

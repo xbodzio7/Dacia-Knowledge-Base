@@ -79,13 +79,14 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - deklaratywne importy wartości konfiguracji,
 - pipeline kompletności, pokrycia źródeł, triage, dowodów i planowania luk,
 - raporty porównawcze konfiguracji i katalog kodów pozycji,
+- samodzielny interaktywny HTML porównań z filtrowaniem i proweniencją,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 586 testów automatycznych,
+- 593 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
@@ -103,7 +104,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - wybór najwyżej wartościowego kolejnego pakietu raportowego,
 - porównania modeli i wersji wykraczające poza bieżące konfiguracje,
 - eksport do Excela,
-- stabilne formaty raportów dla użytkowników zewnętrznych.
+- dalsze stabilne formaty raportów dla użytkowników zewnętrznych.
 
 ## Data
 
