@@ -351,3 +351,5 @@ id,code,category,name,data_type,unit,description,status
 357,maximum_payload,Weights,Maximum payload,integer,kg,Maximum permitted payload stated explicitly by the source without deriving it from other mass values,active
 358,total_valve_count,Engine,Total valve count,integer,,Total number of engine valves stated explicitly by the source; distinct from valves per cylinder,active
 359,minimum_kerb_weight,Weights,Minimum kerb weight,integer,kg,Minimum vehicle kerb weight explicitly qualified as minimum by the source; distinct from unqualified kerb weight,active
+360,cargo_volume_vda_to_luggage_cover,Capacities,Cargo volume VDA to luggage-cover height,integer,L,Luggage compartment volume measured according to VDA up to the source-stated luggage-cover or roller-blind height,active
+361,cargo_volume_vda_to_seatback,Capacities,Cargo volume VDA to seat-back height,integer,L,Luggage compartment volume measured according to VDA up to the source-stated seat-back height,active
