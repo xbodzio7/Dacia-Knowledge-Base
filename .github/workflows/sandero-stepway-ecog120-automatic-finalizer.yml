@@ -1,0 +1,159 @@
+name: Sandero Stepway Eco-G 120 Automatic Reporting Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'reporting/sandero-stepway-ecog120-automatic'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: reporting/sandero-stepway-ecog120-automatic
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Materialize reporting contract and baseline
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          reporting = Path("data/reporting")
+          source_spec = json.loads((reporting / "configuration_completeness.json").read_text(encoding="utf-8"))
+          source_evidence = json.loads((reporting / "configuration_gap_evidence.json").read_text(encoding="utf-8"))
+          with Path("data/master/configurations.csv").open(encoding="utf-8-sig", newline="") as handle:
+              configurations = {row["code"]: row for row in csv.DictReader(handle)}
+
+          expected_codes = {
+              "sandero_stepway_iii_expression_ecog120_automatic",
+              "sandero_stepway_iii_extreme_ecog120_automatic",
+          }
+          selected = [
+              item for item in source_spec["configurations"]
+              if configurations[item["configuration_code"]]["transmission_type"] == "automatic"
+          ]
+          selected_codes = {item["configuration_code"] for item in selected}
+          assert selected_codes == expected_codes, selected_codes
+          assert len(source_spec["technical_slots"]) == 45
+          assert len(source_spec["equipment_attributes"]) == 69
+
+          spec = {
+              "version": source_spec["version"],
+              "configuration_status": source_spec["configuration_status"],
+              "configurations": selected,
+              "technical_slots": source_spec["technical_slots"],
+              "equipment_attributes": source_spec["equipment_attributes"],
+              "not_applicable": source_spec["not_applicable"],
+          }
+          (reporting / "sandero_stepway_ecog120_automatic_completeness.json").write_text(
+              json.dumps(spec, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          decisions = [
+              decision for decision in source_evidence["decisions"]
+              if decision["configuration_code"] in selected_codes
+          ]
+          assert len(decisions) == 18
+          assert Counter(item["classification"] for item in decisions) == Counter({"not_stated": 10, "out_of_scope": 8})
+          assert Counter(item["domain"] for item in decisions) == Counter({"equipment": 17, "technical": 1})
+          evidence = {key: value for key, value in source_evidence.items() if key != "decisions"}
+          evidence["decisions"] = decisions
+          (reporting / "sandero_stepway_ecog120_automatic_gap_evidence.json").write_text(
+              json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          state_path = Path("project/state.json")
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["reference_delivery"] = {
+              "name": "Sandero Eco-G 120 Manual Reporting Scope Promotion",
+              "pull_request": 139,
+              "head_sha": "b0995c3b5ef41fb368ad5e759f12a97dabd41b80",
+              "quality_run": 677,
+          }
+          state["baseline"]["tests"] = 586
+          state["current_package"] = {
+              "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
+              "status": "active",
+              "goal": "Promote two source-backed automatic Stepway configurations with 45 technical slots, 69 equipment attributes, two prices, one deterministic comparison and 18 preserved evidence decisions.",
+          }
+          state["next_package"] = {
+              "name": "Sandero Reporting Portfolio Completion Review",
+              "status": "planned",
+              "goal": "Verify isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone.",
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          replacements = 0
+          for path in sorted(Path("tests").glob("test_*.py")):
+              text = path.read_text(encoding="utf-8")
+              updated = text.replace('baseline["tests"], 579', 'baseline["tests"], 586')
+              if updated != text:
+                  path.write_text(updated, encoding="utf-8")
+                  replacements += 1
+          assert replacements >= 2, replacements
+          PY
+      - name: Synchronize generated documentation
+        run: |
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Generate reporting audit
+        run: |
+          mkdir -p "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic"
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/sandero_stepway_ecog120_automatic_completeness.json \
+            --as-of 2026-06-26 \
+            --json "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic/completeness.json"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/sandero_stepway_ecog120_automatic_completeness.json \
+            --as-of 2026-06-26 \
+            --json "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic/source-coverage.json"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/sandero_stepway_ecog120_automatic_completeness.json \
+            --evidence-spec data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json \
+            --as-of 2026-06-26 \
+            --json "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic/comparison.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          temporary = Path(os.environ["RUNNER_TEMP"]) / "sandero-stepway-ecog120-automatic"
+          payload = {
+              "completeness": json.loads((temporary / "completeness.json").read_text(encoding="utf-8")),
+              "source_coverage": json.loads((temporary / "source-coverage.json").read_text(encoding="utf-8")),
+              "comparison": json.loads((temporary / "comparison.json").read_text(encoding="utf-8")),
+          }
+          output = Path("project/audits/sandero-stepway-ecog120-automatic-reporting.json")
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+      - name: Commit generated files
+        run: |
+          if git diff --quiet; then
+            echo "Generated files are already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md project/state.json project/STATE_SUMMARY.md \
+            data/reporting/sandero_stepway_ecog120_automatic_completeness.json \
+            data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json \
+            project/audits/sandero-stepway-ecog120-automatic-reporting.json \
+            tests/test_jogger_payload_performance_ranges.py \
+            tests/test_jogger_wltp_efficiency_ranges.py
+          git commit -m "ci: finalize Sandero Stepway automatic reporting"
+          git push origin HEAD:reporting/sandero-stepway-ecog120-automatic
