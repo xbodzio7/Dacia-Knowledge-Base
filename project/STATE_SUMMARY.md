@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger Minimum Kerb Weight Modeling and Import
-- Pull Request: #112
-- Verified head: `de9f8b2c409db2d76bb2b14cfa75a7aa6c55a7a8`
-- Quality run: #472
+- Package: Jogger Cargo Measurement Modeling Selection
+- Pull Request: #113
+- Verified head: `e28a747b83462af613bba04cec424fa554981fe7`
+- Quality run: #474
 
 ## Verified baseline
 
-- Tests: 476
+- Tests: 482
 - Master CSV files: 34
-- Master rows: 3753
-- Configuration values: 1128
-- Configuration import specifications: 65
+- Master rows: 3799
+- Configuration values: 1172
+- Configuration import specifications: 67
 - Availability records: 1811
-- Canonical attributes: 352
+- Canonical attributes: 354
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Cargo Measurement Modeling and Import** — `active`
+**Jogger LPG Capacity Modeling Review** — `active`
 
-Add two measurement-specific VDA cargo attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged.
+Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations.
 
 ## Next package
 
-**Jogger LPG Capacity Modeling Review** — `planned`
+**Jogger LPG Capacity Modeling and Import** — `planned`
 
-Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations.
+Add the selected LPG total-capacity and filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context.
 
 ## Autonomy
 

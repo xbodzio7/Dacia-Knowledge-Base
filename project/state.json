@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Minimum Kerb Weight Modeling and Import",
-    "pull_request": 112,
-    "head_sha": "de9f8b2c409db2d76bb2b14cfa75a7aa6c55a7a8",
-    "quality_run": 472
+    "name": "Jogger Cargo Measurement Modeling Selection",
+    "pull_request": 113,
+    "head_sha": "e28a747b83462af613bba04cec424fa554981fe7",
+    "quality_run": 474
   },
   "baseline": {
-    "tests": 476,
+    "tests": 482,
     "csv_files": 34,
-    "rows": 3753,
-    "configuration_values": 1128,
-    "configuration_import_specs": 65,
+    "rows": 3799,
+    "configuration_values": 1172,
+    "configuration_import_specs": 67,
     "availability_records": 1811,
-    "attributes": 352,
+    "attributes": 354,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Cargo Measurement Modeling and Import",
+    "name": "Jogger LPG Capacity Modeling Review",
     "status": "active",
-    "goal": "Add two measurement-specific VDA cargo attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged."
+    "goal": "Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations."
   },
   "next_package": {
-    "name": "Jogger LPG Capacity Modeling Review",
+    "name": "Jogger LPG Capacity Modeling and Import",
     "status": "planned",
-    "goal": "Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations."
+    "goal": "Add the selected LPG total-capacity and filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

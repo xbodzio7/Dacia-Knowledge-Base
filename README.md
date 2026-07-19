@@ -730,12 +730,14 @@ Dalsza rekonsyliacja skrzyń biegów dodaje 38 dokładnych obserwacji `gearbox_t
 
 Pakiet minimalnej masy własnej Jogger dodaje odrębny atrybut `minimum_kerb_weight` i 22 dokładne obserwacje dla konfiguracji pięcio- i siedmiomiejscowych, bez spłaszczania kwalifikatora minimum do ogólnego `kerb_weight`.
 
+Pomiary bagażnika Jogger zachowują dwie odrębne granice VDA: do wysokości rolety i do wysokości oparcia. Pakiet dodaje dwa precyzyjne atrybuty oraz 44 obserwacje bez nadpisywania ogólnych `boot_capacity` ani `cargo_volume_vda`.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 476 testów, 34 pliki CSV, 3753 rekordów
-danych, 34 relacje między tabelami, 1128 wartości konfiguracji, 65
+Zweryfikowany model obejmuje 482 testów, 34 pliki CSV, 3799 rekordów
+danych, 34 relacje między tabelami, 1172 wartości konfiguracji, 67
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
-Katalog zawiera 352 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3753 rekordów, pozostaje zgodna z CSV, a wszystkie
+Katalog zawiera 354 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 34 tabele i 3799 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
