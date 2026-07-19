@@ -1,0 +1,17 @@
+# Jogger WLTP materializer diagnostic
+
+- baseline_dataclass: count=1
+- baseline_values_read: count=1
+- baseline_import_dir: count=1
+- baseline_constructor: count=1
+- baseline_payload: count=1
+- baseline_markdown: count=1
+- baseline_readme: count=0
+- baseline_changelog: count=1
+- baseline_session: count=1
+- baseline_print: count=1
+- state_mapping: count=1
+- state_summary: count=1
+- fixture_assertion: count=1
+
+failed=['baseline_readme']
