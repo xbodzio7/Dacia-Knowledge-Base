@@ -1,1 +1,36 @@
 name: Configuration Workbook Integration Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'product/configuration-comparison-workbook-export'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Integrate workbook into bundle
+        run: python tools/_integrate_configuration_workbook.py
+      - name: Compile integrated modules
+        run: python -m compileall -q tools/reporting
+      - name: Commit integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/reporting/configuration_comparison_bundle.py
+          if git diff --cached --quiet; then
+            echo 'Workbook integration already applied.'
+          else
+            git commit -m 'feat: integrate workbook into comparison bundle'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
