@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package promotes the four configurations selected in PR #130 into an explicit independent reporting scope. It changes no source data.
 
