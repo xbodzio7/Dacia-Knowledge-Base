@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Hybrid 155 Automatic Reporting Scope Promotion",
-    "pull_request": 135,
-    "head_sha": "66ac2012d6c60e11980c0accb005fb3db37e60de",
-    "quality_run": 656
+    "name": "Jogger TCe 110 Manual Reporting Scope Promotion",
+    "pull_request": 136,
+    "head_sha": "77700f2ddffa61bf2a1bbf3ac5c820ab98fe7216",
+    "quality_run": 662
   },
   "baseline": {
     "tests": 572,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger TCe 110 Manual Reporting Scope Promotion",
-    "status": "active",
-    "goal": "Publish the final six homogeneous Jogger configurations with 24 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons."
+    "name": "Jogger Reporting Portfolio Completion Review",
+    "status": "complete",
+    "goal": "Confirm independent complete reporting coverage for all 22 current Jogger configurations and close the Jogger reporting milestone."
   },
   "next_package": {
-    "name": "Jogger Reporting Portfolio Completion Review",
+    "name": "Source-Backed Model Expansion Planning Review",
     "status": "planned",
-    "goal": "Verify that every homogeneous current Jogger powertrain group has an independent complete reporting scope and close the Jogger reporting milestone."
+    "goal": "Select the next model-expansion milestone from existing registered source evidence without changing reporting architecture."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
