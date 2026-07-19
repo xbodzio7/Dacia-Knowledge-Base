@@ -84,4 +84,6 @@ changing the stable scalar observation table.
 
 ## Local validation
 
-The repaired package passed 502 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.
+The repaired package passed 502 tests, canonical-state verification and the
+complete local Quality gate before removing its temporary workflow. The final
+branch contains no temporary workflow, audit or diagnostic-log artifact.
