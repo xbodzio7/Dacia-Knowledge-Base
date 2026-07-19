@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Cargo Measurement Modeling Selection
-- Pull Request: #113
-- Verified head: `e28a747b83462af613bba04cec424fa554981fe7`
-- Quality run: #474
+- Package: Jogger Cargo Measurement Modeling and Import
+- Pull Request: #114
+- Verified head: `3f44646d64f4c5acbbc008cf5dca1a3a7d2d237f`
+- Quality run: #478
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger LPG Capacity Modeling Review** — `active`
+**Jogger LPG Capacity Modeling and Import** — `active`
 
-Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations.
+Add separate total LPG vessel and LPG filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context.
 
 ## Next package
 
-**Jogger LPG Capacity Modeling and Import** — `planned`
+**Jogger Hybrid System Semantics Review** — `planned`
 
-Add the selected LPG total-capacity and filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context.
+Assess source-stated Hybrid 155 total system power and lithium-ion chemistry while preserving the unresolved gross, nominal or usable basis of the 1.4 kWh battery value.
 
 ## Autonomy
 
