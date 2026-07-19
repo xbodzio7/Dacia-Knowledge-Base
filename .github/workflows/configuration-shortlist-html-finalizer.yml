@@ -1,0 +1,49 @@
+name: Configuration Shortlist HTML Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'product/interactive-configuration-shortlist-html'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: product/interactive-configuration-shortlist-html
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Finalize package
+        run: |
+          python tools/_configuration_shortlist_html_finalize.py
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Commit finalized package
+        run: |
+          if git diff --quiet; then
+            echo "No finalization changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            tools/dkb.py \
+            README.md \
+            CHANGELOG.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            tests/test_jogger_payload_performance_ranges.py \
+            tests/test_jogger_wltp_efficiency_ranges.py
+          git commit -m "Finalize interactive configuration shortlist HTML"
+          git push origin HEAD:product/interactive-configuration-shortlist-html
