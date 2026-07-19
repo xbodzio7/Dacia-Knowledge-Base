@@ -1,0 +1,92 @@
+name: Initial Release Readiness Diagnostics
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TESTED_MAIN_SHA: 3de7de4909b8c196e0ea70710f755ed8c2b8e5f1
+      RELEASE_VERSION: 1.0.0
+      RELEASE_DIR: ${{ runner.temp }}/initial-release-candidate
+    steps:
+      - name: Check out exact tested main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.TESTED_MAIN_SHA }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Capture existing release identities
+        shell: bash
+        run: |
+          gh api --paginate \
+            "repos/${GITHUB_REPOSITORY}/releases?per_page=100" \
+            > "${RUNNER_TEMP}/releases.json"
+          gh api \
+            "repos/${GITHUB_REPOSITORY}/git/matching-refs/tags/data-products-v" \
+            > "${RUNNER_TEMP}/data-product-tags.json"
+      - name: Build exact main candidate
+        run: |
+          python tools/data_product_release.py \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${TESTED_MAIN_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Verify exact main candidate
+        run: |
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${TESTED_MAIN_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Write readiness summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          runner = Path(os.environ["RUNNER_TEMP"])
+          releases = json.loads((runner / "releases.json").read_text())
+          tags = json.loads((runner / "data-product-tags.json").read_text())
+          candidate = Path(os.environ["RELEASE_DIR"])
+          manifest = json.loads(
+              (candidate / "data-product-release-manifest.json").read_text()
+          )
+          summary = {
+              "tested_main_sha": os.environ["TESTED_MAIN_SHA"],
+              "selected_version": os.environ["RELEASE_VERSION"],
+              "existing_release_count": len(releases),
+              "existing_release_tags": sorted(
+                  item["tag_name"] for item in releases
+              ),
+              "existing_data_product_tag_count": len(tags),
+              "existing_data_product_tags": sorted(
+                  item["ref"].removeprefix("refs/tags/") for item in tags
+              ),
+              "candidate": manifest,
+          }
+          (runner / "readiness-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Upload read-only readiness evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: initial-release-readiness-evidence
+          path: |
+            ${{ runner.temp }}/releases.json
+            ${{ runner.temp }}/data-product-tags.json
+            ${{ runner.temp }}/readiness-summary.json
+            ${{ runner.temp }}/initial-release-candidate
+          if-no-files-found: error
+          retention-days: 7
