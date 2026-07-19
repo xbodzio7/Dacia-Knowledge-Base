@@ -103,11 +103,11 @@ class ConfigurationValueRangeTests(unittest.TestCase):
             reader = csv.reader(handle)
             rows = list(reader)
         self.assertEqual(tuple(rows[0]), RANGE_FIELDS)
-        self.assertEqual(len(rows[1:]), 64)
+        self.assertEqual(len(rows[1:]), 144)
 
     def test_repository_range_table_is_valid(self) -> None:
         checked, errors = validate_configuration_value_ranges(ROOT)
-        self.assertEqual(checked, 64)
+        self.assertEqual(checked, 144)
         self.assertEqual(errors, [])
 
     def test_strict_spec_loads_numeric_closed_range(self) -> None:
@@ -193,7 +193,7 @@ class ConfigurationValueRangeTests(unittest.TestCase):
                     "SELECT COUNT(*) FROM configuration_attribute_value_ranges"
                 ).fetchone()[0]
             self.assertEqual(tuple(columns), RANGE_FIELDS)
-            self.assertEqual(count, 64)
+            self.assertEqual(count, 144)
 
 
 if __name__ == "__main__":

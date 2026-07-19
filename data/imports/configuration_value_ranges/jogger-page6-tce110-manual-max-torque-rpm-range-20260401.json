@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 139,
+  "attribute_code": "max_torque_rpm",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "rpm",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "petrol",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 przy 2 900 - 3 500"
+    }
+  ]
+}
