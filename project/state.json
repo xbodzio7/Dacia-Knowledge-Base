@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Configuration Value Range Storage and Import Architecture",
-    "pull_request": 121,
-    "head_sha": "98d99b570c09c5d2a180e81c53221ddd1f02e68c",
-    "quality_run": 527
+    "name": "Configuration Value Range Reporting Integration",
+    "pull_request": 122,
+    "head_sha": "647a0e342dade82a5425dab99d610df513e2b67a",
+    "quality_run": 532
   },
   "baseline": {
     "tests": 520,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Value Range Reporting Integration",
+    "name": "Jogger WLTP Efficiency Range Modeling and Import",
     "status": "active",
-    "goal": "Count current ranges as technical evidence and preserve identical, overlapping and disjoint relation semantics in pairwise reports without importing source data."
+    "goal": "Materialize eight strict page-6 range specifications and 64 closed fuel-consumption and CO2 observations for all active Jogger configurations with exact fuel contexts."
   },
   "next_package": {
-    "name": "Jogger WLTP Efficiency Range Import Selection",
+    "name": "Jogger Payload and Performance Range Selection",
     "status": "planned",
-    "goal": "Define the exact fuel-consumption and CO2 range denominator, configuration and fuel contexts, source text and first bounded import package."
+    "goal": "Select the seat-qualified maximum-payload ranges and the independently stated Hybrid acceleration and engine-speed ranges after the WLTP package is verified."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
