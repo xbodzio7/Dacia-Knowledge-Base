@@ -145,3 +145,5 @@ The dedicated Jogger reporting workflow publishes JSON and Markdown completeness
           git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md project/state.json project/packages/jogger-hybrid155-automatic-reporting.md project/audits/jogger-hybrid155-automatic-reporting.json tests/test_jogger_payload_performance_ranges.py tests/test_jogger_wltp_efficiency_ranges.py
           git commit -m "ci: finalize Jogger Hybrid 155 reporting"
           git push origin HEAD:reporting/jogger-hybrid155-automatic
+
+# Existing workflow retriggered after initial registration.
