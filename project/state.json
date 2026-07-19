@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Payload and Performance Range Modeling and Import",
-    "pull_request": 126,
-    "head_sha": "f7cedcfc740fcbc888b5f172bed3f1d79477dad9",
-    "quality_run": 575
+    "name": "Jogger MY26 Page-6 Source Completion Review",
+    "pull_request": 127,
+    "head_sha": "3242cad48103214be7f23fabc0da31b19c4b8cff",
+    "quality_run": 577
   },
   "baseline": {
     "tests": 536,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger MY26 Page-6 Source Completion Review",
+    "name": "Jogger Equipment Matrix Intake Selection",
     "status": "active",
-    "goal": "Verify complete page-6 coverage and document the deferred unqualified battery-capacity value."
+    "goal": "Select the source-backed pages 4-5 equipment availability denominator for all 22 active Jogger configurations without importing data."
   },
   "next_package": {
-    "name": "Jogger Technical Reporting Scope Selection",
+    "name": "Jogger Equipment Availability Import",
     "status": "planned",
-    "goal": "Select the first bounded homogeneous Jogger reporting group without changing source data."
+    "goal": "Materialize 53 selected equipment attributes as 1166 dated standard, optional or not-available records while preserving existing availability data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
