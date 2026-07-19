@@ -16,18 +16,20 @@
 
 ## Reference delivery
 
-- Package: Configuration Value Range Reporting Integration
-- Pull Request: #122
-- Verified head: `647a0e342dade82a5425dab99d610df513e2b67a`
-- Quality run: #532
+- Package: Jogger WLTP Efficiency Range Import Selection
+- Pull Request: #123
+- Verified head: `75fc4d3d00e008fbf6d623ac0705fa9194287d3c`
+- Quality run: #541
 
 ## Verified baseline
 
-- Tests: 520
+- Tests: 528
 - Master CSV files: 37
-- Master rows: 3845
+- Master rows: 3909
 - Configuration values: 1204
 - Configuration import specifications: 71
+- Configuration value ranges: 64
+- Configuration range import specifications: 8
 - Availability records: 1811
 - Canonical attributes: 357
 - Attribute categories: 30

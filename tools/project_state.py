@@ -42,6 +42,8 @@ STATE_BASELINE_FIELDS = {
     "rows": "master_rows",
     "configuration_values": "configuration_values",
     "configuration_import_specs": "configuration_import_specs",
+    "configuration_value_ranges": "configuration_value_ranges",
+    "configuration_range_import_specs": "configuration_range_import_specs",
     "availability_records": "configuration_availability",
     "attributes": "attributes",
     "attribute_categories": "attribute_categories",
@@ -293,6 +295,11 @@ def render_summary(state: Mapping[str, Any]) -> str:
         (
             "- Configuration import specifications: "
             f"{baseline['configuration_import_specs']}"
+        ),
+        f"- Configuration value ranges: {baseline['configuration_value_ranges']}",
+        (
+            "- Configuration range import specifications: "
+            f"{baseline['configuration_range_import_specs']}"
         ),
         f"- Availability records: {baseline['availability_records']}",
         f"- Canonical attributes: {baseline['attributes']}",

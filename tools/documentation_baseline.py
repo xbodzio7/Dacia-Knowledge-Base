@@ -56,6 +56,8 @@ class Baseline:
     validator_version: str
     configuration_values: int
     configuration_import_specs: int
+    configuration_value_ranges: int
+    configuration_range_import_specs: int
     configuration_availability: int
     availability_standard: int
     availability_optional: int
@@ -214,6 +216,8 @@ def collect_baseline(
         configured_rules = STATUS_RULES
     master = repository / "data" / "master"
     values = read_csv_rows(master / "configuration_attribute_values.csv")
+    range_path = master / "configuration_attribute_value_ranges.csv"
+    ranges = read_csv_rows(range_path) if range_path.is_file() else []
     availability = read_csv_rows(
         master / "configuration_attribute_availability.csv"
     )
@@ -222,6 +226,9 @@ def collect_baseline(
     import_dir = repository / "data" / "imports" / "configuration_values"
     if not import_dir.is_dir():
         raise BaselineError(f"import directory does not exist: {import_dir}")
+    range_import_dir = (
+        repository / "data" / "imports" / "configuration_value_ranges"
+    )
 
     statuses = {
         "standard": 0,
@@ -262,6 +269,12 @@ def collect_baseline(
         validator_version=read_validator_version(repository),
         configuration_values=len(values),
         configuration_import_specs=len(list(import_dir.glob("*.json"))),
+        configuration_value_ranges=len(ranges),
+        configuration_range_import_specs=(
+            len(list(range_import_dir.glob("*.json")))
+            if range_import_dir.is_dir()
+            else 0
+        ),
         configuration_availability=len(availability),
         availability_standard=statuses["standard"],
         availability_optional=statuses["optional"],
@@ -292,6 +305,8 @@ def payload(value: Baseline) -> dict[str, Any]:
         "configuration": {
             "values": value.configuration_values,
             "import_specs": value.configuration_import_specs,
+            "value_ranges": value.configuration_value_ranges,
+            "range_import_specs": value.configuration_range_import_specs,
             "availability": {
                 "total": value.configuration_availability,
                 "by_status": {
@@ -335,6 +350,8 @@ def render_markdown(value: Baseline) -> str:
         ("Validator version", value.validator_version),
         ("Configuration values", value.configuration_values),
         ("Configuration import specs", value.configuration_import_specs),
+        ("Configuration value ranges", value.configuration_value_ranges),
+        ("Configuration range import specs", value.configuration_range_import_specs),
         ("Equipment availability", value.configuration_availability),
         ("Availability: standard", value.availability_standard),
         ("Availability: optional", value.availability_optional),
@@ -363,8 +380,10 @@ def blocks(value: Baseline) -> dict[str, str]:
             f"{value.csv_files} pliki CSV, {value.master_rows} rekordów\n"
             f"danych, {value.relationships} relacje między tabelami, "
             f"{value.configuration_values} wartości konfiguracji, "
-            f"{value.configuration_import_specs}\n"
-            "deklaratywnych specyfikacji importu oraz "
+            f"{value.configuration_import_specs} skalarnych specyfikacji importu, "
+            f"{value.configuration_value_ranges} zakresów konfiguracji i "
+            f"{value.configuration_range_import_specs}\n"
+            "specyfikacji zakresów oraz "
             f"{value.configuration_availability} rekordów dostępności "
             "wyposażenia.\n"
             f"Katalog zawiera {value.attributes} kanonicznych atrybutów i "
@@ -390,9 +409,14 @@ def blocks(value: Baseline) -> dict[str, str]:
                     f"{value.configuration_values} dated records."
                 ),
                 (
-                    "* Declarative configuration-value imports now contain "
+                    "* Declarative scalar configuration-value imports now contain "
                     f"{value.configuration_import_specs} versioned JSON "
                     "specifications."
+                ),
+                (
+                    "* Configuration value ranges now contain "
+                    f"{value.configuration_value_ranges} dated records from "
+                    f"{value.configuration_range_import_specs} range specifications."
                 ),
                 (
                     "* The canonical catalogue now contains "
@@ -433,6 +457,14 @@ def blocks(value: Baseline) -> dict[str, str]:
                 (
                     f"- {value.configuration_import_specs} wersjonowanych "
                     "specyfikacji w `data/imports/configuration_values`,"
+                ),
+                (
+                    f"- {value.configuration_value_ranges} obserwacji w "
+                    "`configuration_attribute_value_ranges.csv`,"
+                ),
+                (
+                    f"- {value.configuration_range_import_specs} wersjonowanych "
+                    "specyfikacji w `data/imports/configuration_value_ranges`,"
                 ),
                 (
                     f"- {value.configuration_availability} rekordów w "
@@ -553,6 +585,8 @@ def print_summary(value: Baseline) -> None:
     print(f"Master rows          : {value.master_rows}")
     print(f"Configuration values : {value.configuration_values}")
     print(f"Import specs         : {value.configuration_import_specs}")
+    print(f"Value ranges         : {value.configuration_value_ranges}")
+    print(f"Range import specs   : {value.configuration_range_import_specs}")
     print(f"Availability records : {value.configuration_availability}")
     print(f"Attributes           : {value.attributes}")
     print(f"Attribute categories : {value.attribute_categories}")

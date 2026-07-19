@@ -151,6 +151,8 @@ class DocumentationBaselineTests(unittest.TestCase):
         self.assertEqual(value.master_rows, 12)
         self.assertEqual(value.configuration_values, 3)
         self.assertEqual(value.configuration_import_specs, 2)
+        self.assertEqual(value.configuration_value_ranges, 0)
+        self.assertEqual(value.configuration_range_import_specs, 0)
         self.assertEqual(value.configuration_availability, 5)
         self.assertEqual(value.availability_standard, 2)
         self.assertEqual(value.availability_optional, 1)

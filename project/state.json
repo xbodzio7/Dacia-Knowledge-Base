@@ -9,17 +9,19 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Configuration Value Range Reporting Integration",
-    "pull_request": 122,
-    "head_sha": "647a0e342dade82a5425dab99d610df513e2b67a",
-    "quality_run": 532
+    "name": "Jogger WLTP Efficiency Range Import Selection",
+    "pull_request": 123,
+    "head_sha": "75fc4d3d00e008fbf6d623ac0705fa9194287d3c",
+    "quality_run": 541
   },
   "baseline": {
-    "tests": 520,
+    "tests": 528,
     "csv_files": 37,
-    "rows": 3845,
+    "rows": 3909,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
+    "configuration_value_ranges": 64,
+    "configuration_range_import_specs": 8,
     "availability_records": 1811,
     "attributes": 357,
     "attribute_categories": 30
