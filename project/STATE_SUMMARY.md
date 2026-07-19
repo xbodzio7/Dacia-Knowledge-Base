@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Value Range Storage and Import Architecture
-- Pull Request: #121
-- Verified head: `98d99b570c09c5d2a180e81c53221ddd1f02e68c`
-- Quality run: #527
+- Package: Configuration Value Range Reporting Integration
+- Pull Request: #122
+- Verified head: `647a0e342dade82a5425dab99d610df513e2b67a`
+- Quality run: #532
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Configuration Value Range Reporting Integration** — `active`
+**Jogger WLTP Efficiency Range Modeling and Import** — `active`
 
-Count current ranges as technical evidence and preserve identical, overlapping and disjoint relation semantics in pairwise reports without importing source data.
+Materialize eight strict page-6 range specifications and 64 closed fuel-consumption and CO2 observations for all active Jogger configurations with exact fuel contexts.
 
 ## Next package
 
-**Jogger WLTP Efficiency Range Import Selection** — `planned`
+**Jogger Payload and Performance Range Selection** — `planned`
 
-Define the exact fuel-consumption and CO2 range denominator, configuration and fuel contexts, source text and first bounded import package.
+Select the seat-qualified maximum-payload ranges and the independently stated Hybrid acceleration and engine-speed ranges after the WLTP package is verified.
 
 ## Autonomy
 
