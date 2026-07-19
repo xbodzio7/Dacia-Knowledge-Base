@@ -42,11 +42,16 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
             for row in rows(MASTER / "configurations.csv")
             if row["code"].startswith("jogger_")
         }
-        cls.range_rows = rows(MASTER / "configuration_attribute_value_ranges.csv")
+        cls.range_rows = [
+            row
+            for row in rows(MASTER / "configuration_attribute_value_ranges.csv")
+            if 1 <= int(row["id"]) <= 64
+        ]
         cls.scalar_rows = rows(MASTER / "configuration_attribute_values.csv")
         cls.specs = {
             path.name: json.loads(path.read_text(encoding="utf-8"))
             for path in SPECS.glob("jogger-page6-*-range-20260401.json")
+            if path.name in SPEC_NAMES
         }
 
     def test_eight_specs_materialize_contiguous_ids_1_to_64(self) -> None:
@@ -185,12 +190,12 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
     def test_state_exposes_scalar_and_range_denominators(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         baseline = state["baseline"]
-        self.assertEqual(baseline["tests"], 528)
-        self.assertEqual(baseline["rows"], 3909)
+        self.assertEqual(baseline["tests"], 536)
+        self.assertEqual(baseline["rows"], 3989)
         self.assertEqual(baseline["configuration_values"], 1204)
         self.assertEqual(baseline["configuration_import_specs"], 71)
-        self.assertEqual(baseline["configuration_value_ranges"], 64)
-        self.assertEqual(baseline["configuration_range_import_specs"], 8)
+        self.assertEqual(baseline["configuration_value_ranges"], 144)
+        self.assertEqual(baseline["configuration_range_import_specs"], 19)
 
 
 if __name__ == "__main__":
