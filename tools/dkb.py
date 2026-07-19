@@ -98,6 +98,12 @@ SCRIPT_COMMANDS = {
         "--spec FILE [--apply | --verify] [--skip-source-text] "
         "[--skip-source-files]",
     ),
+    "import-configuration-value-ranges": (
+        "import_configuration_value_ranges.py",
+        "Apply or verify one declarative configuration-value range import.",
+        "--spec FILE [--apply | --verify] [--skip-source-text] "
+        "[--skip-source-files]",
+    ),
     "package-publish": (
         "package_publish.py",
         "Publish one exact manifest-driven package.",
