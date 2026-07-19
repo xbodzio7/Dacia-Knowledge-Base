@@ -1,0 +1,49 @@
+name: Configuration Workbook Diagnostics
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Capture bundle tests
+        shell: bash
+        run: |
+          set +e
+          python -m unittest -v tests.test_configuration_comparison_bundle > "${RUNNER_TEMP}/bundle-tests.log" 2>&1
+          echo $? > "${RUNNER_TEMP}/bundle-tests.exit"
+          set -e
+      - name: Capture direct workbook generation
+        shell: bash
+        run: |
+          set +e
+          python tools/configuration_comparison_bundle.py \
+            --configuration-code sandero_stepway_iii_expression_ecog120_automatic \
+            --configuration-code sandero_stepway_iii_extreme_ecog120_automatic \
+            --configuration-code jogger_extreme_5seat_ecog120_automatic \
+            --configuration-code jogger_journey_5seat_ecog120_automatic \
+            --configuration-code duster_iii_expression_ecog100_4x2_manual \
+            --output-directory "${RUNNER_TEMP}/bundle" \
+            > "${RUNNER_TEMP}/generation.log" 2>&1
+          echo $? > "${RUNNER_TEMP}/generation.exit"
+          set -e
+          find "${RUNNER_TEMP}/bundle" -maxdepth 1 -type f -printf '%f %s bytes\n' 2>/dev/null | sort > "${RUNNER_TEMP}/files.log" || true
+      - uses: actions/upload-artifact@v7
+        with:
+          name: configuration-workbook-diagnostics
+          path: |
+            ${{ runner.temp }}/bundle-tests.log
+            ${{ runner.temp }}/bundle-tests.exit
+            ${{ runner.temp }}/generation.log
+            ${{ runner.temp }}/generation.exit
+            ${{ runner.temp }}/files.log
+            ${{ runner.temp }}/bundle
+          if-no-files-found: warn
