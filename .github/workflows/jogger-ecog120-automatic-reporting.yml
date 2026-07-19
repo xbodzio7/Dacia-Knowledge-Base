@@ -1,0 +1,66 @@
+name: Jogger Eco-G 120 Automatic Reporting
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reporting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Generate reporting artifacts
+        run: |
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/jogger_ecog120_automatic_completeness.json \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-ecog120-automatic-completeness.json" \
+            --markdown "${RUNNER_TEMP}/jogger-ecog120-automatic-completeness.md"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/jogger_ecog120_automatic_completeness.json \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-ecog120-automatic-source-coverage.json" \
+            --markdown "${RUNNER_TEMP}/jogger-ecog120-automatic-source-coverage.md"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/jogger_ecog120_automatic_completeness.json \
+            --evidence-spec data/reporting/jogger_ecog120_automatic_gap_evidence.spec \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison.json" \
+            --markdown "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison.md" \
+            --csv "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison-differences.csv"
+      - name: Generate artifact manifest
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/jogger-ecog120-automatic-artifact-manifest.json" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-completeness.json" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-completeness.md" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-source-coverage.json" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-source-coverage.md" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison.json" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison.md" \
+            --file "${RUNNER_TEMP}/jogger-ecog120-automatic-comparison-differences.csv"
+      - name: Upload reporting artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: jogger-ecog120-automatic-reporting
+          path: |
+            ${{ runner.temp }}/jogger-ecog120-automatic-completeness.json
+            ${{ runner.temp }}/jogger-ecog120-automatic-completeness.md
+            ${{ runner.temp }}/jogger-ecog120-automatic-source-coverage.json
+            ${{ runner.temp }}/jogger-ecog120-automatic-source-coverage.md
+            ${{ runner.temp }}/jogger-ecog120-automatic-comparison.json
+            ${{ runner.temp }}/jogger-ecog120-automatic-comparison.md
+            ${{ runner.temp }}/jogger-ecog120-automatic-comparison-differences.csv
+            ${{ runner.temp }}/jogger-ecog120-automatic-artifact-manifest.json
+          if-no-files-found: error
+          retention-days: 7
