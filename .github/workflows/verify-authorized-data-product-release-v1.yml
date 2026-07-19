@@ -1,0 +1,103 @@
+name: Verify Authorized Data Product Release v1.0.0
+
+on:
+  push:
+    branches:
+      - release/data-products-v1.0.0-authorized
+    paths:
+      - .github/workflows/verify-authorized-data-product-release-v1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify-publication:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: data-products-v1.0.0
+      RELEASE_VERSION: 1.0.0
+      TESTED_MAIN_SHA: 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: release/data-products-v1.0.0-authorized
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Wait for published identity
+        shell: bash
+        run: |
+          for attempt in $(seq 1 120); do
+            if gh api --silent "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" >/dev/null 2>&1 \
+              && gh api --silent "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" >/dev/null 2>&1; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Release identity was not published." >&2
+          exit 1
+
+      - name: Download and verify public assets
+        shell: bash
+        run: |
+          mkdir published-assets
+          gh release download "${RELEASE_TAG}" --dir published-assets
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${TESTED_MAIN_SHA}" \
+            --output-directory published-assets
+
+      - name: Write publication confirmation
+        shell: bash
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" > /tmp/release.json
+          gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" > /tmp/tag.json
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          release = json.loads(Path('/tmp/release.json').read_text())
+          tag = json.loads(Path('/tmp/tag.json').read_text())
+          files = []
+          for path in sorted(Path('published-assets').iterdir(), key=lambda item: item.name):
+              files.append({
+                  'name': path.name,
+                  'size': path.stat().st_size,
+                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+              })
+          confirmation = {
+              'release_tag': os.environ['RELEASE_TAG'],
+              'release_url': release['html_url'],
+              'release_id': release['id'],
+              'published_at': release['published_at'],
+              'tag_target_sha': tag['object']['sha'],
+              'tested_main_sha': os.environ['TESTED_MAIN_SHA'],
+              'assets': files,
+          }
+          assert confirmation['tag_target_sha'] == confirmation['tested_main_sha']
+          assert [item['name'] for item in files] == [
+              'SHA256SUMS',
+              'dacia-knowledge-base-data-products-v1.0.0.zip',
+              'data-product-release-manifest.json',
+          ]
+          Path('publication-confirmation.json').write_text(
+              json.dumps(confirmation, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
+
+      - name: Commit confirmation to authorized branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add publication-confirmation.json
+          git commit -m 'release: confirm data products v1.0.0 publication'
+          git push origin HEAD:release/data-products-v1.0.0-authorized
