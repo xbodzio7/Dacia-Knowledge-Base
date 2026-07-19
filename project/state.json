@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Configuration Comparison Workbook Export Planning Review",
-    "pull_request": 153,
-    "head_sha": "e267fa31953890f045d49d67a94fd566d3098f64",
-    "quality_run": 763
+    "name": "Configuration Comparison Workbook Export",
+    "pull_request": 154,
+    "head_sha": "c4006d67937272589833135ba4e56dd2628add50",
+    "quality_run": 803
   },
   "baseline": {
     "tests": 640,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Comparison Workbook Export",
-    "status": "active",
-    "goal": "Add one deterministic six-sheet XLSX workbook to each comparison bundle."
+    "name": "Data Product Distribution Planning Review",
+    "status": "complete",
+    "goal": "Select a stable delivery channel for the existing offline data products without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Distribution Planning Review",
+    "name": "Versioned Data Product Release Publication",
     "status": "planned",
-    "goal": "Select a stable delivery channel for the existing offline data products without expanding source data."
+    "goal": "Publish deterministic versioned GitHub Release assets for the existing offline data products."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
