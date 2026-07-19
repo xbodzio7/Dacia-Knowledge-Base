@@ -1,0 +1,130 @@
+name: Jogger TCe 110 Reporting Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'reporting/jogger-tce110-manual'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: reporting/jogger-tce110-manual
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Synchronize project state and package contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          state_path = Path("project/state.json")
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["baseline"]["tests"] = 572
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          summary_path = Path("project/STATE_SUMMARY.md")
+          summary = summary_path.read_text(encoding="utf-8")
+          updated_summary = summary.replace("- Tests: 565", "- Tests: 572")
+          if updated_summary == summary:
+              raise SystemExit("project summary test baseline was not updated")
+          summary_path.write_text(updated_summary, encoding="utf-8")
+
+          for relative in (
+              "tests/test_jogger_payload_performance_ranges.py",
+              "tests/test_jogger_wltp_efficiency_ranges.py",
+          ):
+              path = Path(relative)
+              text = path.read_text(encoding="utf-8")
+              updated = text.replace('baseline["tests"], 565', 'baseline["tests"], 572')
+              if updated == text:
+                  raise SystemExit(f"baseline assertion was not updated: {relative}")
+              path.write_text(updated, encoding="utf-8")
+
+          package_content = (
+              "# Jogger TCe 110 Manual Reporting Scope Promotion\n\n"
+              "## Status\n\n"
+              "`IMPLEMENTED`\n\n"
+              "This package promotes the final six homogeneous current Jogger configurations into an explicit independent reporting scope. It changes no source data.\n\n"
+              "## Scope\n\n"
+              "The scope contains expression, extreme and journey, each in five- and seven-seat TCe 110 manual form. One registered Jogger MY26 source documents all six configurations.\n\n"
+              "## Denominator\n\n"
+              "Each configuration has 24 technical slots: 19 scalar observations and five closed ranges. The scope therefore contains 144 technical observations, 318 equipment observations across 53 attributes and six dated catalogue prices.\n\n"
+              "The five range slots preserve petrol WLTP CO2 and fuel-consumption intervals, maximum-power and maximum-torque speed intervals, and maximum-payload interval. No endpoint, midpoint or average substitutes for a range.\n\n"
+              "## Comparison contract\n\n"
+              "Fifteen deterministic pairs produce:\n\n"
+              "- 15 price comparisons: all different;\n"
+              "- 360 technical comparisons: 297 equal, 63 different and zero not comparable;\n"
+              "- 795 equipment comparisons: 663 equal, 132 different and zero not comparable;\n"
+              "- 210 total differences.\n\n"
+              "Exactly 75 technical comparisons preserve range states: 66 identical and nine disjoint.\n\n"
+              "## Source and completeness contract\n\n"
+              "Completeness is 144/144 technical observations and 318/318 equipment observations: 254 standard, 24 optional and 40 not available. Source coverage includes six prices, 24/24 covered areas and 162/162 covered sections. The validated gap-evidence specification is empty.\n\n"
+              "## Artifacts\n\n"
+              "The dedicated Jogger reporting workflow publishes JSON and Markdown completeness and source-coverage reports, JSON and Markdown comparison reports, a flat comparison-differences CSV and a SHA-256 manifest under the `jogger-tce110-manual` prefix.\n\n"
+              "## Expected baseline\n\n"
+              "- 572 tests;\n"
+              "- 37 master CSV files and 5,155 rows;\n"
+              "- 1,204 scalar values and 71 scalar specifications;\n"
+              "- 144 range values and 19 range specifications;\n"
+              "- 2,977 availability records;\n"
+              "- 357 attributes in 30 categories.\n\n"
+              "## Next package\n\n"
+              "**Jogger Reporting Portfolio Completion Review** will verify and close the current Jogger reporting milestone.\n"
+          )
+          Path("project/packages/jogger-tce110-manual-reporting.md").write_text(package_content, encoding="utf-8")
+          PY
+      - name: Synchronize documentation baseline
+        run: python tools/dkb.py documentation-baseline --apply
+      - name: Generate reporting audit
+        run: |
+          mkdir -p "${RUNNER_TEMP}/jogger-tce110"
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/jogger_tce110_manual_completeness.json \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-tce110/completeness.json"
+          python tools/dkb.py source-coverage \
+            --spec data/reporting/jogger_tce110_manual_completeness.json \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-tce110/source-coverage.json"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/jogger_tce110_manual_completeness.json \
+            --evidence-spec data/reporting/jogger_tce110_manual_gap_evidence.spec \
+            --as-of 2026-04-01 \
+            --json "${RUNNER_TEMP}/jogger-tce110/comparison.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          temporary = Path(os.environ["RUNNER_TEMP"]) / "jogger-tce110"
+          payload = {
+              "completeness": json.loads((temporary / "completeness.json").read_text(encoding="utf-8")),
+              "source_coverage": json.loads((temporary / "source-coverage.json").read_text(encoding="utf-8")),
+              "comparison": json.loads((temporary / "comparison.json").read_text(encoding="utf-8")),
+          }
+          output = Path("project/audits/jogger-tce110-manual-reporting.json")
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+      - name: Commit generated files
+        run: |
+          if git diff --quiet; then
+            echo "Generated files are already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json project/packages/jogger-tce110-manual-reporting.md project/audits/jogger-tce110-manual-reporting.json tests/test_jogger_payload_performance_ranges.py tests/test_jogger_wltp_efficiency_ranges.py
+          git commit -m "ci: finalize Jogger TCe 110 reporting"
+          git push origin HEAD:reporting/jogger-tce110-manual
