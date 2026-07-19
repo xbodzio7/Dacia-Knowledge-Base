@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Range and Qualifier Modeling Review
-- Pull Request: #111
-- Verified head: `13e5730271752861868a93475db989bf8899eeed`
-- Quality run: #466
+- Package: Jogger Minimum Kerb Weight Modeling and Import
+- Pull Request: #112
+- Verified head: `de9f8b2c409db2d76bb2b14cfa75a7aa6c55a7a8`
+- Quality run: #472
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Cargo Measurement Modeling Review** — `active`
+**Jogger Cargo Measurement Modeling and Import** — `active`
 
-Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations.
+Add two measurement-specific VDA cargo attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged.
 
 ## Next package
 
-**Jogger Cargo Measurement Modeling and Import** — `planned`
+**Jogger LPG Capacity Modeling Review** — `planned`
 
-Add the selected VDA cargo measurement attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged.
+Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations.
 
 ## Autonomy
 
