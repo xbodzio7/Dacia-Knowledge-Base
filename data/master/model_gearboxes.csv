@@ -10,7 +10,9 @@ id,model_code,gearbox_code,available_from,available_to,notes
 9,duster_iii,mt6,2024,,
 10,duster_iii,e_dht140,2024,,
 11,jogger,mt6,2021,,
-12,jogger,e_dht140,2023,,
+12,jogger,e_dht140,2023,2025,Hybrid 140 association closed before the MY26 Hybrid 155 source dated 2026-04-01.
 13,spring,at4_ev,2021,,
 14,bigster,mt6,2025,,
 15,bigster,e_dht155,2025,,
+16,jogger,edc6,2026,,MY26 Eco-G 120 automatic source states a six-speed dual-clutch transmission.
+17,jogger,e_dht155,2026,,MY26 Hybrid 155 source states an automatic Multi-mode transmission.

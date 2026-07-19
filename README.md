@@ -726,12 +726,14 @@ pozostają jawnym zakresem odroczonym. Dodatkowy kontrolowany import obejmuje
 32 dokładne wartości `injection_type`: osobne układy benzyny i LPG dla Eco-G
 oraz źródłowe wartości TCe 110 i Hybrid 155.
 
+Dalsza rekonsyliacja skrzyń biegów dodaje 38 dokładnych obserwacji `gearbox_type` i `gear_count`, zachowuje brak liczby przełożeń dla Hybrid 155 Multi-mode oraz aktualizuje asocjacje Jogger z `mt6`, `edc6`, `e_dht140` i `e_dht155`.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 464 testów, 34 pliki CSV, 3690 rekordów
-danych, 34 relacje między tabelami, 1068 wartości konfiguracji, 62
+Zweryfikowany model obejmuje 470 testów, 34 pliki CSV, 3730 rekordów
+danych, 34 relacje między tabelami, 1106 wartości konfiguracji, 64
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3690 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 34 tabele i 3730 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

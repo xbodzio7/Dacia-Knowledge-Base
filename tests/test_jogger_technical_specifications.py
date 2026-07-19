@@ -47,7 +47,11 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
         cls.spec_paths = sorted(
             path
             for path in SPEC_DIR.glob("jogger-page6-*-20260401.json")
-            if path.name != "jogger-page6-injection-type-20260401.json"
+            if path.name not in {
+                "jogger-page6-injection-type-20260401.json",
+                "jogger-page6-gearbox-type-20260401.json",
+                "jogger-page6-gear-count-20260401.json",
+            }
         )
 
     def test_exact_specification_set_is_versioned(self) -> None:
