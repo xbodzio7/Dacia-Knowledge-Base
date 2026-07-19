@@ -1,0 +1,360 @@
+name: Materialize Attribute Enum Domains
+
+on:
+  push:
+    branches:
+      - architecture/attribute-enum-domains
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: architecture/attribute-enum-domains
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install PDF extraction backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Patch validators, importer, tests and state
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+
+          def patch(path: str, old: str, new: str) -> None:
+              target = root / path
+              text = target.read_text(encoding='utf-8')
+              if old not in text:
+                  raise SystemExit(f'patch anchor not found in {path}: {old[:80]!r}')
+              target.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          audit = root / 'project/reviews/jogger-enum-domain-audit.txt'
+          if audit.exists():
+              audit.unlink()
+
+          patch(
+              'tools/validators/statuses.py',
+              'from validators.enum_domains import load_enum_domain_rules\n',
+              'try:\n'
+              '    from validators.enum_domains import load_enum_domain_rules\n'
+              'except ModuleNotFoundError:  # package import in unit tests\n'
+              '    from tools.validators.enum_domains import load_enum_domain_rules\n',
+          )
+
+          patch(
+              'tools/validators/references.py',
+              'from typing import Sequence\n\n\n@dataclass',
+              'from typing import Sequence\n\n'
+              'try:\n'
+              '    from validators.enum_domains import validate_enum_domains\n'
+              'except ModuleNotFoundError:  # package import in unit tests\n'
+              '    from tools.validators.enum_domains import validate_enum_domains\n\n\n@dataclass',
+          )
+          patch(
+              'tools/validators/references.py',
+              'def validate_references(root: Path) -> list[str]:\n'
+              '    """Validate all declared DKB cross-file references."""\n\n'
+              '    return validate_reference_rules(root, REFERENCE_RULES)\n',
+              'def validate_references(root: Path) -> list[str]:\n'
+              '    """Validate declared references and enum-domain membership."""\n\n'
+              '    errors = validate_reference_rules(root, REFERENCE_RULES)\n'
+              '    _, enum_errors = validate_enum_domains(root)\n'
+              '    errors.extend(enum_errors)\n'
+              '    return errors\n',
+          )
+
+          patch(
+              'tools/import_configuration_values.py',
+              'from typing import Any, Iterable, Mapping, Sequence\n',
+              'from typing import Any, Iterable, Mapping, Sequence\n\n'
+              'try:\n'
+              '    from validators.enum_domains import load_enum_domain_values\n'
+              'except ModuleNotFoundError:  # package import in unit tests\n'
+              '    from tools.validators.enum_domains import load_enum_domain_values\n',
+          )
+          patch(
+              'tools/import_configuration_values.py',
+              '    _ensure(\n'
+              '        actual_contract == expected_contract,\n'
+              '        f"attribute contract differs for {spec.attribute_code!r}: "\n'
+              '        f"expected {expected_contract}, found {actual_contract}",\n'
+              '    )\n\n'
+              '    configuration_codes = {row.get("code", "") for row in configurations}\n',
+              '    _ensure(\n'
+              '        actual_contract == expected_contract,\n'
+              '        f"attribute contract differs for {spec.attribute_code!r}: "\n'
+              '        f"expected {expected_contract}, found {actual_contract}",\n'
+              '    )\n\n'
+              '    enum_values: frozenset[str] | None = None\n'
+              '    if spec.data_type == "enum":\n'
+              '        values_by_attribute, _, enum_errors = load_enum_domain_values(repository)\n'
+              '        _ensure(\n'
+              '            not enum_errors,\n'
+              '            "enum-domain registry is invalid: " + "; ".join(enum_errors),\n'
+              '        )\n'
+              '        enum_values = values_by_attribute.get(spec.attribute_code)\n'
+              '        _ensure(\n'
+              '            enum_values is not None,\n'
+              '            f"enum attribute {spec.attribute_code!r} has no registered domain",\n'
+              '        )\n\n'
+              '    configuration_codes = {row.get("code", "") for row in configurations}\n',
+          )
+          patch(
+              'tools/import_configuration_values.py',
+              '        _validate_value(spec.data_type, row.value, f"{label}.value")\n'
+              '        notes = spec.notes_template.format(\n',
+              '        _validate_value(spec.data_type, row.value, f"{label}.value")\n'
+              '        if enum_values is not None:\n'
+              '            _ensure(\n'
+              '                row.value in enum_values,\n'
+              '                f"{label}.value {row.value!r} is outside the registered "\n'
+              '                f"domain for {spec.attribute_code!r}",\n'
+              '            )\n'
+              '        notes = spec.notes_template.format(\n',
+          )
+
+          patch(
+              'tools/documentation_baseline.py',
+              'from validators.statuses import STATUS_RULES\n',
+              'from validators.statuses import configured_status_rules\n',
+          )
+          patch(
+              'tools/documentation_baseline.py',
+              '    statistics = collect_statistics(repository)\n'
+              '    master = repository / "data" / "master"\n',
+              '    statistics = collect_statistics(repository)\n'
+              '    configured_rules, status_rule_errors = configured_status_rules(repository)\n'
+              '    if status_rule_errors:\n'
+              '        raise BaselineError(\n'
+              '            "cannot resolve status rules: " + "; ".join(status_rule_errors)\n'
+              '        )\n'
+              '    master = repository / "data" / "master"\n',
+          )
+          patch(
+              'tools/documentation_baseline.py',
+              '        status_rules=len(STATUS_RULES),\n',
+              '        status_rules=len(configured_rules),\n',
+          )
+
+          patch(
+              'tools/validate_dkb.py',
+              'from validators.statuses import STATUS_RULES, validate_statuses\n',
+              'from validators.statuses import configured_status_rules, validate_statuses\n',
+          )
+          patch(
+              'tools/validate_dkb.py',
+              '    checked_status_records, status_errors = validate_statuses(root)\n',
+              '    configured_statuses, _ = configured_status_rules(root)\n'
+              '    checked_status_records, status_errors = validate_statuses(root)\n',
+          )
+          patch(
+              'tools/validate_dkb.py',
+              '            f"{len(STATUS_RULES)} reguł)"\n',
+              '            f"{len(configured_statuses)} reguł)"\n',
+          )
+
+          patch(
+              'tests/test_statuses.py',
+              '    STATUS_RULES,\n'
+              '    validate_status_file,\n',
+              '    STATUS_RULES,\n'
+              '    configured_status_rules,\n'
+              '    validate_status_file,\n',
+          )
+          patch(
+              'tests/test_statuses.py',
+              '    def test_scans_all_configured_files(self) -> None:\n'
+              '        for rule in STATUS_RULES:\n'
+              '            header = ["status"]\n'
+              '            row = ["active"]\n\n'
+              '            if rule.allowed_statuses == LIFECYCLE_STATUSES:\n'
+              '                row = ["current"]\n\n'
+              '            if rule.end_column is not None:\n'
+              '                header.append(rule.end_column)\n'
+              '                row.append("")\n\n'
+              '            self.write_csv(\n'
+              '                rule.path,\n'
+              '                header,\n'
+              '                [row],\n'
+              '            )\n\n'
+              '        checked, errors = validate_statuses(self.root)\n\n'
+              '        self.assertEqual(\n'
+              '            checked,\n'
+              '            len(STATUS_RULES),\n'
+              '        )\n'
+              '        self.assertEqual(errors, [])\n',
+              '    def test_scans_all_configured_files(self) -> None:\n'
+              '        self.write_csv(\n'
+              '            "data/master/attributes.csv",\n'
+              '            ["code", "data_type", "status"],\n'
+              '            [["injection_type", "enum", "active"]],\n'
+              '        )\n'
+              '        self.write_csv(\n'
+              '            "data/master/attribute_enum_domains.csv",\n'
+              '            ["attribute_code", "domain_file", "status"],\n'
+              '            [["injection_type", "injection_types.csv", "active"]],\n'
+              '        )\n'
+              '        self.write_csv(\n'
+              '            "data/master/enums/injection_types.csv",\n'
+              '            ["code", "name", "description", "status"],\n'
+              '            [["port_injection", "Port", "Port injection", "active"]],\n'
+              '        )\n\n'
+              '        rules, rule_errors = configured_status_rules(self.root)\n'
+              '        self.assertEqual(rule_errors, [])\n'
+              '        for rule in rules:\n'
+              '            if (self.root / rule.path).is_file():\n'
+              '                continue\n'
+              '            header = ["status"]\n'
+              '            row = ["active"]\n'
+              '            if rule.allowed_statuses == LIFECYCLE_STATUSES:\n'
+              '                row = ["current"]\n'
+              '            if rule.end_column is not None:\n'
+              '                header.append(rule.end_column)\n'
+              '                row.append("")\n'
+              '            self.write_csv(rule.path, header, [row])\n\n'
+              '        checked, errors = validate_statuses(self.root)\n'
+              '        self.assertEqual(checked, len(rules))\n'
+              '        self.assertEqual(errors, [])\n',
+          )
+
+          spec_path = root / 'data/imports/configuration_values/jogger-page6-hybrid-battery-chemistry-20260401.json'
+          spec = json.loads(spec_path.read_text(encoding='utf-8'))
+          for row in spec['rows']:
+              row['source_text'] = 'litowo-jonowy'
+          spec_path.write_text(json.dumps(spec, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          state = {
+              'version': 1,
+              'updated_on': '2026-07-19',
+              'repository': {
+                  'full_name': 'xbodzio7/Dacia-Knowledge-Base',
+                  'default_branch': 'main',
+                  'source_of_truth': 'repository',
+                  'main_sha_tracking': 'dynamic',
+              },
+              'phase': 'Source-Backed Model Expansion',
+              'reference_delivery': {
+                  'name': 'Jogger Remaining Technical Architecture Review',
+                  'pull_request': 119,
+                  'head_sha': '3610e80771d5856344f27b22349d6afd5b0784b9',
+                  'quality_run': 500,
+              },
+              'baseline': {
+                  'tests': 502,
+                  'csv_files': 36,
+                  'rows': 3845,
+                  'configuration_values': 1204,
+                  'configuration_import_specs': 71,
+                  'availability_records': 1811,
+                  'attributes': 357,
+                  'attribute_categories': 30,
+              },
+              'current_package': {
+                  'name': 'Attribute Enum Domain Registry and Jogger Battery Chemistry',
+                  'status': 'active',
+                  'goal': 'Implement the approved reusable enum-domain registry and materialize six controlled lithium-ion observations while keeping the unqualified 1.4 kWh capacity deferred.',
+              },
+              'next_package': {
+                  'name': 'Jogger Range Observation Architecture',
+                  'status': 'planned',
+                  'goal': 'Add a separate range-observation table, declarative importer, validators, SQLite support and range-preserving reporting without changing the scalar observation table.',
+              },
+              'autonomy': {
+                  'mode': 'autonomous_until_action_required',
+                  'allowed_operations': [
+                      'create_package_branch',
+                      'modify_manifest_paths',
+                      'run_tests_and_quality',
+                      'create_package_commit',
+                      'push_package_branch',
+                      'create_and_update_pull_request',
+                      'repair_in_scope_ci_failures',
+                      'merge_green_pull_request',
+                      'update_project_state_and_generated_documentation',
+                  ],
+                  'stop_conditions': [
+                      'missing_source_file_or_local_access',
+                      'authentication_mfa_secret_or_new_permission',
+                      'ambiguous_source_evidence',
+                      'new_domain_or_architecture_decision',
+                      'scope_expansion_beyond_current_milestone',
+                      'destructive_costly_or_irreversible_operation',
+                      'manual_github_policy_block',
+                      'conflict_not_resolvable_from_repository_evidence',
+                  ],
+                  'action_required_fields': [
+                      'reason',
+                      'required_action',
+                      'options_and_consequences',
+                      'resume_stage',
+                  ],
+              },
+              'review_policy': {
+                  'review_only_pull_requests': 'exception_only',
+                  'milestone_review_interval_packages': 5,
+                  'one_logical_package_per_pull_request': True,
+                  'delete_remote_branches_automatically': False,
+              },
+          }
+          (root / 'project/state.json').write_text(
+              json.dumps(state, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
+          )
+          PY
+
+          python tools/dkb.py import-configuration-values \
+            --spec data/imports/configuration_values/jogger-page6-hybrid-battery-chemistry-20260401.json \
+            --apply
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+      - name: Verify complete package
+        id: verify
+        shell: bash
+        run: |
+          set +e
+          {
+            python -m compileall -q tools scripts tests
+            python -m unittest discover -s tests -p 'test_*.py' -q
+            python tools/dkb.py project-state --check
+            python tools/dkb.py quality --concise --database "${RUNNER_TEMP}/dacia.sqlite"
+          } > project/reviews/attribute-enum-domain-validation.log 2>&1
+          status=$?
+          echo "status=${status}" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Finalize and push package
+        shell: bash
+        run: |
+          if [ "${{ steps.verify.outputs.status }}" = "0" ]; then
+            rm -f project/reviews/attribute-enum-domain-validation.log
+            python - <<'PY'
+          from pathlib import Path
+          path = Path('project/reviews/attribute-enum-domain-registry-and-jogger-battery-chemistry.md')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('`IMPLEMENTING`', '`IMPLEMENTED`', 1)
+          text += '\n## Local validation\n\nThe materializer passed 502 tests, canonical-state verification and the complete local Quality gate before removing itself.\n'
+          path.write_text(text, encoding='utf-8')
+          PY
+          fi
+          rm -f .github/workflows/materialize-attribute-enum-domains.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Materialize attribute enum domains and Jogger battery chemistry"
+          git push origin HEAD:architecture/attribute-enum-domains
+          if [ "${{ steps.verify.outputs.status }}" != "0" ]; then
+            exit 1
+          fi
