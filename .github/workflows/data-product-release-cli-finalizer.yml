@@ -1,0 +1,38 @@
+name: Data Product Release CLI Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'product/versioned-data-product-release-publication'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Integrate release command
+        run: python tools/_integrate_data_product_release_cli.py
+      - name: Verify command registration
+        run: |
+          python -m compileall -q tools
+          python tools/dkb.py help | grep 'data-product-release'
+      - name: Commit integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/dkb.py
+          if git diff --cached --quiet; then
+            echo 'Release command already integrated.'
+          else
+            git commit -m 'feat: register data product release command'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
