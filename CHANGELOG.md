@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Jogger Hybrid 155 total system power modeled as a dedicated attribute with six source-backed 116 kW observations.
 * Jogger MY26 total LPG vessel and filling capacities modeled as separate attributes with 20 source-backed LPG observations.
 * Jogger MY26 cargo measurements modeled as two VDA height-specific attributes with 44 source-backed observations.
 * Jogger MY26 minimum kerb weight modeled as a dedicated attribute with 22 source-backed five-/seven-seat observations.
@@ -200,12 +201,12 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 488 tests.
-* The verified master-data baseline now contains 34 CSV files and 3821 rows.
-* SQLite verification now covers 34 tables and 3821 rows.
-* Configuration attribute values now contain 1192 dated records.
-* Declarative configuration-value imports now contain 69 versioned JSON specifications.
-* The canonical catalogue now contains 356 attributes in 30 categories.
+* The automated test suite now contains 494 tests.
+* The verified master-data baseline now contains 34 CSV files and 3828 rows.
+* SQLite verification now covers 34 tables and 3828 rows.
+* Configuration attribute values now contain 1198 dated records.
+* Declarative configuration-value imports now contain 70 versioned JSON specifications.
+* The canonical catalogue now contains 357 attributes in 30 categories.
 * Equipment availability now contains 1811 records: 1481 `standard`, 112 `optional`, 218 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 

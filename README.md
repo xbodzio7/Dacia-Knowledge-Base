@@ -734,12 +734,14 @@ Pomiary bagażnika Jogger zachowują dwie odrębne granice VDA: do wysokości ro
 
 Pojemności LPG Jogger są rozdzielone na całkowitą pojemność zbiornika ciśnieniowego i pojemność napełniania. Pakiet dodaje dwa atrybuty oraz 20 obserwacji z kontekstem `lpg`, bez zmian w benzynowym `fuel_tank_capacity`.
 
+Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny atrybut `hybrid_system_power_total` z sześcioma obserwacjami 116 kW, bez sumowania mocy silnika spalinowego i maszyn elektrycznych.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 488 testów, 34 pliki CSV, 3821 rekordów
-danych, 34 relacje między tabelami, 1192 wartości konfiguracji, 69
+Zweryfikowany model obejmuje 494 testów, 34 pliki CSV, 3828 rekordów
+danych, 34 relacje między tabelami, 1198 wartości konfiguracji, 70
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
-Katalog zawiera 356 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3821 rekordów, pozostaje zgodna z CSV, a wszystkie
+Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 34 tabele i 3828 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
