@@ -170,11 +170,9 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertEqual(singleton["total_differences"], 0)
         self.assertEqual(singleton["json_path"], "")
         comparable = [row for row in rows if row["status"] == "comparable"]
-        self.assertTrue(
-            all(
-                row["report_as_of"] == date(2026, 6, 26)
-                for row in comparable
-            )
+        self.assertEqual(
+            {row["report_as_of"] for row in comparable},
+            {date(2026, 4, 1), date(2026, 6, 26)},
         )
         self.assertEqual(sum(int(row["pair_count"]) for row in rows), 2)
 
