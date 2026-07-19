@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package materializes the denominator selected in PR #128 without changing scalar values, ranges, prices or existing availability rows.
 
@@ -20,7 +20,7 @@ The existing 419 Sandero and 1,392 Duster records remain semantically unchanged.
 
 `start_stop_system` remains a scalar page-6 observation. Conflicting rain-wiper evidence, descriptive appearance values, package prices and features without a selected dedicated contract remain outside this package.
 
-## Expected baseline
+## Verified baseline
 
 - 544 tests;
 - 37 master CSV files and 5,155 rows;
@@ -28,6 +28,10 @@ The existing 419 Sandero and 1,392 Duster records remain semantically unchanged.
 - 144 range values and 19 range specifications;
 - 2,977 availability records;
 - 357 attributes in 30 categories.
+
+## Validation
+
+The one-shot materializer and full local quality gate passed in Quality #599 after the historical Sandero preservation tests were scoped to exclude both Duster and Jogger records. Standard cross-platform Quality remains required for the final repository-authored head.
 
 ## Next package
 
