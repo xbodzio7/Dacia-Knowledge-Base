@@ -1,0 +1,125 @@
+name: Configuration Selection Export
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selection-export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Run selection export regression tests
+        run: python -m unittest -v tests.test_configuration_selection_export
+      - name: Generate browser and example shortlist
+        run: |
+          python tools/dkb.py configuration-shortlist \
+            --html "${RUNNER_TEMP}/configuration-shortlist-selection.html"
+          python tools/dkb.py configuration-shortlist \
+            --transmission automatic \
+            --max-price 100000 \
+            --json "${RUNNER_TEMP}/automatic-under-100000.json"
+      - name: Export browser selection in JavaScript
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          const root = process.env.RUNNER_TEMP;
+          const html = fs.readFileSync(
+            path.join(root, "configuration-shortlist-selection.html"),
+            "utf8"
+          );
+          const match = html.match(
+            /<script id="configuration-catalog" type="application\/json">([\s\S]*?)<\/script>/
+          );
+          if (!match) throw new Error("embedded configuration catalog not found");
+          const catalog = JSON.parse(match[1]);
+          const shortlist = JSON.parse(
+            fs.readFileSync(path.join(root, "automatic-under-100000.json"), "utf8")
+          );
+          const api = require(
+            path.resolve("tools/reporting/configuration_shortlist_selection.js")
+          );
+          const codes = shortlist.results.map((item) => item.configuration_code);
+          const jsonText = api.renderSelectionJson(catalog, codes);
+          const codeText = api.renderCodeList(catalog, codes);
+          fs.writeFileSync(path.join(root, "browser-selection.json"), jsonText);
+          fs.writeFileSync(path.join(root, "browser-selection.txt"), codeText);
+          const payload = JSON.parse(jsonText);
+          if (payload.results.length !== 4) {
+            throw new Error(`expected 4 selected configurations, got ${payload.results.length}`);
+          }
+          if (codeText.trim().split("\n").length !== 4) {
+            throw new Error("plain code export does not contain four lines");
+          }
+          NODE
+      - name: Consume browser selection with comparison bundle
+        run: |
+          python tools/dkb.py configuration-comparison-bundle \
+            --shortlist-json "${RUNNER_TEMP}/browser-selection.json" \
+            --output-directory "${RUNNER_TEMP}/browser-selection-bundle"
+      - name: Verify end-to-end artifacts
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ["RUNNER_TEMP"])
+          selection = json.loads(
+              (root / "browser-selection.json").read_text(encoding="utf-8")
+          )
+          bundle = json.loads(
+              (
+                  root
+                  / "browser-selection-bundle"
+                  / "comparison-bundle-manifest.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert selection["export_type"] == "interactive_configuration_selection"
+          assert selection["selection_summary"]["selected_configuration_count"] == 4
+          assert bundle["selected_configuration_count"] == 4
+          assert bundle["comparable_scope_count"] == 2
+          assert bundle["singleton_scope_count"] == 0
+          assert bundle["cross_scope_pairs_generated"] is False
+          assert (
+              bundle["selected_configuration_codes"]
+              == sorted(item["configuration_code"] for item in selection["results"])
+          )
+          PY
+      - name: Generate top-level artifact manifest
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/configuration-selection-export-manifest.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-selection.html" \
+            --file "${RUNNER_TEMP}/browser-selection.json" \
+            --file "${RUNNER_TEMP}/browser-selection.txt" \
+            --file "${RUNNER_TEMP}/browser-selection-bundle/comparison-bundle-manifest.json"
+      - name: Upload selection export artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-selection-export
+          path: |
+            ${{ runner.temp }}/configuration-shortlist-selection.html
+            ${{ runner.temp }}/browser-selection.json
+            ${{ runner.temp }}/browser-selection.txt
+            ${{ runner.temp }}/configuration-selection-export-manifest.json
+            ${{ runner.temp }}/browser-selection-bundle
+          if-no-files-found: error
+          retention-days: 7
