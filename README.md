@@ -737,11 +737,11 @@ Pojemności LPG Jogger są rozdzielone na całkowitą pojemność zbiornika ciś
 Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny atrybut `hybrid_system_power_total` z sześcioma obserwacjami 116 kW, bez sumowania mocy silnika spalinowego i maszyn elektrycznych.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 502 testów, 36 pliki CSV, 3845 rekordów
+Zweryfikowany model obejmuje 512 testów, 37 pliki CSV, 3845 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 36 tabele i 3845 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 37 tabele i 3845 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

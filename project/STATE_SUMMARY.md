@@ -16,15 +16,15 @@
 
 ## Reference delivery
 
-- Package: Jogger Remaining Technical Architecture Review
-- Pull Request: #119
-- Verified head: `3610e80771d5856344f27b22349d6afd5b0784b9`
-- Quality run: #500
+- Package: Attribute Enum Domain Registry and Jogger Battery Chemistry
+- Pull Request: #120
+- Verified head: `b5c5520822474fe3c76987485540133b3a2c8b9a`
+- Quality run: #514
 
 ## Verified baseline
 
-- Tests: 502
-- Master CSV files: 36
+- Tests: 512
+- Master CSV files: 37
 - Master rows: 3845
 - Configuration values: 1204
 - Configuration import specifications: 71
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Attribute Enum Domain Registry and Jogger Battery Chemistry** — `active`
+**Configuration Value Range Storage and Import Architecture** — `active`
 
-Implement the approved reusable enum-domain registry and materialize six controlled lithium-ion observations while keeping the unqualified 1.4 kWh capacity deferred.
+Add a separate header-only numeric range table, strict declarative importer, global validation and automatic SQLite support without changing scalar observations.
 
 ## Next package
 
-**Jogger Range Observation Architecture** — `planned`
+**Configuration Value Range Reporting Integration** — `planned`
 
-Add a separate range-observation table, declarative importer, validators, SQLite support and range-preserving reporting without changing the scalar observation table.
+Integrate ranges with completeness, source coverage and comparison states for identical, overlapping and disjoint evidence before importing Jogger ranges.
 
 ## Autonomy
 

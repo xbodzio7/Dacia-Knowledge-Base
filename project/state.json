@@ -9,14 +9,14 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Remaining Technical Architecture Review",
-    "pull_request": 119,
-    "head_sha": "3610e80771d5856344f27b22349d6afd5b0784b9",
-    "quality_run": 500
+    "name": "Attribute Enum Domain Registry and Jogger Battery Chemistry",
+    "pull_request": 120,
+    "head_sha": "b5c5520822474fe3c76987485540133b3a2c8b9a",
+    "quality_run": 514
   },
   "baseline": {
-    "tests": 502,
-    "csv_files": 36,
+    "tests": 512,
+    "csv_files": 37,
     "rows": 3845,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Attribute Enum Domain Registry and Jogger Battery Chemistry",
+    "name": "Configuration Value Range Storage and Import Architecture",
     "status": "active",
-    "goal": "Implement the approved reusable enum-domain registry and materialize six controlled lithium-ion observations while keeping the unqualified 1.4 kWh capacity deferred."
+    "goal": "Add a separate header-only numeric range table, strict declarative importer, global validation and automatic SQLite support without changing scalar observations."
   },
   "next_package": {
-    "name": "Jogger Range Observation Architecture",
+    "name": "Configuration Value Range Reporting Integration",
     "status": "planned",
-    "goal": "Add a separate range-observation table, declarative importer, validators, SQLite support and range-preserving reporting without changing the scalar observation table."
+    "goal": "Integrate ranges with completeness, source coverage and comparison states for identical, overlapping and disjoint evidence before importing Jogger ranges."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

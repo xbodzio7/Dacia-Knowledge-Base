@@ -11,8 +11,10 @@ from typing import Sequence
 
 try:
     from validators.enum_domains import validate_enum_domains
+    from validators.value_ranges import validate_configuration_value_ranges
 except ModuleNotFoundError:  # package import in unit tests
     from tools.validators.enum_domains import validate_enum_domains
+    from tools.validators.value_ranges import validate_configuration_value_ranges
 
 
 @dataclass(frozen=True)
@@ -393,4 +395,6 @@ def validate_references(root: Path) -> list[str]:
     errors = validate_reference_rules(root, REFERENCE_RULES)
     _, enum_errors = validate_enum_domains(root)
     errors.extend(enum_errors)
+    _, range_errors = validate_configuration_value_ranges(root)
+    errors.extend(range_errors)
     return errors
