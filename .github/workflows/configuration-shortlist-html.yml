@@ -1,0 +1,51 @@
+name: Configuration Shortlist HTML
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shortlist-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Verify Python and browser filter parity
+        run: python -m unittest -v tests.test_configuration_shortlist_html
+      - name: Generate browser shortlists
+        run: |
+          python tools/dkb.py configuration-shortlist \
+            --html "${RUNNER_TEMP}/configuration-shortlist-all.html"
+          python tools/dkb.py configuration-shortlist \
+            --transmission automatic \
+            --max-price 100000 \
+            --html "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
+      - name: Generate artifact manifest
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/configuration-shortlist-html-manifest.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-all.html" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
+      - name: Upload browser shortlists
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-shortlist-html
+          path: |
+            ${{ runner.temp }}/configuration-shortlist-all.html
+            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.html
+            ${{ runner.temp }}/configuration-shortlist-html-manifest.json
+          if-no-files-found: error
+          retention-days: 7
