@@ -168,9 +168,14 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         singleton = next(row for row in rows if row["status"] == "singleton")
         self.assertEqual(singleton["pair_count"], 0)
         self.assertEqual(singleton["total_differences"], 0)
-        self.assertIsNone(singleton["json_path"])
+        self.assertEqual(singleton["json_path"], "")
         comparable = [row for row in rows if row["status"] == "comparable"]
-        self.assertTrue(all(row["report_as_of"] == date(2026, 6, 26) for row in comparable))
+        self.assertTrue(
+            all(
+                row["report_as_of"] == date(2026, 6, 26)
+                for row in comparable
+            )
+        )
         self.assertEqual(sum(int(row["pair_count"]) for row in rows), 2)
 
     def test_configurations_preserve_selection_and_metadata(self) -> None:
@@ -215,7 +220,9 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
 
     def test_comparisons_preserve_dates_numbers_and_ranges(self) -> None:
         rows = self._table(self.workbook["Comparisons"])
-        self.assertTrue(all(isinstance(row["report_as_of"], date) for row in rows))
+        self.assertTrue(
+            all(isinstance(row["report_as_of"], date) for row in rows)
+        )
         price = next(
             row
             for row in rows
