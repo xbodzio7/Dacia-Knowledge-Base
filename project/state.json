@@ -9,32 +9,32 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger MY26 Page-6 Source Completion Review",
-    "pull_request": 127,
-    "head_sha": "3242cad48103214be7f23fabc0da31b19c4b8cff",
-    "quality_run": 577
+    "name": "Jogger Equipment Matrix Intake Selection",
+    "pull_request": 128,
+    "head_sha": "56fbefc78e7f83225b5374b11b8dd1a562eef681",
+    "quality_run": 589
   },
   "baseline": {
-    "tests": 536,
+    "tests": 544,
     "csv_files": 37,
-    "rows": 3989,
+    "rows": 5155,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
     "configuration_value_ranges": 144,
     "configuration_range_import_specs": 19,
-    "availability_records": 1811,
+    "availability_records": 2977,
     "attributes": 357,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Equipment Matrix Intake Selection",
+    "name": "Jogger Equipment Availability Import",
     "status": "active",
-    "goal": "Select the source-backed pages 4-5 equipment availability denominator for all 22 active Jogger configurations without importing data."
+    "goal": "Materialize 53 selected pages 4-5 equipment attributes as 1166 dated availability records for all 22 active Jogger configurations."
   },
   "next_package": {
-    "name": "Jogger Equipment Availability Import",
+    "name": "Jogger Technical Reporting Scope Selection",
     "status": "planned",
-    "goal": "Materialize 53 selected equipment attributes as 1166 dated standard, optional or not-available records while preserving existing availability data."
+    "goal": "Select the first bounded homogeneous Jogger reporting group after technical, price and equipment source coverage is complete."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

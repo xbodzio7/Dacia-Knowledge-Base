@@ -81,14 +81,14 @@ class DusterEquipmentAvailabilityImportTests(unittest.TestCase):
             IMPORTER.semantic_payload(IMPORTER.generated_rows()),
         )
 
-    def test_existing_non_duster_availability_is_preserved(self) -> None:
+    def test_existing_sandero_availability_is_preserved(self) -> None:
         actual = rows("configuration_attribute_availability.csv")
-        non_duster = [
+        sandero = [
             row for row in actual
-            if not row["configuration_code"].startswith("duster_iii_")
+            if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
         ]
-        self.assertEqual(len(actual), 1811)
-        self.assertEqual(len(non_duster), 419)
+        self.assertEqual(len(actual), 2977)
+        self.assertEqual(len(sandero), 419)
 
     def test_evidence_boundary_excludes_ambiguous_domains(self) -> None:
         matrix_codes = {row["attribute_code"] for row in IMPORTER.load_matrices()}

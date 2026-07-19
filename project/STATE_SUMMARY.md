@@ -16,35 +16,35 @@
 
 ## Reference delivery
 
-- Package: Jogger MY26 Page-6 Source Completion Review
-- Pull Request: #127
-- Verified head: `3242cad48103214be7f23fabc0da31b19c4b8cff`
-- Quality run: #577
+- Package: Jogger Equipment Matrix Intake Selection
+- Pull Request: #128
+- Verified head: `56fbefc78e7f83225b5374b11b8dd1a562eef681`
+- Quality run: #589
 
 ## Verified baseline
 
-- Tests: 536
+- Tests: 544
 - Master CSV files: 37
-- Master rows: 3989
+- Master rows: 5155
 - Configuration values: 1204
 - Configuration import specifications: 71
 - Configuration value ranges: 144
 - Configuration range import specifications: 19
-- Availability records: 1811
+- Availability records: 2977
 - Canonical attributes: 357
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Equipment Matrix Intake Selection** — `active`
+**Jogger Equipment Availability Import** — `active`
 
-Select the source-backed pages 4-5 equipment availability denominator for all 22 active Jogger configurations without importing data.
+Materialize 53 selected pages 4-5 equipment attributes as 1166 dated availability records for all 22 active Jogger configurations.
 
 ## Next package
 
-**Jogger Equipment Availability Import** — `planned`
+**Jogger Technical Reporting Scope Selection** — `planned`
 
-Materialize 53 selected equipment attributes as 1166 dated standard, optional or not-available records while preserving existing availability data.
+Select the first bounded homogeneous Jogger reporting group after technical, price and equipment source coverage is complete.
 
 ## Autonomy
 
