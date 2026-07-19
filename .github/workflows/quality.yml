@@ -34,14 +34,11 @@ jobs:
           python -m unittest discover -s tests -p "test_*.py" -q > "${RUNNER_TEMP}/unit.log" 2>&1
           status=$?
           python - <<'PY'
+          import os
           from pathlib import Path
-          source = Path("${RUNNER_TEMP}/unit.log")
+          source = Path(os.environ["RUNNER_TEMP"]) / "unit.log"
           text = source.read_text(encoding="utf-8", errors="replace")
-          markers = [
-              text.rfind("======================================================================"),
-              text.rfind("Traceback (most recent call last):"),
-          ]
-          start = max(markers)
+          start = text.rfind("======================================================================")
           if start < 0:
               lines = text.splitlines()
               excerpt = "\n".join(lines[-240:])
@@ -63,7 +60,7 @@ jobs:
           git show FETCH_HEAD:.github/workflows/quality.yml > .github/workflows/quality.yml
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add .github/workflows/quality.yml project/reviews/jogger-wltp-unit-test-diagnostic.log
+          git add -A
           git commit -m "Capture Jogger WLTP unit-test diagnostic"
           git push origin HEAD:data/jogger-wltp-efficiency-ranges
           exit "${{ steps.tests.outputs.status }}"
