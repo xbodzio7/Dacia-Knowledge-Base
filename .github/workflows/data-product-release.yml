@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: "3.13"
       - name: Run release regression tests
-        run: python -m unittest -v tests.test_data_product_release
+        run: python -m unittest -q tests.test_data_product_release
       - name: Build release candidate
         run: |
           python tools/data_product_release.py \
