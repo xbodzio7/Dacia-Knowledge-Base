@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Source-Backed Model Expansion**
+**Registered Source Portfolio Complete**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Reporting Portfolio Completion Review** — `complete`
+**Registered Source Reporting Portfolio Completion Review** — `complete`
 
-Confirm isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone.
+Confirm that 13 independent scopes cover all 53 active configurations and all nine active registered sources without overlap or unused source material.
 
 ## Next package
 
-**Registered Source Reporting Portfolio Completion Review** — `planned`
+**New Official Source Acquisition** — `blocked`
 
-Verify independent reporting coverage for all 53 active configurations and determine whether any further model expansion can proceed from existing registered sources.
+Register and import at least one new official Dacia model, model-year or market source before creating another reporting expansion package.
 
 ## Autonomy
 
