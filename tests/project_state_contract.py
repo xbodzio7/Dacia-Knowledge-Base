@@ -38,6 +38,8 @@ class ProjectStateContractTests(unittest.TestCase):
                 "rows": 20,
                 "configuration_values": 3,
                 "configuration_import_specs": 1,
+                "configuration_value_ranges": 1,
+                "configuration_range_import_specs": 1,
                 "availability_records": 4,
                 "attributes": 5,
                 "attribute_categories": 2,
@@ -83,6 +85,8 @@ class ProjectStateContractTests(unittest.TestCase):
             validator_version="1.0",
             configuration_values=4,
             configuration_import_specs=2,
+            configuration_value_ranges=2,
+            configuration_range_import_specs=2,
             configuration_availability=5,
             availability_standard=4,
             availability_optional=0,
@@ -149,13 +153,15 @@ class ProjectStateContractTests(unittest.TestCase):
                 "rows": 21,
                 "configuration_values": 4,
                 "configuration_import_specs": 2,
+                "configuration_value_ranges": 2,
+                "configuration_range_import_specs": 2,
                 "availability_records": 5,
                 "attributes": 6,
                 "attribute_categories": 3,
             },
         )
         drift = project_state.baseline_drift(state, live)
-        self.assertEqual(len(drift), 8)
+        self.assertEqual(len(drift), 10)
         self.assertTrue(all("live value" in item for item in drift))
 
     def test_synchronized_state_updates_only_live_fields(self) -> None:

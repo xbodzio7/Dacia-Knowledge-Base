@@ -1,0 +1,1880 @@
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-ecog120-manual-fuel-consumption-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-ecog120-manual-fuel-consumption-range-20260401.json
+Attribute: fuel_consumption_combined
+Ranges   : 12
+Existing : 12
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-ecog120-manual-co2-emissions-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-ecog120-manual-co2-emissions-range-20260401.json
+Attribute: co2_emissions
+Ranges   : 12
+Existing : 12
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-fuel-consumption-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-fuel-consumption-range-20260401.json
+Attribute: fuel_consumption_combined
+Ranges   : 8
+Existing : 8
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-co2-emissions-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-co2-emissions-range-20260401.json
+Attribute: co2_emissions
+Ranges   : 8
+Existing : 8
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-tce110-manual-fuel-consumption-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-tce110-manual-fuel-consumption-range-20260401.json
+Attribute: fuel_consumption_combined
+Ranges   : 6
+Existing : 6
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-tce110-manual-co2-emissions-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-tce110-manual-co2-emissions-range-20260401.json
+Attribute: co2_emissions
+Ranges   : 6
+Existing : 6
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-hybrid155-automatic-fuel-consumption-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-hybrid155-automatic-fuel-consumption-range-20260401.json
+Attribute: fuel_consumption_combined
+Ranges   : 6
+Existing : 6
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py import-configuration-value-ranges --spec data/imports/configuration_value_ranges/jogger-page6-hybrid155-automatic-co2-emissions-range-20260401.json --apply
+Spec     : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/imports/configuration_value_ranges/jogger-page6-hybrid155-automatic-co2-emissions-range-20260401.json
+Attribute: co2_emissions
+Ranges   : 6
+Existing : 6
+Missing  : 0
+Mode     : apply
+PASS
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py project-state --apply
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/SESSION_STATE.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 528
+Master rows    : 3909
+Phase          : Source-Backed Model Expansion
+Current package: Jogger WLTP Efficiency Range Modeling and Import
+Next package   : Jogger Payload and Performance Range Selection
+Autonomy mode  : autonomous_until_action_required
++ /opt/hostedtoolcache/Python/3.13.14/x64/bin/python tools/dkb.py documentation-baseline --apply
+Documentation baseline blocks are already current.
+Documentation baseline
+----------------------
+Tests                : 528
+Master CSV files     : 37
+Master rows          : 3909
+Configuration values : 1204
+Import specs         : 71
+Value ranges         : 64
+Range import specs   : 8
+Availability records : 1811
+Attributes           : 357
+Attribute categories : 30
+SQLite tables        : 37 (derived)
+SQLite rows          : 3909 (derived)
+/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:306: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpnu1a6hz8/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f27929b3970>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-a_ob0lvj/output/handoff.json
+ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-w67ygvzl/output/handoff.json
+Building SQLite database: /tmp/tmpsl8tj1ta/reports/test.sqlite
+Source directory: /tmp/tmpsl8tj1ta/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpsl8tj1ta/reports/test.sqlite
+Building SQLite database: /tmp/tmp3r5xxyzu/nested/directory/test.sqlite
+Source directory: /tmp/tmp3r5xxyzu/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmp3r5xxyzu/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmpsg64jej8/test.sqlite
+Source directory: /tmp/tmpsg64jej8/data/master
+Building SQLite database: /tmp/tmpcuzg24i7/test.sqlite
+Source directory: /tmp/tmpcuzg24i7/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpcuzg24i7/test.sqlite
+Building SQLite database: /tmp/tmppm1masby/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 357 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 1811 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 64 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1204 rows
+  data/master/configuration_prices.csv -> configuration_prices: 53 rows
+  data/master/configurations.csv -> configurations: 53 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 53 rows
+  data/master/source_models.csv -> source_models: 9 rows
+  data/master/source_versions.csv -> source_versions: 16 rows
+  data/master/sources.csv -> sources: 9 rows
+  data/master/units.csv -> units: 26 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 14 rows
+Database ready: /tmp/tmppm1masby/dkb.sqlite
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+HEAD   : 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+53660b1 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-t4_616nw/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+HEAD   : 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+53660b1 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 53660b1dd62f1cbec86b4f0cca07e8ace0aee8e5
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 4cacf0f7bd6a0a8be660ea1e05fdf0d5058c0890
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 1b156ef9eb63811d0d9ee5525b3b0a1443f9def0
+HEAD   : 4cacf0f7bd6a0a8be660ea1e05fdf0d5058c0890
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+4cacf0f (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-muruio4n/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 04b0e45926db18444caa8a380d47aca1f132ebf0
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+HEAD   : 04b0e45926db18444caa8a380d47aca1f132ebf0
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+04b0e45 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-6ija5g90/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 04b0e45926db18444caa8a380d47aca1f132ebf0
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+HEAD   : 04b0e45926db18444caa8a380d47aca1f132ebf0
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+04b0e45 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-noppol9a/output/handoff.json
+ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-8torzt23/output/handoff.json
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-8l19jker/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rldvs2h6/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-215g5mce/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-qpzhd_q6/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-wjm27cg7/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-a0rdpj3p/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-s4ngh9xh/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-3pndk5ts/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-f72x5cy5/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-nnblfn93/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-n4l1puxy/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-ps2q0ph7/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-5_2b4hv8/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-3lfej4e4/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-hgioypfb/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-_tx5g5hs/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-4hfm88s7/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/workflow-test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-aah7uwj4/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpb7oa7b48/quality.log
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-8d3x3869/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 04b0e45926db18444caa8a380d47aca1f132ebf0
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+HEAD   : 04b0e45926db18444caa8a380d47aca1f132ebf0
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+04b0e45 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-cfmggnbr/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 04b0e45926db18444caa8a380d47aca1f132ebf0
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+HEAD   : 04b0e45926db18444caa8a380d47aca1f132ebf0
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+04b0e45 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-bbioqwo0/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: 04b0e45926db18444caa8a380d47aca1f132ebf0
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 97398485f37e7105f723be3661f2a4547f46d509
+HEAD   : 04b0e45926db18444caa8a380d47aca1f132ebf0
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+04b0e45 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-bbioqwo0/output/handoff.json
+PASS
+
+==> Broken
+ERROR: SQLite database does not exist: /tmp/tmp2vg94yes/missing.sqlite
+======================================================================
+FAIL: test_master_table_has_exact_empty_schema (test_configuration_value_ranges.ConfigurationValueRangeTests.test_master_table_has_exact_empty_schema)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 106, in test_master_table_has_exact_empty_schema
+    self.assertEqual(rows[1:], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: Lists differ: [['1', 'jogger_essential_5seat_ecog120_man[18512 chars]04']] != []
+
+First list contains 64 additional elements.
+First extra element 0:
+['1', 'jogger_essential_5seat_ecog120_manual_fuel_consumption_combined_lpg_range_20260401', 'jogger_essential_5seat_ecog120_manual', 'fuel_consumption_combined', 'lpg', '7.3', '7.4', 'true', 'true', '2026-04-01', 'src_pl_jogger_price_my26_20260401', 'Source page 6, section OSIĄGI: LPG: 7,3-7,4']
+
+Diff is 21572 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_repository_empty_range_table_is_valid (test_configuration_value_ranges.ConfigurationValueRangeTests.test_repository_empty_range_table_is_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 110, in test_repository_empty_range_table_is_valid
+    self.assertEqual(checked, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: 64 != 0
+
+======================================================================
+FAIL: test_sqlite_builder_discovers_header_only_range_table (test_configuration_value_ranges.ConfigurationValueRangeTests.test_sqlite_builder_discovers_header_only_range_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 196, in test_sqlite_builder_discovers_header_only_range_table
+    self.assertEqual(count, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: 64 != 0
+
+----------------------------------------------------------------------
+Ran 528 tests in 9.319s
+
+FAILED (failures=3)
+Building SQLite database: /tmp/tmpjllmgb_l/test.sqlite
+Source directory: /tmp/tmpjllmgb_l/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpjllmgb_l/test.sqlite
+Building SQLite database: /tmp/tmp58t6z_13/test.sqlite
+Source directory: /tmp/tmp58t6z_13/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp58t6z_13/test.sqlite
+Building SQLite database: /tmp/tmpk_sq2vv7/test.sqlite
+Source directory: /tmp/tmpk_sq2vv7/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpk_sq2vv7/test.sqlite
+Building SQLite database: /tmp/tmpopp_rfe1/test.sqlite
+Source directory: /tmp/tmpopp_rfe1/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpopp_rfe1/test.sqlite
+Building SQLite database: /tmp/tmpq0o108b8/test.sqlite
+Source directory: /tmp/tmpq0o108b8/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpq0o108b8/test.sqlite
+Building SQLite database: /tmp/tmpbsl9_5fy/test.sqlite
+Source directory: /tmp/tmpbsl9_5fy/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpbsl9_5fy/test.sqlite
+Project state: PASS
+Tests          : 528
+Master rows    : 3909
+Phase          : Source-Backed Model Expansion
+Current package: Jogger WLTP Efficiency Range Modeling and Import
+Next package   : Jogger Payload and Performance Range Selection
+Autonomy mode  : autonomous_until_action_required
+==> Compile Python sources: PASS
+==> Run unit tests: FAIL
+Building SQLite database: /tmp/tmp_617nto7/reports/test.sqlite
+Source directory: /tmp/tmp_617nto7/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp_617nto7/reports/test.sqlite
+Building SQLite database: /tmp/tmp663fonwb/nested/directory/test.sqlite
+Source directory: /tmp/tmp663fonwb/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmp663fonwb/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmp4qzwz861/test.sqlite
+Source directory: /tmp/tmp4qzwz861/data/master
+Building SQLite database: /tmp/tmpag82jqcu/test.sqlite
+Source directory: /tmp/tmpag82jqcu/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpag82jqcu/test.sqlite
+Building SQLite database: /tmp/tmp6pestiqs/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 357 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 1811 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 64 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1204 rows
+  data/master/configuration_prices.csv -> configuration_prices: 53 rows
+  data/master/configurations.csv -> configurations: 53 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 53 rows
+  data/master/source_models.csv -> source_models: 9 rows
+  data/master/source_versions.csv -> source_versions: 16 rows
+  data/master/sources.csv -> sources: 9 rows
+  data/master/units.csv -> units: 26 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 14 rows
+Database ready: /tmp/tmp6pestiqs/dkb.sqlite
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+HEAD   : 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+9b29f1d (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-ia_2uwio/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+HEAD   : 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+9b29f1d (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 06f51e2c488344116fe28eb8f98f246508ff89e5
+HEAD   : 9b29f1dc008337fcaa2c08e840bd3eee1314ef54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+9b29f1d (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-lqhubrpb/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 182ff0cba75711b461d517c26f69ca824fe065e7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+HEAD   : 182ff0cba75711b461d517c26f69ca824fe065e7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+182ff0c (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-mevlw0fy/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 182ff0cba75711b461d517c26f69ca824fe065e7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+HEAD   : 182ff0cba75711b461d517c26f69ca824fe065e7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+182ff0c (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-z_xcte8l/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 182ff0cba75711b461d517c26f69ca824fe065e7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+HEAD   : 182ff0cba75711b461d517c26f69ca824fe065e7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+182ff0c (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-wrp5xi0d/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 182ff0cba75711b461d517c26f69ca824fe065e7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+HEAD   : 182ff0cba75711b461d517c26f69ca824fe065e7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+182ff0c (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-e5burkj3/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: 182ff0cba75711b461d517c26f69ca824fe065e7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c20dfb838728ca7792c318c30428572c5004f509
+HEAD   : 182ff0cba75711b461d517c26f69ca824fe065e7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+182ff0c (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-e5burkj3/output/handoff.json
+PASS
+
+==> Broken
+Building SQLite database: /tmp/tmphtfsagld/test.sqlite
+Source directory: /tmp/tmphtfsagld/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmphtfsagld/test.sqlite
+Building SQLite database: /tmp/tmpntdxf35w/test.sqlite
+Source directory: /tmp/tmpntdxf35w/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpntdxf35w/test.sqlite
+Building SQLite database: /tmp/tmp4poo0ndm/test.sqlite
+Source directory: /tmp/tmp4poo0ndm/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp4poo0ndm/test.sqlite
+Building SQLite database: /tmp/tmp4a0g6nqm/test.sqlite
+Source directory: /tmp/tmp4a0g6nqm/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp4a0g6nqm/test.sqlite
+Building SQLite database: /tmp/tmpbkv7zlsk/test.sqlite
+Source directory: /tmp/tmpbkv7zlsk/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpbkv7zlsk/test.sqlite
+Building SQLite database: /tmp/tmpzdwo13ew/test.sqlite
+Source directory: /tmp/tmpzdwo13ew/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpzdwo13ew/test.sqlite
+test_accepts_distinct_pairs_with_same_interval (test_association_intervals.AssociationIntervalValidationTests.test_accepts_distinct_pairs_with_same_interval) ... ok
+test_accepts_non_overlapping_repeated_pair (test_association_intervals.AssociationIntervalValidationTests.test_accepts_non_overlapping_repeated_pair) ... ok
+test_rejects_exact_duplicate_interval (test_association_intervals.AssociationIntervalValidationTests.test_rejects_exact_duplicate_interval) ... ok
+test_rejects_interval_after_open_interval (test_association_intervals.AssociationIntervalValidationTests.test_rejects_interval_after_open_interval) ... ok
+test_rejects_overlapping_closed_intervals (test_association_intervals.AssociationIntervalValidationTests.test_rejects_overlapping_closed_intervals) ... ok
+test_rejects_reversed_interval (test_association_intervals.AssociationIntervalValidationTests.test_rejects_reversed_interval) ... ok
+test_rejects_shared_boundary_year (test_association_intervals.AssociationIntervalValidationTests.test_rejects_shared_boundary_year) ... ok
+test_reports_empty_key_column (test_association_intervals.AssociationIntervalValidationTests.test_reports_empty_key_column) ... ok
+test_reports_missing_column (test_association_intervals.AssociationIntervalValidationTests.test_reports_missing_column) ... ok
+test_reports_missing_file (test_association_intervals.AssociationIntervalValidationTests.test_reports_missing_file) ... ok
+test_scans_all_configured_files (test_association_intervals.AssociationIntervalValidationTests.test_scans_all_configured_files) ... ok
+test_accepts_open_range_inside_open_parent (test_association_ranges.AssociationRangeValidationTests.test_accepts_open_range_inside_open_parent) ... ok
+test_accepts_range_inside_closed_parent (test_association_ranges.AssociationRangeValidationTests.test_accepts_range_inside_closed_parent) ... ok
+test_rejects_open_relation_for_closed_parent (test_association_ranges.AssociationRangeValidationTests.test_rejects_open_relation_for_closed_parent) ... ok
+test_rejects_relation_end_after_parent (test_association_ranges.AssociationRangeValidationTests.test_rejects_relation_end_after_parent) ... ok
+test_rejects_relation_start_before_parent (test_association_ranges.AssociationRangeValidationTests.test_rejects_relation_start_before_parent) ... ok
+test_rejects_reversed_relation_range (test_association_ranges.AssociationRangeValidationTests.test_rejects_reversed_relation_range) ... ok
+test_reports_missing_parent_code (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_parent_code) ... ok
+test_reports_missing_parent_column (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_parent_column) ... ok
+test_reports_missing_relation_column (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_relation_column) ... ok
+test_reports_missing_relation_file (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_relation_file) ... ok
+test_scans_all_configured_rules (test_association_ranges.AssociationRangeValidationTests.test_scans_all_configured_rules) ... ok
+test_battery_chemistry_domain_is_controlled (test_attribute_enum_domains.AttributeEnumDomainTests.test_battery_chemistry_domain_is_controlled) ... ok
+test_capacity_remains_deferred_and_provenance_is_preserved (test_attribute_enum_domains.AttributeEnumDomainTests.test_capacity_remains_deferred_and_provenance_is_preserved) ... ok
+test_every_enum_observation_resolves_through_registry (test_attribute_enum_domains.AttributeEnumDomainTests.test_every_enum_observation_resolves_through_registry) ... ok
+test_global_enum_domain_validation_accepts_repository (test_attribute_enum_domains.AttributeEnumDomainTests.test_global_enum_domain_validation_accepts_repository) ... ok
+test_import_spec_has_exact_hybrid_denominator (test_attribute_enum_domains.AttributeEnumDomainTests.test_import_spec_has_exact_hybrid_denominator) ... ok
+test_registry_contains_all_migrated_domains (test_attribute_enum_domains.AttributeEnumDomainTests.test_registry_contains_all_migrated_domains) ... ok
+test_six_lithium_ion_observations_are_materialized (test_attribute_enum_domains.AttributeEnumDomainTests.test_six_lithium_ion_observations_are_materialized) ... ok
+test_status_rules_are_resolved_from_registry (test_attribute_enum_domains.AttributeEnumDomainTests.test_status_rules_are_resolved_from_registry) ... ok
+test_builds_database_with_expected_data (test_build_sqlite.SqliteBuildTests.test_builds_database_with_expected_data) ... ok
+test_creates_output_parent_directory (test_build_sqlite.SqliteBuildTests.test_creates_output_parent_directory) ... ok
+test_preserves_existing_database_on_failure (test_build_sqlite.SqliteBuildTests.test_preserves_existing_database_on_failure) ... ok
+test_rejects_duplicate_table_names (test_build_sqlite.SqliteBuildTests.test_rejects_duplicate_table_names) ... ok
+test_replaces_existing_database_after_success (test_build_sqlite.SqliteBuildTests.test_replaces_existing_database_after_success) ... ok
+test_deterministic_json_and_markdown (test_configuration_comparison.ConfigurationComparisonTests.test_deterministic_json_and_markdown) ... ok
+test_difference_csv_contains_only_recorded_differences (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_contains_only_recorded_differences) ... ok
+test_difference_csv_domain_filter_composes_with_pair_type (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_domain_filter_composes_with_pair_type) ... ok
+test_difference_csv_empty_filter_has_header_only (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_empty_filter_has_header_only) ... ok
+test_difference_csv_item_filter_composes_with_other_filters (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_item_filter_composes_with_other_filters) ... ok
+test_distinguishes_recorded_differences_and_evidence_states (test_configuration_comparison.ConfigurationComparisonTests.test_distinguishes_recorded_differences_and_evidence_states) ... ok
+test_overlapping_ranges_preserve_relation_and_endpoints (test_configuration_comparison.ConfigurationComparisonTests.test_overlapping_ranges_preserve_relation_and_endpoints) ... ok
+test_pair_type_filter_recalculates_scope_and_summary (test_configuration_comparison.ConfigurationComparisonTests.test_pair_type_filter_recalculates_scope_and_summary) ... ok
+test_rejects_duplicate_current_price (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_duplicate_current_price) ... ok
+test_rejects_evidence_scope_drift (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_evidence_scope_drift) ... ok
+test_rejects_unknown_difference_domain (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_unknown_difference_domain) ... ok
+test_rejects_unknown_difference_item_code (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_unknown_difference_item_code) ... ok
+test_rejects_unknown_pair_type_filter (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_unknown_pair_type_filter) ... ok
+test_as_of (test_configuration_completeness.ConfigurationCompletenessTests.test_as_of) ... ok
+test_deterministic_json_and_markdown (test_configuration_completeness.ConfigurationCompletenessTests.test_deterministic_json_and_markdown) ... ok
+test_distinguishes_states (test_configuration_completeness.ConfigurationCompletenessTests.test_distinguishes_states) ... ok
+test_range_observations_satisfy_technical_slots (test_configuration_completeness.ConfigurationCompletenessTests.test_range_observations_satisfy_technical_slots) ... ok
+test_rejects_record_for_not_applicable (test_configuration_completeness.ConfigurationCompletenessTests.test_rejects_record_for_not_applicable) ... ok
+test_rejects_scope_drift (test_configuration_completeness.ConfigurationCompletenessTests.test_rejects_scope_drift) ... ok
+test_rejects_unregistered_slot (test_configuration_completeness.ConfigurationCompletenessTests.test_rejects_unregistered_slot) ... ok
+test_builds_conservative_evidence_report (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_builds_conservative_evidence_report) ... ok
+test_json_and_markdown_are_deterministic (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_json_and_markdown_are_deterministic) ... ok
+test_parse_args_accepts_specs_snapshot_and_outputs (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_parse_args_accepts_specs_snapshot_and_outputs) ... ok
+test_rejects_ambiguous_without_manual_review (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_ambiguous_without_manual_review) ... ok
+test_rejects_found_without_source_evidence (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_found_without_source_evidence) ... ok
+test_rejects_gap_set_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_gap_set_mismatch) ... ok
+test_rejects_source_metadata_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_source_metadata_mismatch) ... ok
+test_source_page_scope_reports_completed_review (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_source_page_scope_reports_completed_review) ... ok
+test_validates_automatic_transmission_scope_basis (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_validates_automatic_transmission_scope_basis) ... ok
+test_validates_availability_basis_source_text (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_validates_availability_basis_source_text) ... ok
+test_builds_resolution_plan_for_all_evidence_states (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_builds_resolution_plan_for_all_evidence_states) ... ok
+test_found_candidate_reuses_existing_string_model (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_found_candidate_reuses_existing_string_model) ... ok
+test_json_and_markdown_are_deterministic (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_json_and_markdown_are_deterministic) ... ok
+test_parse_args_accepts_specs_and_outputs (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_parse_args_accepts_specs_and_outputs) ... ok
+test_rejects_ambiguous_evidence (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_ambiguous_evidence) ... ok
+test_rejects_existing_conflicting_value (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_existing_conflicting_value) ... /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:306: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp5va1c8uj/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_rejects_found_without_candidate_value (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_found_without_candidate_value) ... ok
+test_rejects_missing_source_configuration_pair (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_missing_source_configuration_pair) ... ok
+test_rejects_plan_content_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_content_mismatch) ... ok
+test_rejects_plan_decision_set_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_decision_set_mismatch) ... ok
+test_zero_candidates_route_to_closure_milestone (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_zero_candidates_route_to_closure_milestone) ... ok
+test_classifies_found_direct_statement (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_classifies_found_direct_statement) ... ok
+test_classifies_not_stated_after_complete_page (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_classifies_not_stated_after_complete_page) ... ok
+test_conflicting_candidates_remain_ambiguous (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_conflicting_candidates_remain_ambiguous) ... ok
+test_incomplete_extraction_remains_ambiguous (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_incomplete_extraction_remains_ambiguous) ... ok
+test_markdown_is_deterministic_and_conservative (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_markdown_is_deterministic_and_conservative) ... ok
+test_page_extraction_uses_anchor_calibration (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_page_extraction_uses_anchor_calibration) ... ok
+test_parse_args_accepts_review_outputs_and_verify (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_parse_args_accepts_review_outputs_and_verify) ... ok
+test_rules_must_match_ambiguous_attributes (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_rules_must_match_ambiguous_attributes) ... ok
+test_source_hash_mismatch_is_rejected (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_source_hash_mismatch_is_rejected) ... ok
+test_source_text_window_prefers_shortest_window (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_source_text_window_prefers_shortest_window) ... ok
+test_updated_spec_and_report_are_deterministic (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_updated_spec_and_report_are_deterministic) ... ok
+test_builds_neutral_queue_and_preserves_source_metadata (test_configuration_gap_triage.ConfigurationGapTriageTests.test_builds_neutral_queue_and_preserves_source_metadata) ... ok
+test_groups_queue_by_source_configuration_category_and_section (test_configuration_gap_triage.ConfigurationGapTriageTests.test_groups_queue_by_source_configuration_category_and_section) ... ok
+test_input_order_does_not_change_output (test_configuration_gap_triage.ConfigurationGapTriageTests.test_input_order_does_not_change_output) ... ok
+test_json_and_markdown_are_deterministic (test_configuration_gap_triage.ConfigurationGapTriageTests.test_json_and_markdown_are_deterministic) ... ok
+test_parse_args_accepts_snapshot_and_outputs (test_configuration_gap_triage.ConfigurationGapTriageTests.test_parse_args_accepts_snapshot_and_outputs) ... ok
+test_rejects_gap_set_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_gap_set_mismatch) ... ok
+test_rejects_input_report_date_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_input_report_date_mismatch) ... ok
+test_rejects_source_registration_gap (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_source_registration_gap) ... ok
+test_each_spec_matches_master_rows_exactly (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_each_spec_matches_master_rows_exactly) ... ok
+test_one_off_value_test_is_replaced_by_shared_contract (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_one_off_value_test_is_replaced_by_shared_contract) ... ok
+test_registered_source_files_match_declared_hashes (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_registered_source_files_match_declared_hashes) ... ok
+test_repository_contains_versioned_import_specs (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_repository_contains_versioned_import_specs) ... ok
+test_specs_generate_globally_disjoint_identifiers (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_specs_generate_globally_disjoint_identifiers) ... ok
+test_specs_use_registered_source_configuration_pairs (test_configuration_value_import_specs.ConfigurationValueImportSpecTests.test_specs_use_registered_source_configuration_pairs) ... ok
+test_identical_closed_ranges (test_configuration_value_range_reporting.RangeReportingHelperTests.test_identical_closed_ranges) ... ok
+test_newer_range_supersedes_older_scalar (test_configuration_value_range_reporting.RangeReportingHelperTests.test_newer_range_supersedes_older_scalar) ... ok
+test_overlapping_range_and_scalar_point (test_configuration_value_range_reporting.RangeReportingHelperTests.test_overlapping_range_and_scalar_point) ... ok
+test_same_date_scalar_range_collision_is_rejected (test_configuration_value_range_reporting.RangeReportingHelperTests.test_same_date_scalar_range_collision_is_rejected) ... ok
+test_touching_open_ranges_are_disjoint (test_configuration_value_range_reporting.RangeReportingHelperTests.test_touching_open_ranges_are_disjoint) ... ok
+test_import_is_append_only_and_idempotent (test_configuration_value_ranges.ConfigurationValueRangeTests.test_import_is_append_only_and_idempotent) ... ok
+test_master_table_has_exact_empty_schema (test_configuration_value_ranges.ConfigurationValueRangeTests.test_master_table_has_exact_empty_schema) ... FAIL
+test_repository_empty_range_table_is_valid (test_configuration_value_ranges.ConfigurationValueRangeTests.test_repository_empty_range_table_is_valid) ... FAIL
+test_spec_rejects_noncanonical_decimal_endpoint (test_configuration_value_ranges.ConfigurationValueRangeTests.test_spec_rejects_noncanonical_decimal_endpoint) ... ok
+test_spec_rejects_reversed_or_degenerate_range (test_configuration_value_ranges.ConfigurationValueRangeTests.test_spec_rejects_reversed_or_degenerate_range) ... ok
+test_sqlite_builder_discovers_header_only_range_table (test_configuration_value_ranges.ConfigurationValueRangeTests.test_sqlite_builder_discovers_header_only_range_table) ... FAIL
+test_strict_spec_loads_numeric_closed_range (test_configuration_value_ranges.ConfigurationValueRangeTests.test_strict_spec_loads_numeric_closed_range) ... ok
+test_validator_rejects_non_numeric_attribute (test_configuration_value_ranges.ConfigurationValueRangeTests.test_validator_rejects_non_numeric_attribute) ... ok
+test_validator_rejects_noncanonical_inclusivity_flag (test_configuration_value_ranges.ConfigurationValueRangeTests.test_validator_rejects_noncanonical_inclusivity_flag) ... ok
+test_validator_rejects_scalar_range_collision (test_configuration_value_ranges.ConfigurationValueRangeTests.test_validator_rejects_scalar_range_collision) ... ok
+test_accepts_utf8_bom (test_csv_validator.CsvValidatorTests.test_accepts_utf8_bom) ... ok
+test_accepts_valid_utf8_csv (test_csv_validator.CsvValidatorTests.test_accepts_valid_utf8_csv) ... ok
+test_rejects_case_insensitive_duplicate_header (test_csv_validator.CsvValidatorTests.test_rejects_case_insensitive_duplicate_header) ... ok
+test_rejects_empty_data_row (test_csv_validator.CsvValidatorTests.test_rejects_empty_data_row) ... ok
+test_rejects_empty_file (test_csv_validator.CsvValidatorTests.test_rejects_empty_file) ... ok
+test_rejects_empty_header_name (test_csv_validator.CsvValidatorTests.test_rejects_empty_header_name) ... ok
+test_rejects_long_row (test_csv_validator.CsvValidatorTests.test_rejects_long_row) ... ok
+test_rejects_malformed_csv_quoting (test_csv_validator.CsvValidatorTests.test_rejects_malformed_csv_quoting) ... ok
+test_rejects_short_row (test_csv_validator.CsvValidatorTests.test_rejects_short_row) ... ok
+test_rejects_windows_1250 (test_csv_validator.CsvValidatorTests.test_rejects_windows_1250) ... ok
+test_reports_missing_file (test_csv_validator.CsvValidatorTests.test_reports_missing_file) ... ok
+test_accepts_all_help_aliases (test_dkb_cli.DkbCliTests.test_accepts_all_help_aliases) ... ok
+test_configuration_comparison_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_comparison_help_and_forwarding) ... ok
+test_configuration_completeness_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_completeness_help_and_forwarding) ... ok
+test_configuration_gap_evidence_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_gap_evidence_help_and_forwarding) ... ok
+test_configuration_gap_resolution_plan_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_gap_resolution_plan_help_and_forwarding) ... ok
+test_configuration_gap_source_review_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_gap_source_review_help_and_forwarding) ... ok
+test_configuration_gap_triage_help_and_forwarding (test_dkb_cli.DkbCliTests.test_configuration_gap_triage_help_and_forwarding) ... ok
+test_displays_help_without_arguments (test_dkb_cli.DkbCliTests.test_displays_help_without_arguments) ... ok
+test_documentation_baseline_help_and_forwarding (test_dkb_cli.DkbCliTests.test_documentation_baseline_help_and_forwarding) ... ok
+test_forwards_configuration_value_import_arguments (test_dkb_cli.DkbCliTests.test_forwards_configuration_value_import_arguments) ... ok
+test_forwards_package_publish_arguments_and_exit_code (test_dkb_cli.DkbCliTests.test_forwards_package_publish_arguments_and_exit_code) ... ok
+test_forwards_script_arguments_and_exit_code (test_dkb_cli.DkbCliTests.test_forwards_script_arguments_and_exit_code) ... ok
+test_forwards_workflow_arguments_and_exit_code (test_dkb_cli.DkbCliTests.test_forwards_workflow_arguments_and_exit_code) ... ok
+test_help_includes_configuration_value_import (test_dkb_cli.DkbCliTests.test_help_includes_configuration_value_import) ... ok
+test_help_includes_package_publish (test_dkb_cli.DkbCliTests.test_help_includes_package_publish) ... ok
+test_main_dispatches_report_command (test_dkb_cli.DkbCliTests.test_main_dispatches_report_command) ... ok
+test_main_dispatches_script_command (test_dkb_cli.DkbCliTests.test_main_dispatches_script_command) ... ok
+test_main_dispatches_workflow_command (test_dkb_cli.DkbCliTests.test_main_dispatches_workflow_command) ... ok
+test_rejects_arguments_for_report_command (test_dkb_cli.DkbCliTests.test_rejects_arguments_for_report_command) ... ok
+test_rejects_unknown_command (test_dkb_cli.DkbCliTests.test_rejects_unknown_command) ... ok
+test_reports_missing_command_script (test_dkb_cli.DkbCliTests.test_reports_missing_command_script) ... ok
+test_source_coverage_help_and_forwarding (test_dkb_cli.DkbCliTests.test_source_coverage_help_and_forwarding) ... ok
+test_apply_then_check_managed_documents (test_documentation_baseline.DocumentationBaselineTests.test_apply_then_check_managed_documents) ... ok
+test_collects_deterministic_source_counts (test_documentation_baseline.DocumentationBaselineTests.test_collects_deterministic_source_counts) ... ok
+test_detects_document_drift (test_documentation_baseline.DocumentationBaselineTests.test_detects_document_drift) ... ok
+test_markdown_and_arguments (test_documentation_baseline.DocumentationBaselineTests.test_markdown_and_arguments) ... ok
+test_rejects_missing_markers (test_documentation_baseline.DocumentationBaselineTests.test_rejects_missing_markers) ... ok
+test_rejects_sqlite_mismatch (test_documentation_baseline.DocumentationBaselineTests.test_rejects_sqlite_mismatch) ... ok
+test_verifies_matching_sqlite (test_documentation_baseline.DocumentationBaselineTests.test_verifies_matching_sqlite) ... ok
+test_catalog_identity_remains_valid_after_equipment_enrichment (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_catalog_identity_remains_valid_after_equipment_enrichment) ... /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f548cab7970>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_five_source_backed_versions_are_active (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_five_source_backed_versions_are_active) ... ok
+test_reporting_subset_remains_sandero_only (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_reporting_subset_remains_sandero_only) ... ok
+test_source_relations_cover_every_new_entity_exactly_once (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_source_relations_cover_every_new_entity_exactly_once) ... ok
+test_trim_and_transmission_counts_match_source_matrix (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_trim_and_transmission_counts_match_source_matrix) ... ok
+test_twenty_four_explicit_configurations_match_price_matrix (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_twenty_four_explicit_configurations_match_price_matrix) ... ok
+test_codes_are_unique_and_deterministic (test_duster_catalog_prices.DusterCatalogPriceTests.test_codes_are_unique_and_deterministic) ... ok
+test_every_price_references_an_existing_bootstrap_configuration (test_duster_catalog_prices.DusterCatalogPriceTests.test_every_price_references_an_existing_bootstrap_configuration) ... ok
+test_exact_twenty_four_source_supported_prices (test_duster_catalog_prices.DusterCatalogPriceTests.test_exact_twenty_four_source_supported_prices) ... ok
+test_existing_sandero_prices_remain_unchanged (test_duster_catalog_prices.DusterCatalogPriceTests.test_existing_sandero_prices_remain_unchanged) ... ok
+test_notes_preserve_scope_and_exclude_promotions (test_duster_catalog_prices.DusterCatalogPriceTests.test_notes_preserve_scope_and_exclude_promotions) ... ok
+test_prices_use_canonical_market_type_currency_and_date (test_duster_catalog_prices.DusterCatalogPriceTests.test_prices_use_canonical_market_type_currency_and_date) ... ok
+test_comparison_summaries_are_stable (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_comparison_summaries_are_stable) ... ok
+test_comparisons_have_expected_complete_pairs (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_comparisons_have_expected_complete_pairs) ... ok
+test_completeness_is_one_hundred_percent (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_completeness_is_one_hundred_percent) ... ok
+test_empty_evidence_is_valid_because_the_scopes_have_no_gaps (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_empty_evidence_is_valid_because_the_scopes_have_no_gaps) ... ok
+test_reporting_denominators_remain_independent (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_reporting_denominators_remain_independent) ... ok
+test_scopes_have_expected_technical_slots_and_fifty_eight_equipment_attributes (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_scopes_have_expected_technical_slots_and_fifty_eight_equipment_attributes) ... ok
+test_scopes_select_expected_current_configurations (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_scopes_select_expected_current_configurations) ... ok
+test_source_coverage_is_complete (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_source_coverage_is_complete) ... ok
+test_each_duster_configuration_receives_fifty_eight_attributes (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_each_duster_configuration_receives_fifty_eight_attributes) ... ok
+test_every_matrix_attribute_is_active_in_the_canonical_catalogue (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_every_matrix_attribute_is_active_in_the_canonical_catalogue) ... ok
+test_evidence_boundary_excludes_ambiguous_domains (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_evidence_boundary_excludes_ambiguous_domains) ... ok
+test_existing_non_duster_availability_is_preserved (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_existing_non_duster_availability_is_preserved) ... ok
+test_generated_rows_have_the_exact_status_distribution (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_generated_rows_have_the_exact_status_distribution) ... ok
+test_import_covers_exactly_twenty_four_active_duster_configurations (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_import_covers_exactly_twenty_four_active_duster_configurations) ... ok
+test_master_rows_match_the_generated_contract (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_master_rows_match_the_generated_contract) ... ok
+test_two_declarative_matrices_define_fifty_eight_unique_attributes (test_duster_equipment_availability_import.DusterEquipmentAvailabilityImportTests.test_two_declarative_matrices_define_fifty_eight_unique_attributes) ... ok
+test_33_specs_expand_to_392_exact_master_rows (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_33_specs_expand_to_392_exact_master_rows) ... ok
+test_attribute_and_context_counts_are_stable (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_attribute_and_context_counts_are_stable) ... ok
+test_bifuel_contexts_preserve_source_distinctions (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_bifuel_contexts_preserve_source_distinctions) ... ok
+test_every_configuration_has_unambiguous_core_values (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_every_configuration_has_unambiguous_core_values) ... ok
+test_hybrid_motor_components_are_not_collapsed_into_system_power (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_hybrid_motor_components_are_not_collapsed_into_system_power) ... ok
+test_prices_and_reporting_scope_remain_stable (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_prices_and_reporting_scope_remain_stable) ... ok
+test_repository_totals_match_technical_package (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_repository_totals_match_technical_package) ... ok
+test_trim_dependent_or_ambiguous_rows_are_not_imported (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_trim_dependent_or_ambiguous_rows_are_not_imported) ... ok
+test_declares_all_equipment_availability_references (test_equipment_availability_schema.EquipmentAvailabilitySchemaTests.test_declares_all_equipment_availability_references) ... ok
+test_declares_status_validation_for_dictionary (test_equipment_availability_schema.EquipmentAvailabilitySchemaTests.test_declares_status_validation_for_dictionary) ... ok
+test_relation_matches_d015_schema (test_equipment_availability_schema.EquipmentAvailabilitySchemaTests.test_relation_matches_d015_schema) ... ok
+test_sqlite_discovery_includes_new_schema_tables (test_equipment_availability_schema.EquipmentAvailabilitySchemaTests.test_sqlite_discovery_includes_new_schema_tables) ... ok
+test_status_dictionary_contains_controlled_values (test_equipment_availability_schema.EquipmentAvailabilitySchemaTests.test_status_dictionary_contains_controlled_values) ... ok
+test_apply_appends_atomically_and_is_idempotent (test_import_configuration_values.ImportConfigurationValuesTests.test_apply_appends_atomically_and_is_idempotent) ... ok
+test_builds_exact_deterministic_rows (test_import_configuration_values.ImportConfigurationValuesTests.test_builds_exact_deterministic_rows) ... ok
+test_loads_valid_versioned_spec (test_import_configuration_values.ImportConfigurationValuesTests.test_loads_valid_versioned_spec) ... ok
+test_plan_reports_exact_existing_rows (test_import_configuration_values.ImportConfigurationValuesTests.test_plan_reports_exact_existing_rows) ... ok
+test_registered_source_hash_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_hash_mismatch_is_rejected) ... ok
+test_registered_source_text_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_text_mismatch_is_rejected) ... ok
+test_rejects_attribute_contract_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_attribute_contract_mismatch) ... ok
+test_rejects_duplicate_configuration_and_fuel_context (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_duplicate_configuration_and_fuel_context) ... ok
+test_rejects_existing_id_conflict (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_existing_id_conflict) ... ok
+test_rejects_invalid_observation_date (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_invalid_observation_date) ... ok
+test_rejects_noncanonical_integer_value (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_noncanonical_integer_value) ... ok
+test_rejects_source_configuration_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_source_configuration_mismatch) ... ok
+test_rejects_unknown_attribute (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_unknown_attribute) ... ok
+test_rejects_unknown_configuration (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_unknown_configuration) ... ok
+test_rejects_unknown_row_key (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_unknown_row_key) ... ok
+test_rejects_unknown_source (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_unknown_source) ... ok
+test_rejects_unknown_top_level_key (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_unknown_top_level_key) ... ok
+test_verify_rejects_missing_rows (test_import_configuration_values.ImportConfigurationValuesTests.test_verify_rejects_missing_rows) ... ok
+test_every_active_jogger_configuration_has_both_measurements (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_every_active_jogger_configuration_has_both_measurements) ... ok
+test_five_and_seven_seat_values_match_exact_source_pairs (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_five_and_seven_seat_values_match_exact_source_pairs) ... ok
+test_measurement_specific_attribute_contracts_are_active (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_measurement_specific_attribute_contracts_are_active) ... ok
+test_qualified_rows_do_not_populate_generic_cargo_attributes (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_qualified_rows_do_not_populate_generic_cargo_attributes) ... ok
+test_registered_source_page_section_text_and_hash_contract (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_registered_source_page_section_text_and_hash_contract) ... ok
+test_two_specs_and_master_rows_form_contiguous_contract (test_jogger_cargo_measurements.JoggerCargoMeasurementTests.test_two_specs_and_master_rows_form_contiguous_contract) ... ok
+test_four_versions_and_twenty_two_configurations_are_exact (test_jogger_catalogue_entity_foundation.JoggerCatalogueEntityFoundationTests.test_four_versions_and_twenty_two_configurations_are_exact) ... ok
+test_seat_count_is_an_explicit_dated_observation (test_jogger_catalogue_entity_foundation.JoggerCatalogueEntityFoundationTests.test_seat_count_is_an_explicit_dated_observation) ... ok
+test_source_is_registered_with_exact_provenance_boundary (test_jogger_catalogue_entity_foundation.JoggerCatalogueEntityFoundationTests.test_source_is_registered_with_exact_provenance_boundary) ... ok
+test_source_relationships_cover_the_complete_catalogue (test_jogger_catalogue_entity_foundation.JoggerCatalogueEntityFoundationTests.test_source_relationships_cover_the_complete_catalogue) ... ok
+test_twenty_two_catalogue_prices_match_page_one (test_jogger_catalogue_entity_foundation.JoggerCatalogueEntityFoundationTests.test_twenty_two_catalogue_prices_match_page_one) ... ok
+test_gearbox_type_distribution_matches_four_source_groups (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_gearbox_type_distribution_matches_four_source_groups) ... ok
+test_jogger_model_associations_close_old_hybrid_and_open_my26_entities (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_jogger_model_associations_close_old_hybrid_and_open_my26_entities) ... ok
+test_master_gearbox_entities_preserve_exact_existing_contracts (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_master_gearbox_entities_preserve_exact_existing_contracts) ... ok
+test_registered_source_hash_and_declared_page_text_contract (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_registered_source_hash_and_declared_page_text_contract) ... ok
+test_six_gear_count_is_source_stated_only_for_manual_and_dct (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_six_gear_count_is_source_stated_only_for_manual_and_dct) ... ok
+test_two_specs_form_exact_contiguous_38_row_contract (test_jogger_gearbox_reconciliation.JoggerGearboxReconciliationTests.test_two_specs_form_exact_contiguous_38_row_contract) ... ok
+test_every_ecog_configuration_preserves_both_fuel_semantics (test_jogger_injection_type_import.JoggerInjectionTypeImportTests.test_every_ecog_configuration_preserves_both_fuel_semantics) ... ok
+test_group_and_fuel_context_counts_match_selection (test_jogger_injection_type_import.JoggerInjectionTypeImportTests.test_group_and_fuel_context_counts_match_selection) ... ok
+test_registered_source_hash_and_declared_text_contract (test_jogger_injection_type_import.JoggerInjectionTypeImportTests.test_registered_source_hash_and_declared_text_contract) ... ok
+test_spec_and_master_rows_form_exact_contiguous_contract (test_jogger_injection_type_import.JoggerInjectionTypeImportTests.test_spec_and_master_rows_form_exact_contiguous_contract) ... ok
+test_tce_and_hybrid_mappings_use_existing_enum_values (test_jogger_injection_type_import.JoggerInjectionTypeImportTests.test_tce_and_hybrid_mappings_use_existing_enum_values) ... ok
+test_import_covers_all_and_only_active_ecog_configurations (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_import_covers_all_and_only_active_ecog_configurations) ... ok
+test_lpg_capacity_attribute_contracts_are_active (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_lpg_capacity_attribute_contracts_are_active) ... ok
+test_petrol_tank_rows_remain_unchanged_and_generic_lpg_is_absent (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_petrol_tank_rows_remain_unchanged_and_generic_lpg_is_absent) ... ok
+test_registered_source_page_text_and_hash_contract (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_registered_source_page_text_and_hash_contract) ... ok
+test_two_specs_and_master_rows_form_contiguous_contract (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_two_specs_and_master_rows_form_contiguous_contract) ... ok
+test_values_and_lpg_context_match_the_source_pair (test_jogger_lpg_capacities.JoggerLpgCapacityTests.test_values_and_lpg_context_match_the_source_pair) ... ok
+test_attribute_is_active_minimum_specific_integer_weight (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_attribute_is_active_minimum_specific_integer_weight) ... ok
+test_every_active_jogger_configuration_has_exactly_one_value (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_every_active_jogger_configuration_has_exactly_one_value) ... ok
+test_minimum_qualifier_is_not_flattened_to_kerb_weight (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_minimum_qualifier_is_not_flattened_to_kerb_weight) ... ok
+test_powertrain_and_seat_values_match_the_source_pairs (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_powertrain_and_seat_values_match_the_source_pairs) ... ok
+test_registered_source_page_hash_and_text_contract (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_registered_source_page_hash_and_text_contract) ... ok
+test_spec_and_master_rows_form_exact_contiguous_contract (test_jogger_minimum_kerb_weight.JoggerMinimumKerbWeightTests.test_spec_and_master_rows_form_exact_contiguous_contract) ... ok
+test_all_rows_retain_page_provenance_and_exact_registered_binary (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_all_rows_retain_page_provenance_and_exact_registered_binary) ... ok
+test_deferred_ranges_and_semantic_mismatches_are_absent (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_deferred_ranges_and_semantic_mismatches_are_absent) ... ok
+test_each_powertrain_uses_selected_source_stated_denominator (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_each_powertrain_uses_selected_source_stated_denominator) ... ok
+test_ecog_preserves_fuel_contexts_and_excludes_lpg_tank_collapse (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_ecog_preserves_fuel_contexts_and_excludes_lpg_tank_collapse) ... ok
+test_exact_specification_set_is_versioned (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_exact_specification_set_is_versioned) ... ok
+test_hybrid_component_values_remain_separate_from_engine_power (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_hybrid_component_values_remain_separate_from_engine_power) ... ok
+test_import_has_contiguous_identifiers_and_exact_total (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_import_has_contiguous_identifiers_and_exact_total) ... ok
+test_seat_dependent_acceleration_and_gross_weight_are_not_flattened (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_seat_dependent_acceleration_and_gross_weight_are_not_flattened) ... ok
+test_attribute_is_active_total_system_power_contract (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_attribute_is_active_total_system_power_contract) ... ok
+test_import_covers_all_and_only_active_hybrid155_configurations (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_import_covers_all_and_only_active_hybrid155_configurations) ... ok
+test_registered_source_page_text_and_hash_contract (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_registered_source_page_text_and_hash_contract) ... ok
+test_spec_and_master_rows_form_exact_contiguous_contract (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_spec_and_master_rows_form_exact_contiguous_contract) ... ok
+test_total_system_power_does_not_rewrite_or_sum_components (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_total_system_power_does_not_rewrite_or_sum_components) ... ok
+test_unspecified_capacity_remains_excluded_after_chemistry_import (test_jogger_total_hybrid_system_power.JoggerTotalHybridSystemPowerTests.test_unspecified_capacity_remains_excluded_after_chemistry_import) ... ok
+test_all_22_active_configurations_receive_exact_slots (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_all_22_active_configurations_receive_exact_slots) ... ok
+test_eight_specs_materialize_contiguous_ids_1_to_64 (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_eight_specs_materialize_contiguous_ids_1_to_64) ... ok
+test_every_range_is_closed_dated_and_source_backed (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_every_range_is_closed_dated_and_source_backed) ... ok
+test_exact_group_fuel_and_endpoint_denominator (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_exact_group_fuel_and_endpoint_denominator) ... ok
+test_homogeneous_group_ranges_compare_as_identical (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_homogeneous_group_ranges_compare_as_identical) ... ok
+test_no_scalar_range_semantic_collision_exists (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_no_scalar_range_semantic_collision_exists) ... ok
+test_registered_pdf_hash_and_unique_source_texts_are_verified (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_registered_pdf_hash_and_unique_source_texts_are_verified) ... ok
+test_state_exposes_scalar_and_range_denominators (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_state_exposes_scalar_and_range_denominators) ... ok
+test_accepts_data_directory_without_csv (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_accepts_data_directory_without_csv) ... ok
+test_apply_converts_file_to_utf8 (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_apply_converts_file_to_utf8) ... ok
+test_apply_does_not_rewrite_utf8_file (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_apply_does_not_rewrite_utf8_file) ... ok
+test_detects_utf8_and_windows_1250 (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_detects_utf8_and_windows_1250) ... ok
+test_discovers_only_csv_files_under_data (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_discovers_only_csv_files_under_data) ... ok
+test_dry_run_preserves_source_file (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_dry_run_preserves_source_file) ... ok
+test_rejects_missing_data_directory (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_rejects_missing_data_directory) ... ok
+test_reports_unreadable_file (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_reports_unreadable_file) ... ok
+test_explicit_push_updates_only_current_branch (test_package_publish.PackagePublishTests.test_explicit_push_updates_only_current_branch) ... ok
+test_failed_push_writes_fail_handoff (test_package_publish.PackagePublishTests.test_failed_push_writes_fail_handoff) ... ERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-5vm5te5c/output/handoff.json
+ok
+test_finish_failure_writes_fail_handoff (test_package_publish.PackagePublishTests.test_finish_failure_writes_fail_handoff) ... ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-wtxdiqca/output/handoff.json
+ok
+test_generates_small_pass_handoff (test_package_publish.PackagePublishTests.test_generates_small_pass_handoff) ... ok
+test_invalid_receipt_runs_full_quality (test_package_publish.PackagePublishTests.test_invalid_receipt_runs_full_quality) ... ok
+test_publishes_exact_manifest_from_empty_staging (test_package_publish.PackagePublishTests.test_publishes_exact_manifest_from_empty_staging) ... ok
+test_rejects_additional_staged_path (test_package_publish.PackagePublishTests.test_rejects_additional_staged_path) ... ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-q84s96uc/output/handoff.json
+ok
+test_rejects_additional_untracked_path (test_package_publish.PackagePublishTests.test_rejects_additional_untracked_path) ... ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-hmlxha7j/output/handoff.json
+ok
+test_reuses_valid_receipt_without_quality (test_package_publish.PackagePublishTests.test_reuses_valid_receipt_without_quality) ... ok
+test_safe_rerun_does_not_create_second_commit (test_package_publish.PackagePublishTests.test_safe_rerun_does_not_create_second_commit) ... ok
+test_accepts_valid_receipt (test_package_receipt.PackageReceiptTests.test_accepts_valid_receipt) ... ok
+test_rejects_one_byte_change_after_review (test_package_receipt.PackageReceiptTests.test_rejects_one_byte_change_after_review) ... ok
+test_rejects_receipt_with_other_base_sha (test_package_receipt.PackageReceiptTests.test_rejects_receipt_with_other_base_sha) ... ok
+test_rejects_receipt_with_other_branch (test_package_receipt.PackageReceiptTests.test_rejects_receipt_with_other_branch) ... ok
+test_rejects_receipt_with_other_path_manifest (test_package_receipt.PackageReceiptTests.test_rejects_receipt_with_other_path_manifest) ... ok
+test_rejects_receipt_with_other_subject (test_package_receipt.PackageReceiptTests.test_rejects_receipt_with_other_subject) ... ok
+test_requires_receipt_output_outside_repository (test_package_receipt.PackageReceiptTests.test_requires_receipt_output_outside_repository) ... ok
+test_utf8_path_and_content_have_stable_state (test_package_receipt.PackageReceiptTests.test_utf8_path_and_content_have_stable_state) ... ok
+test_finish_manifest_accepts_exact_commit (test_package_workflow.PackageWorkflowTests.test_finish_manifest_accepts_exact_commit) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-fy98ntac/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_manifest_rejects_multiple_commits (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_multiple_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-undacx4q/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_manifest_rejects_wrong_paths (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_paths) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-aklp_kd4/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_manifest_rejects_wrong_subject (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_subject) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-0xyp1yk9/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_rejects_branch_without_commits (test_package_workflow.PackageWorkflowTests.test_finish_rejects_branch_without_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rug028_n/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_rejects_dirty_working_tree (test_package_workflow.PackageWorkflowTests.test_finish_rejects_dirty_working_tree) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-dtvhwwwn/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_finish_reports_clean_committed_package (test_package_workflow.PackageWorkflowTests.test_finish_reports_clean_committed_package) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-ze3m5atd/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_path_is_allowed_handles_files_and_directories (test_package_workflow.PackageWorkflowTests.test_path_is_allowed_handles_files_and_directories) ... ok
+test_review_accepts_untracked_file_inside_scope (test_package_workflow.PackageWorkflowTests.test_review_accepts_untracked_file_inside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-02n7vnwe/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_manifest_accepts_exact_scope_and_utf8_diff (test_package_workflow.PackageWorkflowTests.test_review_manifest_accepts_exact_scope_and_utf8_diff) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-bitzuune/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_manifest_quality_writes_default_receipt (test_package_workflow.PackageWorkflowTests.test_review_manifest_quality_writes_default_receipt) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-nnft9vle/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_manifest_rejects_path_mismatch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_path_mismatch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-qspjlwt2/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_manifest_rejects_wrong_base_sha (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_base_sha) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-cl1goqxz/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_manifest_rejects_wrong_branch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-4iudf_l8/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_rejects_file_outside_scope (test_package_workflow.PackageWorkflowTests.test_review_rejects_file_outside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-d4cgx5fm/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_rejects_receipt_without_quality (test_package_workflow.PackageWorkflowTests.test_review_rejects_receipt_without_quality) ... ok
+test_review_runs_quality_when_requested (test_package_workflow.PackageWorkflowTests.test_review_runs_quality_when_requested) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-uo35exzx/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_review_show_diff_includes_untracked_content (test_package_workflow.PackageWorkflowTests.test_review_show_diff_includes_untracked_content) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-1ptm59ip/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/test'
+ok
+test_run_git_ignores_ambient_git_context (test_package_workflow.PackageWorkflowTests.test_run_git_ignores_ambient_git_context) ... ok
+test_start_creates_branch_from_synchronized_main (test_package_workflow.PackageWorkflowTests.test_start_creates_branch_from_synchronized_main) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7fpdxj9k/remote
+ * branch            main       -> FETCH_HEAD
+Switched to a new branch 'tooling/workflow-test'
+ok
+test_start_rejects_dirty_working_tree (test_package_workflow.PackageWorkflowTests.test_start_rejects_dirty_working_tree) ... ok
+test_start_rejects_existing_local_branch (test_package_workflow.PackageWorkflowTests.test_start_rejects_existing_local_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7a97w0rc/remote
+ * branch            main       -> FETCH_HEAD
+ok
+test_builds_ci_equivalent_steps (test_quality.QualityTests.test_builds_ci_equivalent_steps) ... ok
+test_captured_mode_stops_after_first_failure (test_quality.QualityTests.test_captured_mode_stops_after_first_failure) ... ==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpt0k7ua9y/quality.log
+ok
+test_concise_failure_replays_name_and_traceback (test_quality.QualityTests.test_concise_failure_replays_name_and_traceback) ... ok
+test_concise_success_writes_full_log_and_summary (test_quality.QualityTests.test_concise_success_writes_full_log_and_summary) ... ok
+test_parse_args_accepts_structured_outputs (test_quality.QualityTests.test_parse_args_accepts_structured_outputs) ... ok
+test_quality_environment_forces_utf8 (test_quality.QualityTests.test_quality_environment_forces_utf8) ... ok
+test_run_step_handles_operating_system_error (test_quality.QualityTests.test_run_step_handles_operating_system_error) ... ok
+test_run_step_propagates_exit_code (test_quality.QualityTests.test_run_step_propagates_exit_code) ... ok
+test_runs_all_steps_and_reports_success (test_quality.QualityTests.test_runs_all_steps_and_reports_success) ... ok
+test_stops_after_first_failed_step (test_quality.QualityTests.test_stops_after_first_failed_step) ... ok
+test_accepts_custom_target_column (test_references.ReferenceValidationTests.test_accepts_custom_target_column) ... ok
+test_accepts_existing_reference (test_references.ReferenceValidationTests.test_accepts_existing_reference) ... ok
+test_allows_empty_optional_reference (test_references.ReferenceValidationTests.test_allows_empty_optional_reference) ... ok
+test_declares_optional_observation_fuel_type_reference (test_references.ReferenceValidationTests.test_declares_optional_observation_fuel_type_reference) ... ok
+test_reports_duplicate_target_key_once (test_references.ReferenceValidationTests.test_reports_duplicate_target_key_once) ... ok
+test_reports_empty_required_reference (test_references.ReferenceValidationTests.test_reports_empty_required_reference) ... ok
+test_reports_missing_reference (test_references.ReferenceValidationTests.test_reports_missing_reference) ... ok
+test_reports_missing_source_column (test_references.ReferenceValidationTests.test_reports_missing_source_column) ... ok
+test_data_dictionary_marks_header_only_columns_complete (test_reporting.ReportingTests.test_data_dictionary_marks_header_only_columns_complete) ... ok
+test_data_dictionary_reports_coverage_statuses (test_reporting.ReportingTests.test_data_dictionary_reports_coverage_statuses) ... ok
+test_data_dictionary_uses_master_data_and_accepts_bom (test_reporting.ReportingTests.test_data_dictionary_uses_master_data_and_accepts_bom) ... ok
+test_entity_catalog_handles_bom_and_empty_file (test_reporting.ReportingTests.test_entity_catalog_handles_bom_and_empty_file) ... ok
+test_entity_catalog_uses_only_master_data (test_reporting.ReportingTests.test_entity_catalog_uses_only_master_data) ... ok
+test_accepts_exists_rule (test_rule_contracts.RuleContractValidationTests.test_accepts_exists_rule) ... ok
+test_accepts_in_rule (test_rule_contracts.RuleContractValidationTests.test_accepts_in_rule) ... ok
+test_accepts_simple_rules (test_rule_contracts.RuleContractValidationTests.test_accepts_simple_rules) ... ok
+test_rejects_duplicate_rule_definition (test_rule_contracts.RuleContractValidationTests.test_rejects_duplicate_rule_definition) ... ok
+test_rejects_empty_message (test_rule_contracts.RuleContractValidationTests.test_rejects_empty_message) ... ok
+test_rejects_invalid_severity (test_rule_contracts.RuleContractValidationTests.test_rejects_invalid_severity) ... ok
+test_rejects_unknown_subject_field (test_rule_contracts.RuleContractValidationTests.test_rejects_unknown_subject_field) ... ok
+test_rejects_unsupported_rule (test_rule_contracts.RuleContractValidationTests.test_rejects_unsupported_rule) ... ok
+test_reports_missing_exists_target_column (test_rule_contracts.RuleContractValidationTests.test_reports_missing_exists_target_column) ... ok
+test_reports_missing_exists_target_file (test_rule_contracts.RuleContractValidationTests.test_reports_missing_exists_target_file) ... ok
+test_reports_missing_required_column (test_rule_contracts.RuleContractValidationTests.test_reports_missing_required_column) ... ok
+test_reports_missing_rules_file (test_rule_contracts.RuleContractValidationTests.test_reports_missing_rules_file) ... ok
+test_accepts_all_supported_rules (test_rule_execution.RuleExecutionTests.test_accepts_all_supported_rules) ... ok
+test_allows_empty_exists_value (test_rule_execution.RuleExecutionTests.test_allows_empty_exists_value) ... ok
+test_classifies_warning_severity (test_rule_execution.RuleExecutionTests.test_classifies_warning_severity) ... ok
+test_reports_case_insensitive_unique_duplicate (test_rule_execution.RuleExecutionTests.test_reports_case_insensitive_unique_duplicate) ... ok
+test_reports_invalid_in_value (test_rule_execution.RuleExecutionTests.test_reports_invalid_in_value) ... ok
+test_reports_invalid_severity (test_rule_execution.RuleExecutionTests.test_reports_invalid_severity) ... ok
+test_reports_missing_exists_target_column (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_target_column) ... ok
+test_reports_missing_exists_target_file (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_target_file) ... ok
+test_reports_missing_exists_value (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_value) ... ok
+test_reports_missing_rules_file (test_rule_execution.RuleExecutionTests.test_reports_missing_rules_file) ... ok
+test_reports_missing_subject_file (test_rule_execution.RuleExecutionTests.test_reports_missing_subject_file) ... ok
+test_reports_not_empty_violation (test_rule_execution.RuleExecutionTests.test_reports_not_empty_violation) ... ok
+test_reports_unsupported_expression (test_rule_execution.RuleExecutionTests.test_reports_unsupported_expression) ... ok
+test_acoustics_category_is_defined (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_acoustics_category_is_defined) ... ok
+test_configuration_values_preserve_speed_specific_attribute (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_configuration_values_preserve_speed_specific_attribute) ... ok
+test_decibel_unit_is_defined (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_decibel_unit_is_defined) ... ok
+test_model_package_does_not_change_availability_or_prices (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_model_package_does_not_change_availability_or_prices) ... ok
+test_source_registry_and_mapping_are_unchanged (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_source_registry_and_mapping_are_unchanged) ... ok
+test_speed_condition_is_not_reduced_to_generic_noise (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_speed_condition_is_not_reduced_to_generic_noise) ... ok
+test_speed_specific_attribute_is_active_decimal (test_sandero_50_kmh_noise_level_model.Sandero50KmhNoiseLevelModelTests.test_speed_specific_attribute_is_active_decimal) ... ok
+test_codes_are_unique_and_dated (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_codes_are_unique_and_dated) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_existing_attribute_and_unit_are_active (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_existing_attribute_and_unit_are_active) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_package_ids_shape_and_count) ... ok
+test_speed_condition_is_not_reduced_or_reinterpreted (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_speed_condition_is_not_reduced_or_reinterpreted) ... ok
+test_value_is_not_availability_or_price (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_exact_source_meaning (test_sandero_50_kmh_noise_level_values.Sandero50KmhNoiseLevelValueTests.test_values_and_notes_preserve_exact_source_meaning) ... ok
+test_availability_dataset_has_expected_shape_and_count (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_availability_dataset_has_expected_shape_and_count) ... ok
+test_availability_records_are_unique_per_observation (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_availability_records_are_unique_per_observation) ... ok
+test_configuration_counts_match_source_import (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_configuration_counts_match_source_import) ... ok
+test_distinguishing_features_match_sources (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_distinguishing_features_match_sources) ... ok
+test_imported_attribute_definitions_are_boolean_active (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_imported_attribute_definitions_are_boolean_active) ... ok
+test_notes_preserve_source_page_and_wording (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_notes_preserve_source_page_and_wording) ... ok
+test_records_cover_all_configurations_and_sources (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_records_cover_all_configurations_and_sources) ... ok
+test_status_counts_match_source_import (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_status_counts_match_source_import) ... ok
+test_bis_variant_remains_distinct_from_euro_6e (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_bis_variant_remains_distinct_from_euro_6e) ... ok
+test_configuration_values_reference_controlled_standards (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_configuration_values_reference_controlled_standards) ... ok
+test_dictionary_codes_are_unique_and_active (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_dictionary_codes_are_unique_and_active) ... ok
+test_dictionary_contains_exact_active_bis_variant (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_dictionary_contains_exact_active_bis_variant) ... ok
+test_existing_attribute_is_active_enum (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_existing_attribute_is_active_enum) ... ok
+test_model_package_does_not_change_other_data_tables (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_model_package_does_not_change_other_data_tables) ... ok
+test_source_registry_and_mapping_are_unchanged (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_source_registry_and_mapping_are_unchanged) ... ok
+test_codes_are_unique_and_dated (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_codes_are_unique_and_dated) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_exact_bis_variant_is_not_reduced_to_euro_6e (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_exact_bis_variant_is_not_reduced_to_euro_6e) ... ok
+test_existing_attribute_and_dictionary_value_are_active (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_existing_attribute_and_dictionary_value_are_active) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_package_ids_shape_and_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_exact_source_meaning (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_values_and_notes_preserve_exact_source_meaning) ... ok
+test_colour_is_not_equipment_availability (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_colour_is_not_equipment_availability) ... ok
+test_exterior_category_and_attribute_are_defined (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_exterior_category_and_attribute_are_defined) ... ok
+test_manifest_matches_all_configurations_and_sources (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_manifest_matches_all_configurations_and_sources) ... ok
+test_package_codes_are_unique (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_package_ids_shape_and_count) ... ok
+test_source_configuration_mapping_matches_manifest (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_source_configuration_mapping_matches_manifest) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_values_and_notes_preserve_source_wording) ... ok
+test_zero_price_is_provenance_not_configuration_value (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_zero_price_is_provenance_not_configuration_value) ... ok
+test_codes_are_unique_and_dated (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_codes_are_unique_and_dated) ... ok
+test_controlled_drive_type_is_not_duplicated_as_strings (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_controlled_drive_type_is_not_duplicated_as_strings) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_existing_attribute_and_dictionary_value_are_active (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_existing_attribute_and_dictionary_value_are_active) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_package_ids_shape_and_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_exact_source_meaning (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_values_and_notes_preserve_exact_source_meaning) ... ok
+test_existing_mass_values_are_not_rewritten (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_existing_mass_values_are_not_rewritten) ... ok
+test_existing_weight_category_and_mass_unit_are_reused (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_existing_weight_category_and_mass_unit_are_reused) ... ok
+test_import_uses_existing_maximum_payload_attribute (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_import_uses_existing_maximum_payload_attribute) ... ok
+test_maximum_payload_is_active_integer_weight (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_maximum_payload_is_active_integer_weight) ... ok
+test_model_package_does_not_change_availability_or_prices (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_model_package_does_not_change_availability_or_prices) ... ok
+test_payload_remains_distinct_from_other_mass_concepts (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_payload_remains_distinct_from_other_mass_concepts) ... ok
+test_source_registry_and_mapping_are_unchanged (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_source_registry_and_mapping_are_unchanged) ... ok
+test_codes_are_unique_and_dated (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_codes_are_unique_and_dated) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_existing_attribute_is_active_unitless_integer (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_existing_attribute_is_active_unitless_integer) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_package_ids_shape_and_count) ... ok
+test_total_count_does_not_populate_side_door_count (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_total_count_does_not_populate_side_door_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_values_and_notes_preserve_source_wording) ... ok
+test_every_candidate_occurs_once_per_configuration (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_every_candidate_occurs_once_per_configuration) ... ok
+test_explicit_negative_is_limited_to_height_adjustment (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_explicit_negative_is_limited_to_height_adjustment) ... ok
+test_imported_attribute_definitions_are_boolean_active (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_imported_attribute_definitions_are_boolean_active) ... ok
+test_notes_preserve_page_and_exact_source_wording (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_notes_preserve_page_and_exact_source_wording) ... ok
+test_package_covers_all_configurations_and_sources (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_covers_all_configurations_and_sources) ... ok
+test_package_has_expected_ids_shape_and_count (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_has_expected_ids_shape_and_count) ... ok
+test_package_status_counts_match_sources (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_status_counts_match_sources) ... ok
+test_trim_and_upholstery_remain_outside_this_package (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_trim_and_upholstery_remain_outside_this_package) ... ok
+test_attribute_is_defined_as_active_string (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_attribute_is_defined_as_active_string) ... ok
+test_axle_neutral_source_does_not_populate_axle_attributes (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_axle_neutral_source_does_not_populate_axle_attributes) ... ok
+test_complete_specification_is_separate_from_wheel_size (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_complete_specification_is_separate_from_wheel_size) ... ok
+test_manifest_matches_configurations_sources_and_date (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_manifest_matches_configurations_sources_and_date) ... ok
+test_package_codes_are_unique (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_package_ids_shape_and_count) ... ok
+test_source_rating_is_not_modeled_as_maximum (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_source_rating_is_not_modeled_as_maximum) ... ok
+test_value_is_not_equipment_availability_or_price (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_value_is_not_equipment_availability_or_price) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_values_and_notes_preserve_source_wording) ... ok
+test_availability_prices_and_source_mapping_are_unchanged (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_availability_prices_and_source_mapping_are_unchanged) ... ok
+test_existing_engine_category_is_reused_without_a_new_unit (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_category_is_reused_without_a_new_unit) ... ok
+test_existing_engine_observations_are_not_rewritten (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_observations_are_not_rewritten) ... ok
+test_import_uses_existing_total_valve_count_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_import_uses_existing_total_valve_count_attribute) ... ok
+test_total_count_remains_distinct_from_related_engine_counts (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_count_remains_distinct_from_related_engine_counts) ... ok
+test_total_valve_count_is_an_active_integer_engine_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_valve_count_is_an_active_integer_engine_attribute) ... ok
+test_configuration_source_and_date_coverage (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_configuration_source_and_date_coverage) ... ok
+test_internal_ordering_criteria_are_excluded (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_internal_ordering_criteria_are_excluded) ... ok
+test_new_attributes_are_active_strings (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_new_attributes_are_active_strings) ... ok
+test_notes_preserve_section_and_wording (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_notes_preserve_section_and_wording) ... ok
+test_package_codes_are_unique (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_ids_shape_and_count) ... ok
+test_stepway_essential_conflict_boundary (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_stepway_essential_conflict_boundary) ... ok
+test_values_are_not_availability_booleans (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_are_not_availability_booleans) ... ok
+test_values_match_controlled_manifest (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_match_controlled_manifest) ... ok
+test_accepts_utf8_bom (test_search.SearchTests.test_accepts_utf8_bom) ... ok
+test_does_not_search_its_own_export (test_search.SearchTests.test_does_not_search_its_own_export) ... ok
+test_exports_consistent_union_of_columns (test_search.SearchTests.test_exports_consistent_union_of_columns) ... ok
+test_highlight_is_case_insensitive (test_search.SearchTests.test_highlight_is_case_insensitive) ... ok
+test_limits_search_to_selected_field (test_search.SearchTests.test_limits_search_to_selected_field) ... ok
+test_searches_all_fields (test_search.SearchTests.test_searches_all_fields) ... ok
+test_distinguishes_missing_source_from_missing_record (test_source_coverage.SourceCoverageTests.test_distinguishes_missing_source_from_missing_record) ... ok
+test_future_source_is_separate_registration_state (test_source_coverage.SourceCoverageTests.test_future_source_is_separate_registration_state) ... ok
+test_json_and_markdown_are_deterministic (test_source_coverage.SourceCoverageTests.test_json_and_markdown_are_deterministic) ... ok
+test_range_observations_count_as_source_covered_technical_evidence (test_source_coverage.SourceCoverageTests.test_range_observations_count_as_source_covered_technical_evidence) ... ok
+test_rejects_invalid_source_hash (test_source_coverage.SourceCoverageTests.test_rejects_invalid_source_hash) ... ok
+test_rejects_observation_source_mismatch (test_source_coverage.SourceCoverageTests.test_rejects_observation_source_mismatch) ... ok
+test_reports_registered_sources_and_record_gaps (test_source_coverage.SourceCoverageTests.test_reports_registered_sources_and_record_gaps) ... ok
+test_sections_distinguish_partial_and_missing (test_source_coverage.SourceCoverageTests.test_sections_distinguish_partial_and_missing) ... ok
+test_accepts_utf8_bom (test_statistics.StatisticsTests.test_accepts_utf8_bom) ... ok
+test_calculates_completeness (test_statistics.StatisticsTests.test_calculates_completeness) ... ok
+test_collects_repository_totals (test_statistics.StatisticsTests.test_collects_repository_totals) ... ok
+test_counts_header_only_file_as_empty (test_statistics.StatisticsTests.test_counts_header_only_file_as_empty) ... ok
+test_ignores_csv_files_outside_master_data (test_statistics.StatisticsTests.test_ignores_csv_files_outside_master_data) ... ok
+test_ignores_git_directory (test_statistics.StatisticsTests.test_ignores_git_directory) ... ok
+test_sorts_largest_dataset_first (test_statistics.StatisticsTests.test_sorts_largest_dataset_first) ... ok
+test_accepts_active_catalog_status (test_statuses.StatusValidationTests.test_accepts_active_catalog_status) ... ok
+test_accepts_archived_closed_range (test_statuses.StatusValidationTests.test_accepts_archived_closed_range) ... ok
+test_accepts_current_open_range (test_statuses.StatusValidationTests.test_accepts_current_open_range) ... ok
+test_rejects_archived_open_range (test_statuses.StatusValidationTests.test_rejects_archived_open_range) ... ok
+test_rejects_current_closed_range (test_statuses.StatusValidationTests.test_rejects_current_closed_range) ... ok
+test_rejects_empty_status (test_statuses.StatusValidationTests.test_rejects_empty_status) ... ok
+test_rejects_incorrect_status_case (test_statuses.StatusValidationTests.test_rejects_incorrect_status_case) ... ok
+test_rejects_unknown_status (test_statuses.StatusValidationTests.test_rejects_unknown_status) ... ok
+test_reports_missing_end_column (test_statuses.StatusValidationTests.test_reports_missing_end_column) ... ok
+test_reports_missing_file (test_statuses.StatusValidationTests.test_reports_missing_file) ... ok
+test_reports_missing_status_column (test_statuses.StatusValidationTests.test_reports_missing_status_column) ... ok
+test_scans_all_configured_files (test_statuses.StatusValidationTests.test_scans_all_configured_files) ... ok
+test_accepts_unique_id_and_code (test_uniqueness.UniqueColumnValidationTests.test_accepts_unique_id_and_code) ... ok
+test_checks_file_with_only_code (test_uniqueness.UniqueColumnValidationTests.test_checks_file_with_only_code) ... ok
+test_ignores_file_without_key_columns (test_uniqueness.UniqueColumnValidationTests.test_ignores_file_without_key_columns) ... ok
+test_reports_case_insensitive_duplicate_code (test_uniqueness.UniqueColumnValidationTests.test_reports_case_insensitive_duplicate_code) ... ok
+test_reports_duplicate_id (test_uniqueness.UniqueColumnValidationTests.test_reports_duplicate_id) ... ok
+test_reports_empty_code (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_code) ... ok
+test_reports_empty_id (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_id) ... ok
+test_scans_all_master_csv_files (test_uniqueness.UniqueColumnValidationTests.test_scans_all_master_csv_files) ... ok
+test_validate_command_executes_complete_validator (test_validate_cli.ValidateCliIntegrationTests.test_validate_command_executes_complete_validator) ... ok
+test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpnzcavlzl/missing.sqlite
+ok
+test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
+test_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_database) ... ok
+test_reports_missing_table (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_table) ... ok
+test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+test_reports_unexpected_table (test_verify_sqlite.SqliteVerificationTests.test_reports_unexpected_table) ... ok
+test_accepts_closed_range (test_year_ranges.YearRangeValidationTests.test_accepts_closed_range) ... ok
+test_accepts_open_range (test_year_ranges.YearRangeValidationTests.test_accepts_open_range) ... ok
+test_rejects_empty_required_start_year (test_year_ranges.YearRangeValidationTests.test_rejects_empty_required_start_year) ... ok
+test_rejects_invalid_end_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_end_year_format) ... ok
+test_rejects_invalid_start_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_start_year_format) ... ok
+test_rejects_reversed_range (test_year_ranges.YearRangeValidationTests.test_rejects_reversed_range) ... ok
+test_reports_missing_columns (test_year_ranges.YearRangeValidationTests.test_reports_missing_columns) ... ok
+test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_reports_missing_file) ... ok
+test_scans_all_configured_files (test_year_ranges.YearRangeValidationTests.test_scans_all_configured_files) ... ok
+
+======================================================================
+FAIL: test_master_table_has_exact_empty_schema (test_configuration_value_ranges.ConfigurationValueRangeTests.test_master_table_has_exact_empty_schema)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 106, in test_master_table_has_exact_empty_schema
+    self.assertEqual(rows[1:], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: Lists differ: [['1', 'jogger_essential_5seat_ecog120_man[18512 chars]04']] != []
+
+First list contains 64 additional elements.
+First extra element 0:
+['1', 'jogger_essential_5seat_ecog120_manual_fuel_consumption_combined_lpg_range_20260401', 'jogger_essential_5seat_ecog120_manual', 'fuel_consumption_combined', 'lpg', '7.3', '7.4', 'true', 'true', '2026-04-01', 'src_pl_jogger_price_my26_20260401', 'Source page 6, section OSIĄGI: LPG: 7,3-7,4']
+
+Diff is 21572 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_repository_empty_range_table_is_valid (test_configuration_value_ranges.ConfigurationValueRangeTests.test_repository_empty_range_table_is_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 110, in test_repository_empty_range_table_is_valid
+    self.assertEqual(checked, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: 64 != 0
+
+======================================================================
+FAIL: test_sqlite_builder_discovers_header_only_range_table (test_configuration_value_ranges.ConfigurationValueRangeTests.test_sqlite_builder_discovers_header_only_range_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_value_ranges.py", line 196, in test_sqlite_builder_discovers_header_only_range_table
+    self.assertEqual(count, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: 64 != 0
+
+----------------------------------------------------------------------
+Ran 528 tests in 9.262s
+
+FAILED (failures=3)
+Quality checks failed at: Run unit tests (exit code 1). Full log: /home/runner/work/Dacia-Knowledge-Base/dacia-knowledge-base-quality.log

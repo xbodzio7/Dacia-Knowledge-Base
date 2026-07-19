@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 59,
+  "attribute_code": "co2_emissions",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "g/km",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "petrol",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "103",
+      "maximum_value": "104",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "103-104"
+    }
+  ]
+}
