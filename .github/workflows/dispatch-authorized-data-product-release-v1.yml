@@ -24,7 +24,7 @@ jobs:
       - name: Require unchanged main
         shell: bash
         run: |
-          actual="$(gh api --repo "${GITHUB_REPOSITORY}" "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
+          actual="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
           [[ "${actual}" == "${TESTED_MAIN_SHA}" ]] || {
             echo "main moved to ${actual}; refusing publication." >&2
             exit 1
