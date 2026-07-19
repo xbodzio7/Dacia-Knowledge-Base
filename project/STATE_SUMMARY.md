@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger Cargo Measurement Modeling and Import
-- Pull Request: #114
-- Verified head: `3f44646d64f4c5acbbc008cf5dca1a3a7d2d237f`
-- Quality run: #478
+- Package: Jogger LPG Capacity Modeling Selection
+- Pull Request: #115
+- Verified head: `19a6f286b007a56c3975d95188ac4712ebfc4f80`
+- Quality run: #480
 
 ## Verified baseline
 
-- Tests: 482
+- Tests: 488
 - Master CSV files: 34
-- Master rows: 3799
-- Configuration values: 1172
-- Configuration import specifications: 67
+- Master rows: 3821
+- Configuration values: 1192
+- Configuration import specifications: 69
 - Availability records: 1811
-- Canonical attributes: 354
+- Canonical attributes: 356
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger LPG Capacity Modeling and Import** — `active`
+**Jogger Hybrid System Semantics Review** — `active`
 
-Add separate total LPG vessel and LPG filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context.
+Assess source-stated Hybrid 155 total system power and lithium-ion chemistry while preserving the unresolved gross, nominal or usable basis of the 1.4 kWh battery value.
 
 ## Next package
 
-**Jogger Hybrid System Semantics Review** — `planned`
+**Selected Jogger Hybrid System Modeling and Import** — `planned`
 
-Assess source-stated Hybrid 155 total system power and lithium-ion chemistry while preserving the unresolved gross, nominal or usable basis of the 1.4 kWh battery value.
+Implement the bounded source-backed Hybrid 155 system-power and battery-chemistry decision without importing the unresolved 1.4 kWh capacity basis.
 
 ## Autonomy
 
