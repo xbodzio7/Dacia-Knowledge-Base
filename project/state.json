@@ -9,13 +9,13 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger TCe 110 Manual Reporting Scope Promotion",
-    "pull_request": 136,
-    "head_sha": "77700f2ddffa61bf2a1bbf3ac5c820ab98fe7216",
-    "quality_run": 662
+    "name": "Sandero Eco-G 120 Manual Reporting Scope Promotion",
+    "pull_request": 139,
+    "head_sha": "b0995c3b5ef41fb368ad5e759f12a97dabd41b80",
+    "quality_run": 677
   },
   "baseline": {
-    "tests": 579,
+    "tests": 586,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Eco-G 120 Manual Reporting Scope Promotion",
+    "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
     "status": "active",
-    "goal": "Promote five source-backed Sandero Eco-G 120 manual configurations with 45 technical slots, 69 equipment attributes, five prices, ten deterministic comparisons and 51 preserved evidence decisions."
+    "goal": "Promote two source-backed automatic Stepway configurations with 45 technical slots, 69 equipment attributes, two prices, one deterministic comparison and 18 preserved evidence decisions."
   },
   "next_package": {
-    "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
+    "name": "Sandero Reporting Portfolio Completion Review",
     "status": "planned",
-    "goal": "Promote the separate two-configuration automatic Stepway group with its verified evidence-aware comparison contract."
+    "goal": "Verify isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
