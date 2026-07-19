@@ -19,10 +19,8 @@ from reporting.configuration_shortlist import (
     repository_root,
     write_atomic,
 )
-from reporting.configuration_shortlist_html import (
-    collect_browser_catalog,
-    render_html,
-)
+from reporting.configuration_shortlist_html import collect_browser_catalog
+from reporting.configuration_shortlist_selection_html import render_html
 
 
 def _price(value: str) -> Decimal:
