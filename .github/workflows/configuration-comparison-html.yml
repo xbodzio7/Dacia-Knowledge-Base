@@ -1,0 +1,49 @@
+name: Configuration Comparison HTML
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Generate browser reports
+        run: |
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/sandero_ecog120_manual_completeness.json \
+            --evidence-spec data/reporting/sandero_ecog120_manual_gap_evidence.json \
+            --as-of 2026-06-26 \
+            --html "${RUNNER_TEMP}/sandero-ecog120-manual-comparison.html"
+          python tools/dkb.py configuration-comparison \
+            --completeness-spec data/reporting/sandero_stepway_ecog120_automatic_completeness.json \
+            --evidence-spec data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json \
+            --as-of 2026-06-26 \
+            --html "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic-comparison.html"
+      - name: Generate artifact manifest
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/configuration-comparison-html-manifest.json" \
+            --file "${RUNNER_TEMP}/sandero-ecog120-manual-comparison.html" \
+            --file "${RUNNER_TEMP}/sandero-stepway-ecog120-automatic-comparison.html"
+      - name: Upload browser reports
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-comparison-html
+          path: |
+            ${{ runner.temp }}/sandero-ecog120-manual-comparison.html
+            ${{ runner.temp }}/sandero-stepway-ecog120-automatic-comparison.html
+            ${{ runner.temp }}/configuration-comparison-html-manifest.json
+          if-no-files-found: error
+          retention-days: 7
