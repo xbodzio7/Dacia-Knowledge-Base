@@ -45,13 +45,9 @@ jobs:
           root = Path.cwd()
           attributes_path = root / "data" / "master" / "attributes.csv"
           with attributes_path.open("r", encoding="utf-8-sig", newline="") as handle:
-              rows = list(csv.DictReader(handle))
-              fieldnames = list(handle.seek(0) or csv.DictReader(handle).fieldnames or [])
-          if not fieldnames:
-              fieldnames = [
-                  "id", "code", "category", "name", "data_type", "unit",
-                  "description", "status",
-              ]
+              reader = csv.DictReader(handle)
+              rows = list(reader)
+              fieldnames = list(reader.fieldnames or [])
           by_code = {row["code"]: row for row in rows}
           by_id = {row["id"]: row for row in rows}
           expected = {
@@ -143,29 +139,58 @@ jobs:
           python tools/dkb.py project-state --apply
 
       - name: Verify complete package
+        id: verify
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
-          python tools/import_configuration_values.py \
-            --spec data/imports/configuration_values/jogger-page6-minimum-kerb-weight-20260401.json \
-            --verify
-          python -m compileall -q tools scripts tests
-          python -m unittest discover -s tests -p "test_*.py" -q
-          python -m unittest -q \
-            tests.project_state_contract \
-            tests.autonomy_policy_contract \
-            tests.quality_artifact_manifest_contract \
-            tests.configuration_comparison_context_filter_contract \
-            tests.configuration_comparison_pair_summary_contract
-          python tools/dkb.py project-state --check
-          python tools/dkb.py documentation-baseline --check
-          python tools/dkb.py quality \
-            --concise \
-            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
-            --log-file "${RUNNER_TEMP}/quality.log" \
-            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+          LOG="${RUNNER_TEMP}/jogger-minimum-kerb-weight-quality.log"
+          {
+            echo "==> Verify declarative import"
+            python tools/import_configuration_values.py \
+              --spec data/imports/configuration_values/jogger-page6-minimum-kerb-weight-20260401.json \
+              --verify
+            echo "==> Compile sources"
+            python -m compileall -q tools scripts tests
+            echo "==> Unit tests"
+            python -m unittest discover -s tests -p "test_*.py" -b -v
+            echo "==> Orchestration contracts"
+            python -m unittest -q \
+              tests.project_state_contract \
+              tests.autonomy_policy_contract \
+              tests.quality_artifact_manifest_contract \
+              tests.configuration_comparison_context_filter_contract \
+              tests.configuration_comparison_pair_summary_contract
+            echo "==> Canonical project state"
+            python tools/dkb.py project-state --check
+            echo "==> Documentation baseline"
+            python tools/dkb.py documentation-baseline --check
+            echo "==> Full quality gate"
+            python tools/dkb.py quality \
+              --concise \
+              --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+              --log-file "${RUNNER_TEMP}/quality.log" \
+              --summary-json "${RUNNER_TEMP}/quality-summary.json"
+          } >"${LOG}" 2>&1
+
+      - name: Commit diagnostic package on failure
+        if: steps.verify.outcome == 'failure'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp "${RUNNER_TEMP}/jogger-minimum-kerb-weight-quality.log" \
+            project/reviews/jogger-minimum-kerb-weight-quality.log
+          rm .github/workflows/jogger-minimum-kerb-weight.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "diagnostic: capture minimum kerb weight failure"
+          git push origin HEAD:data/jogger-minimum-kerb-weight
+          exit 1
 
       - name: Commit final package
+        if: steps.verify.outcome == 'success'
         shell: bash
         run: |
           set -euo pipefail
