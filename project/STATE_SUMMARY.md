@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Payload and Performance Range Selection
-- Pull Request: #125
-- Verified head: `c4995a952f71b6dc07afd8948e877e67864a63a6`
-- Quality run: #565
+- Package: Jogger Payload and Performance Range Modeling and Import
+- Pull Request: #126
+- Verified head: `f7cedcfc740fcbc888b5f172bed3f1d79477dad9`
+- Quality run: #575
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Payload and Performance Range Modeling and Import** — `active`
+**Jogger MY26 Page-6 Source Completion Review** — `active`
 
-Materialize 11 strict specifications and 80 closed page-6 payload, Hybrid acceleration and engine-speed ranges with IDs 65-144.
+Verify complete page-6 coverage and document the deferred unqualified battery-capacity value.
 
 ## Next package
 
-**Jogger Remaining Page-6 Exact Measurement Review** — `planned`
+**Jogger Technical Reporting Scope Selection** — `planned`
 
-Review the remaining cargo, LPG-capacity and hybrid-system exact measurements against their dedicated canonical attributes.
+Select the first bounded homogeneous Jogger reporting group without changing source data.
 
 ## Autonomy
 
