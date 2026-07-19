@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Jogger TCe 110 Manual Reporting Scope Promotion
-- Pull Request: #136
-- Verified head: `77700f2ddffa61bf2a1bbf3ac5c820ab98fe7216`
-- Quality run: #662
+- Package: Sandero Eco-G 120 Manual Reporting Scope Promotion
+- Pull Request: #139
+- Verified head: `b0995c3b5ef41fb368ad5e759f12a97dabd41b80`
+- Quality run: #677
 
 ## Verified baseline
 
-- Tests: 579
+- Tests: 586
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Eco-G 120 Manual Reporting Scope Promotion** — `active`
+**Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** — `active`
 
-Promote five source-backed Sandero Eco-G 120 manual configurations with 45 technical slots, 69 equipment attributes, five prices, ten deterministic comparisons and 51 preserved evidence decisions.
+Promote two source-backed automatic Stepway configurations with 45 technical slots, 69 equipment attributes, two prices, one deterministic comparison and 18 preserved evidence decisions.
 
 ## Next package
 
-**Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** — `planned`
+**Sandero Reporting Portfolio Completion Review** — `planned`
 
-Promote the separate two-configuration automatic Stepway group with its verified evidence-aware comparison contract.
+Verify isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone.
 
 ## Autonomy
 
