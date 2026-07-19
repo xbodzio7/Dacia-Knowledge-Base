@@ -56,9 +56,13 @@ Six dedicated tests require:
 - no battery-chemistry or unspecified-capacity observations;
 - registered source, page, source text and PDF SHA-256.
 
-## Expected verified baseline
+## Verified local baseline
 
-After materialization:
+The one-shot materializer passed compilation, 494 unit tests, orchestration
+contracts, registered-source and PDF-text verification, canonical project-state
+and documentation checks, and the complete local Quality gate.
+
+The resulting repository baseline is:
 
 - 494 tests;
 - 34 master CSV files and 3,828 rows;
