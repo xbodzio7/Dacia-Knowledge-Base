@@ -84,13 +84,14 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - interaktywna przeglądarkowa shortlista konfiguracji z pełnym snapshotem i testami parytetu semantyki,
 - transakcyjny pakiet porównań z shortlisty z grupowaniem według jednorodnych zakresów i manifestem SHA-256,
 - trwały wybór konfiguracji w przeglądarce z deterministycznym eksportem JSON i TXT zgodnym z pakietem porównań,
+- deterministyczny XLSX z sześcioma arkuszami i identycznymi bajtami na Linuxie oraz Windows,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 628 testów automatycznych,
+- 640 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
@@ -107,7 +108,6 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 
 - wybór najwyżej wartościowego kolejnego pakietu raportowego,
 - porównania modeli i wersji wykraczające poza bieżące konfiguracje,
-- eksport do Excela,
 - dalsze stabilne formaty raportów dla użytkowników zewnętrznych.
 
 ## Data

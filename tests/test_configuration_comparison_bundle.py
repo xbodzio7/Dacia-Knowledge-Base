@@ -158,7 +158,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
         statuses = [group["status"] for group in manifest["groups"]]
         self.assertEqual(statuses.count("comparable"), 2)
         self.assertEqual(statuses.count("singleton"), 1)
-        self.assertEqual(len(files), 9)
+        self.assertEqual(len(files), 10)
 
     def test_manifest_file_records_match_generated_files(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -181,7 +181,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
             )
         self.assertEqual(stored, manifest)
 
-    def test_singleton_bundle_writes_only_manifest(self) -> None:
+    def test_singleton_bundle_writes_workbook_and_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "bundle"
             manifest = create_bundle(
@@ -193,7 +193,13 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
         self.assertEqual(manifest["selected_configuration_count"], 1)
         self.assertEqual(manifest["comparable_scope_count"], 0)
         self.assertEqual(manifest["singleton_scope_count"], 1)
-        self.assertEqual(names, ["comparison-bundle-manifest.json"])
+        self.assertEqual(
+            names,
+            [
+                "comparison-bundle-manifest.json",
+                "configuration-comparison-workbook.xlsx",
+            ],
+        )
 
     def test_unknown_code_fails_before_output_publication(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

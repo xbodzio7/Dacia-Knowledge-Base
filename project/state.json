@@ -9,13 +9,13 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Data Product Utilization Milestone Review",
-    "pull_request": 152,
-    "head_sha": "1f58a89db47d2204bcfaeb085a8ac61f89ec1548",
-    "quality_run": 761
+    "name": "Configuration Comparison Workbook Export Planning Review",
+    "pull_request": 153,
+    "head_sha": "e267fa31953890f045d49d67a94fd566d3098f64",
+    "quality_run": 763
   },
   "baseline": {
-    "tests": 628,
+    "tests": 640,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Comparison Workbook Export Planning Review",
-    "status": "complete",
-    "goal": "Define the workbook export contract for existing comparison bundles."
+    "name": "Configuration Comparison Workbook Export",
+    "status": "active",
+    "goal": "Add one deterministic six-sheet XLSX workbook to each comparison bundle."
   },
   "next_package": {
-    "name": "Configuration Comparison Workbook Export",
+    "name": "Data Product Distribution Planning Review",
     "status": "planned",
-    "goal": "Add one deterministic six-sheet XLSX workbook to each comparison bundle."
+    "goal": "Select a stable delivery channel for the existing offline data products without expanding source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

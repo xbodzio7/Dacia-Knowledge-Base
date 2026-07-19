@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
 import configuration_comparison as comparison
+from reporting.configuration_comparison_workbook import write_bundle_workbook
+from reporting.deterministic_xlsx_model import WorkbookError
 
 BUNDLE_VERSION = 1
 CURRENT_SCOPE_PREFIXES = ("sandero_", "duster_", "jogger_")
@@ -421,6 +423,15 @@ def create_bundle(
             "cross_scope_pairs_generated": False,
             "groups": group_records,
         }
+        try:
+            workbook_path = write_bundle_workbook(
+                repository,
+                build_root,
+                manifest,
+            )
+        except WorkbookError as exc:
+            raise BundleError(f"workbook generation failed: {exc}") from exc
+        manifest["workbook"] = _file_record(workbook_path, build_root)
         _write_text(
             build_root / "comparison-bundle-manifest.json",
             _json_text(manifest),
