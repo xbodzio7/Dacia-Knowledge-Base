@@ -350,3 +350,4 @@ id,code,category,name,data_type,unit,description,status
 356,noise_level_at_50_kmh,Acoustics,Noise level at 50 km/h,decimal,dB,Vehicle noise level measured at 50 km/h without inferring measurement location or test procedure,active
 357,maximum_payload,Weights,Maximum payload,integer,kg,Maximum permitted payload stated explicitly by the source without deriving it from other mass values,active
 358,total_valve_count,Engine,Total valve count,integer,,Total number of engine valves stated explicitly by the source; distinct from valves per cylinder,active
+359,minimum_kerb_weight,Weights,Minimum kerb weight,integer,kg,Minimum vehicle kerb weight explicitly qualified as minimum by the source; distinct from unqualified kerb weight,active

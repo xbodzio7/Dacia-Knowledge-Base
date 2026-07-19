@@ -728,12 +728,14 @@ oraz źródłowe wartości TCe 110 i Hybrid 155.
 
 Dalsza rekonsyliacja skrzyń biegów dodaje 38 dokładnych obserwacji `gearbox_type` i `gear_count`, zachowuje brak liczby przełożeń dla Hybrid 155 Multi-mode oraz aktualizuje asocjacje Jogger z `mt6`, `edc6`, `e_dht140` i `e_dht155`.
 
+Pakiet minimalnej masy własnej Jogger dodaje odrębny atrybut `minimum_kerb_weight` i 22 dokładne obserwacje dla konfiguracji pięcio- i siedmiomiejscowych, bez spłaszczania kwalifikatora minimum do ogólnego `kerb_weight`.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 470 testów, 34 pliki CSV, 3730 rekordów
-danych, 34 relacje między tabelami, 1106 wartości konfiguracji, 64
+Zweryfikowany model obejmuje 476 testów, 34 pliki CSV, 3753 rekordów
+danych, 34 relacje między tabelami, 1128 wartości konfiguracji, 65
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
-Katalog zawiera 351 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3730 rekordów, pozostaje zgodna z CSV, a wszystkie
+Katalog zawiera 352 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 34 tabele i 3753 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

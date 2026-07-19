@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Gearbox Association and Observation Reconciliation",
-    "pull_request": 110,
-    "head_sha": "7a192b609f3a2d50c6dc220311cfbf857d9c8ea5",
-    "quality_run": 459
+    "name": "Jogger Range and Qualifier Modeling Review",
+    "pull_request": 111,
+    "head_sha": "13e5730271752861868a93475db989bf8899eeed",
+    "quality_run": 466
   },
   "baseline": {
-    "tests": 470,
+    "tests": 476,
     "csv_files": 34,
-    "rows": 3730,
-    "configuration_values": 1106,
-    "configuration_import_specs": 64,
+    "rows": 3753,
+    "configuration_values": 1128,
+    "configuration_import_specs": 65,
     "availability_records": 1811,
-    "attributes": 351,
+    "attributes": 352,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Minimum Kerb Weight Modeling and Import",
+    "name": "Jogger Cargo Measurement Modeling Review",
     "status": "active",
-    "goal": "Add a dedicated minimum_kerb_weight attribute and materialize 22 exact page-6 observations by explicit five- or seven-seat configuration without weakening the source minimum qualifier."
+    "goal": "Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations."
   },
   "next_package": {
-    "name": "Jogger Cargo Measurement Modeling Review",
+    "name": "Jogger Cargo Measurement Modeling and Import",
     "status": "planned",
-    "goal": "Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations."
+    "goal": "Add the selected VDA cargo measurement attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

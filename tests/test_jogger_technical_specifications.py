@@ -51,6 +51,7 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
                 "jogger-page6-injection-type-20260401.json",
                 "jogger-page6-gearbox-type-20260401.json",
                 "jogger-page6-gear-count-20260401.json",
+                "jogger-page6-minimum-kerb-weight-20260401.json",
             }
         )
 
