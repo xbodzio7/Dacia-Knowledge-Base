@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Equipment Matrix Intake Selection",
-    "pull_request": 128,
-    "head_sha": "56fbefc78e7f83225b5374b11b8dd1a562eef681",
-    "quality_run": 589
+    "name": "Jogger Equipment Availability Import",
+    "pull_request": 129,
+    "head_sha": "07939ef1d49b25819e59ef56634e5039a588950d",
+    "quality_run": 601
   },
   "baseline": {
     "tests": 544,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Equipment Availability Import",
+    "name": "Jogger Eco-G 120 Automatic Reporting Scope Promotion",
     "status": "active",
-    "goal": "Materialize 53 selected pages 4-5 equipment attributes as 1166 dated availability records for all 22 active Jogger configurations."
+    "goal": "Publish four Eco-G 120 automatic configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and six deterministic comparisons."
   },
   "next_package": {
-    "name": "Jogger Technical Reporting Scope Selection",
+    "name": "Remaining Jogger Reporting Portfolio Review",
     "status": "planned",
-    "goal": "Select the first bounded homogeneous Jogger reporting group after technical, price and equipment source coverage is complete."
+    "goal": "Review the three remaining homogeneous Jogger powertrain groups after the first reporting promotion."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
