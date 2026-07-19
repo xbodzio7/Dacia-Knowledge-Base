@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Shortlist-to-Comparison Workflow Planning Review",
-    "pull_request": 148,
-    "head_sha": "b55b09f8e27108a242fca10a4be46b92533f1c6f",
-    "quality_run": 737
+    "name": "Configuration Comparison Bundle CLI",
+    "pull_request": 149,
+    "head_sha": "960b410a5afb0389aa8d88572ff8141452068c4d",
+    "quality_run": 745
   },
   "baseline": {
     "tests": 620,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Comparison Bundle CLI",
-    "status": "active",
-    "goal": "Group explicit selections by independent scope, filter completeness and evidence contracts, and publish transactional JSON, Markdown, CSV and HTML comparison bundles with singleton and checksum manifests."
+    "name": "Interactive Selection Export Planning Review",
+    "status": "complete",
+    "goal": "Select a browser workflow for explicitly selecting shortlist results and exporting deterministic bundle-compatible JSON and plain configuration codes without ranking or inferred values."
   },
   "next_package": {
-    "name": "Interactive Selection Export Planning Review",
+    "name": "Interactive Configuration Selection Export",
     "status": "planned",
-    "goal": "Select a browser workflow for explicitly selecting shortlist results and exporting codes or shortlist JSON consumable by the comparison bundle without ranking or inferred values."
+    "goal": "Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
