@@ -24,7 +24,7 @@ jobs:
       - name: Require unchanged main
         shell: bash
         run: |
-          actual="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
+          actual="$(gh api --repo "${GITHUB_REPOSITORY}" "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
           [[ "${actual}" == "${TESTED_MAIN_SHA}" ]] || {
             echo "main moved to ${actual}; refusing publication." >&2
             exit 1
@@ -34,10 +34,10 @@ jobs:
         id: dispatch
         shell: bash
         run: |
-          before="$(gh run list --workflow data-product-release.yml --event workflow_dispatch --branch main --limit 1 --json databaseId --jq '.[0].databaseId // 0')"
-          gh workflow run data-product-release.yml --ref main -f version="${RELEASE_VERSION}"
+          before="$(gh run list --repo "${GITHUB_REPOSITORY}" --workflow data-product-release.yml --event workflow_dispatch --branch main --limit 1 --json databaseId --jq '.[0].databaseId // 0')"
+          gh workflow run --repo "${GITHUB_REPOSITORY}" data-product-release.yml --ref main -f version="${RELEASE_VERSION}"
           for attempt in $(seq 1 30); do
-            run_id="$(gh run list --workflow data-product-release.yml --event workflow_dispatch --branch main --limit 1 --json databaseId,headSha --jq '.[0] | select(.databaseId != '"${before}"' and .headSha == "'"${TESTED_MAIN_SHA}"'") | .databaseId')"
+            run_id="$(gh run list --repo "${GITHUB_REPOSITORY}" --workflow data-product-release.yml --event workflow_dispatch --branch main --limit 1 --json databaseId,headSha --jq '.[0] | select(.databaseId != '"${before}"' and .headSha == "'"${TESTED_MAIN_SHA}"'") | .databaseId')"
             if [[ -n "${run_id}" ]]; then
               echo "run_id=${run_id}" >> "${GITHUB_OUTPUT}"
               exit 0
@@ -51,14 +51,14 @@ jobs:
         shell: bash
         env:
           RUN_ID: ${{ steps.dispatch.outputs.run_id }}
-        run: gh run watch "${RUN_ID}" --exit-status
+        run: gh run watch --repo "${GITHUB_REPOSITORY}" "${RUN_ID}" --exit-status
 
       - name: Record dispatch evidence
         shell: bash
         env:
           RUN_ID: ${{ steps.dispatch.outputs.run_id }}
         run: |
-          gh run view "${RUN_ID}" --json databaseId,headSha,status,conclusion,url,workflowName,event > publication-dispatch-evidence.json
+          gh run view --repo "${GITHUB_REPOSITORY}" "${RUN_ID}" --json databaseId,headSha,status,conclusion,url,workflowName,event > publication-dispatch-evidence.json
           cat publication-dispatch-evidence.json
 
       - name: Upload dispatch evidence
