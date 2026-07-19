@@ -23,6 +23,16 @@ SCRIPT_COMMANDS = {
         "Check CSV encoding or convert files to UTF-8.",
         "[--apply]",
     ),
+    "configuration-shortlist": (
+        "configuration_shortlist.py",
+        "Filter active configurations into an evidence-aware shortlist.",
+        "[--as-of YYYY-MM-DD] [--model CODE] [--version CODE] "
+        "[--transmission TYPE] [--powertrain TEXT] "
+        "[--min-price PLN] [--max-price PLN] [--seats N] "
+        "[--require-equipment CODE] "
+        "[--require-standard-equipment CODE] "
+        "[--json FILE] [--markdown FILE] [--csv FILE]",
+    ),
     "configuration-comparison": (
         "configuration_comparison.py",
         "Compare active configuration prices, values and equipment.",
@@ -205,6 +215,10 @@ def usage() -> None:
     print(
         "  python tools/dkb.py import-configuration-values "
         "--spec data/imports/configuration_values/example.json --verify"
+    )
+    print(
+        "  python tools/dkb.py configuration-shortlist --transmission automatic "
+        "--max-price 100000 --csv ../configuration-shortlist.csv"
     )
     print(
         "  python tools/dkb.py configuration-comparison "

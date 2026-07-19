@@ -536,6 +536,39 @@ Zakres techniczny ma 310 z 315 slotów, 5 braków i pokrycie 98,41%.
 Wyposażenie ma 419 z 483 slotów, 64 braki i pokrycie 86,75%, w tym 389
 rekordów `standard` oraz 30 `not_available`.
 
+### Shortlista konfiguracji
+
+Komenda `configuration-shortlist` filtruje wszystkie aktywne konfiguracje na
+podstawie jawnych kryteriów użytkowych, zachowując daty i źródła ceny, liczby
+miejsc oraz wymaganego wyposażenia. Wyniki są uporządkowane według ceny
+katalogowej, modelu, wersji i kodu konfiguracji.
+
+```bash
+python tools/dkb.py configuration-shortlist \
+  --transmission automatic \
+  --max-price 100000 \
+  --require-equipment rear_view_camera \
+  --json ../configuration-shortlist.json \
+  --markdown ../configuration-shortlist.md \
+  --csv ../configuration-shortlist.csv
+```
+
+Dostępne kryteria obejmują dokładne kody modelu i wersji, typ skrzyni,
+fragment nazwy napędu, minimalną i maksymalną cenę katalogową brutto w PLN,
+liczbę miejsc oraz dwa poziomy wymagań wyposażenia. Powtarzane wartości
+modelu, wersji, skrzyni i napędu są łączone przez OR, a różne wymiary filtrów
+i wymagania wyposażenia przez AND.
+
+`--require-equipment` akceptuje status `standard` albo `optional`, natomiast
+`--require-standard-equipment` wyłącznie `standard`. Brak źródłowego
+stwierdzenia nie spełnia kryterium i jest raportowany osobno od
+`not_available`. Analogicznie brak ceny lub liczby miejsc pozostaje jawną
+niewiadomą, a nie wartością domyślną.
+
+JSON zawiera pełne filtry, niełączne statystyki przyczyn wykluczeń i liczniki
+niewiadomych. Markdown dostarcza czytelną shortlistę, a CSV jeden płaski wiersz
+na dopasowaną konfigurację z proweniencją ceny, miejsc i wyposażenia.
+
 ### Porównanie konfiguracji
 
 Komenda `configuration-comparison` generuje deterministyczny raport JSON,
@@ -706,6 +739,7 @@ Aktualny etap obejmuje:
 
 * praktyczne wykorzystanie zamkniętego portfela danych,
 * interaktywne i eksportowalne porównania konfiguracji,
+* filtrowanie i tworzenie shortlist konfiguracji,
 * walidację struktury i relacji,
 * raportowanie jakości oraz kompletności danych,
 * wyszukiwanie informacji,
@@ -742,7 +776,7 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 593 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 603 testów, 37 pliki CSV, 5155 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

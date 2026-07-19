@@ -1,0 +1,57 @@
+name: Configuration Shortlist
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shortlist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Generate shortlist artifacts
+        run: |
+          python tools/configuration_shortlist.py \
+            --json "${RUNNER_TEMP}/configuration-shortlist-all.json" \
+            --markdown "${RUNNER_TEMP}/configuration-shortlist-all.md" \
+            --csv "${RUNNER_TEMP}/configuration-shortlist-all.csv"
+          python tools/configuration_shortlist.py \
+            --transmission automatic \
+            --max-price 100000 \
+            --json "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.json" \
+            --markdown "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.md" \
+            --csv "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.csv"
+      - name: Generate artifact manifest
+        run: |
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/configuration-shortlist-manifest.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-all.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-all.md" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-all.csv" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.md" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.csv"
+      - name: Upload shortlist artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-shortlist
+          path: |
+            ${{ runner.temp }}/configuration-shortlist-all.json
+            ${{ runner.temp }}/configuration-shortlist-all.md
+            ${{ runner.temp }}/configuration-shortlist-all.csv
+            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.json
+            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.md
+            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.csv
+            ${{ runner.temp }}/configuration-shortlist-manifest.json
+          if-no-files-found: error
+          retention-days: 7

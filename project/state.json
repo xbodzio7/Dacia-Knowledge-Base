@@ -9,13 +9,13 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Interactive Configuration Comparison HTML",
-    "pull_request": 143,
-    "head_sha": "910bc7a010cf50359be1650b6a61a45ecc9f8d82",
-    "quality_run": 710
+    "name": "Configuration Discovery and Shortlist Planning Review",
+    "pull_request": 144,
+    "head_sha": "8fa744b00f2c1a5e5cab12f1bb79b8166d94980c",
+    "quality_run": 713
   },
   "baseline": {
-    "tests": 593,
+    "tests": 603,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Configuration Discovery and Shortlist Planning Review",
-    "status": "complete",
-    "goal": "Select an evidence-aware user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio."
+    "name": "Configuration Shortlist CLI",
+    "status": "active",
+    "goal": "Filter active configurations by metadata, current catalogue price, seat count and evidence-aware equipment requirements, with deterministic JSON, Markdown and CSV outputs."
   },
   "next_package": {
-    "name": "Configuration Shortlist CLI",
+    "name": "Interactive Configuration Shortlist HTML Planning Review",
     "status": "planned",
-    "goal": "Filter all active configurations by model, version, powertrain, transmission, price, seat count and evidence-aware equipment requirements, then export deterministic JSON, Markdown and CSV shortlists."
+    "goal": "Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
