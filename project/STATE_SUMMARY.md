@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Registered Source Reporting Portfolio Completion Review
-- Pull Request: #142
-- Verified head: `fd1e1a9bbe8b1acd52dc21c8b0818fd252519223`
-- Quality run: #689
+- Package: Interactive Configuration Comparison HTML
+- Pull Request: #143
+- Verified head: `910bc7a010cf50359be1650b6a61a45ecc9f8d82`
+- Quality run: #710
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Configuration Comparison HTML** — `active`
+**Configuration Discovery and Shortlist Planning Review** — `complete`
 
-Publish deterministic browser-ready configuration comparisons with offline filters, source provenance and unchanged evidence semantics.
+Select an evidence-aware user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio.
 
 ## Next package
 
-**Configuration Discovery and Shortlist Planning Review** — `planned`
+**Configuration Shortlist CLI** — `planned`
 
-Select the next user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio.
+Filter all active configurations by model, version, powertrain, transmission, price, seat count and evidence-aware equipment requirements, then export deterministic JSON, Markdown and CSV shortlists.
 
 ## Autonomy
 
