@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Eco-G 120 Automatic Reporting Scope Promotion",
-    "pull_request": 131,
-    "head_sha": "a2f9f43c417058bc7924bfdaddbbf2b5d516b5b0",
-    "quality_run": 626
+    "name": "Jogger Eco-G 120 Manual Reporting Scope Promotion",
+    "pull_request": 133,
+    "head_sha": "d08a9e7db367cd6d911369babbffaf49bbcc4216",
+    "quality_run": 641
   },
   "baseline": {
     "tests": 558,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Eco-G 120 Manual Reporting Scope Promotion",
+    "name": "Jogger Hybrid 155 Automatic Reporting Scope Promotion",
     "status": "active",
-    "goal": "Publish six Eco-G 120 manual configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons."
+    "goal": "Publish six Hybrid 155 automatic configurations with 27 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons."
   },
   "next_package": {
-    "name": "Remaining Jogger Reporting Portfolio Review",
+    "name": "Jogger TCe 110 Manual Reporting Scope Promotion",
     "status": "planned",
-    "goal": "Review the two remaining homogeneous Jogger powertrain groups after the Eco-G 120 manual promotion."
+    "goal": "Publish the final six homogeneous Jogger configurations after the Hybrid 155 automatic promotion."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
