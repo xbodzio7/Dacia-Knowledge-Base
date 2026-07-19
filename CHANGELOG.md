@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Published the first immutable public data-product release, `data-products-v1.0.0`, from main commit `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e` with three downloaded and verifier-confirmed assets.
 * Deterministic versioned data-product release archives covering the complete shortlist and all 13 comparison scopes.
 * External release manifests, SHA256SUMS and guarded manual GitHub Release publication from main.
 * Deterministic six-sheet XLSX workbooks for comparison bundles.

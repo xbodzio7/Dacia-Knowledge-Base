@@ -648,6 +648,8 @@ możliwe wyłącznie przez ręczny `workflow_dispatch` z `main`. Istniejące tag
 wydania nie są nadpisywane. Pełny kontrakt opisuje
 `project/packages/versioned-data-product-release-publication.md`.
 
+Pierwsze publiczne wydanie zostało opublikowane jako [`data-products-v1.0.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.0.0) z commita `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e`. Trzy publiczne assety zostały ponownie pobrane, zweryfikowane przez `data-product-release --verify` i zapisane w `project/releases/data-products-v1.0.0.md`.
+
 ### Porównanie konfiguracji
 
 Komenda `configuration-comparison` generuje deterministyczny raport JSON,

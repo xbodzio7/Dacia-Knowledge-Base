@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Versioned Data Product Release Publication
-- Pull Request: #156
-- Verified head: `e7e5df25308b775e0b0b526baf6790d8616e5068`
-- Quality run: #828
+- Package: Initial Data Product Release Readiness Review
+- Pull Request: #157
+- Verified head: `c64292e43f9b3fa02dedb9d755ddf619f2cde8b1`
+- Quality run: #836
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Initial Data Product Release Readiness Review** — `complete`
+**Initial Data Product Release Publication** — `complete`
 
-Verify the immutable publication contract and select the first public release version without publishing it.
+Publish data-products-v1.0.0 from the explicitly authorized and verified main commit.
 
 ## Next package
 
-**Initial Data Product Release Publication** — `planned`
+**Data Product Release Consumption Review** — `planned`
 
-Create data-products-v1.0.0 from the verified main commit after explicit owner authorization.
+Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data.
 
 ## Autonomy
 
