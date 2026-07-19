@@ -32,6 +32,7 @@ jobs:
           out = root / "candidate-reporting"
           out.mkdir()
           source = json.loads((root / "data/reporting/configuration_completeness.json").read_text(encoding="utf-8"))
+          source_evidence = json.loads((root / "data/reporting/configuration_gap_evidence.json").read_text(encoding="utf-8"))
           with (root / "data/master/configurations.csv").open(encoding="utf-8-sig", newline="") as handle:
               configurations = {row["code"]: row for row in csv.DictReader(handle)}
 
@@ -46,13 +47,10 @@ jobs:
               ],
           }
           expected = {"sandero-ecog120-manual": 5, "sandero-stepway-ecog120-automatic": 2}
-          evidence = {"version": 1, "as_of": "2026-06-26", "decisions": []}
-          evidence_path = out / "empty-gap-evidence.spec"
-          evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
           commands = []
           for name, selected in candidates.items():
               assert len(selected) == expected[name], (name, selected)
+              selected_codes = {item["configuration_code"] for item in selected}
               spec = {
                   "version": source["version"],
                   "configuration_status": source["configuration_status"],
@@ -61,8 +59,17 @@ jobs:
                   "equipment_attributes": source["equipment_attributes"],
                   "not_applicable": source["not_applicable"],
               }
+              evidence = {
+                  key: value for key, value in source_evidence.items() if key != "decisions"
+              }
+              evidence["decisions"] = [
+                  decision for decision in source_evidence["decisions"]
+                  if decision["configuration_code"] in selected_codes
+              ]
               spec_path = out / f"{name}-completeness.json"
+              evidence_path = out / f"{name}-gap-evidence.json"
               spec_path.write_text(json.dumps(spec, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+              evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
               commands.extend([
                   (name, "completeness", [
                       "python", "tools/dkb.py", "configuration-completeness",
@@ -106,6 +113,8 @@ jobs:
           for name in candidates:
               item = {}
               for key, filename in (
+                  ("spec", f"{name}-completeness.json"),
+                  ("evidence", f"{name}-gap-evidence.json"),
                   ("completeness", f"{name}-completeness-report.json"),
                   ("source_coverage", f"{name}-source-coverage.json"),
                   ("comparison", f"{name}-comparison.json"),
@@ -117,8 +126,11 @@ jobs:
           summary_path = out / "source-backed-model-expansion-decision-inputs.json"
           summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           print(summary_path.read_text(encoding="utf-8"))
+          if any(item["returncode"] != 0 for item in diagnostics):
+              raise SystemExit(1)
           PY
       - name: Upload discovery artifact
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: source-backed-model-expansion-discovery
