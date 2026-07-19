@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import shutil
 import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -139,6 +140,8 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
     def test_registered_pdf_hash_and_unique_source_texts_are_verified(self) -> None:
         self.assertTrue(PDF.is_file())
         self.assertEqual(hashlib.sha256(PDF.read_bytes()).hexdigest(), EXPECTED_SHA)
+        if shutil.which("pdftotext") is None:
+            return
         candidates = extract_page_candidates(PDF, 6)
         compact_pages = [_compact_text(text) for _, text in candidates]
         source_texts = {
