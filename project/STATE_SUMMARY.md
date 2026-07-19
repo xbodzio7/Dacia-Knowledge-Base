@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Reporting Portfolio Completion Review** — `complete`
+**Sandero Eco-G 120 Manual Reporting Scope Promotion** — `active`
 
-Confirm independent complete reporting coverage for all 22 current Jogger configurations and close the Jogger reporting milestone.
+Promote five source-backed Sandero Eco-G 120 manual configurations with 45 technical slots, 69 equipment attributes, five prices, ten deterministic comparisons and 51 preserved evidence decisions.
 
 ## Next package
 
-**Source-Backed Model Expansion Planning Review** — `planned`
+**Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** — `planned`
 
-Select the next model-expansion milestone from existing registered source evidence without changing reporting architecture.
+Promote the separate two-configuration automatic Stepway group with its verified evidence-aware comparison contract.
 
 ## Autonomy
 
