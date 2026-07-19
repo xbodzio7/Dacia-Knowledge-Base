@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Equipment Availability Import
-- Pull Request: #129
-- Verified head: `07939ef1d49b25819e59ef56634e5039a588950d`
-- Quality run: #601
+- Package: Jogger Eco-G 120 Automatic Reporting Scope Promotion
+- Pull Request: #131
+- Verified head: `a2f9f43c417058bc7924bfdaddbbf2b5d516b5b0`
+- Quality run: #626
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Eco-G 120 Automatic Reporting Scope Promotion** — `active`
+**Jogger Eco-G 120 Manual Reporting Scope Promotion** — `active`
 
-Publish four Eco-G 120 automatic configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and six deterministic comparisons.
+Publish six Eco-G 120 manual configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons.
 
 ## Next package
 
 **Remaining Jogger Reporting Portfolio Review** — `planned`
 
-Review the three remaining homogeneous Jogger powertrain groups after the first reporting promotion.
+Review the two remaining homogeneous Jogger powertrain groups after the Eco-G 120 manual promotion.
 
 ## Autonomy
 
