@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Persistent browser selection independent of active shortlist filters, with visible-set and individual controls.
+* Deterministic bundle-compatible shortlist JSON and plain configuration-code exports verified end to end.
 * Transactional configuration comparison bundles that group explicit selections by independent reporting scope.
 * Evidence-filtered JSON, Markdown, CSV and HTML bundle reports with singleton groups and SHA-256 manifests.
 * Self-contained interactive configuration shortlist HTML with a full source-backed browser catalog and CLI-defined initial filters.
@@ -210,7 +212,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 620 tests.
+* The automated test suite now contains 628 tests.
 * The verified master-data baseline now contains 37 CSV files and 5155 rows.
 * SQLite verification now covers 37 tables and 5155 rows.
 * Configuration attribute values now contain 1204 dated records.
