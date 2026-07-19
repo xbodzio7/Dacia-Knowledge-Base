@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger LPG Capacity Modeling and Import",
-    "pull_request": 116,
-    "head_sha": "8668217081aa8d3195e08733bdd205ac4f7bfdcf",
-    "quality_run": 484
+    "name": "Jogger Hybrid System Semantics Review",
+    "pull_request": 117,
+    "head_sha": "67bf395ff3924143c8957e0d770c4fe80d0f89d3",
+    "quality_run": 494
   },
   "baseline": {
-    "tests": 488,
+    "tests": 494,
     "csv_files": 34,
-    "rows": 3821,
-    "configuration_values": 1192,
-    "configuration_import_specs": 69,
+    "rows": 3828,
+    "configuration_values": 1198,
+    "configuration_import_specs": 70,
     "availability_records": 1811,
-    "attributes": 356,
+    "attributes": 357,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Total Hybrid System Power Modeling and Import",
+    "name": "Jogger Remaining Technical Architecture Review",
     "status": "active",
-    "goal": "Add a dedicated hybrid_system_power_total attribute and materialize 6 exact 116 kW observations for all active Hybrid 155 configurations without summing component powers."
+    "goal": "Prepare explicit architecture options for controlled battery chemistry, battery-capacity basis and interval-valued Jogger evidence after completing all safely representable exact page-6 observations."
   },
   "next_package": {
-    "name": "Jogger Remaining Technical Architecture Review",
-    "status": "planned",
-    "goal": "Resolve the controlled battery-chemistry mapping, battery-capacity basis and explicit interval representation required by the remaining Jogger page-6 evidence."
+    "name": "Approved Jogger Remaining Architecture Package",
+    "status": "blocked",
+    "goal": "Implement the user-approved controlled-value and interval architecture without converting ambiguous source semantics into scalar values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

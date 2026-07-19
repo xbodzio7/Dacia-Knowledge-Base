@@ -56,6 +56,7 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
                 "jogger-page6-cargo-vda-seatback-20260401.json",
                 "jogger-page6-lpg-vessel-capacity-total-20260401.json",
                 "jogger-page6-lpg-vessel-filling-capacity-20260401.json",
+                "jogger-page6-hybrid-system-power-total-20260401.json",
             }
         )
 

@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger LPG Capacity Modeling and Import
-- Pull Request: #116
-- Verified head: `8668217081aa8d3195e08733bdd205ac4f7bfdcf`
-- Quality run: #484
+- Package: Jogger Hybrid System Semantics Review
+- Pull Request: #117
+- Verified head: `67bf395ff3924143c8957e0d770c4fe80d0f89d3`
+- Quality run: #494
 
 ## Verified baseline
 
-- Tests: 488
+- Tests: 494
 - Master CSV files: 34
-- Master rows: 3821
-- Configuration values: 1192
-- Configuration import specifications: 69
+- Master rows: 3828
+- Configuration values: 1198
+- Configuration import specifications: 70
 - Availability records: 1811
-- Canonical attributes: 356
+- Canonical attributes: 357
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Total Hybrid System Power Modeling and Import** — `active`
+**Jogger Remaining Technical Architecture Review** — `active`
 
-Add a dedicated hybrid_system_power_total attribute and materialize 6 exact 116 kW observations for all active Hybrid 155 configurations without summing component powers.
+Prepare explicit architecture options for controlled battery chemistry, battery-capacity basis and interval-valued Jogger evidence after completing all safely representable exact page-6 observations.
 
 ## Next package
 
-**Jogger Remaining Technical Architecture Review** — `planned`
+**Approved Jogger Remaining Architecture Package** — `blocked`
 
-Resolve the controlled battery-chemistry mapping, battery-capacity basis and explicit interval representation required by the remaining Jogger page-6 evidence.
+Implement the user-approved controlled-value and interval architecture without converting ambiguous source semantics into scalar values.
 
 ## Autonomy
 

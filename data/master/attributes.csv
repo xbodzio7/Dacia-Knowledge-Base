@@ -355,3 +355,4 @@ id,code,category,name,data_type,unit,description,status
 361,cargo_volume_vda_to_seatback,Capacities,Cargo volume VDA to seat-back height,integer,L,Luggage compartment volume measured according to VDA up to the source-stated seat-back height,active
 362,lpg_vessel_capacity_total,Capacities,Total LPG vessel capacity,decimal,L,Total internal capacity of the LPG pressure vessel,active
 363,lpg_vessel_filling_capacity,Capacities,LPG vessel filling capacity,decimal,L,"Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity",active
+364,hybrid_system_power_total,Hybrid System,Total hybrid system power,decimal,kW,Source-stated total output of the complete hybrid propulsion system; not a calculated sum of component powers,active
