@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Discovery and Shortlist Planning Review
-- Pull Request: #144
-- Verified head: `8fa744b00f2c1a5e5cab12f1bb79b8166d94980c`
-- Quality run: #713
+- Package: Configuration Shortlist CLI
+- Pull Request: #145
+- Verified head: `943c35929779183dcfe575fbe92dd7e004a771c9`
+- Quality run: #721
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Shortlist CLI** — `active`
+**Interactive Configuration Shortlist HTML Planning Review** — `complete`
 
-Filter active configurations by metadata, current catalogue price, seat count and evidence-aware equipment requirements, with deterministic JSON, Markdown and CSV outputs.
+Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values.
 
 ## Next package
 
-**Interactive Configuration Shortlist HTML Planning Review** — `planned`
+**Interactive Configuration Shortlist HTML** — `planned`
 
-Select a browser-ready shortlist experience that reuses the transparent CLI contract without adding preference scoring or inferred values.
+Extend configuration-shortlist with a self-contained browser catalog, initial CLI filter state and JavaScript filtering verified against Python semantics.
 
 ## Autonomy
 
