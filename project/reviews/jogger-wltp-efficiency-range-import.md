@@ -14,6 +14,10 @@ Eight strict specifications create 64 closed page-6 ranges: 24 Eco-G manual, 16 
 
 Range IDs form the first contiguous suffix `1-64`. Every row uses observation date `2026-04-01`, source `src_pl_jogger_price_my26_20260401`, page 6 and section `OSIĄGI`. Both endpoints are inclusive.
 
+## PDF validation
+
+The registered PDF SHA-256 is checked in every Python test job. Page-6 source text is additionally verified when a PDF extraction backend is present; the full Python 3.13 Quality gate installs `pdftotext` before validation.
+
 ## Baseline counters
 
 The canonical baseline separately tracks scalar values, scalar specifications, value ranges and range specifications.
