@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Eco-G 120 Automatic Reporting Scope Promotion
-- Pull Request: #131
-- Verified head: `a2f9f43c417058bc7924bfdaddbbf2b5d516b5b0`
-- Quality run: #626
+- Package: Jogger Eco-G 120 Manual Reporting Scope Promotion
+- Pull Request: #133
+- Verified head: `d08a9e7db367cd6d911369babbffaf49bbcc4216`
+- Quality run: #641
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Eco-G 120 Manual Reporting Scope Promotion** — `active`
+**Jogger Hybrid 155 Automatic Reporting Scope Promotion** — `active`
 
-Publish six Eco-G 120 manual configurations with 34 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons.
+Publish six Hybrid 155 automatic configurations with 27 mixed scalar/range technical slots, 53 equipment attributes, dated prices and 15 deterministic comparisons.
 
 ## Next package
 
-**Remaining Jogger Reporting Portfolio Review** — `planned`
+**Jogger TCe 110 Manual Reporting Scope Promotion** — `planned`
 
-Review the two remaining homogeneous Jogger powertrain groups after the Eco-G 120 manual promotion.
+Publish the final six homogeneous Jogger configurations after the Hybrid 155 automatic promotion.
 
 ## Autonomy
 
