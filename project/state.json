@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Configuration Comparison Bundle CLI",
-    "pull_request": 149,
-    "head_sha": "960b410a5afb0389aa8d88572ff8141452068c4d",
-    "quality_run": 745
+    "name": "Interactive Configuration Selection Export",
+    "pull_request": 151,
+    "head_sha": "5197b94d430fbb4826e2d5655b62fef8209f85f5",
+    "quality_run": 759
   },
   "baseline": {
     "tests": 628,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Interactive Configuration Selection Export",
-    "status": "active",
-    "goal": "Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle."
+    "name": "Data Product Utilization Milestone Review",
+    "status": "complete",
+    "goal": "Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Utilization Milestone Review",
+    "name": "Configuration Comparison Workbook Export Planning Review",
     "status": "planned",
-    "goal": "Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data."
+    "goal": "Define a deterministic XLSX workbook contract that reuses existing comparison and bundle outputs while preserving scope isolation, unknown states and source provenance."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
