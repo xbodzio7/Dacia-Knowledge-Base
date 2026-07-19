@@ -9,6 +9,7 @@ from tools.validators.statuses import (
     ACTIVE_STATUSES,
     LIFECYCLE_STATUSES,
     STATUS_RULES,
+    configured_status_rules,
     validate_status_file,
     validate_statuses,
 )
@@ -239,29 +240,38 @@ class StatusValidationTests(unittest.TestCase):
         )
 
     def test_scans_all_configured_files(self) -> None:
-        for rule in STATUS_RULES:
+        self.write_csv(
+            "data/master/attributes.csv",
+            ["code", "data_type", "status"],
+            [["injection_type", "enum", "active"]],
+        )
+        self.write_csv(
+            "data/master/attribute_enum_domains.csv",
+            ["attribute_code", "domain_file", "status"],
+            [["injection_type", "injection_types.csv", "active"]],
+        )
+        self.write_csv(
+            "data/master/enums/injection_types.csv",
+            ["code", "name", "description", "status"],
+            [["port_injection", "Port", "Port injection", "active"]],
+        )
+
+        rules, rule_errors = configured_status_rules(self.root)
+        self.assertEqual(rule_errors, [])
+        for rule in rules:
+            if (self.root / rule.path).is_file():
+                continue
             header = ["status"]
             row = ["active"]
-
             if rule.allowed_statuses == LIFECYCLE_STATUSES:
                 row = ["current"]
-
             if rule.end_column is not None:
                 header.append(rule.end_column)
                 row.append("")
-
-            self.write_csv(
-                rule.path,
-                header,
-                [row],
-            )
+            self.write_csv(rule.path, header, [row])
 
         checked, errors = validate_statuses(self.root)
-
-        self.assertEqual(
-            checked,
-            len(STATUS_RULES),
-        )
+        self.assertEqual(checked, len(rules))
         self.assertEqual(errors, [])
 
 

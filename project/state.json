@@ -9,30 +9,30 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Total Hybrid System Power Modeling and Import",
-    "pull_request": 118,
-    "head_sha": "0fafab52155a9b56f7aa08d5c13af428124f7541",
-    "quality_run": 498
+    "name": "Jogger Remaining Technical Architecture Review",
+    "pull_request": 119,
+    "head_sha": "3610e80771d5856344f27b22349d6afd5b0784b9",
+    "quality_run": 500
   },
   "baseline": {
-    "tests": 494,
-    "csv_files": 34,
-    "rows": 3828,
-    "configuration_values": 1198,
-    "configuration_import_specs": 70,
+    "tests": 502,
+    "csv_files": 36,
+    "rows": 3845,
+    "configuration_values": 1204,
+    "configuration_import_specs": 71,
     "availability_records": 1811,
     "attributes": 357,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Remaining Technical Architecture Approval",
-    "status": "blocked",
-    "goal": "Obtain approval for Option A, B or C covering battery-chemistry controlled values, battery-capacity basis and interval-valued observation architecture."
+    "name": "Attribute Enum Domain Registry and Jogger Battery Chemistry",
+    "status": "active",
+    "goal": "Implement the approved reusable enum-domain registry and materialize six controlled lithium-ion observations while keeping the unqualified 1.4 kWh capacity deferred."
   },
   "next_package": {
-    "name": "Approved Jogger Remaining Architecture Package",
-    "status": "blocked",
-    "goal": "Implement the approved architecture without converting ambiguous source semantics into scalar values."
+    "name": "Jogger Range Observation Architecture",
+    "status": "planned",
+    "goal": "Add a separate range-observation table, declarative importer, validators, SQLite support and range-preserving reporting without changing the scalar observation table."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

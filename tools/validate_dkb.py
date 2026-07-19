@@ -24,7 +24,7 @@ from validators.rule_contracts import validate_rule_contracts
 from validators.rule_execution import execute_data_rules
 from validators.repository import discover_csv_files, validate_repository
 from validators.uniqueness import validate_unique_keys
-from validators.statuses import STATUS_RULES, validate_statuses
+from validators.statuses import configured_status_rules, validate_statuses
 from validators.year_ranges import (
     YEAR_RANGE_RULES,
     validate_year_ranges,
@@ -128,6 +128,7 @@ def main() -> int:
             print(f"      • {error}")
 
     print("\n6. Walidacja statusów i cyklu życia")
+    configured_statuses, _ = configured_status_rules(root)
     checked_status_records, status_errors = validate_statuses(root)
     statuses_ok = not status_errors
 
@@ -135,7 +136,7 @@ def main() -> int:
         print(
             "   ✅ OK "
             f"({checked_status_records} rekordów, "
-            f"{len(STATUS_RULES)} reguł)"
+            f"{len(configured_statuses)} reguł)"
         )
     else:
         print(

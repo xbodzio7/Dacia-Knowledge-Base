@@ -8,7 +8,10 @@ import csv
 from dataclasses import dataclass
 from pathlib import Path
 
-from validators.enum_domains import load_enum_domain_rules
+try:
+    from validators.enum_domains import load_enum_domain_rules
+except ModuleNotFoundError:  # package import in unit tests
+    from tools.validators.enum_domains import load_enum_domain_rules
 
 
 @dataclass(frozen=True)
