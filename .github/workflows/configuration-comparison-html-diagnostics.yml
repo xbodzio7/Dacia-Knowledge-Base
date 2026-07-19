@@ -1,0 +1,73 @@
+name: Configuration Comparison HTML Diagnostics
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    if: github.head_ref == 'product/configuration-comparison-html'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Install PDF text extraction backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Run isolated diagnostics
+        id: diagnostics
+        shell: bash
+        run: |
+          set +e
+          status=0
+          for module in \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          do
+            safe_name="${module//./-}"
+            python -m unittest -v "$module" > "${RUNNER_TEMP}/${safe_name}.log" 2>&1
+            result=$?
+            echo "$module=$result" >> "${RUNNER_TEMP}/diagnostic-summary.txt"
+            if [ "$result" -ne 0 ]; then status=1; fi
+          done
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json" \
+            > "${RUNNER_TEMP}/quality-console.log" 2>&1
+          result=$?
+          echo "quality=$result" >> "${RUNNER_TEMP}/diagnostic-summary.txt"
+          if [ "$result" -ne 0 ]; then status=1; fi
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Upload diagnostic logs
+        uses: actions/upload-artifact@v7
+        with:
+          name: configuration-comparison-html-diagnostics
+          path: |
+            ${{ runner.temp }}/diagnostic-summary.txt
+            ${{ runner.temp }}/tests-*.log
+            ${{ runner.temp }}/quality.log
+            ${{ runner.temp }}/quality-console.log
+            ${{ runner.temp }}/quality-summary.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Fail when diagnostics failed
+        if: steps.diagnostics.outputs.status != '0'
+        run: exit 1
