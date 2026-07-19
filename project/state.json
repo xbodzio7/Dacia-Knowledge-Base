@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Interactive Configuration Selection Export",
-    "pull_request": 151,
-    "head_sha": "5197b94d430fbb4826e2d5655b62fef8209f85f5",
-    "quality_run": 759
+    "name": "Data Product Utilization Milestone Review",
+    "pull_request": 152,
+    "head_sha": "1f58a89db47d2204bcfaeb085a8ac61f89ec1548",
+    "quality_run": 761
   },
   "baseline": {
     "tests": 628,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Product Utilization Milestone Review",
+    "name": "Configuration Comparison Workbook Export Planning Review",
     "status": "complete",
-    "goal": "Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data."
+    "goal": "Define the workbook export contract for existing comparison bundles."
   },
   "next_package": {
-    "name": "Configuration Comparison Workbook Export Planning Review",
+    "name": "Configuration Comparison Workbook Export",
     "status": "planned",
-    "goal": "Define a deterministic XLSX workbook contract that reuses existing comparison and bundle outputs while preserving scope isolation, unknown states and source provenance."
+    "goal": "Add one deterministic six-sheet XLSX workbook to each comparison bundle."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
