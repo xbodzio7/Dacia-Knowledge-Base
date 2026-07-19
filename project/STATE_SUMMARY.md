@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Bundle CLI
-- Pull Request: #149
-- Verified head: `960b410a5afb0389aa8d88572ff8141452068c4d`
-- Quality run: #745
+- Package: Interactive Configuration Selection Export
+- Pull Request: #151
+- Verified head: `5197b94d430fbb4826e2d5655b62fef8209f85f5`
+- Quality run: #759
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Configuration Selection Export** — `active`
+**Data Product Utilization Milestone Review** — `complete`
 
-Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle.
+Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data.
 
 ## Next package
 
-**Data Product Utilization Milestone Review** — `planned`
+**Configuration Comparison Workbook Export Planning Review** — `planned`
 
-Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data.
+Define a deterministic XLSX workbook contract that reuses existing comparison and bundle outputs while preserving scope isolation, unknown states and source provenance.
 
 ## Autonomy
 
