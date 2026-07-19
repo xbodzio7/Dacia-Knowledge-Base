@@ -1,0 +1,793 @@
+{
+  "ecog120-manual": {
+    "configurations": [
+      "jogger_essential_5seat_ecog120_manual",
+      "jogger_essential_7seat_ecog120_manual",
+      "jogger_expression_5seat_ecog120_manual",
+      "jogger_expression_7seat_ecog120_manual",
+      "jogger_extreme_5seat_ecog120_manual",
+      "jogger_extreme_7seat_ecog120_manual"
+    ],
+    "configuration_count": 6,
+    "pair_count": 15,
+    "technical_slot_counts": {
+      "jogger_essential_5seat_ecog120_manual": 34,
+      "jogger_essential_7seat_ecog120_manual": 34,
+      "jogger_expression_5seat_ecog120_manual": 34,
+      "jogger_expression_7seat_ecog120_manual": 34,
+      "jogger_extreme_5seat_ecog120_manual": 34,
+      "jogger_extreme_7seat_ecog120_manual": 34
+    },
+    "technical_sets_identical": true,
+    "technical_slot_count": 34,
+    "scalar_slot_count": 25,
+    "range_slot_count": 9,
+    "technical_observation_count": 204,
+    "technical_slots": [
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_luggage_cover",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_seatback",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gear_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "lpg_vessel_capacity_total",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "lpg_vessel_filling_capacity",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "maximum_payload",
+        "fuel_type_code": "",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "number_of_seats",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "start_stop_system",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      }
+    ],
+    "equipment_counts": {
+      "jogger_essential_5seat_ecog120_manual": 53,
+      "jogger_essential_7seat_ecog120_manual": 53,
+      "jogger_expression_5seat_ecog120_manual": 53,
+      "jogger_expression_7seat_ecog120_manual": 53,
+      "jogger_extreme_5seat_ecog120_manual": 53,
+      "jogger_extreme_7seat_ecog120_manual": 53
+    },
+    "equipment_observation_count": 318,
+    "equipment_status_counts": {
+      "not_available": 64,
+      "optional": 24,
+      "standard": 230
+    },
+    "price_counts": {
+      "jogger_essential_5seat_ecog120_manual": 1,
+      "jogger_essential_7seat_ecog120_manual": 1,
+      "jogger_expression_5seat_ecog120_manual": 1,
+      "jogger_expression_7seat_ecog120_manual": 1,
+      "jogger_extreme_5seat_ecog120_manual": 1,
+      "jogger_extreme_7seat_ecog120_manual": 1
+    },
+    "price_observation_count": 6,
+    "complete": true
+  },
+  "ecog120-automatic": {
+    "configurations": [
+      "jogger_extreme_5seat_ecog120_automatic",
+      "jogger_extreme_7seat_ecog120_automatic",
+      "jogger_journey_5seat_ecog120_automatic",
+      "jogger_journey_7seat_ecog120_automatic"
+    ],
+    "configuration_count": 4,
+    "pair_count": 6,
+    "technical_slot_counts": {
+      "jogger_extreme_5seat_ecog120_automatic": 34,
+      "jogger_extreme_7seat_ecog120_automatic": 34,
+      "jogger_journey_5seat_ecog120_automatic": 34,
+      "jogger_journey_7seat_ecog120_automatic": 34
+    },
+    "technical_sets_identical": true,
+    "technical_slot_count": 34,
+    "scalar_slot_count": 25,
+    "range_slot_count": 9,
+    "technical_observation_count": 136,
+    "technical_slots": [
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_luggage_cover",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_seatback",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gear_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "petrol",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "lpg_vessel_capacity_total",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "lpg_vessel_filling_capacity",
+        "fuel_type_code": "lpg",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "lpg",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "maximum_payload",
+        "fuel_type_code": "",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "number_of_seats",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "start_stop_system",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      }
+    ],
+    "equipment_counts": {
+      "jogger_extreme_5seat_ecog120_automatic": 53,
+      "jogger_extreme_7seat_ecog120_automatic": 53,
+      "jogger_journey_5seat_ecog120_automatic": 53,
+      "jogger_journey_7seat_ecog120_automatic": 53
+    },
+    "equipment_observation_count": 212,
+    "equipment_status_counts": {
+      "not_available": 20,
+      "optional": 14,
+      "standard": 178
+    },
+    "price_counts": {
+      "jogger_extreme_5seat_ecog120_automatic": 1,
+      "jogger_extreme_7seat_ecog120_automatic": 1,
+      "jogger_journey_5seat_ecog120_automatic": 1,
+      "jogger_journey_7seat_ecog120_automatic": 1
+    },
+    "price_observation_count": 4,
+    "complete": true
+  },
+  "tce110-manual": {
+    "configurations": [
+      "jogger_expression_5seat_tce110_manual",
+      "jogger_expression_7seat_tce110_manual",
+      "jogger_extreme_5seat_tce110_manual",
+      "jogger_extreme_7seat_tce110_manual",
+      "jogger_journey_5seat_tce110_manual",
+      "jogger_journey_7seat_tce110_manual"
+    ],
+    "configuration_count": 6,
+    "pair_count": 15,
+    "technical_slot_counts": {
+      "jogger_expression_5seat_tce110_manual": 24,
+      "jogger_expression_7seat_tce110_manual": 24,
+      "jogger_extreme_5seat_tce110_manual": 24,
+      "jogger_extreme_7seat_tce110_manual": 24,
+      "jogger_journey_5seat_tce110_manual": 24,
+      "jogger_journey_7seat_tce110_manual": 24
+    },
+    "technical_sets_identical": true,
+    "technical_slot_count": 24,
+    "scalar_slot_count": 19,
+    "range_slot_count": 5,
+    "technical_observation_count": 144,
+    "technical_slots": [
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_luggage_cover",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_seatback",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gear_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "maximum_payload",
+        "fuel_type_code": "",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "number_of_seats",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "start_stop_system",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      }
+    ],
+    "equipment_counts": {
+      "jogger_expression_5seat_tce110_manual": 53,
+      "jogger_expression_7seat_tce110_manual": 53,
+      "jogger_extreme_5seat_tce110_manual": 53,
+      "jogger_extreme_7seat_tce110_manual": 53,
+      "jogger_journey_5seat_tce110_manual": 53,
+      "jogger_journey_7seat_tce110_manual": 53
+    },
+    "equipment_observation_count": 318,
+    "equipment_status_counts": {
+      "not_available": 40,
+      "optional": 24,
+      "standard": 254
+    },
+    "price_counts": {
+      "jogger_expression_5seat_tce110_manual": 1,
+      "jogger_expression_7seat_tce110_manual": 1,
+      "jogger_extreme_5seat_tce110_manual": 1,
+      "jogger_extreme_7seat_tce110_manual": 1,
+      "jogger_journey_5seat_tce110_manual": 1,
+      "jogger_journey_7seat_tce110_manual": 1
+    },
+    "price_observation_count": 6,
+    "complete": true
+  },
+  "hybrid155-automatic": {
+    "configurations": [
+      "jogger_expression_5seat_hybrid155_automatic",
+      "jogger_expression_7seat_hybrid155_automatic",
+      "jogger_extreme_5seat_hybrid155_automatic",
+      "jogger_extreme_7seat_hybrid155_automatic",
+      "jogger_journey_5seat_hybrid155_automatic",
+      "jogger_journey_7seat_hybrid155_automatic"
+    ],
+    "configuration_count": 6,
+    "pair_count": 15,
+    "technical_slot_counts": {
+      "jogger_expression_5seat_hybrid155_automatic": 27,
+      "jogger_expression_7seat_hybrid155_automatic": 27,
+      "jogger_extreme_5seat_hybrid155_automatic": 27,
+      "jogger_extreme_7seat_hybrid155_automatic": 27,
+      "jogger_journey_5seat_hybrid155_automatic": 27,
+      "jogger_journey_7seat_hybrid155_automatic": 27
+    },
+    "technical_sets_identical": true,
+    "technical_slot_count": 27,
+    "scalar_slot_count": 23,
+    "range_slot_count": 4,
+    "technical_observation_count": 162,
+    "technical_slots": [
+      {
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_luggage_cover",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "cargo_volume_vda_to_seatback",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "co2_emissions",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_power",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "fuel_consumption_combined",
+        "fuel_type_code": "petrol",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "hybrid_battery_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "hybrid_battery_voltage",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "hybrid_system_power_total",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "injection_type",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "maximum_payload",
+        "fuel_type_code": "",
+        "kind": "range"
+      },
+      {
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "number_of_seats",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "starter_generator_power",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "traction_motor_power",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      },
+      {
+        "attribute_code": "traction_motor_torque",
+        "fuel_type_code": "",
+        "kind": "scalar"
+      }
+    ],
+    "equipment_counts": {
+      "jogger_expression_5seat_hybrid155_automatic": 53,
+      "jogger_expression_7seat_hybrid155_automatic": 53,
+      "jogger_extreme_5seat_hybrid155_automatic": 53,
+      "jogger_extreme_7seat_hybrid155_automatic": 53,
+      "jogger_journey_5seat_hybrid155_automatic": 53,
+      "jogger_journey_7seat_hybrid155_automatic": 53
+    },
+    "equipment_observation_count": 318,
+    "equipment_status_counts": {
+      "not_available": 38,
+      "optional": 22,
+      "standard": 258
+    },
+    "price_counts": {
+      "jogger_expression_5seat_hybrid155_automatic": 1,
+      "jogger_expression_7seat_hybrid155_automatic": 1,
+      "jogger_extreme_5seat_hybrid155_automatic": 1,
+      "jogger_extreme_7seat_hybrid155_automatic": 1,
+      "jogger_journey_5seat_hybrid155_automatic": 1,
+      "jogger_journey_7seat_hybrid155_automatic": 1
+    },
+    "price_observation_count": 6,
+    "complete": true
+  }
+}
