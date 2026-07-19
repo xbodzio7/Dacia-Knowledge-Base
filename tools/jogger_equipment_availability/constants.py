@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 MASTER = ROOT / "data" / "master"
 SOURCE = ROOT / "PDF" / "Cenniki" / "DACIA JOGGER cennik MY26 20260401.pdf"
 SOURCE_CODE = "src_pl_jogger_price_my26_20260401"
-SOURCE_SHA256 = "f0272cac35c4260d95f45d9143a29cf6b3098113d269055dc9665a69238712f1"
+SOURCE_SHA256 = "a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b"
 DATE = "2026-04-01"
 MATRICES = (
     ROOT / "data/imports/jogger_equipment_availability_safety_20260401.csv",
