@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger WLTP Efficiency Range Import Selection
-- Pull Request: #123
-- Verified head: `75fc4d3d00e008fbf6d623ac0705fa9194287d3c`
-- Quality run: #541
+- Package: Jogger WLTP Efficiency Range Modeling and Import
+- Pull Request: #124
+- Verified head: `28ea42b2ee7db22a3a169cf2f071f5f37aed7ee9`
+- Quality run: #563
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger WLTP Efficiency Range Modeling and Import** — `active`
+**Jogger Payload and Performance Range Selection** — `active`
 
-Materialize eight strict page-6 range specifications and 64 closed fuel-consumption and CO2 observations for all active Jogger configurations with exact fuel contexts.
+Select the exact seat-qualified maximum-payload ranges and the source-stated Hybrid acceleration and engine-speed range denominator without importing data.
 
 ## Next package
 
-**Jogger Payload and Performance Range Selection** — `planned`
+**Jogger Payload and Performance Range Modeling and Import** — `planned`
 
-Select the seat-qualified maximum-payload ranges and the independently stated Hybrid acceleration and engine-speed ranges after the WLTP package is verified.
+Materialize 11 strict specifications and 80 closed page-6 ranges with contiguous IDs 65-144 while preserving all scalar observations.
 
 ## Autonomy
 
