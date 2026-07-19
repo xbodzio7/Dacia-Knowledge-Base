@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Interactive Configuration Selection Export
-- Pull Request: #151
-- Verified head: `5197b94d430fbb4826e2d5655b62fef8209f85f5`
-- Quality run: #759
+- Package: Data Product Utilization Milestone Review
+- Pull Request: #152
+- Verified head: `1f58a89db47d2204bcfaeb085a8ac61f89ec1548`
+- Quality run: #761
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Product Utilization Milestone Review** — `complete`
+**Configuration Comparison Workbook Export Planning Review** — `complete`
 
-Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data.
+Define the workbook export contract for existing comparison bundles.
 
 ## Next package
 
-**Configuration Comparison Workbook Export Planning Review** — `planned`
+**Configuration Comparison Workbook Export** — `planned`
 
-Define a deterministic XLSX workbook contract that reuses existing comparison and bundle outputs while preserving scope isolation, unknown states and source provenance.
+Add one deterministic six-sheet XLSX workbook to each comparison bundle.
 
 ## Autonomy
 
