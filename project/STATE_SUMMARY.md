@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Hybrid System Semantics Review
-- Pull Request: #117
-- Verified head: `67bf395ff3924143c8957e0d770c4fe80d0f89d3`
-- Quality run: #494
+- Package: Jogger Total Hybrid System Power Modeling and Import
+- Pull Request: #118
+- Verified head: `0fafab52155a9b56f7aa08d5c13af428124f7541`
+- Quality run: #498
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Remaining Technical Architecture Review** — `active`
+**Jogger Remaining Technical Architecture Approval** — `blocked`
 
-Prepare explicit architecture options for controlled battery chemistry, battery-capacity basis and interval-valued Jogger evidence after completing all safely representable exact page-6 observations.
+Obtain approval for Option A, B or C covering battery-chemistry controlled values, battery-capacity basis and interval-valued observation architecture.
 
 ## Next package
 
 **Approved Jogger Remaining Architecture Package** — `blocked`
 
-Implement the user-approved controlled-value and interval architecture without converting ambiguous source semantics into scalar values.
+Implement the approved architecture without converting ambiguous source semantics into scalar values.
 
 ## Autonomy
 
