@@ -1,0 +1,281 @@
+name: Configuration Comparison HTML Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'product/configuration-comparison-html'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: product/configuration-comparison-html
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Finalize CLI, documentation and project state
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              file = Path(path)
+              text = file.read_text(encoding="utf-8")
+              if old not in text:
+                  raise SystemExit(f"expected text not found in {path}: {old[:100]!r}")
+              file.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+
+          context = Path("tools/configuration_comparison_context.py")
+          text = context.read_text(encoding="utf-8")
+          parser_anchor = '''    parser.add_argument(
+              "--csv",
+              dest="csv_path",
+              type=Path,
+              help="Write a flat CSV containing only actual differences.",
+          )
+          '''
+          parser_replacement = '''    parser.add_argument(
+              "--html",
+              dest="html_path",
+              type=Path,
+              help="Write a self-contained interactive HTML report.",
+          )
+          ''' + parser_anchor
+          if 'dest="html_path"' not in text:
+              if parser_anchor not in text:
+                  raise SystemExit("context parser anchor missing")
+              text = text.replace(parser_anchor, parser_replacement, 1)
+
+          output_anchor = '''        if arguments.markdown is not None:
+              core.write_atomic(
+                  arguments.markdown,
+                  core.render_markdown(report),
+              )
+              print(
+                  "Markdown configuration comparison report written to "
+                  f"{arguments.markdown}"
+              )
+
+          rows = difference_csv_rows(
+          '''
+          output_replacement = '''        if arguments.markdown is not None:
+              core.write_atomic(
+                  arguments.markdown,
+                  core.render_markdown(report),
+              )
+              print(
+                  "Markdown configuration comparison report written to "
+                  f"{arguments.markdown}"
+              )
+          if arguments.html_path is not None:
+              core.write_atomic(
+                  arguments.html_path,
+                  core.render_html(report),
+              )
+              print(
+                  "HTML configuration comparison report written to "
+                  f"{arguments.html_path}"
+              )
+
+          rows = difference_csv_rows(
+          '''
+          if 'arguments.html_path' not in text:
+              if output_anchor not in text:
+                  raise SystemExit("context output anchor missing")
+              text = text.replace(output_anchor, output_replacement, 1)
+          context.write_text(text, encoding="utf-8", newline="\n")
+
+          replace_once(
+              "tools/dkb.py",
+              '        "[--json FILE] [--markdown FILE] [--csv FILE]",',
+              '        "[--json FILE] [--markdown FILE] [--csv FILE] [--html FILE]",',
+          )
+          replace_once(
+              "tools/dkb.py",
+              '''    print(
+                  "  python tools/dkb.py configuration-comparison "
+                  "--difference-context fuel_type_code=lpg "
+                  "--csv ../configuration-comparison-differences.csv"
+              )
+          ''',
+              '''    print(
+                  "  python tools/dkb.py configuration-comparison "
+                  "--difference-context fuel_type_code=lpg "
+                  "--csv ../configuration-comparison-differences.csv"
+              )
+              print(
+                  "  python tools/dkb.py configuration-comparison "
+                  "--html ../configuration-comparison.html"
+              )
+          ''',
+          )
+
+          contract = Path("tests/configuration_comparison_context_filter_contract.py")
+          text = contract.read_text(encoding="utf-8")
+          if 'html_path = root / "comparison.html"' not in text:
+              text = text.replace(
+                  '            markdown_path = root / "comparison.md"\n            csv_path = root / "differences.csv"',
+                  '            markdown_path = root / "comparison.md"\n            html_path = root / "comparison.html"\n            csv_path = root / "differences.csv"',
+                  1,
+              )
+              text = text.replace(
+                  '                        "--csv",\n                        str(csv_path),',
+                  '                        "--html",\n                        str(html_path),\n                        "--csv",\n                        str(csv_path),',
+                  1,
+              )
+              text = text.replace(
+                  '''            self.assertEqual(
+                  markdown_path.read_text(encoding="utf-8"),
+                  core.render_markdown(expected_report),
+              )
+              reader = csv.DictReader(
+          ''',
+                  '''            self.assertEqual(
+                  markdown_path.read_text(encoding="utf-8"),
+                  core.render_markdown(expected_report),
+              )
+              self.assertEqual(
+                  html_path.read_text(encoding="utf-8"),
+                  core.render_html(expected_report),
+              )
+              reader = csv.DictReader(
+          ''',
+                  1,
+              )
+          contract.write_text(text, encoding="utf-8", newline="\n")
+
+          replace_once(
+              "README.md",
+              '''Komenda `configuration-comparison` generuje deterministyczny raport JSON
+          i Markdown dla wszystkich par aktywnych konfiguracji oraz opcjonalny płaski
+          CSV zawierający wyłącznie rzeczywiste różnice. Bieżący zakres siedmiu
+          konfiguracji tworzy 21 par i 305 wierszy różnic.
+          ''',
+              '''Komenda `configuration-comparison` generuje deterministyczny raport JSON,
+          Markdown i samodzielny interaktywny HTML dla wszystkich par aktywnych
+          konfiguracji oraz opcjonalny płaski CSV zawierający wyłącznie rzeczywiste
+          różnice. Bieżący zakres siedmiu konfiguracji tworzy 21 par i 305 wierszy
+          różnic.
+          ''',
+          )
+          replace_once(
+              "README.md",
+              '''  --markdown ../configuration-comparison.md \\
+            --csv ../configuration-comparison-differences.csv
+          ''',
+              '''  --markdown ../configuration-comparison.md \\
+            --csv ../configuration-comparison-differences.csv \\
+            --html ../configuration-comparison.html
+          ''',
+          )
+          replace_once(
+              "README.md",
+              '''JSON i Markdown pozostają pełnymi formatami: zawierają stany równe,
+          `different` oraz `not_comparable`. CSV jest eksportem użytkowym i pomija
+          wszystkie wyniki inne niż `different`.
+          ''',
+              '''JSON, Markdown i HTML pozostają pełnymi formatami: zawierają stany
+          równe, `different` oraz `not_comparable`. HTML zawiera wbudowane style i
+          skrypt filtrowania, działa bez serwera i nie pobiera zewnętrznych zasobów.
+          CSV jest eksportem użytkowym i pomija wszystkie wyniki inne niż
+          `different`.
+          ''',
+          )
+          replace_once(
+              "README.md",
+              '''* rozwój i uzupełnianie danych,
+          * walidację struktury i relacji,
+          * raportowanie jakości oraz kompletności danych,
+          * wyszukiwanie informacji,
+          * generowanie lokalnej bazy SQLite,
+          * automatyzację kontroli jakości,
+          * rozwój spójnego interfejsu narzędziowego.
+          ''',
+              '''* praktyczne wykorzystanie zamkniętego portfela danych,
+          * interaktywne i eksportowalne porównania konfiguracji,
+          * walidację struktury i relacji,
+          * raportowanie jakości oraz kompletności danych,
+          * wyszukiwanie informacji,
+          * generowanie lokalnej bazy SQLite,
+          * automatyzację kontroli jakości,
+          * rozwój spójnego interfejsu narzędziowego.
+          ''',
+          )
+
+          replace_once(
+              "CHANGELOG.md",
+              "### Added\n\n",
+              "### Added\n\n* Self-contained interactive HTML configuration comparison reports with offline filtering, source provenance and evidence-aware states.\n* GitHub Actions publication of current Sandero browser reports with a SHA-256 artifact manifest.\n",
+          )
+          replace_once(
+              "project/ROADMAP.md",
+              "- raporty porównawcze konfiguracji i katalog kodów pozycji,\n",
+              "- raporty porównawcze konfiguracji i katalog kodów pozycji,\n- samodzielny interaktywny HTML porównań z filtrowaniem i proweniencją,\n",
+          )
+          replace_once(
+              "project/ROADMAP.md",
+              "- stabilne formaty raportów dla użytkowników zewnętrznych.\n",
+              "- dalsze stabilne formaty raportów dla użytkowników zewnętrznych.\n",
+          )
+
+          state_path = Path("project/state.json")
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["updated_on"] = "2026-07-19"
+          state["phase"] = "Data Product Utilization"
+          state["reference_delivery"] = {
+              "name": "Registered Source Reporting Portfolio Completion Review",
+              "pull_request": 142,
+              "head_sha": "fd1e1a9bbe8b1acd52dc21c8b0818fd252519223",
+              "quality_run": 689,
+          }
+          state["baseline"]["tests"] = 593
+          state["current_package"] = {
+              "name": "Interactive Configuration Comparison HTML",
+              "status": "active",
+              "goal": "Publish deterministic browser-ready configuration comparisons with offline filters, source provenance and unchanged evidence semantics.",
+          }
+          state["next_package"] = {
+              "name": "Configuration Discovery and Shortlist Planning Review",
+              "status": "planned",
+              "goal": "Select the next user-facing workflow for finding and shortlisting configurations from the completed registered-source portfolio.",
+          }
+          state_path.write_text(
+              json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          PY
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Commit finalized package
+        run: |
+          if git diff --quiet; then
+            echo "No finalization changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            tools/configuration_comparison_context.py \
+            tools/dkb.py \
+            tests/configuration_comparison_context_filter_contract.py \
+            README.md \
+            CHANGELOG.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/state.json \
+            project/STATE_SUMMARY.md
+          git commit -m "Finalize interactive comparison HTML package"
+          git push origin HEAD:product/configuration-comparison-html
