@@ -1,0 +1,42 @@
+name: Configuration Selection Export Finalizer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'product/interactive-configuration-selection-export'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Apply final package state
+        run: |
+          python tools/_finalize_configuration_selection_export.py
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Verify final package state
+        run: |
+          python tools/dkb.py documentation-baseline --check
+          python tools/dkb.py project-state --check
+          python -m unittest tests.test_configuration_selection_export
+      - name: Commit final package state
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json tests/test_jogger_payload_performance_ranges.py tests/test_jogger_wltp_efficiency_ranges.py
+          if git diff --cached --quiet; then
+            echo 'Final package state already synchronized.'
+          else
+            git commit -m 'docs: finalize interactive selection export'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
