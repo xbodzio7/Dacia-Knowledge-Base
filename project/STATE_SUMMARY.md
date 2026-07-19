@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Workbook Export Planning Review
-- Pull Request: #153
-- Verified head: `e267fa31953890f045d49d67a94fd566d3098f64`
-- Quality run: #763
+- Package: Configuration Comparison Workbook Export
+- Pull Request: #154
+- Verified head: `c4006d67937272589833135ba4e56dd2628add50`
+- Quality run: #803
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Comparison Workbook Export** — `active`
+**Data Product Distribution Planning Review** — `complete`
 
-Add one deterministic six-sheet XLSX workbook to each comparison bundle.
+Select a stable delivery channel for the existing offline data products without expanding source data.
 
 ## Next package
 
-**Data Product Distribution Planning Review** — `planned`
+**Versioned Data Product Release Publication** — `planned`
 
-Select a stable delivery channel for the existing offline data products without expanding source data.
+Publish deterministic versioned GitHub Release assets for the existing offline data products.
 
 ## Autonomy
 
