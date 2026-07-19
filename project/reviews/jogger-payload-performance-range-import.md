@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package materializes the denominator selected in PR #125 through the canonical configuration-value range table. It does not change scalar observations.
 
@@ -22,7 +22,7 @@ Range IDs `1-64` and all 1,204 scalar observations remain unchanged. Exact Hybri
 
 The first WLTP package is tested against IDs `1-64` and its original eight specifications. Repository-wide storage tests use the current total of 144 ranges.
 
-## Expected baseline
+## Verified baseline
 
 - 536 tests;
 - 37 master CSV files and 3,989 rows;
@@ -30,6 +30,10 @@ The first WLTP package is tested against IDs `1-64` and its original eight speci
 - 144 range values and 19 range specifications;
 - 1,811 availability records;
 - 357 attributes in 30 categories.
+
+## Validation
+
+Quality #574 passed on Python 3.10, the full Python 3.13 gate with page-6 PDF text verification, and Windows.
 
 ## Next package
 
