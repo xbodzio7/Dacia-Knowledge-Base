@@ -21,6 +21,11 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+try:
+    from validators.enum_domains import load_enum_domain_values
+except ModuleNotFoundError:  # package import in unit tests
+    from tools.validators.enum_domains import load_enum_domain_values
+
 SPEC_VERSION = 1
 SPEC_KIND = "configuration_attribute_values"
 VALUE_FIELDS = (
@@ -342,6 +347,19 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
         f"expected {expected_contract}, found {actual_contract}",
     )
 
+    enum_values: frozenset[str] | None = None
+    if spec.data_type == "enum":
+        values_by_attribute, _, enum_errors = load_enum_domain_values(repository)
+        _ensure(
+            not enum_errors,
+            "enum-domain registry is invalid: " + "; ".join(enum_errors),
+        )
+        enum_values = values_by_attribute.get(spec.attribute_code)
+        _ensure(
+            enum_values is not None,
+            f"enum attribute {spec.attribute_code!r} has no registered domain",
+        )
+
     configuration_codes = {row.get("code", "") for row in configurations}
     sources_by_code = {row.get("code", ""): row for row in sources}
     source_pairs = {
@@ -382,6 +400,12 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
             )
 
         _validate_value(spec.data_type, row.value, f"{label}.value")
+        if enum_values is not None:
+            _ensure(
+                row.value in enum_values,
+                f"{label}.value {row.value!r} is outside the registered "
+                f"domain for {spec.attribute_code!r}",
+            )
         notes = spec.notes_template.format(
             page=spec.source_page,
             section=spec.source_section,

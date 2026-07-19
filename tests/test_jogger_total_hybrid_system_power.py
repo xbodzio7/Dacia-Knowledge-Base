@@ -105,16 +105,13 @@ class JoggerTotalHybridSystemPowerTests(unittest.TestCase):
             all("not a calculated sum" in row["notes"] for row in self.values)
         )
 
-    def test_battery_chemistry_and_unspecified_capacity_remain_excluded(self) -> None:
+    def test_unspecified_capacity_remains_excluded_after_chemistry_import(self) -> None:
         excluded = [
             row
             for row in self.all_values
             if row["configuration_code"] in self.hybrid_configurations
             and row["source_code"] == SOURCE_CODE
-            and row["attribute_code"] in {
-                "hybrid_battery_type",
-                "hybrid_battery_capacity",
-            }
+            and row["attribute_code"] == "hybrid_battery_capacity"
         ]
         self.assertFalse(excluded)
         voltage = [

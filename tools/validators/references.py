@@ -9,6 +9,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
 
+try:
+    from validators.enum_domains import validate_enum_domains
+except ModuleNotFoundError:  # package import in unit tests
+    from tools.validators.enum_domains import validate_enum_domains
+
 
 @dataclass(frozen=True)
 class ReferenceRule:
@@ -383,6 +388,9 @@ def validate_reference_rules(
 
 
 def validate_references(root: Path) -> list[str]:
-    """Validate all declared DKB cross-file references."""
+    """Validate declared references and enum-domain membership."""
 
-    return validate_reference_rules(root, REFERENCE_RULES)
+    errors = validate_reference_rules(root, REFERENCE_RULES)
+    _, enum_errors = validate_enum_domains(root)
+    errors.extend(enum_errors)
+    return errors
