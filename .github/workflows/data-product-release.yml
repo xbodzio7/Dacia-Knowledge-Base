@@ -16,8 +16,8 @@ jobs:
   build-and-verify:
     runs-on: ubuntu-latest
     env:
-      RELEASE_VERSION: ${{ inputs.version || '0.0.0' }}
-      RELEASE_DIR: ${{ runner.temp }}/data-product-release
+      RELEASE_VERSION: ${{ github.event.inputs.version || '0.0.0' }}
+      RELEASE_DIR: release-candidate
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: versioned-data-product-release-candidate
-          path: ${{ runner.temp }}/data-product-release
+          path: release-candidate
           if-no-files-found: error
           retention-days: 7
 
@@ -58,8 +58,8 @@ jobs:
       contents: write
     env:
       GH_TOKEN: ${{ github.token }}
-      RELEASE_VERSION: ${{ inputs.version }}
-      RELEASE_DIR: ${{ runner.temp }}/data-product-release
+      RELEASE_VERSION: ${{ github.event.inputs.version }}
+      RELEASE_DIR: release-candidate
     steps:
       - name: Require main branch
         shell: bash
@@ -81,7 +81,7 @@ jobs:
         uses: actions/download-artifact@v7
         with:
           name: versioned-data-product-release-candidate
-          path: ${{ runner.temp }}/data-product-release
+          path: release-candidate
       - name: Verify downloaded candidate
         run: |
           python tools/data_product_release.py \
