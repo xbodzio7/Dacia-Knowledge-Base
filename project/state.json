@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Payload and Performance Range Selection",
-    "pull_request": 125,
-    "head_sha": "c4995a952f71b6dc07afd8948e877e67864a63a6",
-    "quality_run": 565
+    "name": "Jogger Payload and Performance Range Modeling and Import",
+    "pull_request": 126,
+    "head_sha": "f7cedcfc740fcbc888b5f172bed3f1d79477dad9",
+    "quality_run": 575
   },
   "baseline": {
     "tests": 536,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Payload and Performance Range Modeling and Import",
+    "name": "Jogger MY26 Page-6 Source Completion Review",
     "status": "active",
-    "goal": "Materialize 11 strict specifications and 80 closed page-6 payload, Hybrid acceleration and engine-speed ranges with IDs 65-144."
+    "goal": "Verify complete page-6 coverage and document the deferred unqualified battery-capacity value."
   },
   "next_package": {
-    "name": "Jogger Remaining Page-6 Exact Measurement Review",
+    "name": "Jogger Technical Reporting Scope Selection",
     "status": "planned",
-    "goal": "Review the remaining cargo, LPG-capacity and hybrid-system exact measurements against their dedicated canonical attributes."
+    "goal": "Select the first bounded homogeneous Jogger reporting group without changing source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
