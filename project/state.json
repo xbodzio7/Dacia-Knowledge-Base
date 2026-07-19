@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Source-Backed Model Expansion",
+  "phase": "Registered Source Portfolio Complete",
   "reference_delivery": {
     "name": "Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
     "pull_request": 140,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Reporting Portfolio Completion Review",
+    "name": "Registered Source Reporting Portfolio Completion Review",
     "status": "complete",
-    "goal": "Confirm isolated evidence-aware reporting coverage for all seven current Sandero configurations and close the Sandero reporting milestone."
+    "goal": "Confirm that 13 independent scopes cover all 53 active configurations and all nine active registered sources without overlap or unused source material."
   },
   "next_package": {
-    "name": "Registered Source Reporting Portfolio Completion Review",
-    "status": "planned",
-    "goal": "Verify independent reporting coverage for all 53 active configurations and determine whether any further model expansion can proceed from existing registered sources."
+    "name": "New Official Source Acquisition",
+    "status": "blocked",
+    "goal": "Register and import at least one new official Dacia model, model-year or market source before creating another reporting expansion package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
