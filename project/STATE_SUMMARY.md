@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-18
+- State updated: 2026-07-19
 
 ## Phase
 
@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Jogger Gearbox Reconciliation Selection
-- Pull Request: #109
-- Verified head: `8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d`
-- Quality run: #450
+- Package: Jogger Gearbox Association and Observation Reconciliation
+- Pull Request: #110
+- Verified head: `7a192b609f3a2d50c6dc220311cfbf857d9c8ea5`
+- Quality run: #459
 
 ## Verified baseline
 
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Jogger Range and Qualifier Modeling Review** — `active`
+**Jogger Minimum Kerb Weight Modeling and Import** — `active`
 
-Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model.
+Add a dedicated minimum_kerb_weight attribute and materialize 22 exact page-6 observations by explicit five- or seven-seat configuration without weakening the source minimum qualifier.
 
 ## Next package
 
-**Selected Jogger Range or Qualifier Modeling Package** — `planned`
+**Jogger Cargo Measurement Modeling Review** — `planned`
 
-Implement one selected bounded Jogger range, qualifier or measurement-semantic package while preserving the completed exact scalar, injection and gearbox denominators.
+Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations.
 
 ## Autonomy
 

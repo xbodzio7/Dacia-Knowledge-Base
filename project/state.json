@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-07-18",
+  "updated_on": "2026-07-19",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Gearbox Reconciliation Selection",
-    "pull_request": 109,
-    "head_sha": "8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d",
-    "quality_run": 450
+    "name": "Jogger Gearbox Association and Observation Reconciliation",
+    "pull_request": 110,
+    "head_sha": "7a192b609f3a2d50c6dc220311cfbf857d9c8ea5",
+    "quality_run": 459
   },
   "baseline": {
     "tests": 470,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Range and Qualifier Modeling Review",
+    "name": "Jogger Minimum Kerb Weight Modeling and Import",
     "status": "active",
-    "goal": "Assess the remaining WLTP, payload, minimum-weight, acceleration, cargo, LPG-capacity, hybrid-system/battery and engine-speed evidence that cannot be represented by the current exact scalar model."
+    "goal": "Add a dedicated minimum_kerb_weight attribute and materialize 22 exact page-6 observations by explicit five- or seven-seat configuration without weakening the source minimum qualifier."
   },
   "next_package": {
-    "name": "Selected Jogger Range or Qualifier Modeling Package",
+    "name": "Jogger Cargo Measurement Modeling Review",
     "status": "planned",
-    "goal": "Implement one selected bounded Jogger range, qualifier or measurement-semantic package while preserving the completed exact scalar, injection and gearbox denominators."
+    "goal": "Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
