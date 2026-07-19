@@ -100,4 +100,7 @@ identical, overlapping and disjoint ranges before any Jogger range import.
 
 ## Local validation
 
-The repaired package passed 512 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.
+The repaired package passed 512 tests, canonical-state verification and the
+complete local Quality gate before removing its temporary workflow. The final
+branch contains no temporary audit, workflow or diagnostic-log artifact, and
+reporting integration remains intentionally outside this storage package.
