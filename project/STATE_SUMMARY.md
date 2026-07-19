@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Shortlist-to-Comparison Workflow Planning Review
-- Pull Request: #148
-- Verified head: `b55b09f8e27108a242fca10a4be46b92533f1c6f`
-- Quality run: #737
+- Package: Configuration Comparison Bundle CLI
+- Pull Request: #149
+- Verified head: `960b410a5afb0389aa8d88572ff8141452068c4d`
+- Quality run: #745
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Comparison Bundle CLI** — `active`
+**Interactive Selection Export Planning Review** — `complete`
 
-Group explicit selections by independent scope, filter completeness and evidence contracts, and publish transactional JSON, Markdown, CSV and HTML comparison bundles with singleton and checksum manifests.
+Select a browser workflow for explicitly selecting shortlist results and exporting deterministic bundle-compatible JSON and plain configuration codes without ranking or inferred values.
 
 ## Next package
 
-**Interactive Selection Export Planning Review** — `planned`
+**Interactive Configuration Selection Export** — `planned`
 
-Select a browser workflow for explicitly selecting shortlist results and exporting codes or shortlist JSON consumable by the comparison bundle without ranking or inferred values.
+Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle.
 
 ## Autonomy
 
