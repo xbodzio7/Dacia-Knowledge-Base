@@ -9,10 +9,10 @@
   },
   "phase": "Source-Backed Model Expansion",
   "reference_delivery": {
-    "name": "Jogger Cargo Measurement Modeling Selection",
-    "pull_request": 113,
-    "head_sha": "e28a747b83462af613bba04cec424fa554981fe7",
-    "quality_run": 474
+    "name": "Jogger Cargo Measurement Modeling and Import",
+    "pull_request": 114,
+    "head_sha": "3f44646d64f4c5acbbc008cf5dca1a3a7d2d237f",
+    "quality_run": 478
   },
   "baseline": {
     "tests": 482,
@@ -25,14 +25,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger LPG Capacity Modeling Review",
+    "name": "Jogger LPG Capacity Modeling and Import",
     "status": "active",
-    "goal": "Separate total LPG vessel capacity from filling capacity before importing the source-stated 50/40 L pairs for all active Eco-G configurations."
+    "goal": "Add separate total LPG vessel and LPG filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context."
   },
   "next_package": {
-    "name": "Jogger LPG Capacity Modeling and Import",
+    "name": "Jogger Hybrid System Semantics Review",
     "status": "planned",
-    "goal": "Add the selected LPG total-capacity and filling-capacity attributes and materialize 20 exact page-6 observations with LPG fuel context."
+    "goal": "Assess source-stated Hybrid 155 total system power and lithium-ion chemistry while preserving the unresolved gross, nominal or usable basis of the 1.4 kWh battery value."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
