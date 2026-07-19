@@ -27,17 +27,20 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-      - name: Finalize and validate package
-        run: python tools/_tmp_finalize_jogger_ecog120_reporting.py
-      - name: Commit final package
-        if: always()
+      - name: Finalize package and capture result
         run: |
+          set +e
+          python tools/_tmp_finalize_jogger_ecog120_reporting.py > /tmp/finalize.log 2>&1
+          status=$?
+          set -e
+          tail -n 160 /tmp/finalize.log > project/audits/jogger-ecog120-automatic-finalize.log
+          echo "exit_status=${status}" >> project/audits/jogger-ecog120-automatic-finalize.log
+      - name: Commit non-workflow result
+        run: |
+          git checkout origin/main -- .github/workflows/quality.yml
+          rm -f tools/_tmp_finalize_jogger_ecog120_reporting.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -f tools/_tmp_finalize_jogger_ecog120_reporting.py
           git add -A
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "reporting: finalize Jogger Eco-G 120 automatic scope"
+          git commit -m "reporting: synchronize Jogger Eco-G 120 scope"
           git push origin HEAD:reporting/jogger-ecog120-automatic
