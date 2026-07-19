@@ -11,13 +11,13 @@ sys.path.insert(0, str(REPOSITORY / "tools"))
 sys.path.insert(0, str(REPOSITORY / "tests"))
 
 import configuration_comparison as comparison  # noqa: E402
+import test_configuration_comparison as comparison_fixture  # noqa: E402
 from reporting.configuration_comparison_html import render_html  # noqa: E402
-from test_configuration_comparison import ConfigurationComparisonTests  # noqa: E402
 
 
 class ConfigurationComparisonHtmlTests(unittest.TestCase):
     def fixture(self, root: Path) -> tuple[Path, Path, Path]:
-        return ConfigurationComparisonTests().fixture(root)
+        return comparison_fixture.ConfigurationComparisonTests().fixture(root)
 
     def report(self, root: Path):
         repository, completeness, evidence = self.fixture(root)
@@ -106,7 +106,11 @@ class ConfigurationComparisonHtmlTests(unittest.TestCase):
             repository, completeness, evidence = self.fixture(root)
             json_path = root / "comparison.json"
             html_path = root / "comparison.html"
-            with patch.object(comparison._base, "repository_root", return_value=repository):
+            with patch.object(
+                comparison._base,
+                "repository_root",
+                return_value=repository,
+            ):
                 result = comparison.main(
                     [
                         "--completeness-spec",
@@ -122,7 +126,10 @@ class ConfigurationComparisonHtmlTests(unittest.TestCase):
             self.assertEqual(result, 0)
             self.assertTrue(json_path.is_file())
             self.assertTrue(html_path.is_file())
-            self.assertIn("cfg_a__vs__cfg_b", html_path.read_text(encoding="utf-8"))
+            self.assertIn(
+                "cfg_a__vs__cfg_b",
+                html_path.read_text(encoding="utf-8"),
+            )
 
 
 if __name__ == "__main__":
