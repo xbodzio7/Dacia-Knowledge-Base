@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Data Product Utilization Milestone Review
-- Pull Request: #152
-- Verified head: `1f58a89db47d2204bcfaeb085a8ac61f89ec1548`
-- Quality run: #761
+- Package: Configuration Comparison Workbook Export Planning Review
+- Pull Request: #153
+- Verified head: `e267fa31953890f045d49d67a94fd566d3098f64`
+- Quality run: #763
 
 ## Verified baseline
 
-- Tests: 628
+- Tests: 640
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Comparison Workbook Export Planning Review** — `complete`
+**Configuration Comparison Workbook Export** — `active`
 
-Define the workbook export contract for existing comparison bundles.
+Add one deterministic six-sheet XLSX workbook to each comparison bundle.
 
 ## Next package
 
-**Configuration Comparison Workbook Export** — `planned`
+**Data Product Distribution Planning Review** — `planned`
 
-Add one deterministic six-sheet XLSX workbook to each comparison bundle.
+Select a stable delivery channel for the existing offline data products without expanding source data.
 
 ## Autonomy
 

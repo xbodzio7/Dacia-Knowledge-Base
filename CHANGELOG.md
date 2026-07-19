@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Deterministic six-sheet XLSX workbooks for comparison bundles.
+* Typed values, evidence states and byte-identical Linux/Windows output.
 * Persistent browser selection independent of active shortlist filters, with visible-set and individual controls.
 * Deterministic bundle-compatible shortlist JSON and plain configuration-code exports verified end to end.
 * Transactional configuration comparison bundles that group explicit selections by independent reporting scope.
@@ -212,7 +214,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 628 tests.
+* The automated test suite now contains 640 tests.
 * The verified master-data baseline now contains 37 CSV files and 5155 rows.
 * SQLite verification now covers 37 tables and 5155 rows.
 * Configuration attribute values now contain 1204 dated records.
