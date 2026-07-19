@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Configuration Comparison Workbook Export
-- Pull Request: #154
-- Verified head: `c4006d67937272589833135ba4e56dd2628add50`
-- Quality run: #803
+- Package: Data Product Distribution Planning Review
+- Pull Request: #155
+- Verified head: `5c861728f32eafaa52db0ef72974d841d599b530`
+- Quality run: #805
 
 ## Verified baseline
 
-- Tests: 640
+- Tests: 654
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Product Distribution Planning Review** — `complete`
+**Versioned Data Product Release Publication** — `active`
 
-Select a stable delivery channel for the existing offline data products without expanding source data.
+Publish deterministic versioned GitHub Release assets for the existing offline data products.
 
 ## Next package
 
-**Versioned Data Product Release Publication** — `planned`
+**Initial Data Product Release Readiness Review** — `planned`
 
-Publish deterministic versioned GitHub Release assets for the existing offline data products.
+Verify the immutable publication contract and select the first public release version without publishing it.
 
 ## Autonomy
 

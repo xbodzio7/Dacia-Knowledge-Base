@@ -9,13 +9,13 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Configuration Comparison Workbook Export",
-    "pull_request": 154,
-    "head_sha": "c4006d67937272589833135ba4e56dd2628add50",
-    "quality_run": 803
+    "name": "Data Product Distribution Planning Review",
+    "pull_request": 155,
+    "head_sha": "5c861728f32eafaa52db0ef72974d841d599b530",
+    "quality_run": 805
   },
   "baseline": {
-    "tests": 640,
+    "tests": 654,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Product Distribution Planning Review",
-    "status": "complete",
-    "goal": "Select a stable delivery channel for the existing offline data products without expanding source data."
+    "name": "Versioned Data Product Release Publication",
+    "status": "active",
+    "goal": "Publish deterministic versioned GitHub Release assets for the existing offline data products."
   },
   "next_package": {
-    "name": "Versioned Data Product Release Publication",
+    "name": "Initial Data Product Release Readiness Review",
     "status": "planned",
-    "goal": "Publish deterministic versioned GitHub Release assets for the existing offline data products."
+    "goal": "Verify the immutable publication contract and select the first public release version without publishing it."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

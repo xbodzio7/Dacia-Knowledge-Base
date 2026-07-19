@@ -48,9 +48,10 @@ The ZIP contains:
 - `shortlist/` with the complete active-configuration JSON, Markdown, CSV and self-contained HTML;
 - `comparison-bundle/` generated from that complete shortlist selection, preserving all independent reporting scopes, singleton handling, companion reports, bundle manifest and six-sheet XLSX workbook;
 - `RELEASE_NOTES.md` with the release version, tested commit and a concise inventory;
-- a copy of `data-product-release-manifest.json`.
 
 The release workflow does not publish the Quality log or internal gap-review working reports as user products. Those remain available through the existing Quality artifact.
+
+The release manifest remains a standalone asset and records the final ZIP hash. It is not copied into the ZIP because that would create an impossible self-reference between the manifest and the archive containing it.
 
 ## Manifest contract
 
