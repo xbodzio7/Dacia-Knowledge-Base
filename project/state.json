@@ -29,12 +29,12 @@
   "current_package": {
     "name": "Jogger MY26 Page-6 Source Completion Review",
     "status": "active",
-    "goal": "Verify that every safely representable page-6 fact is present and document the sole basis-ambiguous deferred battery-capacity value."
+    "goal": "Verify complete page-6 coverage and document the deferred unqualified battery-capacity value."
   },
   "next_package": {
     "name": "Jogger Technical Reporting Scope Selection",
     "status": "planned",
-    "goal": "Select the first bounded homogeneous Jogger configuration group and its technical, equipment and price reporting denominator without changing source data."
+    "goal": "Select the first bounded homogeneous Jogger reporting group without changing source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
