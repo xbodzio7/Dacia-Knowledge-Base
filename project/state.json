@@ -15,7 +15,7 @@
     "quality_run": 745
   },
   "baseline": {
-    "tests": 620,
+    "tests": 628,
     "csv_files": 37,
     "rows": 5155,
     "configuration_values": 1204,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Interactive Selection Export Planning Review",
-    "status": "complete",
-    "goal": "Select a browser workflow for explicitly selecting shortlist results and exporting deterministic bundle-compatible JSON and plain configuration codes without ranking or inferred values."
+    "name": "Interactive Configuration Selection Export",
+    "status": "active",
+    "goal": "Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle."
   },
   "next_package": {
-    "name": "Interactive Configuration Selection Export",
+    "name": "Data Product Utilization Milestone Review",
     "status": "planned",
-    "goal": "Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle."
+    "goal": "Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

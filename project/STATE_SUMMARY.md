@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 620
+- Tests: 628
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Selection Export Planning Review** — `complete`
+**Interactive Configuration Selection Export** — `active`
 
-Select a browser workflow for explicitly selecting shortlist results and exporting deterministic bundle-compatible JSON and plain configuration codes without ranking or inferred values.
+Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle.
 
 ## Next package
 
-**Interactive Configuration Selection Export** — `planned`
+**Data Product Utilization Milestone Review** — `planned`
 
-Add persistent browser selection controls and deterministic offline JSON and text downloads consumable by the comparison bundle.
+Review the five completed user-facing data products, validate their end-to-end workflow and select the next utilization milestone without expanding source data.
 
 ## Autonomy
 
