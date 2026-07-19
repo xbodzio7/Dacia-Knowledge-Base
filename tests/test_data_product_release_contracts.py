@@ -45,6 +45,8 @@ class DataProductReleaseContractTests(unittest.TestCase):
         self.assertIn("    permissions:\n      contents: write\n", text)
         self.assertIn('if [[ "${GITHUB_REF}" != "refs/heads/main" ]]', text)
         self.assertIn("Reject existing tag or release", text)
+        self.assertIn('if [[ "${output}" != *"(HTTP 404)"* ]]', text)
+        self.assertIn("Unable to prove ${label} absence", text)
         self.assertIn("gh release create", text)
         self.assertIn("data-product-release-manifest.json", text)
         self.assertIn("SHA256SUMS", text)
