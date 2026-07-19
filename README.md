@@ -638,7 +638,7 @@ python tools/dkb.py data-product-release \
 Powstają dokładnie trzy assety: wersjonowane archiwum ZIP, zewnętrzny
 `data-product-release-manifest.json` i `SHA256SUMS`. Archiwum zawiera 59 plików:
 shortlistę JSON, Markdown, CSV i HTML, 13 grup raportowych, manifest bundle oraz
-sześciоarkuszowy XLSX. Manifest zachowuje rozmiary, typy MIME i SHA-256 każdego
+sześcioarkuszowy XLSX. Manifest zachowuje rozmiary, typy MIME i SHA-256 każdego
 pliku; nie jest kopiowany do ZIP, aby uniknąć samoodniesienia hashu archiwum.
 
 Tryb `--verify` sprawdza istniejący katalog bez przebudowy. Workflow
