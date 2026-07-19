@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 125,
+  "attribute_code": "max_torque_rpm",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "rpm",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 197 przy 1 750 - 3 750",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 190 przy 2 000 - 4 000",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 197 przy 1 750 - 3 750",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 190 przy 2 000 - 4 000",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 197 przy 1 750 - 3 750",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 190 przy 2 000 - 4 000",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 197 przy 1 750 - 3 750",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 190 przy 2 000 - 4 000",
+      "fuel_type_code": "petrol"
+    }
+  ]
+}

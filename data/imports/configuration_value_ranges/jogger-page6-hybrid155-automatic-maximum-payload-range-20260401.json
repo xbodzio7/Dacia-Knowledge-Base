@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "configuration_attribute_value_ranges",
-  "id_start": 65,
+  "id_start": 81,
   "attribute_code": "maximum_payload",
   "attribute_contract": {
     "data_type": "integer",
@@ -15,58 +15,58 @@
   "notes_template": "Source page {page}, section {section}: {source_text}",
   "rows": [
     {
-      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "453",
-      "maximum_value": "473",
+      "minimum_value": "457",
+      "maximum_value": "471",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     },
     {
-      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "453",
-      "maximum_value": "473",
+      "minimum_value": "457",
+      "maximum_value": "471",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     },
     {
-      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "453",
-      "maximum_value": "473",
+      "minimum_value": "457",
+      "maximum_value": "471",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     },
     {
-      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "598",
-      "maximum_value": "619",
+      "minimum_value": "595",
+      "maximum_value": "612",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     },
     {
-      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "598",
-      "maximum_value": "619",
+      "minimum_value": "595",
+      "maximum_value": "612",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     },
     {
-      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
       "source_code": "src_pl_jogger_price_my26_20260401",
-      "minimum_value": "598",
-      "maximum_value": "619",
+      "minimum_value": "595",
+      "maximum_value": "612",
       "lower_inclusive": true,
       "upper_inclusive": true,
-      "source_text": "453-473 / 598-619"
+      "source_text": "457-471 / 595-612"
     }
   ]
 }
