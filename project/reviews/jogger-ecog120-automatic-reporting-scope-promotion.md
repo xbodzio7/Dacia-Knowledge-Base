@@ -33,7 +33,7 @@ Completeness is 136/136 technical observations and 212/212 equipment observation
 
 ## Artifacts
 
-Quality publishes JSON and Markdown completeness and source-coverage reports, JSON and Markdown comparison reports and a flat comparison-differences CSV under the `jogger-ecog120-automatic` prefix.
+The dedicated Jogger reporting workflow publishes JSON and Markdown completeness and source-coverage reports, JSON and Markdown comparison reports, a flat comparison-differences CSV and a SHA-256 manifest under the `jogger-ecog120-automatic` prefix.
 
 ## Expected baseline
 
