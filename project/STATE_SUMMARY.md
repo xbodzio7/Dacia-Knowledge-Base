@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Interactive Configuration Shortlist HTML Planning Review
-- Pull Request: #146
-- Verified head: `c5571a9006143da3afcff7ebb9534d5cd1f9f982`
-- Quality run: #723
+- Package: Interactive Configuration Shortlist HTML
+- Pull Request: #147
+- Verified head: `9fa22b0a842880d34a1c489a059de44f3b7e4324`
+- Quality run: #731
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Configuration Shortlist HTML** — `active`
+**Shortlist-to-Comparison Workflow Planning Review** — `complete`
 
-Publish a self-contained 53-configuration browser catalog with CLI-defined initial filters and JavaScript semantics verified against the Python shortlist engine.
+Select a transparent workflow that turns explicitly selected shortlist results into existing source-backed comparisons while preserving independent reporting scopes.
 
 ## Next package
 
-**Shortlist-to-Comparison Workflow Planning Review** — `planned`
+**Configuration Comparison Bundle CLI** — `planned`
 
-Select a transparent workflow that turns explicitly selected shortlist results into an existing source-backed configuration comparison without adding ranking or inferred values.
+Group explicit configuration selections by independent scope, filter completeness and evidence contracts, and publish a manifest plus existing JSON, Markdown, CSV and HTML comparisons for every comparable group.
 
 ## Autonomy
 
