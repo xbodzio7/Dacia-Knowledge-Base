@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Versioned Data Product Release Publication",
-    "pull_request": 156,
-    "head_sha": "e7e5df25308b775e0b0b526baf6790d8616e5068",
-    "quality_run": 828
+    "name": "Initial Data Product Release Readiness Review",
+    "pull_request": 157,
+    "head_sha": "c64292e43f9b3fa02dedb9d755ddf619f2cde8b1",
+    "quality_run": 836
   },
   "baseline": {
     "tests": 654,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Initial Data Product Release Readiness Review",
+    "name": "Initial Data Product Release Publication",
     "status": "complete",
-    "goal": "Verify the immutable publication contract and select the first public release version without publishing it."
+    "goal": "Publish data-products-v1.0.0 from the explicitly authorized and verified main commit."
   },
   "next_package": {
-    "name": "Initial Data Product Release Publication",
+    "name": "Data Product Release Consumption Review",
     "status": "planned",
-    "goal": "Create data-products-v1.0.0 from the verified main commit after explicit owner authorization."
+    "goal": "Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

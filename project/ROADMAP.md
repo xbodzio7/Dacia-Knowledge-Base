@@ -86,6 +86,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - trwały wybór konfiguracji w przeglądarce z deterministycznym eksportem JSON i TXT zgodnym z pakietem porównań,
 - deterministyczny XLSX z sześcioma arkuszami i identycznymi bajtami na Linuxie oraz Windows,
 - wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
+- pierwsze publiczne wydanie `data-products-v1.0.0` z trzema pobranymi i ponownie zweryfikowanymi assetami,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
