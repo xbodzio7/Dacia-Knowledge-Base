@@ -16,33 +16,33 @@
 
 ## Reference delivery
 
-- Package: Jogger Gearbox Association and Observation Reconciliation
-- Pull Request: #110
-- Verified head: `7a192b609f3a2d50c6dc220311cfbf857d9c8ea5`
-- Quality run: #459
+- Package: Jogger Range and Qualifier Modeling Review
+- Pull Request: #111
+- Verified head: `13e5730271752861868a93475db989bf8899eeed`
+- Quality run: #466
 
 ## Verified baseline
 
-- Tests: 470
+- Tests: 476
 - Master CSV files: 34
-- Master rows: 3730
-- Configuration values: 1106
-- Configuration import specifications: 64
+- Master rows: 3753
+- Configuration values: 1128
+- Configuration import specifications: 65
 - Availability records: 1811
-- Canonical attributes: 351
+- Canonical attributes: 352
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Minimum Kerb Weight Modeling and Import** — `active`
+**Jogger Cargo Measurement Modeling Review** — `active`
 
-Add a dedicated minimum_kerb_weight attribute and materialize 22 exact page-6 observations by explicit five- or seven-seat configuration without weakening the source minimum qualifier.
+Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations.
 
 ## Next package
 
-**Jogger Cargo Measurement Modeling Review** — `planned`
+**Jogger Cargo Measurement Modeling and Import** — `planned`
 
-Define two measurement-specific VDA cargo attributes for parcel-shelf and seat-back boundaries before importing the 44 exact five- and seven-seat observations.
+Add the selected VDA cargo measurement attributes and materialize 44 exact page-6 observations while keeping generic boot-capacity concepts unchanged.
 
 ## Autonomy
 
