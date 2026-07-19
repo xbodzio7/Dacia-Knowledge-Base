@@ -31,7 +31,8 @@ SCRIPT_COMMANDS = {
         "[--min-price PLN] [--max-price PLN] [--seats N] "
         "[--require-equipment CODE] "
         "[--require-standard-equipment CODE] "
-        "[--json FILE] [--markdown FILE] [--csv FILE]",
+        "[--json FILE] [--markdown FILE] [--csv FILE] "
+        "[--html FILE]",
     ),
     "configuration-comparison": (
         "configuration_comparison.py",
@@ -219,6 +220,10 @@ def usage() -> None:
     print(
         "  python tools/dkb.py configuration-shortlist --transmission automatic "
         "--max-price 100000 --csv ../configuration-shortlist.csv"
+    )
+    print(
+        "  python tools/dkb.py configuration-shortlist --transmission automatic "
+        "--max-price 100000 --html ../configuration-shortlist.html"
     )
     print(
         "  python tools/dkb.py configuration-comparison "

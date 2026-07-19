@@ -550,7 +550,8 @@ python tools/dkb.py configuration-shortlist \
   --require-equipment rear_view_camera \
   --json ../configuration-shortlist.json \
   --markdown ../configuration-shortlist.md \
-  --csv ../configuration-shortlist.csv
+  --csv ../configuration-shortlist.csv \
+  --html ../configuration-shortlist.html
 ```
 
 Dostępne kryteria obejmują dokładne kody modelu i wersji, typ skrzyni,
@@ -568,6 +569,12 @@ niewiadomą, a nie wartością domyślną.
 JSON zawiera pełne filtry, niełączne statystyki przyczyn wykluczeń i liczniki
 niewiadomych. Markdown dostarcza czytelną shortlistę, a CSV jeden płaski wiersz
 na dopasowaną konfigurację z proweniencją ceny, miejsc i wyposażenia.
+
+HTML osadza pełny aktywny snapshot dla wskazanej daty, a kryteria CLI
+ustawiają początkowy stan formularza. Wyczyszczenie filtrów przywraca cały
+katalog, podczas gdy JSON, Markdown i CSV pozostają wynikami filtrów
+wykonanych po stronie Pythona. Plik działa bez serwera i nie pobiera
+zewnętrznych skryptów, stylów ani fontów.
 
 ### Porównanie konfiguracji
 
@@ -776,7 +783,7 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 603 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 610 testów, 37 pliki CSV, 5155 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
