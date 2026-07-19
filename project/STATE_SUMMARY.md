@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Data Product Distribution Planning Review
-- Pull Request: #155
-- Verified head: `5c861728f32eafaa52db0ef72974d841d599b530`
-- Quality run: #805
+- Package: Versioned Data Product Release Publication
+- Pull Request: #156
+- Verified head: `e7e5df25308b775e0b0b526baf6790d8616e5068`
+- Quality run: #828
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Versioned Data Product Release Publication** — `active`
+**Initial Data Product Release Readiness Review** — `complete`
 
-Publish deterministic versioned GitHub Release assets for the existing offline data products.
+Verify the immutable publication contract and select the first public release version without publishing it.
 
 ## Next package
 
-**Initial Data Product Release Readiness Review** — `planned`
+**Initial Data Product Release Publication** — `planned`
 
-Verify the immutable publication contract and select the first public release version without publishing it.
+Create data-products-v1.0.0 from the verified main commit after explicit owner authorization.
 
 ## Autonomy
 
