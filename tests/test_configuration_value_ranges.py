@@ -122,9 +122,12 @@ class ConfigurationValueRangeTests(unittest.TestCase):
     def test_import_is_append_only_and_idempotent(self) -> None:
         repository, spec_path = self.fixture()
         spec = importer.load_spec(spec_path)
+        planned = importer.plan_import(repository, spec)
         first = importer.apply_import(repository, spec)
         second = importer.apply_import(repository, spec)
-        self.assertEqual(len(first.missing_rows), 1)
+        self.assertEqual(len(planned.missing_rows), 1)
+        self.assertEqual(len(first.missing_rows), 0)
+        self.assertEqual(len(first.existing_rows), 1)
         self.assertEqual(len(second.missing_rows), 0)
         self.assertEqual(len(second.existing_rows), 1)
         checked, errors = validate_configuration_value_ranges(repository)

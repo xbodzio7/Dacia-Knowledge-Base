@@ -2,7 +2,7 @@
 
 ## Status
 
-`IMPLEMENTING`
+`IMPLEMENTED`
 
 This package implements the storage and import foundation of approved Option A.
 It adds a separate numeric range table and leaves the stable scalar observation
@@ -97,3 +97,7 @@ After implementation:
 **Configuration Value Range Reporting Integration** will make range observations
 visible to completeness and source coverage, then add comparison states for
 identical, overlapping and disjoint ranges before any Jogger range import.
+
+## Local validation
+
+The repaired package passed 512 tests, canonical-state verification and the complete local Quality gate before removing its temporary workflow.
