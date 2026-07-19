@@ -1,0 +1,164 @@
+name: Shortlist to Comparison Discovery
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    if: github.head_ref == 'review/shortlist-to-comparison-workflow-planning'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Audit independent scopes and subset behavior
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import subprocess
+          import tempfile
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path.cwd()
+          reporting = root / "data" / "reporting"
+          current_prefixes = ("sandero_", "duster_", "jogger_")
+          specs = sorted(
+              path
+              for path in reporting.glob("*_completeness.json")
+              if path.name.startswith(current_prefixes)
+          )
+
+          scope_records = []
+          configuration_scopes = defaultdict(list)
+          subset_results = []
+          for spec_path in specs:
+              spec = json.loads(spec_path.read_text(encoding="utf-8"))
+              configurations = [
+                  item["configuration_code"]
+                  for item in spec.get("configurations", [])
+              ]
+              for code in configurations:
+                  configuration_scopes[code].append(spec_path.name)
+
+              base = spec_path.name.replace("_completeness.json", "_gap_evidence")
+              candidates = [reporting / f"{base}.json", reporting / f"{base}.spec"]
+              evidence = next((path for path in candidates if path.exists()), None)
+              record = {
+                  "scope": spec_path.name,
+                  "evidence": evidence.name if evidence else None,
+                  "configuration_count": len(configurations),
+                  "technical_slots": len(spec.get("technical_slots", [])),
+                  "equipment_attributes": len(spec.get("equipment_attributes", [])),
+                  "configurations": configurations,
+              }
+              scope_records.append(record)
+
+              if evidence is None or len(configurations) < 2:
+                  subset_results.append(
+                      {
+                          "scope": spec_path.name,
+                          "status": "not_tested",
+                          "reason": "missing evidence file or fewer than two configurations",
+                      }
+                  )
+                  continue
+
+              subset = dict(spec)
+              subset["configurations"] = [
+                  item
+                  for item in spec["configurations"]
+                  if item["configuration_code"] in set(configurations[:2])
+              ]
+              with tempfile.TemporaryDirectory() as directory:
+                  temporary = Path(directory)
+                  subset_path = temporary / spec_path.name
+                  report_path = temporary / "comparison.json"
+                  subset_path.write_text(
+                      json.dumps(subset, ensure_ascii=False, indent=2) + "\n",
+                      encoding="utf-8",
+                  )
+                  completed = subprocess.run(
+                      [
+                          "python",
+                          "tools/dkb.py",
+                          "configuration-comparison",
+                          "--completeness-spec",
+                          str(subset_path),
+                          "--evidence-spec",
+                          str(evidence),
+                          "--json",
+                          str(report_path),
+                      ],
+                      text=True,
+                      capture_output=True,
+                  )
+                  result = {
+                      "scope": spec_path.name,
+                      "selected_configurations": configurations[:2],
+                      "status": "success" if completed.returncode == 0 else "failure",
+                      "returncode": completed.returncode,
+                      "stderr": completed.stderr.strip(),
+                      "stdout": completed.stdout.strip(),
+                  }
+                  if report_path.exists():
+                      report = json.loads(report_path.read_text(encoding="utf-8"))
+                      result["pair_count"] = report["scope"]["pair_count"]
+                      result["evidence_summary"] = report["evidence_summary"]
+                      result["total_differences"] = report["summary"]["total_differences"]
+                  subset_results.append(result)
+
+          overlaps = {
+              code: scopes
+              for code, scopes in configuration_scopes.items()
+              if len(scopes) != 1
+          }
+          model_counts = Counter(
+              code.split("_", 1)[0] for code in configuration_scopes
+          )
+          report = {
+              "independent_scope_count": len(scope_records),
+              "configuration_count": len(configuration_scopes),
+              "model_configuration_counts": dict(sorted(model_counts.items())),
+              "configurations_not_mapped_exactly_once": overlaps,
+              "scopes": scope_records,
+              "subset_with_original_evidence": subset_results,
+              "all_two_configuration_subsets_succeeded": all(
+                  item["status"] == "success" for item in subset_results
+              ),
+              "recommended_bundle_contract": {
+                  "selection_input": "repeatable exact configuration codes or shortlist JSON",
+                  "grouping": "independent completeness scope",
+                  "minimum_group_size_for_comparison": 2,
+                  "cross_scope_pairs": "forbidden",
+                  "singleton_groups": "reported_without_comparison",
+                  "unknown_configuration_codes": "error",
+                  "duplicate_configuration_codes": "deduplicated",
+                  "output": "bundle manifest plus one existing comparison report per comparable scope",
+              },
+          }
+          output = Path("shortlist-to-comparison-discovery.json")
+          output.write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(output.read_text(encoding="utf-8"))
+          PY
+      - name: Upload discovery artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: shortlist-to-comparison-discovery
+          path: shortlist-to-comparison-discovery.json
+          if-no-files-found: error
+          retention-days: 1
