@@ -732,12 +732,14 @@ Pakiet minimalnej masy własnej Jogger dodaje odrębny atrybut `minimum_kerb_wei
 
 Pomiary bagażnika Jogger zachowują dwie odrębne granice VDA: do wysokości rolety i do wysokości oparcia. Pakiet dodaje dwa precyzyjne atrybuty oraz 44 obserwacje bez nadpisywania ogólnych `boot_capacity` ani `cargo_volume_vda`.
 
+Pojemności LPG Jogger są rozdzielone na całkowitą pojemność zbiornika ciśnieniowego i pojemność napełniania. Pakiet dodaje dwa atrybuty oraz 20 obserwacji z kontekstem `lpg`, bez zmian w benzynowym `fuel_tank_capacity`.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 482 testów, 34 pliki CSV, 3799 rekordów
-danych, 34 relacje między tabelami, 1172 wartości konfiguracji, 67
+Zweryfikowany model obejmuje 488 testów, 34 pliki CSV, 3821 rekordów
+danych, 34 relacje między tabelami, 1192 wartości konfiguracji, 69
 deklaratywnych specyfikacji importu oraz 1811 rekordów dostępności wyposażenia.
-Katalog zawiera 354 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 34 tabele i 3799 rekordów, pozostaje zgodna z CSV, a wszystkie
+Katalog zawiera 356 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 34 tabele i 3821 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

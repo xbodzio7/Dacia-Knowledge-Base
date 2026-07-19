@@ -54,6 +54,8 @@ class JoggerTechnicalSpecificationTests(unittest.TestCase):
                 "jogger-page6-minimum-kerb-weight-20260401.json",
                 "jogger-page6-cargo-vda-luggage-cover-20260401.json",
                 "jogger-page6-cargo-vda-seatback-20260401.json",
+                "jogger-page6-lpg-vessel-capacity-total-20260401.json",
+                "jogger-page6-lpg-vessel-filling-capacity-20260401.json",
             }
         )
 
