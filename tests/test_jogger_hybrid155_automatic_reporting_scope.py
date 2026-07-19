@@ -52,17 +52,20 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
                 "present": 162,
             },
         )
-        equipment = self.completeness["equipment"]
-        self.assertEqual(equipment["applicable"], 318)
-        self.assertEqual(equipment["coverage_percent"], "100.00")
-        self.assertEqual(equipment["denominator"], 318)
-        self.assertEqual(equipment["missing"], 0)
-        self.assertEqual(equipment["not_applicable"], 0)
-        self.assertEqual(equipment["recorded"], 318)
-        self.assertEqual(equipment["unknown"], 0)
         self.assertEqual(
-            equipment["standard"] + equipment["optional"] + equipment["not_available"],
-            318,
+            self.completeness["equipment"],
+            {
+                "applicable": 318,
+                "coverage_percent": "100.00",
+                "denominator": 318,
+                "missing": 0,
+                "not_applicable": 0,
+                "not_available": 38,
+                "optional": 22,
+                "recorded": 318,
+                "standard": 258,
+                "unknown": 0,
+            },
         )
         self.assertEqual(self.completeness["gaps"], {"equipment": [], "technical": []})
 
@@ -71,11 +74,8 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
             self.coverage["source_registration"],
             {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1},
         )
-        self.assertEqual(self.coverage["areas"]["covered"], self.coverage["areas"]["denominator"])
-        self.assertEqual(self.coverage["areas"]["missing"], 0)
-        self.assertEqual(self.coverage["areas"]["partial"], 0)
-        self.assertEqual(self.coverage["areas"]["source_missing"], 0)
-        self.assertEqual(self.coverage["sections"], {"covered": 162, "denominator": 162, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
+        self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
+        self.assertEqual(self.coverage["sections"], {"covered": 168, "denominator": 168, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["records"]["technical"]["present"], 162)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 318)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 6)
@@ -92,19 +92,15 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
         self.assertEqual({pair["summary"]["equipment"]["not_comparable"] for pair in pairs}, {0})
         self.assertEqual({pair["summary"]["prices"]["not_comparable"] for pair in pairs}, {0})
 
-    def test_comparison_summary_has_complete_denominators(self) -> None:
-        summary = self.comparison["summary"]
-        self.assertEqual(summary["prices"]["comparisons"], 15)
-        self.assertEqual(summary["technical"]["comparisons"], 405)
-        self.assertEqual(summary["equipment"]["comparisons"], 795)
-        self.assertEqual(summary["prices"]["not_comparable"], 0)
-        self.assertEqual(summary["technical"]["not_comparable"], 0)
-        self.assertEqual(summary["equipment"]["not_comparable"], 0)
+    def test_comparison_summary_is_stable(self) -> None:
         self.assertEqual(
-            summary["total_differences"],
-            summary["prices"]["different"]
-            + summary["technical"]["different"]
-            + summary["equipment"]["different"],
+            self.comparison["summary"],
+            {
+                "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
+                "technical": {"comparisons": 405, "equal": 351, "different": 54, "not_comparable": 0},
+                "equipment": {"comparisons": 795, "equal": 679, "different": 116, "not_comparable": 0},
+                "total_differences": 185,
+            },
         )
 
     def test_all_sixty_range_comparisons_preserve_interval_semantics(self) -> None:
@@ -115,7 +111,8 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
             if "minimum_value" in item["left"] or "minimum_value" in item["right"]
         ]
         self.assertEqual(len(ranged), 60)
-        self.assertTrue(all(item.get("range_relation") in {"identical", "overlapping", "disjoint"} for item in ranged))
+        self.assertEqual(Counter(item["comparison"] for item in ranged), Counter({"equal": 51, "different": 9}))
+        self.assertEqual(Counter(item.get("range_relation") for item in ranged), Counter({"identical": 51, "disjoint": 9}))
         for item in ranged:
             for side in ("left", "right"):
                 self.assertIn("minimum_value", item[side])
