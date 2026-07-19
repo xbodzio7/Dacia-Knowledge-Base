@@ -1,0 +1,178 @@
+name: Source-Backed Model Expansion Discovery
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    if: github.head_ref == 'review/source-backed-model-expansion-planning'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Discover remaining source-backed model portfolio
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path.cwd()
+          master = root / "data/master"
+
+          def read_rows(path):
+              with path.open(encoding="utf-8-sig", newline="") as handle:
+                  return list(csv.DictReader(handle))
+
+          configurations = read_rows(master / "configurations.csv")
+          active = {row["code"]: row for row in configurations if row["status"] == "active"}
+
+          reported = set()
+          reporting_specs = []
+          for path in sorted((root / "data/reporting").glob("*_completeness.json")):
+              payload = json.loads(path.read_text(encoding="utf-8"))
+              codes = [item["configuration_code"] for item in payload.get("configurations", [])]
+              reported.update(codes)
+              reporting_specs.append({"path": str(path.relative_to(root)), "configurations": codes})
+
+          unreported = sorted(set(active) - reported)
+          groups = defaultdict(list)
+          for code in unreported:
+              row = active[code]
+              model = "sandero" if code.startswith("sandero_") else code.split("_", 1)[0]
+              groups[(model, row["powertrain_label"], row["transmission_type"])].append(code)
+
+          csv_tables = {}
+          for path in sorted(master.glob("*.csv")):
+              rows = read_rows(path)
+              csv_tables[path.name] = {
+                  "headers": list(rows[0]) if rows else [],
+                  "rows": rows,
+              }
+
+          scalar_rows = csv_tables["configuration_attribute_values.csv"]["rows"]
+          range_rows = csv_tables["configuration_attribute_value_ranges.csv"]["rows"]
+
+          def slots(rows, code):
+              return {
+                  (row.get("attribute_code", ""), row.get("fuel_type_code", ""))
+                  for row in rows
+                  if row.get("configuration_code") == code
+              }
+
+          def source_codes_for(code):
+              result = set()
+              by_table = {}
+              for name, table in csv_tables.items():
+                  if "configuration_code" not in table["headers"] or "source_code" not in table["headers"]:
+                      continue
+                  values = sorted({
+                      row.get("source_code", "")
+                      for row in table["rows"]
+                      if row.get("configuration_code") == code and row.get("source_code", "")
+                  })
+                  if values:
+                      by_table[name] = values
+                      result.update(values)
+              return sorted(result), by_table
+
+          group_reports = []
+          for (model, powertrain, transmission), codes in sorted(groups.items()):
+              scalar_sets = {code: slots(scalar_rows, code) for code in codes}
+              range_sets = {code: slots(range_rows, code) for code in codes}
+              scalar_values = list(scalar_sets.values())
+              range_values = list(range_sets.values())
+              scalar_intersection = set.intersection(*scalar_values) if scalar_values else set()
+              scalar_union = set.union(*scalar_values) if scalar_values else set()
+              range_intersection = set.intersection(*range_values) if range_values else set()
+              range_union = set.union(*range_values) if range_values else set()
+
+              per_configuration = {}
+              table_totals = Counter()
+              table_attribute_sets = defaultdict(dict)
+              group_sources = set()
+              for code in codes:
+                  sources, by_table = source_codes_for(code)
+                  group_sources.update(sources)
+                  selected_counts = {}
+                  for name, table in csv_tables.items():
+                      if "configuration_code" not in table["headers"]:
+                          continue
+                      selected = [row for row in table["rows"] if row.get("configuration_code") == code]
+                      if selected:
+                          selected_counts[name] = len(selected)
+                          table_totals[name] += len(selected)
+                          if "attribute_code" in table["headers"]:
+                              table_attribute_sets[name][code] = sorted({row.get("attribute_code", "") for row in selected})
+                  per_configuration[code] = {
+                      "scalar_slots": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in scalar_sets[code]], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                      "range_slots": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in range_sets[code]], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                      "source_codes": sources,
+                      "source_codes_by_table": by_table,
+                      "selected_table_counts": selected_counts,
+                  }
+
+              attribute_contracts = {}
+              for name, mapping in sorted(table_attribute_sets.items()):
+                  sets = [set(values) for values in mapping.values()]
+                  attribute_contracts[name] = {
+                      "per_configuration_counts": {code: len(values) for code, values in sorted(mapping.items())},
+                      "intersection": sorted(set.intersection(*sets)) if sets else [],
+                      "union": sorted(set.union(*sets)) if sets else [],
+                  }
+
+              group_reports.append({
+                  "model": model,
+                  "powertrain_label": powertrain,
+                  "transmission_type": transmission,
+                  "configurations": codes,
+                  "configuration_count": len(codes),
+                  "scalar_slots_identical": len(set(map(frozenset, scalar_values))) == 1,
+                  "range_slots_identical": len(set(map(frozenset, range_values))) == 1,
+                  "scalar_intersection": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in scalar_intersection], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                  "scalar_union": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in scalar_union], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                  "range_intersection": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in range_intersection], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                  "range_union": sorted([{"attribute_code": a, "fuel_type_code": f} for a, f in range_union], key=lambda x: (x["attribute_code"], x["fuel_type_code"])),
+                  "group_source_codes": sorted(group_sources),
+                  "table_totals": dict(sorted(table_totals.items())),
+                  "attribute_contracts": attribute_contracts,
+                  "per_configuration": per_configuration,
+              })
+
+          source_rows = read_rows(master / "sources.csv")
+          source_map = {row["code"]: row for row in source_rows}
+          output = {
+              "active_configuration_count": len(active),
+              "reported_configuration_count": len(reported & set(active)),
+              "unreported_configuration_count": len(unreported),
+              "unreported_configurations": unreported,
+              "reporting_specs": reporting_specs,
+              "groups": group_reports,
+              "sources": {
+                  code: source_map.get(code)
+                  for report in group_reports
+                  for code in report["group_source_codes"]
+              },
+          }
+          path = Path("source-backed-model-expansion-discovery.json")
+          path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(path.read_text(encoding="utf-8"))
+          PY
+      - name: Upload discovery artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: source-backed-model-expansion-discovery
+          path: source-backed-model-expansion-discovery.json
+          if-no-files-found: error
+          retention-days: 1
