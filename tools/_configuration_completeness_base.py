@@ -11,6 +11,11 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from configuration_value_range_reporting import (
+    combine_latest_observations,
+    read_optional_ranges,
+)
+
 DEFAULT_SPEC = Path('data/reporting/configuration_completeness.json')
 AVAILABILITY_STATES = {'standard', 'optional', 'not_available', 'unknown'}
 
@@ -107,6 +112,7 @@ def collect_report(
     sources = read_csv(master / 'sources.csv')
     attributes = read_csv(master / 'attributes.csv')
     values = read_csv(master / 'configuration_attribute_values.csv')
+    ranges = read_optional_ranges(master, read_csv)
     availability = read_csv(master / 'configuration_attribute_availability.csv')
     spec = parse_spec(spec_path)
 
@@ -171,7 +177,7 @@ def collect_report(
     if as_of_value is None:
         dates = [
             iso_date(row['observation_date'], 'observation')
-            for row in values + availability
+            for row in values + ranges + availability
             if row.get('observation_date')
         ]
         if not dates:
@@ -183,16 +189,28 @@ def collect_report(
     scoped_values = [
         row for row in values if row.get('configuration_code') in configuration_sources
     ]
+    scoped_ranges = [
+        row for row in ranges if row.get('configuration_code') in configuration_sources
+    ]
     scoped_availability = [
         row
         for row in availability
         if row.get('configuration_code') in configuration_sources
     ]
-    current_values = latest(
+    current_scalar_values = latest(
         scoped_values,
         ('configuration_code', 'attribute_code', 'fuel_type_code'),
         as_of,
         'configuration values',
+    )
+    current_range_values = latest(
+        scoped_ranges,
+        ('configuration_code', 'attribute_code', 'fuel_type_code'),
+        as_of,
+        'configuration value ranges',
+    )
+    current_values = combine_latest_observations(
+        current_scalar_values, current_range_values, CompletenessError
     )
     current_availability = latest(
         scoped_availability,

@@ -341,6 +341,26 @@ class SourceCoverageTests(unittest.TestCase):
             ):
                 coverage.collect_report(repository, spec)
 
+    def test_range_observations_count_as_source_covered_technical_evidence(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, spec = self.fixture(Path(directory))
+            master = repository / 'data' / 'master'
+            self.write_csv(
+                master / 'configuration_attribute_value_ranges.csv',
+                ['id', 'code', 'configuration_code', 'attribute_code',
+                 'fuel_type_code', 'minimum_value', 'maximum_value',
+                 'lower_inclusive', 'upper_inclusive', 'observation_date',
+                 'source_code', 'notes'],
+                [
+                    ['1', 'a_height', 'cfg_a', 'vehicle_height', '', '1600', '1650', 'true', 'true', '2026-06-01', 'src_a', ''],
+                    ['2', 'b_height', 'cfg_b', 'vehicle_height', '', '1640', '1700', 'true', 'true', '2026-06-01', 'src_b', ''],
+                ],
+            )
+            report = coverage.collect_report(repository, spec)
+        self.assertEqual(report['records']['technical']['present'], 4)
+        self.assertEqual(report['records']['technical']['missing'], 0)
+        self.assertEqual(len(report['gaps']), 2)
+
 
 if __name__ == '__main__':
     unittest.main()

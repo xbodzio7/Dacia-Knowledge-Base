@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Attribute Enum Domain Registry and Jogger Battery Chemistry
-- Pull Request: #120
-- Verified head: `b5c5520822474fe3c76987485540133b3a2c8b9a`
-- Quality run: #514
+- Package: Configuration Value Range Storage and Import Architecture
+- Pull Request: #121
+- Verified head: `98d99b570c09c5d2a180e81c53221ddd1f02e68c`
+- Quality run: #527
 
 ## Verified baseline
 
-- Tests: 512
+- Tests: 520
 - Master CSV files: 37
 - Master rows: 3845
 - Configuration values: 1204
@@ -34,15 +34,15 @@
 
 ## Current package
 
-**Configuration Value Range Storage and Import Architecture** — `active`
+**Configuration Value Range Reporting Integration** — `active`
 
-Add a separate header-only numeric range table, strict declarative importer, global validation and automatic SQLite support without changing scalar observations.
+Count current ranges as technical evidence and preserve identical, overlapping and disjoint relation semantics in pairwise reports without importing source data.
 
 ## Next package
 
-**Configuration Value Range Reporting Integration** — `planned`
+**Jogger WLTP Efficiency Range Import Selection** — `planned`
 
-Integrate ranges with completeness, source coverage and comparison states for identical, overlapping and disjoint evidence before importing Jogger ranges.
+Define the exact fuel-consumption and CO2 range denominator, configuration and fuel contexts, source text and first bounded import package.
 
 ## Autonomy
 
