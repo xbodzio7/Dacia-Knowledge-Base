@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Product Utilization**
+**Maintenance Mode**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Product Utilization Completion Review** — `complete`
+**Strategic Direction Decision** — `complete`
 
-Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data.
+Resolve the completed utilization milestone boundary by selecting maintenance mode without introducing a new consumer-tool architecture or expanding source data.
 
 ## Next package
 
-**Strategic Direction Decision** — `blocked`
+**Repository Hygiene and CI Baseline** — `planned`
 
-Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone.
+Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs.
 
 ## Autonomy
 

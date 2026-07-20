@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Product Utilization",
+  "phase": "Maintenance Mode",
   "reference_delivery": {
     "name": "Data Product Consumer Guide",
     "pull_request": 167,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Product Utilization Completion Review",
+    "name": "Strategic Direction Decision",
     "status": "complete",
-    "goal": "Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data."
+    "goal": "Resolve the completed utilization milestone boundary by selecting maintenance mode without introducing a new consumer-tool architecture or expanding source data."
   },
   "next_package": {
-    "name": "Strategic Direction Decision",
-    "status": "blocked",
-    "goal": "Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone."
+    "name": "Repository Hygiene and CI Baseline",
+    "status": "planned",
+    "goal": "Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
