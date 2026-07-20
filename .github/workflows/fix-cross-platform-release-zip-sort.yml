@@ -1,0 +1,40 @@
+name: Fix Cross-Platform Release ZIP Sort
+
+on:
+  push:
+    branches:
+      - feature/verified-data-product-release-download
+    paths:
+      - tools/_fix_cross_platform_release_zip_sort.py
+      - .github/workflows/fix-cross-platform-release-zip-sort.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feature/verified-data-product-release-download
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Apply normalized ZIP sort
+        run: python tools/_fix_cross_platform_release_zip_sort.py
+      - name: Run focused regression tests
+        run: python -m unittest -q tests.test_data_product_release_download tests.test_data_product_release
+      - name: Verify project state
+        run: python tools/project_state.py --check
+      - name: Remove temporary fixer
+        run: |
+          git rm tools/_fix_cross_platform_release_zip_sort.py
+          git rm .github/workflows/fix-cross-platform-release-zip-sort.yml
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/data-product-release-download.yml project/packages/verified-data-product-release-download-cli.md tools/reporting/data_product_release_model.py
+          git commit -m 'fix: normalize release ZIP member ordering'
+          git push origin HEAD:feature/verified-data-product-release-download
