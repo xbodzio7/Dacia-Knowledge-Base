@@ -49,7 +49,7 @@ The optional JSON report uses schema version 1 and stable key order for the same
 
 ## Validation
 
-Ten explicit synthetic checks cover a valid workspace, deterministic reporting, read-only behavior, changed assets, changed extracted members, missing or unexpected content, edited index bytes, unexpected root entries, unsafe links, runtime resources, CLI output and unified-command forwarding.
+Ten explicit synthetic checks cover a valid workspace, deterministic reporting, read-only behavior, changed assets, changed extracted members, missing or unexpected content, edited index bytes, unexpected root entries, unsafe links, runtime resources, CLI output and unified-command forwarding. These checks run explicitly outside the historical 667-test discovery baseline.
 
 The existing Linux/Windows `Verified Data Product Release Download` workflow also:
 
