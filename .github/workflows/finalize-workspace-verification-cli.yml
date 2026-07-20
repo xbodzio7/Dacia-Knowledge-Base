@@ -1,0 +1,42 @@
+name: Finalize Workspace Verification CLI
+
+on:
+  push:
+    branches:
+      - feature/local-data-product-workspace-verification
+    paths:
+      - .github/workflows/finalize-workspace-verification-cli.yml
+      - tools/_finalize_workspace_verification_cli.py
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: feature/local-data-product-workspace-verification
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Integrate unified CLI
+        run: python tools/_finalize_workspace_verification_cli.py
+      - name: Compile verifier sources
+        run: python -m py_compile tools/dkb.py tools/data_product_workspace_verify.py tools/reporting/data_product_workspace_verify.py tests/workspace_verification_checks.py
+      - name: Run workspace verification checks
+        run: python tests/workspace_verification_checks.py -q
+      - name: Remove temporary finalizer
+        run: |
+          git rm tools/_finalize_workspace_verification_cli.py
+          git rm .github/workflows/finalize-workspace-verification-cli.yml
+      - name: Commit unified CLI integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/dkb.py
+          git commit -m 'feat: integrate workspace verification CLI'
+          git push origin HEAD:feature/local-data-product-workspace-verification
