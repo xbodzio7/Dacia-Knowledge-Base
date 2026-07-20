@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-19
+- State updated: 2026-07-20
 
 ## Phase
 
@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Initial Data Product Release Readiness Review
-- Pull Request: #157
-- Verified head: `c64292e43f9b3fa02dedb9d755ddf619f2cde8b1`
-- Quality run: #836
+- Package: Initial Data Product Release Publication
+- Pull Request: #160
+- Verified head: `fdef0e4788a2927203f8621196e9eff3a38c5443`
+- Quality run: #848
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Initial Data Product Release Publication** — `complete`
+**Data Product Release Consumption Review** — `complete`
 
-Publish data-products-v1.0.0 from the explicitly authorized and verified main commit.
+Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data.
 
 ## Next package
 
-**Data Product Release Consumption Review** — `planned`
+**Verified Data Product Release Download CLI** — `planned`
 
-Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data.
+Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points.
 
 ## Autonomy
 
