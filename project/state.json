@@ -27,9 +27,9 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "README Duster Reporting Portfolio Correction",
+    "name": "GitHub Actions Dependabot Updates",
     "status": "complete",
-    "goal": "Resolve issue #173 by replacing stale pre-promotion Duster README wording with the completed seven-scope, 24-configuration reporting portfolio contract from merged PR #142."
+    "goal": "Add a weekly, review-first Dependabot update channel for all immutable GitHub Actions commit pins without enabling automatic merges or changing current workflow behavior."
   },
   "next_package": {
     "name": "Maintenance Watch",
