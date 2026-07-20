@@ -88,6 +88,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
 - pierwsze publiczne wydanie `data-products-v1.0.0` z trzema pobranymi i ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
+- deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 

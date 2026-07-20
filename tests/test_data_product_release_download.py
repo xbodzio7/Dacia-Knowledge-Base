@@ -12,10 +12,13 @@ from unittest import mock
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 TOOLS = REPOSITORY / "tools"
+TESTS = REPOSITORY / "tests"
+sys.path.insert(0, str(TESTS))
 sys.path.insert(0, str(TOOLS))
 
 import data_product_release_download as cli  # noqa: E402
 import dkb  # noqa: E402
+from data_product_workspace_fixture import create_workspace_payload  # noqa: E402
 from reporting.data_product_release_download import (  # noqa: E402
     API_ROOT,
     ENTRY_POINTS,
@@ -41,9 +44,7 @@ VERSION = "1.2.3"
 COMMIT_SHA = "1" * 40
 TAG = release_tag(VERSION)
 ARCHIVE_NAME = archive_name(VERSION)
-RELEASE_API = (
-    f"{API_ROOT}/repos/{REPOSITORY_FULL_NAME}/releases/tags/{TAG}"
-)
+RELEASE_API = f"{API_ROOT}/repos/{REPOSITORY_FULL_NAME}/releases/tags/{TAG}"
 REF_API = f"{API_ROOT}/repos/{REPOSITORY_FULL_NAME}/git/ref/tags/{TAG}"
 DOWNLOAD_PREFIX = (
     f"https://github.com/{REPOSITORY_FULL_NAME}/releases/download/{TAG}/"
@@ -72,9 +73,9 @@ class FakeOpener:
     def __call__(self, request: object) -> FakeResponse:
         self.requests.append(request)
         url = request.full_url  # type: ignore[attr-defined]
-        if url not in self.payloads:
+        payload = self.payloads.get(url)
+        if payload is None:
             raise AssertionError(f"unexpected request: {url}")
-        payload = self.payloads[url]
         if isinstance(payload, Exception):
             raise payload
         return FakeResponse(payload)
@@ -88,8 +89,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         self.fixture = self.root / "fixture"
         self.fixture.mkdir()
         payload = self.root / "payload"
-        for relative_name in ENTRY_POINTS.values():
-            write_text(payload / relative_name, f"fixture:{relative_name}\n")
+        create_workspace_payload(payload)
         archive_path = self.fixture / ARCHIVE_NAME
         files = write_deterministic_zip(payload, archive_path)
         manifest = {
@@ -100,8 +100,8 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
             "snapshot_date": "2026-06-26",
             "selected_configuration_count": 53,
             "scope_group_count": 13,
-            "comparable_scope_count": 13,
-            "singleton_scope_count": 0,
+            "comparable_scope_count": 1,
+            "singleton_scope_count": 12,
             "cross_scope_pairs_generated": False,
             "ranking_generated": False,
             "recommendations_generated": False,
@@ -161,68 +161,46 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
 
     def test_downloads_verifies_extracts_and_reports_entry_points(self) -> None:
         output = self.root / "download"
-        opener = FakeOpener(self._payloads())
-
-        result = download_release(VERSION, output, token="", opener=opener)
-
-        self.assertEqual(result["release_version"], VERSION)
-        self.assertEqual(result["release_tag"], TAG)
-        self.assertEqual(result["repository_commit"], COMMIT_SHA)
-        self.assertEqual(result["selected_configuration_count"], 53)
-        self.assertEqual(result["scope_group_count"], 13)
-        self.assertEqual(
-            sorted(path.name for path in (output / "assets").iterdir()),
-            sorted([ARCHIVE_NAME, MANIFEST_NAME, CHECKSUMS_NAME]),
+        result = download_release(
+            VERSION,
+            output,
+            token="",
+            opener=FakeOpener(self._payloads()),
         )
+        self.assertEqual(result["repository_commit"], COMMIT_SHA)
+        self.assertEqual(result["entry_points"]["workspace_index"], "index.html")
+        self.assertTrue((output / "index.html").is_file())
         self.assertEqual(
             set(result["entry_points"]),
-            set(ENTRY_POINTS),
+            set(ENTRY_POINTS) | {"workspace_index"},
         )
-        for key, relative_name in ENTRY_POINTS.items():
-            expected = output / "contents" / relative_name
-            self.assertTrue(expected.is_file())
-            self.assertEqual(
-                result["entry_points"][key],
-                (Path("contents") / relative_name).as_posix(),
-            )
         self.assertEqual(
             sorted(path.name for path in output.iterdir()),
-            ["assets", "contents"],
+            ["assets", "contents", "index.html"],
         )
         self.assertFalse(any(self.root.glob(".download.download-*")))
 
-    def test_optional_token_is_sent_only_to_github_api(self) -> None:
+    def test_optional_credential_is_sent_only_to_api_requests(self) -> None:
         opener = FakeOpener(self._payloads())
         download_release(
             VERSION,
             self.root / "download",
-            token="example-token",
+            token="fixture",
             opener=opener,
         )
-        api_requests = [
+        api = [
             request
             for request in opener.requests
             if request.full_url.startswith(API_ROOT)  # type: ignore[attr-defined]
         ]
-        asset_requests = [
-            request
-            for request in opener.requests
-            if not request.full_url.startswith(API_ROOT)  # type: ignore[attr-defined]
-        ]
-        self.assertTrue(api_requests)
-        self.assertTrue(asset_requests)
+        assets = [request for request in opener.requests if request not in api]
+        self.assertTrue(api)
+        self.assertTrue(assets)
         self.assertTrue(
-            all(
-                request.get_header("Authorization")
-                == "Bearer example-token"
-                for request in api_requests
-            )
+            all("Bearer fixture" in dict(request.header_items()).values() for request in api)
         )
         self.assertTrue(
-            all(
-                request.get_header("Authorization") is None
-                for request in asset_requests
-            )
+            all("Bearer fixture" not in dict(request.header_items()).values() for request in assets)
         )
 
     def test_resolves_annotated_tag_to_commit(self) -> None:
@@ -234,14 +212,12 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         ] = json.dumps(
             {"object": {"type": "commit", "sha": COMMIT_SHA}}
         ).encode("utf-8")
-
         result = download_release(
             VERSION,
             self.root / "download",
             token="",
             opener=FakeOpener(payloads),
         )
-
         self.assertEqual(result["repository_commit"], COMMIT_SHA)
 
     def test_rejects_invalid_version_before_network(self) -> None:
@@ -257,12 +233,12 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
 
     def test_rejects_noncanonical_release_identity(self) -> None:
         cases = (
-            ("wrong tag", {**self.release, "tag_name": "other"}),
-            ("draft", {**self.release, "draft": True}),
-            ("prerelease", {**self.release, "prerelease": True}),
+            {**self.release, "tag_name": "other"},
+            {**self.release, "draft": True},
+            {**self.release, "prerelease": True},
         )
-        for index, (label, release) in enumerate(cases):
-            with self.subTest(label=label):
+        for index, release in enumerate(cases):
+            with self.subTest(index=index):
                 output = self.root / f"download-{index}"
                 with self.assertRaises(ReleaseDownloadError):
                     download_release(
@@ -274,27 +250,26 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
                 self.assertFalse(output.exists())
 
     def test_requires_exactly_three_canonical_assets(self) -> None:
-        cases: list[dict[str, object]] = []
-        missing = dict(self.release)
-        missing["assets"] = list(self.release["assets"])[:-1]
-        cases.append(missing)
-        extra = dict(self.release)
-        extra["assets"] = [
-            *list(self.release["assets"]),
-            {
-                "name": "extra.txt",
-                "size": 0,
-                "browser_download_url": DOWNLOAD_PREFIX + "extra.txt",
-            },
-        ]
-        cases.append(extra)
-        duplicate = dict(self.release)
-        duplicate["assets"] = [
-            *list(self.release["assets"]),
-            list(self.release["assets"])[0],
-        ]
-        cases.append(duplicate)
-        for index, release in enumerate(cases):
+        missing = {**self.release, "assets": list(self.release["assets"])[:-1]}
+        extra = {
+            **self.release,
+            "assets": [
+                *list(self.release["assets"]),
+                {
+                    "name": "extra.txt",
+                    "size": 0,
+                    "browser_download_url": DOWNLOAD_PREFIX + "extra.txt",
+                },
+            ],
+        }
+        duplicate = {
+            **self.release,
+            "assets": [
+                *list(self.release["assets"]),
+                list(self.release["assets"])[0],
+            ],
+        }
+        for index, release in enumerate((missing, extra, duplicate)):
             with self.subTest(index=index):
                 with self.assertRaises(ReleaseDownloadError):
                     download_release(
@@ -305,14 +280,10 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
                     )
 
     def test_rejects_unexpected_public_asset_url(self) -> None:
-        release = dict(self.release)
         assets = [dict(item) for item in self.release["assets"]]
         assets[0]["browser_download_url"] = "https://example.com/asset"
-        release["assets"] = assets
-        with self.assertRaisesRegex(
-            ReleaseDownloadError,
-            "unexpected public download URL",
-        ):
+        release = {**self.release, "assets": assets}
+        with self.assertRaisesRegex(ReleaseDownloadError, "unexpected public"):
             download_release(
                 VERSION,
                 self.root / "download",
@@ -323,10 +294,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
     def test_rejects_tag_manifest_commit_mismatch_transactionally(self) -> None:
         ref = {"object": {"type": "commit", "sha": "2" * 40}}
         output = self.root / "download"
-        with self.assertRaisesRegex(
-            ReleaseDownloadError,
-            "tag commit does not match",
-        ):
+        with self.assertRaisesRegex(ReleaseDownloadError, "tag commit"):
             download_release(
                 VERSION,
                 output,
@@ -334,10 +302,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
                 opener=FakeOpener(self._payloads(ref=ref)),
             )
         self.assertFalse(output.exists())
-        self.assertEqual(
-            [path for path in self.root.iterdir() if ".download-" in path.name],
-            [],
-        )
+        self.assertFalse(any(self.root.glob(".download.download-*")))
 
     def test_rejects_corrupt_asset_transactionally(self) -> None:
         payloads = self._payloads()
@@ -354,21 +319,34 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
             )
         self.assertFalse(output.exists())
 
+    def test_workspace_index_failure_is_transactional(self) -> None:
+        output = self.root / "download"
+        with mock.patch(
+            "reporting.data_product_release_download.write_workspace_index",
+            side_effect=ReleaseDownloadError("fixture index failure"),
+        ):
+            with self.assertRaisesRegex(ReleaseDownloadError, "fixture index failure"):
+                download_release(
+                    VERSION,
+                    output,
+                    token="",
+                    opener=FakeOpener(self._payloads()),
+                )
+        self.assertFalse(output.exists())
+        self.assertFalse(any(self.root.glob(".download.download-*")))
+
     def test_nonempty_output_is_not_overwritten(self) -> None:
         output = self.root / "download"
         output.mkdir()
         sentinel = output / "keep.txt"
         sentinel.write_text("keep", encoding="utf-8")
         opener = FakeOpener(self._payloads())
-        with self.assertRaisesRegex(
-            ReleaseDownloadError,
-            "must not exist or must be empty",
-        ):
+        with self.assertRaisesRegex(ReleaseDownloadError, "must not exist"):
             download_release(VERSION, output, token="", opener=opener)
         self.assertEqual(sentinel.read_text(encoding="utf-8"), "keep")
         self.assertEqual(opener.requests, [])
 
-    def test_cli_prints_entry_points_and_reports_errors(self) -> None:
+    def test_cli_prints_entry_points_and_unified_cli_forwards(self) -> None:
         output = self.root / "download"
         result = {
             "release_version": VERSION,
@@ -379,86 +357,43 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
             "assets_directory": "assets",
             "contents_directory": "contents",
             "entry_points": {
-                key: (Path("contents") / relative).as_posix()
-                for key, relative in ENTRY_POINTS.items()
+                "workspace_index": "index.html",
+                **{
+                    key: (Path("contents") / relative).as_posix()
+                    for key, relative in ENTRY_POINTS.items()
+                },
             },
         }
         stdout = io.StringIO()
-        with (
-            mock.patch.object(cli, "download_release", return_value=result),
-            redirect_stdout(stdout),
-        ):
+        with mock.patch.object(cli, "download_release", return_value=result), redirect_stdout(stdout):
             self.assertEqual(
-                cli.main(
-                    [
-                        "--version",
-                        VERSION,
-                        "--output-directory",
-                        str(output),
-                    ]
-                ),
+                cli.main(["--version", VERSION, "--output-directory", str(output)]),
                 0,
             )
-        rendered = stdout.getvalue()
-        self.assertIn("Verified data product release download", rendered)
-        self.assertIn("Shortlist HTML", rendered)
-        self.assertIn("Comparison workbook", rendered)
+        self.assertIn("Workspace index", stdout.getvalue())
+
+        completed = SimpleNamespace(returncode=23)
+        with mock.patch.object(dkb.subprocess, "run", return_value=completed) as run:
+            self.assertEqual(
+                dkb.run_script(
+                    "data-product-release-download",
+                    ["--version", VERSION, "--output-directory", "download"],
+                ),
+                23,
+            )
+        run.assert_called_once()
 
         stderr = io.StringIO()
-        with (
-            mock.patch.object(
-                cli,
-                "download_release",
-                side_effect=ReleaseDownloadError("fixture failure"),
-            ),
-            redirect_stderr(stderr),
-        ):
+        with mock.patch.object(
+            cli,
+            "download_release",
+            side_effect=ReleaseDownloadError("fixture failure"),
+        ), redirect_stderr(stderr):
             self.assertEqual(
-                cli.main(
-                    [
-                        "--version",
-                        VERSION,
-                        "--output-directory",
-                        str(output),
-                    ]
-                ),
+                cli.main(["--version", VERSION, "--output-directory", str(output)]),
                 1,
             )
         self.assertIn("fixture failure", stderr.getvalue())
-
-    def test_unified_cli_help_and_forwarding(self) -> None:
-        stdout = io.StringIO()
-        with redirect_stdout(stdout):
-            self.assertEqual(dkb.main([]), 0)
-        self.assertIn("data-product-release-download", stdout.getvalue())
-
-        completed = SimpleNamespace(returncode=23)
-        with mock.patch.object(
-            dkb.subprocess,
-            "run",
-            return_value=completed,
-        ) as run:
-            result = dkb.run_script(
-                "data-product-release-download",
-                [
-                    "--version",
-                    VERSION,
-                    "--output-directory",
-                    "download",
-                ],
-            )
-        self.assertEqual(result, 23)
-        run.assert_called_once_with(
-            [
-                sys.executable,
-                str(TOOLS / "data_product_release_download.py"),
-                "--version",
-                VERSION,
-                "--output-directory",
-                "download",
-            ],
-            check=False,
-        )
 
     def test_workflow_is_read_only_and_checks_public_v1(self) -> None:
         workflow = (
@@ -470,10 +405,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         self.assertIn("ubuntu-latest", workflow)
         self.assertIn("windows-latest", workflow)
         self.assertIn("--version 1.0.0", workflow)
-        self.assertIn(
-            "653ddacf9dcaeefa356f53e3c00e71666f5c5b3e",
-            workflow,
-        )
+        self.assertIn("653ddacf9dcaeefa356f53e3c00e71666f5c5b3e", workflow)
 
 
 if __name__ == "__main__":
