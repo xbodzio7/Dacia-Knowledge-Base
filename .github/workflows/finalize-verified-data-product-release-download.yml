@@ -1,0 +1,46 @@
+name: Finalize Verified Data Product Release Download
+
+on:
+  push:
+    branches:
+      - feature/verified-data-product-release-download
+    paths:
+      - tools/_finalize_verified_data_product_release_download.py
+      - .github/workflows/finalize-verified-data-product-release-download.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: feature/verified-data-product-release-download
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Apply package integration and state
+        run: python tools/_finalize_verified_data_product_release_download.py
+      - name: Synchronize documentation counters
+        run: python tools/documentation_baseline.py --apply
+      - name: Compile changed Python sources
+        run: python -m py_compile tools/data_product_release_download.py tools/reporting/data_product_release_download.py tools/dkb.py tests/test_data_product_release_download.py
+      - name: Run focused regression tests
+        run: python -m unittest -q tests.test_data_product_release_download
+      - name: Verify canonical project state
+        run: python tools/project_state.py --check
+      - name: Remove temporary finalizer
+        run: |
+          git rm tools/_finalize_verified_data_product_release_download.py
+          git rm .github/workflows/finalize-verified-data-product-release-download.yml
+      - name: Commit finalized package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json tools/dkb.py tools/reporting/data_product_release_download.py
+          git commit -m 'feat: finalize verified data product release download'
+          git push origin HEAD:feature/verified-data-product-release-download
