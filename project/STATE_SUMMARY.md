@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Governance-Only CI Verification** — `complete`
+**GitHub Actions Supply-Chain Audit** — `complete`
 
-Prove with a governance-only Pull Request that Quality remains selected and green while all fourteen specialized product and reporting workflows are correctly skipped.
+Audit movable GitHub Actions references, verify the exact current commits in their owning repositories and select an immutable SHA-pinning package without changing action major versions.
 
 ## Next package
 
-**Maintenance Watch** — `planned`
+**GitHub Actions Immutable SHA Pinning** — `planned`
 
-Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings.
+Replace every movable external action tag in the fifteen Pull Request workflows with its verified full commit SHA while preserving workflow behavior and human-readable version comments.
 
 ## Autonomy
 
