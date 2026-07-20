@@ -1,5 +1,6 @@
 name: Local Data Product Workspace Index
 
+# Read-only live validation for the deterministic offline landing page.
 on:
   pull_request:
     paths:
