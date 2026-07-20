@@ -5,14 +5,17 @@ on:
     paths:
       - .github/workflows/data-product-release-download.yml
       - tools/data_product_release_download.py
+      - tools/data_product_workspace_verify.py
       - tools/reporting/data_product_release_download.py
       - tools/reporting/data_product_release_model.py
       - tools/reporting/data_product_workspace_index.py
+      - tools/reporting/data_product_workspace_verify.py
       - tools/dkb.py
       - tests/data_product_workspace_fixture.py
       - tests/test_data_product_release_download.py
       - tests/workspace_index_checks.py
       - tests/workspace_download_integration_checks.py
+      - tests/workspace_verification_checks.py
       - README.md
       - CHANGELOG.md
       - project/**
@@ -47,10 +50,17 @@ jobs:
         run: python tests/workspace_index_checks.py -q
       - name: Run workspace integration check
         run: python tests/workspace_download_integration_checks.py -q
+      - name: Run workspace verification checks
+        run: python tests/workspace_verification_checks.py -q
       - name: Download immutable public v1.0.0
         run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
       - name: Independently verify downloaded assets
         run: python tools/data_product_release.py --verify --version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e --output-directory downloaded-release/assets
+      - name: Verify complete workspace offline
+        run: python tools/dkb.py data-product-workspace-verify --workspace-directory downloaded-release --json
+      - name: Reject a corrupted copied workspace without further changes
+        run: |
+          python -c "from pathlib import Path; import shutil,subprocess,sys; source=Path('downloaded-release'); copied=Path('corrupted-release'); shutil.copytree(source,copied); target=next(path for path in sorted((copied/'contents').rglob('*')) if path.is_file()); target.write_bytes(target.read_bytes()+b'corruption'); damaged=target.read_bytes(); result=subprocess.run([sys.executable,'tools/dkb.py','data-product-workspace-verify','--workspace-directory',str(copied)],capture_output=True,text=True); assert result.returncode != 0; assert target.read_bytes() == damaged; print(result.stderr.strip())"
       - name: Check ready-to-open entry points
         run: |
           python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
