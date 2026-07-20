@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Initial Data Product Release Publication
-- Pull Request: #160
-- Verified head: `fdef0e4788a2927203f8621196e9eff3a38c5443`
-- Quality run: #848
+- Package: Data Product Release Consumption Review
+- Pull Request: #161
+- Verified head: `8207a33889388062f04eb9719c6401ecfed84d5f`
+- Quality run: #851
 
 ## Verified baseline
 
-- Tests: 654
+- Tests: 667
 - Master CSV files: 37
 - Master rows: 5155
 - Configuration values: 1204
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Product Release Consumption Review** — `complete`
+**Verified Data Product Release Download CLI** — `complete`
 
-Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data.
+Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points.
 
 ## Next package
 
-**Verified Data Product Release Download CLI** — `planned`
+**Local Data Product Workspace Index Planning Review** — `planned`
 
-Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points.
+Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data.
 
 ## Autonomy
 

@@ -40,6 +40,11 @@ SCRIPT_COMMANDS = {
         "--output-directory DIR [--version MAJOR.MINOR.PATCH] "
         "[--commit-sha SHA] [--verify]",
     ),
+    "data-product-release-download": (
+        "data_product_release_download.py",
+        "Download, verify and safely extract one immutable public data-product release.",
+        "--version MAJOR.MINOR.PATCH --output-directory DIR",
+    ),
     "configuration-comparison-bundle": (
         "configuration_comparison_bundle.py",
         "Generate scope-safe comparison bundles from explicit selections.",
@@ -241,6 +246,10 @@ def usage() -> None:
         "  python tools/dkb.py data-product-release --version 1.0.0 "
         "--commit-sha 0123456789012345678901234567890123456789 "
         "--output-directory ../data-product-release"
+    )
+    print(
+        "  python tools/dkb.py data-product-release-download --version 1.0.0 "
+        "--output-directory ../dkb-data-products-v1.0.0"
     )
     print(
         "  python tools/dkb.py configuration-comparison-bundle "

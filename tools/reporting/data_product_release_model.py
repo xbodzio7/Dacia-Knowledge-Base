@@ -126,9 +126,12 @@ def write_deterministic_zip(source: Path, output: Path) -> list[dict[str, Any]]:
     if not source.is_dir():
         raise ReleaseError(f"release payload directory does not exist: {source}")
     files = sorted(
-        path
-        for path in source.rglob("*")
-        if path.is_file() or path.is_symlink()
+        (
+            path
+            for path in source.rglob("*")
+            if path.is_file() or path.is_symlink()
+        ),
+        key=lambda path: path.relative_to(source).as_posix(),
     )
     if not files:
         raise ReleaseError("release payload is empty")

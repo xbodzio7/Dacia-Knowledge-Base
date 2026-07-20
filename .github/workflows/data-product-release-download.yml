@@ -1,0 +1,45 @@
+name: Verified Data Product Release Download
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/data-product-release-download.yml
+      - tools/data_product_release_download.py
+      - tools/reporting/data_product_release_download.py
+      - tools/reporting/data_product_release_model.py
+      - tools/dkb.py
+      - tests/test_data_product_release_download.py
+      - README.md
+      - CHANGELOG.md
+      - project/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  download-and-verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Run downloader regression tests
+        run: python -m unittest -q tests.test_data_product_release_download
+      - name: Download immutable public v1.0.0
+        run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
+      - name: Independently verify downloaded assets
+        run: python tools/data_product_release.py --verify --version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e --output-directory downloaded-release/assets
+      - name: Check ready-to-open entry points
+        run: python -c "from pathlib import Path; root=Path('downloaded-release/contents'); required=['shortlist/configuration-shortlist.html','comparison-bundle/configuration-comparison-workbook.xlsx','comparison-bundle/comparison-bundle-manifest.json','RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
