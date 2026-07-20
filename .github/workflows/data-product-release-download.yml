@@ -51,9 +51,11 @@ jobs:
       - name: Independently verify downloaded assets
         run: python tools/data_product_release.py --verify --version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e --output-directory downloaded-release/assets
       - name: Check ready-to-open entry points
-        run: python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
+        run: |
+          python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
       - name: Verify local index links and offline contract
-        run: python -c "from html.parser import HTMLParser; from pathlib import Path; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert local; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
+        run: |
+          python -c "from html.parser import HTMLParser; from pathlib import Path; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert local; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
       - name: Upload deterministic workspace index
         uses: actions/upload-artifact@v7
         with:
@@ -77,4 +79,5 @@ jobs:
           name: workspace-index-windows
           path: windows
       - name: Compare index bytes
-        run: python -c "from pathlib import Path; left=(Path('linux')/'index.html').read_bytes(); right=(Path('windows')/'index.html').read_bytes(); assert left == right; print(f'byte-identical index.html: {len(left)} bytes')"
+        run: |
+          python -c "from pathlib import Path; left=(Path('linux')/'index.html').read_bytes(); right=(Path('windows')/'index.html').read_bytes(); assert left == right; print(f'byte-identical index.html: {len(left)} bytes')"
