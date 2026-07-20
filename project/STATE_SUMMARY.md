@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Strategic Direction Decision** — `complete`
+**Repository Hygiene and CI Baseline** — `complete`
 
-Resolve the completed utilization milestone boundary by selecting maintenance mode without introducing a new consumer-tool architecture or expanding source data.
+Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs.
 
 ## Next package
 
-**Repository Hygiene and CI Baseline** — `planned`
+**Governance-Only CI Scope Reduction** — `planned`
 
-Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs.
+Keep Quality on every Pull Request while allowing fourteen specialized workflows to skip changes limited to canonical project state, generated state summary and maintenance review documents.
 
 ## Autonomy
 
