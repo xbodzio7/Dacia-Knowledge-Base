@@ -25,7 +25,15 @@ jobs:
         with:
           python-version: "3.13"
       - name: Apply package integration and state
-        run: python tools/_finalize_local_data_product_workspace_index.py
+        run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'tools/_finalize_local_data_product_workspace_index.py'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('finalizer-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
+      - name: Upload finalizer diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: local-workspace-index-finalizer-diagnostics
+          path: finalizer-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Synchronize documentation counters
         run: python tools/documentation_baseline.py --apply
       - name: Compile changed Python sources
