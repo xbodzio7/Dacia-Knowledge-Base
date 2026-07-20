@@ -1,0 +1,46 @@
+name: Finalize Local Data Product Workspace Index
+
+on:
+  push:
+    branches:
+      - feature/local-data-product-workspace-index
+    paths:
+      - tools/_finalize_local_data_product_workspace_index.py
+      - .github/workflows/finalize-local-data-product-workspace-index.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: feature/local-data-product-workspace-index
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Apply package integration and state
+        run: python tools/_finalize_local_data_product_workspace_index.py
+      - name: Synchronize documentation counters
+        run: python tools/documentation_baseline.py --apply
+      - name: Compile changed Python sources
+        run: python -m py_compile tools/reporting/data_product_workspace_index.py tools/reporting/data_product_release_download.py tools/data_product_release_download.py tests/data_product_workspace_fixture.py tests/test_data_product_workspace_index.py tests/test_data_product_release_download.py
+      - name: Run focused regression tests
+        run: python -m unittest -q tests.test_data_product_workspace_index tests.test_data_product_release_download
+      - name: Verify canonical project state
+        run: python tools/project_state.py --check
+      - name: Remove temporary finalizer
+        run: |
+          git rm tools/_finalize_local_data_product_workspace_index.py
+          git rm .github/workflows/finalize-local-data-product-workspace-index.yml
+      - name: Commit finalized package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/data-product-workspace-index.yml CHANGELOG.md README.md project/ROADMAP.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/packages/local-data-product-workspace-index-html.md project/state.json tests/data_product_workspace_fixture.py tests/test_data_product_release_download.py tests/test_data_product_workspace_index.py tests/test_jogger_payload_performance_ranges.py tests/test_jogger_wltp_efficiency_ranges.py tools/data_product_release_download.py tools/reporting/data_product_release_download.py tools/reporting/data_product_workspace_index.py
+          git commit -m 'feat: finalize local data product workspace index'
+          git push origin HEAD:feature/local-data-product-workspace-index
