@@ -2,6 +2,10 @@ name: Sandero Stepway Eco-G 120 Automatic Reporting
 
 on:
   pull_request:
+    paths-ignore:
+      - project/state.json
+      - project/STATE_SUMMARY.md
+      - project/reviews/**
   workflow_dispatch:
 
 permissions:

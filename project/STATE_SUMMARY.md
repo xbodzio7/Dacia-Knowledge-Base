@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Repository Hygiene and CI Baseline** — `complete`
+**Governance-Only CI Scope Reduction** — `complete`
 
-Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs.
+Keep Quality on every Pull Request while allowing fourteen specialized workflows to skip changes limited to canonical project state, generated state summary and maintenance review documents.
 
 ## Next package
 
-**Governance-Only CI Scope Reduction** — `planned`
+**Governance-Only CI Verification** — `planned`
 
-Keep Quality on every Pull Request while allowing fourteen specialized workflows to skip changes limited to canonical project state, generated state summary and maintenance review documents.
+Prove with a governance-only Pull Request that Quality remains selected and green while all fourteen specialized product and reporting workflows are correctly skipped.
 
 ## Autonomy
 
