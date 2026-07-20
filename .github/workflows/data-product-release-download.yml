@@ -11,6 +11,7 @@ on:
       - tools/reporting/data_product_workspace_index.py
       - tools/reporting/data_product_workspace_verify.py
       - tools/dkb.py
+      - tests/data_product_consumer_guide_checks.py
       - tests/data_product_workspace_fixture.py
       - tests/test_data_product_release_download.py
       - tests/workspace_index_checks.py
@@ -52,6 +53,8 @@ jobs:
         run: python tests/workspace_download_integration_checks.py -q
       - name: Run workspace verification checks
         run: python tests/workspace_verification_checks.py -q
+      - name: Run consumer guide checks
+        run: python tests/data_product_consumer_guide_checks.py -q
       - name: Download immutable public v1.0.0
         run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
       - name: Independently verify downloaded assets

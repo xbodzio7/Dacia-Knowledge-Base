@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Data Product Utilization Milestone Review
-- Pull Request: #165
-- Verified head: `b5abac9eb8e71357fcdbdbf54cde0a33f89ca330`
-- Quality run: #901
+- Package: Local Data Product Workspace Verification CLI
+- Pull Request: #166
+- Verified head: `d278eb71b97f782635c2b528a872f885bc367a36`
+- Quality run: #908
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Local Data Product Workspace Verification CLI** — `complete`
+**Data Product Consumer Guide** — `complete`
 
-Verify an existing local data-product workspace fully offline, including canonical assets, extracted member hashes, deterministic index bytes and safe local links, without modifying the workspace.
+Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data.
 
 ## Next package
 
-**Data Product Consumer Guide** — `planned`
+**Data Product Utilization Completion Review** — `planned`
 
-Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data.
+Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data.
 
 ## Autonomy
 

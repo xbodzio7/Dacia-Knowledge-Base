@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Source-backed Polish data-product consumer guide covering immutable download, offline navigation, shortlist selection, custom comparison bundles, provenance, recovery and lifecycle verification.
+* Automated validation that every documented unified-CLI command, product path, version example and semantic boundary remains valid.
 * Fully offline, read-only local data-product workspace verification CLI covering canonical assets, extracted member hashes, deterministic index bytes and safe links.
 * Linux and Windows live verification of public `v1.0.0`, including rejection of a deliberately corrupted copied workspace without further file changes.
 * Verified public data-product release download and safe extraction CLI with immutable tag binding, canonical asset enforcement and ready-to-open entry points.

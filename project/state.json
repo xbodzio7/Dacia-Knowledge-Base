@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Data Product Utilization Milestone Review",
-    "pull_request": 165,
-    "head_sha": "b5abac9eb8e71357fcdbdbf54cde0a33f89ca330",
-    "quality_run": 901
+    "name": "Local Data Product Workspace Verification CLI",
+    "pull_request": 166,
+    "head_sha": "d278eb71b97f782635c2b528a872f885bc367a36",
+    "quality_run": 908
   },
   "baseline": {
     "tests": 667,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Local Data Product Workspace Verification CLI",
+    "name": "Data Product Consumer Guide",
     "status": "complete",
-    "goal": "Verify an existing local data-product workspace fully offline, including canonical assets, extracted member hashes, deterministic index bytes and safe local links, without modifying the workspace."
+    "goal": "Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Consumer Guide",
+    "name": "Data Product Utilization Completion Review",
     "status": "planned",
-    "goal": "Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data."
+    "goal": "Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

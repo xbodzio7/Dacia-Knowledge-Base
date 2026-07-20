@@ -42,6 +42,10 @@ Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
 ponownie sprawdza trzy assety, wszystkie rozpakowane pliki, dokładne bajty
 `index.html` i bezpieczne lokalne odnośniki.
 
+Pełny przepływ — od pobrania wydania przez shortlistę i własne porównania po
+późniejszą kontrolę integralności — opisuje
+[`project/guides/data-product-consumer-guide.md`](project/guides/data-product-consumer-guide.md).
+
 ## Struktura repozytorium
 
 ```text

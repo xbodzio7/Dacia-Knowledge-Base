@@ -90,6 +90,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
 - całkowicie offline'owa i tylko do odczytu ponowna weryfikacja assetów, rozpakowanych plików, indeksu i lokalnych odnośników workspace,
+- jeden źródłowy przewodnik konsumencki obejmujący pobranie, nawigację, wybór, własne porównania, proweniencję i kontrolę integralności,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
