@@ -61,6 +61,8 @@ Unit tests use a small synthetic deterministic release and mocked HTTP responses
 
 The focused GitHub Actions workflow also downloads the immutable public `v1.0.0` on Linux and Windows, independently re-runs `data-product-release --verify` against commit `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e`, and checks all four local entry points.
 
+The shared deterministic ZIP writer orders files by normalized POSIX member name, so synthetic and future release manifests keep the same inventory order on Linux and Windows.
+
 ## Non-goals
 
 - selecting a mutable latest release,
