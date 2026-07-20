@@ -2,24 +2,10 @@ name: Verified Data Product Release Download
 
 on:
   pull_request:
-    paths:
-      - .github/workflows/data-product-release-download.yml
-      - tools/data_product_release_download.py
-      - tools/data_product_workspace_verify.py
-      - tools/reporting/data_product_release_download.py
-      - tools/reporting/data_product_release_model.py
-      - tools/reporting/data_product_workspace_index.py
-      - tools/reporting/data_product_workspace_verify.py
-      - tools/dkb.py
-      - tests/data_product_consumer_guide_checks.py
-      - tests/data_product_workspace_fixture.py
-      - tests/test_data_product_release_download.py
-      - tests/workspace_index_checks.py
-      - tests/workspace_download_integration_checks.py
-      - tests/workspace_verification_checks.py
-      - README.md
-      - CHANGELOG.md
-      - project/**
+    paths-ignore:
+      - project/state.json
+      - project/STATE_SUMMARY.md
+      - project/reviews/**
   workflow_dispatch:
 
 permissions:
