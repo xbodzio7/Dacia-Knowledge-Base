@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Local Data Product Workspace Index Planning Review",
-    "pull_request": 163,
-    "head_sha": "13bb769a37a41a16a1589b19094c1d2588b03d35",
-    "quality_run": 872
+    "name": "Local Data Product Workspace Index HTML",
+    "pull_request": 164,
+    "head_sha": "6ed48c776c8a76d28867912f648d82a0955ae4b9",
+    "quality_run": 899
   },
   "baseline": {
     "tests": 667,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Local Data Product Workspace Index HTML",
+    "name": "Data Product Utilization Milestone Review",
     "status": "complete",
-    "goal": "Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths."
+    "goal": "Review the complete public release, verified download and offline workspace flow, then select the next highest-value utilization package without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Utilization Milestone Review",
+    "name": "Local Data Product Workspace Verification CLI",
     "status": "planned",
-    "goal": "Review the complete public release, verified download and offline workspace flow, then select the next highest-value utilization package without expanding source data."
+    "goal": "Verify an existing local data-product workspace fully offline, including canonical assets, extracted member hashes, deterministic index bytes and safe local links, without modifying the workspace."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
