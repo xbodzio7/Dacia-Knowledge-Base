@@ -42,7 +42,7 @@ Assess whether the existing public release, offline workspace, verification and 
 
 ## Next package
 
-**Strategic Direction Decision** — `action_required`
+**Strategic Direction Decision** — `blocked`
 
 Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone.
 
