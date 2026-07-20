@@ -34,9 +34,9 @@ Every local path must be normalized, present in the verified release inventory a
 
 ## Validation
 
-A shared synthetic fixture models 53 configurations across 13 independent scopes with one comparable scope and 12 singletons. Regression tests cover deterministic rendering, primary and provenance navigation, scope states, escaping, URL encoding, count and identity mismatches, unsafe or missing paths, local target existence, write parity, downloader cleanup and workflow permissions.
+A shared synthetic fixture models 53 configurations across 13 independent scopes with one comparable scope and 12 singletons. Nine dedicated workspace checks cover deterministic rendering, primary and provenance navigation, scope states, escaping, URL encoding, count and identity mismatches, unsafe or missing paths, local target existence, write parity and atomic downloader integration. The existing 13 downloader regressions continue to cover network identity, assets, verification and cleanup.
 
-The read-only `Local Data Product Workspace Index` workflow downloads public `data-products-v1.0.0` on Linux and Windows, validates every local link and offline dependency rule, uploads both index files and requires byte-identical output in a separate comparison job.
+The read-only `Verified Data Product Release Download` workflow downloads public `data-products-v1.0.0` on Linux and Windows, validates every local link and offline dependency rule, uploads both index files and requires byte-identical output in a separate comparison job.
 
 ## Non-goals
 
