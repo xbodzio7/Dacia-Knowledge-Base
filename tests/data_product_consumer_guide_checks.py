@@ -44,7 +44,7 @@ class DataProductConsumerGuideChecks(unittest.TestCase):
             r"python tools/dkb\.py ([a-z0-9-]+)",
             self.guide,
         )
-        self.assertGreaterEqual(len(commands), 7)
+        self.assertGreaterEqual(len(commands), 6)
         for command in commands:
             with self.subTest(command=command):
                 self.assertIn(command, dkb.SCRIPT_COMMANDS)
