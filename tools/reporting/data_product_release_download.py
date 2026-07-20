@@ -295,7 +295,10 @@ def download_release(
     token: str | None = None,
     opener: OpenUrl = urlopen,
 ) -> dict[str, Any]:
-    normalized_version = normalize_version(version)
+    try:
+        normalized_version = normalize_version(version)
+    except ReleaseError as exc:
+        raise ReleaseDownloadError(str(exc)) from exc
     selected_token = token if token is not None else os.environ.get("GITHUB_TOKEN")
     build_root = _prepare_output_directory(output_directory)
     assets_directory = build_root / ASSETS_DIRECTORY_NAME
@@ -351,6 +354,14 @@ def download_release(
             output_directory.rmdir()
         build_root.replace(output_directory)
         return result
-    except Exception:
+    except ReleaseDownloadError:
         shutil.rmtree(build_root, ignore_errors=True)
         raise
+    except ReleaseError as exc:
+        shutil.rmtree(build_root, ignore_errors=True)
+        raise ReleaseDownloadError(str(exc)) from exc
+    except Exception as exc:
+        shutil.rmtree(build_root, ignore_errors=True)
+        raise ReleaseDownloadError(
+            f"cannot download data product release: {exc}"
+        ) from exc

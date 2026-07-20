@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Verified public data-product release download and safe extraction CLI with immutable tag binding, canonical asset enforcement and ready-to-open entry points.
+* Read-only Linux and Windows smoke verification of the public `data-products-v1.0.0` release.
 * Published the first immutable public data-product release, `data-products-v1.0.0`, from main commit `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e` with three downloaded and verifier-confirmed assets.
 * Deterministic versioned data-product release archives covering the complete shortlist and all 13 comparison scopes.
 * External release manifests, SHA256SUMS and guarded manual GitHub Release publication from main.
@@ -217,7 +219,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 654 tests.
+* The automated test suite now contains 667 tests.
 * The verified master-data baseline now contains 37 CSV files and 5155 rows.
 * SQLite verification now covers 37 tables and 5155 rows.
 * Configuration attribute values now contain 1204 dated records.

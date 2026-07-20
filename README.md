@@ -13,6 +13,22 @@ Projekt gromadzi ustrukturyzowane dane dotyczące modeli, wersji wyposażenia, s
 * eksport danych do SQLite i innych systemów,
 * wygodne wyszukiwanie informacji w repozytorium.
 
+## Gotowe produkty offline
+
+Zweryfikowane publiczne wydanie `data-products-v1.0.0` można pobrać, sprawdzić
+oraz bezpiecznie rozpakować jedną komendą:
+
+```bash
+python tools/dkb.py data-product-release-download \
+  --version 1.0.0 \
+  --output-directory ../dkb-data-products-v1.0.0
+```
+
+Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
+trzech assetów, manifest, `SHA256SUMS`, każdy element archiwum i powiązanie z
+commitem źródłowym. Po sukcesie wskazuje gotowe do otwarcia: interaktywną
+shortlistę HTML, skoroszyt XLSX porównań, manifest pakietu i notatki wydania.
+
 ## Struktura repozytorium
 
 ```text
@@ -226,6 +242,7 @@ Dostępne komendy:
 | `dictionary` | Generowanie słownika danych |
 | `configuration-comparison` | Porównanie cen, wartości technicznych i wyposażenia konfiguracji |
 | `data-product-release` | Budowa i weryfikacja wersjonowanego pakietu produktów offline |
+| `data-product-release-download` | Pobranie, weryfikacja i bezpieczne rozpakowanie publicznego wydania |
 | `configuration-gap-resolution-plan` | Planowanie małych pakietów rozstrzygających luki konfiguracji |
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -650,6 +667,12 @@ wydania nie są nadpisywane. Pełny kontrakt opisuje
 
 Pierwsze publiczne wydanie zostało opublikowane jako [`data-products-v1.0.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.0.0) z commita `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e`. Trzy publiczne assety zostały ponownie pobrane, zweryfikowane przez `data-product-release --verify` i zapisane w `project/releases/data-products-v1.0.0.md`.
 
+Dla użytkownika końcowego preferowaną ścieżką jest komenda
+`data-product-release-download`. Pobiera ona dokładnie wskazaną wersję, rozwiązuje
+tag do commita, weryfikuje trzy publiczne assety istniejącym kontraktem i zapisuje
+zweryfikowane pliki w `assets/`, a bezpiecznie rozpakowane produkty w `contents/`.
+Szczegóły opisuje `project/packages/verified-data-product-release-download-cli.md`.
+
 ### Porównanie konfiguracji
 
 Komenda `configuration-comparison` generuje deterministyczny raport JSON,
@@ -858,7 +881,7 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 654 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 667 testów, 37 pliki CSV, 5155 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
