@@ -6,6 +6,7 @@ on:
       - feature/local-data-product-workspace-index
     paths:
       - .github/workflows/finalize-local-data-product-workspace-index.yml
+      - .github/workflows/capture-local-workspace-index-tree.yml
 
 permissions:
   contents: write
@@ -42,6 +43,7 @@ jobs:
         run: |
           git rm tools/_finalize_local_data_product_workspace_index.py
           git rm .github/workflows/finalize-local-data-product-workspace-index.yml
+          git rm .github/workflows/capture-local-workspace-index-tree.yml
           git rm tests/__init__.py
       - name: Commit finalized package
         run: |
@@ -50,4 +52,3 @@ jobs:
           git add -A
           git commit -m 'feat: finalize local data product workspace index'
           git push origin HEAD:feature/local-data-product-workspace-index
-# trigger-finalization
