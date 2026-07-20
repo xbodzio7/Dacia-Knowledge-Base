@@ -48,7 +48,16 @@ jobs:
       - name: Run workspace integration check
         run: python tests/workspace_download_integration_checks.py -q
       - name: Download immutable public v1.0.0
-        run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
+        run: |
+          python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'tools/dkb.py','data-product-release-download','--version','1.0.0','--output-directory','downloaded-release'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('download-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
+      - name: Upload download diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: download-diagnostics-${{ matrix.artifact }}
+          path: download-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Independently verify downloaded assets
         run: python tools/data_product_release.py --verify --version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e --output-directory downloaded-release/assets
       - name: Check ready-to-open entry points
