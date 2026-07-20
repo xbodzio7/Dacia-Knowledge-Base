@@ -1,0 +1,134 @@
+name: Temporary README Duster Correction
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temporary-readme-duster-correction.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-readme-duster-correction-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: maintenance/readme-duster-reporting-portfolio-correction
+          persist-credentials: false
+
+      - name: Apply exact README corrections
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("README.md")
+          text = path.read_text(encoding="utf-8")
+
+          old_scope = """Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
+          kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
+          Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
+          podzbiorem raportowym Sandero do czasu jawnej decyzji o promocji zakresu
+          raportowego Duster.""".replace("          ", "")
+          new_scope = """Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
+          kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
+          Polska obowiązującego od 6 lutego 2026 r. Wszystkie 24 konfiguracje należą
+          do siedmiu niezależnych, jednorodnych zakresów raportowych Duster w
+          zamkniętym portfelu 13 zakresów dla Sandero, Duster i Jogger.""".replace("          ", "")
+
+          old_promotion = """Pierwszy jawnie promowany podzbiór raportowy Duster obejmuje cztery aktualne
+          konfiguracje Eco-G 120. Ma pełne pokrycie 17 slotów technicznych, 58 atrybutów
+          wyposażenia i cen, a jego sześć porównań jest publikowanych jako oddzielne
+          artefakty bez zmiany domyślnego zakresu Sandero.""".replace("          ", "")
+          new_promotion = """Kompletny portfel raportowy Duster obejmuje siedem niezależnych zakresów,
+          24 konfiguracje, techniczny mianownik 392 obserwacji, wyposażeniowy mianownik
+          1 392 rekordów oraz 30 deterministycznych par porównawczych. Zakresy zachowują
+          odrębność napędów i skrzyń biegów; wartości, luki dowodowe, przedziały i ceny
+          pozostają datowane i powiązane ze źródłami.""".replace("          ", "")
+
+          expected = {
+              "stale_scope": text.count(old_scope),
+              "stale_promotion": text.count(old_promotion),
+          }
+          if expected != {"stale_scope": 1, "stale_promotion": 1}:
+              raise SystemExit(f"Unexpected README source counts: {expected}")
+
+          updated = text.replace(old_scope, new_scope).replace(old_promotion, new_promotion)
+          if old_scope in updated or old_promotion in updated:
+              raise SystemExit("Stale README wording remains")
+          if updated.count(new_scope) != 1 or updated.count(new_promotion) != 1:
+              raise SystemExit("Corrected README wording is not unique")
+
+          path.write_text(updated, encoding="utf-8", newline="\n")
+          PY
+          git diff --check
+          git diff -- README.md
+
+      - name: Create README blob receipt
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import base64
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          parent = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+          base_tree = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], text=True).strip()
+          content = base64.b64encode(Path("README.md").read_bytes()).decode("ascii")
+          result = subprocess.run(
+              [
+                  "gh",
+                  "api",
+                  "--method",
+                  "POST",
+                  f"repos/{repository}/git/blobs",
+                  "--input",
+                  "-",
+              ],
+              input=json.dumps({"content": content, "encoding": "base64"}),
+              text=True,
+              capture_output=True,
+              check=False,
+          )
+          if result.returncode != 0:
+              raise SystemExit(result.stderr or result.stdout)
+          blob = json.loads(result.stdout)
+          receipt = {
+              "parent_sha": parent,
+              "base_tree_sha": base_tree,
+              "readme_blob_sha": blob["sha"],
+              "source_issue": 173,
+              "replacements": 2,
+          }
+          Path("readme-correction-receipt.json").write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          print(Path("readme-correction-receipt.json").read_text(encoding="utf-8"))
+          PY
+
+      - name: Upload corrected README candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: readme-duster-correction-candidate
+          path: |
+            README.md
+            readme-correction-receipt.json
+          if-no-files-found: error
+          retention-days: 1
