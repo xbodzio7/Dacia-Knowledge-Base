@@ -1,0 +1,99 @@
+name: Temporary Action SHA Pinning
+
+on:
+  push:
+    branches:
+      - maintenance/github-actions-immutable-sha-pinning
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-action-sha-pinning-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  pin-actions:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: maintenance/github-actions-immutable-sha-pinning
+          persist-credentials: true
+
+      - name: Replace movable tags with verified commits
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              "uses: actions/checkout@v7": (
+                  "uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7"
+              ),
+              "uses: actions/setup-python@v6": (
+                  "uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6"
+              ),
+              "uses: actions/setup-node@v6": (
+                  "uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6"
+              ),
+              "uses: actions/upload-artifact@v7": (
+                  "uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7"
+              ),
+              "uses: actions/download-artifact@v7": (
+                  "uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7"
+              ),
+          }
+
+          workflow_dir = Path(".github/workflows")
+          paths = sorted((*workflow_dir.glob("*.yml"), *workflow_dir.glob("*.yaml")))
+          counts = {source: 0 for source in replacements}
+          changed = []
+
+          for path in paths:
+              original = path.read_text(encoding="utf-8")
+              updated = original
+              for source, target in replacements.items():
+                  count = updated.count(source)
+                  counts[source] += count
+                  updated = updated.replace(source, target)
+              if updated != original:
+                  path.write_text(updated, encoding="utf-8", newline="\n")
+                  changed.append(path.as_posix())
+
+          missing = [source for source, count in counts.items() if count == 0]
+          if missing:
+              raise SystemExit(f"Expected movable references not found: {missing}")
+
+          remaining = []
+          for path in paths:
+              text = path.read_text(encoding="utf-8")
+              for source in replacements:
+                  if source in text:
+                      remaining.append(f"{path}: {source}")
+          if remaining:
+              raise SystemExit("Movable references remain:\n" + "\n".join(remaining))
+
+          print("Changed workflow files:")
+          for path in changed:
+              print(f"- {path}")
+          print("Replacement counts:")
+          for source, count in counts.items():
+              print(f"- {source}: {count}")
+          PY
+
+      - name: Commit deterministic workflow changes
+        shell: bash
+        run: |
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows
+          git diff --cached --quiet && {
+            echo "No workflow changes were produced." >&2
+            exit 1
+          }
+          git commit -m "Pin GitHub Actions to immutable SHAs"
+          git push origin HEAD:maintenance/github-actions-immutable-sha-pinning
