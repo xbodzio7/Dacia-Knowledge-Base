@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Local Data Product Workspace Verification CLI",
-    "pull_request": 166,
-    "head_sha": "d278eb71b97f782635c2b528a872f885bc367a36",
-    "quality_run": 908
+    "name": "Data Product Consumer Guide",
+    "pull_request": 167,
+    "head_sha": "162b8217e50f5ca774199a261b7bb486bac468dc",
+    "quality_run": 916
   },
   "baseline": {
     "tests": 667,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Product Consumer Guide",
+    "name": "Data Product Utilization Completion Review",
     "status": "complete",
-    "goal": "Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data."
+    "goal": "Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Utilization Completion Review",
-    "status": "planned",
-    "goal": "Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data."
+    "name": "Strategic Direction Decision",
+    "status": "action_required",
+    "goal": "Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
