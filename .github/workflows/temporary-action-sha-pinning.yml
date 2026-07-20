@@ -21,6 +21,7 @@ jobs:
       - name: Check out package branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
+          ref: maintenance/github-actions-immutable-sha-pinning
           persist-credentials: false
 
       - name: Replace movable tags with verified commits
@@ -94,11 +95,13 @@ jobs:
           git diff --check
 
       - name: Create unreferenced candidate commit
+        id: candidate
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
+          set +e
+          python - <<'PY' > candidate-build.log 2>&1
           from __future__ import annotations
 
           import base64
@@ -117,54 +120,44 @@ jobs:
           manifest = json.loads(
               Path("pinned-workflow-manifest.json").read_text(encoding="utf-8")
           )
+          print(json.dumps({"repository": repository, "parent": parent, "base_tree": base_tree}))
 
           def post(endpoint: str, payload: dict[str, object]) -> dict[str, object]:
               result = subprocess.run(
-                  [
-                      "gh",
-                      "api",
-                      "--method",
-                      "POST",
-                      endpoint,
-                      "--input",
-                      "-",
-                  ],
+                  ["gh", "api", "--method", "POST", endpoint, "--input", "-"],
                   input=json.dumps(payload),
                   text=True,
                   capture_output=True,
                   check=False,
               )
+              print(json.dumps({"endpoint": endpoint, "returncode": result.returncode}))
+              if result.stdout:
+                  print(result.stdout)
+              if result.stderr:
+                  print(result.stderr)
               if result.returncode != 0:
-                  raise SystemExit(result.stderr or result.stdout)
+                  raise SystemExit(result.returncode)
               return json.loads(result.stdout)
 
           entries: list[dict[str, object]] = []
           blobs: dict[str, str] = {}
           for relative in manifest["changed_files"]:
               path = Path(relative)
-              payload = {
-                  "content": base64.b64encode(path.read_bytes()).decode("ascii"),
-                  "encoding": "base64",
-              }
-              blob = post(f"repos/{repository}/git/blobs", payload)
+              blob = post(
+                  f"repos/{repository}/git/blobs",
+                  {
+                      "content": base64.b64encode(path.read_bytes()).decode("ascii"),
+                      "encoding": "base64",
+                  },
+              )
               sha = str(blob["sha"])
               blobs[relative] = sha
               entries.append(
-                  {
-                      "path": relative,
-                      "mode": "100644",
-                      "type": "blob",
-                      "sha": sha,
-                  }
+                  {"path": relative, "mode": "100644", "type": "blob", "sha": sha}
               )
 
           entries.append(
-              {
-                  "path": ".github/workflows/temporary-action-sha-pinning.yml",
-                  "mode": "100644",
-                  "type": "blob",
-                  "sha": None,
-              }
+              {"path": ".github/workflows/temporary-action-sha-pinning.yml", "sha": None}
           )
           tree = post(
               f"repos/{repository}/git/trees",
@@ -194,15 +187,19 @@ jobs:
               encoding="utf-8",
               newline="\n",
           )
-          print(Path("candidate-commit.json").read_text(encoding="utf-8"))
           PY
+          status=$?
+          cat candidate-build.log
+          exit ${status}
 
       - name: Upload candidate commit receipt
+        if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: immutable-sha-pinning-candidate
           path: |
             candidate-commit.json
+            candidate-build.log
             pinned-workflow-manifest.json
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 1
