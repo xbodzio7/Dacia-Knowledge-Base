@@ -26,8 +26,21 @@ python tools/dkb.py data-product-release-download \
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
 trzech assetów, manifest, `SHA256SUMS`, każdy element archiwum i powiązanie z
-commitem źródłowym. Po sukcesie wskazuje gotowe do otwarcia: interaktywną
-shortlistę HTML, skoroszyt XLSX porównań, manifest pakietu i notatki wydania.
+commitem źródłowym. Po sukcesie tworzy lokalny `index.html` i wskazuje gotowe do
+otwarcia: interaktywną shortlistę HTML, skoroszyt XLSX porównań, manifest
+pakietu i notatki wydania.
+
+Integralność istniejącego workspace można później sprawdzić całkowicie offline
+i bez modyfikowania plików:
+
+```bash
+python tools/dkb.py data-product-workspace-verify \
+  --workspace-directory ../dkb-data-products-v1.0.0
+```
+
+Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
+ponownie sprawdza trzy assety, wszystkie rozpakowane pliki, dokładne bajty
+`index.html` i bezpieczne lokalne odnośniki.
 
 ## Struktura repozytorium
 

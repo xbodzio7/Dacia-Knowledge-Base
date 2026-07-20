@@ -45,6 +45,11 @@ SCRIPT_COMMANDS = {
         "Download, verify and safely extract one immutable public data-product release.",
         "--version MAJOR.MINOR.PATCH --output-directory DIR",
     ),
+    "data-product-workspace-verify": (
+        "data_product_workspace_verify.py",
+        "Verify an extracted data-product workspace fully offline.",
+        "--workspace-directory DIR [--json]",
+    ),
     "configuration-comparison-bundle": (
         "configuration_comparison_bundle.py",
         "Generate scope-safe comparison bundles from explicit selections.",
@@ -250,6 +255,10 @@ def usage() -> None:
     print(
         "  python tools/dkb.py data-product-release-download --version 1.0.0 "
         "--output-directory ../dkb-data-products-v1.0.0"
+    )
+    print(
+        "  python tools/dkb.py data-product-workspace-verify "
+        "--workspace-directory ../dkb-data-products-v1.0.0 --json"
     )
     print(
         "  python tools/dkb.py configuration-comparison-bundle "

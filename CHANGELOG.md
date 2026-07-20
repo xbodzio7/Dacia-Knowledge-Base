@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Fully offline, read-only local data-product workspace verification CLI covering canonical assets, extracted member hashes, deterministic index bytes and safe links.
+* Linux and Windows live verification of public `v1.0.0`, including rejection of a deliberately corrupted copied workspace without further file changes.
 * Verified public data-product release download and safe extraction CLI with immutable tag binding, canonical asset enforcement and ready-to-open entry points.
 * Read-only Linux and Windows smoke verification of the public `data-products-v1.0.0` release.
 * Published the first immutable public data-product release, `data-products-v1.0.0`, from main commit `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e` with three downloaded and verifier-confirmed assets.

@@ -89,6 +89,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - pierwsze publiczne wydanie `data-products-v1.0.0` z trzema pobranymi i ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
+- całkowicie offline'owa i tylko do odczytu ponowna weryfikacja assetów, rozpakowanych plików, indeksu i lokalnych odnośników workspace,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 
