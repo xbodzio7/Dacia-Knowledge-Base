@@ -37,6 +37,8 @@ jobs:
           path: finalizer-output.txt
           if-no-files-found: error
           retention-days: 7
+      - name: Normalize shared fixture imports
+        run: python -c "from pathlib import Path; paths=[Path('tests/test_data_product_release_download.py'),Path('tests/test_data_product_workspace_index.py')]; anchor='TOOLS = REPOSITORY / \"tools\"\nsys.path.insert(0, str(TOOLS))'; replacement='TOOLS = REPOSITORY / \"tools\"\nTESTS = REPOSITORY / \"tests\"\nsys.path.insert(0, str(TESTS))\nsys.path.insert(0, str(TOOLS))'; [(lambda text,path:(path.write_text(text.replace(anchor,replacement).replace('from tests.data_product_workspace_fixture import','from data_product_workspace_fixture import'),encoding='utf-8',newline='')))(path.read_text(encoding='utf-8'),path) for path in paths]"
       - name: Synchronize documentation counters
         run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'tools/documentation_baseline.py','--apply'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('documentation-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
       - name: Upload documentation diagnostics
