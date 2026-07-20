@@ -24,6 +24,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
+      - name: Preserve escaped newline in fixture anchor
+        run: python -c "from pathlib import Path; path=Path('tools/_finalize_local_data_product_workspace_index.py'); text=path.read_text(encoding='utf-8'); old=\"    old_payload = '''        payload = self.root / \\\"payload\\\"\"; new=\"    old_payload = r'''        payload = self.root / \\\"payload\\\"\"; assert text.count(old)==1; path.write_text(text.replace(old,new),encoding='utf-8',newline='')"
       - name: Apply package integration and state
         run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'tools/_finalize_local_data_product_workspace_index.py'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('finalizer-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
       - name: Upload finalizer diagnostics
