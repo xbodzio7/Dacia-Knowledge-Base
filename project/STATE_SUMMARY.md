@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Local Data Product Workspace Index Planning Review
-- Pull Request: #163
-- Verified head: `13bb769a37a41a16a1589b19094c1d2588b03d35`
-- Quality run: #872
+- Package: Local Data Product Workspace Index HTML
+- Pull Request: #164
+- Verified head: `6ed48c776c8a76d28867912f648d82a0955ae4b9`
+- Quality run: #899
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Local Data Product Workspace Index HTML** — `complete`
+**Data Product Utilization Milestone Review** — `complete`
 
-Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths.
+Review the complete public release, verified download and offline workspace flow, then select the next highest-value utilization package without expanding source data.
 
 ## Next package
 
-**Data Product Utilization Milestone Review** — `planned`
+**Local Data Product Workspace Verification CLI** — `planned`
 
-Review the complete public release, verified download and offline workspace flow, then select the next highest-value utilization package without expanding source data.
+Verify an existing local data-product workspace fully offline, including canonical assets, extracted member hashes, deterministic index bytes and safe local links, without modifying the workspace.
 
 ## Autonomy
 
