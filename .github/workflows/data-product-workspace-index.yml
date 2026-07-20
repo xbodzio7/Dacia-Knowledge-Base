@@ -1,0 +1,70 @@
+name: Local Data Product Workspace Index
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/data-product-workspace-index.yml
+      - tools/reporting/data_product_workspace_index.py
+      - tools/reporting/data_product_release_download.py
+      - tools/data_product_release_download.py
+      - tests/data_product_workspace_fixture.py
+      - tests/test_data_product_workspace_index.py
+      - tests/test_data_product_release_download.py
+      - README.md
+      - CHANGELOG.md
+      - project/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact: workspace-index-linux
+          - os: windows-latest
+            artifact: workspace-index-windows
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Run workspace index regression tests
+        run: python -m unittest -q tests.test_data_product_workspace_index tests.test_data_product_release_download
+      - name: Download immutable public v1.0.0 and create index
+        run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
+      - name: Verify local index links and offline contract
+        run: python -c "from html.parser import HTMLParser; from pathlib import Path; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert local; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
+      - name: Upload deterministic workspace index
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.artifact }}
+          path: downloaded-release/index.html
+          if-no-files-found: error
+          retention-days: 7
+
+  compare:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux index
+        uses: actions/download-artifact@v7
+        with:
+          name: workspace-index-linux
+          path: linux
+      - name: Download Windows index
+        uses: actions/download-artifact@v7
+        with:
+          name: workspace-index-windows
+          path: windows
+      - name: Compare index bytes
+        run: python -c "from pathlib import Path; left=(Path('linux')/'index.html').read_bytes(); right=(Path('windows')/'index.html').read_bytes(); assert left == right; print(f'byte-identical index.html: {len(left)} bytes')"
