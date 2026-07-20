@@ -33,7 +33,7 @@
   },
   "next_package": {
     "name": "Strategic Direction Decision",
-    "status": "action_required",
+    "status": "blocked",
     "goal": "Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone."
   },
   "autonomy": {
