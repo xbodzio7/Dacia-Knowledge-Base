@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from tools.reporting.data_product_release_model import (
+from reporting.data_product_release_model import (
     file_record,
     json_text,
     write_text,
