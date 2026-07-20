@@ -36,15 +36,15 @@
 
 ## Current package
 
-**GitHub Actions Supply-Chain Audit** — `complete`
+**GitHub Actions Immutable SHA Pinning** — `complete`
 
-Audit movable GitHub Actions references, verify the exact current commits in their owning repositories and select an immutable SHA-pinning package without changing action major versions.
+Pin all 63 external GitHub Actions references across the fifteen Pull Request workflows to verified full commit SHAs while preserving action major versions and workflow behavior.
 
 ## Next package
 
-**GitHub Actions Immutable SHA Pinning** — `planned`
+**Maintenance Watch** — `planned`
 
-Replace every movable external action tag in the fifteen Pull Request workflows with its verified full commit SHA while preserving workflow behavior and human-readable version comments.
+Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings, including separately tracked issue #173.
 
 ## Autonomy
 
