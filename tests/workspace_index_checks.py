@@ -332,7 +332,7 @@ class DataProductWorkspaceIndexTests(unittest.TestCase):
     def test_workflow_compares_linux_and_windows_index_bytes(self) -> None:
         workflow = (
             REPOSITORY
-            / ".github/workflows/data-product-workspace-index.yml"
+            / ".github/workflows/data-product-release-download.yml"
         ).read_text(encoding="utf-8")
         self.assertIn("contents: read", workflow)
         self.assertNotIn("contents: write", workflow)
@@ -340,7 +340,7 @@ class DataProductWorkspaceIndexTests(unittest.TestCase):
         self.assertIn("windows-latest", workflow)
         self.assertIn("data-product-release-download", workflow)
         self.assertIn("index.html", workflow)
-        self.assertIn("compare", workflow.lower())
+        self.assertIn("compare-workspace-index", workflow)
         self.assertIn("download-artifact", workflow)
 
 
