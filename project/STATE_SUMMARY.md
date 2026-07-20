@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Governance-Only CI Scope Reduction** — `complete`
+**Governance-Only CI Verification** — `complete`
 
-Keep Quality on every Pull Request while allowing fourteen specialized workflows to skip changes limited to canonical project state, generated state summary and maintenance review documents.
+Prove with a governance-only Pull Request that Quality remains selected and green while all fourteen specialized product and reporting workflows are correctly skipped.
 
 ## Next package
 
-**Governance-Only CI Verification** — `planned`
+**Maintenance Watch** — `planned`
 
-Prove with a governance-only Pull Request that Quality remains selected and green while all fourteen specialized product and reporting workflows are correctly skipped.
+Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings.
 
 ## Autonomy
 
