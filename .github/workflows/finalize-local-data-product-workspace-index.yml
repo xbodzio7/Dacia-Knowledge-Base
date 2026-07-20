@@ -52,7 +52,15 @@ jobs:
       - name: Compile changed Python sources
         run: python -m py_compile tools/reporting/data_product_workspace_index.py tools/reporting/data_product_release_download.py tools/data_product_release_download.py tests/__init__.py tests/data_product_workspace_fixture.py tests/test_data_product_workspace_index.py tests/test_data_product_release_download.py
       - name: Run focused regression tests
-        run: python -m unittest -q tests.test_data_product_workspace_index tests.test_data_product_release_download
+        run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'-m','unittest','-v','tests.test_data_product_workspace_index','tests.test_data_product_release_download'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('focused-test-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
+      - name: Upload focused test diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: local-workspace-index-focused-test-diagnostics
+          path: focused-test-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Verify canonical project state
         run: python tools/project_state.py --check
       - name: Upload finalized package files
