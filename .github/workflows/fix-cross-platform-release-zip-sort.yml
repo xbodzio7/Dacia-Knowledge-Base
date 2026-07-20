@@ -7,6 +7,12 @@ on:
     paths:
       - tools/_fix_cross_platform_release_zip_sort.py
       - .github/workflows/fix-cross-platform-release-zip-sort.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - tools/_fix_cross_platform_release_zip_sort.py
+      - .github/workflows/fix-cross-platform-release-zip-sort.yml
 
 permissions:
   contents: write
