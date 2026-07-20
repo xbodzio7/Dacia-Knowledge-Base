@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-07-19",
+  "updated_on": "2026-07-20",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Initial Data Product Release Readiness Review",
-    "pull_request": 157,
-    "head_sha": "c64292e43f9b3fa02dedb9d755ddf619f2cde8b1",
-    "quality_run": 836
+    "name": "Initial Data Product Release Publication",
+    "pull_request": 160,
+    "head_sha": "fdef0e4788a2927203f8621196e9eff3a38c5443",
+    "quality_run": 848
   },
   "baseline": {
     "tests": 654,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Initial Data Product Release Publication",
+    "name": "Data Product Release Consumption Review",
     "status": "complete",
-    "goal": "Publish data-products-v1.0.0 from the explicitly authorized and verified main commit."
+    "goal": "Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data."
   },
   "next_package": {
-    "name": "Data Product Release Consumption Review",
+    "name": "Verified Data Product Release Download CLI",
     "status": "planned",
-    "goal": "Assess discoverability, download, verification and user workflow of data-products-v1.0.0 and select the next utilization improvement without expanding source data."
+    "goal": "Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
