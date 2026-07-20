@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Verified Data Product Release Download CLI
-- Pull Request: #162
-- Verified head: `50461aaea58c6ee7b9414d46fc32fe6de7d4a496`
-- Quality run: #869
+- Package: Local Data Product Workspace Index Planning Review
+- Pull Request: #163
+- Verified head: `13bb769a37a41a16a1589b19094c1d2588b03d35`
+- Quality run: #872
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Local Data Product Workspace Index Planning Review** — `complete`
+**Local Data Product Workspace Index HTML** — `complete`
 
-Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data.
+Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths.
 
 ## Next package
 
-**Local Data Product Workspace Index HTML** — `planned`
+**Data Product Utilization Milestone Review** — `planned`
 
-Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths.
+Review the complete public release, verified download and offline workspace flow, then select the next highest-value utilization package without expanding source data.
 
 ## Autonomy
 

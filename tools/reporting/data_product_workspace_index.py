@@ -162,7 +162,12 @@ def _file_record_path(
     label: str,
 ) -> str:
     record = _object(raw_record, label)
-    return safe_member_name(_string(record.get("path"), f"{label}.path"))
+    try:
+        return safe_member_name(
+            _string(record.get("path"), f"{label}.path")
+        )
+    except ReleaseError as exc:
+        raise WorkspaceIndexError(str(exc)) from exc
 
 
 def _configuration_codes(value: Any, label: str) -> tuple[str, ...]:
@@ -506,6 +511,27 @@ def render_workspace_index(
         release_members,
         bundle,
     )
+    selected_codes = _configuration_codes(
+        bundle.get("selected_configuration_codes"),
+        "comparison bundle selected_configuration_codes",
+    )
+    if len(selected_codes) != bundle_configuration_count:
+        raise WorkspaceIndexError(
+            "comparison bundle selected configuration count does not match codes"
+        )
+    grouped_codes = tuple(
+        code
+        for scope in scopes
+        for code in scope["configuration_codes"]
+    )
+    if len(grouped_codes) != len(set(grouped_codes)):
+        raise WorkspaceIndexError(
+            "comparison bundle configuration codes overlap between scopes"
+        )
+    if set(grouped_codes) != set(selected_codes):
+        raise WorkspaceIndexError(
+            "comparison bundle selected configuration codes do not match groups"
+        )
     primary_links = _primary_links(
         workspace_root,
         release_members,

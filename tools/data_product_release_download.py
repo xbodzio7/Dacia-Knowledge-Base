@@ -52,12 +52,14 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
     print(f"Assets                  : {output / str(result['assets_directory'])}")
     print(f"Contents                : {output / str(result['contents_directory'])}")
     labels = {
+        "workspace_index": "Workspace index",
         "shortlist_html": "Shortlist HTML",
         "comparison_workbook": "Comparison workbook",
         "comparison_bundle_manifest": "Bundle manifest",
         "release_notes": "Release notes",
     }
     for key in (
+        "workspace_index",
         "shortlist_html",
         "comparison_workbook",
         "comparison_bundle_manifest",

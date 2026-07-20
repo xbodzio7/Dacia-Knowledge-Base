@@ -8,10 +8,9 @@ on:
       - tools/reporting/data_product_release_download.py
       - tools/data_product_release_download.py
       - tests/data_product_workspace_fixture.py
-      - tests/test_data_product_workspace_index.py
+      - tests/workspace_index_checks.py
+      - tests/workspace_download_integration_checks.py
       - tests/test_data_product_release_download.py
-      - README.md
-      - CHANGELOG.md
       - project/**
   workflow_dispatch:
 
@@ -38,8 +37,11 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
-      - name: Run workspace index regression tests
-        run: python -m unittest -q tests.test_data_product_workspace_index tests.test_data_product_release_download
+      - name: Run workspace index regression checks
+        run: |
+          python tests/workspace_index_checks.py -q
+          python tests/workspace_download_integration_checks.py -q
+          python -m unittest -q tests.test_data_product_release_download
       - name: Download immutable public v1.0.0 and create index
         run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
       - name: Verify local index links and offline contract

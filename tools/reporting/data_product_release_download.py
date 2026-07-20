@@ -22,6 +22,10 @@ from reporting.data_product_release_model import (
     safe_member_name,
     verify_release_assets,
 )
+from reporting.data_product_workspace_index import (
+    INDEX_NAME,
+    write_workspace_index,
+)
 
 
 REPOSITORY_FULL_NAME = "xbodzio7/Dacia-Knowledge-Base"
@@ -335,13 +339,25 @@ def download_release(
             contents_directory,
             manifest,
         )
-        result = {
+        release_metadata = {
             "release_version": normalized_version,
             "release_tag": release_tag(normalized_version),
             "repository_commit": tag_commit,
             "release_id": release.get("id"),
             "release_url": release.get("html_url"),
             "published_at": release.get("published_at"),
+        }
+        index_path = write_workspace_index(
+            build_root,
+            manifest,
+            release_metadata,
+        )
+        entry_points = {
+            "workspace_index": index_path.relative_to(build_root).as_posix(),
+            **entry_points,
+        }
+        result = {
+            **release_metadata,
             "selected_configuration_count": manifest.get(
                 "selected_configuration_count"
             ),

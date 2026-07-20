@@ -11,9 +11,11 @@ from urllib.parse import unquote
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 TOOLS = REPOSITORY / "tools"
+TESTS = REPOSITORY / "tests"
+sys.path.insert(0, str(TESTS))
 sys.path.insert(0, str(TOOLS))
 
-from data_product_workspace_fixture import (  # type: ignore[import-not-found]  # noqa: E402
+from data_product_workspace_fixture import (  # noqa: E402
     CONFIGURATION_CODES,
     SCOPE_NAMES,
     create_workspace_payload,
