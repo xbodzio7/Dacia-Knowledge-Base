@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Data Product Release Consumption Review
-- Pull Request: #161
-- Verified head: `8207a33889388062f04eb9719c6401ecfed84d5f`
-- Quality run: #851
+- Package: Verified Data Product Release Download CLI
+- Pull Request: #162
+- Verified head: `50461aaea58c6ee7b9414d46fc32fe6de7d4a496`
+- Quality run: #869
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified Data Product Release Download CLI** — `complete`
+**Local Data Product Workspace Index Planning Review** — `complete`
 
-Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points.
+Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data.
 
 ## Next package
 
-**Local Data Product Workspace Index Planning Review** — `planned`
+**Local Data Product Workspace Index HTML** — `planned`
 
-Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data.
+Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths.
 
 ## Autonomy
 

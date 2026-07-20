@@ -9,10 +9,10 @@
   },
   "phase": "Data Product Utilization",
   "reference_delivery": {
-    "name": "Data Product Release Consumption Review",
-    "pull_request": 161,
-    "head_sha": "8207a33889388062f04eb9719c6401ecfed84d5f",
-    "quality_run": 851
+    "name": "Verified Data Product Release Download CLI",
+    "pull_request": 162,
+    "head_sha": "50461aaea58c6ee7b9414d46fc32fe6de7d4a496",
+    "quality_run": 869
   },
   "baseline": {
     "tests": 667,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Verified Data Product Release Download CLI",
+    "name": "Local Data Product Workspace Index Planning Review",
     "status": "complete",
-    "goal": "Download an explicit immutable release version, verify its GitHub tag and three canonical assets, safely extract validated contents and report ready-to-open user entry points."
+    "goal": "Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data."
   },
   "next_package": {
-    "name": "Local Data Product Workspace Index Planning Review",
+    "name": "Local Data Product Workspace Index HTML",
     "status": "planned",
-    "goal": "Select a deterministic local landing-page contract linking the downloaded shortlist, workbook, scope reports and provenance without republishing the release or expanding source data."
+    "goal": "Generate one deterministic offline index.html after verified release extraction, linking primary products, every comparison scope and release provenance with safe relative paths."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
