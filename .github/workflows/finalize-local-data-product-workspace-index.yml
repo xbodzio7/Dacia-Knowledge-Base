@@ -37,7 +37,15 @@ jobs:
           if-no-files-found: error
           retention-days: 7
       - name: Synchronize documentation counters
-        run: python tools/documentation_baseline.py --apply
+        run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'tools/documentation_baseline.py','--apply'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('documentation-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
+      - name: Upload documentation diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: local-workspace-index-documentation-diagnostics
+          path: documentation-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Compile changed Python sources
         run: python -m py_compile tools/reporting/data_product_workspace_index.py tools/reporting/data_product_release_download.py tools/data_product_release_download.py tests/data_product_workspace_fixture.py tests/test_data_product_workspace_index.py tests/test_data_product_release_download.py
       - name: Run focused regression tests
