@@ -50,3 +50,4 @@ jobs:
           git add -A
           git commit -m 'feat: finalize local data product workspace index'
           git push origin HEAD:feature/local-data-product-workspace-index
+# trigger-finalization
