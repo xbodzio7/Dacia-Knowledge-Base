@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Strategic Direction Decision",
+    "name": "Repository Hygiene and CI Baseline",
     "status": "complete",
-    "goal": "Resolve the completed utilization milestone boundary by selecting maintenance mode without introducing a new consumer-tool architecture or expanding source data."
+    "goal": "Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs."
   },
   "next_package": {
-    "name": "Repository Hygiene and CI Baseline",
+    "name": "Governance-Only CI Scope Reduction",
     "status": "planned",
-    "goal": "Establish a clean maintenance baseline by resolving superseded draft work, inventorying CI and workflow maintenance surfaces, and selecting only evidence-backed reliability, security or compatibility repairs."
+    "goal": "Keep Quality on every Pull Request while allowing fourteen specialized workflows to skip changes limited to canonical project state, generated state summary and maintenance review documents."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
