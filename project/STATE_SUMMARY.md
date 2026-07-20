@@ -36,15 +36,15 @@
 
 ## Current package
 
-**GitHub Actions Immutable SHA Pinning** — `complete`
+**README Duster Reporting Portfolio Correction** — `complete`
 
-Pin all 63 external GitHub Actions references across the fifteen Pull Request workflows to verified full commit SHAs while preserving action major versions and workflow behavior.
+Resolve issue #173 by replacing stale pre-promotion Duster README wording with the completed seven-scope, 24-configuration reporting portfolio contract from merged PR #142.
 
 ## Next package
 
 **Maintenance Watch** — `planned`
 
-Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings, including separately tracked issue #173.
+Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings.
 
 ## Autonomy
 

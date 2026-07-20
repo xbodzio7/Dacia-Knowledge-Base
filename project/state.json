@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "GitHub Actions Immutable SHA Pinning",
+    "name": "README Duster Reporting Portfolio Correction",
     "status": "complete",
-    "goal": "Pin all 63 external GitHub Actions references across the fifteen Pull Request workflows to verified full commit SHAs while preserving action major versions and workflow behavior."
+    "goal": "Resolve issue #173 by replacing stale pre-promotion Duster README wording with the completed seven-scope, 24-configuration reporting portfolio contract from merged PR #142."
   },
   "next_package": {
     "name": "Maintenance Watch",
     "status": "planned",
-    "goal": "Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings, including separately tracked issue #173."
+    "goal": "Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
