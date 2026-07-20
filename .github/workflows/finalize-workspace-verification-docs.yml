@@ -1,0 +1,44 @@
+name: Finalize Workspace Verification Documentation
+
+on:
+  push:
+    branches:
+      - feature/local-data-product-workspace-verification
+    paths:
+      - .github/workflows/finalize-workspace-verification-docs.yml
+      - tools/_finalize_workspace_verification_docs.py
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v7
+        with:
+          ref: feature/local-data-product-workspace-verification
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Apply documentation and state
+        run: python tools/_finalize_workspace_verification_docs.py
+      - name: Generate state summary
+        run: python tools/project_state.py --apply
+      - name: Run focused verification checks
+        run: python tests/workspace_verification_checks.py -q
+      - name: Check canonical project state
+        run: python tools/project_state.py --check
+      - name: Remove temporary finalizer
+        run: |
+          git rm tools/_finalize_workspace_verification_docs.py
+          git rm .github/workflows/finalize-workspace-verification-docs.yml
+      - name: Commit finalized documentation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md project/state.json project/STATE_SUMMARY.md
+          git commit -m 'docs: finalize workspace verification package'
+          git push origin HEAD:feature/local-data-product-workspace-verification
