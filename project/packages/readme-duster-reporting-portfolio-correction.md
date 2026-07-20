@@ -57,6 +57,10 @@ This package does not change:
 4. The final diff contains README, this package record and canonical state files only.
 5. Normal Quality and product workflow checks pass.
 
+## Implementation evidence
+
+A branch-only deterministic generator matched both stale blocks exactly once, applied exactly two replacements, rejected any remaining stale wording and produced the corrected README blob `677c7051baeb28e2a832f0e5f1687a548cf0e8d2`. The generator was removed in the same atomic tree update that installed that blob.
+
 ## Result
 
 The public repository description now matches the completed reporting portfolio already represented by the data, reporting specifications and verified products.
