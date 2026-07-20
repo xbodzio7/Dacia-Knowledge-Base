@@ -35,7 +35,15 @@ jobs:
         with:
           python-version: "3.13"
       - name: Run downloader regression tests
-        run: python -m unittest -q tests.test_data_product_release_download
+        run: python -c "import pathlib,subprocess,sys; result=subprocess.run([sys.executable,'-m','unittest','-v','tests.test_data_product_release_download'],capture_output=True,text=True); output=result.stdout+result.stderr; pathlib.Path('downloader-test-output.txt').write_text(output,encoding='utf-8'); print(output); raise SystemExit(result.returncode)"
+      - name: Upload downloader test diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: downloader-test-diagnostics-${{ matrix.os }}
+          path: downloader-test-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Download immutable public v1.0.0
         run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
       - name: Independently verify downloaded assets
