@@ -87,9 +87,9 @@ aktualnej oferty.
 
 Katalog Duster III obejmuje 5 aktywnych wersji i 24 źródłowo potwierdzone
 kombinacje wersji, napędu i skrzyni biegów z oficjalnego cennika Dacia
-Polska obowiązującego od 6 lutego 2026 r. Encje pozostają poza bieżącym
-podzbiorem raportowym Sandero do czasu jawnej decyzji o promocji zakresu
-raportowego Duster.
+Polska obowiązującego od 6 lutego 2026 r. Wszystkie 24 konfiguracje należą
+do siedmiu niezależnych, jednorodnych zakresów raportowych Duster w
+zamkniętym portfelu 13 zakresów dla Sandero, Duster i Jogger.
 
 Dla wszystkich 24 konfiguracji Duster zapisano również datowane ceny katalogowe
 brutto obowiązujące od 6 lutego 2026 r. Promocyjny rabat oraz korzyści finansowania
@@ -105,10 +105,11 @@ dostępności dla 58 kanonicznych atrybutów i 24 konfiguracji Duster.
 Import zachowuje jawne statusy `standard`, `optional` i `not_available`,
 a pozycje warunkowe lub bez bezpiecznego mapowania pozostawia poza zakresem.
 
-Pierwszy jawnie promowany podzbiór raportowy Duster obejmuje cztery aktualne
-konfiguracje Eco-G 120. Ma pełne pokrycie 17 slotów technicznych, 58 atrybutów
-wyposażenia i cen, a jego sześć porównań jest publikowanych jako oddzielne
-artefakty bez zmiany domyślnego zakresu Sandero.
+Kompletny portfel raportowy Duster obejmuje siedem niezależnych zakresów,
+24 konfiguracje, techniczny mianownik 392 obserwacji, wyposażeniowy mianownik
+1 392 rekordów oraz 30 deterministycznych par porównawczych. Zakresy zachowują
+odrębność napędów i skrzyń biegów; wartości, luki dowodowe, przedziały i ceny
+pozostają datowane i powiązane ze źródłami.
 
 Parametry techniczne i pozostałe wartości konfiguracji również są
 datowanymi obserwacjami powiązanymi ze źródłem. Osiemnaście pakietów obejmuje
