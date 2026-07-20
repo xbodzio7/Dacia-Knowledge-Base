@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Local Data Product Workspace Verification CLI
-- Pull Request: #166
-- Verified head: `d278eb71b97f782635c2b528a872f885bc367a36`
-- Quality run: #908
+- Package: Data Product Consumer Guide
+- Pull Request: #167
+- Verified head: `162b8217e50f5ca774199a261b7bb486bac468dc`
+- Quality run: #916
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Product Consumer Guide** — `complete`
+**Data Product Utilization Completion Review** — `complete`
 
-Consolidate the immutable release, verified download, offline index, selection and comparison flow, and lifecycle verification into one source-backed consumer guide without expanding source data.
+Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data.
 
 ## Next package
 
-**Data Product Utilization Completion Review** — `planned`
+**Strategic Direction Decision** — `blocked`
 
-Assess whether the existing public release, offline workspace, verification and consumer documentation complete the current utilization phase, and select only a clearly justified next package without expanding source data.
+Choose between standalone consumer-tool distribution, source-backed data expansion, or maintenance mode before starting a new milestone.
 
 ## Autonomy
 
