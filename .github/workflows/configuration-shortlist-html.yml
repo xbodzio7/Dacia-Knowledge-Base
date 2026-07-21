@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
       - name: Set up Python
@@ -29,8 +29,10 @@ jobs:
           node-version: "24"
       - name: Verify Python and browser filter parity
         run: python -m unittest -v tests.test_configuration_shortlist_html
-      - name: Verify version 1.1 interaction and price contract
+      - name: Verify version 1.1 compatibility contract
         run: node tests/contracts/configuration_shortlist_v11_contract.js
+      - name: Verify version 1.2 grouped selection and price contract
+        run: node tests/contracts/configuration_shortlist_v12_contract.js
       - name: Generate browser shortlists
         run: |
           python tools/dkb.py configuration-shortlist \
