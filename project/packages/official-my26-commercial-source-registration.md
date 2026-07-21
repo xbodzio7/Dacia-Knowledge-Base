@@ -28,6 +28,8 @@ Commercial package names in this record preserve the wording used by the Polish 
 - Jogger is related to the current model, all four existing trims and all 22 currently modeled five- and seven-seat configurations.
 - Bigster is related to the existing model record only. Bigster versions and configurations are not created by this source-registration package.
 
+Source-to-configuration relationships are additive: an earlier configuration-specific PDF remains registered when a newer general commercial price list also documents that configuration.
+
 ## Evidence boundary
 
 Registration and relationships do not import or supersede observations. Existing dated prices, technical values and equipment records remain unchanged. New configurations visible only in the July price lists, such as automatic Eco-G variants or hybrid-G variants, are not inferred into the catalogue.
