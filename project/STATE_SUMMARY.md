@@ -36,9 +36,9 @@
 
 ## Current package
 
-**README Duster Reporting Portfolio Correction** — `complete`
+**GitHub Actions Dependabot Updates** — `complete`
 
-Resolve issue #173 by replacing stale pre-promotion Duster README wording with the completed seven-scope, 24-configuration reporting portfolio contract from merged PR #142.
+Add a weekly, review-first Dependabot update channel for all immutable GitHub Actions commit pins without enabling automatic merges or changing current workflow behavior.
 
 ## Next package
 
