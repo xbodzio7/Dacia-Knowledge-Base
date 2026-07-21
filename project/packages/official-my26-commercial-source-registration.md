@@ -19,6 +19,8 @@ The exact original URLs are retained in `sources.csv`, and the downloaded bytes 
 
 The archived PDFs are registration inputs for later controlled imports; registering a document does not by itself make every value shown in it an active master-data observation.
 
+Commercial package names in this record preserve the wording used by the Polish source documents; normalized interface labels may be introduced separately without changing source provenance.
+
 ## Relationships
 
 - Sandero and Sandero Stepway are related to both current model records, five existing trims and seven currently modeled Eco-G 120 configurations.
