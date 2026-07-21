@@ -114,6 +114,12 @@ def collect_report(
     values = read_csv(master / 'configuration_attribute_values.csv')
     ranges = read_optional_ranges(master, read_csv)
     availability = read_csv(master / 'configuration_attribute_availability.csv')
+    source_configurations_path = master / 'source_configurations.csv'
+    source_configurations = (
+        read_csv(source_configurations_path)
+        if source_configurations_path.is_file()
+        else []
+    )
     spec = parse_spec(spec_path)
 
     status = spec['configuration_status']
@@ -138,6 +144,15 @@ def collect_report(
     bad_sources = sorted(set(configuration_sources.values()) - active_sources)
     if bad_sources:
         raise CompletenessError(f'inactive or missing sources in spec: {bad_sources}')
+
+    registered_sources: dict[str, set[str]] = defaultdict(set)
+    for row in source_configurations:
+        configuration = row.get('configuration_code', '')
+        source = row.get('source_code', '')
+        if configuration and source:
+            registered_sources[configuration].add(source)
+    for configuration, source in configuration_sources.items():
+        registered_sources[configuration].add(source)
 
     active_attributes = {
         row['code']: row for row in attributes if row.get('status') == 'active'
@@ -225,14 +240,6 @@ def collect_report(
         raise CompletenessError(
             f'observed technical slots are absent from spec: {extra_slots}'
         )
-    extra_equipment = sorted(
-        {key[1] for key in current_availability} - set(equipment)
-    )
-    if extra_equipment:
-        raise CompletenessError(
-            f'observed equipment attributes are absent from spec: {extra_equipment}'
-        )
-
     technical_scope = {
         (configuration, attribute, fuel)
         for configuration in active_configurations
@@ -317,9 +324,9 @@ def collect_report(
                 }
             )
         else:
-            if row.get('source_code') != source:
+            if row.get('source_code') not in registered_sources[configuration]:
                 raise CompletenessError(
-                    f'technical record source differs from spec mapping: {key}'
+                    f'technical record source is not registered for configuration: {key}'
                 )
             technical['present'] += 1
             for bucket in (
@@ -370,9 +377,9 @@ def collect_report(
                 }
             )
         else:
-            if row.get('source_code') != source:
+            if row.get('source_code') not in registered_sources[configuration]:
                 raise CompletenessError(
-                    f'equipment record source differs from spec mapping: {key}'
+                    f'equipment record source is not registered for configuration: {key}'
                 )
             state = row.get('availability_status', '')
             if state not in AVAILABILITY_STATES:

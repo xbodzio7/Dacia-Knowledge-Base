@@ -629,6 +629,8 @@ niezależny od filtrów: ukryte konfiguracje pozostają zaznaczone, a akcje
 zmieniają kryteriów shortlisty. Panel wyboru zachowuje deterministyczną
 kolejność katalogu.
 
+Interfejs v1.2 zastępuje natywne listy wielokrotnego wyboru wyposażenia grupami przycisków. Wybrane elementy pozostają widoczne nad przewijaną listą jako usuwalne etykiety, a tryb `Pokaż tylko wybrane` pozwala szybko sprawdzić aktywne kryteria. Karty konfiguracji pokazują nazwane pakiety i opcje oraz wyliczają najtańszy źródłowo udokumentowany zestaw pokrywający wybrane wyposażenie.
+
 `Pobierz JSON` zapisuje wybór w formacie bezpośrednio obsługiwanym przez
 `configuration-comparison-bundle`, wraz z datą snapshotu i metadanymi
 źródłowymi ceny oraz liczby miejsc. `Pobierz kody TXT` zapisuje jeden dokładny
@@ -666,7 +668,7 @@ pakietu. `comparison-bundle-manifest.json` zawiera wybór, grupy, singletony,
 liczby par i różnic oraz ścieżki, rozmiary i SHA-256 wszystkich raportów. Pole
 `cross_scope_pairs_generated` zawsze ma wartość `false`.
 
-Pakiet tworzy także deterministyczny skoroszyt XLSX z sześcioma arkuszami, pełnymi stanami porównań i proweniencją. Szczegółowy kontrakt opisuje `project/packages/configuration-comparison-workbook-export.md`.
+Pakiet tworzy także deterministyczny skoroszyt XLSX z ośmioma arkuszami. Oprócz pełnych stanów porównań i proweniencji zawiera filtrowalne arkusze `Equipment` oraz `Commercial Offers`, które pokazują wyposażenie, pakiety, opcje, ceny i źródła dla wybranych konfiguracji. Szczegółowy kontrakt wersji 1.2 opisuje `project/packages/commercial-options-equipment-filters-workbook-v1.2.md`.
 
 ### Wersjonowana dystrybucja produktów
 
@@ -910,11 +912,11 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 668 testów, 37 pliki CSV, 5216 rekordów
-danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
-specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
-Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 37 tabele i 5216 rekordów, pozostaje zgodna z CSV, a wszystkie
+Zweryfikowany model obejmuje 676 testów, 41 pliki CSV, 5618 rekordów
+danych, 43 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
+specyfikacji zakresów oraz 3156 rekordów dostępności wyposażenia.
+Katalog zawiera 358 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 41 tabele i 5618 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

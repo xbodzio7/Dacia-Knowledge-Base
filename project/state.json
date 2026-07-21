@@ -15,26 +15,26 @@
     "quality_run": 916
   },
   "baseline": {
-    "tests": 668,
-    "csv_files": 37,
-    "rows": 5216,
+    "tests": 676,
+    "csv_files": 41,
+    "rows": 5618,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
     "configuration_value_ranges": 144,
     "configuration_range_import_specs": 19,
-    "availability_records": 2977,
-    "attributes": 357,
+    "availability_records": 3156,
+    "attributes": 358,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Official MY26 Commercial Source Registration",
+    "name": "Commercial Options, Equipment Filters and Workbook v1.2",
     "status": "complete",
-    "goal": "Archive and register four official Polish MY26 price lists effective 3 July 2026 with verified SHA-256 and conservative model, version and configuration relationships without importing observations."
+    "goal": "Import source-backed package and option prices, provide grouped click-based equipment selection with a persistent selected-item tray, calculate deterministic equipment surcharges and expand the filterable comparison workbook."
   },
   "next_package": {
-    "name": "Commercial Options, Equipment Filters and Workbook v1.2",
+    "name": "Bigster Catalogue Foundation",
     "status": "planned",
-    "goal": "Import source-backed package and option prices, replace native multi-select equipment controls with grouped click selection, simplify configuration labels and provide a filterable Excel workbook."
+    "goal": "Model source-backed Bigster versions, configurations and current catalogue prices from the official Polish MY26 price list without inferring unstated technical values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

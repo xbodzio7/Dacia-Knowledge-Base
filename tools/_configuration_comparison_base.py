@@ -522,6 +522,12 @@ def collect_report(
     availability = read_csv(
         master / "configuration_attribute_availability.csv"
     )
+    source_configurations_path = master / "source_configurations.csv"
+    source_configurations = (
+        read_csv(source_configurations_path)
+        if source_configurations_path.is_file()
+        else []
+    )
 
     configuration_codes = sorted(scope["configurations"])
     configuration_set = set(configuration_codes)
@@ -590,6 +596,21 @@ def collect_report(
         as_of,
         "configuration availability",
     )
+    current_availability = {
+        key: row
+        for key, row in current_availability.items()
+        if key[1] in set(scope["equipment_attributes"])
+    }
+
+    registered_configuration_sources = {
+        (row.get("configuration_code", ""), row.get("source_code", ""))
+        for row in source_configurations
+        if row.get("configuration_code") and row.get("source_code")
+    }
+    registered_configuration_sources.update(
+        (configuration, item["source_code"])
+        for configuration, item in scope["configurations"].items()
+    )
 
     allowed_slots = set(scope["technical_slots"])
     extra_slots = sorted(
@@ -599,27 +620,15 @@ def collect_report(
         raise ComparisonError(
             f"observed technical slots are absent from scope: {extra_slots}"
         )
-    extra_equipment = sorted(
-        {key[1] for key in current_availability}
-        - set(scope["equipment_attributes"])
-    )
-    if extra_equipment:
-        raise ComparisonError(
-            "observed equipment attributes are absent from scope: "
-            f"{extra_equipment}"
-        )
-
     for key, row in current_values.items():
-        expected_source = scope["configurations"][key[0]]["source_code"]
-        if row.get("source_code") != expected_source:
+        if (key[0], row.get("source_code", "")) not in registered_configuration_sources:
             raise ComparisonError(
-                f"technical record source differs from scope mapping: {key}"
+                f"technical record source is not registered for configuration: {key}"
             )
     for key, row in current_availability.items():
-        expected_source = scope["configurations"][key[0]]["source_code"]
-        if row.get("source_code") != expected_source:
+        if (key[0], row.get("source_code", "")) not in registered_configuration_sources:
             raise ComparisonError(
-                f"equipment record source differs from scope mapping: {key}"
+                f"equipment record source is not registered for configuration: {key}"
             )
         state = row.get("availability_status", "")
         if state not in AVAILABILITY_STATES:
@@ -627,10 +636,9 @@ def collect_report(
                 f"unexpected availability status for {key}: {state!r}"
             )
     for key, row in current_prices.items():
-        expected_source = scope["configurations"][key[0]]["source_code"]
-        if row.get("source_code") != expected_source:
+        if (key[0], row.get("source_code", "")) not in registered_configuration_sources:
             raise ComparisonError(
-                f"price record source differs from scope mapping: {key}"
+                f"price record source is not registered for configuration: {key}"
             )
 
     missing_evidence_keys: set[tuple[str, str, str, str]] = set()

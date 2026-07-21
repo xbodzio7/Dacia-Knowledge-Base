@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 668
-- Master CSV files: 37
-- Master rows: 5216
+- Tests: 676
+- Master CSV files: 41
+- Master rows: 5618
 - Configuration values: 1204
 - Configuration import specifications: 71
 - Configuration value ranges: 144
 - Configuration range import specifications: 19
-- Availability records: 2977
-- Canonical attributes: 357
+- Availability records: 3156
+- Canonical attributes: 358
 - Attribute categories: 30
 
 ## Current package
 
-**Official MY26 Commercial Source Registration** — `complete`
+**Commercial Options, Equipment Filters and Workbook v1.2** — `complete`
 
-Archive and register four official Polish MY26 price lists effective 3 July 2026 with verified SHA-256 and conservative model, version and configuration relationships without importing observations.
+Import source-backed package and option prices, provide grouped click-based equipment selection with a persistent selected-item tray, calculate deterministic equipment surcharges and expand the filterable comparison workbook.
 
 ## Next package
 
-**Commercial Options, Equipment Filters and Workbook v1.2** — `planned`
+**Bigster Catalogue Foundation** — `planned`
 
-Import source-backed package and option prices, replace native multi-select equipment controls with grouped click selection, simplify configuration labels and provide a filterable Excel workbook.
+Model source-backed Bigster versions, configurations and current catalogue prices from the official Polish MY26 price list without inferring unstated technical values.
 
 ## Autonomy
 

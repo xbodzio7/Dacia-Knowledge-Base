@@ -134,6 +134,7 @@ def decision_index(
 
 def load_master_indexes(
     repository: Path,
+    as_of_value: str,
 ) -> tuple[
     dict[tuple[str, str], Mapping[str, str]],
     dict[str, Mapping[str, str]],
@@ -156,6 +157,7 @@ def load_master_indexes(
     )
 
     availability: dict[tuple[str, str], Mapping[str, str]] = {}
+    availability_dates: dict[tuple[str, str], str] = {}
     for row in availability_rows:
         key = (
             row.get("configuration_code", ""),
@@ -165,11 +167,17 @@ def load_master_indexes(
             raise GapEvidenceError(
                 f"availability row has an empty key: {key}"
             )
-        if key in availability:
+        observed = row.get("observation_date", "")
+        if not observed or observed > as_of_value:
+            continue
+        previous = availability_dates.get(key)
+        if previous is None or observed > previous:
+            availability[key] = row
+            availability_dates[key] = observed
+        elif observed == previous:
             raise GapEvidenceError(
                 f"duplicate current availability key: {key}"
             )
-        availability[key] = row
 
     configurations: dict[str, Mapping[str, str]] = {}
     for row in configuration_rows:
@@ -650,7 +658,10 @@ def build_evidence_report(
         availability,
         configurations,
         attributes,
-    ) = load_master_indexes(repository)
+    ) = load_master_indexes(
+        repository,
+        require_string(triage_report.get("as_of"), "triage as_of"),
+    )
 
     normalized_decisions: list[dict[str, Any]] = []
     for triage_row in sorted(
@@ -812,14 +823,19 @@ def collect_report(
     completeness_spec_path: Path,
     as_of_value: str | None = None,
 ) -> dict[str, Any]:
-    triage_report = configuration_gap_triage.collect_report(
-        repository,
-        completeness_spec_path,
-        as_of_value,
-    )
     evidence_spec = read_json(
         evidence_spec_path,
         "configuration-gap evidence specification",
+    )
+    effective_as_of = (
+        as_of_value
+        if as_of_value is not None
+        else require_string(evidence_spec.get("as_of"), "evidence as_of")
+    )
+    triage_report = configuration_gap_triage.collect_report(
+        repository,
+        completeness_spec_path,
+        effective_as_of,
     )
     return build_evidence_report(
         repository,

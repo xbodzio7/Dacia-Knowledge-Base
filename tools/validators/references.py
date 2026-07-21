@@ -151,6 +151,51 @@ REFERENCE_RULES: tuple[ReferenceRule, ...] = (
         "data/master/sources.csv",
     ),
     ReferenceRule(
+        "data/master/commercial_items.csv",
+        "item_type",
+        "data/master/enums/commercial_item_types.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_items.csv",
+        "source_code",
+        "data/master/sources.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_attributes.csv",
+        "commercial_item_code",
+        "data/master/commercial_items.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_attributes.csv",
+        "attribute_code",
+        "data/master/attributes.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_configurations.csv",
+        "commercial_item_code",
+        "data/master/commercial_items.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_configurations.csv",
+        "configuration_code",
+        "data/master/configurations.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_configurations.csv",
+        "availability_status",
+        "data/master/enums/equipment_availability_statuses.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_configurations.csv",
+        "currency_code",
+        "data/master/currencies.csv",
+    ),
+    ReferenceRule(
+        "data/master/commercial_item_configurations.csv",
+        "source_code",
+        "data/master/sources.csv",
+    ),
+    ReferenceRule(
         "data/master/configurations.csv",
         "version_code",
         "data/master/versions.csv",

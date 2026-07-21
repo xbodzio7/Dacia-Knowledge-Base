@@ -1,0 +1,172 @@
+(function (root, factory) {
+  "use strict";
+  const api = factory();
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  root.DkbConfigurationPricingV12 = api;
+})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  "use strict";
+
+  let equipmentLabels = Object.freeze({});
+
+  function setEquipmentLabels(labels) {
+    equipmentLabels = Object.freeze({ ...(labels || {}) });
+  }
+
+  function unique(values) {
+    return [...new Set((values || [])
+      .filter((value) => value !== null && value !== undefined)
+      .map(String).map((value) => value.trim()).filter(Boolean))];
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;").replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function equipmentLabel(code, fallback) {
+    return equipmentLabels[code] || String(fallback || code);
+  }
+
+  function formatMoney(amount, currencyCode) {
+    const number = Number(amount);
+    if (!Number.isFinite(number)) return "brak danych";
+    return new Intl.NumberFormat("pl-PL", {
+      style: "currency", currency: currencyCode || "PLN",
+      minimumFractionDigits: Number.isInteger(number) ? 0 : 2,
+      maximumFractionDigits: 2
+    }).format(number).replaceAll("\u00a0", " ");
+  }
+
+  function normalizeComponent(component, defaultCurrency) {
+    const rawAmount = component.amount;
+    const numeric = rawAmount === null || rawAmount === undefined || rawAmount === ""
+      ? null : Number(rawAmount);
+    return {
+      code: String(component.code || ""),
+      name: String(component.name || component.code || "Dopłata"),
+      kind: component.kind === "package" ? "package" : "option",
+      amount: Number.isFinite(numeric) ? numeric : null,
+      currency_code: String(component.currency_code || defaultCurrency || "PLN"),
+      price_date: String(component.price_date || ""),
+      source_code: String(component.source_code || ""),
+      equipment_codes: unique(component.equipment_codes || [])
+    };
+  }
+
+  function compareSelections(left, right) {
+    if (left.complete !== right.complete) return left.complete ? -1 : 1;
+    if (left.coveredCount !== right.coveredCount) return right.coveredCount - left.coveredCount;
+    if (left.unknownCount !== right.unknownCount) return left.unknownCount - right.unknownCount;
+    if (left.total !== right.total) return left.total - right.total;
+    if (left.components.length !== right.components.length) return left.components.length - right.components.length;
+    return left.components.map((item) => item.code).join("|")
+      .localeCompare(right.components.map((item) => item.code).join("|"));
+  }
+
+  function chooseComponents(components, requiredCodes) {
+    const required = new Set(requiredCodes);
+    if (!required.size) return [];
+    const candidates = components.filter((component) =>
+      component.equipment_codes.some((code) => required.has(code))
+    );
+    let best = null;
+    const limit = 1 << candidates.length;
+    for (let mask = 1; mask < limit; mask += 1) {
+      const chosen = [];
+      const covered = new Set();
+      let total = 0;
+      let unknownCount = 0;
+      for (let index = 0; index < candidates.length; index += 1) {
+        if (!(mask & (1 << index))) continue;
+        const component = candidates[index];
+        chosen.push(component);
+        if (component.amount === null) unknownCount += 1;
+        else total += component.amount;
+        for (const code of component.equipment_codes) if (required.has(code)) covered.add(code);
+      }
+      const current = {
+        components: chosen,
+        total,
+        unknownCount,
+        coveredCount: covered.size,
+        complete: covered.size === required.size
+      };
+      if (best === null || compareSelections(current, best) < 0) best = current;
+    }
+    return best ? best.components : [];
+  }
+
+  function buildPriceBreakdown(configuration, requiredEquipment, requiredStandardEquipment) {
+    const price = configuration.catalog_price || {};
+    const baseAmount = price.state === "recorded" && Number.isFinite(Number(price.amount))
+      ? Number(price.amount) : null;
+    const currencyCode = String(price.currency_code || "PLN");
+    const allComponents = (configuration.price_components || [])
+      .map((component) => normalizeComponent(component, currencyCode));
+    const selectedCodes = unique([...(requiredEquipment || []), ...(requiredStandardEquipment || [])]);
+    const optionalCodes = [];
+    const includedStandard = [];
+    for (const code of selectedCodes) {
+      const state = (configuration.equipment || {})[code];
+      if (state && state.availability_status === "standard") {
+        includedStandard.push({ code, name: equipmentLabel(code) });
+      } else if (state && state.availability_status === "optional") {
+        optionalCodes.push(code);
+      }
+    }
+    const chosen = chooseComponents(allComponents, optionalCodes);
+    const covered = new Set(chosen.flatMap((component) => component.equipment_codes));
+    const knownComponents = chosen.filter((component) => component.amount !== null);
+    const unknownComponents = chosen.filter((component) => component.amount === null);
+    for (const code of optionalCodes) {
+      if (!covered.has(code)) {
+        unknownComponents.push({
+          code: `unpriced:${code}`, name: equipmentLabel(code), kind: "option",
+          amount: null, currency_code: currencyCode, price_date: "", source_code: "",
+          equipment_codes: [code]
+        });
+      }
+    }
+    const knownSurcharge = knownComponents.reduce((sum, item) => sum + item.amount, 0);
+    const totalAmount = baseAmount === null ? null : baseAmount + knownSurcharge;
+    return {
+      currency_code: currencyCode,
+      standard_amount: baseAmount,
+      known_components: knownComponents,
+      unknown_components: unknownComponents,
+      included_standard: includedStandard,
+      known_surcharge: knownSurcharge,
+      total_amount: totalAmount,
+      total_is_complete: totalAmount !== null && unknownComponents.length === 0
+    };
+  }
+
+  function priceBreakdownMarkup(breakdown) {
+    if (breakdown.standard_amount === null) {
+      return '<div class="configuration-price-main"><span>Cena konfiguracji</span><strong>brak danych</strong></div>';
+    }
+    const totalText = formatMoney(breakdown.total_amount, breakdown.currency_code);
+    const headline = breakdown.total_is_complete ? totalText : `od ${totalText}`;
+    const rows = [
+      ...breakdown.known_components.map((component) =>
+        `<li><span>${escapeHtml(component.name)}</span><strong>+ ${escapeHtml(formatMoney(component.amount, component.currency_code))}</strong></li>`),
+      ...breakdown.unknown_components.map((component) =>
+        `<li class="price-component-unknown"><span>${escapeHtml(component.name)}</span><strong>cena nieustalona</strong></li>`)
+    ].join("");
+    const components = rows ? `<ul class="configuration-price-components">${rows}</ul>` : "";
+    const warning = breakdown.unknown_components.length
+      ? '<p class="configuration-price-warning">Nieznane dopłaty nie zostały doliczone do ceny.</p>' : "";
+    const included = breakdown.included_standard.length
+      ? `<p class="configuration-price-included">Wybrane wyposażenie seryjne: ${breakdown.included_standard.length}</p>` : "";
+    return `<div class="configuration-price-main"><span>Cena konfiguracji</span><strong>${escapeHtml(headline)}</strong></div>
+      <div class="configuration-price-standard">Cena standardowa: <strong>${escapeHtml(formatMoney(breakdown.standard_amount, breakdown.currency_code))}</strong></div>
+      ${components}${warning}${included}`;
+  }
+
+  return {
+    setEquipmentLabels, equipmentLabel, formatMoney,
+    chooseComponents, buildPriceBreakdown, priceBreakdownMarkup
+  };
+});

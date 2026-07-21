@@ -62,6 +62,7 @@ class SanderoCoreEquipmentAvailabilityTests(unittest.TestCase):
         cls.rows = [
             row for row in read_rows(AVAILABILITY_PATH)
             if row["configuration_code"] in EXPECTED_CONFIGURATION_COUNTS
+            and row["observation_date"] == "2026-06-26"
         ]
 
     def test_imported_attribute_definitions_are_boolean_active(self) -> None:

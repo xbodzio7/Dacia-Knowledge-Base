@@ -42,6 +42,8 @@ SHEET_NAMES = (
     "Overview",
     "Scopes",
     "Configurations",
+    "Equipment",
+    "Commercial Offers",
     "Comparisons",
     "Sources",
     "Artifacts",
@@ -107,6 +109,8 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "xl/worksheets/sheet4.xml",
             "xl/worksheets/sheet5.xml",
             "xl/worksheets/sheet6.xml",
+            "xl/worksheets/sheet7.xml",
+            "xl/worksheets/sheet8.xml",
         )
         self.assertEqual(workbook_entries(self.workbook_path), expected)
         self.assertEqual(tuple(self.workbook), SHEET_NAMES)
@@ -117,11 +121,13 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
 
     def test_sheet_dimensions_filters_and_frozen_headers(self) -> None:
         expected_dimensions = (
-            "A1:B15",
+            "A1:B16",
             "A1:AH4",
-            "A1:J6",
+            "A1:K6",
+            "A1:M296",
+            "A1:L11",
             "A1:AQ204",
-            "A1:K5",
+            "A1:K7",
             "A1:E9",
         )
         with ZipFile(self.workbook_path) as archive:
@@ -145,7 +151,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             str(row[0]): row[1]
             for row in self.workbook["Overview"][1:]
         }
-        self.assertEqual(overview["workbook_version"], 1)
+        self.assertEqual(overview["workbook_version"], 2)
         self.assertEqual(overview["bundle_version"], self.manifest["version"])
         self.assertEqual(overview["selected_configuration_count"], 5)
         self.assertEqual(overview["scope_group_count"], 3)
@@ -157,6 +163,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertFalse(overview["ranking_generated"])
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
+        self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")
 
     def test_scopes_preserve_comparable_and_singleton_groups(self) -> None:
         rows = self._table(self.workbook["Scopes"])
@@ -188,6 +195,19 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertTrue(all(row["powertrain_label"] for row in rows))
         self.assertTrue(all(row["transmission_type"] for row in rows))
         self.assertTrue(all(row["source_code"] for row in rows))
+        self.assertTrue(all(" — " in str(row["display_name"]) for row in rows))
+
+    def test_equipment_and_commercial_offer_sheets_are_filterable_consumer_views(self) -> None:
+        equipment = self._table(self.workbook["Equipment"])
+        offers = self._table(self.workbook["Commercial Offers"])
+        self.assertGreater(len(equipment), 250)
+        self.assertEqual({str(row["configuration_code"]) for row in equipment}, set(SELECTED))
+        self.assertTrue(all(row["equipment_name_pl"] for row in equipment))
+        self.assertEqual(len(offers), 10)
+        self.assertTrue(all(row["commercial_item_name"] for row in offers))
+        self.assertTrue(all(row["amount"] for row in offers))
+        self.assertIn("sandero_comfort_auto_package", {str(row["commercial_item_code"]) for row in offers})
+        self.assertIn("jogger_drive_package", {str(row["commercial_item_code"]) for row in offers})
 
     def test_comparisons_match_all_report_items_and_states(self) -> None:
         expected_count = 0
@@ -251,9 +271,11 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
     def test_sources_and_artifacts_match_referenced_records(self) -> None:
         configurations = self._table(self.workbook["Configurations"])
         comparisons = self._table(self.workbook["Comparisons"])
+        equipment = self._table(self.workbook["Equipment"])
+        offers = self._table(self.workbook["Commercial Offers"])
         referenced_sources = {
             str(row["source_code"])
-            for row in configurations
+            for row in [*configurations, *equipment, *offers]
             if row["source_code"]
         }
         for row in comparisons:

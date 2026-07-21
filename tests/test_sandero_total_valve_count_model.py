@@ -90,7 +90,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
                 "status": "active",
             }],
         )
-        self.assertEqual(len(self.attributes), 357)
+        self.assertEqual(len(self.attributes), 358)
 
     def test_total_count_remains_distinct_from_related_engine_counts(self) -> None:
         expected = {
@@ -181,6 +181,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             len([
                 row for row in self.availability
                 if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
+                and row["observation_date"] == "2026-06-26"
             ]),
             419,
         )
@@ -188,6 +189,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             len([
                 row for row in self.prices
                 if row["configuration_code"] in EXPECTED_MAPPING
+                and row["price_date"] == "2026-06-26"
             ]),
             7,
         )
