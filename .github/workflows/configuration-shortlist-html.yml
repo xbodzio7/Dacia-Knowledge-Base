@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - agent/register-sandero-stepway-price-20260703
+  pull_request:
 
 permissions:
   contents: write
