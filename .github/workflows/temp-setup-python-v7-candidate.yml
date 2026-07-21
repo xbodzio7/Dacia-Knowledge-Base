@@ -27,15 +27,18 @@ jobs:
           import base64
           import json
           import os
+          import traceback
           from pathlib import Path
           from urllib.request import Request, urlopen
 
           old = 'actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6'
           new = 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7'
           helper = Path('.github/workflows/temp-setup-python-v7-candidate.yml')
-          changed = []
-          total = 0
+          output = Path(os.environ['RUNNER_TEMP']) / 'setup-python-v7-candidate'
+          output.mkdir(parents=True, exist_ok=True)
 
+          candidates = []
+          total = 0
           for path in sorted(Path('.github/workflows').glob('*.yml')):
               if path == helper:
                   continue
@@ -44,44 +47,68 @@ jobs:
               if not count:
                   continue
               payload = text.replace(old, new).encode('utf-8')
-              body = json.dumps({
-                  'content': base64.b64encode(payload).decode('ascii'),
-                  'encoding': 'base64',
-              }).encode('utf-8')
-              request = Request(
-                  f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/git/blobs",
-                  data=body,
-                  headers={
-                      'Accept': 'application/vnd.github+json',
-                      'Authorization': f"Bearer {os.environ['GH_TOKEN']}",
-                      'X-GitHub-Api-Version': '2022-11-28',
-                      'Content-Type': 'application/json',
-                  },
-                  method='POST',
-              )
-              with urlopen(request) as response:
-                  result = json.load(response)
-              changed.append({
+              candidates.append({
                   'path': path.as_posix(),
-                  'sha': result['sha'],
+                  'payload': payload,
                   'replacements': count,
                   'bytes': len(payload),
               })
               total += count
 
-          if len(changed) != 15:
-              raise SystemExit(f'unexpected changed workflow count: {len(changed)}')
+          inventory = {
+              'total_replacements': total,
+              'file_count': len(candidates),
+              'files': [
+                  {key: value for key, value in item.items() if key != 'payload'}
+                  for item in candidates
+              ],
+          }
+          (output / 'inventory.json').write_text(
+              json.dumps(inventory, indent=2) + '\n', encoding='utf-8'
+          )
+
+          if len(candidates) != 15:
+              raise SystemExit(f'unexpected changed workflow count: {len(candidates)}')
           if total != 19:
               raise SystemExit(f'unexpected setup-python reference count: {total}')
 
-          output = Path(os.environ['RUNNER_TEMP']) / 'setup-python-v7-candidate'
-          output.mkdir(parents=True, exist_ok=True)
+          changed = []
+          try:
+              for item in candidates:
+                  body = json.dumps({
+                      'content': base64.b64encode(item['payload']).decode('ascii'),
+                      'encoding': 'base64',
+                  }).encode('utf-8')
+                  request = Request(
+                      f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/git/blobs",
+                      data=body,
+                      headers={
+                          'Accept': 'application/vnd.github+json',
+                          'Authorization': f"Bearer {os.environ['GH_TOKEN']}",
+                          'X-GitHub-Api-Version': '2022-11-28',
+                          'Content-Type': 'application/json',
+                      },
+                      method='POST',
+                  )
+                  with urlopen(request) as response:
+                      result = json.load(response)
+                  changed.append({
+                      'path': item['path'],
+                      'sha': result['sha'],
+                      'replacements': item['replacements'],
+                      'bytes': item['bytes'],
+                  })
+          except Exception:
+              (output / 'error.txt').write_text(traceback.format_exc(), encoding='utf-8')
+              raise
+
           (output / 'manifest.json').write_text(
               json.dumps({'total_replacements': total, 'files': changed}, indent=2) + '\n',
               encoding='utf-8',
           )
 
       - name: Upload candidate manifest
+        if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: setup-python-v7-candidate
