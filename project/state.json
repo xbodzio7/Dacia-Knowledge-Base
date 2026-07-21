@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-07-20",
+  "updated_on": "2026-07-21",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "GitHub Actions Dependabot Updates",
+    "name": "Python Runtime Lifecycle Review",
     "status": "complete",
-    "goal": "Add a weekly, review-first Dependabot update channel for all immutable GitHub Actions commit pins without enabling automatic merges or changing current workflow behavior."
+    "goal": "Review the current Python 3.10 and 3.13 CI baseline against upstream lifecycle evidence and define a staged Python 3.14 compatibility transition without prematurely removing the lower-bound lane."
   },
   "next_package": {
-    "name": "Maintenance Watch",
+    "name": "Python 3.14 Compatibility Verification",
     "status": "planned",
-    "goal": "Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings."
+    "goal": "Add Python 3.14 to the repository-wide Quality matrix, run the complete quality and artifact gate on 3.14, retain 3.10 and 3.13 transition coverage, and move the Windows package lane to 3.14 only with full green validation."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
