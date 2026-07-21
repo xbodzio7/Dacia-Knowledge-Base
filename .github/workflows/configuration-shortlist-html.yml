@@ -45,6 +45,15 @@ jobs:
             --output "${RUNNER_TEMP}/configuration-shortlist-html-manifest.json" \
             --file "${RUNNER_TEMP}/configuration-shortlist-all.html" \
             --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
+      - name: Capture temporary fail-fast test log
+        shell: bash
+        run: |
+          set +e
+          python -m unittest discover -s tests -p 'test_*.py' -f -v > "${RUNNER_TEMP}/failfast-tests.log" 2>&1
+          status=$?
+          echo "$status" > "${RUNNER_TEMP}/failfast-status.txt"
+          tail -200 "${RUNNER_TEMP}/failfast-tests.log"
+          exit 0
       - name: Upload browser shortlists
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
@@ -53,5 +62,7 @@ jobs:
             ${{ runner.temp }}/configuration-shortlist-all.html
             ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.html
             ${{ runner.temp }}/configuration-shortlist-html-manifest.json
+            ${{ runner.temp }}/failfast-tests.log
+            ${{ runner.temp }}/failfast-status.txt
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 1
