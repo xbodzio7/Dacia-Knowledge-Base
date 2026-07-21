@@ -63,7 +63,11 @@ class JoggerEquipmentAvailabilityImportTests(unittest.TestCase):
         self.assertEqual(set(counts.values()), {53})
 
     def test_master_rows_match_generated_contract_and_contiguous_suffix(self) -> None:
-        actual = [row for row in rows("configuration_attribute_availability.csv") if row["configuration_code"].startswith("jogger_")]
+        actual = [
+            row for row in rows("configuration_attribute_availability.csv")
+            if row["configuration_code"].startswith("jogger_")
+            and row["source_code"] == "src_pl_jogger_price_my26_20260401"
+        ]
         self.assertEqual(len(actual), 1166)
         self.assertEqual(IMPORTER.semantic_payload(actual), IMPORTER.semantic_payload(IMPORTER.generated_rows()))
         self.assertEqual([int(row["id"]) for row in actual], list(range(1812, 2978)))
@@ -72,10 +76,11 @@ class JoggerEquipmentAvailabilityImportTests(unittest.TestCase):
 
     def test_existing_sandero_and_duster_availability_is_preserved(self) -> None:
         actual = rows("configuration_attribute_availability.csv")
-        jogger = [row for row in actual if row["configuration_code"].startswith("jogger_")]
-        duster = [row for row in actual if row["configuration_code"].startswith("duster_iii_")]
-        sandero = [row for row in actual if not row["configuration_code"].startswith(("jogger_", "duster_iii_"))]
-        self.assertEqual(len(actual), 2977)
+        baseline = [row for row in actual if int(row["id"]) <= 2977]
+        jogger = [row for row in baseline if row["configuration_code"].startswith("jogger_")]
+        duster = [row for row in baseline if row["configuration_code"].startswith("duster_iii_")]
+        sandero = [row for row in baseline if not row["configuration_code"].startswith(("jogger_", "duster_iii_"))]
+        self.assertEqual(len(baseline), 2977)
         self.assertEqual((len(jogger), len(duster), len(sandero)), (1166, 1392, 419))
 
     def test_evidence_boundary_and_registered_source_hash_are_locked(self) -> None:

@@ -74,6 +74,7 @@ class DusterEquipmentAvailabilityImportTests(unittest.TestCase):
         actual = [
             row for row in rows("configuration_attribute_availability.csv")
             if row["configuration_code"].startswith("duster_iii_")
+            and row["source_code"] == "src_pl_duster_price_my26_py25_20260206"
         ]
         self.assertEqual(len(actual), 1392)
         self.assertEqual(
@@ -83,11 +84,12 @@ class DusterEquipmentAvailabilityImportTests(unittest.TestCase):
 
     def test_existing_sandero_availability_is_preserved(self) -> None:
         actual = rows("configuration_attribute_availability.csv")
+        baseline = [row for row in actual if int(row["id"]) <= 2977]
         sandero = [
-            row for row in actual
+            row for row in baseline
             if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
         ]
-        self.assertEqual(len(actual), 2977)
+        self.assertEqual(len(baseline), 2977)
         self.assertEqual(len(sandero), 419)
 
     def test_evidence_boundary_excludes_ambiguous_domains(self) -> None:

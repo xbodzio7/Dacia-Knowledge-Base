@@ -1,0 +1,28 @@
+id,code,name,item_type,observation_date,source_code,status,notes
+1,sandero_rear_view_camera_option,Kamera cofania,option,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,Cena opcji dla Sandero Expression.
+2,sandero_media_nav_live_option,Nowy Media Nav Live,option,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,Samodzielna opcja dla wersji Expression.
+3,sandero_glass_sunroof_option,Elektrycznie otwierany szklany dach,option,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,Opcja dla Sandero Stepway Extreme.
+4,sandero_comfort_auto_package,Pakiet COMFORT (Eco-G 120 auto),package,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,
+5,sandero_thermo_package,Pakiet THERMO,package,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,
+6,sandero_winter_package,Pakiet ZIMOWY,package,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,
+7,sandero_media_nav_live_package,Pakiet MEDIA NAV LIVE,package,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,
+8,sandero_easy_package,Pakiet EASY,package,2026-07-03,src_pl_sandero_stepway_price_my26_20260703,active,
+9,duster_media_nav_live_option,Nowy Media Nav Live,option,2026-07-03,src_pl_duster_price_my26_20260703,active,Samodzielna opcja dla wersji Expression.
+10,duster_winter_expression_journey_package,Pakiet ZIMOWY (Expression/Journey),package,2026-07-03,src_pl_duster_price_my26_20260703,active,
+11,duster_winter_extreme_package,Pakiet ZIMOWY (Extreme),package,2026-07-03,src_pl_duster_price_my26_20260703,active,
+12,duster_winter_plus_extreme_package,Pakiet ZIMOWY PLUS (Extreme),package,2026-07-03,src_pl_duster_price_my26_20260703,active,
+13,duster_winter_plus_journey_package,Pakiet ZIMOWY PLUS (Journey),package,2026-07-03,src_pl_duster_price_my26_20260703,active,
+14,duster_parking_package,Pakiet PARKING,package,2026-07-03,src_pl_duster_price_my26_20260703,active,
+15,duster_techno_1_package,Pakiet TECHNO 1,package,2026-07-03,src_pl_duster_price_my26_20260703,active,ACC is available only with an automatic gearbox; mapping is limited accordingly.
+16,jogger_media_nav_option,Nowy Media Nav,option,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+17,jogger_heated_front_seats_option,Przednie fotele podgrzewane,option,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+18,jogger_comfort_hev_package,Pakiet KOMFORT HEV,package,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+19,jogger_comfort_package,Pakiet KOMFORT,package,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+20,jogger_winter_package,Pakiet ZIMOWY,package,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+21,jogger_drive_package,Pakiet DRIVE,package,2026-07-03,src_pl_jogger_price_my26_20260703,active,
+22,bigster_media_nav_live_option,System Media Nav Live,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+23,bigster_power_tailgate_option,Pokrywa bagażnika sterowana elektrycznie,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+24,bigster_easy_package,Pakiet EASY,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+25,bigster_parking_package,Pakiet PARKING,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+26,bigster_winter_package,Pakiet ZIMOWY,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+27,bigster_winter_plus_package,Pakiet ZIMOWY PLUS,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,

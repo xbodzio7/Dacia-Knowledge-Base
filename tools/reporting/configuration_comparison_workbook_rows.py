@@ -7,9 +7,10 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from reporting.commercial_offers import commercial_offer_rows
 from reporting.deterministic_xlsx_model import Cell, Sheet, WorkbookError
 
-WORKBOOK_VERSION = 1
+WORKBOOK_VERSION = 2
 DOMAIN_ORDER = ("prices", "technical", "equipment")
 STATE_FIELDS = (
     "state",
@@ -290,7 +291,7 @@ def _configuration_rows(repository: Path, manifest: Mapping[str, Any]) -> tuple[
         for code in group.get("configuration_codes", []):
             group_by_code[str(code)] = (str(group["scope"]), str(group["status"]))
     headers = (
-        "scope", "group_status", "configuration_code", "model_code", "model_name",
+        "scope", "group_status", "configuration_code", "display_name", "model_code", "model_name",
         "version_code", "version_name", "powertrain_label", "transmission_type",
         "source_code",
     )
@@ -313,12 +314,112 @@ def _configuration_rows(repository: Path, manifest: Mapping[str, Any]) -> tuple[
         scope, status = group_by_code[code]
         rows.append(
             (
-                scope, status, code, str(model.get("code", "")),
-                str(model.get("name", "")), str(version.get("code", "")),
+                scope, status, code,
+                f"{model.get('name', '')} — {version.get('name', '')} · {configuration.get('powertrain_label', '')}",
+                str(model.get("code", "")), str(model.get("name", "")), str(version.get("code", "")),
                 str(version.get("name", "")), str(configuration.get("powertrain_label", "")),
                 str(configuration.get("transmission_type", "")), source,
             )
         )
+    return rows, sources
+
+
+
+def _selected_codes(manifest: Mapping[str, Any]) -> list[str]:
+    return sorted({
+        str(code)
+        for group in manifest.get("groups", [])
+        for code in group.get("configuration_codes", [])
+    })
+
+
+def _equipment_rows(
+    repository: Path,
+    configuration_codes: Sequence[str],
+    as_of: str,
+) -> tuple[list[tuple[object, ...]], set[str]]:
+    master = repository / "data" / "master"
+    configurations = {row["code"]: row for row in _read_csv(master / "configurations.csv")}
+    versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
+    models = {row["code"]: row for row in _read_csv(master / "models.csv")}
+    attributes = {row["code"]: row for row in _read_csv(master / "attributes.csv")}
+    labels_path = Path(__file__).with_name("configuration_shortlist_labels_pl.json")
+    labels = _read_json(labels_path)
+    latest: dict[tuple[str, str], dict[str, str]] = {}
+    wanted = set(configuration_codes)
+    for row in _read_csv(master / "configuration_attribute_availability.csv"):
+        if row.get("configuration_code") not in wanted:
+            continue
+        observation_date = row.get("observation_date", "")
+        if as_of and observation_date and observation_date > as_of:
+            continue
+        key = (row["configuration_code"], row["attribute_code"])
+        previous = latest.get(key)
+        if previous is None or observation_date > previous.get("observation_date", ""):
+            latest[key] = row
+    headers = (
+        "configuration_code", "display_name", "model", "version", "powertrain",
+        "transmission", "category", "attribute_code", "equipment_name_pl",
+        "availability_status", "observation_date", "source_code", "notes",
+    )
+    rows: list[tuple[object, ...]] = [headers]
+    sources: set[str] = set()
+    for (configuration_code, attribute_code), record in sorted(latest.items()):
+        configuration = configurations[configuration_code]
+        version = versions[configuration["version_code"]]
+        model = models[version["model_code"]]
+        attribute = attributes.get(attribute_code, {})
+        source = record.get("source_code", "")
+        if source:
+            sources.add(source)
+        display_name = (
+            f"{model.get('name', '')} — {version.get('name', '')} · "
+            f"{configuration.get('powertrain_label', '')}"
+        )
+        rows.append((
+            configuration_code, display_name, model.get("name", ""), version.get("name", ""),
+            configuration.get("powertrain_label", ""), configuration.get("transmission_type", ""),
+            attribute.get("category", ""), attribute_code,
+            labels.get(attribute_code, attribute.get("name", attribute_code)),
+            record.get("availability_status", ""), _date(record.get("observation_date")),
+            source, Cell(record.get("notes", ""), "wrap"),
+        ))
+    return rows, sources
+
+
+def _commercial_offer_sheet_rows(
+    repository: Path,
+    configuration_codes: Sequence[str],
+    as_of: str,
+) -> tuple[list[tuple[object, ...]], set[str]]:
+    master = repository / "data" / "master"
+    configurations = {row["code"]: row for row in _read_csv(master / "configurations.csv")}
+    versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
+    models = {row["code"]: row for row in _read_csv(master / "models.csv")}
+    labels = _read_json(Path(__file__).with_name("configuration_shortlist_labels_pl.json"))
+    headers = (
+        "configuration_code", "display_name", "commercial_item_code", "commercial_item_name",
+        "item_type", "availability_status", "amount", "currency_code", "price_date",
+        "included_equipment_codes", "included_equipment_pl", "source_code",
+    )
+    rows: list[tuple[object, ...]] = [headers]
+    sources: set[str] = set()
+    for offer in commercial_offer_rows(repository, configuration_codes, as_of):
+        configuration = configurations[offer["configuration_code"]]
+        version = versions[configuration["version_code"]]
+        model = models[version["model_code"]]
+        equipment_codes = list(offer.get("equipment_codes", []))
+        source = str(offer.get("source_code", ""))
+        if source:
+            sources.add(source)
+        rows.append((
+            offer["configuration_code"],
+            f"{model.get('name', '')} — {version.get('name', '')} · {configuration.get('powertrain_label', '')}",
+            offer.get("code", ""), offer.get("name", ""), offer.get("kind", ""),
+            offer.get("availability_status", ""), _typed(offer.get("amount"), "decimal"), offer.get("currency_code", ""),
+            _date(offer.get("price_date")), Cell(";".join(equipment_codes), "wrap"),
+            Cell("; ".join(labels.get(code, code) for code in equipment_codes), "wrap"), source,
+        ))
     return rows, sources
 
 
@@ -413,15 +514,38 @@ def build_sheets(repository: Path, build_root: Path, manifest: Mapping[str, Any]
     reports = _load_reports(build_root, manifest)
     comparison_rows = _comparison_rows(reports)
     configuration_rows, source_codes = _configuration_rows(repository, manifest)
+    selected_codes = _selected_codes(manifest)
+    report_as_of = max(
+        (str(report.get("as_of", "")) for report in reports.values()),
+        default="",
+    )
+    commercial_dates = [
+        row.get("price_date", "")
+        for row in _read_csv(
+            repository / "data" / "master" / "commercial_item_configurations.csv"
+        )
+    ] if (repository / "data" / "master" / "commercial_item_configurations.csv").is_file() else []
+    consumer_as_of = max([report_as_of, *commercial_dates])
+    equipment_rows, equipment_sources = _equipment_rows(
+        repository, selected_codes, consumer_as_of
+    )
+    commercial_rows, commercial_sources = _commercial_offer_sheet_rows(
+        repository, selected_codes, consumer_as_of
+    )
     source_codes.update(_comparison_sources(comparison_rows))
+    source_codes.update(equipment_sources)
+    source_codes.update(commercial_sources)
     scope_rows = _scope_rows(manifest, reports)
     source_rows = _source_rows(repository, source_codes)
     artifact_rows = _artifact_rows(manifest)
     overview_rows = _overview_rows(manifest, reports)
+    overview_rows.append(("commercial_equipment_as_of", consumer_as_of))
     definitions = (
         ("Overview", overview_rows, False),
         ("Scopes", scope_rows, True),
         ("Configurations", configuration_rows, True),
+        ("Equipment", equipment_rows, True),
+        ("Commercial Offers", commercial_rows, True),
         ("Comparisons", comparison_rows, True),
         ("Sources", source_rows, True),
         ("Artifacts", artifact_rows, True),

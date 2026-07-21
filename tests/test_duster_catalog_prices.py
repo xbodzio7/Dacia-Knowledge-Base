@@ -84,7 +84,11 @@ class DusterCatalogPriceTests(unittest.TestCase):
         self.assertNotIn(18000, imported_amounts)
 
     def test_existing_sandero_prices_remain_unchanged(self) -> None:
-        sandero = [row for row in self.all_prices if row["configuration_code"].startswith("sandero")]
+        sandero = [
+            row for row in self.all_prices
+            if row["configuration_code"].startswith("sandero")
+            and row["price_date"] == "2026-06-26"
+        ]
         self.assertEqual(len(sandero), 7)
         self.assertEqual({row["price_date"] for row in sandero}, {"2026-06-26"})
 

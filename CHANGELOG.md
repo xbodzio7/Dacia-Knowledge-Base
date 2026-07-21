@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Source-backed commercial model with 27 named packages/options, 68 equipment memberships and 86 configuration price mappings from the official Polish MY26 price lists effective 3 July 2026.
+* Interactive shortlist HTML v1.2 with grouped click-based equipment selection, persistent selected-item trays and deterministic minimum-cost package pricing.
+* Filterable `Equipment` and `Commercial Offers` sheets in deterministic comparison workbooks.
+
 * Four current official Polish MY26 price lists effective 3 July 2026 for Sandero/Sandero Stepway, Duster, Jogger and Bigster, archived with SHA-256 and model/version/configuration relationships.
 
 * Source-backed Polish data-product consumer guide covering immutable download, offline navigation, shortlist selection, custom comparison bundles, provenance, recovery and lifecycle verification.
@@ -225,14 +229,14 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 668 tests.
-* The verified master-data baseline now contains 37 CSV files and 5216 rows.
-* SQLite verification now covers 37 tables and 5216 rows.
+* The automated test suite now contains 676 tests.
+* The verified master-data baseline now contains 41 CSV files and 5618 rows.
+* SQLite verification now covers 41 tables and 5618 rows.
 * Configuration attribute values now contain 1204 dated records.
 * Declarative scalar configuration-value imports now contain 71 versioned JSON specifications.
 * Configuration value ranges now contain 144 dated records from 19 range specifications.
-* The canonical catalogue now contains 357 attributes in 30 categories.
-* Equipment availability now contains 2977 records: 2401 `standard`, 196 `optional`, 380 `not_available` and 0 `unknown`.
+* The canonical catalogue now contains 358 attributes in 30 categories.
+* Equipment availability now contains 3156 records: 2401 `standard`, 375 `optional`, 380 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed

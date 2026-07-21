@@ -40,6 +40,7 @@
   function configurationSearchText(configuration) {
     return [
       configuration.configuration_code,
+      configuration.display_name,
       configuration.model_code,
       configuration.model_name,
       configuration.version_code,
@@ -213,7 +214,7 @@
         ? `${seats.observation_date} · ${seats.source_code}` : "brak źródłowego rekordu liczby miejsc";
       return `<article class="result-card">
         <div class="result-price">${escapeHtml(priceText(price))}</div>
-        <h3>${escapeHtml(item.model_name)} <span>${escapeHtml(item.version_name)}</span></h3>
+        <h3>${escapeHtml(item.display_name || `${item.model_name} ${item.version_name}`)}</h3>
         <p class="configuration-code">${escapeHtml(item.configuration_code)}</p>
         <dl>
           <div><dt>Napęd</dt><dd>${escapeHtml(item.powertrain_label)}</dd></div>

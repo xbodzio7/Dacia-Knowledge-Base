@@ -174,6 +174,7 @@ class SanderoFrontWheelDriveValueTests(unittest.TestCase):
             len([
                 row for row in self.availability
                 if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
+                and row["observation_date"] == "2026-06-26"
             ]),
             419,
         )
@@ -181,6 +182,7 @@ class SanderoFrontWheelDriveValueTests(unittest.TestCase):
             len([
                 row for row in self.prices
                 if row["configuration_code"] in EXPECTED
+                and row["price_date"] == "2026-06-26"
             ]),
             7,
         )

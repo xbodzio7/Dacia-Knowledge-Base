@@ -179,6 +179,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         prices = [
             row for row in rows("configuration_prices.csv")
             if row["configuration_code"].startswith("duster_iii_")
+            and row["source_code"] == SOURCE
         ]
         self.assertEqual(len(prices), 24)
         report = configuration_completeness.collect_report(

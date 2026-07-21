@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from reporting import configuration_shortlist as core
+from reporting.commercial_offers import collect_commercial_components
 
 HTML_REPORT_VERSION = 1
 
@@ -105,6 +106,9 @@ def collect_browser_catalog(
         "observation_date",
         as_of,
     )
+    commercial_components = collect_commercial_components(
+        repository, configuration_codes, as_of
+    )
 
     active_model_codes = {
         versions[row["version_code"]]["model_code"]
@@ -145,6 +149,11 @@ def collect_browser_catalog(
                 "observation_date": row.get("observation_date", ""),
                 "source_code": row.get("source_code", ""),
             }
+        transmission = configuration.get("transmission_type", "")
+        transmission_label = {
+            "manual": "manualna",
+            "automatic": "automatyczna",
+        }.get(transmission, transmission)
         catalog_configurations.append(
             {
                 "configuration_code": code,
@@ -152,15 +161,19 @@ def collect_browser_catalog(
                 "model_name": model.get("name", ""),
                 "version_code": version["code"],
                 "version_name": version.get("name", ""),
+                "display_name": (
+                    f"{model.get('name', '')} — {version.get('name', '')} · "
+                    f"{configuration.get('powertrain_label', '')} · "
+                    f"skrzynia {transmission_label}"
+                ),
                 "powertrain_label": configuration.get(
                     "powertrain_label", ""
                 ),
-                "transmission_type": configuration.get(
-                    "transmission_type", ""
-                ),
+                "transmission_type": transmission,
                 "catalog_price": core._price_state(prices.get((code,))),
                 "number_of_seats": core._seat_state(seats.get((code,))),
                 "equipment": equipment,
+                "price_components": commercial_components.get(code, []),
             }
         )
 

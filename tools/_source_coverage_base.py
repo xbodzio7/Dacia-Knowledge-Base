@@ -443,28 +443,32 @@ def collect_report(
         "configuration prices",
     )
 
+    registered_configuration_sources = {
+        (row.get("configuration_code", ""), row.get("source_code", ""))
+        for row in source_configurations
+        if row.get("configuration_code") and row.get("source_code")
+    }
+    registered_configuration_sources.update(configuration_sources.items())
+
     for key, row in current_values.items():
         configuration_code = key[0]
-        expected_source = configuration_sources[configuration_code]
-        if row.get("source_code") != expected_source:
+        if (configuration_code, row.get("source_code", "")) not in registered_configuration_sources:
             raise SourceCoverageError(
-                "technical record source differs from scope mapping: "
+                "technical record source differs from registered configuration sources: "
                 f"{key} -> {row.get('source_code')!r}"
             )
     for key, row in current_availability.items():
         configuration_code = key[0]
-        expected_source = configuration_sources[configuration_code]
-        if row.get("source_code") != expected_source:
+        if (configuration_code, row.get("source_code", "")) not in registered_configuration_sources:
             raise SourceCoverageError(
-                "equipment record source differs from scope mapping: "
+                "equipment record source differs from registered configuration sources: "
                 f"{key} -> {row.get('source_code')!r}"
             )
     for key, row in current_prices.items():
         configuration_code = key[0]
-        expected_source = configuration_sources[configuration_code]
-        if row.get("source_code") != expected_source:
+        if (configuration_code, row.get("source_code", "")) not in registered_configuration_sources:
             raise SourceCoverageError(
-                "price record source differs from scope mapping: "
+                "price record source differs from registered configuration sources: "
                 f"{key} -> {row.get('source_code')!r}"
             )
 
