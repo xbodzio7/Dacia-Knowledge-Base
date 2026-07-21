@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-20
+- State updated: 2026-07-21
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**GitHub Actions Dependabot Updates** — `complete`
+**Python Runtime Lifecycle Review** — `complete`
 
-Add a weekly, review-first Dependabot update channel for all immutable GitHub Actions commit pins without enabling automatic merges or changing current workflow behavior.
+Review the current Python 3.10 and 3.13 CI baseline against upstream lifecycle evidence and define a staged Python 3.14 compatibility transition without prematurely removing the lower-bound lane.
 
 ## Next package
 
-**Maintenance Watch** — `planned`
+**Python 3.14 Compatibility Verification** — `planned`
 
-Keep the stable data-product baseline under evidence-driven maintenance and select new work only from concrete bug, security, dependency, CI reliability, compatibility or documentation findings.
+Add Python 3.14 to the repository-wide Quality matrix, run the complete quality and artifact gate on 3.14, retain 3.10 and 3.13 transition coverage, and move the Windows package lane to 3.14 only with full green validation.
 
 ## Autonomy
 
