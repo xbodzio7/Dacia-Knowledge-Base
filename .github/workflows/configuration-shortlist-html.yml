@@ -1,9 +1,6 @@
 name: Temporary Finalize Additive Source Mapping Contracts
 
 on:
-  push:
-    branches:
-      - agent/register-sandero-stepway-price-20260703
   pull_request:
 
 permissions:
@@ -25,81 +22,58 @@ jobs:
           git fetch origin main
           python - <<'PY'
           from pathlib import Path
+          import re
 
-          direct_expected = '''        self.assertEqual(
-              {
-                  row["configuration_code"]: row["source_code"]
-                  for row in self.source_configurations
-                  if row["configuration_code"] in EXPECTED
-              },
-              EXPECTED,
-          )'''
-          direct_expected_replacement = '''        registered_pairs = {
-              (row["configuration_code"], row["source_code"])
-              for row in self.source_configurations
-          }
-          self.assertTrue(set(EXPECTED.items()) <= registered_pairs)'''
-          for filename in (
+          files = (
               "tests/test_sandero_50_kmh_noise_level_values.py",
               "tests/test_sandero_euro_6e_bis_values.py",
               "tests/test_sandero_front_wheel_drive_values.py",
               "tests/test_sandero_number_of_doors_values.py",
-          ):
-              path = Path(filename)
-              text = path.read_text(encoding="utf-8")
-              if text.count(direct_expected) != 1:
-                  raise SystemExit(f"expected one direct mapping assertion in {filename}")
-              path.write_text(text.replace(direct_expected, direct_expected_replacement), encoding="utf-8")
+              "tests/test_sandero_exterior_colour_values.py",
+              "tests/test_sandero_standard_tyre_specification.py",
+              "tests/test_sandero_total_valve_count_model.py",
+          )
 
-          replacements = {
-              "tests/test_sandero_exterior_colour_values.py": (
-                  '''        actual = {
-              row["configuration_code"]: row["source_code"]
-              for row in self.source_configurations
-              if row["configuration_code"] in EXPECTED
-          }
-          self.assertEqual(actual, EXPECTED)''',
-                  '''        registered_pairs = {
-              (row["configuration_code"], row["source_code"])
-              for row in self.source_configurations
-          }
-          self.assertTrue(set(EXPECTED.items()) <= registered_pairs)''',
-              ),
-              "tests/test_sandero_standard_tyre_specification.py": (
-                  '''        source_mapping = {
-              row["configuration_code"]: row["source_code"]
-              for row in self.source_configurations
-              if row["configuration_code"] in EXPECTED
-          }
-          self.assertEqual(source_mapping, EXPECTED)''',
-                  '''        registered_pairs = {
-              (row["configuration_code"], row["source_code"])
-              for row in self.source_configurations
-          }
-          self.assertTrue(set(EXPECTED.items()) <= registered_pairs)''',
-              ),
-              "tests/test_sandero_total_valve_count_model.py": (
-                  '''        self.assertEqual(
-              {
-                  row["configuration_code"]: row["source_code"]
-                  for row in self.source_configurations
-                  if row["configuration_code"] in EXPECTED_MAPPING
-              },
-              EXPECTED_MAPPING,
-          )''',
-                  '''        registered_pairs = {
-              (row["configuration_code"], row["source_code"])
-              for row in self.source_configurations
-          }
-          self.assertTrue(set(EXPECTED_MAPPING.items()) <= registered_pairs)''',
-              ),
-          }
-          for filename, (before, after) in replacements.items():
+          inline = re.compile(
+              r'''        self\.assertEqual\(\n'''
+              r'''\s+\{\n'''
+              r'''\s+row\["configuration_code"\]: row\["source_code"\]\n'''
+              r'''\s+for row in self\.source_configurations\n'''
+              r'''\s+if row\["configuration_code"\] in (EXPECTED(?:_MAPPING)?)\n'''
+              r'''\s+\},\n'''
+              r'''\s+\1,\n'''
+              r'''\s+\)''',
+              re.MULTILINE,
+          )
+          assigned = re.compile(
+              r'''        [a-zA-Z_][a-zA-Z0-9_]* = \{\n'''
+              r'''\s+row\["configuration_code"\]: row\["source_code"\]\n'''
+              r'''\s+for row in self\.source_configurations\n'''
+              r'''\s+if row\["configuration_code"\] in (EXPECTED(?:_MAPPING)?)\n'''
+              r'''\s+\}\n'''
+              r'''\s+self\.assertEqual\([a-zA-Z_][a-zA-Z0-9_]*, \1\)''',
+              re.MULTILINE,
+          )
+
+          def replacement(match: re.Match[str]) -> str:
+              expected = match.group(1)
+              return (
+                  '        registered_pairs = {\n'
+                  '            (row["configuration_code"], row["source_code"])\n'
+                  '            for row in self.source_configurations\n'
+                  '        }\n'
+                  f'        self.assertTrue(set({expected}.items()) <= registered_pairs)'
+              )
+
+          for filename in files:
               path = Path(filename)
               text = path.read_text(encoding="utf-8")
-              if text.count(before) != 1:
-                  raise SystemExit(f"expected one mapping assertion in {filename}")
-              path.write_text(text.replace(before, after), encoding="utf-8")
+              updated, count = inline.subn(replacement, text, count=1)
+              if count == 0:
+                  updated, count = assigned.subn(replacement, text, count=1)
+              if count != 1:
+                  raise SystemExit(f"expected one additive mapping contract in {filename}, got {count}")
+              path.write_text(updated, encoding="utf-8")
           PY
           git checkout origin/main -- .github/workflows/configuration-shortlist-html.yml
           python -m unittest -v \
