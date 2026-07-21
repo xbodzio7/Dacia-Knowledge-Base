@@ -1,0 +1,88 @@
+name: Temporary Python 3.14 Candidate
+
+on:
+  pull_request:
+    types:
+      - ready_for_review
+
+permissions:
+  contents: read
+
+jobs:
+  build-candidate:
+    if: github.head_ref == 'maintenance/python-314-compatibility-verification'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: false
+
+      - name: Build Python 3.14 Quality candidate
+        shell: python
+        run: |
+          from hashlib import sha1
+          from pathlib import Path
+
+          source = Path('.github/workflows/quality.yml')
+          output_dir = Path('${{ runner.temp }}') / 'python-314-candidate'
+          output_dir.mkdir(parents=True, exist_ok=True)
+          output = output_dir / 'quality.yml'
+
+          text = source.read_text(encoding='utf-8')
+
+          matrix_before = '''        python-version:
+                    - "3.10"
+                    - "3.13"
+          '''
+          matrix_after = '''        python-version:
+                    - "3.10"
+                    - "3.13"
+                    - "3.14"
+          '''
+          if text.count(matrix_before) != 1:
+              raise SystemExit('unexpected Python matrix contract')
+          text = text.replace(matrix_before, matrix_after, 1)
+
+          light_before = "if: matrix.python-version == '3.10'"
+          if text.count(light_before) != 4:
+              raise SystemExit('unexpected lower-bound condition count')
+          text = text.replace(light_before, "if: matrix.python-version != '3.14'")
+
+          full_before = "if: matrix.python-version == '3.13'"
+          full_count = text.count(full_before)
+          if full_count < 10:
+              raise SystemExit('unexpected full-gate condition count')
+          text = text.replace(full_before, "if: matrix.python-version == '3.14'")
+
+          windows_before = '          python-version: "3.13"'
+          if text.count(windows_before) != 1:
+              raise SystemExit('unexpected Windows Python contract')
+          text = text.replace(windows_before, '          python-version: "3.14"', 1)
+
+          if text.count('          - "3.14"') != 1:
+              raise SystemExit('Python 3.14 matrix lane missing or duplicated')
+          if "matrix.python-version == '3.13'" in text:
+              raise SystemExit('stale Python 3.13 full-gate condition remains')
+          if text.count("matrix.python-version != '3.14'") != 4:
+              raise SystemExit('transition compatibility lane count mismatch')
+
+          output.write_text(text, encoding='utf-8', newline='')
+          payload = output.read_bytes()
+          blob_sha = sha1(b'blob ' + str(len(payload)).encode() + b'\0' + payload).hexdigest()
+          receipt = output_dir / 'receipt.txt'
+          receipt.write_text(
+              f'git_blob_sha={blob_sha}\n'
+              f'bytes={len(payload)}\n'
+              f'full_gate_replacements={full_count}\n',
+              encoding='utf-8',
+          )
+
+      - name: Upload candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: python-314-quality-candidate
+          path: ${{ runner.temp }}/python-314-candidate
+          if-no-files-found: error
+          retention-days: 1
