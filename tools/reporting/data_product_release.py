@@ -182,9 +182,9 @@ def create_release_assets(
         )
         if bundle.get("selected_configuration_count") != len(codes):
             raise ReleaseError("comparison bundle selection is incomplete")
-        if bundle.get("scope_group_count") != 13:
+        if bundle.get("scope_group_count") != 17:
             raise ReleaseError(
-                "complete release bundle must contain 13 independent scopes"
+                "complete release bundle must contain 17 independent scopes"
             )
         if bundle.get("cross_scope_pairs_generated") is not False:
             raise ReleaseError("release bundle generated cross-scope pairs")

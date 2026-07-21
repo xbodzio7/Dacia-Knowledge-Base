@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Commercial Data and Consumer UX v1.2",
+  "phase": "Bigster Catalogue Expansion v1.3",
   "reference_delivery": {
     "name": "Data Product Consumer Guide",
     "pull_request": 167,
@@ -15,9 +15,9 @@
     "quality_run": 916
   },
   "baseline": {
-    "tests": 676,
+    "tests": 681,
     "csv_files": 41,
-    "rows": 5618,
+    "rows": 5668,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
     "configuration_value_ranges": 144,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Commercial Options, Equipment Filters and Workbook v1.2",
+    "name": "Bigster Catalogue Foundation",
     "status": "complete",
-    "goal": "Import source-backed package and option prices, provide grouped click-based equipment selection with a persistent selected-item tray, calculate deterministic equipment surcharges and expand the filterable comparison workbook."
+    "goal": "Model four source-backed Bigster versions, fourteen explicit powertrain configurations and their current Polish catalogue prices without inferring unavailable combinations or unstated technical values."
   },
   "next_package": {
-    "name": "Bigster Catalogue Foundation",
+    "name": "Bigster Equipment and Commercial Mapping",
     "status": "planned",
-    "goal": "Model source-backed Bigster versions, configurations and current catalogue prices from the official Polish MY26 price list without inferring unstated technical values."
+    "goal": "Import the source-backed Bigster equipment matrix and map the already registered options and packages to the newly modeled configurations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

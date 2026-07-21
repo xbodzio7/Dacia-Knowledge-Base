@@ -13,7 +13,7 @@ from reporting.configuration_comparison_workbook import write_bundle_workbook
 from reporting.deterministic_xlsx_model import WorkbookError
 
 BUNDLE_VERSION = 1
-CURRENT_SCOPE_PREFIXES = ("sandero_", "duster_", "jogger_")
+CURRENT_SCOPE_PREFIXES = ("sandero_", "duster_", "jogger_", "bigster_")
 
 
 class BundleError(ValueError):

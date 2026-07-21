@@ -37,8 +37,8 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 "file": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20260703.pdf",
                 "sha256": "9528654fb3daf3767a2defbbc80e8a85abceecb11e04bb176aa0b76443be178a",
                 "models": {"bigster"},
-                "versions": set(),
-                "configuration_count": 0,
+                "versions": {"bigster_essential", "bigster_expression", "bigster_extreme", "bigster_journey"},
+                "configuration_count": 14,
             },
         }
 
