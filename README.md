@@ -910,11 +910,11 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 667 testów, 37 pliki CSV, 5155 rekordów
+Zweryfikowany model obejmuje 668 testów, 37 pliki CSV, 5216 rekordów
 danych, 34 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
 specyfikacji zakresów oraz 2977 rekordów dostępności wyposażenia.
 Katalog zawiera 357 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 37 tabele i 5155 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 37 tabele i 5216 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

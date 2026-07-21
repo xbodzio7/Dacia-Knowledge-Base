@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Four current official Polish MY26 price lists effective 3 July 2026 for Sandero/Sandero Stepway, Duster, Jogger and Bigster, archived with SHA-256 and model/version/configuration relationships.
+
 * Source-backed Polish data-product consumer guide covering immutable download, offline navigation, shortlist selection, custom comparison bundles, provenance, recovery and lifecycle verification.
 * Automated validation that every documented unified-CLI command, product path, version example and semantic boundary remains valid.
 * Fully offline, read-only local data-product workspace verification CLI covering canonical assets, extracted member hashes, deterministic index bytes and safe links.
@@ -223,9 +225,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 667 tests.
-* The verified master-data baseline now contains 37 CSV files and 5155 rows.
-* SQLite verification now covers 37 tables and 5155 rows.
+* The automated test suite now contains 668 tests.
+* The verified master-data baseline now contains 37 CSV files and 5216 rows.
+* SQLite verification now covers 37 tables and 5216 rows.
 * Configuration attribute values now contain 1204 dated records.
 * Declarative scalar configuration-value imports now contain 71 versioned JSON specifications.
 * Configuration value ranges now contain 144 dated records from 19 range specifications.
