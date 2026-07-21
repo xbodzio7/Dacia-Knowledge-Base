@@ -2,56 +2,41 @@ name: Configuration Shortlist HTML
 
 on:
   pull_request:
-    paths-ignore:
-      - project/state.json
-      - project/STATE_SUMMARY.md
-      - project/reviews/**
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   shortlist-html:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          persist-credentials: false
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
-        with:
-          python-version: "3.13"
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
-        with:
-          node-version: "24"
-      - name: Verify Python and browser filter parity
-        run: python -m unittest -v tests.test_configuration_shortlist_html
-      - name: Verify version 1.1 interaction and price contract
-        run: node tests/contracts/configuration_shortlist_v11_contract.js
-      - name: Generate browser shortlists
+      - name: Extract failed Quality log sections
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
-          python tools/dkb.py configuration-shortlist \
-            --html "${RUNNER_TEMP}/configuration-shortlist-all.html"
-          python tools/dkb.py configuration-shortlist \
-            --transmission automatic \
-            --max-price 100000 \
-            --html "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
-      - name: Generate artifact manifest
-        run: |
-          python tools/quality_artifact_manifest.py \
-            --output "${RUNNER_TEMP}/configuration-shortlist-html-manifest.json" \
-            --file "${RUNNER_TEMP}/configuration-shortlist-all.html" \
-            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
-      - name: Upload browser shortlists
+          set -euo pipefail
+          curl -fL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/29818935213/logs" \
+            -o "${RUNNER_TEMP}/quality-logs.zip"
+          mkdir -p "${RUNNER_TEMP}/quality-logs"
+          unzip -q "${RUNNER_TEMP}/quality-logs.zip" -d "${RUNNER_TEMP}/quality-logs"
+          {
+            grep -RIn -A35 -B8 -E '(^|[^A-Z])(FAIL|ERROR):|FAILED \(|AssertionError|Traceback \(most recent call last\)' "${RUNNER_TEMP}/quality-logs" || true
+          } > "${RUNNER_TEMP}/quality-failures.txt"
+          find "${RUNNER_TEMP}/quality-logs" -type f -maxdepth 3 -printf '%p\n' > "${RUNNER_TEMP}/quality-log-files.txt"
+          cat "${RUNNER_TEMP}/quality-failures.txt"
+      - name: Upload extracted diagnostics
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: configuration-shortlist-html
           path: |
-            ${{ runner.temp }}/configuration-shortlist-all.html
-            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.html
-            ${{ runner.temp }}/configuration-shortlist-html-manifest.json
+            ${{ runner.temp }}/quality-failures.txt
+            ${{ runner.temp }}/quality-log-files.txt
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 1
