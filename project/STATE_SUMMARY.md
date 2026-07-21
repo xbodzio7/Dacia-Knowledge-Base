@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Consumer UX v1.1**
+**Commercial Data and Consumer UX v1.2**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 667
+- Tests: 668
 - Master CSV files: 37
-- Master rows: 5155
+- Master rows: 5216
 - Configuration values: 1204
 - Configuration import specifications: 71
 - Configuration value ranges: 144
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Configuration UX v1.1** — `complete`
+**Official MY26 Commercial Source Registration** — `complete`
 
-Make selected equipment continuously visible outside scrollable lists, provide source-conscious Polish user labels and show configuration price, standard price and itemized known or unknown option and package surcharges without inferring missing amounts.
+Archive and register four official Polish MY26 price lists effective 3 July 2026 with verified SHA-256 and conservative model, version and configuration relationships without importing observations.
 
 ## Next package
 
-**Source-Backed Commercial Option Pricing** — `planned`
+**Commercial Options, Equipment Filters and Workbook v1.2** — `planned`
 
-Model named commercial options and packages with dated source-backed prices so the v1.1 interface can calculate complete configuration totals instead of marking unavailable surcharge amounts as unknown.
+Import source-backed package and option prices, replace native multi-select equipment controls with grouped click selection, simplify configuration labels and provide a filterable Excel workbook.
 
 ## Autonomy
 

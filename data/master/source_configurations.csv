@@ -52,3 +52,42 @@ id,source_code,configuration_code,relationship,notes
 51,src_pl_jogger_price_my26_20260401,jogger_expression_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell with explicit seat-count group.
 52,src_pl_jogger_price_my26_20260401,jogger_extreme_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell with explicit seat-count group.
 53,src_pl_jogger_price_my26_20260401,jogger_journey_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell with explicit seat-count group.
+54,src_pl_sandero_stepway_price_my26_20260703,sandero_iii_expression_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+55,src_pl_sandero_stepway_price_my26_20260703,sandero_iii_journey_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+56,src_pl_sandero_stepway_price_my26_20260703,sandero_stepway_iii_essential_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+57,src_pl_sandero_stepway_price_my26_20260703,sandero_stepway_iii_expression_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+58,src_pl_sandero_stepway_price_my26_20260703,sandero_stepway_iii_expression_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+59,src_pl_sandero_stepway_price_my26_20260703,sandero_stepway_iii_extreme_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+60,src_pl_sandero_stepway_price_my26_20260703,sandero_stepway_iii_extreme_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+61,src_pl_duster_price_my26_20260703,duster_iii_essential_ecog120_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+62,src_pl_duster_price_my26_20260703,duster_iii_expression_ecog120_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+63,src_pl_duster_price_my26_20260703,duster_iii_extreme_ecog120_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+64,src_pl_duster_price_my26_20260703,duster_iii_journey_ecog120_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+65,src_pl_duster_price_my26_20260703,duster_iii_expression_mildhybrid140_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+66,src_pl_duster_price_my26_20260703,duster_iii_extreme_mildhybrid140_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+67,src_pl_duster_price_my26_20260703,duster_iii_journey_mildhybrid140_4x2_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+68,src_pl_duster_price_my26_20260703,duster_iii_expression_hybrid155_4x2_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+69,src_pl_duster_price_my26_20260703,duster_iii_extreme_hybrid155_4x2_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+70,src_pl_duster_price_my26_20260703,duster_iii_journey_hybrid155_4x2_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+71,src_pl_jogger_price_my26_20260703,jogger_essential_5seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+72,src_pl_jogger_price_my26_20260703,jogger_expression_5seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+73,src_pl_jogger_price_my26_20260703,jogger_extreme_5seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+74,src_pl_jogger_price_my26_20260703,jogger_extreme_5seat_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+75,src_pl_jogger_price_my26_20260703,jogger_journey_5seat_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+76,src_pl_jogger_price_my26_20260703,jogger_expression_5seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+77,src_pl_jogger_price_my26_20260703,jogger_extreme_5seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+78,src_pl_jogger_price_my26_20260703,jogger_journey_5seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+79,src_pl_jogger_price_my26_20260703,jogger_expression_5seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+80,src_pl_jogger_price_my26_20260703,jogger_extreme_5seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+81,src_pl_jogger_price_my26_20260703,jogger_journey_5seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+82,src_pl_jogger_price_my26_20260703,jogger_essential_7seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+83,src_pl_jogger_price_my26_20260703,jogger_expression_7seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+84,src_pl_jogger_price_my26_20260703,jogger_extreme_7seat_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+85,src_pl_jogger_price_my26_20260703,jogger_extreme_7seat_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+86,src_pl_jogger_price_my26_20260703,jogger_journey_7seat_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+87,src_pl_jogger_price_my26_20260703,jogger_expression_7seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+88,src_pl_jogger_price_my26_20260703,jogger_extreme_7seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+89,src_pl_jogger_price_my26_20260703,jogger_journey_7seat_tce110_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+90,src_pl_jogger_price_my26_20260703,jogger_expression_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+91,src_pl_jogger_price_my26_20260703,jogger_extreme_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+92,src_pl_jogger_price_my26_20260703,jogger_journey_7seat_hybrid155_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.

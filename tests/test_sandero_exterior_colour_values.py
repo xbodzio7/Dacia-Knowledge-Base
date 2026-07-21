@@ -151,12 +151,11 @@ class SanderoExteriorColourValueTests(unittest.TestCase):
         )
 
     def test_source_configuration_mapping_matches_manifest(self) -> None:
-        actual = {
-            row["configuration_code"]: row["source_code"]
+        registered_pairs = {
+            (row["configuration_code"], row["source_code"])
             for row in self.source_configurations
-            if row["configuration_code"] in EXPECTED
         }
-        self.assertEqual(actual, EXPECTED)
+        self.assertTrue(set(EXPECTED.items()) <= registered_pairs)
 
     def test_package_codes_are_unique(self) -> None:
         codes = [row["code"].casefold() for row in self.rows]
