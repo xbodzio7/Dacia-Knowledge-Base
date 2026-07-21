@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Maintenance Mode**
+**Consumer UX v1.1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Python 3.10 Deprecation Notice** — `complete`
+**Interactive Configuration UX v1.1** — `complete`
 
-Publish a visible runtime support policy that keeps Python 3.10 supported during transition, identifies Python 3.13 as the intended next minimum and recommends Python 3.14 for new environments.
+Make selected equipment continuously visible outside scrollable lists, provide source-conscious Polish user labels and show configuration price, standard price and itemized known or unknown option and package surcharges without inferring missing amounts.
 
 ## Next package
 
-**Python 3.10 Retirement Implementation** — `planned`
+**Source-Backed Commercial Option Pricing** — `planned`
 
-After the published transition notice, coordinate the minimum-version change to Python 3.13 across package metadata, Ruff target, Quality matrix and user documentation while retaining the full Python 3.14 and Windows validation baseline.
+Model named commercial options and packages with dated source-backed prices so the v1.1 interface can calculate complete configuration totals instead of marking unavailable surcharge amounts as unknown.
 
 ## Autonomy
 
