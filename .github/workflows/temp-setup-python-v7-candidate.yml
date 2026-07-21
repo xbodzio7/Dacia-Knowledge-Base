@@ -69,7 +69,7 @@ jobs:
 
           if len(candidates) != 15:
               raise SystemExit(f'unexpected changed workflow count: {len(candidates)}')
-          if total != 19:
+          if total != 18:
               raise SystemExit(f'unexpected setup-python reference count: {total}')
 
           changed = []
