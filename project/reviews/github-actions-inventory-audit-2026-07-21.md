@@ -18,6 +18,14 @@ The audit parsed every `.github/workflows/*.yml` file in the persistent fifteen-
 
 It also rejected movable action references and required every occurrence of a given action to use one consistent SHA and version comment.
 
+## Audit evidence
+
+The temporary audit workflow completed successfully and produced the `github-actions-current-inventory` artifact. GitHub recorded the artifact archive digest as:
+
+`sha256:b40401c0e376104ceaf3c8e4626128e962f13a7bb5f30c6f01b3aeaa3f278862`
+
+The artifact contained the complete per-reference inventory used to derive the counts and current pins below.
+
 ## Verified inventory
 
 | Action | References | Immutable commit | Version comment |
