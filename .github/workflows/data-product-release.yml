@@ -82,7 +82,7 @@ jobs:
         with:
           python-version: "3.13"
       - name: Download verified candidate
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: versioned-data-product-release-candidate
           path: release-candidate
