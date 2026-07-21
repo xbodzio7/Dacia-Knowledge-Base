@@ -26,6 +26,7 @@ jobs:
         python-version:
           - "3.10"
           - "3.13"
+          - "3.14"
 
     steps:
       - name: Check out repository
@@ -42,7 +43,7 @@ jobs:
         run: python --version
 
       - name: Install PDF text extraction backend
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           if ! command -v pdftotext >/dev/null 2>&1; then
             sudo apt-get update
@@ -51,11 +52,11 @@ jobs:
           pdftotext -v
 
       - name: Compile Python sources
-        if: matrix.python-version == '3.10'
+        if: matrix.python-version != '3.14'
         run: python -m compileall -q tools scripts tests
 
       - name: Run unit tests
-        if: matrix.python-version == '3.10'
+        if: matrix.python-version != '3.14'
         run: |
           python -m unittest discover \
             -s tests \
@@ -63,7 +64,7 @@ jobs:
             -q
 
       - name: Run orchestration contract tests
-        if: matrix.python-version == '3.10'
+        if: matrix.python-version != '3.14'
         run: |
           python -m unittest -q \
             tests.project_state_contract \
@@ -73,11 +74,11 @@ jobs:
             tests.configuration_comparison_pair_summary_contract
 
       - name: Check canonical project state
-        if: matrix.python-version == '3.10'
+        if: matrix.python-version != '3.14'
         run: python tools/dkb.py project-state --check
 
       - name: Run full quality gate
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py quality \
             --concise \
@@ -86,19 +87,19 @@ jobs:
             --summary-json "${RUNNER_TEMP}/quality-summary.json"
 
       - name: Generate configuration comparison item catalog artifact
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-comparison-item-catalog \
             --csv "${RUNNER_TEMP}/configuration-comparison-item-catalog.csv"
 
       - name: Generate configuration comparison pair summary artifact
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-comparison-pair-summary \
             --csv "${RUNNER_TEMP}/configuration-comparison-pair-summary.csv"
 
       - name: Generate Duster mild hybrid 140 4x2 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_mildhybrid140_4x2_completeness.json \
@@ -119,7 +120,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-mildhybrid140-4x2-comparison-differences.csv"
 
       - name: Generate Duster mild hybrid 130 4x4 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_mildhybrid130_4x4_completeness.json \
@@ -140,7 +141,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-mildhybrid130-4x4-comparison-differences.csv"
 
       - name: Generate Duster mild hybrid 130 4x2 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_mildhybrid130_4x2_completeness.json \
@@ -161,7 +162,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-mildhybrid130-4x2-comparison-differences.csv"
 
       - name: Generate Duster Hybrid 155 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_hybrid155_completeness.json \
@@ -182,7 +183,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-hybrid155-comparison-differences.csv"
 
       - name: Generate Duster Hybrid 140 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_hybrid140_completeness.json \
@@ -203,7 +204,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-hybrid140-comparison-differences.csv"
 
       - name: Generate Duster Eco-G 100 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_ecog100_completeness.json \
@@ -224,7 +225,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-ecog100-comparison-differences.csv"
 
       - name: Generate Duster Eco-G 120 reporting artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/dkb.py configuration-completeness \
             --spec data/reporting/duster_ecog120_completeness.json \
@@ -245,7 +246,7 @@ jobs:
             --csv "${RUNNER_TEMP}/duster-ecog120-comparison-differences.csv"
 
       - name: Generate Quality artifact manifest
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         run: |
           python tools/quality_artifact_manifest.py \
             --output "${RUNNER_TEMP}/artifact-manifest.json" \
@@ -323,7 +324,7 @@ jobs:
             --file "reports/validation_report.md"
 
       - name: Upload generated artifacts
-        if: matrix.python-version == '3.13'
+        if: matrix.python-version == '3.14'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: dacia-knowledge-base-build
@@ -417,7 +418,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
       - name: Show Python version
         run: python --version
