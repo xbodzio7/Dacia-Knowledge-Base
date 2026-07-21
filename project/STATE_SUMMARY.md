@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Catalogue Expansion v1.3**
+**Bigster Equipment and Commercial Mapping v1.4**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 681
+- Tests: 688
 - Master CSV files: 41
-- Master rows: 5668
+- Master rows: 7052
 - Configuration values: 1204
 - Configuration import specifications: 71
 - Configuration value ranges: 144
 - Configuration range import specifications: 19
-- Availability records: 3156
-- Canonical attributes: 358
+- Availability records: 4472
+- Canonical attributes: 376
 - Attribute categories: 30
 
 ## Current package
 
-**Bigster Catalogue Foundation** — `complete`
+**Bigster Equipment and Commercial Mapping** — `complete`
 
-Model four source-backed Bigster versions, fourteen explicit powertrain configurations and their current Polish catalogue prices without inferring unavailable combinations or unstated technical values.
+Import the source-backed Bigster equipment matrix and map named packages and individual options with exact configuration-level prices.
 
 ## Next package
 
-**Bigster Equipment and Commercial Mapping** — `planned`
+**Bigster Technical Specifications** — `planned`
 
-Import the source-backed Bigster equipment matrix and map the already registered options and packages to the newly modeled configurations.
+Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values.
 
 ## Autonomy
 

@@ -190,8 +190,8 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
     def test_state_exposes_scalar_and_range_denominators(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         baseline = state["baseline"]
-        self.assertEqual(baseline["tests"], 681)
-        self.assertEqual(baseline["rows"], 5668)
+        self.assertEqual(baseline["tests"], 688)
+        self.assertEqual(baseline["rows"], 7052)
         self.assertEqual(baseline["configuration_values"], 1204)
         self.assertEqual(baseline["configuration_import_specs"], 71)
         self.assertEqual(baseline["configuration_value_ranges"], 144)

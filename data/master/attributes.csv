@@ -357,3 +357,21 @@ id,code,category,name,data_type,unit,description,status
 363,lpg_vessel_filling_capacity,Capacities,LPG vessel filling capacity,decimal,L,"Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity",active
 364,hybrid_system_power_total,Hybrid System,Total hybrid system power,decimal,kW,Source-stated total output of the complete hybrid propulsion system; not a calculated sum of component powers,active
 365,glass_sunroof,Doors,Glass sunroof,boolean,,Electrically operated glass sunroof,active
+366,roof_rails,Exterior,Roof rails,boolean,,Roof rails fitted as standard or option.,active
+367,modular_roof_rails,Exterior,Modular roof rails,boolean,,Roof rails convertible for transverse load carrying.,active
+368,shark_fin_antenna,Exterior,Shark-fin antenna,boolean,,Shark-fin roof antenna.,active
+369,driver_seat_electric_adjustment,Seats,Electric driver seat adjustment,boolean,,Electric adjustment of the driver seat.,active
+370,passenger_seat_height_adjustment,Seats,Passenger seat height adjustment,boolean,,Height adjustment for the front passenger seat.,active
+371,hill_descent_control,Driving Systems,Hill descent control,boolean,,Electronic hill descent control.,active
+372,my_safety_button,ADAS,My Safety button,boolean,,Dedicated control for selected driver-assistance systems.,active
+373,rescue_code,Safety,Rescue Code,boolean,,Vehicle rescue QR code marking.,active
+374,door_open_warning,Safety,Door-open warning,boolean,,Warning for an incompletely closed door.,active
+375,eco_mode,Driving Systems,ECO driving mode,boolean,,Selectable economy driving mode.,active
+376,eco_leather_steering_wheel,Steering,Eco-leather steering wheel,boolean,,Steering wheel covered with synthetic eco leather.,active
+377,youclip_phone_holder,Infotainment,YouClip phone holder,boolean,,YouClip-compatible smartphone holder.,active
+378,rear_seat_easy_fold,Seats,Rear-seat Easy Fold system,boolean,,Easy Fold mechanism for the split rear seat backrest.,active
+379,boot_12v_socket,Electric System,12 V boot socket,boolean,,12-volt power socket in the luggage compartment.,active
+380,rear_usb_c_ports,Infotainment,Rear USB-C ports,boolean,,USB-C charging ports for second-row passengers.,active
+381,led_cabin_lighting,Lighting,LED cabin lighting,boolean,,LED lighting in the passenger compartment.,active
+382,remote_firmware_updates,Infotainment,Remote firmware updates,boolean,,Firmware updates delivered over the air.,active
+383,instrument_cluster_colour_10_1,Infotainment,10.1-inch colour instrument display,boolean,,10.1-inch configurable colour instrument display.,active
