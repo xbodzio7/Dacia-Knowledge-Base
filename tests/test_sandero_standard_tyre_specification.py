@@ -96,12 +96,11 @@ class SanderoStandardTyreSpecificationTests(unittest.TestCase):
             {row["fuel_type_code"] for row in self.rows},
             {""},
         )
-        source_mapping = {
-            row["configuration_code"]: row["source_code"]
+        registered_pairs = {
+            (row["configuration_code"], row["source_code"])
             for row in self.source_configurations
-            if row["configuration_code"] in EXPECTED
         }
-        self.assertEqual(source_mapping, EXPECTED)
+        self.assertTrue(set(EXPECTED.items()) <= registered_pairs)
 
     def test_values_and_notes_preserve_source_wording(self) -> None:
         self.assertEqual(

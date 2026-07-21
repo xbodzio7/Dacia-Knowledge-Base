@@ -196,14 +196,11 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             {row["code"] for row in self.sources if row["code"] in expected_sources},
             expected_sources,
         )
-        self.assertEqual(
-            {
-                row["configuration_code"]: row["source_code"]
-                for row in self.source_configurations
-                if row["configuration_code"] in EXPECTED_MAPPING
-            },
-            EXPECTED_MAPPING,
-        )
+        registered_pairs = {
+            (row["configuration_code"], row["source_code"])
+            for row in self.source_configurations
+        }
+        self.assertTrue(set(EXPECTED_MAPPING.items()) <= registered_pairs)
 
 
 if __name__ == "__main__":

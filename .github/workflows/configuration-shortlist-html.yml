@@ -1,103 +1,57 @@
-name: Temporary Finalize Additive Source Mapping Contracts
+name: Configuration Shortlist HTML
 
 on:
   pull_request:
+    paths-ignore:
+      - project/state.json
+      - project/STATE_SUMMARY.md
+      - project/reviews/**
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  finalize:
+  shortlist-html:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out package branch
-        uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: agent/register-sandero-stepway-price-20260703
-          fetch-depth: 0
-      - name: Update additive source mapping assertions
-        shell: bash
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: "24"
+      - name: Verify Python and browser filter parity
+        run: python -m unittest -v tests.test_configuration_shortlist_html
+      - name: Verify version 1.1 interaction and price contract
+        run: node tests/contracts/configuration_shortlist_v11_contract.js
+      - name: Generate browser shortlists
         run: |
-          set -euo pipefail
-          git fetch origin main
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          files = (
-              "tests/test_sandero_50_kmh_noise_level_values.py",
-              "tests/test_sandero_euro_6e_bis_values.py",
-              "tests/test_sandero_front_wheel_drive_values.py",
-              "tests/test_sandero_number_of_doors_values.py",
-              "tests/test_sandero_exterior_colour_values.py",
-              "tests/test_sandero_standard_tyre_specification.py",
-              "tests/test_sandero_total_valve_count_model.py",
-          )
-
-          inline = re.compile(
-              r'''        self\.assertEqual\(\n'''
-              r'''\s+\{\n'''
-              r'''\s+row\["configuration_code"\]: row\["source_code"\]\n'''
-              r'''\s+for row in self\.source_configurations\n'''
-              r'''\s+if row\["configuration_code"\] in (EXPECTED(?:_MAPPING)?)\n'''
-              r'''\s+\},\n'''
-              r'''\s+\1,\n'''
-              r'''\s+\)''',
-              re.MULTILINE,
-          )
-          assigned = re.compile(
-              r'''        [a-zA-Z_][a-zA-Z0-9_]* = \{\n'''
-              r'''\s+row\["configuration_code"\]: row\["source_code"\]\n'''
-              r'''\s+for row in self\.source_configurations\n'''
-              r'''\s+if row\["configuration_code"\] in (EXPECTED(?:_MAPPING)?)\n'''
-              r'''\s+\}\n'''
-              r'''\s+self\.assertEqual\([a-zA-Z_][a-zA-Z0-9_]*, \1\)''',
-              re.MULTILINE,
-          )
-
-          def replacement(match: re.Match[str]) -> str:
-              expected = match.group(1)
-              return (
-                  '        registered_pairs = {\n'
-                  '            (row["configuration_code"], row["source_code"])\n'
-                  '            for row in self.source_configurations\n'
-                  '        }\n'
-                  f'        self.assertTrue(set({expected}.items()) <= registered_pairs)'
-              )
-
-          for filename in files:
-              path = Path(filename)
-              text = path.read_text(encoding="utf-8")
-              updated, count = inline.subn(replacement, text, count=1)
-              if count == 0:
-                  updated, count = assigned.subn(replacement, text, count=1)
-              if count != 1:
-                  raise SystemExit(f"expected one additive mapping contract in {filename}, got {count}")
-              path.write_text(updated, encoding="utf-8")
-          PY
-          git checkout origin/main -- .github/workflows/configuration-shortlist-html.yml
-          python -m unittest -v \
-            tests.test_sandero_50_kmh_noise_level_values \
-            tests.test_sandero_euro_6e_bis_values \
-            tests.test_sandero_front_wheel_drive_values \
-            tests.test_sandero_number_of_doors_values \
-            tests.test_sandero_exterior_colour_values \
-            tests.test_sandero_standard_tyre_specification \
-            tests.test_sandero_total_valve_count_model
-      - name: Commit contract updates and workflow restoration
-        shell: bash
+          python tools/dkb.py configuration-shortlist \
+            --html "${RUNNER_TEMP}/configuration-shortlist-all.html"
+          python tools/dkb.py configuration-shortlist \
+            --transmission automatic \
+            --max-price 100000 \
+            --html "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
+      - name: Generate artifact manifest
         run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            .github/workflows/configuration-shortlist-html.yml \
-            tests/test_sandero_50_kmh_noise_level_values.py \
-            tests/test_sandero_euro_6e_bis_values.py \
-            tests/test_sandero_front_wheel_drive_values.py \
-            tests/test_sandero_number_of_doors_values.py \
-            tests/test_sandero_exterior_colour_values.py \
-            tests/test_sandero_standard_tyre_specification.py \
-            tests/test_sandero_total_valve_count_model.py
-          git commit -m 'Test additive configuration source mappings'
-          git push origin HEAD:agent/register-sandero-stepway-price-20260703
+          python tools/quality_artifact_manifest.py \
+            --output "${RUNNER_TEMP}/configuration-shortlist-html-manifest.json" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-all.html" \
+            --file "${RUNNER_TEMP}/configuration-shortlist-automatic-under-100000.html"
+      - name: Upload browser shortlists
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: configuration-shortlist-html
+          path: |
+            ${{ runner.temp }}/configuration-shortlist-all.html
+            ${{ runner.temp }}/configuration-shortlist-automatic-under-100000.html
+            ${{ runner.temp }}/configuration-shortlist-html-manifest.json
+          if-no-files-found: error
+          retention-days: 7
