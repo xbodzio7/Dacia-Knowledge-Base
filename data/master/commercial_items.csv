@@ -26,3 +26,4 @@ id,code,name,item_type,observation_date,source_code,status,notes
 25,bigster_parking_package,Pakiet PARKING,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
 26,bigster_winter_package,Pakiet ZIMOWY,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
 27,bigster_winter_plus_package,Pakiet ZIMOWY PLUS,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
+28,bigster_panoramic_roof_option,Dach panoramiczny elektrycznie otwierany,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,Samodzielna opcja dla wersji Journey; seryjna w Extreme.

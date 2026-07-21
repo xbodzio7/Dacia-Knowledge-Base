@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Catalogue Expansion v1.3",
+  "phase": "Bigster Equipment and Commercial Mapping v1.4",
   "reference_delivery": {
     "name": "Data Product Consumer Guide",
     "pull_request": 167,
@@ -15,26 +15,26 @@
     "quality_run": 916
   },
   "baseline": {
-    "tests": 681,
+    "tests": 688,
     "csv_files": 41,
-    "rows": 5668,
+    "rows": 7052,
     "configuration_values": 1204,
     "configuration_import_specs": 71,
     "configuration_value_ranges": 144,
     "configuration_range_import_specs": 19,
-    "availability_records": 3156,
-    "attributes": 358,
+    "availability_records": 4472,
+    "attributes": 376,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Catalogue Foundation",
+    "name": "Bigster Equipment and Commercial Mapping",
     "status": "complete",
-    "goal": "Model four source-backed Bigster versions, fourteen explicit powertrain configurations and their current Polish catalogue prices without inferring unavailable combinations or unstated technical values."
+    "goal": "Import the source-backed Bigster equipment matrix and map named packages and individual options with exact configuration-level prices."
   },
   "next_package": {
-    "name": "Bigster Equipment and Commercial Mapping",
+    "name": "Bigster Technical Specifications",
     "status": "planned",
-    "goal": "Import the source-backed Bigster equipment matrix and map the already registered options and packages to the newly modeled configurations."
+    "goal": "Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

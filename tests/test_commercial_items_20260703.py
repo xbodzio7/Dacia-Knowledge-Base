@@ -31,9 +31,9 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 27)
-        self.assertEqual(len(self.members), 68)
-        self.assertEqual(len(self.mappings), 86)
+        self.assertEqual(len(self.items), 28)
+        self.assertEqual(len(self.members), 69)
+        self.assertEqual(len(self.mappings), 134)
         self.assertEqual({row["observation_date"] for row in self.items}, {DATE})
         self.assertEqual({row["price_date"] for row in self.mappings}, {DATE})
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
@@ -54,11 +54,17 @@ class CommercialItems20260703Tests(unittest.TestCase):
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
 
-    def test_bigster_items_are_registered_without_invented_configurations(self) -> None:
+    def test_bigster_items_are_mapped_only_to_source_backed_configurations(self) -> None:
         bigster = {row["code"] for row in self.items if row["code"].startswith("bigster_")}
-        mapped = {row["commercial_item_code"] for row in self.mappings}
-        self.assertTrue(bigster)
-        self.assertTrue(bigster.isdisjoint(mapped))
+        mappings = [
+            row for row in self.mappings
+            if row["commercial_item_code"].startswith("bigster_")
+        ]
+        self.assertEqual(len(bigster), 7)
+        self.assertEqual(len(mappings), 48)
+        self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
+        self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
+        self.assertEqual({row["source_code"] for row in mappings}, {"src_pl_bigster_price_my26_20260703"})
 
     def test_july_catalog_prices_cover_all_registered_configuration_relationships(self) -> None:
         source_codes = {
