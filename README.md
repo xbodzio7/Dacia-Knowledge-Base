@@ -13,6 +13,17 @@ Projekt gromadzi ustrukturyzowane dane dotyczące modeli, wersji wyposażenia, s
 * eksport danych do SQLite i innych systemów,
 * wygodne wyszukiwanie informacji w repozytorium.
 
+## Wymagania Pythona
+
+Projekt obecnie wymaga Pythona 3.10 lub nowszego. Wsparcie dla 3.10 jest
+jednak oznaczone jako wycofywane i zostanie zakończone przed lub wraz z
+upstreamowym końcem wsparcia w październiku 2026 r. Planowanym kolejnym
+minimum jest Python 3.13, a dla nowych środowisk zalecany jest Python 3.14.
+
+Aktualne minimum nie zmienia się w tym pakiecie. Szczegółową politykę,
+zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
+[`project/guides/python-runtime-support.md`](project/guides/python-runtime-support.md).
+
 ## Gotowe produkty offline
 
 Zweryfikowane publiczne wydanie `data-products-v1.0.0` można pobrać, sprawdzić
