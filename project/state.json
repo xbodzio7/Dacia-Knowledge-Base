@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "GitHub Actions Inventory Correction and Major Upgrade Completion",
+    "name": "Python 3.10 Retirement Readiness",
     "status": "complete",
-    "goal": "Correct the persistent immutable-action inventory to 58 references across fifteen workflows and record the fully validated setup-python v7, setup-node v7 and download-artifact v8 upgrades."
+    "goal": "Audit the formal Python 3.10 support contract, define safe retirement criteria and preserve compatibility until a visible deprecation notice precedes the coordinated metadata, lint and CI change."
   },
   "next_package": {
-    "name": "Python 3.10 Retirement Readiness",
+    "name": "Python 3.10 Deprecation Notice",
     "status": "planned",
-    "goal": "Audit remaining lower-bound assumptions, define explicit Python 3.10 removal criteria and schedule the retirement decision before the upstream October 2026 end-of-support boundary without removing compatibility prematurely."
+    "goal": "Publish a clear user-facing runtime support policy that retains Python 3.10 during transition, identifies Python 3.13 as the next minimum and schedules the actual coordinated retirement as a separate later package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
