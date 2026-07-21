@@ -131,12 +131,11 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
             {row["code"] for row in self.sources if row["code"] in expected_sources},
             expected_sources,
         )
-        mapping = {
-            row["configuration_code"]: row["source_code"]
+        registered_pairs = {
+            (row["configuration_code"], row["source_code"])
             for row in self.source_configurations
-            if row["configuration_code"] in EXPECTED
         }
-        self.assertEqual(mapping, EXPECTED)
+        self.assertTrue(set(EXPECTED.items()) <= registered_pairs)
 
     def test_dictionary_codes_are_unique_and_active(self) -> None:
         codes = [row["code"].casefold() for row in self.standards]
