@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "configuration_scope": "explicit_subset",
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703"
+    }
+  ],
+  "technical_slots": [],
+  "equipment_attributes": [],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}

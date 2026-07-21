@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Commercial Data and Consumer UX v1.2**
+**Bigster Catalogue Expansion v1.3**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 676
+- Tests: 681
 - Master CSV files: 41
-- Master rows: 5618
+- Master rows: 5668
 - Configuration values: 1204
 - Configuration import specifications: 71
 - Configuration value ranges: 144
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Commercial Options, Equipment Filters and Workbook v1.2** — `complete`
+**Bigster Catalogue Foundation** — `complete`
 
-Import source-backed package and option prices, provide grouped click-based equipment selection with a persistent selected-item tray, calculate deterministic equipment surcharges and expand the filterable comparison workbook.
+Model four source-backed Bigster versions, fourteen explicit powertrain configurations and their current Polish catalogue prices without inferring unavailable combinations or unstated technical values.
 
 ## Next package
 
-**Bigster Catalogue Foundation** — `planned`
+**Bigster Equipment and Commercial Mapping** — `planned`
 
-Model source-backed Bigster versions, configurations and current catalogue prices from the official Polish MY26 price list without inferring unstated technical values.
+Import the source-backed Bigster equipment matrix and map the already registered options and packages to the newly modeled configurations.
 
 ## Autonomy
 

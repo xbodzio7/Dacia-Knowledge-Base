@@ -52,3 +52,17 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 51,jogger_expression_7seat_hybrid155_automatic,jogger_expression,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
 52,jogger_extreme_7seat_hybrid155_automatic,jogger_extreme,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
 53,jogger_journey_7seat_hybrid155_automatic,jogger_journey,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+54,bigster_essential_mildhybrid140_4x2_manual,bigster_essential,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+55,bigster_expression_mildhybrid140_4x2_manual,bigster_expression,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+56,bigster_extreme_mildhybrid140_4x2_manual,bigster_extreme,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+57,bigster_journey_mildhybrid140_4x2_manual,bigster_journey,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+58,bigster_essential_mildhybridg140_4x2_manual,bigster_essential,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+59,bigster_expression_mildhybridg140_4x2_manual,bigster_expression,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+60,bigster_extreme_mildhybridg140_4x2_manual,bigster_extreme,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+61,bigster_journey_mildhybridg140_4x2_manual,bigster_journey,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+62,bigster_expression_hybrid155_4x2_automatic,bigster_expression,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+63,bigster_extreme_hybrid155_4x2_automatic,bigster_extreme,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+64,bigster_journey_hybrid155_4x2_automatic,bigster_journey,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+65,bigster_expression_hybridg150_4x4_automatic,bigster_expression,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+66,bigster_extreme_hybridg150_4x4_automatic,bigster_extreme,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+67,bigster_journey_hybridg150_4x4_automatic,bigster_journey,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.

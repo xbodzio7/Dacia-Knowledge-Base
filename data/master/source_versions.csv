@@ -28,3 +28,7 @@ id,source_code,version_code,relationship,notes
 27,src_pl_jogger_price_my26_20260703,jogger_expression,documents,Version column in the page-1 price matrix effective 2026-07-03.
 28,src_pl_jogger_price_my26_20260703,jogger_extreme,documents,Version column in the page-1 price matrix effective 2026-07-03.
 29,src_pl_jogger_price_my26_20260703,jogger_journey,documents,Version column in the page-1 price matrix effective 2026-07-03.
+30,src_pl_bigster_price_my26_20260703,bigster_essential,documents,Version column in the page-1 price matrix effective 2026-07-03.
+31,src_pl_bigster_price_my26_20260703,bigster_expression,documents,Version column in the page-1 price matrix effective 2026-07-03.
+32,src_pl_bigster_price_my26_20260703,bigster_extreme,documents,Version column in the page-1 price matrix effective 2026-07-03.
+33,src_pl_bigster_price_my26_20260703,bigster_journey,documents,Version column in the page-1 price matrix effective 2026-07-03.
