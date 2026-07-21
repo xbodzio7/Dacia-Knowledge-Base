@@ -17,6 +17,8 @@ Register and archive four current official Polish Dacia price lists supplied by 
 
 The exact original URLs are retained in `sources.csv`, and the downloaded bytes are archived under `PDF/Cenniki/`.
 
+The archived PDFs are registration inputs for later controlled imports; registering a document does not by itself make every value shown in it an active master-data observation.
+
 ## Relationships
 
 - Sandero and Sandero Stepway are related to both current model records, five existing trims and seven currently modeled Eco-G 120 configurations.
