@@ -32,15 +32,8 @@ jobs:
 
           text = source.read_text(encoding='utf-8')
 
-          matrix_before = '''        python-version:
-                    - "3.10"
-                    - "3.13"
-          '''
-          matrix_after = '''        python-version:
-                    - "3.10"
-                    - "3.13"
-                    - "3.14"
-          '''
+          matrix_before = '        python-version:\n          - "3.10"\n          - "3.13"\n'
+          matrix_after = '        python-version:\n          - "3.10"\n          - "3.13"\n          - "3.14"\n'
           if text.count(matrix_before) != 1:
               raise SystemExit('unexpected Python matrix contract')
           text = text.replace(matrix_before, matrix_after, 1)
