@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Python 3.10 Retirement Readiness** — `complete`
+**Python 3.10 Deprecation Notice** — `complete`
 
-Audit the formal Python 3.10 support contract, define safe retirement criteria and preserve compatibility until a visible deprecation notice precedes the coordinated metadata, lint and CI change.
+Publish a visible runtime support policy that keeps Python 3.10 supported during transition, identifies Python 3.13 as the intended next minimum and recommends Python 3.14 for new environments.
 
 ## Next package
 
-**Python 3.10 Deprecation Notice** — `planned`
+**Python 3.10 Retirement Implementation** — `planned`
 
-Publish a clear user-facing runtime support policy that retains Python 3.10 during transition, identifies Python 3.13 as the next minimum and schedules the actual coordinated retirement as a separate later package.
+After the published transition notice, coordinate the minimum-version change to Python 3.13 across package metadata, Ruff target, Quality matrix and user documentation while retaining the full Python 3.14 and Windows validation baseline.
 
 ## Autonomy
 
