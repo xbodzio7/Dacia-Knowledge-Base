@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Maintenance Mode",
+  "phase": "Consumer UX v1.1",
   "reference_delivery": {
     "name": "Data Product Consumer Guide",
     "pull_request": 167,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Python 3.10 Deprecation Notice",
+    "name": "Interactive Configuration UX v1.1",
     "status": "complete",
-    "goal": "Publish a visible runtime support policy that keeps Python 3.10 supported during transition, identifies Python 3.13 as the intended next minimum and recommends Python 3.14 for new environments."
+    "goal": "Make selected equipment continuously visible outside scrollable lists, provide source-conscious Polish user labels and show configuration price, standard price and itemized known or unknown option and package surcharges without inferring missing amounts."
   },
   "next_package": {
-    "name": "Python 3.10 Retirement Implementation",
+    "name": "Source-Backed Commercial Option Pricing",
     "status": "planned",
-    "goal": "After the published transition notice, coordinate the minimum-version change to Python 3.13 across package metadata, Ruff target, Quality matrix and user documentation while retaining the full Python 3.14 and Windows validation baseline."
+    "goal": "Model named commercial options and packages with dated source-backed prices so the v1.1 interface can calculate complete configuration totals instead of marking unavailable surcharge amounts as unknown."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

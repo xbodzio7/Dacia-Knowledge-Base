@@ -29,6 +29,8 @@ jobs:
           node-version: "24"
       - name: Verify Python and browser filter parity
         run: python -m unittest -v tests.test_configuration_shortlist_html
+      - name: Verify version 1.1 interaction and price contract
+        run: node tests/contracts/configuration_shortlist_v11_contract.js
       - name: Generate browser shortlists
         run: |
           python tools/dkb.py configuration-shortlist \
