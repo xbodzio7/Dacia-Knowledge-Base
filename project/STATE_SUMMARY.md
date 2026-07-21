@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Python Runtime Lifecycle Review** — `complete`
+**Python 3.14 Compatibility Verification** — `complete`
 
-Review the current Python 3.10 and 3.13 CI baseline against upstream lifecycle evidence and define a staged Python 3.14 compatibility transition without prematurely removing the lower-bound lane.
+Run the complete repository quality and artifact gate on Python 3.14, retain Python 3.10 and 3.13 transition compatibility lanes, and move Windows package validation to Python 3.14 without changing product behavior.
 
 ## Next package
 
-**Python 3.14 Compatibility Verification** — `planned`
+**Python 3.10 Retirement Readiness** — `planned`
 
-Add Python 3.14 to the repository-wide Quality matrix, run the complete quality and artifact gate on 3.14, retain 3.10 and 3.13 transition coverage, and move the Windows package lane to 3.14 only with full green validation.
+Audit remaining lower-bound assumptions, define explicit Python 3.10 removal criteria and schedule the retirement decision before the upstream October 2026 end-of-support boundary without removing compatibility prematurely.
 
 ## Autonomy
 
