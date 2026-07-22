@@ -85,6 +85,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - transakcyjny pakiet porównań z shortlisty z grupowaniem według jednorodnych zakresów i manifestem SHA-256,
 - trwały wybór konfiguracji w przeglądarce z deterministycznym eksportem JSON i TXT zgodnym z pakietem porównań,
 - interaktywna shortlista v1.2 z grupowanym wyborem wyposażenia, trwałym panelem zaznaczeń i źródłowym wyliczaniem cen pakietów,
+- zależny wybór modelu i wersji, pojedynczy filtr skrzyni oraz wielokrotny filtr napędów przygotowany dla `data-products-v1.1.0`,
 - kanoniczny model nazwanych pakietów i opcji oraz ośmioarkuszowy filtrowalny skoroszyt porównań,
 - deterministyczny XLSX z identycznymi bajtami na Linuxie oraz Windows,
 - wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
@@ -100,7 +101,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 696 testów automatycznych,
+- 698 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
