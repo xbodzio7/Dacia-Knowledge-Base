@@ -142,6 +142,24 @@
         });
       }
     }
+    const selectedEquipment = selectedCodes.map((code) => {
+      const state = (configuration.equipment || {})[code];
+      const status = state ? state.availability_status : "missing";
+      const coveringComponents = chosen.filter((component) =>
+        component.equipment_codes.includes(code)
+      );
+      return {
+        code,
+        name: equipmentLabel(code),
+        availability_status: status,
+        components: coveringComponents.map((component) => ({
+          code: component.code,
+          name: component.name,
+          kind: component.kind,
+          amount: component.amount
+        }))
+      };
+    });
     const knownSurcharge = knownComponents.reduce((sum, item) => sum + item.amount, 0);
     const totalAmount = baseAmount === null ? null : baseAmount + knownSurcharge;
     return {
@@ -150,18 +168,43 @@
       known_components: knownComponents,
       unknown_components: unknownComponents,
       included_standard: includedStandard,
+      selected_equipment: selectedEquipment,
       known_surcharge: knownSurcharge,
       total_amount: totalAmount,
       total_is_complete: totalAmount !== null && unknownComponents.length === 0
     };
   }
 
-  function priceBreakdownMarkup(breakdown) {
-    if (breakdown.standard_amount === null) {
-      return '<div class="configuration-price-main"><span>Cena konfiguracji</span><strong>brak danych</strong></div>';
+  function selectedEquipmentStatus(item) {
+    if (item.availability_status === "standard") return "w standardzie — bez dopłaty";
+    if (item.availability_status === "optional" && item.components.length) {
+      const labels = item.components.map((component) => {
+        const kind = component.kind === "package" ? "pakiet" : "opcja";
+        const price = component.amount === null ? "cena nieustalona" : "dopłata ujęta powyżej";
+        return `${kind}: ${component.name} (${price})`;
+      });
+      return labels.join("; ");
     }
-    const totalText = formatMoney(breakdown.total_amount, breakdown.currency_code);
-    const headline = breakdown.total_is_complete ? totalText : `od ${totalText}`;
+    if (item.availability_status === "optional") return "opcjonalne — cena nieustalona";
+    if (item.availability_status === "not_available") return "niedostępne";
+    if (item.availability_status === "unknown") return "status nieustalony";
+    return "brak danych";
+  }
+
+  function selectedEquipmentMarkup(items) {
+    if (!items.length) return "";
+    const rows = items.map((item) =>
+      `<li><span>${escapeHtml(item.name)}</span><strong>${escapeHtml(selectedEquipmentStatus(item))}</strong></li>`
+    ).join("");
+    return `<div class="configuration-price-equipment"><span>Wybrane wyposażenie</span><ul>${rows}</ul></div>`;
+  }
+
+  function priceBreakdownMarkup(breakdown) {
+    const headline = breakdown.standard_amount === null
+      ? "brak danych"
+      : (breakdown.total_is_complete
+        ? formatMoney(breakdown.total_amount, breakdown.currency_code)
+        : `od ${formatMoney(breakdown.total_amount, breakdown.currency_code)}`);
     const rows = [
       ...breakdown.known_components.map((component) =>
         `<li><span>${escapeHtml(component.name)}</span><strong>+ ${escapeHtml(formatMoney(component.amount, component.currency_code))}</strong></li>`),
@@ -171,15 +214,16 @@
     const components = rows ? `<ul class="configuration-price-components">${rows}</ul>` : "";
     const warning = breakdown.unknown_components.length
       ? '<p class="configuration-price-warning">Nieznane dopłaty nie zostały doliczone do ceny.</p>' : "";
-    const included = breakdown.included_standard.length
-      ? `<p class="configuration-price-included">Wybrane wyposażenie seryjne: ${breakdown.included_standard.length}</p>` : "";
+    const standard = breakdown.standard_amount === null
+      ? ""
+      : `<div class="configuration-price-standard">Cena standardowa: <strong>${escapeHtml(formatMoney(breakdown.standard_amount, breakdown.currency_code))}</strong></div>`;
     return `<div class="configuration-price-main"><span>Cena konfiguracji</span><strong>${escapeHtml(headline)}</strong></div>
-      <div class="configuration-price-standard">Cena standardowa: <strong>${escapeHtml(formatMoney(breakdown.standard_amount, breakdown.currency_code))}</strong></div>
-      ${components}${warning}${included}`;
+      ${standard}${components}${warning}${selectedEquipmentMarkup(breakdown.selected_equipment || [])}`;
   }
 
   return {
     setEquipmentLabels, equipmentLabel, formatMoney,
-    chooseComponents, buildPriceBreakdown, priceBreakdownMarkup
+    chooseComponents, buildPriceBreakdown, priceBreakdownMarkup,
+    selectedEquipmentStatus, selectedEquipmentMarkup
   };
 });

@@ -188,15 +188,7 @@
     return seats.state === "recorded" ? `${seats.value} miejsc` : "Liczba miejsc: brak danych";
   }
 
-  function stateBadge(code, state, standardOnly) {
-    const status = state ? state.availability_status : "missing";
-    const label = standardOnly ? `${code}: ${status} (wymagane seryjnie)` : `${code}: ${status}`;
-    return `<span class="equipment-state equipment-${escapeHtml(status)}">${escapeHtml(label)}</span>`;
-  }
-
   function renderResults(container, outcome) {
-    const required = outcome.criteria.required_equipment;
-    const standard = outcome.criteria.required_standard_equipment;
     if (!outcome.results.length) {
       container.innerHTML = '<p class="empty">Żadna konfiguracja nie spełnia wszystkich kryteriów.</p>';
       return;
@@ -204,10 +196,6 @@
     container.innerHTML = outcome.results.map((item) => {
       const price = item.catalog_price;
       const seats = item.number_of_seats;
-      const equipment = [
-        ...required.map((code) => stateBadge(code, item.equipment[code], false)),
-        ...standard.map((code) => stateBadge(code, item.equipment[code], true))
-      ].join("");
       const priceSource = price.state === "recorded"
         ? `${price.price_date} · ${price.source_code}` : "brak źródłowego rekordu ceny";
       const seatsSource = seats.state === "recorded"
@@ -221,7 +209,6 @@
           <div><dt>Skrzynia</dt><dd>${escapeHtml(item.transmission_type)}</dd></div>
           <div><dt>Miejsca</dt><dd>${escapeHtml(seatsText(seats))}</dd></div>
         </dl>
-        ${equipment ? `<div class="equipment-list">${equipment}</div>` : ""}
         <details><summary>Proweniencja</summary>
           <p>Cena: ${escapeHtml(priceSource)}</p>
           <p>Miejsca: ${escapeHtml(seatsSource)}</p>
@@ -280,7 +267,6 @@
       + optionMarkup(catalog.facets.seat_counts.map(String), "", (item) => `${item} miejsc`);
     const equipment = optionMarkup(catalog.facets.equipment, "code", (item) => `${item.name} (${item.code})`);
     document.querySelector("#required-equipment").innerHTML = equipment;
-    document.querySelector("#required-standard-equipment").innerHTML = equipment;
   }
 
   function criteriaFromControls() {
@@ -294,7 +280,7 @@
       maximum_price_pln: document.querySelector("#maximum-price").value,
       seats: document.querySelector("#seats").value,
       required_equipment: selectedValues(document.querySelector("#required-equipment")),
-      required_standard_equipment: selectedValues(document.querySelector("#required-standard-equipment")),
+      required_standard_equipment: [],
       search: document.querySelector("#search").value
     };
   }
@@ -315,8 +301,10 @@
     document.querySelector("#minimum-price").value = filters.minimum_price_pln || "";
     document.querySelector("#maximum-price").value = filters.maximum_price_pln || "";
     document.querySelector("#seats").value = filters.seats || "";
-    setSelected(document.querySelector("#required-equipment"), filters.required_equipment);
-    setSelected(document.querySelector("#required-standard-equipment"), filters.required_standard_equipment);
+    setSelected(document.querySelector("#required-equipment"), unique([
+      ...(filters.required_equipment || []),
+      ...(filters.required_standard_equipment || [])
+    ]));
   }
 
   function initialize() {

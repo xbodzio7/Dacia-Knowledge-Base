@@ -32,7 +32,20 @@ assert.equal(breakdown.known_surcharge, 1900);
 assert.equal(breakdown.total_amount, 81900);
 assert.deepEqual(breakdown.known_components.map((item) => item.code), ["thermo_package"]);
 assert.deepEqual(breakdown.included_standard.map((item) => item.code), ["keyless_entry"]);
+assert.deepEqual(
+  breakdown.selected_equipment.map((item) => [item.code, item.availability_status]),
+  [
+    ["automatic_climate_control", "optional"],
+    ["heated_front_seats", "optional"],
+    ["keyless_entry", "standard"]
+  ]
+);
 assert.equal(breakdown.total_is_complete, true);
+const markup = api.priceBreakdownMarkup(breakdown);
+assert.match(markup, /Wybrane wyposażenie/);
+assert.match(markup, /Dostęp bezkluczykowy/);
+assert.match(markup, /w standardzie — bez dopłaty/);
+assert.match(markup, /pakiet: Pakiet THERMO/);
 
 breakdown = api.buildPriceBreakdown(configuration, ["automatic_climate_control"], []);
 assert.deepEqual(breakdown.known_components.map((item) => item.code), ["climate_option"]);
@@ -66,18 +79,6 @@ const selectedAlternative = api.chooseComponents(
 assert.deepEqual(selectedAlternative.map((item) => item.code), ["alternative_34"]);
 
 const ui = require("../../tools/reporting/configuration_shortlist_v12.js");
-let textWrites = 0;
-const badge = {
-  _text: "",
-  get textContent() { return this._text; },
-  set textContent(value) { textWrites += 1; this._text = value; },
-  title: ""
-};
-const card = { querySelectorAll: () => [badge] };
-const criteria = { required_equipment: ["automatic_climate_control"], required_standard_equipment: [] };
-ui.localizeBadges(card, configuration, criteria);
-ui.localizeBadges(card, configuration, criteria);
-assert.equal(textWrites, 1);
 
 global.Event = class Event {
   constructor(type, options) { this.type = type; this.bubbles = Boolean(options && options.bubbles); }

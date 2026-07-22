@@ -328,11 +328,8 @@ def render_html(catalog: Mapping[str, Any]) -> str:
     <label>Liczba miejsc
       <select id="seats"></select>
     </label>
-    <label>Wyposażenie standardowe lub opcjonalne
+    <label class="wide">Wyposażenie
       <select id="required-equipment" multiple size="8"></select>
-    </label>
-    <label>Wyposażenie wymagane seryjnie
-      <select id="required-standard-equipment" multiple size="8"></select>
     </label>
     <div class="actions wide">
       <button id="reset" type="button">Wyczyść wszystkie filtry</button>
