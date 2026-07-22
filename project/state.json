@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Technical Specifications v1.5",
+  "phase": "Data Products v1.1.0 Interface and Selector Workbook",
   "reference_delivery": {
-    "name": "Data Product Consumer Guide",
-    "pull_request": 167,
-    "head_sha": "162b8217e50f5ca774199a261b7bb486bac468dc",
-    "quality_run": 916
+    "name": "Bigster Technical Specifications",
+    "pull_request": 196,
+    "head_sha": "8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f",
+    "quality_run": 1131
   },
   "baseline": {
-    "tests": 696,
+    "tests": 699,
     "csv_files": 41,
     "rows": 7624,
     "configuration_values": 1756,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Technical Specifications",
+    "name": "Data Products v1.1.0 Interface and Selector Workbook",
     "status": "complete",
-    "goal": "Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values."
+    "goal": "Improve the offline shortlist model, version, transmission and powertrain controls and add a one-row-per-configuration Excel selector covering source-backed parameters and equipment states."
   },
   "next_package": {
-    "name": "Bigster Technical Reporting Portfolio",
+    "name": "Data Products v1.1.0 Publication",
     "status": "planned",
-    "goal": "Promote the four source-backed Bigster powertrain scopes into deterministic completeness, source-coverage, gap-evidence and reporting outputs using the existing reporting architecture."
+    "goal": "Build, independently verify and publish the immutable data-products-v1.1.0 assets from the exact green main commit, then record their durable identities and hashes."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

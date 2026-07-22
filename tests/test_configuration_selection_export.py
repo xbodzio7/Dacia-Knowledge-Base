@@ -57,6 +57,12 @@ switch (input.operation) {
   case "normalize":
     output = api.normalizeSelection(input.catalog, input.payload.codes);
     break;
+  case "normalize_set":
+    output = api.normalizeSelection(
+      input.catalog,
+      new Set(input.payload.codes)
+    );
+    break;
   case "union":
     output = api.unionSelection(
       input.catalog,
@@ -127,6 +133,23 @@ process.stdout.write(JSON.stringify(output));
             },
         )
         self.assertEqual(result, ["cfg_a", "cfg_c", "cfg_d"])
+
+    def test_selection_accepts_browser_set_state(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            _, catalog = self.fixture(Path(directory))
+        result = self.run_node(
+            catalog,
+            "normalize_set",
+            {
+                "codes": [
+                    "cfg_b",
+                    "unknown",
+                    "cfg_a",
+                    "cfg_b",
+                ]
+            },
+        )
+        self.assertEqual(result, ["cfg_a", "cfg_b"])
 
     def test_visible_selection_is_union_and_persists_hidden_codes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

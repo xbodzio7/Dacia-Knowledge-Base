@@ -22,7 +22,8 @@
 
   function normalizeSelection(catalog, codes) {
     const order = catalogOrder(catalog);
-    return [...new Set((codes || []).map(String).map((code) => code.trim()).filter((code) => order.has(code)))]
+    const values = codes == null ? [] : Array.from(codes);
+    return [...new Set(values.map(String).map((code) => code.trim()).filter((code) => order.has(code)))]
       .sort((left, right) => order.get(left) - order.get(right));
   }
 
@@ -33,7 +34,7 @@
   function removeSelection(catalog, selectedCodes, removedCode) {
     return normalizeSelection(
       catalog,
-      (selectedCodes || []).filter((code) => code !== removedCode)
+      Array.from(selectedCodes || []).filter((code) => code !== removedCode)
     );
   }
 

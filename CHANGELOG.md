@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Dependent model/version browser filters with clean model labels, single-choice transmission selection and a multi-select powertrain list for the next data-product release.
+* Nine-sheet deterministic workbook v3 with a wide `Selector` table for filtering configurations by model, version, powertrain, transmission, price, seats and  source-backed equipment states.
+* Planned immutable `data-products-v1.1.0` release contract covering the current 67 configurations and 17 independent comparison scopes.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
@@ -233,7 +236,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 696 tests.
+* The automated test suite now contains 699 tests.
 * The verified master-data baseline now contains 41 CSV files and 7624 rows.
 * SQLite verification now covers 41 tables and 7624 rows.
 * Configuration attribute values now contain 1756 dated records.
@@ -245,6 +248,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+* Interactive shortlist selection now accepts the browser's native `Set` state without JavaScript errors, so selection counts, chips and exports initialize correctly.
+* The shortlist reset button now invokes the native form reset method safely even though the form contains a control named `reset`; dependent versions and all active filters return to the full catalogue while explicit configuration selections remain intact.
 * Local quality subprocesses force UTF-8 output on Windows consoles and redirected logs.
 * Package workflow Git commands no longer depend on the Windows console code page when displaying Polish paths and diff content.
 * Restored the executable validation entry point after it was accidentally emptied.

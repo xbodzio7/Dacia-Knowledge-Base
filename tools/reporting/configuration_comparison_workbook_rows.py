@@ -10,7 +10,7 @@ from typing import Any, Mapping, Sequence
 from reporting.commercial_offers import commercial_offer_rows
 from reporting.deterministic_xlsx_model import Cell, Sheet, WorkbookError
 
-WORKBOOK_VERSION = 2
+WORKBOOK_VERSION = 3
 DOMAIN_ORDER = ("prices", "technical", "equipment")
 STATE_FIELDS = (
     "state",
@@ -333,6 +333,167 @@ def _selected_codes(manifest: Mapping[str, Any]) -> list[str]:
     })
 
 
+def _latest_rows(
+    rows: Sequence[Mapping[str, str]],
+    key_fields: Sequence[str],
+    date_field: str,
+    as_of: str,
+) -> dict[tuple[str, ...], Mapping[str, str]]:
+    latest: dict[tuple[str, ...], Mapping[str, str]] = {}
+    for row in rows:
+        observed = str(row.get(date_field, ""))
+        if as_of and observed and observed > as_of:
+            continue
+        key = tuple(str(row.get(field, "")) for field in key_fields)
+        previous = latest.get(key)
+        if previous is None or observed > str(previous.get(date_field, "")):
+            latest[key] = row
+    return latest
+
+
+def _selector_rows(
+    repository: Path,
+    configuration_codes: Sequence[str],
+    as_of: str,
+) -> tuple[list[tuple[object, ...]], set[str], int]:
+    master = repository / "data" / "master"
+    wanted = set(configuration_codes)
+    configurations = {
+        row["code"]: row
+        for row in _read_csv(master / "configurations.csv")
+        if row.get("code") in wanted
+    }
+    versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
+    models = {row["code"]: row for row in _read_csv(master / "models.csv")}
+    attributes = {row["code"]: row for row in _read_csv(master / "attributes.csv")}
+    labels = _read_json(
+        Path(__file__).with_name("configuration_shortlist_labels_pl.json")
+    )
+
+    price_rows = [
+        row
+        for row in _read_csv(master / "configuration_prices.csv")
+        if row.get("configuration_code") in wanted
+        and row.get("market") == "PL"
+        and row.get("price_type") == "catalog_gross"
+        and row.get("currency_code") == "PLN"
+    ]
+    prices = _latest_rows(price_rows, ("configuration_code",), "price_date", as_of)
+    seat_rows = [
+        row
+        for row in _read_csv(master / "configuration_attribute_values.csv")
+        if row.get("configuration_code") in wanted
+        and row.get("attribute_code") == "number_of_seats"
+        and not row.get("fuel_type_code")
+    ]
+    seats = _latest_rows(
+        seat_rows, ("configuration_code",), "observation_date", as_of
+    )
+    availability_rows = [
+        row
+        for row in _read_csv(master / "configuration_attribute_availability.csv")
+        if row.get("configuration_code") in wanted
+    ]
+    availability = _latest_rows(
+        availability_rows,
+        ("configuration_code", "attribute_code"),
+        "observation_date",
+        as_of,
+    )
+    equipment_codes = sorted(
+        {key[1] for key in availability if key[1]},
+        key=lambda code: (
+            str(attributes.get(code, {}).get("category", "")),
+            str(labels.get(code, attributes.get(code, {}).get("name", code))),
+            code,
+        ),
+    )
+    label_counts: dict[str, int] = {}
+    for code in equipment_codes:
+        label = str(labels.get(code, attributes.get(code, {}).get("name", code)))
+        label_counts[label] = label_counts.get(label, 0) + 1
+
+    equipment_headers: list[str] = []
+    for code in equipment_codes:
+        attribute = attributes.get(code, {})
+        label = str(labels.get(code, attribute.get("name", code)))
+        if label_counts[label] > 1:
+            label = f"{label} [{attribute.get('category', code)}]"
+        equipment_headers.append(f"Wyposażenie | {label}")
+
+    headers = (
+        "Kod konfiguracji",
+        "Model",
+        "Wersja",
+        "Napęd",
+        "Skrzynia",
+        "Cena katalogowa PLN",
+        "Data ceny",
+        "Źródło ceny",
+        "Liczba miejsc",
+        "Wyposażenie opisane",
+        "Wyposażenie brak danych",
+        *equipment_headers,
+    )
+    status_labels = {
+        "standard": "seryjne",
+        "optional": "opcjonalne",
+        "not_available": "niedostępne",
+    }
+    sources: set[str] = set()
+    data_rows: list[tuple[object, ...]] = []
+    for code, configuration in configurations.items():
+        version = versions.get(str(configuration.get("version_code", "")))
+        if version is None:
+            raise WorkbookError(f"selector configuration has unknown version: {code}")
+        model = models.get(str(version.get("model_code", "")))
+        if model is None:
+            raise WorkbookError(f"selector version has unknown model: {version.get('code')}")
+        price = prices.get((code,))
+        seat = seats.get((code,))
+        price_source = str(price.get("source_code", "")) if price else ""
+        if price_source:
+            sources.add(price_source)
+        recorded = sum(1 for attribute_code in equipment_codes if (code, attribute_code) in availability)
+        equipment_values = tuple(
+            status_labels.get(
+                str(availability.get((code, attribute_code), {}).get("availability_status", "")),
+                "brak danych",
+            )
+            for attribute_code in equipment_codes
+        )
+        data_rows.append((
+            code,
+            str(model.get("name", "")),
+            str(version.get("name", "")),
+            str(configuration.get("powertrain_label", "")),
+            {
+                "manual": "manualna",
+                "automatic": "automatyczna",
+            }.get(
+                str(configuration.get("transmission_type", "")),
+                str(configuration.get("transmission_type", "")),
+            ),
+            _typed(price.get("amount"), "decimal") if price else None,
+            _date(price.get("price_date")) if price else None,
+            price_source,
+            _typed(seat.get("value"), "integer") if seat else None,
+            recorded,
+            len(equipment_codes) - recorded,
+            *equipment_values,
+        ))
+    data_rows.sort(
+        key=lambda row: (
+            str(row[1]),
+            str(row[2]),
+            row[5] is None,
+            row[5] if row[5] is not None else Decimal("Infinity"),
+            str(row[0]),
+        )
+    )
+    return [headers, *data_rows], sources, len(equipment_codes)
+
+
 def _equipment_rows(
     repository: Path,
     configuration_codes: Sequence[str],
@@ -497,7 +658,9 @@ def _comparison_sources(rows: Sequence[Sequence[object]]) -> set[str]:
 def _widths(headers: Sequence[str]) -> tuple[float, ...]:
     widths: list[float] = []
     for header in headers:
-        if any(token in header for token in ("configuration_code", "sha256", "evidence_basis")):
+        if header.startswith("Wyposażenie | "):
+            widths.append(24)
+        elif any(token in header for token in ("configuration_code", "sha256", "evidence_basis")):
             widths.append(32)
         elif any(token in header for token in ("title", "file_path", "configuration_codes")):
             widths.append(40)
@@ -526,6 +689,9 @@ def build_sheets(repository: Path, build_root: Path, manifest: Mapping[str, Any]
         )
     ] if (repository / "data" / "master" / "commercial_item_configurations.csv").is_file() else []
     consumer_as_of = max([report_as_of, *commercial_dates])
+    selector_rows, selector_sources, selector_equipment_columns = _selector_rows(
+        repository, selected_codes, consumer_as_of
+    )
     equipment_rows, equipment_sources = _equipment_rows(
         repository, selected_codes, consumer_as_of
     )
@@ -533,6 +699,7 @@ def build_sheets(repository: Path, build_root: Path, manifest: Mapping[str, Any]
         repository, selected_codes, consumer_as_of
     )
     source_codes.update(_comparison_sources(comparison_rows))
+    source_codes.update(selector_sources)
     source_codes.update(equipment_sources)
     source_codes.update(commercial_sources)
     scope_rows = _scope_rows(manifest, reports)
@@ -540,8 +707,22 @@ def build_sheets(repository: Path, build_root: Path, manifest: Mapping[str, Any]
     artifact_rows = _artifact_rows(manifest)
     overview_rows = _overview_rows(manifest, reports)
     overview_rows.append(("commercial_equipment_as_of", consumer_as_of))
+    overview_rows.append(("selector_equipment_columns", selector_equipment_columns))
+    overview_rows.append((
+        "selector_usage_pl",
+        Cell(
+            "W arkuszu Selector użyj filtrów w nagłówkach, aby zawężać listę "
+            "według modelu, wersji, napędu, skrzyni, ceny, liczby miejsc i wyposażenia.",
+            "wrap",
+        ),
+    ))
+    overview_rows.append((
+        "selector_equipment_values_pl",
+        "seryjne; opcjonalne; niedostępne; brak danych",
+    ))
     definitions = (
         ("Overview", overview_rows, False),
+        ("Selector", selector_rows, True),
         ("Scopes", scope_rows, True),
         ("Configurations", configuration_rows, True),
         ("Equipment", equipment_rows, True),

@@ -40,6 +40,7 @@ SELECTED = (
 )
 SHEET_NAMES = (
     "Overview",
+    "Selector",
     "Scopes",
     "Configurations",
     "Equipment",
@@ -111,6 +112,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "xl/worksheets/sheet6.xml",
             "xl/worksheets/sheet7.xml",
             "xl/worksheets/sheet8.xml",
+            "xl/worksheets/sheet9.xml",
         )
         self.assertEqual(workbook_entries(self.workbook_path), expected)
         self.assertEqual(tuple(self.workbook), SHEET_NAMES)
@@ -121,7 +123,8 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
 
     def test_sheet_dimensions_filters_and_frozen_headers(self) -> None:
         expected_dimensions = (
-            "A1:B16",
+            "A1:B19",
+            "A1:CI6",
             "A1:AH4",
             "A1:K6",
             "A1:M296",
@@ -151,7 +154,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             str(row[0]): row[1]
             for row in self.workbook["Overview"][1:]
         }
-        self.assertEqual(overview["workbook_version"], 2)
+        self.assertEqual(overview["workbook_version"], 3)
         self.assertEqual(overview["bundle_version"], self.manifest["version"])
         self.assertEqual(overview["selected_configuration_count"], 5)
         self.assertEqual(overview["scope_group_count"], 3)
@@ -164,6 +167,12 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
         self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")
+        self.assertEqual(overview["selector_equipment_columns"], 76)
+        self.assertIn("arkuszu Selector", str(overview["selector_usage_pl"]))
+        self.assertEqual(
+            overview["selector_equipment_values_pl"],
+            "seryjne; opcjonalne; niedostępne; brak danych",
+        )
 
     def test_scopes_preserve_comparable_and_singleton_groups(self) -> None:
         rows = self._table(self.workbook["Scopes"])
@@ -196,6 +205,32 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertTrue(all(row["transmission_type"] for row in rows))
         self.assertTrue(all(row["source_code"] for row in rows))
         self.assertTrue(all(" — " in str(row["display_name"]) for row in rows))
+
+
+    def test_selector_sheet_filters_parameters_and_equipment_in_one_row_per_configuration(self) -> None:
+        rows = self._table(self.workbook["Selector"])
+        self.assertEqual(len(rows), len(SELECTED))
+        self.assertEqual(
+            {str(row["Kod konfiguracji"]) for row in rows},
+            set(SELECTED),
+        )
+        self.assertTrue(all(row["Model"] for row in rows))
+        self.assertTrue(all(row["Wersja"] for row in rows))
+        self.assertTrue(all(row["Napęd"] for row in rows))
+        self.assertTrue(all(row["Skrzynia"] in {"manualna", "automatyczna"} for row in rows))
+        equipment_headers = [
+            header
+            for header in self.workbook["Selector"][0]
+            if str(header).startswith("Wyposażenie | ")
+        ]
+        self.assertEqual(len(equipment_headers), 76)
+        allowed = {"seryjne", "opcjonalne", "niedostępne", "brak danych"}
+        for row in rows:
+            self.assertEqual(
+                int(row["Wyposażenie opisane"]) + int(row["Wyposażenie brak danych"]),
+                len(equipment_headers),
+            )
+            self.assertTrue(all(str(row[str(header)]) in allowed for header in equipment_headers))
 
     def test_equipment_and_commercial_offer_sheets_are_filterable_consumer_views(self) -> None:
         equipment = self._table(self.workbook["Equipment"])
