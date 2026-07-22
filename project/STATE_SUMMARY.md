@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.1.1 Performance Patch Publication**
+**Data Products v1.1.2 Single Equipment Filter Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.1.1 Performance Patch
-- Pull Request: #201
-- Verified head: `63b7b622f5a55d35f1283877737b55c6bee78451`
-- Quality run: #1149
+- Package: Data Products v1.1.2 Single Equipment Filter
+- Pull Request: #205
+- Verified head: `4c64e0c4bd949021b6d2f739426849f9183d5b11`
+- Quality run: #1176
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Data Products v1.1.1 Performance Patch Publication** — `complete`
+**Data Products v1.1.2 Single Equipment Filter Publication** — `complete`
 
-Publish and independently re-verify data-products-v1.1.1 from exact green main commit b333f74e8426993e797a79c2e8621bd2f0f7bf4e after eliminating equipment-selection browser stalls without changing data semantics.
+Publish and verify data-products-v1.1.2 from exact green main commit 8b08dbd8d846610577437c150a0d39aeb3d868f4 after replacing the browser equipment split with one buyer-oriented filter and moving availability status into matched price breakdowns.
 
 ## Next package
 

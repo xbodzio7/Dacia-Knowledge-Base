@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.1.1 Performance Patch Publication",
+  "phase": "Data Products v1.1.2 Single Equipment Filter Publication",
   "reference_delivery": {
-    "name": "Data Products v1.1.1 Performance Patch",
-    "pull_request": 201,
-    "head_sha": "63b7b622f5a55d35f1283877737b55c6bee78451",
-    "quality_run": 1149
+    "name": "Data Products v1.1.2 Single Equipment Filter",
+    "pull_request": 205,
+    "head_sha": "4c64e0c4bd949021b6d2f739426849f9183d5b11",
+    "quality_run": 1176
   },
   "baseline": {
     "tests": 698,
@@ -27,9 +27,9 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.1.1 Performance Patch Publication",
+    "name": "Data Products v1.1.2 Single Equipment Filter Publication",
     "status": "complete",
-    "goal": "Publish and independently re-verify data-products-v1.1.1 from exact green main commit b333f74e8426993e797a79c2e8621bd2f0f7bf4e after eliminating equipment-selection browser stalls without changing data semantics."
+    "goal": "Publish and verify data-products-v1.1.2 from exact green main commit 8b08dbd8d846610577437c150a0d39aeb3d868f4 after replacing the browser equipment split with one buyer-oriented filter and moving availability status into matched price breakdowns."
   },
   "next_package": {
     "name": "Excel Selector Planning Review",
