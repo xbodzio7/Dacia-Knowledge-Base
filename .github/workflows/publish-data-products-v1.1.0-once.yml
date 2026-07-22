@@ -1,0 +1,120 @@
+name: Publish data products v1.1.0 once
+
+on:
+  push:
+    branches:
+      - release/data-products-v1.1.0-authorized
+
+permissions:
+  contents: write
+
+env:
+  RELEASE_VERSION: "1.1.0"
+  RELEASE_TAG: data-products-v1.1.0
+  EXPECTED_MAIN_SHA: 397958ba740c0b3b9370822d7e1d473c4829c11e
+  RELEASE_DIR: release-candidate
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check exact main identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          actual="$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq .sha)"
+          test "${actual}" = "${EXPECTED_MAIN_SHA}"
+
+      - name: Check out exact tested main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 397958ba740c0b3b9370822d7e1d473c4829c11e
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Run release regression tests
+        run: python -m unittest -q tests.test_data_product_release
+
+      - name: Build exact release assets
+        run: |
+          python tools/data_product_release.py \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${EXPECTED_MAIN_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+
+      - name: Independently verify release assets
+        run: |
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${EXPECTED_MAIN_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+
+      - name: Reject an existing tag or release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          check_absent() {
+            local endpoint="$1"
+            local label="$2"
+            local output
+            local status
+            set +e
+            output="$(gh api --silent "${endpoint}" 2>&1)"
+            status=$?
+            set -e
+            if [[ ${status} -eq 0 ]]; then
+              echo "${label} already exists: ${RELEASE_TAG}" >&2
+              exit 1
+            fi
+            if [[ "${output}" != *"(HTTP 404)"* ]]; then
+              echo "Unable to prove ${label} absence; refusing publication." >&2
+              printf '%s\n' "${output}" >&2
+              exit 1
+            fi
+          }
+          check_absent "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" "Release"
+          check_absent "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" "Tag"
+
+      - name: Extract deterministic release notes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          root = Path("release-candidate")
+          archive = root / "dacia-knowledge-base-data-products-v1.1.0.zip"
+          with ZipFile(archive) as zipped:
+              notes = zipped.read("RELEASE_NOTES.md")
+          (root / "RELEASE_NOTES.md").write_bytes(notes)
+          PY
+
+      - name: Publish immutable GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${RELEASE_TAG}" \
+            "${RELEASE_DIR}/dacia-knowledge-base-data-products-v1.1.0.zip" \
+            "${RELEASE_DIR}/data-product-release-manifest.json" \
+            "${RELEASE_DIR}/SHA256SUMS" \
+            --target "${EXPECTED_MAIN_SHA}" \
+            --title "Dacia Knowledge Base Data Products v1.1.0" \
+            --notes-file "${RELEASE_DIR}/RELEASE_NOTES.md"
+
+      - name: Upload publication evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.1.0-publication-evidence
+          path: release-candidate
+          if-no-files-found: error
+          retention-days: 30
