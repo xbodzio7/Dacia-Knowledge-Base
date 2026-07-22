@@ -45,10 +45,11 @@ jobs:
           gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
             --json databaseId,publishedAt,isDraft,isPrerelease,url,tagName,targetCommitish,assets \
             > "$RUNNER_TEMP/release-metadata.json"
-          python - "$output" "$RUNNER_TEMP/release-metadata.json" <<'PY'
+          python - "$output" "$RUNNER_TEMP/release-metadata.json" "$RUNNER_TEMP/data-products-v1.1.1-publication-audit.json" <<'PY'
           import hashlib, json, pathlib, sys
           output = pathlib.Path(sys.argv[1])
           metadata = json.loads(pathlib.Path(sys.argv[2]).read_text(encoding='utf-8'))
+          audit_path = pathlib.Path(sys.argv[3])
           expected = {
               'dacia-knowledge-base-data-products-v1.1.1.zip',
               'data-product-release-manifest.json',
@@ -84,5 +85,14 @@ jobs:
               'assets': records,
               'verification': 'PASS',
           }
+          audit_path.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print('AUDIT_JSON=' + json.dumps(audit, ensure_ascii=False, sort_keys=True))
           PY
+
+      - name: Upload audit record
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.1.1-publication-audit
+          path: ${{ runner.temp }}/data-products-v1.1.1-publication-audit.json
+          if-no-files-found: error
+          retention-days: 7
