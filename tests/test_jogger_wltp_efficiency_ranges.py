@@ -140,7 +140,7 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
             for row in self.range_rows
         }
         self.assertFalse(scalar & ranged)
-        self.assertEqual(len(self.scalar_rows), 1204)
+        self.assertEqual(len(self.scalar_rows), 1756)
 
     def test_registered_pdf_hash_and_unique_source_texts_are_verified(self) -> None:
         self.assertTrue(PDF.is_file())
@@ -190,12 +190,12 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
     def test_state_exposes_scalar_and_range_denominators(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         baseline = state["baseline"]
-        self.assertEqual(baseline["tests"], 688)
-        self.assertEqual(baseline["rows"], 7052)
-        self.assertEqual(baseline["configuration_values"], 1204)
-        self.assertEqual(baseline["configuration_import_specs"], 71)
-        self.assertEqual(baseline["configuration_value_ranges"], 144)
-        self.assertEqual(baseline["configuration_range_import_specs"], 19)
+        self.assertEqual(baseline["tests"], 696)
+        self.assertEqual(baseline["rows"], 7624)
+        self.assertEqual(baseline["configuration_values"], 1756)
+        self.assertEqual(baseline["configuration_import_specs"], 112)
+        self.assertEqual(baseline["configuration_value_ranges"], 158)
+        self.assertEqual(baseline["configuration_range_import_specs"], 20)
 
 
 if __name__ == "__main__":

@@ -95,11 +95,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - jeden źródłowy przewodnik konsumencki obejmujący pobranie, nawigację, wybór, własne porównania, proweniencję i kontrolę integralności,
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
+- źródłowy katalog, wyposażenie, oferty handlowe i techniczne specyfikacje Bigster MY26 dla 14 konfiguracji.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 688 testów automatycznych,
+- 696 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

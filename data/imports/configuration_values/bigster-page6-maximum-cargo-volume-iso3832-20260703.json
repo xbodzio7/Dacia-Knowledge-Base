@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 1524,
+  "attribute_code": "maximum_cargo_volume_iso3832",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "dm3",
+    "status": "active"
+  },
+  "observation_date": "2026-07-03",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "ZUŻYCIE PALIWA I EMISJA CO2",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1937",
+      "source_text": "1937"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1937",
+      "source_text": "1937"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1937",
+      "source_text": "1937"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1937",
+      "source_text": "1937"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1877",
+      "source_text": "1877"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1877",
+      "source_text": "1877"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1877",
+      "source_text": "1877"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1877",
+      "source_text": "1877"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1712",
+      "source_text": "1712"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1712",
+      "source_text": "1712"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1712",
+      "source_text": "1712"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1851",
+      "source_text": "1851"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1851",
+      "source_text": "1851"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "value": "1851",
+      "source_text": "1851"
+    }
+  ]
+}

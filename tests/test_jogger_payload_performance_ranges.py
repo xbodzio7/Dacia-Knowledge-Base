@@ -114,9 +114,9 @@ class JoggerPayloadPerformanceRangeTests(unittest.TestCase):
         self.assertEqual({row["attribute_code"] for row in self.selected}, {"maximum_payload", "acceleration_0_100", "max_power_rpm", "max_torque_rpm"})
 
     def test_prior_ranges_and_scalar_values_remain_unchanged(self) -> None:
-        self.assertEqual(len(self.ranges), 144)
+        self.assertEqual(len(self.ranges), 158)
         self.assertEqual(len([row for row in self.ranges if int(row["id"]) <= 64]), 64)
-        self.assertEqual(len(self.scalars), 1204)
+        self.assertEqual(len(self.scalars), 1756)
         scalar_keys = {(row["configuration_code"], row["attribute_code"], row["fuel_type_code"], row["observation_date"]) for row in self.scalars}
         selected_keys = {(row["configuration_code"], row["attribute_code"], row["fuel_type_code"], row["observation_date"]) for row in self.selected}
         self.assertFalse(scalar_keys & selected_keys)
@@ -136,11 +136,11 @@ class JoggerPayloadPerformanceRangeTests(unittest.TestCase):
     def test_state_exposes_updated_range_denominators(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
         baseline = state["baseline"]
-        self.assertEqual(baseline["tests"], 688)
-        self.assertEqual(baseline["rows"], 7052)
-        self.assertEqual(baseline["configuration_values"], 1204)
-        self.assertEqual(baseline["configuration_value_ranges"], 144)
-        self.assertEqual(baseline["configuration_range_import_specs"], 19)
+        self.assertEqual(baseline["tests"], 696)
+        self.assertEqual(baseline["rows"], 7624)
+        self.assertEqual(baseline["configuration_values"], 1756)
+        self.assertEqual(baseline["configuration_value_ranges"], 158)
+        self.assertEqual(baseline["configuration_range_import_specs"], 20)
 
 
 if __name__ == "__main__":

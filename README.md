@@ -911,12 +911,35 @@ Całkowita moc układu hybrydowego Jogger Hybrid 155 jest zapisana jako odrębny
 
 Macierze wyposażenia Jogger ze stron 4-5 dostarczają 1 166 datowanych rekordów dostępności dla 53 kanonicznych atrybutów i 22 konfiguracji. Import zachowuje statusy seryjne, opcjonalne i niedostępne oraz kwalifikatory pakietów i napędów.
 
+### Bigster MY26 source-backed technical specifications
+
+Oficjalny polski cennik Bigster MY26 z 3.07.2026 dostarcza 552 dokładne
+wartości techniczne dla 14 aktywnych konfiguracji. Dane są zapisane w 41
+deklaratywnych specyfikacjach i obejmują napęd, skrzynie biegów, silniki,
+elektryfikację, osiągi, zużycie paliwa, emisję CO2, pojemności, masy oraz
+wymiary.
+
+Konteksty benzyny i LPG pozostają rozdzielone. Moc silnika spalinowego,
+całkowita moc układu Hybrid 155, silnik trakcyjny i HSG nie są sumowane ani
+spłaszczane. Wymiary 4x2 i 4x4 zachowują odrębne wartości wysokości, rozstawu
+osi, tylnego zwisu i prześwitu. Czternaście drukowanych par maksymalnej
+ładowności jest przechowywanych jako domknięte zakresy, a nie fałszywe
+wartości dokładne.
+
+Pięć neutralnych atrybutów zachowuje kwalifikatory źródła dla filtra cząstek,
+napięcia układu hybrydowego, nieokreślonego rodzaju pojemności baterii oraz
+dwóch pomiarów bagażnika ISO 3832. Cały pakiet można zweryfikować poleceniem:
+
+```bash
+python tools/import_bigster_technical_specifications.py --check
+```
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 688 testów, 41 pliki CSV, 7052 rekordów
-danych, 43 relacje między tabelami, 1204 wartości konfiguracji, 71 skalarnych specyfikacji importu, 144 zakresów konfiguracji i 19
+Zweryfikowany model obejmuje 696 testów, 41 pliki CSV, 7624 rekordów
+danych, 43 relacje między tabelami, 1756 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4472 rekordów dostępności wyposażenia.
-Katalog zawiera 376 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 41 tabele i 7052 rekordów, pozostaje zgodna z CSV, a wszystkie
+Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
+SQLite obejmuje 41 tabele i 7624 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
+* Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
+* Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
+* Five neutral Bigster attributes for particulate filtration, hybrid voltage, source-stated battery capacity and ISO 3832 cargo measurements, plus the canonical `dm3` unit.
 * Source-backed commercial model with 27 named packages/options, 68 equipment memberships and 86 configuration price mappings from the official Polish MY26 price lists effective 3 July 2026.
 * Interactive shortlist HTML v1.2 with grouped click-based equipment selection, persistent selected-item trays and deterministic minimum-cost package pricing.
 * Filterable `Equipment` and `Commercial Offers` sheets in deterministic comparison workbooks.
@@ -229,13 +233,13 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 688 tests.
-* The verified master-data baseline now contains 41 CSV files and 7052 rows.
-* SQLite verification now covers 41 tables and 7052 rows.
-* Configuration attribute values now contain 1204 dated records.
-* Declarative scalar configuration-value imports now contain 71 versioned JSON specifications.
-* Configuration value ranges now contain 144 dated records from 19 range specifications.
-* The canonical catalogue now contains 376 attributes in 30 categories.
+* The automated test suite now contains 696 tests.
+* The verified master-data baseline now contains 41 CSV files and 7624 rows.
+* SQLite verification now covers 41 tables and 7624 rows.
+* Configuration attribute values now contain 1756 dated records.
+* Declarative scalar configuration-value imports now contain 112 versioned JSON specifications.
+* Configuration value ranges now contain 158 dated records from 20 range specifications.
+* The canonical catalogue now contains 381 attributes in 30 categories.
 * Equipment availability now contains 4472 records: 3446 `standard`, 467 `optional`, 559 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-21",
+  "updated_on": "2026-07-22",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Equipment and Commercial Mapping v1.4",
+  "phase": "Bigster Technical Specifications v1.5",
   "reference_delivery": {
     "name": "Data Product Consumer Guide",
     "pull_request": 167,
@@ -15,26 +15,26 @@
     "quality_run": 916
   },
   "baseline": {
-    "tests": 688,
+    "tests": 696,
     "csv_files": 41,
-    "rows": 7052,
-    "configuration_values": 1204,
-    "configuration_import_specs": 71,
-    "configuration_value_ranges": 144,
-    "configuration_range_import_specs": 19,
+    "rows": 7624,
+    "configuration_values": 1756,
+    "configuration_import_specs": 112,
+    "configuration_value_ranges": 158,
+    "configuration_range_import_specs": 20,
     "availability_records": 4472,
-    "attributes": 376,
+    "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Equipment and Commercial Mapping",
+    "name": "Bigster Technical Specifications",
     "status": "complete",
-    "goal": "Import the source-backed Bigster equipment matrix and map named packages and individual options with exact configuration-level prices."
+    "goal": "Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values."
   },
   "next_package": {
-    "name": "Bigster Technical Specifications",
+    "name": "Bigster Technical Reporting Portfolio",
     "status": "planned",
-    "goal": "Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values."
+    "goal": "Promote the four source-backed Bigster powertrain scopes into deterministic completeness, source-coverage, gap-evidence and reporting outputs using the existing reporting architecture."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
