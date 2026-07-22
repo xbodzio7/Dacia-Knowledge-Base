@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.1.0 HTML Selector",
+  "phase": "Data Products v1.1.0 Publication",
   "reference_delivery": {
-    "name": "Bigster Technical Specifications",
-    "pull_request": 196,
-    "head_sha": "8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f",
-    "quality_run": 1131
+    "name": "Data Products v1.1.0 HTML Selector",
+    "pull_request": 198,
+    "head_sha": "801155a10e0f16787f93c85765eba0e8b3da0b15",
+    "quality_run": 1139
   },
   "baseline": {
     "tests": 698,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.1.0 HTML Selector",
+    "name": "Data Products v1.1.0 Publication",
     "status": "complete",
-    "goal": "Improve the offline shortlist model, version, transmission and powertrain controls and verify the exact release HTML in a real browser without changing evidence semantics."
+    "goal": "Publish the immutable data-products-v1.1.0 assets from exact green main commit 397958ba740c0b3b9370822d7e1d473c4829c11e and independently re-verify their public identities, sizes and SHA-256 values."
   },
   "next_package": {
-    "name": "Data Products v1.1.0 Publication",
+    "name": "Excel Selector Planning Review",
     "status": "planned",
-    "goal": "Build, independently verify and publish the immutable data-products-v1.1.0 assets from the exact green main commit, then record their durable identities and hashes."
+    "goal": "Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

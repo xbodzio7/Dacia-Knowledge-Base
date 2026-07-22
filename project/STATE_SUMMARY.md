@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.1.0 HTML Selector**
+**Data Products v1.1.0 Publication**
 
 ## Reference delivery
 
-- Package: Bigster Technical Specifications
-- Pull Request: #196
-- Verified head: `8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f`
-- Quality run: #1131
+- Package: Data Products v1.1.0 HTML Selector
+- Pull Request: #198
+- Verified head: `801155a10e0f16787f93c85765eba0e8b3da0b15`
+- Quality run: #1139
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.1.0 HTML Selector** — `complete`
+**Data Products v1.1.0 Publication** — `complete`
 
-Improve the offline shortlist model, version, transmission and powertrain controls and verify the exact release HTML in a real browser without changing evidence semantics.
+Publish the immutable data-products-v1.1.0 assets from exact green main commit 397958ba740c0b3b9370822d7e1d473c4829c11e and independently re-verify their public identities, sizes and SHA-256 values.
 
 ## Next package
 
-**Data Products v1.1.0 Publication** — `planned`
+**Excel Selector Planning Review** — `planned`
 
-Build, independently verify and publish the immutable data-products-v1.1.0 assets from the exact green main commit, then record their durable identities and hashes.
+Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release.
 
 ## Autonomy
 

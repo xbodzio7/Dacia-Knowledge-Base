@@ -26,7 +26,7 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Zweryfikowane publiczne wydanie `data-products-v1.0.0` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.1.0` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.0.0
+  --workspace-directory ../dkb-data-products-v1.1.0
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -699,6 +699,8 @@ wydania nie są nadpisywane. Pełny kontrakt opisuje
 `project/packages/versioned-data-product-release-publication.md`.
 
 Pierwsze publiczne wydanie zostało opublikowane jako [`data-products-v1.0.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.0.0) z commita `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e`. Trzy publiczne assety zostały ponownie pobrane, zweryfikowane przez `data-product-release --verify` i zapisane w `project/releases/data-products-v1.0.0.md`.
+
+Najnowsze wydanie [`data-products-v1.1.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.0) zostało opublikowane z dokładnego commita `397958ba740c0b3b9370822d7e1d473c4829c11e`. Obejmuje 67 konfiguracji, 17 zakresów i poprawiony samodzielny selektor HTML. Wszystkie trzy publiczne assety zostały ponownie pobrane i zweryfikowane; trwały zapis znajduje się w `project/releases/data-products-v1.1.0.md`.
 
 Dla użytkownika końcowego preferowaną ścieżką jest komenda
 `data-product-release-download`. Pobiera ona dokładnie wskazaną wersję, rozwiązuje
