@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.1.1` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.1.2` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.1.1 \
-  --output-directory ../dkb-data-products-v1.1.1
+  --version 1.1.2 \
+  --output-directory ../dkb-data-products-v1.1.2
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.1.1
+  --workspace-directory ../dkb-data-products-v1.1.2
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -702,7 +702,9 @@ Pierwsze publiczne wydanie zostało opublikowane jako [`data-products-v1.0.0`](h
 
 Wydanie [`data-products-v1.1.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.0) zostało opublikowane z dokładnego commita `397958ba740c0b3b9370822d7e1d473c4829c11e`. Obejmuje 67 konfiguracji, 17 zakresów i poprawiony samodzielny selektor HTML. Wszystkie trzy publiczne assety zostały ponownie pobrane i zweryfikowane; trwały zapis znajduje się w `project/releases/data-products-v1.1.0.md`.
 
-Najnowsza poprawka [`data-products-v1.1.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.1) została opublikowana z dokładnego commita `b333f74e8426993e797a79c2e8621bd2f0f7bf4e`. Usuwa zawieszanie przeglądarki przy wyborze wyposażenia, zachowując ten sam zestaw 67 konfiguracji, 17 zakresów, dane źródłowe i semantykę porównań. Trwały zapis znajduje się w `project/releases/data-products-v1.1.1.md`.
+Poprawka [`data-products-v1.1.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.1) została opublikowana z dokładnego commita `b333f74e8426993e797a79c2e8621bd2f0f7bf4e`. Usuwa zawieszanie przeglądarki przy wyborze wyposażenia, zachowując ten sam zestaw 67 konfiguracji, 17 zakresów, dane źródłowe i semantykę porównań. Trwały zapis znajduje się w `project/releases/data-products-v1.1.1.md`.
+
+Najnowsza poprawka [`data-products-v1.1.2`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.2) została opublikowana z dokładnego commita `8b08dbd8d846610577437c150a0d39aeb3d868f4`. Udostępnia jeden filtr wyposażenia, a przy cenie każdego pasującego wariantu pokazuje, czy wybrany element jest seryjny, znajduje się w pakiecie, jest osobną opcją albo ma nieustaloną dopłatę. Trwały zapis znajduje się w `project/releases/data-products-v1.1.2.md`.
 
 Dla użytkownika końcowego preferowaną ścieżką jest komenda
 `data-product-release-download`. Pobiera ona dokładnie wskazaną wersję, rozwiązuje
