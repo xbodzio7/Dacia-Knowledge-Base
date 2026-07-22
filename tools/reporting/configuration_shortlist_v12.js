@@ -8,10 +8,6 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function (pricing) {
   "use strict";
 
-  const STATUS_LABELS = Object.freeze({
-    standard: "w standardzie", optional: "dostępne opcjonalnie",
-    not_available: "niedostępne", unknown: "status nieustalony", missing: "brak danych"
-  });
   const CATEGORY_LABELS = Object.freeze({
     ADAS: "Systemy wspomagania kierowcy", Brakes: "Hamulce",
     Doors: "Drzwi i dostęp", "Driving Systems": "Prowadzenie i parkowanie",
@@ -161,11 +157,10 @@
   }
 
   function currentCriteria() {
-    const available = document.querySelector("#required-equipment");
-    const standard = document.querySelector("#required-standard-equipment");
+    const equipment = document.querySelector("#required-equipment");
     return {
-      required_equipment: available ? selectedValues(available) : [],
-      required_standard_equipment: standard ? selectedValues(standard) : []
+      required_equipment: equipment ? selectedValues(equipment) : [],
+      required_standard_equipment: []
     };
   }
 
@@ -178,22 +173,6 @@
       return `<li><div><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(kind)} · ${escapeHtml(equipment || "bez przypisanego filtra wyposażenia")}</span></div><b>${escapeHtml(pricing.formatMoney(item.amount, item.currency_code))}</b></li>`;
     }).join("");
     return `<details class="commercial-offers"><summary>Dostępne pakiety i opcje (${components.length})</summary><ul>${rows}</ul></details>`;
-  }
-
-  function localizeBadges(card, configuration, criteria) {
-    const selected = [
-      ...criteria.required_equipment.map((code) => ({ code, standardOnly: false })),
-      ...criteria.required_standard_equipment.map((code) => ({ code, standardOnly: true }))
-    ];
-    [...card.querySelectorAll(".equipment-state")].forEach((badge, index) => {
-      const item = selected[index];
-      if (!item) return;
-      const state = (configuration.equipment || {})[item.code];
-      const status = state ? state.availability_status : "missing";
-      const nextText = `${pricing.equipmentLabel(item.code)}: ${STATUS_LABELS[status] || status}${item.standardOnly ? " (wymagane seryjnie)" : ""}`;
-      if (badge.textContent !== nextText) badge.textContent = nextText;
-      if (badge.title !== item.code) badge.title = item.code;
-    });
   }
 
   function enhanceCards(catalog, results) {
@@ -217,7 +196,6 @@
         ));
         price.dataset.v12Signature = priceSignature;
       }
-      localizeBadges(card, configuration, criteria);
       let offers = card.querySelector(".commercial-offers");
       if (!offers && configuration.price_components?.length) {
         const provenance = card.querySelector("details");
@@ -240,8 +218,7 @@
     const catalog = JSON.parse(catalogElement.textContent);
     pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
     const pickers = [
-      createEquipmentPicker(document.querySelector("#required-equipment"), "Wybrane wyposażenie", catalog),
-      createEquipmentPicker(document.querySelector("#required-standard-equipment"), "Wymagane w standardzie", catalog)
+      createEquipmentPicker(document.querySelector("#required-equipment"), "Wybrane wyposażenie", catalog)
     ].filter(Boolean);
     let scheduled = false;
     const scheduleFrame = typeof requestAnimationFrame === "function"
@@ -258,7 +235,7 @@
     };
     results.addEventListener("dkb:results-rendered", refresh);
     document.addEventListener("change", (event) => {
-      if (event.target.matches("#required-equipment, #required-standard-equipment, .configuration-select")) refresh();
+      if (event.target.matches("#required-equipment, .configuration-select")) refresh();
     });
     document.querySelector("#reset")?.addEventListener("click", () => setTimeout(refresh, 0));
     refresh();
@@ -271,6 +248,6 @@
 
   return {
     initialize, createEquipmentPicker, enhanceCards, commercialOffersMarkup,
-    dispatchSelection, localizeBadges
+    dispatchSelection, currentCriteria
   };
 });

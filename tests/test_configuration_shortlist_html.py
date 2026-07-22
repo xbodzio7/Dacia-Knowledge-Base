@@ -105,9 +105,10 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             "maximum-price",
             "seats",
             "required-equipment",
-            "required-standard-equipment",
         ):
             self.assertIn(f'id="{control}"', rendered)
+        self.assertNotIn('id="required-standard-equipment"', rendered)
+        self.assertIn('>Wyposażenie\n      <select id="required-equipment"', rendered)
 
     def test_initial_cli_filters_are_embedded_without_reducing_catalog(self) -> None:
         criteria = ShortlistCriteria(
@@ -115,6 +116,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             transmissions=("automatic",),
             maximum_price=Decimal("95000"),
             required_equipment=("heated_steering_wheel",),
+            required_standard_equipment=("navigation_system",),
         )
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.catalog(Path(directory), criteria)
@@ -130,9 +132,12 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
                 "maximum_price_pln": "95000",
                 "seats": None,
                 "required_equipment": ["heated_steering_wheel"],
-                "required_standard_equipment": [],
+                "required_standard_equipment": ["navigation_system"],
             },
         )
+        rendered = render_html(catalog)
+        self.assertNotIn('id="required-standard-equipment"', rendered)
+        self.assertIn("filters.required_standard_equipment || []", rendered)
 
     def test_historical_catalog_uses_only_records_available_as_of_date(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
