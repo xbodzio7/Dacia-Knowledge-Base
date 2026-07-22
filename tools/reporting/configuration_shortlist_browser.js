@@ -246,10 +246,36 @@
       : "Brak wykluczeń.";
   }
 
+  function modelOptionLabel(item) {
+    return String(item.name || item.code || "");
+  }
+
+  function versionOptionLabel(item) {
+    return String(item.name || item.code || "");
+  }
+
+  function versionsForModels(versions, modelCodes) {
+    const wanted = new Set(modelCodes || []);
+    if (!wanted.size) return [];
+    return (versions || []).filter((item) => wanted.has(item.model_code));
+  }
+
+  function populateVersions(catalog, modelCodes, selectedVersions) {
+    const select = document.querySelector("#versions");
+    const field = document.querySelector("#versions-field");
+    const items = versionsForModels(catalog.facets.versions, modelCodes);
+    select.innerHTML = optionMarkup(items, "code", versionOptionLabel);
+    select.disabled = items.length === 0;
+    if (field) field.hidden = items.length === 0;
+    setSelected(select, selectedVersions || []);
+  }
+
   function populateControls(catalog) {
-    document.querySelector("#models").innerHTML = optionMarkup(catalog.facets.models, "code", (item) => `${item.name} (${item.code})`);
-    document.querySelector("#versions").innerHTML = optionMarkup(catalog.facets.versions, "code", (item) => `${item.name} (${item.code})`);
-    document.querySelector("#transmissions").innerHTML = optionMarkup(catalog.facets.transmissions, "", (item) => item);
+    document.querySelector("#models").innerHTML = optionMarkup(catalog.facets.models, "code", modelOptionLabel);
+    populateVersions(catalog, [], []);
+    document.querySelector("#transmissions").innerHTML = '<option value="">Dowolna</option>'
+      + optionMarkup(catalog.facets.transmissions, "", (item) => item);
+    document.querySelector("#powertrains").innerHTML = optionMarkup(catalog.facets.powertrains, "", (item) => item);
     document.querySelector("#seats").innerHTML = '<option value="">Dowolna / także brak danych</option>'
       + optionMarkup(catalog.facets.seat_counts.map(String), "", (item) => `${item} miejsc`);
     const equipment = optionMarkup(catalog.facets.equipment, "code", (item) => `${item.name} (${item.code})`);
@@ -258,13 +284,12 @@
   }
 
   function criteriaFromControls() {
-    const splitPowertrain = document.querySelector("#powertrains").value
-      .split(",").map((value) => value.trim()).filter(Boolean);
+    const transmission = document.querySelector("#transmissions").value;
     return {
       models: selectedValues(document.querySelector("#models")),
       versions: selectedValues(document.querySelector("#versions")),
-      transmissions: selectedValues(document.querySelector("#transmissions")),
-      powertrains: splitPowertrain,
+      transmissions: transmission ? [transmission] : [],
+      powertrains: selectedValues(document.querySelector("#powertrains")),
       minimum_price_pln: document.querySelector("#minimum-price").value,
       maximum_price_pln: document.querySelector("#maximum-price").value,
       seats: document.querySelector("#seats").value,
@@ -274,11 +299,19 @@
     };
   }
 
-  function applyInitialFilters(filters) {
-    setSelected(document.querySelector("#models"), filters.models);
-    setSelected(document.querySelector("#versions"), filters.versions);
-    setSelected(document.querySelector("#transmissions"), filters.transmissions);
-    document.querySelector("#powertrains").value = (filters.powertrains || []).join(", ");
+  function applyInitialFilters(catalog, filters) {
+    const selectedVersions = filters.versions || [];
+    const inferredModels = new Set(filters.models || []);
+    if (!inferredModels.size && selectedVersions.length) {
+      for (const item of catalog.facets.versions) {
+        if (selectedVersions.includes(item.code)) inferredModels.add(item.model_code);
+      }
+    }
+    const modelCodes = [...inferredModels];
+    setSelected(document.querySelector("#models"), modelCodes);
+    populateVersions(catalog, modelCodes, selectedVersions);
+    document.querySelector("#transmissions").value = (filters.transmissions || [])[0] || "";
+    setSelected(document.querySelector("#powertrains"), filters.powertrains || []);
     document.querySelector("#minimum-price").value = filters.minimum_price_pln || "";
     document.querySelector("#maximum-price").value = filters.maximum_price_pln || "";
     document.querySelector("#seats").value = filters.seats || "";
@@ -291,22 +324,31 @@
     if (!catalogElement) return;
     const catalog = JSON.parse(catalogElement.textContent);
     populateControls(catalog);
-    applyInitialFilters(catalog.initial_filters || {});
+    applyInitialFilters(catalog, catalog.initial_filters || {});
     const results = document.querySelector("#results");
     const update = () => {
       const outcome = filterCatalog(catalog, criteriaFromControls());
       renderSummary(outcome);
       renderResults(results, outcome);
     };
+    const models = document.querySelector("#models");
+    models.addEventListener("change", () => {
+      const selectedVersions = selectedValues(document.querySelector("#versions"));
+      populateVersions(catalog, selectedValues(models), selectedVersions);
+      update();
+    });
     for (const element of document.querySelectorAll("#filters input, #filters select")) {
+      if (element === models) continue;
       element.addEventListener("input", update);
       element.addEventListener("change", update);
     }
     document.querySelector("#reset").addEventListener("click", () => {
-      document.querySelector("#filters").reset();
+      const filters = document.querySelector("#filters");
+      HTMLFormElement.prototype.reset.call(filters);
       for (const element of document.querySelectorAll("#filters select[multiple]")) {
         setSelected(element, []);
       }
+      populateVersions(catalog, [], []);
       update();
       document.querySelector("#search").focus();
     });
@@ -322,6 +364,9 @@
     normalizeCriteria,
     evaluate,
     filterCatalog,
-    sortConfigurations
+    sortConfigurations,
+    modelOptionLabel,
+    versionOptionLabel,
+    versionsForModels
   };
 });

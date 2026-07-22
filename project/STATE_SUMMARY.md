@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Bigster Technical Specifications v1.5**
+**Data Products v1.1.0 HTML Selector**
 
 ## Reference delivery
 
-- Package: Data Product Consumer Guide
-- Pull Request: #167
-- Verified head: `162b8217e50f5ca774199a261b7bb486bac468dc`
-- Quality run: #916
+- Package: Bigster Technical Specifications
+- Pull Request: #196
+- Verified head: `8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f`
+- Quality run: #1131
 
 ## Verified baseline
 
-- Tests: 696
+- Tests: 698
 - Master CSV files: 41
 - Master rows: 7624
 - Configuration values: 1756
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Technical Specifications** — `complete`
+**Data Products v1.1.0 HTML Selector** — `complete`
 
-Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values.
+Improve the offline shortlist model, version, transmission and powertrain controls and verify the exact release HTML in a real browser without changing evidence semantics.
 
 ## Next package
 
-**Bigster Technical Reporting Portfolio** — `planned`
+**Data Products v1.1.0 Publication** — `planned`
 
-Promote the four source-backed Bigster powertrain scopes into deterministic completeness, source-coverage, gap-evidence and reporting outputs using the existing reporting architecture.
+Build, independently verify and publish the immutable data-products-v1.1.0 assets from the exact green main commit, then record their durable identities and hashes.
 
 ## Autonomy
 

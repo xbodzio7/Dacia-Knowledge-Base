@@ -100,6 +100,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             "models",
             "versions",
             "transmissions",
+            "powertrains",
             "minimum-price",
             "maximum-price",
             "seats",
@@ -175,6 +176,48 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             for code in ("cfg_a", "cfg_b", "cfg_c", "cfg_d"):
                 self.assertIn(code, html)
             self.assertIn('"models":["model_a"]', html)
+
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required")
+    def test_browser_control_contract_uses_clean_models_dependent_versions_and_multi_powertrains(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            _, catalog = self.catalog(Path(directory))
+        rendered = render_html(catalog)
+        self.assertIn('<label id="versions-field" hidden>Wersje', rendered)
+        self.assertIn('<select id="versions" multiple size="5" disabled>', rendered)
+        self.assertIn('<select id="transmissions"></select>', rendered)
+        self.assertIn('<select id="powertrains" multiple size="5"></select>', rendered)
+        self.assertIn("HTMLFormElement.prototype.reset.call(filters)", rendered)
+
+        script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
+        program = r"""
+const api = require(process.argv[1]);
+const versions = [
+  {code: "a_one", name: "One", model_code: "model_a"},
+  {code: "a_two", name: "Two", model_code: "model_a"},
+  {code: "b_one", name: "One", model_code: "model_b"}
+];
+process.stdout.write(JSON.stringify({
+  model: api.modelOptionLabel({code: "model_a", name: "Model A"}),
+  version: api.versionOptionLabel(versions[0]),
+  none: api.versionsForModels(versions, []).map((item) => item.code),
+  modelA: api.versionsForModels(versions, ["model_a"]).map((item) => item.code),
+  both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code)
+}));
+"""
+        completed = subprocess.run(
+            ["node", "-e", program, str(script)],
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        result = json.loads(completed.stdout)
+        self.assertEqual(result["model"], "Model A")
+        self.assertNotIn("(", result["model"])
+        self.assertEqual(result["version"], "One")
+        self.assertEqual(result["none"], [])
+        self.assertEqual(result["modelA"], ["a_one", "a_two"])
+        self.assertEqual(result["both"], ["a_one", "a_two", "b_one"])
 
     def run_node(
         self,
