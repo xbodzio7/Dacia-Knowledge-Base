@@ -1,0 +1,129 @@
+name: Publish data products v1.1.1
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data-products-v1.1.1
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.head_ref == 'release/data-products-v1.1.1-authorized'
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: data-products-v1.1.1
+      RELEASE_VERSION: 1.1.1
+      RELEASE_COMMIT: b333f74e8426993e797a79c2e8621bd2f0f7bf4e
+      ARCHIVE_SHA256: 273fa6f507aa3e0143c650b0d1236effeb3129ac999be775ce9566a10b2553d0
+      MANIFEST_SHA256: c67c500044acbd9731e7a26a10583f69ec7cc446047571cc3d8b7011b2bb455d
+      CHECKSUMS_SHA256: e163ae071e24233e6879059b0fc37c30ba14472a74327c21a260f66f7797dd36
+    steps:
+      - name: Check out exact green main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: b333f74e8426993e797a79c2e8621bd2f0f7bf4e
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.14'
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RELEASE_COMMIT"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Build and independently verify release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/data-products-v1.1.1"
+          python tools/dkb.py data-product-release \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$output"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$output"
+          test "$(sha256sum "$output/dacia-knowledge-base-data-products-v1.1.1.zip" | awk '{print $1}')" = "$ARCHIVE_SHA256"
+          test "$(sha256sum "$output/data-product-release-manifest.json" | awk '{print $1}')" = "$MANIFEST_SHA256"
+          test "$(sha256sum "$output/SHA256SUMS" | awk '{print $1}')" = "$CHECKSUMS_SHA256"
+          test "$(stat -c %s "$output/dacia-knowledge-base-data-products-v1.1.1.zip")" -eq 45161275
+          test "$(stat -c %s "$output/data-product-release-manifest.json")" -eq 18215
+          test "$(stat -c %s "$output/SHA256SUMS")" -eq 213
+
+      - name: Confirm immutable identity is unused
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists: $RELEASE_TAG" >&2
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Tag already exists: $RELEASE_TAG" >&2
+            exit 1
+          fi
+
+      - name: Publish final GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/data-products-v1.1.1"
+          cat > "$RUNNER_TEMP/release-notes.md" <<'EOF'
+          # Dacia Knowledge Base Data Products v1.1.1
+
+          Patch release fixing browser stalls when selecting equipment in the offline HTML shortlist.
+
+          - prevents a self-sustaining DOM mutation refresh loop;
+          - removes duplicate equipment-selection renders;
+          - batches card enhancement work by animation frame;
+          - hardens package-price coverage calculation;
+          - preserves all source evidence, filters, exports and comparison semantics.
+
+          The exact release HTML was exercised in Chromium with seven consecutive equipment selections and no JavaScript errors. All 15 pull-request workflows passed on the source commit.
+          EOF
+          sed -i 's/^          //' "$RUNNER_TEMP/release-notes.md"
+          gh release create "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$RELEASE_COMMIT" \
+            --title "$RELEASE_TAG" \
+            --notes-file "$RUNNER_TEMP/release-notes.md" \
+            "$output/dacia-knowledge-base-data-products-v1.1.1.zip" \
+            "$output/data-product-release-manifest.json" \
+            "$output/SHA256SUMS"
+
+      - name: Verify published tag and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch origin "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG"
+          test "$(git rev-list -n 1 "$RELEASE_TAG")" = "$RELEASE_COMMIT"
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json isDraft,isPrerelease,tagName,targetCommitish,assets > "$RUNNER_TEMP/release.json"
+          python - "$RUNNER_TEMP/release.json" <<'PY'
+          import json, sys
+          payload = json.load(open(sys.argv[1], encoding='utf-8'))
+          assert payload['tagName'] == 'data-products-v1.1.1'
+          assert payload['isDraft'] is False
+          assert payload['isPrerelease'] is False
+          names = sorted(asset['name'] for asset in payload['assets'])
+          assert names == ['SHA256SUMS', 'dacia-knowledge-base-data-products-v1.1.1.zip', 'data-product-release-manifest.json']
+          PY
