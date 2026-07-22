@@ -51,4 +51,39 @@ assert.equal(missing.unknown_components.length, 1);
 assert.equal(missing.total_is_complete, false);
 assert.match(api.priceBreakdownMarkup(missing), /cena nieustalona/);
 
+const manyAlternatives = Array.from({ length: 35 }, (_, index) => ({
+  code: `alternative_${index}`,
+  name: `Alternative ${index}`,
+  kind: "option",
+  amount: 2000 - index,
+  currency_code: "PLN",
+  equipment_codes: ["automatic_climate_control"]
+}));
+const selectedAlternative = api.chooseComponents(
+  manyAlternatives,
+  ["automatic_climate_control"]
+);
+assert.deepEqual(selectedAlternative.map((item) => item.code), ["alternative_34"]);
+
+const ui = require("../../tools/reporting/configuration_shortlist_v12.js");
+let textWrites = 0;
+const badge = {
+  _text: "",
+  get textContent() { return this._text; },
+  set textContent(value) { textWrites += 1; this._text = value; },
+  title: ""
+};
+const card = { querySelectorAll: () => [badge] };
+const criteria = { required_equipment: ["automatic_climate_control"], required_standard_equipment: [] };
+ui.localizeBadges(card, configuration, criteria);
+ui.localizeBadges(card, configuration, criteria);
+assert.equal(textWrites, 1);
+
+global.Event = class Event {
+  constructor(type, options) { this.type = type; this.bubbles = Boolean(options && options.bubbles); }
+};
+const dispatched = [];
+ui.dispatchSelection({ dispatchEvent: (event) => dispatched.push(event.type) });
+assert.deepEqual(dispatched, ["change"]);
+
 console.log("Configuration shortlist HTML v1.2 pricing contract passed.");

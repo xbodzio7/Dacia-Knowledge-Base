@@ -172,8 +172,7 @@
       decorateCards(results, selected);
       renderSelectionSummary(catalog, selected, list, count, buttons);
     };
-    const observer = new MutationObserver(sync);
-    observer.observe(results, { childList: true, subtree: true });
+    results.addEventListener("dkb:results-rendered", sync);
     sync();
 
     results.addEventListener("change", (event) => {

@@ -66,34 +66,47 @@
   }
 
   function chooseComponents(components, requiredCodes) {
-    const required = new Set(requiredCodes);
-    if (!required.size) return [];
-    const candidates = components.filter((component) =>
-      component.equipment_codes.some((code) => required.has(code))
-    );
-    let best = null;
-    const limit = 1 << candidates.length;
-    for (let mask = 1; mask < limit; mask += 1) {
-      const chosen = [];
-      const covered = new Set();
-      let total = 0;
-      let unknownCount = 0;
-      for (let index = 0; index < candidates.length; index += 1) {
-        if (!(mask & (1 << index))) continue;
-        const component = candidates[index];
-        chosen.push(component);
-        if (component.amount === null) unknownCount += 1;
-        else total += component.amount;
-        for (const code of component.equipment_codes) if (required.has(code)) covered.add(code);
+    const required = unique(requiredCodes);
+    if (!required.length) return [];
+    const requiredIndex = new Map(required.map((code, index) => [code, index]));
+    const fullMask = (1n << BigInt(required.length)) - 1n;
+    const candidates = components.map((component) => {
+      let coverageMask = 0n;
+      for (const code of component.equipment_codes) {
+        const index = requiredIndex.get(code);
+        if (index !== undefined) coverageMask |= 1n << BigInt(index);
       }
-      const current = {
-        components: chosen,
-        total,
-        unknownCount,
-        coveredCount: covered.size,
-        complete: covered.size === required.size
-      };
-      if (best === null || compareSelections(current, best) < 0) best = current;
+      return { component, coverageMask };
+    }).filter((item) => item.coverageMask !== 0n);
+
+    const empty = {
+      components: [], total: 0, unknownCount: 0,
+      coveredCount: 0, complete: false
+    };
+    let states = new Map([[0n, empty]]);
+    for (const { component, coverageMask } of candidates) {
+      const next = new Map(states);
+      for (const [mask, state] of states) {
+        const combinedMask = mask | coverageMask;
+        const current = {
+          components: [...state.components, component],
+          total: state.total + (component.amount === null ? 0 : component.amount),
+          unknownCount: state.unknownCount + (component.amount === null ? 1 : 0),
+          coveredCount: combinedMask.toString(2).replaceAll("0", "").length,
+          complete: combinedMask === fullMask
+        };
+        const previous = next.get(combinedMask);
+        if (!previous || compareSelections(current, previous) < 0) {
+          next.set(combinedMask, current);
+        }
+      }
+      states = next;
+    }
+
+    let best = null;
+    for (const [mask, state] of states) {
+      if (mask === 0n) continue;
+      if (best === null || compareSelections(state, best) < 0) best = state;
     }
     return best ? best.components : [];
   }
