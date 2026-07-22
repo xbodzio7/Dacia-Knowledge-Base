@@ -90,6 +90,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - deterministyczny XLSX z identycznymi bajtami na Linuxie oraz Windows,
 - wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
 - pierwsze publiczne wydanie `data-products-v1.0.0` z trzema pobranymi i ponownie zweryfikowanymi assetami,
+- publiczne wydanie `data-products-v1.1.0` z poprawionym selektorem HTML, 67 konfiguracjami, 17 zakresami i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
 - całkowicie offline'owa i tylko do odczytu ponowna weryfikacja assetów, rozpakowanych plików, indeksu i lokalnych odnośników workspace,

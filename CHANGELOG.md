@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 * Dependent model/version browser filters with clean model labels, single-choice transmission selection and a multi-select powertrain list for the next data-product release.
-* Planned immutable `data-products-v1.1.0` release contract covering the current 67 configurations and 17 independent comparison scopes.
+* Published and independently re-verified immutable `data-products-v1.1.0` from exact main commit `397958ba740c0b3b9370822d7e1d473c4829c11e`, covering 67 configurations, 17 scopes and the corrected offline HTML selector.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.

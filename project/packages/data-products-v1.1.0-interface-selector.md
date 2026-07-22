@@ -6,7 +6,7 @@ Date: 2026-07-22
 
 Prepare the next immutable public data-product release after `data-products-v1.0.0` by incorporating the source-backed catalogue expansion completed since the first release and by removing the remaining friction in the offline configuration selector.
 
-The published `data-products-v1.0.0` assets remain immutable. The new public identity is planned as `data-products-v1.1.0`.
+The published `data-products-v1.0.0` assets remain immutable. The corrected public identity was published as `data-products-v1.1.0` from exact main commit `397958ba740c0b3b9370822d7e1d473c4829c11e`.
 
 ## Interactive shortlist changes
 
@@ -49,4 +49,4 @@ the complete interaction path: model selection, dependent versions,
 single-choice transmission, multi-select powertrains, persistent configuration
 selection and full filter reset. The browser reported no runtime errors.
 
-The complete repository quality portfolio is required before merge. Publication of `data-products-v1.1.0` is a separate durable operation performed only after the package has been merged and verified on exact `main`.
+The complete repository quality portfolio passed before merge. After the package was merged and verified on exact `main`, `data-products-v1.1.0` was published and all three public assets were downloaded again and accepted by the independent release verifier. Durable identities and hashes are recorded in `project/releases/data-products-v1.1.0.md`.
