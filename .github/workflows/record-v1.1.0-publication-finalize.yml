@@ -4,16 +4,19 @@ on:
   push:
     branches:
       - docs/record-data-products-v1.1.0-publication
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
 
 concurrency:
-  group: record-v1.1.0-publication-${{ github.ref }}
+  group: record-v1.1.0-publication-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: false
 
 jobs:
   finalize:
+    if: github.event_name == 'push' || github.head_ref == 'docs/record-data-products-v1.1.0-publication'
     runs-on: ubuntu-latest
     steps:
       - name: Check out transport branch
