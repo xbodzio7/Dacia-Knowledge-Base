@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * Dependent model/version browser filters with clean model labels, single-choice transmission selection and a multi-select powertrain list for the next data-product release.
 * Published and independently re-verified immutable `data-products-v1.1.0` from exact main commit `397958ba740c0b3b9370822d7e1d473c4829c11e`, covering 67 configurations, 17 scopes and the corrected offline HTML selector.
+* Published and independently re-verified patch release `data-products-v1.1.1` from exact main commit `b333f74e8426993e797a79c2e8621bd2f0f7bf4e`, eliminating equipment-selection browser stalls without changing data or comparison semantics.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
@@ -247,6 +248,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+* Prevented the interactive shortlist from entering a self-sustaining DOM mutation refresh loop after equipment selection; updates now use one explicit render lifecycle event and animation-frame batching.
+* Replaced duplicate equipment-selection events and unsafe bit-shift package enumeration with single-event updates and deterministic coverage-based dynamic programming.
 * Interactive shortlist selection now accepts the browser's native `Set` state without JavaScript errors, so selection counts, chips and exports initialize correctly.
 * The shortlist reset button now invokes the native form reset method safely even though the form contains a control named `reset`; dependent versions and all active filters return to the full catalogue while explicit configuration selections remain intact.
 * Local quality subprocesses force UTF-8 output on Windows consoles and redirected logs.

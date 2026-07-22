@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.1.0 Publication**
+**Data Products v1.1.1 Performance Patch Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.1.0 HTML Selector
-- Pull Request: #198
-- Verified head: `801155a10e0f16787f93c85765eba0e8b3da0b15`
-- Quality run: #1139
+- Package: Data Products v1.1.1 Performance Patch
+- Pull Request: #201
+- Verified head: `63b7b622f5a55d35f1283877737b55c6bee78451`
+- Quality run: #1149
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Data Products v1.1.0 Publication** — `complete`
+**Data Products v1.1.1 Performance Patch Publication** — `complete`
 
-Publish the immutable data-products-v1.1.0 assets from exact green main commit 397958ba740c0b3b9370822d7e1d473c4829c11e and independently re-verify their public identities, sizes and SHA-256 values.
+Publish and independently re-verify data-products-v1.1.1 from exact green main commit b333f74e8426993e797a79c2e8621bd2f0f7bf4e after eliminating equipment-selection browser stalls without changing data semantics.
 
 ## Next package
 

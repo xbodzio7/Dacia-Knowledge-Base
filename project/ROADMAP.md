@@ -91,6 +91,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - wersjonowane, deterministyczne archiwa produktów z manifestem, SHA-256 i ręczną publikacją GitHub Release,
 - pierwsze publiczne wydanie `data-products-v1.0.0` z trzema pobranymi i ponownie zweryfikowanymi assetami,
 - publiczne wydanie `data-products-v1.1.0` z poprawionym selektorem HTML, 67 konfiguracjami, 17 zakresami i trzema ponownie zweryfikowanymi assetami,
+- poprawka `data-products-v1.1.1` usuwająca pętlę odświeżania DOM i opóźnienia przy wyborze wyposażenia, z ponowną weryfikacją publicznych assetów,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
 - całkowicie offline'owa i tylko do odczytu ponowna weryfikacja assetów, rozpakowanych plików, indeksu i lokalnych odnośników workspace,
