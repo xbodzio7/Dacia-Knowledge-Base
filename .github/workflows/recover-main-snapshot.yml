@@ -17,9 +17,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Create repository snapshot
-        run: tar --exclude=.git -czf dkb-main-current.tar.gz .
+        run: tar --exclude=.git -czf /tmp/dkb-main-current.tar.gz .
       - uses: actions/upload-artifact@v4
         with:
           name: dkb-main-current
-          path: dkb-main-current.tar.gz
+          path: /tmp/dkb-main-current.tar.gz
           retention-days: 1
