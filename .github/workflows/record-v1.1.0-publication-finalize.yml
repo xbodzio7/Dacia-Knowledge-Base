@@ -23,25 +23,33 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
+          show-progress: false
 
-      - name: Materialize clean publication record
+      - name: Decode verified patch
         shell: bash
         run: |
           set -euo pipefail
-
           payload=.dkb/record-v1.1.0-publication.patch.gz.b64
           test "$(sha256sum "$payload" | awk '{print $1}')" = "95ef8644e470bfa4ddf014fb5cfacb7ee1348643f7a97a018d16789b6130930f"
-          cp "$payload" /tmp/record-v1.1.0-publication.patch.gz.b64
-          base64 --decode /tmp/record-v1.1.0-publication.patch.gz.b64 > /tmp/record-v1.1.0-publication.patch.gz
+          base64 --decode "$payload" > /tmp/record-v1.1.0-publication.patch.gz
           test "$(sha256sum /tmp/record-v1.1.0-publication.patch.gz | awk '{print $1}')" = "ceb35b53979c5d39abe88da4254c02c2efbc99cca6aa00aba62a76f35a06271f"
           gzip --decompress --stdout /tmp/record-v1.1.0-publication.patch.gz > /tmp/record-v1.1.0-publication.patch
           test "$(sha256sum /tmp/record-v1.1.0-publication.patch | awk '{print $1}')" = "9daaaaf4d23d5bac8f85bfbaa25ccfb0fafdbd4cf79eccc669c76b642efb3666"
 
-          git fetch origin main
+      - name: Apply publication record to exact main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --quiet origin main
           git reset --hard origin/main
           git clean -fdx
           git apply --index /tmp/record-v1.1.0-publication.patch
+          git diff --cached --check
 
+      - name: Verify exact scope and documentation
+        shell: bash
+        run: |
+          set -euo pipefail
           cat > /tmp/expected-paths <<'EOF'
           CHANGELOG.md
           README.md
@@ -57,13 +65,15 @@ jobs:
           sort -o /tmp/expected-paths /tmp/expected-paths
           diff -u /tmp/expected-paths /tmp/actual-paths
           test "$(wc -l < /tmp/actual-paths)" -eq 8
-          git diff --cached --check
-
           python tools/dkb.py project-state --check
           python tools/dkb.py documentation-baseline --check
           python tests/project_state_contract.py
           python tests/test_documentation_baseline.py -q
 
+      - name: Publish clean package commit
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name "DKB Autonomous Maintainer"
           git config user.email "actions@users.noreply.github.com"
           git commit -m "docs(release): record data-products-v1.1.0 publication"
