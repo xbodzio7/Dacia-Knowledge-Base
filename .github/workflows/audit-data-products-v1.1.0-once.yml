@@ -1,0 +1,137 @@
+name: Audit data products v1.1.0 publication once
+
+on:
+  push:
+    branches:
+      - audit/data-products-v1.1.0-publication
+
+permissions:
+  contents: write
+
+env:
+  RELEASE_VERSION: "1.1.0"
+  RELEASE_TAG: data-products-v1.1.0
+  EXPECTED_SHA: 397958ba740c0b3b9370822d7e1d473c4829c11e
+  AUDIT_DIR: audit-assets
+  EVIDENCE_FILE: project/releases/data-products-v1.1.0-publication-audit.json
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Download public release and metadata
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "${AUDIT_DIR}"
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" > /tmp/release.json
+          gh release download "${RELEASE_TAG}" \
+            --dir "${AUDIT_DIR}" \
+            --pattern 'dacia-knowledge-base-data-products-v1.1.0.zip' \
+            --pattern 'data-product-release-manifest.json' \
+            --pattern 'SHA256SUMS'
+
+      - name: Verify exact public assets
+        run: |
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${EXPECTED_SHA}" \
+            --output-directory "${AUDIT_DIR}"
+
+      - name: Record durable publication evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          release = json.loads(Path('/tmp/release.json').read_text(encoding='utf-8'))
+          expected_names = {
+              'dacia-knowledge-base-data-products-v1.1.0.zip',
+              'data-product-release-manifest.json',
+              'SHA256SUMS',
+          }
+          assets = release.get('assets', [])
+          names = {asset['name'] for asset in assets}
+          if names != expected_names:
+              raise SystemExit(f'Unexpected release assets: {sorted(names)}')
+          if release.get('tag_name') != os.environ['RELEASE_TAG']:
+              raise SystemExit('Release tag mismatch')
+          if release.get('draft') or release.get('prerelease'):
+              raise SystemExit('Release must be final and published')
+
+          ref = json.loads(subprocess.check_output([
+              'gh', 'api',
+              f"repos/{os.environ['GITHUB_REPOSITORY']}/git/ref/tags/{os.environ['RELEASE_TAG']}",
+          ], text=True))
+          object_sha = ref['object']['sha']
+          object_type = ref['object']['type']
+          if object_type == 'tag':
+              annotated = json.loads(subprocess.check_output([
+                  'gh', 'api',
+                  f"repos/{os.environ['GITHUB_REPOSITORY']}/git/tags/{object_sha}",
+              ], text=True))
+              object_sha = annotated['object']['sha']
+          if object_sha != os.environ['EXPECTED_SHA']:
+              raise SystemExit(f'Tag target mismatch: {object_sha}')
+
+          local = Path(os.environ['AUDIT_DIR'])
+          evidence_assets = []
+          by_name = {asset['name']: asset for asset in assets}
+          for name in sorted(expected_names):
+              path = local / name
+              payload = path.read_bytes()
+              evidence_assets.append({
+                  'name': name,
+                  'asset_id': by_name[name]['id'],
+                  'size': len(payload),
+                  'sha256': hashlib.sha256(payload).hexdigest(),
+                  'api_digest': by_name[name].get('digest'),
+                  'state': by_name[name].get('state'),
+              })
+
+          evidence = {
+              'release_id': release['id'],
+              'tag': release['tag_name'],
+              'target_commit_sha': object_sha,
+              'published_at': release['published_at'],
+              'html_url': release['html_url'],
+              'draft': release['draft'],
+              'prerelease': release['prerelease'],
+              'assets': evidence_assets,
+              'verification': 'PASS',
+          }
+          output = Path(os.environ['EVIDENCE_FILE'])
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Preserve evidence and remove one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "DKB Autonomous Maintainer"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${EVIDENCE_FILE}"
+          git rm .github/workflows/audit-data-products-v1.1.0-once.yml
+          git commit -m "docs(release): audit data-products-v1.1.0 publication"
+          git push origin HEAD:audit/data-products-v1.1.0-publication
