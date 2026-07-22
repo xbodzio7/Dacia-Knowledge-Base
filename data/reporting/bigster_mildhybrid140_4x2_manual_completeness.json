@@ -20,7 +20,160 @@
       "source_code": "src_pl_bigster_price_my26_20260703"
     }
   ],
-  "technical_slots": [],
+  "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gear_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_system_voltage",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "particulate_filter",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standing_km",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
+      "fuel_type_code": ""
+    }
+  ],
   "equipment_attributes": [
     "roof_rails",
     "modular_roof_rails",

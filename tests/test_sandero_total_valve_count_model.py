@@ -66,7 +66,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
             }],
         )
         self.assertEqual(len(self.categories), 30)
-        self.assertEqual(len(self.units), 26)
+        self.assertEqual(len(self.units), 27)
 
     def test_total_valve_count_is_an_active_integer_engine_attribute(self) -> None:
         matches = [
@@ -90,7 +90,7 @@ class SanderoTotalValveCountModelTests(unittest.TestCase):
                 "status": "active",
             }],
         )
-        self.assertEqual(len(self.attributes), 376)
+        self.assertEqual(len(self.attributes), 381)
 
     def test_total_count_remains_distinct_from_related_engine_counts(self) -> None:
         expected = {

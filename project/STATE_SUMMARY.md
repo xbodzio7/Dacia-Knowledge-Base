@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-21
+- State updated: 2026-07-22
 
 ## Phase
 
-**Bigster Equipment and Commercial Mapping v1.4**
+**Bigster Technical Specifications v1.5**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 688
+- Tests: 696
 - Master CSV files: 41
-- Master rows: 7052
-- Configuration values: 1204
-- Configuration import specifications: 71
-- Configuration value ranges: 144
-- Configuration range import specifications: 19
+- Master rows: 7624
+- Configuration values: 1756
+- Configuration import specifications: 112
+- Configuration value ranges: 158
+- Configuration range import specifications: 20
 - Availability records: 4472
-- Canonical attributes: 376
+- Canonical attributes: 381
 - Attribute categories: 30
 
 ## Current package
 
-**Bigster Equipment and Commercial Mapping** — `complete`
+**Bigster Technical Specifications** — `complete`
 
-Import the source-backed Bigster equipment matrix and map named packages and individual options with exact configuration-level prices.
+Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values.
 
 ## Next package
 
-**Bigster Technical Specifications** — `planned`
+**Bigster Technical Reporting Portfolio** — `planned`
 
-Import source-backed Bigster engine, performance, consumption, emissions, capacity, dimension and weight specifications from the official MY26 price list without converting printed ranges into false exact values.
+Promote the four source-backed Bigster powertrain scopes into deterministic completeness, source-coverage, gap-evidence and reporting outputs using the existing reporting architecture.
 
 ## Autonomy
 

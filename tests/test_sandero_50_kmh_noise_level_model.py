@@ -71,7 +71,7 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
                 "description": "Noise or sound level in decibels",
             }],
         )
-        self.assertEqual(len(self.units), 26)
+        self.assertEqual(len(self.units), 27)
 
     def test_speed_specific_attribute_is_active_decimal(self) -> None:
         matches = [

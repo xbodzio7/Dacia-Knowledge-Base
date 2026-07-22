@@ -77,7 +77,7 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
             }],
         )
         self.assertEqual(len(self.categories), 30)
-        self.assertEqual(len(self.units), 26)
+        self.assertEqual(len(self.units), 27)
 
     def test_maximum_payload_is_active_integer_weight(self) -> None:
         matches = [
