@@ -631,6 +631,8 @@ kolejność katalogu.
 
 Interfejs v1.2 zastępuje natywne listy wielokrotnego wyboru wyposażenia grupami przycisków. Wybrane elementy pozostają widoczne nad przewijaną listą jako usuwalne etykiety, a tryb `Pokaż tylko wybrane` pozwala szybko sprawdzić aktywne kryteria. Karty konfiguracji pokazują nazwane pakiety i opcje oraz wyliczają najtańszy źródłowo udokumentowany zestaw pokrywający wybrane wyposażenie.
 
+W interfejsie przygotowanym dla wydania `data-products-v1.1.0` modele są wyświetlane bez wewnętrznych kodów w nawiasach. Lista wersji pojawia się dopiero po wybraniu modelu i zawiera wyłącznie wersje tego modelu. Skrzynia biegów jest filtrem pojedynczego wyboru, natomiast napędy tworzą stabilną listę wielokrotnego wyboru.
+
 `Pobierz JSON` zapisuje wybór w formacie bezpośrednio obsługiwanym przez
 `configuration-comparison-bundle`, wraz z datą snapshotu i metadanymi
 źródłowymi ceny oraz liczby miejsc. `Pobierz kody TXT` zapisuje jeden dokładny
@@ -651,7 +653,7 @@ python tools/dkb.py configuration-comparison-bundle \
   --output-directory ../comparison-bundle
 ```
 
-Wybrane konfiguracje są grupowane według 13 bieżących specyfikacji
+Wybrane konfiguracje są grupowane według 17 bieżących specyfikacji
 kompletności. Grupy zawierające co najmniej dwie konfiguracje generują
 istniejące raporty JSON, Markdown, CSV różnic i interaktywny HTML. Grupy
 jednoelementowe są zapisane jako singletony bez sztucznego porównania.
@@ -668,13 +670,13 @@ pakietu. `comparison-bundle-manifest.json` zawiera wybór, grupy, singletony,
 liczby par i różnic oraz ścieżki, rozmiary i SHA-256 wszystkich raportów. Pole
 `cross_scope_pairs_generated` zawsze ma wartość `false`.
 
-Pakiet tworzy także deterministyczny skoroszyt XLSX z ośmioma arkuszami. Oprócz pełnych stanów porównań i proweniencji zawiera filtrowalne arkusze `Equipment` oraz `Commercial Offers`, które pokazują wyposażenie, pakiety, opcje, ceny i źródła dla wybranych konfiguracji. Szczegółowy kontrakt wersji 1.2 opisuje `project/packages/commercial-options-equipment-filters-workbook-v1.2.md`.
+Pakiet tworzy także deterministyczny skoroszyt XLSX z dziewięcioma arkuszami. Arkusz `Selector` ma jeden wiersz na konfigurację oraz kolumny modelu, wersji, napędu, skrzyni, ceny, liczby miejsc i całego dostępnego wyposażenia. Standardowe filtry Excela pozwalają zawężać listę modeli i wersji przez dowolną kombinację parametrów oraz stanów `seryjne`, `opcjonalne`, `niedostępne` i `brak danych`. Pozostałe filtrowalne arkusze `Equipment` oraz `Commercial Offers` zachowują szczegółowe rekordy, pakiety, ceny i źródła. Kontrakt zmian opisuje `project/packages/data-products-v1.1.0-interface-selector.md`.
 
 ### Wersjonowana dystrybucja produktów
 
 Komenda `data-product-release` buduje jeden deterministyczny kandydat wydania
-obejmujący kompletną shortlistę 53 aktywnych konfiguracji i pełny pakiet
-porównań dla 13 niezależnych zakresów.
+obejmujący kompletną shortlistę 67 aktywnych konfiguracji i pełny pakiet
+porównań dla 17 niezależnych zakresów.
 
 ```bash
 python tools/dkb.py data-product-release \
@@ -684,9 +686,9 @@ python tools/dkb.py data-product-release \
 ```
 
 Powstają dokładnie trzy assety: wersjonowane archiwum ZIP, zewnętrzny
-`data-product-release-manifest.json` i `SHA256SUMS`. Archiwum zawiera 59 plików:
-shortlistę JSON, Markdown, CSV i HTML, 13 grup raportowych, manifest bundle oraz
-sześcioarkuszowy XLSX. Manifest zachowuje rozmiary, typy MIME i SHA-256 każdego
+`data-product-release-manifest.json` i `SHA256SUMS`. Archiwum bieżącego snapshotu zawiera 75 plików:
+shortlistę JSON, Markdown, CSV i HTML, 17 grup raportowych, manifest bundle oraz
+dziewięcioarkuszowy XLSX z arkuszem `Selector`. Manifest zachowuje rozmiary, typy MIME i SHA-256 każdego
 pliku; nie jest kopiowany do ZIP, aby uniknąć samoodniesienia hashu archiwum.
 
 Tryb `--verify` sprawdza istniejący katalog bez przebudowy. Workflow
@@ -935,7 +937,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 696 testów, 41 pliki CSV, 7624 rekordów
+Zweryfikowany model obejmuje 699 testów, 41 pliki CSV, 7624 rekordów
 danych, 43 relacje między tabelami, 1756 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4472 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

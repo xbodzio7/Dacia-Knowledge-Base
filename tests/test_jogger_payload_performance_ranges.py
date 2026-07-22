@@ -136,7 +136,7 @@ class JoggerPayloadPerformanceRangeTests(unittest.TestCase):
     def test_state_exposes_updated_range_denominators(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
         baseline = state["baseline"]
-        self.assertEqual(baseline["tests"], 696)
+        self.assertEqual(baseline["tests"], 699)
         self.assertEqual(baseline["rows"], 7624)
         self.assertEqual(baseline["configuration_values"], 1756)
         self.assertEqual(baseline["configuration_value_ranges"], 158)
