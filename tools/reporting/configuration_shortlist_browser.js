@@ -330,6 +330,9 @@
       const outcome = filterCatalog(catalog, criteriaFromControls());
       renderSummary(outcome);
       renderResults(results, outcome);
+      results.dispatchEvent(new CustomEvent("dkb:results-rendered", {
+        detail: { outcome }
+      }));
     };
     const models = document.querySelector("#models");
     models.addEventListener("change", () => {
@@ -339,8 +342,7 @@
     });
     for (const element of document.querySelectorAll("#filters input, #filters select")) {
       if (element === models) continue;
-      element.addEventListener("input", update);
-      element.addEventListener("change", update);
+      element.addEventListener(element.tagName === "SELECT" ? "change" : "input", update);
     }
     document.querySelector("#reset").addEventListener("click", () => {
       const filters = document.querySelector("#filters");

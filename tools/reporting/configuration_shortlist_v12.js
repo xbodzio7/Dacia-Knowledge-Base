@@ -29,7 +29,6 @@
   }
 
   function dispatchSelection(select) {
-    select.dispatchEvent(new Event("input", { bubbles: true }));
     select.dispatchEvent(new Event("change", { bubbles: true }));
   }
 
@@ -157,8 +156,6 @@
       }
     });
     wrapper.querySelector("[data-equipment-search]").addEventListener("input", refresh);
-    select.addEventListener("input", refresh);
-    select.addEventListener("change", refresh);
     refresh();
     return { refresh };
   }
@@ -193,8 +190,9 @@
       if (!item) return;
       const state = (configuration.equipment || {})[item.code];
       const status = state ? state.availability_status : "missing";
-      badge.textContent = `${pricing.equipmentLabel(item.code)}: ${STATUS_LABELS[status] || status}${item.standardOnly ? " (wymagane seryjnie)" : ""}`;
-      badge.title = item.code;
+      const nextText = `${pricing.equipmentLabel(item.code)}: ${STATUS_LABELS[status] || status}${item.standardOnly ? " (wymagane seryjnie)" : ""}`;
+      if (badge.textContent !== nextText) badge.textContent = nextText;
+      if (badge.title !== item.code) badge.title = item.code;
     });
   }
 
@@ -246,16 +244,19 @@
       createEquipmentPicker(document.querySelector("#required-standard-equipment"), "Wymagane w standardzie", catalog)
     ].filter(Boolean);
     let scheduled = false;
+    const scheduleFrame = typeof requestAnimationFrame === "function"
+      ? requestAnimationFrame
+      : (callback) => setTimeout(callback, 0);
     const refresh = () => {
       if (scheduled) return;
       scheduled = true;
-      queueMicrotask(() => {
+      scheduleFrame(() => {
         scheduled = false;
         pickers.forEach((picker) => picker.refresh());
         enhanceCards(catalog, results);
       });
     };
-    new MutationObserver(refresh).observe(results, { childList: true, subtree: true });
+    results.addEventListener("dkb:results-rendered", refresh);
     document.addEventListener("change", (event) => {
       if (event.target.matches("#required-equipment, #required-standard-equipment, .configuration-select")) refresh();
     });
@@ -268,5 +269,8 @@
     else initialize();
   }
 
-  return { initialize, createEquipmentPicker, enhanceCards, commercialOffersMarkup };
+  return {
+    initialize, createEquipmentPicker, enhanceCards, commercialOffersMarkup,
+    dispatchSelection, localizeBadges
+  };
 });
