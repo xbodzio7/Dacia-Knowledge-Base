@@ -49,3 +49,9 @@ These are model-oriented visual identifiers, not official vehicle photographs or
 - model filter reduced the visible equipment facet from 107 to 53 Jogger-compatible items;
 - three selected configurations compared in one table without JavaScript console errors;
 - all remaining quality-report commands executed independently after the monolithic local quality wrapper exceeded the execution window.
+
+## Publication
+
+`data-products-v1.2.0` was published from exact merged main commit `2982ff68b8e1f3097403d96afd1754ae473c2aa3`. The public release is final, contains the canonical three assets and was independently downloaded and accepted by `data-product-release --verify`.
+
+The exact release HTML repeated the Chromium scenario with 67 initial configurations, 22 Jogger configurations, an equipment facet reduced from 107 to 53 possible choices, one compatible equipment selection and a three-configuration comparison without JavaScript errors.
