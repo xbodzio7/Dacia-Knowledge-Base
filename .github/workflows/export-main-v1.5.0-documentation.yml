@@ -20,37 +20,19 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Confirm exact source identity
+      - name: Record exact source tree identity
         shell: bash
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "7f325d254b68eb495204c01c075727ee34893e1f"
           git diff --quiet
           git diff --cached --quiet
-          echo "MAIN_TREE_SHA=$(git rev-parse 'HEAD^{tree}')"
+          git rev-parse 'HEAD^{tree}' | tee /tmp/main-tree-sha.txt
 
-      - name: Create source snapshot
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          from zipfile import ZIP_DEFLATED, ZipFile
-
-          root = Path.cwd()
-          output = Path('/tmp/dacia-knowledge-base-main-7f325d2.zip')
-          with ZipFile(output, 'w', compression=ZIP_DEFLATED, compresslevel=9) as archive:
-              for path in sorted(root.rglob('*')):
-                  if not path.is_file() or '.git' in path.parts:
-                      continue
-                  archive.write(path, path.relative_to(root).as_posix())
-          print(output)
-          PY
-
-      - name: Upload exact source snapshot
+      - name: Upload exact source tree identity
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          name: dkb-main-7f325d2
-          path: /tmp/dacia-knowledge-base-main-7f325d2.zip
+          name: dkb-main-tree-7f325d2
+          path: /tmp/main-tree-sha.txt
           if-no-files-found: error
           retention-days: 7
