@@ -1,23 +1,19 @@
 (function (root, factory) {
   "use strict";
-  const api = factory();
-  if (typeof module !== "undefined" && module.exports) {
-    module.exports = api;
-  }
+  const pricing = root.DkbConfigurationPricingV12
+    || (typeof require !== "undefined" ? require("./configuration_shortlist_v12_pricing.js") : null);
+  const api = factory(pricing);
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.DkbConfigurationSelection = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (pricing) {
   "use strict";
 
   function catalogOrder(catalog) {
-    return new Map(
-      catalog.configurations.map((item, index) => [item.configuration_code, index])
-    );
+    return new Map(catalog.configurations.map((item, index) => [item.configuration_code, index]));
   }
 
   function configurationMap(catalog) {
-    return new Map(
-      catalog.configurations.map((item) => [item.configuration_code, item])
-    );
+    return new Map(catalog.configurations.map((item) => [item.configuration_code, item]));
   }
 
   function normalizeSelection(catalog, codes) {
@@ -32,10 +28,7 @@
   }
 
   function removeSelection(catalog, selectedCodes, removedCode) {
-    return normalizeSelection(
-      catalog,
-      Array.from(selectedCodes || []).filter((code) => code !== removedCode)
-    );
+    return normalizeSelection(catalog, Array.from(selectedCodes || []).filter((code) => code !== removedCode));
   }
 
   function selectedConfigurations(catalog, selectedCodes) {
@@ -86,6 +79,89 @@
     return `dacia-configuration-selection-${safeDate}-${count}.${extension}`;
   }
 
+  function formatCatalogPrice(configuration) {
+    const price = configuration.catalog_price || {};
+    if (price.state !== "recorded") return "brak danych";
+    if (pricing) return pricing.formatMoney(price.amount, price.currency_code || "PLN");
+    return `${Number(price.amount).toLocaleString("pl-PL")} ${price.currency_code || "PLN"}`;
+  }
+
+  function formatSeats(configuration) {
+    const seats = configuration.number_of_seats || {};
+    return seats.state === "recorded" ? String(seats.value) : "brak danych";
+  }
+
+  function comparisonRows(catalog, selectedCodes, equipmentCodes) {
+    const configurations = selectedConfigurations(catalog, selectedCodes);
+    const equipment = [...new Set((equipmentCodes || []).map(String).filter(Boolean))];
+    const rows = [
+      { key: "model", label: "Model", values: configurations.map((item) => item.model_name) },
+      { key: "version", label: "Wersja", values: configurations.map((item) => item.version_name) },
+      { key: "powertrain", label: "Napęd", values: configurations.map((item) => item.powertrain_label) },
+      { key: "transmission", label: "Skrzynia", values: configurations.map((item) => item.transmission_type === "automatic" ? "automatyczna" : item.transmission_type === "manual" ? "manualna" : item.transmission_type) },
+      { key: "catalog_price", label: "Cena katalogowa", values: configurations.map(formatCatalogPrice) },
+      { key: "seats", label: "Liczba miejsc", values: configurations.map(formatSeats) }
+    ];
+
+    if (equipment.length && pricing) {
+      rows.push({
+        key: "configured_price",
+        label: "Cena z wybranym wyposażeniem",
+        values: configurations.map((item) => {
+          const breakdown = pricing.buildPriceBreakdown(item, equipment, []);
+          if (breakdown.total_amount === null) return "brak danych";
+          const amount = pricing.formatMoney(breakdown.total_amount, breakdown.currency_code);
+          return breakdown.total_is_complete ? amount : `od ${amount}`;
+        })
+      });
+      for (const code of equipment) {
+        rows.push({
+          key: `equipment:${code}`,
+          label: pricing.equipmentLabel(code),
+          values: configurations.map((item) => {
+            const breakdown = pricing.buildPriceBreakdown(item, [code], []);
+            const selected = breakdown.selected_equipment[0];
+            return selected ? pricing.selectedEquipmentStatus(selected) : "brak danych";
+          })
+        });
+      }
+    }
+    return { configurations, rows };
+  }
+
+  function escapeHtml(value) {
+    return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+  }
+
+  function comparisonThumbnail(configuration) {
+    const thumbnailApi = typeof globalThis !== "undefined"
+      ? globalThis.DkbConfigurationShortlistV12
+      : null;
+    if (!thumbnailApi || typeof thumbnailApi.modelThumbnailSvg !== "function") return "";
+    return `<span class="comparison-model-thumbnail">${thumbnailApi.modelThumbnailSvg(
+      configuration.model_code, configuration.model_name
+    )}</span>`;
+  }
+
+  function renderComparison(catalog, selectedCodes, equipmentCodes, table) {
+    const comparison = comparisonRows(catalog, selectedCodes, equipmentCodes);
+    if (comparison.configurations.length < 2) {
+      table.innerHTML = "";
+      return comparison;
+    }
+    const header = comparison.configurations.map((configuration) =>
+      `<th scope="col">${comparisonThumbnail(configuration)}<strong>${escapeHtml(configuration.model_name)} ${escapeHtml(configuration.version_name)}</strong><span>${escapeHtml(configuration.configuration_code)}</span></th>`
+    ).join("");
+    const body = comparison.rows.map((row) => {
+      const distinct = new Set(row.values.map(String)).size > 1;
+      const values = row.values.map((value) => `<td${distinct ? ' class="is-different"' : ""}>${escapeHtml(value)}</td>`).join("");
+      return `<tr><th scope="row">${escapeHtml(row.label)}</th>${values}</tr>`;
+    }).join("");
+    table.innerHTML = `<thead><tr><th scope="col">Parametr</th>${header}</tr></thead><tbody>${body}</tbody>`;
+    return comparison;
+  }
+
   function decorateCards(results, selected) {
     for (const card of results.querySelectorAll(".result-card")) {
       const codeElement = card.querySelector(".configuration-code");
@@ -110,8 +186,7 @@
 
   function visibleCodes(results) {
     return [...results.querySelectorAll(".result-card[data-configuration-code]")]
-      .map((card) => card.dataset.configurationCode)
-      .filter(Boolean);
+      .map((card) => card.dataset.configurationCode).filter(Boolean);
   }
 
   function downloadText(filename, content, mimeType) {
@@ -148,6 +223,8 @@
     buttons.clear.disabled = disabled;
     buttons.json.disabled = disabled;
     buttons.codes.disabled = disabled;
+    buttons.compare.disabled = ordered.length < 2;
+    buttons.compare.textContent = ordered.length >= 2 ? `Porównaj wybrane (${ordered.length})` : "Porównaj wybrane";
   }
 
   function initialize() {
@@ -157,20 +234,32 @@
     if (!catalogElement || !results || !panel) return;
 
     const catalog = JSON.parse(catalogElement.textContent);
+    if (pricing) pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
     const selected = new Set();
     const count = document.querySelector("#selected-count");
     const list = document.querySelector("#selected-list");
+    const comparisonPanel = document.querySelector("#comparison-panel");
+    const comparisonTable = document.querySelector("#comparison-table");
     const buttons = {
       selectVisible: document.querySelector("#select-visible"),
       clear: document.querySelector("#clear-selection"),
+      compare: document.querySelector("#compare-selection"),
+      closeComparison: document.querySelector("#close-comparison"),
       json: document.querySelector("#download-selection-json"),
       codes: document.querySelector("#download-selection-codes")
     };
 
     const orderedSelection = () => normalizeSelection(catalog, selected);
+    const selectedEquipment = () => [...(document.querySelector("#required-equipment")?.selectedOptions || [])].map((option) => option.value);
+    const refreshComparison = () => {
+      if (!comparisonPanel || comparisonPanel.hidden) return;
+      renderComparison(catalog, selected, selectedEquipment(), comparisonTable);
+    };
     const sync = () => {
       decorateCards(results, selected);
       renderSelectionSummary(catalog, selected, list, count, buttons);
+      if (orderedSelection().length < 2 && comparisonPanel) comparisonPanel.hidden = true;
+      refreshComparison();
     };
     results.addEventListener("dkb:results-rendered", sync);
     sync();
@@ -178,8 +267,7 @@
     results.addEventListener("change", (event) => {
       const toggle = event.target.closest(".configuration-select");
       if (!toggle) return;
-      if (toggle.checked) selected.add(toggle.value);
-      else selected.delete(toggle.value);
+      if (toggle.checked) selected.add(toggle.value); else selected.delete(toggle.value);
       sync();
     });
 
@@ -189,11 +277,17 @@
       for (const code of combined) selected.add(code);
       sync();
     });
-
     buttons.clear.addEventListener("click", () => {
       selected.clear();
       sync();
     });
+    buttons.compare.addEventListener("click", () => {
+      if (orderedSelection().length < 2) return;
+      comparisonPanel.hidden = false;
+      renderComparison(catalog, selected, selectedEquipment(), comparisonTable);
+      comparisonPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    buttons.closeComparison.addEventListener("click", () => { comparisonPanel.hidden = true; });
 
     list.addEventListener("click", (event) => {
       const remove = event.target.closest(".remove-selection");
@@ -201,23 +295,17 @@
       selected.delete(remove.dataset.configurationCode);
       sync();
     });
+    document.addEventListener("change", (event) => {
+      if (event.target.matches("#required-equipment")) refreshComparison();
+    });
 
     buttons.json.addEventListener("click", () => {
       const codes = orderedSelection();
-      downloadText(
-        exportFilename(catalog, codes, "json"),
-        renderSelectionJson(catalog, codes),
-        "application/json;charset=utf-8"
-      );
+      downloadText(exportFilename(catalog, codes, "json"), renderSelectionJson(catalog, codes), "application/json;charset=utf-8");
     });
-
     buttons.codes.addEventListener("click", () => {
       const codes = orderedSelection();
-      downloadText(
-        exportFilename(catalog, codes, "txt"),
-        renderCodeList(catalog, codes),
-        "text/plain;charset=utf-8"
-      );
+      downloadText(exportFilename(catalog, codes, "txt"), renderCodeList(catalog, codes), "text/plain;charset=utf-8");
     });
   }
 
@@ -227,13 +315,8 @@
   }
 
   return {
-    normalizeSelection,
-    unionSelection,
-    removeSelection,
-    selectedConfigurations,
-    buildSelectionPayload,
-    renderSelectionJson,
-    renderCodeList,
-    exportFilename
+    normalizeSelection, unionSelection, removeSelection, selectedConfigurations,
+    buildSelectionPayload, renderSelectionJson, renderCodeList, exportFilename,
+    comparisonRows, renderComparison, comparisonThumbnail
   };
 });

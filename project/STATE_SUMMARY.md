@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-22
+- State updated: 2026-07-23
 
 ## Phase
 
-**Data Products v1.1.2 Single Equipment Filter Publication**
+**Data Products v1.2.0 Faceted Browser and Multi-Comparison**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 698
+- Tests: 700
 - Master CSV files: 41
 - Master rows: 7624
 - Configuration values: 1756
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.1.2 Single Equipment Filter Publication** — `complete`
+**Data Products v1.2.0 Faceted Browser and Multi-Comparison** — `complete`
 
-Publish and verify data-products-v1.1.2 from exact green main commit 8b08dbd8d846610577437c150a0d39aeb3d868f4 after replacing the browser equipment split with one buyer-oriented filter and moving availability status into matched price breakdowns.
+Deliver dynamic equipment facets, direct comparison of multiple selected configurations, a simplified full-width browser layout and deterministic offline model thumbnails without changing source data or pricing semantics.
 
 ## Next package
 
-**Excel Selector Planning Review** — `planned`
+**Data Products v1.2.0 Publication** — `planned`
 
-Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release.
+Publish and independently verify immutable data-products-v1.2.0 assets from the exact green main commit containing the faceted browser and multi-comparison package.
 
 ## Autonomy
 

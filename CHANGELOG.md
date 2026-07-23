@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Interactive shortlist HTML v1.3 with dynamic equipment facets that hide unavailable choices and automatically remove incompatible selections before they can reduce the result set to zero.
+* Direct in-page comparison of any number of selected configurations, including catalogue/configured prices, selected-equipment status and horizontally scrollable difference highlighting.
+* Deterministic offline SVG model thumbnails in model selectors, result cards and comparison headers without external network or image dependencies.
 * Dependent model/version browser filters with clean model labels, single-choice transmission selection and a multi-select powertrain list for the next data-product release.
 * Published and independently re-verified immutable `data-products-v1.1.0` from exact main commit `397958ba740c0b3b9370822d7e1d473c4829c11e`, covering 67 configurations, 17 scopes and the corrected offline HTML selector.
 * Published and independently re-verified patch release `data-products-v1.1.1` from exact main commit `b333f74e8426993e797a79c2e8621bd2f0f7bf4e`, eliminating equipment-selection browser stalls without changing data or comparison semantics.
@@ -237,7 +240,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 698 tests.
+* The automated test suite now contains 700 tests.
 * The verified master-data baseline now contains 41 CSV files and 7624 rows.
 * SQLite verification now covers 41 tables and 7624 rows.
 * Configuration attribute values now contain 1756 dated records.
@@ -261,6 +264,7 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+* Buyer-facing shortlist audit diagnostics and the redundant global text-search field from the main offline selector interface.
 * Generated `dacia_knowledge_base.db` from version control.
 * Generated `reports/validation_report.md` from version control.
 
