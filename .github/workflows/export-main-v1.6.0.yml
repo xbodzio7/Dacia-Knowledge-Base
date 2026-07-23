@@ -1,0 +1,55 @@
+name: Export main v1.6.0 workspace
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    if: github.head_ref == 'transport/export-main-v1.6.0'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: eb697576550ecd6e64a56dc3a09d94a4e971cc1c
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "eb697576550ecd6e64a56dc3a09d94a4e971cc1c"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Create source snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZIP_DEFLATED, ZipFile
+
+          root = Path.cwd()
+          output = Path('/tmp/dkb-main-v1.6.0.zip')
+          with ZipFile(output, 'w', compression=ZIP_DEFLATED, compresslevel=9) as archive:
+              for path in sorted(root.rglob('*')):
+                  if not path.is_file() or '.git' in path.parts:
+                      continue
+                  archive.write(path, path.relative_to(root).as_posix())
+          print(output)
+          PY
+
+      - name: Upload exact source snapshot
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: dkb-main-v1.6.0
+          path: /tmp/dkb-main-v1.6.0.zip
+          if-no-files-found: error
+          retention-days: 7
