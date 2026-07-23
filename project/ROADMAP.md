@@ -97,6 +97,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - pakiet przeglądarki `v1.3.0` z pionowymi filtrami, pełnym porównaniem wyposażenia, trybem „Pokaż tylko różnice”, sylwetkami modeli i datowanym intake konfiguratorów producenta,
 - publiczne wydanie `data-products-v1.3.0` z pełnym porównaniem wyposażenia, pionowymi filtrami, sylwetkami modeli i niezależnie zweryfikowanymi trzema assetami,
 - pierwszy import oficjalnego konfiguratora na poziomie pięciu dokładnych konfiguracji Sandero Stepway Eco-G 120, z cenami, wyróżnikami wyposażenia i jawnym zakazem przenoszenia opcji między napędami,
+- publiczne wydanie `data-products-v1.4.0` z konfiguratorowym importem Stepway, trzema niezależnie zweryfikowanymi assetami i dokładnym powiązaniem tagu z zielonym commitem,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
