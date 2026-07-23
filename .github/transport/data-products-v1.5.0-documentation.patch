@@ -1,0 +1,251 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e5e9f52..d87343f 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.
+ * Published and independently re-verified minor release `data-products-v1.2.0` from exact main commit `2982ff68b8e1f3097403d96afd1754ae473c2aa3`, adding dynamic equipment facets, direct multi-configuration comparison and deterministic offline model illustrations.
+ * Published and independently re-verified minor release `data-products-v1.3.0` from exact main commit `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`, adding vertical filters, model-and-trim silhouettes, full equipment comparison, a differences-only view and dated official configurator source intake.
+ * Published and independently re-verified minor release `data-products-v1.4.0` from exact main commit `85fff3f69cae97de900bf9422f2418de9f8335ee`, adding exact official Sandero Stepway Eco-G 120 prices and configuration-level standard-equipment observations with explicit non-inference boundaries.
++* Published and independently re-verified minor release `data-products-v1.5.0` from exact main commit `7f325d254b68eb495204c01c075727ee34893e1f`, adding four exact Sandero Eco-G 120 Expression/Journey manual and automatic states, four dated catalogue prices, 16 configuration-level standard-equipment observations and a dedicated automatic comparison scope with explicit non-inference boundaries.
+ * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
+ * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
+ * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
+diff --git a/README.md b/README.md
+index c22084a..3b73e4d 100644
+--- a/README.md
++++ b/README.md
+@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
+ 
+ ## Gotowe produkty offline
+ 
+-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.4.0` można pobrać, sprawdzić
++Najnowsze zweryfikowane publiczne wydanie `data-products-v1.5.0` można pobrać, sprawdzić
+ oraz bezpiecznie rozpakować jedną komendą:
+ 
+ ```bash
+ python tools/dkb.py data-product-release-download \
+-  --version 1.4.0 \
+-  --output-directory ../dkb-data-products-v1.4.0
++  --version 1.5.0 \
++  --output-directory ../dkb-data-products-v1.5.0
+ ```
+ 
+ Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
+@@ -46,7 +46,7 @@ i bez modyfikowania plików:
+ 
+ ```bash
+ python tools/dkb.py data-product-workspace-verify \
+-  --workspace-directory ../dkb-data-products-v1.4.0
++  --workspace-directory ../dkb-data-products-v1.5.0
+ ```
+ 
+ Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
+@@ -710,7 +710,9 @@ Wydanie [`data-products-v1.2.0`](https://github.com/xbodzio7/Dacia-Knowledge-Bas
+ 
+ Wydanie [`data-products-v1.3.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.3.0) zostało opublikowane z dokładnego commita `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`. Układa filtry pionowo, pokazuje rozpoznawalne sylwetki modeli i wersji, przenosi nazwę samochodu na górę karty, porównuje całe źródłowo opisane wyposażenie oraz udostępnia tryb „Pokaż tylko różnice”. Rejestruje też oficjalne konfiguratory Dacia Polska jako datowane, zmienne źródła do późniejszego importu opcji i dopłat. Trwały zapis znajduje się w `project/releases/data-products-v1.3.0.md`.
+ 
+-Najnowsze wydanie [`data-products-v1.4.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.4.0) zostało opublikowane z dokładnego commita `85fff3f69cae97de900bf9422f2418de9f8335ee`. Dodaje pięć aktualnych cen oficjalnych konfiguracji Sandero Stepway Eco-G 120 oraz 24 bezpośrednio potwierdzone obserwacje wyposażenia seryjnego. Pakiet MEDIA DISPLAY widoczny w domyślnym stanie TCe 110 pozostaje jawnym non-importem i nie jest przypisywany do Eco-G bez dowodu. Trwały zapis znajduje się w `project/releases/data-products-v1.4.0.md`.
++Wydanie [`data-products-v1.4.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.4.0) zostało opublikowane z dokładnego commita `85fff3f69cae97de900bf9422f2418de9f8335ee`. Dodaje pięć aktualnych cen oficjalnych konfiguracji Sandero Stepway Eco-G 120 oraz 24 bezpośrednio potwierdzone obserwacje wyposażenia seryjnego. Pakiet MEDIA DISPLAY widoczny w domyślnym stanie TCe 110 pozostaje jawnym non-importem i nie jest przypisywany do Eco-G bez dowodu. Trwały zapis znajduje się w `project/releases/data-products-v1.4.0.md`.
++
++Najnowsze wydanie [`data-products-v1.5.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.5.0) zostało opublikowane z dokładnego commita `7f325d254b68eb495204c01c075727ee34893e1f`. Dodaje cztery oficjalnie potwierdzone stany Sandero Eco-G 120 Expression/Journey z ręczną lub automatyczną skrzynią, cztery aktualne ceny katalogowe, 16 obserwacji wyposażenia seryjnego oraz osobny zakres porównawczy automatów. Niepotwierdzone pakiety i opcje domyślnego Essential TCe 100 pozostają jawnymi non-importami. Trwały zapis znajduje się w `project/releases/data-products-v1.5.0.md`.
+ 
+ Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
+ 
+diff --git a/project/ROADMAP.md b/project/ROADMAP.md
+index 04dfd34..d1d051c 100644
+--- a/project/ROADMAP.md
++++ b/project/ROADMAP.md
+@@ -97,8 +97,9 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
+ - pakiet przeglądarki `v1.3.0` z pionowymi filtrami, pełnym porównaniem wyposażenia, trybem „Pokaż tylko różnice”, sylwetkami modeli i datowanym intake konfiguratorów producenta,
+ - publiczne wydanie `data-products-v1.3.0` z pełnym porównaniem wyposażenia, pionowymi filtrami, sylwetkami modeli i niezależnie zweryfikowanymi trzema assetami,
+ - pierwszy import oficjalnego konfiguratora na poziomie pięciu dokładnych konfiguracji Sandero Stepway Eco-G 120, z cenami, wyróżnikami wyposażenia i jawnym zakazem przenoszenia opcji między napędami,
+-- import oficjalnych stron Sandero na poziomie czterech dokładnych stanów Eco-G 120, z dwiema nowymi konfiguracjami automatycznymi, czterema cenami, 16 wyróżnikami seryjnymi i nowym zakresem porównawczym,
+ - publiczne wydanie `data-products-v1.4.0` z konfiguratorowym importem Stepway, trzema niezależnie zweryfikowanymi assetami i dokładnym powiązaniem tagu z zielonym commitem,
++- import oficjalnych stron Sandero na poziomie czterech dokładnych stanów Eco-G 120, z dwiema nowymi konfiguracjami automatycznymi, czterema cenami, 16 wyróżnikami seryjnymi i nowym zakresem porównawczym,
++- publiczne wydanie `data-products-v1.5.0` z konfiguratorowym importem Sandero, trzema niezależnie zweryfikowanymi assetami i dokładnym powiązaniem tagu z zielonym commitem,
+ - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
+ - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
+ - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
+diff --git a/project/STATE_SUMMARY.md b/project/STATE_SUMMARY.md
+index 7a457ce..9dd52b4 100644
+--- a/project/STATE_SUMMARY.md
++++ b/project/STATE_SUMMARY.md
+@@ -12,14 +12,14 @@
+ 
+ ## Phase
+ 
+-**Official Configurator Sandero Configuration-Level Import**
++**Data Products v1.5.0 Publication**
+ 
+ ## Reference delivery
+ 
+-- Package: Official Configurator Sandero Stepway Configuration-Level Import
+-- Pull Request: #219
+-- Verified head: `b94ce12f5fbc366533d72fe6f7eda06f42ac9c92`
+-- Quality run: #1213
++- Package: Official Configurator Sandero Configuration-Level Import
++- Pull Request: #223
++- Verified head: `723238c55f9cc7a0b45c5b60acf27d2dfe51ae87`
++- Quality run: #1229
+ 
+ ## Verified baseline
+ 
+@@ -36,9 +36,9 @@
+ 
+ ## Current package
+ 
+-**Official Configurator Sandero Configuration-Level Import** — `complete`
++**Data Products v1.5.0 Publication** — `complete`
+ 
+-Import only directly proven official Sandero Eco-G 120 trim, powertrain and gearbox states, including two newly explicit automatic configurations, four dated catalogue prices and source-visible standard-equipment highlights, while preserving unproven packages and default TCe 100 options as non-imports.
++Publish and independently re-verify immutable data-products-v1.5.0 assets from exact green main commit 7f325d254b68eb495204c01c075727ee34893e1f after the official Sandero configuration-level import.
+ 
+ ## Next package
+ 
+diff --git a/project/packages/official-configurator-sandero-configuration-import.md b/project/packages/official-configurator-sandero-configuration-import.md
+index ad523d3..c508427 100644
+--- a/project/packages/official-configurator-sandero-configuration-import.md
++++ b/project/packages/official-configurator-sandero-configuration-import.md
+@@ -67,3 +67,7 @@ The default visible configurator state is Essential TCe 100 manual. Its zero-pri
+ - 4,512 equipment-availability observations;
+ - importer `--check`: PASS;
+ - CSV, reference, source-hash, project-state and SQLite validation: PASS.
++
++## Publication
++
++`data-products-v1.5.0` was published from exact merged `main` commit `7f325d254b68eb495204c01c075727ee34893e1f`. The release contains 69 active configurations and 18 independent scopes, including the four exact Sandero Eco-G 120 states and the automatic comparison scope. The three public assets were downloaded again and accepted by the independent release verifier.
+diff --git a/project/releases/data-products-v1.5.0-publication-audit.json b/project/releases/data-products-v1.5.0-publication-audit.json
+new file mode 100644
+index 0000000..5ce96f0
+--- /dev/null
++++ b/project/releases/data-products-v1.5.0-publication-audit.json
+@@ -0,0 +1,37 @@
++{
++  "release_id": 358964637,
++  "tag": "data-products-v1.5.0",
++  "target_commit_sha": "7f325d254b68eb495204c01c075727ee34893e1f",
++  "target_commitish": "7f325d254b68eb495204c01c075727ee34893e1f",
++  "published_at": "2026-07-23T21:27:39Z",
++  "html_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.5.0",
++  "draft": false,
++  "prerelease": false,
++  "assets": [
++    {
++      "name": "SHA256SUMS",
++      "asset_id": null,
++      "size": 213,
++      "sha256": "54fceff7c0adb6147782343ffaef3c81544af8c33b969bcc375e6df9e6217ed8",
++      "api_digest": "sha256:54fceff7c0adb6147782343ffaef3c81544af8c33b969bcc375e6df9e6217ed8",
++      "state": "uploaded"
++    },
++    {
++      "name": "dacia-knowledge-base-data-products-v1.5.0.zip",
++      "asset_id": null,
++      "size": 45690085,
++      "sha256": "ebbac6c85a3dd49e73c6e6a9ecd4bc5453be4e58e64996d7e6953416fa34c779",
++      "api_digest": "sha256:ebbac6c85a3dd49e73c6e6a9ecd4bc5453be4e58e64996d7e6953416fa34c779",
++      "state": "uploaded"
++    },
++    {
++      "name": "data-product-release-manifest.json",
++      "asset_id": null,
++      "size": 19153,
++      "sha256": "4158bd12e8a338daa3e92805eb5a43c7c0ad12992746380f22d29f8822d3f414",
++      "api_digest": "sha256:4158bd12e8a338daa3e92805eb5a43c7c0ad12992746380f22d29f8822d3f414",
++      "state": "uploaded"
++    }
++  ],
++  "verification": "PASS"
++}
+diff --git a/project/releases/data-products-v1.5.0.md b/project/releases/data-products-v1.5.0.md
+new file mode 100644
+index 0000000..b608989
+--- /dev/null
++++ b/project/releases/data-products-v1.5.0.md
+@@ -0,0 +1,52 @@
++# Data Products v1.5.0 Publication
++
++Date: 2026-07-23
++
++## Published identity
++
++- GitHub Release: `data-products-v1.5.0`
++- Release ID: `358964637`
++- Published at: `2026-07-23T21:27:39Z`
++- Exact tag target and source commit: `7f325d254b68eb495204c01c075727ee34893e1f`
++- Source Pull Request: `#223`
++- Verified Pull Request head: `723238c55f9cc7a0b45c5b60acf27d2dfe51ae87`
++- Quality workflow: `#1229`
++
++The tag resolves exactly to the merged `main` commit above. The release is final, not a draft and not a prerelease.
++
++## Public assets
++
++| Asset | Size | SHA-256 |
++| --- | ---: | --- |
++| `SHA256SUMS` | 213 bytes | `54fceff7c0adb6147782343ffaef3c81544af8c33b969bcc375e6df9e6217ed8` |
++| `dacia-knowledge-base-data-products-v1.5.0.zip` | 45,690,085 bytes | `ebbac6c85a3dd49e73c6e6a9ecd4bc5453be4e58e64996d7e6953416fa34c779` |
++| `data-product-release-manifest.json` | 19,153 bytes | `4158bd12e8a338daa3e92805eb5a43c7c0ad12992746380f22d29f8822d3f414` |
++
++GitHub's recorded API digests match the independently calculated SHA-256 values for all three downloaded assets.
++
++## Release contents
++
++- 69 active configurations;
++- 18 independent comparison scopes;
++- 79 deterministic archive members;
++- four exact Sandero Eco-G 120 Expression/Journey states with manual or automatic transmission;
++- four dated official catalogue prices: 68,000 PLN, 73,600 PLN, 74,900 PLN and 80,500 PLN;
++- 16 directly proven configuration-level standard-equipment observations;
++- exact source-to-model, source-to-version and source-to-configuration relationships;
++- a dedicated Sandero Eco-G 120 automatic comparison scope;
++- explicit preservation of unproven packages and default Essential TCe 100 options as non-imports;
++- the full offline browser, complete equipment comparison and differences-only interface.
++
++## Browser verification
++
++The exact HTML extracted from the published release archive was exercised in Chromium. Filtering to Sandero produced four configurations with catalogue prices 68,000 PLN, 73,600 PLN, 74,900 PLN and 80,500 PLN. Selecting the two automatic variants produced a full 19-row comparison table; the “Pokaż tylko różnice” switch remained operational and all 19 rows were genuine differences. No JavaScript console errors occurred.
++
++## Verification
++
++All 15 source Pull Request workflows passed on the final source commit, including 716 tests, Windows, HTML, workbook, comparison, selection-export and versioned-release verification.
++
++The public assets were then downloaded again from the published GitHub Release and accepted by `data-product-release --verify`. Publication audit result: `PASS`.
++
++## Immutability
++
++The release assets and tag are immutable. Later corrections or extensions must use a new semantic version and must not replace or rewrite `data-products-v1.5.0`.
+diff --git a/project/state.json b/project/state.json
+index 8d6cea2..752be66 100644
+--- a/project/state.json
++++ b/project/state.json
+@@ -7,12 +7,12 @@
+     "source_of_truth": "repository",
+     "main_sha_tracking": "dynamic"
+   },
+-  "phase": "Official Configurator Sandero Configuration-Level Import",
++  "phase": "Data Products v1.5.0 Publication",
+   "reference_delivery": {
+-    "name": "Official Configurator Sandero Stepway Configuration-Level Import",
+-    "pull_request": 219,
+-    "head_sha": "b94ce12f5fbc366533d72fe6f7eda06f42ac9c92",
+-    "quality_run": 1213
++    "name": "Official Configurator Sandero Configuration-Level Import",
++    "pull_request": 223,
++    "head_sha": "723238c55f9cc7a0b45c5b60acf27d2dfe51ae87",
++    "quality_run": 1229
+   },
+   "baseline": {
+     "tests": 716,
+@@ -27,9 +27,9 @@
+     "attribute_categories": 30
+   },
+   "current_package": {
+-    "name": "Official Configurator Sandero Configuration-Level Import",
++    "name": "Data Products v1.5.0 Publication",
+     "status": "complete",
+-    "goal": "Import only directly proven official Sandero Eco-G 120 trim, powertrain and gearbox states, including two newly explicit automatic configurations, four dated catalogue prices and source-visible standard-equipment highlights, while preserving unproven packages and default TCe 100 options as non-imports."
++    "goal": "Publish and independently re-verify immutable data-products-v1.5.0 assets from exact green main commit 7f325d254b68eb495204c01c075727ee34893e1f after the official Sandero configuration-level import."
+   },
+   "next_package": {
+     "name": "Official Configurator Jogger Configuration-Level Import",
