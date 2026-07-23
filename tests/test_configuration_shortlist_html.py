@@ -109,6 +109,9 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             self.assertIn(f'id="{control}"', rendered)
         self.assertNotIn('id="required-standard-equipment"', rendered)
         self.assertIn('>Wyposażenie\n      <select id="required-equipment"', rendered)
+        self.assertIn('.filters{display:grid;grid-template-columns:1fr', rendered)
+        self.assertIn('class="result-card-hero"', rendered)
+        self.assertIn('class="configuration-code" hidden', rendered)
 
     def test_initial_cli_filters_are_embedded_without_reducing_catalog(self) -> None:
         criteria = ShortlistCriteria(

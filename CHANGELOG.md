@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Browser shortlist v1.4 with vertically stacked filters, model-and-trim silhouettes, full equipment comparison and a differences-only view.
+* Dated normalized intake of official Polish Dacia configurators for Sandero, Sandero Stepway, Duster, Jogger and Bigster.
 * Interactive shortlist HTML v1.3 with dynamic equipment facets that hide unavailable choices and automatically remove incompatible selections before they can reduce the result set to zero.
 * Direct in-page comparison of any number of selected configurations, including catalogue/configured prices, selected-equipment status and horizontally scrollable difference highlighting.
 * Deterministic offline SVG model thumbnails in model selectors, result cards and comparison headers without external network or image dependencies.
@@ -241,9 +243,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 700 tests.
-* The verified master-data baseline now contains 41 CSV files and 7624 rows.
-* SQLite verification now covers 41 tables and 7624 rows.
+* The automated test suite now contains 703 tests.
+* The verified master-data baseline now contains 41 CSV files and 7630 rows.
+* SQLite verification now covers 41 tables and 7630 rows.
 * Configuration attribute values now contain 1756 dated records.
 * Declarative scalar configuration-value imports now contain 112 versioned JSON specifications.
 * Configuration value ranges now contain 158 dated records from 20 range specifications.
@@ -253,6 +255,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+* Hid technical configuration identifiers from buyer-facing cards and comparison headers while retaining them in provenance and exports.
+* Completed Polish category labels for all equipment domains used by the active catalogue.
 * Unified browser equipment selection into one filter; matched configuration prices now explain whether each selected item is standard, packaged, optional or unpriced.
 * Prevented the interactive shortlist from entering a self-sustaining DOM mutation refresh loop after equipment selection; updates now use one explicit render lifecycle event and animation-frame batching.
 * Replaced duplicate equipment-selection events and unsafe bit-shift package enumeration with single-event updates and deterministic coverage-based dynamic programming.

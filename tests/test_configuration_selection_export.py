@@ -311,7 +311,21 @@ process.stdout.write(JSON.stringify(output));
         labels = [row["label"] for row in comparison["rows"]]
         self.assertIn("Cena katalogowa", labels)
         self.assertIn("Cena z wybranym wyposażeniem", labels)
-        self.assertIn("heated_steering_wheel", labels)
+        for label in (
+            "Heated steering wheel",
+            "Navigation system",
+            "Rear-view camera",
+        ):
+            self.assertIn(label, labels)
+        equipment_rows = [
+            row for row in comparison["rows"]
+            if row["key"].startswith("equipment:")
+        ]
+        self.assertEqual(len(equipment_rows), 3)
+        self.assertEqual(
+            {row["category"] for row in equipment_rows},
+            {"Komfort i wnętrze", "Multimedia", "Parkowanie"},
+        )
         self.assertTrue(all(len(row["values"]) == 3 for row in comparison["rows"]))
 
     def test_html_contains_selection_controls_and_offline_module(self) -> None:
@@ -326,6 +340,7 @@ process.stdout.write(JSON.stringify(output));
             "compare-selection",
             "comparison-panel",
             "comparison-table",
+            "comparison-differences-only",
             "close-comparison",
             "download-selection-json",
             "download-selection-codes",
@@ -334,7 +349,7 @@ process.stdout.write(JSON.stringify(output));
             self.assertIn(f'id="{identifier}"', rendered)
         self.assertIn("interactive_configuration_selection", rendered)
         self.assertIn("configuration-select", rendered)
-        self.assertIn("Format interaktywnej shortlisty HTML v1.3.", rendered)
+        self.assertIn("Format interaktywnej shortlisty HTML v1.4.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
         self.assertIn("equipment-availability-note", rendered)
         self.assertIn("model-picker", rendered)
@@ -342,6 +357,8 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("comparison-model-thumbnail", rendered)
         self.assertIn("Porównaj wybrane", rendered)
         self.assertIn("Porównanie wielowariantowe", rendered)
+        self.assertIn("Pokaż tylko różnice", rendered)
+        self.assertIn("całe wyposażenie opisane w bazie", rendered)
         self.assertIn("configuration-price-equipment", rendered)
         self.assertIn("Wybrane wyposażenie", rendered)
         self.assertNotIn('id="required-standard-equipment"', rendered)

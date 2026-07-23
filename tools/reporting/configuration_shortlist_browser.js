@@ -251,17 +251,27 @@
         ? `${price.price_date} · ${price.source_code}` : "brak źródłowego rekordu ceny";
       const seatsSource = seats.state === "recorded"
         ? `${seats.observation_date} · ${seats.source_code}` : "brak źródłowego rekordu liczby miejsc";
-      return `<article class="result-card">
-        <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}"></div>
+      const transmissionLabel = item.transmission_type === "automatic"
+        ? "automatyczna"
+        : item.transmission_type === "manual" ? "manualna" : item.transmission_type;
+      return `<article class="result-card" data-configuration-code="${escapeHtml(item.configuration_code)}">
+        <div class="result-card-hero">
+          <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}"></div>
+          <div class="result-card-title">
+            <p class="result-model-name">${escapeHtml(item.model_name)}</p>
+            <h3>${escapeHtml(item.version_name)}</h3>
+            <p class="result-variant-name">${escapeHtml(item.powertrain_label)} · skrzynia ${escapeHtml(transmissionLabel)}</p>
+          </div>
+        </div>
+        <p class="configuration-code" hidden>${escapeHtml(item.configuration_code)}</p>
         <div class="result-price">${escapeHtml(priceText(price))}</div>
-        <h3>${escapeHtml(item.display_name || `${item.model_name} ${item.version_name}`)}</h3>
-        <p class="configuration-code">${escapeHtml(item.configuration_code)}</p>
         <dl>
           <div><dt>Napęd</dt><dd>${escapeHtml(item.powertrain_label)}</dd></div>
-          <div><dt>Skrzynia</dt><dd>${escapeHtml(item.transmission_type)}</dd></div>
+          <div><dt>Skrzynia</dt><dd>${escapeHtml(transmissionLabel)}</dd></div>
           <div><dt>Miejsca</dt><dd>${escapeHtml(seatsText(seats))}</dd></div>
         </dl>
         <details><summary>Proweniencja</summary>
+          <p>Kod techniczny: ${escapeHtml(item.configuration_code)}</p>
           <p>Cena: ${escapeHtml(priceSource)}</p>
           <p>Miejsca: ${escapeHtml(seatsSource)}</p>
         </details>
