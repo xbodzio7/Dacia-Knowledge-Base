@@ -60,3 +60,7 @@ No package, option, dependency or exclusion is inferred from another trim, engin
 - importer `--check`: PASS;
 - CSV, reference, source-hash and SQLite validation: PASS;
 - generated shortlist uses the 2026-07-23 Stepway prices as the latest dated catalogue observations.
+
+## Publication
+
+`data-products-v1.4.0` was published from exact merged main commit `85fff3f69cae97de900bf9422f2418de9f8335ee`. The exact release HTML shows all five imported Stepway Eco-G configurations with the dated official prices and source identity. The three public assets were downloaded again and accepted by the independent release verifier.

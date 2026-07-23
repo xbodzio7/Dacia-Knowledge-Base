@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Official Configurator Sandero Stepway Configuration-Level Import**
+**Data Products v1.4.0 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.3.0 Full Comparison and Official Configurator Intake
-- Pull Request: #215
-- Verified head: `47dfbf405b0c1b96d78f2a0eb77068c8af8e05bb`
-- Quality run: #1203
+- Package: Official Configurator Sandero Stepway Configuration-Level Import
+- Pull Request: #219
+- Verified head: `b94ce12f5fbc366533d72fe6f7eda06f42ac9c92`
+- Quality run: #1213
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Official Configurator Sandero Stepway Configuration-Level Import** — `complete`
+**Data Products v1.4.0 Publication** — `complete`
 
-Import five exact official Sandero Stepway Eco-G 120 price states and only source-visible version highlights as dated configuration-level observations, while preserving unproven package applicability as an explicit non-import.
+Publish and independently re-verify immutable data-products-v1.4.0 assets from exact green main commit 85fff3f69cae97de900bf9422f2418de9f8335ee after the exact official Sandero Stepway configuration-level import.
 
 ## Next package
 
