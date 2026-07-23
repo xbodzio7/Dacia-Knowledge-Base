@@ -1,0 +1,33 @@
+name: Export current main source
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    if: github.head_ref == 'transport/export-current-main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 921c6cb814e3084d76086d7f6d57aa148871e38c
+          fetch-depth: 0
+      - name: Create source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar --exclude=.git -czf "$RUNNER_TEMP/dkb-main-921c6cb8.tar.gz" .
+          sha256sum "$RUNNER_TEMP/dkb-main-921c6cb8.tar.gz"
+      - name: Upload source archive
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: dkb-main-921c6cb8
+          path: ${{ runner.temp }}/dkb-main-921c6cb8.tar.gz
+          if-no-files-found: error
+          retention-days: 1
