@@ -1,0 +1,98 @@
+name: Audit data products v1.4.0 publication
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.head_ref == 'audit/data-products-v1.4.0-publication'
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: data-products-v1.4.0
+      RELEASE_VERSION: 1.4.0
+      RELEASE_COMMIT: 85fff3f69cae97de900bf9422f2418de9f8335ee
+    steps:
+      - name: Check out exact release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 85fff3f69cae97de900bf9422f2418de9f8335ee
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.14'
+
+      - name: Download and verify public assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/public-v1.4.0"
+          mkdir -p "$output"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir "$output"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$output"
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --json databaseId,publishedAt,isDraft,isPrerelease,url,tagName,targetCommitish,assets \
+            > "$RUNNER_TEMP/release-metadata.json"
+          python - "$output" "$RUNNER_TEMP/release-metadata.json" "$RUNNER_TEMP/data-products-v1.4.0-publication-audit.json" <<'PY'
+          import hashlib, json, pathlib, sys
+          output = pathlib.Path(sys.argv[1])
+          metadata = json.loads(pathlib.Path(sys.argv[2]).read_text(encoding='utf-8'))
+          audit_path = pathlib.Path(sys.argv[3])
+          expected = {
+              'dacia-knowledge-base-data-products-v1.4.0.zip',
+              'data-product-release-manifest.json',
+              'SHA256SUMS',
+          }
+          assert {p.name for p in output.iterdir()} == expected
+          assets_by_name = {item['name']: item for item in metadata['assets']}
+          assert set(assets_by_name) == expected
+          records = []
+          for path in sorted(output.iterdir(), key=lambda p: p.name):
+              digest = hashlib.sha256(path.read_bytes()).hexdigest()
+              item = assets_by_name[path.name]
+              record = {
+                  'name': path.name,
+                  'asset_id': item.get('databaseId'),
+                  'size': path.stat().st_size,
+                  'sha256': digest,
+                  'api_digest': item.get('digest'),
+                  'state': item.get('state'),
+              }
+              if record['api_digest']:
+                  assert record['api_digest'] == f'sha256:{digest}'
+              records.append(record)
+          audit = {
+              'release_id': metadata['databaseId'],
+              'tag': metadata['tagName'],
+              'target_commit_sha': '85fff3f69cae97de900bf9422f2418de9f8335ee',
+              'target_commitish': metadata['targetCommitish'],
+              'published_at': metadata['publishedAt'],
+              'html_url': metadata['url'],
+              'draft': metadata['isDraft'],
+              'prerelease': metadata['isPrerelease'],
+              'assets': records,
+              'verification': 'PASS',
+          }
+          audit_path.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('AUDIT_JSON=' + json.dumps(audit, ensure_ascii=False, sort_keys=True))
+          PY
+
+      - name: Upload audit record
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.4.0-publication-audit
+          path: ${{ runner.temp }}/data-products-v1.4.0-publication-audit.json
+          if-no-files-found: error
+          retention-days: 7
