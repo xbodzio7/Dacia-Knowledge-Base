@@ -36,3 +36,9 @@ Official photographs are not archived or redistributed. The offline browser uses
 - three configurations produced 59 comparison rows, including full equipment;
 - `Pokaż tylko różnice` reduced the view to 15 differing rows;
 - no JavaScript console errors.
+
+## Publication
+
+`data-products-v1.3.0` was published from exact merged main commit `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`. The final release is immutable and contains the canonical three assets.
+
+The exact release HTML repeated the Chromium scenario with 67 configurations, a three-configuration comparison containing 59 equipment rows and a differences-only view containing 15 rows. No JavaScript console errors occurred. The public assets were downloaded again and accepted by `data-product-release --verify`.

@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.3.0 Full Comparison and Official Configurator Intake",
+  "phase": "Data Products v1.3.0 Publication",
   "reference_delivery": {
-    "name": "Data Products v1.2.0 Faceted Browser and Multi-Comparison",
-    "pull_request": 209,
-    "head_sha": "6da128e7d35084c73ad600f035e41adee2cfd58c",
-    "quality_run": 1188
+    "name": "Data Products v1.3.0 Full Comparison and Official Configurator Intake",
+    "pull_request": 215,
+    "head_sha": "47dfbf405b0c1b96d78f2a0eb77068c8af8e05bb",
+    "quality_run": 1203
   },
   "baseline": {
     "tests": 703,
@@ -27,9 +27,9 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.3.0 Full Comparison and Official Configurator Intake",
+    "name": "Data Products v1.3.0 Publication",
     "status": "complete",
-    "goal": "Deliver vertical browser filters, recognizable model-and-trim silhouettes, Polish equipment categories, full equipment comparison with a differences-only view, hidden technical identifiers and a dated official Dacia configurator source intake."
+    "goal": "Publish and independently re-verify immutable data-products-v1.3.0 assets from exact green main commit beb2151853b2d3de8837ff7c5e8d2b55b78af76e after delivering full equipment comparison, vertical filters, model-and-trim silhouettes and official configurator source intake."
   },
   "next_package": {
     "name": "Official Configurator Configuration-Level Import",

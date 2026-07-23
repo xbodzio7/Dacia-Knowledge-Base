@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.2.0` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.3.0` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.2.0 \
-  --output-directory ../dkb-data-products-v1.2.0
+  --version 1.3.0 \
+  --output-directory ../dkb-data-products-v1.3.0
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.2.0
+  --workspace-directory ../dkb-data-products-v1.3.0
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -706,7 +706,9 @@ Poprawka [`data-products-v1.1.1`](https://github.com/xbodzio7/Dacia-Knowledge-Ba
 
 Poprawka [`data-products-v1.1.2`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.2) została opublikowana z dokładnego commita `8b08dbd8d846610577437c150a0d39aeb3d868f4`. Udostępnia jeden filtr wyposażenia, a przy cenie każdego pasującego wariantu pokazuje, czy wybrany element jest seryjny, znajduje się w pakiecie, jest osobną opcją albo ma nieustaloną dopłatę. Trwały zapis znajduje się w `project/releases/data-products-v1.1.2.md`.
 
-Najnowsze wydanie [`data-products-v1.2.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.2.0) zostało opublikowane z dokładnego commita `2982ff68b8e1f3097403d96afd1754ae473c2aa3`. Dynamicznie ukrywa wyposażenie niedostępne w bieżącej grupie wariantów, zapobiega wyzerowaniu wyników przez niemożliwą kombinację, porównuje dowolną liczbę zaznaczonych konfiguracji bezpośrednio w HTML i pokazuje offline miniatury modeli. Trwały zapis znajduje się w `project/releases/data-products-v1.2.0.md`.
+Wydanie [`data-products-v1.2.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.2.0) zostało opublikowane z dokładnego commita `2982ff68b8e1f3097403d96afd1754ae473c2aa3`. Dynamicznie ukrywa wyposażenie niedostępne w bieżącej grupie wariantów, zapobiega wyzerowaniu wyników przez niemożliwą kombinację, porównuje dowolną liczbę zaznaczonych konfiguracji bezpośrednio w HTML i pokazuje offline miniatury modeli. Trwały zapis znajduje się w `project/releases/data-products-v1.2.0.md`.
+
+Najnowsze wydanie [`data-products-v1.3.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.3.0) zostało opublikowane z dokładnego commita `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`. Układa filtry pionowo, pokazuje rozpoznawalne sylwetki modeli i wersji, przenosi nazwę samochodu na górę karty, porównuje całe źródłowo opisane wyposażenie oraz udostępnia tryb „Pokaż tylko różnice”. Rejestruje też oficjalne konfiguratory Dacia Polska jako datowane, zmienne źródła do późniejszego importu opcji i dopłat. Trwały zapis znajduje się w `project/releases/data-products-v1.3.0.md`.
 
 Dla użytkownika końcowego preferowaną ścieżką jest komenda
 `data-product-release-download`. Pobiera ona dokładnie wskazaną wersję, rozwiązuje
