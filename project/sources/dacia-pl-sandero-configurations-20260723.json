@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "source_code": "src_pl_sandero_official_web_configurations_20260723",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-23",
+  "model_code": "sandero_iii",
+  "model_name": "NOWE SANDERO",
+  "volatility": "dynamic_official_web",
+  "version_observations": [
+    {
+      "version_code": "sandero_iii_expression",
+      "version_name": "expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM3",
+      "version_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-miejskie/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+      "configurations": [
+        {
+          "configuration_code": "sandero_iii_expression_ecog120_manual",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "manual",
+          "catalog_price_pln": 68000
+        },
+        {
+          "configuration_code": "sandero_iii_expression_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "automatic",
+          "catalog_price_pln": 74900
+        }
+      ],
+      "standard_highlights": [
+        {"attribute_code": "manual_air_conditioning", "source_label": "klimatyzacja manualna"},
+        {"attribute_code": "media_display_system", "source_label": "Media Display"},
+        {"attribute_code": "rear_view_camera", "source_label": "kamera cofania"},
+        {"attribute_code": "front_centre_armrest", "source_label": "konsola środkowa z podłokietnikiem"}
+      ],
+      "unassigned_version_items": [
+        {
+          "name": "MEDIA NAV",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not prove package price or exact Eco-G manual/automatic applicability. Existing catalogue-backed mappings remain unchanged."
+        },
+        {
+          "name": "pakiet THERMO",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not prove package price or exact Eco-G manual/automatic applicability. Existing catalogue-backed mappings remain unchanged."
+        },
+        {
+          "name": "pełnowymiarowe koło zapasowe 15\"",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not distinguish standard, option and configuration-dependent availability for the exact automatic state."
+        }
+      ]
+    },
+    {
+      "version_code": "sandero_iii_journey",
+      "version_name": "journey",
+      "grade_code": "ENS_ACLASS00M$SERIESPE1",
+      "version_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-miejskie/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+      "configurations": [
+        {
+          "configuration_code": "sandero_iii_journey_ecog120_manual",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "manual",
+          "catalog_price_pln": 73600
+        },
+        {
+          "configuration_code": "sandero_iii_journey_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "automatic",
+          "catalog_price_pln": 80500
+        }
+      ],
+      "standard_highlights": [
+        {"attribute_code": "automatic_climate_control", "source_label": "automatyczna klimatyzacja"},
+        {"attribute_code": "keyless_entry", "source_label": "karta Keyless Entry"},
+        {"attribute_code": "instrument_cluster_colour_7", "source_label": "cyfrowy zestaw wskaźników 7\""},
+        {"attribute_code": "media_display_system", "source_label": "nowy 10-calowy ekran centralny"}
+      ],
+      "unassigned_version_items": [
+        {
+          "name": "pakiet MEDIA NAV LIVE",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not prove package price or exact Eco-G manual/automatic applicability. Existing catalogue-backed mappings remain unchanged."
+        },
+        {
+          "name": "pakiet ZIMOWY",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not prove package price or exact Eco-G manual/automatic applicability. Existing catalogue-backed mappings remain unchanged."
+        },
+        {
+          "name": "pakiet EASY",
+          "imported_to_new_configuration": false,
+          "reason": "The broad equipment page does not prove package price or exact Eco-G manual/automatic applicability. Existing catalogue-backed mappings remain unchanged."
+        }
+      ]
+    }
+  ],
+  "configurator_observation": {
+    "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+    "visible_default_configuration": "NOWE SANDERO essential TCe 100 F.2",
+    "visible_optional_items": [
+      {
+        "name": "fotel kierowcy z regulacją wysokości",
+        "price_pln": 0,
+        "imported_to_ecog_master": false,
+        "reason": "The visible configurator state is Essential TCe 100 manual, not an active Eco-G configuration."
+      },
+      {
+        "name": "tylne oparcie kanapy składane 1/3 i 2/3",
+        "price_pln": 0,
+        "imported_to_ecog_master": false,
+        "reason": "The visible configurator state is Essential TCe 100 manual, not an active Eco-G configuration."
+      }
+    ]
+  },
+  "normalization_rules": [
+    "A version highlight is expanded only to exact Eco-G powertrain and gearbox states printed on the same official version page.",
+    "The two official Eco-G automatic states are added to the active catalogue because the official version pages explicitly name their trim, powertrain, automatic gearbox and catalogue price.",
+    "Only catalogue prices printed beside the exact Eco-G 120 powertrain and gearbox are imported.",
+    "Broad equipment pages are retained as supporting evidence but are not flattened blindly because they mix standard equipment, packages, technical qualifiers and potentially engine-dependent entries.",
+    "A package or option is not mapped to the new automatic configuration without an exact state-level price and applicability observation.",
+    "Financing, promotions, accessories, installation charges and dealer-stock prices are excluded from catalogue-price imports."
+  ]
+}

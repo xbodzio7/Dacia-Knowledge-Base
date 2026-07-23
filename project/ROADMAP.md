@@ -97,6 +97,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - pakiet przeglądarki `v1.3.0` z pionowymi filtrami, pełnym porównaniem wyposażenia, trybem „Pokaż tylko różnice”, sylwetkami modeli i datowanym intake konfiguratorów producenta,
 - publiczne wydanie `data-products-v1.3.0` z pełnym porównaniem wyposażenia, pionowymi filtrami, sylwetkami modeli i niezależnie zweryfikowanymi trzema assetami,
 - pierwszy import oficjalnego konfiguratora na poziomie pięciu dokładnych konfiguracji Sandero Stepway Eco-G 120, z cenami, wyróżnikami wyposażenia i jawnym zakazem przenoszenia opcji między napędami,
+- import oficjalnych stron Sandero na poziomie czterech dokładnych stanów Eco-G 120, z dwiema nowymi konfiguracjami automatycznymi, czterema cenami, 16 wyróżnikami seryjnymi i nowym zakresem porównawczym,
 - publiczne wydanie `data-products-v1.4.0` z konfiguratorowym importem Stepway, trzema niezależnie zweryfikowanymi assetami i dokładnym powiązaniem tagu z zielonym commitem,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
@@ -110,7 +111,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 709 testów automatycznych,
+- 716 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

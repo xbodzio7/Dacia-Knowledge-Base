@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    }
+  ],
+  "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cargo_volume_vda",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "exterior_color",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gear_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_train_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "noise_level_at_50_kmh",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "number_of_doors",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "number_of_seats",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "spare_wheel_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standard_tyre_specification",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standing_km",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "standing_km",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "unbraked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "upholstery_variant",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheel_design",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheel_finish",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheel_material",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheel_size",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
+      "fuel_type_code": ""
+    }
+  ],
+  "equipment_attributes": [
+    "adjustable_boot_floor",
+    "alcohol_interlock_preparation",
+    "anti_lock_braking_system",
+    "automatic_climate_control",
+    "automatic_door_locking",
+    "automatic_emergency_braking",
+    "automatic_headlights",
+    "blind_spot_monitoring",
+    "bluetooth_connectivity",
+    "boot_compartment_lighting",
+    "central_locking",
+    "connected_services",
+    "cruise_control",
+    "curtain_airbags",
+    "driver_front_airbag",
+    "driver_seat_belt_height_adjustment",
+    "driver_seat_height_adjustment",
+    "electronic_parking_brake",
+    "electronic_stability_control",
+    "emergency_call_ecall",
+    "emergency_stop_signal",
+    "extended_grip",
+    "fog_lights",
+    "front_centre_armrest",
+    "front_parking_sensors",
+    "front_seat_belt_pretensioners",
+    "front_side_airbags",
+    "front_windows_power",
+    "gear_shift_indicator",
+    "heated_steering_wheel",
+    "heated_windscreen",
+    "high_filtering_glass",
+    "hill_start_assist",
+    "instrument_cluster_colour_7",
+    "instrument_cluster_tft_3_5",
+    "isofix_rear",
+    "keyless_entry",
+    "lane_keep_assist",
+    "led_daytime_running_lights",
+    "led_headlights",
+    "manual_air_conditioning",
+    "manual_day_night_rearview_mirror",
+    "media_control_system",
+    "media_display_system",
+    "onboard_computer",
+    "one_touch_turn_signals",
+    "one_touch_windows",
+    "parking_assist_system",
+    "passenger_front_airbag",
+    "rain_sensing_wipers",
+    "rear_parking_sensors",
+    "rear_seat_belt_pretensioners",
+    "rear_seat_folding",
+    "rear_three_point_seat_belts",
+    "rear_view_camera",
+    "rear_windows_power",
+    "safe_distance_warning",
+    "seat_belt_reminder",
+    "side_mirrors_electric_adjustment",
+    "side_mirrors_heated",
+    "speed_limiter",
+    "steering_wheel_height_adjustment",
+    "steering_wheel_reach_adjustment",
+    "third_brake_light",
+    "touchscreen",
+    "traffic_sign_recognition",
+    "tyre_pressure_monitoring_system",
+    "tyre_repair_kit",
+    "wireless_smartphone_replication"
+  ],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.4.0 Publication",
+  "phase": "Official Configurator Sandero Configuration-Level Import",
   "reference_delivery": {
     "name": "Official Configurator Sandero Stepway Configuration-Level Import",
     "pull_request": 219,
@@ -15,26 +15,26 @@
     "quality_run": 1213
   },
   "baseline": {
-    "tests": 709,
+    "tests": 716,
     "csv_files": 41,
-    "rows": 7669,
+    "rows": 7699,
     "configuration_values": 1756,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
-    "availability_records": 4496,
+    "availability_records": 4512,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.4.0 Publication",
+    "name": "Official Configurator Sandero Configuration-Level Import",
     "status": "complete",
-    "goal": "Publish and independently re-verify immutable data-products-v1.4.0 assets from exact green main commit 85fff3f69cae97de900bf9422f2418de9f8335ee after the exact official Sandero Stepway configuration-level import."
+    "goal": "Import only directly proven official Sandero Eco-G 120 trim, powertrain and gearbox states, including two newly explicit automatic configurations, four dated catalogue prices and source-visible standard-equipment highlights, while preserving unproven packages and default TCe 100 options as non-imports."
   },
   "next_package": {
-    "name": "Official Configurator Sandero Configuration-Level Import",
+    "name": "Official Configurator Jogger Configuration-Level Import",
     "status": "planned",
-    "goal": "Capture exact official Sandero trim, powertrain and gearbox states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions."
+    "goal": "Capture exact official Jogger trim, powertrain, gearbox and seat-count states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

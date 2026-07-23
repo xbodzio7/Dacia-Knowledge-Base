@@ -66,3 +66,5 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 65,bigster_expression_hybridg150_4x4_automatic,bigster_expression,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
 66,bigster_extreme_hybridg150_4x4_automatic,bigster_extreme,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
 67,bigster_journey_hybridg150_4x4_automatic,bigster_journey,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+68,sandero_iii_expression_ecog120_automatic,sandero_iii_expression,Eco-G 120,automatic,active,Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.
+69,sandero_iii_journey_ecog120_automatic,sandero_iii_journey,Eco-G 120,automatic,active,Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.
