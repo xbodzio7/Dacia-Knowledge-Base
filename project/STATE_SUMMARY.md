@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.2.0 Publication**
+**Data Products v1.3.0 Full Comparison and Official Configurator Intake**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 700
+- Tests: 703
 - Master CSV files: 41
-- Master rows: 7624
+- Master rows: 7630
 - Configuration values: 1756
 - Configuration import specifications: 112
 - Configuration value ranges: 158
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.2.0 Publication** — `complete`
+**Data Products v1.3.0 Full Comparison and Official Configurator Intake** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.2.0 assets from exact green main commit 2982ff68b8e1f3097403d96afd1754ae473c2aa3 after delivering dynamic equipment facets, multi-configuration comparison and offline model illustrations.
+Deliver vertical browser filters, recognizable model-and-trim silhouettes, Polish equipment categories, full equipment comparison with a differences-only view, hidden technical identifiers and a dated official Dacia configurator source intake.
 
 ## Next package
 
-**Excel Selector Planning Review** — `planned`
+**Official Configurator Configuration-Level Import** — `planned`
 
-Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release.
+Capture each official Dacia configurator state by model, trim, powertrain and gearbox, then import only explicitly proven standard equipment, packages, options, prices, dependencies and exclusions as dated observations.
 
 ## Autonomy
 

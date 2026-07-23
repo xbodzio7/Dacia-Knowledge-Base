@@ -13,3 +13,8 @@ id,source_code,model_code,relationship,notes
 12,src_pl_duster_price_my26_20260703,duster_iii,configuration_for,Official MY26 commercial price list effective 2026-07-03.
 13,src_pl_jogger_price_my26_20260703,jogger,configuration_for,Official MY26 commercial price list effective 2026-07-03.
 14,src_pl_bigster_price_my26_20260703,bigster,configuration_for,Official MY26 commercial price list effective 2026-07-03.
+15,src_pl_dacia_official_configurators_20260723,sandero_iii,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
+16,src_pl_dacia_official_configurators_20260723,sandero_stepway_iii,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
+17,src_pl_dacia_official_configurators_20260723,duster_iii,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
+18,src_pl_dacia_official_configurators_20260723,jogger,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
+19,src_pl_dacia_official_configurators_20260723,bigster,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
