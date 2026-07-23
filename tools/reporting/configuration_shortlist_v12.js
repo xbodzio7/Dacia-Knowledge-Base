@@ -12,7 +12,8 @@
     ADAS: "Systemy wspomagania kierowcy", Brakes: "Hamulce",
     Doors: "Drzwi i dostęp", "Driving Systems": "Prowadzenie i parkowanie",
     HVAC: "Ogrzewanie i klimatyzacja", Infotainment: "Multimedia",
-    Lighting: "Oświetlenie", Mirrors: "Lusterka i parkowanie", Seats: "Fotele"
+    Lighting: "Oświetlenie", Mirrors: "Lusterka i parkowanie", Seats: "Fotele",
+    Wheels: "Koła", Windows: "Szyby"
   });
 
   function escapeHtml(value) {
@@ -21,7 +22,7 @@
   }
 
   function selectedValues(select) {
-    return [...select.selectedOptions].map((option) => option.value);
+    return select ? [...select.selectedOptions].map((option) => option.value) : [];
   }
 
   function dispatchSelection(select) {
@@ -30,6 +31,67 @@
 
   function equipmentMap(catalog) {
     return new Map((catalog.facets && catalog.facets.equipment || []).map((item) => [item.code, item]));
+  }
+
+  function bodyProfile(modelCode) {
+    const code = String(modelCode || "").toLowerCase();
+    if (code.includes("jogger")) return "M12 60 L22 38 Q25 31 36 29 L69 28 Q78 29 84 38 L95 45 Q99 47 100 55 L100 60 Z";
+    if (code.includes("bigster")) return "M10 60 L17 37 Q20 29 31 27 L72 26 Q82 27 88 38 L101 45 Q105 48 105 60 Z";
+    if (code.includes("duster") || code.includes("stepway")) return "M12 60 L20 39 Q23 31 34 29 L70 29 Q79 30 85 40 L98 47 Q102 50 102 60 Z";
+    if (code.includes("sandero") || code.includes("spring")) return "M14 60 L23 42 Q27 34 38 32 L67 32 Q77 34 84 43 L96 49 Q99 52 99 60 Z";
+    return "M13 60 L22 40 Q26 32 37 30 L70 30 Q79 32 85 41 L98 48 Q101 51 101 60 Z";
+  }
+
+  function modelThumbnailSvg(modelCode, modelName) {
+    const label = escapeHtml(modelName || modelCode || "Dacia");
+    const profile = bodyProfile(modelCode);
+    return `<svg viewBox="0 0 116 76" role="img" aria-label="${label}" focusable="false">
+      <title>${label}</title>
+      <path class="car-body" d="${profile}"/>
+      <path class="car-window" d="M33 34 L42 30 L67 30 L77 39 L34 39 Z"/>
+      <path class="car-line" d="M19 50 H99 M56 31 V59"/>
+      <circle class="car-wheel" cx="32" cy="60" r="9"/><circle class="car-wheel" cx="84" cy="60" r="9"/>
+      <circle class="car-hub" cx="32" cy="60" r="3"/><circle class="car-hub" cx="84" cy="60" r="3"/>
+    </svg>`;
+  }
+
+  function createModelPicker(select, catalog) {
+    if (!select || document.querySelector(`#${select.id}-picker`)) return null;
+    const wrapper = document.createElement("div");
+    wrapper.id = `${select.id}-picker`;
+    wrapper.className = "model-picker";
+    const models = new Map((catalog.facets.models || []).map((item) => [item.code, item]));
+    for (const option of select.options) {
+      const model = models.get(option.value) || { code: option.value, name: option.textContent };
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "model-choice";
+      button.dataset.value = option.value;
+      button.innerHTML = `<span class="model-choice-thumb">${modelThumbnailSvg(model.code, model.name)}</span><strong>${escapeHtml(model.name || option.textContent)}</strong><span class="model-choice-check" aria-hidden="true">✓</span>`;
+      wrapper.append(button);
+    }
+    select.classList.add("native-model-select");
+    select.hidden = true;
+    select.parentNode.insertBefore(wrapper, select);
+
+    const refresh = () => {
+      const selected = new Set(selectedValues(select));
+      for (const button of wrapper.querySelectorAll(".model-choice")) {
+        const active = selected.has(button.dataset.value);
+        button.classList.toggle("is-selected", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    };
+    wrapper.addEventListener("click", (event) => {
+      const button = event.target.closest(".model-choice");
+      if (!button) return;
+      const option = [...select.options].find((item) => item.value === button.dataset.value);
+      if (option) option.selected = !option.selected;
+      dispatchSelection(select);
+    });
+    select.addEventListener("change", refresh);
+    refresh();
+    return { refresh };
   }
 
   function createEquipmentPicker(select, title, catalog) {
@@ -49,6 +111,7 @@
         </div>
         <div class="selected-filter-list" data-selected-list></div>
       </div>
+      <p class="equipment-availability-note" data-availability-note>Lista pokazuje tylko wyposażenie możliwe w aktualnie dopasowanych wariantach.</p>
       <label class="equipment-picker-search">Szukaj wyposażenia
         <input type="search" data-equipment-search placeholder="np. kamera, fotele, nawigacja">
       </label>
@@ -65,7 +128,7 @@
       option.textContent = label;
       option.dataset.displayLabel = label;
       if (!groups.has(category)) groups.set(category, []);
-      groups.get(category).push({ code: option.value, label, option });
+      groups.get(category).push({ code: option.value, label });
     }
     const groupsContainer = wrapper.querySelector("[data-equipment-groups]");
     for (const [category, items] of [...groups.entries()].sort((a, b) =>
@@ -89,11 +152,12 @@
     }
 
     let showOnlySelected = false;
+    let availableCodes = null;
+    let removedCodes = [];
     const refresh = () => {
       const selected = new Set(selectedValues(select));
       wrapper.querySelector("[data-selected-count]").textContent = selected.size;
-      const clear = wrapper.querySelector("[data-clear-selected]");
-      clear.disabled = selected.size === 0;
+      wrapper.querySelector("[data-clear-selected]").disabled = selected.size === 0;
       const list = wrapper.querySelector("[data-selected-list]");
       list.replaceChildren();
       if (!selected.size) {
@@ -111,12 +175,22 @@
           list.append(chip);
         }
       }
+
+      const note = wrapper.querySelector("[data-availability-note]");
+      note.textContent = removedCodes.length
+        ? `Usunięto ${removedCodes.length} pozycję/pozycje, których nie ma w aktualnych wariantach.`
+        : "Lista pokazuje tylko wyposażenie możliwe w aktualnie dopasowanych wariantach.";
+      note.classList.toggle("has-removal", removedCodes.length > 0);
+
       const query = wrapper.querySelector("[data-equipment-search]").value.trim().toLocaleLowerCase("pl");
       for (const button of wrapper.querySelectorAll(".equipment-choice")) {
         const active = selected.has(button.dataset.value);
+        const available = availableCodes === null || availableCodes.has(button.dataset.value);
         button.classList.toggle("is-selected", active);
         button.setAttribute("aria-pressed", active ? "true" : "false");
-        button.hidden = (showOnlySelected && !active) || (query && !button.dataset.searchText.includes(query));
+        button.hidden = (!active && !available)
+          || (showOnlySelected && !active)
+          || Boolean(query && !button.dataset.searchText.includes(query));
       }
       for (const section of wrapper.querySelectorAll(".equipment-picker-group")) {
         section.hidden = !section.querySelector(".equipment-choice:not([hidden])");
@@ -153,15 +227,20 @@
     });
     wrapper.querySelector("[data-equipment-search]").addEventListener("input", refresh);
     refresh();
-    return { refresh };
+    return {
+      refresh,
+      setAvailability(state) {
+        const available = state && state.available_equipment;
+        availableCodes = Array.isArray(available) ? new Set(available) : null;
+        removedCodes = state && Array.isArray(state.removed_equipment) ? state.removed_equipment : [];
+        refresh();
+      }
+    };
   }
 
   function currentCriteria() {
     const equipment = document.querySelector("#required-equipment");
-    return {
-      required_equipment: equipment ? selectedValues(equipment) : [],
-      required_standard_equipment: []
-    };
+    return { required_equipment: equipment ? selectedValues(equipment) : [], required_standard_equipment: [] };
   }
 
   function commercialOffersMarkup(configuration) {
@@ -183,6 +262,11 @@
       const code = card.querySelector(".configuration-code")?.textContent.trim();
       const configuration = byCode.get(code);
       if (!configuration) continue;
+      const thumbnail = card.querySelector(".model-thumbnail-host");
+      if (thumbnail && thumbnail.dataset.renderedModel !== configuration.model_code) {
+        thumbnail.innerHTML = modelThumbnailSvg(configuration.model_code, configuration.model_name);
+        thumbnail.dataset.renderedModel = configuration.model_code;
+      }
       const heading = card.querySelector("h3");
       if (heading && heading.dataset.v12Label !== configuration.display_name) {
         heading.textContent = configuration.display_name || `${configuration.model_name} ${configuration.version_name}`;
@@ -217,10 +301,12 @@
     if (!catalogElement || !results || !pricing) return;
     const catalog = JSON.parse(catalogElement.textContent);
     pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
-    const pickers = [
-      createEquipmentPicker(document.querySelector("#required-equipment"), "Wybrane wyposażenie", catalog)
-    ].filter(Boolean);
+    const modelPicker = createModelPicker(document.querySelector("#models"), catalog);
+    const equipmentPicker = createEquipmentPicker(
+      document.querySelector("#required-equipment"), "Wybrane wyposażenie", catalog
+    );
     let scheduled = false;
+    let pendingAvailability = results.dkbLastDetail?.equipment_availability || null;
     const scheduleFrame = typeof requestAnimationFrame === "function"
       ? requestAnimationFrame
       : (callback) => setTimeout(callback, 0);
@@ -229,13 +315,17 @@
       scheduled = true;
       scheduleFrame(() => {
         scheduled = false;
-        pickers.forEach((picker) => picker.refresh());
+        if (equipmentPicker) equipmentPicker.setAvailability(pendingAvailability);
+        if (modelPicker) modelPicker.refresh();
         enhanceCards(catalog, results);
       });
     };
-    results.addEventListener("dkb:results-rendered", refresh);
+    results.addEventListener("dkb:results-rendered", (event) => {
+      pendingAvailability = event.detail && event.detail.equipment_availability || null;
+      refresh();
+    });
     document.addEventListener("change", (event) => {
-      if (event.target.matches("#required-equipment, .configuration-select")) refresh();
+      if (event.target.matches("#required-equipment, #models, .configuration-select")) refresh();
     });
     document.querySelector("#reset")?.addEventListener("click", () => setTimeout(refresh, 0));
     refresh();
@@ -247,7 +337,7 @@
   }
 
   return {
-    initialize, createEquipmentPicker, enhanceCards, commercialOffersMarkup,
-    dispatchSelection, currentCriteria
+    initialize, createEquipmentPicker, createModelPicker, enhanceCards, commercialOffersMarkup,
+    dispatchSelection, currentCriteria, modelThumbnailSvg, bodyProfile
   };
 });

@@ -95,6 +95,13 @@ switch (input.operation) {
       txt: api.exportFilename(input.catalog, input.payload.codes, "txt")
     };
     break;
+  case "comparison":
+    output = api.comparisonRows(
+      input.catalog,
+      input.payload.codes,
+      input.payload.equipment || []
+    );
+    break;
   default:
     throw new Error(`unknown operation ${input.operation}`);
 }
@@ -285,6 +292,28 @@ process.stdout.write(JSON.stringify(output));
             "2026-01-01",
         )
 
+
+    def test_comparison_supports_more_than_two_configurations(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            _, catalog = self.fixture(Path(directory))
+        comparison = self.run_node(
+            catalog,
+            "comparison",
+            {
+                "codes": ["cfg_d", "cfg_a", "cfg_c"],
+                "equipment": ["heated_steering_wheel"],
+            },
+        )
+        self.assertEqual(
+            [item["configuration_code"] for item in comparison["configurations"]],
+            ["cfg_a", "cfg_c", "cfg_d"],
+        )
+        labels = [row["label"] for row in comparison["rows"]]
+        self.assertIn("Cena katalogowa", labels)
+        self.assertIn("Cena z wybranym wyposażeniem", labels)
+        self.assertIn("heated_steering_wheel", labels)
+        self.assertTrue(all(len(row["values"]) == 3 for row in comparison["rows"]))
+
     def test_html_contains_selection_controls_and_offline_module(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.fixture(Path(directory))
@@ -294,6 +323,10 @@ process.stdout.write(JSON.stringify(output));
             "selected-count",
             "select-visible",
             "clear-selection",
+            "compare-selection",
+            "comparison-panel",
+            "comparison-table",
+            "close-comparison",
             "download-selection-json",
             "download-selection-codes",
             "selected-list",
@@ -301,15 +334,23 @@ process.stdout.write(JSON.stringify(output));
             self.assertIn(f'id="{identifier}"', rendered)
         self.assertIn("interactive_configuration_selection", rendered)
         self.assertIn("configuration-select", rendered)
-        self.assertIn("Format interaktywnej shortlisty HTML v1.2.", rendered)
+        self.assertIn("Format interaktywnej shortlisty HTML v1.3.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
+        self.assertIn("equipment-availability-note", rendered)
+        self.assertIn("model-picker", rendered)
+        self.assertIn("model-thumbnail-host", rendered)
+        self.assertIn("comparison-model-thumbnail", rendered)
+        self.assertIn("Porównaj wybrane", rendered)
+        self.assertIn("Porównanie wielowariantowe", rendered)
         self.assertIn("configuration-price-equipment", rendered)
         self.assertIn("Wybrane wyposażenie", rendered)
         self.assertNotIn('id="required-standard-equipment"', rendered)
+        self.assertNotIn('id="search"', rendered)
+        self.assertNotIn('id="audit-heading"', rendered)
         self.assertIn("Pokaż tylko wybrane", rendered)
         self.assertIn("configuration_shortlist_v12", rendered)
         self.assertIn("dkb:results-rendered", rendered)
-        self.assertIn('results.addEventListener("dkb:results-rendered", refresh)', rendered)
+        self.assertIn('results.addEventListener("dkb:results-rendered", (event) => {', rendered)
         self.assertIn('results.addEventListener("dkb:results-rendered", sync)', rendered)
         self.assertNotIn("new MutationObserver(refresh)", rendered)
         self.assertNotIn("new MutationObserver(sync)", rendered)

@@ -1,9 +1,7 @@
 (function (root, factory) {
   "use strict";
   const api = factory();
-  if (typeof module !== "undefined" && module.exports) {
-    module.exports = api;
-  }
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.DkbConfigurationShortlist = api;
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
@@ -15,25 +13,25 @@
   }
 
   function normalizeCriteria(criteria) {
-    const standard = unique(criteria.required_standard_equipment);
+    const standard = unique(criteria && criteria.required_standard_equipment);
     const standardSet = new Set(standard);
-    const seatsValue = criteria.seats;
+    const seatsValue = criteria && criteria.seats;
     const seats = seatsValue === null || seatsValue === undefined || seatsValue === ""
       ? null
       : Number(seatsValue);
-    const minimum = criteria.minimum_price_pln;
-    const maximum = criteria.maximum_price_pln;
+    const minimum = criteria && criteria.minimum_price_pln;
+    const maximum = criteria && criteria.maximum_price_pln;
     return {
-      models: unique(criteria.models),
-      versions: unique(criteria.versions),
-      transmissions: unique(criteria.transmissions),
-      powertrains: unique(criteria.powertrains),
+      models: unique(criteria && criteria.models),
+      versions: unique(criteria && criteria.versions),
+      transmissions: unique(criteria && criteria.transmissions),
+      powertrains: unique(criteria && criteria.powertrains),
       minimum_price_pln: minimum === null || minimum === undefined || minimum === "" ? null : Number(minimum),
       maximum_price_pln: maximum === null || maximum === undefined || maximum === "" ? null : Number(maximum),
       seats,
-      required_equipment: unique(criteria.required_equipment).filter((code) => !standardSet.has(code)),
+      required_equipment: unique(criteria && criteria.required_equipment).filter((code) => !standardSet.has(code)),
       required_standard_equipment: standard,
-      search: String(criteria.search || "").trim().toLocaleLowerCase("pl")
+      search: String(criteria && criteria.search || "").trim().toLocaleLowerCase("pl")
     };
   }
 
@@ -50,25 +48,22 @@
     ].join(" ").toLocaleLowerCase("pl");
   }
 
+  function equipmentAvailable(configuration, code) {
+    const state = configuration && configuration.equipment && configuration.equipment[code];
+    return Boolean(state && AVAILABLE.has(state.availability_status));
+  }
+
   function evaluate(configuration, rawCriteria) {
-    const criteria = normalizeCriteria(rawCriteria);
+    const criteria = normalizeCriteria(rawCriteria || {});
     const reasons = new Set();
-    if (criteria.models.length && !criteria.models.includes(configuration.model_code)) {
-      reasons.add("model");
-    }
-    if (criteria.versions.length && !criteria.versions.includes(configuration.version_code)) {
-      reasons.add("version");
-    }
-    if (criteria.transmissions.length && !criteria.transmissions.includes(configuration.transmission_type)) {
-      reasons.add("transmission");
-    }
+    if (criteria.models.length && !criteria.models.includes(configuration.model_code)) reasons.add("model");
+    if (criteria.versions.length && !criteria.versions.includes(configuration.version_code)) reasons.add("version");
+    if (criteria.transmissions.length && !criteria.transmissions.includes(configuration.transmission_type)) reasons.add("transmission");
     if (criteria.powertrains.length && !criteria.powertrains.some((phrase) =>
       configuration.powertrain_label.toLocaleLowerCase("pl").includes(phrase.toLocaleLowerCase("pl")))) {
       reasons.add("powertrain");
     }
-    if (criteria.search && !configurationSearchText(configuration).includes(criteria.search)) {
-      reasons.add("search");
-    }
+    if (criteria.search && !configurationSearchText(configuration).includes(criteria.search)) reasons.add("search");
 
     const price = configuration.catalog_price;
     const amount = price.state === "recorded" ? Number(price.amount) : null;
@@ -114,7 +109,7 @@
   }
 
   function filterCatalog(catalog, rawCriteria) {
-    const criteria = normalizeCriteria(rawCriteria);
+    const criteria = normalizeCriteria(rawCriteria || {});
     const exclusionReasonCounts = {};
     const requiredEquipmentMissing = {};
     let catalogPriceMissing = 0;
@@ -130,9 +125,7 @@
         }
       }
       const reasons = evaluate(configuration, criteria);
-      for (const reason of reasons) {
-        exclusionReasonCounts[reason] = (exclusionReasonCounts[reason] || 0) + 1;
-      }
+      for (const reason of reasons) exclusionReasonCounts[reason] = (exclusionReasonCounts[reason] || 0) + 1;
       if (!reasons.length) results.push(configuration);
     }
     results.sort(sortConfigurations);
@@ -153,11 +146,69 @@
     };
   }
 
+  function criteriaWithoutEquipment(rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    return { ...criteria, required_equipment: [], required_standard_equipment: [] };
+  }
+
+  function availableEquipmentCodes(configurations) {
+    const codes = new Set();
+    for (const configuration of configurations || []) {
+      for (const [code, state] of Object.entries(configuration.equipment || {})) {
+        if (state && AVAILABLE.has(state.availability_status)) codes.add(code);
+      }
+    }
+    return [...codes].sort();
+  }
+
+  function reconcileEquipmentSelection(catalog, rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    const baseCriteria = criteriaWithoutEquipment(criteria);
+    const baseResults = catalog.configurations
+      .filter((configuration) => evaluate(configuration, baseCriteria).length === 0)
+      .sort(sortConfigurations);
+    const requested = criteria.required_equipment;
+
+    if (!baseResults.length) {
+      return {
+        base_match_count: 0,
+        selected_equipment: requested,
+        removed_equipment: [],
+        available_equipment: requested,
+        compatible_configurations: []
+      };
+    }
+
+    const accepted = [];
+    const removed = [];
+    let compatible = baseResults;
+    for (const code of requested) {
+      const next = compatible.filter((configuration) => equipmentAvailable(configuration, code));
+      if (next.length) {
+        accepted.push(code);
+        compatible = next;
+      } else {
+        removed.push(code);
+      }
+    }
+
+    const available = new Set(availableEquipmentCodes(compatible));
+    for (const code of accepted) available.add(code);
+    return {
+      base_match_count: baseResults.length,
+      selected_equipment: accepted,
+      removed_equipment: removed,
+      available_equipment: [...available].sort(),
+      compatible_configurations: compatible
+    };
+  }
+
   function selectedValues(element) {
-    return [...element.selectedOptions].map((option) => option.value);
+    return element ? [...element.selectedOptions].map((option) => option.value) : [];
   }
 
   function setSelected(element, values) {
+    if (!element) return;
     const wanted = new Set(values || []);
     for (const option of element.options) option.selected = wanted.has(option.value);
   }
@@ -201,6 +252,7 @@
       const seatsSource = seats.state === "recorded"
         ? `${seats.observation_date} · ${seats.source_code}` : "brak źródłowego rekordu liczby miejsc";
       return `<article class="result-card">
+        <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}"></div>
         <div class="result-price">${escapeHtml(priceText(price))}</div>
         <h3>${escapeHtml(item.display_name || `${item.model_name} ${item.version_name}`)}</h3>
         <p class="configuration-code">${escapeHtml(item.configuration_code)}</p>
@@ -217,20 +269,17 @@
     }).join("");
   }
 
+  function setText(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+  }
+
   function renderSummary(outcome) {
     const summary = outcome.summary;
-    document.querySelector("#matched-count").textContent = summary.matched_configurations;
-    document.querySelector("#excluded-count").textContent = summary.excluded_configurations;
-    document.querySelector("#missing-price-count").textContent = summary.data_unknowns.catalog_price_missing;
-    document.querySelector("#missing-seats-count").textContent = summary.data_unknowns.number_of_seats_missing;
-    const missingEquipment = Object.entries(summary.data_unknowns.required_equipment_missing);
-    document.querySelector("#missing-equipment").textContent = missingEquipment.length
-      ? missingEquipment.map(([code, count]) => `${code}: ${count}`).join(" · ")
-      : "Brak wymaganych atrybutów z nieznanym stanem.";
-    const reasons = Object.entries(summary.exclusion_reason_counts);
-    document.querySelector("#exclusion-reasons").textContent = reasons.length
-      ? reasons.map(([reason, count]) => `${reason}: ${count}`).join(" · ")
-      : "Brak wykluczeń.";
+    setText("#matched-count", summary.matched_configurations);
+    setText("#excluded-count", summary.excluded_configurations);
+    setText("#missing-price-count", summary.data_unknowns.catalog_price_missing);
+    setText("#missing-seats-count", summary.data_unknowns.number_of_seats_missing);
   }
 
   function modelOptionLabel(item) {
@@ -265,12 +314,14 @@
     document.querySelector("#powertrains").innerHTML = optionMarkup(catalog.facets.powertrains, "", (item) => item);
     document.querySelector("#seats").innerHTML = '<option value="">Dowolna / także brak danych</option>'
       + optionMarkup(catalog.facets.seat_counts.map(String), "", (item) => `${item} miejsc`);
-    const equipment = optionMarkup(catalog.facets.equipment, "code", (item) => `${item.name} (${item.code})`);
-    document.querySelector("#required-equipment").innerHTML = equipment;
+    document.querySelector("#required-equipment").innerHTML = optionMarkup(
+      catalog.facets.equipment, "code", (item) => `${item.name} (${item.code})`
+    );
   }
 
   function criteriaFromControls() {
     const transmission = document.querySelector("#transmissions").value;
+    const search = document.querySelector("#search");
     return {
       models: selectedValues(document.querySelector("#models")),
       versions: selectedValues(document.querySelector("#versions")),
@@ -281,7 +332,7 @@
       seats: document.querySelector("#seats").value,
       required_equipment: selectedValues(document.querySelector("#required-equipment")),
       required_standard_equipment: [],
-      search: document.querySelector("#search").value
+      search: search ? search.value : ""
     };
   }
 
@@ -314,14 +365,23 @@
     populateControls(catalog);
     applyInitialFilters(catalog, catalog.initial_filters || {});
     const results = document.querySelector("#results");
+    const equipment = document.querySelector("#required-equipment");
+
     const update = () => {
-      const outcome = filterCatalog(catalog, criteriaFromControls());
+      const rawCriteria = criteriaFromControls();
+      const facetState = reconcileEquipmentSelection(catalog, rawCriteria);
+      if (facetState.removed_equipment.length) {
+        setSelected(equipment, facetState.selected_equipment);
+        rawCriteria.required_equipment = facetState.selected_equipment;
+      }
+      const outcome = filterCatalog(catalog, rawCriteria);
       renderSummary(outcome);
       renderResults(results, outcome);
-      results.dispatchEvent(new CustomEvent("dkb:results-rendered", {
-        detail: { outcome }
-      }));
+      const detail = { outcome, equipment_availability: facetState };
+      results.dkbLastDetail = detail;
+      results.dispatchEvent(new CustomEvent("dkb:results-rendered", { detail }));
     };
+
     const models = document.querySelector("#models");
     models.addEventListener("change", () => {
       const selectedVersions = selectedValues(document.querySelector("#versions"));
@@ -335,12 +395,9 @@
     document.querySelector("#reset").addEventListener("click", () => {
       const filters = document.querySelector("#filters");
       HTMLFormElement.prototype.reset.call(filters);
-      for (const element of document.querySelectorAll("#filters select[multiple]")) {
-        setSelected(element, []);
-      }
+      for (const element of document.querySelectorAll("#filters select[multiple]")) setSelected(element, []);
       populateVersions(catalog, [], []);
       update();
-      document.querySelector("#search").focus();
     });
     update();
   }
@@ -357,6 +414,10 @@
     sortConfigurations,
     modelOptionLabel,
     versionOptionLabel,
-    versionsForModels
+    versionsForModels,
+    equipmentAvailable,
+    availableEquipmentCodes,
+    reconcileEquipmentSelection,
+    criteriaWithoutEquipment
   };
 });

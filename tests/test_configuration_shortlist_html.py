@@ -139,6 +139,42 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
         self.assertNotIn('id="required-standard-equipment"', rendered)
         self.assertIn("filters.required_standard_equipment || []", rendered)
 
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required")
+    def test_equipment_facets_remove_impossible_combination_before_zero_results(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            _, catalog = self.catalog(Path(directory))
+        script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
+        program = r"""
+const fs = require("fs");
+const api = require(process.argv[1]);
+const catalog = JSON.parse(fs.readFileSync(0, "utf8"));
+const state = api.reconcileEquipmentSelection(catalog, {
+  models: ["model_b"], versions: [], transmissions: [], powertrains: [],
+  required_equipment: ["heated_steering_wheel", "navigation_system"],
+  required_standard_equipment: []
+});
+process.stdout.write(JSON.stringify(state));
+"""
+        completed = subprocess.run(
+            ["node", "-e", program, str(script)],
+            input=json.dumps(catalog, ensure_ascii=False),
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        state = json.loads(completed.stdout)
+        self.assertGreater(state["base_match_count"], 0)
+        self.assertGreater(len(state["compatible_configurations"]), 0)
+        self.assertEqual(
+            set(state["selected_equipment"]) | set(state["removed_equipment"]),
+            {"heated_steering_wheel", "navigation_system"},
+        )
+        self.assertEqual(state["selected_equipment"], ["navigation_system"])
+        self.assertEqual(state["removed_equipment"], ["heated_steering_wheel"])
+        self.assertNotIn("heated_steering_wheel", state["available_equipment"])
+        for code in state["available_equipment"]:
+            self.assertIsInstance(code, str)
+
     def test_historical_catalog_uses_only_records_available_as_of_date(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.catalog(

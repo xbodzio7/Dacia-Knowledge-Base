@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-22",
+  "updated_on": "2026-07-23",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.1.2 Single Equipment Filter Publication",
+  "phase": "Data Products v1.2.0 Faceted Browser and Multi-Comparison",
   "reference_delivery": {
     "name": "Data Products v1.1.2 Single Equipment Filter",
     "pull_request": 205,
@@ -15,7 +15,7 @@
     "quality_run": 1176
   },
   "baseline": {
-    "tests": 698,
+    "tests": 700,
     "csv_files": 41,
     "rows": 7624,
     "configuration_values": 1756,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.1.2 Single Equipment Filter Publication",
+    "name": "Data Products v1.2.0 Faceted Browser and Multi-Comparison",
     "status": "complete",
-    "goal": "Publish and verify data-products-v1.1.2 from exact green main commit 8b08dbd8d846610577437c150a0d39aeb3d868f4 after replacing the browser equipment split with one buyer-oriented filter and moving availability status into matched price breakdowns."
+    "goal": "Deliver dynamic equipment facets, direct comparison of multiple selected configurations, a simplified full-width browser layout and deterministic offline model thumbnails without changing source data or pricing semantics."
   },
   "next_package": {
-    "name": "Excel Selector Planning Review",
+    "name": "Data Products v1.2.0 Publication",
     "status": "planned",
-    "goal": "Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release."
+    "goal": "Publish and independently verify immutable data-products-v1.2.0 assets from the exact green main commit containing the faceted browser and multi-comparison package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

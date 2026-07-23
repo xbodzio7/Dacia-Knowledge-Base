@@ -943,7 +943,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 698 testów, 41 pliki CSV, 7624 rekordów
+Zweryfikowany model obejmuje 700 testów, 41 pliki CSV, 7624 rekordów
 danych, 43 relacje między tabelami, 1756 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4472 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
