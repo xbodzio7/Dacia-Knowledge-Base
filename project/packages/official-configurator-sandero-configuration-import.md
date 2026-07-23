@@ -67,3 +67,7 @@ The default visible configurator state is Essential TCe 100 manual. Its zero-pri
 - 4,512 equipment-availability observations;
 - importer `--check`: PASS;
 - CSV, reference, source-hash, project-state and SQLite validation: PASS.
+
+## Publication
+
+`data-products-v1.5.0` was published from exact merged `main` commit `7f325d254b68eb495204c01c075727ee34893e1f`. The release contains 69 active configurations and 18 independent scopes, including the four exact Sandero Eco-G 120 states and the automatic comparison scope. The three public assets were downloaded again and accepted by the independent release verifier.
