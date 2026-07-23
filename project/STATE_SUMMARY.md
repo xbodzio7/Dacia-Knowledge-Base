@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.3.0 Full Comparison and Official Configurator Intake**
+**Data Products v1.3.0 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.2.0 Faceted Browser and Multi-Comparison
-- Pull Request: #209
-- Verified head: `6da128e7d35084c73ad600f035e41adee2cfd58c`
-- Quality run: #1188
+- Package: Data Products v1.3.0 Full Comparison and Official Configurator Intake
+- Pull Request: #215
+- Verified head: `47dfbf405b0c1b96d78f2a0eb77068c8af8e05bb`
+- Quality run: #1203
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Data Products v1.3.0 Full Comparison and Official Configurator Intake** — `complete`
+**Data Products v1.3.0 Publication** — `complete`
 
-Deliver vertical browser filters, recognizable model-and-trim silhouettes, Polish equipment categories, full equipment comparison with a differences-only view, hidden technical identifiers and a dated official Dacia configurator source intake.
+Publish and independently re-verify immutable data-products-v1.3.0 assets from exact green main commit beb2151853b2d3de8837ff7c5e8d2b55b78af76e after delivering full equipment comparison, vertical filters, model-and-trim silhouettes and official configurator source intake.
 
 ## Next package
 
