@@ -1,0 +1,97 @@
+name: Preflight data products v1.5.0
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preflight-data-products-v1.5.0
+  cancel-in-progress: false
+
+jobs:
+  build-and-verify:
+    if: github.head_ref == 'release/data-products-v1.5.0-preflight'
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: 1.5.0
+      RELEASE_COMMIT: 7f325d254b68eb495204c01c075727ee34893e1f
+      RELEASE_DIR: ${{ runner.temp }}/data-products-v1.5.0
+    steps:
+      - name: Check out exact green main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 7f325d254b68eb495204c01c075727ee34893e1f
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RELEASE_COMMIT"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Run focused release tests
+        run: python -m unittest -q tests.test_data_product_release
+
+      - name: Build and independently verify candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py data-product-release \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$RELEASE_DIR"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$RELEASE_DIR"
+
+      - name: Record deterministic identity
+        id: identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RELEASE_DIR/dacia-knowledge-base-data-products-v1.5.0.zip"
+          manifest="$RELEASE_DIR/data-product-release-manifest.json"
+          checksums="$RELEASE_DIR/SHA256SUMS"
+          archive_sha="$(sha256sum "$archive" | awk '{print $1}')"
+          manifest_sha="$(sha256sum "$manifest" | awk '{print $1}')"
+          checksums_sha="$(sha256sum "$checksums" | awk '{print $1}')"
+          archive_size="$(stat -c %s "$archive")"
+          manifest_size="$(stat -c %s "$manifest")"
+          checksums_size="$(stat -c %s "$checksums")"
+          printf 'ARCHIVE_SHA256=%s\n' "$archive_sha"
+          printf 'ARCHIVE_SIZE=%s\n' "$archive_size"
+          printf 'MANIFEST_SHA256=%s\n' "$manifest_sha"
+          printf 'MANIFEST_SIZE=%s\n' "$manifest_size"
+          printf 'CHECKSUMS_SHA256=%s\n' "$checksums_sha"
+          printf 'CHECKSUMS_SIZE=%s\n' "$checksums_size"
+          {
+            echo '## data-products-v1.5.0 deterministic identity'
+            echo
+            echo '| Asset | Size | SHA-256 |'
+            echo '| --- | ---: | --- |'
+            printf '| `%s` | %s | `%s` |\n' "$(basename "$archive")" "$archive_size" "$archive_sha"
+            printf '| `%s` | %s | `%s` |\n' "$(basename "$manifest")" "$manifest_size" "$manifest_sha"
+            printf '| `%s` | %s | `%s` |\n' "$(basename "$checksums")" "$checksums_size" "$checksums_sha"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload verified preflight candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.5.0-preflight
+          path: ${{ runner.temp }}/data-products-v1.5.0
+          if-no-files-found: error
+          retention-days: 7
