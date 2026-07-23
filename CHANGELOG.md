@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* First configuration-level official configurator import for five Sandero Stepway Eco-G 120 states, including dated catalogue prices, exact source relationships and 24 source-visible standard-equipment highlights.
+* Deterministic Sandero Stepway official-web importer with SHA-256, powertrain/gearbox and non-inference contracts.
 * Browser shortlist v1.4 with vertically stacked filters, model-and-trim silhouettes, full equipment comparison and a differences-only view.
 * Dated normalized intake of official Polish Dacia configurators for Sandero, Sandero Stepway, Duster, Jogger and Bigster.
 * Interactive shortlist HTML v1.3 with dynamic equipment facets that hide unavailable choices and automatically remove incompatible selections before they can reduce the result set to zero.
@@ -244,14 +246,14 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 703 tests.
-* The verified master-data baseline now contains 41 CSV files and 7630 rows.
-* SQLite verification now covers 41 tables and 7630 rows.
+* The automated test suite now contains 709 tests.
+* The verified master-data baseline now contains 41 CSV files and 7669 rows.
+* SQLite verification now covers 41 tables and 7669 rows.
 * Configuration attribute values now contain 1756 dated records.
 * Declarative scalar configuration-value imports now contain 112 versioned JSON specifications.
 * Configuration value ranges now contain 158 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.
-* Equipment availability now contains 4472 records: 3446 `standard`, 467 `optional`, 559 `not_available` and 0 `unknown`.
+* Equipment availability now contains 4496 records: 3470 `standard`, 467 `optional`, 559 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed

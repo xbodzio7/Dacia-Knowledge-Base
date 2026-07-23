@@ -710,6 +710,8 @@ Wydanie [`data-products-v1.2.0`](https://github.com/xbodzio7/Dacia-Knowledge-Bas
 
 Najnowsze wydanie [`data-products-v1.3.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.3.0) zostało opublikowane z dokładnego commita `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`. Układa filtry pionowo, pokazuje rozpoznawalne sylwetki modeli i wersji, przenosi nazwę samochodu na górę karty, porównuje całe źródłowo opisane wyposażenie oraz udostępnia tryb „Pokaż tylko różnice”. Rejestruje też oficjalne konfiguratory Dacia Polska jako datowane, zmienne źródła do późniejszego importu opcji i dopłat. Trwały zapis znajduje się w `project/releases/data-products-v1.3.0.md`.
 
+Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
+
 Dla użytkownika końcowego preferowaną ścieżką jest komenda
 `data-product-release-download`. Pobiera ona dokładnie wskazaną wersję, rozwiązuje
 tag do commita, weryfikuje trzy publiczne assety istniejącym kontraktem i zapisuje
@@ -947,11 +949,11 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 703 testów, 41 pliki CSV, 7630 rekordów
+Zweryfikowany model obejmuje 709 testów, 41 pliki CSV, 7669 rekordów
 danych, 43 relacje między tabelami, 1756 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
-specyfikacji zakresów oraz 4472 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 4496 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 41 tabele i 7630 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 41 tabele i 7669 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
