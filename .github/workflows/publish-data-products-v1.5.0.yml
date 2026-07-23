@@ -1,0 +1,132 @@
+name: Publish data products v1.5.0
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data-products-v1.5.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.head_ref == 'release/data-products-v1.5.0-authorized'
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: data-products-v1.5.0
+      RELEASE_VERSION: 1.5.0
+      RELEASE_COMMIT: 7f325d254b68eb495204c01c075727ee34893e1f
+      ARCHIVE_SHA256: ebbac6c85a3dd49e73c6e6a9ecd4bc5453be4e58e64996d7e6953416fa34c779
+      MANIFEST_SHA256: 4158bd12e8a338daa3e92805eb5a43c7c0ad12992746380f22d29f8822d3f414
+      CHECKSUMS_SHA256: 54fceff7c0adb6147782343ffaef3c81544af8c33b969bcc375e6df9e6217ed8
+    steps:
+      - name: Check out exact green main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 7f325d254b68eb495204c01c075727ee34893e1f
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RELEASE_COMMIT"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Build and independently verify release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/data-products-v1.5.0"
+          python tools/dkb.py data-product-release \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$output"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$RELEASE_COMMIT" \
+            --output-directory "$output"
+          test "$(sha256sum "$output/dacia-knowledge-base-data-products-v1.5.0.zip" | awk '{print $1}')" = "$ARCHIVE_SHA256"
+          test "$(sha256sum "$output/data-product-release-manifest.json" | awk '{print $1}')" = "$MANIFEST_SHA256"
+          test "$(sha256sum "$output/SHA256SUMS" | awk '{print $1}')" = "$CHECKSUMS_SHA256"
+          test "$(stat -c %s "$output/dacia-knowledge-base-data-products-v1.5.0.zip")" -eq 45690085
+          test "$(stat -c %s "$output/data-product-release-manifest.json")" -eq 19153
+          test "$(stat -c %s "$output/SHA256SUMS")" -eq 213
+
+      - name: Confirm immutable identity is unused
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists: $RELEASE_TAG" >&2
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Tag already exists: $RELEASE_TAG" >&2
+            exit 1
+          fi
+
+      - name: Publish final GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/data-products-v1.5.0"
+          cat > "$RUNNER_TEMP/release-notes.md" <<'EOF'
+          # Dacia Knowledge Base Data Products v1.5.0
+
+          Configuration-level official-source release for Sandero Eco-G 120.
+
+          - adds four exact Expression/Journey Eco-G 120 states with manual or automatic transmission;
+          - adds two newly explicit automatic configurations and four dated Polish catalogue prices: 68 000, 73 600, 74 900 and 80 500 PLN;
+          - adds 16 directly proven standard-equipment observations from matching official version pages;
+          - adds exact source-to-model, source-to-version and source-to-configuration relationships;
+          - adds a dedicated Sandero Eco-G 120 automatic comparison scope;
+          - preserves unproven packages and the default Essential TCe 100 options as explicit non-imports;
+          - contains 69 active configurations, 18 independent comparison scopes and 79 archive members.
+
+          The source Pull Request #223 passed 716 tests and all 15 repository workflows, including Windows, HTML, workbook, comparison, selection export and release verification.
+          EOF
+          sed -i 's/^          //' "$RUNNER_TEMP/release-notes.md"
+          gh release create "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$RELEASE_COMMIT" \
+            --title "$RELEASE_TAG" \
+            --notes-file "$RUNNER_TEMP/release-notes.md" \
+            "$output/dacia-knowledge-base-data-products-v1.5.0.zip" \
+            "$output/data-product-release-manifest.json" \
+            "$output/SHA256SUMS"
+
+      - name: Verify published tag and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch origin "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG"
+          test "$(git rev-list -n 1 "$RELEASE_TAG")" = "$RELEASE_COMMIT"
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json databaseId,isDraft,isPrerelease,publishedAt,tagName,targetCommitish,url,assets > "$RUNNER_TEMP/release.json"
+          cat "$RUNNER_TEMP/release.json"
+          python - "$RUNNER_TEMP/release.json" <<'PY'
+          import json, sys
+          payload = json.load(open(sys.argv[1], encoding='utf-8'))
+          assert payload['tagName'] == 'data-products-v1.5.0'
+          assert payload['isDraft'] is False
+          assert payload['isPrerelease'] is False
+          names = sorted(asset['name'] for asset in payload['assets'])
+          assert names == ['SHA256SUMS', 'dacia-knowledge-base-data-products-v1.5.0.zip', 'data-product-release-manifest.json']
+          PY
