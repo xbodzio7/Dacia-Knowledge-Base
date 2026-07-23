@@ -64,11 +64,11 @@ jobs:
           fs.writeFileSync(path.join(root, "browser-selection.json"), jsonText);
           fs.writeFileSync(path.join(root, "browser-selection.txt"), codeText);
           const payload = JSON.parse(jsonText);
-          if (payload.results.length !== 4) {
-            throw new Error(`expected 4 selected configurations, got ${payload.results.length}`);
+          if (payload.results.length !== 6) {
+            throw new Error(`expected 6 selected configurations, got ${payload.results.length}`);
           }
-          if (codeText.trim().split("\n").length !== 4) {
-            throw new Error("plain code export does not contain four lines");
+          if (codeText.trim().split("\n").length !== 6) {
+            throw new Error("plain code export does not contain six lines");
           }
           NODE
       - name: Consume browser selection with comparison bundle
@@ -97,9 +97,9 @@ jobs:
               ).read_text(encoding="utf-8")
           )
           assert selection["export_type"] == "interactive_configuration_selection"
-          assert selection["selection_summary"]["selected_configuration_count"] == 4
-          assert bundle["selected_configuration_count"] == 4
-          assert bundle["comparable_scope_count"] == 2
+          assert selection["selection_summary"]["selected_configuration_count"] == 6
+          assert bundle["selected_configuration_count"] == 6
+          assert bundle["comparable_scope_count"] == 3
           assert bundle["singleton_scope_count"] == 0
           assert bundle["cross_scope_pairs_generated"] is False
           assert (

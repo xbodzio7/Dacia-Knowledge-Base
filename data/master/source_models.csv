@@ -19,3 +19,4 @@ id,source_code,model_code,relationship,notes
 18,src_pl_dacia_official_configurators_20260723,jogger,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
 19,src_pl_dacia_official_configurators_20260723,bigster,web_configurator_for,Official Polish dynamic configurator observed 2026-07-23; dated web evidence only.
 20,src_pl_sandero_stepway_official_web_configurations_20260723,sandero_stepway_iii,web_configuration_for,Official Polish Sandero Stepway version and configurator pages observed 2026-07-23.
+21,src_pl_sandero_official_web_configurations_20260723,sandero_iii,web_configuration_for,Official Polish Sandero version and configurator pages observed 2026-07-23.

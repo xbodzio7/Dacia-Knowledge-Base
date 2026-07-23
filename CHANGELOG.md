@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Official Sandero configuration-level import covering four exact Eco-G 120 Expression/Journey states, including two newly active automatic configurations and four dated catalogue prices.
+* Sixteen source-visible standard-equipment observations, a new Sandero Eco-G 120 automatic comparison scope and explicit non-import decisions for unproven packages and the default Essential TCe 100 configurator state.
+* Deterministic Sandero official-web importer with snapshot SHA-256, exact state, source-relationship and non-inference contracts.
 * First configuration-level official configurator import for five Sandero Stepway Eco-G 120 states, including dated catalogue prices, exact source relationships and 24 source-visible standard-equipment highlights.
 * Deterministic Sandero Stepway official-web importer with SHA-256, powertrain/gearbox and non-inference contracts.
 * Browser shortlist v1.4 with vertically stacked filters, model-and-trim silhouettes, full equipment comparison and a differences-only view.
@@ -247,14 +250,14 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 709 tests.
-* The verified master-data baseline now contains 41 CSV files and 7669 rows.
-* SQLite verification now covers 41 tables and 7669 rows.
+* The automated test suite now contains 716 tests.
+* The verified master-data baseline now contains 41 CSV files and 7699 rows.
+* SQLite verification now covers 41 tables and 7699 rows.
 * Configuration attribute values now contain 1756 dated records.
 * Declarative scalar configuration-value imports now contain 112 versioned JSON specifications.
 * Configuration value ranges now contain 158 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.
-* Equipment availability now contains 4496 records: 3470 `standard`, 467 `optional`, 559 `not_available` and 0 `unknown`.
+* Equipment availability now contains 4512 records: 3486 `standard`, 467 `optional`, 559 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed

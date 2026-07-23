@@ -53,9 +53,9 @@ jobs:
                   encoding="utf-8"
               )
           )
-          assert manifest["selected_configuration_count"] == 5
-          assert manifest["scope_group_count"] == 3
-          assert manifest["comparable_scope_count"] == 2
+          assert manifest["selected_configuration_count"] == 7
+          assert manifest["scope_group_count"] == 4
+          assert manifest["comparable_scope_count"] == 3
           assert manifest["singleton_scope_count"] == 1
           assert manifest["cross_scope_pairs_generated"] is False
           for group in manifest["groups"]:
