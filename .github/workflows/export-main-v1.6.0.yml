@@ -28,6 +28,68 @@ jobs:
           git diff --quiet
           git diff --cached --quiet
 
+      - name: Capture official model media candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import html
+          import json
+          import re
+          import urllib.request
+          from pathlib import Path
+          from urllib.parse import urljoin
+
+          pages = {
+              "sandero_iii": "https://www.dacia.pl/samochody/sandero-miejskie.html",
+              "sandero_stepway_iii": "https://www.dacia.pl/samochody/sandero-stepway-crossover.html",
+              "jogger": "https://www.dacia.pl/samochody/jogger-hybydowy.html",
+              "duster_iii": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv.html",
+              "bigster": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv.html",
+              "spring": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
+          }
+          request_headers = {
+              "User-Agent": "Mozilla/5.0 (compatible; Dacia-Knowledge-Base/1.0; source-audit)",
+              "Accept-Language": "pl-PL,pl;q=0.9,en;q=0.5",
+          }
+          output = {"captured_on": "2026-07-24", "models": {}}
+          url_pattern = re.compile(r'https?:\\?/\\?/[^"\'<> ]+?\\.(?:avif|webp|png|jpe?g)(?:\\?[^"\'<> ]*)?', re.I)
+          for code, page_url in pages.items():
+              request = urllib.request.Request(page_url, headers=request_headers)
+              with urllib.request.urlopen(request, timeout=45) as response:
+                  raw = response.read().decode("utf-8", errors="replace")
+              normalized = html.unescape(raw.replace("\\/", "/"))
+              candidates = []
+              for pattern in (
+                  r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)',
+                  r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\']',
+                  r'<img[^>]+src=["\']([^"\']+)',
+                  r'<source[^>]+srcset=["\']([^"\']+)',
+              ):
+                  for match in re.findall(pattern, normalized, flags=re.I):
+                      for value in str(match).split(","):
+                          candidate = value.strip().split(" ")[0]
+                          if candidate:
+                              candidates.append(urljoin(page_url, candidate))
+              candidates.extend(match.group(0) for match in url_pattern.finditer(normalized))
+              cleaned = []
+              seen = set()
+              for candidate in candidates:
+                  candidate = candidate.replace("&amp;", "&")
+                  if candidate.startswith("data:") or candidate in seen:
+                      continue
+                  seen.add(candidate)
+                  cleaned.append(candidate)
+              output["models"][code] = {
+                  "page_url": page_url,
+                  "candidate_count": len(cleaned),
+                  "candidates": cleaned[:250],
+              }
+          path = Path("/tmp/dacia-model-media-candidates.json")
+          path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(path)
+          PY
+
       - name: Create source snapshot
         shell: bash
         run: |
@@ -46,10 +108,12 @@ jobs:
           print(output)
           PY
 
-      - name: Upload exact source snapshot
+      - name: Upload exact source snapshot and media candidates
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: dkb-main-v1.6.0
-          path: /tmp/dkb-main-v1.6.0.zip
+          path: |
+            /tmp/dkb-main-v1.6.0.zip
+            /tmp/dacia-model-media-candidates.json
           if-no-files-found: error
           retention-days: 7
