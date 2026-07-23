@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.3.0 Publication",
+  "phase": "Official Configurator Sandero Stepway Configuration-Level Import",
   "reference_delivery": {
     "name": "Data Products v1.3.0 Full Comparison and Official Configurator Intake",
     "pull_request": 215,
@@ -15,26 +15,26 @@
     "quality_run": 1203
   },
   "baseline": {
-    "tests": 703,
+    "tests": 709,
     "csv_files": 41,
-    "rows": 7630,
+    "rows": 7669,
     "configuration_values": 1756,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
-    "availability_records": 4472,
+    "availability_records": 4496,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.3.0 Publication",
+    "name": "Official Configurator Sandero Stepway Configuration-Level Import",
     "status": "complete",
-    "goal": "Publish and independently re-verify immutable data-products-v1.3.0 assets from exact green main commit beb2151853b2d3de8837ff7c5e8d2b55b78af76e after delivering full equipment comparison, vertical filters, model-and-trim silhouettes and official configurator source intake."
+    "goal": "Import five exact official Sandero Stepway Eco-G 120 price states and only source-visible version highlights as dated configuration-level observations, while preserving unproven package applicability as an explicit non-import."
   },
   "next_package": {
-    "name": "Official Configurator Configuration-Level Import",
+    "name": "Official Configurator Sandero Configuration-Level Import",
     "status": "planned",
-    "goal": "Capture each official Dacia configurator state by model, trim, powertrain and gearbox, then import only explicitly proven standard equipment, packages, options, prices, dependencies and exclusions as dated observations."
+    "goal": "Capture exact official Sandero trim, powertrain and gearbox states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

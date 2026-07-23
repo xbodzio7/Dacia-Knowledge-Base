@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.3.0 Publication**
+**Official Configurator Sandero Stepway Configuration-Level Import**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 703
+- Tests: 709
 - Master CSV files: 41
-- Master rows: 7630
+- Master rows: 7669
 - Configuration values: 1756
 - Configuration import specifications: 112
 - Configuration value ranges: 158
 - Configuration range import specifications: 20
-- Availability records: 4472
+- Availability records: 4496
 - Canonical attributes: 381
 - Attribute categories: 30
 
 ## Current package
 
-**Data Products v1.3.0 Publication** — `complete`
+**Official Configurator Sandero Stepway Configuration-Level Import** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.3.0 assets from exact green main commit beb2151853b2d3de8837ff7c5e8d2b55b78af76e after delivering full equipment comparison, vertical filters, model-and-trim silhouettes and official configurator source intake.
+Import five exact official Sandero Stepway Eco-G 120 price states and only source-visible version highlights as dated configuration-level observations, while preserving unproven package applicability as an explicit non-import.
 
 ## Next package
 
-**Official Configurator Configuration-Level Import** — `planned`
+**Official Configurator Sandero Configuration-Level Import** — `planned`
 
-Capture each official Dacia configurator state by model, trim, powertrain and gearbox, then import only explicitly proven standard equipment, packages, options, prices, dependencies and exclusions as dated observations.
+Capture exact official Sandero trim, powertrain and gearbox states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions.
 
 ## Autonomy
 

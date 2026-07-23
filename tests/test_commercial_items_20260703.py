@@ -14,6 +14,7 @@ from reporting.configuration_shortlist_html import collect_browser_catalog  # no
 
 MASTER = REPOSITORY / "data" / "master"
 DATE = "2026-07-03"
+LATEST_STEPWAY_PRICE_DATE = "2026-07-23"
 
 
 def read(name: str) -> list[dict[str, str]]:
@@ -101,7 +102,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
         by_code = {row["configuration_code"]: row for row in catalog["configurations"]}
         stepway = by_code["sandero_stepway_iii_expression_ecog120_automatic"]
         components = {row["code"]: row for row in stepway["price_components"]}
-        self.assertEqual(stepway["catalog_price"]["price_date"], DATE)
+        self.assertEqual(stepway["catalog_price"]["price_date"], LATEST_STEPWAY_PRICE_DATE)
         self.assertEqual(components["sandero_comfort_auto_package"]["amount"], 2000.0)
         self.assertIn("keyless_entry", components["sandero_comfort_auto_package"]["equipment_codes"])
         self.assertIn("—", stepway["display_name"])

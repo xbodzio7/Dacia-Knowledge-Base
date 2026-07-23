@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-23",
+  "model_code": "sandero_stepway_iii",
+  "model_name": "NOWE SANDERO STEPWAY",
+  "volatility": "dynamic_official_web",
+  "version_observations": [
+    {
+      "version_code": "sandero_stepway_iii_essential",
+      "version_name": "stepway essential",
+      "grade_code": "ENS_ACLASS00M$SERIELIM2",
+      "version_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM2",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM2",
+      "configurations": [
+        {
+          "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "manual",
+          "catalog_price_pln": 71700
+        }
+      ],
+      "standard_highlights": [
+        {"attribute_code": "media_control_system", "source_label": "Media Control"},
+        {"attribute_code": "roof_rails", "source_label": "relingi dachowe wzdłużne"},
+        {"attribute_code": "manual_air_conditioning", "source_label": "klimatyzacja manualna"},
+        {"attribute_code": "my_safety_button", "source_label": "przycisk My Safety"}
+      ]
+    },
+    {
+      "version_code": "sandero_stepway_iii_expression",
+      "version_name": "stepway expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM4",
+      "version_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+      "configurations": [
+        {
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "manual",
+          "catalog_price_pln": 76400
+        },
+        {
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "automatic",
+          "catalog_price_pln": 83300
+        }
+      ],
+      "standard_highlights": [
+        {"attribute_code": "fog_lights_front", "source_label": "przednie światła przeciwmgłowe"},
+        {"attribute_code": "media_display_system", "source_label": "Media Display"},
+        {"attribute_code": "rear_view_camera", "source_label": "kamera cofania"},
+        {"attribute_code": "modular_roof_rails", "source_label": "modułowe relingi dachowe"},
+        {"attribute_code": "front_centre_armrest", "source_label": "konsola środkowa z podłokietnikiem"}
+      ]
+    },
+    {
+      "version_code": "sandero_stepway_iii_extreme",
+      "version_name": "stepway extreme",
+      "grade_code": "ENS_ACLASS00M$SERIESPE2",
+      "version_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE2",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIESPE2",
+      "configurations": [
+        {
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "manual",
+          "catalog_price_pln": 82500
+        },
+        {
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "transmission_type": "automatic",
+          "catalog_price_pln": 89400
+        }
+      ],
+      "standard_highlights": [
+        {"attribute_code": "automatic_climate_control", "source_label": "automatyczna klimatyzacja"},
+        {"attribute_code": "keyless_entry", "source_label": "karta Keyless Entry"},
+        {"attribute_code": "instrument_cluster_colour_7", "source_label": "cyfrowy zestaw wskaźników"},
+        {"attribute_code": "blind_spot_monitoring", "source_label": "system kontroli martwego pola"},
+        {"attribute_code": "extended_grip", "source_label": "Extended grip"}
+      ]
+    }
+  ],
+  "configurator_observation": {
+    "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+    "user_provided_deep_link": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEY00AhhAjI0I2I4%2FAjkg",
+    "visible_default_configuration": "NOWE SANDERO STEPWAY essential stepway TCe 110 f.2",
+    "visible_optional_items": [
+      {
+        "name": "pakiet MEDIA DISPLAY",
+        "price_pln": 1900,
+        "imported_to_master": false,
+        "reason": "The visible configurator state is TCe 110 manual. The page does not prove package applicability to the active Eco-G 120 configuration."
+      }
+    ]
+  },
+  "normalization_rules": [
+    "A version highlight is expanded only to active configurations whose exact powertrain and gearbox are listed on the same official version page.",
+    "Only catalogue prices printed beside the exact Eco-G 120 powertrain and gearbox are imported.",
+    "The full trim equipment page is retained as supporting evidence but is not flattened blindly because it contains technical qualifiers and potentially engine-dependent entries.",
+    "An option visible in one selected configurator state is not copied to another powertrain or gearbox without an exact state-level observation.",
+    "Financing, discounts, dealer stock prices, accessories and installation charges are excluded from catalogue-price imports."
+  ]
+}
