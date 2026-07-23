@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.2.0 Faceted Browser and Multi-Comparison**
+**Data Products v1.2.0 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.1.2 Single Equipment Filter
-- Pull Request: #205
-- Verified head: `4c64e0c4bd949021b6d2f739426849f9183d5b11`
-- Quality run: #1176
+- Package: Data Products v1.2.0 Faceted Browser and Multi-Comparison
+- Pull Request: #209
+- Verified head: `6da128e7d35084c73ad600f035e41adee2cfd58c`
+- Quality run: #1188
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.2.0 Faceted Browser and Multi-Comparison** — `complete`
+**Data Products v1.2.0 Publication** — `complete`
 
-Deliver dynamic equipment facets, direct comparison of multiple selected configurations, a simplified full-width browser layout and deterministic offline model thumbnails without changing source data or pricing semantics.
+Publish and independently re-verify immutable data-products-v1.2.0 assets from exact green main commit 2982ff68b8e1f3097403d96afd1754ae473c2aa3 after delivering dynamic equipment facets, multi-configuration comparison and offline model illustrations.
 
 ## Next package
 
-**Data Products v1.2.0 Publication** — `planned`
+**Excel Selector Planning Review** — `planned`
 
-Publish and independently verify immutable data-products-v1.2.0 assets from the exact green main commit containing the faceted browser and multi-comparison package.
+Design a genuinely usable optional Excel selector as a separate package without changing or blocking the published HTML release.
 
 ## Autonomy
 

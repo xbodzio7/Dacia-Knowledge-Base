@@ -94,6 +94,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - poprawka `data-products-v1.1.1` usuwająca pętlę odświeżania DOM i opóźnienia przy wyborze wyposażenia, z ponowną weryfikacją publicznych assetów,
 - interaktywna shortlista HTML v1.3 z dynamicznymi fasetami wyposażenia, porównaniem wielu konfiguracji oraz deterministycznymi miniaturami modeli działającymi całkowicie offline,
 - poprawka `data-products-v1.1.2` upraszczająca wybór wyposażenia do jednego filtra oraz pokazująca status seryjny, pakiet lub opcję przy cenie dopasowanego wariantu,
+- publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
 - całkowicie offline'owa i tylko do odczytu ponowna weryfikacja assetów, rozpakowanych plików, indeksu i lokalnych odnośników workspace,
