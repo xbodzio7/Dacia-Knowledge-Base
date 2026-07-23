@@ -27,6 +27,7 @@ jobs:
           test "$(git rev-parse HEAD)" = "7f325d254b68eb495204c01c075727ee34893e1f"
           git diff --quiet
           git diff --cached --quiet
+          echo "MAIN_TREE_SHA=$(git rev-parse 'HEAD^{tree}')"
 
       - name: Create source snapshot
         shell: bash
