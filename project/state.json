@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Official Configurator Sandero Configuration-Level Import",
+  "phase": "Data Products v1.5.0 Publication",
   "reference_delivery": {
-    "name": "Official Configurator Sandero Stepway Configuration-Level Import",
-    "pull_request": 219,
-    "head_sha": "b94ce12f5fbc366533d72fe6f7eda06f42ac9c92",
-    "quality_run": 1213
+    "name": "Official Configurator Sandero Configuration-Level Import",
+    "pull_request": 223,
+    "head_sha": "723238c55f9cc7a0b45c5b60acf27d2dfe51ae87",
+    "quality_run": 1229
   },
   "baseline": {
     "tests": 716,
@@ -27,9 +27,9 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Official Configurator Sandero Configuration-Level Import",
+    "name": "Data Products v1.5.0 Publication",
     "status": "complete",
-    "goal": "Import only directly proven official Sandero Eco-G 120 trim, powertrain and gearbox states, including two newly explicit automatic configurations, four dated catalogue prices and source-visible standard-equipment highlights, while preserving unproven packages and default TCe 100 options as non-imports."
+    "goal": "Publish and independently re-verify immutable data-products-v1.5.0 assets from exact green main commit 7f325d254b68eb495204c01c075727ee34893e1f after the official Sandero configuration-level import."
   },
   "next_package": {
     "name": "Official Configurator Jogger Configuration-Level Import",
