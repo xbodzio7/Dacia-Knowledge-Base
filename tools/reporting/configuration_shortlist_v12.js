@@ -285,7 +285,7 @@
         </div>
         <div class="selected-filter-list" data-selected-list></div>
       </div>
-      <p class="equipment-availability-note" data-availability-note>Lista pokazuje wyłącznie źródłowo kompletne wyposażenie, które odróżnia aktualnie dopasowane warianty.</p>
+      <p class="equipment-availability-note" data-availability-note>Lista pokazuje tylko pozycje, które można teraz dodać bez utraty wszystkich wyników. Już wybrane pozycje pozostają zaznaczone.</p>
       <label class="equipment-picker-search">Filtruj listę wyposażenia
         <input type="search" data-equipment-search placeholder="np. kamera, fotele, nawigacja">
         <span>To pole filtruje nazwy na poniższej liście; nie wyszukuje samochodów bez zaznaczenia pozycji.</span>
@@ -330,7 +330,7 @@
 
     let showOnlySelected = false;
     let availableCodes = null;
-    let removedCodes = [];
+    let selectionConflict = false;
     const refresh = () => {
       const selected = new Set(selectedValues(select));
       wrapper.querySelector("[data-selected-count]").textContent = selected.size;
@@ -354,10 +354,10 @@
       }
 
       const note = wrapper.querySelector("[data-availability-note]");
-      note.textContent = removedCodes.length
-        ? `Usunięto ${removedCodes.length} pozycję/pozycje bez potwierdzonej dostępności w pozostałych wariantach.`
-        : "Lista pokazuje tylko wyposażenie z kompletnym pokryciem źródłowym, dostępne w części, lecz nie we wszystkich aktualnie dopasowanych wariantach. Pozycje z brakami danych są ukrywane, aby nie przedstawiać braku rekordu jako niedostępności.";
-      note.classList.toggle("has-removal", removedCodes.length > 0);
+      note.textContent = selectionConflict
+        ? "Wybrane pozycje nie występują razem w żadnej potwierdzonej konfiguracji. Usuń jedną z zaznaczonych pozycji; system nie odznacza filtrów automatycznie."
+        : "Lista pokazuje tylko źródłowo kompletne pozycje, które można dodać do bieżącego wyboru i które nadal różnicują pozostałe konfiguracje. Alternatywy wykluczające się oraz pozycje z brakami danych są ukryte.";
+      note.classList.toggle("has-removal", selectionConflict);
 
       const query = wrapper.querySelector("[data-equipment-search]").value.trim().toLocaleLowerCase("pl");
       for (const button of wrapper.querySelectorAll(".equipment-choice")) {
@@ -412,7 +412,7 @@
       setAvailability(state) {
         const available = state && state.available_equipment;
         availableCodes = Array.isArray(available) ? new Set(available) : null;
-        removedCodes = state && Array.isArray(state.removed_equipment) ? state.removed_equipment : [];
+        selectionConflict = Boolean(state && state.selection_conflict);
         refresh();
       }
     };

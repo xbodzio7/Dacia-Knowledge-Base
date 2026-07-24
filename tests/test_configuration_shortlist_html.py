@@ -179,7 +179,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
         self.assertIn("filters.required_standard_equipment || []", rendered)
 
     @unittest.skipUnless(shutil.which("node"), "Node.js is required")
-    def test_equipment_facets_remove_impossible_combination_before_zero_results(self) -> None:
+    def test_equipment_facets_preserve_conflicting_selection_without_auto_removal(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.catalog(Path(directory))
         script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
@@ -203,18 +203,14 @@ process.stdout.write(JSON.stringify(state));
         )
         state = json.loads(completed.stdout)
         self.assertGreater(state["base_match_count"], 0)
-        self.assertGreater(len(state["compatible_configurations"]), 0)
+        self.assertEqual(state["compatible_match_count"], 0)
         self.assertEqual(
-            set(state["selected_equipment"]) | set(state["removed_equipment"]),
-            {"heated_steering_wheel", "navigation_system"},
+            state["selected_equipment"],
+            ["heated_steering_wheel", "navigation_system"],
         )
-        self.assertEqual(state["selected_equipment"], ["navigation_system"])
-        self.assertEqual(state["removed_equipment"], ["heated_steering_wheel"])
-        self.assertNotIn("heated_steering_wheel", state["available_equipment"])
-        self.assertNotIn("rear_view_camera", state["available_equipment"])
-        self.assertEqual(state["differentiating_equipment"], ["navigation_system"])
-        for code in state["available_equipment"]:
-            self.assertIsInstance(code, str)
+        self.assertEqual(state["removed_equipment"], [])
+        self.assertTrue(state["selection_conflict"])
+        self.assertEqual(state["addable_equipment"], [])
 
     @unittest.skipUnless(shutil.which("node"), "Node.js is required")
     def test_equipment_facets_require_complete_source_coverage_and_real_difference(self) -> None:
@@ -242,6 +238,38 @@ process.stdout.write(JSON.stringify({
         self.assertEqual(result["facets"], ["complete_difference"])
         self.assertEqual(result["missing"]["missing"], 1)
         self.assertEqual(result["universal"]["available"], 3)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required")
+    def test_selected_equipment_hides_incompatible_alternatives(self) -> None:
+        script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
+        program = r"""
+const api = require(process.argv[1]);
+const catalog = {configurations: [
+  {configuration_code: "a", model_code: "m", version_code: "v", transmission_type: "manual", powertrain_label: "p", catalog_price: {state: "missing"}, number_of_seats: {state: "missing"}, equipment: {cluster_10: {availability_status: "standard"}, cluster_3: {availability_status: "not_available"}, cabin_led: {availability_status: "standard"}, boot_light: {availability_status: "not_available"}, camera: {availability_status: "standard"}}},
+  {configuration_code: "b", model_code: "m", version_code: "v", transmission_type: "manual", powertrain_label: "p", catalog_price: {state: "missing"}, number_of_seats: {state: "missing"}, equipment: {cluster_10: {availability_status: "optional"}, cluster_3: {availability_status: "not_available"}, cabin_led: {availability_status: "standard"}, boot_light: {availability_status: "not_available"}, camera: {availability_status: "not_available"}}},
+  {configuration_code: "c", model_code: "m", version_code: "v", transmission_type: "manual", powertrain_label: "p", catalog_price: {state: "missing"}, number_of_seats: {state: "missing"}, equipment: {cluster_10: {availability_status: "not_available"}, cluster_3: {availability_status: "standard"}, cabin_led: {availability_status: "not_available"}, boot_light: {availability_status: "standard"}, camera: {availability_status: "standard"}}}
+]};
+const state = api.reconcileEquipmentSelection(catalog, {required_equipment: ["cluster_10"], required_standard_equipment: []});
+process.stdout.write(JSON.stringify(state));
+"""
+        completed = subprocess.run(
+            ["node", "-e", program, str(script)],
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        state = json.loads(completed.stdout)
+        self.assertEqual(state["compatible_match_count"], 2)
+        self.assertIn("cluster_10", state["available_equipment"])
+        self.assertIn("camera", state["addable_equipment"])
+        self.assertNotIn("cluster_3", state["available_equipment"])
+        self.assertNotIn("boot_light", state["available_equipment"])
+
+    def test_equipment_search_hidden_contract_overrides_button_display(self) -> None:
+        css = (REPOSITORY / "tools" / "reporting" / "configuration_shortlist_selection_html.py").read_text(encoding="utf-8")
+        ui = (REPOSITORY / "tools" / "reporting" / "configuration_shortlist_v12.js").read_text(encoding="utf-8")
+        self.assertIn(".equipment-choice[hidden]{display:none!important}", css)
+        self.assertIn("system nie odznacza filtrów automatycznie", ui)
 
     def test_historical_catalog_uses_only_records_available_as_of_date(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 * Published and independently re-verified minor release `data-products-v1.4.0` from exact main commit `85fff3f69cae97de900bf9422f2418de9f8335ee`, adding exact official Sandero Stepway Eco-G 120 prices and configuration-level standard-equipment observations with explicit non-inference boundaries.
 * Published and independently re-verified minor release `data-products-v1.5.0` from exact main commit `7f325d254b68eb495204c01c075727ee34893e1f`, adding four exact Sandero Eco-G 120 Expression/Journey manual and automatic states, four dated catalogue prices, 16 configuration-level standard-equipment observations and a dedicated automatic comparison scope with explicit non-inference boundaries.
 * Published and independently re-verified minor release `data-products-v1.6.0` from exact main commit `539fba58d1ee2ef538c782b20e049be482d72988`, adding official Dacia Polska model images with offline fallbacks, configurator-style controls, source-complete differentiating equipment facets and full technical/equipment comparison.
+* Fixed equipment-facet interaction: list search now visibly filters entries, selected equipment is never removed automatically, and only source-complete compatible additions remain selectable.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
@@ -255,7 +256,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 717 tests.
+* The automated test suite now contains 719 tests.
 * The verified master-data baseline now contains 41 CSV files and 7699 rows.
 * SQLite verification now covers 41 tables and 7699 rows.
 * Configuration attribute values now contain 1756 dated records.

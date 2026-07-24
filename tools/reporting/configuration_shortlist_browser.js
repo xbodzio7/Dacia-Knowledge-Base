@@ -205,46 +205,41 @@
       .filter((configuration) => evaluate(configuration, baseCriteria).length === 0)
       .sort(sortConfigurations);
     const requested = criteria.required_equipment;
+    const compatible = baseResults.filter((configuration) =>
+      requested.every((code) => equipmentAvailable(configuration, code))
+    );
+    const selectionConflict = requested.length > 0 && compatible.length === 0;
 
-    if (!baseResults.length) {
+    if (!baseResults.length || selectionConflict) {
       return {
-        base_match_count: 0,
-        compatible_match_count: 0,
+        base_match_count: baseResults.length,
+        compatible_match_count: compatible.length,
         selected_equipment: requested,
         removed_equipment: [],
         available_equipment: requested,
-        differentiating_equipment: requested,
+        addable_equipment: [],
+        differentiating_equipment: [],
         facet_coverage: {},
-        compatible_configurations: []
+        selection_conflict: selectionConflict,
+        compatible_configurations: compatible
       };
     }
 
-    const accepted = [];
-    const removed = [];
-    let compatible = baseResults;
-    for (const code of requested) {
-      const next = compatible.filter((configuration) => equipmentAvailable(configuration, code));
-      if (next.length) {
-        accepted.push(code);
-        compatible = next;
-      } else {
-        removed.push(code);
-      }
-    }
-
-    const differentiating = new Set(differentiatingEquipmentCodes(compatible));
-    for (const code of accepted) differentiating.add(code);
+    const differentiating = differentiatingEquipmentCodes(compatible);
+    const addable = differentiating.filter((code) => !requested.includes(code));
+    const visible = new Set([...requested, ...addable]);
     const coverage = {};
-    for (const code of differentiating) coverage[code] = equipmentCoverage(compatible, code);
-    const available = [...differentiating].sort();
+    for (const code of visible) coverage[code] = equipmentCoverage(compatible, code);
     return {
       base_match_count: baseResults.length,
       compatible_match_count: compatible.length,
-      selected_equipment: accepted,
-      removed_equipment: removed,
-      available_equipment: available,
-      differentiating_equipment: available,
+      selected_equipment: requested,
+      removed_equipment: [],
+      available_equipment: [...visible].sort(),
+      addable_equipment: addable,
+      differentiating_equipment: differentiating,
       facet_coverage: Object.fromEntries(Object.entries(coverage).sort()),
+      selection_conflict: false,
       compatible_configurations: compatible
     };
   }
@@ -426,10 +421,6 @@
     const update = () => {
       const rawCriteria = criteriaFromControls();
       const facetState = reconcileEquipmentSelection(catalog, rawCriteria);
-      if (facetState.removed_equipment.length) {
-        setSelected(equipment, facetState.selected_equipment);
-        rawCriteria.required_equipment = facetState.selected_equipment;
-      }
       const outcome = filterCatalog(catalog, rawCriteria);
       renderSummary(outcome);
       renderResults(results, outcome);
