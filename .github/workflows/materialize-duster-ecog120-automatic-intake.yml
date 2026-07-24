@@ -27,227 +27,16 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: '3.13'
-      - name: Apply normalized contracts
+      - name: Materialize package
+        run: python tools/_materialize_duster_ecog120_automatic_intake.py
+      - name: Remove transport files
         run: |
-          python tools/import_duster_ecog120_automatic_stock_20260724.py --apply
-          python tools/import_duster_ecog120_automatic_engine_20260724.py --apply
-      - name: Update dependent regression contracts
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          for name in (
-              'tests/test_jogger_payload_performance_ranges.py',
-              'tests/test_jogger_wltp_efficiency_ranges.py',
-          ):
-              path = Path(name)
-              text = path.read_text(encoding='utf-8')
-              text = text.replace('self.assertEqual(baseline["tests"], 727)', 'self.assertEqual(baseline["tests"], 735)')
-              text = text.replace('self.assertEqual(baseline["rows"], 7780)', 'self.assertEqual(baseline["rows"], 7813)')
-              path.write_text(text, encoding='utf-8')
-
-          path = Path('tests/test_duster_catalog_bootstrap.py')
-          text = path.read_text(encoding='utf-8')
-          text = text.replace(
-              'if row["version_code"].startswith("duster_iii_")\n        }\n        self.assertEqual(set(actual), set(self.expected))',
-              'if row["code"] in self.expected\n        }\n        self.assertEqual(set(actual), set(self.expected))',
-              1,
-          )
-          text = text.replace(
-              'configuration_codes = set(self.expected)\n        availability = [',
-              'configuration_codes = {\n            row["code"] for row in rows("configurations.csv")\n            if row["status"] == "active"\n            and row["version_code"].startswith("duster_iii_")\n        }\n        availability = [',
-              1,
-          )
-          text = text.replace('repository_status_configurations"], 69)', 'repository_status_configurations"], 72)')
-          text = text.replace('excluded_configurations"], 62)', 'excluded_configurations"], 65)')
-          path.write_text(text, encoding='utf-8')
-
-          path = Path('tests/test_duster_technical_specifications.py')
-          text = path.read_text(encoding='utf-8')
-          anchor = '''        cls.values = [
-            row for row in cls.all_values
-            if row["configuration_code"].startswith("duster_iii_")
-        ]
-'''
-          addition = '''        cls.price_list_values = [
-            row for row in cls.values
-            if row["source_code"] == SOURCE
-        ]
-        cls.automatic_engine_values = [
-            row for row in cls.values
-            if row["source_code"] == "src_pl_duster_ecog120_automatic_engine_20260724"
-        ]
-        cls.price_list_configurations = {
-            row["configuration_code"] for row in cls.price_list_values
-        }
-'''
-          if addition not in text:
-              if anchor not in text:
-                  raise SystemExit('missing Duster technical setup anchor')
-              text = text.replace(anchor, anchor + addition, 1)
-          text = text.replace('self.values', 'self.price_list_values')
-          old_core = '''    def test_every_configuration_has_unambiguous_core_values(self) -> None:
-        for attribute in (
-            "engine_displacement", "cylinder_count", "total_valve_count",
-            "braked_trailer_weight", "cargo_volume_vda",
-        ):
-            self.assertEqual(
-                {row["configuration_code"] for row in self.price_list_values if row["attribute_code"] == attribute},
-                self.configurations,
-                attribute,
-            )
-'''
-          new_core = '''    def test_source_scoped_core_values_preserve_homologation_boundaries(self) -> None:
-        for attribute in (
-            "engine_displacement", "cylinder_count", "total_valve_count",
-            "braked_trailer_weight", "cargo_volume_vda",
-        ):
-            self.assertEqual(
-                {row["configuration_code"] for row in self.price_list_values if row["attribute_code"] == attribute},
-                self.price_list_configurations,
-                attribute,
-            )
-        automatic_codes = {
-            "duster_iii_expression_ecog120_4x2_automatic",
-            "duster_iii_extreme_ecog120_4x2_automatic",
-            "duster_iii_journey_ecog120_4x2_automatic",
-        }
-        self.assertEqual(len(self.automatic_engine_values), 9)
-        self.assertEqual(
-            {row["configuration_code"] for row in self.automatic_engine_values},
-            automatic_codes,
-        )
-        self.assertEqual(
-            {row["attribute_code"] for row in self.automatic_engine_values},
-            {"engine_displacement", "cylinder_count", "total_valve_count"},
-        )
-        self.assertFalse({
-            row["attribute_code"] for row in self.automatic_engine_values
-        } & {"braked_trailer_weight", "cargo_volume_vda"})
-'''
-          if old_core not in text:
-              raise SystemExit('missing Duster technical core method')
-          text = text.replace(old_core, new_core, 1)
-          text = text.replace('repository_status_configurations"], 69)', 'repository_status_configurations"], 72)')
-          text = text.replace('excluded_configurations"], 62)', 'excluded_configurations"], 65)')
-          text = text.replace('self.assertEqual(len(self.all_values), 1756)', 'self.assertEqual(len(self.all_values), 1765)')
-          path.write_text(text, encoding='utf-8')
-
-          path = Path('tests/test_duster_ecog120_automatic_stock_20260724.py')
-          text = path.read_text(encoding='utf-8')
-          text = text.replace(
-              'from reporting.configuration_shortlist import ShortlistCriteria  # noqa: E402\n',
-              'import configuration_completeness  # noqa: E402\nfrom reporting.configuration_shortlist import ShortlistCriteria  # noqa: E402\n',
-              1,
-          )
-          price_anchor = '''        for code in (
-            "duster_iii_extreme_ecog120_4x2_automatic",
-            "duster_iii_journey_ecog120_4x2_automatic",
-        ):
-            self.assertEqual(
-                selected[code]["equipment"]["side_mirrors_folding"]["availability_status"],
-                "standard",
-            )
-'''
-          scope_assertions = '''        report = configuration_completeness.collect_report(
-            REPOSITORY,
-            REPOSITORY / "data" / "reporting" / "duster_ecog120_automatic_completeness.json",
-        )
-        self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 3)
-        self.assertEqual(report["technical"]["present"], 9)
-        self.assertEqual(report["technical"]["missing"], 0)
-        self.assertEqual(report["equipment"]["denominator"], 0)
-'''
-          if scope_assertions not in text:
-              if price_anchor not in text:
-                  raise SystemExit('missing Duster automatic browser assertion anchor')
-              text = text.replace(price_anchor, price_anchor + scope_assertions, 1)
-          old_check = '''        self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("PASS: Duster Eco-G 120 automatic stock-card contract", result.stdout)
-'''
-          new_check = old_check + '''        engine = subprocess.run(
-            [sys.executable, "tools/import_duster_ecog120_automatic_engine_20260724.py", "--check"],
-            cwd=REPOSITORY,
-            text=True,
-            capture_output=True,
-            check=False,
-        )
-        self.assertEqual(engine.returncode, 0, engine.stderr)
-        self.assertIn("PASS: Duster Eco-G 120 automatic intrinsic-engine contract", engine.stdout)
-'''
-          if 'intrinsic-engine contract' not in text:
-              if old_check not in text:
-                  raise SystemExit('missing Duster automatic importer-check anchor')
-              text = text.replace(old_check, new_check, 1)
-          path.write_text(text, encoding='utf-8')
-
-          state_path = Path('project/state.json')
-          state = json.loads(state_path.read_text(encoding='utf-8'))
-          state['baseline']['tests'] = 735
-          state['baseline']['rows'] = 7813
-          state['baseline']['configuration_values'] = 1765
-          state['baseline']['availability_records'] = 4551
-          state['current_package']['goal'] = (
-              'Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey '
-              'configurations with explicit catalogue prices, directly proven folding-mirror states, '
-              'three intrinsic engine values and an independent source-scoped comparison contract.'
-          )
-          state_path.write_text(json.dumps(state, indent=2) + '\n', encoding='utf-8')
-          PY
-      - name: Update narrative documentation
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          def insert_after(path: str, anchor: str, addition: str) -> None:
-              target = Path(path)
-              text = target.read_text(encoding='utf-8')
-              if addition.strip() in text:
-                  return
-              if anchor not in text:
-                  raise SystemExit(f'missing documentation anchor in {path}')
-              target.write_text(text.replace(anchor, anchor + addition, 1), encoding='utf-8')
-
-          insert_after(
-              'CHANGELOG.md',
-              '* Imported 37 dated factory-equipment observations from nine official Dacia Polska grade pages: exact shark-fin antenna coverage for 31 configurations and six newer standard power-folding-mirror states for Jogger Journey, with historical rows and non-inference boundaries preserved.\n',
-              '* Added three exact 2026 Duster Eco-G 120 automatic configurations from official stock cards, three explicit catalogue prices, two standard power-folding-mirror observations and nine source-scoped intrinsic engine values without projecting manual homologation data.\n',
-          )
-          insert_after(
-              'README.md',
-              'Bieżący przekrojowy import wyposażenia zapisuje 31 dokładnych obserwacji fabrycznej anteny typu „płetwa rekina” dla Sandero, Sandero Stepway i Joggera oraz sześć nowszych obserwacji seryjnych elektrycznie składanych lusterek dla Joggera Journey. Wersje z jawnie wskazaną anteną biczową otrzymują status fabrycznej płetwy `not_available`; akcesoria, nieudowodnione rozszerzenia pakietów i niejednoznaczne stany Dustera pozostają poza importem. Szczegóły zawiera `project/packages/official-configurator-cross-model-option-coverage-20260724.md`.\n',
-              '\nNajnowszy import Dustera dodaje trzy dokładne konfiguracje Eco-G 120 z automatyczną skrzynią: Expression, Extreme i Journey. Zapisuje jawne ceny katalogowe 96 900 zł, 110 300 zł i 107 600 zł, seryjne składane lusterka dla Extreme i Journey oraz trzy cechy silnika wspólne dla dokładnie potwierdzonego automatu: 1199 cm³, trzy cylindry i 12 zaworów. Sprzeczny stan lusterek Expression, typ anteny, masa przyczepy i bagażnik pozostają niewiadomą. Szczegóły zawiera `project/packages/duster-ecog120-automatic-stock-intake-20260724.md`.\n',
-          )
-          insert_after(
-              'project/ROADMAP.md',
-              '- przekrojowy import dwóch myląco niepełnych cech wyposażenia z dziewięciu oficjalnych stron wersji: 31 obserwacji anteny typu „płetwa rekina”, sześć aktualizacji składanych lusterek Joggera Journey i jawny non-import Dustera,\n',
-              '- trzy dokładne konfiguracje Duster Eco-G 120 automatic z oficjalnych kart samochodów, trzema cenami katalogowymi, dwoma pozytywnymi stanami składanych lusterek, dziewięcioma wartościami silnikowymi i odrębnym zakresem porównawczym,\n',
-          )
-
-          package = Path('project/packages/duster-ecog120-automatic-stock-intake-20260724.md')
-          text = package.read_text(encoding='utf-8')
-          marker = '## Determinism\n'
-          addition = '''## Intrinsic technical boundary
-
-A second official-web snapshot contributes only three intrinsic Eco-G 120 engine values to each exact automatic configuration: 1199 cm³ displacement, three cylinders and 12 valves. The current Dacia engine page explicitly offers Eco-G 120 with the dual-clutch automatic transmission. Manual towing weight, VDA cargo volume, WLTP and performance values are not projected onto the automatic variants.
-
-The three configurations form a new independent comparison scope containing these nine exact technical observations. Equipment remains available to the buyer-facing browser, while the source-completeness scope intentionally avoids claiming a complete stock-card equipment denominator.
-
-'''
-          if addition.strip() not in text:
-              if marker not in text:
-                  raise SystemExit('missing package determinism marker')
-              package.write_text(text.replace(marker, addition + marker, 1), encoding='utf-8')
-          PY
-      - name: Remove transport workflow
-        run: rm -f .github/workflows/materialize-duster-ecog120-automatic-intake.yml
+          rm -f .github/workflows/materialize-duster-ecog120-automatic-intake.yml
+          rm -f tools/_materialize_duster_ecog120_automatic_intake.py
       - name: Synchronize canonical state
         run: python tools/dkb.py project-state --apply
       - name: Verify targeted contracts
+        shell: bash
         run: |
           python -m unittest -q \
             tests.test_duster_ecog120_automatic_stock_20260724 \
@@ -262,6 +51,7 @@ The three configurations form a new independent comparison scope containing thes
           sys.path.insert(0, 'tools')
           from reporting.configuration_comparison_bundle import discover_scopes
           scopes = discover_scopes(Path('.').resolve())
+          assert len(scopes) == 19
           assert any(scope.slug == 'duster_ecog120_automatic' for scope in scopes)
           PY
       - name: Run complete unit suite
@@ -283,6 +73,7 @@ The three configurations form a new independent comparison scope containing thes
         run: |
           set -euo pipefail
           test ! -e .github/workflows/materialize-duster-ecog120-automatic-intake.yml
+          test ! -e tools/_materialize_duster_ecog120_automatic_intake.py
           git diff --check
           git status --short
           git config user.name 'Dacia Knowledge Base Bot'
