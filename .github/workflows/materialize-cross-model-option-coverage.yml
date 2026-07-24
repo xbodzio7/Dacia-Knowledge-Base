@@ -28,7 +28,10 @@ jobs:
         with:
           python-version: '3.13'
       - name: Apply normalized source contract
-        run: python tools/import_official_cross_model_option_coverage_20260724.py --apply
+        shell: bash
+        run: |
+          sed -i 's|MASTER / "equipment_availability_statuses.csv"|MASTER / "enums" / "equipment_availability_statuses.csv"|' tools/import_official_cross_model_option_coverage_20260724.py
+          python tools/import_official_cross_model_option_coverage_20260724.py --apply
       - name: Update narrative documentation
         shell: bash
         run: |
