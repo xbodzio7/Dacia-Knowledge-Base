@@ -1,0 +1,204 @@
+name: Audit public data-products v1.6.1
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-data-products-v1.6.1
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.head_ref == 'release/audit-data-products-v1.6.1'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: data-products-v1.6.1
+      SOURCE_SHA: 4b77571c788b862a6543161b9343a35f464bd7c6
+      RELEASE_DIR: public-release
+      ARCHIVE_NAME: dacia-knowledge-base-data-products-v1.6.1.zip
+    steps:
+      - name: Check out exact source commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 4b77571c788b862a6543161b9343a35f464bd7c6
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${SOURCE_SHA}"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Download public release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${RELEASE_DIR}"
+          gh release download "${RELEASE_TAG}" \
+            --dir "${RELEASE_DIR}" \
+            --pattern 'SHA256SUMS' \
+            --pattern 'dacia-knowledge-base-data-products-v1.6.1.zip' \
+            --pattern 'data-product-release-manifest.json'
+          test "$(find "${RELEASE_DIR}" -maxdepth 1 -type f | wc -l)" -eq 3
+
+      - name: Independently verify bytes and release contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${RELEASE_DIR}"
+          echo 'f8a402f879ab3410af5c2d1840ced4ab6abec517b7d344b6e248c27d6725821a  SHA256SUMS' | sha256sum --check --strict
+          echo '0dd8da53b5ccdb7030040c669d4f32ac80e6fa34ec6b1910d81af5c77d13359a  dacia-knowledge-base-data-products-v1.6.1.zip' | sha256sum --check --strict
+          echo '6f40676d3f8771f63b9240accc3bb73975b5f7d3da8f3cb233c737e0aa777d7f  data-product-release-manifest.json' | sha256sum --check --strict
+          test "$(stat -c %s SHA256SUMS)" = '213'
+          test "$(stat -c %s dacia-knowledge-base-data-products-v1.6.1.zip)" = '46477840'
+          test "$(stat -c %s data-product-release-manifest.json)" = '19154'
+          cd ..
+          python tools/data_product_release.py \
+            --verify \
+            --version 1.6.1 \
+            --commit-sha "${SOURCE_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+
+      - name: Audit exact published browser payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public-audit
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" > public-audit/release.json
+          gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" > public-audit/tag.json
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          root = Path(os.environ['RELEASE_DIR'])
+          archive_path = root / os.environ['ARCHIVE_NAME']
+          with ZipFile(archive_path) as archive:
+              members = archive.namelist()
+              if len(members) != 79:
+                  raise SystemExit(f'unexpected archive member count: {len(members)}')
+              html = archive.read('shortlist/configuration-shortlist.html').decode('utf-8')
+          match = re.search(
+              r'<script id="configuration-catalog" type="application/json">(.*?)</script>',
+              html,
+              re.S,
+          )
+          if not match:
+              raise SystemExit('embedded browser catalog not found')
+          catalog = json.loads(match.group(1))
+          if len(catalog['configurations']) != 69:
+              raise SystemExit('unexpected configuration count')
+          if len(catalog['facets']['comparison_values']) != 88:
+              raise SystemExit('unexpected technical comparison facet count')
+          if len(catalog['facets']['equipment']) != 109:
+              raise SystemExit('unexpected equipment facet count')
+          models = catalog['facets']['models']
+          if len(models) != 5 or not all(item.get('media', {}).get('image_url') for item in models):
+              raise SystemExit('official model media registry missing')
+          required_text = [
+              'Pokaż tylko różnice',
+              'Filtruj listę wyposażenia',
+              'Cena minimalna',
+              'Cena maksymalna',
+              'vehicle-photo-fallback',
+              '.equipment-choice[hidden]{display:none!important}',
+              'system nie odznacza filtrów automatycznie',
+              'selection_conflict',
+              'addable_equipment',
+          ]
+          missing_text = [item for item in required_text if item not in html]
+          if missing_text:
+              raise SystemExit(f'missing browser contracts: {missing_text}')
+          forbidden_text = [
+              'setSelected(equipment, facetState.selected_equipment)',
+              'removedCodes = state && Array.isArray(state.removed_equipment)',
+          ]
+          present_forbidden = [item for item in forbidden_text if item in html]
+          if present_forbidden:
+              raise SystemExit(f'legacy auto-removal contract remains: {present_forbidden}')
+
+          release = json.loads(Path('public-audit/release.json').read_text())
+          tag = json.loads(Path('public-audit/tag.json').read_text())
+          expected_assets = {
+              'SHA256SUMS': ('f8a402f879ab3410af5c2d1840ced4ab6abec517b7d344b6e248c27d6725821a', 213),
+              'dacia-knowledge-base-data-products-v1.6.1.zip': ('0dd8da53b5ccdb7030040c669d4f32ac80e6fa34ec6b1910d81af5c77d13359a', 46477840),
+              'data-product-release-manifest.json': ('6f40676d3f8771f63b9240accc3bb73975b5f7d3da8f3cb233c737e0aa777d7f', 19154),
+          }
+          assets = {item['name']: item for item in release['assets']}
+          if set(assets) != set(expected_assets):
+              raise SystemExit(f'unexpected public asset set: {sorted(assets)}')
+          for name, (digest, size) in expected_assets.items():
+              path = root / name
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual != digest or path.stat().st_size != size:
+                  raise SystemExit(f'local public asset mismatch: {name}')
+              api_digest = assets[name].get('digest')
+              if api_digest not in (None, f'sha256:{digest}'):
+                  raise SystemExit(f'GitHub digest mismatch: {name}')
+          if tag.get('object', {}).get('sha') != os.environ['SOURCE_SHA']:
+              raise SystemExit('public tag target mismatch')
+          if release.get('draft') or release.get('prerelease'):
+              raise SystemExit('public release is not final')
+
+          audit = {
+              'release_id': release['id'],
+              'tag': release['tag_name'],
+              'target_commit_sha': tag['object']['sha'],
+              'target_commitish': release.get('target_commitish'),
+              'published_at': release.get('published_at'),
+              'html_url': release.get('html_url'),
+              'draft': release.get('draft'),
+              'prerelease': release.get('prerelease'),
+              'assets': [
+                  {
+                      'name': name,
+                      'asset_id': assets[name]['id'],
+                      'size': size,
+                      'sha256': digest,
+                      'api_digest': assets[name].get('digest'),
+                      'state': assets[name].get('state'),
+                  }
+                  for name, (digest, size) in sorted(expected_assets.items())
+              ],
+              'archive_member_count': len(members),
+              'browser': {
+                  'configuration_count': len(catalog['configurations']),
+                  'technical_comparison_facet_count': len(catalog['facets']['comparison_values']),
+                  'equipment_facet_count': len(catalog['facets']['equipment']),
+                  'official_model_media_count': len(models),
+                  'contract_text_verified': required_text,
+                  'legacy_auto_removal_absent': forbidden_text,
+              },
+              'verification': 'PASS',
+          }
+          Path('public-audit/publication-audit.json').write_text(
+              json.dumps(audit, indent=2, ensure_ascii=False) + '\n',
+              encoding='utf-8',
+          )
+          print(json.dumps(audit, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload independent audit
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.6.1-independent-audit
+          path: public-audit
+          if-no-files-found: error
+          retention-days: 7
