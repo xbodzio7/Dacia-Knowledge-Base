@@ -1,0 +1,111 @@
+name: Materialize Duster Eco-G 120 automatic intake
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-duster-ecog120-automatic-intake
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.head_ref == 'agent/duster-ecog120-automatic-intake'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/duster-ecog120-automatic-intake
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Apply normalized stock-card contract
+        run: python tools/import_duster_ecog120_automatic_stock_20260724.py --apply
+      - name: Advance fixed baseline contract tests
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for name in (
+              'tests/test_jogger_payload_performance_ranges.py',
+              'tests/test_jogger_wltp_efficiency_ranges.py',
+          ):
+              path = Path(name)
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('self.assertEqual(baseline["tests"], 727)', 'self.assertEqual(baseline["tests"], 735)')
+              text = text.replace('self.assertEqual(baseline["rows"], 7780)', 'self.assertEqual(baseline["rows"], 7796)')
+              path.write_text(text, encoding='utf-8')
+          PY
+      - name: Update narrative documentation
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def insert_after(path: str, anchor: str, addition: str) -> None:
+              target = Path(path)
+              text = target.read_text(encoding='utf-8')
+              if addition.strip() in text:
+                  return
+              if anchor not in text:
+                  raise SystemExit(f'missing documentation anchor in {path}')
+              target.write_text(text.replace(anchor, anchor + addition, 1), encoding='utf-8')
+
+          insert_after(
+              'CHANGELOG.md',
+              '* Imported 37 dated factory-equipment observations from nine official Dacia Polska grade pages: exact shark-fin antenna coverage for 31 configurations and six newer standard power-folding-mirror states for Jogger Journey, with historical rows and non-inference boundaries preserved.\n',
+              '* Added three exact 2026 Duster Eco-G 120 automatic configurations from official stock cards, three explicit catalogue prices and two standard power-folding-mirror observations while preserving conflicting Expression and unknown antenna states as non-imports.\n',
+          )
+          insert_after(
+              'README.md',
+              'Bieżący przekrojowy import wyposażenia zapisuje 31 dokładnych obserwacji fabrycznej anteny typu „płetwa rekina” dla Sandero, Sandero Stepway i Joggera oraz sześć nowszych obserwacji seryjnych elektrycznie składanych lusterek dla Joggera Journey. Wersje z jawnie wskazaną anteną biczową otrzymują status fabrycznej płetwy `not_available`; akcesoria, nieudowodnione rozszerzenia pakietów i niejednoznaczne stany Dustera pozostają poza importem. Szczegóły zawiera `project/packages/official-configurator-cross-model-option-coverage-20260724.md`.\n',
+              '\nNajnowszy import Dustera dodaje trzy dokładne konfiguracje Eco-G 120 z automatyczną skrzynią: Expression, Extreme i Journey. Zapisuje wyłącznie jawnie opisane ceny katalogowe 96 900 zł, 110 300 zł i 107 600 zł oraz seryjne składane lusterka dla Extreme i Journey. Sprzeczny stan lusterek Expression i nieopisany typ anteny pozostają niewiadomą. Szczegóły zawiera `project/packages/duster-ecog120-automatic-stock-intake-20260724.md`.\n',
+          )
+          insert_after(
+              'project/ROADMAP.md',
+              '- przekrojowy import dwóch myląco niepełnych cech wyposażenia z dziewięciu oficjalnych stron wersji: 31 obserwacji anteny typu „płetwa rekina”, sześć aktualizacji składanych lusterek Joggera Journey i jawny non-import Dustera,\n',
+              '- trzy dokładne konfiguracje Duster Eco-G 120 automatic z oficjalnych kart samochodów, trzema cenami katalogowymi, dwoma pozytywnymi stanami składanych lusterek i zachowaną granicą konfliktu Expression,\n',
+          )
+          PY
+      - name: Remove transport workflow
+        run: rm -f .github/workflows/materialize-duster-ecog120-automatic-intake.yml
+      - name: Synchronize canonical state
+        run: python tools/dkb.py project-state --apply
+      - name: Verify targeted contract
+        run: |
+          python -m unittest -q tests.test_duster_ecog120_automatic_stock_20260724
+          python tools/import_duster_ecog120_automatic_stock_20260724.py --check
+      - name: Run complete unit suite
+        run: python -m unittest discover -s tests -p 'test_*.py' -q
+      - name: Run full quality gate
+        shell: bash
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+      - name: Commit one logical package
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e .github/workflows/materialize-duster-ecog120-automatic-intake.yml
+          git diff --check
+          git status --short
+          git config user.name 'Dacia Knowledge Base Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat(data): add Duster Eco-G 120 automatic configurations'
+          git push origin HEAD:agent/duster-ecog120-automatic-intake
