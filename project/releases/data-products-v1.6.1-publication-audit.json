@@ -1,0 +1,59 @@
+{
+  "release_id": 359532111,
+  "tag": "data-products-v1.6.1",
+  "target_commit_sha": "4b77571c788b862a6543161b9343a35f464bd7c6",
+  "target_commitish": "4b77571c788b862a6543161b9343a35f464bd7c6",
+  "published_at": "2026-07-24T20:30:34Z",
+  "html_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1",
+  "draft": false,
+  "prerelease": false,
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "asset_id": 488795807,
+      "size": 213,
+      "sha256": "f8a402f879ab3410af5c2d1840ced4ab6abec517b7d344b6e248c27d6725821a",
+      "api_digest": "sha256:f8a402f879ab3410af5c2d1840ced4ab6abec517b7d344b6e248c27d6725821a",
+      "state": "uploaded"
+    },
+    {
+      "name": "dacia-knowledge-base-data-products-v1.6.1.zip",
+      "asset_id": 488795809,
+      "size": 46477840,
+      "sha256": "0dd8da53b5ccdb7030040c669d4f32ac80e6fa34ec6b1910d81af5c77d13359a",
+      "api_digest": "sha256:0dd8da53b5ccdb7030040c669d4f32ac80e6fa34ec6b1910d81af5c77d13359a",
+      "state": "uploaded"
+    },
+    {
+      "name": "data-product-release-manifest.json",
+      "asset_id": 488795810,
+      "size": 19154,
+      "sha256": "6f40676d3f8771f63b9240accc3bb73975b5f7d3da8f3cb233c737e0aa777d7f",
+      "api_digest": "sha256:6f40676d3f8771f63b9240accc3bb73975b5f7d3da8f3cb233c737e0aa777d7f",
+      "state": "uploaded"
+    }
+  ],
+  "archive_member_count": 79,
+  "browser": {
+    "configuration_count": 69,
+    "technical_comparison_facet_count": 88,
+    "equipment_facet_count": 109,
+    "official_model_media_count": 5,
+    "contract_text_verified": [
+      "Pokaż tylko różnice",
+      "Filtruj listę wyposażenia",
+      "Cena minimalna",
+      "Cena maksymalna",
+      "vehicle-photo-fallback",
+      ".equipment-choice[hidden]{display:none!important}",
+      "system nie odznacza filtrów automatycznie",
+      "selection_conflict",
+      "addable_equipment"
+    ],
+    "legacy_auto_removal_absent": [
+      "setSelected(equipment, facetState.selected_equipment)",
+      "removedCodes = state && Array.isArray(state.removed_equipment)"
+    ]
+  },
+  "verification": "PASS"
+}

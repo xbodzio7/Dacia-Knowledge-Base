@@ -102,6 +102,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - publiczne wydanie `data-products-v1.5.0` z konfiguratorowym importem Sandero, trzema niezależnie zweryfikowanymi assetami i dokładnym powiązaniem tagu z zielonym commitem,
 - pakiet interfejsu `v1.6.0` z oficjalnymi zdjęciami modeli i fallbackiem offline, kaflami w stylu konfiguratora, źródłowo kompletnymi fasetami wyposażenia oraz pełnym porównaniem danych technicznych i wyposażenia,
 - publiczne wydanie `data-products-v1.6.0` z trzema niezależnie zweryfikowanymi assetami, dokładnym powiązaniem tagu z zielonym commitem i audytem opublikowanego HTML,
+- poprawka `data-products-v1.6.1` naprawiająca widoczne wyszukiwanie wyposażenia, zachowanie zaznaczeń i kompatybilne fasety, z niezależną weryfikacją publicznych assetów oraz dokładnego HTML,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
