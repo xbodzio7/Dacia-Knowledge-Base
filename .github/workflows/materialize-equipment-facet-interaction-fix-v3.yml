@@ -17,7 +17,9 @@ jobs:
           ref: fix/equipment-facet-interaction
           fetch-depth: 0
       - name: Apply fix
-        run: python project/tmp/materialize_equipment_facet_fix.py
+        run: |
+          python project/tmp/materialize_equipment_facet_fix.py
+          python project/tmp/update_equipment_facet_test_baseline.py
       - name: Remove transport files
         run: |
           rm -f .github/workflows/materialize-equipment-facet-interaction-fix.yml
@@ -27,6 +29,7 @@ jobs:
           rm -f .github/workflows/diagnose-equipment-facet-materializer.yml
           rm -f .github/workflows/diagnose-equipment-facet-v3.yml
           rm -f project/tmp/materialize_equipment_facet_fix.py
+          rm -f project/tmp/update_equipment_facet_test_baseline.py
           rm -f project/tmp/please-ignore.txt project/tmp/ignore-marker-*.txt
       - name: Synchronize canonical state
         run: python tools/dkb.py project-state --apply
