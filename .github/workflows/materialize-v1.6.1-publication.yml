@@ -1,0 +1,54 @@
+name: Materialize data-products v1.6.1 publication
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  document:
+    if: github.head_ref == 'docs/record-data-products-v1.6.1-publication'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out documentation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: docs/record-data-products-v1.6.1-publication
+          fetch-depth: 0
+
+      - name: Confirm exact published base
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor 4b77571c788b862a6543161b9343a35f464bd7c6 HEAD
+
+      - name: Apply publication package
+        run: python project/tmp/materialize_v1_6_1_publication.py
+
+      - name: Remove transport files
+        shell: bash
+        run: |
+          rm -f project/tmp/materialize_v1_6_1_publication.py
+          rm -f .github/workflows/materialize-v1.6.1-publication.yml
+
+      - name: Synchronize and validate canonical state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py project-state --apply
+          git diff --check
+          python tools/dkb.py project-state --check
+          python -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Commit one documentation package
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "docs(release): record data-products-v1.6.1 publication"
+          git push origin HEAD:docs/record-data-products-v1.6.1-publication
