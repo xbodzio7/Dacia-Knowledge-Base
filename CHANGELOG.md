@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Configurator-style shortlist controls with official Dacia Polska model packshots, deterministic offline SVG fallbacks and minimum/maximum price fields in one row.
+* Source-complete dynamic equipment facets that hide universal, incomplete and unknown availability instead of turning missing evidence into a buyer-facing difference; clarified equipment-list search semantics.
+* Full in-page comparison of all latest recorded technical values, ranges and fuel contexts alongside complete equipment availability, with Polish parameter labels and a global differences-only view.
 * Official Sandero configuration-level import covering four exact Eco-G 120 Expression/Journey states, including two newly active automatic configurations and four dated catalogue prices.
 * Sixteen source-visible standard-equipment observations, a new Sandero Eco-G 120 automatic comparison scope and explicit non-import decisions for unproven packages and the default Essential TCe 100 configurator state.
 * Deterministic Sandero official-web importer with snapshot SHA-256, exact state, source-relationship and non-inference contracts.
@@ -251,7 +254,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 716 tests.
+* The automated test suite now contains 717 tests.
 * The verified master-data baseline now contains 41 CSV files and 7699 rows.
 * SQLite verification now covers 41 tables and 7699 rows.
 * Configuration attribute values now contain 1756 dated records.

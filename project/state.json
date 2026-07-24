@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-23",
+  "updated_on": "2026-07-24",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.5.0 Publication",
+  "phase": "Data Products v1.6.0 Configurator-Style Full Comparison",
   "reference_delivery": {
     "name": "Official Configurator Sandero Configuration-Level Import",
     "pull_request": 223,
@@ -15,7 +15,7 @@
     "quality_run": 1229
   },
   "baseline": {
-    "tests": 716,
+    "tests": 717,
     "csv_files": 41,
     "rows": 7699,
     "configuration_values": 1756,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.5.0 Publication",
+    "name": "Data Products v1.6.0 Configurator-Style Full Comparison",
     "status": "complete",
-    "goal": "Publish and independently re-verify immutable data-products-v1.5.0 assets from exact green main commit 7f325d254b68eb495204c01c075727ee34893e1f after the official Sandero configuration-level import."
+    "goal": "Use official model photographs with an offline fallback, present filters in a Dacia-configurator style, expose only source-complete differentiating equipment, and compare every recorded technical and equipment parameter."
   },
   "next_package": {
-    "name": "Official Configurator Jogger Configuration-Level Import",
+    "name": "Official Configurator Cross-Model Option Coverage Import",
     "status": "planned",
-    "goal": "Capture exact official Jogger trim, powertrain, gearbox and seat-count states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions."
+    "goal": "Capture exact standard, optional and package availability with prices across Sandero, Sandero Stepway, Jogger, Duster and Bigster, beginning with misleading partial-coverage items such as the shark-fin antenna, without inferring applicability across configurations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

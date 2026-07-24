@@ -20,10 +20,10 @@ Narzędzia nie tworzą rekomendacji zakupowych, nie uzupełniają brakujących w
 
 - lokalna kopia repozytorium Dacia Knowledge Base,
 - Python zgodny z bramką projektu (3.10 lub 3.13),
-- dostęp do internetu wyłącznie podczas pobierania publicznego wydania,
+- dostęp do internetu podczas pobierania publicznego wydania; później opcjonalnie także do wyświetlenia oficjalnych zdjęć modeli w shortliście,
 - pusty albo nieistniejący katalog docelowy.
 
-Po zakończeniu pobierania wszystkie opisane produkty działają offline.
+Po zakończeniu pobierania wszystkie funkcje opisanych produktów działają offline. Od interfejsu przygotowanego dla `data-products-v1.6.0` shortlista próbuje dodatkowo pobrać zdjęcia modeli bezpośrednio z oficjalnego serwisu Dacia Polska; bez połączenia automatycznie pokazuje lokalne, modelowe sylwetki SVG i zachowuje pełne filtrowanie oraz porównanie.
 
 ## 1. Pobierz jawną wersję
 

@@ -147,14 +147,37 @@
     );
   }
 
+  function comparisonValueFacets(catalog, configurations) {
+    const facets = catalog.facets && catalog.facets.comparison_values || [];
+    return facets.filter((facet) =>
+      facet.attribute_code !== "number_of_seats"
+      && configurations.some((configuration) => Object.prototype.hasOwnProperty.call(configuration.comparison_values || {}, facet.key))
+    ).slice().sort((left, right) =>
+      categoryLabel(left.category).localeCompare(categoryLabel(right.category), "pl")
+      || String(left.label || left.attribute_code).localeCompare(String(right.label || right.attribute_code), "pl")
+      || String(left.fuel_type_label || "").localeCompare(String(right.fuel_type_label || ""), "pl")
+      || String(left.key).localeCompare(String(right.key))
+    );
+  }
+
+  function comparisonValueLabel(facet) {
+    const fuel = String(facet.fuel_type_label || "").trim();
+    return fuel ? `${facet.label} — ${fuel}` : String(facet.label || facet.attribute_code || facet.key);
+  }
+
+  function comparisonValueText(configuration, key) {
+    const state = configuration && configuration.comparison_values && configuration.comparison_values[key];
+    return state && state.display_value ? state.display_value : "brak danych";
+  }
+
   function comparisonRows(catalog, selectedCodes, equipmentCodes) {
     const configurations = selectedConfigurations(catalog, selectedCodes);
     const equipment = [...new Set((equipmentCodes || []).map(String).filter(Boolean))];
     const rows = [
       { key: "model", category: "Dane podstawowe", label: "Model", values: configurations.map((item) => item.model_name) },
       { key: "version", category: "Dane podstawowe", label: "Wersja", values: configurations.map((item) => item.version_name) },
-      { key: "powertrain", category: "Dane podstawowe", label: "Napęd", values: configurations.map((item) => item.powertrain_label) },
-      { key: "transmission", category: "Dane podstawowe", label: "Skrzynia", values: configurations.map((item) => item.transmission_type === "automatic" ? "automatyczna" : item.transmission_type === "manual" ? "manualna" : item.transmission_type) },
+      { key: "powertrain", category: "Dane podstawowe", label: "Silnik / napęd", values: configurations.map((item) => item.powertrain_label) },
+      { key: "transmission", category: "Dane podstawowe", label: "Skrzynia biegów", values: configurations.map((item) => item.transmission_type === "automatic" ? "automatyczna" : item.transmission_type === "manual" ? "manualna" : item.transmission_type) },
       { key: "catalog_price", category: "Dane podstawowe", label: "Cena katalogowa", values: configurations.map(formatCatalogPrice) },
       { key: "seats", category: "Dane podstawowe", label: "Liczba miejsc", values: configurations.map(formatSeats) }
     ];
@@ -168,6 +191,16 @@
           const amount = pricing.formatMoney(breakdown.total_amount, breakdown.currency_code);
           return breakdown.total_is_complete ? amount : `od ${amount}`;
         })
+      });
+    }
+
+    for (const facet of comparisonValueFacets(catalog, configurations)) {
+      rows.push({
+        key: `value:${facet.key}`,
+        category: categoryLabel(facet.category),
+        label: comparisonValueLabel(facet),
+        values: configurations.map((item) => comparisonValueText(item, facet.key)),
+        comparison_value_key: facet.key
       });
     }
 
@@ -192,9 +225,9 @@
     const thumbnailApi = typeof globalThis !== "undefined"
       ? globalThis.DkbConfigurationShortlistV12
       : null;
-    if (!thumbnailApi || typeof thumbnailApi.modelThumbnailSvg !== "function") return "";
-    return `<span class="comparison-model-thumbnail">${thumbnailApi.modelThumbnailSvg(
-      configuration.model_code, configuration.model_name, configuration.version_name
+    if (!thumbnailApi || typeof thumbnailApi.modelThumbnailMarkup !== "function") return "";
+    return `<span class="comparison-model-thumbnail">${thumbnailApi.modelThumbnailMarkup(
+      configuration, configuration.version_name
     )}</span>`;
   }
 
@@ -237,6 +270,8 @@
       body.push(`<tr class="comparison-data-row" data-category="${escapeHtml(currentCategory)}" data-different="${distinct ? "true" : "false"}"><th scope="row">${escapeHtml(row.label)}</th>${values}</tr>`);
     }
     table.innerHTML = `<thead><tr><th scope="col">Parametr</th>${header}</tr></thead><tbody>${body.join("")}</tbody>`;
+    const thumbnailApi = typeof globalThis !== "undefined" ? globalThis.DkbConfigurationShortlistV12 : null;
+    if (thumbnailApi && typeof thumbnailApi.activateModelPhotos === "function") thumbnailApi.activateModelPhotos(table);
     applyDifferenceFilter(table, options && options.onlyDifferences);
     return comparison;
   }
@@ -400,7 +435,7 @@
   return {
     normalizeSelection, unionSelection, removeSelection, selectedConfigurations,
     buildSelectionPayload, renderSelectionJson, renderCodeList, exportFilename,
-    comparisonRows, comparisonEquipmentFacets, equipmentComparisonStatus,
+    comparisonRows, comparisonValueFacets, comparisonValueLabel, comparisonValueText, comparisonEquipmentFacets, equipmentComparisonStatus,
     renderComparison, comparisonThumbnail, applyDifferenceFilter, rowIsDifferent, categoryLabel
   };
 });

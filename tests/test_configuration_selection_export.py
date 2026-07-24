@@ -310,6 +310,9 @@ process.stdout.write(JSON.stringify(output));
         )
         labels = [row["label"] for row in comparison["rows"]]
         self.assertIn("Cena katalogowa", labels)
+        self.assertIn("Moc silnika — benzyna", labels)
+        power_row = next(row for row in comparison["rows"] if row["label"] == "Moc silnika — benzyna")
+        self.assertEqual(power_row["values"], ["90 kW", "brak danych", "brak danych"])
         self.assertIn("Cena z wybranym wyposażeniem", labels)
         for label in (
             "Heated steering wheel",
@@ -349,15 +352,19 @@ process.stdout.write(JSON.stringify(output));
             self.assertIn(f'id="{identifier}"', rendered)
         self.assertIn("interactive_configuration_selection", rendered)
         self.assertIn("configuration-select", rendered)
-        self.assertIn("Format interaktywnej shortlisty HTML v1.4.", rendered)
+        self.assertIn("Format interaktywnej shortlisty HTML v1.5.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
         self.assertIn("equipment-availability-note", rendered)
         self.assertIn("model-picker", rendered)
         self.assertIn("model-thumbnail-host", rendered)
+        self.assertIn("vehicle-photo-frame", rendered)
+        self.assertIn("config-choice-picker", rendered)
+        self.assertIn("Filtruj listę wyposażenia", rendered)
         self.assertIn("comparison-model-thumbnail", rendered)
         self.assertIn("Porównaj wybrane", rendered)
         self.assertIn("Porównanie wielowariantowe", rendered)
         self.assertIn("Pokaż tylko różnice", rendered)
+        self.assertIn("wszystkie zapisane parametry techniczne", rendered)
         self.assertIn("całe wyposażenie opisane w bazie", rendered)
         self.assertIn("configuration-price-equipment", rendered)
         self.assertIn("Wybrane wyposażenie", rendered)
@@ -373,7 +380,7 @@ process.stdout.write(JSON.stringify(output));
         self.assertNotIn("new MutationObserver(sync)", rendered)
         self.assertNotIn("configuration_shortlist_v11", rendered)
         self.assertNotIn("http://", rendered)
-        self.assertNotIn("https://", rendered)
+        self.assertIn("https://www.dacia.pl/media/model-a.png", rendered)
         self.assertEqual(rendered, render_html(catalog))
 
 

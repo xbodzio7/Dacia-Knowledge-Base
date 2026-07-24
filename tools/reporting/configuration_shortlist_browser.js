@@ -151,14 +151,51 @@
     return { ...criteria, required_equipment: [], required_standard_equipment: [] };
   }
 
-  function availableEquipmentCodes(configurations) {
-    const codes = new Set();
+  function equipmentCoverage(configurations, code) {
+    const coverage = { total: 0, available: 0, standard: 0, optional: 0, not_available: 0, unknown: 0, missing: 0 };
     for (const configuration of configurations || []) {
-      for (const [code, state] of Object.entries(configuration.equipment || {})) {
-        if (state && AVAILABLE.has(state.availability_status)) codes.add(code);
+      coverage.total += 1;
+      const state = configuration && configuration.equipment && configuration.equipment[code];
+      if (!state) {
+        coverage.missing += 1;
+        continue;
+      }
+      const status = state.availability_status;
+      if (status === "standard") {
+        coverage.available += 1;
+        coverage.standard += 1;
+      } else if (status === "optional") {
+        coverage.available += 1;
+        coverage.optional += 1;
+      } else if (status === "not_available") {
+        coverage.not_available += 1;
+      } else {
+        coverage.unknown += 1;
       }
     }
+    return coverage;
+  }
+
+  function equipmentCodes(configurations) {
+    const codes = new Set();
+    for (const configuration of configurations || []) {
+      for (const code of Object.keys(configuration.equipment || {})) codes.add(code);
+    }
     return [...codes].sort();
+  }
+
+  function differentiatingEquipmentCodes(configurations) {
+    const items = configurations || [];
+    if (items.length < 2) return [];
+    return equipmentCodes(items).filter((code) => {
+      const coverage = equipmentCoverage(items, code);
+      return coverage.missing === 0 && coverage.unknown === 0
+        && coverage.available > 0 && coverage.not_available > 0;
+    });
+  }
+
+  function availableEquipmentCodes(configurations) {
+    return differentiatingEquipmentCodes(configurations);
   }
 
   function reconcileEquipmentSelection(catalog, rawCriteria) {
@@ -172,9 +209,12 @@
     if (!baseResults.length) {
       return {
         base_match_count: 0,
+        compatible_match_count: 0,
         selected_equipment: requested,
         removed_equipment: [],
         available_equipment: requested,
+        differentiating_equipment: requested,
+        facet_coverage: {},
         compatible_configurations: []
       };
     }
@@ -192,13 +232,19 @@
       }
     }
 
-    const available = new Set(availableEquipmentCodes(compatible));
-    for (const code of accepted) available.add(code);
+    const differentiating = new Set(differentiatingEquipmentCodes(compatible));
+    for (const code of accepted) differentiating.add(code);
+    const coverage = {};
+    for (const code of differentiating) coverage[code] = equipmentCoverage(compatible, code);
+    const available = [...differentiating].sort();
     return {
       base_match_count: baseResults.length,
+      compatible_match_count: compatible.length,
       selected_equipment: accepted,
       removed_equipment: removed,
-      available_equipment: [...available].sort(),
+      available_equipment: available,
+      differentiating_equipment: available,
+      facet_coverage: Object.fromEntries(Object.entries(coverage).sort()),
       compatible_configurations: compatible
     };
   }
@@ -427,6 +473,8 @@
     versionsForModels,
     equipmentAvailable,
     availableEquipmentCodes,
+    differentiatingEquipmentCodes,
+    equipmentCoverage,
     reconcileEquipmentSelection,
     criteriaWithoutEquipment
   };
