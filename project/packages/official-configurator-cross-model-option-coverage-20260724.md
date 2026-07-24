@@ -37,6 +37,12 @@ The target attribute describes factory configuration equipment. A separately pri
 - **Bigster:** current master data already covers both target attributes for all 14 active configurations, so no duplicate observations are added.
 - **Duster:** current dynamic grade-page payload does not provide sufficiently stable, exact evidence for both target attributes. No Duster record is added, removed or reclassified; missing states remain unknown.
 
+## Consumer validation focus
+
+In the generated shortlist, selecting the factory shark-fin antenna should retain Sandero Expression/Journey, Stepway Expression/Extreme, Jogger Expression/Extreme/Journey and the already-covered Bigster configurations. Stepway Essential and Jogger Essential should be excluded because their exact official grade pages identify a whip antenna instead. Duster must not be rejected on an invented negative state; its missing factory-option evidence remains unknown and therefore outside the source-complete equipment facet.
+
+Jogger Journey should show power-folding mirrors as standard from the newer 2026-07-24 observation. The older 2026-04-01 negative records remain in history but must not drive the current browser state.
+
 ## Determinism
 
 `tools/import_official_cross_model_option_coverage_20260724.py` verifies the exact snapshot SHA-256, active model/version/configuration relationships, boolean attributes, allowed statuses and exact row counts. `--apply` replaces only rows owned by this source code; `--check` reproduces the normalized contract without mutation.
