@@ -84,7 +84,28 @@ jobs:
           python -m unittest -q tests.test_duster_ecog120_automatic_stock_20260724
           python tools/import_duster_ecog120_automatic_stock_20260724.py --check
       - name: Run complete unit suite
-        run: python -m unittest discover -s tests -p 'test_*.py' -q
+        id: fullsuite
+        continue-on-error: true
+        shell: bash
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v > "${RUNNER_TEMP}/full-suite.log" 2>&1
+          status=$?
+          printf '%s\n' "$status" > "${RUNNER_TEMP}/full-suite.status"
+          exit "$status"
+      - name: Upload full-suite diagnostic
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: duster-automatic-full-suite-diagnostic
+          path: |
+            ${{ runner.temp }}/full-suite.log
+            ${{ runner.temp }}/full-suite.status
+          if-no-files-found: error
+          retention-days: 1
+      - name: Require complete unit suite success
+        shell: bash
+        run: |
+          test "$(cat "${RUNNER_TEMP}/full-suite.status")" = "0"
       - name: Run full quality gate
         shell: bash
         run: |
