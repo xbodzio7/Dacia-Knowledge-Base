@@ -36,19 +36,19 @@ jobs:
           from pathlib import Path
           path = Path('tools/import_duster_ecog120_automatic_engine_20260724.py')
           text = path.read_text(encoding='utf-8')
-          old = '''    units = {
-              row["code"]
-              for row in read_rows(MASTER / "units.csv")
-              if row.get("status") == "active"
-          }
-          '''
-          old = old.replace('          ', '')
-          new = '''    units = {
-              row["symbol"]
-              for row in read_rows(MASTER / "units.csv")
-          }
-          '''
-          new = new.replace('          ', '')
+          old = (
+              '    units = {\n'
+              '        row["code"]\n'
+              '        for row in read_rows(MASTER / "units.csv")\n'
+              '        if row.get("status") == "active"\n'
+              '    }\n'
+          )
+          new = (
+              '    units = {\n'
+              '        row["symbol"]\n'
+              '        for row in read_rows(MASTER / "units.csv")\n'
+              '    }\n'
+          )
           if old not in text:
               raise SystemExit('missing engine unit registry anchor')
           path.write_text(text.replace(old, new, 1), encoding='utf-8')
