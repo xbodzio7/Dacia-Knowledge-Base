@@ -41,6 +41,12 @@ No shark-fin antenna state is imported for any of the three configurations becau
 
 Official stock-card URLs are dynamic and may later expire or redirect after a vehicle is sold or the listing changes. The registered normalized snapshot preserves the exact observed identity, catalogue-price statement, equipment evidence and non-import boundaries with a fixed SHA-256.
 
+## Intrinsic technical boundary
+
+A second official-web snapshot contributes only three intrinsic Eco-G 120 engine values to each exact automatic configuration: 1199 cm³ displacement, three cylinders and 12 valves. The current Dacia engine page explicitly offers Eco-G 120 with the dual-clutch automatic transmission. Manual towing weight, VDA cargo volume, WLTP and performance values are not projected onto the automatic variants.
+
+The three configurations form a new independent comparison scope containing these nine exact technical observations. Equipment remains available to the buyer-facing browser, while the source-completeness scope intentionally avoids claiming a complete stock-card equipment denominator.
+
 ## Determinism
 
 `tools/import_duster_ecog120_automatic_stock_20260724.py` verifies:

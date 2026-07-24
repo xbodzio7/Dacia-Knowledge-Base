@@ -46,3 +46,9 @@ id,source_code,version_code,relationship,notes
 45,src_pl_cross_model_option_coverage_20260724,jogger_expression,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM2.
 46,src_pl_cross_model_option_coverage_20260724,jogger_extreme,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM3.
 47,src_pl_cross_model_option_coverage_20260724,jogger_journey,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM4.
+48,src_pl_duster_ecog120_automatic_stock_20260724,duster_iii_expression,exact_stock_configuration_documents,Exact 2026 official Dacia stock card observed 2026-07-24.
+49,src_pl_duster_ecog120_automatic_stock_20260724,duster_iii_extreme,exact_stock_configuration_documents,Exact 2026 official Dacia stock card observed 2026-07-24.
+50,src_pl_duster_ecog120_automatic_stock_20260724,duster_iii_journey,exact_stock_configuration_documents,Exact 2026 official Dacia stock card observed 2026-07-24.
+51,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_expression,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.
+52,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_extreme,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.
+53,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_journey,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.

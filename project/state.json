@@ -17,8 +17,8 @@
   "baseline": {
     "tests": 735,
     "csv_files": 41,
-    "rows": 7796,
-    "configuration_values": 1756,
+    "rows": 7813,
+    "configuration_values": 1765,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
@@ -29,7 +29,7 @@
   "current_package": {
     "name": "Duster Eco-G 120 Automatic Stock Intake",
     "status": "complete",
-    "goal": "Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices and only directly proven folding-mirror states from official Dacia Poland stock cards."
+    "goal": "Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices, directly proven folding-mirror states, three intrinsic engine values and an independent source-scoped comparison contract."
   },
   "next_package": {
     "name": "Duster Exact Stock Equipment Expansion",

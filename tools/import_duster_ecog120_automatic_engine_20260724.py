@@ -15,7 +15,7 @@ MASTER = ROOT / "data" / "master"
 SNAPSHOT = ROOT / "project" / "sources" / "dacia-pl-duster-ecog120-automatic-engine-20260724.json"
 SOURCE_CODE = "src_pl_duster_ecog120_automatic_engine_20260724"
 DATE = "2026-07-24"
-SNAPSHOT_SHA256 = "ea3f1209c19778baed6004ae4938bded39b9b5f0608b74668a02f70b75cb23f7"
+SNAPSHOT_SHA256 = "9914402753c100f9a9ecb65c01bf454d90d6f18d6e09df00b74342377cba9ebc"
 CONFIGURATION_CODES = {
     "duster_iii_expression_ecog120_4x2_automatic",
     "duster_iii_extreme_ecog120_4x2_automatic",
@@ -92,9 +92,8 @@ def normalized_contract() -> dict[str, list[dict[str, str]]]:
         if row.get("status") == "active"
     }
     units = {
-        row["code"]
+        row["symbol"]
         for row in read_rows(MASTER / "units.csv")
-        if row.get("status") == "active"
     }
     scope_codes = set(payload.get("scope", {}).get("configuration_codes", []))
     if scope_codes != CONFIGURATION_CODES:
@@ -110,9 +109,9 @@ def normalized_contract() -> dict[str, list[dict[str, str]]]:
 
     intrinsic = payload.get("intrinsic_engine_values", [])
     expected = {
-        ("engine_displacement", "", "1199", "cubic_cm"),
-        ("cylinder_count", "", "3", "count"),
-        ("total_valve_count", "", "12", "count"),
+        ("engine_displacement", "", "1199", "cm3"),
+        ("cylinder_count", "", "3", ""),
+        ("total_valve_count", "", "12", ""),
     }
     actual = {
         (
@@ -129,7 +128,7 @@ def normalized_contract() -> dict[str, list[dict[str, str]]]:
         attribute = attributes.get(attribute_code)
         if not attribute or attribute.get("unit") != unit:
             raise ContractError(f"attribute unit mismatch: {attribute_code}")
-        if unit not in units:
+        if unit and unit not in units:
             raise ContractError(f"inactive unit: {unit}")
 
     value_rows: list[dict[str, str]] = []

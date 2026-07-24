@@ -23,3 +23,5 @@ id,source_code,model_code,relationship,notes
 22,src_pl_cross_model_option_coverage_20260724,jogger,web_option_coverage_for,Official Polish grade-specific equipment pages observed 2026-07-24.
 23,src_pl_cross_model_option_coverage_20260724,sandero_iii,web_option_coverage_for,Official Polish grade-specific equipment pages observed 2026-07-24.
 24,src_pl_cross_model_option_coverage_20260724,sandero_stepway_iii,web_option_coverage_for,Official Polish grade-specific equipment pages observed 2026-07-24.
+25,src_pl_duster_ecog120_automatic_stock_20260724,duster_iii,exact_stock_configurations_for,Three official 2026 Eco-G 120 automatic stock cards.
+26,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii,intrinsic_engine_data_for,Official Dacia Eco-G 120 engine architecture observed 2026-07-24.

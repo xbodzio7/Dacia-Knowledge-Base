@@ -36,3 +36,7 @@ Deferred:
 - Expression folding-mirror availability;
 - all three antenna states;
 - broader Duster package and equipment capture beyond these exact cards.
+
+## Intrinsic engine evidence
+
+A separate official Dacia engine-page snapshot confirms Eco-G 120 automatic availability and the intrinsic 1199 cm³, three-cylinder, 12-valve engine architecture. It does not resolve automatic towing weight, VDA cargo volume, WLTP or performance values, which remain unimported.

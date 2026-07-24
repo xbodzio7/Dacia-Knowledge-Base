@@ -20,6 +20,7 @@ CONFIGURATION_CODES = {
 }
 
 sys.path.insert(0, str(REPOSITORY / "tools"))
+import configuration_completeness  # noqa: E402
 from reporting.configuration_shortlist import ShortlistCriteria  # noqa: E402
 from reporting.configuration_shortlist_html import collect_browser_catalog  # noqa: E402
 
@@ -148,6 +149,15 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
                 selected[code]["equipment"]["side_mirrors_folding"]["availability_status"],
                 "standard",
             )
+        report = configuration_completeness.collect_report(
+            REPOSITORY,
+            REPOSITORY / "data" / "reporting" / "duster_ecog120_automatic_completeness.json",
+        )
+        self.assertEqual(report["scope"]["reporting_configurations"], 3)
+        self.assertEqual(report["scope"]["technical_slots"], 3)
+        self.assertEqual(report["technical"]["present"], 9)
+        self.assertEqual(report["technical"]["missing"], 0)
+        self.assertEqual(report["equipment"]["denominator"], 0)
 
     def test_importer_check_reproduces_master_contract(self) -> None:
         result = subprocess.run(
@@ -159,6 +169,15 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("PASS: Duster Eco-G 120 automatic stock-card contract", result.stdout)
+        engine = subprocess.run(
+            [sys.executable, "tools/import_duster_ecog120_automatic_engine_20260724.py", "--check"],
+            cwd=REPOSITORY,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(engine.returncode, 0, engine.stderr)
+        self.assertIn("PASS: Duster Eco-G 120 automatic intrinsic-engine contract", engine.stdout)
 
 
 if __name__ == "__main__":

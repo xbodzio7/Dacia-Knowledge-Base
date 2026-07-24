@@ -49,6 +49,17 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             row for row in cls.all_values
             if row["configuration_code"].startswith("duster_iii_")
         ]
+        cls.price_list_values = [
+            row for row in cls.values
+            if row["source_code"] == SOURCE
+        ]
+        cls.automatic_engine_values = [
+            row for row in cls.values
+            if row["source_code"] == "src_pl_duster_ecog120_automatic_engine_20260724"
+        ]
+        cls.price_list_configurations = {
+            row["configuration_code"] for row in cls.price_list_values
+        }
         cls.configurations = {
             row["code"]
             for row in rows("configurations.csv")
@@ -90,34 +101,51 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
                 row["attribute_code"], row["fuel_type_code"], row["value"],
                 row["observation_date"], row["source_code"],
             )
-            for row in self.values
+            for row in self.price_list_values
         ]
         self.assertEqual(len(expected), 392)
         self.assertEqual(actual, expected)
-        self.assertEqual([int(row["id"]) for row in self.values], list(range(311, 703)))
+        self.assertEqual([int(row["id"]) for row in self.price_list_values], list(range(311, 703)))
 
     def test_attribute_and_context_counts_are_stable(self) -> None:
-        self.assertEqual(Counter(row["attribute_code"] for row in self.values), EXPECTED_COUNTS)
+        self.assertEqual(Counter(row["attribute_code"] for row in self.price_list_values), EXPECTED_COUNTS)
         self.assertEqual(
-            Counter(row["fuel_type_code"] for row in self.values),
+            Counter(row["fuel_type_code"] for row in self.price_list_values),
             Counter({"": 320, "lpg": 36, "petrol": 36}),
         )
         self.assertEqual(
-            Counter(row["observation_date"] for row in self.values),
+            Counter(row["observation_date"] for row in self.price_list_values),
             Counter({"2026-02-06": 372, "2025-10-01": 20}),
         )
-        self.assertEqual({row["source_code"] for row in self.values}, {SOURCE})
+        self.assertEqual({row["source_code"] for row in self.price_list_values}, {SOURCE})
 
-    def test_every_configuration_has_unambiguous_core_values(self) -> None:
+    def test_source_scoped_core_values_preserve_homologation_boundaries(self) -> None:
         for attribute in (
             "engine_displacement", "cylinder_count", "total_valve_count",
             "braked_trailer_weight", "cargo_volume_vda",
         ):
             self.assertEqual(
-                {row["configuration_code"] for row in self.values if row["attribute_code"] == attribute},
-                self.configurations,
+                {row["configuration_code"] for row in self.price_list_values if row["attribute_code"] == attribute},
+                self.price_list_configurations,
                 attribute,
             )
+        automatic_codes = {
+            "duster_iii_expression_ecog120_4x2_automatic",
+            "duster_iii_extreme_ecog120_4x2_automatic",
+            "duster_iii_journey_ecog120_4x2_automatic",
+        }
+        self.assertEqual(len(self.automatic_engine_values), 9)
+        self.assertEqual(
+            {row["configuration_code"] for row in self.automatic_engine_values},
+            automatic_codes,
+        )
+        self.assertEqual(
+            {row["attribute_code"] for row in self.automatic_engine_values},
+            {"engine_displacement", "cylinder_count", "total_valve_count"},
+        )
+        self.assertFalse({
+            row["attribute_code"] for row in self.automatic_engine_values
+        } & {"braked_trailer_weight", "cargo_volume_vda"})
 
     def test_bifuel_contexts_preserve_source_distinctions(self) -> None:
         eco_g_100 = "duster_iii_essential_ecog100_4x2_manual"
@@ -131,7 +159,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         }
         actual = {
             (row["attribute_code"], row["fuel_type_code"], row["value"])
-            for row in self.values
+            for row in self.price_list_values
             if row["configuration_code"] == eco_g_100
             and row["attribute_code"] in {item[0] for item in expected}
         }
@@ -140,7 +168,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         eco_g_120 = "duster_iii_essential_ecog120_4x2_manual"
         power_torque = {
             (row["attribute_code"], row["fuel_type_code"], row["value"])
-            for row in self.values
+            for row in self.price_list_values
             if row["configuration_code"] == eco_g_120
             and row["attribute_code"] in {"engine_power", "engine_torque"}
         }
@@ -154,7 +182,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         h155 = "duster_iii_expression_hybrid155_4x2_automatic"
         actual = {
             (row["configuration_code"], row["attribute_code"], row["value"])
-            for row in self.values
+            for row in self.price_list_values
             if row["configuration_code"] in {h140, h155}
             and row["attribute_code"] in {"engine_power", "traction_motor_power", "starter_generator_power"}
         }
@@ -172,8 +200,8 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             "kerb_weight", "gross_vehicle_weight", "maximum_payload",
             "standard_tyre_specification", "drive_type", "gear_count",
         }
-        self.assertFalse([row for row in self.values if row["attribute_code"] in forbidden])
-        self.assertFalse(any("hybridg150" in row["configuration_code"] for row in self.values))
+        self.assertFalse([row for row in self.price_list_values if row["attribute_code"] in forbidden])
+        self.assertFalse(any("hybridg150" in row["configuration_code"] for row in self.price_list_values))
 
     def test_prices_and_reporting_scope_remain_stable(self) -> None:
         prices = [
@@ -186,11 +214,11 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             ROOT, ROOT / "data" / "reporting" / "configuration_completeness.json"
         )
         self.assertEqual(report["scope"]["reporting_configurations"], 7)
-        self.assertEqual(report["scope"]["repository_status_configurations"], 69)
-        self.assertEqual(report["scope"]["excluded_configurations"], 62)
+        self.assertEqual(report["scope"]["repository_status_configurations"], 72)
+        self.assertEqual(report["scope"]["excluded_configurations"], 65)
 
     def test_repository_totals_match_technical_package(self) -> None:
-        self.assertEqual(len(self.all_values), 1756)
+        self.assertEqual(len(self.all_values), 1765)
         self.assertEqual(len(list(SPECS.glob("*.json"))), 112)
 
 

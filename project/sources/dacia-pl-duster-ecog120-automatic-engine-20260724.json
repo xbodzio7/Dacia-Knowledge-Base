@@ -31,19 +31,19 @@
       "attribute_code": "engine_displacement",
       "fuel_type_code": "",
       "value": "1199",
-      "unit": "cubic_cm"
+      "unit": "cm3"
     },
     {
       "attribute_code": "cylinder_count",
       "fuel_type_code": "",
       "value": "3",
-      "unit": "count"
+      "unit": ""
     },
     {
       "attribute_code": "total_valve_count",
       "fuel_type_code": "",
       "value": "12",
-      "unit": "count"
+      "unit": ""
     }
   ],
   "non_imports": [
