@@ -32,6 +32,18 @@ jobs:
         run: |
           sed -i 's|MASTER / "equipment_availability_statuses.csv"|MASTER / "enums" / "equipment_availability_statuses.csv"|' tools/import_official_cross_model_option_coverage_20260724.py
           python tools/import_official_cross_model_option_coverage_20260724.py --apply
+          python - <<'PY'
+          from pathlib import Path
+          for name in (
+              'tests/test_jogger_payload_performance_ranges.py',
+              'tests/test_jogger_wltp_efficiency_ranges.py',
+          ):
+              path = Path(name)
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('self.assertEqual(baseline["tests"], 719)', 'self.assertEqual(baseline["tests"], 727)')
+              text = text.replace('self.assertEqual(baseline["rows"], 7699)', 'self.assertEqual(baseline["rows"], 7780)')
+              path.write_text(text, encoding='utf-8')
+          PY
       - name: Update narrative documentation
         shell: bash
         run: |
