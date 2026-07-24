@@ -80,8 +80,15 @@ jobs:
       - name: Synchronize canonical state
         run: python tools/dkb.py project-state --apply
       - name: Verify targeted contract
+        shell: bash
         run: |
-          python -m unittest -q tests.test_duster_ecog120_automatic_stock_20260724
+          set +e
+          python -m unittest -v tests.test_duster_ecog120_automatic_stock_20260724 > "${RUNNER_TEMP}/targeted.log" 2>&1
+          status=$?
+          tail -n 160 "${RUNNER_TEMP}/targeted.log"
+          if [ "$status" -ne 0 ]; then
+            exit "$status"
+          fi
           python tools/import_duster_ecog120_automatic_stock_20260724.py --check
       - name: Run complete unit suite
         run: python -m unittest discover -s tests -p 'test_*.py' -q
