@@ -718,6 +718,8 @@ Wydanie [`data-products-v1.6.0`](https://github.com/xbodzio7/Dacia-Knowledge-Bas
 
 Najnowsza poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
 
+Bieżący przekrojowy import wyposażenia zapisuje 31 dokładnych obserwacji fabrycznej anteny typu „płetwa rekina” dla Sandero, Sandero Stepway i Joggera oraz sześć nowszych obserwacji seryjnych elektrycznie składanych lusterek dla Joggera Journey. Wersje z jawnie wskazaną anteną biczową otrzymują status fabrycznej płetwy `not_available`; akcesoria, nieudowodnione rozszerzenia pakietów i niejednoznaczne stany Dustera pozostają poza importem. Szczegóły zawiera `project/packages/official-configurator-cross-model-option-coverage-20260724.md`.
+
 Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
 
 Bieżący pakiet rozszerza zwykłe Sandero do czterech oficjalnie potwierdzonych stanów Eco-G 120: Expression i Journey z ręczną lub automatyczną skrzynią. Dodaje dwie konfiguracje automatyczne, cztery ceny obserwowane 23 lipca 2026 r. i wyłącznie wyróżniki wyposażenia pokazane na odpowiadających stronach wersji. Pakiety z ogólnych stron wyposażenia oraz opcje domyślnego Essential TCe 100 pozostają nieprzypisane bez dowodu dla dokładnej konfiguracji. Szczegóły znajdują się w `project/packages/official-configurator-sandero-configuration-import.md`.
@@ -959,11 +961,11 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 719 testów, 41 pliki CSV, 7699 rekordów
+Zweryfikowany model obejmuje 727 testów, 41 pliki CSV, 7780 rekordów
 danych, 43 relacje między tabelami, 1756 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
-specyfikacji zakresów oraz 4512 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 4549 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 41 tabele i 7699 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 41 tabele i 7780 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

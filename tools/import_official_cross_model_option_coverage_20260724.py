@@ -113,7 +113,7 @@ def normalized_contract() -> dict[str, list[dict[str, str]]]:
     }
     statuses = {
         row["code"]
-        for row in read_rows(MASTER / "equipment_availability_statuses.csv")
+        for row in read_rows(MASTER / "enums" / "equipment_availability_statuses.csv")
         if row.get("status") == "active"
     }
 

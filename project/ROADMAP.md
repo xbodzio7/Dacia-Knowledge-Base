@@ -103,6 +103,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - pakiet interfejsu `v1.6.0` z oficjalnymi zdjęciami modeli i fallbackiem offline, kaflami w stylu konfiguratora, źródłowo kompletnymi fasetami wyposażenia oraz pełnym porównaniem danych technicznych i wyposażenia,
 - publiczne wydanie `data-products-v1.6.0` z trzema niezależnie zweryfikowanymi assetami, dokładnym powiązaniem tagu z zielonym commitem i audytem opublikowanego HTML,
 - poprawka `data-products-v1.6.1` naprawiająca widoczne wyszukiwanie wyposażenia, zachowanie zaznaczeń i kompatybilne fasety, z niezależną weryfikacją publicznych assetów oraz dokładnego HTML,
+- przekrojowy import dwóch myląco niepełnych cech wyposażenia z dziewięciu oficjalnych stron wersji: 31 obserwacji anteny typu „płetwa rekina”, sześć aktualizacji składanych lusterek Joggera Journey i jawny non-import Dustera,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
@@ -115,7 +116,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 719 testów automatycznych,
+- 727 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

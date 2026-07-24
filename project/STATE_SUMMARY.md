@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.6.1 Publication**
+**Official Configurator Cross-Model Option Coverage Import**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 719
+- Tests: 727
 - Master CSV files: 41
-- Master rows: 7699
+- Master rows: 7780
 - Configuration values: 1756
 - Configuration import specifications: 112
 - Configuration value ranges: 158
 - Configuration range import specifications: 20
-- Availability records: 4512
+- Availability records: 4549
 - Canonical attributes: 381
 - Attribute categories: 30
 
 ## Current package
 
-**Data Products v1.6.1 Publication** — `complete`
+**Official Configurator Cross-Model Option Coverage Import** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.6.1 assets from exact green main commit 4b77571c788b862a6543161b9343a35f464bd7c6 after the equipment-facet interaction fix.
+Import exact dated factory-equipment coverage for the shark-fin antenna and power-folding mirrors across Sandero, Sandero Stepway and Jogger, preserve existing Bigster and commercial-package evidence, and keep ambiguous Duster states unknown.
 
 ## Next package
 
-**Official Configurator Cross-Model Option Coverage Import** — `planned`
+**Official Duster Exact Configurator Option Capture** — `planned`
 
-Capture exact standard, optional and package availability with prices across Sandero, Sandero Stepway, Jogger, Duster and Bigster, beginning with misleading partial-coverage items such as the shark-fin antenna, without inferring applicability across configurations.
+Capture stable exact Duster grade, powertrain and gearbox states for factory options and packages, beginning with power-folding mirrors and the shark-fin antenna, without deriving negative availability from missing dynamic-page text.
 
 ## Autonomy
 
