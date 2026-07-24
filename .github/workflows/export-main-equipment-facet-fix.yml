@@ -1,8 +1,9 @@
 name: Export main for equipment facet fix
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - transport/export-main-equipment-facet-fix
     paths:
       - .github/workflows/export-main-equipment-facet-fix.yml
 
@@ -13,16 +14,16 @@ jobs:
   export:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out exact PR base
+      - name: Check out exact main commit
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: 09796c97bfed7156496b3141d1689a7bdcc713cc
           fetch-depth: 1
 
       - name: Record exact identity
         run: |
           git rev-parse HEAD | tee MAIN_SHA.txt
-          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.base.sha }}"
+          test "$(git rev-parse HEAD)" = "09796c97bfed7156496b3141d1689a7bdcc713cc"
 
       - name: Build repository snapshot
         run: |
