@@ -1,4 +1,4 @@
-name: Export main v1.6.0 workspace
+name: Publish data-products v1.6.0 implementation
 
 on:
   pull_request:
@@ -6,114 +6,208 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: publish-data-products-v1.6.0-implementation
+  cancel-in-progress: false
 
 jobs:
-  export:
+  publish:
     if: github.head_ref == 'transport/export-main-v1.6.0'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out exact main commit
+      - name: Check out transport branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: transport
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Check out exact main baseline
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: eb697576550ecd6e64a56dc3a09d94a4e971cc1c
-          persist-credentials: false
+          path: repo
           fetch-depth: 0
 
-      - name: Confirm exact source identity
+      - name: Reconstruct verified implementation patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat transport/.github/transport/v16.patch.gz.b64.* \
+            | tr -d '\r\n' \
+            | base64 --decode \
+            | gzip --decompress \
+            > "$RUNNER_TEMP/data-products-v1.6.0.patch"
+          echo "8efd92d05d291e6f36ad2ed6460a87bf269cf81d85816afe0506bca93094118b  $RUNNER_TEMP/data-products-v1.6.0.patch" | sha256sum --check --strict
+
+      - name: Apply exact package and verify manifest
+        working-directory: repo
         shell: bash
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "eb697576550ecd6e64a56dc3a09d94a4e971cc1c"
           git diff --quiet
           git diff --cached --quiet
+          git switch -c feat/data-products-v1.6.0-configurator-style-full-comparison
+          git apply --index "$RUNNER_TEMP/data-products-v1.6.0.patch"
+          git diff --cached --check
+          python - <<'PY'
+          import subprocess
 
-      - name: Capture official model media candidates
+          expected = {
+              "CHANGELOG.md",
+              "README.md",
+              "project/ROADMAP.md",
+              "project/SESSION_STATE.md",
+              "project/STATE_SUMMARY.md",
+              "project/guides/data-product-consumer-guide.md",
+              "project/packages/data-products-v1.6.0-configurator-style-full-comparison.md",
+              "project/sources/dacia-pl-model-media-20260724.json",
+              "project/state.json",
+              "tests/test_configuration_selection_export.py",
+              "tests/test_configuration_shortlist_html.py",
+              "tests/test_data_product_release.py",
+              "tests/test_jogger_payload_performance_ranges.py",
+              "tests/test_jogger_wltp_efficiency_ranges.py",
+              "tools/reporting/configuration_attribute_labels_pl.json",
+              "tools/reporting/configuration_shortlist_browser.js",
+              "tools/reporting/configuration_shortlist_html.py",
+              "tools/reporting/configuration_shortlist_selection.js",
+              "tools/reporting/configuration_shortlist_selection_html.py",
+              "tools/reporting/configuration_shortlist_v12.js",
+          }
+          actual = set(
+              subprocess.check_output(
+                  ["git", "diff", "--cached", "--name-only"], text=True
+              ).splitlines()
+          )
+          if actual != expected:
+              raise SystemExit(
+                  "package manifest mismatch\n"
+                  f"missing={sorted(expected - actual)}\n"
+                  f"unexpected={sorted(actual - expected)}"
+              )
+          print(f"Verified package manifest: {len(actual)} paths")
+          PY
+
+      - name: Verify official model media endpoints
+        working-directory: repo
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import html
           import json
-          import re
+          import time
           import urllib.request
           from pathlib import Path
-          from urllib.parse import urljoin
+          from urllib.parse import urlparse
 
-          pages = {
-              "sandero_iii": "https://www.dacia.pl/samochody/sandero-miejskie.html",
-              "sandero_stepway_iii": "https://www.dacia.pl/samochody/sandero-stepway-crossover.html",
-              "jogger": "https://www.dacia.pl/samochody/jogger-hybydowy.html",
-              "duster_iii": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv.html",
-              "bigster": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv.html",
-              "spring": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
-          }
-          request_headers = {
-              "User-Agent": "Mozilla/5.0 (compatible; Dacia-Knowledge-Base/1.0; source-audit)",
-              "Accept-Language": "pl-PL,pl;q=0.9,en;q=0.5",
-          }
-          output = {"captured_on": "2026-07-24", "models": {}}
-          url_pattern = re.compile(r'https?:\\?/\\?/[^"\'<> ]+?\\.(?:avif|webp|png|jpe?g)(?:\\?[^"\'<> ]*)?', re.I)
-          for code, page_url in pages.items():
-              request = urllib.request.Request(page_url, headers=request_headers)
-              with urllib.request.urlopen(request, timeout=45) as response:
-                  raw = response.read().decode("utf-8", errors="replace")
-              normalized = html.unescape(raw.replace("\\/", "/"))
-              candidates = []
-              for pattern in (
-                  r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]+content=["\']([^"\']+)',
-                  r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\']',
-                  r'<img[^>]+src=["\']([^"\']+)',
-                  r'<source[^>]+srcset=["\']([^"\']+)',
-              ):
-                  for match in re.findall(pattern, normalized, flags=re.I):
-                      for value in str(match).split(","):
-                          candidate = value.strip().split(" ")[0]
-                          if candidate:
-                              candidates.append(urljoin(page_url, candidate))
-              candidates.extend(match.group(0) for match in url_pattern.finditer(normalized))
-              cleaned = []
-              seen = set()
-              for candidate in candidates:
-                  candidate = candidate.replace("&amp;", "&")
-                  if candidate.startswith("data:") or candidate in seen:
-                      continue
-                  seen.add(candidate)
-                  cleaned.append(candidate)
-              output["models"][code] = {
-                  "page_url": page_url,
-                  "candidate_count": len(cleaned),
-                  "candidates": cleaned[:250],
-              }
-          path = Path("/tmp/dacia-model-media-candidates.json")
-          path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-          print(path)
+          registry = json.loads(
+              Path("project/sources/dacia-pl-model-media-20260724.json")
+              .read_text(encoding="utf-8")
+          )
+          for code, media in sorted(registry["models"].items()):
+              url = media["image_url"]
+              source_page = media["source_page_url"]
+              for value in (url, source_page):
+                  parsed = urlparse(value)
+                  if parsed.scheme != "https" or parsed.netloc != "www.dacia.pl":
+                      raise SystemExit(f"non-official media URL for {code}: {value}")
+              last_error = None
+              for attempt in range(3):
+                  try:
+                      request = urllib.request.Request(
+                          url,
+                          headers={
+                              "User-Agent": "Mozilla/5.0 (compatible; Dacia-Knowledge-Base/1.6; verification)",
+                              "Accept": "image/avif,image/webp,image/png,image/jpeg,image/*,*/*;q=0.8",
+                          },
+                      )
+                      with urllib.request.urlopen(request, timeout=45) as response:
+                          prefix = response.read(64)
+                          content_type = response.headers.get_content_type()
+                          if response.status not in (200, 206):
+                              raise RuntimeError(f"HTTP {response.status}")
+                          if not content_type.startswith("image/") and not prefix.startswith(b"\x89PNG"):
+                              raise RuntimeError(
+                                  f"unexpected content type {content_type!r}"
+                              )
+                          if not prefix:
+                              raise RuntimeError("empty image response")
+                          print(code, response.status, content_type, len(prefix))
+                          break
+                  except Exception as exc:  # network retry with final hard failure
+                      last_error = exc
+                      if attempt < 2:
+                          time.sleep(3 * (attempt + 1))
+              else:
+                  raise SystemExit(f"official image verification failed for {code}: {last_error}")
           PY
 
-      - name: Create source snapshot
+      - name: Run package validation
+        working-directory: repo
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          from zipfile import ZIP_DEFLATED, ZipFile
+          python tools/dkb.py project-state --check
+          node --check tools/reporting/configuration_shortlist_browser.js
+          node --check tools/reporting/configuration_shortlist_selection.js
+          node --check tools/reporting/configuration_shortlist_v12.js
+          python -m unittest discover -s tests -p 'test_*.py' -q
 
-          root = Path.cwd()
-          output = Path('/tmp/dkb-main-v1.6.0.zip')
-          with ZipFile(output, 'w', compression=ZIP_DEFLATED, compresslevel=9) as archive:
-              for path in sorted(root.rglob('*')):
-                  if not path.is_file() or '.git' in path.parts:
-                      continue
-                  archive.write(path, path.relative_to(root).as_posix())
-          print(output)
+      - name: Verify production browser payload
+        working-directory: repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py configuration-shortlist --html "$RUNNER_TEMP/configuration-shortlist-v1.6.0.html" >/tmp/v16-shortlist.log
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          html_path = Path(os.environ["RUNNER_TEMP"]) / "configuration-shortlist-v1.6.0.html"
+          rendered = html_path.read_text(encoding="utf-8")
+          match = re.search(
+              r'<script id="configuration-catalog" type="application/json">(.*?)</script>',
+              rendered,
+              re.S,
+          )
+          if not match:
+              raise SystemExit("embedded catalog not found")
+          catalog = json.loads(match.group(1))
+          assert len(catalog["configurations"]) == 69
+          assert len(catalog["facets"]["comparison_values"]) == 88
+          assert len(catalog["facets"]["equipment"]) == 109
+          assert all(item.get("media", {}).get("image_url") for item in catalog["facets"]["models"])
+          assert "Pokaż tylko różnice" in rendered
+          assert "Filtruj listę wyposażenia" in rendered
+          assert "vehicle-photo-fallback" in rendered
+          print("Production browser payload: 69 configurations, 88 technical facets, 109 equipment facets")
           PY
 
-      - name: Upload exact source snapshot and media candidates
+      - name: Create and push one logical package commit
+        working-directory: repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "OpenAI Agent"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(data-products): add configurator-style full comparison"
+          test "$(git rev-list --count eb697576550ecd6e64a56dc3a09d94a4e971cc1c..HEAD)" -eq 1
+          git rev-parse HEAD | tee "$RUNNER_TEMP/v16-commit-sha.txt"
+          git push origin HEAD:refs/heads/feat/data-products-v1.6.0-configurator-style-full-comparison
+
+      - name: Upload package commit identity and browser
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          name: dkb-main-v1.6.0
+          name: data-products-v1.6.0-implementation
           path: |
-            /tmp/dkb-main-v1.6.0.zip
-            /tmp/dacia-model-media-candidates.json
+            ${{ runner.temp }}/v16-commit-sha.txt
+            ${{ runner.temp }}/configuration-shortlist-v1.6.0.html
           if-no-files-found: error
           retention-days: 7
