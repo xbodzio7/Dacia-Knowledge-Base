@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "source_code": "src_pl_duster_ecog120_automatic_stock_20260724",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-24",
+  "volatility": "dynamic_official_stock_cards",
+  "scope": {
+    "model_code": "duster_iii",
+    "powertrain_label": "Eco-G 120 4x2",
+    "transmission_type": "automatic",
+    "versions": [
+      "duster_iii_expression",
+      "duster_iii_extreme",
+      "duster_iii_journey"
+    ]
+  },
+  "configurations": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "version_code": "duster_iii_expression",
+      "version_name": "Expression",
+      "stock_id": "121553",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121553",
+      "year": "2026",
+      "fuel": "Benzyna/gaz",
+      "power_kw": 90,
+      "power_hp": 122,
+      "transmission_source_label": "AUTOMATYCZNA SKRZYNIA BIEGÓW",
+      "catalog_gross_price": 96900,
+      "price_source_label": "Cena katalogowa: 96 900 zł",
+      "availability": [],
+      "non_imports": [
+        {
+          "attribute_code": "side_mirrors_folding",
+          "reason": "The exact card lists electrically adjustable and heated mirrors but another official Expression stock card conflicts; no generic availability state is inferred."
+        },
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "No exact current factory-antenna statement appears on the card."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "version_code": "duster_iii_extreme",
+      "version_name": "Extreme",
+      "stock_id": "121540",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121540",
+      "supporting_current_url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/127567",
+      "year": "2026",
+      "fuel": "Benzyna/gaz",
+      "power_kw": 90,
+      "power_hp": 122,
+      "transmission_source_label": "AUTOMATYCZNA SKRZYNIA BIEGÓW",
+      "catalog_gross_price": 110300,
+      "price_source_label": "Cena katalogowa - 110 300 zł brutto",
+      "availability": [
+        {
+          "attribute_code": "side_mirrors_folding",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "No exact current factory-antenna statement appears on the card."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "version_code": "duster_iii_journey",
+      "version_name": "Journey",
+      "stock_id": "121030",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121030",
+      "year": "2026",
+      "fuel": "Benzyna/gaz",
+      "power_kw": 90,
+      "power_hp": 122,
+      "transmission_source_label": "AUTOMATYCZNA SKRZYNIA BIEGÓW",
+      "catalog_gross_price": 107600,
+      "price_source_label": "Cena katalogowa: 107 600 zł brutto",
+      "availability": [
+        {
+          "attribute_code": "side_mirrors_folding",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "No exact current factory-antenna statement appears on the card."
+        }
+      ]
+    }
+  ],
+  "normalization_rules": [
+    "Each exact official stock card creates one active configuration only when model, version, powertrain, year and automatic transmission are explicit.",
+    "Only a price explicitly labelled 'Cena katalogowa' is imported as catalog_gross; promotional and financing prices are excluded.",
+    "Only equipment explicitly listed as basic or configured equipment is imported as standard.",
+    "Missing text is not interpreted as not_available.",
+    "Conflicting official Expression mirror evidence remains a documented non-import.",
+    "The dynamic stock-card snapshot preserves evidence even if an individual stock URL later expires or redirects."
+  ]
+}
