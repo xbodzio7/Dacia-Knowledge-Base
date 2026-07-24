@@ -80,15 +80,29 @@ jobs:
       - name: Synchronize canonical state
         run: python tools/dkb.py project-state --apply
       - name: Verify targeted contract
+        id: targeted
+        continue-on-error: true
         shell: bash
         run: |
-          set +e
           python -m unittest -v tests.test_duster_ecog120_automatic_stock_20260724 > "${RUNNER_TEMP}/targeted.log" 2>&1
           status=$?
-          tail -n 160 "${RUNNER_TEMP}/targeted.log"
-          if [ "$status" -ne 0 ]; then
-            exit "$status"
-          fi
+          printf '%s\n' "$status" > "${RUNNER_TEMP}/targeted.status"
+          exit "$status"
+      - name: Upload targeted diagnostic
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: duster-automatic-targeted-diagnostic
+          path: |
+            ${{ runner.temp }}/targeted.log
+            ${{ runner.temp }}/targeted.status
+          if-no-files-found: error
+          retention-days: 1
+      - name: Require targeted contract success
+        shell: bash
+        run: |
+          cat "${RUNNER_TEMP}/targeted.log"
+          test "$(cat "${RUNNER_TEMP}/targeted.status")" = "0"
           python tools/import_duster_ecog120_automatic_stock_20260724.py --check
       - name: Run complete unit suite
         run: python -m unittest discover -s tests -p 'test_*.py' -q
