@@ -1,0 +1,51 @@
+{
+  "release_id": 359467989,
+  "tag": "data-products-v1.6.0",
+  "target_commit_sha": "539fba58d1ee2ef538c782b20e049be482d72988",
+  "target_commitish": "539fba58d1ee2ef538c782b20e049be482d72988",
+  "published_at": "2026-07-24T18:11:04Z",
+  "html_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.0",
+  "draft": false,
+  "prerelease": false,
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "asset_id": 488680880,
+      "size": 213,
+      "sha256": "524b5ed2317c164fd43b7a63e6b8a9a311270cd2f03547c6a1c0e8f0155aa2da",
+      "api_digest": "sha256:524b5ed2317c164fd43b7a63e6b8a9a311270cd2f03547c6a1c0e8f0155aa2da",
+      "state": "uploaded"
+    },
+    {
+      "name": "dacia-knowledge-base-data-products-v1.6.0.zip",
+      "asset_id": 488680879,
+      "size": 46477887,
+      "sha256": "286b7a8324efd8face2c49bb223bb414a2c2d5f8be368a9547c7fe7ab6677c32",
+      "api_digest": "sha256:286b7a8324efd8face2c49bb223bb414a2c2d5f8be368a9547c7fe7ab6677c32",
+      "state": "uploaded"
+    },
+    {
+      "name": "data-product-release-manifest.json",
+      "asset_id": 488680877,
+      "size": 19154,
+      "sha256": "02158bc7839ee03eaa51c644817c7c2fc51e06ee551d7747456f97956281f803",
+      "api_digest": "sha256:02158bc7839ee03eaa51c644817c7c2fc51e06ee551d7747456f97956281f803",
+      "state": "uploaded"
+    }
+  ],
+  "archive_member_count": 79,
+  "browser": {
+    "configuration_count": 69,
+    "technical_comparison_facet_count": 88,
+    "equipment_facet_count": 109,
+    "official_model_media_count": 5,
+    "contract_text_verified": [
+      "Pokaż tylko różnice",
+      "Filtruj listę wyposażenia",
+      "Cena minimalna",
+      "Cena maksymalna",
+      "vehicle-photo-fallback"
+    ]
+  },
+  "verification": "PASS"
+}
