@@ -36,7 +36,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat transport/.github/transport/v16.patch.gz.b64.* \
+          cat \
+            transport/.github/transport/v16.patch.gz.b64.00 \
+            transport/.github/transport/v16.patch.gz.b64.01a \
+            transport/.github/transport/v16.patch.gz.b64.01b \
+            transport/.github/transport/v16.patch.gz.b64.01c \
+            transport/.github/transport/v16.patch.gz.b64.01d \
+            transport/.github/transport/v16.patch.gz.b64.02 \
             | tr -d '\r\n' \
             | base64 --decode \
             | gzip --decompress \
@@ -139,7 +145,7 @@ jobs:
                               raise RuntimeError("empty image response")
                           print(code, response.status, content_type, len(prefix))
                           break
-                  except Exception as exc:  # network retry with final hard failure
+                  except Exception as exc:
                       last_error = exc
                       if attempt < 2:
                           time.sleep(3 * (attempt + 1))
