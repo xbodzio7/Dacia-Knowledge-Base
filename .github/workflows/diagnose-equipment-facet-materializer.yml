@@ -1,0 +1,41 @@
+name: Diagnose equipment facet materializer
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    if: github.head_ref == 'fix/equipment-facet-interaction'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/equipment-facet-interaction
+      - name: Run materializer diagnostically
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import traceback
+          source = Path('.github/workflows/materialize-equipment-facet-interaction-fix.yml').read_text(encoding='utf-8')
+          marker = "          python - <<'PY'\n"
+          try:
+              body = source.split(marker, 1)[1].split("\n          PY", 1)[0]
+              body = '\n'.join(line[10:] if line.startswith('          ') else line for line in body.splitlines())
+              exec(compile(body, '<equipment-facet-materializer>', 'exec'))
+          except BaseException:
+              Path('diagnostic.txt').write_text(traceback.format_exc(), encoding='utf-8')
+          else:
+              Path('diagnostic.txt').write_text('PASS\n', encoding='utf-8')
+          PY
+          git diff --stat > diff-stat.txt || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: equipment-facet-materializer-diagnostic
+          path: |
+            diagnostic.txt
+            diff-stat.txt
+          retention-days: 1
