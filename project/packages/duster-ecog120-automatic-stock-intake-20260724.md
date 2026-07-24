@@ -47,6 +47,12 @@ A second official-web snapshot contributes only three intrinsic Eco-G 120 engine
 
 The three configurations form a new independent comparison scope containing these nine exact technical observations. Equipment remains available to the buyer-facing browser, while the source-completeness scope intentionally avoids claiming a complete stock-card equipment denominator.
 
+## Consumer validation focus
+
+The generated shortlist and comparison products must show all three automatic configurations with their exact catalogue prices. Extreme and Journey must show power-folding mirrors as standard; Expression must remain unknown. None of the three may show a factory shark-fin antenna state.
+
+The comparison scope may show 1199 cm³, three cylinders and 12 valves. Towing weight, VDA cargo volume, WLTP and performance rows must remain missing until an automatic-specific homologation source proves them; values from the manual configuration must never appear by inheritance.
+
 ## Determinism
 
 `tools/import_duster_ecog120_automatic_stock_20260724.py` verifies:
