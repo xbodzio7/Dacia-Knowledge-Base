@@ -31,6 +31,7 @@ All notable changes to this project will be documented in this file.
 * Fixed equipment-facet interaction: list search now visibly filters entries, selected equipment is never removed automatically, and only source-complete compatible additions remain selectable.
 * Published and independently re-verified patch release `data-products-v1.6.1` from exact main commit `4b77571c788b862a6543161b9343a35f464bd7c6`, preserving selected equipment, making list search visible and hiding only incompatible or source-incomplete additions without changing catalogue data.
 * Imported 37 dated factory-equipment observations from nine official Dacia Polska grade pages: exact shark-fin antenna coverage for 31 configurations and six newer standard power-folding-mirror states for Jogger Journey, with historical rows and non-inference boundaries preserved.
+* Added three exact 2026 Duster Eco-G 120 automatic configurations from official stock cards, three explicit catalogue prices, two standard power-folding-mirror observations and nine source-scoped intrinsic engine values without projecting manual homologation data.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
@@ -258,14 +259,14 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 727 tests.
-* The verified master-data baseline now contains 41 CSV files and 7780 rows.
-* SQLite verification now covers 41 tables and 7780 rows.
-* Configuration attribute values now contain 1756 dated records.
+* The automated test suite now contains 735 tests.
+* The verified master-data baseline now contains 41 CSV files and 7813 rows.
+* SQLite verification now covers 41 tables and 7813 rows.
+* Configuration attribute values now contain 1765 dated records.
 * Declarative scalar configuration-value imports now contain 112 versioned JSON specifications.
 * Configuration value ranges now contain 158 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.
-* Equipment availability now contains 4549 records: 3520 `standard`, 467 `optional`, 562 `not_available` and 0 `unknown`.
+* Equipment availability now contains 4551 records: 3522 `standard`, 467 `optional`, 562 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed

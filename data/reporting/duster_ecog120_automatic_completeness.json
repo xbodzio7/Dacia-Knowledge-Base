@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+    }
+  ],
+  "technical_slots": [
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    }
+  ],
+  "equipment_attributes": [],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}

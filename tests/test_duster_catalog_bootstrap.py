@@ -76,7 +76,7 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         actual = {
             row["code"]: row
             for row in rows("configurations.csv")
-            if row["version_code"].startswith("duster_iii_")
+            if row["code"] in self.expected
         }
         self.assertEqual(set(actual), set(self.expected))
         for code, (version, label, transmission) in self.expected.items():
@@ -129,7 +129,11 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         self.assertTrue(all(row["relationship"] == "documents" for row in configuration_links))
 
     def test_catalog_identity_remains_valid_after_equipment_enrichment(self) -> None:
-        configuration_codes = set(self.expected)
+        configuration_codes = {
+            row["code"] for row in rows("configurations.csv")
+            if row["status"] == "active"
+            and row["version_code"].startswith("duster_iii_")
+        }
         availability = [
             row for row in rows("configuration_attribute_availability.csv")
             if row["configuration_code"].startswith("duster_iii_")
@@ -145,8 +149,8 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         )
         scope = report["scope"]
         self.assertEqual(scope["reporting_configurations"], 7)
-        self.assertEqual(scope["repository_status_configurations"], 69)
-        self.assertEqual(scope["excluded_configurations"], 62)
+        self.assertEqual(scope["repository_status_configurations"], 72)
+        self.assertEqual(scope["excluded_configurations"], 65)
         self.assertTrue(
             set(self.expected).issubset(scope["excluded_configuration_codes"])
         )

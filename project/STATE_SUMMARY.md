@@ -12,39 +12,39 @@
 
 ## Phase
 
-**Official Configurator Cross-Model Option Coverage Import**
+**Duster Eco-G 120 Automatic Stock Intake**
 
 ## Reference delivery
 
-- Package: Equipment Facet Interaction Fix
-- Pull Request: #236
-- Verified head: `8dce2a3f6ccbeb563fb9532c7b86c36d294735bf`
-- Quality run: #1275
+- Package: Official Configurator Cross-Model Option Coverage Import
+- Pull Request: #241
+- Verified head: `d32e5b18c3e646a4c48551976bdbfe75a053af90`
+- Quality run: #1295
 
 ## Verified baseline
 
-- Tests: 727
+- Tests: 735
 - Master CSV files: 41
-- Master rows: 7780
-- Configuration values: 1756
+- Master rows: 7813
+- Configuration values: 1765
 - Configuration import specifications: 112
 - Configuration value ranges: 158
 - Configuration range import specifications: 20
-- Availability records: 4549
+- Availability records: 4551
 - Canonical attributes: 381
 - Attribute categories: 30
 
 ## Current package
 
-**Official Configurator Cross-Model Option Coverage Import** — `complete`
+**Duster Eco-G 120 Automatic Stock Intake** — `complete`
 
-Import exact dated factory-equipment coverage for the shark-fin antenna and power-folding mirrors across Sandero, Sandero Stepway and Jogger, preserve existing Bigster and commercial-package evidence, and keep ambiguous Duster states unknown.
+Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices, directly proven folding-mirror states, three intrinsic engine values and an independent source-scoped comparison contract.
 
 ## Next package
 
-**Official Duster Exact Configurator Option Capture** — `planned`
+**Duster Exact Stock Equipment Expansion** — `planned`
 
-Capture stable exact Duster grade, powertrain and gearbox states for factory options and packages, beginning with power-folding mirrors and the shark-fin antenna, without deriving negative availability from missing dynamic-page text.
+Expand exact Duster stock-card equipment and package evidence across the newly registered automatic configurations while preserving conflicts, expired-card provenance and unknown antenna states.
 
 ## Autonomy
 

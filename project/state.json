@@ -7,34 +7,34 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Official Configurator Cross-Model Option Coverage Import",
+  "phase": "Duster Eco-G 120 Automatic Stock Intake",
   "reference_delivery": {
-    "name": "Equipment Facet Interaction Fix",
-    "pull_request": 236,
-    "head_sha": "8dce2a3f6ccbeb563fb9532c7b86c36d294735bf",
-    "quality_run": 1275
+    "name": "Official Configurator Cross-Model Option Coverage Import",
+    "pull_request": 241,
+    "head_sha": "d32e5b18c3e646a4c48551976bdbfe75a053af90",
+    "quality_run": 1295
   },
   "baseline": {
-    "tests": 727,
+    "tests": 735,
     "csv_files": 41,
-    "rows": 7780,
-    "configuration_values": 1756,
+    "rows": 7813,
+    "configuration_values": 1765,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
-    "availability_records": 4549,
+    "availability_records": 4551,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Official Configurator Cross-Model Option Coverage Import",
+    "name": "Duster Eco-G 120 Automatic Stock Intake",
     "status": "complete",
-    "goal": "Import exact dated factory-equipment coverage for the shark-fin antenna and power-folding mirrors across Sandero, Sandero Stepway and Jogger, preserve existing Bigster and commercial-package evidence, and keep ambiguous Duster states unknown."
+    "goal": "Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices, directly proven folding-mirror states, three intrinsic engine values and an independent source-scoped comparison contract."
   },
   "next_package": {
-    "name": "Official Duster Exact Configurator Option Capture",
+    "name": "Duster Exact Stock Equipment Expansion",
     "status": "planned",
-    "goal": "Capture stable exact Duster grade, powertrain and gearbox states for factory options and packages, beginning with power-folding mirrors and the shark-fin antenna, without deriving negative availability from missing dynamic-page text."
+    "goal": "Expand exact Duster stock-card equipment and package evidence across the newly registered automatic configurations while preserving conflicts, expired-card provenance and unknown antenna states."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
