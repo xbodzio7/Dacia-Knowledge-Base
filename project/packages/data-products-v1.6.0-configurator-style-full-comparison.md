@@ -60,3 +60,7 @@ This package changes reporting and source presentation only. It does not add or 
 - dynamic-facet regression proving that incomplete and universally available equipment are hidden;
 - versioned release archive regression allowing only whitelisted official Dacia Polska HTTPS media URLs and requiring a local SVG fallback;
 - full repository unit-test discovery: PASS.
+
+## Publication
+
+`data-products-v1.6.0` was published from exact merged `main` commit `539fba58d1ee2ef538c782b20e049be482d72988`. The immutable release contains 69 active configurations and 18 independent scopes. Its exact public assets were downloaded again, accepted by the release verifier and audited for 79 archive members, 88 technical comparison facets, 109 equipment facets and five official model-media entries.

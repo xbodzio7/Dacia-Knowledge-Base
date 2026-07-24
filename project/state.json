@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.6.0 Configurator-Style Full Comparison",
+  "phase": "Data Products v1.6.0 Publication",
   "reference_delivery": {
-    "name": "Official Configurator Sandero Configuration-Level Import",
-    "pull_request": 223,
-    "head_sha": "723238c55f9cc7a0b45c5b60acf27d2dfe51ae87",
-    "quality_run": 1229
+    "name": "Data Products v1.6.0 Configurator-Style Full Comparison",
+    "pull_request": 230,
+    "head_sha": "bacd6034c7d471b45948a9028b3f639e8e268854",
+    "quality_run": 1255
   },
   "baseline": {
     "tests": 717,
@@ -27,9 +27,9 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.6.0 Configurator-Style Full Comparison",
+    "name": "Data Products v1.6.0 Publication",
     "status": "complete",
-    "goal": "Use official model photographs with an offline fallback, present filters in a Dacia-configurator style, expose only source-complete differentiating equipment, and compare every recorded technical and equipment parameter."
+    "goal": "Publish and independently re-verify immutable data-products-v1.6.0 assets from exact green main commit 539fba58d1ee2ef538c782b20e049be482d72988 after the configurator-style full-comparison package."
   },
   "next_package": {
     "name": "Official Configurator Cross-Model Option Coverage Import",
