@@ -1,0 +1,110 @@
+name: Document data-products v1.6.0 publication
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: document-data-products-v1.6.0
+  cancel-in-progress: false
+
+jobs:
+  document:
+    if: github.head_ref == 'transport/document-data-products-v1.6.0'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out transport branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: transport
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Check out exact published main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 539fba58d1ee2ef538c782b20e049be482d72988
+          path: repo
+          fetch-depth: 0
+
+      - name: Reconstruct and verify documentation patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          tr -d '\r\n' < transport/.github/transport/data-products-v1.6.0-documentation.patch.gz.b64 \
+            | base64 --decode \
+            | gzip --decompress \
+            > "$RUNNER_TEMP/data-products-v1.6.0-documentation.patch"
+          echo "f23c6c22312247db905c0ac0401b793d07fc7d115fac59675391d8125a57c281  $RUNNER_TEMP/data-products-v1.6.0-documentation.patch" | sha256sum --check --strict
+
+      - name: Apply exact documentation package
+        working-directory: repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "539fba58d1ee2ef538c782b20e049be482d72988"
+          git diff --quiet
+          git diff --cached --quiet
+          git switch -c docs/record-data-products-v1.6.0-publication
+          git apply --index "$RUNNER_TEMP/data-products-v1.6.0-documentation.patch"
+          git diff --cached --check
+          python - <<'PY'
+          import subprocess
+
+          expected = {
+              'CHANGELOG.md',
+              'README.md',
+              'project/ROADMAP.md',
+              'project/STATE_SUMMARY.md',
+              'project/packages/data-products-v1.6.0-configurator-style-full-comparison.md',
+              'project/releases/data-products-v1.6.0-publication-audit.json',
+              'project/releases/data-products-v1.6.0.md',
+              'project/state.json',
+          }
+          actual = set(subprocess.check_output(
+              ['git', 'diff', '--cached', '--name-only'], text=True
+          ).splitlines())
+          if actual != expected:
+              raise SystemExit(
+                  f'documentation manifest mismatch: missing={sorted(expected-actual)} unexpected={sorted(actual-expected)}'
+              )
+          print(f'Verified documentation manifest: {len(actual)} paths')
+          PY
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Verify state and complete test suite
+        working-directory: repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py project-state --check
+          python -m unittest discover -s tests -p 'test_*.py' -q
+
+      - name: Create and push one logical documentation commit
+        working-directory: repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "OpenAI Agent"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs(release): record data-products-v1.6.0 publication"
+          test "$(git rev-list --count 539fba58d1ee2ef538c782b20e049be482d72988..HEAD)" -eq 1
+          git rev-parse HEAD | tee "$RUNNER_TEMP/v16-docs-commit-sha.txt"
+          git push origin HEAD:refs/heads/docs/record-data-products-v1.6.0-publication
+
+      - name: Upload documentation commit identity
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.6.0-documentation-commit
+          path: ${{ runner.temp }}/v16-docs-commit-sha.txt
+          if-no-files-found: error
+          retention-days: 7
