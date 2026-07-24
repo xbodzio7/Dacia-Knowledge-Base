@@ -32,8 +32,9 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('tools/import_duster_ecog120_automatic_engine_20260724.py')
-          text = path.read_text(encoding='utf-8')
+
+          engine = Path('tools/import_duster_ecog120_automatic_engine_20260724.py')
+          text = engine.read_text(encoding='utf-8')
           old = (
               '    units = {\n'
               '        row["code"]\n'
@@ -49,7 +50,65 @@ jobs:
           )
           if old not in text:
               raise SystemExit('missing engine unit registry anchor')
-          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          engine.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          release = Path('tools/reporting/data_product_release.py')
+          text = release.read_text(encoding='utf-8')
+          text = text.replace('bundle.get("scope_group_count") != 18', 'bundle.get("scope_group_count") != 19')
+          text = text.replace('must contain 18 independent scopes', 'must contain 19 independent scopes')
+          release.write_text(text, encoding='utf-8')
+
+          bundle_test = Path('tests/test_configuration_comparison_bundle.py')
+          text = bundle_test.read_text(encoding='utf-8')
+          text = text.replace('self.assertEqual(len(scopes), 18)', 'self.assertEqual(len(scopes), 19)')
+          text = text.replace('self.assertEqual(len(codes), 69)', 'self.assertEqual(len(codes), 72)')
+          text = text.replace('self.assertEqual(len(set(codes)), 69)', 'self.assertEqual(len(set(codes)), 72)')
+          text = text.replace(
+              '        self.assertEqual(\n            sum(scope.slug.startswith("duster_") for scope in scopes),\n            7,\n        )',
+              '        self.assertEqual(\n            sum(scope.slug.startswith("duster_") for scope in scopes),\n            8,\n        )',
+          )
+          bundle_test.write_text(text, encoding='utf-8')
+
+          release_test = Path('tests/test_data_product_release.py')
+          text = release_test.read_text(encoding='utf-8')
+          replacements = {
+              'self.manifest["selected_configuration_count"], 69)': 'self.manifest["selected_configuration_count"], 72)',
+              'self.manifest["scope_group_count"], 18)': 'self.manifest["scope_group_count"], 19)',
+              'self.manifest["comparable_scope_count"], 18)': 'self.manifest["comparable_scope_count"], 19)',
+              'self.assertEqual(len(names), 79)': 'self.assertEqual(len(names), 83)',
+              'report["summary"]["active_configurations"], 69)': 'report["summary"]["active_configurations"], 72)',
+              'report["summary"]["matched_configurations"], 69)': 'report["summary"]["matched_configurations"], 72)',
+              'self.assertEqual(len(report["results"]), 69)': 'self.assertEqual(len(report["results"]), 72)',
+              'self.assertEqual(len(rows), 69)': 'self.assertEqual(len(rows), 72)',
+              'bundle["selected_configuration_count"], 69)': 'bundle["selected_configuration_count"], 72)',
+              'bundle["scope_group_count"], 18)': 'bundle["scope_group_count"], 19)',
+              'bundle["comparable_scope_count"], 18)': 'bundle["comparable_scope_count"], 19)',
+              'self.assertEqual(len(bundle["groups"]), 18)': 'self.assertEqual(len(bundle["groups"]), 19)',
+              'Selected configurations: 69': 'Selected configurations: 72',
+              'Independent scopes: 18': 'Independent scopes: 19',
+          }
+          for old_value, new_value in replacements.items():
+              if old_value not in text:
+                  raise SystemExit(f'missing release-test anchor: {old_value}')
+              text = text.replace(old_value, new_value)
+          release_test.write_text(text, encoding='utf-8')
+
+          scalar_updates = {
+              'tests/test_jogger_payload_performance_ranges.py': (
+                  'self.assertEqual(len(self.scalars), 1756)',
+                  'self.assertEqual(len(self.scalars), 1765)',
+              ),
+              'tests/test_jogger_wltp_efficiency_ranges.py': (
+                  'self.assertEqual(len(self.scalar_rows), 1756)',
+                  'self.assertEqual(len(self.scalar_rows), 1765)',
+              ),
+          }
+          for name, (old_value, new_value) in scalar_updates.items():
+              path = Path(name)
+              text = path.read_text(encoding='utf-8')
+              if old_value not in text:
+                  raise SystemExit(f'missing scalar-count anchor: {old_value}')
+              path.write_text(text.replace(old_value, new_value, 1), encoding='utf-8')
           PY
           python tools/_materialize_duster_ecog120_automatic_intake.py
       - name: Remove transport files
@@ -65,7 +124,9 @@ jobs:
             tests.test_duster_ecog120_automatic_stock_20260724 \
             tests.test_duster_catalog_bootstrap \
             tests.test_duster_equipment_availability_import \
-            tests.test_duster_technical_specifications
+            tests.test_duster_technical_specifications \
+            tests.test_configuration_comparison_bundle \
+            tests.test_data_product_release
           python tools/import_duster_ecog120_automatic_stock_20260724.py --check
           python tools/import_duster_ecog120_automatic_engine_20260724.py --check
           python - <<'PY'
@@ -78,27 +139,7 @@ jobs:
           assert any(scope.slug == 'duster_ecog120_automatic' for scope in scopes)
           PY
       - name: Run complete unit suite
-        id: fullsuite
-        continue-on-error: true
-        shell: bash
-        run: |
-          python -m unittest discover -s tests -p 'test_*.py' -v > "${RUNNER_TEMP}/full-suite.log" 2>&1
-          status=$?
-          printf '%s\n' "$status" > "${RUNNER_TEMP}/full-suite.status"
-          exit "$status"
-      - name: Upload full-suite diagnostic
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: duster-automatic-final-full-suite-diagnostic
-          path: |
-            ${{ runner.temp }}/full-suite.log
-            ${{ runner.temp }}/full-suite.status
-          if-no-files-found: error
-          retention-days: 1
-      - name: Require complete unit suite success
-        shell: bash
-        run: test "$(cat "${RUNNER_TEMP}/full-suite.status")" = "0"
+        run: python -m unittest discover -s tests -p 'test_*.py' -q
       - name: Run full quality gate
         shell: bash
         run: |
