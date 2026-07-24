@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - transport/export-main-equipment-facet-fix
-    paths:
-      - .github/workflows/export-main-equipment-facet-fix.yml
 
 permissions:
   contents: read
