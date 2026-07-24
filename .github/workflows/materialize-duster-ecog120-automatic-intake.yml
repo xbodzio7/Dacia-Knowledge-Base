@@ -28,7 +28,30 @@ jobs:
         with:
           python-version: '3.13'
       - name: Materialize package
-        run: python tools/_materialize_duster_ecog120_automatic_intake.py
+        id: materialize
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          python tools/_materialize_duster_ecog120_automatic_intake.py > "${RUNNER_TEMP}/materialize.log" 2>&1
+          status=$?
+          printf '%s\n' "$status" > "${RUNNER_TEMP}/materialize.status"
+          exit "$status"
+      - name: Upload materializer diagnostic
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: duster-automatic-materializer-diagnostic
+          path: |
+            ${{ runner.temp }}/materialize.log
+            ${{ runner.temp }}/materialize.status
+          if-no-files-found: error
+          retention-days: 1
+      - name: Require materialization success
+        shell: bash
+        run: |
+          cat "${RUNNER_TEMP}/materialize.log"
+          test "$(cat "${RUNNER_TEMP}/materialize.status")" = "0"
       - name: Remove transport files
         run: |
           rm -f .github/workflows/materialize-duster-ecog120-automatic-intake.yml
