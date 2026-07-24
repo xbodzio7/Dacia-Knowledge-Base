@@ -38,6 +38,10 @@ GitHub's recorded API digests match the independently calculated SHA-256 values 
 - mutually exclusive alternatives hidden while the active choice remains selected;
 - incomplete cross-model option data preserved as unknown rather than unavailable.
 
+## Consumer verification focus
+
+The user-visible regression scenarios for this patch are: searching the equipment list for `ABS`; selecting the 10.1-inch colour instrument cluster and confirming the incompatible 3.5-inch TFT alternative disappears; and selecting LED cabin lighting without allowing a later lighting choice to clear it automatically. Duster options with incomplete evidence must remain hidden or unknown rather than being labelled unavailable.
+
 ## Published-browser audit
 
 The exact `shortlist/configuration-shortlist.html` member extracted from the public release archive was audited after re-downloading the asset from GitHub Release. The embedded catalogue still contains 69 configurations, 88 technical comparison facets, 109 equipment facets and five official model-media entries.
