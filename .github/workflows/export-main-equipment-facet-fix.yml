@@ -1,0 +1,53 @@
+name: Export main for equipment facet fix
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/export-main-equipment-facet-fix.yml
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact PR base
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 1
+
+      - name: Record exact identity
+        run: |
+          git rev-parse HEAD | tee MAIN_SHA.txt
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.base.sha }}"
+
+      - name: Build repository snapshot
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+
+          root = Path('.')
+          output = Path('dkb-main-equipment-facet-fix.zip')
+          excluded_parts = {'.git', '__pycache__', '.pytest_cache'}
+          with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+              for path in sorted(root.rglob('*')):
+                  if path == output or not path.is_file():
+                      continue
+                  if any(part in excluded_parts for part in path.parts):
+                      continue
+                  archive.write(path, path.as_posix())
+          PY
+
+      - name: Upload exact main snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: dkb-main-equipment-facet-fix
+          path: |
+            dkb-main-equipment-facet-fix.zip
+            MAIN_SHA.txt
+          if-no-files-found: error
+          retention-days: 1
