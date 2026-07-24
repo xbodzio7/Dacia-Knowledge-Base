@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-23
+- State updated: 2026-07-24
 
 ## Phase
 
-**Data Products v1.5.0 Publication**
+**Data Products v1.6.0 Configurator-Style Full Comparison**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 716
+- Tests: 717
 - Master CSV files: 41
 - Master rows: 7699
 - Configuration values: 1756
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.5.0 Publication** — `complete`
+**Data Products v1.6.0 Configurator-Style Full Comparison** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.5.0 assets from exact green main commit 7f325d254b68eb495204c01c075727ee34893e1f after the official Sandero configuration-level import.
+Use official model photographs with an offline fallback, present filters in a Dacia-configurator style, expose only source-complete differentiating equipment, and compare every recorded technical and equipment parameter.
 
 ## Next package
 
-**Official Configurator Jogger Configuration-Level Import** — `planned`
+**Official Configurator Cross-Model Option Coverage Import** — `planned`
 
-Capture exact official Jogger trim, powertrain, gearbox and seat-count states, then import only directly proven catalogue prices, standard equipment, packages, individual options, dependencies and exclusions.
+Capture exact standard, optional and package availability with prices across Sandero, Sandero Stepway, Jogger, Duster and Bigster, beginning with misleading partial-coverage items such as the shark-fin antenna, without inferring applicability across configurations.
 
 ## Autonomy
 

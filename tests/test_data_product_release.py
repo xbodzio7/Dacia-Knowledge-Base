@@ -4,6 +4,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -128,7 +129,13 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(len(rows), 69)
         self.assertIn("<!doctype html>", html.lower())
         self.assertNotIn("http://", html.lower())
-        self.assertNotIn("https://", html.lower())
+        external_urls = set(re.findall(r"https://[^\"'<>\s]+", html))
+        self.assertTrue(external_urls)
+        self.assertTrue(
+            all(url.startswith("https://www.dacia.pl/") for url in external_urls),
+            external_urls,
+        )
+        self.assertIn("vehicle-photo-fallback", html)
 
     def test_full_bundle_contains_all_scopes_and_workbook(self) -> None:
         with ZipFile(self.archive_path) as archive:

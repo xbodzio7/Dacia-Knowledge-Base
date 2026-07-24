@@ -45,7 +45,32 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
                 (1, "heated_steering_wheel", "Comfort", "Heated steering wheel", "boolean", "", "", "active"),
                 (2, "navigation_system", "Infotainment", "Navigation system", "boolean", "", "", "active"),
                 (3, "rear_view_camera", "Parking", "Rear-view camera", "boolean", "", "", "active"),
+                (4, "number_of_seats", "Seats", "Number of seats", "integer", "", "", "active"),
+                (5, "engine_power", "Engine", "Power", "integer", "kW", "", "active"),
             ],
+        )
+        media_path = repository / "project" / "sources" / "dacia-pl-model-media-20260724.json"
+        media_path.parent.mkdir(parents=True, exist_ok=True)
+        media_path.write_text(
+            json.dumps(
+                {
+                    "captured_on": "2026-07-24",
+                    "models": {
+                        "model_a": {
+                            "source_page_url": "https://www.dacia.pl/samochody/model-a.html",
+                            "image_url": "https://www.dacia.pl/media/model-a.png",
+                            "source_name": "Dacia Polska",
+                        },
+                        "model_b": {
+                            "source_page_url": "https://www.dacia.pl/samochody/model-b.html",
+                            "image_url": "https://www.dacia.pl/media/model-b.png",
+                            "source_name": "Dacia Polska",
+                        },
+                    },
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
         )
         return repository
 
@@ -84,6 +109,15 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             first["equipment"]["rear_view_camera"]["source_code"],
             "src_a",
         )
+        self.assertEqual(
+            first["comparison_values"]["engine_power::petrol"]["display_value"],
+            "90 kW",
+        )
+        self.assertEqual(
+            first["comparison_values"]["engine_power::petrol"]["label"],
+            "Moc silnika",
+        )
+        self.assertEqual(first["model_media"]["source_name"], "Dacia Polska")
 
     def test_renderer_is_deterministic_offline_and_escapes_embedded_data(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -95,7 +129,8 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
         self.assertNotIn("</script><script>alert(1)</script>", rendered)
         self.assertIn("\\u003c/script\\u003e", rendered)
         self.assertNotIn("http://", rendered)
-        self.assertNotIn("https://", rendered)
+        self.assertIn("https://www.dacia.pl/media/model-a.png", rendered)
+        self.assertNotIn("https://example.com", rendered)
         for control in (
             "models",
             "versions",
@@ -110,6 +145,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
         self.assertNotIn('id="required-standard-equipment"', rendered)
         self.assertIn('>Wyposażenie\n      <select id="required-equipment"', rendered)
         self.assertIn('.filters{display:grid;grid-template-columns:1fr', rendered)
+        self.assertIn('class="price-range-row"', rendered)
         self.assertIn('class="result-card-hero"', rendered)
         self.assertIn('class="configuration-code" hidden', rendered)
 
@@ -175,8 +211,37 @@ process.stdout.write(JSON.stringify(state));
         self.assertEqual(state["selected_equipment"], ["navigation_system"])
         self.assertEqual(state["removed_equipment"], ["heated_steering_wheel"])
         self.assertNotIn("heated_steering_wheel", state["available_equipment"])
+        self.assertNotIn("rear_view_camera", state["available_equipment"])
+        self.assertEqual(state["differentiating_equipment"], ["navigation_system"])
         for code in state["available_equipment"]:
             self.assertIsInstance(code, str)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required")
+    def test_equipment_facets_require_complete_source_coverage_and_real_difference(self) -> None:
+        script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
+        program = r"""
+const api = require(process.argv[1]);
+const configurations = [
+  { equipment: { complete_difference: { availability_status: "standard" }, missing_only: { availability_status: "standard" }, universal: { availability_status: "standard" } } },
+  { equipment: { complete_difference: { availability_status: "not_available" }, universal: { availability_status: "optional" } } },
+  { equipment: { complete_difference: { availability_status: "optional" }, missing_only: { availability_status: "not_available" }, universal: { availability_status: "standard" } } }
+];
+process.stdout.write(JSON.stringify({
+  facets: api.differentiatingEquipmentCodes(configurations),
+  missing: api.equipmentCoverage(configurations, "missing_only"),
+  universal: api.equipmentCoverage(configurations, "universal")
+}));
+"""
+        completed = subprocess.run(
+            ["node", "-e", program, str(script)],
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        result = json.loads(completed.stdout)
+        self.assertEqual(result["facets"], ["complete_difference"])
+        self.assertEqual(result["missing"]["missing"], 1)
+        self.assertEqual(result["universal"]["available"], 3)
 
     def test_historical_catalog_uses_only_records_available_as_of_date(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

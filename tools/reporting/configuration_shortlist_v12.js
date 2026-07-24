@@ -150,6 +150,84 @@
     </svg>`;
   }
 
+  function modelThumbnailMarkup(item, versionName) {
+    const modelCode = item.model_code || item.code || "";
+    const modelName = item.model_name || item.name || modelCode;
+    const version = versionName || item.version_name || "";
+    const media = item.model_media || item.media || {};
+    const fallback = modelThumbnailSvg(modelCode, modelName, version);
+    if (!media.image_url) return `<span class="vehicle-photo-fallback-only">${fallback}</span>`;
+    const label = escapeHtml([modelName, version].filter(Boolean).join(" "));
+    return `<span class="vehicle-photo-frame" data-model-photo>
+      <img class="vehicle-photo" src="${escapeHtml(media.image_url)}" alt="${label}" loading="lazy" referrerpolicy="no-referrer">
+      <span class="vehicle-photo-fallback" aria-hidden="true">${fallback}</span>
+      <span class="vehicle-photo-source">zdjęcie: ${escapeHtml(media.source_name || "Dacia Polska")}</span>
+    </span>`;
+  }
+
+  function activateModelPhotos(root) {
+    if (!root) return;
+    for (const frame of root.querySelectorAll("[data-model-photo]")) {
+      if (frame.dataset.photoBound === "true") continue;
+      frame.dataset.photoBound = "true";
+      const image = frame.querySelector("img.vehicle-photo");
+      if (!image) continue;
+      const settle = () => frame.classList.toggle("has-photo", Boolean(image.naturalWidth));
+      image.addEventListener("load", settle, { once: true });
+      image.addEventListener("error", settle, { once: true });
+      if (image.complete) settle();
+    }
+  }
+
+  function createChoicePicker(select, title) {
+    if (!select || document.querySelector(`#${select.id}-choice-picker`)) return null;
+    const wrapper = document.createElement("div");
+    wrapper.id = `${select.id}-choice-picker`;
+    wrapper.className = `config-choice-picker config-choice-picker-${select.id}`;
+    select.classList.add("native-config-choice");
+    select.hidden = true;
+    select.parentNode.insertBefore(wrapper, select);
+
+    const build = () => {
+      wrapper.replaceChildren();
+      for (const option of select.options) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "config-choice";
+        button.dataset.value = option.value;
+        button.innerHTML = `<strong>${escapeHtml(option.textContent || title || option.value || "Dowolna")}</strong><span class="config-choice-check" aria-hidden="true">✓</span>`;
+        wrapper.append(button);
+      }
+      refresh();
+    };
+    const refresh = () => {
+      const selected = new Set(selectedValues(select));
+      for (const button of wrapper.querySelectorAll(".config-choice")) {
+        const active = button.dataset.value === ""
+          ? (!select.multiple && !select.value)
+          : selected.has(button.dataset.value);
+        button.classList.toggle("is-selected", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    };
+    wrapper.addEventListener("click", (event) => {
+      const button = event.target.closest(".config-choice");
+      if (!button) return;
+      const option = [...select.options].find((item) => item.value === button.dataset.value);
+      if (!option) return;
+      if (select.multiple) option.selected = !option.selected;
+      else select.value = option.value;
+      dispatchSelection(select);
+    });
+    select.addEventListener("change", refresh);
+    const observer = typeof MutationObserver === "function"
+      ? new MutationObserver(build)
+      : null;
+    if (observer) observer.observe(select, { childList: true });
+    build();
+    return { refresh, build, disconnect() { if (observer) observer.disconnect(); } };
+  }
+
   function createModelPicker(select, catalog) {
     if (!select || document.querySelector(`#${select.id}-picker`)) return null;
     const wrapper = document.createElement("div");
@@ -162,7 +240,7 @@
       button.type = "button";
       button.className = "model-choice";
       button.dataset.value = option.value;
-      button.innerHTML = `<span class="model-choice-thumb">${modelThumbnailSvg(model.code, model.name, "")}</span><strong>${escapeHtml(model.name || option.textContent)}</strong><span class="model-choice-check" aria-hidden="true">✓</span>`;
+      button.innerHTML = `<span class="model-choice-thumb">${modelThumbnailMarkup(model, "")}</span><strong>${escapeHtml(model.name || option.textContent)}</strong><span class="model-choice-check" aria-hidden="true">✓</span>`;
       wrapper.append(button);
     }
     select.classList.add("native-model-select");
@@ -186,6 +264,7 @@
     });
     select.addEventListener("change", refresh);
     refresh();
+    activateModelPhotos(wrapper);
     return { refresh };
   }
 
@@ -206,10 +285,13 @@
         </div>
         <div class="selected-filter-list" data-selected-list></div>
       </div>
-      <p class="equipment-availability-note" data-availability-note>Lista pokazuje tylko wyposażenie możliwe w aktualnie dopasowanych wariantach.</p>
-      <label class="equipment-picker-search">Szukaj wyposażenia
+      <p class="equipment-availability-note" data-availability-note>Lista pokazuje wyłącznie źródłowo kompletne wyposażenie, które odróżnia aktualnie dopasowane warianty.</p>
+      <label class="equipment-picker-search">Filtruj listę wyposażenia
         <input type="search" data-equipment-search placeholder="np. kamera, fotele, nawigacja">
+        <span>To pole filtruje nazwy na poniższej liście; nie wyszukuje samochodów bez zaznaczenia pozycji.</span>
       </label>
+      <p class="equipment-visible-count"><strong data-visible-equipment-count>0</strong> pozycji różnicujących</p>
+      <p class="equipment-empty" data-equipment-empty hidden>Brak źródłowo kompletnych pozycji różnicujących dla aktualnego zestawu samochodów.</p>
       <div class="equipment-picker-scroll" data-equipment-groups></div>`;
     select.classList.add("native-equipment-select");
     select.hidden = true;
@@ -273,8 +355,8 @@
 
       const note = wrapper.querySelector("[data-availability-note]");
       note.textContent = removedCodes.length
-        ? `Usunięto ${removedCodes.length} pozycję/pozycje, których nie ma w aktualnych wariantach.`
-        : "Lista pokazuje tylko wyposażenie możliwe w aktualnie dopasowanych wariantach.";
+        ? `Usunięto ${removedCodes.length} pozycję/pozycje bez potwierdzonej dostępności w pozostałych wariantach.`
+        : "Lista pokazuje tylko wyposażenie z kompletnym pokryciem źródłowym, dostępne w części, lecz nie we wszystkich aktualnie dopasowanych wariantach. Pozycje z brakami danych są ukrywane, aby nie przedstawiać braku rekordu jako niedostępności.";
       note.classList.toggle("has-removal", removedCodes.length > 0);
 
       const query = wrapper.querySelector("[data-equipment-search]").value.trim().toLocaleLowerCase("pl");
@@ -290,6 +372,9 @@
       for (const section of wrapper.querySelectorAll(".equipment-picker-group")) {
         section.hidden = !section.querySelector(".equipment-choice:not([hidden])");
       }
+      const visibleCount = wrapper.querySelectorAll(".equipment-choice:not([hidden])").length;
+      wrapper.querySelector("[data-visible-equipment-count]").textContent = visibleCount;
+      wrapper.querySelector("[data-equipment-empty]").hidden = visibleCount !== 0;
     };
 
     wrapper.addEventListener("click", (event) => {
@@ -359,7 +444,8 @@
       if (!configuration) continue;
       const thumbnail = card.querySelector(".model-thumbnail-host");
       if (thumbnail && thumbnail.dataset.renderedModel !== `${configuration.model_code}|${configuration.version_name}`) {
-        thumbnail.innerHTML = modelThumbnailSvg(configuration.model_code, configuration.model_name, configuration.version_name);
+        thumbnail.innerHTML = modelThumbnailMarkup(configuration, configuration.version_name);
+        activateModelPhotos(thumbnail);
         thumbnail.dataset.renderedModel = `${configuration.model_code}|${configuration.version_name}`;
       }
       const heading = card.querySelector("h3");
@@ -390,6 +476,13 @@
         offers = holder.firstElementChild;
         if (provenance) card.insertBefore(offers, provenance); else card.append(offers);
       }
+      const provenance = card.querySelector("details");
+      if (provenance && configuration.model_media?.source_page_url && !provenance.querySelector(".model-media-source")) {
+        const mediaSource = document.createElement("p");
+        mediaSource.className = "model-media-source";
+        mediaSource.innerHTML = `Zdjęcie modelu: <a href="${escapeHtml(configuration.model_media.source_page_url)}" target="_blank" rel="noreferrer">${escapeHtml(configuration.model_media.source_name || "Dacia Polska")}</a>`;
+        provenance.append(mediaSource);
+      }
       const toggle = card.querySelector(".configuration-select");
       const selected = Boolean(toggle && toggle.checked);
       card.classList.toggle("is-selected", selected);
@@ -404,6 +497,11 @@
     const catalog = JSON.parse(catalogElement.textContent);
     pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
     const modelPicker = createModelPicker(document.querySelector("#models"), catalog);
+    const choicePickers = [
+      createChoicePicker(document.querySelector("#versions"), "Wersja"),
+      createChoicePicker(document.querySelector("#transmissions"), "Skrzynia"),
+      createChoicePicker(document.querySelector("#powertrains"), "Silnik")
+    ].filter(Boolean);
     const equipmentPicker = createEquipmentPicker(
       document.querySelector("#required-equipment"), "Wybrane wyposażenie", catalog
     );
@@ -419,6 +517,7 @@
         scheduled = false;
         if (equipmentPicker) equipmentPicker.setAvailability(pendingAvailability);
         if (modelPicker) modelPicker.refresh();
+        for (const picker of choicePickers) picker.refresh();
         enhanceCards(catalog, results);
       });
     };
@@ -439,7 +538,7 @@
   }
 
   return {
-    initialize, createEquipmentPicker, createModelPicker, enhanceCards, commercialOffersMarkup,
-    dispatchSelection, currentCriteria, modelThumbnailSvg, vehicleSpec, trimKey, categoryLabel, CATEGORY_LABELS
+    initialize, createEquipmentPicker, createModelPicker, createChoicePicker, enhanceCards, commercialOffersMarkup,
+    dispatchSelection, currentCriteria, modelThumbnailSvg, modelThumbnailMarkup, activateModelPhotos, vehicleSpec, trimKey, categoryLabel, CATEGORY_LABELS
   };
 });
