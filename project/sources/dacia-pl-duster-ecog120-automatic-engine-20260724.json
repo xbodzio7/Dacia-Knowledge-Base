@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "source_code": "src_pl_duster_ecog120_automatic_engine_20260724",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-24",
+  "volatility": "dynamic_official_web",
+  "scope": {
+    "model_code": "duster_iii",
+    "powertrain_label": "Eco-G 120 4x2",
+    "transmission_type": "automatic",
+    "configuration_codes": [
+      "duster_iii_expression_ecog120_4x2_automatic",
+      "duster_iii_extreme_ecog120_4x2_automatic",
+      "duster_iii_journey_ecog120_4x2_automatic"
+    ]
+  },
+  "official_pages": [
+    {
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/silniki.html",
+      "claim": "Eco-G 120 is offered with a six-speed manual or dual-clutch automatic transmission."
+    },
+    {
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+      "claim": "The official Eco-G 120 technical payload states 1199 cm3, 3 cylinders and 12 valves."
+    }
+  ],
+  "intrinsic_engine_values": [
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "unit": "cubic_cm"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "unit": "count"
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "unit": "count"
+    }
+  ],
+  "non_imports": [
+    {
+      "attribute_code": "braked_trailer_weight",
+      "reason": "The current technical payload exposes the manual homologation state; it is not projected onto the automatic configurations."
+    },
+    {
+      "attribute_code": "cargo_volume_vda",
+      "reason": "The current technical payload exposes the manual homologation state; it is not projected onto the automatic configurations."
+    }
+  ],
+  "normalization_rules": [
+    "Intrinsic Eco-G 120 engine architecture is expanded only to exact automatic configurations independently proven by official Dacia stock cards.",
+    "Homologation-dependent mass, towing, cargo, WLTP and performance values are not copied from the manual technical payload.",
+    "The source records no availability or commercial-package state."
+  ]
+}
