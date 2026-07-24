@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.6.0 Publication**
+**Data Products v1.6.1 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.6.0 Configurator-Style Full Comparison
-- Pull Request: #230
-- Verified head: `bacd6034c7d471b45948a9028b3f639e8e268854`
-- Quality run: #1255
+- Package: Equipment Facet Interaction Fix
+- Pull Request: #236
+- Verified head: `8dce2a3f6ccbeb563fb9532c7b86c36d294735bf`
+- Quality run: #1275
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Data Products v1.6.0 Publication** — `complete`
+**Data Products v1.6.1 Publication** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.6.0 assets from exact green main commit 539fba58d1ee2ef538c782b20e049be482d72988 after the configurator-style full-comparison package.
+Publish and independently re-verify immutable data-products-v1.6.1 assets from exact green main commit 4b77571c788b862a6543161b9343a35f464bd7c6 after the equipment-facet interaction fix.
 
 ## Next package
 

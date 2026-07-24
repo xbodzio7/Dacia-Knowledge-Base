@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.6.0` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.6.1` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.6.0 \
-  --output-directory ../dkb-data-products-v1.6.0
+  --version 1.6.1 \
+  --output-directory ../dkb-data-products-v1.6.1
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.6.0
+  --workspace-directory ../dkb-data-products-v1.6.1
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -714,7 +714,9 @@ Wydanie [`data-products-v1.4.0`](https://github.com/xbodzio7/Dacia-Knowledge-Bas
 
 Wydanie [`data-products-v1.5.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.5.0) zostało opublikowane z dokładnego commita `7f325d254b68eb495204c01c075727ee34893e1f`. Dodaje cztery oficjalnie potwierdzone stany Sandero Eco-G 120 Expression/Journey z ręczną lub automatyczną skrzynią, cztery aktualne ceny katalogowe, 16 obserwacji wyposażenia seryjnego oraz osobny zakres porównawczy automatów. Niepotwierdzone pakiety i opcje domyślnego Essential TCe 100 pozostają jawnymi non-importami. Trwały zapis znajduje się w `project/releases/data-products-v1.5.0.md`.
 
-Najnowsze wydanie [`data-products-v1.6.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.0) zostało opublikowane z dokładnego commita `539fba58d1ee2ef538c782b20e049be482d72988`. Używa oficjalnych zdjęć pięciu rodzin modeli Dacia Polska z lokalnym fallbackiem SVG, przedstawia wybory w stylu konfiguratora, umieszcza ceny minimalną i maksymalną w jednym wierszu, pokazuje wyłącznie źródłowo kompletne i rzeczywiście różnicujące wyposażenie oraz porównuje wszystkie zapisane parametry techniczne i wyposażenie. Pole tekstowe przy wyposażeniu filtruje nazwy na liście; samochody są zawężane dopiero po zaznaczeniu pozycji. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.0.md`, a opis pakietu w `project/packages/data-products-v1.6.0-configurator-style-full-comparison.md`.
+Wydanie [`data-products-v1.6.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.0) zostało opublikowane z dokładnego commita `539fba58d1ee2ef538c782b20e049be482d72988`. Używa oficjalnych zdjęć pięciu rodzin modeli Dacia Polska z lokalnym fallbackiem SVG, przedstawia wybory w stylu konfiguratora, umieszcza ceny minimalną i maksymalną w jednym wierszu, pokazuje wyłącznie źródłowo kompletne i rzeczywiście różnicujące wyposażenie oraz porównuje wszystkie zapisane parametry techniczne i wyposażenie. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.0.md`.
+
+Najnowsza poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
 
 Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
 

@@ -32,3 +32,7 @@ This package does not infer or import options for any model. Cross-model source 
 - mutually exclusive instrument-cluster and lighting alternatives are hidden;
 - equipment-list search obeys the HTML `hidden` contract;
 - full repository test suite and project-state check.
+
+## Publication
+
+`data-products-v1.6.1` was published from exact squash-merged `main` commit `4b77571c788b862a6543161b9343a35f464bd7c6`. The public assets were downloaded again and independently verified. The exact published HTML contains the visible-search `hidden` override, explicit `selection_conflict` and `addable_equipment` contracts, and no longer contains the legacy automatic-selection removal path.
