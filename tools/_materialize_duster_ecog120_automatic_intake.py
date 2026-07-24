@@ -2,12 +2,14 @@
 """Temporary deterministic materializer for the Duster Eco-G 120 automatic package."""
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+ENGINE_SNAPSHOT_SHA256 = "9914402753c100f9a9ecb65c01bf454d90d6f18d6e09df00b74342377cba9ebc"
 
 
 def read(path: str) -> str:
@@ -34,6 +36,47 @@ def insert_after(path: str, anchor: str, addition: str) -> None:
     if anchor not in text:
         raise SystemExit(f"missing insertion anchor in {path}: {anchor[:120]!r}")
     write(path, text.replace(anchor, anchor + addition, 1))
+
+
+def normalize_engine_contract() -> None:
+    snapshot_path = "project/sources/dacia-pl-duster-ecog120-automatic-engine-20260724.json"
+    payload = json.loads(read(snapshot_path))
+    canonical_units = {
+        "engine_displacement": "cm3",
+        "cylinder_count": "",
+        "total_valve_count": "",
+    }
+    for item in payload["intrinsic_engine_values"]:
+        item["unit"] = canonical_units[item["attribute_code"]]
+    snapshot_text = json.dumps(payload, indent=2) + "\n"
+    actual_sha = hashlib.sha256(snapshot_text.encode("utf-8")).hexdigest()
+    if actual_sha != ENGINE_SNAPSHOT_SHA256:
+        raise SystemExit(f"unexpected normalized engine snapshot SHA-256: {actual_sha}")
+    write(snapshot_path, snapshot_text)
+
+    importer_path = "tools/import_duster_ecog120_automatic_engine_20260724.py"
+    text = read(importer_path)
+    text = text.replace(
+        'SNAPSHOT_SHA256 = "ea3f1209c19778baed6004ae4938bded39b9b5f0608b74668a02f70b75cb23f7"',
+        f'SNAPSHOT_SHA256 = "{ENGINE_SNAPSHOT_SHA256}"',
+    )
+    text = text.replace(
+        '("engine_displacement", "", "1199", "cubic_cm")',
+        '("engine_displacement", "", "1199", "cm3")',
+    )
+    text = text.replace(
+        '("cylinder_count", "", "3", "count")',
+        '("cylinder_count", "", "3", "")',
+    )
+    text = text.replace(
+        '("total_valve_count", "", "12", "count")',
+        '("total_valve_count", "", "12", "")',
+    )
+    text = text.replace(
+        '        if unit not in units:\n            raise ContractError(f"inactive unit: {unit}")',
+        '        if unit and unit not in units:\n            raise ContractError(f"inactive unit: {unit}")',
+    )
+    write(importer_path, text)
 
 
 def apply_importers() -> None:
@@ -69,7 +112,6 @@ def update_catalog_bootstrap_test() -> None:
         '        configuration_codes = {\n            row["code"] for row in rows("configurations.csv")\n            if row["status"] == "active"\n            and row["version_code"].startswith("duster_iii_")\n        }\n        availability = [',
     )
     text = read(path)
-    text = text.replace('reporting_configurations"], 7)', 'reporting_configurations"], 7)')
     text = text.replace('repository_status_configurations"], 69)', 'repository_status_configurations"], 72)')
     text = text.replace('excluded_configurations"], 62)', 'excluded_configurations"], 65)')
     write(path, text)
@@ -246,6 +288,7 @@ A separate official Dacia engine-page snapshot confirms Eco-G 120 automatic avai
 
 
 def main() -> None:
+    normalize_engine_contract()
     apply_importers()
     update_baseline_tests()
     update_catalog_bootstrap_test()
