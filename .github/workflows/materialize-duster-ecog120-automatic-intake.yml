@@ -28,8 +28,6 @@ jobs:
         with:
           python-version: '3.13'
       - name: Materialize package
-        id: materialize
-        continue-on-error: true
         shell: bash
         run: |
           python - <<'PY'
@@ -53,26 +51,7 @@ jobs:
               raise SystemExit('missing engine unit registry anchor')
           path.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
-          set +e
-          python tools/_materialize_duster_ecog120_automatic_intake.py > "${RUNNER_TEMP}/materialize.log" 2>&1
-          status=$?
-          printf '%s\n' "$status" > "${RUNNER_TEMP}/materialize.status"
-          exit "$status"
-      - name: Upload materializer diagnostic
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: duster-automatic-materializer-diagnostic
-          path: |
-            ${{ runner.temp }}/materialize.log
-            ${{ runner.temp }}/materialize.status
-          if-no-files-found: error
-          retention-days: 1
-      - name: Require materialization success
-        shell: bash
-        run: |
-          cat "${RUNNER_TEMP}/materialize.log"
-          test "$(cat "${RUNNER_TEMP}/materialize.status")" = "0"
+          python tools/_materialize_duster_ecog120_automatic_intake.py
       - name: Remove transport files
         run: |
           rm -f .github/workflows/materialize-duster-ecog120-automatic-intake.yml
@@ -99,7 +78,27 @@ jobs:
           assert any(scope.slug == 'duster_ecog120_automatic' for scope in scopes)
           PY
       - name: Run complete unit suite
-        run: python -m unittest discover -s tests -p 'test_*.py' -q
+        id: fullsuite
+        continue-on-error: true
+        shell: bash
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v > "${RUNNER_TEMP}/full-suite.log" 2>&1
+          status=$?
+          printf '%s\n' "$status" > "${RUNNER_TEMP}/full-suite.status"
+          exit "$status"
+      - name: Upload full-suite diagnostic
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: duster-automatic-final-full-suite-diagnostic
+          path: |
+            ${{ runner.temp }}/full-suite.log
+            ${{ runner.temp }}/full-suite.status
+          if-no-files-found: error
+          retention-days: 1
+      - name: Require complete unit suite success
+        shell: bash
+        run: test "$(cat "${RUNNER_TEMP}/full-suite.status")" = "0"
       - name: Run full quality gate
         shell: bash
         run: |
