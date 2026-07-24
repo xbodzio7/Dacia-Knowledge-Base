@@ -25,8 +25,11 @@ jobs:
           rm -f .github/workflows/materialize-equipment-facet-interaction-fix-v2.yml
           rm -f .github/workflows/materialize-equipment-facet-interaction-fix-v3.yml
           rm -f .github/workflows/diagnose-equipment-facet-materializer.yml
+          rm -f .github/workflows/diagnose-equipment-facet-v3.yml
           rm -f project/tmp/materialize_equipment_facet_fix.py
           rm -f project/tmp/please-ignore.txt project/tmp/ignore-marker-*.txt
+      - name: Synchronize canonical state
+        run: python tools/dkb.py project-state --apply
       - name: Validate and commit
         run: |
           git diff --check
