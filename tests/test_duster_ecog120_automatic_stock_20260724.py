@@ -124,9 +124,18 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
             if item["configuration_code"] in CONFIGURATION_CODES
         }
         self.assertEqual(set(selected), CONFIGURATION_CODES)
-        self.assertEqual(selected["duster_iii_expression_ecog120_4x2_automatic"]["catalog_price"]["amount"], 96900)
-        self.assertEqual(selected["duster_iii_extreme_ecog120_4x2_automatic"]["catalog_price"]["amount"], 110300)
-        self.assertEqual(selected["duster_iii_journey_ecog120_4x2_automatic"]["catalog_price"]["amount"], 107600)
+        self.assertEqual(
+            int(selected["duster_iii_expression_ecog120_4x2_automatic"]["catalog_price"]["amount"]),
+            96900,
+        )
+        self.assertEqual(
+            int(selected["duster_iii_extreme_ecog120_4x2_automatic"]["catalog_price"]["amount"]),
+            110300,
+        )
+        self.assertEqual(
+            int(selected["duster_iii_journey_ecog120_4x2_automatic"]["catalog_price"]["amount"]),
+            107600,
+        )
         self.assertNotIn(
             "side_mirrors_folding",
             selected["duster_iii_expression_ecog120_4x2_automatic"]["equipment"],
