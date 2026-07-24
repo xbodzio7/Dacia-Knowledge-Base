@@ -1,0 +1,70 @@
+name: Preflight data-products v1.6.1
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preflight-data-products-v1.6.1
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.head_ref == 'release/preflight-data-products-v1.6.1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact green main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 4b77571c788b862a6543161b9343a35f464bd7c6
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "4b77571c788b862a6543161b9343a35f464bd7c6"
+          git diff --quiet
+          git diff --cached --quiet
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Build and verify exact candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest -q tests.test_data_product_release
+          python tools/data_product_release.py \
+            --version 1.6.1 \
+            --commit-sha 4b77571c788b862a6543161b9343a35f464bd7c6 \
+            --output-directory release-candidate
+          python tools/data_product_release.py \
+            --verify \
+            --version 1.6.1 \
+            --commit-sha 4b77571c788b862a6543161b9343a35f464bd7c6 \
+            --output-directory release-candidate
+
+      - name: Record deterministic identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd release-candidate
+          sha256sum SHA256SUMS dacia-knowledge-base-data-products-v1.6.1.zip data-product-release-manifest.json | tee release-candidate-identity.txt
+          wc -c SHA256SUMS dacia-knowledge-base-data-products-v1.6.1.zip data-product-release-manifest.json | tee -a release-candidate-identity.txt
+          cat release-candidate-identity.txt
+
+      - name: Upload verified candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.6.1-preflight-candidate
+          path: release-candidate
+          if-no-files-found: error
+          retention-days: 7
