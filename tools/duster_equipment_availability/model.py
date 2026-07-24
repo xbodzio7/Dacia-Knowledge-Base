@@ -33,13 +33,24 @@ def load_matrices() -> list[dict[str, str]]:
 
 
 def duster_configurations() -> list[dict[str, str]]:
+    source_configurations = {
+        row["configuration_code"]
+        for row in read_rows(MASTER / "source_configurations.csv")
+        if row.get("source_code") == SOURCE_CODE
+        and row.get("relationship") == "documents"
+    }
+    if len(source_configurations) != 24:
+        raise ContractError(
+            "expected 24 configurations registered to the matrix source, "
+            f"found {len(source_configurations)}"
+        )
     result = [
         row for row in read_rows(MASTER / "configurations.csv")
         if row.get("status") == "active"
-        and row.get("version_code", "").startswith("duster_iii_")
+        and row.get("code") in source_configurations
     ]
-    if len(result) != 24:
-        raise ContractError(f"expected 24 Duster configurations, found {len(result)}")
+    if {row["code"] for row in result} != source_configurations:
+        raise ContractError("matrix-source configurations are not exactly active")
     return result
 
 
@@ -106,5 +117,5 @@ def generated_rows() -> list[dict[str, str]]:
         raise ContractError("unexpected availability status distribution")
     counts = Counter(row["configuration_code"] for row in result)
     if len(counts) != 24 or set(counts.values()) != {58}:
-        raise ContractError("each Duster configuration must receive 58 attributes")
+        raise ContractError("each source-covered Duster configuration must receive 58 attributes")
     return result
