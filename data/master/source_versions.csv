@@ -37,3 +37,12 @@ id,source_code,version_code,relationship,notes
 36,src_pl_sandero_stepway_official_web_configurations_20260723,sandero_stepway_iii_extreme,web_version_page_documents,Official Dacia Poland version and equipment pages observed 2026-07-23; grade code ENS_ACLASS00M$SERIESPE2.
 37,src_pl_sandero_official_web_configurations_20260723,sandero_iii_expression,web_version_page_documents,Official Dacia Poland version and equipment pages observed 2026-07-23; grade code ENS_ACLASS00M$SERIELIM3.
 38,src_pl_sandero_official_web_configurations_20260723,sandero_iii_journey,web_version_page_documents,Official Dacia Poland version and equipment pages observed 2026-07-23; grade code ENS_ACLASS00M$SERIESPE1.
+39,src_pl_cross_model_option_coverage_20260724,sandero_iii_expression,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_ACLASS00M$SERIELIM3.
+40,src_pl_cross_model_option_coverage_20260724,sandero_iii_journey,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_ACLASS00M$SERIESPE1.
+41,src_pl_cross_model_option_coverage_20260724,sandero_stepway_iii_essential,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_ACLASS00M$SERIELIM2.
+42,src_pl_cross_model_option_coverage_20260724,sandero_stepway_iii_expression,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_ACLASS00M$SERIELIM4.
+43,src_pl_cross_model_option_coverage_20260724,sandero_stepway_iii_extreme,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_ACLASS00M$SERIESPE2.
+44,src_pl_cross_model_option_coverage_20260724,jogger_essential,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM1.
+45,src_pl_cross_model_option_coverage_20260724,jogger_expression,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM2.
+46,src_pl_cross_model_option_coverage_20260724,jogger_extreme,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM3.
+47,src_pl_cross_model_option_coverage_20260724,jogger_journey,web_option_coverage_documents,Official Dacia Poland grade-specific equipment page observed 2026-07-24; grade code ENS_MDL3P4X41SERIELIM4.

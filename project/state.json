@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.6.1 Publication",
+  "phase": "Official Configurator Cross-Model Option Coverage Import",
   "reference_delivery": {
     "name": "Equipment Facet Interaction Fix",
     "pull_request": 236,
@@ -15,26 +15,26 @@
     "quality_run": 1275
   },
   "baseline": {
-    "tests": 719,
+    "tests": 727,
     "csv_files": 41,
-    "rows": 7699,
+    "rows": 7780,
     "configuration_values": 1756,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
-    "availability_records": 4512,
+    "availability_records": 4549,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.6.1 Publication",
+    "name": "Official Configurator Cross-Model Option Coverage Import",
     "status": "complete",
-    "goal": "Publish and independently re-verify immutable data-products-v1.6.1 assets from exact green main commit 4b77571c788b862a6543161b9343a35f464bd7c6 after the equipment-facet interaction fix."
+    "goal": "Import exact dated factory-equipment coverage for the shark-fin antenna and power-folding mirrors across Sandero, Sandero Stepway and Jogger, preserve existing Bigster and commercial-package evidence, and keep ambiguous Duster states unknown."
   },
   "next_package": {
-    "name": "Official Configurator Cross-Model Option Coverage Import",
+    "name": "Official Duster Exact Configurator Option Capture",
     "status": "planned",
-    "goal": "Capture exact standard, optional and package availability with prices across Sandero, Sandero Stepway, Jogger, Duster and Bigster, beginning with misleading partial-coverage items such as the shark-fin antenna, without inferring applicability across configurations."
+    "goal": "Capture stable exact Duster grade, powertrain and gearbox states for factory options and packages, beginning with power-folding mirrors and the shark-fin antenna, without deriving negative availability from missing dynamic-page text."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
