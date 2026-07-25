@@ -28,40 +28,146 @@
     }
   ],
   "technical_slots": [
-    {"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"},
-    {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"},
-    {"attribute_code": "braked_trailer_weight", "fuel_type_code": ""},
-    {"attribute_code": "cargo_volume_vda_to_luggage_cover", "fuel_type_code": ""},
-    {"attribute_code": "cargo_volume_vda_to_seatback", "fuel_type_code": ""},
-    {"attribute_code": "co2_emissions", "fuel_type_code": "lpg"},
-    {"attribute_code": "co2_emissions", "fuel_type_code": "petrol"},
-    {"attribute_code": "cylinder_count", "fuel_type_code": ""},
-    {"attribute_code": "emission_standard", "fuel_type_code": ""},
-    {"attribute_code": "engine_displacement", "fuel_type_code": ""},
-    {"attribute_code": "engine_power", "fuel_type_code": "lpg"},
-    {"attribute_code": "engine_power", "fuel_type_code": "petrol"},
-    {"attribute_code": "engine_torque", "fuel_type_code": "lpg"},
-    {"attribute_code": "engine_torque", "fuel_type_code": "petrol"},
-    {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "lpg"},
-    {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "petrol"},
-    {"attribute_code": "fuel_tank_capacity", "fuel_type_code": "petrol"},
-    {"attribute_code": "gear_count", "fuel_type_code": ""},
-    {"attribute_code": "gearbox_type", "fuel_type_code": ""},
-    {"attribute_code": "gross_vehicle_weight", "fuel_type_code": ""},
-    {"attribute_code": "injection_type", "fuel_type_code": "lpg"},
-    {"attribute_code": "injection_type", "fuel_type_code": "petrol"},
-    {"attribute_code": "lpg_vessel_capacity_total", "fuel_type_code": "lpg"},
-    {"attribute_code": "lpg_vessel_filling_capacity", "fuel_type_code": "lpg"},
-    {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg"},
-    {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol"},
-    {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg"},
-    {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"},
-    {"attribute_code": "maximum_payload", "fuel_type_code": ""},
-    {"attribute_code": "minimum_kerb_weight", "fuel_type_code": ""},
-    {"attribute_code": "number_of_seats", "fuel_type_code": ""},
-    {"attribute_code": "start_stop_system", "fuel_type_code": ""},
-    {"attribute_code": "top_speed", "fuel_type_code": ""},
-    {"attribute_code": "total_valve_count", "fuel_type_code": ""}
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "gear_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "number_of_seats",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "start_stop_system",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    }
   ],
   "equipment_attributes": [
     "360_camera_system",
