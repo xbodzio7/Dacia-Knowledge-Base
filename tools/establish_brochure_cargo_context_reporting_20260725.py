@@ -200,6 +200,12 @@ def _replace_between(
 def _patch_comparison_base() -> None:
     _patch(
         BASE,
+        '  if not item and field != "fuel_type_code":\n',
+        '  if not item and field not in {"fuel_type_code", "_cargo_context_signature"}:\n',
+        'field not in {"fuel_type_code", "_cargo_context_signature"}',
+    )
+    _patch(
+        BASE,
         "from configuration_value_range_reporting import (\n    combine_latest_observations,\n    range_relation,\n    read_optional_ranges,\n)\n",
         "from configuration_value_range_reporting import (\n    combine_latest_observations,\n    range_relation,\n    read_optional_ranges,\n)\nfrom reporting.cargo_context import (\n    CargoContextError,\n    annotate_scalar_values,\n    read_context_rows,\n    technical_context,\n)\n",
         "from reporting.cargo_context import (",
