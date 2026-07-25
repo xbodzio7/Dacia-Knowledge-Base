@@ -14,6 +14,7 @@ CONTEXT_FILTER = ROOT / "tools" / "configuration_comparison_context.py"
 ITEM_CATALOG = ROOT / "tools" / "configuration_comparison_item_catalog.py"
 COMPARISON_HTML = ROOT / "tools" / "reporting" / "configuration_comparison_html.py"
 WORKBOOK_ROWS = ROOT / "tools" / "reporting" / "configuration_comparison_workbook_rows.py"
+WORKBOOK_TEST = ROOT / "tests" / "test_configuration_comparison_workbook.py"
 SHORTLIST = ROOT / "tools" / "reporting" / "configuration_shortlist.py"
 SHORTLIST_HTML = ROOT / "tools" / "reporting" / "configuration_shortlist_html.py"
 SELECTION_JS = ROOT / "tools" / "reporting" / "configuration_shortlist_selection.js"
@@ -315,6 +316,12 @@ def _patch_context_surfaces() -> None:
 
 
 def _patch_workbook() -> None:
+    _patch(
+        WORKBOOK_TEST,
+        '  "A1:AQ204",\n',
+        '  "A1:AS204",\n',
+        '"A1:AS204",',
+    )
     _patch(
         WORKBOOK_ROWS,
         "from reporting.commercial_offers import commercial_offer_rows\n",
