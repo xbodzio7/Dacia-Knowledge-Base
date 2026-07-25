@@ -46,4 +46,4 @@ Stock card 121540 expired after the first observation. Its normalized snapshot p
 
 ## Determinism
 
-`tools/import_duster_exact_stock_equipment_20260725.py` verifies the snapshot SHA-256, exact configuration coverage, active boolean attributes, 205-row distribution, four package offers, four selected-package states and non-inference boundaries. `--apply` replaces only records owned by this source and the exact generated commercial mapping codes; `--check` reproduces the contract without mutation.
+`tools/import_duster_exact_stock_equipment_20260725.py` verifies the snapshot SHA-256, exact configuration coverage, active supported equipment attributes, 203-row distribution, reuse of the two prior exact folding-mirror observations, four package offers, four selected-package states and non-inference boundaries. `--apply` replaces only records owned by this source and the exact generated commercial mapping codes; `--check` reproduces the contract without mutation.
