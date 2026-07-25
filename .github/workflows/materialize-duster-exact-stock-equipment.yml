@@ -74,11 +74,42 @@ jobs:
             exit "$status"
           fi
 
+      - name: Update affected regression contracts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              Path('tests/test_configuration_comparison_workbook.py'): (
+                  ('"A1:M296"', '"A1:M302"'),
+                  ('self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")', 'self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-25")'),
+              ),
+              Path('tests/test_jogger_payload_performance_ranges.py'): (
+                  ('self.assertEqual(baseline["tests"], 735)', 'self.assertEqual(baseline["tests"], 743)'),
+                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8034)'),
+              ),
+              Path('tests/test_jogger_wltp_efficiency_ranges.py'): (
+                  ('self.assertEqual(baseline["tests"], 735)', 'self.assertEqual(baseline["tests"], 743)'),
+                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8034)'),
+              ),
+          }
+          for path, pairs in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              for old, new in pairs:
+                  if old not in text:
+                      raise SystemExit(f'expected regression contract not found in {path}: {old}')
+                  text = text.replace(old, new, 1)
+              path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Run package tests
         run: |
           python -m unittest -v \
             tests.test_duster_exact_stock_equipment_20260725 \
-            tests.test_commercial_items_20260703
+            tests.test_commercial_items_20260703 \
+            tests.test_configuration_comparison_workbook \
+            tests.test_jogger_payload_performance_ranges \
+            tests.test_jogger_wltp_efficiency_ranges
 
       - name: Run full test discovery
         run: |
@@ -134,7 +165,10 @@ jobs:
             project/packages/duster-exact-stock-equipment-expansion-20260725.md \
             project/reviews/duster-exact-stock-equipment-review-2026-07-25.md \
             tests/test_commercial_items_20260703.py \
+            tests/test_configuration_comparison_workbook.py \
             tests/test_duster_exact_stock_equipment_20260725.py \
+            tests/test_jogger_payload_performance_ranges.py \
+            tests/test_jogger_wltp_efficiency_ranges.py \
             tools/import_duster_exact_stock_equipment_20260725.py
           git diff --cached --check
           git commit -m "feat(data): expand exact Duster stock equipment"
