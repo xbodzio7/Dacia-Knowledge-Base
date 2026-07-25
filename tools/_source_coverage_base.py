@@ -313,31 +313,26 @@ def collect_report(
     source_rows = {row.get("code", ""): row for row in sources if row.get("code")}
 
     if as_of_value is None:
-        dated_values: list[date] = []
-        for row in sources:
-            if row.get("code") in scoped_source_codes and row.get("document_date"):
-                dated_values.append(
-                    iso_date(row["document_date"], "source document_date")
-                )
-        for rows, field, label in (
-            (prices, "price_date", "configuration price"),
-            (values, "observation_date", "configuration value"),
-            (ranges, "observation_date", "configuration value range"),
-            (
-                availability,
-                "observation_date",
-                "configuration availability",
-            ),
-        ):
-            for row in rows:
-                if (
-                    row.get("configuration_code") in configuration_sources
-                    and row.get(field)
-                ):
-                    dated_values.append(iso_date(row[field], label))
-        if not dated_values:
-            raise SourceCoverageError("no dated source-backed records found")
-        as_of = max(dated_values)
+    # Use the same repository-wide observation clock as
+    # configuration-completeness so downstream gap triage combines
+    # reports generated for one deterministic date. The selected
+    # reporting subset still controls record and source counts.
+    dated_values: list[date] = []
+    for rows, field, label in (
+        (values, "observation_date", "configuration value"),
+        (ranges, "observation_date", "configuration value range"),
+        (
+            availability,
+            "observation_date",
+            "configuration availability",
+        ),
+    ):
+        for row in rows:
+            if row.get(field):
+                dated_values.append(iso_date(row[field], label))
+    if not dated_values:
+        raise SourceCoverageError("no dated configuration observations found")
+    as_of = max(dated_values)
     else:
         as_of = iso_date(as_of_value, "--as-of")
 
