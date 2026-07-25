@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Exact Stock Equipment Expansion**
+**Duster Eco-G 120 Automatic Homologation Evidence**
 
 ## Reference delivery
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 743
+- Tests: 752
 - Master CSV files: 41
-- Master rows: 8032
-- Configuration values: 1765
+- Master rows: 8126
+- Configuration values: 1825
 - Configuration import specifications: 112
-- Configuration value ranges: 158
+- Configuration value ranges: 176
 - Configuration range import specifications: 20
 - Availability records: 4754
 - Canonical attributes: 381
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Exact Stock Equipment Expansion** — `complete`
+**Duster Eco-G 120 Automatic Homologation Evidence** — `complete`
 
-Expand the exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with source-backed basic/configured equipment and separately preserved optional-price and selected-package evidence.
+Import exact automatic-specific power, torque, performance, WLTP, mass and towing evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey configurations without inheriting manual cargo values.
 
 ## Next package
 
-**Duster Eco-G 120 Automatic Homologation Evidence Review** — `planned`
+**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review** — `planned`
 
-Locate and classify automatic-specific towing, cargo, WLTP, performance and mass evidence without inheriting manual homologation values or weakening current unknown states.
+Locate exact automatic-specific luggage-volume and petrol CO2 evidence while preserving current unknown states if no authoritative source exists.
 
 ## Autonomy
 

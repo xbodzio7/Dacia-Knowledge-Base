@@ -26,3 +26,5 @@ id,source_code,model_code,relationship,notes
 25,src_pl_duster_ecog120_automatic_stock_20260724,duster_iii,exact_stock_configurations_for,Three official 2026 Eco-G 120 automatic stock cards.
 26,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii,intrinsic_engine_data_for,Official Dacia Eco-G 120 engine architecture observed 2026-07-24.
 27,src_pl_duster_exact_stock_equipment_20260724,duster_iii,exact_stock_equipment_for,Three official 2026 Eco-G 120 automatic exact-stock equipment cards.
+28,src_pl_duster_ecog120_automatic_wltp_20260725,duster_iii,automatic_wltp_data_for,"Exact Polish Expression, Extreme and Journey Eco-G 120 auto stock pages; LPG WLTP CO2 and source-stated fuel-tank capacity only."
+29,src_ro_duster_ecog120_automatic_homologation_20260725,duster_iii,automatic_homologation_data_for,"Exact 2026 Expression, Extreme and Journey ECO-G 120 auto 2WD stock pages; automatic-specific power, torque, performance, mass, towing and consumption evidence. Cargo volume remains an explicit non-import."

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Exact Stock Equipment Expansion",
+  "phase": "Duster Eco-G 120 Automatic Homologation Evidence",
   "reference_delivery": {
     "name": "Official Configurator Cross-Model Option Coverage Import",
     "pull_request": 241,
@@ -15,26 +15,26 @@
     "quality_run": 1295
   },
   "baseline": {
-    "tests": 743,
+    "tests": 752,
     "csv_files": 41,
-    "rows": 8032,
-    "configuration_values": 1765,
+    "rows": 8126,
+    "configuration_values": 1825,
     "configuration_import_specs": 112,
-    "configuration_value_ranges": 158,
+    "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Exact Stock Equipment Expansion",
+    "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "status": "complete",
-    "goal": "Expand the exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with source-backed basic/configured equipment and separately preserved optional-price and selected-package evidence."
+    "goal": "Import exact automatic-specific power, torque, performance, WLTP, mass and towing evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey configurations without inheriting manual cargo values."
   },
   "next_package": {
-    "name": "Duster Eco-G 120 Automatic Homologation Evidence Review",
+    "name": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
     "status": "planned",
-    "goal": "Locate and classify automatic-specific towing, cargo, WLTP, performance and mass evidence without inheriting manual homologation values or weakening current unknown states."
+    "goal": "Locate exact automatic-specific luggage-volume and petrol CO2 evidence while preserving current unknown states if no authoritative source exists."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
