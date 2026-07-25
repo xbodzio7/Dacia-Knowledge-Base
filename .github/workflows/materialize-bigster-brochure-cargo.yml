@@ -13,6 +13,7 @@ on:
       - data/imports/configuration_cargo_values/bigster-brochure-cargo-20251210.json
       - tools/import_bigster_brochure_cargo_20260726.py
       - tools/complete_bigster_brochure_cargo_20260726.py
+      - tools/patch_bigster_cargo_reporting_20260726.py
       - tests/test_bigster_brochure_cargo_20260726.py
 
 permissions:
@@ -38,7 +39,10 @@ jobs:
           set +e
           : > .github/bigster-cargo-diagnostic.log
           status=0
-          python tools/complete_bigster_brochure_cargo_20260726.py --apply >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+          python tools/patch_bigster_cargo_reporting_20260726.py >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/complete_bigster_brochure_cargo_20260726.py --apply >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/import_bigster_brochure_cargo_20260726.py --apply >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
           fi
