@@ -1,11 +1,9 @@
 name: Materialize Brochure Cargo Context Schema
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    types:
-      - synchronize
+      - agent/brochure-cargo-context-schema-foundation
     paths:
       - .github/workflows/materialize-brochure-cargo-context-schema.yml
 
