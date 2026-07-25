@@ -24,7 +24,7 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 "sha256": "40bb4f3db9019c500fcb4c759f5ad395aa3b35a68bb22aa74f031fefe09727f2",
                 "models": {"duster_iii"},
                 "versions": {"duster_iii_essential", "duster_iii_expression", "duster_iii_extreme", "duster_iii_journey"},
-                "configuration_count": 10,
+                "configuration_count": 13,
             },
             "src_pl_jogger_price_my26_20260703": {
                 "file": "PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf",

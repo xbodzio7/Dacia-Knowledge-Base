@@ -111,7 +111,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         ]
         self.assertEqual(len(expected), 392)
         self.assertEqual(actual, expected)
-        self.assertEqual([int(row["id"]) for row in actual], list(range(311, 703)))
+        self.assertEqual([int(row[0]) for row in actual], list(range(311, 703)))
 
     def test_attribute_and_context_counts_are_stable(self) -> None:
         legacy_rows = [row for row in self.price_list_values if int(row["id"]) <= 702]
