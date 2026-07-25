@@ -24,9 +24,19 @@ from reporting.cargo_context import (  # noqa: E402
     semantic_signature,
     technical_context,
 )
-from tests.test_configuration_comparison import (  # noqa: E402
-    ConfigurationComparisonTests,
-)
+def _configuration_comparison_fixture():
+    from importlib.util import module_from_spec, spec_from_file_location
+
+    spec = spec_from_file_location(
+        "dkb_test_configuration_comparison_fixture",
+        REPOSITORY / "tests" / "test_configuration_comparison.py",
+    )
+    if spec is None or spec.loader is None:
+        raise RuntimeError("cannot load comparison fixture")
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.ConfigurationComparisonTests()
+
 
 
 MAIN_CONTEXT = {
@@ -51,7 +61,7 @@ MAX_CONTEXT = {
 
 class BrochureCargoContextReportingFoundationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.base = ConfigurationComparisonTests()
+        self.base = _configuration_comparison_fixture()
 
     def _append_rows(self, path: Path, rows: list[list[str]]) -> None:
         with path.open("a", encoding="utf-8", newline="") as handle:

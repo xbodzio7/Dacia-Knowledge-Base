@@ -1,14 +1,1623 @@
 PASS: brochure cargo context reporting foundation contract
-ERROR: test discovery failed:
-Failed to import test module: test_brochure_cargo_context_reporting_foundation
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/SESSION_STATE.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 784
+Master rows    : 8156
+Phase          : Brochure Cargo Context Reporting Foundation
+Current package: Brochure Cargo Context Reporting Foundation
+Next package   : Official Brochure Cargo Value Import
+Autonomy mode  : autonomous_until_action_required
+PASS: brochure cargo context reporting foundation contract
+Project state: PASS
+Tests          : 784
+Master rows    : 8156
+Phase          : Brochure Cargo Context Reporting Foundation
+Current package: Brochure Cargo Context Reporting Foundation
+Next package   : Official Brochure Cargo Value Import
+Autonomy mode  : autonomous_until_action_required
+...................................................EEEE.................../opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f7207aaba60>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.......EEEEEEEE.FEE.error: comparison failed for scope sandero_stepway_ecog120_automatic: configuration values has incomplete key: ('sandero_stepway_iii_expression_ecog120_automatic', 'fuel_tank_capacity', '', '')
+FE.E.E......ERROR: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+FEEEEE....................../home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:306: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpuu0q4ghr/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+........................................................................................./opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f7207aab790>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+E..............................................................................E..........................................................EE..............E.........................E........................Building SQLite database: /tmp/tmp39y1dz09/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 381 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 4754 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 176 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1831 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 0 rows
+  data/master/configuration_prices.csv -> configuration_prices: 118 rows
+  data/master/configurations.csv -> configurations: 72 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 164 rows
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 62 rows
+  data/master/sources.csv -> sources: 27 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 18 rows
+Database ready: /tmp/tmp39y1dz09/dkb.sqlite
+Building SQLite database: /tmp/tmpwayb0t6m/reports/test.sqlite
+Source directory: /tmp/tmpwayb0t6m/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpwayb0t6m/reports/test.sqlite
+Building SQLite database: /tmp/tmp17r28cbq/nested/directory/test.sqlite
+Source directory: /tmp/tmp17r28cbq/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmp17r28cbq/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmpmo_tjz18/test.sqlite
+Source directory: /tmp/tmpmo_tjz18/data/master
+Building SQLite database: /tmp/tmp02kmflcx/test.sqlite
+Source directory: /tmp/tmp02kmflcx/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmp02kmflcx/test.sqlite
+JSON configuration shortlist written to /tmp/tmp9tyr96ok/shortlist.json
+Markdown configuration shortlist written to /tmp/tmp9tyr96ok/shortlist.md
+CSV configuration shortlist written to /tmp/tmp9tyr96ok/shortlist.csv
+Configuration shortlist as of 2026-01-01
+Matched 2 of 4 active configurations.
+- 70000 PLN | Model A Expression | Eco-G 120 | manual | 5 seats | cfg_a
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+JSON configuration shortlist written to /tmp/tmpq51bg3zh/shortlist.json
+Interactive HTML configuration shortlist written to /tmp/tmpq51bg3zh/shortlist.html
+Configuration shortlist as of 2026-01-01
+Matched 1 of 4 active configurations.
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+Building SQLite database: /tmp/tmp4hucjn_g/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 381 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 4754 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 176 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1831 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 0 rows
+  data/master/configuration_prices.csv -> configuration_prices: 118 rows
+  data/master/configurations.csv -> configurations: 72 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 164 rows
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 62 rows
+  data/master/sources.csv -> sources: 27 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 18 rows
+Database ready: /tmp/tmp4hucjn_g/dkb.sqlite
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8...........................ERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-hrvzk31g/output/handoff.json
+.ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-dvhhh6_k/output/handoff.json
+....ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-ibgp5lm2/output/handoff.json
+.ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-737i46j1/output/handoff.json
+..
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c9894592bf61c7d82c274fd677c070bfa9e35c2d
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 27ccaab02e02fef1b8aaaa03719ecab323676cf2
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c9894592bf61c7d82c274fd677c070bfa9e35c2d
+HEAD   : 27ccaab02e02fef1b8aaaa03719ecab323676cf2
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+27ccaab (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: 27ccaab02e02fef1b8aaaa03719ecab323676cf2
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-4c1cfw3o/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c9894592bf61c7d82c274fd677c070bfa9e35c2d
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 27ccaab02e02fef1b8aaaa03719ecab323676cf2
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c9894592bf61c7d82c274fd677c070bfa9e35c2d
+HEAD   : 27ccaab02e02fef1b8aaaa03719ecab323676cf2
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+27ccaab (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-026q4u1m/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-dzbp3ta0/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-oz8j04t7/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-ckg6wmli/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-3tanghh9/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 440507a638a6bd647235311e2f242c208151e5c5
+HEAD   : 834ffcfbb1f75bdb7f8ffd5c70667f0f3d0d02aa
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+834ffcf (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+.........From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-9kuwt8vt/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-kgdcpemm/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-eyg8zx4n/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-94obl_4p/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-sj_crfkr/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-uedfgf0k/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-z08h5rw6/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-dl30ah6n/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-f65mg7ud/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-s6sp90xk/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-yxgmmm1p/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-0ytne6ar/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-kl5oj97d/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-dkwmazoj/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rlplqtse/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-m62onuss/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-sk8il2gp/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/workflow-test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-184bz_fz/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+..==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpn317qzt4/quality.log
+.....
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-3tanghh9/output/handoff.json
+PASS
+
+==> Broken
+.........................................................E..............................................................................E.................................................................ERROR: SQLite database does not exist: /tmp/tmpga4rra6w/missing.sqlite
+.................
+======================================================================
+ERROR: test_comparison_preserves_two_context_distinct_boot_values (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_comparison_preserves_two_context_distinct_boot_values)
+----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
-    module = self._get_module_from_name(name)
-  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
-    __import__(name)
-    ~~~~~~~~~~^^^^^^
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 27, in <module>
-    from tests.test_configuration_comparison import (  # noqa: E402
-        ConfigurationComparisonTests,
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 176, in test_comparison_preserves_two_context_distinct_boot_values
+    report = comparison.collect_report(repository, completeness, evidence)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
     )
-ModuleNotFoundError: No module named 'tests.test_configuration_comparison'
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_difference_export_catalog_and_filter_expose_full_context (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_difference_export_catalog_and_filter_expose_full_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 228, in test_difference_export_catalog_and_filter_expose_full_context
+    report = comparison.collect_report(repository, completeness, evidence)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_empty_production_relation_preserves_existing_context_counts (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_empty_production_relation_preserves_existing_context_counts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 327, in test_empty_production_relation_preserves_existing_context_counts
+    report = comparison.collect_report(
+        REPOSITORY,
+        REPOSITORY / comparison.DEFAULT_COMPLETENESS_SPEC,
+        REPOSITORY / comparison.DEFAULT_EVIDENCE_SPEC,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('sandero_iii_expression_ecog120_manual', 'fuel_tank_capacity', '', '')
+
+======================================================================
+ERROR: test_missing_one_context_is_not_compared_to_another (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_missing_one_context_is_not_compared_to_another)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 204, in test_missing_one_context_is_not_compared_to_another
+    report = comparison.collect_report(repository, completeness, evidence)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_deterministic_json_and_markdown (test_configuration_comparison.ConfigurationComparisonTests.test_deterministic_json_and_markdown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 460, in test_deterministic_json_and_markdown
+    report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_difference_csv_contains_only_recorded_differences (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_contains_only_recorded_differences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 561, in test_difference_csv_contains_only_recorded_differences
+    report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_difference_csv_domain_filter_composes_with_pair_type (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_domain_filter_composes_with_pair_type)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 628, in test_difference_csv_domain_filter_composes_with_pair_type
+    report = comparison.collect_report(
+        repository,
+    ...<4 lines>...
+        ),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_difference_csv_empty_filter_has_header_only (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_empty_filter_has_header_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 605, in test_difference_csv_empty_filter_has_header_only
+    report = comparison.collect_report(
+        repository,
+    ...<2 lines>...
+        pair_type_filter="same_version_different_transmission",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_difference_csv_item_filter_composes_with_other_filters (test_configuration_comparison.ConfigurationComparisonTests.test_difference_csv_item_filter_composes_with_other_filters)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 705, in test_difference_csv_item_filter_composes_with_other_filters
+    full_report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_distinguishes_recorded_differences_and_evidence_states (test_configuration_comparison.ConfigurationComparisonTests.test_distinguishes_recorded_differences_and_evidence_states)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 413, in test_distinguishes_recorded_differences_and_evidence_states
+    report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_overlapping_ranges_preserve_relation_and_endpoints (test_configuration_comparison.ConfigurationComparisonTests.test_overlapping_ranges_preserve_relation_and_endpoints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 862, in test_overlapping_ranges_preserve_relation_and_endpoints
+    report = comparison.collect_report(repository, completeness, evidence)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_pair_type_filter_recalculates_scope_and_summary (test_configuration_comparison.ConfigurationComparisonTests.test_pair_type_filter_recalculates_scope_and_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 482, in test_pair_type_filter_recalculates_scope_and_summary
+    matching = comparison.collect_report(
+        repository,
+    ...<4 lines>...
+        ),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_rejects_unknown_difference_domain (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_unknown_difference_domain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 683, in test_rejects_unknown_difference_domain
+    report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_rejects_unknown_difference_item_code (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_unknown_difference_item_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 766, in test_rejects_unknown_difference_item_code
+    report = comparison.collect_report(
+        repository,
+        completeness,
+        evidence,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_cross_scope_selection_creates_two_reports_and_singleton (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_cross_scope_selection_creates_two_reports_and_singleton)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_extreme_5seat_ecog120_automatic', 'number_of_seats', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 149, in test_cross_scope_selection_creates_two_reports_and_singleton
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=selected,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope jogger_ecog120_automatic: configuration values has incomplete key: ('jogger_extreme_5seat_ecog120_automatic', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: test_manifest_file_records_match_generated_files (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_manifest_file_records_match_generated_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('sandero_stepway_iii_expression_ecog120_automatic', 'fuel_tank_capacity', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 170, in test_manifest_file_records_match_generated_files
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=SANDERO_AUTOMATIC,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope sandero_stepway_ecog120_automatic: configuration values has incomplete key: ('sandero_stepway_iii_expression_ecog120_automatic', 'fuel_tank_capacity', '', '')
+
+======================================================================
+ERROR: test_sandero_manual_subset_filters_extra_evidence (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_sandero_manual_subset_filters_extra_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('sandero_iii_expression_ecog120_manual', 'fuel_tank_capacity', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 125, in test_sandero_manual_subset_filters_extra_evidence
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=SANDERO_MANUAL,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope sandero_ecog120_manual: configuration values has incomplete key: ('sandero_iii_expression_ecog120_manual', 'fuel_tank_capacity', '', '')
+
+======================================================================
+ERROR: test_render_escapes_labels_and_values (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_render_escapes_labels_and_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 58, in test_render_escapes_labels_and_values
+    _, _, _, report = self.report(Path(directory))
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 28, in report
+    comparison.collect_report(repository, completeness, evidence),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_render_includes_filters_summary_and_provenance (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_render_includes_filters_summary_and_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 45, in test_render_includes_filters_summary_and_provenance
+    _, _, _, report = self.report(Path(directory))
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 28, in report
+    comparison.collect_report(repository, completeness, evidence),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_render_is_deterministic_and_self_contained (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_render_is_deterministic_and_self_contained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 33, in test_render_is_deterministic_and_self_contained
+    _, _, _, report = self.report(Path(directory))
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 28, in report
+    comparison.collect_report(repository, completeness, evidence),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: test_render_supports_an_empty_pair_selection (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_render_supports_an_empty_pair_selection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 69, in test_render_supports_an_empty_pair_selection
+    report = comparison.collect_report(
+        repository,
+    ...<2 lines>...
+        pair_type_filter="same_version_different_transmission",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+======================================================================
+ERROR: setUpClass (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_extreme_5seat_ecog120_automatic', 'number_of_seats', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 60, in setUpClass
+    cls.manifest = create_bundle(
+                   ~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+        cls.output,
+        ^^^^^^^^^^^
+        direct_codes=SELECTED,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope jogger_ecog120_automatic: configuration values has incomplete key: ('jogger_extreme_5seat_ecog120_automatic', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: setUpClass (test_data_product_release.DataProductReleaseTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('bigster_expression_hybrid155_4x2_automatic', 'acceleration_0_100', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 178, in create_release_assets
+    bundle = create_bundle(
+        repository,
+        bundle_directory,
+        direct_codes=codes,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope bigster_hybrid155_4x2_automatic: configuration values has incomplete key: ('bigster_expression_hybrid155_4x2_automatic', 'acceleration_0_100', '', '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py", line 48, in setUpClass
+    cls.manifest = create_release_assets(
+                   ~~~~~~~~~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        COMMIT_SHA,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 244, in create_release_assets
+    raise ReleaseError(f"cannot build data product release: {exc}") from exc
+reporting.data_product_release_model.ReleaseError: cannot build data product release: comparison failed for scope bigster_hybrid155_4x2_automatic: configuration values has incomplete key: ('bigster_expression_hybrid155_4x2_automatic', 'acceleration_0_100', '', '')
+
+======================================================================
+ERROR: setUpClass (test_duster_ecog120_reporting_scope.DusterReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_ecog120_reporting_scope.py", line 162, in setUpClass
+    name: comparison.collect_report(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        AS_OF,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('duster_iii_essential_ecog100_4x2_manual', 'acceleration_0_100', 'lpg', '')
+
+======================================================================
+ERROR: setUpClass (test_jogger_ecog120_automatic_reporting_scope.JoggerEcoG120AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_ecog120_automatic_reporting_scope.py", line 31, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_extreme_5seat_ecog120_automatic', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: setUpClass (test_jogger_ecog120_manual_reporting_scope.JoggerEcoG120ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_ecog120_manual_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_essential_5seat_ecog120_manual', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: setUpClass (test_jogger_hybrid155_automatic_reporting_scope.JoggerHybrid155AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_hybrid155_automatic_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_expression_5seat_hybrid155_automatic', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: setUpClass (test_jogger_tce110_manual_reporting_scope.JoggerTce110ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_tce110_manual_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('jogger_expression_5seat_tce110_manual', 'number_of_seats', '', '')
+
+======================================================================
+ERROR: setUpClass (test_sandero_ecog120_manual_reporting_scope.SanderoEcoG120ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_ecog120_manual_reporting_scope.py", line 32, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('sandero_iii_expression_ecog120_manual', 'fuel_tank_capacity', '', '')
+
+======================================================================
+ERROR: setUpClass (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py", line 29, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 587, in collect_report
+    current_scalar_values = latest(
+        scoped_values,
+    ...<8 lines>...
+        "configuration values",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 140, in latest
+    raise ComparisonError(f"{label} has incomplete key: {key}")
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('sandero_stepway_iii_expression_ecog120_automatic', 'fuel_tank_capacity', '', '')
+
+======================================================================
+FAIL: test_rejects_evidence_scope_drift (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_evidence_scope_drift)
+----------------------------------------------------------------------
+_configuration_comparison_base.ComparisonError: configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison.py", line 795, in test_rejects_evidence_scope_drift
+    with self.assertRaisesRegex(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        comparison.ComparisonError,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "evidence decisions differ",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+AssertionError: "evidence decisions differ" does not match "configuration values has incomplete key: ('cfg_a', 'engine_power', '', '')"
+
+======================================================================
+FAIL: test_cli_and_bundle_outputs_are_deterministic (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_cli_and_bundle_outputs_are_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 276, in test_cli_and_bundle_outputs_are_deterministic
+    self.assertEqual(result, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_main_writes_html_alongside_existing_outputs (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_main_writes_html_alongside_existing_outputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_html.py", line 126, in test_main_writes_html_alongside_existing_outputs
+    self.assertEqual(result, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 709 tests in 18.213s
+
+FAILED (failures=3, errors=30)
+Building SQLite database: /tmp/tmpmmchcsrh/test.sqlite
+Source directory: /tmp/tmpmmchcsrh/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpmmchcsrh/test.sqlite
+Building SQLite database: /tmp/tmpvct3d7_9/test.sqlite
+Source directory: /tmp/tmpvct3d7_9/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpvct3d7_9/test.sqlite
+Building SQLite database: /tmp/tmp34zynn9j/test.sqlite
+Source directory: /tmp/tmp34zynn9j/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp34zynn9j/test.sqlite
+Building SQLite database: /tmp/tmpimxfhfkl/test.sqlite
+Source directory: /tmp/tmpimxfhfkl/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpimxfhfkl/test.sqlite
+Building SQLite database: /tmp/tmpsh4h84ey/test.sqlite
+Source directory: /tmp/tmpsh4h84ey/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpsh4h84ey/test.sqlite
+Building SQLite database: /tmp/tmpw46zzg1r/test.sqlite
+Source directory: /tmp/tmpw46zzg1r/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpw46zzg1r/test.sqlite
