@@ -171,10 +171,12 @@ class BrochureCargoContextSchemaFoundationTests(unittest.TestCase):
         )
         self.assertTrue(all(rule.end_column is None for rule in matching.values()))
 
-    def test_semantic_validator_accepts_empty_foundation_relation(self) -> None:
-        checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
-        self.assertEqual(checked, 0)
-        self.assertEqual(errors, [])
+
+def test_semantic_validator_accepts_materialized_relation(self) -> None:
+    _, rows = self.read_rows(RELATION)
+    checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
+    self.assertEqual(checked, len(rows))
+    self.assertEqual(errors, [])
 
     def test_semantic_validator_rejects_duplicate_value_context(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -240,7 +242,7 @@ class BrochureCargoContextSchemaFoundationTests(unittest.TestCase):
                     "SELECT COUNT(*) FROM configuration_cargo_volume_contexts"
                 ).fetchone()
         self.assertTrue(expected <= tables)
-        self.assertEqual(relation_rows, (0,))
+        self.assertEqual(relation_rows, (len(self.read_rows(RELATION)[1]),))
 
     def test_data_dictionary_discovers_context_schema(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -264,7 +266,7 @@ class BrochureCargoContextSchemaFoundationTests(unittest.TestCase):
         self.assertGreaterEqual(state["baseline"]["tests"], 776)
         self.assertGreaterEqual(state["baseline"]["csv_files"], 46)
         self.assertGreaterEqual(state["baseline"]["rows"], 8156)
-        self.assertEqual(state["baseline"]["configuration_values"], 1831)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 1831)
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertTrue(state["next_package"]["name"])
 

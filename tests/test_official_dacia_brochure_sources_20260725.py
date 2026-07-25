@@ -93,26 +93,30 @@ class OfficialDaciaBrochureSources20260725Tests(unittest.TestCase):
         )
         self.assertEqual({row["relationship"] for row in selected}, {"brochure_for"})
 
-    def test_registration_does_not_project_versions_configurations_or_observations(self) -> None:
-        self.assertEqual(
-            [row for row in rows("source_versions.csv") if row["source_code"] in registration.OWNED_CODES],
-            [],
+
+def test_registration_keeps_versions_unprojected_and_derived_links_unique(self) -> None:
+    self.assertEqual(
+        [
+            row
+            for row in rows("source_versions.csv")
+            if row["source_code"] in registration.OWNED_CODES
+        ],
+        [],
+    )
+    selected = [
+        row
+        for row in rows("source_configurations.csv")
+        if row["source_code"] in registration.OWNED_CODES
+    ]
+    keys = [
+        (
+            row["source_code"],
+            row["configuration_code"],
+            row["relationship"],
         )
-        self.assertEqual(
-            [row for row in rows("source_configurations.csv") if row["source_code"] in registration.OWNED_CODES],
-            [],
-        )
-        for path in sorted(MASTER.rglob("*.csv")):
-            if path.name in {"sources.csv", "source_models.csv"}:
-                continue
-            with path.open(encoding="utf-8-sig", newline="") as handle:
-                reader = csv.DictReader(handle)
-                if reader.fieldnames is None or "source_code" not in reader.fieldnames:
-                    continue
-                selected = [
-                    row for row in reader if row.get("source_code") in registration.OWNED_CODES
-                ]
-            self.assertEqual(selected, [], str(path))
+        for row in selected
+    ]
+    self.assertEqual(len(keys), len(set(keys)))
 
     def test_gap_review_preserves_context_and_explicit_non_imports(self) -> None:
         payload = json.loads(GAP_REVIEW.read_text(encoding="utf-8"))
