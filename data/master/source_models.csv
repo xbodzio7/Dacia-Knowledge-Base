@@ -28,3 +28,8 @@ id,source_code,model_code,relationship,notes
 27,src_pl_duster_exact_stock_equipment_20260724,duster_iii,exact_stock_equipment_for,Three official 2026 Eco-G 120 automatic exact-stock equipment cards.
 28,src_pl_duster_ecog120_automatic_wltp_20260725,duster_iii,automatic_wltp_data_for,"Exact Polish Expression, Extreme and Journey Eco-G 120 auto stock pages; LPG WLTP CO2 and source-stated fuel-tank capacity only."
 29,src_ro_duster_ecog120_automatic_homologation_20260725,duster_iii,automatic_homologation_data_for,"Exact 2026 Expression, Extreme and Journey ECO-G 120 auto 2WD stock pages; automatic-specific power, torque, performance, mass, towing and consumption evidence. Cargo volume remains an explicit non-import."
+30,src_pl_bigster_brochure_20251210,bigster,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
+31,src_pl_jogger_brochure_20251217,jogger,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
+32,src_pl_sandero_brochure_20260202,sandero_iii,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
+33,src_pl_sandero_stepway_brochure_20260202,sandero_stepway_iii,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
+34,src_pl_duster_mini_brochure_20251020,duster_iii,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.

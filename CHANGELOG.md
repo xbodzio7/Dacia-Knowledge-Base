@@ -35,6 +35,7 @@ All notable changes to this project will be documented in this file.
 * Expanded the three exact Duster Eco-G 120 automatic stock configurations with 203 new dated equipment observations, four source-priced package mappings and four separately dated selected-package states while preserving antenna and Expression mirror unknowns.
 * Added 60 automatic-specific Duster Eco-G 120 scalar technical observations and 18 closed ranges for power, torque, performance, WLTP, mass and towing, while retaining cargo volume and petrol CO2 as explicit unknowns.
 * Added six exact Duster Eco-G 120 automatic ISO 3832 cargo observations: 439 dm3 without a spare wheel and 1373 dm3 maximum capacity for Expression, Extreme and Journey; petrol CO2 remains unknown because the catalogue does not split 123 g/km by fuel.
+* Archived and registered five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochures with immutable SHA-256 identities, model-level relationships and a context-preserving technical gap review; no brochure observations were imported.
 * Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
 * Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
 * Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
@@ -262,9 +263,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 758 tests.
-* The verified master-data baseline now contains 41 CSV files and 8135 rows.
-* SQLite verification now covers 41 tables and 8135 rows.
+* The automated test suite now contains 765 tests.
+* The verified master-data baseline now contains 41 CSV files and 8145 rows.
+* SQLite verification now covers 41 tables and 8145 rows.
 * Configuration attribute values now contain 1831 dated records.
 * Declarative scalar configuration-value imports now contain 114 versioned JSON specifications.
 * Configuration value ranges now contain 176 dated records from 20 range specifications.

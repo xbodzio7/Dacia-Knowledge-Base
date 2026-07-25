@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
+  "phase": "Official Dacia Brochure Source Registration and Gap Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,9 +15,9 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 758,
+    "tests": 765,
     "csv_files": 41,
-    "rows": 8135,
+    "rows": 8145,
     "configuration_values": 1831,
     "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
+    "name": "Official Dacia Brochure Source Registration and Gap Review",
     "status": "complete",
-    "goal": "Import exact ISO 3832 luggage-volume evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey automatic configurations and preserve petrol CO2 as unknown because the official catalogue does not distinguish the 123 g/km value by fuel."
+    "goal": "Archive and register the five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs, verify their immutable identities and classify source-backed technical gaps without importing context-poor observations."
   },
   "next_package": {
-    "name": "Official Dacia Brochure Source Registration and Gap Review",
+    "name": "Brochure Cargo Measurement Context Modeling",
     "status": "planned",
-    "goal": "Register the five official Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs supplied by the project owner, verify their identities and classify source-backed technical gaps without flattening measurement-standard, seat-state or gearbox context."
+    "goal": "Define the smallest reusable representation for brochure cargo observations that preserves VDA or ordinary-litre measurement basis, seat state, passenger layout, drive type, spare-wheel or repair-kit state, double-floor state and separate underfloor compartments before any brochure cargo values are imported."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

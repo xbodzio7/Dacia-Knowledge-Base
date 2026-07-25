@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "kind": "official_dacia_brochure_source_receipt",
+  "retrieved_on": "2026-07-25",
+  "publisher": "Dacia",
+  "market": "PL",
+  "sources": [
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "title": "DACIA BIGSTER broszura",
+      "document_date": "2025-12-10",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+      "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+      "pages": 24,
+      "publication_marker": "10.12.2025",
+      "model_code": "bigster",
+      "bytes": 10359318,
+      "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74"
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "title": "DACIA JOGGER broszura",
+      "document_date": "2025-12-17",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf.asset.pdf/6b1235f90d.pdf",
+      "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+      "pages": 23,
+      "publication_marker": "17.12.2025",
+      "model_code": "jogger",
+      "bytes": 3636538,
+      "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6"
+    },
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "title": "DACIA SANDERO broszura",
+      "document_date": "2026-02-02",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+      "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+      "pages": 21,
+      "publication_marker": "02.02.2026",
+      "model_code": "sandero_iii",
+      "bytes": 8358370,
+      "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97"
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "title": "DACIA SANDERO STEPWAY broszura",
+      "document_date": "2026-02-02",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+      "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+      "pages": 21,
+      "publication_marker": "02.02.2026",
+      "model_code": "sandero_stepway_iii",
+      "bytes": 8541016,
+      "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "title": "DACIA DUSTER mini broszura",
+      "document_date": "2025-10-20",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf",
+      "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+      "pages": 25,
+      "publication_marker": "20.10.2025",
+      "model_code": "duster_iii",
+      "bytes": 9712859,
+      "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "kind": "official_dacia_brochure_gap_review",
+  "reviewed_on": "2026-07-25",
+  "source_codes": [
+    "src_pl_bigster_brochure_20251210",
+    "src_pl_jogger_brochure_20251217",
+    "src_pl_sandero_brochure_20260202",
+    "src_pl_sandero_stepway_brochure_20260202",
+    "src_pl_duster_mini_brochure_20251020"
+  ],
+  "policy": {
+    "registration_does_not_import_observations": true,
+    "missing_source_statements_are_not_negative_values": true,
+    "context_must_not_be_flattened": [
+      "measurement_standard",
+      "seat_state",
+      "passenger_layout",
+      "gear_number",
+      "fuel_type",
+      "drive_type",
+      "spare_wheel_or_repair_kit",
+      "double_floor",
+      "cargo_compartment"
+    ]
+  },
+  "classifications": {
+    "duplicate_existing": [
+      {
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "model_code": "bigster",
+        "candidate_scope": "ordinary scalar engine, performance, WLTP, mass and dimension table values",
+        "existing_evidence": "src_pl_bigster_price_my26_20260703",
+        "decision": "do_not_duplicate_without_an_exact_source-level_difference"
+      },
+      {
+        "source_code": "src_pl_jogger_brochure_20251217",
+        "model_code": "jogger",
+        "candidate_scope": "ordinary scalar powertrain and dimension table values",
+        "existing_evidence": "src_pl_jogger_price_my26_20260703 and existing controlled Jogger imports",
+        "decision": "do_not_duplicate_without_an_exact_source-level_difference"
+      },
+      {
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "model_code": "sandero_iii",
+        "candidate_scope": "ordinary scalar engine, mass, towing and dimension values",
+        "existing_evidence": "configuration PDFs and src_pl_sandero_stepway_price_my26_20260703",
+        "decision": "do_not_duplicate_without_an_exact_source-level_difference"
+      },
+      {
+        "source_code": "src_pl_sandero_stepway_brochure_20260202",
+        "model_code": "sandero_stepway_iii",
+        "candidate_scope": "ordinary scalar engine, mass, towing and dimension values",
+        "existing_evidence": "configuration PDFs and src_pl_sandero_stepway_price_my26_20260703",
+        "decision": "do_not_duplicate_without_an_exact_source-level_difference"
+      },
+      {
+        "source_code": "src_pl_duster_mini_brochure_20251020",
+        "model_code": "duster_iii",
+        "candidate_scope": "manual-powertrain scalar technical and equipment values",
+        "existing_evidence": "registered Duster price lists and configuration-specific sources",
+        "decision": "do_not_duplicate_without_an_exact_source-level_difference"
+      }
+    ],
+    "deferred_context_model": [
+      {
+        "id": "sandero_gear_specific_elasticity_and_cargo",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "pdf_pages": [17, 20],
+        "candidate_facts": [
+          "80-120 km/h elasticity separated by fourth and fifth gear and by fuel",
+          "minimum and maximum cargo capacity expressed as VDA and ordinary litres",
+          "underfloor compartment capacity"
+        ],
+        "required_context": [
+          "gear_number",
+          "fuel_type",
+          "measurement_standard",
+          "seat_state",
+          "cargo_compartment"
+        ],
+        "decision": "defer_until_context_model_exists"
+      },
+      {
+        "id": "sandero_stepway_gear_specific_elasticity_and_cargo",
+        "source_code": "src_pl_sandero_stepway_brochure_20260202",
+        "pdf_pages": [17, 20],
+        "candidate_facts": [
+          "80-120 km/h elasticity separated by fourth, fifth or sixth gear and by fuel",
+          "minimum and maximum cargo capacity expressed as VDA and ordinary litres",
+          "underfloor compartment capacity"
+        ],
+        "required_context": [
+          "gear_number",
+          "fuel_type",
+          "measurement_standard",
+          "seat_state",
+          "cargo_compartment"
+        ],
+        "decision": "defer_until_context_model_exists"
+      },
+      {
+        "id": "jogger_seat_layout_cargo_and_elasticity",
+        "source_code": "src_pl_jogger_brochure_20251217",
+        "pdf_pages": [19, 22],
+        "candidate_facts": [
+          "performance values that distinguish five-seat and seven-seat variants",
+          "80-120 km/h elasticity with gear and powertrain context",
+          "cargo capacity for second-row and third-row folded, raised or removed states",
+          "cargo capacity expressed as VDA and ordinary litres"
+        ],
+        "required_context": [
+          "passenger_layout",
+          "seat_state",
+          "gear_number",
+          "fuel_type",
+          "measurement_standard"
+        ],
+        "decision": "defer_until_context_model_exists"
+      },
+      {
+        "id": "bigster_cargo_equipment_and_measurement_basis",
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "pdf_pages": [20, 23],
+        "candidate_facts": [
+          "cargo capacity with repair kit or spare wheel",
+          "cargo capacity with or without double floor",
+          "cargo capacity before and after rear-bench folding",
+          "cargo capacity expressed as VDA and ordinary litres"
+        ],
+        "required_context": [
+          "spare_wheel_or_repair_kit",
+          "double_floor",
+          "seat_state",
+          "measurement_standard"
+        ],
+        "decision": "defer_until_context_model_exists"
+      },
+      {
+        "id": "duster_drive_and_cargo_equipment_context",
+        "source_code": "src_pl_duster_mini_brochure_20251020",
+        "pdf_pages": [20, 24],
+        "candidate_facts": [
+          "cargo capacity separated by 4x2 and 4x4",
+          "cargo capacity with repair kit or spare wheel",
+          "cargo capacity before and after rear-seat folding",
+          "cargo capacity expressed as VDA and ordinary litres"
+        ],
+        "required_context": [
+          "drive_type",
+          "spare_wheel_or_repair_kit",
+          "seat_state",
+          "measurement_standard"
+        ],
+        "decision": "defer_until_context_model_exists"
+      }
+    ],
+    "explicit_non_import": [
+      {
+        "id": "sandero_country_placeholder_efficiency",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "reason": "The brochure contains country-adjustment placeholder wording for consumption or CO2 rather than a stable Polish configuration observation.",
+        "forbidden_projection": "Do not create a numeric fuel-consumption or CO2 observation from a placeholder."
+      },
+      {
+        "id": "duster_manual_to_automatic_projection",
+        "source_code": "src_pl_duster_mini_brochure_20251020",
+        "reason": "The Eco-G 120 technical table identifies the manual powertrain, while the current exact Duster gap work concerns automatic configurations.",
+        "forbidden_projection": "Do not inherit manual brochure values into Duster Eco-G 120 automatic configurations."
+      }
+    ]
+  },
+  "summary": {
+    "registered_sources": 5,
+    "duplicate_existing_groups": 5,
+    "deferred_context_groups": 5,
+    "explicit_non_imports": 2,
+    "master_observations_imported": 0,
+    "recommended_next_package": "Brochure Cargo Measurement Context Modeling"
+  }
+}

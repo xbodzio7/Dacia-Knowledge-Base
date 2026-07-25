@@ -250,15 +250,15 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
         )
         self.assertEqual(
             state["phase"],
-            "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
+            "Official Dacia Brochure Source Registration and Gap Review",
         )
-        self.assertEqual(state["baseline"]["tests"], 758)
-        self.assertEqual(state["baseline"]["rows"], 8135)
+        self.assertEqual(state["baseline"]["tests"], 765)
+        self.assertEqual(state["baseline"]["rows"], 8145)
         self.assertEqual(state["baseline"]["configuration_values"], 1831)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)
         self.assertEqual(
             state["current_package"]["name"],
-            "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
+            "Official Dacia Brochure Source Registration and Gap Review",
         )
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertIn("Brochure", state["next_package"]["name"])

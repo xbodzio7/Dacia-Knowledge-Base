@@ -108,6 +108,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - dokładne wyposażenie trzech automatów Duster Eco-G 120 z 203 nowymi obserwacjami, czterema źródłowo wycenionymi pakietami i odrębnymi stanami pakietów wybranych w konkretnych egzemplarzach,
 - automatyczne dane homologacyjne Duster Eco-G 120: 60 wartości skalarnych i 18 przedziałów mocy, momentu, osiągów, WLTP, mas oraz holowania, bez dziedziczenia niepotwierdzonego bagażnika,
 - sześć katalogowych obserwacji bagażnika ISO 3832 dla Duster Eco-G 120 automatic: 439 dm3 bez koła zapasowego i 1373 dm3 maksymalnej pojemności dla Expression, Extreme i Journey, z zachowaniem benzynowego CO2 jako niewiadomego,
+- pięć zarchiwizowanych oficjalnych broszur Bigster, Jogger, Sandero, Sandero Stepway i Duster z przypiętymi SHA-256, modelowymi relacjami źródłowymi oraz audytem luk zachowującym kontekst standardu pomiaru, siedzeń, biegu i wyposażenia bagażnika,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
@@ -120,7 +121,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 758 testów automatycznych,
+- 765 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
