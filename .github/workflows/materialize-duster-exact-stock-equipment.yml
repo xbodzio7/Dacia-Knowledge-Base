@@ -82,10 +82,22 @@ jobs:
 
       - name: Run full test discovery
         run: |
+          set +e
           python -m unittest discover \
             -s tests \
             -p "test_*.py" \
-            -q
+            -q > "${RUNNER_TEMP}/discovery.log" 2>&1
+          status=$?
+          cat "${RUNNER_TEMP}/discovery.log"
+          if [ "$status" -ne 0 ]; then
+            tail -n 160 "${RUNNER_TEMP}/discovery.log" > .github/duster-discovery-error.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/duster-discovery-error.log
+            git commit -m "diagnostic: capture Duster discovery failure"
+            git push origin HEAD:${{ github.head_ref }}
+            exit "$status"
+          fi
 
       - name: Run full quality gate
         run: |
