@@ -1,0 +1,160 @@
+Staged paths: 1
+
+===== COMMIT =====
+Commit: ad8f8d38810c3d33f09ebba98df04a49d4ad301b
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
+HEAD   : ad8f8d38810c3d33f09ebba98df04a49d4ad301b
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+ad8f8d3 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-dh6r3hu7/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: ad8f8d38810c3d33f09ebba98df04a49d4ad301b
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
+HEAD   : ad8f8d38810c3d33f09ebba98df04a49d4ad301b
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+ad8f8d3 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-dh6r3hu7/output/handoff.json
+PASS
+
+==> Broken
+ERROR: SQLite database does not exist: /tmp/tmpj8vgsflv/missing.sqlite
+======================================================================
+FAIL: test_overview_matches_bundle_summary (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_overview_matches_bundle_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 166, in test_overview_matches_bundle_summary
+    self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '2026-07-25' != '2026-07-03'
+- 2026-07-25
+?         ^^
++ 2026-07-03
+?         ^^
+
+
+======================================================================
+FAIL: test_sheet_dimensions_filters_and_frozen_headers (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_sheet_dimensions_filters_and_frozen_headers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 141, in test_sheet_dimensions_filters_and_frozen_headers
+    self.assertEqual(dimension.attrib["ref"], expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'A1:M302' != 'A1:M296'
+- A1:M302
+?     --
++ A1:M296
+?      ++
+
+
+======================================================================
+FAIL: test_state_exposes_updated_range_denominators (test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_state_exposes_updated_range_denominators)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_payload_performance_ranges.py", line 139, in test_state_exposes_updated_range_denominators
+    self.assertEqual(baseline["tests"], 735)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 743 != 735
+
+======================================================================
+FAIL: test_state_exposes_scalar_and_range_denominators (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_state_exposes_scalar_and_range_denominators)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_wltp_efficiency_ranges.py", line 193, in test_state_exposes_scalar_and_range_denominators
+    self.assertEqual(baseline["tests"], 735)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 743 != 735
+
+----------------------------------------------------------------------
+Ran 743 tests in 20.340s
+
+FAILED (failures=4)
+Building SQLite database: /tmp/tmplsao44fh/test.sqlite
+Source directory: /tmp/tmplsao44fh/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmplsao44fh/test.sqlite
+Building SQLite database: /tmp/tmp8u1p0d9z/test.sqlite
+Source directory: /tmp/tmp8u1p0d9z/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp8u1p0d9z/test.sqlite
+Building SQLite database: /tmp/tmpjyoyq2d8/test.sqlite
+Source directory: /tmp/tmpjyoyq2d8/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpjyoyq2d8/test.sqlite
+Building SQLite database: /tmp/tmp3lv_sxg9/test.sqlite
+Source directory: /tmp/tmp3lv_sxg9/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp3lv_sxg9/test.sqlite
+Building SQLite database: /tmp/tmpwf4etoi0/test.sqlite
+Source directory: /tmp/tmpwf4etoi0/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpwf4etoi0/test.sqlite
+Building SQLite database: /tmp/tmp5af9hv8w/test.sqlite
+Source directory: /tmp/tmp5af9hv8w/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp5af9hv8w/test.sqlite
