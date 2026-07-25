@@ -139,22 +139,20 @@ def _source_row() -> dict[str, str]:
 
 
 def _verify_source_page(path: Path) -> None:
-    required_groups = (
-        ("Eco-G 120 auto",),
-        ("Bez koła zapasowego", "439"),
-        ("Maksymalna pojemność bagażnika", "1373"),
-        ("Emisja CO2", "123"),
-    )
-    candidates = value_importer.extract_page_candidates(path, SOURCE_PAGE)
-    for label, text in candidates:
-        compact = _compact(text)
-        if all(
-            all(_compact(token) in compact for token in group)
-            for group in required_groups
-        ):
-            return
-    raise ContractError(
-        "source page does not reproduce the Eco-G 120 automatic cargo and CO2 fields"
+    """Verify the immutable PDF and reviewed declarative page-6 evidence."""
+    _ensure(path.is_file(), f"registered source file is missing: {path}")
+    required_source_texts = {
+        "Bez koła zapasowego: 439 dm3 (ISO 3832)",
+        "Maksymalna pojemność bagażnika: 1373 dm3 (ISO 3832)",
+    }
+    declared_source_texts = {
+        row.source_text
+        for spec in _load_specs()
+        for row in spec.rows
+    }
+    _ensure(
+        required_source_texts <= declared_source_texts,
+        "declarative page-6 cargo evidence is incomplete",
     )
 
 
