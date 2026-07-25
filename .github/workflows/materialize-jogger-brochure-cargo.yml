@@ -14,6 +14,7 @@ on:
       - tools/import_jogger_brochure_cargo_20260726.py
       - tools/complete_jogger_brochure_cargo_20260726.py
       - tools/patch_jogger_cargo_reporting_20260726.py
+      - tools/patch_completeness_optional_context_key_20260726.py
       - tests/test_jogger_brochure_cargo_20260726.py
 
 permissions:
@@ -41,6 +42,9 @@ jobs:
           status=0
 
           python tools/patch_jogger_cargo_reporting_20260726.py >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/patch_completeness_optional_context_key_20260726.py >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/complete_jogger_brochure_cargo_20260726.py --apply >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
           fi
