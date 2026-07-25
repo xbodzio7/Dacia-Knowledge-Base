@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 import configuration_comparison as core
+from reporting.cargo_context import technical_context
 
 
 def comparison_filter_context(
@@ -24,7 +25,11 @@ def comparison_filter_context(
             f"currency_code={item['currency_code']}"
         )
     if domain == "technical":
-        return f"fuel_type_code={item['fuel_type_code']}"
+        cargo_context = item.get("cargo_context")
+        return technical_context(
+            str(item.get("fuel_type_code", "")),
+            cargo_context if isinstance(cargo_context, Mapping) else None,
+        )
     return ""
 
 

@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Cargo Context Schema Foundation**
+**Brochure Cargo Context Reporting Foundation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 776
+- Tests: 784
 - Master CSV files: 46
 - Master rows: 8156
 - Configuration values: 1831
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Cargo Context Schema Foundation** — `complete`
+**Brochure Cargo Context Reporting Foundation** — `complete`
 
-Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values.
+Make comparison, shortlist and export reporting expose exact cargo-context fields and preserve every context-distinct boot_capacity observation without importing official brochure values.
 
 ## Next package
 
-**Brochure Cargo Context Reporting Foundation** — `planned`
+**Official Brochure Cargo Value Import** — `planned`
 
-Make comparison, shortlist and export reporting expose cargo-context fields and preserve every context-distinct boot_capacity observation before any official brochure cargo values are imported.
+Import source-backed canonical boot_capacity observations from the registered official brochures with exact cargo context and no migration or inference from legacy cargo attributes.
 
 ## Autonomy
 

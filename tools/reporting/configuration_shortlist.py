@@ -10,6 +10,14 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from reporting.cargo_context import (
+    CARGO_ATTRIBUTE_CODE,
+    CargoContextError,
+    annotate_scalar_values,
+    cargo_observations,
+    read_context_rows,
+)
+
 REPORT_VERSION = 1
 PRICE_MARKET = "PL"
 PRICE_TYPE = "catalog_gross"
@@ -262,6 +270,13 @@ def collect_report(
     configuration_rows = read_csv(master / "configurations.csv")
     price_rows = read_csv(master / "configuration_prices.csv")
     value_rows = read_csv(master / "configuration_attribute_values.csv")
+    try:
+        value_rows = annotate_scalar_values(
+            value_rows,
+            read_context_rows(master, read_csv),
+        )
+    except CargoContextError as exc:
+        raise ShortlistError(str(exc)) from exc
     availability_rows = read_csv(
         master / "configuration_attribute_availability.csv"
     )
@@ -302,6 +317,12 @@ def collect_report(
         and row.get("attribute_code") == "number_of_seats"
         and row.get("fuel_type_code", "") == ""
     ]
+    scoped_cargo_values = [
+        row
+        for row in value_rows
+        if row.get("configuration_code") in configuration_codes
+        and row.get("attribute_code") == CARGO_ATTRIBUTE_CODE
+    ]
     scoped_availability = [
         row
         for row in availability_rows
@@ -323,6 +344,17 @@ def collect_report(
     seats = _latest(
         scoped_values,
         ("configuration_code",),
+        "observation_date",
+        as_of,
+    )
+    cargo_values = _latest(
+        scoped_cargo_values,
+        (
+            "configuration_code",
+            "attribute_code",
+            "fuel_type_code",
+            "_cargo_context_signature",
+        ),
         "observation_date",
         as_of,
     )
@@ -457,6 +489,13 @@ def collect_report(
                 ),
                 "catalog_price": price,
                 "number_of_seats": seat,
+                "cargo_volumes": cargo_observations(
+                    [
+                        row
+                        for key, row in cargo_values.items()
+                        if key[0] == configuration_code
+                    ]
+                ),
                 "required_equipment": equipment_states,
             }
         )
@@ -624,6 +663,37 @@ def render_markdown(report: Mapping[str, Any]) -> str:
         )
     if not report["results"]:
         lines.append("| — | — | — | — | — | — | — | No matches |")
+
+    cargo_rows = [
+        (item["configuration_code"], observation)
+        for item in report["results"]
+        for observation in item.get("cargo_volumes", [])
+    ]
+    if cargo_rows:
+        lines.extend(
+            [
+                "",
+                "## Context-aware cargo observations",
+                "",
+                "| Configuration | Value | Context | Source | Date |",
+                "| --- | ---: | --- | --- | --- |",
+            ]
+        )
+        for configuration_code, observation in cargo_rows:
+            lines.append(
+                "| "
+                + " | ".join(
+                    _markdown(value)
+                    for value in (
+                        f"`{configuration_code}`",
+                        f"{observation['value']} L",
+                        observation["context"],
+                        observation["source_code"],
+                        observation["observation_date"],
+                    )
+                )
+                + " |"
+            )
     return "\n".join(lines) + "\n"
 
 
@@ -641,6 +711,7 @@ CSV_FIELDS = (
     "number_of_seats",
     "seats_observation_date",
     "seats_source_code",
+    "cargo_volumes_json",
     "required_equipment_states",
     "required_equipment_sources",
 )
@@ -677,6 +748,12 @@ def csv_rows(report: Mapping[str, Any]) -> list[dict[str, str]]:
                     seats.get("observation_date", "")
                 ),
                 "seats_source_code": str(seats.get("source_code", "")),
+                "cargo_volumes_json": json.dumps(
+                    item.get("cargo_volumes", []),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                ),
                 "required_equipment_states": ";".join(
                     f"{entry['attribute_code']}="
                     f"{entry.get('availability_status', entry['state'])}"

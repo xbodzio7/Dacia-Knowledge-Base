@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "kind": "brochure_cargo_context_reporting_foundation",
+  "implemented_on": "2026-07-25",
+  "decision": "D-023",
+  "canonical_attribute_code": "boot_capacity",
+  "context_relation": "data/master/configuration_cargo_volume_contexts.csv",
+  "context_dimensions": [
+    "measurement_basis_code",
+    "second_row_state_code",
+    "third_row_state_code",
+    "compartment_code",
+    "spare_wheel_state_code",
+    "tyre_repair_kit_state_code",
+    "double_floor_state_code"
+  ],
+  "reporting_surfaces": [
+    "configuration_comparison_json",
+    "configuration_comparison_markdown",
+    "configuration_comparison_csv",
+    "configuration_comparison_html",
+    "configuration_comparison_item_catalog",
+    "configuration_comparison_context_filter",
+    "configuration_comparison_workbook",
+    "configuration_shortlist_json",
+    "configuration_shortlist_markdown",
+    "configuration_shortlist_csv",
+    "configuration_shortlist_html",
+    "interactive_selection_json"
+  ],
+  "semantic_rules": [
+    "context_signature_is_part_of_scalar_observation_identity",
+    "context_distinct_boot_capacity_values_are_never_collapsed",
+    "missing_matching_context_is_not_comparable",
+    "blank_optional_dimension_remains_not_stated_not_absent",
+    "legacy_contextless_outputs_remain_compatible"
+  ],
+  "configuration_values_imported": 0,
+  "cargo_context_rows_imported": 0,
+  "next_package": "Official Brochure Cargo Value Import"
+}

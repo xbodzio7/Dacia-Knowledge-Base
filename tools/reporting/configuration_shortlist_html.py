@@ -6,6 +6,14 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from reporting import configuration_shortlist as core
+from reporting.cargo_context import (
+    CARGO_ATTRIBUTE_CODE,
+    CargoContextError,
+    annotate_scalar_values,
+    read_context_rows,
+    semantic_signature,
+    technical_context,
+)
 from reporting.commercial_offers import collect_commercial_components
 
 HTML_REPORT_VERSION = 1
@@ -125,8 +133,17 @@ def _enum_labels(master: Path) -> dict[str, dict[str, str]]:
     return result
 
 
-def _comparison_key(attribute_code: str, fuel_type_code: str) -> str:
-    return f"{attribute_code}::{fuel_type_code or 'all'}"
+def _comparison_key(
+    attribute_code: str,
+    fuel_type_code: str,
+    cargo_context_signature: str = "",
+) -> str:
+    base = f"{attribute_code}::{fuel_type_code or 'all'}"
+    return (
+        base
+        if not cargo_context_signature
+        else f"{base}::cargo::{cargo_context_signature}"
+    )
 
 
 def _unit_label(unit: str) -> str:
@@ -166,8 +183,15 @@ def _technical_value_state(
     unit = _unit_label(attribute.get("unit", ""))
     value = _scalar_display(row.get("value", ""), attribute, enum_labels)
     display_value = f"{value} {unit}".strip()
+    cargo_context = row.get("_cargo_context")
+    context_payload = (
+        dict(cargo_context)
+        if isinstance(cargo_context, Mapping)
+        else None
+    )
+    signature = str(row.get("_cargo_context_signature", ""))
     return {
-        "key": _comparison_key(attribute_code, fuel_type_code),
+        "key": _comparison_key(attribute_code, fuel_type_code, signature),
         "attribute_code": attribute_code,
         "label": labels.get(attribute_code, attribute.get("name", attribute_code)),
         "category": attribute.get("category", "Pozostałe"),
@@ -175,6 +199,14 @@ def _technical_value_state(
         "unit": unit,
         "fuel_type_code": fuel_type_code,
         "fuel_type_label": _FUEL_LABELS_PL.get(fuel_type_code, fuel_type_code),
+        "cargo_context": context_payload,
+        "cargo_context_signature": signature,
+        "cargo_context_label": (
+            semantic_signature(context_payload)
+            if context_payload is not None
+            else ""
+        ),
+        "context": technical_context(fuel_type_code, context_payload),
         "kind": "value",
         "value": row.get("value", ""),
         "display_value": display_value,
@@ -253,6 +285,13 @@ def collect_browser_catalog(
         row for row in core.read_csv(master / "configuration_attribute_values.csv")
         if row.get("configuration_code") in configuration_codes
     ]
+    try:
+        value_rows = annotate_scalar_values(
+            value_rows,
+            read_context_rows(master, core.read_csv),
+        )
+    except CargoContextError as exc:
+        raise core.ShortlistError(str(exc)) from exc
     range_path = master / "configuration_attribute_value_ranges.csv"
     range_rows = [
         row for row in core.read_csv(range_path)
@@ -283,7 +322,12 @@ def collect_browser_catalog(
     )
     latest_values = core._latest(
         value_rows,
-        ("configuration_code", "attribute_code", "fuel_type_code"),
+        (
+            "configuration_code",
+            "attribute_code",
+            "fuel_type_code",
+            "_cargo_context_signature",
+        ),
         "observation_date",
         as_of,
     )
@@ -297,13 +341,14 @@ def collect_browser_catalog(
 
     value_index: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
     comparison_facets: dict[str, dict[str, Any]] = {}
-    for (configuration_code, attribute_code, _), row in latest_values.items():
+    for (configuration_code, attribute_code, _, _), row in latest_values.items():
         attribute = attributes.get(attribute_code, {"code": attribute_code, "name": attribute_code})
         state = _technical_value_state(row, attribute, labels, enum_labels)
         value_index[configuration_code][state["key"]] = state
         comparison_facets[state["key"]] = {key: state[key] for key in (
             "key", "attribute_code", "label", "category", "data_type", "unit",
-            "fuel_type_code", "fuel_type_label",
+            "fuel_type_code", "fuel_type_label", "cargo_context",
+            "cargo_context_signature", "cargo_context_label", "context",
         )}
     for (configuration_code, attribute_code, _), row in latest_ranges.items():
         attribute = attributes.get(attribute_code, {"code": attribute_code, "name": attribute_code})
@@ -363,6 +408,18 @@ def collect_browser_catalog(
                 "catalog_price": core._price_state(prices.get((code,))),
                 "number_of_seats": core._seat_state(seats.get((code,))),
                 "comparison_values": value_index.get(code, {}),
+                "cargo_volumes": sorted(
+                    [
+                        state
+                        for state in value_index.get(code, {}).values()
+                        if state.get("attribute_code") == CARGO_ATTRIBUTE_CODE
+                    ],
+                    key=lambda state: (
+                        state.get("cargo_context_signature", ""),
+                        state.get("observation_date", ""),
+                        state.get("key", ""),
+                    ),
+                ),
                 "equipment": equipment,
                 "price_components": commercial_components.get(code, []),
             }

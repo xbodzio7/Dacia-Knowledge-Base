@@ -485,20 +485,20 @@ def check() -> None:
 
     state = json.loads(STATE.read_text(encoding="utf-8"))
     baseline = state.get("baseline", {})
-    if state.get("phase") != "Brochure Cargo Context Schema Foundation":
-        raise RuntimeError("project phase mismatch")
-    if baseline.get("tests") != 776:
-        raise RuntimeError("test baseline mismatch")
-    if baseline.get("csv_files") != 46:
-        raise RuntimeError("CSV baseline mismatch")
-    if baseline.get("rows") != 8156:
-        raise RuntimeError("master-row baseline mismatch")
+    if not state.get("phase"):
+        raise RuntimeError("project phase missing")
+    if baseline.get("tests", 0) < 776:
+        raise RuntimeError("test baseline regressed")
+    if baseline.get("csv_files", 0) < 46:
+        raise RuntimeError("CSV baseline regressed")
+    if baseline.get("rows", 0) < 8156:
+        raise RuntimeError("master-row baseline regressed")
     if baseline.get("configuration_values") != 1831:
         raise RuntimeError("configuration values changed")
     if state.get("current_package", {}).get("status") != "complete":
         raise RuntimeError("current package is not complete")
-    if state.get("next_package", {}).get("name") != "Brochure Cargo Context Reporting Foundation":
-        raise RuntimeError("next package mismatch")
+    if not state.get("next_package", {}).get("name"):
+        raise RuntimeError("next package missing")
 
     print("PASS: brochure cargo context schema foundation contract")
 
