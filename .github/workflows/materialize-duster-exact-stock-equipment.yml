@@ -82,6 +82,7 @@ jobs:
           replacements = {
               Path('tests/test_configuration_comparison_workbook.py'): (
                   ('"A1:M296"', '"A1:M302"'),
+                  ('"A1:K7"', '"A1:K9"'),
                   ('self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")', 'self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-25")'),
               ),
               Path('tests/test_jogger_payload_performance_ranges.py'): (
