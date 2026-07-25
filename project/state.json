@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-24",
+  "updated_on": "2026-07-25",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Eco-G 120 Automatic Stock Intake",
+  "phase": "Duster Exact Stock Equipment Expansion",
   "reference_delivery": {
     "name": "Official Configurator Cross-Model Option Coverage Import",
     "pull_request": 241,
@@ -15,26 +15,26 @@
     "quality_run": 1295
   },
   "baseline": {
-    "tests": 735,
+    "tests": 743,
     "csv_files": 41,
-    "rows": 7813,
+    "rows": 8032,
     "configuration_values": 1765,
     "configuration_import_specs": 112,
     "configuration_value_ranges": 158,
     "configuration_range_import_specs": 20,
-    "availability_records": 4551,
+    "availability_records": 4754,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Eco-G 120 Automatic Stock Intake",
+    "name": "Duster Exact Stock Equipment Expansion",
     "status": "complete",
-    "goal": "Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices, directly proven folding-mirror states, three intrinsic engine values and an independent source-scoped comparison contract."
+    "goal": "Expand the exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with source-backed basic/configured equipment and separately preserved optional-price and selected-package evidence."
   },
   "next_package": {
-    "name": "Duster Exact Stock Equipment Expansion",
+    "name": "Duster Eco-G 120 Automatic Homologation Evidence Review",
     "status": "planned",
-    "goal": "Expand exact Duster stock-card equipment and package evidence across the newly registered automatic configurations while preserving conflicts, expired-card provenance and unknown antenna states."
+    "goal": "Locate and classify automatic-specific towing, cargo, WLTP, performance and mass evidence without inheriting manual homologation values or weakening current unknown states."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

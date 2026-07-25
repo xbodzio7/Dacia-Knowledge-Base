@@ -1,0 +1,1346 @@
+{
+  "cards": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "equipment": [
+        {
+          "attribute_code": "anti_lock_braking_system",
+          "availability_status": "standard",
+          "source_label": "ABS z układem wspomagania nagłego hamowania (AFU)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "onboard_computer",
+          "availability_status": "standard",
+          "source_label": "Komputer pokładowy z informacją o temperaturze zewnętrznej, licznikiem kilometrów, zużyciem paliwa, średnią prędkością i zasięgiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa kierowcy",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "passenger_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa pasażera z możliwością dezaktywacji",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_side_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne boczne z przodu chroniące głowę i klatkę piersiową",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "curtain_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne kurtynowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "electronic_stability_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "hill_start_assist",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traction_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli trakcji (TCS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "one_touch_windows",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie i tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_parking_sensors",
+          "availability_status": "standard",
+          "source_label": "Czujniki parkowania z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "emergency_call_ecall",
+          "availability_status": "standard",
+          "source_label": "eCall - połączenie alarmowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "remote_firmware_updates",
+          "availability_status": "standard",
+          "source_label": "FOTA (Firmware Over-The-Air)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_usb_c_ports",
+          "availability_status": "standard",
+          "source_label": "Gniazda USB-C 2x z tyłu w konsoli centralnej dla pasażerów drugiego rzędu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_view_camera",
+          "availability_status": "standard",
+          "source_label": "Kamera cofania",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_leather_steering_wheel",
+          "availability_status": "standard",
+          "source_label": "Kierownica pokryta skórą ekologiczną",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_reach_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_centre_armrest",
+          "availability_status": "standard",
+          "source_label": "Konsola centralna z podłokietnikiem i schowkiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_folding",
+          "availability_status": "standard",
+          "source_label": "Oparcie tylnej kanapy składane 1/3 i 2/3",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "connected_services",
+          "availability_status": "standard",
+          "source_label": "Pakiet usług zdalnych na 8 lat: znajdź mój pojazd",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_belt_height_adjustment",
+          "availability_status": "not_available",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_three_point_seat_belts",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa z tyłu trzy, 3-punktowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "my_safety_button",
+          "availability_status": "standard",
+          "source_label": "Przycisk My Safety umożliwiający łatwe włączenie/wyłączanie wybranych systemów wspomagających kierowcę",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "speed_limiter",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "cruise_control",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rescue_code",
+          "availability_status": "standard",
+          "source_label": "Rescue Code - kod QR na przedniej i tylnej szybie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "seat_belt_reminder",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja dźwiękowa i wizualna niezapięcia pasów bezpieczeństwa",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "door_open_warning",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja niezamknięcia drzwi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "tyre_pressure_monitoring_system",
+          "availability_status": "standard",
+          "source_label": "System kontroli ciśnienia w oponach, pośredni",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_departure_warning",
+          "availability_status": "standard",
+          "source_label": "System kontroli pasa ruchu (LDWS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_attention_monitoring",
+          "availability_status": "standard",
+          "source_label": "System kontroli zmęczenia kierowcy (DDAW)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traffic_sign_recognition",
+          "availability_status": "standard",
+          "source_label": "System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości (ISA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_keep_assist",
+          "availability_status": "standard",
+          "source_label": "System utrzymania pasa ruchu (LKA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_emergency_braking",
+          "availability_status": "standard",
+          "source_label": "System wspomagania nagłego hamowania, aktywny, z funkcją wykrywania pieszych i rowerzystów (AEBS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_daytime_running_lights",
+          "availability_status": "standard",
+          "source_label": "Światła do jazdy dziennej LED w kształcie litery Y",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania LED",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rain_sensing_wipers",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_mode",
+          "availability_status": "standard",
+          "source_label": "Tryb ECO",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "isofix_rear",
+          "availability_status": "standard",
+          "source_label": "Uchwyty ISOFIX do instalacji fotelika dziecięcego z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "gear_shift_indicator",
+          "availability_status": "standard",
+          "source_label": "Wskaźnik zmiany biegów",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "instrument_cluster_colour_7",
+          "availability_status": "standard",
+          "source_label": "Wyświetlacz zespołu wskaźników 7'' cyfrowy, kolorowy, konfigurowalny",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "central_locking",
+          "availability_status": "standard",
+          "source_label": "Zamek centralny, zdalnie sterowany falami radiowymi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "manual_air_conditioning",
+          "availability_status": "standard",
+          "source_label": "Klimatyzacja manualna",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_electric_adjustment",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane elektrycznie i ogrzewane",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_heated",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane elektrycznie i ogrzewane",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "media_display_system",
+          "availability_status": "standard",
+          "source_label": "System Media Display z ekranem dotykowym 10'', radiem, replikacją smartfona, Bluetooth, 4 głośnikami i pakietem usług zdalnych",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "roof_rails",
+          "availability_status": "standard",
+          "source_label": "Relingi dachowe czarne",
+          "source_section": "Wyposażenie podstawowe"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "side_mirrors_folding",
+          "reason": "Conflicting official Expression descriptions remain unresolved."
+        },
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "The exact card does not state the factory antenna type."
+        }
+      ],
+      "selected_packages": [],
+      "stock_id": "121553",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121553",
+      "version_code": "duster_iii_expression"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "equipment": [
+        {
+          "attribute_code": "anti_lock_braking_system",
+          "availability_status": "standard",
+          "source_label": "ABS z układem wspomagania nagłego hamowania (AFU)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "onboard_computer",
+          "availability_status": "standard",
+          "source_label": "Komputer pokładowy z informacją o temperaturze zewnętrznej, licznikiem kilometrów, zużyciem paliwa, średnią prędkością i zasięgiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa kierowcy",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "passenger_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa pasażera z możliwością dezaktywacji",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_side_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne boczne z przodu chroniące głowę i klatkę piersiową",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "curtain_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne kurtynowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "electronic_stability_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "hill_start_assist",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traction_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli trakcji (TCS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "one_touch_windows",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie i tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_parking_sensors",
+          "availability_status": "standard",
+          "source_label": "Czujniki parkowania z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "emergency_call_ecall",
+          "availability_status": "standard",
+          "source_label": "eCall - połączenie alarmowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "remote_firmware_updates",
+          "availability_status": "standard",
+          "source_label": "FOTA (Firmware Over-The-Air)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_usb_c_ports",
+          "availability_status": "standard",
+          "source_label": "Gniazda USB-C 2x z tyłu w konsoli centralnej dla pasażerów drugiego rzędu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_view_camera",
+          "availability_status": "standard",
+          "source_label": "Kamera cofania",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_leather_steering_wheel",
+          "availability_status": "standard",
+          "source_label": "Kierownica pokryta skórą ekologiczną",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_reach_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_centre_armrest",
+          "availability_status": "standard",
+          "source_label": "Konsola centralna z podłokietnikiem i schowkiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_folding",
+          "availability_status": "standard",
+          "source_label": "Oparcie tylnej kanapy składane 1/3 i 2/3",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "connected_services",
+          "availability_status": "standard",
+          "source_label": "Pakiet usług zdalnych na 8 lat: znajdź mój pojazd",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_belt_height_adjustment",
+          "availability_status": "not_available",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_three_point_seat_belts",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa z tyłu trzy, 3-punktowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "my_safety_button",
+          "availability_status": "standard",
+          "source_label": "Przycisk My Safety umożliwiający łatwe włączenie/wyłączanie wybranych systemów wspomagających kierowcę",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "speed_limiter",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "cruise_control",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rescue_code",
+          "availability_status": "standard",
+          "source_label": "Rescue Code - kod QR na przedniej i tylnej szybie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "seat_belt_reminder",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja dźwiękowa i wizualna niezapięcia pasów bezpieczeństwa",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "door_open_warning",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja niezamknięcia drzwi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "tyre_pressure_monitoring_system",
+          "availability_status": "standard",
+          "source_label": "System kontroli ciśnienia w oponach, pośredni",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_departure_warning",
+          "availability_status": "standard",
+          "source_label": "System kontroli pasa ruchu (LDWS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_attention_monitoring",
+          "availability_status": "standard",
+          "source_label": "System kontroli zmęczenia kierowcy (DDAW)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traffic_sign_recognition",
+          "availability_status": "standard",
+          "source_label": "System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości (ISA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_keep_assist",
+          "availability_status": "standard",
+          "source_label": "System utrzymania pasa ruchu (LKA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_emergency_braking",
+          "availability_status": "standard",
+          "source_label": "System wspomagania nagłego hamowania, aktywny, z funkcją wykrywania pieszych i rowerzystów (AEBS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_daytime_running_lights",
+          "availability_status": "standard",
+          "source_label": "Światła do jazdy dziennej LED w kształcie litery Y",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania LED",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rain_sensing_wipers",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_mode",
+          "availability_status": "standard",
+          "source_label": "Tryb ECO",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "isofix_rear",
+          "availability_status": "standard",
+          "source_label": "Uchwyty ISOFIX do instalacji fotelika dziecięcego z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "gear_shift_indicator",
+          "availability_status": "standard",
+          "source_label": "Wskaźnik zmiany biegów",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "instrument_cluster_colour_7",
+          "availability_status": "standard",
+          "source_label": "Wyświetlacz zespołu wskaźników 7'' cyfrowy, kolorowy, konfigurowalny",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "central_locking",
+          "availability_status": "standard",
+          "source_label": "Zamek centralny, zdalnie sterowany falami radiowymi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_climate_control",
+          "availability_status": "standard",
+          "source_label": "Klimatyzacja automatyczna",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_electric_adjustment",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_heated",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_folding",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "media_display_system",
+          "availability_status": "standard",
+          "source_label": "System Media Display z ekranem dotykowym 10'', radiem, replikacją smartfona, Bluetooth, 4 głośnikami i pakietem usług zdalnych",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "roof_rails",
+          "availability_status": "standard",
+          "source_label": "Relingi dachowe, modułowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "modular_roof_rails",
+          "availability_status": "standard",
+          "source_label": "Relingi dachowe, modułowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "fog_lights",
+          "availability_status": "standard",
+          "source_label": "Światła przeciwmgielne",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "high_beam_assist",
+          "availability_status": "standard",
+          "source_label": "Funkcja automatycznej zmiany świateł drogowych na mijania (AHL)",
+          "source_section": "Wyposażenie dodatkowe / widoczność i oświetlenie"
+        },
+        {
+          "attribute_code": "keyless_entry",
+          "availability_status": "standard",
+          "source_label": "Karta Keyless Entry",
+          "source_section": "Wyposażenie dodatkowe / komfort i wnętrze"
+        },
+        {
+          "attribute_code": "driver_seat_lumbar_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją lędźwi + fotel pasażera z regulacją wysokości",
+          "source_section": "Wyposażenie dodatkowe / komfort i wnętrze"
+        },
+        {
+          "attribute_code": "passenger_seat_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją lędźwi + fotel pasażera z regulacją wysokości",
+          "source_section": "Wyposażenie dodatkowe / komfort i wnętrze"
+        },
+        {
+          "attribute_code": "hill_descent_control",
+          "availability_status": "standard",
+          "source_label": "ESP + system wspomagający ruszanie pod górę oraz kontroli zjazdu ze wzniesienia HSA/HDC",
+          "source_section": "Wyposażenie dodatkowe / bezpieczeństwo"
+        },
+        {
+          "attribute_code": "boot_12v_socket",
+          "availability_status": "standard",
+          "source_label": "Gniazdo 12V w bagażniku",
+          "source_section": "Wyposażenie dodatkowe / multimedia"
+        },
+        {
+          "attribute_code": "tyre_repair_kit",
+          "availability_status": "standard",
+          "source_label": "Zestaw do naprawy uszkodzenia opony",
+          "source_section": "Wyposażenie dodatkowe / bezpieczeństwo"
+        },
+        {
+          "attribute_code": "privacy_glass",
+          "availability_status": "standard",
+          "source_label": "Przyciemniane tylne szyby",
+          "source_section": "Wyposażenie dodatkowe / widoczność i oświetlenie"
+        },
+        {
+          "attribute_code": "heated_front_seats",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: przednie fotele podgrzewane",
+          "source_section": "Wyposażenie dodatkowe / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "heated_steering_wheel",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: kierownica podgrzewana",
+          "source_section": "Wyposażenie dodatkowe / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "heated_windscreen",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: podgrzewana przednia szyba",
+          "source_section": "Wyposażenie dodatkowe / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "youclip_phone_holder",
+          "availability_status": "standard",
+          "source_label": "YouClip - uchwyt do smartfona",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "safe_distance_warning",
+          "availability_status": "standard",
+          "source_label": "System kontroli bezpiecznej odległości (DW)",
+          "source_section": "Wyposażenie dodatkowe / bezpieczeństwo"
+        },
+        {
+          "attribute_code": "manual_day_night_rearview_mirror",
+          "availability_status": "standard",
+          "source_label": "Lusterko wsteczne z ustawieniem dzień/noc",
+          "source_section": "Wyposażenie dodatkowe / widoczność i oświetlenie"
+        },
+        {
+          "attribute_code": "one_touch_turn_signals",
+          "availability_status": "standard",
+          "source_label": "Kierunkowskazy impulsowe",
+          "source_section": "Wyposażenie dodatkowe / widoczność i oświetlenie"
+        },
+        {
+          "attribute_code": "adjustable_boot_floor",
+          "availability_status": "not_available",
+          "source_label": "Bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+          "source_section": "Wyposażenie skonfigurowanego pojazdu / komfort i wnętrze"
+        },
+        {
+          "attribute_code": "front_parking_sensors",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: czujniki parkowania z przodu, z tyłu i z boku",
+          "source_section": "Wyposażenie dodatkowe / Pakiet PARKING"
+        },
+        {
+          "attribute_code": "360_camera_system",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: Multiview kamera",
+          "source_section": "Wyposażenie dodatkowe / Pakiet PARKING"
+        },
+        {
+          "attribute_code": "blind_spot_monitoring",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: system kontroli martwego pola (BSW)",
+          "source_section": "Wyposażenie dodatkowe / Pakiet PARKING"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "The exact card does not state the factory antenna type."
+        },
+        {
+          "concept": "newer_supporting_card_package_label",
+          "reason": "Supporting card 127567 shortens one dealer-authored package heading to Pakiet ZIMOWY; the dated primary card 121540 explicitly names and itemizes Pakiet ZIMOWY PLUS and remains the evidence for this exact stock configuration."
+        }
+      ],
+      "selected_packages": [
+        {
+          "catalogue_price": 2200,
+          "commercial_item_code": "duster_parking_package",
+          "name": "Pakiet PARKING",
+          "source_label": "WYPOSAŻENIE DODATKOWE: Pakiet PARKING"
+        },
+        {
+          "catalogue_price": 2300,
+          "commercial_item_code": "duster_winter_plus_extreme_package",
+          "name": "Pakiet ZIMOWY PLUS (Extreme)",
+          "source_label": "WYPOSAŻENIE DODATKOWE: Pakiet ZIMOWY PLUS"
+        }
+      ],
+      "stock_id": "121540",
+      "supporting_current_url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/127567",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121540",
+      "version_code": "duster_iii_extreme"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "equipment": [
+        {
+          "attribute_code": "anti_lock_braking_system",
+          "availability_status": "standard",
+          "source_label": "ABS z układem wspomagania nagłego hamowania (AFU)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "onboard_computer",
+          "availability_status": "standard",
+          "source_label": "Komputer pokładowy z informacją o temperaturze zewnętrznej, licznikiem kilometrów, zużyciem paliwa, średnią prędkością i zasięgiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa kierowcy",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "passenger_front_airbag",
+          "availability_status": "standard",
+          "source_label": "Poduszka powietrzna czołowa pasażera z możliwością dezaktywacji",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_side_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne boczne z przodu chroniące głowę i klatkę piersiową",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "curtain_airbags",
+          "availability_status": "standard",
+          "source_label": "Poduszki powietrzne kurtynowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "electronic_stability_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "hill_start_assist",
+          "availability_status": "standard",
+          "source_label": "System kontroli toru jazdy (ESC) + system wspomagania ruszania pod górę (HSA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traction_control",
+          "availability_status": "standard",
+          "source_label": "System kontroli trakcji (TCS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_windows_power",
+          "availability_status": "standard",
+          "source_label": "Szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "one_touch_windows",
+          "availability_status": "standard",
+          "source_label": "Szyby przednie i tylne regulowane elektrycznie z włącznikiem impulsowym",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_parking_sensors",
+          "availability_status": "standard",
+          "source_label": "Czujniki parkowania z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "emergency_call_ecall",
+          "availability_status": "standard",
+          "source_label": "eCall - połączenie alarmowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "remote_firmware_updates",
+          "availability_status": "standard",
+          "source_label": "FOTA (Firmware Over-The-Air)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_usb_c_ports",
+          "availability_status": "standard",
+          "source_label": "Gniazda USB-C 2x z tyłu w konsoli centralnej dla pasażerów drugiego rzędu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_view_camera",
+          "availability_status": "standard",
+          "source_label": "Kamera cofania",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_leather_steering_wheel",
+          "availability_status": "standard",
+          "source_label": "Kierownica pokryta skórą ekologiczną",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "steering_wheel_reach_adjustment",
+          "availability_status": "standard",
+          "source_label": "Kierownica z regulacją: wysokości/głębokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_centre_armrest",
+          "availability_status": "standard",
+          "source_label": "Konsola centralna z podłokietnikiem i schowkiem",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_folding",
+          "availability_status": "standard",
+          "source_label": "Oparcie tylnej kanapy składane 1/3 i 2/3",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "connected_services",
+          "availability_status": "standard",
+          "source_label": "Pakiet usług zdalnych na 8 lat: znajdź mój pojazd",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_seat_belt_pretensioners",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_belt_height_adjustment",
+          "availability_status": "not_available",
+          "source_label": "Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi bez regulacji wysokości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rear_three_point_seat_belts",
+          "availability_status": "standard",
+          "source_label": "Pasy bezpieczeństwa z tyłu trzy, 3-punktowe",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "my_safety_button",
+          "availability_status": "standard",
+          "source_label": "Przycisk My Safety umożliwiający łatwe włączenie/wyłączanie wybranych systemów wspomagających kierowcę",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "speed_limiter",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "cruise_control",
+          "availability_status": "standard",
+          "source_label": "Regulator - ogranicznik prędkości",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rescue_code",
+          "availability_status": "standard",
+          "source_label": "Rescue Code - kod QR na przedniej i tylnej szybie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "seat_belt_reminder",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja dźwiękowa i wizualna niezapięcia pasów bezpieczeństwa",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "door_open_warning",
+          "availability_status": "standard",
+          "source_label": "Sygnalizacja niezamknięcia drzwi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "tyre_pressure_monitoring_system",
+          "availability_status": "standard",
+          "source_label": "System kontroli ciśnienia w oponach, pośredni",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_departure_warning",
+          "availability_status": "standard",
+          "source_label": "System kontroli pasa ruchu (LDWS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_attention_monitoring",
+          "availability_status": "standard",
+          "source_label": "System kontroli zmęczenia kierowcy (DDAW)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "traffic_sign_recognition",
+          "availability_status": "standard",
+          "source_label": "System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości (ISA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "lane_keep_assist",
+          "availability_status": "standard",
+          "source_label": "System utrzymania pasa ruchu (LKA)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_emergency_braking",
+          "availability_status": "standard",
+          "source_label": "System wspomagania nagłego hamowania, aktywny, z funkcją wykrywania pieszych i rowerzystów (AEBS)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_daytime_running_lights",
+          "availability_status": "standard",
+          "source_label": "Światła do jazdy dziennej LED w kształcie litery Y",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "led_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania LED",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_headlights",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "rain_sensing_wipers",
+          "availability_status": "standard",
+          "source_label": "Światła mijania/wycieraczki włączane automatycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "eco_mode",
+          "availability_status": "standard",
+          "source_label": "Tryb ECO",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "isofix_rear",
+          "availability_status": "standard",
+          "source_label": "Uchwyty ISOFIX do instalacji fotelika dziecięcego z tyłu",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "gear_shift_indicator",
+          "availability_status": "standard",
+          "source_label": "Wskaźnik zmiany biegów",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "instrument_cluster_colour_7",
+          "availability_status": "standard",
+          "source_label": "Wyświetlacz zespołu wskaźników 7'' cyfrowy, kolorowy, konfigurowalny",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "central_locking",
+          "availability_status": "standard",
+          "source_label": "Zamek centralny, zdalnie sterowany falami radiowymi",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "automatic_climate_control",
+          "availability_status": "standard",
+          "source_label": "Klimatyzacja automatyczna",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_electric_adjustment",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_heated",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "side_mirrors_folding",
+          "availability_status": "standard",
+          "source_label": "Lusterka boczne zewnętrzne, regulowane, podgrzewane i składane elektrycznie",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "navigation_system",
+          "availability_status": "standard",
+          "source_label": "System Media Nav Live",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "roof_rails",
+          "availability_status": "standard",
+          "source_label": "Relingi dachowe czarne",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "fog_lights",
+          "availability_status": "standard",
+          "source_label": "Światła przeciwmgielne",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "high_beam_assist",
+          "availability_status": "standard",
+          "source_label": "Funkcja automatycznej zmiany świateł drogowych na mijania (AHL)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "keyless_entry",
+          "availability_status": "standard",
+          "source_label": "Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "driver_seat_lumbar_adjustment",
+          "availability_status": "standard",
+          "source_label": "Fotel kierowcy z regulacją podparcia lędźwiowego",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "passenger_seat_height_adjustment",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS (Journey): fotel pasażera z regulacją wysokości",
+          "source_section": "Pakiet ZIMOWY PLUS / skład według oficjalnego cennika MY26"
+        },
+        {
+          "attribute_code": "boot_12v_socket",
+          "availability_status": "standard",
+          "source_label": "Gniazdo 12V w bagażniku",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "tyre_repair_kit",
+          "availability_status": "standard",
+          "source_label": "Zestaw do naprawy uszkodzenia opony",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "privacy_glass",
+          "availability_status": "standard",
+          "source_label": "Szyby tylne przyciemniane",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "adjustable_boot_floor",
+          "availability_status": "standard",
+          "source_label": "Podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "electronic_parking_brake",
+          "availability_status": "standard",
+          "source_label": "Hamulec postojowy, automatyczny",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "wireless_charging",
+          "availability_status": "standard",
+          "source_label": "Ładowarka indukcyjna",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "front_parking_sensors",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: czujniki parkowania przód/tył",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet PARKING"
+        },
+        {
+          "attribute_code": "360_camera_system",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: kamera Multiview 360",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet PARKING"
+        },
+        {
+          "attribute_code": "blind_spot_monitoring",
+          "availability_status": "standard",
+          "source_label": "Pakiet PARKING: kontrola martwego pola",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet PARKING"
+        },
+        {
+          "attribute_code": "heated_front_seats",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: podgrzewane fotele przednie",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "heated_steering_wheel",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: podgrzewana kierownica",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "heated_windscreen",
+          "availability_status": "standard",
+          "source_label": "Pakiet ZIMOWY PLUS: podgrzewana szyba przednia",
+          "source_section": "Dodatkowe wyposażenie prezentowanego egzemplarza / Pakiet ZIMOWY PLUS"
+        },
+        {
+          "attribute_code": "youclip_phone_holder",
+          "availability_status": "standard",
+          "source_label": "YouClip - uchwyt do smartfona",
+          "source_section": "Wyposażenie podstawowe"
+        },
+        {
+          "attribute_code": "safe_distance_warning",
+          "availability_status": "standard",
+          "source_label": "System kontroli bezpiecznej odległości",
+          "source_section": "Wyposażenie wersji Journey"
+        },
+        {
+          "attribute_code": "adaptive_cruise_control",
+          "availability_status": "standard",
+          "source_label": "Aktywny tempomat",
+          "source_section": "Wyposażenie wersji Journey"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "reason": "The exact card does not state the factory antenna type."
+        }
+      ],
+      "selected_packages": [
+        {
+          "catalogue_price": 2200,
+          "commercial_item_code": "duster_parking_package",
+          "name": "Pakiet PARKING",
+          "source_label": "Dodatkowe wyposażenie prezentowanego egzemplarza: Pakiet PARKING"
+        },
+        {
+          "catalogue_price": 2300,
+          "commercial_item_code": "duster_winter_plus_journey_package",
+          "name": "Pakiet ZIMOWY PLUS (Journey)",
+          "source_label": "Dodatkowe wyposażenie prezentowanego egzemplarza: Pakiet ZIMOWY PLUS"
+        }
+      ],
+      "stock_id": "121030",
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/121030",
+      "version_code": "duster_iii_journey"
+    }
+  ],
+  "market": "PL",
+  "normalization_rules": [
+    "Only explicit equipment statements from the exact stock card are normalized.",
+    "A compound statement may support multiple existing boolean attributes only when every normalized capability is explicit.",
+    "Named packages are mapped through existing commercial tables; price-list evidence and exact-card selection remain separate dated rows.",
+    "A selected package row uses availability_status standard with an empty amount because the stock card proves inclusion but does not restate the standalone package price.",
+    "Missing text is not interpreted as not_available.",
+    "Wheel, upholstery, paint, warranty, dealer accessories and internal ordering criteria are not converted to equipment availability.",
+    "Factory antenna type and the conflicting Expression folding-mirror state remain unimported.",
+    "Existing exact folding-mirror observations for Extreme and Journey from the 2026-07-24 stock intake are reused rather than duplicated."
+  ],
+  "observed_on": "2026-07-24",
+  "price_list_evidence": {
+    "document_date": "2026-07-03",
+    "role": "Official name, component membership and catalogue gross price of each package. Exact stock cards prove selection for the specific configuration.",
+    "source_code": "src_pl_duster_price_my26_20260703"
+  },
+  "publisher": "Dacia",
+  "scope": {
+    "configurations": [
+      "duster_iii_expression_ecog120_4x2_automatic",
+      "duster_iii_extreme_ecog120_4x2_automatic",
+      "duster_iii_journey_ecog120_4x2_automatic"
+    ],
+    "model_code": "duster_iii",
+    "powertrain_label": "Eco-G 120 4x2",
+    "transmission_type": "automatic"
+  },
+  "source_code": "src_pl_duster_exact_stock_equipment_20260724",
+  "source_type": "web_snapshot",
+  "version": 1,
+  "volatility": "dynamic_official_stock_cards"
+}

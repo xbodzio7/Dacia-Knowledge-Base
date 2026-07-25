@@ -124,10 +124,10 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "A1:B16",
             "A1:AH4",
             "A1:K6",
-            "A1:M296",
+            "A1:M302",
             "A1:L11",
             "A1:AQ204",
-            "A1:K7",
+            "A1:K9",
             "A1:E9",
         )
         with ZipFile(self.workbook_path) as archive:
@@ -163,7 +163,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertFalse(overview["ranking_generated"])
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
-        self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")
+        self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-24")
 
     def test_scopes_preserve_comparable_and_singleton_groups(self) -> None:
         rows = self._table(self.workbook["Scopes"])

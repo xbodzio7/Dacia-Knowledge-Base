@@ -105,6 +105,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - poprawka `data-products-v1.6.1` naprawiająca widoczne wyszukiwanie wyposażenia, zachowanie zaznaczeń i kompatybilne fasety, z niezależną weryfikacją publicznych assetów oraz dokładnego HTML,
 - przekrojowy import dwóch myląco niepełnych cech wyposażenia z dziewięciu oficjalnych stron wersji: 31 obserwacji anteny typu „płetwa rekina”, sześć aktualizacji składanych lusterek Joggera Journey i jawny non-import Dustera,
 - trzy dokładne konfiguracje Duster Eco-G 120 automatic z oficjalnych kart samochodów, trzema cenami katalogowymi, dwoma pozytywnymi stanami składanych lusterek, dziewięcioma wartościami silnikowymi i odrębnym zakresem porównawczym,
+- dokładne wyposażenie trzech automatów Duster Eco-G 120 z 203 nowymi obserwacjami, czterema źródłowo wycenionymi pakietami i odrębnymi stanami pakietów wybranych w konkretnych egzemplarzach,
 - publiczne wydanie `data-products-v1.2.0` z dynamicznymi fasetami wyposażenia, bezpośrednim porównaniem wielu konfiguracji, offline miniaturami modeli i trzema ponownie zweryfikowanymi assetami,
 - zweryfikowane pobieranie i bezpieczne rozpakowanie jawnej wersji publicznego wydania do lokalnego workspace,
 - deterministyczna lokalna strona startowa HTML łącząca produkty, zakresy porównań i proweniencję wydania,
@@ -117,7 +118,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 735 testów automatycznych,
+- 743 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

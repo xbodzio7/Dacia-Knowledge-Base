@@ -14,6 +14,7 @@ from reporting.configuration_shortlist_html import collect_browser_catalog  # no
 
 MASTER = REPOSITORY / "data" / "master"
 DATE = "2026-07-03"
+STOCK_DATE = "2026-07-24"
 LATEST_STEPWAY_PRICE_DATE = "2026-07-23"
 
 
@@ -34,11 +35,11 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_complete_source_backed_registration_counts(self) -> None:
         self.assertEqual(len(self.items), 28)
         self.assertEqual(len(self.members), 69)
-        self.assertEqual(len(self.mappings), 134)
+        self.assertEqual(len(self.mappings), 142)
         self.assertEqual({row["observation_date"] for row in self.items}, {DATE})
-        self.assertEqual({row["price_date"] for row in self.mappings}, {DATE})
+        self.assertEqual({row["price_date"] for row in self.mappings}, {DATE, STOCK_DATE})
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
-        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional"})
+        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
 
     def test_each_item_has_membership_and_source(self) -> None:
         item_codes = {row["code"] for row in self.items}
