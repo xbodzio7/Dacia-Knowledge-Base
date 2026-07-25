@@ -971,11 +971,11 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 791 testów, 46 pliki CSV, 8255 rekordów
-danych, 51 relacje między tabelami, 1876 wartości konfiguracji, 114 skalarnych specyfikacji importu, 176 zakresów konfiguracji i 20
+Zweryfikowany model obejmuje 795 testów, 46 pliki CSV, 8497 rekordów
+danych, 51 relacje między tabelami, 1986 wartości konfiguracji, 114 skalarnych specyfikacji importu, 176 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4754 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 46 tabele i 8255 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 46 tabele i 8497 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
