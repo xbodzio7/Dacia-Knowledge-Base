@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Brochure Cargo Value Import",
+  "phase": "Bigster Brochure Cargo Value Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 795,
+    "tests": 799,
     "csv_files": 46,
-    "rows": 8497,
-    "configuration_values": 1986,
+    "rows": 8644,
+    "configuration_values": 2054,
     "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Brochure Cargo Value Import",
+    "name": "Bigster Brochure Cargo Value Import",
     "status": "complete",
-    "goal": "Import 110 source-backed Jogger boot_capacity observations across exact five- and seven-seat layouts while preserving second-row, third-row and measurement-basis context and deferring the ambiguous seven-seat maximum."
+    "goal": "Import 68 source-backed Bigster boot_capacity observations across exact 4x2 powertrains while preserving measurement, rear-bench, repair-kit and spare-wheel context and deferring contradictory 4x4 evidence."
   },
   "next_package": {
-    "name": "Bigster Brochure Cargo Value Import",
+    "name": "Duster Brochure Cargo Value Import",
     "status": "planned",
-    "goal": "Import source-backed Bigster cargo observations with exact measurement basis, rear-bench state, repair-kit or spare-wheel and double-floor context."
+    "goal": "Import source-backed Duster cargo observations only where drive type, powertrain, seat state and repair-kit or spare-wheel context map exactly to modeled configurations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
