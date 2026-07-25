@@ -254,7 +254,7 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
             state["phase"],
             "Duster Eco-G 120 Automatic Homologation Evidence",
         )
-        self.assertEqual(state["baseline"]["tests"], 751)
+        self.assertEqual(state["baseline"]["tests"], 752)
         self.assertEqual(state["baseline"]["rows"], 8126)
         self.assertEqual(state["baseline"]["configuration_values"], 1825)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)
