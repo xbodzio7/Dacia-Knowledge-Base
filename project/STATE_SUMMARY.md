@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero and Stepway Brochure Cargo Import**
+**Jogger Brochure Cargo Value Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 791
+- Tests: 795
 - Master CSV files: 46
-- Master rows: 8255
-- Configuration values: 1876
+- Master rows: 8497
+- Configuration values: 1986
 - Configuration import specifications: 114
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero and Stepway Brochure Cargo Import** — `complete`
+**Jogger Brochure Cargo Value Import** — `complete`
 
-Import 45 source-backed canonical boot_capacity observations from the official Sandero and Stepway brochures with exact measurement, seat and compartment context while preserving legacy cargo history.
+Import 110 source-backed Jogger boot_capacity observations across exact five- and seven-seat layouts while preserving second-row, third-row and measurement-basis context and deferring the ambiguous seven-seat maximum.
 
 ## Next package
 
-**Jogger Brochure Cargo Value Import** — `planned`
+**Bigster Brochure Cargo Value Import** — `planned`
 
-Import official Jogger five- and seven-seat cargo observations with exact second-row, third-row, removal and measurement-basis context.
+Import source-backed Bigster cargo observations with exact measurement basis, rear-bench state, repair-kit or spare-wheel and double-floor context.
 
 ## Autonomy
 

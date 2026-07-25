@@ -15,6 +15,11 @@ from configuration_value_range_reporting import (
     combine_latest_observations,
     read_optional_ranges,
 )
+from reporting.cargo_context import (
+    CargoContextError,
+    annotate_scalar_values,
+    read_context_rows,
+)
 
 DEFAULT_SPEC = Path('data/reporting/configuration_completeness.json')
 AVAILABILITY_STATES = {'standard', 'optional', 'not_available', 'unknown'}
@@ -69,7 +74,7 @@ def latest(
             continue
         key = tuple(row.get(field, '') for field in key_fields)
         for field, item in zip(key_fields, key):
-            if not item and field != 'fuel_type_code':
+            if not item and field not in {'fuel_type_code', '_cargo_context_signature'}:
                 raise CompletenessError(f'{label} has incomplete key: {key}')
         previous = chosen.get(key)
         if previous is None or observed > previous[0]:
@@ -201,11 +206,20 @@ def collect_report(
     else:
         as_of = iso_date(as_of_value, '--as-of')
 
-    scoped_values = [
+    raw_scoped_values = [
         row for row in values if row.get('configuration_code') in configuration_sources
     ]
+    try:
+        scoped_values = annotate_scalar_values(
+            raw_scoped_values,
+            read_context_rows(master, read_csv),
+        )
+    except CargoContextError as exc:
+        raise CompletenessError(str(exc)) from exc
     scoped_ranges = [
-        row for row in ranges if row.get('configuration_code') in configuration_sources
+        {**row, '_cargo_context_signature': '', '_cargo_context': None}
+        for row in ranges
+        if row.get('configuration_code') in configuration_sources
     ]
     scoped_availability = [
         row
@@ -214,19 +228,35 @@ def collect_report(
     ]
     current_scalar_values = latest(
         scoped_values,
-        ('configuration_code', 'attribute_code', 'fuel_type_code'),
+        (
+            'configuration_code',
+            'attribute_code',
+            'fuel_type_code',
+            '_cargo_context_signature',
+        ),
         as_of,
         'configuration values',
     )
     current_range_values = latest(
         scoped_ranges,
-        ('configuration_code', 'attribute_code', 'fuel_type_code'),
+        (
+            'configuration_code',
+            'attribute_code',
+            'fuel_type_code',
+            '_cargo_context_signature',
+        ),
         as_of,
         'configuration value ranges',
     )
     current_values = combine_latest_observations(
         current_scalar_values, current_range_values, CompletenessError
     )
+    current_value_groups: dict[
+        tuple[str, str, str], dict[str, dict[str, Any]]
+    ] = {}
+    for current_key, current_row in current_values.items():
+        base_key = (current_key[0], current_key[1], current_key[2])
+        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row
     current_availability = latest(
         scoped_availability,
         ('configuration_code', 'attribute_code'),
@@ -287,7 +317,7 @@ def collect_report(
         category = active_attributes[attribute]['category']
         source = configuration_sources[configuration]
         if key in technical_na:
-            if key in current_values:
+            if key in current_value_groups:
                 raise CompletenessError(f'not_applicable slot has a record: {key}')
             technical['not_applicable'] += 1
             for bucket in (
@@ -304,8 +334,8 @@ def collect_report(
             by_source[source],
         ):
             add(bucket, 'technical_applicable')
-        row = current_values.get(key)
-        if row is None:
+        rows = current_value_groups.get(key)
+        if rows is None:
             technical['missing'] += 1
             for bucket in (
                 by_configuration[configuration],
@@ -324,10 +354,11 @@ def collect_report(
                 }
             )
         else:
-            if row.get('source_code') not in registered_sources[configuration]:
-                raise CompletenessError(
-                    f'technical record source is not registered for configuration: {key}'
-                )
+            for row in rows.values():
+                if row.get('source_code') not in registered_sources[configuration]:
+                    raise CompletenessError(
+                        f'technical record source is not registered for configuration: {key}'
+                    )
             technical['present'] += 1
             for bucket in (
                 by_configuration[configuration],

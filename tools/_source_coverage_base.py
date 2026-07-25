@@ -18,6 +18,11 @@ from configuration_value_range_reporting import (
     combine_latest_observations,
     read_optional_ranges,
 )
+from reporting.cargo_context import (
+    CargoContextError,
+    annotate_scalar_values,
+    read_context_rows,
+)
 
 
 DEFAULT_SPEC = Path("data/reporting/configuration_completeness.json")
@@ -82,7 +87,7 @@ def latest_records(
             continue
         key = tuple(row.get(field, "") for field in key_fields)
         for field, item in zip(key_fields, key):
-            if not item and field != "fuel_type_code":
+            if not item and field not in {"fuel_type_code", "_cargo_context_signature"}:
                 raise SourceCoverageError(f"{label} has incomplete key: {key}")
         previous = chosen.get(key)
         if previous is None or observed > previous[0]:
@@ -389,12 +394,20 @@ def collect_report(
         }
 
     scoped_configurations = set(configuration_sources)
-    scoped_values = [
+    raw_scoped_values = [
         row for row in values
         if row.get("configuration_code") in scoped_configurations
     ]
+    try:
+        scoped_values = annotate_scalar_values(
+            raw_scoped_values,
+            read_context_rows(master, read_csv),
+        )
+    except CargoContextError as exc:
+        raise SourceCoverageError(str(exc)) from exc
     scoped_ranges = [
-        row for row in ranges
+        {**row, "_cargo_context_signature": "", "_cargo_context": None}
+        for row in ranges
         if row.get("configuration_code") in scoped_configurations
     ]
     scoped_availability = [
@@ -408,14 +421,24 @@ def collect_report(
 
     current_scalar_values = latest_records(
         scoped_values,
-        ("configuration_code", "attribute_code", "fuel_type_code"),
+        (
+            "configuration_code",
+            "attribute_code",
+            "fuel_type_code",
+            "_cargo_context_signature",
+        ),
         "observation_date",
         as_of,
         "configuration values",
     )
     current_range_values = latest_records(
         scoped_ranges,
-        ("configuration_code", "attribute_code", "fuel_type_code"),
+        (
+            "configuration_code",
+            "attribute_code",
+            "fuel_type_code",
+            "_cargo_context_signature",
+        ),
         "observation_date",
         as_of,
         "configuration value ranges",
@@ -423,6 +446,12 @@ def collect_report(
     current_values = combine_latest_observations(
         current_scalar_values, current_range_values, SourceCoverageError
     )
+    current_value_groups: dict[
+        tuple[str, str, str], dict[str, dict[str, Any]]
+    ] = {}
+    for current_key, current_row in current_values.items():
+        base_key = (current_key[0], current_key[1], current_key[2])
+        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row
     current_availability = latest_records(
         scoped_availability,
         ("configuration_code", "attribute_code"),
@@ -629,7 +658,7 @@ def collect_report(
                 if not registered:
                     record_summary["technical"]["source_missing"] += 1
                     continue
-                if key in current_values:
+                if key in current_value_groups:
                     present += 1
                     technical_present += 1
                     record_summary["technical"]["present"] += 1
