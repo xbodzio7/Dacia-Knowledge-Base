@@ -74,7 +74,7 @@ def latest(
             continue
         key = tuple(row.get(field, '') for field in key_fields)
         for field, item in zip(key_fields, key):
-            if not item and field != 'fuel_type_code':
+            if not item and field not in {'fuel_type_code', '_cargo_context_signature'}:
                 raise CompletenessError(f'{label} has incomplete key: {key}')
         previous = chosen.get(key)
         if previous is None or observed > previous[0]:
