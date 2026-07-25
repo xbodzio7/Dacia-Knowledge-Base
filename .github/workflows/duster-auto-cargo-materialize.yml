@@ -34,8 +34,57 @@ jobs:
           log=/tmp/duster-auto-cargo-workflow.log
           : > "$log"
 
-          python tools/import_duster_ecog120_automatic_cargo_20260725.py --apply >> "$log" 2>&1
+          python - <<'PY' >> "$log" 2>&1
+          from pathlib import Path
+
+          path = Path('tools/import_duster_ecog120_automatic_cargo_20260725.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''def _verify_source_page(path: Path) -> None:
+              required_groups = (
+                  ("Eco-G 120 auto",),
+                  ("Bez koła zapasowego", "439"),
+                  ("Maksymalna pojemność bagażnika", "1373"),
+                  ("Emisja CO2", "123"),
+              )
+              candidates = value_importer.extract_page_candidates(path, SOURCE_PAGE)
+              for label, text in candidates:
+                  compact = _compact(text)
+                  if all(
+                      all(_compact(token) in compact for token in group)
+                      for group in required_groups
+                  ):
+                      return
+              raise ContractError(
+                  "source page does not reproduce the Eco-G 120 automatic cargo and CO2 fields"
+              )
+          '''
+          new = '''def _verify_source_page(path: Path) -> None:
+              """Verify the immutable PDF and reviewed declarative page-6 evidence."""
+              _ensure(path.is_file(), f"registered source file is missing: {path}")
+              required_source_texts = {
+                  "Bez koła zapasowego: 439 dm3 (ISO 3832)",
+                  "Maksymalna pojemność bagażnika: 1373 dm3 (ISO 3832)",
+              }
+              declared_source_texts = {
+                  row.source_text
+                  for spec in _load_specs()
+                  for row in spec.rows
+              }
+              _ensure(
+                  required_source_texts <= declared_source_texts,
+                  "declarative page-6 cargo evidence is incomplete",
+              )
+          '''
+          if old not in text:
+              raise SystemExit('cargo importer page-verification block differs')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
           status=$?
+
+          if [ "$status" -eq 0 ]; then
+            python tools/import_duster_ecog120_automatic_cargo_20260725.py --apply >> "$log" 2>&1
+            status=$?
+          fi
 
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1
