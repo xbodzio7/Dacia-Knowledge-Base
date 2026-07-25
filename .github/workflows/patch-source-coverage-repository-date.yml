@@ -25,34 +25,17 @@ jobs:
 
           path = Path("tools/_source_coverage_base.py")
           text = path.read_text(encoding="utf-8")
-          old = '''    if as_of_value is None:
-              dated_values: list[date] = []
-              for row in sources:
-                  if row.get("code") in scoped_source_codes and row.get("document_date"):
-                      dated_values.append(
-                          iso_date(row["document_date"], "source document_date")
-                      )
-              for rows, field, label in (
-                  (prices, "price_date", "configuration price"),
-                  (values, "observation_date", "configuration value"),
-                  (ranges, "observation_date", "configuration value range"),
-                  (
-                      availability,
-                      "observation_date",
-                      "configuration availability",
-                  ),
-              ):
-                  for row in rows:
-                      if (
-                          row.get("configuration_code") in configuration_sources
-                          and row.get(field)
-                      ):
-                          dated_values.append(iso_date(row[field], label))
-              if not dated_values:
-                  raise SourceCoverageError("no dated source-backed records found")
-              as_of = max(dated_values)
-          '''
-          new = '''    if as_of_value is None:
+          marker = "    # Use the same repository-wide observation clock as\n"
+          if marker in text:
+              raise SystemExit(0)
+
+          function_start = text.index("def collect_report(\n")
+          start = text.index("    if as_of_value is None:\n", function_start)
+          end = text.index(
+              '    else:\n        as_of = iso_date(as_of_value, "--as-of")',
+              start,
+          )
+          replacement = '''    if as_of_value is None:
               # Use the same repository-wide observation clock as
               # configuration-completeness so downstream gap triage combines
               # reports generated for one deterministic date. The selected
@@ -74,11 +57,10 @@ jobs:
                   raise SourceCoverageError("no dated configuration observations found")
               as_of = max(dated_values)
           '''
-          if old not in text:
-              if new in text:
-                  raise SystemExit(0)
-              raise SystemExit("expected source coverage date block not found")
-          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          path.write_text(
+              text[:start] + replacement + text[end:],
+              encoding="utf-8",
+          )
           PY
           git diff --check
           git config user.name "github-actions[bot]"
