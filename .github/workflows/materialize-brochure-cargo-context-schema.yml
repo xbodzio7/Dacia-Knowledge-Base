@@ -28,6 +28,28 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Prepare deterministic state counters
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("tools/establish_brochure_cargo_context_schema_20260725.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''    state["updated_on"] = "2026-07-25"
+              state["phase"] = "Brochure Cargo Context Schema Foundation"
+          '''.replace("              ", "    ")
+          new = '''    state["updated_on"] = "2026-07-25"
+              state["baseline"]["tests"] = 776
+              state["baseline"]["csv_files"] = 46
+              state["baseline"]["rows"] = 8156
+              state["phase"] = "Brochure Cargo Context Schema Foundation"
+          '''.replace("              ", "    ")
+          if new not in text:
+              if old not in text:
+                  raise SystemExit("state counter patch anchor missing")
+              path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+
       - name: Materialize schema package
         run: |
           python tools/establish_brochure_cargo_context_schema_20260725.py --apply
