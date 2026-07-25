@@ -19,7 +19,7 @@ test_eleven_specs_materialize_contiguous_ids_65_to_144 (tests.test_jogger_payloa
 test_engine_speed_ranges_preserve_group_and_fuel_contexts (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_engine_speed_ranges_preserve_group_and_fuel_contexts) ... ok
 test_hybrid_acceleration_range_is_preserved_without_endpoint_inference (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_hybrid_acceleration_range_is_preserved_without_endpoint_inference) ... ok
 test_payload_denominator_is_seat_qualified (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_payload_denominator_is_seat_qualified) ... ok
-test_prior_ranges_and_scalar_values_remain_unchanged (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_prior_ranges_and_scalar_values_remain_unchanged) ... FAIL
+test_prior_ranges_and_scalar_values_remain_unchanged (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_prior_ranges_and_scalar_values_remain_unchanged) ... ok
 test_registered_pdf_hash_and_source_texts_are_verified (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_registered_pdf_hash_and_source_texts_are_verified) ... ok
 test_state_exposes_updated_range_denominators (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_state_exposes_updated_range_denominators) ... ok
 test_all_22_active_configurations_receive_exact_slots (tests.test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_all_22_active_configurations_receive_exact_slots) ... ok
@@ -45,15 +45,6 @@ test_workbook_failure_keeps_bundle_transactional (tests.test_configuration_compa
 test_workbook_has_no_formulas_macros_links_or_volatile_time (tests.test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_workbook_has_no_formulas_macros_links_or_volatile_time) ... ok
 
 ======================================================================
-FAIL: test_prior_ranges_and_scalar_values_remain_unchanged (tests.test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_prior_ranges_and_scalar_values_remain_unchanged)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_payload_performance_ranges.py", line 117, in test_prior_ranges_and_scalar_values_remain_unchanged
-    self.assertEqual(len(self.ranges), 158)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 176 != 158
-
-======================================================================
 FAIL: test_no_scalar_range_semantic_collision_exists (tests.test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_no_scalar_range_semantic_collision_exists)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -63,6 +54,6 @@ Traceback (most recent call last):
 AssertionError: 1825 != 1765
 
 ----------------------------------------------------------------------
-Ran 45 tests in 1.241s
+Ran 45 tests in 1.182s
 
-FAILED (failures=2)
+FAILED (failures=1)
