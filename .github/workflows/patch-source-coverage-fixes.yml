@@ -20,50 +20,8 @@ jobs:
 
       - name: Fix source coverage implementation and test import
         run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path("tools/_source_coverage_base.py")
-          text = path.read_text(encoding="utf-8")
-          start = text.index("    if as_of_value is None:\n", text.index("def collect_report(\n"))
-          end = text.index(
-              '    else:\n        as_of = iso_date(as_of_value, "--as-of")',
-              start,
-          )
-          replacement = '''    if as_of_value is None:
-              # Use the same repository-wide observation clock as
-              # configuration-completeness so downstream gap triage combines
-              # reports generated for one deterministic date. The selected
-              # reporting subset still controls record and source counts.
-              dated_values: list[date] = []
-              for rows, field, label in (
-                  (values, "observation_date", "configuration value"),
-                  (ranges, "observation_date", "configuration value range"),
-                  (
-                      availability,
-                      "observation_date",
-                      "configuration availability",
-                  ),
-              ):
-                  for row in rows:
-                      if row.get(field):
-                          dated_values.append(iso_date(row[field], label))
-              if not dated_values:
-                  raise SourceCoverageError("no dated configuration observations found")
-              as_of = max(dated_values)
-          '''
-          path.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
-
-          test_path = Path("tests/test_source_coverage_repository_as_of.py")
-          test_text = test_path.read_text(encoding="utf-8")
-          old = "from tests.test_source_coverage import SourceCoverageTests"
-          new = "from test_source_coverage import SourceCoverageTests"
-          if old in test_text:
-              test_text = test_text.replace(old, new, 1)
-          elif new not in test_text:
-              raise SystemExit("expected source coverage test import not found")
-          test_path.write_text(test_text, encoding="utf-8")
-          PY
+          sed -i '316,328s/^/    /' tools/_source_coverage_base.py
+          sed -i 's/from tests\.test_source_coverage import SourceCoverageTests/from test_source_coverage import SourceCoverageTests/' tests/test_source_coverage_repository_as_of.py
           python -m py_compile tools/_source_coverage_base.py tests/test_source_coverage_repository_as_of.py
           git diff --check
           git config user.name "github-actions[bot]"
