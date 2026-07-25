@@ -20,7 +20,7 @@ jobs:
 
       - name: Fix source coverage implementation and test import
         run: |
-          sed -i '316,328s/^/    /' tools/_source_coverage_base.py
+          sed -i '316,335s/^/    /' tools/_source_coverage_base.py
           sed -i 's/from tests\.test_source_coverage import SourceCoverageTests/from test_source_coverage import SourceCoverageTests/' tests/test_source_coverage_repository_as_of.py
           python -m py_compile tools/_source_coverage_base.py tests/test_source_coverage_repository_as_of.py
           git diff --check
