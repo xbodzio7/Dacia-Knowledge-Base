@@ -48,27 +48,30 @@ jobs:
                   raise SystemExit(f"patch anchor missing: {path_name}: {old[:100]!r}")
               path.write_text(text.replace(old, new, 1), encoding="utf-8")
 
-          replace_once(
-              "tools/complete_sandero_stepway_brochure_cargo_20260725.py",
-              '    if state.get("baseline", {}).get("configuration_values") != 1831:\n'
-              '        raise RuntimeError("unexpected pre-import configuration-value baseline")\n',
-              '    if state.get("baseline", {}).get("configuration_values") not in {1831, 1876}:\n'
-              '        raise RuntimeError("unexpected pre- or post-import configuration-value baseline")\n',
-          )
+          def replace_method(path_name: str, start: str, end: str, new: str) -> None:
+              path = Path(path_name)
+              text = path.read_text(encoding="utf-8")
+              if new.strip() in text:
+                  return
+              left = text.find(start)
+              if left < 0:
+                  raise SystemExit(f"method start missing: {path_name}: {start!r}")
+              right = text.find(end, left)
+              if right < 0:
+                  raise SystemExit(f"method end missing: {path_name}: {end!r}")
+              path.write_text(text[:left] + new + text[right:], encoding="utf-8")
 
-          replace_once(
+          replace_method(
               "tests/test_brochure_cargo_context_schema_foundation.py",
-              '''    def test_semantic_validator_accepts_empty_foundation_relation(self) -> None:
-                  checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
-                  self.assertEqual(checked, 0)
-                  self.assertEqual(errors, [])
-          '''.replace("          ", ""),
+              "    def test_semantic_validator_accepts_empty_foundation_relation(self) -> None:\n",
+              "    def test_semantic_validator_rejects_duplicate_value_context(self) -> None:\n",
               '''    def test_semantic_validator_accepts_materialized_relation(self) -> None:
                   _, rows = self.read_rows(RELATION)
                   checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
                   self.assertEqual(checked, len(rows))
                   self.assertEqual(errors, [])
-          '''.replace("          ", ""),
+
+'''.replace("              ", ""),
           )
           replace_once(
               "tests/test_brochure_cargo_context_schema_foundation.py",
@@ -106,32 +109,17 @@ jobs:
               "    _verify_registered_rows()\n    _verify_registration_only_boundary()\n",
               "    _verify_registered_rows()\n",
           )
-          replace_once(
+          replace_method(
               "tests/test_official_dacia_brochure_sources_20260725.py",
-              '''    def test_registration_does_not_project_versions_configurations_or_observations(self) -> None:
-                  self.assertEqual(
-                      [row for row in rows("source_versions.csv") if row["source_code"] in registration.OWNED_CODES],
-                      [],
-                  )
-                  self.assertEqual(
-                      [row for row in rows("source_configurations.csv") if row["source_code"] in registration.OWNED_CODES],
-                      [],
-                  )
-                  for path in sorted(MASTER.rglob("*.csv")):
-                      if path.name in {"sources.csv", "source_models.csv"}:
-                          continue
-                      with path.open(encoding="utf-8-sig", newline="") as handle:
-                          reader = csv.DictReader(handle)
-                          if reader.fieldnames is None or "source_code" not in reader.fieldnames:
-                              continue
-                          selected = [
-                              row for row in reader if row.get("source_code") in registration.OWNED_CODES
-                          ]
-                      self.assertEqual(selected, [], str(path))
-          '''.replace("          ", ""),
+              "    def test_registration_does_not_project_versions_configurations_or_observations(self) -> None:\n",
+              "    def test_gap_review_preserves_context_and_explicit_non_imports(self) -> None:\n",
               '''    def test_registration_keeps_versions_unprojected_and_derived_links_unique(self) -> None:
                   self.assertEqual(
-                      [row for row in rows("source_versions.csv") if row["source_code"] in registration.OWNED_CODES],
+                      [
+                          row
+                          for row in rows("source_versions.csv")
+                          if row["source_code"] in registration.OWNED_CODES
+                      ],
                       [],
                   )
                   selected = [
@@ -140,11 +128,16 @@ jobs:
                       if row["source_code"] in registration.OWNED_CODES
                   ]
                   keys = [
-                      (row["source_code"], row["configuration_code"], row["relationship"])
+                      (
+                          row["source_code"],
+                          row["configuration_code"],
+                          row["relationship"],
+                      )
                       for row in selected
                   ]
                   self.assertEqual(len(keys), len(set(keys)))
-          '''.replace("          ", ""),
+
+'''.replace("              ", ""),
           )
 
           replace_once(
@@ -170,12 +163,14 @@ jobs:
               for item in original
               if (item.get("configuration_code"), item.get("attribute_code")) not in removed
           ]
-          if len(original) - len(evidence["decisions"]) not in {0, 2}:
+          removed_count = len(original) - len(evidence["decisions"])
+          if removed_count not in {0, 2}:
               raise SystemExit("unexpected Sandero automatic evidence removal count")
-          evidence_path.write_text(
-              json.dumps(evidence, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-              encoding="utf-8",
-          )
+          if removed_count:
+              evidence_path.write_text(
+                  json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
+                  encoding="utf-8",
+              )
           PY
 
       - name: Materialize and persist diagnostics
