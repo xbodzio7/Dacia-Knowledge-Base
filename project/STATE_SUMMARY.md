@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review**
+**Official Dacia Brochure Source Registration and Gap Review**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 758
+- Tests: 765
 - Master CSV files: 41
-- Master rows: 8135
+- Master rows: 8145
 - Configuration values: 1831
 - Configuration import specifications: 114
 - Configuration value ranges: 176
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review** — `complete`
+**Official Dacia Brochure Source Registration and Gap Review** — `complete`
 
-Import exact ISO 3832 luggage-volume evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey automatic configurations and preserve petrol CO2 as unknown because the official catalogue does not distinguish the 123 g/km value by fuel.
+Archive and register the five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs, verify their immutable identities and classify source-backed technical gaps without importing context-poor observations.
 
 ## Next package
 
-**Official Dacia Brochure Source Registration and Gap Review** — `planned`
+**Brochure Cargo Measurement Context Modeling** — `planned`
 
-Register the five official Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs supplied by the project owner, verify their identities and classify source-backed technical gaps without flattening measurement-standard, seat-state or gearbox context.
+Define the smallest reusable representation for brochure cargo observations that preserves VDA or ordinary-litre measurement basis, seat state, passenger layout, drive type, spare-wheel or repair-kit state, double-floor state and separate underfloor compartments before any brochure cargo values are imported.
 
 ## Autonomy
 

@@ -728,6 +728,8 @@ Kolejny pakiet uzupełnia te trzy automaty o 60 dokładnych wartości i 18 przed
 
 Następny pakiet zamyka lukę bagażnika automatów na podstawie oficjalnego polskiego cennika MY26: każda z konfiguracji Expression, Extreme i Journey otrzymuje 439 dm3 ISO 3832 bez koła zapasowego oraz 1373 dm3 maksymalnej pojemności. Wartość 123 g/km z kolumny dwupaliwowej nie jest przypisywana benzynie bez jawnego rozdzielenia paliwa. Szczegóły zawiera `project/packages/duster-ecog120-automatic-cargo-emissions-review-20260725.md`.
 
+Kolejny pakiet archiwizuje i rejestruje pięć oficjalnych polskich broszur Dacii: Bigster, Jogger, Sandero, Sandero Stepway i Duster. Broszury są powiązane wyłącznie z modelami, a audyt klasyfikuje wartości powtarzające istniejące źródła, dane wymagające kontekstu biegu, układu siedzeń lub standardu pomiaru oraz jawne zakazy importu. W tym pakiecie nie dodano żadnych obserwacji technicznych. Szczegóły zawierają `project/packages/official-dacia-brochure-source-registration-20260725.md` i `project/reviews/official-dacia-brochure-gap-review-2026-07-25.md`.
+
 Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
 
 Bieżący pakiet rozszerza zwykłe Sandero do czterech oficjalnie potwierdzonych stanów Eco-G 120: Expression i Journey z ręczną lub automatyczną skrzynią. Dodaje dwie konfiguracje automatyczne, cztery ceny obserwowane 23 lipca 2026 r. i wyłącznie wyróżniki wyposażenia pokazane na odpowiadających stronach wersji. Pakiety z ogólnych stron wyposażenia oraz opcje domyślnego Essential TCe 100 pozostają nieprzypisane bez dowodu dla dokładnej konfiguracji. Szczegóły znajdują się w `project/packages/official-configurator-sandero-configuration-import.md`.
@@ -969,11 +971,11 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 758 testów, 41 pliki CSV, 8135 rekordów
+Zweryfikowany model obejmuje 765 testów, 41 pliki CSV, 8145 rekordów
 danych, 43 relacje między tabelami, 1831 wartości konfiguracji, 114 skalarnych specyfikacji importu, 176 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4754 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 41 tabele i 8135 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 41 tabele i 8145 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

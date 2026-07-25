@@ -296,10 +296,10 @@ def _verify_models() -> None:
     models = {
         row["code"]
         for row in _read_rows(MASTER / "models.csv")
-        if row.get("status") == "active"
+        if row.get("status") == "current"
     }
     expected_models = {row["model_code"] for row in EXPECTED}
-    _ensure(expected_models <= models, "one or more brochure model codes are not active")
+    _ensure(expected_models <= models, "one or more brochure model codes are not current")
 
 
 def _verify_registered_rows() -> None:
