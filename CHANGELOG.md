@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Imported 45 context-aware `boot_capacity` observations from the official 2026-02-02 Sandero and Sandero Stepway brochures across nine Eco-G 120 configurations, with 45 exact cargo-context rows and nine source relationships.
 * Made comparison, shortlist, selection, flat CSV, HTML and workbook reporting preserve every context-distinct `boot_capacity` observation by measurement basis, seat state, compartment and explicit cargo-equipment qualifiers.
 * Added the header-only cargo-volume context relation, four controlled context dictionaries, eight reference rules, four lifecycle rules and semantic validation that restricts contexts to one `boot_capacity` observation.
 * Accepted a context-preserving cargo-volume model that keeps numeric observations in `configuration_attribute_values.csv` and defines a separate one-to-one cargo context relation for measurement basis, seat state, compartment and equipment qualifiers.
@@ -266,10 +267,10 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 784 tests.
-* The verified master-data baseline now contains 46 CSV files and 8156 rows.
-* SQLite verification now covers 46 tables and 8156 rows.
-* Configuration attribute values now contain 1831 dated records.
+* The automated test suite now contains 791 tests.
+* The verified master-data baseline now contains 46 CSV files and 8255 rows.
+* SQLite verification now covers 46 tables and 8255 rows.
+* Configuration attribute values now contain 1876 dated records.
 * Declarative scalar configuration-value imports now contain 114 versioned JSON specifications.
 * Configuration value ranges now contain 176 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.

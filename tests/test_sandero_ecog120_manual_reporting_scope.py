@@ -118,7 +118,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 690, "different": 14, "equal": 528, "not_comparable": 148},
                 "prices": {"comparisons": 10, "different": 10, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 450, "different": 122, "equal": 318, "not_comparable": 10},
+                "technical": {"comparisons": 500, "different": 122, "equal": 368, "not_comparable": 10},
                 "total_differences": 146,
             },
         )

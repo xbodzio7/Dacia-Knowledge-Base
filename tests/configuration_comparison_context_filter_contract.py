@@ -286,15 +286,24 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             REPOSITORY / core.DEFAULT_EVIDENCE_SPEC,
         )
         contexts = context_filter.difference_contexts(report)
-        self.assertEqual(
-            contexts,
-            (
-                "",
-                "fuel_type_code=",
-                "fuel_type_code=lpg",
-                "fuel_type_code=petrol",
-                "market=PL;currency_code=PLN",
-            ),
+        legacy_contexts = {
+            "",
+            "fuel_type_code=",
+            "fuel_type_code=lpg",
+            "fuel_type_code=petrol",
+            "market=PL;currency_code=PLN",
+        }
+        self.assertTrue(legacy_contexts <= set(contexts))
+        cargo_contexts = set(contexts) - legacy_contexts
+        self.assertEqual(len(cargo_contexts), 5)
+        self.assertTrue(
+            all(
+                context.startswith("fuel_type_code=;")
+                and "measurement_basis_code=" in context
+                and "second_row_state_code=" in context
+                and "compartment_code=" in context
+                for context in cargo_contexts
+            )
         )
         self.assertEqual(
             context_filter.render_difference_csv(report),

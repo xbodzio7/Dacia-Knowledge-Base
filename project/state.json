@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Cargo Context Reporting Foundation",
+  "phase": "Sandero and Stepway Brochure Cargo Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 784,
+    "tests": 791,
     "csv_files": 46,
-    "rows": 8156,
-    "configuration_values": 1831,
+    "rows": 8255,
+    "configuration_values": 1876,
     "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Cargo Context Reporting Foundation",
+    "name": "Sandero and Stepway Brochure Cargo Import",
     "status": "complete",
-    "goal": "Make comparison, shortlist and export reporting expose exact cargo-context fields and preserve every context-distinct boot_capacity observation without importing official brochure values."
+    "goal": "Import 45 source-backed canonical boot_capacity observations from the official Sandero and Stepway brochures with exact measurement, seat and compartment context while preserving legacy cargo history."
   },
   "next_package": {
-    "name": "Official Brochure Cargo Value Import",
+    "name": "Jogger Brochure Cargo Value Import",
     "status": "planned",
-    "goal": "Import source-backed canonical boot_capacity observations from the registered official brochures with exact cargo context and no migration or inference from legacy cargo attributes."
+    "goal": "Import official Jogger five- and seven-seat cargo observations with exact second-row, third-row, removal and measurement-basis context."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

@@ -116,7 +116,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 69, "different": 1, "equal": 55, "not_comparable": 13},
                 "prices": {"comparisons": 1, "different": 1, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 45, "different": 7, "equal": 37, "not_comparable": 1},
+                "technical": {"comparisons": 50, "different": 7, "equal": 42, "not_comparable": 1},
                 "total_differences": 9,
             },
         )

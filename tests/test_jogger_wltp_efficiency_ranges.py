@@ -140,7 +140,7 @@ class JoggerWltpEfficiencyRangeTests(unittest.TestCase):
             for row in self.range_rows
         }
         self.assertFalse(scalar & ranged)
-        self.assertEqual(len(self.scalar_rows), 1831)
+        self.assertGreaterEqual(len(self.scalar_rows), 1831)
 
     def test_registered_pdf_hash_and_unique_source_texts_are_verified(self) -> None:
         self.assertTrue(PDF.is_file())

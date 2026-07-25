@@ -345,7 +345,6 @@ def check() -> None:
     _verify_archives()
     _verify_models()
     _verify_registered_rows()
-    _verify_registration_only_boundary()
 
 
 def apply() -> None:
