@@ -27,7 +27,6 @@ jobs:
               Path("tests/test_duster_ecog120_automatic_homologation_20260725.py"),
               Path("tests/test_jogger_payload_performance_ranges.py"),
               Path("tests/test_jogger_wltp_efficiency_ranges.py"),
-              Path(".github/workflows/materialize-duster-automatic-homologation.yml"),
           )
           for path in paths:
               text = path.read_text(encoding="utf-8")
@@ -37,9 +36,6 @@ jobs:
               ).replace(
                   'self.assertEqual(baseline["tests"], 751)',
                   'self.assertEqual(baseline["tests"], 752)',
-              ).replace(
-                  "'self.assertEqual(baseline[\"tests\"], 751)'",
-                  "'self.assertEqual(baseline[\"tests\"], 752)'",
               )
               if updated == text and "752" not in text:
                   raise SystemExit(f"expected 751-test contract not found: {path}")
@@ -51,7 +47,6 @@ jobs:
           git add \
             tests/test_duster_ecog120_automatic_homologation_20260725.py \
             tests/test_jogger_payload_performance_ranges.py \
-            tests/test_jogger_wltp_efficiency_ranges.py \
-            .github/workflows/materialize-duster-automatic-homologation.yml
+            tests/test_jogger_wltp_efficiency_ranges.py
           git commit -m "test: synchronize 752-test homologation baseline"
           git push origin HEAD:${{ github.head_ref }}
