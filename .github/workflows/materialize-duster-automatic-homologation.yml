@@ -53,13 +53,13 @@ jobs:
                   ('self.assertEqual(report["technical"]["present"], 9)', 'self.assertEqual(report["technical"]["present"], 87)'),
               ),
               Path("tests/test_jogger_payload_performance_ranges.py"): (
-                  ('self.assertEqual(baseline["tests"], 743)', 'self.assertEqual(baseline["tests"], 751)'),
+                  ('self.assertEqual(baseline["tests"], 743)', 'self.assertEqual(baseline["tests"], 752)'),
                   ('self.assertEqual(baseline["rows"], 8032)', 'self.assertEqual(baseline["rows"], 8126)'),
                   ('self.assertEqual(baseline["configuration_values"], 1765)', 'self.assertEqual(baseline["configuration_values"], 1825)'),
                   ('self.assertEqual(baseline["configuration_value_ranges"], 158)', 'self.assertEqual(baseline["configuration_value_ranges"], 176)'),
               ),
               Path("tests/test_jogger_wltp_efficiency_ranges.py"): (
-                  ('self.assertEqual(baseline["tests"], 743)', 'self.assertEqual(baseline["tests"], 751)'),
+                  ('self.assertEqual(baseline["tests"], 743)', 'self.assertEqual(baseline["tests"], 752)'),
                   ('self.assertEqual(baseline["rows"], 8032)', 'self.assertEqual(baseline["rows"], 8126)'),
                   ('self.assertEqual(baseline["configuration_values"], 1765)', 'self.assertEqual(baseline["configuration_values"], 1825)'),
                   ('self.assertEqual(baseline["configuration_value_ranges"], 158)', 'self.assertEqual(baseline["configuration_value_ranges"], 176)'),
