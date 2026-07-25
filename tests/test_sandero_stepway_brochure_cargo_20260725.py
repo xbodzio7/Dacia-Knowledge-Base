@@ -4,6 +4,7 @@ import csv
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -72,6 +73,27 @@ class SanderoStepwayBrochureCargoTests(unittest.TestCase):
         self.assertIn(
             "PASS: Sandero and Stepway official brochure cargo import contract",
             completed.stdout,
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            plan = subprocess.run(
+                [
+                    sys.executable,
+                    "tools/dkb.py",
+                    "configuration-gap-resolution-plan",
+                    "--json",
+                    str(Path(directory) / "plan.json"),
+                    "--markdown",
+                    str(Path(directory) / "plan.md"),
+                ],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+        self.assertEqual(
+            plan.returncode,
+            0,
+            plan.stdout + plan.stderr,
         )
 
     def test_exact_value_and_context_counts(self) -> None:

@@ -14,6 +14,8 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from reporting.cargo_context import context_index, semantic_signature
+
 
 DEFAULT_EVIDENCE_SPEC = Path(
     "data/reporting/configuration_gap_evidence.json"
@@ -158,8 +160,8 @@ def validate_candidate_value(data_type: str, value: str, label: str) -> None:
 
 def existing_import_semantics(
     repository: Path,
-) -> set[tuple[str, str, str, str]]:
-    result: set[tuple[str, str, str, str]] = set()
+) -> set[tuple[str, str, str, str, str]]:
+    result: set[tuple[str, str, str, str, str]] = set()
     root = repository / "data" / "imports" / "configuration_values"
     if not root.is_dir():
         return result
@@ -194,6 +196,7 @@ def existing_import_semantics(
                 attribute_code,
                 fuel_type_code,
                 observation_date,
+                "",
             )
             if semantic in result:
                 raise GapResolutionPlanError(
@@ -232,12 +235,20 @@ def load_repository_context(
             "source configurations",
         )
     }
+    context_path = master / "configuration_cargo_volume_contexts.csv"
+    cargo_contexts = (
+        context_index(
+            read_csv(context_path, "configuration cargo contexts")
+        )
+        if context_path.is_file()
+        else {}
+    )
     values = read_csv(
         master / "configuration_attribute_values.csv",
         "configuration attribute values",
     )
     semantics: dict[
-        tuple[str, str, str, str],
+        tuple[str, str, str, str, str],
         Mapping[str, str],
     ] = {}
     maximum_id = 0
@@ -248,11 +259,13 @@ def load_repository_context(
             raise GapResolutionPlanError(
                 f"configuration value has non-integer id: {row.get('id')!r}"
             ) from exc
+        cargo_context = cargo_contexts.get(row.get("code", ""))
         key = (
             row.get("configuration_code", ""),
             row.get("attribute_code", ""),
             row.get("fuel_type_code", ""),
             row.get("observation_date", ""),
+            semantic_signature(cargo_context) if cargo_context else "",
         )
         if key in semantics:
             raise GapResolutionPlanError(
@@ -469,6 +482,7 @@ def build_found_candidate(
         attribute_code,
         fuel_type_code,
         observation_date,
+        "",
     )
     existing = context["values"].get(semantic)
     if existing is not None:

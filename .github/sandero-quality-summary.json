@@ -1,7 +1,7 @@
 {
-  "exit_code": 1,
-  "generated_at": "2026-07-25T22:23:28.737612+00:00",
-  "status": "FAIL",
+  "exit_code": 0,
+  "generated_at": "2026-07-25T22:30:39.807530+00:00",
+  "status": "PASS",
   "steps": [
     {
       "exit_code": 0,
@@ -64,9 +64,14 @@
       "status": "PASS"
     },
     {
-      "exit_code": 1,
+      "exit_code": 0,
       "label": "Generate configuration gap resolution plan",
-      "status": "FAIL"
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Generate configuration comparison report",
+      "status": "PASS"
     }
   ],
   "tests": 791,
