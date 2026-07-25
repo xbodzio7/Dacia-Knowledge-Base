@@ -852,3 +852,96 @@ No current configuration value uses `total_valve_count`.
   each current configuration.
 - The future import preserves page 6, section, observation date and exact
   source wording.
+
+## D-023 — Contextual cargo-volume observations
+
+Status: Accepted
+
+Date: 2026-07-25
+
+### Decision
+
+Context-rich luggage-capacity observations remain numeric configuration values in
+`configuration_attribute_values.csv`. New brochure imports use the existing neutral
+`boot_capacity` attribute rather than creating further attribute codes that embed VDA,
+seat, spare-wheel, floor or compartment qualifiers.
+
+A follow-up schema package shall add an optional one-to-one relation named
+`configuration_cargo_volume_contexts.csv`. Each row shall reference exactly one
+`configuration_attribute_values.code` through
+`configuration_attribute_value_code`. A value may have zero or one cargo-context row;
+a context row without its referenced value is invalid.
+
+The planned relation shall contain:
+
+- `id`;
+- `code`;
+- `configuration_attribute_value_code`;
+- required `measurement_basis_code`;
+- optional `second_row_state_code`;
+- optional `third_row_state_code`;
+- required `compartment_code`;
+- optional `spare_wheel_state_code`;
+- optional `tyre_repair_kit_state_code`;
+- optional `double_floor_state_code`;
+- `notes`.
+
+The schema shall use controlled dictionaries for:
+
+- measurement basis: `vda_iso_3832` and `ordinary_litre`;
+- seat-row state: `upright`, `folded`, `removed` and
+  `folded_or_removed` when the source explicitly groups those alternatives;
+- compartment: `main_luggage_compartment`, `underfloor_compartment` and
+  `source_stated_total`;
+- presence state: `present` and `absent`.
+
+Empty optional context fields mean that the source did not qualify that dimension. They
+must not be interpreted as `absent`, `unknown` or a default state. Spare-wheel,
+tyre-repair-kit and double-floor states are independent facts and must not be inferred
+from one another.
+
+Passenger layout and drive type are stable properties of the target configuration and
+shall not be duplicated in the cargo-context relation. A brochure value split by five
+or seven seats, or by 4x2 or 4x4, may be imported only into exact configurations whose
+canonical seat count and drive data match the source group. If an exact target is not
+modeled, the value remains unimported.
+
+The `boot_capacity` unit remains litres. A VDA figure stated in cubic decimetres may be
+stored at the numerically identical litre value because one cubic decimetre equals one
+litre, while `measurement_basis_code = vda_iso_3832` and source notes preserve the
+measurement method and original wording.
+
+Minimum and maximum cargo capacities are not separate future attributes. They are
+observations of the same `boot_capacity` fact under different explicit seat-row,
+compartment and equipment states. Separate underfloor capacity is a separate value row
+with `compartment_code = underfloor_compartment`; it must not be added to a main or
+total value unless the source explicitly supplies that total.
+
+### Existing data
+
+Existing observations and attributes that encode historical cargo qualifiers remain
+unchanged, including:
+
+- `cargo_volume_vda`;
+- `cargo_volume_vda_to_luggage_cover`;
+- `cargo_volume_vda_to_seatback`;
+- `cargo_volume_without_spare_wheel_iso3832`;
+- `maximum_cargo_volume_iso3832`.
+
+They are not migrated or reinterpreted by this modeling package. New context-rich
+brochure imports shall use `boot_capacity` plus the accepted context relation after the
+schema, validators, SQLite export and reporting surfaces support it.
+
+### Reporting and uniqueness
+
+Context-distinct `boot_capacity` rows must not be collapsed into one scalar or selected
+arbitrarily. Reporting shall either require an explicit cargo context or expose all
+source-backed contexts. The follow-up schema package shall validate one-to-one context
+cardinality, controlled references and cargo-attribute eligibility before any brochure
+cargo values are imported.
+
+### Scope boundary
+
+This decision does not import cargo values and does not modify current master-data
+schemas. Gear-specific 80–120 km/h elasticity remains a separate future modeling
+question; no generic all-purpose measurement-context architecture is introduced here.

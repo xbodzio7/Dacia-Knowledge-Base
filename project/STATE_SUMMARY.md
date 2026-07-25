@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Official Dacia Brochure Source Registration and Gap Review**
+**Brochure Cargo Measurement Context Modeling**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 765
+- Tests: 766
 - Master CSV files: 41
 - Master rows: 8145
 - Configuration values: 1831
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Dacia Brochure Source Registration and Gap Review** — `complete`
+**Brochure Cargo Measurement Context Modeling** — `complete`
 
-Archive and register the five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs, verify their immutable identities and classify source-backed technical gaps without importing context-poor observations.
+Accept the smallest reusable representation for brochure cargo values by keeping numeric observations in configuration_attribute_values.csv and defining a one-to-one cargo context relation for measurement basis, seat state, compartment and explicit equipment qualifiers.
 
 ## Next package
 
-**Brochure Cargo Measurement Context Modeling** — `planned`
+**Brochure Cargo Context Schema Foundation** — `planned`
 
-Define the smallest reusable representation for brochure cargo observations that preserves VDA or ordinary-litre measurement basis, seat state, passenger layout, drive type, spare-wheel or repair-kit state, double-floor state and separate underfloor compartments before any brochure cargo values are imported.
+Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values.
 
 ## Autonomy
 

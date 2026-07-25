@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Official Dacia Brochure Source Registration and Gap Review",
+  "phase": "Brochure Cargo Measurement Context Modeling",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 765,
+    "tests": 766,
     "csv_files": 41,
     "rows": 8145,
     "configuration_values": 1831,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Official Dacia Brochure Source Registration and Gap Review",
+    "name": "Brochure Cargo Measurement Context Modeling",
     "status": "complete",
-    "goal": "Archive and register the five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs, verify their immutable identities and classify source-backed technical gaps without importing context-poor observations."
+    "goal": "Accept the smallest reusable representation for brochure cargo values by keeping numeric observations in configuration_attribute_values.csv and defining a one-to-one cargo context relation for measurement basis, seat state, compartment and explicit equipment qualifiers."
   },
   "next_package": {
-    "name": "Brochure Cargo Measurement Context Modeling",
+    "name": "Brochure Cargo Context Schema Foundation",
     "status": "planned",
-    "goal": "Define the smallest reusable representation for brochure cargo observations that preserves VDA or ordinary-litre measurement basis, seat state, passenger layout, drive type, spare-wheel or repair-kit state, double-floor state and separate underfloor compartments before any brochure cargo values are imported."
+    "goal": "Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
