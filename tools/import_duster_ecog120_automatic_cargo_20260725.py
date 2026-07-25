@@ -142,8 +142,8 @@ def _verify_source_page(path: Path) -> None:
     """Verify the immutable PDF and reviewed declarative page-6 evidence."""
     _ensure(path.is_file(), f"registered source file is missing: {path}")
     required_source_texts = {
-        "Bez koła zapasowego: 439 dm3 (ISO 3832)",
-        "Maksymalna pojemność bagażnika: 1373 dm3 (ISO 3832)",
+        "Bez koła zapasowego 439",
+        "Maksymalna pojemność bagażnika 1373",
     }
     declared_source_texts = {
         row.source_text

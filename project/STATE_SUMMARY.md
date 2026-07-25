@@ -12,22 +12,22 @@
 
 ## Phase
 
-**Duster Eco-G 120 Automatic Homologation Evidence**
+**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review**
 
 ## Reference delivery
 
-- Package: Official Configurator Cross-Model Option Coverage Import
-- Pull Request: #241
-- Verified head: `d32e5b18c3e646a4c48551976bdbfe75a053af90`
-- Quality run: #1295
+- Package: Duster Eco-G 120 Automatic Homologation Evidence
+- Pull Request: #244
+- Verified head: `f8dba789260fb65236e02e6a70c3eb187dd1aefd`
+- Quality run: #1397
 
 ## Verified baseline
 
-- Tests: 752
+- Tests: 758
 - Master CSV files: 41
-- Master rows: 8126
-- Configuration values: 1825
-- Configuration import specifications: 112
+- Master rows: 8135
+- Configuration values: 1831
+- Configuration import specifications: 114
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
 - Availability records: 4754
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Eco-G 120 Automatic Homologation Evidence** — `complete`
+**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review** — `complete`
 
-Import exact automatic-specific power, torque, performance, WLTP, mass and towing evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey configurations without inheriting manual cargo values.
+Import exact ISO 3832 luggage-volume evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey automatic configurations and preserve petrol CO2 as unknown because the official catalogue does not distinguish the 123 g/km value by fuel.
 
 ## Next package
 
-**Duster Eco-G 120 Automatic Cargo and Emissions Gap Review** — `planned`
+**Official Dacia Brochure Source Registration and Gap Review** — `planned`
 
-Locate exact automatic-specific luggage-volume and petrol CO2 evidence while preserving current unknown states if no authoritative source exists.
+Register the five official Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs supplied by the project owner, verify their identities and classify source-backed technical gaps without flattening measurement-standard, seat-state or gearbox context.
 
 ## Autonomy
 
