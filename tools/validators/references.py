@@ -10,9 +10,11 @@ from pathlib import Path
 from typing import Sequence
 
 try:
+    from validators.cargo_contexts import validate_configuration_cargo_volume_contexts
     from validators.enum_domains import validate_enum_domains
     from validators.value_ranges import validate_configuration_value_ranges
 except ModuleNotFoundError:  # package import in unit tests
+    from tools.validators.cargo_contexts import validate_configuration_cargo_volume_contexts
     from tools.validators.enum_domains import validate_enum_domains
     from tools.validators.value_ranges import validate_configuration_value_ranges
 
@@ -241,6 +243,51 @@ REFERENCE_RULES: tuple[ReferenceRule, ...] = (
         "data/master/models.csv",
     ),
     ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "configuration_attribute_value_code",
+        "data/master/configuration_attribute_values.csv",
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "measurement_basis_code",
+        "data/master/enums/cargo_measurement_bases.csv",
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "second_row_state_code",
+        "data/master/enums/cargo_seat_states.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "third_row_state_code",
+        "data/master/enums/cargo_seat_states.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "compartment_code",
+        "data/master/enums/cargo_compartment_types.csv",
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "spare_wheel_state_code",
+        "data/master/enums/context_presence_states.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "tyre_repair_kit_state_code",
+        "data/master/enums/context_presence_states.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
+        "data/master/configuration_cargo_volume_contexts.csv",
+        "double_floor_state_code",
+        "data/master/enums/context_presence_states.csv",
+        allow_empty=True,
+    ),
+    ReferenceRule(
         "data/master/attributes.csv",
         "category",
         "data/master/attribute_categories.csv",
@@ -442,4 +489,6 @@ def validate_references(root: Path) -> list[str]:
     errors.extend(enum_errors)
     _, range_errors = validate_configuration_value_ranges(root)
     errors.extend(range_errors)
+    _, cargo_context_errors = validate_configuration_cargo_volume_contexts(root)
+    errors.extend(cargo_context_errors)
     return errors

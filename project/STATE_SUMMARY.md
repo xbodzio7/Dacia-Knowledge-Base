@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Cargo Measurement Context Modeling**
+**Brochure Cargo Context Schema Foundation**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 766
-- Master CSV files: 41
-- Master rows: 8145
+- Tests: 776
+- Master CSV files: 46
+- Master rows: 8156
 - Configuration values: 1831
 - Configuration import specifications: 114
 - Configuration value ranges: 176
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Cargo Measurement Context Modeling** — `complete`
+**Brochure Cargo Context Schema Foundation** — `complete`
 
-Accept the smallest reusable representation for brochure cargo values by keeping numeric observations in configuration_attribute_values.csv and defining a one-to-one cargo context relation for measurement basis, seat state, compartment and explicit equipment qualifiers.
+Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values.
 
 ## Next package
 
-**Brochure Cargo Context Schema Foundation** — `planned`
+**Brochure Cargo Context Reporting Foundation** — `planned`
 
-Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values.
+Make comparison, shortlist and export reporting expose cargo-context fields and preserve every context-distinct boot_capacity observation before any official brochure cargo values are imported.
 
 ## Autonomy
 

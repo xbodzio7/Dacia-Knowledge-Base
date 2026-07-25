@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added the header-only cargo-volume context relation, four controlled context dictionaries, eight reference rules, four lifecycle rules and semantic validation that restricts contexts to one `boot_capacity` observation.
 * Accepted a context-preserving cargo-volume model that keeps numeric observations in `configuration_attribute_values.csv` and defines a separate one-to-one cargo context relation for measurement basis, seat state, compartment and equipment qualifiers.
 * Configurator-style shortlist controls with official Dacia Polska model packshots, deterministic offline SVG fallbacks and minimum/maximum price fields in one row.
 * Source-complete dynamic equipment facets that hide universal, incomplete and unknown availability instead of turning missing evidence into a buyer-facing difference; clarified equipment-list search semantics.
@@ -264,9 +265,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 766 tests.
-* The verified master-data baseline now contains 41 CSV files and 8145 rows.
-* SQLite verification now covers 41 tables and 8145 rows.
+* The automated test suite now contains 776 tests.
+* The verified master-data baseline now contains 46 CSV files and 8156 rows.
+* SQLite verification now covers 46 tables and 8156 rows.
 * Configuration attribute values now contain 1831 dated records.
 * Declarative scalar configuration-value imports now contain 114 versioned JSON specifications.
 * Configuration value ranges now contain 176 dated records from 20 range specifications.
