@@ -198,8 +198,8 @@ def _patch_historical_contracts() -> None:
 
 def _apply_state_and_docs() -> None:
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state.get("baseline", {}).get("configuration_values") != 1831:
-        raise RuntimeError("unexpected pre-import configuration-value baseline")
+    if state.get("baseline", {}).get("configuration_values") not in {1831, 1876}:
+        raise RuntimeError("unexpected pre- or post-import configuration-value baseline")
     state["updated_on"] = "2026-07-25"
     state["phase"] = "Sandero and Stepway Brochure Cargo Import"
     state["current_package"] = {
