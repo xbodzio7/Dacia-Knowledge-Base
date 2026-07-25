@@ -1,11 +1,6 @@
 name: Materialize Official Dacia Brochure Registration
 
 on:
-  push:
-    branches:
-      - agent/official-dacia-brochure-source-registration
-    paths:
-      - .github/workflows/materialize-official-dacia-brochures.yml
   pull_request:
     branches:
       - main
@@ -32,14 +27,22 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Materialize registered sources and project state
+      - name: Materialize, verify and persist diagnostics
         run: |
-          python tools/register_official_dacia_brochures_20260725.py --apply
-          python tools/dkb.py project-state --apply
+          set +e
+          log=/tmp/official-dacia-brochures.log
+          : > "$log"
 
-      - name: Add package narrative
-        run: |
-          python - <<'PY'
+          python tools/register_official_dacia_brochures_20260725.py --apply >> "$log" 2>&1
+          status=$?
+
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1
+            status=$?
+          fi
+
+          if [ "$status" -eq 0 ]; then
+            python - <<'PY' >> "$log" 2>&1
           from pathlib import Path
 
           replacements = {
@@ -68,25 +71,28 @@ jobs:
                   raise SystemExit(f'missing narrative anchor: {path}')
               path.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
+            status=$?
+          fi
 
-      - name: Verify complete package
-        run: |
-          python tools/register_official_dacia_brochures_20260725.py --check
-          python tools/dkb.py project-state --check
-          python -m unittest discover -s tests -p 'test_*.py'
+          if [ "$status" -eq 0 ]; then
+            {
+              python tools/register_official_dacia_brochures_20260725.py --check
+              python tools/dkb.py project-state --check
+              python -m unittest discover -s tests -p 'test_*.py'
+            } >> "$log" 2>&1
+            status=$?
+          fi
 
-      - name: Commit materialized package
-        run: |
+          cat "$log"
+          rm -f .github/official-dacia-brochures-error.log
+          if [ "$status" -ne 0 ]; then
+            cp "$log" .github/official-dacia-brochures-error.log
+          fi
+
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            data/master/sources.csv \
-            data/master/source_models.csv \
-            project/STATE_SUMMARY.md \
-            project/SESSION_STATE.md \
-            project/ROADMAP.md \
-            README.md \
-            CHANGELOG.md
+          git add -A
           git diff --cached --check
           git commit -m 'data(sources): materialize official Dacia brochure registration' || true
           git push origin HEAD:agent/official-dacia-brochure-source-registration
+          exit "$status"
