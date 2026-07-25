@@ -52,3 +52,6 @@ id,source_code,version_code,relationship,notes
 51,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_expression,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.
 52,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_extreme,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.
 53,src_pl_duster_ecog120_automatic_engine_20260724,duster_iii_journey,intrinsic_engine_data_for,Applied only to the exact registered Eco-G 120 automatic configuration.
+54,src_pl_duster_exact_stock_equipment_20260724,duster_iii_expression,exact_stock_equipment_documents,Official exact stock equipment card observed 2026-07-24.
+55,src_pl_duster_exact_stock_equipment_20260724,duster_iii_extreme,exact_stock_equipment_documents,Official exact stock equipment card observed 2026-07-24.
+56,src_pl_duster_exact_stock_equipment_20260724,duster_iii_journey,exact_stock_equipment_documents,Official exact stock equipment card observed 2026-07-24.

@@ -722,6 +722,8 @@ Bieżący przekrojowy import wyposażenia zapisuje 31 dokładnych obserwacji fab
 
 Najnowszy import Dustera dodaje trzy dokładne konfiguracje Eco-G 120 z automatyczną skrzynią: Expression, Extreme i Journey. Zapisuje jawne ceny katalogowe 96 900 zł, 110 300 zł i 107 600 zł, seryjne składane lusterka dla Extreme i Journey oraz trzy cechy silnika wspólne dla dokładnie potwierdzonego automatu: 1199 cm³, trzy cylindry i 12 zaworów. Sprzeczny stan lusterek Expression, typ anteny, masa przyczepy i bagażnik pozostają niewiadomą. Szczegóły zawiera `project/packages/duster-ecog120-automatic-stock-intake-20260724.md`.
 
+Najnowsze rozszerzenie dokładnych konfiguracji Dustera zapisuje 203 nowe datowane obserwacje wyposażenia dla automatów Expression, Extreme i Journey bez kopiowania danych z wersji manualnych. Cztery pozycje są jawnym `not_available`, a pozostałe 201 stanowią wyposażenie obecne w konkretnych kartach. Pakiety PARKING i ZIMOWY PLUS dla Extreme i Journey mają osobne rekordy dostępności/ceny z oficjalnego cennika oraz późniejsze rekordy potwierdzające wybór w konkretnych egzemplarzach. Antena i składane lusterka Expression pozostają nierozstrzygnięte. Szczegóły zawiera `project/packages/duster-exact-stock-equipment-expansion-20260725.md`.
+
 Bieżące dane główne zawierają pierwszy import na poziomie konkretnej konfiguracji z oficjalnych stron Sandero Stepway: pięć aktywnych stanów Eco-G 120 z cenami obserwowanymi 23 lipca 2026 r. oraz wyłącznie te wyróżniki wyposażenia, które producent pokazuje dla odpowiedniej wersji. Pakiet widoczny w domyślnym konfiguratorze TCe 110 nie jest automatycznie przypisywany do Eco-G. Szczegóły znajdują się w `project/packages/official-configurator-sandero-stepway-configuration-import.md`.
 
 Bieżący pakiet rozszerza zwykłe Sandero do czterech oficjalnie potwierdzonych stanów Eco-G 120: Expression i Journey z ręczną lub automatyczną skrzynią. Dodaje dwie konfiguracje automatyczne, cztery ceny obserwowane 23 lipca 2026 r. i wyłącznie wyróżniki wyposażenia pokazane na odpowiadających stronach wersji. Pakiety z ogólnych stron wyposażenia oraz opcje domyślnego Essential TCe 100 pozostają nieprzypisane bez dowodu dla dokładnej konfiguracji. Szczegóły znajdują się w `project/packages/official-configurator-sandero-configuration-import.md`.
@@ -963,11 +965,11 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 735 testów, 41 pliki CSV, 7813 rekordów
+Zweryfikowany model obejmuje 743 testów, 41 pliki CSV, 8032 rekordów
 danych, 43 relacje między tabelami, 1765 wartości konfiguracji, 112 skalarnych specyfikacji importu, 158 zakresów konfiguracji i 20
-specyfikacji zakresów oraz 4551 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 4754 rekordów dostępności wyposażenia.
 Katalog zawiera 381 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 41 tabele i 7813 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 41 tabele i 8032 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

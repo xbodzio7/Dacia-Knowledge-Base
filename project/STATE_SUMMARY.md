@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-24
+- State updated: 2026-07-25
 
 ## Phase
 
-**Duster Eco-G 120 Automatic Stock Intake**
+**Duster Exact Stock Equipment Expansion**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 735
+- Tests: 743
 - Master CSV files: 41
-- Master rows: 7813
+- Master rows: 8032
 - Configuration values: 1765
 - Configuration import specifications: 112
 - Configuration value ranges: 158
 - Configuration range import specifications: 20
-- Availability records: 4551
+- Availability records: 4754
 - Canonical attributes: 381
 - Attribute categories: 30
 
 ## Current package
 
-**Duster Eco-G 120 Automatic Stock Intake** — `complete`
+**Duster Exact Stock Equipment Expansion** — `complete`
 
-Register exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with explicit catalogue prices, directly proven folding-mirror states, three intrinsic engine values and an independent source-scoped comparison contract.
+Expand the exact 2026 Duster Eco-G 120 automatic Expression, Extreme and Journey configurations with source-backed basic/configured equipment and separately preserved optional-price and selected-package evidence.
 
 ## Next package
 
-**Duster Exact Stock Equipment Expansion** — `planned`
+**Duster Eco-G 120 Automatic Homologation Evidence Review** — `planned`
 
-Expand exact Duster stock-card equipment and package evidence across the newly registered automatic configurations while preserving conflicts, expired-card provenance and unknown antenna states.
+Locate and classify automatic-specific towing, cargo, WLTP, performance and mass evidence without inheriting manual homologation values or weakening current unknown states.
 
 ## Autonomy
 
