@@ -33,23 +33,44 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Materialize and verify package
+      - name: Materialize and persist diagnostics
         run: |
-          python tools/complete_sandero_stepway_brochure_cargo_20260725.py --apply
-          python tools/import_sandero_stepway_brochure_cargo_20260725.py --apply
-          python tools/dkb.py project-state --apply
-          python tools/complete_sandero_stepway_brochure_cargo_20260725.py --check
-          python tools/import_sandero_stepway_brochure_cargo_20260725.py --check
-          python tools/dkb.py project-state --check
-          python -m unittest discover -s tests -p 'test_*.py'
+          set +e
+          : > .github/sandero-cargo-diagnostic.log
+          python tools/complete_sandero_stepway_brochure_cargo_20260725.py --apply >> .github/sandero-cargo-diagnostic.log 2>&1
+          status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/import_sandero_stepway_brochure_cargo_20260725.py --apply >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/complete_sandero_stepway_brochure_cargo_20260725.py --check >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/import_sandero_stepway_brochure_cargo_20260725.py --check >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' >> .github/sandero-cargo-diagnostic.log 2>&1
+            status=$?
+          fi
+          cat .github/sandero-cargo-diagnostic.log
 
-      - name: Commit materialized package
-        run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if ! git diff --cached --quiet; then
             git diff --cached --check
-            git commit -m 'feat(data): import Sandero brochure cargo values'
+            git commit -m 'chore(data): persist Sandero cargo diagnostics'
             git push origin HEAD:agent/sandero-stepway-brochure-cargo-import
           fi
+          exit "$status"
