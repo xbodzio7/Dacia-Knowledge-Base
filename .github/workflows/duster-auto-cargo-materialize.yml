@@ -1,0 +1,85 @@
+name: Duster Automatic Cargo Materialize
+
+on:
+  push:
+    branches:
+      - agent/duster-ecog120-automatic-cargo-gap-closure
+    paths:
+      - .github/workflows/duster-auto-cargo-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/duster-ecog120-automatic-cargo-gap-closure
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize source-backed data
+        run: |
+          python tools/import_duster_ecog120_automatic_cargo_20260725.py --apply
+          python tools/dkb.py project-state --apply
+
+      - name: Add package narrative
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              Path('CHANGELOG.md'): (
+                  '* Added 60 automatic-specific Duster Eco-G 120 scalar technical observations and 18 closed ranges for power, torque, performance, WLTP, mass and towing, while retaining cargo volume and petrol CO2 as explicit unknowns.\n',
+                  '* Added 60 automatic-specific Duster Eco-G 120 scalar technical observations and 18 closed ranges for power, torque, performance, WLTP, mass and towing, while retaining cargo volume and petrol CO2 as explicit unknowns.\n'
+                  '* Added six exact Duster Eco-G 120 automatic ISO 3832 cargo observations: 439 dm3 without a spare wheel and 1373 dm3 maximum capacity for Expression, Extreme and Journey; petrol CO2 remains unknown because the catalogue does not split 123 g/km by fuel.\n',
+              ),
+              Path('README.md'): (
+                  'Kolejny pakiet uzupełnia te trzy automaty o 60 dokładnych wartości i 18 przedziałów technicznych potwierdzonych na oficjalnych kartach automatycznego Eco-G 120. Obejmuje moc i moment dla benzyny/LPG, osiągi, spalanie, masy, ładowność oraz holowanie; pojemność bagażnika i emisja CO2 dla benzyny nadal pozostają niewiadome. Szczegóły zawiera `project/packages/duster-ecog120-automatic-homologation-evidence-20260725.md`.\n',
+                  'Kolejny pakiet uzupełnia te trzy automaty o 60 dokładnych wartości i 18 przedziałów technicznych potwierdzonych na oficjalnych kartach automatycznego Eco-G 120. Obejmuje moc i moment dla benzyny/LPG, osiągi, spalanie, masy, ładowność oraz holowanie; pojemność bagażnika i emisja CO2 dla benzyny nadal pozostają niewiadome. Szczegóły zawiera `project/packages/duster-ecog120-automatic-homologation-evidence-20260725.md`.\n\n'
+                  'Następny pakiet zamyka lukę bagażnika automatów na podstawie oficjalnego polskiego cennika MY26: każda z konfiguracji Expression, Extreme i Journey otrzymuje 439 dm3 ISO 3832 bez koła zapasowego oraz 1373 dm3 maksymalnej pojemności. Wartość 123 g/km z kolumny dwupaliwowej nie jest przypisywana benzynie bez jawnego rozdzielenia paliwa. Szczegóły zawiera `project/packages/duster-ecog120-automatic-cargo-emissions-review-20260725.md`.\n',
+              ),
+              Path('project/ROADMAP.md'): (
+                  '- automatyczne dane homologacyjne Duster Eco-G 120: 60 wartości skalarnych i 18 przedziałów mocy, momentu, osiągów, WLTP, mas oraz holowania, bez dziedziczenia niepotwierdzonego bagażnika,\n',
+                  '- automatyczne dane homologacyjne Duster Eco-G 120: 60 wartości skalarnych i 18 przedziałów mocy, momentu, osiągów, WLTP, mas oraz holowania, bez dziedziczenia niepotwierdzonego bagażnika,\n'
+                  '- sześć katalogowych obserwacji bagażnika ISO 3832 dla Duster Eco-G 120 automatic: 439 dm3 bez koła zapasowego i 1373 dm3 maksymalnej pojemności dla Expression, Extreme i Journey, z zachowaniem benzynowego CO2 jako niewiadomego,\n',
+              ),
+          }
+
+          for path, (old, new) in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              if new in text:
+                  continue
+              if old not in text:
+                  raise SystemExit(f'missing narrative anchor: {path}')
+              path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Verify package
+        run: |
+          python tools/import_duster_ecog120_automatic_cargo_20260725.py --check
+          python tools/dkb.py project-state --check
+          python -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Commit materialized package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            data/master/configuration_attribute_values.csv \
+            data/master/source_configurations.csv \
+            project/STATE_SUMMARY.md \
+            project/SESSION_STATE.md \
+            project/ROADMAP.md \
+            README.md \
+            CHANGELOG.md
+          git diff --cached --check
+          git commit -m 'feat(data): materialize Duster automatic cargo evidence'
+          git push origin HEAD:agent/duster-ecog120-automatic-cargo-gap-closure
