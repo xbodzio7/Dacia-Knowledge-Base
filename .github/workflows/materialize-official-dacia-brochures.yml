@@ -33,8 +33,30 @@ jobs:
           log=/tmp/official-dacia-brochures.log
           : > "$log"
 
-          python tools/register_official_dacia_brochures_20260725.py --apply >> "$log" 2>&1
+          python - <<'PY' >> "$log" 2>&1
+          from pathlib import Path
+
+          path = Path('tools/register_official_dacia_brochures_20260725.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'if row.get("status") == "active"'
+          new = 'if row.get("status") == "current"'
+          if old in text:
+              text = text.replace(old, new, 1)
+          elif new not in text:
+              raise SystemExit('missing model-status verification anchor')
+          text = text.replace(
+              'one or more brochure model codes are not active',
+              'one or more brochure model codes are not current',
+              1,
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
           status=$?
+
+          if [ "$status" -eq 0 ]; then
+            python tools/register_official_dacia_brochures_20260725.py --apply >> "$log" 2>&1
+            status=$?
+          fi
 
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1
