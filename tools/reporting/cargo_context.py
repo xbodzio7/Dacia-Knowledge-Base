@@ -110,7 +110,12 @@ def annotate_scalar_values(
     value_rows: Sequence[Mapping[str, str]],
     context_rows: Sequence[Mapping[str, str]],
 ) -> list[dict[str, Any]]:
-    """Attach exact cargo context to scalar observations without collapsing rows."""
+    """Attach exact cargo context to a complete or deliberately scoped value set.
+
+    Repository-wide referential integrity is enforced by the master-data validator.
+    Reporting callers commonly pass only values for one scope, so context rows owned by
+    configurations outside that scope must be ignored rather than treated as dangling.
+    """
 
     values = [dict(row) for row in value_rows]
     values_by_code: dict[str, dict[str, Any]] = {}
@@ -123,15 +128,10 @@ def annotate_scalar_values(
         values_by_code[code] = row
 
     indexed = context_index(context_rows)
-    missing = sorted(set(indexed) - set(values_by_code))
-    if missing:
-        raise CargoContextError(
-            "cargo context references unknown configuration value(s): "
-            + ", ".join(missing)
-        )
-
     for code, source_context in indexed.items():
-        value = values_by_code[code]
+        value = values_by_code.get(code)
+        if value is None:
+            continue
         attribute_code = str(value.get("attribute_code", ""))
         if attribute_code != CARGO_ATTRIBUTE_CODE:
             raise CargoContextError(
