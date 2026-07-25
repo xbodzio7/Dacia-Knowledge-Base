@@ -1,0 +1,55 @@
+name: Materialize Sandero Stepway Brochure Cargo
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/materialize-sandero-stepway-brochure-cargo.yml
+      - data/imports/configuration_cargo_values/sandero-stepway-brochure-cargo-20260202.json
+      - tools/import_sandero_stepway_brochure_cargo_20260725.py
+      - tools/complete_sandero_stepway_brochure_cargo_20260725.py
+      - tests/test_sandero_stepway_brochure_cargo_20260725.py
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sandero-stepway-brochure-cargo-import
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and verify package
+        run: |
+          python tools/complete_sandero_stepway_brochure_cargo_20260725.py --apply
+          python tools/import_sandero_stepway_brochure_cargo_20260725.py --apply
+          python tools/dkb.py project-state --apply
+          python tools/complete_sandero_stepway_brochure_cargo_20260725.py --check
+          python tools/import_sandero_stepway_brochure_cargo_20260725.py --check
+          python tools/dkb.py project-state --check
+          python -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Commit materialized package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git diff --cached --check
+            git commit -m 'feat(data): import Sandero brochure cargo values'
+            git push origin HEAD:agent/sandero-stepway-brochure-cargo-import
+          fi
