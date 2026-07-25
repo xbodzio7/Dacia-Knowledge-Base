@@ -1,4 +1,4 @@
-name: Materialize Official Dacia Brochure Registration
+name: Verify Official Dacia Brochure Registration
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  materialize:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
@@ -27,94 +27,65 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Materialize, verify and persist diagnostics
+      - name: Refresh historical state contracts
         run: |
-          set +e
-          log=/tmp/official-dacia-brochures.log
-          : > "$log"
-
-          python - <<'PY' >> "$log" 2>&1
-          from pathlib import Path
-
-          path = Path('tools/register_official_dacia_brochures_20260725.py')
-          text = path.read_text(encoding='utf-8')
-          old = 'if row.get("status") == "active"'
-          new = 'if row.get("status") == "current"'
-          if old in text:
-              text = text.replace(old, new, 1)
-          elif new not in text:
-              raise SystemExit('missing model-status verification anchor')
-          text = text.replace(
-              'one or more brochure model codes are not active',
-              'one or more brochure model codes are not current',
-              1,
-          )
-          path.write_text(text, encoding='utf-8')
-          PY
-          status=$?
-
-          if [ "$status" -eq 0 ]; then
-            python tools/register_official_dacia_brochures_20260725.py --apply >> "$log" 2>&1
-            status=$?
-          fi
-
-          if [ "$status" -eq 0 ]; then
-            python tools/dkb.py project-state --apply >> "$log" 2>&1
-            status=$?
-          fi
-
-          if [ "$status" -eq 0 ]; then
-            python - <<'PY' >> "$log" 2>&1
+          python - <<'PY'
           from pathlib import Path
 
           replacements = {
-              Path('CHANGELOG.md'): (
-                  '* Added six exact Duster Eco-G 120 automatic ISO 3832 cargo observations: 439 dm3 without a spare wheel and 1373 dm3 maximum capacity for Expression, Extreme and Journey; petrol CO2 remains unknown because the catalogue does not split 123 g/km by fuel.\n',
-                  '* Added six exact Duster Eco-G 120 automatic ISO 3832 cargo observations: 439 dm3 without a spare wheel and 1373 dm3 maximum capacity for Expression, Extreme and Journey; petrol CO2 remains unknown because the catalogue does not split 123 g/km by fuel.\n'
-                  '* Archived and registered five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochures with immutable SHA-256 identities, model-level relationships and a context-preserving technical gap review; no brochure observations were imported.\n',
-              ),
-              Path('README.md'): (
-                  'Następny pakiet zamyka lukę bagażnika automatów na podstawie oficjalnego polskiego cennika MY26: każda z konfiguracji Expression, Extreme i Journey otrzymuje 439 dm3 ISO 3832 bez koła zapasowego oraz 1373 dm3 maksymalnej pojemności. Wartość 123 g/km z kolumny dwupaliwowej nie jest przypisywana benzynie bez jawnego rozdzielenia paliwa. Szczegóły zawiera `project/packages/duster-ecog120-automatic-cargo-emissions-review-20260725.md`.\n',
-                  'Następny pakiet zamyka lukę bagażnika automatów na podstawie oficjalnego polskiego cennika MY26: każda z konfiguracji Expression, Extreme i Journey otrzymuje 439 dm3 ISO 3832 bez koła zapasowego oraz 1373 dm3 maksymalnej pojemności. Wartość 123 g/km z kolumny dwupaliwowej nie jest przypisywana benzynie bez jawnego rozdzielenia paliwa. Szczegóły zawiera `project/packages/duster-ecog120-automatic-cargo-emissions-review-20260725.md`.\n\n'
-                  'Kolejny pakiet archiwizuje i rejestruje pięć oficjalnych polskich broszur Dacii: Bigster, Jogger, Sandero, Sandero Stepway i Duster. Broszury są powiązane wyłącznie z modelami, a audyt klasyfikuje wartości powtarzające istniejące źródła, dane wymagające kontekstu biegu, układu siedzeń lub standardu pomiaru oraz jawne zakazy importu. W tym pakiecie nie dodano żadnych obserwacji technicznych. Szczegóły zawierają `project/packages/official-dacia-brochure-source-registration-20260725.md` i `project/reviews/official-dacia-brochure-gap-review-2026-07-25.md`.\n',
-              ),
-              Path('project/ROADMAP.md'): (
-                  '- sześć katalogowych obserwacji bagażnika ISO 3832 dla Duster Eco-G 120 automatic: 439 dm3 bez koła zapasowego i 1373 dm3 maksymalnej pojemności dla Expression, Extreme i Journey, z zachowaniem benzynowego CO2 jako niewiadomego,\n',
-                  '- sześć katalogowych obserwacji bagażnika ISO 3832 dla Duster Eco-G 120 automatic: 439 dm3 bez koła zapasowego i 1373 dm3 maksymalnej pojemności dla Expression, Extreme i Journey, z zachowaniem benzynowego CO2 jako niewiadomego,\n'
-                  '- pięć zarchiwizowanych oficjalnych broszur Bigster, Jogger, Sandero, Sandero Stepway i Duster z przypiętymi SHA-256, modelowymi relacjami źródłowymi oraz audytem luk zachowującym kontekst standardu pomiaru, siedzeń, biegu i wyposażenia bagażnika,\n',
-              ),
+              Path('tests/test_duster_ecog120_automatic_cargo_20260725.py'): [
+                  (
+                      '"Duster Eco-G 120 Automatic Cargo and Emissions Gap Review"',
+                      '"Official Dacia Brochure Source Registration and Gap Review"',
+                  ),
+                  ('state["baseline"]["tests"], 758', 'state["baseline"]["tests"], 765'),
+                  ('state["baseline"]["rows"], 8135', 'state["baseline"]["rows"], 8145'),
+              ],
+              Path('tests/test_duster_ecog120_automatic_homologation_20260725.py'): [
+                  (
+                      '"Duster Eco-G 120 Automatic Cargo and Emissions Gap Review"',
+                      '"Official Dacia Brochure Source Registration and Gap Review"',
+                  ),
+                  ('state["baseline"]["tests"], 758', 'state["baseline"]["tests"], 765'),
+                  ('state["baseline"]["rows"], 8135', 'state["baseline"]["rows"], 8145'),
+              ],
+              Path('tests/test_jogger_payload_performance_ranges.py'): [
+                  ('baseline["tests"], 758', 'baseline["tests"], 765'),
+                  ('baseline["rows"], 8135', 'baseline["rows"], 8145'),
+              ],
+              Path('tests/test_jogger_wltp_efficiency_ranges.py'): [
+                  ('baseline["tests"], 758', 'baseline["tests"], 765'),
+                  ('baseline["rows"], 8135', 'baseline["rows"], 8145'),
+              ],
           }
 
-          for path, (old, new) in replacements.items():
+          for path, pairs in replacements.items():
               text = path.read_text(encoding='utf-8')
-              if new in text:
-                  continue
-              if old not in text:
-                  raise SystemExit(f'missing narrative anchor: {path}')
-              path.write_text(text.replace(old, new, 1), encoding='utf-8')
+              for old, new in pairs:
+                  if old in text:
+                      text = text.replace(old, new)
+                  elif new not in text:
+                      raise SystemExit(f'missing regression anchor: {path}: {old}')
+              path.write_text(text, encoding='utf-8')
           PY
-            status=$?
-          fi
 
-          if [ "$status" -eq 0 ]; then
-            {
-              python tools/register_official_dacia_brochures_20260725.py --check
-              python tools/dkb.py project-state --check
-              python -m unittest discover -s tests -p 'test_*.py'
-            } >> "$log" 2>&1
-            status=$?
-          fi
+      - name: Verify complete package
+        run: |
+          python tools/register_official_dacia_brochures_20260725.py --check
+          python tools/dkb.py project-state --check
+          python -m unittest discover -s tests -p 'test_*.py'
 
-          cat "$log"
+      - name: Commit repaired regression contracts
+        run: |
           rm -f .github/official-dacia-brochures-error.log
-          if [ "$status" -ne 0 ]; then
-            cp "$log" .github/official-dacia-brochures-error.log
-          fi
-
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add \
+            tests/test_duster_ecog120_automatic_cargo_20260725.py \
+            tests/test_duster_ecog120_automatic_homologation_20260725.py \
+            tests/test_jogger_payload_performance_ranges.py \
+            tests/test_jogger_wltp_efficiency_ranges.py \
+            .github/official-dacia-brochures-error.log
           git diff --cached --check
-          git commit -m 'data(sources): materialize official Dacia brochure registration' || true
+          git commit -m 'test(project): refresh brochure package state contracts' || true
           git push origin HEAD:agent/official-dacia-brochure-source-registration
-          exit "$status"
