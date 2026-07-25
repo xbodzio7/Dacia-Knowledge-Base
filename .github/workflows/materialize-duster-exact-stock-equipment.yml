@@ -55,7 +55,19 @@ jobs:
           new_type = '''if definition is None or (\n                definition.get("data_type") != "boolean"\n                and attribute not in {"rear_seat_folding"}\n            ):\n                raise ContractError(f"inactive or unsupported equipment attribute: {attribute}")'''
           if old_type not in text:
               raise SystemExit('expected equipment attribute type validation block not found')
-          path.write_text(text.replace(old_type, new_type), encoding='utf-8')
+          text = text.replace(old_type, new_type)
+
+          text = text.replace(
+              'src_pl_duster_exact_stock_equipment_20260725',
+              'src_pl_duster_exact_stock_equipment_20260724',
+          )
+          text = text.replace(
+              'dacia-pl-duster-exact-stock-equipment-20260725.json',
+              'dacia-pl-duster-exact-stock-equipment-20260724.json',
+          )
+          text = text.replace('DATE = "2026-07-25"', 'DATE = "2026-07-24"')
+          text = text.replace('_exact_stock_20260725', '_exact_stock_20260724')
+          path.write_text(text, encoding='utf-8')
           PY
 
       - name: Materialize package
@@ -77,13 +89,17 @@ jobs:
       - name: Update affected regression contracts
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
 
           replacements = {
               Path('tests/test_configuration_comparison_workbook.py'): (
                   ('"A1:M296"', '"A1:M302"'),
                   ('"A1:K7"', '"A1:K9"'),
-                  ('self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")', 'self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-25")'),
+                  ('self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")', 'self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-24")'),
+              ),
+              Path('tests/test_commercial_items_20260703.py'): (
+                  ('STOCK_DATE = "2026-07-25"', 'STOCK_DATE = "2026-07-24"'),
               ),
               Path('tests/test_jogger_payload_performance_ranges.py'): (
                   ('self.assertEqual(baseline["tests"], 735)', 'self.assertEqual(baseline["tests"], 743)'),
@@ -101,7 +117,14 @@ jobs:
                       raise SystemExit(f'expected regression contract not found in {path}: {old}')
                   text = text.replace(old, new, 1)
               path.write_text(text, encoding='utf-8')
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-07-25'
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
 
       - name: Run package tests
         run: |
@@ -197,7 +220,7 @@ jobs:
             project/SESSION_STATE.md \
             project/STATE_SUMMARY.md \
             project/state.json \
-            project/sources/dacia-pl-duster-exact-stock-equipment-20260725.json \
+            project/sources/dacia-pl-duster-exact-stock-equipment-20260724.json \
             project/packages/duster-exact-stock-equipment-expansion-20260725.md \
             project/reviews/duster-exact-stock-equipment-review-2026-07-25.md \
             tests/test_commercial_items_20260703.py \
