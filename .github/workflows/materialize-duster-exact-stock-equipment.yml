@@ -104,12 +104,25 @@ jobs:
 
       - name: Run package tests
         run: |
+          set +e
           python -m unittest -v \
             tests.test_duster_exact_stock_equipment_20260725 \
             tests.test_commercial_items_20260703 \
             tests.test_configuration_comparison_workbook \
             tests.test_jogger_payload_performance_ranges \
-            tests.test_jogger_wltp_efficiency_ranges
+            tests.test_jogger_wltp_efficiency_ranges \
+            > "${RUNNER_TEMP}/package-tests.log" 2>&1
+          status=$?
+          cat "${RUNNER_TEMP}/package-tests.log"
+          if [ "$status" -ne 0 ]; then
+            tail -n 180 "${RUNNER_TEMP}/package-tests.log" > .github/duster-package-tests-error.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/duster-package-tests-error.log
+            git commit -m "diagnostic: capture Duster package test failure"
+            git push origin HEAD:${{ github.head_ref }}
+            exit "$status"
+          fi
 
       - name: Run full test discovery
         run: |
