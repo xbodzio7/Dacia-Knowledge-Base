@@ -40,12 +40,14 @@ jobs:
 
           path = Path("tools/complete_sandero_stepway_brochure_cargo_20260725.py")
           text = path.read_text(encoding="utf-8")
-          old = '''    if state.get("baseline", {}).get("configuration_values") != 1831:
-              raise RuntimeError("unexpected pre-import configuration-value baseline")
-          '''.replace("          ", "")
-          new = '''    if state.get("baseline", {}).get("configuration_values") not in {1831, 1876}:
-              raise RuntimeError("unexpected pre- or post-import configuration-value baseline")
-          '''.replace("          ", "")
+          old = (
+              '    if state.get("baseline", {}).get("configuration_values") != 1831:\n'
+              '        raise RuntimeError("unexpected pre-import configuration-value baseline")\n'
+          )
+          new = (
+              '    if state.get("baseline", {}).get("configuration_values") not in {1831, 1876}:\n'
+              '        raise RuntimeError("unexpected pre- or post-import configuration-value baseline")\n'
+          )
           if new not in text:
               if old not in text:
                   raise SystemExit("completion baseline patch anchor missing")
