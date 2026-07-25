@@ -38,8 +38,34 @@ jobs:
           fi
           pdftotext -v
 
+      - name: Reconcile legacy commercial membership alias
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/materialize_duster_exact_stock_equipment.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'missing_components = sorted(attr for attr in memberships[item] if card_status.get(attr) != "standard")'
+          new = '''component_aliases = {"passenger_seat_adjustment": "passenger_seat_height_adjustment"}\n            missing_components = sorted(\n                attr for attr in memberships[item]\n                if card_status.get(component_aliases.get(attr, attr)) != "standard"\n            )'''
+          if old not in text:
+              raise SystemExit('expected package membership validation line not found')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
       - name: Materialize package
-        run: python .github/materialize_duster_exact_stock_equipment.py
+        run: |
+          set +e
+          python .github/materialize_duster_exact_stock_equipment.py > "${RUNNER_TEMP}/materializer.log" 2>&1
+          status=$?
+          cat "${RUNNER_TEMP}/materializer.log"
+          if [ "$status" -ne 0 ]; then
+            cp "${RUNNER_TEMP}/materializer.log" .github/duster-materializer-error.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/duster-materializer-error.log
+            git commit -m "diagnostic: capture Duster materializer failure"
+            git push origin HEAD:${{ github.head_ref }}
+            exit "$status"
+          fi
 
       - name: Run package tests
         run: |
