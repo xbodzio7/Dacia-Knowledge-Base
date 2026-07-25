@@ -1,0 +1,55 @@
+name: Materialize Brochure Cargo Context Model
+
+on:
+  push:
+    branches:
+      - agent/brochure-cargo-measurement-context-model
+    paths:
+      - .github/workflows/materialize-brochure-cargo-measurement-context.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/brochure-cargo-measurement-context-model
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize decision package
+        run: |
+          python tools/model_brochure_cargo_measurement_context_20260725.py --apply
+          python tools/dkb.py project-state --apply
+          python tools/model_brochure_cargo_measurement_context_20260725.py --check
+          python tools/dkb.py project-state --check
+
+      - name: Run complete test suite
+        run: python -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Commit materialized package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/brochure_cargo_measurement_context_model.json \
+            project/DECISIONS.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/packages/brochure-cargo-measurement-context-model-20260725.md \
+            project/reviews/brochure-cargo-measurement-context-model-2026-07-25.md \
+            project/state.json
+          git diff --cached --check
+          git commit -m 'docs(model): accept brochure cargo context architecture'
+          git push origin HEAD:agent/brochure-cargo-measurement-context-model
