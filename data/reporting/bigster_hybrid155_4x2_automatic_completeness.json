@@ -22,6 +22,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "braked_trailer_weight",
       "fuel_type_code": ""
     },
