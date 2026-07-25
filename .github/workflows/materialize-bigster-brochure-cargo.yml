@@ -55,7 +55,13 @@ jobs:
             python tools/dkb.py project-state --check >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
-            python -m unittest discover -s tests -p 'test_*.py' >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+            python tests/test_bigster_brochure_cargo_20260726.py -v >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_jogger_brochure_cargo_20260726.py -v >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             git diff --check >> .github/bigster-cargo-diagnostic.log 2>&1 || status=$?
