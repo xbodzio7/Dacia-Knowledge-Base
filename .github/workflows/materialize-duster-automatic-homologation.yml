@@ -161,12 +161,25 @@ jobs:
 
       - name: Run focused package tests
         run: |
+          set +e
           python -m unittest -v \
             tests.test_duster_ecog120_automatic_homologation_20260725 \
             tests.test_duster_ecog120_automatic_stock_20260724 \
             tests.test_jogger_payload_performance_ranges \
             tests.test_jogger_wltp_efficiency_ranges \
-            tests.test_configuration_comparison_workbook
+            tests.test_configuration_comparison_workbook \
+            > "${RUNNER_TEMP}/focused-tests.log" 2>&1
+          status=$?
+          cat "${RUNNER_TEMP}/focused-tests.log"
+          if [ "$status" -ne 0 ]; then
+            tail -n 220 "${RUNNER_TEMP}/focused-tests.log" > .github/duster-auto-homologation-focused-error.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/duster-auto-homologation-focused-error.log
+            git commit -m "diagnostic: capture Duster homologation test failure"
+            git push origin HEAD:${{ github.head_ref }}
+            exit "$status"
+          fi
 
       - name: Run full test discovery
         run: python -m unittest discover -s tests -p "test_*.py" -q
