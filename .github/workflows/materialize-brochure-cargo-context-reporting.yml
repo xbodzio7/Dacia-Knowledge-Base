@@ -32,13 +32,13 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Repair fixture loading
+      - name: Repair fixture loading and optional key contract
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          path = Path("tests/test_brochure_cargo_context_reporting_foundation.py")
-          text = path.read_text(encoding="utf-8")
+          test_path = Path("tests/test_brochure_cargo_context_reporting_foundation.py")
+          text = test_path.read_text(encoding="utf-8")
           old_import = '''from tests.test_configuration_comparison import (  # noqa: E402
               ConfigurationComparisonTests,
           )
@@ -65,7 +65,24 @@ jobs:
               "        self.base = _configuration_comparison_fixture()\n",
               1,
           )
-          path.write_text(text, encoding="utf-8")
+          test_path.write_text(text, encoding="utf-8")
+
+          tool_path = Path("tools/establish_brochure_cargo_context_reporting_20260725.py")
+          tool = tool_path.read_text(encoding="utf-8")
+          anchor = "def _patch_comparison_base() -> None:\n"
+          addition = '''def _patch_comparison_base() -> None:
+              _patch(
+                  BASE,
+                  '            if not item and field != "fuel_type_code":\\n',
+                  '            if not item and field not in {"fuel_type_code", "_cargo_context_signature"}:\\n',
+                  'field not in {"fuel_type_code", "_cargo_context_signature"}',
+              )
+          '''.replace("          ", "")
+          if 'field not in {"fuel_type_code", "_cargo_context_signature"}' not in tool:
+              if anchor not in tool:
+                  raise SystemExit("comparison base patch function anchor missing")
+              tool = tool.replace(anchor, addition, 1)
+              tool_path.write_text(tool, encoding="utf-8")
           PY
 
       - name: Materialize and persist diagnostics
