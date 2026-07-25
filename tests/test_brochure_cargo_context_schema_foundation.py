@@ -5,10 +5,10 @@ import json
 import sqlite3
 import tempfile
 import unittest
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
 from tools.build_sqlite import build_sqlite_db, discover_csv_files
-from tools.reporting.data_dictionary import generate_data_dictionary
 from tools.validators.cargo_contexts import (
     validate_configuration_cargo_volume_contexts,
 )
@@ -17,6 +17,16 @@ from tools.validators.statuses import ACTIVE_STATUSES, STATUS_RULES
 
 
 ROOT = Path(__file__).resolve().parents[1]
+_DATA_DICTIONARY_SPEC = spec_from_file_location(
+    "dkb_data_dictionary",
+    ROOT / "tools" / "reporting" / "data_dictionary.py",
+)
+if _DATA_DICTIONARY_SPEC is None or _DATA_DICTIONARY_SPEC.loader is None:
+    raise RuntimeError("cannot load data dictionary module")
+_DATA_DICTIONARY_MODULE = module_from_spec(_DATA_DICTIONARY_SPEC)
+_DATA_DICTIONARY_SPEC.loader.exec_module(_DATA_DICTIONARY_MODULE)
+generate_data_dictionary = _DATA_DICTIONARY_MODULE.generate_data_dictionary
+
 MASTER = ROOT / "data" / "master"
 RELATION = MASTER / "configuration_cargo_volume_contexts.csv"
 ENUMS = MASTER / "enums"
