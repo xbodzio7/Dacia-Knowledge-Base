@@ -1,9 +1,12 @@
 name: Materialize Brochure Cargo Context Model
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/brochure-cargo-measurement-context-model
+      - main
+    types:
+      - opened
+      - reopened
     paths:
       - .github/workflows/materialize-brochure-cargo-measurement-context.yml
 
