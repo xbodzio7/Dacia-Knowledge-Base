@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tests.test_source_coverage import SourceCoverageTests
+from test_source_coverage import SourceCoverageTests
 
 import sys
 
