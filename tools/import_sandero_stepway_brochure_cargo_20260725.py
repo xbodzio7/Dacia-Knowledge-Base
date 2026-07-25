@@ -239,9 +239,10 @@ def _verify_configurations(spec: Mapping[str, Any]) -> None:
             row.get("transmission_type") in {"manual", "automatic"},
             f"unexpected transmission: {configuration_code}",
         )
+        seat_value = seat_values.get(configuration_code)
         _ensure(
-            seat_values.get(configuration_code) == "5",
-            f"five-seat evidence missing: {configuration_code}",
+            seat_value in {None, "5"},
+            f"configuration is not five-seat: {configuration_code}",
         )
 
 

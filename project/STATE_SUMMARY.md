@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Cargo Context Reporting Foundation**
+**Sandero and Stepway Brochure Cargo Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 784
+- Tests: 791
 - Master CSV files: 46
-- Master rows: 8156
-- Configuration values: 1831
+- Master rows: 8255
+- Configuration values: 1876
 - Configuration import specifications: 114
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Cargo Context Reporting Foundation** — `complete`
+**Sandero and Stepway Brochure Cargo Import** — `complete`
 
-Make comparison, shortlist and export reporting expose exact cargo-context fields and preserve every context-distinct boot_capacity observation without importing official brochure values.
+Import 45 source-backed canonical boot_capacity observations from the official Sandero and Stepway brochures with exact measurement, seat and compartment context while preserving legacy cargo history.
 
 ## Next package
 
-**Official Brochure Cargo Value Import** — `planned`
+**Jogger Brochure Cargo Value Import** — `planned`
 
-Import source-backed canonical boot_capacity observations from the registered official brochures with exact cargo context and no migration or inference from legacy cargo attributes.
+Import official Jogger five- and seven-seat cargo observations with exact second-row, third-row, removal and measurement-basis context.
 
 ## Autonomy
 

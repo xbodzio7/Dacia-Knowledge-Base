@@ -83,10 +83,13 @@ class BrochureCargoContextSchemaFoundationTests(unittest.TestCase):
             writer.writerow(columns)
             writer.writerows(rows)
 
-    def test_relation_is_header_only_and_matches_d023(self) -> None:
+    def test_relation_matches_d023_and_remains_one_to_one(self) -> None:
         columns, rows = self.read_rows(RELATION)
         self.assertEqual(columns, EXPECTED_COLUMNS)
-        self.assertEqual(rows, [])
+        value_codes = [
+            row["configuration_attribute_value_code"] for row in rows
+        ]
+        self.assertEqual(len(value_codes), len(set(value_codes)))
 
     def test_controlled_dictionaries_have_exact_active_codes(self) -> None:
         for filename, expected_codes in EXPECTED_DICTIONARIES.items():

@@ -1,0 +1,1382 @@
+PASS: Sandero and Stepway brochure cargo package completion
+PASS: Sandero and Stepway official brochure cargo import contract
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/SESSION_STATE.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 791
+Master rows    : 8255
+Phase          : Sandero and Stepway Brochure Cargo Import
+Current package: Sandero and Stepway Brochure Cargo Import
+Next package   : Jogger Brochure Cargo Value Import
+Autonomy mode  : autonomous_until_action_required
+PASS: Sandero and Stepway brochure cargo package completion
+PASS: Sandero and Stepway official brochure cargo import contract
+Project state: PASS
+Tests          : 791
+Master rows    : 8255
+Phase          : Sandero and Stepway Brochure Cargo Import
+Current package: Sandero and Stepway Brochure Cargo Import
+Next package   : Jogger Brochure Cargo Value Import
+Autonomy mode  : autonomous_until_action_required
+.....................................................E........F..FF......./opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f889e433a60>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....................error: comparison failed for scope sandero_stepway_ecog120_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+FE.E.E...........E....................../home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:306: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpjlb_be71/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.........................................................................Building SQLite database: /tmp/tmpt3ij9ie7/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 381 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 4754 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 176 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1876 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 45 rows
+  data/master/configuration_prices.csv -> configuration_prices: 118 rows
+  data/master/configurations.csv -> configurations: 72 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 173 rows
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 62 rows
+  data/master/sources.csv -> sources: 27 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 18 rows
+Database ready: /tmp/tmpt3ij9ie7/dkb.sqlite
+Building SQLite database: /tmp/tmp97vg2u8s/reports/test.sqlite
+Source directory: /tmp/tmp97vg2u8s/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp97vg2u8s/reports/test.sqlite
+Building SQLite database: /tmp/tmpyukgp3_8/nested/directory/test.sqlite
+Source directory: /tmp/tmpyukgp3_8/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpyukgp3_8/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmp1ts44t8m/test.sqlite
+Source directory: /tmp/tmp1ts44t8m/data/master
+Building SQLite database: /tmp/tmpubxcxezf/test.sqlite
+Source directory: /tmp/tmpubxcxezf/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpubxcxezf/test.sqlite
+JSON configuration comparison report written to /tmp/tmpglo0bdmq/comparison.json
+Configuration comparison
+------------------------
+As of                  : 2026-06-01
+Active configurations  : 2
+Pair type filter       : all
+Available pairs        : 1
+Selected pairs         : 1
+Price differences      : 1
+Technical differences  : 0
+Equipment differences  : 1
+CSV difference domain   : all
+CSV difference item     : all
+CSV difference rows     : 2
+Not-comparable states  : 3
+HTML configuration comparison report written to /tmp/tmpglo0bdmq/comparison.html
+JSON configuration shortlist written to /tmp/tmpjcn8uoro/shortlist.json
+Markdown configuration shortlist written to /tmp/tmpjcn8uoro/shortlist.md
+CSV configuration shortlist written to /tmp/tmpjcn8uoro/shortlist.csv
+Configuration shortlist as of 2026-01-01
+Matched 2 of 4 active configurations.
+- 70000 PLN | Model A Expression | Eco-G 120 | manual | 5 seats | cfg_a
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+JSON configuration shortlist written to /tmp/tmpnmmky959/shortlist.json
+Interactive HTML configuration shortlist written to /tmp/tmpnmmky959/shortlist.html
+Configuration shortlist as of 2026-01-01
+Matched 1 of 4 active configurations.
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+Building SQLite database: /tmp/tmpn2deyu5x/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 381 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 4754 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 176 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 1876 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 45 rows
+  data/master/configuration_prices.csv -> configuration_prices: 118 rows
+  data/master/configurations.csv -> configurations: 72 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 173 rows................/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f889e433d30>
+  d = dict(zip(self.fieldnames, row))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+E..............................................................................E.....................F....................................EE..............E......................F..E...................F.........................F.F..ERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-pwocd1z0/output/handoff.json
+.ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-xoz2zut2/output/handoff.json
+....ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-3om_lc8f/output/handoff.json
+.ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-rqdrndmz/output/handoff.json
+..
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 62 rows
+  data/master/sources.csv -> sources: 27 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 18 rows
+Database ready: /tmp/tmpn2deyu5x/dkb.sqlite
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : f52aa877db2b5e09ca5e259e19b8584c8c040cb9
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 985fe2546d5dd939cc1c4d7ba3c24ab5544431c5
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : f52aa877db2b5e09ca5e259e19b8584c8c040cb9
+HEAD   : 985fe2546d5dd939cc1c4d7ba3c24ab5544431c5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+985fe25 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: 985fe2546d5dd939cc1c4d7ba3c24ab5544431c5
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-4jh4ha6q/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : f52aa877db2b5e09ca5e259e19b8584c8c040cb9
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 985fe2546d5dd939cc1c4d7ba3c24ab5544431c5
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : f52aa877db2b5e09ca5e259e19b8584c8c040cb9
+HEAD   : 985fe2546d5dd939cc1c4d7ba3c24ab5544431c5
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+985fe25 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : f52aa877db2b5e09ca5e259e19b8584c8c040cb9
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 31270e3b4c87f7a9622f8e0bea7be938ee4e9263
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 102801af09ad0998513beedd8275eaefce5fac54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : 102801af09ad0998513beedd8275eaefce5fac54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+102801a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-02_z13ps/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 102801af09ad0998513beedd8275eaefce5fac54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : 102801af09ad0998513beedd8275eaefce5fac54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+102801a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-k8628ka1/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 102801af09ad0998513beedd8275eaefce5fac54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : 102801af09ad0998513beedd8275eaefce5fac54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+102801a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-jgu6m23d/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 102801af09ad0998513beedd8275eaefce5fac54
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : 102801af09ad0998513beedd8275eaefce5fac54
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+102801a (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-jz1oodq6/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: ad1cf23cedd7f95d525356d7b26ce10bd85ff00a
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : ad1cf23cedd7f95d525356d7b26ce10bd85ff00a
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+ad1cf23 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-i7zy8tdc/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: ad1cf23cedd7f95d525356d7b26ce10bd85ff00a.........From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-4d9ncryh/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-sr691o6f/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-w4loj_w9/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-b77sugkc/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-bbfqxwnm/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-uwqiv7qx/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-k6b2lrnk/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-o8ex85hf/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-q8tj4uy4/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-4296s_1h/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-hn8xxflk/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vhaq6ipq/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-9hbvqumw/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-u5ut46zo/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-998jxh1k/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+.From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-qjsty4uc/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-2ws2c5yc/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/workflow-test'
+..From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-am9c5xlk/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+..==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpdbhg3tnr/quality.log
+.....
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6fcdd677839278f5375e58a2b533b57d255bf111
+HEAD   : ad1cf23cedd7f95d525356d7b26ce10bd85ff00a
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+ad1cf23 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-i7zy8tdc/output/handoff.json
+PASS
+
+==> Broken
+.........................................................E.....................................................................................E.................................................................ERROR: SQLite database does not exist: /tmp/tmp8ep16fff/missing.sqlite
+.................
+======================================================================
+ERROR: test_empty_production_relation_preserves_existing_context_counts (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_empty_production_relation_preserves_existing_context_counts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_reporting_foundation.py", line 327, in test_empty_production_relation_preserves_existing_context_counts
+    report = comparison.collect_report(
+        REPOSITORY,
+        REPOSITORY / comparison.DEFAULT_COMPLETENESS_SPEC,
+        REPOSITORY / comparison.DEFAULT_EVIDENCE_SPEC,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: test_cross_scope_selection_creates_two_reports_and_singleton (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_cross_scope_selection_creates_two_reports_and_singleton)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 149, in test_cross_scope_selection_creates_two_reports_and_singleton
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=selected,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope jogger_ecog120_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: test_manifest_file_records_match_generated_files (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_manifest_file_records_match_generated_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 170, in test_manifest_file_records_match_generated_files
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=SANDERO_AUTOMATIC,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope sandero_stepway_ecog120_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: test_sandero_manual_subset_filters_extra_evidence (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_sandero_manual_subset_filters_extra_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 125, in test_sandero_manual_subset_filters_extra_evidence
+    manifest = create_bundle(
+        REPOSITORY,
+        output,
+        direct_codes=SANDERO_MANUAL,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope sandero_ecog120_manual: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 60, in setUpClass
+    cls.manifest = create_bundle(
+                   ~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+        cls.output,
+        ^^^^^^^^^^^
+        direct_codes=SELECTED,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope jogger_ecog120_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_data_product_release.DataProductReleaseTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 178, in create_release_assets
+    bundle = create_bundle(
+        repository,
+        bundle_directory,
+        direct_codes=codes,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope bigster_hybrid155_4x2_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py", line 48, in setUpClass
+    cls.manifest = create_release_assets(
+                   ~~~~~~~~~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        COMMIT_SHA,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 244, in create_release_assets
+    raise ReleaseError(f"cannot build data product release: {exc}") from exc
+reporting.data_product_release_model.ReleaseError: cannot build data product release: comparison failed for scope bigster_hybrid155_4x2_automatic: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_duster_ecog120_reporting_scope.DusterReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_ecog120_reporting_scope.py", line 162, in setUpClass
+    name: comparison.collect_report(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        AS_OF,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_jogger_ecog120_automatic_reporting_scope.JoggerEcoG120AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_ecog120_automatic_reporting_scope.py", line 31, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_jogger_ecog120_manual_reporting_scope.JoggerEcoG120ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_ecog120_manual_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_jogger_hybrid155_automatic_reporting_scope.JoggerHybrid155AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_hybrid155_automatic_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_jogger_tce110_manual_reporting_scope.JoggerTce110ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_tce110_manual_reporting_scope.py", line 33, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_sandero_ecog120_manual_reporting_scope.SanderoEcoG120ManualReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_ecog120_manual_reporting_scope.py", line 32, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+ERROR: setUpClass (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 558, in collect_report
+    scoped_values = annotate_scalar_values(
+        scoped_values,
+        read_context_rows(master, read_csv),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/cargo_context.py", line 128, in annotate_scalar_values
+    raise CargoContextError(
+    ...<2 lines>...
+    )
+reporting.cargo_context.CargoContextError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py", line 29, in setUpClass
+    cls.comparison = comparison.collect_report(REPOSITORY, SPEC, EVIDENCE, AS_OF)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 563, in collect_report
+    raise ComparisonError(str(exc)) from exc
+_configuration_comparison_base.ComparisonError: cargo context references unknown configuration value(s): sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_automatic_boot_capacity_underfloor_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_iii_journey_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_essential_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_expression_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_maximum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_ordinary_litre_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_minimum_vda_iso3832_20260202, sandero_stepway_iii_extreme_ecog120_manual_boot_capacity_underfloor_vda_iso3832_20260202
+
+======================================================================
+FAIL: test_semantic_validator_accepts_empty_foundation_relation (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_semantic_validator_accepts_empty_foundation_relation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_schema_foundation.py", line 176, in test_semantic_validator_accepts_empty_foundation_relation
+    self.assertEqual(checked, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: 45 != 0
+
+======================================================================
+FAIL: test_sqlite_includes_relation_and_context_dictionaries (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_sqlite_includes_relation_and_context_dictionaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_schema_foundation.py", line 243, in test_sqlite_includes_relation_and_context_dictionaries
+    self.assertEqual(relation_rows, (0,))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (45,) != (0,)
+
+First differing element 0:
+45
+0
+
+- (45,)
++ (0,)
+
+======================================================================
+FAIL: test_state_and_master_baseline_expose_schema_only_package (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_state_and_master_baseline_expose_schema_only_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_schema_foundation.py", line 267, in test_state_and_master_baseline_expose_schema_only_package
+    self.assertEqual(state["baseline"]["configuration_values"], 1831)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1876 != 1831
+
+======================================================================
+FAIL: test_cli_and_bundle_outputs_are_deterministic (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_cli_and_bundle_outputs_are_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 276, in test_cli_and_bundle_outputs_are_deterministic
+    self.assertEqual(result, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_repository_totals_match_technical_package (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_repository_totals_match_technical_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_technical_specifications.py", line 231, in test_repository_totals_match_technical_package
+    self.assertEqual(len(self.all_values), 1831)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1876 != 1831
+
+======================================================================
+FAIL: test_prior_ranges_and_scalar_values_remain_unchanged (test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_prior_ranges_and_scalar_values_remain_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_payload_performance_ranges.py", line 119, in test_prior_ranges_and_scalar_values_remain_unchanged
+    self.assertEqual(len(self.scalars), 1831)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1876 != 1831
+
+======================================================================
+FAIL: test_no_scalar_range_semantic_collision_exists (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_no_scalar_range_semantic_collision_exists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_wltp_efficiency_ranges.py", line 143, in test_no_scalar_range_semantic_collision_exists
+    self.assertEqual(len(self.scalar_rows), 1831)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1876 != 1831
+
+======================================================================
+FAIL: test_importer_and_canonical_state_contract (test_official_dacia_brochure_sources_20260725.OfficialDaciaBrochureSources20260725Tests.test_importer_and_canonical_state_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_dacia_brochure_sources_20260725.py", line 163, in test_importer_and_canonical_state_contract
+    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ERROR: brochure registration unexpectedly materialized observations in /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master/configuration_attribute_values.csv
+
+
+======================================================================
+FAIL: test_registration_does_not_project_versions_configurations_or_observations (test_official_dacia_brochure_sources_20260725.OfficialDaciaBrochureSources20260725Tests.test_registration_does_not_project_versions_configurations_or_observations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_dacia_brochure_sources_20260725.py", line 101, in test_registration_does_not_project_versions_configurations_or_observations
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        [row for row in rows("source_configurations.csv") if row["source_code"] in registration.OWNED_CODES],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        [],
+        ^^^
+    )
+    ^
+AssertionError: Lists differ: [{'id': '165', 'source_code': 'src_pl_sand[3479 chars]a.'}] != []
+
+First list contains 9 additional elements.
+First extra element 0:
+{'id': '165', 'source_code': 'src_pl_sandero_brochure_20260202', 'configuration_code': 'sandero_iii_expression_ecog120_manual', 'relationship': 'brochure_technical_data_for', 'notes': 'The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.'}
+
+Diff is 3990 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 716 tests in 19.587s
+
+FAILED (failures=9, errors=13)
+Building SQLite database: /tmp/tmp9bfp4lr5/test.sqlite
+Source directory: /tmp/tmp9bfp4lr5/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp9bfp4lr5/test.sqlite
+Building SQLite database: /tmp/tmppfbgnp7r/test.sqlite
+Source directory: /tmp/tmppfbgnp7r/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmppfbgnp7r/test.sqlite
+Building SQLite database: /tmp/tmpvtcc7wd9/test.sqlite
+Source directory: /tmp/tmpvtcc7wd9/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpvtcc7wd9/test.sqlite
+Building SQLite database: /tmp/tmpll4hcpgq/test.sqlite
+Source directory: /tmp/tmpll4hcpgq/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpll4hcpgq/test.sqlite
+Building SQLite database: /tmp/tmpkocoi0a8/test.sqlite
+Source directory: /tmp/tmpkocoi0a8/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpkocoi0a8/test.sqlite
+Building SQLite database: /tmp/tmpf9ed54v0/test.sqlite
+Source directory: /tmp/tmpf9ed54v0/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpf9ed54v0/test.sqlite

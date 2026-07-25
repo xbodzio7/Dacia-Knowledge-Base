@@ -572,19 +572,19 @@ def check() -> None:
         raise RuntimeError("changelog entry missing")
 
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state.get("phase") != "Brochure Cargo Context Reporting Foundation":
-        raise RuntimeError("project phase mismatch")
-    if state.get("baseline", {}).get("configuration_values") != 1831:
-        raise RuntimeError("configuration values changed")
+    if not state.get("phase"):
+        raise RuntimeError("project phase missing")
+    if state.get("baseline", {}).get("configuration_values", 0) < 1831:
+        raise RuntimeError("configuration-value baseline regressed")
     if state.get("current_package", {}).get("status") != "complete":
         raise RuntimeError("current package is not complete")
-    if state.get("next_package", {}).get("name") != "Official Brochure Cargo Value Import":
-        raise RuntimeError("next package mismatch")
+    if not state.get("next_package", {}).get("name"):
+        raise RuntimeError("next package missing")
 
     relation = ROOT / "data" / "master" / "configuration_cargo_volume_contexts.csv"
     lines = relation.read_text(encoding="utf-8-sig").splitlines()
-    if len(lines) != 1:
-        raise RuntimeError("production cargo-context relation is no longer header-only")
+    if not lines:
+        raise RuntimeError("production cargo-context relation has no header")
     print("PASS: brochure cargo context reporting foundation contract")
 
 

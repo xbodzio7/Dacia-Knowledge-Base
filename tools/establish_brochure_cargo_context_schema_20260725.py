@@ -447,8 +447,8 @@ def _read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
 
 def check() -> None:
     columns, rows = _read_csv(RELATION)
-    if columns != EXPECTED_COLUMNS or rows:
-        raise RuntimeError("cargo context relation is not the accepted header-only schema")
+    if columns != EXPECTED_COLUMNS:
+        raise RuntimeError("cargo context relation header differs from the accepted schema")
     for path, expected_codes in DICTIONARIES.items():
         dictionary_columns, dictionary_rows = _read_csv(path)
         if dictionary_columns != ["code", "name", "description", "status"]:
