@@ -1,21 +1,15 @@
-Staged paths: 1
-
-===== COMMIT =====
-Commit: ad8f8d38810c3d33f09ebba98df04a49d4ad301b
-
-===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
-HEAD   : ad8f8d38810c3d33f09ebba98df04a49d4ad301b
+Base   : 33367970431834a86c136cef01af09c85cda4f2a
+HEAD   : fa17fd9825788047ee09397b594dcb790a3f89fd
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-ad8f8d3 (HEAD -> tooling/test) tooling: publish test
+fa17fd9 (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -32,129 +26,135 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-dh6r3hu7/output/handoff.json
-PASS
-
-===== PACKAGE PUBLISH =====
-Branch : tooling/test
-Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
-Subject: tooling: publish test
-Files  : 1
-Mode   : committed
-Quality receipt: PASS (298 tests)
-Existing package commit reused: ad8f8d38810c3d33f09ebba98df04a49d4ad301b
-
-===== PACKAGE FINISH =====
-
-===== PACKAGE FINISH =====
-Branch : tooling/test
-Base   : ac772761a2933f58822fa664abd3cdd72b91d0e4
-HEAD   : ad8f8d38810c3d33f09ebba98df04a49d4ad301b
-Commits: 1
-Files  : 1
-Subject: tooling: publish test
-Manifest: PASS
-
-===== COMMITS =====
-ad8f8d3 (HEAD -> tooling/test) tooling: publish test
-
-===== CHANGED PATHS =====
-tools/example.py
-
-===== DIFF STAT =====
-tools/example.py | 1 +
- 1 file changed, 1 insertion(+)
-
-===== PUSH =====
-Upstream: not configured
-Command : git push -u origin tooling/test
-
-===== PACKAGE FINISH CHECK =====
-PASS
-
-===== COMPLETE =====
-Handoff: /tmp/dkb-publish-dh6r3hu7/output/handoff.json
+Handoff: /tmp/dkb-publish-cfh5wcq7/output/handoff.json
 PASS
 
 ==> Broken
-ERROR: SQLite database does not exist: /tmp/tmpj8vgsflv/missing.sqlite
+ERROR: SQLite database does not exist: /tmp/tmp6ijc4fpq/missing.sqlite
 ======================================================================
-FAIL: test_overview_matches_bundle_summary (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_overview_matches_bundle_summary)
+ERROR: setUpClass (test_data_product_release.DataProductReleaseTests)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 166, in test_overview_matches_bundle_summary
-    self.assertEqual(overview["commercial_equipment_as_of"], "2026-07-03")
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: '2026-07-25' != '2026-07-03'
-- 2026-07-25
-?         ^^
-+ 2026-07-03
-?         ^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
+    report = comparison.collect_report(
+        repository,
+        completeness_path,
+        evidence_path,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
+    report = _ORIGINAL_COLLECT(
+        repository,
+    ...<3 lines>...
+        pair_type_filter,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 592, in collect_report
+    current_availability = latest(
+        scoped_availability,
+    ...<3 lines>...
+        "configuration availability",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 139, in latest
+    raise ComparisonError(
+    ...<2 lines>...
+    )
+_configuration_comparison_base.ComparisonError: configuration availability has duplicate current records for ('duster_iii_extreme_ecog120_4x2_automatic', 'side_mirrors_folding') on 2026-07-24
 
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 178, in create_release_assets
+    bundle = create_bundle(
+        repository,
+        bundle_directory,
+        direct_codes=codes,
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
+    _render_group(
+    ~~~~~~~~~~~~~^
+        repository,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        codes,
+        ^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
+    raise BundleError(
+        f"comparison failed for scope {scope.slug}: {exc}"
+    ) from exc
+reporting.configuration_comparison_bundle.BundleError: comparison failed for scope duster_ecog120_automatic: configuration availability has duplicate current records for ('duster_iii_extreme_ecog120_4x2_automatic', 'side_mirrors_folding') on 2026-07-24
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py", line 48, in setUpClass
+    cls.manifest = create_release_assets(
+                   ~~~~~~~~~~~~~~~~~~~~~^
+        REPOSITORY,
+        ^^^^^^^^^^^
+    ...<2 lines>...
+        COMMIT_SHA,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 244, in create_release_assets
+    raise ReleaseError(f"cannot build data product release: {exc}") from exc
+reporting.data_product_release_model.ReleaseError: cannot build data product release: comparison failed for scope duster_ecog120_automatic: configuration availability has duplicate current records for ('duster_iii_extreme_ecog120_4x2_automatic', 'side_mirrors_folding') on 2026-07-24
 
 ======================================================================
-FAIL: test_sheet_dimensions_filters_and_frozen_headers (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_sheet_dimensions_filters_and_frozen_headers)
+ERROR: test_browser_catalog_contains_new_configurations_and_current_mirror_states (test_duster_ecog120_automatic_stock_20260724.DusterEcoG120AutomaticStock20260724Tests.test_browser_catalog_contains_new_configurations_and_current_mirror_states)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 141, in test_sheet_dimensions_filters_and_frozen_headers
-    self.assertEqual(dimension.attrib["ref"], expected)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 'A1:M302' != 'A1:M296'
-- A1:M302
-?     --
-+ A1:M296
-?      ++
-
-
-======================================================================
-FAIL: test_state_exposes_updated_range_denominators (test_jogger_payload_performance_ranges.JoggerPayloadPerformanceRangeTests.test_state_exposes_updated_range_denominators)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_payload_performance_ranges.py", line 139, in test_state_exposes_updated_range_denominators
-    self.assertEqual(baseline["tests"], 735)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 743 != 735
-
-======================================================================
-FAIL: test_state_exposes_scalar_and_range_denominators (test_jogger_wltp_efficiency_ranges.JoggerWltpEfficiencyRangeTests.test_state_exposes_scalar_and_range_denominators)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_wltp_efficiency_ranges.py", line 193, in test_state_exposes_scalar_and_range_denominators
-    self.assertEqual(baseline["tests"], 735)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 743 != 735
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_ecog120_automatic_stock_20260724.py", line 152, in test_browser_catalog_contains_new_configurations_and_current_mirror_states
+    report = configuration_completeness.collect_report(
+        REPOSITORY,
+        REPOSITORY / "data" / "reporting" / "duster_ecog120_automatic_completeness.json",
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_completeness.py", line 42, in collect_report
+    report = _ORIGINAL_COLLECT(repository, spec_path, as_of_value)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_completeness_base.py", line 230, in collect_report
+    current_availability = latest(
+        scoped_availability,
+    ...<2 lines>...
+        'configuration availability',
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_completeness_base.py", line 78, in latest
+    raise CompletenessError(
+        f'{label} has duplicate current records for {key} on {observed}'
+    )
+_configuration_completeness_base.CompletenessError: configuration availability has duplicate current records for ('duster_iii_extreme_ecog120_4x2_automatic', 'side_mirrors_folding') on 2026-07-24
 
 ----------------------------------------------------------------------
-Ran 743 tests in 20.340s
+Ran 731 tests in 18.119s
 
-FAILED (failures=4)
-Building SQLite database: /tmp/tmplsao44fh/test.sqlite
-Source directory: /tmp/tmplsao44fh/data/master
+FAILED (errors=2)
+Building SQLite database: /tmp/tmp0wxz4cml/test.sqlite
+Source directory: /tmp/tmp0wxz4cml/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmplsao44fh/test.sqlite
-Building SQLite database: /tmp/tmp8u1p0d9z/test.sqlite
-Source directory: /tmp/tmp8u1p0d9z/data/master
+Database ready: /tmp/tmp0wxz4cml/test.sqlite
+Building SQLite database: /tmp/tmpj4cvocrk/test.sqlite
+Source directory: /tmp/tmpj4cvocrk/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp8u1p0d9z/test.sqlite
-Building SQLite database: /tmp/tmpjyoyq2d8/test.sqlite
-Source directory: /tmp/tmpjyoyq2d8/data/master
+Database ready: /tmp/tmpj4cvocrk/test.sqlite
+Building SQLite database: /tmp/tmpe9__j58x/test.sqlite
+Source directory: /tmp/tmpe9__j58x/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpjyoyq2d8/test.sqlite
-Building SQLite database: /tmp/tmp3lv_sxg9/test.sqlite
-Source directory: /tmp/tmp3lv_sxg9/data/master
+Database ready: /tmp/tmpe9__j58x/test.sqlite
+Building SQLite database: /tmp/tmpg8usxbnr/test.sqlite
+Source directory: /tmp/tmpg8usxbnr/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp3lv_sxg9/test.sqlite
-Building SQLite database: /tmp/tmpwf4etoi0/test.sqlite
-Source directory: /tmp/tmpwf4etoi0/data/master
+Database ready: /tmp/tmpg8usxbnr/test.sqlite
+Building SQLite database: /tmp/tmpwgt0qvos/test.sqlite
+Source directory: /tmp/tmpwgt0qvos/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpwf4etoi0/test.sqlite
-Building SQLite database: /tmp/tmp5af9hv8w/test.sqlite
-Source directory: /tmp/tmp5af9hv8w/data/master
+Database ready: /tmp/tmpwgt0qvos/test.sqlite
+Building SQLite database: /tmp/tmpec6dfnmt/test.sqlite
+Source directory: /tmp/tmpec6dfnmt/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp5af9hv8w/test.sqlite
+Database ready: /tmp/tmpec6dfnmt/test.sqlite
