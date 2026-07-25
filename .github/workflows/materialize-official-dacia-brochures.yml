@@ -1,0 +1,157 @@
+name: Materialize Official Dacia Brochures
+
+on:
+  push:
+    branches:
+      - agent/official-dacia-brochure-source-registration
+    paths:
+      - .github/workflows/materialize-official-dacia-brochures.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/official-dacia-brochure-source-registration
+          fetch-depth: 0
+
+      - name: Install PDF inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Download and verify original brochures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p PDF/Broszury project/sources
+
+          download_pdf() {
+            local url="$1"
+            local target="$2"
+            local pages="$3"
+            local marker="$4"
+            local model="$5"
+
+            curl --fail --location --retry 5 --retry-delay 2 --output "$target" "$url"
+            test "$(pdfinfo "$target" | awk '/^Pages:/ {print $2}')" = "$pages"
+            pdftotext "$target" - | grep -F "$marker" >/dev/null
+            pdftotext "$target" - | grep -Fi "$model" >/dev/null
+          }
+
+          download_pdf \
+            'https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf' \
+            'PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf' \
+            24 '10.12.2025' 'BIGSTER'
+          download_pdf \
+            'https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf.asset.pdf/6b1235f90d.pdf' \
+            'PDF/Broszury/DACIA JOGGER broszura 20251217.pdf' \
+            23 '17.12.2025' 'JOGGER'
+          download_pdf \
+            'https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf' \
+            'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' \
+            21 '02.02.2026' 'SANDERO'
+          download_pdf \
+            'https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf' \
+            'PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf' \
+            21 '02.02.2026' 'SANDERO STEPWAY'
+          download_pdf \
+            'https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf' \
+            'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' \
+            25 '20.10.2025' 'DUSTER'
+
+      - name: Write immutable source receipt
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          from pathlib import Path
+
+          rows = [
+              {
+                  "source_code": "src_pl_bigster_brochure_20251210",
+                  "title": "DACIA BIGSTER broszura",
+                  "document_date": "2025-12-10",
+                  "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+                  "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+                  "pages": 24,
+                  "publication_marker": "10.12.2025",
+                  "model_code": "bigster",
+              },
+              {
+                  "source_code": "src_pl_jogger_brochure_20251217",
+                  "title": "DACIA JOGGER broszura",
+                  "document_date": "2025-12-17",
+                  "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf.asset.pdf/6b1235f90d.pdf",
+                  "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+                  "pages": 23,
+                  "publication_marker": "17.12.2025",
+                  "model_code": "jogger",
+              },
+              {
+                  "source_code": "src_pl_sandero_brochure_20260202",
+                  "title": "DACIA SANDERO broszura",
+                  "document_date": "2026-02-02",
+                  "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+                  "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+                  "pages": 21,
+                  "publication_marker": "02.02.2026",
+                  "model_code": "sandero_iii",
+              },
+              {
+                  "source_code": "src_pl_sandero_stepway_brochure_20260202",
+                  "title": "DACIA SANDERO STEPWAY broszura",
+                  "document_date": "2026-02-02",
+                  "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+                  "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+                  "pages": 21,
+                  "publication_marker": "02.02.2026",
+                  "model_code": "sandero_stepway_iii",
+              },
+              {
+                  "source_code": "src_pl_duster_mini_brochure_20251020",
+                  "title": "DACIA DUSTER mini broszura",
+                  "document_date": "2025-10-20",
+                  "url": "https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf",
+                  "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+                  "pages": 25,
+                  "publication_marker": "20.10.2025",
+                  "model_code": "duster_iii",
+              },
+          ]
+
+          for row in rows:
+              path = Path(row["file_path"])
+              payload = path.read_bytes()
+              row["bytes"] = len(payload)
+              row["sha256"] = hashlib.sha256(payload).hexdigest()
+
+          receipt = {
+              "version": 1,
+              "kind": "official_dacia_brochure_source_receipt",
+              "retrieved_on": "2026-07-25",
+              "publisher": "Dacia",
+              "market": "PL",
+              "sources": rows,
+          }
+          Path("project/sources/official-dacia-brochures-20260725.json").write_text(
+              json.dumps(receipt, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit archived originals and receipt
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PDF/Broszury project/sources/official-dacia-brochures-20260725.json
+          git diff --cached --check
+          git commit -m 'chore(sources): archive official Dacia brochures'
+          git push origin HEAD:agent/official-dacia-brochure-source-registration
