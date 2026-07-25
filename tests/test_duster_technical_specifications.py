@@ -218,7 +218,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         self.assertEqual(report["scope"]["excluded_configurations"], 65)
 
     def test_repository_totals_match_technical_package(self) -> None:
-        self.assertEqual(len(self.all_values), 1765)
+        self.assertEqual(len(self.all_values), 1825)
         self.assertEqual(len(list(SPECS.glob("*.json"))), 112)
 
 
