@@ -31,77 +31,60 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
 
-          replacements = {
-              "tests/test_duster_ecog120_automatic_cargo_20260725.py": [
-                  (
-                      '''        self.assertEqual(
-                            state["phase"],
-                            "Official Dacia Brochure Source Registration and Gap Review",
-                        )''',
-                      '''        self.assertTrue(state["phase"])''',
-                  ),
-                  ('self.assertEqual(state["baseline"]["tests"], 765)', 'self.assertGreaterEqual(state["baseline"]["tests"], 765)'),
-                  ('self.assertEqual(state["baseline"]["rows"], 8145)', 'self.assertGreaterEqual(state["baseline"]["rows"], 8145)'),
-                  ('self.assertEqual(state["baseline"]["configuration_values"], 1831)', 'self.assertGreaterEqual(state["baseline"]["configuration_values"], 1831)'),
-                  ('self.assertEqual(state["baseline"]["configuration_import_specs"], 114)', 'self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 114)'),
-                  ('self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)', 'self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 176)'),
-                  ('self.assertIn("Brochure", state["next_package"]["name"])', 'self.assertTrue(state["next_package"]["name"])'),
-              ],
-              "tests/test_duster_ecog120_automatic_homologation_20260725.py": [
-                  (
-                      '''        self.assertEqual(
-                            state["phase"],
-                            "Official Dacia Brochure Source Registration and Gap Review",
-                        )''',
-                      '''        self.assertTrue(state["phase"])''',
-                  ),
-                  (
-                      '''        self.assertEqual(
-                            state["current_package"]["name"],
-                            "Official Dacia Brochure Source Registration and Gap Review",
-                        )''',
-                      '''        self.assertTrue(state["current_package"]["name"])''',
-                  ),
-                  ('self.assertEqual(state["baseline"]["tests"], 765)', 'self.assertGreaterEqual(state["baseline"]["tests"], 765)'),
-                  ('self.assertEqual(state["baseline"]["rows"], 8145)', 'self.assertGreaterEqual(state["baseline"]["rows"], 8145)'),
-                  ('self.assertEqual(state["baseline"]["configuration_values"], 1831)', 'self.assertGreaterEqual(state["baseline"]["configuration_values"], 1831)'),
-                  ('self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)', 'self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 176)'),
-                  ('self.assertIn("Brochure", state["next_package"]["name"])', 'self.assertTrue(state["next_package"]["name"])'),
-              ],
-              "tests/test_jogger_payload_performance_ranges.py": [
-                  ('self.assertEqual(baseline["tests"], 765)', 'self.assertGreaterEqual(baseline["tests"], 765)'),
-                  ('self.assertEqual(baseline["rows"], 8145)', 'self.assertGreaterEqual(baseline["rows"], 8145)'),
-                  ('self.assertEqual(baseline["configuration_values"], 1831)', 'self.assertGreaterEqual(baseline["configuration_values"], 1831)'),
-                  ('self.assertEqual(baseline["configuration_value_ranges"], 176)', 'self.assertGreaterEqual(baseline["configuration_value_ranges"], 176)'),
-                  ('self.assertEqual(baseline["configuration_range_import_specs"], 20)', 'self.assertGreaterEqual(baseline["configuration_range_import_specs"], 20)'),
-              ],
-              "tests/test_jogger_wltp_efficiency_ranges.py": [
-                  ('self.assertEqual(baseline["tests"], 765)', 'self.assertGreaterEqual(baseline["tests"], 765)'),
-                  ('self.assertEqual(baseline["rows"], 8145)', 'self.assertGreaterEqual(baseline["rows"], 8145)'),
-                  ('self.assertEqual(baseline["configuration_values"], 1831)', 'self.assertGreaterEqual(baseline["configuration_values"], 1831)'),
-                  ('self.assertEqual(baseline["configuration_import_specs"], 114)', 'self.assertGreaterEqual(baseline["configuration_import_specs"], 114)'),
-                  ('self.assertEqual(baseline["configuration_value_ranges"], 176)', 'self.assertGreaterEqual(baseline["configuration_value_ranges"], 176)'),
-                  ('self.assertEqual(baseline["configuration_range_import_specs"], 20)', 'self.assertGreaterEqual(baseline["configuration_range_import_specs"], 20)'),
-              ],
-              "tests/test_official_dacia_brochure_sources_20260725.py": [
-                  ('self.assertEqual(state["phase"], "Official Dacia Brochure Source Registration and Gap Review")', 'self.assertTrue(state["phase"])'),
-                  ('self.assertEqual(state["baseline"]["tests"], 765)', 'self.assertGreaterEqual(state["baseline"]["tests"], 765)'),
-                  ('self.assertEqual(state["baseline"]["rows"], 8145)', 'self.assertGreaterEqual(state["baseline"]["rows"], 8145)'),
-                  ('self.assertEqual(state["baseline"]["configuration_values"], 1831)', 'self.assertGreaterEqual(state["baseline"]["configuration_values"], 1831)'),
-                  ('self.assertEqual(state["baseline"]["configuration_import_specs"], 114)', 'self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 114)'),
-                  ('self.assertEqual(state["next_package"]["name"], "Brochure Cargo Measurement Context Modeling")', 'self.assertTrue(state["next_package"]["name"])'),
-              ],
+          files = [
+              Path("tests/test_duster_ecog120_automatic_cargo_20260725.py"),
+              Path("tests/test_duster_ecog120_automatic_homologation_20260725.py"),
+              Path("tests/test_jogger_payload_performance_ranges.py"),
+              Path("tests/test_jogger_wltp_efficiency_ranges.py"),
+              Path("tests/test_official_dacia_brochure_sources_20260725.py"),
+          ]
+
+          scalar_replacements = {
+              'self.assertEqual(state["baseline"]["tests"], 765)': 'self.assertGreaterEqual(state["baseline"]["tests"], 765)',
+              'self.assertEqual(state["baseline"]["rows"], 8145)': 'self.assertGreaterEqual(state["baseline"]["rows"], 8145)',
+              'self.assertEqual(state["baseline"]["configuration_values"], 1831)': 'self.assertGreaterEqual(state["baseline"]["configuration_values"], 1831)',
+              'self.assertEqual(state["baseline"]["configuration_import_specs"], 114)': 'self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 114)',
+              'self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)': 'self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 176)',
+              'self.assertEqual(baseline["tests"], 765)': 'self.assertGreaterEqual(baseline["tests"], 765)',
+              'self.assertEqual(baseline["rows"], 8145)': 'self.assertGreaterEqual(baseline["rows"], 8145)',
+              'self.assertEqual(baseline["configuration_values"], 1831)': 'self.assertGreaterEqual(baseline["configuration_values"], 1831)',
+              'self.assertEqual(baseline["configuration_import_specs"], 114)': 'self.assertGreaterEqual(baseline["configuration_import_specs"], 114)',
+              'self.assertEqual(baseline["configuration_value_ranges"], 176)': 'self.assertGreaterEqual(baseline["configuration_value_ranges"], 176)',
+              'self.assertEqual(baseline["configuration_range_import_specs"], 20)': 'self.assertGreaterEqual(baseline["configuration_range_import_specs"], 20)',
+              'self.assertIn("Brochure", state["next_package"]["name"])': 'self.assertTrue(state["next_package"]["name"])',
+              'self.assertEqual(state["next_package"]["name"], "Brochure Cargo Measurement Context Modeling")': 'self.assertTrue(state["next_package"]["name"])',
+              'self.assertEqual(state["phase"], "Official Dacia Brochure Source Registration and Gap Review")': 'self.assertTrue(state["phase"])',
           }
 
-          for filename, pairs in replacements.items():
-              path = Path(filename)
+          phase_pattern = re.compile(
+              r'''\n\s*self\.assertEqual\(\s*state\["phase"\],\s*"Official Dacia Brochure Source Registration and Gap Review",\s*\)''',
+              re.DOTALL,
+          )
+          package_pattern = re.compile(
+              r'''\n\s*self\.assertEqual\(\s*state\["current_package"\]\["name"\],\s*"Official Dacia Brochure Source Registration and Gap Review",\s*\)''',
+              re.DOTALL,
+          )
+
+          for path in files:
               text = path.read_text(encoding="utf-8")
-              for old, new in pairs:
-                  if old not in text:
-                      raise SystemExit(f"required historical assertion not found: {filename}: {old!r}")
-                  text = text.replace(old, new, 1)
+              text = phase_pattern.sub('\n        self.assertTrue(state["phase"])', text)
+              text = package_pattern.sub('\n        self.assertTrue(state["current_package"]["name"])', text)
+              for old, new in scalar_replacements.items():
+                  text = text.replace(old, new)
               path.write_text(text, encoding="utf-8")
+
+          combined = "\n".join(path.read_text(encoding="utf-8") for path in files)
+          forbidden = [
+              'self.assertEqual(state["baseline"]["tests"], 765)',
+              'self.assertEqual(baseline["tests"], 765)',
+              '"Official Dacia Brochure Source Registration and Gap Review"',
+              'self.assertEqual(state["next_package"]["name"], "Brochure Cargo Measurement Context Modeling")',
+          ]
+          remaining = [item for item in forbidden if item in combined]
+          if remaining:
+              raise SystemExit(f"historical state assertions remain: {remaining}")
           PY
 
       - name: Materialize decision package
