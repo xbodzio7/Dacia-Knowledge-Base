@@ -33,22 +33,41 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Materialize package and run tests
+      - name: Materialize package and persist diagnostics
         run: |
-          set -euo pipefail
-          python tools/complete_jogger_brochure_cargo_20260726.py --apply
-          python tools/import_jogger_brochure_cargo_20260726.py --apply
-          python tools/dkb.py project-state --apply
-          python tools/complete_jogger_brochure_cargo_20260726.py --check
-          python tools/import_jogger_brochure_cargo_20260726.py --check
-          python tools/dkb.py project-state --check
-          python -m unittest discover -s tests -p 'test_*.py'
-          git diff --check
+          set +e
+          : > .github/jogger-cargo-diagnostic.log
+          status=0
 
+          python tools/complete_jogger_brochure_cargo_20260726.py --apply >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/import_jogger_brochure_cargo_20260726.py --apply >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/complete_jogger_brochure_cargo_20260726.py --check >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/import_jogger_brochure_cargo_20260726.py --check >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> .github/jogger-cargo-diagnostic.log 2>&1 || status=$?
+          fi
+
+          cat .github/jogger-cargo-diagnostic.log
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'feat(data): materialize Jogger brochure cargo values'
+            git commit -m 'chore(data): persist Jogger cargo materialization'
             git push origin HEAD:agent/jogger-brochure-cargo-import
           fi
+          exit "$status"
