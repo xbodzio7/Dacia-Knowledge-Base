@@ -146,11 +146,33 @@ jobs:
 
       - name: Run full quality gate
         run: |
+          set +e
           python tools/dkb.py quality \
             --concise \
             --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
             --log-file "${RUNNER_TEMP}/quality.log" \
-            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+            --summary-json "${RUNNER_TEMP}/quality-summary.json" \
+            > "${RUNNER_TEMP}/quality-step.log" 2>&1
+          status=$?
+          cat "${RUNNER_TEMP}/quality-step.log"
+          if [ "$status" -ne 0 ]; then
+            {
+              echo "===== QUALITY STEP ====="
+              tail -n 160 "${RUNNER_TEMP}/quality-step.log"
+              echo
+              echo "===== QUALITY LOG ====="
+              tail -n 240 "${RUNNER_TEMP}/quality.log" 2>/dev/null || true
+              echo
+              echo "===== QUALITY SUMMARY ====="
+              cat "${RUNNER_TEMP}/quality-summary.json" 2>/dev/null || true
+            } > .github/duster-quality-error.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/duster-quality-error.log
+            git commit -m "diagnostic: capture Duster quality failure"
+            git push origin HEAD:${{ github.head_ref }}
+            exit "$status"
+          fi
 
       - name: Verify canonical project state
         run: python tools/dkb.py project-state --check
