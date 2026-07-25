@@ -2,10 +2,7 @@ name: Temporary Duster Exact Stock Equipment Materializer
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -36,57 +33,70 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-          pdftotext -v
 
-      - name: Reconcile established equipment and package semantics
+      - name: Finalize materializer contract
         run: |
           python - <<'PY'
           from pathlib import Path
+
           path = Path('.github/materialize_duster_exact_stock_equipment.py')
           text = path.read_text(encoding='utf-8')
 
-          old_membership = 'missing_components = sorted(attr for attr in memberships[item] if card_status.get(attr) != "standard")'
-          new_membership = '''component_aliases = {"passenger_seat_adjustment": "passenger_seat_height_adjustment"}\n            missing_components = sorted(\n                attr for attr in memberships[item]\n                if card_status.get(component_aliases.get(attr, attr)) != "standard"\n            )'''
-          if old_membership not in text:
-              raise SystemExit('expected package membership validation line not found')
-          text = text.replace(old_membership, new_membership)
+          def replace(old: str, new: str, *, required: bool = True) -> None:
+              global text
+              if old not in text:
+                  if required and new not in text:
+                      raise SystemExit(f'materializer contract fragment not found: {old[:100]}')
+                  return
+              text = text.replace(old, new)
 
-          old_type = 'if definition is None or definition.get("data_type") != "boolean":\n                raise ContractError(f"inactive or non-boolean equipment attribute: {attribute}")'
-          new_type = '''if definition is None or (\n                definition.get("data_type") != "boolean"\n                and attribute not in {"rear_seat_folding"}\n            ):\n                raise ContractError(f"inactive or unsupported equipment attribute: {attribute}")'''
-          if old_type not in text:
-              raise SystemExit('expected equipment attribute type validation block not found')
-          text = text.replace(old_type, new_type)
+          replace(
+              'missing_components = sorted(attr for attr in memberships[item] if card_status.get(attr) != "standard")',
+              '''component_aliases = {"passenger_seat_adjustment": "passenger_seat_height_adjustment"}\n            missing_components = sorted(\n                attr for attr in memberships[item]\n                if card_status.get(component_aliases.get(attr, attr)) != "standard"\n            )''',
+          )
+          replace(
+              'if definition is None or definition.get("data_type") != "boolean":\n                raise ContractError(f"inactive or non-boolean equipment attribute: {attribute}")',
+              '''if definition is None or (\n                definition.get("data_type") != "boolean"\n                and attribute not in {"rear_seat_folding"}\n            ):\n                raise ContractError(f"inactive or unsupported equipment attribute: {attribute}")''',
+          )
+          replace('src_pl_duster_exact_stock_equipment_20260725', 'src_pl_duster_exact_stock_equipment_20260724')
+          replace('dacia-pl-duster-exact-stock-equipment-20260725.json', 'dacia-pl-duster-exact-stock-equipment-20260724.json')
+          replace('DATE = "2026-07-25"', 'DATE = "2026-07-24"')
+          replace('_exact_stock_20260725', '_exact_stock_20260724')
 
-          text = text.replace(
-              'src_pl_duster_exact_stock_equipment_20260725',
-              'src_pl_duster_exact_stock_equipment_20260724',
+          replace('"duster_iii_extreme_ecog120_4x2_automatic": 76', '"duster_iii_extreme_ecog120_4x2_automatic": 75')
+          replace('"duster_iii_journey_ecog120_4x2_automatic": 75', '"duster_iii_journey_ecog120_4x2_automatic": 74')
+
+          source_anchor = '''    source_codes = {row["code"] for row in read_rows(MASTER / "sources.csv") if row.get("status") == "active"}\n    if PRICE_SOURCE not in source_codes:'''
+          source_insert = '''    source_codes = {row["code"] for row in read_rows(MASTER / "sources.csv") if row.get("status") == "active"}\n    prior_exact_availability = {\n        (row["configuration_code"], row["attribute_code"]): row\n        for row in read_rows(MASTER / "configuration_attribute_availability.csv")\n        if row.get("source_code") == "src_pl_duster_ecog120_automatic_stock_20260724"\n    }\n    if PRICE_SOURCE not in source_codes:'''
+          replace(source_anchor, source_insert)
+
+          availability_anchor = '''            card_status[attribute] = status\n            counts[config] += 1'''
+          availability_insert = '''            card_status[attribute] = status\n            if attribute == "side_mirrors_folding" and config in {\n                "duster_iii_extreme_ecog120_4x2_automatic",\n                "duster_iii_journey_ecog120_4x2_automatic",\n            }:\n                prior = prior_exact_availability.get((config, attribute))\n                if not prior or prior.get("availability_status") != "standard" or prior.get("observation_date") != DATE:\n                    raise ContractError(f"reused exact folding-mirror observation missing: {config}")\n                continue\n            counts[config] += 1'''
+          replace(availability_anchor, availability_insert)
+
+          replace('if len(availability) != 205 or dict(statuses_count) != {"standard": 201, "not_available": 4}:', 'if len(availability) != 203 or dict(statuses_count) != {"standard": 199, "not_available": 4}:')
+          replace('self.assertEqual(len(self.availability), 205)', 'self.assertEqual(len(self.availability), 203)')
+          replace('Counter(row["availability_status"] for row in self.availability), {"standard": 201, "not_available": 4}', 'Counter(row["availability_status"] for row in self.availability), {"standard": 199, "not_available": 4}')
+
+          replace('The package adds 205 dated configuration-level equipment observations:', 'The package adds 203 new dated configuration-level equipment observations:')
+          replace('- Extreme automatic — 76 records;', '- Extreme automatic — 75 new records;')
+          replace('- Journey automatic — 75 records.', '- Journey automatic — 74 new records.')
+          replace('The distribution is 201 `standard` and four explicit `not_available` states.', 'The distribution is 199 `standard` and four explicit `not_available` states. Two standard folding-mirror observations for Extreme and Journey are reused from the immediately preceding exact-stock intake instead of being duplicated on the same observation date.')
+          replace('205 datowanych obserwacji wyposażenia', '203 nowe datowane obserwacje wyposażenia')
+          replace('with 205 dated equipment observations', 'with 203 new dated equipment observations')
+          replace('z 205 obserwacjami', 'z 203 nowymi obserwacjami')
+          replace(
+              '"Factory antenna type and the conflicting Expression folding-mirror state remain unimported.",',
+              '"Factory antenna type and the conflicting Expression folding-mirror state remain unimported.",\n            "Existing exact folding-mirror observations for Extreme and Journey from the 2026-07-24 stock intake are reused rather than duplicated.",',
           )
-          text = text.replace(
-              'dacia-pl-duster-exact-stock-equipment-20260725.json',
-              'dacia-pl-duster-exact-stock-equipment-20260724.json',
-          )
-          text = text.replace('DATE = "2026-07-25"', 'DATE = "2026-07-24"')
-          text = text.replace('_exact_stock_20260725', '_exact_stock_20260724')
+
           path.write_text(text, encoding='utf-8')
           PY
 
       - name: Materialize package
-        run: |
-          set +e
-          python .github/materialize_duster_exact_stock_equipment.py > "${RUNNER_TEMP}/materializer.log" 2>&1
-          status=$?
-          cat "${RUNNER_TEMP}/materializer.log"
-          if [ "$status" -ne 0 ]; then
-            cp "${RUNNER_TEMP}/materializer.log" .github/duster-materializer-error.log
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add .github/duster-materializer-error.log
-            git commit -m "diagnostic: capture Duster materializer failure"
-            git push origin HEAD:${{ github.head_ref }}
-            exit "$status"
-          fi
+        run: python .github/materialize_duster_exact_stock_equipment.py
 
-      - name: Update affected regression contracts
+      - name: Synchronize affected regression contracts
         run: |
           python - <<'PY'
           import json
@@ -103,11 +113,11 @@ jobs:
               ),
               Path('tests/test_jogger_payload_performance_ranges.py'): (
                   ('self.assertEqual(baseline["tests"], 735)', 'self.assertEqual(baseline["tests"], 743)'),
-                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8034)'),
+                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8032)'),
               ),
               Path('tests/test_jogger_wltp_efficiency_ranges.py'): (
                   ('self.assertEqual(baseline["tests"], 735)', 'self.assertEqual(baseline["tests"], 743)'),
-                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8034)'),
+                  ('self.assertEqual(baseline["rows"], 7813)', 'self.assertEqual(baseline["rows"], 8032)'),
               ),
           }
           for path, pairs in replacements.items():
@@ -129,88 +139,35 @@ jobs:
 
       - name: Run package tests
         run: |
-          set +e
           python -m unittest -v \
             tests.test_duster_exact_stock_equipment_20260725 \
             tests.test_commercial_items_20260703 \
             tests.test_configuration_comparison_workbook \
             tests.test_jogger_payload_performance_ranges \
-            tests.test_jogger_wltp_efficiency_ranges \
-            > "${RUNNER_TEMP}/package-tests.log" 2>&1
-          status=$?
-          cat "${RUNNER_TEMP}/package-tests.log"
-          if [ "$status" -ne 0 ]; then
-            tail -n 180 "${RUNNER_TEMP}/package-tests.log" > .github/duster-package-tests-error.log
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add .github/duster-package-tests-error.log
-            git commit -m "diagnostic: capture Duster package test failure"
-            git push origin HEAD:${{ github.head_ref }}
-            exit "$status"
-          fi
+            tests.test_jogger_wltp_efficiency_ranges
 
       - name: Run full test discovery
-        run: |
-          set +e
-          python -m unittest discover \
-            -s tests \
-            -p "test_*.py" \
-            -q > "${RUNNER_TEMP}/discovery.log" 2>&1
-          status=$?
-          cat "${RUNNER_TEMP}/discovery.log"
-          if [ "$status" -ne 0 ]; then
-            tail -n 160 "${RUNNER_TEMP}/discovery.log" > .github/duster-discovery-error.log
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add .github/duster-discovery-error.log
-            git commit -m "diagnostic: capture Duster discovery failure"
-            git push origin HEAD:${{ github.head_ref }}
-            exit "$status"
-          fi
+        run: python -m unittest discover -s tests -p "test_*.py" -q
 
       - name: Run full quality gate
         run: |
-          set +e
           python tools/dkb.py quality \
             --concise \
             --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
             --log-file "${RUNNER_TEMP}/quality.log" \
-            --summary-json "${RUNNER_TEMP}/quality-summary.json" \
-            > "${RUNNER_TEMP}/quality-step.log" 2>&1
-          status=$?
-          cat "${RUNNER_TEMP}/quality-step.log"
-          if [ "$status" -ne 0 ]; then
-            {
-              echo "===== QUALITY STEP ====="
-              tail -n 160 "${RUNNER_TEMP}/quality-step.log"
-              echo
-              echo "===== QUALITY LOG ====="
-              tail -n 240 "${RUNNER_TEMP}/quality.log" 2>/dev/null || true
-              echo
-              echo "===== QUALITY SUMMARY ====="
-              cat "${RUNNER_TEMP}/quality-summary.json" 2>/dev/null || true
-            } > .github/duster-quality-error.log
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add .github/duster-quality-error.log
-            git commit -m "diagnostic: capture Duster quality failure"
-            git push origin HEAD:${{ github.head_ref }}
-            exit "$status"
-          fi
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
 
-      - name: Verify canonical project state
-        run: python tools/dkb.py project-state --check
-
-      - name: Review generated diff
-        run: git status --short && git diff --stat
+      - name: Verify canonical state
+        run: |
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
 
       - name: Commit materialized package
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
-            README.md \
-            CHANGELOG.md \
+            README.md CHANGELOG.md \
             data/master/sources.csv \
             data/master/source_models.csv \
             data/master/source_versions.csv \
