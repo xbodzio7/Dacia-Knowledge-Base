@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Made comparison, shortlist, selection, flat CSV, HTML and workbook reporting preserve every context-distinct `boot_capacity` observation by measurement basis, seat state, compartment and explicit cargo-equipment qualifiers.
 * Added the header-only cargo-volume context relation, four controlled context dictionaries, eight reference rules, four lifecycle rules and semantic validation that restricts contexts to one `boot_capacity` observation.
 * Accepted a context-preserving cargo-volume model that keeps numeric observations in `configuration_attribute_values.csv` and defines a separate one-to-one cargo context relation for measurement basis, seat state, compartment and equipment qualifiers.
 * Configurator-style shortlist controls with official Dacia Polska model packshots, deterministic offline SVG fallbacks and minimum/maximum price fields in one row.

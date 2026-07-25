@@ -3,6 +3,8 @@ from __future__ import annotations
 from html import escape
 from typing import Any, Mapping
 
+from reporting.cargo_context import technical_context
+
 HTML_REPORT_VERSION = 1
 DOMAINS = (("prices", "Ceny"), ("technical", "Dane techniczne"), ("equipment", "Wyposażenie"))
 LABELS = {"equal": "Równe", "different": "Różne", "not_comparable": "Nieporównywalne"}
@@ -54,8 +56,18 @@ def _item(item: Mapping[str, Any], domain: str) -> tuple[str, str]:
     if item.get("attribute_name"):
         label += f" — {item['attribute_name']}"
     context = [str(item.get("category", ""))]
-    if domain == "technical" and item.get("fuel_type_code"):
-        context.append(f"paliwo: {item['fuel_type_code']}")
+    if domain == "technical":
+        cargo_context = item.get("cargo_context")
+        if isinstance(cargo_context, Mapping):
+            context.append(
+                "kontekst: "
+                + technical_context(
+                    str(item.get("fuel_type_code", "")),
+                    cargo_context,
+                )
+            )
+        elif item.get("fuel_type_code"):
+            context.append(f"paliwo: {item['fuel_type_code']}")
     if item.get("range_relation"):
         context.append(f"relacja zakresu: {item['range_relation']}")
     return label, " · ".join(value for value in context if value)

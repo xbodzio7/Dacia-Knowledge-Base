@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Cargo Context Schema Foundation",
+  "phase": "Brochure Cargo Context Reporting Foundation",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Cargo Context Schema Foundation",
+    "name": "Brochure Cargo Context Reporting Foundation",
     "status": "complete",
-    "goal": "Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values."
+    "goal": "Make comparison, shortlist and export reporting expose exact cargo-context fields and preserve every context-distinct boot_capacity observation without importing official brochure values."
   },
   "next_package": {
-    "name": "Brochure Cargo Context Reporting Foundation",
+    "name": "Official Brochure Cargo Value Import",
     "status": "planned",
-    "goal": "Make comparison, shortlist and export reporting expose cargo-context fields and preserve every context-distinct boot_capacity observation before any official brochure cargo values are imported."
+    "goal": "Import source-backed canonical boot_capacity observations from the registered official brochures with exact cargo context and no migration or inference from legacy cargo attributes."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

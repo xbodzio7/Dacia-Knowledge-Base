@@ -9,6 +9,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from reporting.cargo_context import technical_context
+
 from configuration_comparison import (
     DEFAULT_COMPLETENESS_SPEC,
     DEFAULT_EVIDENCE_SPEC,
@@ -48,10 +50,14 @@ def item_metadata(
         return "", "", context
     if domain == "technical":
         fuel = str(item.get("fuel_type_code", ""))
+        cargo_context = item.get("cargo_context")
         return (
             str(item.get("attribute_name", "")),
             str(item.get("category", "")),
-            f"fuel_type_code={fuel}",
+            technical_context(
+                fuel,
+                cargo_context if isinstance(cargo_context, Mapping) else None,
+            ),
         )
     return (
         str(item.get("attribute_name", "")),

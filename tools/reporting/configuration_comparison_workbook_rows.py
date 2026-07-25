@@ -7,6 +7,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from reporting.cargo_context import cargo_context_json, technical_context
 from reporting.commercial_offers import commercial_offer_rows
 from reporting.deterministic_xlsx_model import Cell, Sheet, WorkbookError
 
@@ -25,6 +26,7 @@ STATE_FIELDS = (
     "reason_code",
     "reviewed_pages",
     "evidence_basis_json",
+    "cargo_context_json",
 )
 
 
@@ -122,6 +124,11 @@ def _state_values(state: Mapping[str, Any], domain: str) -> tuple[object, ...]:
         str(state.get("reason_code", "")),
         reviewed_text,
         basis_text,
+        cargo_context_json(
+            state.get("cargo_context")
+            if isinstance(state.get("cargo_context"), Mapping)
+            else None
+        ),
     )
 
 
@@ -139,11 +146,14 @@ def _item_identity(item: Mapping[str, Any], domain: str) -> tuple[str, str, str,
             context,
             str(item.get("currency_code", "")),
         )
-    context = (
-        f"fuel_type_code={item.get('fuel_type_code', '')}"
-        if domain == "technical" and item.get("fuel_type_code")
-        else ""
-    )
+    context = ""
+    if domain == "technical":
+        cargo_context = item.get("cargo_context")
+        if isinstance(cargo_context, Mapping) or item.get("fuel_type_code"):
+            context = technical_context(
+                str(item.get("fuel_type_code", "")),
+                cargo_context if isinstance(cargo_context, Mapping) else None,
+            )
     return (
         str(item.get("attribute_code", "")),
         str(item.get("attribute_name", "")),

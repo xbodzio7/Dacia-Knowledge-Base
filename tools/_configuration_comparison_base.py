@@ -19,6 +19,12 @@ from configuration_value_range_reporting import (
     range_relation,
     read_optional_ranges,
 )
+from reporting.cargo_context import (
+    CargoContextError,
+    annotate_scalar_values,
+    read_context_rows,
+    technical_context,
+)
 
 
 DEFAULT_COMPLETENESS_SPEC = Path(
@@ -388,12 +394,12 @@ def evidence_index(
 
 
 def recorded_technical_state(
-    row: Mapping[str, str],
+    row: Mapping[str, Any],
     attribute: Mapping[str, str],
 ) -> dict[str, Any]:
     value = str(row.get("value", ""))
     data_type = str(attribute.get("data_type", ""))
-    return {
+    result: dict[str, Any] = {
         "state": "recorded",
         "value": value,
         "normalized_value": normalize_value(value, data_type),
@@ -402,6 +408,13 @@ def recorded_technical_state(
         "observation_date": str(row.get("observation_date", "")),
         "source_code": str(row.get("source_code", "")),
     }
+    context = row.get("_cargo_context")
+    if isinstance(context, Mapping):
+        result["cargo_context"] = dict(context)
+        result["cargo_context_signature"] = str(
+            row.get("_cargo_context_signature", "")
+        )
+    return result
 
 
 def recorded_range_state(
@@ -541,8 +554,15 @@ def collect_report(
         for row in values
         if row.get("configuration_code") in configuration_set
     ]
+    try:
+        scoped_values = annotate_scalar_values(
+            scoped_values,
+            read_context_rows(master, read_csv),
+        )
+    except CargoContextError as exc:
+        raise ComparisonError(str(exc)) from exc
     scoped_ranges = [
-        row
+        {**row, "_cargo_context_signature": "", "_cargo_context": None}
         for row in ranges
         if row.get("configuration_code") in configuration_set
     ]
@@ -570,6 +590,7 @@ def collect_report(
             "configuration_code",
             "attribute_code",
             "fuel_type_code",
+            "_cargo_context_signature",
         ),
         "observation_date",
         as_of,
@@ -581,6 +602,7 @@ def collect_report(
             "configuration_code",
             "attribute_code",
             "fuel_type_code",
+            "_cargo_context_signature",
         ),
         "observation_date",
         as_of,
@@ -589,6 +611,12 @@ def collect_report(
     current_values = combine_latest_observations(
         current_scalar_values, current_range_values, ComparisonError
     )
+    current_value_groups: dict[
+        tuple[str, str, str], dict[str, dict[str, Any]]
+    ] = {}
+    for key, row in current_values.items():
+        base_key = (key[0], key[1], key[2])
+        current_value_groups.setdefault(base_key, {})[key[3]] = row
     current_availability = latest(
         scoped_availability,
         ("configuration_code", "attribute_code"),
@@ -645,12 +673,12 @@ def collect_report(
     for configuration, attribute, fuel in scope["technical_scope"]:
         key = (configuration, attribute, fuel)
         if key in scope["technical_na"]:
-            if key in current_values:
+            if key in current_value_groups:
                 raise ComparisonError(
                     f"not_applicable technical slot has a record: {key}"
                 )
             continue
-        if key not in current_values:
+        if key not in current_value_groups:
             missing_evidence_keys.add(
                 ("technical", configuration, attribute, fuel)
             )
@@ -765,65 +793,84 @@ def collect_report(
             attribute = scope["attributes"][attribute_code]
             left_key = (left_code, attribute_code, fuel)
             right_key = (right_code, attribute_code, fuel)
+            left_group = current_value_groups.get(left_key, {})
+            right_group = current_value_groups.get(right_key, {})
+            signatures = sorted(set(left_group) | set(right_group))
+            if not signatures:
+                signatures = [""]
 
-            if left_key in scope["technical_na"]:
-                left_state = {"state": "not_applicable"}
-            elif left_key in current_values:
-                left_row = current_values[left_key]
-                left_state = (
-                    recorded_range_state(left_row, attribute)
-                    if left_row.get("_observation_kind") == "range"
-                    else recorded_technical_state(left_row, attribute)
+            for signature in signatures:
+                context_row = left_group.get(signature) or right_group.get(signature)
+                raw_context = (
+                    context_row.get("_cargo_context")
+                    if context_row is not None
+                    else None
                 )
-            else:
-                left_state = evidence_state(
-                    evidence[
-                        (
-                            "technical",
-                            left_code,
-                            attribute_code,
-                            fuel,
-                        )
-                    ]
+                cargo_context = (
+                    dict(raw_context)
+                    if isinstance(raw_context, Mapping)
+                    else None
                 )
 
-            if right_key in scope["technical_na"]:
-                right_state = {"state": "not_applicable"}
-            elif right_key in current_values:
-                right_row = current_values[right_key]
-                right_state = (
-                    recorded_range_state(right_row, attribute)
-                    if right_row.get("_observation_kind") == "range"
-                    else recorded_technical_state(right_row, attribute)
-                )
-            else:
-                right_state = evidence_state(
-                    evidence[
-                        (
-                            "technical",
-                            right_code,
-                            attribute_code,
-                            fuel,
-                        )
-                    ]
-                )
+                if left_key in scope["technical_na"]:
+                    left_state: dict[str, Any] = {"state": "not_applicable"}
+                elif signature in left_group:
+                    left_row = left_group[signature]
+                    left_state = (
+                        recorded_range_state(left_row, attribute)
+                        if left_row.get("_observation_kind") == "range"
+                        else recorded_technical_state(left_row, attribute)
+                    )
+                elif not left_group:
+                    left_state = evidence_state(
+                        evidence[("technical", left_code, attribute_code, fuel)]
+                    )
+                else:
+                    left_state = {"state": "missing"}
+                if cargo_context is not None and "cargo_context" not in left_state:
+                    left_state["cargo_context"] = dict(cargo_context)
+                    left_state["cargo_context_signature"] = signature
 
-            technical_comparison, relation = technical_comparison_result(
-                left_state, right_state
-            )
-            technical_item = {
-                "attribute_code": attribute_code,
-                "attribute_name": attribute["name"],
-                "category": attribute["category"],
-                "fuel_type_code": fuel,
-                "unit": attribute["unit"],
-                "left": left_state,
-                "right": right_state,
-                "comparison": technical_comparison,
-            }
-            if relation is not None:
-                technical_item["range_relation"] = relation
-            technical_items.append(technical_item)
+                if right_key in scope["technical_na"]:
+                    right_state: dict[str, Any] = {"state": "not_applicable"}
+                elif signature in right_group:
+                    right_row = right_group[signature]
+                    right_state = (
+                        recorded_range_state(right_row, attribute)
+                        if right_row.get("_observation_kind") == "range"
+                        else recorded_technical_state(right_row, attribute)
+                    )
+                elif not right_group:
+                    right_state = evidence_state(
+                        evidence[("technical", right_code, attribute_code, fuel)]
+                    )
+                else:
+                    right_state = {"state": "missing"}
+                if cargo_context is not None and "cargo_context" not in right_state:
+                    right_state["cargo_context"] = dict(cargo_context)
+                    right_state["cargo_context_signature"] = signature
+
+                technical_comparison, relation = technical_comparison_result(
+                    left_state, right_state
+                )
+                technical_item: dict[str, Any] = {
+                    "attribute_code": attribute_code,
+                    "attribute_name": attribute["name"],
+                    "category": attribute["category"],
+                    "fuel_type_code": fuel,
+                    "unit": attribute["unit"],
+                    "left": left_state,
+                    "right": right_state,
+                    "comparison": technical_comparison,
+                }
+                if cargo_context is not None:
+                    technical_item["cargo_context"] = dict(cargo_context)
+                    technical_item["context"] = technical_context(
+                        fuel, cargo_context
+                    )
+                if relation is not None:
+                    technical_item["range_relation"] = relation
+                technical_items.append(technical_item)
 
         equipment_items: list[dict[str, Any]] = []
         for attribute_code in scope["equipment_attributes"]:
@@ -1123,10 +1170,12 @@ def difference_csv_rows(
                     item_name = str(item["attribute_name"])
                     category = str(item["category"])
                     fuel = str(item["fuel_type_code"])
-                    context = (
-                        f"fuel_type_code={fuel}"
-                        if fuel
-                        else "fuel_type_code="
+                    raw_cargo_context = item.get("cargo_context")
+                    context = technical_context(
+                        fuel,
+                        raw_cargo_context
+                        if isinstance(raw_cargo_context, Mapping)
+                        else None,
                     )
                     if item.get("range_relation"):
                         context += (
@@ -1380,7 +1429,9 @@ def render_markdown(report: Mapping[str, Any]) -> str:
                     )
                 elif domain == "technical":
                     key = item["attribute_code"]
-                    context = item["fuel_type_code"] or "none"
+                    context = item.get("context") or (
+                        item["fuel_type_code"] or "none"
+                    )
                 else:
                     key = item["attribute_code"]
                     context = item["category"]

@@ -69,7 +69,8 @@
       powertrain_label: configuration.powertrain_label,
       transmission_type: configuration.transmission_type,
       catalog_price: configuration.catalog_price,
-      number_of_seats: configuration.number_of_seats
+      number_of_seats: configuration.number_of_seats,
+      cargo_volumes: configuration.cargo_volumes || []
     };
   }
 
@@ -161,8 +162,10 @@
   }
 
   function comparisonValueLabel(facet) {
+    const label = String(facet.label || facet.attribute_code || facet.key);
     const fuel = String(facet.fuel_type_label || "").trim();
-    return fuel ? `${facet.label} — ${fuel}` : String(facet.label || facet.attribute_code || facet.key);
+    const cargo = String(facet.cargo_context_label || "").trim();
+    return [label, fuel, cargo].filter(Boolean).join(" — ");
   }
 
   function comparisonValueText(configuration, key) {
