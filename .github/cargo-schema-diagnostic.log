@@ -1,14 +1,14 @@
 PASS: brochure cargo context schema foundation contract
-ERROR: test discovery failed:
-Failed to import test module: test_brochure_cargo_context_schema_foundation
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
-    module = self._get_module_from_name(name)
-  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
-    __import__(name)
-    ~~~~~~~~~~^^^^^^
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_context_schema_foundation.py", line 11, in <module>
-    from tools.reporting.data_dictionary import generate_data_dictionary
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/__init__.py", line 3, in <module>
-    from reporting import configuration_scope as _scope
-ModuleNotFoundError: No module named 'reporting'
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 776
+Master rows    : 8156
+Phase          : Brochure Cargo Context Schema Foundation
+Current package: Brochure Cargo Context Schema Foundation
+Next package   : Brochure Cargo Context Reporting Foundation
+Autonomy mode  : autonomous_until_action_required
