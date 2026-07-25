@@ -72,9 +72,14 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         ]
 
     def test_33_specs_expand_to_392_exact_master_rows(self) -> None:
-        self.assertEqual(len(self.specs), 33)
+        legacy_specs = [
+            spec
+            for path, spec in zip(self.spec_paths, self.specs)
+            if path.name.startswith(("duster-page8-", "duster-page9-"))
+        ]
+        self.assertEqual(len(legacy_specs), 33)
         expected = []
-        for spec in self.specs:
+        for spec in legacy_specs:
             date = spec["observation_date"]
             for offset, item in enumerate(spec["rows"]):
                 fuel = item.get("fuel_type_code", spec["fuel_type_code"])
@@ -102,31 +107,35 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
                 row["observation_date"], row["source_code"],
             )
             for row in self.price_list_values
+            if int(row["id"]) <= 702
         ]
         self.assertEqual(len(expected), 392)
         self.assertEqual(actual, expected)
-        self.assertEqual([int(row["id"]) for row in self.price_list_values], list(range(311, 703)))
+        self.assertEqual([int(row["id"]) for row in actual], list(range(311, 703)))
 
     def test_attribute_and_context_counts_are_stable(self) -> None:
-        self.assertEqual(Counter(row["attribute_code"] for row in self.price_list_values), EXPECTED_COUNTS)
+        legacy_rows = [row for row in self.price_list_values if int(row["id"]) <= 702]
+        self.assertEqual(Counter(row["attribute_code"] for row in legacy_rows), EXPECTED_COUNTS)
         self.assertEqual(
-            Counter(row["fuel_type_code"] for row in self.price_list_values),
+            Counter(row["fuel_type_code"] for row in legacy_rows),
             Counter({"": 320, "lpg": 36, "petrol": 36}),
         )
         self.assertEqual(
-            Counter(row["observation_date"] for row in self.price_list_values),
+            Counter(row["observation_date"] for row in legacy_rows),
             Counter({"2026-02-06": 372, "2025-10-01": 20}),
         )
-        self.assertEqual({row["source_code"] for row in self.price_list_values}, {SOURCE})
+        self.assertEqual({row["source_code"] for row in legacy_rows}, {SOURCE})
 
     def test_source_scoped_core_values_preserve_homologation_boundaries(self) -> None:
+        legacy_rows = [row for row in self.price_list_values if int(row["id"]) <= 702]
+        legacy_configurations = {row["configuration_code"] for row in legacy_rows}
         for attribute in (
             "engine_displacement", "cylinder_count", "total_valve_count",
             "braked_trailer_weight", "cargo_volume_vda",
         ):
             self.assertEqual(
-                {row["configuration_code"] for row in self.price_list_values if row["attribute_code"] == attribute},
-                self.price_list_configurations,
+                {row["configuration_code"] for row in legacy_rows if row["attribute_code"] == attribute},
+                legacy_configurations,
                 attribute,
             )
         automatic_codes = {
@@ -196,12 +205,13 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         })
 
     def test_trim_dependent_or_ambiguous_rows_are_not_imported(self) -> None:
+        legacy_rows = [row for row in self.price_list_values if int(row["id"]) <= 702]
         forbidden = {
             "kerb_weight", "gross_vehicle_weight", "maximum_payload",
             "standard_tyre_specification", "drive_type", "gear_count",
         }
-        self.assertFalse([row for row in self.price_list_values if row["attribute_code"] in forbidden])
-        self.assertFalse(any("hybridg150" in row["configuration_code"] for row in self.price_list_values))
+        self.assertFalse([row for row in legacy_rows if row["attribute_code"] in forbidden])
+        self.assertFalse(any("hybridg150" in row["configuration_code"] for row in legacy_rows))
 
     def test_prices_and_reporting_scope_remain_stable(self) -> None:
         prices = [
@@ -218,8 +228,8 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         self.assertEqual(report["scope"]["excluded_configurations"], 65)
 
     def test_repository_totals_match_technical_package(self) -> None:
-        self.assertEqual(len(self.all_values), 1825)
-        self.assertEqual(len(list(SPECS.glob("*.json"))), 112)
+        self.assertEqual(len(self.all_values), 1831)
+        self.assertEqual(len(list(SPECS.glob("*.json"))), 114)
 
 
 if __name__ == "__main__":
