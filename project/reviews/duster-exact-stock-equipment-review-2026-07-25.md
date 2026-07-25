@@ -9,10 +9,11 @@
 
 ## Accepted normalization
 
-- explicit basic and configured equipment mapped to existing boolean attributes;
+- explicit basic and configured equipment mapped to existing supported equipment attributes;
 - explicit package components mapped as present in the exact stock vehicle;
 - exact negative wording retained only for seat-belt height adjustment and the Extreme two-level boot floor;
-- package availability/price and selected-in-stock state stored as separate dated commercial rows.
+- package availability/price and selected-in-stock state stored as separate dated commercial rows;
+- two standard folding-mirror observations already imported for Extreme and Journey on 24 July are reused rather than duplicated at the same date.
 
 ## Rejected inferences
 
@@ -26,7 +27,8 @@
 
 Accepted for import:
 
-- 205 exact equipment observations;
+- 203 new exact equipment observations;
+- reuse of two earlier exact folding-mirror observations;
 - four optional package-price mappings;
 - four selected-package states;
 - one model, three version and three configuration source relationships.
