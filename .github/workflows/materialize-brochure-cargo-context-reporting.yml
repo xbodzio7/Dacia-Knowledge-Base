@@ -32,6 +32,42 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Repair fixture loading
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("tests/test_brochure_cargo_context_reporting_foundation.py")
+          text = path.read_text(encoding="utf-8")
+          old_import = '''from tests.test_configuration_comparison import (  # noqa: E402
+              ConfigurationComparisonTests,
+          )
+          '''.replace("          ", "")
+          factory = '''def _configuration_comparison_fixture():
+              from importlib.util import module_from_spec, spec_from_file_location
+
+              spec = spec_from_file_location(
+                  "dkb_test_configuration_comparison_fixture",
+                  REPOSITORY / "tests" / "test_configuration_comparison.py",
+              )
+              if spec is None or spec.loader is None:
+                  raise RuntimeError("cannot load comparison fixture")
+              module = module_from_spec(spec)
+              spec.loader.exec_module(module)
+              return module.ConfigurationComparisonTests()
+          '''.replace("          ", "")
+          if factory not in text:
+              if old_import not in text:
+                  raise SystemExit("fixture import patch anchor missing")
+              text = text.replace(old_import, factory + "\n", 1)
+          text = text.replace(
+              "        self.base = ConfigurationComparisonTests()\n",
+              "        self.base = _configuration_comparison_fixture()\n",
+              1,
+          )
+          path.write_text(text, encoding="utf-8")
+          PY
+
       - name: Materialize and persist diagnostics
         run: |
           set +e
