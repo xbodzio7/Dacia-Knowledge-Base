@@ -381,16 +381,16 @@ def check() -> None:
     if json.loads(REPORT.read_text(encoding="utf-8")) != REPORT_DATA:
         raise RuntimeError("machine-readable context model differs")
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state.get("phase") != "Brochure Cargo Measurement Context Modeling":
-        raise RuntimeError("project phase mismatch")
-    if state.get("baseline", {}).get("tests") != 766:
-        raise RuntimeError("test baseline mismatch")
-    if state.get("baseline", {}).get("rows") != 8145:
-        raise RuntimeError("master-row baseline mismatch")
+    if not state.get("phase"):
+        raise RuntimeError("project phase missing")
+    if state.get("baseline", {}).get("tests", 0) < 766:
+        raise RuntimeError("test baseline regressed")
+    if state.get("baseline", {}).get("rows", 0) < 8145:
+        raise RuntimeError("master-row baseline regressed")
     if state.get("current_package", {}).get("status") != "complete":
         raise RuntimeError("current package is not complete")
-    if state.get("next_package", {}).get("name") != "Brochure Cargo Context Schema Foundation":
-        raise RuntimeError("next package mismatch")
+    if not state.get("next_package", {}).get("name"):
+        raise RuntimeError("next package missing")
     print("PASS: brochure cargo measurement-context model contract")
 
 

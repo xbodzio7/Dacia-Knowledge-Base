@@ -403,6 +403,9 @@ def _apply_state() -> None:
     if state.get("baseline", {}).get("configuration_values") != 1831:
         raise RuntimeError("unexpected configuration-value baseline")
     state["updated_on"] = "2026-07-25"
+    state["baseline"]["tests"] = 776
+    state["baseline"]["csv_files"] = 46
+    state["baseline"]["rows"] = 8156
     state["phase"] = "Brochure Cargo Context Schema Foundation"
     state["current_package"] = {
         "name": "Brochure Cargo Context Schema Foundation",

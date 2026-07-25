@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Cargo Measurement Context Modeling",
+  "phase": "Brochure Cargo Context Schema Foundation",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,9 +15,9 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 766,
-    "csv_files": 41,
-    "rows": 8145,
+    "tests": 776,
+    "csv_files": 46,
+    "rows": 8156,
     "configuration_values": 1831,
     "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Cargo Measurement Context Modeling",
+    "name": "Brochure Cargo Context Schema Foundation",
     "status": "complete",
-    "goal": "Accept the smallest reusable representation for brochure cargo values by keeping numeric observations in configuration_attribute_values.csv and defining a one-to-one cargo context relation for measurement basis, seat state, compartment and explicit equipment qualifiers."
+    "goal": "Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values."
   },
   "next_package": {
-    "name": "Brochure Cargo Context Schema Foundation",
+    "name": "Brochure Cargo Context Reporting Foundation",
     "status": "planned",
-    "goal": "Implement the header-only configuration_cargo_volume_contexts relation, controlled context dictionaries, references, semantic validation, SQLite and data-dictionary coverage without importing brochure cargo values."
+    "goal": "Make comparison, shortlist and export reporting expose cargo-context fields and preserve every context-distinct boot_capacity observation before any official brochure cargo values are imported."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
