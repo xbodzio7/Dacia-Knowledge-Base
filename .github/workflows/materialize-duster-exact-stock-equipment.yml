@@ -1,21 +1,28 @@
 name: Temporary Duster Exact Stock Equipment Materializer
 
 on:
-  push:
-    branches:
-      - agent/duster-exact-stock-equipment-expansion
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: write
 
+concurrency:
+  group: temporary-duster-materializer-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   materialize:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out exact head branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
+          ref: ${{ github.head_ref }}
           persist-credentials: true
 
       - name: Set up Python
@@ -86,4 +93,4 @@ jobs:
             tools/import_duster_exact_stock_equipment_20260725.py
           git diff --cached --check
           git commit -m "feat(data): expand exact Duster stock equipment"
-          git push origin HEAD
+          git push origin HEAD:${{ github.head_ref }}
