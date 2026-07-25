@@ -172,11 +172,11 @@ class BrochureCargoContextSchemaFoundationTests(unittest.TestCase):
         self.assertTrue(all(rule.end_column is None for rule in matching.values()))
 
 
-def test_semantic_validator_accepts_materialized_relation(self) -> None:
-    _, rows = self.read_rows(RELATION)
-    checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
-    self.assertEqual(checked, len(rows))
-    self.assertEqual(errors, [])
+    def test_semantic_validator_accepts_materialized_relation(self) -> None:
+        _, rows = self.read_rows(RELATION)
+        checked, errors = validate_configuration_cargo_volume_contexts(ROOT)
+        self.assertEqual(checked, len(rows))
+        self.assertEqual(errors, [])
 
     def test_semantic_validator_rejects_duplicate_value_context(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

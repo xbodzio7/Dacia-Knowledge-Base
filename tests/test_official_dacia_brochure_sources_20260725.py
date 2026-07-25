@@ -94,29 +94,29 @@ class OfficialDaciaBrochureSources20260725Tests(unittest.TestCase):
         self.assertEqual({row["relationship"] for row in selected}, {"brochure_for"})
 
 
-def test_registration_keeps_versions_unprojected_and_derived_links_unique(self) -> None:
-    self.assertEqual(
-        [
-            row
-            for row in rows("source_versions.csv")
-            if row["source_code"] in registration.OWNED_CODES
-        ],
-        [],
-    )
-    selected = [
-        row
-        for row in rows("source_configurations.csv")
-        if row["source_code"] in registration.OWNED_CODES
-    ]
-    keys = [
-        (
-            row["source_code"],
-            row["configuration_code"],
-            row["relationship"],
+    def test_registration_keeps_versions_unprojected_and_derived_links_unique(self) -> None:
+        self.assertEqual(
+            [
+                row
+                for row in rows("source_versions.csv")
+                if row["source_code"] in registration.OWNED_CODES
+            ],
+            [],
         )
-        for row in selected
-    ]
-    self.assertEqual(len(keys), len(set(keys)))
+        selected = [
+            row
+            for row in rows("source_configurations.csv")
+            if row["source_code"] in registration.OWNED_CODES
+        ]
+        keys = [
+            (
+                row["source_code"],
+                row["configuration_code"],
+                row["relationship"],
+            )
+            for row in selected
+        ]
+        self.assertEqual(len(keys), len(set(keys)))
 
     def test_gap_review_preserves_context_and_explicit_non_imports(self) -> None:
         payload = json.loads(GAP_REVIEW.read_text(encoding="utf-8"))
