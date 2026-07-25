@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 import csv
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from test_source_coverage import SourceCoverageTests
-
-import sys
+import test_source_coverage as source_coverage_tests
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY / "tools"))
@@ -16,7 +15,7 @@ import source_coverage as coverage  # noqa: E402
 
 class SourceCoverageRepositoryAsOfTests(unittest.TestCase):
     def test_unscoped_newer_observation_advances_report_date(self) -> None:
-        helper = SourceCoverageTests(
+        helper = source_coverage_tests.SourceCoverageTests(
             methodName="test_reports_registered_sources_and_record_gaps"
         )
         with tempfile.TemporaryDirectory() as directory:
