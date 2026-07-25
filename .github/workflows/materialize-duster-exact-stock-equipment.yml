@@ -113,9 +113,10 @@ jobs:
           for path, pairs in replacements.items():
               text = path.read_text(encoding='utf-8')
               for old, new in pairs:
-                  if old not in text:
+                  if old in text:
+                      text = text.replace(old, new, 1)
+                  elif new not in text:
                       raise SystemExit(f'expected regression contract not found in {path}: {old}')
-                  text = text.replace(old, new, 1)
               path.write_text(text, encoding='utf-8')
 
           state_path = Path('project/state.json')
