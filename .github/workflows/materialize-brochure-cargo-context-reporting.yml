@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Repair fixture loading and optional key contract
+      - name: Repair fixture loading and reporting contracts
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -69,8 +69,10 @@ jobs:
 
           tool_path = Path("tools/establish_brochure_cargo_context_reporting_20260725.py")
           tool = tool_path.read_text(encoding="utf-8")
-          anchor = "def _patch_comparison_base() -> None:\n"
-          addition = '''def _patch_comparison_base() -> None:
+          changed = False
+
+          comparison_anchor = "def _patch_comparison_base() -> None:\n"
+          comparison_addition = '''def _patch_comparison_base() -> None:
               _patch(
                   BASE,
                   '            if not item and field != "fuel_type_code":\\n',
@@ -79,9 +81,35 @@ jobs:
               )
           '''.replace("          ", "")
           if 'field not in {"fuel_type_code", "_cargo_context_signature"}' not in tool:
-              if anchor not in tool:
+              if comparison_anchor not in tool:
                   raise SystemExit("comparison base patch function anchor missing")
-              tool = tool.replace(anchor, addition, 1)
+              tool = tool.replace(comparison_anchor, comparison_addition, 1)
+              changed = True
+
+          constant_anchor = 'WORKBOOK_ROWS = ROOT / "tools" / "reporting" / "configuration_comparison_workbook_rows.py"\n'
+          constant_line = 'WORKBOOK_TEST = ROOT / "tests" / "test_configuration_comparison_workbook.py"\n'
+          if constant_line not in tool:
+              if constant_anchor not in tool:
+                  raise SystemExit("workbook constant anchor missing")
+              tool = tool.replace(constant_anchor, constant_anchor + constant_line, 1)
+              changed = True
+
+          workbook_anchor = "def _patch_workbook() -> None:\n"
+          workbook_addition = '''def _patch_workbook() -> None:
+              _patch(
+                  WORKBOOK_TEST,
+                  '            "A1:AQ204",\\n',
+                  '            "A1:AS204",\\n',
+                  '"A1:AS204",',
+              )
+          '''.replace("          ", "")
+          if '"A1:AS204",' not in tool:
+              if workbook_anchor not in tool:
+                  raise SystemExit("workbook patch function anchor missing")
+              tool = tool.replace(workbook_anchor, workbook_addition, 1)
+              changed = True
+
+          if changed:
               tool_path.write_text(tool, encoding="utf-8")
           PY
 
