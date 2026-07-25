@@ -1,3 +1,5 @@
+
+===== CHANGED PATHS =====
 tools/example.py
 
 ===== DIFF STAT =====
@@ -12,12 +14,28 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-wzt5v92y/output/handoff.json
+Handoff: /tmp/dkb-publish-hzu68mpm/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 06696477de1cd6da1a5b7153a176b607c63812a8
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -27,21 +45,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: 86e4f6ce37a1cf82ff593d69557b533c0c1aa29b
+Commit: efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 06696477de1cd6da1a5b7153a176b607c63812a8
-HEAD   : 86e4f6ce37a1cf82ff593d69557b533c0c1aa29b
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+HEAD   : efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-86e4f6c (HEAD -> tooling/test) tooling: publish test
+efafe11 (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -58,31 +76,36 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-7q3ylnd8/output/handoff.json
+Handoff: /tmp/dkb-publish-c_bqw64z/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 06696477de1cd6da1a5b7153a176b607c63812a8
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
 Subject: tooling: publish test
 Files  : 1
-Mode   : committed
+Mode   : precommit
 Quality receipt: PASS (298 tests)
-Existing package commit reused: 86e4f6ce37a1cf82ff593d69557b533c0c1aa29b
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 06696477de1cd6da1a5b7153a176b607c63812a8
-HEAD   : 86e4f6ce37a1cf82ff593d69557b533c0c1aa29b
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+HEAD   : efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-86e4f6c (HEAD -> tooling/test) tooling: publish test
+efafe11 (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -99,75 +122,52 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-7q3ylnd8/output/handoff.json
+Handoff: /tmp/dkb-publish-spipmtk_/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ac0e2bdaa6338938eb4aa8e1233791599b4f791c
+HEAD   : efafe117b0a78dd83b7ec6bf14732ceb6df4daeb
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+efafe11 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-spipmtk_/output/handoff.json
 PASS
 
 ==> Broken
-ERROR: SQLite database does not exist: /tmp/tmpe6qp_kas/missing.sqlite
-======================================================================
-ERROR: setUpClass (test_data_product_release.DataProductReleaseTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 309, in _render_group
-    report = comparison.collect_report(
-        repository,
-        completeness_path,
-        evidence_path,
-    )
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py", line 46, in collect_report
-    report = _ORIGINAL_COLLECT(
-        repository,
-    ...<3 lines>...
-        pair_type_filter,
-    )
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py", line 674, in collect_report
-    raise ComparisonError(
-    ...<2 lines>...
-    )
-_configuration_comparison_base.ComparisonError: evidence decisions differ from current missing comparison scope; missing=[('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'unbraked_trailer_weight', '')], extra=[]
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 178, in create_release_assets
-    bundle = create_bundle(
-        repository,
-        bundle_directory,
-        direct_codes=codes,
-    )
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 401, in create_bundle
-    _render_group(
-    ~~~~~~~~~~~~~^
-        repository,
-        ^^^^^^^^^^^
-    ...<2 lines>...
-        codes,
-        ^^^^^^
-    )
-    ^
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py", line 315, in _render_group
-    raise BundleError(
-        f"comparison failed for scope {scope.slug}: {exc}"
-    ) from exc
-reporting.configuration_comparison_bundle.BundleError: comparison failed for scope duster_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'unbraked_trailer_weight', '')], extra=[]
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py", line 48, in setUpClass
-    cls.manifest = create_release_assets(
-                   ~~~~~~~~~~~~~~~~~~~~~^
-        REPOSITORY,
-        ^^^^^^^^^^^
-    ...<2 lines>...
-        COMMIT_SHA,
-        ^^^^^^^^^^^
-    )
-    ^
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 244, in create_release_assets
-    raise ReleaseError(f"cannot build data product release: {exc}") from exc
-reporting.data_product_release_model.ReleaseError: cannot build data product release: comparison failed for scope duster_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_expression_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_extreme_ecog120_4x2_automatic', 'unbraked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'acceleration_0_100', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'braked_trailer_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'co2_emissions', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_power', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'engine_torque', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_consumption_combined', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'fuel_tank_capacity', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gear_count', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_train_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'gross_vehicle_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'kerb_weight', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_power_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'max_torque_rpm', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'maximum_payload', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'roof_load', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'lpg'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'standing_km', 'petrol'), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'top_speed', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'turning_circle', ''), ('technical', 'duster_iii_journey_ecog120_4x2_automatic', 'unbraked_trailer_weight', '')], extra=[]
-
+ERROR: SQLite database does not exist: /tmp/tmpanm28i8i/missing.sqlite
 ======================================================================
 FAIL: test_master_table_has_exact_schema_and_first_import (test_configuration_value_ranges.ConfigurationValueRangeTests.test_master_table_has_exact_schema_and_first_import)
 ----------------------------------------------------------------------
@@ -205,36 +205,36 @@ Traceback (most recent call last):
 AssertionError: 1825 != 1765
 
 ----------------------------------------------------------------------
-Ran 739 tests in 19.525s
+Ran 751 tests in 25.670s
 
-FAILED (failures=4, errors=1)
-Building SQLite database: /tmp/tmpy1rixusa/test.sqlite
-Source directory: /tmp/tmpy1rixusa/data/master
+FAILED (failures=4)
+Building SQLite database: /tmp/tmpgspiqbln/test.sqlite
+Source directory: /tmp/tmpgspiqbln/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpy1rixusa/test.sqlite
-Building SQLite database: /tmp/tmppe22ditn/test.sqlite
-Source directory: /tmp/tmppe22ditn/data/master
+Database ready: /tmp/tmpgspiqbln/test.sqlite
+Building SQLite database: /tmp/tmpauxv5wbi/test.sqlite
+Source directory: /tmp/tmpauxv5wbi/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmppe22ditn/test.sqlite
-Building SQLite database: /tmp/tmptf29awv6/test.sqlite
-Source directory: /tmp/tmptf29awv6/data/master
+Database ready: /tmp/tmpauxv5wbi/test.sqlite
+Building SQLite database: /tmp/tmpw2zxhd59/test.sqlite
+Source directory: /tmp/tmpw2zxhd59/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmptf29awv6/test.sqlite
-Building SQLite database: /tmp/tmpstqlxpcx/test.sqlite
-Source directory: /tmp/tmpstqlxpcx/data/master
+Database ready: /tmp/tmpw2zxhd59/test.sqlite
+Building SQLite database: /tmp/tmpzsnwx1bc/test.sqlite
+Source directory: /tmp/tmpzsnwx1bc/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpstqlxpcx/test.sqlite
-Building SQLite database: /tmp/tmpb7z9uu8k/test.sqlite
-Source directory: /tmp/tmpb7z9uu8k/data/master
+Database ready: /tmp/tmpzsnwx1bc/test.sqlite
+Building SQLite database: /tmp/tmp83t67ltq/test.sqlite
+Source directory: /tmp/tmp83t67ltq/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpb7z9uu8k/test.sqlite
-Building SQLite database: /tmp/tmpxh7ft75g/test.sqlite
-Source directory: /tmp/tmpxh7ft75g/data/master
+Database ready: /tmp/tmp83t67ltq/test.sqlite
+Building SQLite database: /tmp/tmp7gusg7gm/test.sqlite
+Source directory: /tmp/tmp7gusg7gm/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpxh7ft75g/test.sqlite
+Database ready: /tmp/tmp7gusg7gm/test.sqlite
