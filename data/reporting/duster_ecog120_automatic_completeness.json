@@ -29,6 +29,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "co2_emissions",
       "fuel_type_code": "lpg"
     },
@@ -99,6 +103,10 @@
     {
       "attribute_code": "max_torque_rpm",
       "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": ""
     },
     {
       "attribute_code": "maximum_payload",

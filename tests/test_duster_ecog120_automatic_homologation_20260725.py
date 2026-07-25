@@ -67,8 +67,6 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
             for row in rows("configuration_attribute_value_ranges.csv")
             if row["source_code"] in SOURCE_CODES
         ]
-        cls.all_values = rows("configuration_attribute_values.csv")
-        cls.all_ranges = rows("configuration_attribute_value_ranges.csv")
 
     def test_snapshots_are_registered_with_exact_hashes_and_markets(self) -> None:
         source_rows = {
@@ -187,10 +185,10 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
                 ("454", "477"),
             )
 
-    def test_automatic_cargo_volume_remains_unimported(self) -> None:
+    def test_exact_card_sources_do_not_supply_cargo_volume(self) -> None:
         observed = {
             (row["configuration_code"], row["attribute_code"])
-            for row in self.all_values + self.all_ranges
+            for row in self.values + self.ranges
             if row["configuration_code"] in CONFIGURATION_CODES
         }
         self.assertFalse(
@@ -218,9 +216,9 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
             / "duster_ecog120_automatic_completeness.json",
         )
         self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 29)
-        self.assertEqual(report["technical"]["denominator"], 87)
-        self.assertEqual(report["technical"]["present"], 87)
+        self.assertEqual(report["scope"]["technical_slots"], 31)
+        self.assertEqual(report["technical"]["denominator"], 93)
+        self.assertEqual(report["technical"]["present"], 93)
         self.assertEqual(report["technical"]["missing"], 0)
         self.assertEqual(report["equipment"]["denominator"], 0)
 
@@ -252,18 +250,18 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
         )
         self.assertEqual(
             state["phase"],
-            "Duster Eco-G 120 Automatic Homologation Evidence",
+            "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
         )
-        self.assertEqual(state["baseline"]["tests"], 752)
-        self.assertEqual(state["baseline"]["rows"], 8126)
-        self.assertEqual(state["baseline"]["configuration_values"], 1825)
+        self.assertEqual(state["baseline"]["tests"], 758)
+        self.assertEqual(state["baseline"]["rows"], 8135)
+        self.assertEqual(state["baseline"]["configuration_values"], 1831)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 176)
         self.assertEqual(
             state["current_package"]["name"],
-            "Duster Eco-G 120 Automatic Homologation Evidence",
+            "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
         )
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertIn("Cargo", state["next_package"]["name"])
+        self.assertIn("Brochure", state["next_package"]["name"])
 
 
 if __name__ == "__main__":

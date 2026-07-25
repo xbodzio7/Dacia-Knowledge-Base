@@ -7,19 +7,19 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Eco-G 120 Automatic Homologation Evidence",
+  "phase": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
   "reference_delivery": {
-    "name": "Official Configurator Cross-Model Option Coverage Import",
-    "pull_request": 241,
-    "head_sha": "d32e5b18c3e646a4c48551976bdbfe75a053af90",
-    "quality_run": 1295
+    "name": "Duster Eco-G 120 Automatic Homologation Evidence",
+    "pull_request": 244,
+    "head_sha": "f8dba789260fb65236e02e6a70c3eb187dd1aefd",
+    "quality_run": 1397
   },
   "baseline": {
-    "tests": 752,
+    "tests": 758,
     "csv_files": 41,
-    "rows": 8126,
-    "configuration_values": 1825,
-    "configuration_import_specs": 112,
+    "rows": 8135,
+    "configuration_values": 1831,
+    "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Eco-G 120 Automatic Homologation Evidence",
+    "name": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
     "status": "complete",
-    "goal": "Import exact automatic-specific power, torque, performance, WLTP, mass and towing evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey configurations without inheriting manual cargo values."
+    "goal": "Import exact ISO 3832 luggage-volume evidence for the 2026 Duster Eco-G 120 Expression, Extreme and Journey automatic configurations and preserve petrol CO2 as unknown because the official catalogue does not distinguish the 123 g/km value by fuel."
   },
   "next_package": {
-    "name": "Duster Eco-G 120 Automatic Cargo and Emissions Gap Review",
+    "name": "Official Dacia Brochure Source Registration and Gap Review",
     "status": "planned",
-    "goal": "Locate exact automatic-specific luggage-volume and petrol CO2 evidence while preserving current unknown states if no authoritative source exists."
+    "goal": "Register the five official Bigster, Jogger, Sandero, Sandero Stepway and Duster brochure PDFs supplied by the project owner, verify their identities and classify source-backed technical gaps without flattening measurement-standard, seat-state or gearbox context."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

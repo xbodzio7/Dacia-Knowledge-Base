@@ -154,8 +154,8 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
             REPOSITORY / "data" / "reporting" / "duster_ecog120_automatic_completeness.json",
         )
         self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 29)
-        self.assertEqual(report["technical"]["present"], 87)
+        self.assertEqual(report["scope"]["technical_slots"], 31)
+        self.assertEqual(report["technical"]["present"], 93)
         self.assertEqual(report["technical"]["missing"], 0)
         self.assertEqual(report["equipment"]["denominator"], 0)
 
