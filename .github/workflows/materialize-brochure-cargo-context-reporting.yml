@@ -43,7 +43,7 @@ jobs:
             status=$?
           fi
           if [ "$status" -eq 0 ]; then
-            python tools/establish_brochure-cargo-context-reporting_20260725.py --check >> .github/cargo-reporting-diagnostic.log 2>&1
+            python tools/establish_brochure_cargo_context_reporting_20260725.py --check >> .github/cargo-reporting-diagnostic.log 2>&1
             status=$?
           fi
           if [ "$status" -eq 0 ]; then
