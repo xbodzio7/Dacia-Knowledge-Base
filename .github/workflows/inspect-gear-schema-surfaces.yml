@@ -11,6 +11,7 @@ on:
     paths:
       - .github/workflows/inspect-gear-schema-surfaces.yml
       - tools/establish_brochure_gear_performance_schema_20260726.py
+      - tools/patch_gear_schema_historical_fixtures_20260726.py
       - tools/validators/gear_contexts.py
       - tests/test_brochure_gear_performance_schema_foundation.py
 
@@ -49,6 +50,9 @@ jobs:
               raise SystemExit('materializer repair anchor missing')
           PY
           python tools/establish_brochure_gear_performance_schema_20260726.py >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/patch_gear_schema_historical_fixtures_20260726.py >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> .github/gear-schema-materialization.log 2>&1 || status=$?
           fi
