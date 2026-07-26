@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "kind": "brochure_gear_performance_import_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "canonical_attribute": "elasticity_80_120",
+  "sources": [
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "model_code": "sandero_iii",
+      "source_page": 17,
+      "configurations": 4,
+      "values": 16,
+      "gear_counts": {"4": 8, "5": 8},
+      "fuel_counts": {"lpg": 8, "petrol": 8}
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "model_code": "sandero_stepway_iii",
+      "source_page": 17,
+      "configurations": 5,
+      "values": 22,
+      "gear_counts": {"4": 10, "5": 6, "6": 6},
+      "fuel_counts": {"lpg": 11, "petrol": 11}
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "model_code": "jogger",
+      "source_page": 19,
+      "configurations": 22,
+      "values": 32,
+      "gear_counts": {"4": 32},
+      "fuel_counts": {"lpg": 10, "petrol": 22}
+    }
+  ],
+  "totals": {
+    "sources": 3,
+    "configurations": 31,
+    "values": 70,
+    "fuel_counts": {"lpg": 29, "petrol": 41},
+    "gear_counts": {"4": 50, "5": 14, "6": 6},
+    "reporting_scopes": 8,
+    "difference_contexts": 6
+  },
+  "reporting_contract": {
+    "latest_identity_dimensions": [
+      "configuration_code",
+      "attribute_code",
+      "fuel_type_code",
+      "gear_number",
+      "cargo_context_signature"
+    ],
+    "covered_surfaces": [
+      "configuration_completeness",
+      "source_coverage",
+      "configuration_gap_resolution_plan",
+      "configuration_comparison",
+      "configuration_shortlist",
+      "comparison_bundle",
+      "comparison_workbook",
+      "data_product_release"
+    ],
+    "gear_contexts": [
+      "fuel_type_code=lpg;gear_number=4",
+      "fuel_type_code=lpg;gear_number=5",
+      "fuel_type_code=lpg;gear_number=6",
+      "fuel_type_code=petrol;gear_number=4",
+      "fuel_type_code=petrol;gear_number=5",
+      "fuel_type_code=petrol;gear_number=6"
+    ]
+  },
+  "deferred_evidence": [
+    {
+      "code": "sandero_tce_column_without_exact_configuration",
+      "reason": "The Sandero brochure contains a non-Eco-G performance column, but no exact matching active configuration is available for a source-safe projection."
+    },
+    {
+      "code": "stepway_tce110_without_exact_configuration",
+      "reason": "The Stepway TCe 110 column is not imported because the reviewed master data contains no exact active Stepway TCe 110 configuration."
+    },
+    {
+      "code": "stepway_automatic_fifth_and_sixth_gear_blank",
+      "reason": "The automatic Stepway column states fourth-gear values only; blank fifth- and sixth-gear cells are not inferred."
+    },
+    {
+      "code": "jogger_only_fourth_gear_stated",
+      "reason": "The Jogger brochure states elasticity on fourth gear only; no fifth- or sixth-gear values are derived from transmission specifications."
+    },
+    {
+      "code": "no_cross_fuel_projection",
+      "reason": "LPG and petrol observations remain independent; a value stated for one fuel is never copied to the other fuel."
+    },
+    {
+      "code": "no_cross_configuration_projection",
+      "reason": "Values are assigned only to exact configurations supported by the source model, powertrain, transmission and passenger-layout evidence."
+    }
+  ],
+  "closure_decision": "Close the selected-gear brochure performance import milestone with 70 exact observations, complete reporting preservation and all unstated or unmodeled evidence retained as explicit deferrals.",
+  "next_package": {
+    "name": "Official Brochure Technical Gap Review",
+    "goal": "Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling."
+  }
+}

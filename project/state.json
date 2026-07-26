@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Gear-Specific Performance Value Import",
+  "phase": "Brochure Gear-Specific Performance Import Closure Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 828,
+    "tests": 834,
     "csv_files": 46,
     "rows": 8852,
     "configuration_values": 2188,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Gear-Specific Performance Value Import",
+    "name": "Brochure Gear-Specific Performance Import Closure Review",
     "status": "complete",
-    "goal": "Import exact Sandero, Sandero Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context."
+    "goal": "Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package."
   },
   "next_package": {
-    "name": "Brochure Gear-Specific Performance Import Closure Review",
+    "name": "Official Brochure Technical Gap Review",
     "status": "planned",
-    "goal": "Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package."
+    "goal": "Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

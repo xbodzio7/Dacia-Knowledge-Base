@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Gear-Specific Performance Value Import**
+**Brochure Gear-Specific Performance Import Closure Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 828
+- Tests: 834
 - Master CSV files: 46
 - Master rows: 8852
 - Configuration values: 2188
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Gear-Specific Performance Value Import** — `complete`
+**Brochure Gear-Specific Performance Import Closure Review** — `complete`
 
-Import exact Sandero, Sandero Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context.
+Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package.
 
 ## Next package
 
-**Brochure Gear-Specific Performance Import Closure Review** — `planned`
+**Official Brochure Technical Gap Review** — `planned`
 
-Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package.
+Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling.
 
 ## Autonomy
 

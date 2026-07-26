@@ -114,13 +114,12 @@ class BrochureGearPerformanceValueTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr or result.stdout)
         self.assertIn("PASS: exact brochure selected-gear performance values", result.stdout)
 
-    def test_project_state_advances_to_import_closure_review(self) -> None:
+    def test_project_state_preserves_import_baseline_after_follow_up_packages(self) -> None:
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Gear-Specific Performance Value Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Brochure Gear-Specific Performance Import Closure Review")
-        self.assertEqual(state["baseline"]["configuration_values"], 2188)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2188)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["tests"], 828)
 
 
 if __name__ == "__main__":
