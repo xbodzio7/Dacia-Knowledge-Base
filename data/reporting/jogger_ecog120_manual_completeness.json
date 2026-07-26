@@ -97,6 +97,10 @@
       "fuel_type_code": "petrol"
     },
     {
+      "attribute_code": "front_suspension",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "lpg"
     },
@@ -165,6 +169,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "rear_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standard_tyre_specification",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "start_stop_system",
       "fuel_type_code": ""
     },
@@ -174,6 +186,10 @@
     },
     {
       "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle_between_kerbs",
       "fuel_type_code": ""
     }
   ],

@@ -146,7 +146,7 @@ class BigsterChassisTests(unittest.TestCase):
         model = json.loads((ROOT / "data" / "reporting" / "brochure_chassis_measurement_context_model.json").read_text(encoding="utf-8"))
         statuses = {item["classification_code"]: item["status"] for item in model["source_resolutions"]}
         self.assertEqual(statuses["bigster_chassis_measurement_modeling"], "imported")
-        self.assertEqual(model["next_package"]["name"], "Jogger Chassis Observation Import")
+        self.assertEqual(model["next_package"]["name"], "Brochure Chassis Modeling Closure Review")
 
     def test_project_state_matches_completed_package(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))

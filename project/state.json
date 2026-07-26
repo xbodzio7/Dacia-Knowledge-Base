@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Chassis Observation Import",
+  "phase": "Jogger Chassis Observation Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 899,
+    "tests": 907,
     "csv_files": 46,
-    "rows": 9218,
-    "configuration_values": 2479,
+    "rows": 9306,
+    "configuration_values": 2567,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 244,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Chassis Observation Import",
+    "name": "Jogger Chassis Observation Import",
     "status": "complete",
-    "goal": "Import exact wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for ten active Duster configurations under D-016."
+    "goal": "Import exact between-kerbs turning diameter and source-text tyre and suspension observations for all twenty-two active Jogger configurations under D-016 without reinterpreting the ambiguous mass table."
   },
   "next_package": {
-    "name": "Jogger Chassis Observation Import",
+    "name": "Brochure Chassis Modeling Closure Review",
     "status": "planned",
-    "goal": "Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict."
+    "goal": "Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
