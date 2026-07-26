@@ -1,0 +1,108 @@
+name: Inventory Gear Performance Import
+
+on:
+  push:
+    branches:
+      - agent/brochure-gear-performance-value-import
+    paths:
+      - .github/workflows/inventory-gear-performance-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/brochure-gear-performance-value-import
+          fetch-depth: 0
+
+      - name: Install PDF text extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Extract source tables and repository inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          output=.github/gear-performance-import-inventory.txt
+          : > "$output"
+
+          extract_page() {
+            local label="$1"
+            local pdf="$2"
+            local page="$3"
+            printf '\n===== %s | PDF PAGE %s =====\n' "$label" "$page" >> "$output"
+            pdftotext -f "$page" -l "$page" -layout "$pdf" - >> "$output"
+          }
+
+          extract_page "SANDERO" "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf" 17
+          extract_page "SANDERO STEPWAY" "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf" 17
+          extract_page "JOGGER" "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf" 19
+
+          python - <<'PY' >> "$output"
+          from __future__ import annotations
+
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          master = root / 'data' / 'master'
+
+          def rows(name: str):
+              with (master / name).open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          print('\n===== MASTER INVENTORY =====')
+          values = rows('configuration_attribute_values.csv')
+          print('configuration_attribute_values header:', list(values[0]) if values else [])
+          print('configuration_attribute_values rows:', len(values))
+          numeric_ids = [int(row['id']) for row in values if row.get('id', '').isdigit()]
+          print('maximum value id:', max(numeric_ids) if numeric_ids else None)
+          elasticity = [row for row in values if row.get('attribute_code') == 'elasticity_80_120']
+          print('existing elasticity_80_120 rows:', len(elasticity))
+          for row in elasticity:
+              print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          configurations = rows('configurations.csv')
+          relevant = [
+              row for row in configurations
+              if any(token in row.get('code', '').lower() for token in ('sandero', 'stepway', 'jogger'))
+          ]
+          print('\nrelevant configurations:', len(relevant))
+          for row in relevant:
+              print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          source_configurations = rows('source_configurations.csv')
+          sources = {
+              'src_pl_sandero_brochure_20260202',
+              'src_pl_sandero_stepway_brochure_20260202',
+              'src_pl_jogger_brochure_20251217',
+          }
+          relations = [row for row in source_configurations if row.get('source_code') in sources]
+          print('\nrelevant source_configurations:', len(relations))
+          for row in relations:
+              print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          print('\n===== IMPORT SPEC INVENTORY =====')
+          for path in sorted((root / 'data').rglob('*.json')):
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              if 'configuration_attribute_values' in text or 'elasticity_80_120' in text:
+                  print(path.as_posix())
+          PY
+
+      - name: Persist inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/gear-performance-import-inventory.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist gear performance import inventory'
+            git push origin HEAD:agent/brochure-gear-performance-value-import
+          fi
