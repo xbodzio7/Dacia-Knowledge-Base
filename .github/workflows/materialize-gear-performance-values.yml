@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Repair reporting integration and verify package
+      - name: Repair remaining gear-aware keys and verify
         shell: bash
         run: |
           set +e
@@ -34,10 +34,6 @@ jobs:
           status=0
 
           python - <<'PY' >> "$log" 2>&1 || status=$?
-          from __future__ import annotations
-
-          import csv
-          import json
           from pathlib import Path
 
           def replace_once(path: Path, old: str, new: str) -> None:
@@ -45,97 +41,88 @@ jobs:
               if new in text:
                   return
               if old not in text:
-                  raise RuntimeError(f'anchor missing in {path}: {old[:80]!r}')
+                  raise RuntimeError(f'anchor missing in {path}: {old[:100]!r}')
               path.write_text(text.replace(old, new, 1), encoding='utf-8')
 
-          base = Path('tools/_configuration_completeness_base.py')
+          source = Path('tools/_source_coverage_base.py')
           replace_once(
-              base,
-              "    annotate_scalar_values,\n    read_context_rows,\n",
-              "    annotate_scalar_values,\n    observation_signature,\n    read_context_rows,\n",
+              source,
+              '    annotate_scalar_values,\n    read_context_rows,\n',
+              '    annotate_scalar_values,\n    observation_signature,\n    read_context_rows,\n',
           )
           replace_once(
-              base,
-              "field not in {'fuel_type_code', '_cargo_context_signature'}",
-              "field not in {'fuel_type_code', 'gear_number', '_cargo_context_signature'}",
+              source,
+              'field not in {"fuel_type_code", "_cargo_context_signature"}',
+              'field not in {"fuel_type_code", "gear_number", "_cargo_context_signature"}',
           )
           replace_once(
-              base,
-              "{**row, '_cargo_context_signature': '', '_cargo_context': None}",
-              "{**row, 'gear_number': '', '_cargo_context_signature': '', '_cargo_context': None}",
+              source,
+              '{**row, "_cargo_context_signature": "", "_cargo_context": None}',
+              '{**row, "gear_number": "", "_cargo_context_signature": "", "_cargo_context": None}',
           )
+          text = source.read_text(encoding='utf-8')
+          old = '            "fuel_type_code",\n            "_cargo_context_signature",\n'
+          new = '            "fuel_type_code",\n            "gear_number",\n            "_cargo_context_signature",\n'
+          occurrences = text.count(old)
+          if occurrences:
+              source.write_text(text.replace(old, new), encoding='utf-8')
           replace_once(
-              base,
-              "            'fuel_type_code',\n            '_cargo_context_signature',\n",
-              "            'fuel_type_code',\n            'gear_number',\n            '_cargo_context_signature',\n",
-          )
-          text = base.read_text(encoding='utf-8')
-          old = "            'fuel_type_code',\n            '_cargo_context_signature',\n"
-          new = "            'fuel_type_code',\n            'gear_number',\n            '_cargo_context_signature',\n"
-          if old in text:
-              base.write_text(text.replace(old, new, 1), encoding='utf-8')
-          replace_once(
-              base,
-              "        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row",
-              "        signature = observation_signature(current_key[3], current_key[4])\n        current_value_groups.setdefault(base_key, {})[signature] = current_row",
+              source,
+              '        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row',
+              '        signature = observation_signature(current_key[3], current_key[4])\n        current_value_groups.setdefault(base_key, {})[signature] = current_row',
           )
 
-          with Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='') as handle:
-              imported = [
-                  row for row in csv.DictReader(handle)
-                  if row.get('attribute_code') == 'elasticity_80_120'
-                  and row.get('source_code') in {
-                      'src_pl_sandero_brochure_20260202',
-                      'src_pl_sandero_stepway_brochure_20260202',
-                      'src_pl_jogger_brochure_20251217',
-                  }
-              ]
+          gap = Path('tools/configuration_gap_resolution_plan.py')
+          replace_once(
+              gap,
+              'from reporting.cargo_context import context_index, semantic_signature',
+              'from reporting.cargo_context import context_index, semantic_signature',
+          )
+          replace_once(
+              gap,
+              '        default_fuel = require_string(\n            payload.get("fuel_type_code", ""),\n            f"{path.name}.fuel_type_code",\n            allow_empty=True,\n        )\n',
+              '        default_fuel = require_string(\n            payload.get("fuel_type_code", ""),\n            f"{path.name}.fuel_type_code",\n            allow_empty=True,\n        )\n        default_gear = require_string(\n            payload.get("gear_number", ""),\n            f"{path.name}.gear_number",\n            allow_empty=True,\n        )\n',
+          )
+          replace_once(
+              gap,
+              '            semantic = (\n                configuration_code,\n                attribute_code,\n                fuel_type_code,\n                observation_date,\n                "",\n            )',
+              '            gear_number = require_string(\n                item.get("gear_number", default_gear),\n                f"{path.name}.row.gear_number",\n                allow_empty=True,\n            )\n            semantic = (\n                configuration_code,\n                attribute_code,\n                fuel_type_code,\n                gear_number,\n                observation_date,\n                "",\n            )',
+          )
+          replace_once(
+              gap,
+              '            row.get("fuel_type_code", ""),\n            row.get("observation_date", ""),\n            semantic_signature(cargo_context) if cargo_context else "",\n',
+              '            row.get("fuel_type_code", ""),\n            row.get("gear_number", ""),\n            row.get("observation_date", ""),\n            semantic_signature(cargo_context) if cargo_context else "",\n',
+          )
+          replace_once(
+              gap,
+              '        fuel_type_code,\n        observation_date,\n        "",\n    )',
+              '        fuel_type_code,\n        "",\n        observation_date,\n        "",\n    )',
+          )
 
-          changed_specs = []
-          for path in sorted(Path('data/reporting').glob('*.json')):
-              try:
-                  payload = json.loads(path.read_text(encoding='utf-8'))
-              except json.JSONDecodeError:
-                  continue
-              if not isinstance(payload, dict):
-                  continue
-              slots = payload.get('technical_slots')
-              configurations = payload.get('configurations')
-              if not isinstance(slots, list) or not isinstance(configurations, list):
-                  continue
-              selected = {
-                  str(item.get('configuration_code', ''))
-                  for item in configurations
-                  if isinstance(item, dict)
-              }
-              fuels = sorted({
-                  row['fuel_type_code']
-                  for row in imported
-                  if row.get('configuration_code') in selected
-              })
-              if not fuels:
-                  continue
-              existing = {
-                  (str(item.get('attribute_code', '')), str(item.get('fuel_type_code', '')))
-                  for item in slots
-                  if isinstance(item, dict)
-              }
-              changed = False
-              for fuel in fuels:
-                  key = ('elasticity_80_120', fuel)
-                  if key not in existing:
-                      slots.append({'attribute_code': key[0], 'fuel_type_code': key[1]})
-                      existing.add(key)
-                      changed = True
-              if changed:
-                  slots.sort(key=lambda item: (str(item.get('attribute_code', '')), str(item.get('fuel_type_code', ''))))
-                  path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-                  changed_specs.append(path.as_posix())
+          tests = Path('tests/test_configuration_value_import_specs.py')
+          replace_once(
+              tests,
+              '                "sandero-acceleration-0-100-petrol-20260626.json",\n                "sandero-engine-power-lpg-20260626.json",',
+              '                "sandero-acceleration-0-100-petrol-20260626.json",\n                "sandero-brochure-elasticity-80-120-20260202.json",\n                "sandero-engine-power-lpg-20260626.json",',
+          )
+          replace_once(
+              tests,
+              '                "sandero-standing-km-petrol-20260626.json",\n                "sandero-stepway-essential-wheel-design-20260626.json",',
+              '                "sandero-standing-km-petrol-20260626.json",\n                "sandero-stepway-brochure-elasticity-80-120-20260202.json",\n                "sandero-stepway-essential-wheel-design-20260626.json",',
+          )
+          replace_once(
+              tests,
+              '        semantic: list[tuple[str, str, str, str]] = []',
+              '        semantic: list[tuple[str, str, str, str, str]] = []',
+          )
+          replace_once(
+              tests,
+              '                    row["fuel_type_code"],\n                    row["observation_date"],',
+              '                    row["fuel_type_code"],\n                    row["gear_number"],\n                    row["observation_date"],',
+          )
 
-          print('PASS: completeness latest key includes gear_number')
-          print(f'PASS: reporting slots updated in {len(changed_specs)} specs')
-          for path in changed_specs:
-              print(f'  {path}')
+          print('PASS: source coverage and gap-planning keys include gear_number')
+          print('PASS: shared import-spec contract includes three new specs')
           PY
 
           if [ "$status" -eq 0 ]; then
@@ -165,7 +152,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'fix(reporting): preserve selected-gear observations'
+            git commit -m 'fix(reporting): complete gear-aware integration'
             git push origin HEAD:agent/brochure-gear-performance-value-import
           fi
           exit "$status"
