@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Data Products v1.7.0 Publication**
+**Cross-Model Comparison View Review**
 
 ## Reference delivery
 
-- Package: Data Products v1.7.0 Release Preparation
-- Pull Request: #275
-- Verified head: `f97e732add506400b9e47ee95e59a3caf8382daf`
-- Quality run: #1934
+- Package: Data Products v1.7.0 Publication
+- Pull Request: #279
+- Verified head: `0e8e1e51e5a6e8071178a85752fa00eec1089c95`
+- Quality run: #1950
 
 ## Verified baseline
 
-- Tests: 971
+- Tests: 979
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.7.0 Publication** — `complete`
+**Cross-Model Comparison View Review** — `complete`
 
-Publish and independently re-verify immutable data-products-v1.7.0 assets from exact green main commit 99e0e19b86cad6eae619f37702464e6a5a761cd8 after the release-preparation package.
+Select a source-safe cross-model navigation design over five model families and nineteen existing scopes while preserving the established Sandero and Sandero Stepway shared manual scope and generating no new comparison pair, ranking, recommendation or inferred value.
 
 ## Next package
 
-**Cross-Model Comparison View Review** — `planned`
+**Cross-Model Comparison View Foundation** — `planned`
 
-Review a source-safe cross-model overview that preserves independent reporting scopes, avoids heterogeneous pair comparisons, and introduces no ranking, recommendation or inferred value.
+Implement deterministic JSON and standalone HTML navigation over five model families and nineteen existing scopes without changing master data, schema, reporting scopes or comparison calculations.
 
 ## Autonomy
 
