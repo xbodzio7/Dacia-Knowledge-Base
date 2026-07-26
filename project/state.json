@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-25",
+  "updated_on": "2026-07-26",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Brochure Cargo Value Import",
+  "phase": "Duster Brochure Cargo Value Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 799,
+    "tests": 803,
     "csv_files": 46,
-    "rows": 8644,
-    "configuration_values": 2054,
+    "rows": 8782,
+    "configuration_values": 2118,
     "configuration_import_specs": 114,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Brochure Cargo Value Import",
+    "name": "Duster Brochure Cargo Value Import",
     "status": "complete",
-    "goal": "Import 68 source-backed Bigster boot_capacity observations across exact 4x2 powertrains while preserving measurement, rear-bench, repair-kit and spare-wheel context and deferring contradictory 4x4 evidence."
+    "goal": "Import 64 source-backed Duster boot_capacity observations for exact Eco-G 120 manual, mild hybrid 140 4x2 manual and hybrid 155 4x2 automatic configurations while preserving measurement, seat and repair-kit or spare-wheel context."
   },
   "next_package": {
-    "name": "Duster Brochure Cargo Value Import",
+    "name": "Brochure Cargo Import Closure Review",
     "status": "planned",
-    "goal": "Import source-backed Duster cargo observations only where drive type, powertrain, seat state and repair-kit or spare-wheel context map exactly to modeled configurations."
+    "goal": "Review all completed brochure cargo imports and explicit deferrals, verify cross-model reporting behavior and close the cargo-import milestone without projecting unresolved evidence."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
