@@ -208,7 +208,26 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     ensure(isinstance(rules, list) and len(rules) == 7, "expected seven non-inference rules")
     receipt = payload.get("import_receipt")
     if receipt is None:
+        receipt = payload.get("import_receipt")
+    if receipt is None:
         ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Observation Import", "next package differs")
+    else:
+        ensure(isinstance(receipt, dict), "import receipt must be an object")
+        ensure(receipt.get("status") == "imported", "import receipt status differs")
+        ensure((receipt.get("scalar_id_start"), receipt.get("scalar_id_end")) == (2568, 2949), "import receipt ID range differs")
+        ensure(receipt.get("scalar_values") == 382, "import receipt scalar total differs")
+        ensure(receipt.get("configurations") == 36, "import receipt configuration total differs")
+        ensure(
+            receipt.get("source_values")
+            == {
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            },
+            "import receipt source totals differ",
+        )
+        ensure(receipt.get("duster_4x4_status") == "deferred_without_exact_source_relationship", "Duster 4x4 receipt boundary differs")
+        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
     else:
         ensure(isinstance(receipt, dict), "import receipt must be an object")
         ensure(receipt.get("status") == "imported", "import receipt status differs")
