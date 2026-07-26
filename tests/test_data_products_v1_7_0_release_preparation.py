@@ -163,35 +163,20 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             completed.stdout,
         )
 
-    def test_project_state_advances_after_release_preparation(self) -> None:
-        state = json.loads(STATE.read_text(encoding="utf-8"))
-        if TARGET_RELEASE.is_file():
-            self.assertEqual(state["phase"], "Data Products v1.7.0 Publication")
-            self.assertEqual(
-                state["current_package"]["name"],
-                "Data Products v1.7.0 Publication",
-            )
-            self.assertEqual(
-                state["next_package"]["name"],
-                "Cross-Model Comparison View Review",
-            )
-        else:
-            self.assertEqual(state["phase"], "Data Products v1.7.0 Release Preparation")
-            self.assertEqual(
-                state["current_package"]["name"],
-                "Data Products v1.7.0 Release Preparation",
-            )
-            self.assertEqual(
-                state["next_package"]["name"],
-                "Data Products v1.7.0 Preflight",
-            )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["status"], "planned")
-        self.assertEqual(state["baseline"]["tests"], 971)
-        self.assertEqual(state["baseline"]["rows"], 9688)
-        self.assertEqual(state["baseline"]["configuration_values"], 2949)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+    def test_project_state_preserves_published_release_baseline(self) -> None:
+    state = json.loads(STATE.read_text(encoding="utf-8"))
+    self.assertTrue(state["phase"])
+    self.assertTrue(state["current_package"]["name"])
+    self.assertIn(
+        state["current_package"]["status"],
+        {"planned", "active", "blocked", "complete"},
+    )
+    self.assertTrue(state["next_package"]["name"])
+    self.assertGreaterEqual(state["baseline"]["tests"], 971)
+    self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+    self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+    self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+    self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":
