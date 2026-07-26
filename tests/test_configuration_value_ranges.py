@@ -156,7 +156,7 @@ class ConfigurationValueRangeTests(unittest.TestCase):
         write_csv(
             repository / "data/master/configuration_attribute_values.csv",
             ["id", "code", "configuration_code", "attribute_code", "fuel_type_code", "gear_number", "value", "observation_date", "source_code", "notes"],
-            [["1", "scalar", "example_configuration", "fuel_consumption", "petrol", "5.9", "2026-04-01", "example_source", "source"]],
+            [["1", "scalar", "example_configuration", "fuel_consumption", "petrol", "", "5.9", "2026-04-01", "example_source", "source"]],
         )
         with self.assertRaisesRegex(importer.ImportSpecError, "conflicts with a scalar"):
             importer.plan_import(repository, importer.load_spec(spec_path))
