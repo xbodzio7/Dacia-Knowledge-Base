@@ -10,6 +10,7 @@ on:
       - synchronize
     paths:
       - .github/workflows/diagnose-generic-dimension-quality.yml
+      - tools/diagnose_gap_evidence_reviewed_pages_20260726.py
 
 permissions:
   contents: write
