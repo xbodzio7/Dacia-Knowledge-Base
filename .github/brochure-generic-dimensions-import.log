@@ -1,10 +1,6 @@
 PASS: brochure generic dimension observations
 PASS: generic brochure dimension import integration materialized
 Synchronized project state and documentation:
-  CHANGELOG.md
-  README.md
-  project/ROADMAP.md
-  project/SESSION_STATE.md
   project/STATE_SUMMARY.md
   project/state.json
 Project state: PASS
