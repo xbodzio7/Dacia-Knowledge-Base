@@ -1,0 +1,417 @@
+=== BIGSTER PDF PAGE 20 ===
+07. DANE TECHNICZNE
+
+
+
+                                            MILD                    MILD                  HYBRID-G 150
+                                         HYBRID-G 140             HYBRID 140                  4×4                    HYBRID 155
+
+
+      SILNIKI
+                                          Benzyna / LPG /                                  Benzyna / LPG /
+                                                               Benzyna / Elektryczny                              Benzyna / Elektryczny
+Napęd                                     Elektryczny mild
+                                                                 mild hybrid 48 V
+                                                                                             Elektryczny
+                                                                                                                    full hybrid 280 V
+                                             hybrid 48 V                                   mild hybrid 48 V
+
+                                                                                         103 (140 KM) przy
+                                           103 (140 KM)            103 (140 KM)         4500 obr./min – silnik        116 (155 KM)
+Maks. moc kW CEE (KM)                       przy 5500               przy 5500             spalinowy / 113              przy 5300
+                                                                                       (150 KM) – moc łączna
+
+                                                                                            230 przy 4000
+Maks. moment obrotowy N.m                                                                                         172 (silnik spalinowy)
+                                                                                          (silnik spalinowy)
+                                           230 przy 2100          230 przy 2100                                    / 205 (elektryczny)
+CEE (m.kg)                                                                                   87 przy 1630
+                                                                                                                  przy 3000 / 0 – 1630*
+                                                                                             (elektryczny)
+
+Rodzaj wtrysku                          Wtrysk bezpośredni     Wtrysk bezpośredni       Wtrysk bezpośredni        Wtrysk bezpośredni
+
+Pojemność skokowa (cm³)                        1199                    1199                      1199                     1789
+
+                                            3 cylindry /           3 cylindry /              3 cylindry /             4 cylindry /
+Liczba cylindrów / zaworów                  12 zaworów             12 zaworów                12 zaworów               16 zaworów
+
+Norma emisji spalin                         Euro 6e-bis             Euro 6e-bis               Euro 6e-bis              Euro 6e-bis
+
+Filtr cząstek stałych(1)                                                            Tak
+
+      BATERIA
+                                          Litowo-jonowy /        Litowo-jonowy /           Litowo-jonowy /          Litowo-jonowy /
+Akumulator trakcyjny                      48 V / 0,84 kWh        48 V / 0,84 kWh           48 V / 0,84 kWh          280 V / 1,4 kWh
+
+      OSIĄGI
+Prędkość maksymalna (km/h)                      180                    180                        180                      180
+
+0–100 km/h (s)                                  10,0                    9,8                      10,4                      9,7
+
+      SKRZYNIA BIEGÓW I NAPĘD
+                                                                                             4 × 4 z tylnym
+Napęd                                           4×2                    4×2                     silnikiem                  4×2
+                                                                                             elektrycznym
+
+Typ skrzyni biegów / liczba                                                                 Automatyczna,
+                                             Manualna,              Manualna,                                        Automatyczna
+                                                                                           dwusprzęgłowa,
+przełożeń                                    6-biegowa              6-biegowa                                       Multi-mode, 4+2
+                                                                                              6-biegowa
+
+      UKŁAD KIEROWNICZY
+Układ kierowniczy                                                   Ze wspomaganiem elektrycznym
+
+Średnica zawracania
+                                                                                   10,97
+(między krawężnikami, m)
+      UKŁAD HAMULCOWY
+Przód: tarcze wentylowane /
+                                             Φ296x26                 Φ296x26                   Φ296x26                  Φ296x26
+średnica (mm):
+                                                                                                                     bęben (hamulec
+                                                                                                                  postojowy manualny):
+Tył: bęben, średnica (cale) /             bęben (hamulec postojowy manualny):
+                                                                                                                     9” / tarcza pełna
+                                           9” / tarcza pełna (hamulec postojowy                Ø280x9,6
+tarcza pełna:                                                                                                      (hamulec postojowy
+                                                  automatyczny): Φ280x9,6
+                                                                                                                     automatyczny):
+                                                                                                                         Φ280x9,6
+
+      KOŁA I OPONY
+                                                                                         225 / 60 R17 103 H XL
+                                           215/65/17 99 /         215/65/17 99 /       3PMSF / ALU 6.5 J17 5 36      215/65/17 99 /
+                                            6.5 J17 EC32           6.5 J17 EC32         225 / 55 R18 102 H XL         6.5 J17 EC32
+                                           215/60/18 98 /         215/60/18 98 /       3PMSF / ALU 7 J18 5 39        215/60/18 98 /
+Rozmiary opon                               6.5 J18 EC32           6.5 J18 EC32         205 / 55 R19 97 H XL          6.5 J18 EC32
+                                           205/55/19 97 /         205/55/19 97 /       letnie / ALU 7 J19 5 31       205/55/19 97 /
+                                             7 J19 EC32             7 J19 EC31         225 / 55 R18 102 Y XL           7 J19 EC33
+                                                                                       letnie / ALU 7 J18 5 39
+
+      ZUŻYCIE PALIWA I EMISJA CO2(2)
+Protokół homologacji                                                               WLTP(3)
+
+Tryb Eco                                                                            Tak
+
+Pojemność zbiornika (l)                LPG: 50 / Benzyna: 50       Benzyna: 50         LPG: 50 / Benzyna: 50          Benzyna: 50
+
+Emisja CO₂ w cyklu mieszanym             Benzyna: 130/132
+                                                                     122/124                 134/117 (LPG)              104/106
+(g/km)                                     LPG: 114/116
+
+Zużycie paliwa w cyklu                    Benzyna: 5,7/5,8
+                                                                      5,4/5,5                5,9/7,2 (LPG)               4,6/4,7
+mieszanym (l/100 km)                        LPG: 7,0/7,1
+
+      MASY (kg) I OBJĘTOŚCI (dm³ LUB LITRY)
+Masa własna maks.                              1478                    1439                      1515                     1487
+
+Dopuszczalna masa całkowita
+                                               3430                    3390                      3545                     2940
+zestawu
+Dopuszczalna masa całkowita
+                                               1930                    1890                      2045                     1940
+pojazdu
+Ładowność min./maks.(4)                       452/521                451/540                   462/509                  453/521
+
+Maksymalna masa przyczepy
+                                               1500                    1500                      1500                     1000
+z hamulcem
+Maksymalna masa przyczepy
+                                                740                    710                        750                      745
+bez hamulca
+Pojemność bagażnika maks.
+pod półką bagażową                                                                      444 (nie ma zestawu
+z zestawem naprawczym /                        609**                 667 / 624          naprawczego / koła              546 / 488
+z kołem zapasowym(5)                                                                       zapasowego)
+(dm³ VDA)
+Pojemność bagażnika maks.
+ze złożoną tylną kanapą
+z zestawem naprawczym /                       1877**               1937 / 1894                   1712                  1851 / 1791
+z kołem zapasowym(5)
+(dm³ VDA)
+Pojemność bagażnika maks.
+pod półką bagażową                                                                      556 (nie ma zestawu
+                                               660**                 702 / 681          naprawczego / koła              612 / 566
+z zestawem naprawczym /                                                                    zapasowego)
+z kołem zapasowym (litry)
+Pojemność bagażnika maks.
+ze złożoną tylną kanapą
+                                              1960**            1960** 2002 / 1981               1856                  1912 / 1866
+z zestawem naprawczym /
+z kołem zapasowym (litry)
+
+
+
+
+(1)
+    Silniki benzynowe z filtrem cząstek stałych (FAP): aby ograniczyć emisję cząstek, nowe silniki benzynowe z bezpośrednim
+wtryskiem paliwa wyposażone są obecnie w filtr cząstek stałych w układzie wydechowym. Filtr zatrzymuje cząstki obecne
+w spalinach, a następnie spala je poprzez automatyczną i bardzo regularną regenerację. Filtr cząstek stałych nie wymaga obsługi.
+(2)
+    Zużycie paliwa i emisje homologowane zgodnie z obowiązującymi przepisami. (3) WLTP (Worldwide harmonized Light vehicles
+Test Procedures): ten nowy protokół pozwala uzyskać wyniki znacznie bliższe tym, które występują w codziennej eksploatacji,
+niż protokół NEDC. Emisja CO₂ jest homologowana zgodnie ze standardową i uregulowaną metodą. Identyczna dla wszystkich
+producentów, umożliwia porównywanie pojazdów między sobą. (4) Podana ładowność dotyczy poziomu wyposażenia minimalnego.
+(5)
+    Zgodnie z normą ISO 3832.
+
+* Nie łączy się.
+** Koło zapasowe niedostępne w wersji mild hybrid-G 140.
+
+
+
+
+       SKONFIGURUJ I ZAMÓW
+                                                                                                                        MENU
+
+=== DUSTER PDF PAGE 20 ===
+O6. SPECYFIKACJE TECHNICZNE
+
+
+
+
+                                           SILNIKI
+                                                                          Eco-G 120                    mild hybrid 140
+
+
+      SILNIKI
+                                                                                                   Benzyna / Elektryczny mild
+Źródło energii                                                           Benzyna / LPG
+                                                                                                          hybrid 48V
+
+Jazda w trybie w pełni elektrycznym                                             -                               -
+
+Maks. moc kW EWG (KM) przy prędkości obrotowej                            90 (120 KM)                     103 (140 KM)
+silnika (obr./min)                                                      przy 4500–5500                   przy 4500–5500
+
+Maks. moment obrotowy w Nm EWG (m·kg) przy                                    200                              230
+prędkości obrotowej silnika (obr./min)                                  przy 1750–4000                   przy 1900–4000
+
+Rodzaj wtrysku paliwa                                                     Bezpośredni                     Bezpośredni
+
+Pojemność skokowa (cm3)                                                       1199                            1199
+
+Liczba cylindrów / liczba zaworów                                   3 cylindry / 12 zaworów          3 cylindry / 12 zaworów
+
+Norma emisji spalin                                                        Euro 6E bis                     Euro 6E bis
+
+Filtr cząstek stałych(1)                                                      Tak                              Tak
+
+Stop & Start(2)                                                               Tak                              Tak
+
+      AKUMULATORY
+                                                                                                     Litowo-jonowy / 48 V /
+Akumulator trakcyjny                                                            -
+                                                                                                           0,84 kWh
+
+      OSIĄGI
+Prędkość maksymalna (km/h)                                                    180                              180
+
+0-100 km/h (s)                                                                 11                              9,4
+
+      SKRZYNIA BIEGÓW I UKŁAD PRZENIESIENIA NAPĘDU
+Układ przeniesienia napędu                                                    4×2                              4×2
+
+Rodzaj skrzyni biegów / liczba biegów                                     Manualna / 6                    Manualna / 6
+
+      UKŁAD KIEROWNICZY
+                                                                   Elektryczne wspomaganie         Elektryczne wspomaganie
+Układ kierowniczy                                                    układu kierowniczego            układu kierowniczego
+
+Średnica zawracania wg śladu kół (m)                                         10,96                            10,96
+
+      UKŁAD HAMULCOWY
+                                                                    Tarczowe wentylowane             Tarczowe wentylowane
+Przód: tarcze wentylowane / średnica (mm)                                 Φ280x24                          Φ280x24
+
+                                                                     Bębnowe 9" / Tarczowe           Bębnowe 9" / Tarczowe
+Tył: hamulce bębnowe / średnica (cale)                            z automatycznym hamulcem        z automatycznym hamulcem
+                                                                     postojowym Φ280x9,6             postojowym Φ280x9,6
+
+      KOŁA I OPONY
+                                                                          215/70/R16                       215/70/R16
+                                                                          215/65/R17                       215/65/R17
+Opony montowane w standardzie                                             215/60/R18                       215/60/R18
+                                                                            letnie                           letnie
+
+      ZUŻYCIE PALIWA I EMISJA(3)
+Protokół badania                                                             WLTP(4)                         WLTP(4)
+
+Tryb Eco                                                                      Tak                              Tak
+
+Pojemność zbiornika paliwa (l)                                       LPG: 50 / Benzyna: 50                     50
+
+                                                                        Do określenia
+Emisja CO2 (g/km)                                                    w zależności od kraju
+                                                                                                             122/123
+
+                                                                        Do określenia
+Zużycie paliwa w cyklu mieszanym (l/100 km)                          w zależności od kraju
+                                                                                                               5,4
+
+
+      MASY (kg) I POJEMNOŚCI (dm3 lub litry)
+Maks. masa całkowita samochodu gotowego
+                                                                              1350                            1376
+do jazdy
+Dopuszczalna masa całkowita (DMC) zespołu
+                                                                              3305                            3330
+pojazdów
+Dopuszczalna masa całkowita (DMC) pojazdu                                     1805                            1830
+
+Maks./min. ładowność(5)                                                     455/487                          454/528
+
+Maks. masa całkowita przyczepy hamowanej                                      1500                            1500
+
+Maks. masa przyczepy bez hamulca                                              695                              685
+
+Maks. pojemność bagażnika pod osłoną,
+z zestawem naprawczym / kołem zapasowym(6), (7)                               453                           517 / 474
+(dm3 VDA)
+Maks. pojemność bagażnika po złożeniu tylnej
+kanapy, z zestawem naprawczym / kołem                                         1545                         1609 / 1566
+zapasowym(6), (7) (dm3 VDA)
+Min. pojemność bagażnika pod osłoną, z zestawem
+                                                                              513                           594 / 545
+naprawczym / kołem zapasowym (l)(6), (7)
+Maks. pojemność bagażnika po złożeniu tylnej
+kanapy, z zestawem naprawczym / kołem                                         1632                         1635 / 1537
+zapasowym (l)(6), (7)
+
+
+
+
+  Silniki benzynowe z filtrem cząstek stałych (DPF): aby obniżyć poziom emisji cząstek stałych, nowe silniki benzynowe
+(1)
+
+z wtryskiem bezpośrednim wyposażono w filtr cząstek stałych, który znajduje się w układzie wydechowym. Filtr usuwa cząstki
+stałe z gazów wydechowych, a następnie wypala je podczas automatycznego procesu regeneracji, który jest powtarzany
+w regularnych odstępach czasu. Filtr cząstek stałych jest bezobsługowy. (2) Rozrusznik i akumulator współpracują z systemem
+Stop & Start. (3) Oficjalne dane dotyczące zużycia paliwa i poziomu emisji podano zgodnie z obowiązującymi przepisami. (4) WLTP
+(Światowa zharmonizowana procedura badania pojazdów lekkich, ang. Worldwide Harmonized Light Vehicles Test Procedure):
+nowy protokół, który w porównaniu z protokołem NEDC umożliwia uzyskanie wyników bardziej zbliżonych do wyników
+otrzymywanych w rzeczywistych warunkach eksploatacji. Zużycie paliwa i poziom emisji CO2 są homologowane zgodnie ze
+standardową metodą pomiaru, określoną w obowiązujących przepisach. Metoda jest identyczna dla wszystkich producentów, co
+umożliwia porównanie różnych modeli. (5) Podana ładowność dotyczy pierwszego poziomu wyposażenia. (6) Zgodnie z normą ISO
+3832. (7) Koło zapasowe niedostępne w wersjach z silnikiem 120 Eco-G.
+
+
+
+
+        KLIKNIJ I KONFIGURUJ
+                                                                                                                    MENU
+
+=== ATTRIBUTE CONTRACTS ===
+{"category": "Weights", "code": "gross_train_weight", "data_type": "integer", "description": "Maximum permissible combined vehicle and trailer weight", "id": "127", "name": "Gross train weight", "status": "active", "unit": "kg"}
+{"category": "Towing", "code": "unbraked_trailer_weight", "data_type": "integer", "description": "Maximum permitted trailer weight without brakes", "id": "123", "name": "Maximum unbraked trailer weight", "status": "active", "unit": "kg"}
+
+=== ACTIVE CONFIGURATIONS ===
+{"code": "bigster_essential_mildhybrid140_4x2_manual", "id": "54", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_essential"}
+{"code": "bigster_essential_mildhybridg140_4x2_manual", "id": "58", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_essential"}
+{"code": "bigster_expression_hybrid155_4x2_automatic", "id": "62", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "bigster_expression"}
+{"code": "bigster_expression_hybridg150_4x4_automatic", "id": "65", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "status": "active", "transmission_type": "automatic", "version_code": "bigster_expression"}
+{"code": "bigster_expression_mildhybrid140_4x2_manual", "id": "55", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_expression"}
+{"code": "bigster_expression_mildhybridg140_4x2_manual", "id": "59", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_expression"}
+{"code": "bigster_extreme_hybrid155_4x2_automatic", "id": "63", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "bigster_extreme"}
+{"code": "bigster_extreme_hybridg150_4x4_automatic", "id": "66", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "status": "active", "transmission_type": "automatic", "version_code": "bigster_extreme"}
+{"code": "bigster_extreme_mildhybrid140_4x2_manual", "id": "56", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_extreme"}
+{"code": "bigster_extreme_mildhybridg140_4x2_manual", "id": "60", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_extreme"}
+{"code": "bigster_journey_hybrid155_4x2_automatic", "id": "64", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "bigster_journey"}
+{"code": "bigster_journey_hybridg150_4x4_automatic", "id": "67", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "status": "active", "transmission_type": "automatic", "version_code": "bigster_journey"}
+{"code": "bigster_journey_mildhybrid140_4x2_manual", "id": "57", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_journey"}
+{"code": "bigster_journey_mildhybridg140_4x2_manual", "id": "61", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "bigster_journey"}
+{"code": "duster_iii_essential_ecog100_4x2_manual", "id": "8", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 100 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_essential"}
+{"code": "duster_iii_essential_ecog120_4x2_manual", "id": "22", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_essential"}
+{"code": "duster_iii_expression_ecog100_4x2_manual", "id": "9", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 100 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_ecog120_4x2_automatic", "id": "70", "notes": "Exact official Dacia Poland 2026 stock card 121553 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_ecog120_4x2_manual", "id": "23", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_hybrid140_4x2_automatic", "id": "15", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 140 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_hybrid155_4x2_automatic", "id": "29", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_mildhybrid130_4x2_manual", "id": "12", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_mildhybrid130_4x4_manual", "id": "19", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x4", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_expression_mildhybrid140_4x2_manual", "id": "26", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_expression"}
+{"code": "duster_iii_extreme_ecog100_4x2_manual", "id": "10", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 100 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_ecog120_4x2_automatic", "id": "71", "notes": "Exact official Dacia Poland 2026 stock card 121540 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_ecog120_4x2_manual", "id": "24", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_hybrid140_4x2_automatic", "id": "16", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 140 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_hybrid155_4x2_automatic", "id": "30", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_mildhybrid130_4x2_manual", "id": "13", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_mildhybrid130_4x4_manual", "id": "20", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x4", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_extreme_mildhybrid140_4x2_manual", "id": "27", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_extreme"}
+{"code": "duster_iii_journey_ecog100_4x2_manual", "id": "11", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 100 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_ecog120_4x2_automatic", "id": "72", "notes": "Exact official Dacia Poland 2026 stock card 121030 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_ecog120_4x2_manual", "id": "25", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "Eco-G 120 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_hybrid140_4x2_automatic", "id": "17", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 140 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_hybrid155_4x2_automatic", "id": "31", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 155 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_mildhybrid130_4x2_manual", "id": "14", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_mildhybrid130_4x4_manual", "id": "21", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 130 4x4", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_mildhybrid140_4x2_manual", "id": "28", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "mild hybrid 140 4x2", "status": "active", "transmission_type": "manual", "version_code": "duster_iii_journey"}
+{"code": "duster_iii_journey_plus_hybrid140_4x2_automatic", "id": "18", "notes": "Combination listed on page 1; transmission confirmed on pages 8-9.", "powertrain_label": "hybrid 140 4x2", "status": "active", "transmission_type": "automatic", "version_code": "duster_iii_journey_plus"}
+
+=== EXISTING TARGET ATTRIBUTE VALUES ===
+{"attribute_code": "gross_train_weight", "code": "duster_iii_expression_ecog120_4x2_automatic_gross_train_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_expression_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1778", "notes": "Exact official Dacia RO automatic card UU1DJF01177585830: Masa totala rulanta (M.T.R.): 3305 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "3305"}
+{"attribute_code": "unbraked_trailer_weight", "code": "duster_iii_expression_ecog120_4x2_automatic_unbraked_trailer_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_expression_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1785", "notes": "Exact official Dacia RO automatic card UU1DJF01177585830: Masa maxima remorcabila fara sistem de franare: 715 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "715"}
+{"attribute_code": "gross_train_weight", "code": "duster_iii_extreme_ecog120_4x2_automatic_gross_train_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1798", "notes": "Exact official Dacia RO automatic card UU1DJF01577585894: Masa totala rulanta (M.T.R.): 3305 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "3305"}
+{"attribute_code": "unbraked_trailer_weight", "code": "duster_iii_extreme_ecog120_4x2_automatic_unbraked_trailer_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1805", "notes": "Exact official Dacia RO automatic card UU1DJF01577585894: Masa maxima remorcabila fara sistem de franare: 715 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "715"}
+{"attribute_code": "gross_train_weight", "code": "duster_iii_journey_ecog120_4x2_automatic_gross_train_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_journey_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1818", "notes": "Exact official Dacia RO automatic card UU1DJF01977030219: Masa totala rulanta (M.T.R.): 3305 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "3305"}
+{"attribute_code": "unbraked_trailer_weight", "code": "duster_iii_journey_ecog120_4x2_automatic_unbraked_trailer_weight_all_src_ro_duster_ecog120_automatic_homologation_20260725_20260725", "configuration_code": "duster_iii_journey_ecog120_4x2_automatic", "fuel_type_code": "", "gear_number": "", "id": "1825", "notes": "Exact official Dacia RO automatic card UU1DJF01977030219: Masa maxima remorcabila fara sistem de franare: 715 kg.", "observation_date": "2026-07-25", "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725", "value": "715"}
+
+=== BROCHURE SOURCE RELATIONSHIPS ===
+{"configuration_code": "bigster_essential_mildhybridg140_4x2_manual", "id": "196", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_mildhybridg140_4x2_manual", "id": "197", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_mildhybridg140_4x2_manual", "id": "198", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_mildhybridg140_4x2_manual", "id": "199", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_essential_mildhybrid140_4x2_manual", "id": "200", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_mildhybrid140_4x2_manual", "id": "201", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_mildhybrid140_4x2_manual", "id": "202", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_mildhybrid140_4x2_manual", "id": "203", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_hybrid155_4x2_automatic", "id": "204", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_hybrid155_4x2_automatic", "id": "205", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_hybrid155_4x2_automatic", "id": "206", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "duster_iii_essential_ecog120_4x2_manual", "id": "207", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_expression_ecog120_4x2_manual", "id": "208", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_extreme_ecog120_4x2_manual", "id": "209", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_journey_ecog120_4x2_manual", "id": "210", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual", "id": "211", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual", "id": "212", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual", "id": "213", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_expression_hybrid155_4x2_automatic", "id": "214", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic", "id": "215", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+{"configuration_code": "duster_iii_journey_hybrid155_4x2_automatic", "id": "216", "notes": "The official Duster brochure powertrain-specific technical table documents this exact 4x2 powertrain and its cargo values; equipment context is preserved per observation.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_duster_mini_brochure_20251020"}
+
+=== EXACT REVIEW CANDIDATES ===
+{
+  "bigster": [
+    "bigster_essential_mildhybrid140_4x2_manual",
+    "bigster_essential_mildhybridg140_4x2_manual",
+    "bigster_expression_hybrid155_4x2_automatic",
+    "bigster_expression_hybridg150_4x4_automatic",
+    "bigster_expression_mildhybrid140_4x2_manual",
+    "bigster_expression_mildhybridg140_4x2_manual",
+    "bigster_extreme_hybrid155_4x2_automatic",
+    "bigster_extreme_hybridg150_4x4_automatic",
+    "bigster_extreme_mildhybrid140_4x2_manual",
+    "bigster_extreme_mildhybridg140_4x2_manual",
+    "bigster_journey_hybrid155_4x2_automatic",
+    "bigster_journey_hybridg150_4x4_automatic",
+    "bigster_journey_mildhybrid140_4x2_manual",
+    "bigster_journey_mildhybridg140_4x2_manual"
+  ],
+  "duster": [
+    "duster_iii_essential_ecog120_4x2_manual",
+    "duster_iii_expression_ecog120_4x2_manual",
+    "duster_iii_expression_hybrid155_4x2_automatic",
+    "duster_iii_expression_mildhybrid140_4x2_manual",
+    "duster_iii_extreme_ecog120_4x2_manual",
+    "duster_iii_extreme_hybrid155_4x2_automatic",
+    "duster_iii_extreme_mildhybrid140_4x2_manual",
+    "duster_iii_journey_ecog120_4x2_manual",
+    "duster_iii_journey_hybrid155_4x2_automatic",
+    "duster_iii_journey_mildhybrid140_4x2_manual"
+  ]
+}
+bigster_count=14
+duster_count=10
