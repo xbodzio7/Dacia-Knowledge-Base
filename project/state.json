@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Brochure Hybrid Performance Completion",
+  "phase": "Brochure Chassis Measurement Context Modeling",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,26 +15,26 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 867,
+    "tests": 875,
     "csv_files": 46,
-    "rows": 9015,
+    "rows": 9019,
     "configuration_values": 2290,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 234,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
-    "attributes": 381,
+    "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Brochure Hybrid Performance Completion",
+    "name": "Brochure Chassis Measurement Context Modeling",
     "status": "complete",
-    "goal": "Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence."
+    "goal": "Define explicit turning-circle measurement bases, maximum kerb mass and scalar-or-range payload semantics while reusing existing source-text chassis specification attributes."
   },
   "next_package": {
-    "name": "Brochure Chassis Measurement Context Modeling",
+    "name": "Sandero and Stepway Chassis Observation Import",
     "status": "planned",
-    "goal": "Model explicit measurement and specification context for turning circle, maximum kerb mass, payload and compound tyre, brake and suspension evidence before importing the remaining official brochure chassis observations."
+    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

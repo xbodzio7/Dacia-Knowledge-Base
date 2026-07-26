@@ -1028,3 +1028,62 @@ Cargo measurement context remains governed independently by D-023. The next
 package implements the optional column, validation, import-spec, SQLite,
 data-dictionary and reporting support before any brochure performance values
 are imported.
+
+---
+
+## D-016 — Brochure chassis measurement context
+
+Status: Accepted
+
+Date: 2026-07-26
+
+### Decision
+
+Basis-qualified brochure chassis measurements use separate, unambiguous
+attributes instead of a new generic context table:
+
+- `turning_circle_between_kerbs` stores a turning-circle diameter explicitly
+  measured between kerbs;
+- `turning_circle_wheel_track` stores a turning-circle diameter explicitly
+  stated using the wheel-track basis;
+- `maximum_kerb_weight` stores an explicitly maximum-qualified kerb mass and
+  remains distinct from `minimum_kerb_weight` and unqualified `kerb_weight`;
+- `payload` stores a neutral source-stated payload. A single value is written
+  to `configuration_attribute_values.csv`; a bounded interval is written to
+  `configuration_attribute_value_ranges.csv` without flattening. The existing
+  `maximum_payload` remains reserved for an explicitly stated maximum.
+
+Compound tyre, suspension, brake and steering specifications reuse the
+existing string attributes `standard_tyre_specification`, `front_suspension`,
+`rear_suspension`, `front_brake_type`, `rear_brake_type` and `steering_type`.
+The complete source wording is preserved rather than decomposed without
+controlled dictionaries.
+
+The legacy `turning_circle` attribute remains active for existing observations
+whose measurement basis was not modeled. New basis-qualified brochure evidence
+must use one of the two dedicated attributes.
+
+Model-wide or powertrain-wide evidence may be projected to exact active
+configurations only when the source scope maps unambiguously. Ambiguous or
+physically inconsistent source labels are not semantically reassigned without
+corrected official evidence.
+
+### Rationale
+
+The reviewed brochures use at least two materially different turning-diameter
+bases. They also distinguish minimum and maximum kerb mass and sometimes state
+payload as an interval. Folding these observations into existing context-free
+or maximum-only attributes would lose source meaning. A dedicated generic
+context table would be disproportionate to the current evidence and would
+require broad changes to validators, reporting, exports and comparisons.
+
+### Consequences
+
+- Four attributes are added without introducing a new table.
+- Turning-circle values with different bases remain directly comparable only
+  within the same attribute.
+- Payload intervals reuse the existing range infrastructure.
+- Existing source-text specification attributes remain canonical.
+- The Jogger mass-table label conflict remains blocked until corrected official
+  evidence is available.
+
