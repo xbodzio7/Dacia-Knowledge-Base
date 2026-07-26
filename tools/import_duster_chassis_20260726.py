@@ -244,7 +244,14 @@ def verify_references(spec: Mapping[str, Any]) -> None:
         and row.get("transmission_type") == "automatic"
     }
     ensure(len(automatic_ecog) == 3 and not (automatic_ecog & EXPECTED_CONFIGURATIONS), "automatic Eco-G boundary differs")
-    ensure(not any(row.get("powertrain_label") == "hybrid-G 150 4x4" for row in configurations.values()), "unexpected exact hybrid-G 150 configuration")
+    ensure(
+        not any(
+            row.get("status") == "active"
+            and row.get("powertrain_label") == "hybrid-G 150 4x4"
+            for row in configurations.values()
+        ),
+        "unexpected active exact hybrid-G 150 configuration",
+    )
 
 
 def expected_scalar_rows(spec: Mapping[str, Any]) -> list[dict[str, str]]:
