@@ -49,39 +49,36 @@ jobs:
               raise SystemExit("historical verifier was not normalized")
 
           test_path = Path("tests/test_post_brochure_priority_selection_review.py")
-          test_text = test_path.read_text(encoding="utf-8")
-          old_name = "    def test_project_state_advances_to_release_preparation(self) -> None:\n"
-          new_name = "    def test_project_state_preserves_priority_selection_baseline(self) -> None:\n"
-          if new_name not in test_text:
-              start = test_text.find(old_name)
-              if start < 0:
-                  raise SystemExit("historical test state function is missing")
-              end_marker = "\n\n\nif __name__ == \"__main__\":"
-              end = test_text.find(end_marker, start)
-              if end < 0:
-                  raise SystemExit("historical test state function boundary is missing")
-              replacement = '''    def test_project_state_preserves_priority_selection_baseline(self) -> None:
-              state = json.loads(
-                  (ROOT / "project/state.json").read_text(encoding="utf-8")
+          lines = test_path.read_text(encoding="utf-8").splitlines(keepends=True)
+          function_line = (
+              "    def test_project_state_preserves_priority_selection_baseline"
+              "(self) -> None:\n"
+          )
+          try:
+              start = lines.index(function_line)
+          except ValueError as exc:
+              raise SystemExit("historical normalized test function is missing") from exc
+          try:
+              end = next(
+                  index
+                  for index in range(start + 1, len(lines))
+                  if lines[index].startswith('if __name__ == "__main__":')
               )
-              self.assertTrue(state["phase"])
-              self.assertTrue(state["current_package"]["name"])
-              self.assertIn(
-                  state["current_package"]["status"],
-                  {"planned", "active", "blocked", "complete"},
-              )
-              self.assertTrue(state["next_package"]["name"])
-              self.assertGreaterEqual(state["baseline"]["tests"], 963)
-              self.assertGreaterEqual(state["baseline"]["rows"], 9688)
-              self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
-              self.assertGreaterEqual(
-                  state["baseline"]["configuration_value_ranges"],
-                  244,
-              )
-              self.assertGreaterEqual(state["baseline"]["attributes"], 385)
-          '''
-              test_text = test_text[:start] + replacement + test_text[end:]
-              test_path.write_text(test_text, encoding="utf-8")
+          except StopIteration as exc:
+              raise SystemExit("historical test function end is missing") from exc
+          body_indexes = [
+              index
+              for index in range(start + 1, end)
+              if lines[index].strip()
+          ]
+          if not body_indexes:
+              raise SystemExit("historical normalized test function has no body")
+          if lines[body_indexes[0]].startswith("    state ="):
+              for index in body_indexes:
+                  lines[index] = "    " + lines[index]
+              test_path.write_text("".join(lines), encoding="utf-8")
+          elif not lines[body_indexes[0]].startswith("        state ="):
+              raise SystemExit("historical normalized test indentation is unknown")
           print("PASS: historical priority state contracts normalized")
           PY
 
