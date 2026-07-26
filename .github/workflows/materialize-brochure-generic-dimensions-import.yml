@@ -15,6 +15,7 @@ on:
       - tools/materialize_brochure_generic_dimensions_import_20260726.py
       - tools/normalize_generic_dimension_receipt_verifiers_20260726.py
       - tools/repair_generic_dimension_reporting_evidence_20260726.py
+      - tools/diagnose_generic_dimension_snapshot_regressions_20260726.py
       - tests/test_brochure_generic_dimensions_import_20260726.py
 
 permissions:
@@ -49,6 +50,9 @@ jobs:
           fi
           if [ "$status" -eq 0 ]; then
             python tools/repair_generic_dimension_reporting_evidence_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/diagnose_generic_dimension_snapshot_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
