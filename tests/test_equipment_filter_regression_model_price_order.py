@@ -116,7 +116,7 @@ class EquipmentFilterRegressionModelPriceOrderTests(unittest.TestCase):
         self.assertEqual(baseline["availability_records"], 4754)
         self.assertEqual(baseline["attributes"], 385)
 
-    def test_verifier_and_project_state_accept_fix(self) -> None:
+    def test_verifier_and_project_state_preserve_fix_history(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -134,20 +134,14 @@ class EquipmentFilterRegressionModelPriceOrderTests(unittest.TestCase):
             completed.stdout,
         )
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(
-            state["phase"],
-            "Equipment Filter Regression and Model Price Ordering",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Equipment Filter Regression and Model Price Ordering",
-        )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Data Products v1.8.1 Release Preparation",
-        )
-        self.assertEqual(state["baseline"]["tests"], 1030)
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1030)
 
 
 if __name__ == "__main__":

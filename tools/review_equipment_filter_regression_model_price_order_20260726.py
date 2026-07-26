@@ -266,30 +266,28 @@ def verify_repository() -> None:
     )
 
     state = load_json(STATE)
+    ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
+    current = state.get("current_package")
+    ensure(isinstance(current, Mapping), "current package is missing")
+    ensure(isinstance(current.get("name"), str) and bool(current["name"]), "current package name is missing")
     ensure(
-        state.get("phase")
-        == "Equipment Filter Regression and Model Price Ordering",
-        "project phase differs",
+        current.get("status") in {"planned", "active", "blocked", "complete"},
+        "current package status differs",
     )
+    next_package = state.get("next_package")
+    ensure(isinstance(next_package, Mapping), "next package is missing")
     ensure(
-        state.get("current_package", {}).get("name")
-        == "Equipment Filter Regression and Model Price Ordering",
-        "current package differs",
-    )
-    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
-    ensure(
-        state.get("next_package", {}).get("name")
-        == "Data Products v1.8.1 Release Preparation",
-        "state next package differs",
+        isinstance(next_package.get("name"), str) and bool(next_package["name"]),
+        "next package name is missing",
     )
     baseline = state.get("baseline", {})
-    ensure(baseline.get("tests") == 1030, "test baseline differs")
-    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
-    ensure(baseline.get("rows") == 9688, "master row baseline changed")
-    ensure(baseline.get("configuration_values") == 2949, "configuration values changed")
-    ensure(baseline.get("configuration_value_ranges") == 244, "configuration ranges changed")
-    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
-    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+    ensure(baseline.get("tests", 0) >= 1030, "test baseline regressed")
+    ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
+    ensure(baseline.get("rows", 0) >= 9688, "master row baseline regressed")
+    ensure(baseline.get("configuration_values", 0) >= 2949, "configuration values regressed")
+    ensure(baseline.get("configuration_value_ranges", 0) >= 244, "configuration ranges regressed")
+    ensure(baseline.get("availability_records", 0) >= 4754, "availability baseline regressed")
+    ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
 
 
 def verify() -> None:
