@@ -113,9 +113,9 @@ class BrochureGearPerformanceImportClosureReviewTests(unittest.TestCase):
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertGreaterEqual(state["baseline"]["tests"], 834)
-        self.assertEqual(state["baseline"]["configuration_values"], 2188)
-        self.assertEqual(state["baseline"]["rows"], 8852)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2188)
+        self.assertGreaterEqual(state["baseline"]["rows"], 8852)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
 
 
 if __name__ == "__main__":

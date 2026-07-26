@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Official Brochure Technical Gap Review**
+**Sandero Eco-G 120 Automatic Brochure Technical Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 842
+- Tests: 850
 - Master CSV files: 46
-- Master rows: 8852
-- Configuration values: 2188
+- Master rows: 8888
+- Configuration values: 2224
 - Configuration import specifications: 117
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Brochure Technical Gap Review** — `complete`
+**Sandero Eco-G 120 Automatic Brochure Technical Import** — `complete`
 
-Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling.
+Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields.
 
 ## Next package
 
-**Sandero Eco-G 120 Automatic Brochure Technical Import** — `planned`
+**Bigster and Duster Brochure Towing Mass Import** — `planned`
 
-Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields.
+Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries.
 
 ## Autonomy
 
