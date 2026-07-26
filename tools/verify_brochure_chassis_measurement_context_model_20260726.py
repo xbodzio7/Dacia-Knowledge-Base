@@ -112,7 +112,18 @@ def verify_report(payload: dict[str, Any]) -> None:
     resolutions = payload.get("source_resolutions")
     ensure(isinstance(resolutions, list) and len(resolutions) == 5, "source resolution count differs")
     ensure({str(item.get("classification_code", "")) for item in resolutions if isinstance(item, dict)} == EXPECTED_CLASSIFICATIONS, "source resolutions differ")
-    ensure(all(item.get("status") == "model_defined_import_pending" for item in resolutions), "resolution status differs")
+    expected_statuses = {
+        "bigster_chassis_measurement_modeling": "model_defined_import_pending",
+        "jogger_chassis_candidate_and_modeling": "model_defined_import_pending",
+        "sandero_chassis_and_maximum_mass_modeling": "imported",
+        "stepway_chassis_and_maximum_mass_modeling": "imported",
+        "duster_chassis_mass_and_payload_modeling": "model_defined_import_pending",
+    }
+    ensure(
+        {str(item.get("classification_code", "")): str(item.get("status", "")) for item in resolutions}
+        == expected_statuses,
+        "resolution status differs",
+    )
 
     by_code = {str(item.get("classification_code", "")): item for item in resolutions}
     ensure(by_code["duster_chassis_mass_and_payload_modeling"].get("turning_attribute") == "turning_circle_wheel_track", "Duster turning basis differs")
@@ -123,7 +134,7 @@ def verify_report(payload: dict[str, Any]) -> None:
 
     next_package = payload.get("next_package")
     ensure(isinstance(next_package, dict), "next package is missing")
-    ensure(next_package.get("name") == "Sandero and Stepway Chassis Observation Import", "next package differs")
+    ensure(next_package.get("name") == "Bigster Chassis Observation Import", "next package differs")
 
 
 def verify_attributes(payload: dict[str, Any]) -> None:
@@ -162,8 +173,19 @@ def verify_model_only_boundary() -> None:
     new_codes = set(EXPECTED_NEW_ATTRIBUTES)
     scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("attribute_code") in new_codes]
     ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row.get("attribute_code") in new_codes]
-    ensure(scalar == [], "modeling package must not import scalar chassis observations")
-    ensure(ranges == [], "modeling package must not import chassis ranges")
+    ensure(len(scalar) == 18, "expected eighteen modeled scalar chassis observations")
+    ensure(
+        {row.get("attribute_code") for row in scalar}
+        == {"turning_circle_between_kerbs", "maximum_kerb_weight"},
+        "modeled scalar attribute set differs",
+    )
+    ensure(
+        {row.get("source_code") for row in scalar}
+        == {"src_pl_sandero_brochure_20260202", "src_pl_sandero_stepway_brochure_20260202"},
+        "modeled scalar source set differs",
+    )
+    ensure({row.get("observation_date") for row in scalar} == {"2026-02-02"}, "modeled scalar date differs")
+    ensure(ranges == [], "payload and wheel-track follow-up ranges are not imported yet")
 
 
 def verify() -> None:

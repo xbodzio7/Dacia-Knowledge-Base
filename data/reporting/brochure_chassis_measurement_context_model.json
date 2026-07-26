@@ -58,12 +58,30 @@
     }
   ],
   "existing_specification_mappings": [
-    {"source_semantic": "axle-neutral tyre specification", "attribute_code": "standard_tyre_specification"},
-    {"source_semantic": "front suspension specification", "attribute_code": "front_suspension"},
-    {"source_semantic": "rear suspension specification", "attribute_code": "rear_suspension"},
-    {"source_semantic": "front brake specification", "attribute_code": "front_brake_type"},
-    {"source_semantic": "rear brake specification", "attribute_code": "rear_brake_type"},
-    {"source_semantic": "power-steering specification", "attribute_code": "steering_type"}
+    {
+      "source_semantic": "axle-neutral tyre specification",
+      "attribute_code": "standard_tyre_specification"
+    },
+    {
+      "source_semantic": "front suspension specification",
+      "attribute_code": "front_suspension"
+    },
+    {
+      "source_semantic": "rear suspension specification",
+      "attribute_code": "rear_suspension"
+    },
+    {
+      "source_semantic": "front brake specification",
+      "attribute_code": "front_brake_type"
+    },
+    {
+      "source_semantic": "rear brake specification",
+      "attribute_code": "rear_brake_type"
+    },
+    {
+      "source_semantic": "power-steering specification",
+      "attribute_code": "steering_type"
+    }
   ],
   "rules": [
     {
@@ -97,28 +115,49 @@
       "status": "model_defined_import_pending",
       "turning_attribute": "turning_circle_between_kerbs",
       "mass_attribute": "maximum_kerb_weight",
-      "text_attributes": ["steering_type", "front_brake_type", "rear_brake_type", "standard_tyre_specification"]
+      "text_attributes": [
+        "steering_type",
+        "front_brake_type",
+        "rear_brake_type",
+        "standard_tyre_specification"
+      ]
     },
     {
       "classification_code": "jogger_chassis_candidate_and_modeling",
       "status": "model_defined_import_pending",
       "turning_attribute": "turning_circle_between_kerbs",
-      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"],
+      "text_attributes": [
+        "standard_tyre_specification",
+        "front_suspension",
+        "rear_suspension"
+      ],
       "blocked_related_classification": "jogger_mass_table_label_conflict"
     },
     {
       "classification_code": "sandero_chassis_and_maximum_mass_modeling",
-      "status": "model_defined_import_pending",
+      "status": "imported",
       "turning_attribute": "turning_circle_between_kerbs",
       "mass_attribute": "maximum_kerb_weight",
-      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"]
+      "text_attributes": [
+        "standard_tyre_specification",
+        "front_suspension",
+        "rear_suspension"
+      ],
+      "import_package": "Sandero and Stepway Chassis Observation Import",
+      "imported_on": "2026-07-26"
     },
     {
       "classification_code": "stepway_chassis_and_maximum_mass_modeling",
-      "status": "model_defined_import_pending",
+      "status": "imported",
       "turning_attribute": "turning_circle_between_kerbs",
       "mass_attribute": "maximum_kerb_weight",
-      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"]
+      "text_attributes": [
+        "standard_tyre_specification",
+        "front_suspension",
+        "rear_suspension"
+      ],
+      "import_package": "Sandero and Stepway Chassis Observation Import",
+      "imported_on": "2026-07-26"
     },
     {
       "classification_code": "duster_chassis_mass_and_payload_modeling",
@@ -126,7 +165,12 @@
       "turning_attribute": "turning_circle_wheel_track",
       "mass_attribute": "maximum_kerb_weight",
       "range_attribute": "payload",
-      "text_attributes": ["steering_type", "front_brake_type", "rear_brake_type", "standard_tyre_specification"]
+      "text_attributes": [
+        "steering_type",
+        "front_brake_type",
+        "rear_brake_type",
+        "standard_tyre_specification"
+      ]
     }
   ],
   "legacy_boundaries": {
@@ -135,7 +179,7 @@
     "maximum_payload": "Retained for explicitly maximum-qualified scalar observations."
   },
   "next_package": {
-    "name": "Sandero and Stepway Chassis Observation Import",
-    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016."
+    "name": "Bigster Chassis Observation Import",
+    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for the active Bigster configurations under D-016."
   }
 }

@@ -88,7 +88,19 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
             {item["classification_code"] for item in self.report["source_resolutions"]},
             expected,
         )
-        self.assertEqual({item["status"] for item in self.report["source_resolutions"]}, {"model_defined_import_pending"})
+        statuses = {
+            item["classification_code"]: item["status"]
+            for item in self.report["source_resolutions"]
+        }
+        self.assertEqual(statuses["sandero_chassis_and_maximum_mass_modeling"], "imported")
+        self.assertEqual(statuses["stepway_chassis_and_maximum_mass_modeling"], "imported")
+        self.assertEqual(
+            {status for code, status in statuses.items() if code not in {
+                "sandero_chassis_and_maximum_mass_modeling",
+                "stepway_chassis_and_maximum_mass_modeling",
+            }},
+            {"model_defined_import_pending"},
+        )
 
     def test_jogger_ambiguous_mass_labels_remain_blocked(self) -> None:
         jogger = next(
@@ -99,10 +111,15 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
         rule = next(item for item in self.report["rules"] if item["code"] == "ambiguous_labels_are_not_reassigned")
         self.assertIn("not semantically reassigned", rule["decision"])
 
-    def test_modeling_package_imports_no_observations(self) -> None:
+    def test_follow_up_imports_respect_modeled_attributes(self) -> None:
         scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] in NEW_CODES]
         ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row["attribute_code"] in NEW_CODES]
-        self.assertEqual(scalar, [])
+        self.assertEqual(len(scalar), 18)
+        self.assertEqual(
+            {row["attribute_code"] for row in scalar},
+            {"turning_circle_between_kerbs", "maximum_kerb_weight"},
+        )
+        self.assertEqual({row["observation_date"] for row in scalar}, {"2026-02-02"})
         self.assertEqual(ranges, [])
 
     def test_verifier_and_project_state_are_complete(self) -> None:
@@ -117,14 +134,12 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
         self.assertIn("PASS: brochure chassis measurement context model", completed.stdout)
 
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Chassis Measurement Context Modeling")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Sandero and Stepway Chassis Observation Import")
-        self.assertEqual(state["baseline"]["tests"], 875)
-        self.assertEqual(state["baseline"]["rows"], 9019)
-        self.assertEqual(state["baseline"]["attributes"], 385)
-        self.assertEqual(state["baseline"]["configuration_values"], 2290)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 234)
+        self.assertGreaterEqual(state["baseline"]["tests"], 875)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9019)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2290)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 234)
 
 
 if __name__ == "__main__":

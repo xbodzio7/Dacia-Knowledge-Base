@@ -109,6 +109,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "front_suspension",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "lpg"
     },
@@ -134,6 +138,10 @@
     },
     {
       "attribute_code": "kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_kerb_weight",
       "fuel_type_code": ""
     },
     {
@@ -165,6 +173,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "rear_suspension",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "spare_wheel_type",
       "fuel_type_code": ""
     },
@@ -190,6 +202,10 @@
     },
     {
       "attribute_code": "turning_circle",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle_between_kerbs",
       "fuel_type_code": ""
     },
     {
