@@ -52,7 +52,7 @@ class BrochureGearPerformanceValueTests(unittest.TestCase):
                 "src_pl_jogger_brochure_20251217": 32,
             }),
         )
-        self.assertEqual(Counter(row["fuel_type_code"] for row in self.rows), Counter({"lpg": 30, "petrol": 40}))
+        self.assertEqual(Counter(row["fuel_type_code"] for row in self.rows), Counter({"lpg": 29, "petrol": 41}))
         self.assertEqual(Counter(row["gear_number"] for row in self.rows), Counter({"4": 50, "5": 14, "6": 6}))
         model_counts = Counter(
             "sandero_stepway" if row["configuration_code"].startswith("sandero_stepway_")

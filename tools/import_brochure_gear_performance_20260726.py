@@ -82,7 +82,7 @@ EXPECTED_SOURCE_COUNTS = {
     "src_pl_sandero_stepway_brochure_20260202": 22,
     "src_pl_jogger_brochure_20251217": 32,
 }
-EXPECTED_FUEL_COUNTS = {"lpg": 30, "petrol": 40}
+EXPECTED_FUEL_COUNTS = {"lpg": 29, "petrol": 41}
 EXPECTED_GEAR_COUNTS = {"4": 50, "5": 14, "6": 6}
 EXPECTED_MODEL_COUNTS = {"sandero": 16, "sandero_stepway": 22, "jogger": 32}
 

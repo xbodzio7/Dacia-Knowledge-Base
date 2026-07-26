@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Gear-Specific Performance Schema Foundation**
+**Brochure Gear-Specific Performance Value Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 821
+- Tests: 828
 - Master CSV files: 46
-- Master rows: 8782
-- Configuration values: 2118
-- Configuration import specifications: 114
+- Master rows: 8852
+- Configuration values: 2188
+- Configuration import specifications: 117
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
 - Availability records: 4754
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Gear-Specific Performance Schema Foundation** — `complete`
+**Brochure Gear-Specific Performance Value Import** — `complete`
 
-Add the optional gear_number scalar-observation qualifier, validation, import-spec, SQLite, data-dictionary and reporting-key support without importing brochure elasticity values.
+Import exact Sandero, Sandero Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context.
 
 ## Next package
 
-**Brochure Gear-Specific Performance Value Import** — `planned`
+**Brochure Gear-Specific Performance Import Closure Review** — `planned`
 
-Import exact Sandero, Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context.
+Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package.
 
 ## Autonomy
 

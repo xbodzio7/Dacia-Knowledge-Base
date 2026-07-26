@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Imported 70 exact `elasticity_80_120` observations from the official Sandero, Sandero Stepway and Jogger brochures across 31 configurations, preserving selected gear, fuel and five-/seven-seat context without filling unstated Stepway automatic gears.
 * Imported 68 context-aware `boot_capacity` observations from the official 2025-12-10 Bigster brochure across 11 exact 4x2 configurations, preserving repair-kit, optional spare-wheel, seat-state and measurement-basis context.
 * Imported 110 context-aware `boot_capacity` observations from the official 2025-12-17 Jogger brochure across 22 five- and seven-seat configurations, with 110 exact cargo-context rows and 22 source relationships.
 * Imported 45 context-aware `boot_capacity` observations from the official 2026-02-02 Sandero and Sandero Stepway brochures across nine Eco-G 120 configurations, with 45 exact cargo-context rows and nine source relationships.
@@ -269,11 +270,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 821 tests.
-* The verified master-data baseline now contains 46 CSV files and 8782 rows.
-* SQLite verification now covers 46 tables and 8782 rows.
-* Configuration attribute values now contain 2118 dated records.
-* Declarative scalar configuration-value imports now contain 114 versioned JSON specifications.
+* The automated test suite now contains 828 tests.
+* The verified master-data baseline now contains 46 CSV files and 8852 rows.
+* SQLite verification now covers 46 tables and 8852 rows.
+* Configuration attribute values now contain 2188 dated records.
+* Declarative scalar configuration-value imports now contain 117 versioned JSON specifications.
 * Configuration value ranges now contain 176 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.
 * Equipment availability now contains 4754 records: 3721 `standard`, 467 `optional`, 566 `not_available` and 0 `unknown`.
