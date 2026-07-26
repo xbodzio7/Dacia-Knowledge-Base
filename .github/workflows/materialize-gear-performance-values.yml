@@ -28,8 +28,12 @@ jobs:
       - name: Capture updated reporting fixtures
         shell: bash
         run: |
-          set -euo pipefail
-          python - <<'PY'
+          set +e
+          log=.github/gear-performance-fixture-capture.log
+          : > "$log"
+          status=0
+
+          python - <<'PY' >> "$log" 2>&1 || status=$?
           from __future__ import annotations
 
           import json
@@ -46,7 +50,6 @@ jobs:
 
           test_files = [
               'tests/test_sandero_ecog120_manual_reporting_scope.py',
-              'tests/test_sandero_ecog120_automatic_reporting_scope.py',
               'tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py',
               'tests/test_jogger_ecog120_manual_reporting_scope.py',
               'tests/test_jogger_ecog120_automatic_reporting_scope.py',
@@ -59,7 +62,7 @@ jobs:
               path = Path(filename)
               text = path.read_text(encoding='utf-8')
               as_of_match = re.search(r'^AS_OF\s*=\s*"([^"]+)"', text, re.MULTILINE)
-              spec_match = re.search(r'^SPEC\s*=\s*REPOSITORY\s*/\s*"([^"]+)"', text, re.MULTILINE)
+              spec_match = re.search(r'^(?:SPEC|COMPLETENESS)\s*=\s*REPOSITORY\s*/\s*"([^"]+)"', text, re.MULTILINE)
               evidence_match = re.search(r'^EVIDENCE\s*=\s*REPOSITORY\s*/\s*"([^"]+)"', text, re.MULTILINE)
               if not (as_of_match and spec_match and evidence_match):
                   raise RuntimeError(f'cannot parse reporting constants: {filename}')
@@ -94,10 +97,12 @@ jobs:
           print(output.read_text(encoding='utf-8'))
           PY
 
+          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .github/gear-performance-expected-fixtures.json
+          git add .github/gear-performance-fixture-capture.log .github/gear-performance-expected-fixtures.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m 'chore(test): capture selected-gear reporting fixtures'
             git push origin HEAD:agent/brochure-gear-performance-value-import
           fi
+          exit "$status"
