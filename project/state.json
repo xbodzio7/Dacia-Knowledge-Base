@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Chassis Observation Import",
+  "phase": "Duster Chassis Observation Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,26 +15,26 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 891,
+    "tests": 899,
     "csv_files": 46,
-    "rows": 9148,
-    "configuration_values": 2419,
+    "rows": 9218,
+    "configuration_values": 2479,
     "configuration_import_specs": 117,
-    "configuration_value_ranges": 234,
+    "configuration_value_ranges": 244,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Chassis Observation Import",
+    "name": "Duster Chassis Observation Import",
     "status": "complete",
-    "goal": "Import exact between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for fourteen active Bigster configurations under D-016."
+    "goal": "Import exact wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for ten active Duster configurations under D-016."
   },
   "next_package": {
-    "name": "Duster Chassis Observation Import",
+    "name": "Jogger Chassis Observation Import",
     "status": "planned",
-    "goal": "Import wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for the active Duster configurations under D-016."
+    "goal": "Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

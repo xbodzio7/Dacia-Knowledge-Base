@@ -117,7 +117,7 @@ def verify_report(payload: dict[str, Any]) -> None:
         "jogger_chassis_candidate_and_modeling": "model_defined_import_pending",
         "sandero_chassis_and_maximum_mass_modeling": "imported",
         "stepway_chassis_and_maximum_mass_modeling": "imported",
-        "duster_chassis_mass_and_payload_modeling": "model_defined_import_pending",
+        "duster_chassis_mass_and_payload_modeling": "imported",
     }
     ensure(
         {str(item.get("classification_code", "")): str(item.get("status", "")) for item in resolutions}
@@ -134,7 +134,7 @@ def verify_report(payload: dict[str, Any]) -> None:
 
     next_package = payload.get("next_package")
     ensure(isinstance(next_package, dict), "next package is missing")
-    ensure(next_package.get("name") == "Duster Chassis Observation Import", "next package differs")
+    ensure(next_package.get("name") == "Jogger Chassis Observation Import", "next package differs")
 
 
 def verify_attributes(payload: dict[str, Any]) -> None:
@@ -173,26 +173,35 @@ def verify_model_only_boundary() -> None:
     new_codes = set(EXPECTED_NEW_ATTRIBUTES)
     scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("attribute_code") in new_codes]
     ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row.get("attribute_code") in new_codes]
-    ensure(len(scalar) == 46, "expected forty-six modeled scalar chassis observations")
+    ensure(len(scalar) == 66, "expected sixty-six modeled scalar chassis observations")
     ensure(
         {row.get("attribute_code") for row in scalar}
-        == {"turning_circle_between_kerbs", "maximum_kerb_weight"},
+        == {
+            "turning_circle_between_kerbs",
+            "turning_circle_wheel_track",
+            "maximum_kerb_weight",
+        },
         "modeled scalar attribute set differs",
     )
     ensure(
         {row.get("source_code") for row in scalar}
         == {
             "src_pl_bigster_brochure_20251210",
+            "src_pl_duster_mini_brochure_20251020",
             "src_pl_sandero_brochure_20260202",
             "src_pl_sandero_stepway_brochure_20260202",
         },
         "modeled scalar source set differs",
     )
     ensure(
-        {row.get("observation_date") for row in scalar} == {"2025-12-10", "2026-02-02"},
+        {row.get("observation_date") for row in scalar}
+        == {"2025-10-20", "2025-12-10", "2026-02-02"},
         "modeled scalar dates differ",
     )
-    ensure(ranges == [], "payload and wheel-track follow-up ranges are not imported yet")
+    ensure(len(ranges) == 10, "expected ten modeled payload ranges")
+    ensure({row.get("attribute_code") for row in ranges} == {"payload"}, "modeled range attribute differs")
+    ensure({row.get("source_code") for row in ranges} == {"src_pl_duster_mini_brochure_20251020"}, "modeled range source differs")
+    ensure({row.get("observation_date") for row in ranges} == {"2025-10-20"}, "modeled range date differs")
 
 
 def verify() -> None:

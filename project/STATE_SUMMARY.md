@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Chassis Observation Import**
+**Duster Chassis Observation Import**
 
 ## Reference delivery
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 891
+- Tests: 899
 - Master CSV files: 46
-- Master rows: 9148
-- Configuration values: 2419
+- Master rows: 9218
+- Configuration values: 2479
 - Configuration import specifications: 117
-- Configuration value ranges: 234
+- Configuration value ranges: 244
 - Configuration range import specifications: 20
 - Availability records: 4754
 - Canonical attributes: 385
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Chassis Observation Import** — `complete`
+**Duster Chassis Observation Import** — `complete`
 
-Import exact between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for fourteen active Bigster configurations under D-016.
+Import exact wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for ten active Duster configurations under D-016.
 
 ## Next package
 
-**Duster Chassis Observation Import** — `planned`
+**Jogger Chassis Observation Import** — `planned`
 
-Import wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for the active Duster configurations under D-016.
+Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict.
 
 ## Autonomy
 

@@ -171,7 +171,7 @@ class SanderoStepwayChassisTests(unittest.TestCase):
         statuses = {item["classification_code"]: item["status"] for item in model["source_resolutions"]}
         self.assertEqual(statuses["sandero_chassis_and_maximum_mass_modeling"], "imported")
         self.assertEqual(statuses["stepway_chassis_and_maximum_mass_modeling"], "imported")
-        self.assertEqual(model["next_package"]["name"], "Duster Chassis Observation Import")
+        self.assertEqual(model["next_package"]["name"], "Jogger Chassis Observation Import")
 
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         self.assertEqual(state["current_package"]["status"], "complete")

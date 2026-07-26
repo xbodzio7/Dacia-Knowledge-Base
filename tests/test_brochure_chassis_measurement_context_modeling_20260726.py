@@ -95,13 +95,8 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
         self.assertEqual(statuses["bigster_chassis_measurement_modeling"], "imported")
         self.assertEqual(statuses["sandero_chassis_and_maximum_mass_modeling"], "imported")
         self.assertEqual(statuses["stepway_chassis_and_maximum_mass_modeling"], "imported")
-        self.assertEqual(
-            {status for code, status in statuses.items() if code in {
-                "jogger_chassis_candidate_and_modeling",
-                "duster_chassis_mass_and_payload_modeling",
-            }},
-            {"model_defined_import_pending"},
-        )
+        self.assertEqual(statuses["duster_chassis_mass_and_payload_modeling"], "imported")
+        self.assertEqual(statuses["jogger_chassis_candidate_and_modeling"], "model_defined_import_pending")
 
     def test_jogger_ambiguous_mass_labels_remain_blocked(self) -> None:
         jogger = next(
@@ -115,13 +110,18 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
     def test_follow_up_imports_respect_modeled_attributes(self) -> None:
         scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] in NEW_CODES]
         ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row["attribute_code"] in NEW_CODES]
-        self.assertEqual(len(scalar), 46)
+        self.assertEqual(len(scalar), 66)
         self.assertEqual(
             {row["attribute_code"] for row in scalar},
-            {"turning_circle_between_kerbs", "maximum_kerb_weight"},
+            {"turning_circle_between_kerbs", "turning_circle_wheel_track", "maximum_kerb_weight"},
         )
-        self.assertEqual({row["observation_date"] for row in scalar}, {"2025-12-10", "2026-02-02"})
-        self.assertEqual(ranges, [])
+        self.assertEqual(
+            {row["observation_date"] for row in scalar},
+            {"2025-10-20", "2025-12-10", "2026-02-02"},
+        )
+        self.assertEqual(len(ranges), 10)
+        self.assertEqual({row["attribute_code"] for row in ranges}, {"payload"})
+        self.assertEqual({row["observation_date"] for row in ranges}, {"2025-10-20"})
 
     def test_verifier_and_project_state_are_complete(self) -> None:
         completed = subprocess.run(
