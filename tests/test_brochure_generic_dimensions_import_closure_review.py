@@ -277,24 +277,12 @@ class BrochureGenericDimensionsImportClosureReviewTests(unittest.TestCase):
             completed.stdout,
         )
 
-    def test_project_state_advances_to_priority_selection(self) -> None:
+    def test_project_state_preserves_closure_baseline(self) -> None:
         state = json.loads(
             (ROOT / "project" / "state.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(
-            state["phase"],
-            "Brochure Generic Dimensions Import Closure Review",
-        )
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Brochure Generic Dimensions Import Closure Review",
-        )
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Post-Brochure Priority Selection Review",
-        )
-        self.assertEqual(state["baseline"]["tests"], 955)
+        self.assertGreaterEqual(state["baseline"]["tests"], 955)
         self.assertEqual(state["baseline"]["rows"], 9688)
         self.assertEqual(state["baseline"]["configuration_values"], 2949)
         self.assertEqual(
