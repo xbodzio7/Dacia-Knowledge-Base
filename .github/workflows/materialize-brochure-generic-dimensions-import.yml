@@ -14,6 +14,7 @@ on:
       - tools/import_brochure_generic_dimensions_20260726.py
       - tools/materialize_brochure_generic_dimensions_import_20260726.py
       - tools/repair_generic_dimension_import_receipts_20260726.py
+      - tools/fix_residual_payload_assignment_20260726.py
       - tests/test_brochure_generic_dimensions_import_20260726.py
 
 permissions:
@@ -45,6 +46,9 @@ jobs:
           fi
           if [ "$status" -eq 0 ]; then
             python tools/repair_generic_dimension_import_receipts_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/fix_residual_payload_assignment_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
