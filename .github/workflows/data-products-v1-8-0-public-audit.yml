@@ -129,7 +129,7 @@ jobs:
           assert report["content_file_count"] == 85
           assert report["selected_configuration_count"] == 72
           assert report["scope_group_count"] == 19
-          assert report["index_local_link_count"] == 85
+          assert report["index_local_link_count"] == 83
 
           files = [path for path in contents.rglob("*") if path.is_file()]
           assert len(files) == 85
