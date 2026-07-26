@@ -2,15 +2,15 @@
   "archive_members": 83,
   "candidate_assets": {
     "SHA256SUMS": {
-      "sha256": "cc70a2fe9543d18777382b17ec90ec80109799f0be8cbf5fe812b785747e5ddc",
+      "sha256": "fdf3f076a6e645b92fdbf0a43b50c5d67966a2b73f0cf4b7f550dc09a7f9e4a6",
       "size_bytes": 213
     },
     "dacia-knowledge-base-data-products-v1.7.0.zip": {
-      "sha256": "60ee7ba1ba0272db233869614a729640aa717567096fecdec6c5c4b0fd5090ae",
+      "sha256": "117df867f45bb33669da8971c1bf7da52f69098f559abd2d7c89b03d69093a61",
       "size_bytes": 62077663
     },
     "data-product-release-manifest.json": {
-      "sha256": "afdfb6560289e936601d153e42436668ee5e5e3590f8058423285aa1b0c0bfeb",
+      "sha256": "3a4a28aa8d75e9b70d8d2fa6f162029e7e9c3e314a84349a3f9d23d7c337a64f",
       "size_bytes": 20098
     }
   },
@@ -18,10 +18,10 @@
     "asset_count": 3,
     "content_file_count": 83,
     "index_local_link_count": 83,
-    "index_sha256": "113480aadf646858ad32dfa858e237cb6ba6aef9506931c3bd7fddead7f5ed31",
+    "index_sha256": "f61f51f0d6e75289daa3885534b1b4cec8041ccc89cf059a36722a02bcbf569c",
     "release_tag": "data-products-v1.7.0",
     "release_version": "1.7.0",
-    "repository_commit": "e573c524a97156267f13e9df46e0c2c2c8cbeab2",
+    "repository_commit": "113404bf18f08eb9455f49b1fa7c634b3fd40a91",
     "schema_version": 1,
     "scope_group_count": 19,
     "selected_configuration_count": 72,
@@ -36,7 +36,7 @@
     "file_count": 83,
     "pair_count": 114,
     "release_version": "1.7.0",
-    "repository_commit": "e573c524a97156267f13e9df46e0c2c2c8cbeab2",
+    "repository_commit": "113404bf18f08eb9455f49b1fa7c634b3fd40a91",
     "scope_group_count": 19,
     "selected_configuration_count": 72,
     "singleton_scope_count": 0
@@ -59,6 +59,6 @@
   "release_tag": "data-products-v1.7.0",
   "release_verify": "pass",
   "release_version": "1.7.0",
-  "source_commit": "e573c524a97156267f13e9df46e0c2c2c8cbeab2",
+  "source_commit": "113404bf18f08eb9455f49b1fa7c634b3fd40a91",
   "version": 1
 }
