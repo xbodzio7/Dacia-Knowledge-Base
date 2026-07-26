@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Brochure Cargo Value Import",
+  "phase": "Brochure Cargo Import Closure Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 803,
+    "tests": 808,
     "csv_files": 46,
     "rows": 8782,
     "configuration_values": 2118,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Brochure Cargo Value Import",
+    "name": "Brochure Cargo Import Closure Review",
     "status": "complete",
-    "goal": "Import 64 source-backed Duster boot_capacity observations for exact Eco-G 120 manual, mild hybrid 140 4x2 manual and hybrid 155 4x2 automatic configurations while preserving measurement, seat and repair-kit or spare-wheel context."
+    "goal": "Verify the complete 287-observation brochure cargo corpus, cross-model context preservation and all explicit non-import boundaries, then close the cargo-import milestone without inferred values."
   },
   "next_package": {
-    "name": "Brochure Cargo Import Closure Review",
+    "name": "Brochure Gear-Specific Performance Context Modeling",
     "status": "planned",
-    "goal": "Review all completed brochure cargo imports and explicit deferrals, verify cross-model reporting behavior and close the cargo-import milestone without projecting unresolved evidence."
+    "goal": "Define the smallest reusable representation for brochure performance observations qualified by gear number, fuel and passenger layout without importing elasticity values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
