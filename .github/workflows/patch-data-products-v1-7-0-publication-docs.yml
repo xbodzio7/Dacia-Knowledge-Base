@@ -1,0 +1,79 @@
+name: Patch Data Products v1.7.0 Publication Docs
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/patch-data-products-v1-7-0-publication-docs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out documentation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: docs/record-data-products-v1.7.0-publication
+          fetch-depth: 0
+      - name: Update public release references
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          replacements = {
+              "Najnowsze zweryfikowane publiczne wydanie `data-products-v1.6.1`":
+                  "Najnowsze zweryfikowane publiczne wydanie `data-products-v1.7.0`",
+              "--version 1.6.1": "--version 1.7.0",
+              "../dkb-data-products-v1.6.1": "../dkb-data-products-v1.7.0",
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f"README reference missing: {old}")
+              text = text.replace(old, new)
+          old_release = '''Najnowsza poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
+          '''
+          new_release = '''Poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
+
+          Najnowsze wydanie [`data-products-v1.7.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.7.0) zostało opublikowane z dokładnego commita `99e0e19b86cad6eae619f37702464e6a5a761cd8`. Obejmuje 72 aktywne konfiguracje, 19 niezależnych zakresów, 114 par i 1695 różnic w 83-elementowym archiwum JSON, Markdown, CSV, HTML i XLSX. Publiczne assety, tag, offline workspace oraz dokładny HTML zostały ponownie pobrane i niezależnie zweryfikowane. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.7.0.md`.
+          '''
+          if old_release not in text:
+              raise SystemExit("README v1.6.1 release paragraph differs")
+          readme.write_text(text.replace(old_release, new_release, 1), encoding="utf-8")
+
+          changelog = Path("CHANGELOG.md")
+          text = changelog.read_text(encoding="utf-8")
+          marker = "* Published and independently re-verified patch release `data-products-v1.6.1` from exact main commit `4b77571c788b862a6543161b9343a35f464bd7c6`, preserving selected equipment, making list search visible and hiding only incompatible or source-incomplete additions without changing catalogue data.\n"
+          addition = marker + "* Published and independently re-verified minor release `data-products-v1.7.0` from exact main commit `99e0e19b86cad6eae619f37702464e6a5a761cd8`, covering 72 active configurations, 19 independent scopes, 114 within-scope pairs, 1,695 differences and 83 deterministic archive members with verified public browser and offline workspace payloads.\n"
+          if "Published and independently re-verified minor release `data-products-v1.7.0`" not in text:
+              if marker not in text:
+                  raise SystemExit("CHANGELOG v1.6.1 marker differs")
+              changelog.write_text(text.replace(marker, addition, 1), encoding="utf-8")
+
+          roadmap = Path("project/ROADMAP.md")
+          text = roadmap.read_text(encoding="utf-8")
+          marker = "- poprawka `data-products-v1.6.1` naprawiająca widoczne wyszukiwanie wyposażenia, zachowanie zaznaczeń i kompatybilne fasety, z niezależną weryfikacją publicznych assetów oraz dokładnego HTML,\n"
+          addition = marker + "- publiczne wydanie `data-products-v1.7.0` z 72 konfiguracjami, 19 niezależnymi zakresami, 83-elementowym archiwum, dokładnym powiązaniem tagu z zielonym commitem oraz niezależnym audytem assetów, offline workspace i opublikowanego HTML,\n"
+          if "- publiczne wydanie `data-products-v1.7.0`" not in text:
+              if marker not in text:
+                  raise SystemExit("ROADMAP v1.6.1 marker differs")
+              roadmap.write_text(text.replace(marker, addition, 1), encoding="utf-8")
+          print("PASS: public v1.7.0 documentation references updated")
+          PY
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'docs(release): publish v1.7.0 references'
+            git push origin HEAD:docs/record-data-products-v1.7.0-publication
+          fi
