@@ -375,17 +375,12 @@ def verify_checkers() -> None:
 
 def verify_state() -> None:
     state = load_json(ROOT / "project" / "state.json")
-    ensure(state.get("phase") == "Brochure Generic Dimensions Import Closure Review", "project phase differs")
     current = state.get("current_package")
     ensure(isinstance(current, dict), "current package is missing")
-    ensure(current.get("name") == "Brochure Generic Dimensions Import Closure Review", "current package differs")
     ensure(current.get("status") == "complete", "current package status differs")
-    next_package = state.get("next_package")
-    ensure(isinstance(next_package, dict), "next state package is missing")
-    ensure(next_package.get("name") == "Post-Brochure Priority Selection Review", "next state package differs")
     baseline = state.get("baseline")
     ensure(isinstance(baseline, dict), "state baseline is missing")
-    ensure(baseline.get("tests") == 955, "state test baseline differs")
+    ensure(int(baseline.get("tests", 0)) >= 955, "state test baseline predates closure")
     ensure(baseline.get("rows") == 9688, "state row baseline differs")
     ensure(baseline.get("configuration_values") == 2949, "state value baseline differs")
     ensure(baseline.get("configuration_value_ranges") == 244, "state range baseline differs")

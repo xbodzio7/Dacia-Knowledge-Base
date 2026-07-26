@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Generic Dimensions Import Closure Review**
+**Post-Brochure Priority Selection Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 955
+- Tests: 963
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Generic Dimensions Import Closure Review** — `complete`
+**Post-Brochure Priority Selection Review** — `complete`
 
-Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4, WLTP, contextual cargo and excluded-diagram boundaries.
+Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries.
 
 ## Next package
 
-**Post-Brochure Priority Selection Review** — `planned`
+**Data Products v1.7.0 Release Preparation** — `planned`
 
-Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries.
+Freeze the v1.7.0 release version and notes, generate deterministic assets from a green source commit, independently verify download and offline workspace behavior, and prepare exact tag-to-commit publication evidence without changing data semantics.
 
 ## Autonomy
 

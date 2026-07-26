@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Generic Dimensions Import Closure Review",
+  "phase": "Post-Brochure Priority Selection Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 955,
+    "tests": 963,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Generic Dimensions Import Closure Review",
+    "name": "Post-Brochure Priority Selection Review",
     "status": "complete",
-    "goal": "Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4, WLTP, contextual cargo and excluded-diagram boundaries."
+    "goal": "Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries."
   },
   "next_package": {
-    "name": "Post-Brochure Priority Selection Review",
+    "name": "Data Products v1.7.0 Release Preparation",
     "status": "planned",
-    "goal": "Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries."
+    "goal": "Freeze the v1.7.0 release version and notes, generate deterministic assets from a green source commit, independently verify download and offline workspace behavior, and prepare exact tag-to-commit publication evidence without changing data semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
