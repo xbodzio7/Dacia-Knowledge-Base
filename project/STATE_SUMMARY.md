@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.7.0 Release Preparation**
+**Data Products v1.7.0 Publication**
 
 ## Reference delivery
 
-- Package: Duster Eco-G 120 Automatic Homologation Evidence
-- Pull Request: #244
-- Verified head: `f8dba789260fb65236e02e6a70c3eb187dd1aefd`
-- Quality run: #1397
+- Package: Data Products v1.7.0 Release Preparation
+- Pull Request: #275
+- Verified head: `f97e732add506400b9e47ee95e59a3caf8382daf`
+- Quality run: #1934
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.7.0 Release Preparation** — `complete`
+**Data Products v1.7.0 Publication** — `complete`
 
-Freeze the v1.7.0 release identity and publication sequence, prove deterministic generation and offline workspace verification, and preserve the diagnostic candidate as non-final evidence without creating a tag or release.
+Publish and independently re-verify immutable data-products-v1.7.0 assets from exact green main commit 99e0e19b86cad6eae619f37702464e6a5a761cd8 after the release-preparation package.
 
 ## Next package
 
-**Data Products v1.7.0 Preflight** — `planned`
+**Cross-Model Comparison View Review** — `planned`
 
-Build twice from the exact squash-merged main commit, record the final sizes and SHA-256 values of the three canonical assets, and confirm that the v1.7.0 tag and GitHub Release do not yet exist.
+Review a source-safe cross-model overview that preserves independent reporting scopes, avoids heterogeneous pair comparisons, and introduces no ranking, recommendation or inferred value.
 
 ## Autonomy
 
