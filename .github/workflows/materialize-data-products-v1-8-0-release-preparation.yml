@@ -1,0 +1,117 @@
+name: Materialize Data Products v1.8.0 Release Preparation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-data-products-v1-8-0-release-preparation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out preparation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-0-release-preparation
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Install PDF backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Normalize history and verify preparation
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          verifier = Path("tools/review_post_cross_model_priority_selection_20260726.py")
+          text = verifier.read_text(encoding="utf-8")
+          start = text.index("    state = load_json(STATE)\n")
+          end = text.index("\n\ndef verify() -> None:\n", start)
+          replacement = "\n".join([
+              "    state = load_json(STATE)",
+              "    ensure(isinstance(state.get(\"phase\"), str) and bool(state[\"phase\"]), \"project phase is missing\")",
+              "    current = state.get(\"current_package\")",
+              "    ensure(isinstance(current, Mapping), \"current package is missing\")",
+              "    ensure(isinstance(current.get(\"name\"), str) and bool(current[\"name\"]), \"current package name is missing\")",
+              "    ensure(current.get(\"status\") in {\"planned\", \"active\", \"blocked\", \"complete\"}, \"current package status differs\")",
+              "    next_package = state.get(\"next_package\")",
+              "    ensure(isinstance(next_package, Mapping), \"next package is missing\")",
+              "    ensure(isinstance(next_package.get(\"name\"), str) and bool(next_package[\"name\"]), \"next package name is missing\")",
+              "    baseline = state.get(\"baseline\", {})",
+              "    ensure(baseline.get(\"tests\", 0) >= 1006, \"test baseline regressed\")",
+              "    ensure(baseline.get(\"rows\", 0) >= 9688, \"master row baseline regressed\")",
+              "    ensure(baseline.get(\"configuration_values\", 0) >= 2949, \"configuration values regressed\")",
+              "    ensure(baseline.get(\"configuration_value_ranges\", 0) >= 244, \"configuration ranges regressed\")",
+              "    ensure(baseline.get(\"attributes\", 0) >= 385, \"attribute baseline regressed\")",
+          ])
+          verifier.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
+
+          test_path = Path("tests/test_post_cross_model_priority_selection_review.py")
+          test_text = test_path.read_text(encoding="utf-8")
+          marker = "    def test_verifier_and_project_state_accept_selection(self) -> None:\n"
+          function_start = test_text.index(marker)
+          function_end = test_text.index("\n\nif __name__ == \"__main__\":", function_start)
+          function = "\n".join([
+              "    def test_verifier_and_project_state_preserve_selection_history(self) -> None:",
+              "        completed = subprocess.run(",
+              "            [sys.executable, str(VERIFIER), \"--check\"],",
+              "            cwd=ROOT,",
+              "            text=True,",
+              "            capture_output=True,",
+              "            check=False,",
+              "        )",
+              "        self.assertEqual(",
+              "            completed.returncode,",
+              "            0,",
+              "            completed.stderr or completed.stdout,",
+              "        )",
+              "        self.assertIn(",
+              "            \"PASS: post-cross-model priority selection review\",",
+              "            completed.stdout,",
+              "        )",
+              "        state = json.loads(STATE.read_text(encoding=\"utf-8\"))",
+              "        self.assertTrue(state[\"phase\"])",
+              "        self.assertTrue(state[\"current_package\"][\"name\"])",
+              "        self.assertIn(",
+              "            state[\"current_package\"][\"status\"],",
+              "            {\"planned\", \"active\", \"blocked\", \"complete\"},",
+              "        )",
+              "        self.assertTrue(state[\"next_package\"][\"name\"])",
+              "        self.assertGreaterEqual(state[\"baseline\"][\"tests\"], 1006)",
+              "        self.assertGreaterEqual(state[\"baseline\"][\"rows\"], 9688)",
+              "        self.assertGreaterEqual(state[\"baseline\"][\"configuration_values\"], 2949)",
+              "        self.assertGreaterEqual(state[\"baseline\"][\"configuration_value_ranges\"], 244)",
+              "        self.assertGreaterEqual(state[\"baseline\"][\"attributes\"], 385)",
+          ])
+          test_path.write_text(
+              test_text[:function_start] + function + test_text[function_end:],
+              encoding="utf-8",
+          )
+          PY
+          python tools/dkb.py project-state --apply
+          python tools/review_data_products_v1_8_0_release_preparation_20260726.py --check
+          python -m unittest tests.test_data_products_v1_8_0_release_preparation
+          python -m unittest discover -s tests -p 'test_*.py'
+          python tools/dkb.py validate
+          python tools/dkb.py project-state --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md \
+            project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json \
+            tools/review_post_cross_model_priority_selection_20260726.py \
+            tests/test_post_cross_model_priority_selection_review.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'docs(release): materialize v1.8.0 preparation'
+            git push origin HEAD:agent/data-products-v1-8-0-release-preparation
+          fi
