@@ -68,6 +68,17 @@ The release pipeline continues to record `cross_scope_pairs_generated`, `ranking
 - `data-product-release-manifest.json`;
 - `SHA256SUMS`.
 
+## Publication
+
+The complete sequence was executed successfully from squash-merged `main` commit `99e0e19b86cad6eae619f37702464e6a5a761cd8`.
+
+- preflight PR `#276` established byte-identical assets and final hashes without publishing;
+- publication PR `#277` created the immutable tag and GitHub Release ID `360090447` after requiring the exact preflight identity;
+- audit PR `#278` downloaded the public assets again, verified the tag target, hashes, 83-member archive, public offline workspace and exact browser payload;
+- final audit result: `PASS`.
+
+The permanent identity is recorded in `project/releases/data-products-v1.7.0.md` and `project/releases/data-products-v1.7.0-publication-audit.json`.
+
 ## Next package
 
-`Data Products v1.7.0 Preflight` — freeze the exact squash-merged source commit and deterministic identities of the three assets without creating a tag or release.
+`Cross-Model Comparison View Review` — evaluate a source-safe overview across model families without comparing heterogeneous independent scopes, generating rankings or inferring missing values.
