@@ -1,0 +1,255 @@
+name: Audit Public Data Products v1.8.0
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/data-products-v1-8-0-public-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: becd218228e3f4f0cdd312b0ed836ade487422b1
+      VERSION: 1.8.0
+      TAG: data-products-v1.8.0
+      ARCHIVE: dacia-knowledge-base-data-products-v1.8.0.zip
+      EXPECTED_RELEASE_ID: '360115681'
+      EXPECTED_ARCHIVE_SIZE: '62141187'
+      EXPECTED_ARCHIVE_SHA256: 2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9
+      EXPECTED_MANIFEST_SIZE: '20606'
+      EXPECTED_MANIFEST_SHA256: af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b
+      EXPECTED_CHECKSUMS_SIZE: '213'
+      EXPECTED_CHECKSUMS_SHA256: 8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-0-public-audit
+          fetch-depth: 0
+      - name: Check out exact source tools
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: becd218228e3f4f0cdd312b0ed836ade487422b1
+          path: source
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Download and verify public workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          workspace="$RUNNER_TEMP/public-v1.8.0-workspace"
+          python source/tools/dkb.py data-product-release-download \
+            --version "$VERSION" \
+            --output-directory "$workspace"
+          python source/tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "$workspace" --json \
+            > "$RUNNER_TEMP/public-v1.8.0-workspace-verification.json"
+          python source/tools/dkb.py data-product-release \
+            --verify \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$workspace/assets"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/releases/tags/$TAG" > "$RUNNER_TEMP/public-release.json"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/git/ref/tags/$TAG" > "$RUNNER_TEMP/public-tag-ref.json"
+      - name: Audit public content and cross-model navigation
+        shell: bash
+        run: |
+          set -euo pipefail
+          WORKSPACE="$RUNNER_TEMP/public-v1.8.0-workspace" \
+          WORKSPACE_REPORT="$RUNNER_TEMP/public-v1.8.0-workspace-verification.json" \
+          RELEASE_JSON="$RUNNER_TEMP/public-release.json" \
+          TAG_JSON="$RUNNER_TEMP/public-tag-ref.json" \
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          import posixpath
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          workspace = Path(os.environ["WORKSPACE"])
+          assets = workspace / "assets"
+          contents = workspace / "contents"
+          report = json.loads(Path(os.environ["WORKSPACE_REPORT"]).read_text(encoding="utf-8"))
+          release = json.loads(Path(os.environ["RELEASE_JSON"]).read_text(encoding="utf-8"))
+          tag = json.loads(Path(os.environ["TAG_JSON"]).read_text(encoding="utf-8"))
+          source_sha = os.environ["SOURCE_SHA"]
+
+          expected = {
+              os.environ["ARCHIVE"]: (
+                  int(os.environ["EXPECTED_ARCHIVE_SIZE"]),
+                  os.environ["EXPECTED_ARCHIVE_SHA256"],
+                  490686120,
+              ),
+              "data-product-release-manifest.json": (
+                  int(os.environ["EXPECTED_MANIFEST_SIZE"]),
+                  os.environ["EXPECTED_MANIFEST_SHA256"],
+                  490686121,
+              ),
+              "SHA256SUMS": (
+                  int(os.environ["EXPECTED_CHECKSUMS_SIZE"]),
+                  os.environ["EXPECTED_CHECKSUMS_SHA256"],
+                  490686122,
+              ),
+          }
+          assert release["id"] == int(os.environ["EXPECTED_RELEASE_ID"])
+          assert release["tag_name"] == os.environ["TAG"]
+          assert release["draft"] is False
+          assert release["prerelease"] is False
+          assert tag["object"]["type"] == "commit"
+          assert tag["object"]["sha"] == source_sha
+          assert {item["name"] for item in release["assets"]} == set(expected)
+          for asset in release["assets"]:
+              size, digest, asset_id = expected[asset["name"]]
+              assert asset["id"] == asset_id
+              assert asset["size"] == size
+              assert asset["digest"] == "sha256:" + digest
+              path = assets / asset["name"]
+              assert path.stat().st_size == size
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+
+          assert report["status"] == "verified"
+          assert report["release_version"] == "1.8.0"
+          assert report["release_tag"] == os.environ["TAG"]
+          assert report["repository_commit"] == source_sha
+          assert report["asset_count"] == 3
+          assert report["content_file_count"] == 85
+          assert report["selected_configuration_count"] == 72
+          assert report["scope_group_count"] == 19
+          assert report["index_local_link_count"] == 85
+
+          files = [path for path in contents.rglob("*") if path.is_file()]
+          assert len(files) == 85
+          view_name = "cross-model/cross-model-comparison-view.json"
+          html_name = "cross-model/cross-model-comparison-view.html"
+          view = json.loads((contents / view_name).read_text(encoding="utf-8"))
+          html = (contents / html_name).read_text(encoding="utf-8")
+          summary = view["summary"]
+          assert summary["model_family_count"] == 5
+          assert summary["reporting_scope_count"] == 19
+          assert summary["active_configuration_count"] == 72
+          assert summary["within_scope_pair_count"] == 114
+          assert summary["cross_scope_pairs_generated"] is False
+          assert summary["ranking_generated"] is False
+          assert summary["recommendations_generated"] is False
+          assert summary["inferred_values_generated"] is False
+          assert "<script" not in html.lower()
+          assert "<img" not in html.lower()
+          assert "nie podano" in html
+
+          models = {item["model_code"]: item for item in view["models"]}
+          for code in ("bigster", "duster_iii"):
+              assert models[code]["seat_summary_state"] == "not_stated"
+              assert models[code]["recorded_seat_values"] == []
+
+          def target(source: str, href: str) -> str:
+              value = posixpath.normpath(
+                  posixpath.join(posixpath.dirname(source), href)
+              )
+              assert value != ".." and not value.startswith("../")
+              return value
+
+          content_names = {
+              path.relative_to(contents).as_posix()
+              for path in files
+          }
+          comparison_paths = [
+              value
+              for scope in view["scopes"]
+              for value in scope["comparison_paths"].values()
+          ]
+          assert len(comparison_paths) == 76
+          navigation_paths = [
+              view["navigation"]["shortlist_html"],
+              view["navigation"]["comparison_bundle_manifest"],
+          ]
+          for href in comparison_paths + navigation_paths:
+              assert target(view_name, href) in content_names
+
+          class Links(HTMLParser):
+              def __init__(self) -> None:
+                  super().__init__()
+                  self.hrefs: list[str] = []
+
+              def handle_starttag(self, tag_name, attrs):
+                  if tag_name.lower() == "a":
+                      href = dict(attrs).get("href")
+                      if href:
+                          self.hrefs.append(href)
+
+          parser = Links()
+          parser.feed(html)
+          local_hrefs = [
+              href
+              for href in parser.hrefs
+              if not href.startswith("#")
+              and not urlsplit(href).scheme
+              and not urlsplit(href).netloc
+          ]
+          assert len(local_hrefs) == 57
+          for href in local_hrefs:
+              assert target(html_name, href) in content_names
+
+          audit = {
+              "version": 1,
+              "kind": "data_products_v1_8_0_public_audit",
+              "status": "PASS",
+              "release_id": release["id"],
+              "release_tag": release["tag_name"],
+              "published_at": release["published_at"],
+              "source_commit": source_sha,
+              "workflow_run": int(os.environ["GITHUB_RUN_ID"]),
+              "asset_count": 3,
+              "content_file_count": report["content_file_count"],
+              "workspace_index_local_link_count": report["index_local_link_count"],
+              "workspace_index_sha256": report["index_sha256"],
+              "selected_configuration_count": report["selected_configuration_count"],
+              "scope_group_count": report["scope_group_count"],
+              "within_scope_pair_count": summary["within_scope_pair_count"],
+              "cross_model": {
+                  "model_family_count": summary["model_family_count"],
+                  "reporting_scope_count": summary["reporting_scope_count"],
+                  "active_configuration_count": summary["active_configuration_count"],
+                  "comparison_path_count": len(comparison_paths),
+                  "navigation_path_count": len(navigation_paths),
+                  "html_local_file_link_count": len(local_hrefs),
+                  "unknown_seat_models": ["bigster", "duster_iii"],
+                  "unknown_state": "not_stated",
+              },
+              "semantic_boundaries": {
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+              },
+              "verification": "PASS",
+          }
+          output = Path(".github/data-products-v1.8.0-public-audit.json")
+          output.write_text(
+              json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(audit, ensure_ascii=False, indent=2))
+          PY
+      - name: Record independent audit receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/data-products-v1.8.0-public-audit.json
+          git commit -m 'ci(release): record v1.8.0 public audit'
+          git push origin HEAD:agent/data-products-v1-8-0-public-audit
