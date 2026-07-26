@@ -13,6 +13,7 @@ on:
       - data/imports/brochure_technical_values/duster-chassis-20251020.json
       - tools/import_duster_chassis_20260726.py
       - tools/materialize_duster_chassis_20260726.py
+      - tools/repair_duster_chassis_import_scope_20260726.py
       - tests/test_duster_chassis_20260726.py
 
 permissions:
@@ -38,7 +39,10 @@ jobs:
           log=.github/duster-chassis-materialization.log
           : > "$log"
           status=0
-          python tools/import_duster_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
+          python tools/repair_duster_chassis_import_scope_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/import_duster_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/materialize_duster_chassis_20260726.py >> "$log" 2>&1 || status=$?
           fi
