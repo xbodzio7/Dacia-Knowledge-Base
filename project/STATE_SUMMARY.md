@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero and Stepway Chassis Observation Import**
+**Bigster Chassis Observation Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 883
+- Tests: 891
 - Master CSV files: 46
-- Master rows: 9064
-- Configuration values: 2335
+- Master rows: 9148
+- Configuration values: 2419
 - Configuration import specifications: 117
 - Configuration value ranges: 234
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero and Stepway Chassis Observation Import** — `complete`
+**Bigster Chassis Observation Import** — `complete`
 
-Import exact between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for nine active Sandero and Sandero Stepway configurations under D-016.
+Import exact between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for fourteen active Bigster configurations under D-016.
 
 ## Next package
 
-**Bigster Chassis Observation Import** — `planned`
+**Duster Chassis Observation Import** — `planned`
 
-Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for the active Bigster configurations under D-016.
+Import wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for the active Duster configurations under D-016.
 
 ## Autonomy
 
