@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.8.0` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.8.1` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.8.0 \
-  --output-directory ../dkb-data-products-v1.8.0
+  --version 1.8.1 \
+  --output-directory ../dkb-data-products-v1.8.1
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.8.0
+  --workspace-directory ../dkb-data-products-v1.8.1
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -973,7 +973,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1046 testów, 46 pliki CSV, 9688 rekordów
+Zweryfikowany model obejmuje 1054 testów, 46 pliki CSV, 9688 rekordów
 danych, 51 relacje między tabelami, 2949 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 4754 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

@@ -199,7 +199,10 @@ def verify_repository() -> None:
     regression = load_json(REGRESSION)
     ensure(regression.get("status") == "complete", "regression package is not complete")
     ensure(PUBLIC_RELEASE.is_file(), "v1.8.0 publication record is missing")
-    ensure(not TARGET_RELEASE.exists(), "v1.8.1 publication record already exists")
+    if TARGET_RELEASE.exists():
+        target_text = TARGET_RELEASE.read_text(encoding="utf-8")
+        ensure("Data Products v1.8.1 Publication" in target_text, "v1.8.1 publication record differs")
+        ensure("Release ID: `360138130`" in target_text, "v1.8.1 release ID differs")
     public_text = PUBLIC_RELEASE.read_text(encoding="utf-8")
     ensure("Release ID: `360115681`" in public_text, "v1.8.0 release ID differs")
     ensure("85 deterministic archive members" in public_text, "v1.8.0 archive count differs")

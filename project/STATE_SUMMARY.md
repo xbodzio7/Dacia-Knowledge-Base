@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Data Products v1.8.1 Preflight**
+**Data Products v1.8.1 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.8.1 Release Preparation
-- Pull Request: #290
-- Verified head: `0b7009fd1950693e347638a6b96756aeefb43b8a`
-- Quality run: #2049
+- Package: Data Products v1.8.1 Preflight
+- Pull Request: #291
+- Verified head: `7c692d89bd17810e7ca379ea20f33fc4fdd84a03`
+- Quality run: #2055
 
 ## Verified baseline
 
-- Tests: 1046
+- Tests: 1054
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.8.1 Preflight** — `complete`
+**Data Products v1.8.1 Publication** — `complete`
 
-Prove deterministic v1.8.1 assets from the exact preparation commit, verify the real Chromium behavior and record final identities without publishing.
+Record the immutable data-products-v1.8.1 tag, exact source commit, three public assets, restored equipment-filter behavior and independent public workspace audit after verified preflight and publication.
 
 ## Next package
 
-**Data Products v1.8.1 Publication** — `planned`
+**Cross-Model Navigation Usability Review** — `planned`
 
-Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit.
+Resume the deferred review of consumer discoverability and navigation for the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package.
 
 ## Autonomy
 

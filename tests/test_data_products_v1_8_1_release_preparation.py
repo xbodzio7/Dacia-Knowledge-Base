@@ -123,7 +123,10 @@ class DataProductsV181ReleasePreparationTests(unittest.TestCase):
         self.assertFalse(publication["release_created"])
         self.assertIsNone(publication["final_source_commit"])
         self.assertIsNone(publication["final_asset_identity"])
-        self.assertFalse(TARGET_RELEASE.exists())
+        if TARGET_RELEASE.exists():
+            target = TARGET_RELEASE.read_text(encoding="utf-8")
+            self.assertIn("Data Products v1.8.1 Publication", target)
+            self.assertIn("Release ID: `360138130`", target)
         self.assertEqual(
             self.report["next_package"]["name"],
             "Data Products v1.8.1 Preflight",
