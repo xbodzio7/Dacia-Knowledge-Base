@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Brochure Hybrid Performance Completion**
+**Brochure Chassis Measurement Context Modeling**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 867
+- Tests: 875
 - Master CSV files: 46
-- Master rows: 9015
+- Master rows: 9019
 - Configuration values: 2290
 - Configuration import specifications: 117
 - Configuration value ranges: 234
 - Configuration range import specifications: 20
 - Availability records: 4754
-- Canonical attributes: 381
+- Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Brochure Hybrid Performance Completion** — `complete`
+**Brochure Chassis Measurement Context Modeling** — `complete`
 
-Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence.
+Define explicit turning-circle measurement bases, maximum kerb mass and scalar-or-range payload semantics while reusing existing source-text chassis specification attributes.
 
 ## Next package
 
-**Brochure Chassis Measurement Context Modeling** — `planned`
+**Sandero and Stepway Chassis Observation Import** — `planned`
 
-Model explicit measurement and specification context for turning circle, maximum kerb mass, payload and compound tyre, brake and suspension evidence before importing the remaining official brochure chassis observations.
+Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016.
 
 ## Autonomy
 

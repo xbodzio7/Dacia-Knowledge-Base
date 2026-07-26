@@ -168,15 +168,13 @@ class JoggerBrochureHybridPerformanceTests(unittest.TestCase):
         self.assertIn("PASS: Jogger brochure hybrid performance completion", completed.stdout)
 
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Jogger Brochure Hybrid Performance Completion")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Brochure Chassis Measurement Context Modeling")
-        self.assertEqual(state["baseline"]["tests"], 867)
-        self.assertEqual(state["baseline"]["rows"], 9015)
-        self.assertEqual(state["baseline"]["configuration_values"], 2290)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 234)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
-        self.assertEqual(state["baseline"]["configuration_range_import_specs"], 20)
+        self.assertGreaterEqual(state["baseline"]["tests"], 867)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9015)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2290)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 234)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["configuration_range_import_specs"], 20)
 
 
 if __name__ == "__main__":
