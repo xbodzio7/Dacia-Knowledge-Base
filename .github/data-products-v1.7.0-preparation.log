@@ -1,0 +1,38 @@
+source_sha=08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Versioned data product release
+------------------------------
+Version                 : 1.7.0
+Tag                     : data-products-v1.7.0
+Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Selected configurations : 72
+Independent scopes      : 19
+Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
+Manifest                : /home/runner/work/_temp/release-first/data-product-release-manifest.json
+Checksums               : /home/runner/work/_temp/release-first/SHA256SUMS
+PASS: first build
+Versioned data product release
+------------------------------
+Version                 : 1.7.0
+Tag                     : data-products-v1.7.0
+Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Selected configurations : 72
+Independent scopes      : 19
+Archive                 : /home/runner/work/_temp/release-second/dacia-knowledge-base-data-products-v1.7.0.zip
+Manifest                : /home/runner/work/_temp/release-second/data-product-release-manifest.json
+Checksums               : /home/runner/work/_temp/release-second/SHA256SUMS
+PASS: second build
+Versioned data product release
+------------------------------
+Version                 : 1.7.0
+Tag                     : data-products-v1.7.0
+Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Selected configurations : 72
+Independent scopes      : 19
+Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
+Manifest                : /home/runner/work/_temp/release-first/data-product-release-manifest.json
+Checksums               : /home/runner/work/_temp/release-first/SHA256SUMS
+PASS: release verify
+PASS: deterministic double build
+extracted to /home/runner/work/_temp/workspace
+error: workspace top-level inventory mismatch: expected=['assets', 'contents', 'index.html'], actual=['RELEASE_NOTES.md', 'comparison-bundle', 'shortlist']
+exit_status=1
