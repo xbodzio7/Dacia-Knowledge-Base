@@ -1,0 +1,111 @@
+name: Inventory Sandero Automatic Technical Import
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inventory-sandero-automatic-technical-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/sandero-ecog120-automatic-brochure-technical-import
+          fetch-depth: 0
+      - name: Build exact import inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          output=.github/sandero-automatic-technical-inventory.txt
+          python - <<'PY' > "$output"
+          from __future__ import annotations
+
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          master = root / 'data' / 'master'
+          attributes_of_interest = [
+              'engine_power', 'engine_torque', 'engine_displacement',
+              'cylinder_count', 'total_valve_count', 'emission_standard',
+              'gearbox_type', 'gear_count', 'top_speed',
+              'acceleration_0_100', 'fuel_tank_capacity',
+              'minimum_kerb_weight', 'gross_vehicle_weight',
+              'gross_train_weight', 'braked_trailer_weight',
+          ]
+          targets = {
+              'sandero_iii_expression_ecog120_automatic',
+              'sandero_iii_journey_ecog120_automatic',
+          }
+          analogues = {
+              'sandero_stepway_iii_expression_ecog120_automatic',
+              'sandero_stepway_iii_extreme_ecog120_automatic',
+          }
+
+          def rows(path: Path):
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          attributes = {row['code']: row for row in rows(master / 'attributes.csv')}
+          values = rows(master / 'configuration_attribute_values.csv')
+          configurations = {row['code']: row for row in rows(master / 'configurations.csv')}
+          sources = {row['code']: row for row in rows(master / 'sources.csv')}
+          relationships = rows(master / 'source_configurations.csv')
+
+          print('=== TARGET CONFIGURATIONS ===')
+          for code in sorted(targets):
+              print(json.dumps(configurations.get(code), ensure_ascii=False, sort_keys=True))
+          print('\n=== BROCHURE SOURCE ===')
+          print(json.dumps(sources.get('src_pl_sandero_brochure_20260202'), ensure_ascii=False, sort_keys=True))
+          print('\n=== SOURCE RELATIONSHIPS ===')
+          for row in relationships:
+              if row.get('source_code') == 'src_pl_sandero_brochure_20260202' and row.get('configuration_code') in targets:
+                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          print('\n=== ATTRIBUTE CONTRACTS ===')
+          for code in attributes_of_interest:
+              print(json.dumps(attributes.get(code), ensure_ascii=False, sort_keys=True))
+
+          print('\n=== EXISTING TARGET VALUES ===')
+          for row in values:
+              if row.get('configuration_code') in targets and row.get('attribute_code') in attributes_of_interest:
+                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          print('\n=== STEPWAY AUTOMATIC ANALOGUE VALUES ===')
+          for row in values:
+              if row.get('configuration_code') in analogues and row.get('attribute_code') in attributes_of_interest:
+                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          print('\n=== RELEVANT DECLARATIVE SPECS ===')
+          for path in sorted((root / 'data' / 'imports' / 'configuration_values').glob('*.json')):
+              payload = json.loads(path.read_text(encoding='utf-8'))
+              if payload.get('attribute_code') not in attributes_of_interest:
+                  continue
+              payload_rows = payload.get('rows', [])
+              if any(
+                  isinstance(item, dict) and item.get('configuration_code') in analogues
+                  for item in payload_rows
+              ):
+                  print(path.as_posix())
+                  print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$output"
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist Sandero automatic technical inventory'
+            git push origin HEAD:agent/sandero-ecog120-automatic-brochure-technical-import
+          fi
