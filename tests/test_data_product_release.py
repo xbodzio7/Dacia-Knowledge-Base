@@ -74,6 +74,8 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(self.manifest["repository_commit"], COMMIT_SHA)
         self.assertEqual(self.manifest["selected_configuration_count"], 72)
         self.assertEqual(self.manifest["scope_group_count"], 19)
+        self.assertEqual(self.manifest["model_family_count"], 5)
+        self.assertTrue(self.manifest["cross_model_view_generated"])
         self.assertEqual(self.manifest["comparable_scope_count"], 19)
         self.assertEqual(self.manifest["singleton_scope_count"], 0)
         self.assertFalse(self.manifest["cross_scope_pairs_generated"])
@@ -91,7 +93,7 @@ class DataProductReleaseTests(unittest.TestCase):
             names = [item.filename for item in infos]
             self.assertEqual(names, sorted(names))
             self.assertEqual(len(names), len(set(names)))
-            self.assertEqual(len(names), 83)
+            self.assertEqual(len(names), 85)
             self.assertTrue(all(not name.startswith("/") for name in names))
             self.assertTrue(all(".." not in Path(name).parts for name in names))
             self.assertTrue(all("\\" not in name for name in names))
@@ -157,6 +159,30 @@ class DataProductReleaseTests(unittest.TestCase):
             names,
         )
 
+    def test_cross_model_view_is_included_without_new_pairs(self) -> None:
+        expected = {
+            "cross-model/cross-model-comparison-view.json",
+            "cross-model/cross-model-comparison-view.html",
+        }
+        with ZipFile(self.archive_path) as archive:
+            self.assertTrue(expected.issubset(set(archive.namelist())))
+            view = json.loads(
+                archive.read(
+                    "cross-model/cross-model-comparison-view.json"
+                )
+            )
+            rendered = archive.read(
+                "cross-model/cross-model-comparison-view.html"
+            ).decode("utf-8")
+        self.assertEqual(view["summary"]["model_family_count"], 5)
+        self.assertEqual(view["summary"]["reporting_scope_count"], 19)
+        self.assertEqual(view["summary"]["active_configuration_count"], 72)
+        self.assertEqual(view["summary"]["within_scope_pair_count"], 114)
+        self.assertFalse(view["summary"]["cross_scope_pairs_generated"])
+        self.assertEqual(rendered.count('class="model-card"'), 5)
+        self.assertEqual(rendered.count('class="scope-card"'), 19)
+        self.assertNotIn("<script", rendered.lower())
+
     def test_manifest_matches_every_archive_member(self) -> None:
         records = self.manifest["files"]
         self.assertEqual(
@@ -195,6 +221,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertIn(COMMIT_SHA, notes)
         self.assertIn("Selected configurations: 72", notes)
         self.assertIn("Independent scopes: 19", notes)
+        self.assertIn("cross-model navigation view", notes)
         self.assertNotIn("workflow", notes.lower())
         self.assertNotIn("generated at", notes.lower())
 

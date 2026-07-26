@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Cross-Model Comparison View Review",
+  "phase": "Cross-Model Comparison View Foundation",
   "reference_delivery": {
-    "name": "Data Products v1.7.0 Publication",
-    "pull_request": 279,
-    "head_sha": "0e8e1e51e5a6e8071178a85752fa00eec1089c95",
-    "quality_run": 1950
+    "name": "Cross-Model Comparison View Review",
+    "pull_request": 280,
+    "head_sha": "607fbe45415fa1035570cccd1f564d2f8f87f82b",
+    "quality_run": 1970
   },
   "baseline": {
-    "tests": 979,
+    "tests": 990,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Cross-Model Comparison View Review",
+    "name": "Cross-Model Comparison View Foundation",
     "status": "complete",
-    "goal": "Select a source-safe cross-model navigation design over five model families and nineteen existing scopes while preserving the established Sandero and Sandero Stepway shared manual scope and generating no new comparison pair, ranking, recommendation or inferred value."
+    "goal": "Add deterministic JSON and standalone HTML navigation over five model families and nineteen existing scopes, integrate both products into the release and offline workspace, and preserve all comparison and non-inference boundaries."
   },
   "next_package": {
-    "name": "Cross-Model Comparison View Foundation",
+    "name": "Cross-Model Comparison View Closure Review",
     "status": "planned",
-    "goal": "Implement deterministic JSON and standalone HTML navigation over five model families and nineteen existing scopes without changing master data, schema, reporting scopes or comparison calculations."
+    "goal": "Verify the generator, unified CLI, release archive, offline workspace, existing-scope links, unknown handling and non-inference boundaries without changing master data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

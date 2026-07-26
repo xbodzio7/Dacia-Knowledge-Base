@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "data" / "reporting" / "cross_model_comparison_view_review.json"
 STATE = ROOT / "project" / "state.json"
-VERIFIER = ROOT / "tools" / "review_cross_model_comparison_view_20260726.py"
+VERIFIER = ROOT / "tools" / "review_cross_model_comparison_view_history_20260726.py"
 
 
 class CrossModelComparisonViewReviewTests(unittest.TestCase):
@@ -148,7 +148,7 @@ class CrossModelComparisonViewReviewTests(unittest.TestCase):
             "Cross-Model Comparison View Foundation",
         )
 
-    def test_verifier_and_project_state_accept_review(self) -> None:
+    def test_verifier_and_project_state_preserve_historical_review(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -162,25 +162,22 @@ class CrossModelComparisonViewReviewTests(unittest.TestCase):
             completed.stderr or completed.stdout,
         )
         self.assertIn(
-            "PASS: cross-model comparison view review",
+            "PASS: cross-model comparison view historical contract",
             completed.stdout,
         )
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Cross-Model Comparison View Review")
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Cross-Model Comparison View Review",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Cross-Model Comparison View Foundation",
-        )
-        self.assertEqual(state["baseline"]["tests"], 979)
-        self.assertEqual(state["baseline"]["rows"], 9688)
-        self.assertEqual(state["baseline"]["configuration_values"], 2949)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 979)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":

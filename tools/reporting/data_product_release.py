@@ -16,6 +16,12 @@ from reporting.configuration_shortlist import (
 )
 from reporting.configuration_shortlist_html import collect_browser_catalog
 from reporting.configuration_shortlist_selection_html import render_html
+from reporting.cross_model_comparison_view import (
+    CrossModelViewError,
+    collect_view as collect_cross_model_view,
+    render_html as render_cross_model_html,
+    render_json as render_cross_model_json,
+)
 from reporting.data_product_release_model import (
     CHECKSUMS_NAME,
     MANIFEST_NAME,
@@ -98,6 +104,42 @@ def _write_shortlist(repository: Path, payload: Path) -> dict[str, Any]:
     return report
 
 
+def _write_cross_model_view(
+    repository: Path,
+    payload: Path,
+) -> dict[str, Any]:
+    view = collect_cross_model_view(repository)
+    summary = view.get("summary")
+    if not isinstance(summary, dict):
+        raise ReleaseError("cross-model view summary is missing")
+    expected = {
+        "model_family_count": 5,
+        "reporting_scope_count": 19,
+        "active_configuration_count": 72,
+        "within_scope_pair_count": 114,
+        "cross_scope_pairs_generated": False,
+        "ranking_generated": False,
+        "recommendations_generated": False,
+        "inferred_values_generated": False,
+    }
+    for key, value in expected.items():
+        if summary.get(key) != value:
+            raise ReleaseError(
+                f"cross-model view summary differs for {key}: "
+                f"{summary.get(key)!r}"
+            )
+    directory = payload / "cross-model"
+    write_text(
+        directory / "cross-model-comparison-view.json",
+        render_cross_model_json(view),
+    )
+    write_text(
+        directory / "cross-model-comparison-view.html",
+        render_cross_model_html(view),
+    )
+    return view
+
+
 def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
     raw_results = report.get("results")
     if not isinstance(raw_results, list):
@@ -140,9 +182,10 @@ def _release_notes(
             "- Cross-scope pairs: none",
             "- Formats: " + ", ".join(PRODUCT_FORMATS),
             "",
-            "The archive contains the complete active-configuration shortlist "
-            "and one full-portfolio comparison bundle. Existing source dates, "
-            "evidence states and independent reporting scopes are preserved.",
+            "The archive contains the complete active-configuration shortlist, "
+            "one full-portfolio comparison bundle and a scope-preserving "
+            "cross-model navigation view. Existing source dates, evidence "
+            "states and independent reporting scopes are preserved.",
             "",
             "No ranking, recommendations or inferred values are generated.",
             "",
@@ -189,6 +232,8 @@ def create_release_assets(
         if bundle.get("cross_scope_pairs_generated") is not False:
             raise ReleaseError("release bundle generated cross-scope pairs")
 
+        cross_model_view = _write_cross_model_view(repository, payload)
+
         write_text(
             payload / "RELEASE_NOTES.md",
             _release_notes(
@@ -211,6 +256,10 @@ def create_release_assets(
                 "selected_configuration_count"
             ],
             "scope_group_count": bundle["scope_group_count"],
+            "model_family_count": cross_model_view["summary"][
+                "model_family_count"
+            ],
+            "cross_model_view_generated": True,
             "comparable_scope_count": bundle["comparable_scope_count"],
             "singleton_scope_count": bundle["singleton_scope_count"],
             "cross_scope_pairs_generated": False,
@@ -239,7 +288,7 @@ def create_release_assets(
             output_directory.rmdir()
         build_root.replace(output_directory)
         return manifest
-    except (ShortlistError, BundleError) as exc:
+    except (ShortlistError, BundleError, CrossModelViewError) as exc:
         shutil.rmtree(build_root, ignore_errors=True)
         raise ReleaseError(f"cannot build data product release: {exc}") from exc
     except Exception:
