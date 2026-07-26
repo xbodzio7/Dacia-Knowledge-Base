@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Generic Dimensions Semantic Mapping Review",
+  "phase": "Brochure Generic Dimensions Observation Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 939,
+    "tests": 947,
     "csv_files": 46,
-    "rows": 9306,
-    "configuration_values": 2567,
+    "rows": 9688,
+    "configuration_values": 2949,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 244,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Generic Dimensions Semantic Mapping Review",
+    "name": "Brochure Generic Dimensions Observation Import",
     "status": "complete",
-    "goal": "Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order."
+    "goal": "Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values."
   },
   "next_package": {
-    "name": "Brochure Generic Dimensions Observation Import",
+    "name": "Brochure Generic Dimensions Import Closure Review",
     "status": "planned",
-    "goal": "Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values."
+    "goal": "Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4 and excluded-diagram boundaries."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

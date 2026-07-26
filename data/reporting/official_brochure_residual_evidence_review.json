@@ -203,7 +203,25 @@
   ],
   "closure_decision": "Close eleven residual classifications as stable non-imports and two as already covered by later exact configuration evidence. Advance Sandero, Jogger and Duster generic dimension diagrams to a dedicated semantic mapping review without importing any diagram value in this package.",
   "next_package": {
-    "name": "Brochure Generic Dimensions Semantic Mapping Review",
-    "goal": "Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order."
+    "name": "Brochure Generic Dimensions Import Closure Review",
+    "goal": "Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4 and excluded-diagram boundaries."
+  },
+  "follow_up_import_receipt": {
+    "status": "imported_with_documented_deferral",
+    "package": "Brochure Generic Dimensions Observation Import",
+    "imported_on": "2026-07-26",
+    "resolved_classifications": [
+      "sandero_dimensions_and_cargo",
+      "jogger_dimensions_and_cargo"
+    ],
+    "partially_resolved_classifications": [
+      "duster_wltp_placeholders_and_dimensions"
+    ],
+    "scalar_values": 382,
+    "remaining_boundaries": [
+      "Duster 4x4 diagram values lack an exact active source-related configuration.",
+      "Duster WLTP placeholders remain no-observation evidence.",
+      "Cargo remains governed by the contextual cargo model."
+    ]
   }
 }

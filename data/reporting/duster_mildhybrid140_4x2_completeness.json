@@ -57,6 +57,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_track",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": ""
     },
@@ -66,6 +74,10 @@
     },
     {
       "attribute_code": "gross_train_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "ground_clearance",
       "fuel_type_code": ""
     },
     {
@@ -81,11 +93,35 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "payload",
       "fuel_type_code": ""
     },
     {
       "attribute_code": "rear_brake_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "roof_height_with_rails",
       "fuel_type_code": ""
     },
     {
@@ -110,6 +146,10 @@
     },
     {
       "attribute_code": "unbraked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
       "fuel_type_code": ""
     }
   ],

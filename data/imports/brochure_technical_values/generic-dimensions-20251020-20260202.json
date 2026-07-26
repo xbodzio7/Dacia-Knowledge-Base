@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "kind": "brochure_generic_dimension_observations",
+  "reviewed_on": "2026-07-26",
+  "mapping_review": "data/reporting/brochure_generic_dimensions_semantic_mapping_review.json",
+  "value_id_start": 2568,
+  "groups": [
+    {
+      "code": "sandero_model_wide",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "source_page": 20,
+      "observation_date": "2026-02-02",
+      "configurations": [
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_journey_ecog120_automatic"
+      ],
+      "observations": [
+        {"attribute_code": "overall_height", "value": 1496, "source_text": "WIDOK Z PRZODU: wysokość 1496 mm"},
+        {"attribute_code": "front_track", "value": 1533, "source_text": "WIDOK Z PRZODU: rozstaw kół przednich 1533 mm"},
+        {"attribute_code": "overall_width", "value": 1853, "source_text": "WIDOK Z PRZODU: szerokość nadwozia 1853 mm"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2012, "source_text": "WIDOK Z PRZODU: szerokość z lusterkami 2012 mm"},
+        {"attribute_code": "rear_track", "value": 1519, "source_text": "WIDOK Z TYŁU: rozstaw kół tylnych 1519 mm"},
+        {"attribute_code": "front_overhang", "value": 833, "source_text": "WIDOK Z BOKU: zwis przedni 833 mm"},
+        {"attribute_code": "wheelbase", "value": 2604, "source_text": "WIDOK Z BOKU: rozstaw osi 2604 mm"},
+        {"attribute_code": "rear_overhang", "value": 665, "source_text": "WIDOK Z BOKU: zwis tylny 665 mm"},
+        {"attribute_code": "overall_length", "value": 4102, "source_text": "WIDOK Z BOKU: długość całkowita 4102 mm"},
+        {"attribute_code": "ground_clearance", "value": 162, "source_text": "WIDOK Z BOKU: prześwit 162 mm"}
+      ]
+    },
+    {
+      "code": "jogger_model_wide",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "source_page": 22,
+      "observation_date": "2025-12-17",
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_7seat_tce110_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ],
+      "observations": [
+        {"attribute_code": "roof_height_with_rails", "value": 1689, "source_text": "WIDOK Z PRZODU wersji 5- i 7-miejscowej: wysokość do relingów 1689 mm"},
+        {"attribute_code": "overall_height", "value": 1630, "source_text": "WIDOK Z PRZODU wersji 5- i 7-miejscowej: wysokość bez relingów 1630 mm"},
+        {"attribute_code": "front_track", "value": 1520, "source_text": "WIDOK Z PRZODU wersji 5- i 7-miejscowej: rozstaw kół przednich 1520 mm"},
+        {"attribute_code": "overall_width", "value": 1853, "source_text": "WIDOK Z PRZODU wersji 5- i 7-miejscowej: szerokość nadwozia 1853 mm"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2012, "source_text": "WIDOK Z PRZODU wersji 5- i 7-miejscowej: szerokość z lusterkami 2012 mm"},
+        {"attribute_code": "rear_track", "value": 1509, "source_text": "WIDOK Z TYŁU wersji 5- i 7-miejscowej: rozstaw kół tylnych 1509 mm"},
+        {"attribute_code": "front_overhang", "value": 833, "source_text": "WIDOK Z BOKU: zwis przedni 833 mm"},
+        {"attribute_code": "wheelbase", "value": 2898, "source_text": "WIDOK Z BOKU: rozstaw osi 2898 mm"},
+        {"attribute_code": "rear_overhang", "value": 819, "source_text": "WIDOK Z BOKU: zwis tylny 819 mm"},
+        {"attribute_code": "overall_length", "value": 4550, "source_text": "WIDOK Z BOKU: długość całkowita 4550 mm"},
+        {"attribute_code": "ground_clearance", "value": 200, "source_text": "WIDOK Z BOKU: prześwit 200 mm"}
+      ]
+    },
+    {
+      "code": "duster_4x2_source_related",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "source_page": 24,
+      "observation_date": "2025-10-20",
+      "configurations": [
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual",
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic"
+      ],
+      "observations": [
+        {"attribute_code": "roof_height_with_rails", "value": 1656, "source_text": "WIDOK Z PRZODU: wysokość do relingów 1656 mm, * wersja 4x2"},
+        {"attribute_code": "front_track", "value": 1574, "source_text": "WIDOK Z PRZODU: rozstaw kół przednich 1574 mm, * wersja 4x2"},
+        {"attribute_code": "overall_width", "value": 1813, "source_text": "WIDOK Z PRZODU: szerokość nadwozia 1813 mm"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2069, "source_text": "WIDOK Z PRZODU: szerokość z lusterkami 2069 mm"},
+        {"attribute_code": "rear_track", "value": 1547, "source_text": "WIDOK Z TYŁU: rozstaw kół tylnych 1547 mm, * wersja 4x2"},
+        {"attribute_code": "ground_clearance", "value": 209, "source_text": "WIDOK Z BOKU: prześwit 209 mm, * wersja 4x2"},
+        {"attribute_code": "front_overhang", "value": 857, "source_text": "WIDOK Z BOKU: zwis przedni 857 mm"},
+        {"attribute_code": "wheelbase", "value": 2657, "source_text": "WIDOK Z BOKU: rozstaw osi 2657 mm"},
+        {"attribute_code": "rear_overhang", "value": 828, "source_text": "WIDOK Z BOKU: zwis tylny 828 mm"},
+        {"attribute_code": "overall_length", "value": 4343, "source_text": "WIDOK Z BOKU: długość całkowita 4343 mm"}
+      ]
+    }
+  ],
+  "excluded_evidence": [
+    {"code": "duster_4x4_without_exact_source_relationship", "decision": "Retain the reviewed 4x4 mapping template without creating configuration observations."},
+    {"code": "tailgate_open_heights", "decision": "Do not import Sandero 1985 mm, Jogger 2012 mm or Duster 2092/2095 mm vertical tailgate-open measurements."},
+    {"code": "interior_measurements", "decision": "Do not import interior widths, seat spacing or cargo-opening dimensions."},
+    {"code": "seatback_angles", "decision": "Do not map printed 14-degree seatback angles to approach_angle or departure_angle."},
+    {"code": "cargo_context", "decision": "Keep cargo values in the existing contextual cargo model."},
+    {"code": "later_exact_sandero_values_remain_current", "decision": "Append historical brochure observations without replacing later exact configuration observations."}
+  ]
+}

@@ -77,7 +77,15 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "front_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_track",
       "fuel_type_code": ""
     },
     {
@@ -94,6 +102,10 @@
     },
     {
       "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "ground_clearance",
       "fuel_type_code": ""
     },
     {
@@ -137,7 +149,35 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "rear_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "roof_height_with_rails",
       "fuel_type_code": ""
     },
     {
@@ -166,6 +206,10 @@
     },
     {
       "attribute_code": "turning_circle_between_kerbs",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
       "fuel_type_code": ""
     }
   ],

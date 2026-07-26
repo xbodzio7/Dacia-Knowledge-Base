@@ -109,16 +109,18 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }
-        self.assertEqual(len(selected["sandero_iii"]), 10)
-        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 2)
+        self.assertEqual(len(selected["sandero_iii"]), 50)
+        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 4)
         self.assertEqual(len(selected["sandero_stepway_iii"]), 25)
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 5)
-        self.assertEqual(selected["jogger"], [])
+        self.assertEqual(len(selected["jogger"]), 242)
+        self.assertEqual(len({row["configuration_code"] for row in selected["jogger"]}), 22)
         self.assertEqual(len(selected["bigster"]), 140)
         self.assertEqual(len({row["configuration_code"] for row in selected["bigster"]}), 14)
-        self.assertEqual(selected["duster_iii"], [])
+        self.assertEqual(len(selected["duster_iii"]), 100)
+        self.assertEqual(len({row["configuration_code"] for row in selected["duster_iii"]}), 10)
 
-    def test_no_generic_dimension_was_imported_from_brochures(self) -> None:
+    def test_only_approved_generic_dimensions_were_imported_from_brochures(self) -> None:
         brochure_sources = {
             "src_pl_sandero_brochure_20260202",
             "src_pl_sandero_stepway_brochure_20260202",
@@ -126,9 +128,30 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             "src_pl_bigster_brochure_20251210",
             "src_pl_duster_mini_brochure_20251020",
         }
-        self.assertFalse(any(
-            row["source_code"] in brochure_sources and row["attribute_code"] in CORE_DIMENSIONS
+        generic = [
+            row
             for row in self.values
+            if row["source_code"] in brochure_sources
+            and row["attribute_code"] in CORE_DIMENSIONS
+        ]
+        approved = [row for row in generic if 2568 <= int(row["id"]) <= 2949]
+        self.assertEqual(len(generic), 382)
+        self.assertEqual(len(approved), 382)
+        self.assertEqual(
+            [int(row["id"]) for row in approved],
+            list(range(2568, 2950)),
+        )
+        self.assertEqual(
+            Counter(row["source_code"] for row in approved),
+            Counter({
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            }),
+        )
+        self.assertFalse(any(
+            row["attribute_code"] in {"approach_angle", "departure_angle"}
+            for row in approved
         ))
         turning = [
             row for row in self.values

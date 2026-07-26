@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Generic Dimensions Semantic Mapping Review**
+**Brochure Generic Dimensions Observation Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 939
+- Tests: 947
 - Master CSV files: 46
-- Master rows: 9306
-- Configuration values: 2567
+- Master rows: 9688
+- Configuration values: 2949
 - Configuration import specifications: 117
 - Configuration value ranges: 244
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Generic Dimensions Semantic Mapping Review** — `complete`
+**Brochure Generic Dimensions Observation Import** — `complete`
 
-Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order.
+Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values.
 
 ## Next package
 
-**Brochure Generic Dimensions Observation Import** — `planned`
+**Brochure Generic Dimensions Import Closure Review** — `planned`
 
-Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values.
+Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4 and excluded-diagram boundaries.
 
 ## Autonomy
 

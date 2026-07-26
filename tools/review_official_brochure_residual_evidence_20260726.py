@@ -139,8 +139,16 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     )
     rules = payload.get("non_inference_contract")
     ensure(isinstance(rules, list) and len(rules) == 6, "expected six non-inference rules")
-    ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Semantic Mapping Review", "next package differs")
-
+    receipt = payload.get("follow_up_import_receipt")
+    if receipt is None:
+        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Semantic Mapping Review", "next package differs")
+    else:
+        ensure(isinstance(receipt, dict), "follow-up import receipt must be an object")
+        ensure(receipt.get("status") == "imported_with_documented_deferral", "follow-up import status differs")
+        ensure(receipt.get("scalar_values") == 382, "follow-up scalar total differs")
+        ensure(set(receipt.get("resolved_classifications", [])) == {"sandero_dimensions_and_cargo", "jogger_dimensions_and_cargo"}, "resolved follow-up classifications differ")
+        ensure(receipt.get("partially_resolved_classifications") == ["duster_wltp_placeholders_and_dimensions"], "partial follow-up classification differs")
+        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
 
 def verify_partition() -> None:
     gap = load_json(GAP_REVIEW)
@@ -171,24 +179,36 @@ def verify_active_scopes() -> None:
     ensure(counts["duster_iii"] == 27, "active Duster scope differs")
 
 
-def verify_dimension_coverage() -> None:
+def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     models = active_configuration_models()
     values = rows(MASTER / "configuration_attribute_values.csv")
-
     selected: dict[str, list[dict[str, str]]] = {model: [] for model in MODEL_CODES}
     for row in values:
         model = models.get(row.get("configuration_code", ""), "")
         if model in selected and row.get("attribute_code") in CORE_DIMENSIONS:
             selected[model].append(row)
 
-    ensure(len(selected["sandero_iii"]) == 10, "Sandero exact dimension coverage differs")
-    ensure(len({row["configuration_code"] for row in selected["sandero_iii"]}) == 2, "Sandero exact dimension configuration count differs")
-    ensure(len(selected["sandero_stepway_iii"]) == 25, "Stepway exact dimension coverage differs")
-    ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 5, "Stepway exact dimension configuration count differs")
-    ensure(selected["jogger"] == [], "Jogger dimensions unexpectedly already imported")
-    ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
-    ensure(len({row["configuration_code"] for row in selected["bigster"]}) == 14, "Bigster exact dimension configuration count differs")
-    ensure(selected["duster_iii"] == [], "Duster core dimensions unexpectedly already imported")
+    receipt = payload.get("follow_up_import_receipt")
+    if receipt is None:
+        ensure(len(selected["sandero_iii"]) == 10, "Sandero exact dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["sandero_iii"]}) == 2, "Sandero exact dimension configuration count differs")
+        ensure(len(selected["sandero_stepway_iii"]) == 25, "Stepway exact dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 5, "Stepway exact dimension configuration count differs")
+        ensure(selected["jogger"] == [], "Jogger dimensions unexpectedly already imported")
+        ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["bigster"]}) == 14, "Bigster exact dimension configuration count differs")
+        ensure(selected["duster_iii"] == [], "Duster core dimensions unexpectedly already imported")
+    else:
+        ensure(len(selected["sandero_iii"]) == 50, "post-import Sandero dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["sandero_iii"]}) == 4, "post-import Sandero configuration count differs")
+        ensure(len(selected["sandero_stepway_iii"]) == 25, "Stepway exact dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 5, "Stepway exact dimension configuration count differs")
+        ensure(len(selected["jogger"]) == 242, "post-import Jogger dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["jogger"]}) == 22, "post-import Jogger configuration count differs")
+        ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["bigster"]}) == 14, "Bigster exact dimension configuration count differs")
+        ensure(len(selected["duster_iii"]) == 100, "post-import Duster dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in selected["duster_iii"]}) == 10, "post-import Duster configuration count differs")
 
     turning = [
         row
@@ -199,8 +219,7 @@ def verify_dimension_coverage() -> None:
     ]
     ensure(len(turning) == 10, "Duster basis-qualified turning coverage differs")
 
-
-def verify_non_import_boundaries() -> None:
+def verify_non_import_boundaries(payload: Mapping[str, Any]) -> None:
     values = rows(MASTER / "configuration_attribute_values.csv")
     sources = {
         "src_pl_sandero_brochure_20260202",
@@ -209,10 +228,34 @@ def verify_non_import_boundaries() -> None:
         "src_pl_bigster_brochure_20251210",
         "src_pl_duster_mini_brochure_20251020",
     }
-    ensure(
-        not any(row.get("source_code") in sources and row.get("attribute_code") in CORE_DIMENSIONS for row in values),
-        "generic brochure dimensions were imported before semantic mapping review",
-    )
+    receipt = payload.get("follow_up_import_receipt")
+    generic = [
+        row
+        for row in values
+        if row.get("source_code") in sources and row.get("attribute_code") in CORE_DIMENSIONS
+    ]
+    if receipt is None:
+        ensure(generic == [], "generic brochure dimensions were imported before semantic mapping review")
+    else:
+        approved = [row for row in generic if 2568 <= int(row["id"]) <= 2949]
+        ensure(len(approved) == 382 and len(generic) == 382, "approved generic dimension package differs")
+        ensure([int(row["id"]) for row in approved] == list(range(2568, 2950)), "approved dimension IDs differ")
+        ensure(
+            Counter(row.get("source_code", "") for row in approved)
+            == Counter(
+                {
+                    "src_pl_sandero_brochure_20260202": 40,
+                    "src_pl_jogger_brochure_20251217": 242,
+                    "src_pl_duster_mini_brochure_20251020": 100,
+                }
+            ),
+            "approved dimension source totals differ",
+        )
+        configurations = {row["code"]: row for row in rows(MASTER / "configurations.csv")}
+        duster = [row for row in approved if row.get("source_code") == "src_pl_duster_mini_brochure_20251020"]
+        ensure(all("4x2" in configurations[row["configuration_code"]].get("powertrain_label", "") for row in duster), "Duster 4x4 dimension was imported")
+        ensure(not any(row.get("attribute_code") in {"approach_angle", "departure_angle"} for row in approved), "seatback angle was imported as an off-road angle")
+
     ensure(
         not any(
             row.get("source_code") == "src_pl_jogger_brochure_20251217"
@@ -221,7 +264,6 @@ def verify_non_import_boundaries() -> None:
         ),
         "ambiguous Jogger mass evidence was imported",
     )
-
 
 def verify_source_closure() -> None:
     completed = subprocess.run(
@@ -235,13 +277,13 @@ def verify_source_closure() -> None:
 
 
 def check() -> None:
-    verify_report(load_json(REPORT))
+    payload = load_json(REPORT)
+    verify_report(payload)
     verify_partition()
     verify_active_scopes()
-    verify_dimension_coverage()
-    verify_non_import_boundaries()
+    verify_dimension_coverage(payload)
+    verify_non_import_boundaries(payload)
     verify_source_closure()
-
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
