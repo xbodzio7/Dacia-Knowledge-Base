@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Eco-G 120 Automatic Brochure Technical Import**
+**Bigster and Duster Brochure Towing Mass Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 850
+- Tests: 858
 - Master CSV files: 46
-- Master rows: 8888
-- Configuration values: 2224
+- Master rows: 8939
+- Configuration values: 2272
 - Configuration import specifications: 117
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Eco-G 120 Automatic Brochure Technical Import** — `complete`
+**Bigster and Duster Brochure Towing Mass Import** — `complete`
 
-Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields.
+Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries.
 
 ## Next package
 
-**Bigster and Duster Brochure Towing Mass Import** — `planned`
+**Jogger Brochure Hybrid Performance Completion** — `planned`
 
-Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries.
+Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence.
 
 ## Autonomy
 

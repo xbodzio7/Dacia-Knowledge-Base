@@ -77,6 +77,10 @@
       "fuel_type_code": "petrol"
     },
     {
+      "attribute_code": "gross_train_weight",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "max_power_rpm",
       "fuel_type_code": ""
     },
@@ -90,6 +94,10 @@
     },
     {
       "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "unbraked_trailer_weight",
       "fuel_type_code": ""
     }
   ],

@@ -184,14 +184,13 @@ class SanderoEcoG120AutomaticBrochureTechnicalTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: Sandero Eco-G 120 automatic brochure technical values", completed.stdout)
 
-    def test_project_state_advances_to_towing_mass_package(self) -> None:
+    def test_project_state_preserves_automatic_sandero_baseline_after_follow_up_packages(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Sandero Eco-G 120 Automatic Brochure Technical Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Bigster and Duster Brochure Towing Mass Import")
-        self.assertEqual(state["baseline"]["configuration_values"], 2224)
-        self.assertEqual(state["baseline"]["rows"], 8888)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["tests"], 850)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2224)
+        self.assertGreaterEqual(state["baseline"]["rows"], 8888)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
 
 
 if __name__ == "__main__":
