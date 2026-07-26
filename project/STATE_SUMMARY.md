@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Chassis Observation Import**
+**Brochure Chassis Modeling Closure Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 907
+- Tests: 915
 - Master CSV files: 46
 - Master rows: 9306
 - Configuration values: 2567
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Chassis Observation Import** — `complete`
+**Brochure Chassis Modeling Closure Review** — `complete`
 
-Import exact between-kerbs turning diameter and source-text tyre and suspension observations for all twenty-two active Jogger configurations under D-016 without reinterpreting the ambiguous mass table.
+Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved.
 
 ## Next package
 
-**Brochure Chassis Modeling Closure Review** — `planned`
+**Official Brochure Technical Gap Resolution Closure Review** — `planned`
 
-Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved.
+Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals.
 
 ## Autonomy
 
