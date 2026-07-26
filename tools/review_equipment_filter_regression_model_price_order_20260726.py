@@ -248,13 +248,21 @@ def verify_repository() -> None:
         "Brak danych i status nieustalony nie spełniają filtra" in rendered,
         "unknown handling explanation is missing",
     )
+    marker = '<script id="configuration-catalog" type="application/json">'
+    start = rendered.index(marker) + len(marker)
+    end = rendered.index("</script>", start)
+    embedded_catalog = json.loads(rendered[start:end])
+    embedded_models = embedded_catalog.get("facets", {}).get("models", [])
     ensure(
-        rendered.index('data-value="sandero_iii"')
-        < rendered.index('data-value="sandero_stepway_iii"')
-        < rendered.index('data-value="jogger"')
-        < rendered.index('data-value="duster_iii"')
-        < rendered.index('data-value="bigster"'),
-        "rendered model picker order differs",
+        [item.get("code") for item in embedded_models]
+        == [
+            "sandero_iii",
+            "sandero_stepway_iii",
+            "jogger",
+            "duster_iii",
+            "bigster",
+        ],
+        "rendered catalog model order differs",
     )
 
     state = load_json(STATE)
