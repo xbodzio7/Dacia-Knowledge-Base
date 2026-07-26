@@ -1,4 +1,4 @@
-name: Materialize Gear Performance Closure
+name: Materialize Gear Performance Closure Review
 
 on:
   push:
