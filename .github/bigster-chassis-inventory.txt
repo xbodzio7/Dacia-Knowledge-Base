@@ -1,0 +1,218 @@
+=== BIGSTER PDF PAGE 20 ===
+07. DANE TECHNICZNE
+
+
+
+                                            MILD                    MILD                  HYBRID-G 150
+                                         HYBRID-G 140             HYBRID 140                  4×4                    HYBRID 155
+
+
+      SILNIKI
+                                          Benzyna / LPG /                                  Benzyna / LPG /
+                                                               Benzyna / Elektryczny                              Benzyna / Elektryczny
+Napęd                                     Elektryczny mild
+                                                                 mild hybrid 48 V
+                                                                                             Elektryczny
+                                                                                                                    full hybrid 280 V
+                                             hybrid 48 V                                   mild hybrid 48 V
+
+                                                                                         103 (140 KM) przy
+                                           103 (140 KM)            103 (140 KM)         4500 obr./min – silnik        116 (155 KM)
+Maks. moc kW CEE (KM)                       przy 5500               przy 5500             spalinowy / 113              przy 5300
+                                                                                       (150 KM) – moc łączna
+
+                                                                                            230 przy 4000
+Maks. moment obrotowy N.m                                                                                         172 (silnik spalinowy)
+                                                                                          (silnik spalinowy)
+                                           230 przy 2100          230 przy 2100                                    / 205 (elektryczny)
+CEE (m.kg)                                                                                   87 przy 1630
+                                                                                                                  przy 3000 / 0 – 1630*
+                                                                                             (elektryczny)
+
+Rodzaj wtrysku                          Wtrysk bezpośredni     Wtrysk bezpośredni       Wtrysk bezpośredni        Wtrysk bezpośredni
+
+Pojemność skokowa (cm³)                        1199                    1199                      1199                     1789
+
+                                            3 cylindry /           3 cylindry /              3 cylindry /             4 cylindry /
+Liczba cylindrów / zaworów                  12 zaworów             12 zaworów                12 zaworów               16 zaworów
+
+Norma emisji spalin                         Euro 6e-bis             Euro 6e-bis               Euro 6e-bis              Euro 6e-bis
+
+Filtr cząstek stałych(1)                                                            Tak
+
+      BATERIA
+                                          Litowo-jonowy /        Litowo-jonowy /           Litowo-jonowy /          Litowo-jonowy /
+Akumulator trakcyjny                      48 V / 0,84 kWh        48 V / 0,84 kWh           48 V / 0,84 kWh          280 V / 1,4 kWh
+
+      OSIĄGI
+Prędkość maksymalna (km/h)                      180                    180                        180                      180
+
+0–100 km/h (s)                                  10,0                    9,8                      10,4                      9,7
+
+      SKRZYNIA BIEGÓW I NAPĘD
+                                                                                             4 × 4 z tylnym
+Napęd                                           4×2                    4×2                     silnikiem                  4×2
+                                                                                             elektrycznym
+
+Typ skrzyni biegów / liczba                                                                 Automatyczna,
+                                             Manualna,              Manualna,                                        Automatyczna
+                                                                                           dwusprzęgłowa,
+przełożeń                                    6-biegowa              6-biegowa                                       Multi-mode, 4+2
+                                                                                              6-biegowa
+
+      UKŁAD KIEROWNICZY
+Układ kierowniczy                                                   Ze wspomaganiem elektrycznym
+
+Średnica zawracania
+                                                                                   10,97
+(między krawężnikami, m)
+      UKŁAD HAMULCOWY
+Przód: tarcze wentylowane /
+                                             Φ296x26                 Φ296x26                   Φ296x26                  Φ296x26
+średnica (mm):
+                                                                                                                     bęben (hamulec
+                                                                                                                  postojowy manualny):
+Tył: bęben, średnica (cale) /             bęben (hamulec postojowy manualny):
+                                                                                                                     9” / tarcza pełna
+                                           9” / tarcza pełna (hamulec postojowy                Ø280x9,6
+tarcza pełna:                                                                                                      (hamulec postojowy
+                                                  automatyczny): Φ280x9,6
+                                                                                                                     automatyczny):
+                                                                                                                         Φ280x9,6
+
+      KOŁA I OPONY
+                                                                                         225 / 60 R17 103 H XL
+                                           215/65/17 99 /         215/65/17 99 /       3PMSF / ALU 6.5 J17 5 36      215/65/17 99 /
+                                            6.5 J17 EC32           6.5 J17 EC32         225 / 55 R18 102 H XL         6.5 J17 EC32
+                                           215/60/18 98 /         215/60/18 98 /       3PMSF / ALU 7 J18 5 39        215/60/18 98 /
+Rozmiary opon                               6.5 J18 EC32           6.5 J18 EC32         205 / 55 R19 97 H XL          6.5 J18 EC32
+                                           205/55/19 97 /         205/55/19 97 /       letnie / ALU 7 J19 5 31       205/55/19 97 /
+                                             7 J19 EC32             7 J19 EC31         225 / 55 R18 102 Y XL           7 J19 EC33
+                                                                                       letnie / ALU 7 J18 5 39
+
+      ZUŻYCIE PALIWA I EMISJA CO2(2)
+Protokół homologacji                                                               WLTP(3)
+
+Tryb Eco                                                                            Tak
+
+Pojemność zbiornika (l)                LPG: 50 / Benzyna: 50       Benzyna: 50         LPG: 50 / Benzyna: 50          Benzyna: 50
+
+Emisja CO₂ w cyklu mieszanym             Benzyna: 130/132
+                                                                     122/124                 134/117 (LPG)              104/106
+(g/km)                                     LPG: 114/116
+
+Zużycie paliwa w cyklu                    Benzyna: 5,7/5,8
+                                                                      5,4/5,5                5,9/7,2 (LPG)               4,6/4,7
+mieszanym (l/100 km)                        LPG: 7,0/7,1
+
+      MASY (kg) I OBJĘTOŚCI (dm³ LUB LITRY)
+Masa własna maks.                              1478                    1439                      1515                     1487
+
+Dopuszczalna masa całkowita
+                                               3430                    3390                      3545                     2940
+zestawu
+Dopuszczalna masa całkowita
+                                               1930                    1890                      2045                     1940
+pojazdu
+Ładowność min./maks.(4)                       452/521                451/540                   462/509                  453/521
+
+Maksymalna masa przyczepy
+                                               1500                    1500                      1500                     1000
+z hamulcem
+Maksymalna masa przyczepy
+                                                740                    710                        750                      745
+bez hamulca
+Pojemność bagażnika maks.
+pod półką bagażową                                                                      444 (nie ma zestawu
+z zestawem naprawczym /                        609**                 667 / 624          naprawczego / koła              546 / 488
+z kołem zapasowym(5)                                                                       zapasowego)
+(dm³ VDA)
+Pojemność bagażnika maks.
+ze złożoną tylną kanapą
+z zestawem naprawczym /                       1877**               1937 / 1894                   1712                  1851 / 1791
+z kołem zapasowym(5)
+(dm³ VDA)
+Pojemność bagażnika maks.
+pod półką bagażową                                                                      556 (nie ma zestawu
+                                               660**                 702 / 681          naprawczego / koła              612 / 566
+z zestawem naprawczym /                                                                    zapasowego)
+z kołem zapasowym (litry)
+Pojemność bagażnika maks.
+ze złożoną tylną kanapą
+                                              1960**            1960** 2002 / 1981               1856                  1912 / 1866
+z zestawem naprawczym /
+z kołem zapasowym (litry)
+
+
+
+
+(1)
+    Silniki benzynowe z filtrem cząstek stałych (FAP): aby ograniczyć emisję cząstek, nowe silniki benzynowe z bezpośrednim
+wtryskiem paliwa wyposażone są obecnie w filtr cząstek stałych w układzie wydechowym. Filtr zatrzymuje cząstki obecne
+w spalinach, a następnie spala je poprzez automatyczną i bardzo regularną regenerację. Filtr cząstek stałych nie wymaga obsługi.
+(2)
+    Zużycie paliwa i emisje homologowane zgodnie z obowiązującymi przepisami. (3) WLTP (Worldwide harmonized Light vehicles
+Test Procedures): ten nowy protokół pozwala uzyskać wyniki znacznie bliższe tym, które występują w codziennej eksploatacji,
+niż protokół NEDC. Emisja CO₂ jest homologowana zgodnie ze standardową i uregulowaną metodą. Identyczna dla wszystkich
+producentów, umożliwia porównywanie pojazdów między sobą. (4) Podana ładowność dotyczy poziomu wyposażenia minimalnego.
+(5)
+    Zgodnie z normą ISO 3832.
+
+* Nie łączy się.
+** Koło zapasowe niedostępne w wersji mild hybrid-G 140.
+
+
+
+
+       SKONFIGURUJ I ZAMÓW
+                                                                                                                        MENU
+
+
+=== ACTIVE BIGSTER CONFIGURATIONS ===
+{"code": "bigster_essential_mildhybrid140_4x2_manual", "id": "54", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "transmission_type": "manual", "version_code": "bigster_essential"}
+{"code": "bigster_expression_mildhybrid140_4x2_manual", "id": "55", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "transmission_type": "manual", "version_code": "bigster_expression"}
+{"code": "bigster_extreme_mildhybrid140_4x2_manual", "id": "56", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "transmission_type": "manual", "version_code": "bigster_extreme"}
+{"code": "bigster_journey_mildhybrid140_4x2_manual", "id": "57", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid 140 4x2", "transmission_type": "manual", "version_code": "bigster_journey"}
+{"code": "bigster_essential_mildhybridg140_4x2_manual", "id": "58", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "transmission_type": "manual", "version_code": "bigster_essential"}
+{"code": "bigster_expression_mildhybridg140_4x2_manual", "id": "59", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "transmission_type": "manual", "version_code": "bigster_expression"}
+{"code": "bigster_extreme_mildhybridg140_4x2_manual", "id": "60", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "transmission_type": "manual", "version_code": "bigster_extreme"}
+{"code": "bigster_journey_mildhybridg140_4x2_manual", "id": "61", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "mild hybrid-G 140 4x2", "transmission_type": "manual", "version_code": "bigster_journey"}
+{"code": "bigster_expression_hybrid155_4x2_automatic", "id": "62", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "transmission_type": "automatic", "version_code": "bigster_expression"}
+{"code": "bigster_extreme_hybrid155_4x2_automatic", "id": "63", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "transmission_type": "automatic", "version_code": "bigster_extreme"}
+{"code": "bigster_journey_hybrid155_4x2_automatic", "id": "64", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid 155 4x2", "transmission_type": "automatic", "version_code": "bigster_journey"}
+{"code": "bigster_expression_hybridg150_4x4_automatic", "id": "65", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "transmission_type": "automatic", "version_code": "bigster_expression"}
+{"code": "bigster_extreme_hybridg150_4x4_automatic", "id": "66", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "transmission_type": "automatic", "version_code": "bigster_extreme"}
+{"code": "bigster_journey_hybridg150_4x4_automatic", "id": "67", "notes": "Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.", "powertrain_label": "hybrid-G 150 4x4", "transmission_type": "automatic", "version_code": "bigster_journey"}
+
+=== SOURCE RELATIONSHIPS ===
+{"configuration_code": "bigster_essential_mildhybridg140_4x2_manual", "id": "196", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_mildhybridg140_4x2_manual", "id": "197", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_mildhybridg140_4x2_manual", "id": "198", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_mildhybridg140_4x2_manual", "id": "199", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_essential_mildhybrid140_4x2_manual", "id": "200", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_mildhybrid140_4x2_manual", "id": "201", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_mildhybrid140_4x2_manual", "id": "202", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_mildhybrid140_4x2_manual", "id": "203", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_hybrid155_4x2_automatic", "id": "204", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_hybrid155_4x2_automatic", "id": "205", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_hybrid155_4x2_automatic", "id": "206", "notes": "The official Bigster brochure page-20 technical table identifies the powertrain-specific cargo column; page-21 equipment notes define the repair-kit and optional spare-wheel boundary used by this import.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_expression_hybridg150_4x4_automatic", "id": "217", "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_extreme_hybridg150_4x4_automatic", "id": "218", "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+{"configuration_code": "bigster_journey_hybridg150_4x4_automatic", "id": "219", "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_bigster_brochure_20251210"}
+
+=== CURRENT CHASSIS VALUES ===
+
+=== ATTRIBUTE CONTRACTS ===
+{"category": "Performance", "code": "turning_circle", "data_type": "decimal", "description": "Minimum turning circle diameter", "id": "112", "name": "Turning circle", "status": "active", "unit": "m"}
+{"category": "Steering", "code": "steering_type", "data_type": "string", "description": "Type of steering system (e.g. hydraulic, electric power steering)", "id": "137", "name": "Steering type", "status": "active", "unit": ""}
+{"category": "Brakes", "code": "front_brake_type", "data_type": "string", "description": "Front brake design (e.g. ventilated disc, solid disc)", "id": "140", "name": "Front brake type", "status": "active", "unit": ""}
+{"category": "Brakes", "code": "rear_brake_type", "data_type": "string", "description": "Rear brake design (e.g. disc, drum)", "id": "141", "name": "Rear brake type", "status": "active", "unit": ""}
+{"category": "Wheels", "code": "standard_tyre_specification", "data_type": "string", "description": "Complete axle-neutral standard tyre specification including nominal size, load index and speed symbol.", "id": "355", "name": "Standard tyre specification", "status": "active", "unit": ""}
+{"category": "Performance", "code": "turning_circle_between_kerbs", "data_type": "decimal", "description": "Minimum turning-circle diameter explicitly measured between kerbs; distinct from wheel-track and unspecified turning-circle observations.", "id": "389", "name": "Turning circle between kerbs", "status": "active", "unit": "m"}
+{"category": "Weights", "code": "maximum_kerb_weight", "data_type": "integer", "description": "Maximum vehicle kerb weight explicitly qualified as maximum by the source; distinct from minimum and unqualified kerb-weight observations.", "id": "391", "name": "Maximum kerb weight", "status": "active", "unit": "kg"}
+
+=== ID BOUNDARIES ===
+{"configuration_attribute_value_ranges_max_id": 234, "configuration_attribute_values_max_id": 2335, "source_configurations_max_id": 219}
+
+=== SUMMARY ===
+{"configurations": 14, "current_attributes": {}, "current_values": 0, "powertrains": {"hybrid 155 4x2": 3, "hybrid-G 150 4x4": 3, "mild hybrid 140 4x2": 4, "mild hybrid-G 140 4x2": 4}, "relationship_types": {"brochure_technical_data_for": 14}, "relationships": 14}
