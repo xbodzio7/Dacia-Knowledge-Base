@@ -133,12 +133,28 @@ class BrochureGenericDimensionsSemanticMappingReviewTests(unittest.TestCase):
         })
         self.assertEqual(self.report["attribute_contract"]["new_attributes"], 0)
         self.assertEqual(set(self.report["attribute_contract"]["codes"]), ATTRIBUTE_CODES)
-        self.assertEqual(max(int(row["id"]) for row in self.values), 2567)
+        self.assertEqual(max(int(row["id"]) for row in self.values), 2949)
         brochure_sources = set(self.sources)
-        self.assertFalse(any(
-            row["source_code"] in brochure_sources and row["attribute_code"] in ATTRIBUTE_CODES
+        approved = [
+            row
             for row in self.values
-        ))
+            if row["source_code"] in brochure_sources
+            and row["attribute_code"] in ATTRIBUTE_CODES
+            and 2568 <= int(row["id"]) <= 2949
+        ]
+        self.assertEqual(len(approved), 382)
+        self.assertEqual(
+            [int(row["id"]) for row in approved],
+            list(range(2568, 2950)),
+        )
+        self.assertEqual(
+            Counter(row["source_code"] for row in approved),
+            Counter({
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            }),
+        )
 
     def test_visual_exclusions_block_false_offroad_and_interior_mappings(self) -> None:
         excluded = {item["source_code"]: item for item in self.report["excluded_visual_values"]}
@@ -161,12 +177,12 @@ class BrochureGenericDimensionsSemanticMappingReviewTests(unittest.TestCase):
         self.assertIn("PASS: brochure generic dimensions semantic mapping review", completed.stdout)
 
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Generic Dimensions Semantic Mapping Review")
+        self.assertEqual(state["phase"], "Brochure Generic Dimensions Observation Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Brochure Generic Dimensions Observation Import")
-        self.assertEqual(state["baseline"]["tests"], 939)
-        self.assertEqual(state["baseline"]["rows"], 9306)
-        self.assertEqual(state["baseline"]["configuration_values"], 2567)
+        self.assertEqual(state["next_package"]["name"], "Brochure Generic Dimensions Import Closure Review")
+        self.assertEqual(state["baseline"]["tests"], 947)
+        self.assertEqual(state["baseline"]["rows"], 9688)
+        self.assertEqual(state["baseline"]["configuration_values"], 2949)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
         self.assertEqual(state["baseline"]["attributes"], 385)
 

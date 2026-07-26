@@ -35,7 +35,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 5)
-        self.assertEqual(scope["technical_slots"], 51)
+        self.assertEqual(scope["technical_slots"], 56)
         self.assertEqual(scope["equipment_attributes"], 69)
         self.assertEqual(scope["sources"], 5)
 
@@ -43,12 +43,12 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 255,
-                "coverage_percent": "98.43",
-                "denominator": 255,
-                "missing": 4,
+                "applicable": 280,
+                "coverage_percent": "93.21",
+                "denominator": 280,
+                "missing": 19,
                 "not_applicable": 0,
-                "present": 251,
+                "present": 261,
             },
         )
         self.assertEqual(
@@ -66,7 +66,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
                 "unknown": 0,
             },
         )
-        self.assertEqual(len(self.completeness["gaps"]["technical"]), 4)
+        self.assertEqual(len(self.completeness["gaps"]["technical"]), 19)
         self.assertEqual(len(self.completeness["gaps"]["equipment"]), 47)
 
     def test_source_coverage_preserves_partial_and_missing_sections(self) -> None:
@@ -83,23 +83,23 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(
             self.coverage["areas"],
-            {"covered": 11, "denominator": 20, "missing": 0, "partial": 9, "source_missing": 0},
+            {"covered": 10, "denominator": 20, "missing": 0, "partial": 10, "source_missing": 0},
         )
         self.assertEqual(
             self.coverage["sections"],
             {
-                "covered": 139,
+                "covered": 136,
                 "denominator": 175,
                 "missing": 7,
                 "not_applicable": 0,
-                "partial": 29,
+                "partial": 32,
                 "source_missing": 0,
             },
         )
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 251)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 261)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 298)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 5)
-        self.assertEqual(len(self.coverage["gaps"]), 51)
+        self.assertEqual(len(self.coverage["gaps"]), 66)
 
     def test_ten_pairs_are_same_transmission_and_evidence_aware(self) -> None:
         pairs = self.comparison["pairs"]
@@ -108,7 +108,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             Counter(pair["pair_type"] for pair in pairs),
             Counter({"different_version_same_transmission": 10}),
         )
-        self.assertEqual(sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 22)
+        self.assertEqual(sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 67)
         self.assertEqual(sum(pair["summary"]["equipment"]["not_comparable"] for pair in pairs), 148)
         self.assertEqual(sum(pair["summary"]["prices"]["not_comparable"] for pair in pairs), 0)
 
@@ -118,7 +118,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 690, "different": 14, "equal": 528, "not_comparable": 148},
                 "prices": {"comparisons": 10, "different": 10, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 598, "different": 152, "equal": 424, "not_comparable": 22},
+                "technical": {"comparisons": 648, "different": 152, "equal": 429, "not_comparable": 67},
                 "total_differences": 176,
             },
         )
@@ -126,7 +126,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
     def test_evidence_decisions_are_preserved_without_inference(self) -> None:
         self.assertEqual(
             self.comparison["evidence_summary"],
-            {"ambiguous": 0, "found": 0, "not_stated": 34, "out_of_scope": 17, "total": 51},
+            {"ambiguous": 0, "found": 0, "not_stated": 49, "out_of_scope": 17, "total": 66},
         )
         ranged = [
             item
