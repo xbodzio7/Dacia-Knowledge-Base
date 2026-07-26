@@ -1,9 +1,9 @@
-source_sha=18db1778807d944d5267a836142651e3daaa4c8b
+source_sha=d9e8d37f1e5bb95307ea037ed9b6907aeaabd823
 Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 18db1778807d944d5267a836142651e3daaa4c8b
+Repository commit       : d9e8d37f1e5bb95307ea037ed9b6907aeaabd823
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -14,7 +14,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 18db1778807d944d5267a836142651e3daaa4c8b
+Repository commit       : d9e8d37f1e5bb95307ea037ed9b6907aeaabd823
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-second/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -25,7 +25,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 18db1778807d944d5267a836142651e3daaa4c8b
+Repository commit       : d9e8d37f1e5bb95307ea037ed9b6907aeaabd823
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
