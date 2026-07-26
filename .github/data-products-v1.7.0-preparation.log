@@ -1,9 +1,9 @@
-source_sha=08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+source_sha=a10550cffd371460c7a8e49b6eeb2550373c5f96
 Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -14,7 +14,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-second/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -25,7 +25,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : 08e72a102648d0bb43c8b42c5735f64d02cc1fdc
+Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -33,6 +33,7 @@ Manifest                : /home/runner/work/_temp/release-first/data-product-rel
 Checksums               : /home/runner/work/_temp/release-first/SHA256SUMS
 PASS: release verify
 PASS: deterministic double build
-extracted to /home/runner/work/_temp/workspace
-error: workspace top-level inventory mismatch: expected=['assets', 'contents', 'index.html'], actual=['RELEASE_NOTES.md', 'comparison-bundle', 'shortlist']
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+ModuleNotFoundError: No module named 'reporting'
 exit_status=1
