@@ -36,7 +36,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 6)
-        self.assertEqual(scope["technical_slots"], 35)
+        self.assertEqual(scope["technical_slots"], 37)
         self.assertEqual(scope["equipment_attributes"], 53)
         self.assertEqual(scope["sources"], 1)
 
@@ -44,12 +44,12 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 210,
+                "applicable": 222,
                 "coverage_percent": "100.00",
-                "denominator": 210,
+                "denominator": 222,
                 "missing": 0,
                 "not_applicable": 0,
-                "present": 210,
+                "present": 222,
             },
         )
         self.assertEqual(
@@ -76,7 +76,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["sections"], {"covered": 162, "denominator": 162, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 210)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 222)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 318)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 6)
         self.assertEqual(self.coverage["gaps"], [])
@@ -97,9 +97,9 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
             self.comparison["summary"],
             {
                 "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
-                "technical": {"comparisons": 630, "equal": 468, "different": 72, "not_comparable": 90},
+                "technical": {"comparisons": 660, "equal": 480, "different": 90, "not_comparable": 90},
                 "equipment": {"comparisons": 795, "equal": 607, "different": 188, "not_comparable": 0},
-                "total_differences": 275,
+                "total_differences": 293,
             },
         )
 
