@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "kind": "equipment_filter_regression_model_price_order",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "user_report": {
+    "affected_public_versions": [
+      "1.6.1",
+      "1.7.0"
+    ],
+    "observed_behavior": "Equipment list filtering and equipment selection are unusable, and model choices are not ordered from the cheapest model to the most expensive model."
+  },
+  "reproduction": {
+    "source_commit": "0c447452fe6a0f46522a8c7eeb209fb8ad342fba",
+    "active_configuration_count": 72,
+    "equipment_facet_count": 110,
+    "visible_equipment_choices_before_fix": 0,
+    "browser": "Chromium",
+    "javascript_errors": 0,
+    "root_cause": "The dynamic equipment facet required every candidate configuration to have a complete non-unknown statement for an attribute. After the portfolio expanded to 72 configurations, no equipment attribute satisfied that global completeness condition, so all 110 equipment buttons were hidden."
+  },
+  "fix_contract": {
+    "equipment_visibility_rule": "Show an equipment attribute when it is source-confirmed as standard or optional in at least one currently compatible configuration and at least one other configuration is confirmed unavailable, unknown or missing the statement.",
+    "matching_rule": "A selected equipment requirement is satisfied only by a source-confirmed standard or optional state. Missing, unknown and not-available states remain exclusions and are never inferred as available.",
+    "selection_conflict_rule": "Keep conflicting selected equipment visible and selected; do not silently remove user choices when no configuration satisfies all selected requirements.",
+    "post_fix_current_snapshot": {
+      "visible_equipment_choices": 108,
+      "camera_search_visible_choices": 1,
+      "rear_view_camera_matches": 66,
+      "selection_count_after_camera_click": 1,
+      "javascript_errors": 0
+    }
+  },
+  "model_order_contract": {
+    "rule": "Order model choices by the minimum recorded current Polish catalogue gross price among active configurations, then by model name and model code.",
+    "expected_order": [
+      {
+        "model_code": "sandero_iii",
+        "model_name": "Sandero",
+        "minimum_catalog_price_pln": 68000
+      },
+      {
+        "model_code": "sandero_stepway_iii",
+        "model_name": "Sandero Stepway",
+        "minimum_catalog_price_pln": 71700
+      },
+      {
+        "model_code": "jogger",
+        "model_name": "Jogger",
+        "minimum_catalog_price_pln": 77900
+      },
+      {
+        "model_code": "duster_iii",
+        "model_name": "Duster",
+        "minimum_catalog_price_pln": 82000
+      },
+      {
+        "model_code": "bigster",
+        "model_name": "Bigster",
+        "minimum_catalog_price_pln": 101400
+      }
+    ],
+    "missing_price_rule": "Models without any recorded current catalogue price sort after all models with a recorded minimum price."
+  },
+  "immutability": {
+    "rewrite_public_1_6_1": false,
+    "rewrite_public_1_7_0": false,
+    "rewrite_public_1_8_0": false,
+    "delivery": "Publish the correction as a new patch release after the source fix is merged and independently verified."
+  },
+  "semantic_boundaries": {
+    "new_data_imports": false,
+    "new_comparison_pairs": false,
+    "ranking": false,
+    "recommendations": false,
+    "inferred_equipment_availability": false,
+    "master_data_changes": false
+  },
+  "repository_baseline": {
+    "tests": 1030,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Data Products v1.8.1 Release Preparation",
+    "goal": "Prepare and verify a patch release containing the restored equipment filtering and cheapest-to-most-expensive model ordering, without changing source-backed data or rewriting older public releases."
+  }
+}

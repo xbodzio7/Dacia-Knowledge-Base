@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.8.0 Publication",
+  "phase": "Equipment Filter Regression and Model Price Ordering",
   "reference_delivery": {
-    "name": "Data Products v1.8.0 Release Preparation",
-    "pull_request": 284,
-    "head_sha": "c6d7fab8d20b7b66e38517084060e92c9d9f8a18",
-    "quality_run": 2004
+    "name": "Data Products v1.8.0 Publication",
+    "pull_request": 288,
+    "head_sha": "dca8b9fadf0058060fa1a2be17520bc3eedf3fb7",
+    "quality_run": 2023
   },
   "baseline": {
-    "tests": 1022,
+    "tests": 1030,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.8.0 Publication",
+    "name": "Equipment Filter Regression and Model Price Ordering",
     "status": "complete",
-    "goal": "Record the immutable data-products-v1.8.0 tag, exact source commit, three public assets and independent offline workspace audit after verified preflight and publication."
+    "goal": "Restore usable equipment filtering and selection after portfolio expansion, preserve explicit missing and unknown evidence semantics, and order model choices from the lowest recorded current catalogue price to the highest."
   },
   "next_package": {
-    "name": "Cross-Model Navigation Usability Review",
+    "name": "Data Products v1.8.1 Release Preparation",
     "status": "planned",
-    "goal": "Review consumer discoverability and navigation of the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package."
+    "goal": "Prepare and verify a patch release containing the restored equipment filtering and cheapest-to-most-expensive model ordering, without changing source-backed data or rewriting older public releases."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

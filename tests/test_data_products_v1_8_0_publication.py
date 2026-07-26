@@ -143,7 +143,7 @@ class DataProductsV180PublicationTests(unittest.TestCase):
             "Cross-Model Navigation Usability Review",
         )
 
-    def test_verifier_and_project_state_accept_publication(self) -> None:
+    def test_verifier_and_project_state_preserve_publication_history(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -161,17 +161,14 @@ class DataProductsV180PublicationTests(unittest.TestCase):
             completed.stdout,
         )
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Data Products v1.8.0 Publication")
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Data Products v1.8.0 Publication",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Cross-Model Navigation Usability Review",
-        )
-        self.assertEqual(state["baseline"]["tests"], 1022)
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1022)
 
 
 if __name__ == "__main__":

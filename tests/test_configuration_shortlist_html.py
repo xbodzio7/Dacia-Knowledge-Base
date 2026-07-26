@@ -213,7 +213,7 @@ process.stdout.write(JSON.stringify(state));
         self.assertEqual(state["addable_equipment"], [])
 
     @unittest.skipUnless(shutil.which("node"), "Node.js is required")
-    def test_equipment_facets_require_complete_source_coverage_and_real_difference(self) -> None:
+    def test_equipment_facets_include_partial_coverage_without_inference(self) -> None:
         script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
         program = r"""
 const api = require(process.argv[1]);
@@ -235,7 +235,7 @@ process.stdout.write(JSON.stringify({
             check=True,
         )
         result = json.loads(completed.stdout)
-        self.assertEqual(result["facets"], ["complete_difference"])
+        self.assertEqual(result["facets"], ["complete_difference", "missing_only"])
         self.assertEqual(result["missing"]["missing"], 1)
         self.assertEqual(result["universal"]["available"], 3)
 
