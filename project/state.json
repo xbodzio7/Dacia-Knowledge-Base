@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Cargo Import Closure Review",
+  "phase": "Brochure Gear-Specific Performance Context Modeling",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 808,
+    "tests": 813,
     "csv_files": 46,
     "rows": 8782,
     "configuration_values": 2118,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Cargo Import Closure Review",
+    "name": "Brochure Gear-Specific Performance Context Modeling",
     "status": "complete",
-    "goal": "Verify the complete 287-observation brochure cargo corpus, cross-model context preservation and all explicit non-import boundaries, then close the cargo-import milestone without inferred values."
+    "goal": "Accept the smallest reusable observation-level representation for 80-120 km/h elasticity values qualified by selected gear while reusing existing fuel and exact-configuration dimensions."
   },
   "next_package": {
-    "name": "Brochure Gear-Specific Performance Context Modeling",
+    "name": "Brochure Gear-Specific Performance Schema Foundation",
     "status": "planned",
-    "goal": "Define the smallest reusable representation for brochure performance observations qualified by gear number, fuel and passenger layout without importing elasticity values."
+    "goal": "Add the optional gear_number column, semantic validation, import-spec, SQLite, data-dictionary and reporting support without importing brochure elasticity values."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
