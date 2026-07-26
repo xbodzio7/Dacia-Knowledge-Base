@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Official Brochure Residual Evidence Review**
+**Brochure Generic Dimensions Semantic Mapping Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 931
+- Tests: 939
 - Master CSV files: 46
 - Master rows: 9306
 - Configuration values: 2567
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Brochure Residual Evidence Review** — `complete`
+**Brochure Generic Dimensions Semantic Mapping Review** — `complete`
 
-Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports.
+Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order.
 
 ## Next package
 
-**Brochure Generic Dimensions Semantic Mapping Review** — `planned`
+**Brochure Generic Dimensions Observation Import** — `planned`
 
-Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order.
+Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values.
 
 ## Autonomy
 
