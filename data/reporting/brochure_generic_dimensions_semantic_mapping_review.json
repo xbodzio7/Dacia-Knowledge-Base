@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "kind": "brochure_generic_dimensions_semantic_mapping_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "method": "visual_pdf_diagram_review",
+  "source_review": "official_brochure_residual_evidence_review.json",
+  "scope": {
+    "sources": 3,
+    "source_pages": 3,
+    "active_configurations": 53,
+    "source_related_configurations": 36,
+    "import_eligible_configurations": 36
+  },
+  "sources": [
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 20,
+      "model_code": "sandero_iii",
+      "active_configurations": 4,
+      "source_related_configurations": 4,
+      "import_eligible_configurations": 4,
+      "projection_basis": "The dimension page is explicitly model-wide and the source is related to all four exact active Sandero Eco-G 120 configurations, including both manual and automatic transmissions.",
+      "mappings": [
+        {"attribute_code": "overall_height", "value": 1496, "unit": "mm", "visual_semantic": "vertical vehicle height to the roof"},
+        {"attribute_code": "front_track", "value": 1533, "unit": "mm", "visual_semantic": "front wheel-centre track"},
+        {"attribute_code": "overall_width", "value": 1853, "unit": "mm", "visual_semantic": "body width excluding exterior mirrors"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2012, "unit": "mm", "visual_semantic": "overall width across exterior mirrors"},
+        {"attribute_code": "rear_track", "value": 1519, "unit": "mm", "visual_semantic": "rear wheel-centre track"},
+        {"attribute_code": "front_overhang", "value": 833, "unit": "mm", "visual_semantic": "front end to front axle"},
+        {"attribute_code": "wheelbase", "value": 2604, "unit": "mm", "visual_semantic": "front axle to rear axle"},
+        {"attribute_code": "rear_overhang", "value": 665, "unit": "mm", "visual_semantic": "rear axle to rear end"},
+        {"attribute_code": "overall_length", "value": 4102, "unit": "mm", "visual_semantic": "front end to rear end"},
+        {"attribute_code": "ground_clearance", "value": 162, "unit": "mm", "visual_semantic": "vertical clearance beneath the vehicle"}
+      ],
+      "planned_scalar_values": 40
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 22,
+      "model_code": "jogger",
+      "active_configurations": 22,
+      "source_related_configurations": 22,
+      "import_eligible_configurations": 22,
+      "projection_basis": "The front and rear diagrams explicitly cover both five- and seven-seat versions; both side diagrams repeat the same exterior dimensions. All twenty-two exact active Jogger configurations have source relationships.",
+      "mappings": [
+        {"attribute_code": "roof_height_with_rails", "value": 1689, "unit": "mm", "visual_semantic": "vertical height to the top of the roof rails"},
+        {"attribute_code": "overall_height", "value": 1630, "unit": "mm", "visual_semantic": "vertical height to the roof excluding the rails"},
+        {"attribute_code": "front_track", "value": 1520, "unit": "mm", "visual_semantic": "front wheel-centre track"},
+        {"attribute_code": "overall_width", "value": 1853, "unit": "mm", "visual_semantic": "body width excluding exterior mirrors"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2012, "unit": "mm", "visual_semantic": "overall width across exterior mirrors"},
+        {"attribute_code": "rear_track", "value": 1509, "unit": "mm", "visual_semantic": "rear wheel-centre track"},
+        {"attribute_code": "front_overhang", "value": 833, "unit": "mm", "visual_semantic": "front end to front axle"},
+        {"attribute_code": "wheelbase", "value": 2898, "unit": "mm", "visual_semantic": "front axle to rear axle"},
+        {"attribute_code": "rear_overhang", "value": 819, "unit": "mm", "visual_semantic": "rear axle to rear end"},
+        {"attribute_code": "overall_length", "value": 4550, "unit": "mm", "visual_semantic": "front end to rear end"},
+        {"attribute_code": "ground_clearance", "value": 200, "unit": "mm", "visual_semantic": "vertical clearance beneath the vehicle"}
+      ],
+      "planned_scalar_values": 242
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 24,
+      "model_code": "duster_iii",
+      "active_configurations": 27,
+      "source_related_configurations": 10,
+      "import_eligible_configurations": 10,
+      "projection_basis": "The diagram distinguishes 4x2 values with one asterisk and 4x4 values with two asterisks. Import eligibility is restricted to the ten exact active 4x2 configurations already related to this brochure. The three active 4x4 configurations represent a different unobserved powertrain and are not broadened from the generic diagram.",
+      "eligible_4x2_mappings": [
+        {"attribute_code": "roof_height_with_rails", "value": 1656, "unit": "mm", "visual_semantic": "vertical height to the top of the roof rails, single-asterisk 4x2 value"},
+        {"attribute_code": "front_track", "value": 1574, "unit": "mm", "visual_semantic": "front wheel-centre track, single-asterisk 4x2 value"},
+        {"attribute_code": "overall_width", "value": 1813, "unit": "mm", "visual_semantic": "body width excluding exterior mirrors"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2069, "unit": "mm", "visual_semantic": "overall width across exterior mirrors"},
+        {"attribute_code": "rear_track", "value": 1547, "unit": "mm", "visual_semantic": "rear wheel-centre track, single-asterisk 4x2 value"},
+        {"attribute_code": "ground_clearance", "value": 209, "unit": "mm", "visual_semantic": "vertical clearance beneath the vehicle, single-asterisk 4x2 value"},
+        {"attribute_code": "front_overhang", "value": 857, "unit": "mm", "visual_semantic": "front end to front axle"},
+        {"attribute_code": "wheelbase", "value": 2657, "unit": "mm", "visual_semantic": "front axle to rear axle"},
+        {"attribute_code": "rear_overhang", "value": 828, "unit": "mm", "visual_semantic": "rear axle to rear end"},
+        {"attribute_code": "overall_length", "value": 4343, "unit": "mm", "visual_semantic": "front end to rear end"}
+      ],
+      "deferred_4x4_mappings": [
+        {"attribute_code": "roof_height_with_rails", "value": 1661, "unit": "mm", "visual_semantic": "vertical height to the top of the roof rails, double-asterisk 4x4 value"},
+        {"attribute_code": "front_track", "value": 1573, "unit": "mm", "visual_semantic": "front wheel-centre track, double-asterisk 4x4 value"},
+        {"attribute_code": "overall_width", "value": 1813, "unit": "mm", "visual_semantic": "body width excluding exterior mirrors"},
+        {"attribute_code": "overall_width_with_mirrors", "value": 2069, "unit": "mm", "visual_semantic": "overall width across exterior mirrors"},
+        {"attribute_code": "rear_track", "value": 1562, "unit": "mm", "visual_semantic": "rear wheel-centre track, double-asterisk 4x4 value"},
+        {"attribute_code": "ground_clearance", "value": 217, "unit": "mm", "visual_semantic": "vertical clearance beneath the vehicle, double-asterisk 4x4 value"},
+        {"attribute_code": "front_overhang", "value": 857, "unit": "mm", "visual_semantic": "front end to front axle"},
+        {"attribute_code": "wheelbase", "value": 2657, "unit": "mm", "visual_semantic": "front axle to rear axle"},
+        {"attribute_code": "rear_overhang", "value": 828, "unit": "mm", "visual_semantic": "rear axle to rear end"},
+        {"attribute_code": "overall_length", "value": 4343, "unit": "mm", "visual_semantic": "front end to rear end"}
+      ],
+      "planned_scalar_values": 100,
+      "deferred_scalar_values": 0,
+      "deferred_mapping_template_values": 10
+    }
+  ],
+  "excluded_visual_values": [
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "values": [1985, 1408, 1406, 1026, 898, 878, 14],
+      "reason": "Tailgate-open height, interior widths, cargo-opening width, seat spacing and seatback angles are outside the exterior-dimension import scope or lack a dedicated reviewed attribute."
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "values": [2012, 1408, 1410, 1243, 924, 910, 855, 14],
+      "reason": "The vertical 2012 value is tailgate-open height; remaining values are interior widths, seat spacing or seatback angles and are not shared exterior dimensions. The horizontal 2012 value remains mapped separately as width with mirrors."
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "values": [2092, 2095, 1444, 1433, 907, 894, 14],
+      "reason": "Tailgate-open heights, interior widths, seat spacing and seatback angles are excluded. The two 14-degree labels describe seatback inclination and must not populate approach_angle or departure_angle."
+    }
+  ],
+  "attribute_contract": {
+    "codes": [
+      "overall_length",
+      "overall_width",
+      "overall_width_with_mirrors",
+      "overall_height",
+      "roof_height_with_rails",
+      "wheelbase",
+      "ground_clearance",
+      "front_track",
+      "rear_track",
+      "front_overhang",
+      "rear_overhang"
+    ],
+    "data_type": "integer",
+    "unit": "mm",
+    "new_attributes": 0
+  },
+  "import_plan": {
+    "sources": 3,
+    "configurations": 36,
+    "scalar_values": 382,
+    "sandero_scalar_values": 40,
+    "jogger_scalar_values": 242,
+    "duster_4x2_scalar_values": 100,
+    "duster_4x4_scalar_values": 0,
+    "mode": "append_only_historical_observations"
+  },
+  "non_inference_contract": [
+    "Only visually identified dimension lines are mapped to attributes.",
+    "The same printed number may have different semantics in different diagram orientations and is not deduplicated by value alone.",
+    "Seatback angles are not interpreted as off-road approach or departure angles.",
+    "Tailgate-open heights and interior measurements remain excluded from this exterior-dimension package.",
+    "Duster 4x4 mappings remain a non-import template until an exact active configuration is related to the source.",
+    "Existing later exact Sandero observations remain current after historical brochure values are appended.",
+    "Cargo values remain governed by the existing contextual cargo model."
+  ],
+  "closure_decision": "Approve visual semantic mappings for Sandero, Jogger and Duster exterior dimensions using existing attributes. Authorize an append-only import of 382 historical scalar observations for four Sandero, twenty-two Jogger and ten source-related Duster 4x2 configurations. Defer every Duster 4x4 value and all excluded interior, tailgate-open, cargo and seat-angle measurements.",
+  "next_package": {
+    "name": "Brochure Generic Dimensions Observation Import",
+    "goal": "Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values."
+  }
+}
