@@ -13,6 +13,7 @@ on:
       - data/reporting/post_brochure_priority_selection_review.json
       - tools/review_post_brochure_priority_selection_20260726.py
       - tools/fix_post_brochure_priority_scope_name_20260726.py
+      - tools/repair_post_brochure_historical_state_contracts_20260726.py
       - tests/test_post_brochure_priority_selection_review.py
       - project/state.json
 
@@ -40,6 +41,9 @@ jobs:
           : > "$log"
           status=0
           python tools/fix_post_brochure_priority_scope_name_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_post_brochure_historical_state_contracts_20260726.py >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
           fi
