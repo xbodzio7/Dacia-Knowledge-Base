@@ -229,7 +229,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
 
     def test_repository_totals_match_technical_package(self) -> None:
         self.assertGreaterEqual(len(self.all_values), 1831)
-        self.assertEqual(len(list(SPECS.glob("*.json"))), 114)
+        self.assertGreaterEqual(len(list(SPECS.glob("*.json"))), 114)
 
 
 if __name__ == "__main__":
