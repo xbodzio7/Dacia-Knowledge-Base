@@ -1,0 +1,162 @@
+name: Inventory Cross-Model Comparison View
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/inventory-cross-model-comparison-view.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out review branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/cross-model-comparison-view-review
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Build exact inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          import json
+          import sys
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path.cwd()
+          sys.path.insert(0, str(root / "tools"))
+
+          from reporting.configuration_comparison_bundle import discover_scopes
+          from reporting.configuration_shortlist import ShortlistCriteria
+          from reporting.configuration_shortlist_html import collect_browser_catalog
+
+          def rows(path: Path):
+              with path.open(encoding="utf-8-sig", newline="") as handle:
+                  return list(csv.DictReader(handle))
+
+          models = {row["code"]: row for row in rows(root / "data/master/models.csv")}
+          versions = {row["code"]: row for row in rows(root / "data/master/versions.csv")}
+          configurations = {
+              row["code"]: row
+              for row in rows(root / "data/master/configurations.csv")
+              if row.get("status") == "active"
+          }
+          catalog = collect_browser_catalog(root, ShortlistCriteria())
+          catalog_index = {
+              item["configuration_code"]: item
+              for item in catalog["configurations"]
+          }
+          scopes = discover_scopes(root)
+
+          model_configs = defaultdict(list)
+          for code, configuration in configurations.items():
+              model_code = versions[configuration["version_code"]]["model_code"]
+              model_configs[model_code].append(code)
+
+          scope_records = []
+          model_scopes = defaultdict(list)
+          for scope in scopes:
+              model_codes = {
+                  versions[configurations[code]["version_code"]]["model_code"]
+                  for code in scope.configuration_codes
+              }
+              mixed_model = len(model_codes) != 1
+              model_code = next(iter(model_codes)) if not mixed_model else "mixed"
+              record = {
+                  "slug": scope.slug,
+                  "model_code": model_code,
+                  "configuration_count": len(scope.configuration_codes),
+                  "pair_count": len(scope.configuration_codes) * (len(scope.configuration_codes) - 1) // 2,
+                  "technical_slot_count": len(scope.completeness_spec.get("technical_slots", [])),
+                  "equipment_slot_count": len(scope.completeness_spec.get("equipment_slots", [])),
+                  "decision_count": len(scope.evidence_spec.get("decisions", [])),
+                  "configuration_codes": list(scope.configuration_codes),
+                  "mixed_model": mixed_model,
+              }
+              scope_records.append(record)
+              model_scopes[model_code].append(record)
+
+          model_records = []
+          for model_code in sorted(model_configs):
+              codes = sorted(model_configs[model_code])
+              items = [catalog_index[code] for code in codes]
+              recorded_prices = [
+                  int(item["catalog_price"]["amount"])
+                  for item in items
+                  if item["catalog_price"].get("state") == "recorded"
+              ]
+              seats = sorted({
+                  int(item["number_of_seats"]["value"])
+                  for item in items
+                  if item["number_of_seats"].get("state") == "recorded"
+              })
+              versions_for_model = sorted({item["version_code"] for item in items})
+              model_records.append({
+                  "model_code": model_code,
+                  "model_name": models[model_code]["name"],
+                  "generation": models[model_code]["generation"],
+                  "body_type_code": models[model_code]["body_type_code"],
+                  "segment_code": models[model_code]["segment_code"],
+                  "configuration_count": len(codes),
+                  "version_count": len(versions_for_model),
+                  "scope_count": len(model_scopes[model_code]),
+                  "pair_count": sum(scope["pair_count"] for scope in model_scopes[model_code]),
+                  "technical_slot_count_min": min(scope["technical_slot_count"] for scope in model_scopes[model_code]),
+                  "technical_slot_count_max": max(scope["technical_slot_count"] for scope in model_scopes[model_code]),
+                  "price_recorded_count": len(recorded_prices),
+                  "price_missing_count": len(codes) - len(recorded_prices),
+                  "catalog_price_min_pln": min(recorded_prices) if recorded_prices else None,
+                  "catalog_price_max_pln": max(recorded_prices) if recorded_prices else None,
+                  "seat_counts": seats,
+                  "transmissions": sorted({item["transmission_type"] for item in items}),
+                  "powertrains": sorted({item["powertrain_label"] for item in items}),
+                  "version_codes": versions_for_model,
+                  "scope_slugs": [scope["slug"] for scope in model_scopes[model_code]],
+              })
+
+          payload = {
+              "version": 1,
+              "kind": "cross_model_comparison_view_inventory",
+              "as_of": catalog["as_of"],
+              "active_configuration_count": len(configurations),
+              "model_family_count": len(model_records),
+              "scope_count": len(scope_records),
+              "pair_count": sum(record["pair_count"] for record in scope_records),
+              "technical_comparison_facet_count": len(catalog["facets"]["comparison_values"]),
+              "equipment_facet_count": len(catalog["facets"]["equipment"]),
+              "price_coverage_count": sum(record["price_recorded_count"] for record in model_records),
+              "mixed_model_scope_count": sum(record["mixed_model"] for record in scope_records),
+              "models": model_records,
+              "scopes": scope_records,
+              "current_boundaries": {
+                  "one_scope_per_configuration": len({code for scope in scopes for code in scope.configuration_codes}) == len(configurations),
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+              },
+          }
+          output = Path(".github/cross-model-comparison-view-inventory.json")
+          output.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(output.read_text(encoding="utf-8"))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/cross-model-comparison-view-inventory.json
+          git commit -m 'chore(report): persist cross-model view inventory'
+          git push origin HEAD:agent/cross-model-comparison-view-review
