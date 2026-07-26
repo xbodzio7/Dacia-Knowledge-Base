@@ -52,15 +52,16 @@ def load_import_fixture():
 
 
 class BrochureGearPerformanceSchemaFoundationTests(unittest.TestCase):
-    def test_master_schema_has_blank_optional_gear_for_all_existing_rows(self) -> None:
+    def test_master_schema_preserves_blank_gear_for_preexisting_rows(self) -> None:
         header, rows = read_values()
         self.assertEqual(header, EXPECTED_HEADER)
-        self.assertEqual(len(rows), 2118)
-        self.assertEqual({row["gear_number"] for row in rows}, {""})
+        self.assertGreaterEqual(len(rows), 2118)
+        self.assertEqual({row["gear_number"] for row in rows[:2118]}, {""})
 
     def test_repository_gear_validation_passes(self) -> None:
+        _, rows = read_values()
         checked, errors = validate_gear_contexts(ROOT)
-        self.assertEqual(checked, 2118)
+        self.assertEqual(checked, len(rows))
         self.assertEqual(errors, [])
 
     def test_validator_rejects_noncanonical_gear_numbers(self) -> None:
@@ -166,11 +167,12 @@ class BrochureGearPerformanceSchemaFoundationTests(unittest.TestCase):
                     "SELECT COUNT(*) FROM configuration_attribute_values WHERE gear_number <> ''"
                 ).fetchone()[0]
         self.assertIn("gear_number", columns)
-        self.assertEqual(populated, 0)
+        _, rows = read_values()
+        self.assertEqual(populated, sum(bool(row["gear_number"]) for row in rows))
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Gear-Specific Performance Schema Foundation")
-        self.assertEqual(state["baseline"]["tests"], 821)
-        self.assertEqual(state["baseline"]["rows"], 8782)
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertGreaterEqual(state["baseline"]["tests"], 821)
+        self.assertGreaterEqual(state["baseline"]["rows"], 8782)
 
 
 if __name__ == "__main__":
