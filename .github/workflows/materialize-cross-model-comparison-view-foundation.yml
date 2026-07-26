@@ -1,0 +1,263 @@
+name: Materialize Cross-Model Comparison View Foundation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-cross-model-comparison-view-foundation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out foundation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/cross-model-comparison-view-foundation
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Install PDF backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Integrate, synchronize and verify foundation
+        shell: bash
+        run: |
+          set +e
+          log=.github/cross-model-comparison-view-foundation.log
+          : > "$log"
+          status=0
+
+          python - >> "$log" 2>&1 <<'PY' || status=$?
+          from pathlib import Path
+
+          dkb = Path("tools/dkb.py")
+          text = dkb.read_text(encoding="utf-8")
+          command = '''    "cross-model-comparison-view": (
+              "cross_model_comparison_view.py",
+              "Generate scope-preserving model and reporting-scope navigation.",
+              "[--json FILE] [--html FILE]",
+          ),
+          '''
+          anchor = '''    "data-product-release": (
+          '''
+          if '"cross-model-comparison-view"' not in text:
+              if anchor not in text:
+                  raise SystemExit("dkb command anchor differs")
+              text = text.replace(anchor, command + anchor, 1)
+          example = '''    (
+              "python tools/dkb.py cross-model-comparison-view "
+              "--json cross-model-view.json --html cross-model-view.html",
+              "Generate offline navigation over existing comparison scopes.",
+          ),
+          '''
+          example_anchor = '''    (
+              "python tools/dkb.py data-product-release --version 1.0.0 "
+          '''
+          if "Generate offline navigation over existing comparison scopes." not in text:
+              if example_anchor not in text:
+                  raise SystemExit("dkb example anchor differs")
+              text = text.replace(example_anchor, example + example_anchor, 1)
+          dkb.write_text(text, encoding="utf-8")
+
+          release = Path("tools/reporting/data_product_release.py")
+          text = release.read_text(encoding="utf-8")
+          import_anchor = '''from reporting.configuration_shortlist_selection_html import render_html
+          '''
+          import_block = '''from reporting.configuration_shortlist_selection_html import render_html
+          from reporting.cross_model_comparison_view import (
+              CrossModelViewError,
+              collect_view as collect_cross_model_view,
+              render_html as render_cross_model_html,
+              render_json as render_cross_model_json,
+          )
+          '''
+          if "collect_cross_model_view" not in text:
+              if import_anchor not in text:
+                  raise SystemExit("release import anchor differs")
+              text = text.replace(import_anchor, import_block, 1)
+
+          helper_anchor = '''def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
+          '''
+          helper = '''def _write_cross_model_view(
+              repository: Path,
+              payload: Path,
+          ) -> dict[str, Any]:
+              view = collect_cross_model_view(repository)
+              summary = view.get("summary")
+              if not isinstance(summary, dict):
+                  raise ReleaseError("cross-model view summary is missing")
+              expected = {
+                  "model_family_count": 5,
+                  "reporting_scope_count": 19,
+                  "active_configuration_count": 72,
+                  "within_scope_pair_count": 114,
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+              }
+              for key, value in expected.items():
+                  if summary.get(key) != value:
+                      raise ReleaseError(
+                          f"cross-model view summary differs for {key}: "
+                          f"{summary.get(key)!r}"
+                      )
+              directory = payload / "cross-model"
+              write_text(
+                  directory / "cross-model-comparison-view.json",
+                  render_cross_model_json(view),
+              )
+              write_text(
+                  directory / "cross-model-comparison-view.html",
+                  render_cross_model_html(view),
+              )
+              return view
+
+
+          def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
+          '''
+          if "def _write_cross_model_view" not in text:
+              if helper_anchor not in text:
+                  raise SystemExit("release helper anchor differs")
+              text = text.replace(helper_anchor, helper, 1)
+
+          bundle_anchor = '''        if bundle.get("cross_scope_pairs_generated") is not False:
+              raise ReleaseError("release bundle generated cross-scope pairs")
+
+              write_text(
+          '''
+          bundle_replacement = '''        if bundle.get("cross_scope_pairs_generated") is not False:
+              raise ReleaseError("release bundle generated cross-scope pairs")
+
+              cross_model_view = _write_cross_model_view(repository, payload)
+
+              write_text(
+          '''
+          if "cross_model_view = _write_cross_model_view" not in text:
+              if bundle_anchor not in text:
+                  raise SystemExit("release bundle anchor differs")
+              text = text.replace(bundle_anchor, bundle_replacement, 1)
+
+          manifest_anchor = '''            "scope_group_count": bundle["scope_group_count"],
+              "comparable_scope_count": bundle["comparable_scope_count"],
+          '''
+          manifest_replacement = '''            "scope_group_count": bundle["scope_group_count"],
+              "model_family_count": cross_model_view["summary"][
+                  "model_family_count"
+              ],
+              "cross_model_view_generated": True,
+              "comparable_scope_count": bundle["comparable_scope_count"],
+          '''
+          if '"cross_model_view_generated": True' not in text:
+              if manifest_anchor not in text:
+                  raise SystemExit("release manifest anchor differs")
+              text = text.replace(manifest_anchor, manifest_replacement, 1)
+
+          except_anchor = '''    except (ShortlistError, BundleError) as exc:
+          '''
+          except_replacement = '''    except (ShortlistError, BundleError, CrossModelViewError) as exc:
+          '''
+          if except_replacement not in text:
+              if except_anchor not in text:
+                  raise SystemExit("release exception anchor differs")
+              text = text.replace(except_anchor, except_replacement, 1)
+          release.write_text(text, encoding="utf-8")
+
+          test_path = Path("tests/test_data_product_release.py")
+          text = test_path.read_text(encoding="utf-8")
+          text = text.replace(
+              "        self.assertEqual(self.manifest[\"scope_group_count\"], 19)\n",
+              "        self.assertEqual(self.manifest[\"scope_group_count\"], 19)\n"
+              "        self.assertEqual(self.manifest[\"model_family_count\"], 5)\n"
+              "        self.assertTrue(self.manifest[\"cross_model_view_generated\"])\n",
+              1,
+          ) if 'self.manifest["model_family_count"]' not in text else text
+          if "self.assertEqual(len(names), 83)" in text:
+              text = text.replace(
+                  "self.assertEqual(len(names), 83)",
+                  "self.assertEqual(len(names), 85)",
+                  1,
+              )
+          method_anchor = '''    def test_manifest_matches_every_archive_member(self) -> None:
+          '''
+          method = '''    def test_cross_model_view_is_included_without_new_pairs(self) -> None:
+              expected = {
+                  "cross-model/cross-model-comparison-view.json",
+                  "cross-model/cross-model-comparison-view.html",
+              }
+              with ZipFile(self.archive_path) as archive:
+                  self.assertTrue(expected.issubset(set(archive.namelist())))
+                  view = json.loads(
+                      archive.read(
+                          "cross-model/cross-model-comparison-view.json"
+                      )
+                  )
+                  rendered = archive.read(
+                      "cross-model/cross-model-comparison-view.html"
+                  ).decode("utf-8")
+              self.assertEqual(view["summary"]["model_family_count"], 5)
+              self.assertEqual(view["summary"]["reporting_scope_count"], 19)
+              self.assertEqual(view["summary"]["active_configuration_count"], 72)
+              self.assertEqual(view["summary"]["within_scope_pair_count"], 114)
+              self.assertFalse(view["summary"]["cross_scope_pairs_generated"])
+              self.assertEqual(rendered.count('class="model-card"'), 5)
+              self.assertEqual(rendered.count('class="scope-card"'), 19)
+              self.assertNotIn("<script", rendered.lower())
+
+
+              def test_manifest_matches_every_archive_member(self) -> None:
+          '''
+          if "def test_cross_model_view_is_included_without_new_pairs" not in text:
+              if method_anchor not in text:
+                  raise SystemExit("release test method anchor differs")
+              text = text.replace(method_anchor, method, 1)
+          test_path.write_text(text, encoding="utf-8")
+          print("PASS: cross-model view integrated into CLI and release")
+          PY
+
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest tests.test_cross_model_comparison_view >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest tests.test_data_product_release >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py cross-model-comparison-view \
+              --json "${RUNNER_TEMP}/cross-model-view.json" \
+              --html "${RUNNER_TEMP}/cross-model-view.html" >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
+          fi
+
+          echo "exit_status=$status" >> "$log"
+          cat "$log"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$log" README.md CHANGELOG.md project/ROADMAP.md \
+            project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json \
+            tools/dkb.py tools/reporting/data_product_release.py \
+            tests/test_data_product_release.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat(data-products): materialize cross-model view foundation'
+            git push origin HEAD:agent/cross-model-comparison-view-foundation
+          fi
+          exit "$status"
