@@ -18,6 +18,7 @@ from configuration_value_range_reporting import (
 from reporting.cargo_context import (
     CargoContextError,
     annotate_scalar_values,
+    observation_signature,
     read_context_rows,
 )
 
@@ -74,7 +75,7 @@ def latest(
             continue
         key = tuple(row.get(field, '') for field in key_fields)
         for field, item in zip(key_fields, key):
-            if not item and field not in {'fuel_type_code', '_cargo_context_signature'}:
+            if not item and field not in {'fuel_type_code', 'gear_number', '_cargo_context_signature'}:
                 raise CompletenessError(f'{label} has incomplete key: {key}')
         previous = chosen.get(key)
         if previous is None or observed > previous[0]:
@@ -217,7 +218,7 @@ def collect_report(
     except CargoContextError as exc:
         raise CompletenessError(str(exc)) from exc
     scoped_ranges = [
-        {**row, '_cargo_context_signature': '', '_cargo_context': None}
+        {**row, 'gear_number': '', '_cargo_context_signature': '', '_cargo_context': None}
         for row in ranges
         if row.get('configuration_code') in configuration_sources
     ]
@@ -232,6 +233,7 @@ def collect_report(
             'configuration_code',
             'attribute_code',
             'fuel_type_code',
+            'gear_number',
             '_cargo_context_signature',
         ),
         as_of,
@@ -243,6 +245,7 @@ def collect_report(
             'configuration_code',
             'attribute_code',
             'fuel_type_code',
+            'gear_number',
             '_cargo_context_signature',
         ),
         as_of,
@@ -256,7 +259,8 @@ def collect_report(
     ] = {}
     for current_key, current_row in current_values.items():
         base_key = (current_key[0], current_key[1], current_key[2])
-        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row
+        signature = observation_signature(current_key[3], current_key[4])
+        current_value_groups.setdefault(base_key, {})[signature] = current_row
     current_availability = latest(
         scoped_availability,
         ('configuration_code', 'attribute_code'),
