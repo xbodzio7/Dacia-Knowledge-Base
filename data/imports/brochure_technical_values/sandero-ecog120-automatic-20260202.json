@@ -1,6 +1,7 @@
 {
   "version": 1,
   "kind": "sandero_ecog120_automatic_brochure_technical_values",
+  "reviewed_on": "2026-07-26",
   "value_id_start": 2189,
   "source_code": "src_pl_sandero_brochure_20260202",
   "observation_date": "2026-02-02",
@@ -11,135 +12,29 @@
     "sandero_iii_journey_ecog120_automatic"
   ],
   "observations": [
-    {
-      "attribute_code": "engine_power",
-      "fuel_type_code": "lpg",
-      "value": "90",
-      "source_text": "Maks. moc: 90 kW dla LPG"
-    },
-    {
-      "attribute_code": "engine_power",
-      "fuel_type_code": "petrol",
-      "value": "84",
-      "source_text": "Maks. moc: 84 kW dla benzyny"
-    },
-    {
-      "attribute_code": "engine_torque",
-      "fuel_type_code": "lpg",
-      "value": "197",
-      "source_text": "Maks. moment obrotowy: 197 Nm dla LPG"
-    },
-    {
-      "attribute_code": "engine_torque",
-      "fuel_type_code": "petrol",
-      "value": "190",
-      "source_text": "Maks. moment obrotowy: 190 Nm dla benzyny"
-    },
-    {
-      "attribute_code": "engine_displacement",
-      "fuel_type_code": "",
-      "value": "1199",
-      "source_text": "Pojemność skokowa: 1199 cm3"
-    },
-    {
-      "attribute_code": "cylinder_count",
-      "fuel_type_code": "",
-      "value": "3",
-      "source_text": "Liczba cylindrów: 3"
-    },
-    {
-      "attribute_code": "total_valve_count",
-      "fuel_type_code": "",
-      "value": "12",
-      "source_text": "Łączna liczba zaworów: 12"
-    },
-    {
-      "attribute_code": "emission_standard",
-      "fuel_type_code": "",
-      "value": "euro_6e_bis",
-      "source_text": "Norma emisji spalin: Euro 6e bis"
-    },
-    {
-      "attribute_code": "gearbox_type",
-      "fuel_type_code": "",
-      "value": "dct",
-      "source_text": "Automatyczna skrzynia dwusprzęgłowa"
-    },
-    {
-      "attribute_code": "gear_count",
-      "fuel_type_code": "",
-      "value": "6",
-      "source_text": "Automatyczna skrzynia 6-biegowa"
-    },
-    {
-      "attribute_code": "top_speed",
-      "fuel_type_code": "",
-      "value": "180",
-      "source_text": "Prędkość maksymalna: 180 km/h dla obu paliw"
-    },
-    {
-      "attribute_code": "acceleration_0_100",
-      "fuel_type_code": "lpg",
-      "value": "9.8",
-      "source_text": "0–100 km/h: 9,8 s dla LPG"
-    },
-    {
-      "attribute_code": "acceleration_0_100",
-      "fuel_type_code": "petrol",
-      "value": "10.9",
-      "source_text": "0–100 km/h: 10,9 s dla benzyny"
-    },
-    {
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "",
-      "value": "50",
-      "source_text": "Pojemność zbiornika paliwa: 50 l"
-    },
-    {
-      "attribute_code": "minimum_kerb_weight",
-      "fuel_type_code": "",
-      "value": "1205",
-      "source_text": "Minimalna masa własna: 1205 kg"
-    },
-    {
-      "attribute_code": "gross_vehicle_weight",
-      "fuel_type_code": "",
-      "value": "1665",
-      "source_text": "Dopuszczalna masa całkowita pojazdu: 1665 kg"
-    },
-    {
-      "attribute_code": "gross_train_weight",
-      "fuel_type_code": "",
-      "value": "2765",
-      "source_text": "Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"
-    },
-    {
-      "attribute_code": "braked_trailer_weight",
-      "fuel_type_code": "",
-      "value": "1100",
-      "source_text": "Maksymalna masa przyczepy hamowanej: 1100 kg"
-    }
+    {"attribute_code": "engine_power", "fuel_type_code": "lpg", "value": "90", "source_text": "Maks. moc: 90 kW dla LPG"},
+    {"attribute_code": "engine_power", "fuel_type_code": "petrol", "value": "84", "source_text": "Maks. moc: 84 kW dla benzyny"},
+    {"attribute_code": "engine_torque", "fuel_type_code": "lpg", "value": "197", "source_text": "Maks. moment obrotowy: 197 Nm dla LPG"},
+    {"attribute_code": "engine_torque", "fuel_type_code": "petrol", "value": "190", "source_text": "Maks. moment obrotowy: 190 Nm dla benzyny"},
+    {"attribute_code": "engine_displacement", "fuel_type_code": "", "value": "1199", "source_text": "Pojemność skokowa: 1199 cm3"},
+    {"attribute_code": "cylinder_count", "fuel_type_code": "", "value": "3", "source_text": "Liczba cylindrów: 3"},
+    {"attribute_code": "total_valve_count", "fuel_type_code": "", "value": "12", "source_text": "Łączna liczba zaworów: 12"},
+    {"attribute_code": "emission_standard", "fuel_type_code": "", "value": "euro_6e_bis", "source_text": "Norma emisji spalin: Euro 6e bis"},
+    {"attribute_code": "gearbox_type", "fuel_type_code": "", "value": "dct", "source_text": "Automatyczna skrzynia dwusprzęgłowa"},
+    {"attribute_code": "gear_count", "fuel_type_code": "", "value": "6", "source_text": "Automatyczna skrzynia 6-biegowa"},
+    {"attribute_code": "top_speed", "fuel_type_code": "", "value": "180", "source_text": "Prędkość maksymalna: 180 km/h dla obu paliw"},
+    {"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg", "value": "9.8", "source_text": "0–100 km/h: 9,8 s dla LPG"},
+    {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol", "value": "10.9", "source_text": "0–100 km/h: 10,9 s dla benzyny"},
+    {"attribute_code": "fuel_tank_capacity", "fuel_type_code": "", "value": "50", "source_text": "Pojemność zbiornika paliwa: 50 l"},
+    {"attribute_code": "minimum_kerb_weight", "fuel_type_code": "", "value": "1205", "source_text": "Minimalna masa własna: 1205 kg"},
+    {"attribute_code": "gross_vehicle_weight", "fuel_type_code": "", "value": "1665", "source_text": "Dopuszczalna masa całkowita pojazdu: 1665 kg"},
+    {"attribute_code": "gross_train_weight", "fuel_type_code": "", "value": "2765", "source_text": "Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"},
+    {"attribute_code": "braked_trailer_weight", "fuel_type_code": "", "value": "1100", "source_text": "Maksymalna masa przyczepy hamowanej: 1100 kg"}
   ],
   "excluded_evidence": [
-    {
-      "code": "maximum_kerb_weight_requires_explicit_attribute",
-      "source_text": "Maksymalna masa własna: 1232 kg",
-      "reason": "The existing minimum_kerb_weight attribute must not receive the source maximum."
-    },
-    {
-      "code": "wltp_country_placeholders_are_not_observations",
-      "source_text": "to be adjusted according to the country",
-      "reason": "The CO2 and fuel-consumption cells are placeholders, not measurements."
-    },
-    {
-      "code": "model_wide_chassis_rows_outside_exact_import",
-      "source_text": "Tyres, turning diameter and suspension rows",
-      "reason": "Model-wide chassis specifications require the later context-modeling package."
-    },
-    {
-      "code": "tce100_column_without_exact_configuration",
-      "source_text": "100 TCe technical column",
-      "reason": "No exact active Sandero TCe 100 configuration is available."
-    }
+    {"code": "maximum_kerb_weight_requires_explicit_attribute", "source_text": "Maksymalna masa własna: 1232 kg", "reason": "The existing minimum_kerb_weight attribute must not receive the source maximum."},
+    {"code": "wltp_country_placeholders_are_not_observations", "source_text": "to be adjusted according to the country", "reason": "The CO2 and fuel-consumption cells are placeholders, not measurements."},
+    {"code": "model_wide_chassis_rows_outside_exact_import", "source_text": "Tyres, turning diameter and suspension rows", "reason": "Model-wide chassis specifications require the later context-modeling package."},
+    {"code": "tce100_column_without_exact_configuration", "source_text": "100 TCe technical column", "reason": "No exact active Sandero TCe 100 configuration is available."}
   ]
 }
