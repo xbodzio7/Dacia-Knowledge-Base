@@ -1,0 +1,57 @@
+name: Inventory Official Brochure Residual Evidence
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inventory-official-brochure-residual-evidence.yml
+      - tools/inventory_official_brochure_residual_evidence_20260726.py
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/official-brochure-residual-evidence-review
+          fetch-depth: 0
+      - name: Install PDF extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build residual evidence inventory
+        shell: bash
+        run: |
+          output=.github/official-brochure-residual-evidence-inventory.txt
+          {
+            echo '=== SANDERO PAGE 20 ==='
+            pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' -
+            echo
+            echo '=== SANDERO STEPWAY PAGE 20 ==='
+            pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf' -
+            echo
+            echo '=== JOGGER PAGE 22 ==='
+            pdftotext -f 22 -l 22 -layout 'PDF/Broszury/DACIA JOGGER broszura 20251217.pdf' -
+            echo
+            echo '=== BIGSTER PAGE 24 ==='
+            pdftotext -f 24 -l 24 -layout 'PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf' -
+            echo
+            echo '=== DUSTER PAGE 24 ==='
+            pdftotext -f 24 -l 24 -layout 'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' -
+            echo
+            python tools/inventory_official_brochure_residual_evidence_20260726.py
+          } > "$output"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$output"
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist residual brochure evidence inventory'
+            git push origin HEAD:agent/official-brochure-residual-evidence-review
+          fi
