@@ -1,0 +1,65 @@
+{
+  "count": 5,
+  "decisions": [
+    {
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|front_track|none",
+      "domain": "technical",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "category": "Dimensions",
+      "attribute_code": "front_track",
+      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+      "classification": "not_stated",
+      "reviewed_pages": [],
+      "reason_code": "not_stated_on_relevant_pages"
+    },
+    {
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|ground_clearance|none",
+      "domain": "technical",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "category": "Dimensions",
+      "attribute_code": "ground_clearance",
+      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+      "classification": "not_stated",
+      "reviewed_pages": [],
+      "reason_code": "not_stated_on_relevant_pages"
+    },
+    {
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_height|none",
+      "domain": "technical",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "category": "Dimensions",
+      "attribute_code": "overall_height",
+      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+      "classification": "not_stated",
+      "reviewed_pages": [],
+      "reason_code": "not_stated_on_relevant_pages"
+    },
+    {
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_width_with_mirrors|none",
+      "domain": "technical",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "category": "Dimensions",
+      "attribute_code": "overall_width_with_mirrors",
+      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+      "classification": "not_stated",
+      "reviewed_pages": [],
+      "reason_code": "not_stated_on_relevant_pages"
+    },
+    {
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|rear_track|none",
+      "domain": "technical",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "category": "Dimensions",
+      "attribute_code": "rear_track",
+      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+      "classification": "not_stated",
+      "reviewed_pages": [],
+      "reason_code": "not_stated_on_relevant_pages"
+    }
+  ]
+}
