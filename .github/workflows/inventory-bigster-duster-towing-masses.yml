@@ -11,6 +11,7 @@ on:
     paths:
       - .github/workflows/inventory-bigster-duster-towing-masses.yml
       - tools/materialize_bigster_duster_brochure_towing_masses_20260726.py
+      - tools/repair_bigster_duster_towing_mass_regressions_20260726.py
 
 permissions:
   contents: write
@@ -38,6 +39,9 @@ jobs:
           python tools/import_bigster_duster_brochure_towing_masses_20260726.py --apply >> "$log" 2>&1 || status=$?
           if [ "$status" -eq 0 ]; then
             python tools/materialize_bigster_duster_brochure_towing_masses_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_bigster_duster_towing_mass_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
