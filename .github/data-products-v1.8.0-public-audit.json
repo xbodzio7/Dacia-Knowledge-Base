@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_0_public_audit",
+  "status": "PASS",
+  "release_id": 360115681,
+  "release_tag": "data-products-v1.8.0",
+  "published_at": "2026-07-26T20:50:24Z",
+  "source_commit": "becd218228e3f4f0cdd312b0ed836ade487422b1",
+  "workflow_run": 30220008441,
+  "asset_count": 3,
+  "content_file_count": 85,
+  "workspace_index_local_link_count": 83,
+  "workspace_index_sha256": "ad2074a55e110ac11a518b441cbdc51864d5c7223cba75812c5b719facdf9b24",
+  "selected_configuration_count": 72,
+  "scope_group_count": 19,
+  "within_scope_pair_count": 114,
+  "cross_model": {
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "active_configuration_count": 72,
+    "comparison_path_count": 76,
+    "navigation_path_count": 2,
+    "html_local_file_link_count": 57,
+    "unknown_seat_models": [
+      "bigster",
+      "duster_iii"
+    ],
+    "unknown_state": "not_stated"
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "verification": "PASS"
+}
