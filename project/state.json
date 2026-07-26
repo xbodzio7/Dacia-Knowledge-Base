@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.7.0 Publication",
+  "phase": "Cross-Model Comparison View Review",
   "reference_delivery": {
-    "name": "Data Products v1.7.0 Release Preparation",
-    "pull_request": 275,
-    "head_sha": "f97e732add506400b9e47ee95e59a3caf8382daf",
-    "quality_run": 1934
+    "name": "Data Products v1.7.0 Publication",
+    "pull_request": 279,
+    "head_sha": "0e8e1e51e5a6e8071178a85752fa00eec1089c95",
+    "quality_run": 1950
   },
   "baseline": {
-    "tests": 971,
+    "tests": 979,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.7.0 Publication",
+    "name": "Cross-Model Comparison View Review",
     "status": "complete",
-    "goal": "Publish and independently re-verify immutable data-products-v1.7.0 assets from exact green main commit 99e0e19b86cad6eae619f37702464e6a5a761cd8 after the release-preparation package."
+    "goal": "Select a source-safe cross-model navigation design over five model families and nineteen existing scopes while preserving the established Sandero and Sandero Stepway shared manual scope and generating no new comparison pair, ranking, recommendation or inferred value."
   },
   "next_package": {
-    "name": "Cross-Model Comparison View Review",
+    "name": "Cross-Model Comparison View Foundation",
     "status": "planned",
-    "goal": "Review a source-safe cross-model overview that preserves independent reporting scopes, avoids heterogeneous pair comparisons, and introduces no ranking, recommendation or inferred value."
+    "goal": "Implement deterministic JSON and standalone HTML navigation over five model families and nineteen existing scopes without changing master data, schema, reporting scopes or comparison calculations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
