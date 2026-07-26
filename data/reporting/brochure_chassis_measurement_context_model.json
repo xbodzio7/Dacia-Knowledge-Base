@@ -163,7 +163,7 @@
     },
     {
       "classification_code": "duster_chassis_mass_and_payload_modeling",
-      "status": "model_defined_import_pending",
+      "status": "imported",
       "turning_attribute": "turning_circle_wheel_track",
       "mass_attribute": "maximum_kerb_weight",
       "range_attribute": "payload",
@@ -172,7 +172,9 @@
         "front_brake_type",
         "rear_brake_type",
         "standard_tyre_specification"
-      ]
+      ],
+      "import_package": "Duster Chassis Observation Import",
+      "imported_on": "2026-07-26"
     }
   ],
   "legacy_boundaries": {
@@ -181,7 +183,7 @@
     "maximum_payload": "Retained for explicitly maximum-qualified scalar observations."
   },
   "next_package": {
-    "name": "Duster Chassis Observation Import",
-    "goal": "Import wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for the active Duster configurations under D-016."
+    "name": "Jogger Chassis Observation Import",
+    "goal": "Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict."
   }
 }

@@ -247,6 +247,7 @@ def verify_references(spec: Mapping[str, Any]) -> None:
     ensure(
         not any(
             row.get("status") == "active"
+            and row.get("code", "").startswith("duster_")
             and row.get("powertrain_label") == "hybrid-G 150 4x4"
             for row in configurations.values()
         ),
