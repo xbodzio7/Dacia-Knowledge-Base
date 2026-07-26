@@ -62,6 +62,7 @@ tools/reporting/configuration_comparison_html.py
 tools/reporting/configuration_comparison_workbook_rows.py
 tools/reporting/configuration_shortlist.py
 tools/reporting/configuration_shortlist_html.py
+tools/validators/gear_contexts.py
 tools/validators/references.py
 tools/validators/value_ranges.py
 
@@ -135,6 +136,7 @@ tools/reporting/configuration_shortlist.py
 tools/reporting/configuration_shortlist_html.py
 tools/validators/cargo_contexts.py
 tools/validators/enum_domains.py
+tools/validators/gear_contexts.py
 tools/validators/references.py
 tools/validators/value_ranges.py
 
