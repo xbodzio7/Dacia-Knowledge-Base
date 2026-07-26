@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""Build a temporary inventory for Duster brochure chassis evidence."""
+
+from __future__ import annotations
+
+import csv
+import json
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+MASTER = ROOT / "data" / "master"
+REPORTING = ROOT / "data" / "reporting"
+SOURCE = "src_pl_duster_mini_brochure_20251020"
+ATTRIBUTES = {
+    "turning_circle",
+    "turning_circle_wheel_track",
+    "maximum_kerb_weight",
+    "payload",
+    "maximum_payload",
+    "steering_type",
+    "front_brake_type",
+    "rear_brake_type",
+    "standard_tyre_specification",
+}
+
+
+def rows(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def emit(title: str, items: list[dict[str, object]]) -> None:
+    print(f"\n=== {title} ===")
+    for item in items:
+        print(json.dumps(item, ensure_ascii=False, sort_keys=True))
+
+
+def main() -> int:
+    configurations = [
+        row for row in rows(MASTER / "configurations.csv")
+        if row.get("status") == "active" and row.get("code", "").startswith("duster_")
+    ]
+    codes = {row["code"] for row in configurations}
+    emit("ACTIVE DUSTER CONFIGURATIONS", [
+        {
+            "id": row["id"],
+            "code": row["code"],
+            "version_code": row["version_code"],
+            "powertrain_label": row["powertrain_label"],
+            "transmission_type": row["transmission_type"],
+            "notes": row.get("notes", ""),
+        }
+        for row in configurations
+    ])
+
+    relationships = [
+        row for row in rows(MASTER / "source_configurations.csv")
+        if row.get("source_code") == SOURCE and row.get("configuration_code") in codes
+    ]
+    emit("SOURCE RELATIONSHIPS", relationships)
+
+    values = [
+        row for row in rows(MASTER / "configuration_attribute_values.csv")
+        if row.get("configuration_code") in codes and row.get("attribute_code") in ATTRIBUTES
+    ]
+    emit("CURRENT CHASSIS VALUES", values)
+
+    ranges = [
+        row for row in rows(MASTER / "configuration_attribute_value_ranges.csv")
+        if row.get("configuration_code") in codes and row.get("attribute_code") in ATTRIBUTES
+    ]
+    emit("CURRENT CHASSIS RANGES", ranges)
+
+    contracts = [
+        row for row in rows(MASTER / "attributes.csv")
+        if row.get("code") in ATTRIBUTES
+    ]
+    emit("ATTRIBUTE CONTRACTS", contracts)
+
+    reporting: list[dict[str, object]] = []
+    for path in sorted(REPORTING.glob("duster_*_completeness.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        target_codes = {
+            str(item.get("configuration_code", ""))
+            for item in payload.get("configurations", [])
+            if isinstance(item, dict)
+        }
+        if target_codes & codes:
+            reporting.append({
+                "path": str(path.relative_to(ROOT)),
+                "configurations": sorted(target_codes),
+                "technical_slots": len(payload.get("technical_slots", [])),
+                "attribute_refs": sorted(
+                    str(item.get("attribute_code", ""))
+                    for item in payload.get("technical_slots", [])
+                    if isinstance(item, dict) and str(item.get("attribute_code", "")) in ATTRIBUTES
+                ),
+            })
+    emit("REPORTING SCOPES", reporting)
+
+    scalar_all = rows(MASTER / "configuration_attribute_values.csv")
+    range_all = rows(MASTER / "configuration_attribute_value_ranges.csv")
+    links = rows(MASTER / "source_configurations.csv")
+    print("\n=== ID BOUNDARIES ===")
+    print(json.dumps({
+        "configuration_attribute_values_max_id": max(int(row["id"]) for row in scalar_all),
+        "configuration_attribute_value_ranges_max_id": max(int(row["id"]) for row in range_all),
+        "source_configurations_max_id": max(int(row["id"]) for row in links),
+    }, sort_keys=True))
+
+    print("\n=== SUMMARY ===")
+    print(json.dumps({
+        "configurations": len(configurations),
+        "powertrains": Counter(row["powertrain_label"] for row in configurations),
+        "relationships": len(relationships),
+        "relationship_types": Counter(row["relationship"] for row in relationships),
+        "current_values": len(values),
+        "current_value_attributes": Counter(row["attribute_code"] for row in values),
+        "current_ranges": len(ranges),
+        "current_range_attributes": Counter(row["attribute_code"] for row in ranges),
+    }, default=dict, ensure_ascii=False, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
