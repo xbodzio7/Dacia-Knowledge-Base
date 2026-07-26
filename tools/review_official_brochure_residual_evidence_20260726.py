@@ -141,12 +141,6 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     ensure(isinstance(rules, list) and len(rules) == 6, "expected six non-inference rules")
     receipt = payload.get("follow_up_import_receipt")
     if receipt is None:
-        receipt = payload.get("follow_up_import_receipt")
-    if receipt is None:
-        receipt = payload.get("follow_up_import_receipt")
-    if receipt is None:
-        receipt = payload.get("follow_up_import_receipt")
-    if receipt is None:
         ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Semantic Mapping Review", "next package differs")
     else:
         ensure(isinstance(receipt, dict), "follow-up import receipt must be an object")
@@ -155,28 +149,6 @@ def verify_report(payload: Mapping[str, Any]) -> None:
         ensure(set(receipt.get("resolved_classifications", [])) == {"sandero_dimensions_and_cargo", "jogger_dimensions_and_cargo"}, "resolved follow-up classifications differ")
         ensure(receipt.get("partially_resolved_classifications") == ["duster_wltp_placeholders_and_dimensions"], "partial follow-up classification differs")
         ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
-    else:
-        ensure(isinstance(receipt, dict), "follow-up import receipt must be an object")
-        ensure(receipt.get("status") == "imported_with_documented_deferral", "follow-up import status differs")
-        ensure(receipt.get("scalar_values") == 382, "follow-up scalar total differs")
-        ensure(set(receipt.get("resolved_classifications", [])) == {"sandero_dimensions_and_cargo", "jogger_dimensions_and_cargo"}, "resolved follow-up classifications differ")
-        ensure(receipt.get("partially_resolved_classifications") == ["duster_wltp_placeholders_and_dimensions"], "partial follow-up classification differs")
-        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
-    else:
-        ensure(isinstance(receipt, dict), "follow-up import receipt must be an object")
-        ensure(receipt.get("status") == "imported_with_documented_deferral", "follow-up import status differs")
-        ensure(receipt.get("scalar_values") == 382, "follow-up scalar total differs")
-        ensure(set(receipt.get("resolved_classifications", [])) == {"sandero_dimensions_and_cargo", "jogger_dimensions_and_cargo"}, "resolved follow-up classifications differ")
-        ensure(receipt.get("partially_resolved_classifications") == ["duster_wltp_placeholders_and_dimensions"], "partial follow-up classification differs")
-        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
-    else:
-        ensure(isinstance(receipt, dict), "follow-up import receipt must be an object")
-        ensure(receipt.get("status") == "imported_with_documented_deferral", "follow-up import status differs")
-        ensure(receipt.get("scalar_values") == 382, "follow-up scalar total differs")
-        ensure(set(receipt.get("resolved_classifications", [])) == {"sandero_dimensions_and_cargo", "jogger_dimensions_and_cargo"}, "resolved follow-up classifications differ")
-        ensure(receipt.get("partially_resolved_classifications") == ["duster_wltp_placeholders_and_dimensions"], "partial follow-up classification differs")
-        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
-
 
 def verify_partition() -> None:
     gap = load_json(GAP_REVIEW)
@@ -312,7 +284,6 @@ def check() -> None:
     verify_dimension_coverage(payload)
     verify_non_import_boundaries(payload)
     verify_source_closure()
-
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
