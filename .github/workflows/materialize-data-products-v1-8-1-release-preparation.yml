@@ -1,0 +1,151 @@
+name: Materialize Data Products v1.8.1 Release Preparation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-data-products-v1-8-1-release-preparation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out preparation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-1-release-preparation
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Install PDF backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Materialize release notes and project state
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          release = Path("tools/reporting/data_product_release.py")
+          text = release.read_text(encoding="utf-8")
+          start = text.index("def _release_notes(\n")
+          end = text.index("\n\ndef _archive_record", start)
+          replacement = '''def _release_notes(
+              version: str,
+              commit_sha: str,
+              shortlist: Mapping[str, Any],
+              bundle: Mapping[str, Any],
+          ) -> str:
+              summary = shortlist["summary"]
+              assert isinstance(summary, dict)
+              lines = [
+                  f"# Dacia Knowledge Base Data Products v{version}",
+                  "",
+                  f"- Release tag: `{release_tag(version)}`",
+                  f"- Repository commit: `{commit_sha}`",
+                  f"- Snapshot date: `{shortlist['as_of']}`",
+                  "- Selected configurations: "
+                  f"{bundle['selected_configuration_count']}",
+                  f"- Independent scopes: {bundle['scope_group_count']}",
+                  f"- Comparable scopes: {bundle['comparable_scope_count']}",
+                  f"- Singleton scopes: {bundle['singleton_scope_count']}",
+                  "- Cross-scope pairs: none",
+                  "- Formats: " + ", ".join(PRODUCT_FORMATS),
+                  "",
+                  "The archive contains the complete active-configuration shortlist, "
+                  "one full-portfolio comparison bundle and a scope-preserving "
+                  "cross-model navigation view. Existing source dates, evidence "
+                  "states and independent reporting scopes are preserved.",
+                  "",
+              ]
+              if version == "1.8.1":
+                  lines.extend(
+                      [
+                          "Equipment filtering is restored for partially covered source data: "
+                          "108 equipment choices remain visible in the current 72-configuration "
+                          "catalog, and selecting the rear-view camera narrows the result to 66.",
+                          "",
+                          "Missing and unknown evidence remains excluded rather than inferred as "
+                          "availability. Model choices are ordered by the minimum current "
+                          "catalogue price, from Sandero through Bigster.",
+                          "",
+                          "The public v1.8.0 remains immutable; this correction is delivered only "
+                          "as the new data-products-v1.8.1 patch release.",
+                          "",
+                      ]
+                  )
+              lines.extend(
+                  [
+                      "No ranking, recommendations or inferred values are generated.",
+                      "",
+                  ]
+              )
+              return "\\n".join(lines)
+          '''
+          release.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
+
+          state_path = Path("project/state.json")
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["updated_on"] = "2026-07-27"
+          state["phase"] = "Data Products v1.8.1 Release Preparation"
+          state["reference_delivery"] = {
+              "name": "Equipment Filter Regression and Model Price Ordering",
+              "pull_request": 289,
+              "head_sha": "c425b3997c11132e7c325b843e9e13f44a5a9105",
+              "quality_run": 2040,
+          }
+          state["baseline"]["tests"] = 1038
+          state["current_package"] = {
+              "name": "Data Products v1.8.1 Release Preparation",
+              "status": "complete",
+              "goal": "Prepare and verify an immutable patch-release candidate containing the restored equipment filtering and cheapest-to-most-expensive model ordering without changing source-backed data or rewriting older public releases.",
+          }
+          state["next_package"] = {
+              "name": "Data Products v1.8.1 Preflight",
+              "status": "planned",
+              "goal": "Build the v1.8.1 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the real Chromium equipment-filter behavior and all release contracts, and record final identities without publishing.",
+          }
+          state_path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          PY
+          python tools/dkb.py project-state --apply
+      - name: Run focused release-preparation contracts
+        run: |
+          set -euo pipefail
+          python -m py_compile tools/review_data_products_v1_8_1_release_preparation_20260727.py
+          node --check tools/reporting/configuration_shortlist_browser.js
+          python tools/review_data_products_v1_8_1_release_preparation_20260727.py --check
+          python -m unittest tests.test_data_products_v1_8_1_release_preparation
+          python -m unittest tests.test_equipment_filter_regression_model_price_order
+          python -m unittest tests.test_data_products_v1_8_0_release_preparation
+          python -m unittest tests.test_data_products_v1_8_0_publication
+      - name: Run full repository validation
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_*.py'
+          python tools/dkb.py validate
+          python tools/dkb.py project-state --check
+      - name: Commit materialized preparation
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md project/state.json \
+            tools/reporting/data_product_release.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat(data-products): prepare v1.8.1 release candidate'
+            git push origin HEAD:agent/data-products-v1-8-1-release-preparation
+          fi
