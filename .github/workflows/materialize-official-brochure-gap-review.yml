@@ -1,0 +1,96 @@
+name: Materialize Official Brochure Gap Review
+
+on:
+  push:
+    branches:
+      - agent/official-brochure-technical-gap-review
+    paths:
+      - .github/workflows/materialize-official-brochure-gap-review.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out review branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/official-brochure-technical-gap-review
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Materialize review state and verify
+        shell: bash
+        run: |
+          set +e
+          log=.github/official-brochure-gap-review.log
+          : > "$log"
+          status=0
+
+          python - <<'PY' >> "$log" 2>&1 || status=$?
+          import json
+          from pathlib import Path
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-07-26'
+          state['phase'] = 'Official Brochure Technical Gap Review'
+          state['current_package'] = {
+              'name': 'Official Brochure Technical Gap Review',
+              'status': 'complete',
+              'goal': 'Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling.',
+          }
+          state['next_package'] = {
+              'name': 'Sandero Eco-G 120 Automatic Brochure Technical Import',
+              'status': 'planned',
+              'goal': 'Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields.',
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          changelog_path = Path('CHANGELOG.md')
+          changelog = changelog_path.read_text(encoding='utf-8')
+          entry = '* Classified the remaining technical evidence in all five archived official brochures into 29 reviewed groups: current or newer coverage, exact scalar/range candidates, ambiguous or blank evidence, unmodeled configurations and fields requiring explicit chassis/mass context modeling.\n'
+          if entry not in changelog:
+              marker = '### Added\n\n'
+              if marker not in changelog:
+                  raise RuntimeError('CHANGELOG Added marker missing')
+              changelog = changelog.replace(marker, marker + entry, 1)
+              changelog_path.write_text(changelog, encoding='utf-8')
+          print('PASS: review state and changelog updated')
+          PY
+
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/review_official_brochure_technical_gaps_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_official_brochure_technical_gap_review.py -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> "$log" 2>&1 || status=$?
+          fi
+
+          cat "$log"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'docs(data): materialize official brochure technical gap review'
+            git push origin HEAD:agent/official-brochure-technical-gap-review
+          fi
+          exit "$status"
