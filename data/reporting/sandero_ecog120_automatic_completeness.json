@@ -105,6 +105,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "gross_train_weight",
       "fuel_type_code": ""
     },
@@ -118,6 +122,10 @@
     },
     {
       "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "minimum_kerb_weight",
       "fuel_type_code": ""
     },
     {

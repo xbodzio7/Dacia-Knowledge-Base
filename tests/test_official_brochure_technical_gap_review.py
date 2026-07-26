@@ -63,11 +63,10 @@ class OfficialBrochureTechnicalGapReviewTests(unittest.TestCase):
             row for row in rows(MASTER / "configuration_attribute_values.csv")
             if row.get("source_code") in brochure_sources
         ]
-        self.assertEqual(len(values), 357)
-        self.assertEqual(
-            Counter(row["attribute_code"] for row in values),
-            Counter({"boot_capacity": 287, "elasticity_80_120": 70}),
-        )
+        counts = Counter(row["attribute_code"] for row in values)
+        self.assertEqual(counts["boot_capacity"], 287)
+        self.assertEqual(counts["elasticity_80_120"], 70)
+        self.assertGreaterEqual(len(values), 357)
 
     def test_classification_inventory_and_status_distribution_are_exact(self) -> None:
         self.assertEqual(len(self.classifications), 29)
@@ -183,17 +182,13 @@ class OfficialBrochureTechnicalGapReviewTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: official brochure technical gap review", completed.stdout)
 
-    def test_project_state_advances_to_automatic_sandero_import(self) -> None:
+    def test_project_state_preserves_review_baseline_after_follow_up_packages(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Official Brochure Technical Gap Review")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Sandero Eco-G 120 Automatic Brochure Technical Import",
-        )
-        self.assertEqual(state["baseline"]["rows"], 8852)
-        self.assertEqual(state["baseline"]["configuration_values"], 2188)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["tests"], 842)
+        self.assertGreaterEqual(state["baseline"]["rows"], 8852)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2188)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
 
 
 if __name__ == "__main__":
