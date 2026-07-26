@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Post-Cross-Model Priority Selection Review**
+**Data Products v1.8.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Cross-Model Comparison View Closure Review
-- Pull Request: #282
-- Verified head: `debe6d665a8ef3307426ac4ea63f95fbf8685796`
-- Quality run: #1996
+- Package: Post-Cross-Model Priority Selection Review
+- Pull Request: #283
+- Verified head: `529244171d2678ba984ce075327e004a1c00160a`
+- Quality run: #2000
 
 ## Verified baseline
 
-- Tests: 1006
+- Tests: 1014
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Cross-Model Priority Selection Review** — `complete`
+**Data Products v1.8.0 Release Preparation** — `complete`
 
-Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package.
+Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics.
 
 ## Next package
 
-**Data Products v1.8.0 Release Preparation** — `planned`
+**Data Products v1.8.0 Preflight** — `planned`
 
-Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics.
+Build the v1.8.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify all release and offline workspace contracts, and record final sizes and SHA-256 values without creating a tag or release.
 
 ## Autonomy
 
