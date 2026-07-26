@@ -1,0 +1,51 @@
+name: Repair Public Data Products v1.8.1 Audit
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/repair-data-products-v1-8-1-public-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-1-public-audit
+          fetch-depth: 0
+
+      - name: Repair Node module path
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('.github/workflows/data-products-v1-8-1-public-audit.yml')
+          text = path.read_text(encoding='utf-8')
+          old_path = 'browser = Path("source/tools/reporting/configuration_shortlist_browser.js")'
+          new_path = 'browser = Path("source/tools/reporting/configuration_shortlist_browser.js").resolve()'
+          if old_path not in text:
+              raise SystemExit('audit browser path marker not found')
+          text = text.replace(old_path, new_path, 1)
+          text = text.replace("    if: github.actor != 'github-actions[bot]'\n", '', 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+          git diff --check
+
+      - name: Commit audit repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/data-products-v1-8-1-public-audit.yml
+          git commit -m 'fix(release): resolve public audit browser module'
+          git push origin HEAD:agent/data-products-v1-8-1-public-audit
