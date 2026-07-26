@@ -40,50 +40,37 @@ jobs:
           from pathlib import Path
 
           verifier = Path("tools/review_data_products_v1_7_0_release_preparation_20260726.py")
-          text = verifier.read_text(encoding="utf-8")
-          marker = "    state = load_json(STATE)\n"
-          start = text.find(marker)
-          end_marker = '    ensure(state.get("baseline", {}).get("rows") == 9688, "master row baseline changed")\n'
-          end = text.find(end_marker, start)
-          if start < 0 or end < 0:
-              raise SystemExit("v1.7.0 verifier state block is missing")
-          replacement = '''    state = load_json(STATE)
-          ensure(isinstance(state.get("phase"), str) and state["phase"], "project phase is missing")
-          current = state.get("current_package")
-          ensure(isinstance(current, dict), "current package is missing")
-          ensure(isinstance(current.get("name"), str) and current["name"], "current package name is missing")
-          ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
-          next_package = state.get("next_package")
-          ensure(isinstance(next_package, dict), "next package is missing")
-          ensure(isinstance(next_package.get("name"), str) and next_package["name"], "next package name is missing")
-          '''
-          text = text[:start] + replacement + text[end:]
-          verifier.write_text(text, encoding="utf-8")
+          verifier_text = verifier.read_text(encoding="utf-8")
+          if "project phase is missing" not in verifier_text:
+              raise SystemExit("v1.7.0 verifier was not normalized")
 
           test_path = Path("tests/test_data_products_v1_7_0_release_preparation.py")
-          test_text = test_path.read_text(encoding="utf-8")
-          function_marker = "    def test_project_state_advances_after_release_preparation(self) -> None:\n"
-          function_start = test_text.find(function_marker)
-          function_end = test_text.find('\n\nif __name__ == "__main__":', function_start)
-          if function_start < 0 or function_end < 0:
-              raise SystemExit("v1.7.0 historical state test is missing")
-          function = '''    def test_project_state_preserves_published_release_baseline(self) -> None:
-              state = json.loads(STATE.read_text(encoding="utf-8"))
-              self.assertTrue(state["phase"])
-              self.assertTrue(state["current_package"]["name"])
-              self.assertIn(
-                  state["current_package"]["status"],
-                  {"planned", "active", "blocked", "complete"},
+          lines = test_path.read_text(encoding="utf-8").splitlines(keepends=True)
+          function_line = (
+              "    def test_project_state_preserves_published_release_baseline"
+              "(self) -> None:\n"
+          )
+          try:
+              start = lines.index(function_line)
+          except ValueError as exc:
+              raise SystemExit("v1.7.0 normalized state test is missing") from exc
+          try:
+              end = next(
+                  index
+                  for index in range(start + 1, len(lines))
+                  if lines[index].startswith('if __name__ == "__main__":')
               )
-              self.assertTrue(state["next_package"]["name"])
-              self.assertGreaterEqual(state["baseline"]["tests"], 971)
-              self.assertGreaterEqual(state["baseline"]["rows"], 9688)
-              self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
-              self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
-              self.assertGreaterEqual(state["baseline"]["attributes"], 385)
-          '''
-          test_text = test_text[:function_start] + function + test_text[function_end:]
-          test_path.write_text(test_text, encoding="utf-8")
+          except StopIteration as exc:
+              raise SystemExit("v1.7.0 state test boundary is missing") from exc
+          body = [index for index in range(start + 1, end) if lines[index].strip()]
+          if not body:
+              raise SystemExit("v1.7.0 state test has no body")
+          if lines[body[0]].startswith("    state ="):
+              for index in body:
+                  lines[index] = "    " + lines[index]
+              test_path.write_text("".join(lines), encoding="utf-8")
+          elif not lines[body[0]].startswith("        state ="):
+              raise SystemExit("v1.7.0 state test indentation is unknown")
           print("PASS: v1.7.0 publication contracts normalized for later packages")
           PY
 
@@ -112,7 +99,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$log" README.md CHANGELOG.md project/ROADMAP.md \
             project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json \
-            tools/review_data_products_v1_7_0_release_preparation_20260726.py \
             tests/test_data_products_v1_7_0_release_preparation.py
           if ! git diff --cached --quiet; then
             git commit -m 'docs(report): materialize cross-model view review'
