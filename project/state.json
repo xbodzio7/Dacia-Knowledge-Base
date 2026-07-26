@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Cross-Model Comparison View Closure Review",
+  "phase": "Post-Cross-Model Priority Selection Review",
   "reference_delivery": {
-    "name": "Cross-Model Comparison View Foundation",
-    "pull_request": 281,
-    "head_sha": "d9b38fbafe7d13285af2c21a58389f452389d00f",
-    "quality_run": 1992
+    "name": "Cross-Model Comparison View Closure Review",
+    "pull_request": 282,
+    "head_sha": "debe6d665a8ef3307426ac4ea63f95fbf8685796",
+    "quality_run": 1996
   },
   "baseline": {
-    "tests": 998,
+    "tests": 1006,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Cross-Model Comparison View Closure Review",
+    "name": "Post-Cross-Model Priority Selection Review",
     "status": "complete",
-    "goal": "Verify the generator, unified CLI, 85-member release archive, offline local targets, existing-scope links, explicit unknown handling and non-inference boundaries without changing master data."
+    "goal": "Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package."
   },
   "next_package": {
-    "name": "Post-Cross-Model Priority Selection Review",
+    "name": "Data Products v1.8.0 Release Preparation",
     "status": "planned",
-    "goal": "Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package."
+    "goal": "Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
