@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_7_0_release_preparation",
+  "prepared_on": "2026-07-26",
+  "status": "complete",
+  "source_selection_review": "post_brochure_priority_selection_review.json",
+  "release_identity": {
+    "release_version": "1.7.0",
+    "release_tag": "data-products-v1.7.0",
+    "publication_status": "not_published",
+    "publication_mode": "manual_preflight_publish_audit",
+    "final_source_commit": "assigned_after_squash_merge",
+    "final_asset_identity": "assigned_by_post_merge_preflight"
+  },
+  "candidate_baseline": {
+    "snapshot_date": "2026-07-24",
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "comparable_scope_count": 19,
+    "singleton_scope_count": 0,
+    "pair_count": 114,
+    "difference_count": 1695,
+    "archive_member_count": 83,
+    "formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ]
+  },
+  "preparation_verification": {
+    "deterministic_double_build": "pass",
+    "release_asset_verification": "pass",
+    "candidate_offline_workspace_verification": "pass",
+    "previous_public_release_download_verification": "pass",
+    "previous_public_release": "data-products-v1.6.1",
+    "previous_public_release_commit": "4b77571c788b862a6543161b9343a35f464bd7c6",
+    "publication_performed": false
+  },
+  "diagnostic_candidate_receipt": {
+    "identity_status": "diagnostic_only_not_publication_identity",
+    "workflow_run": 30214167930,
+    "source_commit": "4e496f06b6482f02559ab1e961bfe6043802b5c4",
+    "assets": {
+      "dacia-knowledge-base-data-products-v1.7.0.zip": {
+        "size_bytes": 62077663,
+        "sha256": "93cfcc8fcf643ee7d1a94bcbe770db471f757c177df176e4e2e7ba95bfdbc02d"
+      },
+      "data-product-release-manifest.json": {
+        "size_bytes": 20098,
+        "sha256": "245c7a8e58411817ba1768669b67be561bea8323bcc3a45cbc58cc9be305b234"
+      },
+      "SHA256SUMS": {
+        "size_bytes": 213,
+        "sha256": "e9e5f0c8ddc241af28a6dc8988bb2ad24a73bb3addcaf4e7417138a9750c4afb"
+      }
+    },
+    "workspace_index_sha256": "742490370500afdd88ea1e12b2aec07d25c4d2a10c3be6a208ec6a5651d04e49",
+    "reason_not_final": "This identity is not final: the preparation branch changes after this diagnostic build and squash merge creates the only commit eligible for the public tag. The final preflight must rebuild and record a new exact identity from that merged main commit."
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "master_data_changed": false,
+    "existing_evidence_states_preserved": true
+  },
+  "required_publication_assets": [
+    "dacia-knowledge-base-data-products-v1.7.0.zip",
+    "data-product-release-manifest.json",
+    "SHA256SUMS"
+  ],
+  "publication_sequence": [
+    {
+      "order": 1,
+      "stage": "merge_preparation",
+      "requirement": "Squash merge the fully green preparation Pull Request and use the resulting exact main commit as the only source candidate."
+    },
+    {
+      "order": 2,
+      "stage": "preflight",
+      "requirement": "Build twice from the exact merged main commit, verify byte identity, record exact sizes and SHA-256 values, and confirm that the tag and release do not exist."
+    },
+    {
+      "order": 3,
+      "stage": "publish",
+      "requirement": "Rebuild from the same exact commit, require the preflight identities, create the immutable tag and GitHub Release, and upload exactly three canonical assets."
+    },
+    {
+      "order": 4,
+      "stage": "audit",
+      "requirement": "Download all public assets independently, verify the tag target, hashes, archive inventory, workspace and published browser payload."
+    },
+    {
+      "order": 5,
+      "stage": "record_publication",
+      "requirement": "Persist the final release identity and audit result without modifying the immutable release assets."
+    }
+  ],
+  "next_package": {
+    "name": "Data Products v1.7.0 Preflight",
+    "goal": "Freeze the exact squash-merged main commit and deterministic identities of the three v1.7.0 assets without creating a tag or GitHub Release."
+  }
+}

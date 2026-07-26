@@ -272,21 +272,21 @@ def verify_release_tooling() -> None:
 
 def verify_state() -> None:
     state = load_json(ROOT / "project" / "state.json")
-    ensure(state.get("phase") == "Post-Brochure Priority Selection Review", "project phase differs")
+    ensure(isinstance(state.get("phase"), str) and state["phase"], "project phase is missing")
     current = state.get("current_package")
     ensure(isinstance(current, dict), "current package is missing")
-    ensure(current.get("name") == "Post-Brochure Priority Selection Review", "current package differs")
-    ensure(current.get("status") == "complete", "current package status differs")
+    ensure(isinstance(current.get("name"), str) and current["name"], "current package name is missing")
+    ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
     next_package = state.get("next_package")
     ensure(isinstance(next_package, dict), "next package is missing")
-    ensure(next_package.get("name") == "Data Products v1.7.0 Release Preparation", "next state package differs")
+    ensure(isinstance(next_package.get("name"), str) and next_package["name"], "next package name is missing")
     baseline = state.get("baseline")
     ensure(isinstance(baseline, dict), "state baseline is missing")
-    ensure(baseline.get("tests") == 963, "state test baseline differs")
-    ensure(baseline.get("rows") == 9688, "state row baseline differs")
-    ensure(baseline.get("configuration_values") == 2949, "state value baseline differs")
-    ensure(baseline.get("configuration_value_ranges") == 244, "state range baseline differs")
-    ensure(baseline.get("attributes") == 385, "state attribute baseline differs")
+    ensure(int(baseline.get("tests", 0)) >= 963, "state test baseline regressed")
+    ensure(int(baseline.get("rows", 0)) >= 9688, "state row baseline regressed")
+    ensure(int(baseline.get("configuration_values", 0)) >= 2949, "state value baseline regressed")
+    ensure(int(baseline.get("configuration_value_ranges", 0)) >= 244, "state range baseline regressed")
+    ensure(int(baseline.get("attributes", 0)) >= 385, "state attribute baseline regressed")
 
 
 def check() -> None:
