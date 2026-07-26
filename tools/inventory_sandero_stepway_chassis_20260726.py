@@ -52,21 +52,22 @@ def main() -> int:
             "version_code": row["version_code"],
             "powertrain_label": row["powertrain_label"],
             "transmission_type": row["transmission_type"],
-            "number_of_seats": row["number_of_seats"],
+            "notes": row.get("notes", ""),
         }
         for row in configurations
     ])
 
+    configuration_codes = {item["code"] for item in configurations}
     relationships = [
         row for row in rows(MASTER / "source_configurations.csv")
         if row.get("source_code") in SOURCES
-        and row.get("configuration_code") in {item["code"] for item in configurations}
+        and row.get("configuration_code") in configuration_codes
     ]
     emit("SOURCE RELATIONSHIPS", relationships)
 
     values = [
         row for row in rows(MASTER / "configuration_attribute_values.csv")
-        if row.get("configuration_code") in {item["code"] for item in configurations}
+        if row.get("configuration_code") in configuration_codes
         and row.get("attribute_code") in ATTRIBUTES
     ]
     emit("CURRENT CHASSIS VALUES", values)
