@@ -1,0 +1,6 @@
+PASS: Duster cargo reporting scopes updated (3)
+  data/reporting/duster_ecog120_completeness.json
+  data/reporting/duster_hybrid155_completeness.json
+  data/reporting/duster_mildhybrid140_4x2_completeness.json
+usage: import_duster_brochure_cargo_20260726.py [-h] (--apply | --check)
+import_duster_brochure_cargo_20260726.py: error: unreviewed exact 4x4 configuration now exists
