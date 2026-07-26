@@ -1,0 +1,69 @@
+{
+  "exit_code": 1,
+  "generated_at": "2026-07-26T16:49:18.121933+00:00",
+  "status": "FAIL",
+  "steps": [
+    {
+      "exit_code": 0,
+      "label": "Compile Python sources",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Run unit tests",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Check CSV encoding",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Validate repository data",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Build SQLite database",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Verify SQLite database",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Check documentation baseline",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Generate configuration completeness report",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Generate source coverage report",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Generate configuration gap triage report",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 0,
+      "label": "Verify configuration gap source page review",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 1,
+      "label": "Generate configuration gap evidence report",
+      "status": "FAIL"
+    }
+  ],
+  "tests": 947,
+  "version": 1
+}
