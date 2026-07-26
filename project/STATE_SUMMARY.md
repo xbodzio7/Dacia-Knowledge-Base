@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-Brochure Priority Selection Review**
+**Data Products v1.7.0 Release Preparation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 963
+- Tests: 971
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Brochure Priority Selection Review** — `complete`
+**Data Products v1.7.0 Release Preparation** — `complete`
 
-Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries.
+Freeze the v1.7.0 release identity and publication sequence, prove deterministic generation and offline workspace verification, and preserve the diagnostic candidate as non-final evidence without creating a tag or release.
 
 ## Next package
 
-**Data Products v1.7.0 Release Preparation** — `planned`
+**Data Products v1.7.0 Preflight** — `planned`
 
-Freeze the v1.7.0 release version and notes, generate deterministic assets from a green source commit, independently verify download and offline workspace behavior, and prepare exact tag-to-commit publication evidence without changing data semantics.
+Build twice from the exact squash-merged main commit, record the final sizes and SHA-256 values of the three canonical assets, and confirm that the v1.7.0 tag and GitHub Release do not yet exist.
 
 ## Autonomy
 
