@@ -1,0 +1,69 @@
+name: Materialize Equipment Verifier Fix
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-equipment-verifier-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out regression-fix branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/equipment-filter-regression-model-price-order
+          fetch-depth: 0
+      - name: Correct rendered catalog assertion
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('tools/review_equipment_filter_regression_model_price_order_20260726.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''    ensure(
+              rendered.index('data-value="sandero_iii"')
+              < rendered.index('data-value="sandero_stepway_iii"')
+              < rendered.index('data-value="jogger"')
+              < rendered.index('data-value="duster_iii"')
+              < rendered.index('data-value="bigster"'),
+              "rendered model picker order differs",
+          )
+          '''
+          new = '''    marker = '<script id="configuration-catalog" type="application/json">'
+              start = rendered.index(marker) + len(marker)
+              end = rendered.index('</script>', start)
+              embedded_catalog = json.loads(rendered[start:end])
+              embedded_models = embedded_catalog.get("facets", {}).get("models", [])
+              ensure(
+                  [item.get("code") for item in embedded_models]
+                  == [
+                      "sandero_iii",
+                      "sandero_stepway_iii",
+                      "jogger",
+                      "duster_iii",
+                      "bigster",
+                  ],
+                  "rendered catalog model order differs",
+              )
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one rendered model assertion, got {text.count(old)}')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Verify corrected assertion
+        run: python -m py_compile tools/review_equipment_filter_regression_model_price_order_20260726.py
+      - name: Commit verifier correction
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/review_equipment_filter_regression_model_price_order_20260726.py
+          git commit -m 'test(data-products): verify rendered catalog model order'
+          git push origin HEAD:agent/equipment-filter-regression-model-price-order
