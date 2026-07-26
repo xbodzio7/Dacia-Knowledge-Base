@@ -127,4 +127,12 @@ replace_text(
     '        semantic = (row.configuration_code, spec.attribute_code, fuel, "", spec.observation_date)',
 )
 
+# The scalar-range collision fixture must also carry an explicit empty gear.
+range_test = ROOT / "tests" / "test_configuration_value_ranges.py"
+replace_text(
+    range_test,
+    '            [["1", "scalar", "example_configuration", "fuel_consumption", "petrol", "5.9", "2026-04-01", "example_source", "source"]],',
+    '            [["1", "scalar", "example_configuration", "fuel_consumption", "petrol", "", "5.9", "2026-04-01", "example_source", "source"]],',
+)
+
 print("PASS: historical selected-gear contracts normalized")
