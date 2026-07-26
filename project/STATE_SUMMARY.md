@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Cross-Model Comparison View Closure Review**
+**Post-Cross-Model Priority Selection Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Comparison View Foundation
-- Pull Request: #281
-- Verified head: `d9b38fbafe7d13285af2c21a58389f452389d00f`
-- Quality run: #1992
+- Package: Cross-Model Comparison View Closure Review
+- Pull Request: #282
+- Verified head: `debe6d665a8ef3307426ac4ea63f95fbf8685796`
+- Quality run: #1996
 
 ## Verified baseline
 
-- Tests: 998
+- Tests: 1006
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Comparison View Closure Review** — `complete`
+**Post-Cross-Model Priority Selection Review** — `complete`
 
-Verify the generator, unified CLI, 85-member release archive, offline local targets, existing-scope links, explicit unknown handling and non-inference boundaries without changing master data.
+Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package.
 
 ## Next package
 
-**Post-Cross-Model Priority Selection Review** — `planned`
+**Data Products v1.8.0 Release Preparation** — `planned`
 
-Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package.
+Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics.
 
 ## Autonomy
 

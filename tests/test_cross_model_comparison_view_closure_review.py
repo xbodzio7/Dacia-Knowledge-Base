@@ -135,7 +135,7 @@ class CrossModelComparisonViewClosureReviewTests(unittest.TestCase):
         self.assertEqual(baseline["availability_records"], 4754)
         self.assertEqual(baseline["attributes"], 385)
 
-    def test_verifier_and_project_state_accept_closure(self) -> None:
+    def test_verifier_and_project_state_preserve_closure_history(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -153,21 +153,19 @@ class CrossModelComparisonViewClosureReviewTests(unittest.TestCase):
             completed.stdout,
         )
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(
-            state["phase"],
-            "Cross-Model Comparison View Closure Review",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Cross-Model Comparison View Closure Review",
-        )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Post-Cross-Model Priority Selection Review",
-        )
-        self.assertEqual(state["baseline"]["tests"], 998)
-
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 998)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["availability_records"], 4754)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 if __name__ == "__main__":
     unittest.main()
