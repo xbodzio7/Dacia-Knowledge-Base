@@ -1,0 +1,195 @@
+name: Publish Data Products v1.8.0
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/data-products-v1-8-0-publish.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: becd218228e3f4f0cdd312b0ed836ade487422b1
+      VERSION: 1.8.0
+      TAG: data-products-v1.8.0
+      ARCHIVE: dacia-knowledge-base-data-products-v1.8.0.zip
+      EXPECTED_ARCHIVE_SIZE: '62141187'
+      EXPECTED_ARCHIVE_SHA256: 2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9
+      EXPECTED_MANIFEST_SIZE: '20606'
+      EXPECTED_MANIFEST_SHA256: af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b
+      EXPECTED_CHECKSUMS_SIZE: '213'
+      EXPECTED_CHECKSUMS_SHA256: 8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out publication branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-0-publish
+          fetch-depth: 0
+      - name: Check out exact release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: becd218228e3f4f0cdd312b0ed836ade487422b1
+          path: source
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Verify exact source and publication absence
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C source rev-parse HEAD)" = "$SOURCE_SHA"
+          if git -C source ls-remote --exit-code --tags origin "refs/tags/$TAG" >"$RUNNER_TEMP/tag.txt"; then
+            echo "Tag already exists: $TAG" >&2
+            exit 1
+          else
+            status=$?
+            test "$status" -eq 2
+          fi
+          if gh api "repos/xbodzio7/Dacia-Knowledge-Base/releases/tags/$TAG" >"$RUNNER_TEMP/existing-release.json" 2>"$RUNNER_TEMP/existing-release.err"; then
+            echo "Release already exists: $TAG" >&2
+            exit 1
+          fi
+          grep -q "HTTP 404" "$RUNNER_TEMP/existing-release.err"
+      - name: Rebuild and require exact preflight identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          candidate="$RUNNER_TEMP/v1.8.0-publication-candidate"
+          python source/tools/dkb.py data-product-release \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$candidate"
+          python source/tools/dkb.py data-product-release \
+            --verify \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$candidate"
+          test "$(stat -c '%s' "$candidate/$ARCHIVE")" = "$EXPECTED_ARCHIVE_SIZE"
+          test "$(sha256sum "$candidate/$ARCHIVE" | cut -d' ' -f1)" = "$EXPECTED_ARCHIVE_SHA256"
+          test "$(stat -c '%s' "$candidate/data-product-release-manifest.json")" = "$EXPECTED_MANIFEST_SIZE"
+          test "$(sha256sum "$candidate/data-product-release-manifest.json" | cut -d' ' -f1)" = "$EXPECTED_MANIFEST_SHA256"
+          test "$(stat -c '%s' "$candidate/SHA256SUMS")" = "$EXPECTED_CHECKSUMS_SIZE"
+          test "$(sha256sum "$candidate/SHA256SUMS" | cut -d' ' -f1)" = "$EXPECTED_CHECKSUMS_SHA256"
+          unzip -p "$candidate/$ARCHIVE" RELEASE_NOTES.md > "$RUNNER_TEMP/v1.8.0-release-notes.md"
+          grep -q "Data Products v1.8.0" "$RUNNER_TEMP/v1.8.0-release-notes.md"
+          grep -q "$SOURCE_SHA" "$RUNNER_TEMP/v1.8.0-release-notes.md"
+      - name: Publish exact three-asset release
+        shell: bash
+        run: |
+          set -euo pipefail
+          candidate="$RUNNER_TEMP/v1.8.0-publication-candidate"
+          gh release create "$TAG" \
+            "$candidate/$ARCHIVE" \
+            "$candidate/data-product-release-manifest.json" \
+            "$candidate/SHA256SUMS" \
+            --repo xbodzio7/Dacia-Knowledge-Base \
+            --target "$SOURCE_SHA" \
+            --title "Data Products v1.8.0" \
+            --notes-file "$RUNNER_TEMP/v1.8.0-release-notes.md"
+      - name: Re-download and verify public identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          candidate="$RUNNER_TEMP/v1.8.0-publication-candidate"
+          downloaded="$RUNNER_TEMP/v1.8.0-public-download"
+          mkdir -p "$downloaded"
+          gh release download "$TAG" \
+            --repo xbodzio7/Dacia-Knowledge-Base \
+            --dir "$downloaded"
+          test "$(find "$downloaded" -maxdepth 1 -type f | wc -l)" -eq 3
+          cmp "$candidate/$ARCHIVE" "$downloaded/$ARCHIVE"
+          cmp "$candidate/data-product-release-manifest.json" "$downloaded/data-product-release-manifest.json"
+          cmp "$candidate/SHA256SUMS" "$downloaded/SHA256SUMS"
+          python source/tools/dkb.py data-product-release \
+            --verify \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$downloaded"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/releases/tags/$TAG" > "$RUNNER_TEMP/public-release.json"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/git/ref/tags/$TAG" > "$RUNNER_TEMP/public-tag-ref.json"
+      - name: Record publication receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          RELEASE_JSON="$RUNNER_TEMP/public-release.json" TAG_JSON="$RUNNER_TEMP/public-tag-ref.json" python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          from pathlib import Path
+
+          release = json.loads(Path(os.environ["RELEASE_JSON"]).read_text(encoding="utf-8"))
+          tag = json.loads(Path(os.environ["TAG_JSON"]).read_text(encoding="utf-8"))
+          source_sha = os.environ["SOURCE_SHA"]
+          expected = {
+              os.environ["ARCHIVE"]: {
+                  "size": int(os.environ["EXPECTED_ARCHIVE_SIZE"]),
+                  "sha256": os.environ["EXPECTED_ARCHIVE_SHA256"],
+              },
+              "data-product-release-manifest.json": {
+                  "size": int(os.environ["EXPECTED_MANIFEST_SIZE"]),
+                  "sha256": os.environ["EXPECTED_MANIFEST_SHA256"],
+              },
+              "SHA256SUMS": {
+                  "size": int(os.environ["EXPECTED_CHECKSUMS_SIZE"]),
+                  "sha256": os.environ["EXPECTED_CHECKSUMS_SHA256"],
+              },
+          }
+          assert release["tag_name"] == os.environ["TAG"]
+          assert release["draft"] is False
+          assert release["prerelease"] is False
+          assert tag["object"]["type"] == "commit"
+          assert tag["object"]["sha"] == source_sha
+          assets = release["assets"]
+          assert {item["name"] for item in assets} == set(expected)
+          records = {}
+          for asset in assets:
+              identity = expected[asset["name"]]
+              assert asset["size"] == identity["size"]
+              digest = asset.get("digest")
+              if digest is not None:
+                  assert digest == "sha256:" + identity["sha256"]
+              records[asset["name"]] = {
+                  "asset_id": asset["id"],
+                  "size_bytes": asset["size"],
+                  "sha256": identity["sha256"],
+                  "api_digest": digest,
+                  "download_url": asset["browser_download_url"],
+              }
+          receipt = {
+              "version": 1,
+              "kind": "data_products_v1_8_0_publication",
+              "status": "PASS",
+              "release_id": release["id"],
+              "release_tag": release["tag_name"],
+              "release_url": release["html_url"],
+              "published_at": release["published_at"],
+              "source_commit": source_sha,
+              "workflow_run": int(os.environ["GITHUB_RUN_ID"]),
+              "draft": release["draft"],
+              "prerelease": release["prerelease"],
+              "asset_count": len(assets),
+              "assets": dict(sorted(records.items())),
+              "public_redownload_verification": "PASS",
+          }
+          output = Path(".github/data-products-v1.8.0-publication.json")
+          output.write_text(
+              json.dumps(receipt, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(receipt, ensure_ascii=False, indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/data-products-v1.8.0-publication.json
+          git commit -m 'ci(release): record v1.8.0 publication'
+          git push origin HEAD:agent/data-products-v1-8-0-publish
