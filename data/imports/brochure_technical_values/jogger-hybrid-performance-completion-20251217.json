@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "kind": "jogger_brochure_hybrid_performance_completion",
+  "reviewed_on": "2026-07-26",
+  "source_code": "src_pl_jogger_brochure_20251217",
+  "observation_date": "2025-12-17",
+  "source_page": 19,
+  "scalar_id_start": 2273,
+  "range_id_start": 177,
+  "scalar_groups": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "",
+      "value": "8.9",
+      "source_text": "0–100 km/h, wersja 5-miejscowa: 8,9 s",
+      "configurations": [
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic"
+      ]
+    },
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "",
+      "value": "9",
+      "source_text": "0–100 km/h, wersja 7-miejscowa: 9,0 s",
+      "configurations": [
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ]
+    },
+    {
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_text": "Akumulator trakcyjny litowo-jonowy / 230 V / 1,4 kWh",
+      "configurations": [
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ]
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "petrol",
+      "value": "5600",
+      "source_text": "Silnik spalinowy hybrid 155: maks. moc 105 kW (140 KM) przy 5600 obr./min",
+      "configurations": [
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ]
+    }
+  ],
+  "range_groups": [
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "petrol",
+      "minimum_value": "5000",
+      "maximum_value": "5250",
+      "source_text": "TCe 110: maks. moc od 5000 do 5250 obr./min",
+      "configurations": [
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_7seat_tce110_manual"
+      ]
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "lpg",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "source_text": "Eco-G 120 LPG: maks. moc od 4500 do 5000 obr./min",
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ]
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "petrol",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "source_text": "Eco-G 120 benzyna: maks. moc od 4500 do 5000 obr./min",
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ]
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "source_text": "TCe 110: maks. moment od 2900 do 3500 obr./min",
+      "configurations": [
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_7seat_tce110_manual"
+      ]
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "lpg",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "source_text": "Eco-G 120 LPG: maks. moment od 1750 do 3750 obr./min",
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ]
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "source_text": "Eco-G 120 benzyna: maks. moment od 2000 do 4000 obr./min",
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ]
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol",
+      "minimum_value": "3000",
+      "maximum_value": "4000",
+      "source_text": "Silnik spalinowy hybrid 155: maks. moment od 3000 do 4000 obr./min",
+      "configurations": [
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ]
+    }
+  ],
+  "historical_precedence": [
+    {
+      "code": "newer_my26_values_remain_current",
+      "reason": "All brochure observations are dated 2025-12-17; later exact MY26 price-list values or ranges dated 2026-04-01 remain the latest reporting observations."
+    },
+    {
+      "code": "ecog_petrol_power_range_differs_from_newer_source",
+      "reason": "The brochure states 4500–5000 rpm for petrol, while the later MY26 price list states 4500–5750 rpm; both source observations are retained without rewriting either one."
+    },
+    {
+      "code": "hybrid_acceleration_exact_by_seat_layout",
+      "reason": "The brochure exact values 8.9 s for five seats and 9.0 s for seven seats coexist with the later MY26 8.9–9.0 range."
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "code": "electric_motor_torque_has_no_engine_speed",
+      "reason": "The source states 205 Nm for the electric motor without an rpm value; it is not assigned to max_torque_rpm."
+    },
+    {
+      "code": "battery_capacity_semantics_remain_source_stated",
+      "reason": "The 1.4 kWh value is stored only in the neutral source-stated capacity attribute, not classified as gross, net or usable."
+    },
+    {
+      "code": "no_cross_seat_projection_for_acceleration",
+      "reason": "Five-seat and seven-seat acceleration observations remain distinct."
+    },
+    {
+      "code": "no_range_flattening",
+      "reason": "Closed rpm intervals are stored in the range table and never reduced to a midpoint or endpoint scalar."
+    }
+  ]
+}
