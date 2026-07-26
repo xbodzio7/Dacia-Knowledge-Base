@@ -1,0 +1,201 @@
+name: Publish data-products v1.7.0
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data-products-v1.7.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.head_ref == 'release/publish-data-products-v1.7.0'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: '1.7.0'
+      RELEASE_TAG: data-products-v1.7.0
+      SOURCE_SHA: 99e0e19b86cad6eae619f37702464e6a5a761cd8
+      RELEASE_DIR: release-candidate
+      ARCHIVE_NAME: dacia-knowledge-base-data-products-v1.7.0.zip
+    steps:
+      - name: Check out exact green main commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 99e0e19b86cad6eae619f37702464e6a5a761cd8
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Confirm exact source identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${SOURCE_SHA}"
+          git diff --quiet
+          git diff --cached --quiet
+          python tools/dkb.py project-state --check
+          python tools/review_data_products_v1_7_0_release_preparation_20260726.py --check
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Prove tag and release are absent
+        shell: bash
+        run: |
+          set -euo pipefail
+          prove_absent() {
+            local endpoint="$1"
+            local label="$2"
+            local output
+            local status
+            set +e
+            output="$(gh api --silent "${endpoint}" 2>&1)"
+            status=$?
+            set -e
+            if [[ ${status} -eq 0 ]]; then
+              echo "${label} already exists: ${RELEASE_TAG}" >&2
+              exit 1
+            fi
+            if [[ "${output}" != *"(HTTP 404)"* ]]; then
+              echo "Unable to prove ${label} absence; refusing publication." >&2
+              printf '%s\n' "${output}" >&2
+              exit 1
+            fi
+          }
+          prove_absent "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" "Release"
+          prove_absent "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" "Tag"
+
+      - name: Rebuild and verify exact candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest -q tests.test_data_product_release
+          python tools/data_product_release.py \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${SOURCE_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${SOURCE_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+
+      - name: Require exact preflight identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${RELEASE_DIR}"
+          echo 'ceeb2ab708984d6325bc0dacd6a4ba0acd3b750a5c5612f3ea8806bf55540a60  SHA256SUMS' | sha256sum --check --strict
+          echo '4bed3488d3cf0d175583c3e437bef83720962cb1c4162861a69e15e0aae4b67a  dacia-knowledge-base-data-products-v1.7.0.zip' | sha256sum --check --strict
+          echo '1b5f24a1de919cce5fc87ec5c5406b04bf61052cd48e095439094d41d07e5e24  data-product-release-manifest.json' | sha256sum --check --strict
+          test "$(stat -c %s SHA256SUMS)" = '213'
+          test "$(stat -c %s dacia-knowledge-base-data-products-v1.7.0.zip)" = '62077663'
+          test "$(stat -c %s data-product-release-manifest.json)" = '20098'
+
+      - name: Extract deterministic release notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          root = Path(os.environ['RELEASE_DIR'])
+          with ZipFile(root / os.environ['ARCHIVE_NAME']) as archive:
+              notes = archive.read('RELEASE_NOTES.md')
+          (root / 'RELEASE_NOTES.md').write_bytes(notes)
+          PY
+
+      - name: Publish immutable GitHub Release
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "${RELEASE_TAG}" \
+            "${RELEASE_DIR}/${ARCHIVE_NAME}" \
+            "${RELEASE_DIR}/data-product-release-manifest.json" \
+            "${RELEASE_DIR}/SHA256SUMS" \
+            --target "${SOURCE_SHA}" \
+            --title "Dacia Knowledge Base Data Products v${RELEASE_VERSION}" \
+            --notes-file "${RELEASE_DIR}/RELEASE_NOTES.md"
+
+      - name: Verify published identity and asset set
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p publication-audit
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" > publication-audit/release.json
+          gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}" > publication-audit/tag.json
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          release = json.loads(Path('publication-audit/release.json').read_text())
+          tag = json.loads(Path('publication-audit/tag.json').read_text())
+          expected_names = {
+              'SHA256SUMS',
+              'dacia-knowledge-base-data-products-v1.7.0.zip',
+              'data-product-release-manifest.json',
+          }
+          names = {asset['name'] for asset in release['assets']}
+          if names != expected_names:
+              raise SystemExit(f'unexpected asset set: {sorted(names)}')
+          if release.get('draft') or release.get('prerelease'):
+              raise SystemExit('release is not final')
+          if release.get('tag_name') != os.environ['RELEASE_TAG']:
+              raise SystemExit('release tag mismatch')
+          if tag.get('object', {}).get('sha') != os.environ['SOURCE_SHA']:
+              raise SystemExit(f"tag target mismatch: {tag.get('object', {}).get('sha')}")
+          expected = {
+              'SHA256SUMS': (213, 'sha256:ceeb2ab708984d6325bc0dacd6a4ba0acd3b750a5c5612f3ea8806bf55540a60'),
+              'dacia-knowledge-base-data-products-v1.7.0.zip': (62077663, 'sha256:4bed3488d3cf0d175583c3e437bef83720962cb1c4162861a69e15e0aae4b67a'),
+              'data-product-release-manifest.json': (20098, 'sha256:1b5f24a1de919cce5fc87ec5c5406b04bf61052cd48e095439094d41d07e5e24'),
+          }
+          for asset in release['assets']:
+              size, digest = expected[asset['name']]
+              if asset.get('size') != size:
+                  raise SystemExit(f"asset size mismatch: {asset['name']}")
+              if asset.get('digest') not in {None, digest}:
+                  raise SystemExit(f"asset digest mismatch: {asset['name']}")
+          summary = {
+              'release_id': release['id'],
+              'tag': release['tag_name'],
+              'target_commit_sha': tag['object']['sha'],
+              'target_commitish': release.get('target_commitish'),
+              'published_at': release.get('published_at'),
+              'html_url': release.get('html_url'),
+              'draft': release.get('draft'),
+              'prerelease': release.get('prerelease'),
+              'assets': [
+                  {
+                      'name': asset['name'],
+                      'asset_id': asset['id'],
+                      'size': asset['size'],
+                      'digest': asset.get('digest'),
+                      'state': asset.get('state'),
+                  }
+                  for asset in sorted(release['assets'], key=lambda item: item['name'])
+              ],
+              'verification': 'PASS',
+          }
+          Path('publication-audit/publication.json').write_text(
+              json.dumps(summary, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload publication audit
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: data-products-v1.7.0-publication
+          path: publication-audit
+          if-no-files-found: error
+          retention-days: 7
