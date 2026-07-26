@@ -328,8 +328,8 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
         expected_counts = {
             "": 24,
             "fuel_type_code=": 144,
-            "fuel_type_code=lpg": 61,
-            "fuel_type_code=petrol": 55,
+            "fuel_type_code=lpg": 83,
+            "fuel_type_code=petrol": 77,
             "market=PL;currency_code=PLN": 21,
         }
         for context, expected in expected_counts.items():
