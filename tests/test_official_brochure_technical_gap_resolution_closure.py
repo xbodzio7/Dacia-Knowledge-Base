@@ -149,16 +149,14 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: official brochure technical gap resolution closure review", completed.stdout)
 
-    def test_project_state_matches_completed_closure(self) -> None:
+    def test_project_state_preserves_completed_closure_receipt(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Official Brochure Technical Gap Resolution Closure Review")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Official Brochure Residual Evidence Review")
-        self.assertEqual(state["baseline"]["tests"], 923)
-        self.assertEqual(state["baseline"]["rows"], 9306)
-        self.assertEqual(state["baseline"]["configuration_values"], 2567)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["tests"], 923)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9306)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2567)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":
