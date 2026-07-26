@@ -34,7 +34,7 @@ class JoggerEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 4)
-        self.assertEqual(scope["technical_slots"], 37)
+        self.assertEqual(scope["technical_slots"], 41)
         self.assertEqual(scope["equipment_attributes"], 53)
         self.assertEqual(scope["sources"], 1)
 
@@ -42,12 +42,12 @@ class JoggerEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 148,
+                "applicable": 164,
                 "coverage_percent": "100.00",
-                "denominator": 148,
+                "denominator": 164,
                 "missing": 0,
                 "not_applicable": 0,
-                "present": 148,
+                "present": 164,
             },
         )
         self.assertEqual(
@@ -73,8 +73,8 @@ class JoggerEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1},
         )
         self.assertEqual(self.coverage["areas"], {"covered": 16, "denominator": 16, "missing": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["sections"], {"covered": 108, "denominator": 108, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 148)
+        self.assertEqual(self.coverage["sections"], {"covered": 116, "denominator": 116, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 164)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 212)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 4)
         self.assertEqual(self.coverage["gaps"], [])
@@ -95,7 +95,7 @@ class JoggerEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             self.comparison["summary"],
             {
                 "prices": {"comparisons": 6, "equal": 0, "different": 6, "not_comparable": 0},
-                "technical": {"comparisons": 266, "equal": 186, "different": 40, "not_comparable": 40},
+                "technical": {"comparisons": 290, "equal": 210, "different": 40, "not_comparable": 40},
                 "equipment": {"comparisons": 318, "equal": 282, "different": 36, "not_comparable": 0},
                 "total_differences": 82,
             },
