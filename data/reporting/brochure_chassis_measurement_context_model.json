@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "kind": "brochure_chassis_measurement_context_model",
+  "decided_on": "2026-07-26",
+  "status": "accepted",
+  "decision_reference": "D-016",
+  "selected_variant": "separate_unambiguous_attributes",
+  "scope": {
+    "sources": 5,
+    "classification_codes": [
+      "bigster_chassis_measurement_modeling",
+      "jogger_chassis_candidate_and_modeling",
+      "sandero_chassis_and_maximum_mass_modeling",
+      "stepway_chassis_and_maximum_mass_modeling",
+      "duster_chassis_mass_and_payload_modeling"
+    ]
+  },
+  "new_attributes": [
+    {
+      "id": 389,
+      "code": "turning_circle_between_kerbs",
+      "category": "Performance",
+      "name": "Turning circle between kerbs",
+      "data_type": "decimal",
+      "unit": "m",
+      "description": "Minimum turning-circle diameter explicitly measured between kerbs; distinct from wheel-track and unspecified turning-circle observations.",
+      "status": "active"
+    },
+    {
+      "id": 390,
+      "code": "turning_circle_wheel_track",
+      "category": "Performance",
+      "name": "Turning circle by wheel track",
+      "data_type": "decimal",
+      "unit": "m",
+      "description": "Minimum turning-circle diameter explicitly stated using the wheel-track basis; distinct from between-kerbs and unspecified observations.",
+      "status": "active"
+    },
+    {
+      "id": 391,
+      "code": "maximum_kerb_weight",
+      "category": "Weights",
+      "name": "Maximum kerb weight",
+      "data_type": "integer",
+      "unit": "kg",
+      "description": "Maximum vehicle kerb weight explicitly qualified as maximum by the source; distinct from minimum and unqualified kerb-weight observations.",
+      "status": "active"
+    },
+    {
+      "id": 392,
+      "code": "payload",
+      "category": "Weights",
+      "name": "Payload",
+      "data_type": "integer",
+      "unit": "kg",
+      "description": "Source-stated payload observation. Exact values use the scalar table and bounded intervals use the range table; distinct from an explicitly stated maximum payload.",
+      "status": "active"
+    }
+  ],
+  "existing_specification_mappings": [
+    {"source_semantic": "axle-neutral tyre specification", "attribute_code": "standard_tyre_specification"},
+    {"source_semantic": "front suspension specification", "attribute_code": "front_suspension"},
+    {"source_semantic": "rear suspension specification", "attribute_code": "rear_suspension"},
+    {"source_semantic": "front brake specification", "attribute_code": "front_brake_type"},
+    {"source_semantic": "rear brake specification", "attribute_code": "rear_brake_type"},
+    {"source_semantic": "power-steering specification", "attribute_code": "steering_type"}
+  ],
+  "rules": [
+    {
+      "code": "turning_basis_is_semantic",
+      "decision": "Basis-qualified turning diameters must use the matching dedicated attribute. New brochure evidence must not be stored in the legacy context-free turning_circle attribute."
+    },
+    {
+      "code": "mass_qualifier_is_semantic",
+      "decision": "Maximum kerb weight must not be folded into minimum_kerb_weight or unqualified kerb_weight."
+    },
+    {
+      "code": "payload_preserves_scalar_or_range",
+      "decision": "A single source-stated payload uses configuration_attribute_values; a lower/upper payload interval uses configuration_attribute_value_ranges without flattening. maximum_payload remains reserved for an explicitly stated maximum."
+    },
+    {
+      "code": "compound_specs_remain_source_text",
+      "decision": "Tyre, brake, suspension and steering specifications use existing string attributes and preserve the complete source wording rather than being decomposed without controlled dictionaries."
+    },
+    {
+      "code": "projection_requires_exact_scope",
+      "decision": "Model-wide or powertrain-wide chassis evidence is projected only when the source scope maps unambiguously to exact active configurations. Otherwise it remains deferred."
+    },
+    {
+      "code": "ambiguous_labels_are_not_reassigned",
+      "decision": "Physically implausible or duplicated mass-table labels are not semantically reassigned without corrected official evidence."
+    }
+  ],
+  "source_resolutions": [
+    {
+      "classification_code": "bigster_chassis_measurement_modeling",
+      "status": "model_defined_import_pending",
+      "turning_attribute": "turning_circle_between_kerbs",
+      "mass_attribute": "maximum_kerb_weight",
+      "text_attributes": ["steering_type", "front_brake_type", "rear_brake_type", "standard_tyre_specification"]
+    },
+    {
+      "classification_code": "jogger_chassis_candidate_and_modeling",
+      "status": "model_defined_import_pending",
+      "turning_attribute": "turning_circle_between_kerbs",
+      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"],
+      "blocked_related_classification": "jogger_mass_table_label_conflict"
+    },
+    {
+      "classification_code": "sandero_chassis_and_maximum_mass_modeling",
+      "status": "model_defined_import_pending",
+      "turning_attribute": "turning_circle_between_kerbs",
+      "mass_attribute": "maximum_kerb_weight",
+      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"]
+    },
+    {
+      "classification_code": "stepway_chassis_and_maximum_mass_modeling",
+      "status": "model_defined_import_pending",
+      "turning_attribute": "turning_circle_between_kerbs",
+      "mass_attribute": "maximum_kerb_weight",
+      "text_attributes": ["standard_tyre_specification", "front_suspension", "rear_suspension"]
+    },
+    {
+      "classification_code": "duster_chassis_mass_and_payload_modeling",
+      "status": "model_defined_import_pending",
+      "turning_attribute": "turning_circle_wheel_track",
+      "mass_attribute": "maximum_kerb_weight",
+      "range_attribute": "payload",
+      "text_attributes": ["steering_type", "front_brake_type", "rear_brake_type", "standard_tyre_specification"]
+    }
+  ],
+  "legacy_boundaries": {
+    "turning_circle": "Retained for existing context-free observations; not used for new basis-qualified brochure evidence.",
+    "minimum_kerb_weight": "Retained for explicitly minimum-qualified observations.",
+    "maximum_payload": "Retained for explicitly maximum-qualified scalar observations."
+  },
+  "next_package": {
+    "name": "Sandero and Stepway Chassis Observation Import",
+    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016."
+  }
+}
