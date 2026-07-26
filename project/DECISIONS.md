@@ -945,3 +945,86 @@ cargo values are imported.
 This decision does not import cargo values and does not modify current master-data
 schemas. Gear-specific 80–120 km/h elasticity remains a separate future modeling
 question; no generic all-purpose measurement-context architecture is introduced here.
+
+## D-024 — Observation-level selected-gear context
+
+Status: Accepted
+Date: 2026-07-26
+
+### Decision
+
+Gear-qualified performance observations remain numeric rows in
+`configuration_attribute_values.csv` and reuse the neutral
+`elasticity_80_120` attribute. The follow-up schema package shall add one
+optional `gear_number` column after `fuel_type_code` and before `value`.
+
+`gear_number` stores a canonical positive integer only when the source
+explicitly qualifies the observation by one selected forward gear. Examples
+include `4`, `5` and `6`. An empty field means that the source does not state a
+selected-gear qualifier. It must not be interpreted as `unknown`, all gears,
+top gear, the highest available gear or not applicable.
+
+The existing observation and configuration dimensions remain authoritative:
+
+- the 80–120 km/h speed interval is part of the canonical attribute meaning;
+- LPG and petrol alternatives use the existing observation-level
+  `fuel_type_code` from D-014;
+- five- and seven-seat distinctions target exact configurations and reuse
+  canonical `number_of_seats` data;
+- powertrain and transmission are properties of the exact target
+  configuration.
+
+These dimensions shall not be duplicated in a new context relation or in
+additional columns.
+
+### Evidence
+
+The reviewed official brochure tables contain:
+
+- Sandero page 17: fourth- and fifth-gear elasticity, including separate LPG
+  and petrol values for Eco-G 120;
+- Sandero Stepway page 17: fourth-, fifth- and sixth-gear elasticity where
+  stated, including separate LPG and petrol values;
+- Jogger page 19: fourth-gear elasticity separated by exact five- and
+  seven-seat variants and by fuel where the powertrain is bi-fuel.
+
+The source may explicitly name a gear for an automatic transmission. Such a
+value may use `gear_number` exactly as stated. Missing gear values are not
+inferred from `gear_count`, transmission type or neighbouring table rows.
+
+### Validation and reporting
+
+The schema foundation shall enforce that:
+
+- `gear_number` is empty or a canonical positive integer;
+- a populated value is permitted only for an explicitly eligible performance
+  attribute, initially `elasticity_80_120`;
+- gear-distinct observations may share configuration, attribute, fuel, date
+  and source;
+- two rows with the same complete observation identity and date remain a
+  semantic collision;
+- latest-value selection, comparisons, shortlist exports and data products
+  include `gear_number` in the technical observation key.
+
+Existing values remain unchanged. During schema migration they receive an
+empty `gear_number` unless their current source-backed meaning already
+contains an explicitly modeled selected gear in a future reviewed import.
+
+### Rejected alternatives
+
+- Gear-specific attribute codes such as `elasticity_80_120_4th_gear` would
+  duplicate one fact and fragment comparisons.
+- A separate one-to-one context relation is disproportionate for one scalar
+  qualifier already analogous to observation-level fuel context.
+- A generic key-value measurement-context table would be untyped and is not
+  justified by the reviewed evidence.
+- Passenger layout, fuel, powertrain and transmission must not be duplicated
+  because the current model already represents them.
+
+### Scope boundary
+
+This decision imports no elasticity values and changes no master-data schema.
+Cargo measurement context remains governed independently by D-023. The next
+package implements the optional column, validation, import-spec, SQLite,
+data-dictionary and reporting support before any brochure performance values
+are imported.

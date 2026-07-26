@@ -106,7 +106,7 @@ class BrochureCargoImportClosureReviewTests(unittest.TestCase):
                 self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
                 self.assertIn("PASS:", completed.stdout)
 
-    def test_deferrals_are_explicit_and_project_state_closes_milestone(self) -> None:
+    def test_deferrals_and_historical_closure_baseline_are_preserved(self) -> None:
         self.assertEqual(len(self.report["deferred_evidence"]), 6)
         self.assertEqual(
             {item["code"] for item in self.report["deferred_evidence"]},
@@ -120,9 +120,8 @@ class BrochureCargoImportClosureReviewTests(unittest.TestCase):
             },
         )
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Cargo Import Closure Review")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["baseline"]["tests"], 808)
+        self.assertGreaterEqual(state["baseline"]["tests"], 808)
         self.assertEqual(state["baseline"]["rows"], 8782)
 
 
