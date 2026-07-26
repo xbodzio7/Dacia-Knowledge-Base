@@ -13,6 +13,7 @@ on:
       - data/imports/brochure_technical_values/sandero-stepway-chassis-20260202.json
       - tools/import_sandero_stepway_chassis_20260726.py
       - tools/materialize_sandero_stepway_chassis_20260726.py
+      - tools/repair_sandero_stepway_chassis_regressions_20260726.py
       - tests/test_sandero_stepway_chassis_20260726.py
 
 permissions:
@@ -41,6 +42,9 @@ jobs:
           python tools/import_sandero_stepway_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
           if [ "$status" -eq 0 ]; then
             python tools/materialize_sandero_stepway_chassis_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_sandero_stepway_chassis_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
