@@ -1,0 +1,20 @@
+PASS: brochure generic dimension observations
+PASS: generic brochure dimension import integration materialized
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/SESSION_STATE.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 947
+Master rows    : 9688
+Phase          : Brochure Generic Dimensions Observation Import
+Current package: Brochure Generic Dimensions Observation Import
+Next package   : Brochure Generic Dimensions Import Closure Review
+Autonomy mode  : autonomous_until_action_required
+PASS: brochure generic dimension observations
+usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py
+       [-h] --check
+review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: next package differs
