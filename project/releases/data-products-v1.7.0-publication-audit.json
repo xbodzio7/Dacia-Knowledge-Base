@@ -1,0 +1,73 @@
+{
+  "release_id": 360090447,
+  "tag": "data-products-v1.7.0",
+  "target_commit_sha": "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+  "target_commitish": "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+  "published_at": "2026-07-26T18:40:33Z",
+  "html_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.7.0",
+  "draft": false,
+  "prerelease": false,
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "asset_id": 490591907,
+      "size": 213,
+      "sha256": "ceeb2ab708984d6325bc0dacd6a4ba0acd3b750a5c5612f3ea8806bf55540a60",
+      "api_digest": "sha256:ceeb2ab708984d6325bc0dacd6a4ba0acd3b750a5c5612f3ea8806bf55540a60",
+      "state": "uploaded"
+    },
+    {
+      "name": "dacia-knowledge-base-data-products-v1.7.0.zip",
+      "asset_id": 490591898,
+      "size": 62077663,
+      "sha256": "4bed3488d3cf0d175583c3e437bef83720962cb1c4162861a69e15e0aae4b67a",
+      "api_digest": "sha256:4bed3488d3cf0d175583c3e437bef83720962cb1c4162861a69e15e0aae4b67a",
+      "state": "uploaded"
+    },
+    {
+      "name": "data-product-release-manifest.json",
+      "asset_id": 490591893,
+      "size": 20098,
+      "sha256": "1b5f24a1de919cce5fc87ec5c5406b04bf61052cd48e095439094d41d07e5e24",
+      "api_digest": "sha256:1b5f24a1de919cce5fc87ec5c5406b04bf61052cd48e095439094d41d07e5e24",
+      "state": "uploaded"
+    }
+  ],
+  "archive_member_count": 83,
+  "browser": {
+    "configuration_count": 72,
+    "technical_comparison_facet_count": 124,
+    "equipment_facet_count": 110,
+    "official_model_media_count": 5,
+    "contract_text_verified": [
+      "Pokaż tylko różnice",
+      "Filtruj listę wyposażenia",
+      "Cena minimalna",
+      "Cena maksymalna",
+      "vehicle-photo-fallback",
+      ".equipment-choice[hidden]{display:none!important}",
+      "system nie odznacza filtrów automatycznie",
+      "selection_conflict",
+      "addable_equipment"
+    ],
+    "legacy_auto_removal_absent": [
+      "setSelected(equipment, facetState.selected_equipment)",
+      "removedCodes = state && Array.isArray(state.removed_equipment)"
+    ]
+  },
+  "workspace": {
+    "schema_version": 1,
+    "status": "verified",
+    "release_version": "1.7.0",
+    "release_tag": "data-products-v1.7.0",
+    "repository_commit": "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+    "snapshot_date": "2026-07-24",
+    "asset_count": 3,
+    "content_file_count": 83,
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "index_local_link_count": 83,
+    "index_sha256": "121284cf6578aece7fa35381ebd35945de9e20512dae11f474891a75106abd79"
+  },
+  "verification": "PASS"
+}
