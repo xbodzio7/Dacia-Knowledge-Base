@@ -1,11 +1,18 @@
 name: Materialize Official Brochure Technical Gap Review
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/official-brochure-technical-gap-review
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
     paths:
       - .github/workflows/materialize-official-brochure-gap-review.yml
+      - data/reporting/official_brochure_technical_gap_review.json
+      - tools/review_official_brochure_technical_gaps_20260726.py
+      - tests/test_official_brochure_technical_gap_review.py
 
 permissions:
   contents: write
