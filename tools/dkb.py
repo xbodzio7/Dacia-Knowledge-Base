@@ -257,6 +257,10 @@ def usage() -> None:
         "--json cross-model-view.json --html cross-model-view.html"
     )
     print(
+        "  python tools/dkb.py cross-model-comparison-view "
+        "--json cross-model-view.json --html cross-model-view.html"
+    )
+    print(
         "  python tools/dkb.py data-product-release --version 1.0.0 "
         "--commit-sha 0123456789012345678901234567890123456789 "
         "--output-directory ../data-product-release"
