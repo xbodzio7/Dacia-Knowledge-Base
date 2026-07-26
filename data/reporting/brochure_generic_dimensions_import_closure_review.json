@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "kind": "brochure_generic_dimensions_import_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_review": "official_brochure_residual_evidence_review.json",
+  "semantic_mapping_review": "brochure_generic_dimensions_semantic_mapping_review.json",
+  "import_package": {
+    "name": "Brochure Generic Dimensions Observation Import",
+    "pull_request": 272,
+    "merge_sha": "b46248d"
+  },
+  "totals": {
+    "sources": 3,
+    "configurations": 36,
+    "scalar_values": 382,
+    "range_values": 0,
+    "new_attributes": 0,
+    "reporting_scopes": 9,
+    "reporting_slot_entries": 94
+  },
+  "source_value_counts": {
+    "src_pl_sandero_brochure_20260202": 40,
+    "src_pl_jogger_brochure_20251217": 242,
+    "src_pl_duster_mini_brochure_20251020": 100
+  },
+  "attribute_value_counts": {
+    "overall_length": 36,
+    "overall_width": 36,
+    "overall_width_with_mirrors": 36,
+    "wheelbase": 36,
+    "ground_clearance": 36,
+    "front_track": 36,
+    "rear_track": 36,
+    "front_overhang": 36,
+    "rear_overhang": 36,
+    "overall_height": 26,
+    "roof_height_with_rails": 32
+  },
+  "identity_contract": {
+    "scalar_id_start": 2568,
+    "scalar_id_end": 2949,
+    "observation_dates": [
+      "2025-10-20",
+      "2025-12-17",
+      "2026-02-02"
+    ]
+  },
+  "reporting_contract": {
+    "sandero_scopes": {
+      "sandero_ecog120_manual_completeness.json": 10,
+      "sandero_ecog120_automatic_completeness.json": 10
+    },
+    "jogger_scopes": {
+      "jogger_ecog120_manual_completeness.json": 11,
+      "jogger_ecog120_automatic_completeness.json": 11,
+      "jogger_tce110_manual_completeness.json": 11,
+      "jogger_hybrid155_automatic_completeness.json": 11
+    },
+    "duster_4x2_scopes": {
+      "duster_ecog120_completeness.json": 10,
+      "duster_mildhybrid140_4x2_completeness.json": 10,
+      "duster_hybrid155_completeness.json": 10
+    }
+  },
+  "latest_value_precedence": {
+    "model_code": "sandero_iii",
+    "historical_observation_date": "2026-02-02",
+    "later_exact_observation_date": "2026-06-26",
+    "later_exact_configurations": [
+      "sandero_iii_expression_ecog120_manual",
+      "sandero_iii_journey_ecog120_manual"
+    ],
+    "later_exact_attributes": [
+      "front_overhang",
+      "overall_length",
+      "overall_width",
+      "rear_overhang",
+      "wheelbase"
+    ],
+    "later_exact_values": 10,
+    "decision": "Historical model-wide brochure values remain preserved while later exact configuration observations remain the current values under latest-observation selection."
+  },
+  "classification_resolution": {
+    "resolved": [
+      "sandero_dimensions_and_cargo",
+      "jogger_dimensions_and_cargo"
+    ],
+    "partially_resolved": [
+      "duster_wltp_placeholders_and_dimensions"
+    ]
+  },
+  "evidence_contract": {
+    "stepway_extreme_automatic_not_stated_decisions": 5,
+    "reviewed_pages": [2],
+    "resolution_state": "closed_not_stated"
+  },
+  "preserved_boundaries": [
+    {
+      "code": "duster_4x4_dimensions_without_exact_source_relationship",
+      "status": "deferred",
+      "decision": "No Duster 4x4 diagram value is imported until an exact active 4x4 configuration is related to the source."
+    },
+    {
+      "code": "duster_wltp_placeholders",
+      "status": "no_observation",
+      "decision": "Blank or placeholder WLTP cells remain non-observations."
+    },
+    {
+      "code": "contextual_cargo_model",
+      "status": "preserved",
+      "decision": "Cargo values remain governed by seat, drive and equipment measurement contexts and are not flattened into generic dimensions."
+    },
+    {
+      "code": "excluded_diagram_measurements",
+      "status": "preserved_non_import",
+      "decision": "Interior measurements, tailgate-open heights and seatback angles remain excluded; 14-degree labels do not populate approach_angle or departure_angle."
+    }
+  ],
+  "closure_decision": "Close the generic brochure dimension import milestone with all 382 approved historical observations verified across thirty-six exact configurations and nine reporting scopes. Preserve later exact Sandero precedence and retain every Duster 4x4, WLTP, contextual cargo and excluded-diagram boundary without inference.",
+  "next_package": {
+    "name": "Post-Brochure Priority Selection Review",
+    "goal": "Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries."
+  }
+}

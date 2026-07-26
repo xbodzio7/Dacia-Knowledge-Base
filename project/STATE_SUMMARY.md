@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Generic Dimensions Observation Import**
+**Brochure Generic Dimensions Import Closure Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 947
+- Tests: 955
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Generic Dimensions Observation Import** — `complete`
+**Brochure Generic Dimensions Import Closure Review** — `complete`
 
-Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values.
+Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4, WLTP, contextual cargo and excluded-diagram boundaries.
 
 ## Next package
 
-**Brochure Generic Dimensions Import Closure Review** — `planned`
+**Post-Brochure Priority Selection Review** — `planned`
 
-Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4 and excluded-diagram boundaries.
+Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries.
 
 ## Autonomy
 

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Generic Dimensions Observation Import",
+  "phase": "Brochure Generic Dimensions Import Closure Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 947,
+    "tests": 955,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Generic Dimensions Observation Import",
+    "name": "Brochure Generic Dimensions Import Closure Review",
     "status": "complete",
-    "goal": "Materialize the 382 approved historical exterior-dimension observations for exact source-related Sandero, Jogger and Duster 4x2 configurations, integrate reporting slots, and preserve all deferred or excluded diagram values."
+    "goal": "Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4, WLTP, contextual cargo and excluded-diagram boundaries."
   },
   "next_package": {
-    "name": "Brochure Generic Dimensions Import Closure Review",
+    "name": "Post-Brochure Priority Selection Review",
     "status": "planned",
-    "goal": "Verify all 382 approved dimension observations, nine reporting integrations, latest-value precedence and the continuing Duster 4x4 and excluded-diagram boundaries."
+    "goal": "Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
