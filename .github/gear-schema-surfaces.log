@@ -3,6 +3,7 @@ tests/configuration_comparison_context_filter_contract.py
 tests/test_bigster_technical_specifications_20260703.py
 tests/test_brochure_cargo_context_reporting_foundation.py
 tests/test_brochure_gear_performance_context_model.py
+tests/test_brochure_gear_performance_schema_foundation.py
 tests/test_configuration_comparison.py
 tests/test_configuration_comparison_item_catalog.py
 tests/test_configuration_completeness.py
@@ -74,6 +75,7 @@ tests/test_brochure_cargo_context_reporting_foundation.py
 tests/test_brochure_cargo_context_schema_foundation.py
 tests/test_brochure_cargo_import_closure_review.py
 tests/test_brochure_gear_performance_context_model.py
+tests/test_brochure_gear_performance_schema_foundation.py
 tests/test_configuration_comparison.py
 tests/test_configuration_completeness.py
 tests/test_configuration_gap_resolution_plan.py
@@ -296,6 +298,14 @@ tests/test_source_coverage.py:351:                 'fuel_type_code', 'minimum_va
 tests/test_sandero_wheel_upholstery_values.py:51:                "fuel_type_code", "value", "observation_date",
 tests/test_jogger_lpg_capacities.py:116:        self.assertEqual({row["fuel_type_code"] for row in self.values}, {"lpg"})
 tests/test_sandero_standard_tyre_specification.py:79:                "fuel_type_code", "value", "observation_date",
+tests/test_brochure_gear_performance_schema_foundation.py:18:from reporting.cargo_context import technical_context  # noqa: E402
+tests/test_brochure_gear_performance_schema_foundation.py:77:                        "attribute_code": "elasticity_80_120", "fuel_type_code": "",
+tests/test_brochure_gear_performance_schema_foundation.py:95:                    {"id":"1","code":"a","configuration_code":"cfg","attribute_code":"maximum_speed","fuel_type_code":"","gear_number":"4","value":"180","observation_date":"2026-01-01","source_code":"src","notes":"test"},
+tests/test_brochure_gear_performance_schema_foundation.py:96:                    {"id":"2","code":"b","configuration_code":"cfg","attribute_code":"elasticity_80_120","fuel_type_code":"lpg","gear_number":"4","value":"10.1","observation_date":"2026-01-01","source_code":"src","notes":"test"},
+tests/test_brochure_gear_performance_schema_foundation.py:97:                    {"id":"3","code":"c","configuration_code":"cfg","attribute_code":"elasticity_80_120","fuel_type_code":"lpg","gear_number":"4","value":"10.2","observation_date":"2026-01-01","source_code":"src","notes":"test"},
+tests/test_brochure_gear_performance_schema_foundation.py:151:    def test_technical_context_renders_selected_gear_without_inference(self) -> None:
+tests/test_brochure_gear_performance_schema_foundation.py:152:        self.assertEqual(technical_context("lpg", None, "4"), "fuel_type_code=lpg;gear_number=4")
+tests/test_brochure_gear_performance_schema_foundation.py:153:        self.assertEqual(technical_context("", None, ""), "fuel_type_code=")
 tests/test_jogger_injection_type_import.py:49:        counts = Counter((row["value"], row["fuel_type_code"]) for row in self.values)
 tests/test_brochure_gear_performance_context_model.py:25:        self.assertEqual(decision["column_position"], "after_fuel_type_code_before_value")
 tests/test_brochure_gear_performance_context_model.py:33:        self.assertEqual(identity, ["configuration_code", "attribute_code", "fuel_type_code", "gear_number"])
