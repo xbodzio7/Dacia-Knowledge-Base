@@ -141,7 +141,7 @@ def patch_importer() -> None:
     )
     replace_once(path, '            fuel_type_code=fuel,\n        )', '            fuel_type_code=fuel,\n            gear_number=gear,\n        )')
     replace_once(path, '                    fuel,\n                    spec.observation_date,', '                    fuel,\n                    gear,\n                    spec.observation_date,')
-    replace_once(path, '                "fuel_type_code": fuel,\n                "value": row.value,', '                "fuel_type_code": fuel,\n                "gear_number": gear,\n                "value": row.value,')
+    replace_once(path, '                "fuel_type_code": fuel,\n                "gear_number": "",\n                "value": row.value,', '                "fuel_type_code": fuel,\n                "gear_number": gear,\n                "value": row.value,')
     replace_all(path, '            row["fuel_type_code"],\n            row["observation_date"],', '            row["fuel_type_code"],\n            row["gear_number"],\n            row["observation_date"],')
     replace_all(path, '            row["fuel_type_code"],\n            row["observation_date"],\n        ): row', '            row["fuel_type_code"],\n            row["gear_number"],\n            row["observation_date"],\n        ): row')
 

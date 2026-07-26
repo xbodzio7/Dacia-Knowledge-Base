@@ -475,7 +475,7 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
                 "configuration_code": row.configuration_code,
                 "attribute_code": spec.attribute_code,
                 "fuel_type_code": fuel,
-                "gear_number": "",
+                "gear_number": gear,
                 "value": row.value,
                 "observation_date": spec.observation_date,
                 "source_code": row.source_code,
@@ -490,6 +490,7 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
             row["configuration_code"],
             row["attribute_code"],
             row["fuel_type_code"],
+            row["gear_number"],
             row["observation_date"],
         )
         for row in result
@@ -514,6 +515,7 @@ def plan_import(repository: Path, spec: ImportSpec) -> ImportPlan:
             row["configuration_code"],
             row["attribute_code"],
             row["fuel_type_code"],
+            row["gear_number"],
             row["observation_date"],
         ): row
         for row in current
@@ -526,6 +528,7 @@ def plan_import(repository: Path, spec: ImportSpec) -> ImportPlan:
             row["configuration_code"],
             row["attribute_code"],
             row["fuel_type_code"],
+            row["gear_number"],
             row["observation_date"],
         )
         candidates = [

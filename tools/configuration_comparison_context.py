@@ -29,6 +29,7 @@ def comparison_filter_context(
         return technical_context(
             str(item.get("fuel_type_code", "")),
             cargo_context if isinstance(cargo_context, Mapping) else None,
+            str(item.get("gear_number", "")),
         )
     return ""
 

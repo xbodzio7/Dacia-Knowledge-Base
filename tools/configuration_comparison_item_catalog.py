@@ -57,6 +57,7 @@ def item_metadata(
             technical_context(
                 fuel,
                 cargo_context if isinstance(cargo_context, Mapping) else None,
+                str(item.get("gear_number", "")),
             ),
         )
     return (

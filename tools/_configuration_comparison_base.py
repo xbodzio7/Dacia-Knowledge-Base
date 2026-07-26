@@ -23,6 +23,7 @@ from reporting.cargo_context import (
     CargoContextError,
     annotate_scalar_values,
     read_context_rows,
+    observation_signature,
     technical_context,
 )
 
@@ -136,7 +137,7 @@ def latest(
             continue
         key = tuple(row.get(field, "") for field in key_fields)
         for field, item in zip(key_fields, key):
-            if not item and field not in {"fuel_type_code", "_cargo_context_signature"}:
+            if not item and field not in {"fuel_type_code", "gear_number", "_cargo_context_signature"}:
                 raise ComparisonError(f"{label} has incomplete key: {key}")
         previous = chosen.get(key)
         if previous is None or observed > previous[0]:
@@ -562,7 +563,7 @@ def collect_report(
     except CargoContextError as exc:
         raise ComparisonError(str(exc)) from exc
     scoped_ranges = [
-        {**row, "_cargo_context_signature": "", "_cargo_context": None}
+        {**row, "gear_number": "", "_cargo_context_signature": "", "_cargo_context": None}
         for row in ranges
         if row.get("configuration_code") in configuration_set
     ]
@@ -590,6 +591,7 @@ def collect_report(
             "configuration_code",
             "attribute_code",
             "fuel_type_code",
+            "gear_number",
             "_cargo_context_signature",
         ),
         "observation_date",
@@ -602,6 +604,7 @@ def collect_report(
             "configuration_code",
             "attribute_code",
             "fuel_type_code",
+            "gear_number",
             "_cargo_context_signature",
         ),
         "observation_date",
@@ -616,7 +619,8 @@ def collect_report(
     ] = {}
     for key, row in current_values.items():
         base_key = (key[0], key[1], key[2])
-        current_value_groups.setdefault(base_key, {})[key[3]] = row
+        signature = observation_signature(key[3], key[4])
+        current_value_groups.setdefault(base_key, {})[signature] = row
     current_availability = latest(
         scoped_availability,
         ("configuration_code", "attribute_code"),
@@ -811,6 +815,16 @@ def collect_report(
                     if isinstance(raw_context, Mapping)
                     else None
                 )
+                gear_number = (
+                    str(context_row.get("gear_number", ""))
+                    if context_row is not None
+                    else ""
+                )
+                cargo_signature = (
+                    str(context_row.get("_cargo_context_signature", ""))
+                    if context_row is not None
+                    else ""
+                )
 
                 if left_key in scope["technical_na"]:
                     left_state: dict[str, Any] = {"state": "not_applicable"}
@@ -829,7 +843,7 @@ def collect_report(
                     left_state = {"state": "missing"}
                 if cargo_context is not None and "cargo_context" not in left_state:
                     left_state["cargo_context"] = dict(cargo_context)
-                    left_state["cargo_context_signature"] = signature
+                    left_state["cargo_context_signature"] = cargo_signature
 
                 if right_key in scope["technical_na"]:
                     right_state: dict[str, Any] = {"state": "not_applicable"}
@@ -848,7 +862,7 @@ def collect_report(
                     right_state = {"state": "missing"}
                 if cargo_context is not None and "cargo_context" not in right_state:
                     right_state["cargo_context"] = dict(cargo_context)
-                    right_state["cargo_context_signature"] = signature
+                    right_state["cargo_context_signature"] = cargo_signature
 
                 technical_comparison, relation = technical_comparison_result(
                     left_state, right_state
@@ -863,10 +877,17 @@ def collect_report(
                     "right": right_state,
                     "comparison": technical_comparison,
                 }
+                if gear_number:
+                    technical_item["gear_number"] = gear_number
+                    if left_state.get("state") == "recorded":
+                        left_state["gear_number"] = gear_number
+                    if right_state.get("state") == "recorded":
+                        right_state["gear_number"] = gear_number
                 if cargo_context is not None:
                     technical_item["cargo_context"] = dict(cargo_context)
+                if cargo_context is not None or gear_number:
                     technical_item["context"] = technical_context(
-                        fuel, cargo_context
+                        fuel, cargo_context, gear_number
                     )
                 if relation is not None:
                     technical_item["range_relation"] = relation

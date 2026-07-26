@@ -19,6 +19,7 @@ from validators.association_ranges import (
     validate_association_ranges,
 )
 from validators.csv_validator import validate_csv
+from validators.gear_contexts import validate_gear_contexts
 from validators.references import REFERENCE_RULES, validate_references
 from validators.rule_contracts import validate_rule_contracts
 from validators.rule_execution import execute_data_rules
@@ -108,7 +109,17 @@ def main() -> int:
         for error in reference_errors:
             print(f"      • {error}")
 
-    print("\n5. Walidacja zakresów lat")
+    print("\n5. Walidacja kontekstu wybranego biegu")
+    checked_gear_records, gear_context_errors = validate_gear_contexts(root)
+    gear_contexts_ok = not gear_context_errors
+    if gear_contexts_ok:
+        print(f"   ✅ OK ({checked_gear_records} rekordów)")
+    else:
+        print(f"   ❌ Wykryto {len(gear_context_errors)} problemów:")
+        for error in gear_context_errors:
+            print(f"      • {error}")
+
+    print("\n6. Walidacja zakresów lat")
     checked_year_records, year_range_errors = validate_year_ranges(root)
     year_ranges_ok = not year_range_errors
 
@@ -127,7 +138,7 @@ def main() -> int:
         for error in year_range_errors:
             print(f"      • {error}")
 
-    print("\n6. Walidacja statusów i cyklu życia")
+    print("\n7. Walidacja statusów i cyklu życia")
     configured_statuses, _ = configured_status_rules(root)
     checked_status_records, status_errors = validate_statuses(root)
     statuses_ok = not status_errors
@@ -147,7 +158,7 @@ def main() -> int:
         for error in status_errors:
             print(f"      • {error}")
 
-    print("\n7. Walidacja okresów dostępności powiązań")
+    print("\n8. Walidacja okresów dostępności powiązań")
     checked_association_ranges, association_range_errors = (
         validate_association_ranges(root)
     )
@@ -168,7 +179,7 @@ def main() -> int:
         for error in association_range_errors:
             print(f"      • {error}")
 
-    print("\n8. Walidacja nakładających się okresów powiązań")
+    print("\n9. Walidacja nakładających się okresów powiązań")
     checked_association_intervals, association_interval_errors = (
         validate_association_intervals(root)
     )
@@ -189,7 +200,7 @@ def main() -> int:
         for error in association_interval_errors:
             print(f"      • {error}")
 
-    print("\n9. Walidacja kontraktu reguł danych")
+    print("\n10. Walidacja kontraktu reguł danych")
     checked_rule_contracts, rule_contract_errors = (
         validate_rule_contracts(root)
     )
@@ -209,7 +220,7 @@ def main() -> int:
         for error in rule_contract_errors:
             print(f"      • {error}")
 
-    print("\n10. Wykonywanie reguł danych")
+    print("\n11. Wykonywanie reguł danych")
 
     if rule_contracts_ok:
         (
@@ -260,13 +271,13 @@ def main() -> int:
             f"{checked_data_records} rekordów)"
         )
 
-    print("\n11. Zbieranie statystyk")
+    print("\n12. Zbieranie statystyk")
     statistics = collect_statistics(root)
 
     print(f"   Plików CSV : {statistics['csv_files']}")
     print(f"   Wierszy    : {statistics['rows']}")
 
-    print("\n12. Generowanie raportu")
+    print("\n13. Generowanie raportu")
     reports_dir = root / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     report_path = reports_dir / "validation_report.md"
@@ -279,6 +290,8 @@ def main() -> int:
         uniqueness_errors=uniqueness_errors,
         references_ok=references_ok,
         reference_errors=reference_errors,
+        gear_contexts_ok=gear_contexts_ok,
+        gear_context_errors=gear_context_errors,
         year_ranges_ok=year_ranges_ok,
         year_range_errors=year_range_errors,
         statuses_ok=statuses_ok,
@@ -302,6 +315,7 @@ def main() -> int:
         and csv_ok
         and uniqueness_ok
         and references_ok
+        and gear_contexts_ok
         and year_ranges_ok
         and statuses_ok
         and association_ranges_ok

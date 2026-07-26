@@ -160,8 +160,8 @@ def validate_candidate_value(data_type: str, value: str, label: str) -> None:
 
 def existing_import_semantics(
     repository: Path,
-) -> set[tuple[str, str, str, str, str]]:
-    result: set[tuple[str, str, str, str, str]] = set()
+) -> set[tuple[str, str, str, str, str, str]]:
+    result: set[tuple[str, str, str, str, str, str]] = set()
     root = repository / "data" / "imports" / "configuration_values"
     if not root.is_dir():
         return result
@@ -248,7 +248,7 @@ def load_repository_context(
         "configuration attribute values",
     )
     semantics: dict[
-        tuple[str, str, str, str, str],
+        tuple[str, str, str, str, str, str],
         Mapping[str, str],
     ] = {}
     maximum_id = 0
