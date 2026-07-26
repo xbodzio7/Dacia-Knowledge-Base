@@ -77,6 +77,8 @@ jobs:
           import sys
           from pathlib import Path
 
+          sys.path.insert(0, str(Path.cwd() / "tools"))
+
           from reporting.data_product_release_download import _extract_verified_contents
           from reporting.data_product_release_model import verify_release_assets
           from reporting.data_product_workspace_index import write_workspace_index
