@@ -33,36 +33,40 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends poppler-utils chromium-browser || \
             sudo apt-get install --yes --no-install-recommends poppler-utils chromium
-      - name: Apply regression fix and historical normalization
+      - name: Apply source fix
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import re
+
+          def replace_once(path: Path, pattern: str, replacement: str, label: str, flags: int = 0) -> None:
+              text = path.read_text(encoding="utf-8")
+              updated, count = re.subn(pattern, replacement, text, count=1, flags=flags)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected one replacement, got {count}")
+              path.write_text(updated, encoding="utf-8")
 
           browser = Path("tools/reporting/configuration_shortlist_browser.js")
-          text = browser.read_text(encoding="utf-8")
-          old = """      return coverage.missing === 0 && coverage.unknown === 0
-                && coverage.available > 0 && coverage.not_available > 0;"""
-          new = """      const excluded = coverage.not_available + coverage.unknown + coverage.missing;
-                return coverage.available > 0 && excluded > 0;"""
-          if old not in text:
-              raise SystemExit("equipment completeness guard differs")
-          browser.write_text(text.replace(old, new, 1), encoding="utf-8")
+          replace_once(
+              browser,
+              r"return coverage\.missing === 0 && coverage\.unknown === 0\s*&& coverage\.available > 0 && coverage\.not_available > 0;",
+              "const excluded = coverage.not_available + coverage.unknown + coverage.missing;\n      return coverage.available > 0 && excluded > 0;",
+              "equipment visibility guard",
+          )
 
           html = Path("tools/reporting/configuration_shortlist_html.py")
           text = html.read_text(encoding="utf-8")
-          old = """    catalog_configurations.sort(key=sort_key)
-              active_versions = [versions[code] for code in sorted(active_version_codes)]
-              equipment_facets = []
-          """
-          new = """    catalog_configurations.sort(key=sort_key)
-              model_min_prices: dict[str, float] = {}
+          anchor = "    catalog_configurations.sort(key=sort_key)\n"
+          if text.count(anchor) != 1:
+              raise SystemExit("catalog sort anchor differs")
+          model_order = '''    model_min_prices: dict[str, float] = {}
               for item in catalog_configurations:
-                  price = item[\"catalog_price\"]
-                  if price.get(\"state\") != \"recorded\":
+                  price = item["catalog_price"]
+                  if price.get("state") != "recorded":
                       continue
-                  model_code = item[\"model_code\"]
-                  amount = float(price[\"amount\"])
+                  model_code = item["model_code"]
+                  amount = float(price["amount"])
                   current = model_min_prices.get(model_code)
                   if current is None or amount < current:
                       model_min_prices[model_code] = amount
@@ -70,27 +74,25 @@ jobs:
                   active_model_codes,
                   key=lambda code: (
                       code not in model_min_prices,
-                      model_min_prices.get(code, float(\"inf\")),
-                      models[code].get(\"name\", \"\"),
+                      model_min_prices.get(code, float("inf")),
+                      models[code].get("name", ""),
                       code,
                   ),
               )
-              active_versions = [versions[code] for code in sorted(active_version_codes)]
-              equipment_facets = []
-          """
-          if old not in text:
-              raise SystemExit("catalog sort insertion point differs")
-          text = text.replace(old, new, 1)
-          old = """            \"models\": [
-                          {\"code\": code, \"name\": models[code].get(\"name\", \"\"), \"media\": media.get(code, {})}
-                          for code in sorted(active_model_codes)
-                      ],"""
-          new = """            \"models\": [
+          '''
+          text = text.replace(anchor, anchor + model_order, 1)
+          pattern = re.compile(
+              r'            "models": \[\n'
+              r'                \{"code": code, "name": models\[code\]\.get\("name", ""\), "media": media\.get\(code, \{\}\)\}\n'
+              r'                for code in sorted\(active_model_codes\)\n'
+              r'            \],'
+          )
+          replacement = '''            "models": [
                           {
-                              \"code\": code,
-                              \"name\": models[code].get(\"name\", \"\"),
-                              \"media\": media.get(code, {}),
-                              \"minimum_catalog_price_pln\": (
+                              "code": code,
+                              "name": models[code].get("name", ""),
+                              "media": media.get(code, {}),
+                              "minimum_catalog_price_pln": (
                                   int(model_min_prices[code])
                                   if code in model_min_prices
                                   and model_min_prices[code].is_integer()
@@ -98,103 +100,117 @@ jobs:
                               ),
                           }
                           for code in ordered_model_codes
-                      ],"""
-          if old not in text:
-              raise SystemExit("model facet block differs")
-          html.write_text(text.replace(old, new, 1), encoding="utf-8")
+                      ],'''
+          text, count = pattern.subn(replacement, text, count=1)
+          if count != 1:
+              raise SystemExit(f"model facet block: expected one replacement, got {count}")
+          html.write_text(text, encoding="utf-8")
 
           ui = Path("tools/reporting/configuration_shortlist_v12.js")
           text = ui.read_text(encoding="utf-8")
-          old = "Lista pokazuje tylko pozycje, które można teraz dodać bez utraty wszystkich wyników. Już wybrane pozycje pozostają zaznaczone."
-          new = "Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej bieżącej konfiguracji. Brak danych i status nieustalony nie spełniają filtra. Już wybrane pozycje pozostają zaznaczone."
-          if old not in text:
-              raise SystemExit("initial equipment note differs")
-          text = text.replace(old, new, 1)
-          old = "Lista pokazuje tylko źródłowo kompletne pozycje, które można dodać do bieżącego wyboru i które nadal różnicują pozostałe konfiguracje. Alternatywy wykluczające się oraz pozycje z brakami danych są ukryte."
-          new = "Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej zgodnej konfiguracji i nadal różnicujące wyniki. Brak danych i status nieustalony nie spełniają filtra; po zaznaczeniu taka konfiguracja zostaje wykluczona."
-          if old not in text:
-              raise SystemExit("dynamic equipment note differs")
-          ui.write_text(text.replace(old, new, 1), encoding="utf-8")
+          changes = {
+              "Lista pokazuje tylko pozycje, które można teraz dodać bez utraty wszystkich wyników. Już wybrane pozycje pozostają zaznaczone.":
+                  "Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej bieżącej konfiguracji. Brak danych i status nieustalony nie spełniają filtra. Już wybrane pozycje pozostają zaznaczone.",
+              "Lista pokazuje tylko źródłowo kompletne pozycje, które można dodać do bieżącego wyboru i które nadal różnicują pozostałe konfiguracje. Alternatywy wykluczające się oraz pozycje z brakami danych są ukryte.":
+                  "Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej zgodnej konfiguracji i nadal różnicujące wyniki. Brak danych i status nieustalony nie spełniają filtra; po zaznaczeniu taka konfiguracja zostaje wykluczona.",
+          }
+          for old, new in changes.items():
+              if text.count(old) != 1:
+                  raise SystemExit(f"equipment explanation differs: {old[:40]}")
+              text = text.replace(old, new, 1)
+          ui.write_text(text, encoding="utf-8")
 
           tests = Path("tests/test_configuration_shortlist_html.py")
           text = tests.read_text(encoding="utf-8")
+          old_name = "def test_equipment_facets_require_complete_source_coverage_and_real_difference(self) -> None:"
+          if text.count(old_name) != 1:
+              raise SystemExit("equipment facet test name differs")
           text = text.replace(
-              "def test_equipment_facets_require_complete_source_coverage_and_real_difference(self) -> None:",
+              old_name,
               "def test_equipment_facets_include_partial_coverage_without_inference(self) -> None:",
               1,
           )
-          old = '        self.assertEqual(result["facets"], ["complete_difference"])\n'
-          new = '        self.assertEqual(result["facets"], ["complete_difference", "missing_only"])\n'
-          if old not in text:
+          old_assert = '        self.assertEqual(result["facets"], ["complete_difference"])\n'
+          if text.count(old_assert) != 1:
               raise SystemExit("equipment facet expectation differs")
-          tests.write_text(text.replace(old, new, 1), encoding="utf-8")
+          tests.write_text(
+              text.replace(
+                  old_assert,
+                  '        self.assertEqual(result["facets"], ["complete_difference", "missing_only"])\n',
+                  1,
+              ),
+              encoding="utf-8",
+          )
+          PY
+      - name: Normalize historical publication contract
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
 
-          publication = Path("tools/review_data_products_v1_8_0_publication_20260726.py")
-          text = publication.read_text(encoding="utf-8")
+          verifier = Path("tools/review_data_products_v1_8_0_publication_20260726.py")
+          text = verifier.read_text(encoding="utf-8")
           start = text.index("def verify_state() -> None:\n")
           end = text.index("\n\ndef verify() -> None:\n", start)
-          state_block = "\n".join([
-              "def verify_state() -> None:",
-              "    state = load_json(STATE)",
-              "    ensure(isinstance(state.get(\"phase\"), str) and bool(state[\"phase\"]), \"project phase is missing\")",
-              "    current = state.get(\"current_package\")",
-              "    ensure(isinstance(current, Mapping), \"current package is missing\")",
-              "    ensure(isinstance(current.get(\"name\"), str) and bool(current[\"name\"]), \"current package name is missing\")",
-              "    ensure(current.get(\"status\") in {\"planned\", \"active\", \"blocked\", \"complete\"}, \"current package status differs\")",
-              "    next_package = state.get(\"next_package\")",
-              "    ensure(isinstance(next_package, Mapping), \"next package is missing\")",
-              "    ensure(isinstance(next_package.get(\"name\"), str) and bool(next_package[\"name\"]), \"next package name is missing\")",
-              "    baseline = state.get(\"baseline\", {})",
-              "    ensure(baseline.get(\"tests\", 0) >= 1022, \"test baseline regressed\")",
-              "    ensure(baseline.get(\"csv_files\", 0) >= 46, \"CSV baseline regressed\")",
-              "    ensure(baseline.get(\"rows\", 0) >= 9688, \"master row baseline regressed\")",
-              "    ensure(baseline.get(\"configuration_values\", 0) >= 2949, \"configuration values regressed\")",
-              "    ensure(baseline.get(\"configuration_value_ranges\", 0) >= 244, \"configuration ranges regressed\")",
-              "    ensure(baseline.get(\"availability_records\", 0) >= 4754, \"availability baseline regressed\")",
-              "    ensure(baseline.get(\"attributes\", 0) >= 385, \"attribute baseline regressed\")",
-          ])
+          state_block = '''def verify_state() -> None:
+              state = load_json(STATE)
+              ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
+              current = state.get("current_package")
+              ensure(isinstance(current, Mapping), "current package is missing")
+              ensure(isinstance(current.get("name"), str) and bool(current["name"]), "current package name is missing")
+              ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+              next_package = state.get("next_package")
+              ensure(isinstance(next_package, Mapping), "next package is missing")
+              ensure(isinstance(next_package.get("name"), str) and bool(next_package["name"]), "next package name is missing")
+              baseline = state.get("baseline", {})
+              ensure(baseline.get("tests", 0) >= 1022, "test baseline regressed")
+              ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
+              ensure(baseline.get("rows", 0) >= 9688, "master row baseline regressed")
+              ensure(baseline.get("configuration_values", 0) >= 2949, "configuration values regressed")
+              ensure(baseline.get("configuration_value_ranges", 0) >= 244, "configuration ranges regressed")
+              ensure(baseline.get("availability_records", 0) >= 4754, "availability baseline regressed")
+              ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
+          '''
           text = text[:start] + state_block + text[end:]
-          text = text.replace(
-              "    verify_release_record()\n    verify_deterministic_assets()\n    verify_state()\n",
-              "    verify_release_record()\n    verify_state()\n",
-              1,
-          )
-          publication.write_text(text, encoding="utf-8")
+          exact = "    verify_release_record()\n    verify_deterministic_assets()\n    verify_state()\n"
+          historical = "    verify_release_record()\n    verify_state()\n"
+          if text.count(exact) != 1:
+              raise SystemExit("publication verifier call sequence differs")
+          verifier.write_text(text.replace(exact, historical, 1), encoding="utf-8")
 
-          publication_tests = Path("tests/test_data_products_v1_8_0_publication.py")
-          text = publication_tests.read_text(encoding="utf-8")
+          tests = Path("tests/test_data_products_v1_8_0_publication.py")
+          text = tests.read_text(encoding="utf-8")
           marker = "    def test_verifier_and_project_state_accept_publication(self) -> None:\n"
           start = text.index(marker)
           end = text.index("\n\nif __name__ == \"__main__\":", start)
-          replacement = "\n".join([
-              "    def test_verifier_and_project_state_preserve_publication_history(self) -> None:",
-              "        completed = subprocess.run(",
-              "            [sys.executable, str(VERIFIER), \"--check\"],",
-              "            cwd=ROOT,",
-              "            text=True,",
-              "            capture_output=True,",
-              "            check=False,",
-              "        )",
-              "        self.assertEqual(",
-              "            completed.returncode,",
-              "            0,",
-              "            completed.stderr or completed.stdout,",
-              "        )",
-              "        self.assertIn(",
-              "            \"PASS: Data Products v1.8.0 publication\",",
-              "            completed.stdout,",
-              "        )",
-              "        state = json.loads(STATE.read_text(encoding=\"utf-8\"))",
-              "        self.assertTrue(state[\"phase\"])",
-              "        self.assertTrue(state[\"current_package\"][\"name\"])",
-              "        self.assertIn(",
-              "            state[\"current_package\"][\"status\"],",
-              "            {\"planned\", \"active\", \"blocked\", \"complete\"},",
-              "        )",
-              "        self.assertTrue(state[\"next_package\"][\"name\"])",
-              "        self.assertGreaterEqual(state[\"baseline\"][\"tests\"], 1022)",
-          ])
-          publication_tests.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
+          replacement = '''    def test_verifier_and_project_state_preserve_publication_history(self) -> None:
+              completed = subprocess.run(
+                  [sys.executable, str(VERIFIER), "--check"],
+                  cwd=ROOT,
+                  text=True,
+                  capture_output=True,
+                  check=False,
+              )
+              self.assertEqual(
+                  completed.returncode,
+                  0,
+                  completed.stderr or completed.stdout,
+              )
+              self.assertIn(
+                  "PASS: Data Products v1.8.0 publication",
+                  completed.stdout,
+              )
+              state = json.loads(STATE.read_text(encoding="utf-8"))
+              self.assertTrue(state["phase"])
+              self.assertTrue(state["current_package"]["name"])
+              self.assertIn(
+                  state["current_package"]["status"],
+                  {"planned", "active", "blocked", "complete"},
+              )
+              self.assertTrue(state["next_package"]["name"])
+              self.assertGreaterEqual(state["baseline"]["tests"], 1022)
+          '''
+          tests.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
           PY
       - name: Synchronize state and run focused contracts
         run: |
@@ -240,8 +256,6 @@ jobs:
           });
           </script>
           '''
-          if "</body>" not in text:
-              raise SystemExit("generated HTML has no body marker")
           path.write_text(text.replace("</body>", smoke + "</body>", 1), encoding="utf-8")
           PY
           browser="$(command -v chromium-browser || command -v chromium || command -v google-chrome)"
