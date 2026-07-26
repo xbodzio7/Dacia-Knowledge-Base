@@ -57,7 +57,7 @@
       }
     },
     "workspace_index_sha256": "742490370500afdd88ea1e12b2aec07d25c4d2a10c3be6a208ec6a5651d04e49",
-    "reason_not_final": "The preparation branch changes after this diagnostic build and squash merge creates the only commit eligible for the public tag. The final preflight must rebuild and record a new exact identity from that merged main commit."
+    "reason_not_final": "This identity is not final: the preparation branch changes after this diagnostic build and squash merge creates the only commit eligible for the public tag. The final preflight must rebuild and record a new exact identity from that merged main commit."
   },
   "semantic_boundaries": {
     "cross_scope_pairs_generated": false,
