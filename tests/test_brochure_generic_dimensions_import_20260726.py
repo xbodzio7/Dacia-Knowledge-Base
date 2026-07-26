@@ -32,6 +32,7 @@ DIMENSIONS = {
     "front_overhang",
     "rear_overhang",
 }
+# The append-only receipt reserves scalar IDs 2568–2949 for this exact package.
 EXPECTED_ATTRIBUTE_COUNTS = Counter(
     {
         "overall_length": 36,
