@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster and Duster Brochure Towing Mass Import",
+  "phase": "Jogger Brochure Hybrid Performance Completion",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,26 +15,26 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 858,
+    "tests": 867,
     "csv_files": 46,
-    "rows": 8939,
-    "configuration_values": 2272,
+    "rows": 9015,
+    "configuration_values": 2290,
     "configuration_import_specs": 117,
-    "configuration_value_ranges": 176,
+    "configuration_value_ranges": 234,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
     "attributes": 381,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster and Duster Brochure Towing Mass Import",
+    "name": "Jogger Brochure Hybrid Performance Completion",
     "status": "complete",
-    "goal": "Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries."
+    "goal": "Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence."
   },
   "next_package": {
-    "name": "Jogger Brochure Hybrid Performance Completion",
+    "name": "Brochure Chassis Measurement Context Modeling",
     "status": "planned",
-    "goal": "Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence."
+    "goal": "Model explicit measurement and specification context for turning circle, maximum kerb mass, payload and compound tyre, brake and suspension evidence before importing the remaining official brochure chassis observations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

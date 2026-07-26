@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added 18 scalar and 58 closed-range historical Jogger brochure observations: exact five-/seven-seat hybrid 155 acceleration, neutral source-stated 1.4 kWh battery capacity, the hybrid combustion-engine power point, and fuel-preserving maximum-power/torque engine-speed intervals across all 22 configurations, while retaining later MY26 observations as current.
 * Imported 48 exact gross-train and unbraked-trailer mass observations from the official Bigster and Duster brochures across 24 active configurations, preserving exact powertrain boundaries and retaining newer Duster Eco-G 120 automatic homologation evidence.
 * Imported 36 exact brochure technical observations for the two active Sandero Eco-G 120 automatic Expression and Journey configurations, preserving LPG/petrol context for power, torque and acceleration while excluding WLTP placeholders, maximum kerb weight and model-wide chassis rows.
 * Classified the remaining technical evidence in all five archived official brochures into 29 reviewed groups: current or newer coverage, exact scalar/range candidates, ambiguous or blank evidence, unmodeled configurations and fields requiring explicit chassis/mass context modeling.
@@ -274,12 +275,12 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 858 tests.
-* The verified master-data baseline now contains 46 CSV files and 8939 rows.
-* SQLite verification now covers 46 tables and 8939 rows.
-* Configuration attribute values now contain 2272 dated records.
+* The automated test suite now contains 867 tests.
+* The verified master-data baseline now contains 46 CSV files and 9015 rows.
+* SQLite verification now covers 46 tables and 9015 rows.
+* Configuration attribute values now contain 2290 dated records.
 * Declarative scalar configuration-value imports now contain 117 versioned JSON specifications.
-* Configuration value ranges now contain 176 dated records from 20 range specifications.
+* Configuration value ranges now contain 234 dated records from 20 range specifications.
 * The canonical catalogue now contains 381 attributes in 30 categories.
 * Equipment availability now contains 4754 records: 3721 `standard`, 467 `optional`, 566 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
