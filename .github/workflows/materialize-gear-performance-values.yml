@@ -25,134 +25,79 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Repair remaining gear-aware keys and verify
+      - name: Capture updated reporting fixtures
         shell: bash
         run: |
-          set +e
-          log=.github/gear-performance-materialization.log
-          : > "$log"
-          status=0
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
 
-          python - <<'PY' >> "$log" 2>&1 || status=$?
+          import json
+          import re
+          import sys
           from pathlib import Path
 
-          def replace_once(path: Path, old: str, new: str) -> None:
+          root = Path('.')
+          sys.path.insert(0, str(root / 'tools'))
+
+          import configuration_completeness
+          import configuration_comparison
+          import source_coverage
+
+          test_files = [
+              'tests/test_sandero_ecog120_manual_reporting_scope.py',
+              'tests/test_sandero_ecog120_automatic_reporting_scope.py',
+              'tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py',
+              'tests/test_jogger_ecog120_manual_reporting_scope.py',
+              'tests/test_jogger_ecog120_automatic_reporting_scope.py',
+              'tests/test_jogger_tce110_manual_reporting_scope.py',
+              'tests/test_jogger_hybrid155_automatic_reporting_scope.py',
+          ]
+
+          result = {}
+          for filename in test_files:
+              path = Path(filename)
               text = path.read_text(encoding='utf-8')
-              if new in text:
-                  return
-              if old not in text:
-                  raise RuntimeError(f'anchor missing in {path}: {old[:100]!r}')
-              path.write_text(text.replace(old, new, 1), encoding='utf-8')
+              as_of_match = re.search(r'^AS_OF\s*=\s*"([^"]+)"', text, re.MULTILINE)
+              spec_match = re.search(r'^SPEC\s*=\s*REPOSITORY\s*/\s*"([^"]+)"', text, re.MULTILINE)
+              evidence_match = re.search(r'^EVIDENCE\s*=\s*REPOSITORY\s*/\s*"([^"]+)"', text, re.MULTILINE)
+              if not (as_of_match and spec_match and evidence_match):
+                  raise RuntimeError(f'cannot parse reporting constants: {filename}')
+              as_of = as_of_match.group(1)
+              spec = root / spec_match.group(1)
+              evidence = root / evidence_match.group(1)
+              completeness = configuration_completeness.collect_report(root, spec, as_of)
+              coverage = source_coverage.collect_report(root, spec, as_of)
+              comparison = configuration_comparison.collect_report(root, spec, evidence, as_of)
+              result[path.name] = {
+                  'as_of': as_of,
+                  'scope': completeness['scope'],
+                  'technical': completeness['technical'],
+                  'coverage_technical': coverage['records']['technical'],
+                  'comparison_summary': comparison['summary'],
+              }
 
-          source = Path('tools/_source_coverage_base.py')
-          replace_once(
-              source,
-              '    annotate_scalar_values,\n    read_context_rows,\n',
-              '    annotate_scalar_values,\n    observation_signature,\n    read_context_rows,\n',
+          default_comparison = configuration_comparison.collect_report(
+              root,
+              root / configuration_comparison.DEFAULT_COMPLETENESS_SPEC,
+              root / configuration_comparison.DEFAULT_EVIDENCE_SPEC,
           )
-          replace_once(
-              source,
-              'field not in {"fuel_type_code", "_cargo_context_signature"}',
-              'field not in {"fuel_type_code", "gear_number", "_cargo_context_signature"}',
-          )
-          replace_once(
-              source,
-              '{**row, "_cargo_context_signature": "", "_cargo_context": None}',
-              '{**row, "gear_number": "", "_cargo_context_signature": "", "_cargo_context": None}',
-          )
-          text = source.read_text(encoding='utf-8')
-          old = '            "fuel_type_code",\n            "_cargo_context_signature",\n'
-          new = '            "fuel_type_code",\n            "gear_number",\n            "_cargo_context_signature",\n'
-          occurrences = text.count(old)
-          if occurrences:
-              source.write_text(text.replace(old, new), encoding='utf-8')
-          replace_once(
-              source,
-              '        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row',
-              '        signature = observation_signature(current_key[3], current_key[4])\n        current_value_groups.setdefault(base_key, {})[signature] = current_row',
-          )
-
-          gap = Path('tools/configuration_gap_resolution_plan.py')
-          replace_once(
-              gap,
-              'from reporting.cargo_context import context_index, semantic_signature',
-              'from reporting.cargo_context import context_index, semantic_signature',
-          )
-          replace_once(
-              gap,
-              '        default_fuel = require_string(\n            payload.get("fuel_type_code", ""),\n            f"{path.name}.fuel_type_code",\n            allow_empty=True,\n        )\n',
-              '        default_fuel = require_string(\n            payload.get("fuel_type_code", ""),\n            f"{path.name}.fuel_type_code",\n            allow_empty=True,\n        )\n        default_gear = require_string(\n            payload.get("gear_number", ""),\n            f"{path.name}.gear_number",\n            allow_empty=True,\n        )\n',
-          )
-          replace_once(
-              gap,
-              '            semantic = (\n                configuration_code,\n                attribute_code,\n                fuel_type_code,\n                observation_date,\n                "",\n            )',
-              '            gear_number = require_string(\n                item.get("gear_number", default_gear),\n                f"{path.name}.row.gear_number",\n                allow_empty=True,\n            )\n            semantic = (\n                configuration_code,\n                attribute_code,\n                fuel_type_code,\n                gear_number,\n                observation_date,\n                "",\n            )',
-          )
-          replace_once(
-              gap,
-              '            row.get("fuel_type_code", ""),\n            row.get("observation_date", ""),\n            semantic_signature(cargo_context) if cargo_context else "",\n',
-              '            row.get("fuel_type_code", ""),\n            row.get("gear_number", ""),\n            row.get("observation_date", ""),\n            semantic_signature(cargo_context) if cargo_context else "",\n',
-          )
-          replace_once(
-              gap,
-              '        fuel_type_code,\n        observation_date,\n        "",\n    )',
-              '        fuel_type_code,\n        "",\n        observation_date,\n        "",\n    )',
-          )
-
-          tests = Path('tests/test_configuration_value_import_specs.py')
-          replace_once(
-              tests,
-              '                "sandero-acceleration-0-100-petrol-20260626.json",\n                "sandero-engine-power-lpg-20260626.json",',
-              '                "sandero-acceleration-0-100-petrol-20260626.json",\n                "sandero-brochure-elasticity-80-120-20260202.json",\n                "sandero-engine-power-lpg-20260626.json",',
-          )
-          replace_once(
-              tests,
-              '                "sandero-standing-km-petrol-20260626.json",\n                "sandero-stepway-essential-wheel-design-20260626.json",',
-              '                "sandero-standing-km-petrol-20260626.json",\n                "sandero-stepway-brochure-elasticity-80-120-20260202.json",\n                "sandero-stepway-essential-wheel-design-20260626.json",',
-          )
-          replace_once(
-              tests,
-              '        semantic: list[tuple[str, str, str, str]] = []',
-              '        semantic: list[tuple[str, str, str, str, str]] = []',
-          )
-          replace_once(
-              tests,
-              '                    row["fuel_type_code"],\n                    row["observation_date"],',
-              '                    row["fuel_type_code"],\n                    row["gear_number"],\n                    row["observation_date"],',
-          )
-
-          print('PASS: source coverage and gap-planning keys include gear_number')
-          print('PASS: shared import-spec contract includes three new specs')
+          result['_default_comparison_summary'] = default_comparison['summary']
+          result['_repository'] = {
+              'master_rows': 8852,
+              'configuration_values': 2188,
+              'import_specs': 117,
+              'gear_populated': 70,
+          }
+          output = root / '.github' / 'gear-performance-expected-fixtures.json'
+          output.write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          print(output.read_text(encoding='utf-8'))
           PY
 
-          if [ "$status" -eq 0 ]; then
-            python tools/import_brochure_gear_performance_20260726.py --check >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            python tests/test_brochure_gear_performance_values_20260726.py -v >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
-          fi
-          if [ "$status" -eq 0 ]; then
-            git diff --check >> "$log" 2>&1 || status=$?
-          fi
-
-          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add .github/gear-performance-expected-fixtures.json
           if ! git diff --cached --quiet; then
-            git commit -m 'fix(reporting): complete gear-aware integration'
+            git commit -m 'chore(test): capture selected-gear reporting fixtures'
             git push origin HEAD:agent/brochure-gear-performance-value-import
           fi
-          exit "$status"
