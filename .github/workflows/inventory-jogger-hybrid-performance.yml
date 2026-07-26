@@ -11,6 +11,7 @@ on:
     paths:
       - .github/workflows/inventory-jogger-hybrid-performance.yml
       - tools/materialize_jogger_brochure_hybrid_performance_20260726.py
+      - tools/repair_jogger_hybrid_performance_regressions_20260726.py
 
 permissions:
   contents: write
@@ -38,6 +39,9 @@ jobs:
           python tools/materialize_jogger_brochure_hybrid_performance_20260726.py >> "$log" 2>&1 || status=$?
           if [ "$status" -eq 0 ]; then
             python tools/import_jogger_brochure_hybrid_performance_20260726.py --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_jogger_hybrid_performance_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
