@@ -37,6 +37,17 @@ jobs:
           set +e
           : > .github/gear-schema-materialization.log
           status=0
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/establish_brochure_gear_performance_schema_20260726.py')
+          text = path.read_text(encoding='utf-8')
+          old = "replace_once(path, '                \"fuel_type_code\": fuel,\\n                \"value\": row.value,', '                \"fuel_type_code\": fuel,\\n                \"gear_number\": gear,\\n                \"value\": row.value,')"
+          new = "replace_once(path, '                \"fuel_type_code\": fuel,\\n                \"gear_number\": \"\",\\n                \"value\": row.value,', '                \"fuel_type_code\": fuel,\\n                \"gear_number\": gear,\\n                \"value\": row.value,')"
+          if old in text:
+              path.write_text(text.replace(old, new), encoding='utf-8')
+          elif new not in text:
+              raise SystemExit('materializer repair anchor missing')
+          PY
           python tools/establish_brochure_gear_performance_schema_20260726.py >> .github/gear-schema-materialization.log 2>&1 || status=$?
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> .github/gear-schema-materialization.log 2>&1 || status=$?
