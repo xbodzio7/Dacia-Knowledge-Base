@@ -40,7 +40,114 @@ jobs:
           : > "$log"
           status=0
 
-          python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          python - >> "$log" 2>&1 <<'PY' || status=$?
+          from pathlib import Path
+
+          verifier = Path("tools/review_post_brochure_priority_selection_20260726.py")
+          verifier_text = verifier.read_text(encoding="utf-8")
+          old_verifier = '''def verify_state() -> None:
+              state = load_json(ROOT / "project" / "state.json")
+              ensure(state.get("phase") == "Post-Brochure Priority Selection Review", "project phase differs")
+              current = state.get("current_package")
+              ensure(isinstance(current, dict), "current package is missing")
+              ensure(current.get("name") == "Post-Brochure Priority Selection Review", "current package differs")
+              ensure(current.get("status") == "complete", "current package status differs")
+              next_package = state.get("next_package")
+              ensure(isinstance(next_package, dict), "next package is missing")
+              ensure(next_package.get("name") == "Data Products v1.7.0 Release Preparation", "next state package differs")
+              baseline = state.get("baseline")
+              ensure(isinstance(baseline, dict), "state baseline is missing")
+              ensure(baseline.get("tests") == 963, "state test baseline differs")
+              ensure(baseline.get("rows") == 9688, "state row baseline differs")
+              ensure(baseline.get("configuration_values") == 2949, "state value baseline differs")
+              ensure(baseline.get("configuration_value_ranges") == 244, "state range baseline differs")
+              ensure(baseline.get("attributes") == 385, "state attribute baseline differs")
+          '''
+          new_verifier = '''def verify_state() -> None:
+              state = load_json(ROOT / "project" / "state.json")
+              ensure(isinstance(state.get("phase"), str) and state["phase"], "project phase is missing")
+              current = state.get("current_package")
+              ensure(isinstance(current, dict), "current package is missing")
+              ensure(isinstance(current.get("name"), str) and current["name"], "current package name is missing")
+              ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+              next_package = state.get("next_package")
+              ensure(isinstance(next_package, dict), "next package is missing")
+              ensure(isinstance(next_package.get("name"), str) and next_package["name"], "next package name is missing")
+              baseline = state.get("baseline")
+              ensure(isinstance(baseline, dict), "state baseline is missing")
+              ensure(int(baseline.get("tests", 0)) >= 963, "state test baseline regressed")
+              ensure(int(baseline.get("rows", 0)) >= 9688, "state row baseline regressed")
+              ensure(int(baseline.get("configuration_values", 0)) >= 2949, "state value baseline regressed")
+              ensure(int(baseline.get("configuration_value_ranges", 0)) >= 244, "state range baseline regressed")
+              ensure(int(baseline.get("attributes", 0)) >= 385, "state attribute baseline regressed")
+          '''
+          if old_verifier not in verifier_text:
+              raise SystemExit("historical verifier state block differs")
+          verifier.write_text(
+              verifier_text.replace(old_verifier, new_verifier, 1),
+              encoding="utf-8",
+          )
+
+          test_path = Path("tests/test_post_brochure_priority_selection_review.py")
+          test_text = test_path.read_text(encoding="utf-8")
+          old_test = '''    def test_project_state_advances_to_release_preparation(self) -> None:
+              state = json.loads(
+                  (ROOT / "project/state.json").read_text(encoding="utf-8")
+              )
+              self.assertEqual(
+                  state["phase"],
+                  "Post-Brochure Priority Selection Review",
+              )
+              self.assertEqual(
+                  state["current_package"]["name"],
+                  "Post-Brochure Priority Selection Review",
+              )
+              self.assertEqual(state["current_package"]["status"], "complete")
+              self.assertEqual(
+                  state["next_package"]["name"],
+                  "Data Products v1.7.0 Release Preparation",
+              )
+              self.assertEqual(state["baseline"]["tests"], 963)
+              self.assertEqual(state["baseline"]["rows"], 9688)
+              self.assertEqual(state["baseline"]["configuration_values"], 2949)
+              self.assertEqual(
+                  state["baseline"]["configuration_value_ranges"],
+                  244,
+              )
+              self.assertEqual(state["baseline"]["attributes"], 385)
+          '''
+          new_test = '''    def test_project_state_preserves_priority_selection_baseline(self) -> None:
+              state = json.loads(
+                  (ROOT / "project/state.json").read_text(encoding="utf-8")
+              )
+              self.assertTrue(state["phase"])
+              self.assertTrue(state["current_package"]["name"])
+              self.assertIn(
+                  state["current_package"]["status"],
+                  {"planned", "active", "blocked", "complete"},
+              )
+              self.assertTrue(state["next_package"]["name"])
+              self.assertGreaterEqual(state["baseline"]["tests"], 963)
+              self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+              self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+              self.assertGreaterEqual(
+                  state["baseline"]["configuration_value_ranges"],
+                  244,
+              )
+              self.assertGreaterEqual(state["baseline"]["attributes"], 385)
+          '''
+          if old_test not in test_text:
+              raise SystemExit("historical test state block differs")
+          test_path.write_text(
+              test_text.replace(old_test, new_test, 1),
+              encoding="utf-8",
+          )
+          print("PASS: historical priority state contracts normalized")
+          PY
+
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/review_data_products_v1_7_0_release_preparation_20260726.py \
               --check >> "$log" 2>&1 || status=$?
@@ -67,7 +174,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$log" README.md CHANGELOG.md project/ROADMAP.md \
-            project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json
+            project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json \
+            tools/review_post_brochure_priority_selection_20260726.py \
+            tests/test_post_brochure_priority_selection_review.py
           if ! git diff --cached --quiet; then
             git commit -m 'docs(release): materialize v1.7.0 preparation state'
             git push origin HEAD:agent/data-products-v1-7-0-release-preparation
