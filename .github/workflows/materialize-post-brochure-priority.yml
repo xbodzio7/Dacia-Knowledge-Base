@@ -12,6 +12,7 @@ on:
       - .github/workflows/materialize-post-brochure-priority.yml
       - data/reporting/post_brochure_priority_selection_review.json
       - tools/review_post_brochure_priority_selection_20260726.py
+      - tools/fix_post_brochure_priority_scope_name_20260726.py
       - tests/test_post_brochure_priority_selection_review.py
       - project/state.json
 
@@ -38,7 +39,10 @@ jobs:
           log=.github/post-brochure-priority.log
           : > "$log"
           status=0
-          python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          python tools/fix_post_brochure_priority_scope_name_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/review_post_brochure_priority_selection_20260726.py --check >> "$log" 2>&1 || status=$?
           fi
