@@ -72,21 +72,34 @@ jobs:
           fi
           if [ "$status" -eq 0 ]; then
             echo "PASS: deterministic double build" >> "$log"
-            mkdir -p "$workspace"
-            python - "$first/dacia-knowledge-base-data-products-v1.7.0.zip" "$workspace" >> "$log" 2>&1 <<'PY' || status=$?
+            python - "$first" "$workspace" >> "$log" 2>&1 <<'PY' || status=$?
+          import shutil
           import sys
           from pathlib import Path
-          from zipfile import ZipFile
 
-          archive = Path(sys.argv[1])
-          destination = Path(sys.argv[2]).resolve()
-          with ZipFile(archive) as handle:
-              for item in handle.infolist():
-                  target = (destination / item.filename).resolve()
-                  if destination not in target.parents and target != destination:
-                      raise SystemExit(f"unsafe archive member: {item.filename}")
-              handle.extractall(destination)
-          print(f"extracted to {destination}")
+          from reporting.data_product_release_download import _extract_verified_contents
+          from reporting.data_product_release_model import verify_release_assets
+          from reporting.data_product_workspace_index import write_workspace_index
+
+          release = Path(sys.argv[1])
+          workspace = Path(sys.argv[2])
+          assets = workspace / "assets"
+          contents = workspace / "contents"
+          workspace.mkdir(parents=True)
+          shutil.copytree(release, assets)
+          manifest = verify_release_assets(assets)
+          _extract_verified_contents(assets, contents, manifest)
+          metadata = {
+              "release_version": manifest["release_version"],
+              "release_tag": manifest["release_tag"],
+              "repository_commit": manifest["repository_commit"],
+              "release_url": (
+                  "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/"
+                  + str(manifest["release_tag"])
+              ),
+          }
+          write_workspace_index(workspace, manifest, metadata)
+          print(f"materialized local workspace at {workspace}")
           PY
           fi
           if [ "$status" -eq 0 ]; then
@@ -135,7 +148,17 @@ jobs:
 
           with ZipFile(archive) as handle:
               archive_members = len(handle.infolist())
+              bundle = json.loads(
+                  handle.read(
+                      "comparison-bundle/comparison-bundle-manifest.json"
+                  ).decode("utf-8")
+              )
 
+          groups = bundle.get("groups", [])
+          pair_count = sum(int(group.get("pair_count", 0)) for group in groups)
+          difference_count = sum(
+              int(group.get("total_differences", 0)) for group in groups
+          )
           payload = {
               "version": 1,
               "kind": "data_products_v1_7_0_preparation_candidate",
@@ -145,26 +168,46 @@ jobs:
               "deterministic_double_build": True,
               "release_verify": "pass",
               "candidate_assets": {
-                  archive.name: {"size_bytes": archive.stat().st_size, "sha256": sha256(archive)},
-                  manifest_path.name: {"size_bytes": manifest_path.stat().st_size, "sha256": sha256(manifest_path)},
-                  checksums.name: {"size_bytes": checksums.stat().st_size, "sha256": sha256(checksums)},
+                  archive.name: {
+                      "size_bytes": archive.stat().st_size,
+                      "sha256": sha256(archive),
+                  },
+                  manifest_path.name: {
+                      "size_bytes": manifest_path.stat().st_size,
+                      "sha256": sha256(manifest_path),
+                  },
+                  checksums.name: {
+                      "size_bytes": checksums.stat().st_size,
+                      "sha256": sha256(checksums),
+                  },
               },
               "archive_members": archive_members,
               "manifest": {
-                  "source_commit": manifest.get("source_commit"),
+                  "repository_commit": manifest.get("repository_commit"),
                   "release_version": manifest.get("release_version"),
-                  "configuration_count": manifest.get("configuration_count"),
-                  "comparison_scope_count": manifest.get("comparison_scope_count"),
-                  "pair_count": manifest.get("pair_count"),
-                  "difference_count": manifest.get("difference_count"),
+                  "selected_configuration_count": manifest.get(
+                      "selected_configuration_count"
+                  ),
+                  "scope_group_count": manifest.get("scope_group_count"),
+                  "comparable_scope_count": manifest.get(
+                      "comparable_scope_count"
+                  ),
+                  "singleton_scope_count": manifest.get(
+                      "singleton_scope_count"
+                  ),
                   "file_count": len(manifest.get("files", [])),
+                  "pair_count": pair_count,
+                  "difference_count": difference_count,
               },
               "candidate_workspace_verification": workspace_verification,
               "public_v1_6_1_download_and_workspace_verification": public_verification,
               "publication_performed": False,
           }
           output = Path(".github/data-products-v1.7.0-preparation-candidate.json")
-          output.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          output.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
           print("PASS: preparation candidate receipt written")
           PY
           fi
