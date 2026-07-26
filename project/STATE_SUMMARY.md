@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Cargo Import Closure Review**
+**Brochure Gear-Specific Performance Context Modeling**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 808
+- Tests: 813
 - Master CSV files: 46
 - Master rows: 8782
 - Configuration values: 2118
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Cargo Import Closure Review** — `complete`
+**Brochure Gear-Specific Performance Context Modeling** — `complete`
 
-Verify the complete 287-observation brochure cargo corpus, cross-model context preservation and all explicit non-import boundaries, then close the cargo-import milestone without inferred values.
+Accept the smallest reusable observation-level representation for 80-120 km/h elasticity values qualified by selected gear while reusing existing fuel and exact-configuration dimensions.
 
 ## Next package
 
-**Brochure Gear-Specific Performance Context Modeling** — `planned`
+**Brochure Gear-Specific Performance Schema Foundation** — `planned`
 
-Define the smallest reusable representation for brochure performance observations qualified by gear number, fuel and passenger layout without importing elasticity values.
+Add the optional gear_number column, semantic validation, import-spec, SQLite, data-dictionary and reporting support without importing brochure elasticity values.
 
 ## Autonomy
 
