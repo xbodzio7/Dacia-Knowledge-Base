@@ -164,19 +164,19 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
         )
 
     def test_project_state_preserves_published_release_baseline(self) -> None:
-    state = json.loads(STATE.read_text(encoding="utf-8"))
-    self.assertTrue(state["phase"])
-    self.assertTrue(state["current_package"]["name"])
-    self.assertIn(
-        state["current_package"]["status"],
-        {"planned", "active", "blocked", "complete"},
-    )
-    self.assertTrue(state["next_package"]["name"])
-    self.assertGreaterEqual(state["baseline"]["tests"], 971)
-    self.assertGreaterEqual(state["baseline"]["rows"], 9688)
-    self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
-    self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
-    self.assertGreaterEqual(state["baseline"]["attributes"], 385)
+        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
+        )
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 971)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":
