@@ -206,7 +206,26 @@ def verify_report(payload: Mapping[str, Any]) -> None:
 
     rules = payload.get("non_inference_contract")
     ensure(isinstance(rules, list) and len(rules) == 7, "expected seven non-inference rules")
-    ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Observation Import", "next package differs")
+    receipt = payload.get("import_receipt")
+    if receipt is None:
+        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Observation Import", "next package differs")
+    else:
+        ensure(isinstance(receipt, dict), "import receipt must be an object")
+        ensure(receipt.get("status") == "imported", "import receipt status differs")
+        ensure((receipt.get("scalar_id_start"), receipt.get("scalar_id_end")) == (2568, 2949), "import receipt ID range differs")
+        ensure(receipt.get("scalar_values") == 382, "import receipt scalar total differs")
+        ensure(receipt.get("configurations") == 36, "import receipt configuration total differs")
+        ensure(
+            receipt.get("source_values")
+            == {
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            },
+            "import receipt source totals differ",
+        )
+        ensure(receipt.get("duster_4x4_status") == "deferred_without_exact_source_relationship", "Duster 4x4 receipt boundary differs")
+        ensure(payload.get("next_package", {}).get("name") == "Brochure Generic Dimensions Import Closure Review", "next package differs")
 
 
 def verify_attribute_contracts() -> None:
@@ -266,16 +285,46 @@ def verify_projection_scopes() -> None:
     ensure(active_duster_4x4.isdisjoint(duster_targets), "Duster 4x4 target was broadened into source relationships")
 
 
-def verify_current_dimension_boundaries() -> None:
-    configurations, models = active_configuration_models()
+def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
+    _, models = active_configuration_models()
     values = rows(MASTER / "configuration_attribute_values.csv")
     brochure_generic = [
         row
         for row in values
         if row.get("source_code") in SOURCE_CODES and row.get("attribute_code") in ATTRIBUTE_CODES
     ]
-    ensure(brochure_generic == [], "generic brochure dimensions were imported before the approved import package")
+    receipt = payload.get("import_receipt")
+    if receipt is None:
+        ensure(brochure_generic == [], "generic brochure dimensions were imported before the approved import package")
+        current_by_model = {
+            model: [
+                row
+                for row in values
+                if models.get(row.get("configuration_code", "")) == model
+                and row.get("attribute_code") in ATTRIBUTE_CODES
+            ]
+            for model in ("sandero_iii", "jogger", "duster_iii")
+        }
+        ensure(len(current_by_model["sandero_iii"]) == 10, "current exact Sandero dimension coverage differs")
+        ensure(len({row["configuration_code"] for row in current_by_model["sandero_iii"]}) == 2, "current Sandero dimension configuration count differs")
+        ensure(current_by_model["jogger"] == [], "Jogger generic dimensions unexpectedly already imported")
+        ensure(current_by_model["duster_iii"] == [], "Duster generic dimensions unexpectedly already imported")
+        ensure(max(int(row["id"]) for row in values) == 2567, "configuration value ID boundary differs")
+        return
 
+    ensure(len(brochure_generic) == 382, "approved generic brochure dimension total differs")
+    ensure([int(row["id"]) for row in brochure_generic] == list(range(2568, 2950)), "approved dimension IDs are not contiguous")
+    ensure(
+        Counter(row.get("source_code", "") for row in brochure_generic)
+        == Counter(
+            {
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            }
+        ),
+        "approved dimension source distribution differs",
+    )
     current_by_model = {
         model: [
             row
@@ -285,12 +334,13 @@ def verify_current_dimension_boundaries() -> None:
         ]
         for model in ("sandero_iii", "jogger", "duster_iii")
     }
-    ensure(len(current_by_model["sandero_iii"]) == 10, "current exact Sandero dimension coverage differs")
-    ensure(len({row["configuration_code"] for row in current_by_model["sandero_iii"]}) == 2, "current Sandero dimension configuration count differs")
-    ensure(current_by_model["jogger"] == [], "Jogger generic dimensions unexpectedly already imported")
-    ensure(current_by_model["duster_iii"] == [], "Duster generic dimensions unexpectedly already imported")
-    ensure(max(int(row["id"]) for row in values) == 2567, "configuration value ID boundary differs")
-
+    ensure(len(current_by_model["sandero_iii"]) == 50, "post-import Sandero dimension coverage differs")
+    ensure(len({row["configuration_code"] for row in current_by_model["sandero_iii"]}) == 4, "post-import Sandero configuration count differs")
+    ensure(len(current_by_model["jogger"]) == 242, "post-import Jogger dimension coverage differs")
+    ensure(len({row["configuration_code"] for row in current_by_model["jogger"]}) == 22, "post-import Jogger configuration count differs")
+    ensure(len(current_by_model["duster_iii"]) == 100, "post-import Duster dimension coverage differs")
+    ensure(len({row["configuration_code"] for row in current_by_model["duster_iii"]}) == 10, "post-import Duster configuration count differs")
+    ensure(max(int(row["id"]) for row in values) == 2949, "configuration value ID boundary differs")
 
 def planned_rows(payload: Mapping[str, Any]) -> list[tuple[str, str, int]]:
     targets = source_relationship_targets()
@@ -334,7 +384,7 @@ def check() -> None:
     verify_report(payload)
     verify_attribute_contracts()
     verify_projection_scopes()
-    verify_current_dimension_boundaries()
+    verify_current_dimension_boundaries(payload)
     verify_import_plan(payload)
     verify_residual_receipt()
 

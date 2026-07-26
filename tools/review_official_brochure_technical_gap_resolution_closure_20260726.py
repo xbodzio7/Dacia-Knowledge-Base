@@ -212,9 +212,24 @@ def verify_current_coverage() -> None:
         for row in rows(MASTER / "configuration_attribute_value_ranges.csv")
         if row.get("source_code") in SOURCES
     ]
-    ensure(len(scalar) == 736, "expected exactly 736 brochure scalar values")
+    follow_up = (REPORTING / "brochure_generic_dimensions_semantic_mapping_review.json")
+    imported = False
+    if follow_up.is_file():
+        imported = load_json(follow_up).get("import_receipt", {}).get("status") == "imported"
+    expected_scalar = Counter(EXPECTED_SCALAR_BY_SOURCE)
+    expected_total = 736
+    if imported:
+        expected_scalar.update(
+            {
+                "src_pl_sandero_brochure_20260202": 40,
+                "src_pl_jogger_brochure_20251217": 242,
+                "src_pl_duster_mini_brochure_20251020": 100,
+            }
+        )
+        expected_total = 1118
+    ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 68, "expected exactly 68 brochure ranges")
-    ensure(Counter(row.get("source_code", "") for row in scalar) == EXPECTED_SCALAR_BY_SOURCE, "master source scalar totals differ")
+    ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
     ensure(Counter(row.get("source_code", "") for row in ranges) == EXPECTED_RANGE_BY_SOURCE, "master source range totals differ")
 
     priority_scalar = [row for row in scalar if 2189 <= int(row["id"]) <= 2567]
@@ -223,7 +238,10 @@ def verify_current_coverage() -> None:
     ensure([int(row["id"]) for row in priority_scalar] == list(range(2189, 2568)), "priority scalar IDs are not contiguous")
     ensure(len(priority_ranges) == 68, "priority range receipt differs")
     ensure([int(row["id"]) for row in priority_ranges] == list(range(177, 245)), "priority range IDs are not contiguous")
-
+    if imported:
+        dimensions = [row for row in scalar if 2568 <= int(row["id"]) <= 2949]
+        ensure(len(dimensions) == 382, "generic dimension follow-up receipt differs")
+        ensure([int(row["id"]) for row in dimensions] == list(range(2568, 2950)), "generic dimension IDs differ")
 
 def verify_non_import_boundaries() -> None:
     scalar = [
@@ -231,11 +249,7 @@ def verify_non_import_boundaries() -> None:
         for row in rows(MASTER / "configuration_attribute_values.csv")
         if row.get("source_code") in SOURCES
     ]
-    jogger_mass = {
-        "maximum_kerb_weight",
-        "gross_train_weight",
-        "gross_vehicle_weight",
-    }
+    jogger_mass = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}
     ensure(
         not any(
             row.get("source_code") == "src_pl_jogger_brochure_20251217"
@@ -244,32 +258,36 @@ def verify_non_import_boundaries() -> None:
         ),
         "ambiguous Jogger mass evidence was imported",
     )
-
     placeholder_attributes = {"co2_emissions", "fuel_consumption_combined"}
     ensure(
         not any(
-            row.get("source_code") in {
-                "src_pl_jogger_brochure_20251217",
-                "src_pl_sandero_brochure_20260202",
-            }
+            row.get("source_code") in {"src_pl_jogger_brochure_20251217", "src_pl_sandero_brochure_20260202"}
             and row.get("attribute_code") in placeholder_attributes
             for row in scalar
         ),
         "blank or placeholder WLTP evidence was imported",
     )
-
-    dimension_attributes = {
-        "overall_length",
-        "overall_width",
-        "overall_height",
-        "wheelbase",
-        "ground_clearance",
+    approved_attributes = {
+        "overall_length", "overall_width", "overall_width_with_mirrors", "overall_height",
+        "roof_height_with_rails", "wheelbase", "ground_clearance", "front_track",
+        "rear_track", "front_overhang", "rear_overhang",
     }
-    ensure(
-        not any(row.get("attribute_code") in dimension_attributes for row in scalar),
-        "generic brochure dimensions were projected without review",
-    )
-
+    dimensions = [row for row in scalar if row.get("attribute_code") in approved_attributes]
+    if dimensions:
+        approved = [row for row in dimensions if 2568 <= int(row["id"]) <= 2949]
+        ensure(len(dimensions) == 382 and len(approved) == 382, "unreviewed generic brochure dimension was imported")
+        ensure(
+            Counter(row.get("source_code", "") for row in approved)
+            == Counter(
+                {
+                    "src_pl_sandero_brochure_20260202": 40,
+                    "src_pl_jogger_brochure_20251217": 242,
+                    "src_pl_duster_mini_brochure_20251020": 100,
+                }
+            ),
+            "approved generic dimension source totals differ",
+        )
+        ensure(not any(row.get("attribute_code") in {"approach_angle", "departure_angle"} for row in approved), "seatback angle was imported as an off-road angle")
 
 def verify_receipts() -> None:
     for checker in CHECKERS:
