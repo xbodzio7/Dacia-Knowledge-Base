@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Chassis Modeling Closure Review**
+**Official Brochure Technical Gap Resolution Closure Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 915
+- Tests: 923
 - Master CSV files: 46
 - Master rows: 9306
 - Configuration values: 2567
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Chassis Modeling Closure Review** — `complete`
+**Official Brochure Technical Gap Resolution Closure Review** — `complete`
 
-Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved.
+Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals.
 
 ## Next package
 
-**Official Brochure Technical Gap Resolution Closure Review** — `planned`
+**Official Brochure Residual Evidence Review** — `planned`
 
-Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals.
+Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports.
 
 ## Autonomy
 
