@@ -1,0 +1,139 @@
+name: Materialize Data Products v1.8.1 Publication Record v2
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-data-products-v1-8-1-publication-record-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out publication-record branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-1-publication-record
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.14'
+
+      - name: Install PDF backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+
+      - name: Reuse publication materialization and bind final audit run
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          workflow = Path('.github/workflows/materialize-data-products-v1-8-1-publication-record.yml')
+          lines = workflow.read_text(encoding='utf-8').splitlines()
+          start = lines.index('      - name: Materialize publication record and contracts')
+          run_index = next(i for i in range(start + 1, len(lines)) if lines[i] == '        run: |')
+          end = next(i for i in range(run_index + 1, len(lines)) if lines[i].startswith('      - name: '))
+          script = []
+          for line in lines[run_index + 1:end]:
+              script.append(line[10:] if line.startswith('          ') else line)
+          Path('/tmp/materialize-v1.8.1-publication.sh').write_text('\n'.join(script) + '\n', encoding='utf-8')
+          PY
+          bash /tmp/materialize-v1.8.1-publication.sh
+          python - <<'PY'
+          from pathlib import Path
+
+          old = '30225006521'
+          new = '30225040623'
+          paths = [
+              Path('project/releases/data-products-v1.8.1.md'),
+              Path('tests/test_data_products_v1_8_1_publication.py'),
+              Path('tools/review_data_products_v1_8_1_publication_20260727.py'),
+          ]
+          for path in paths:
+              text = path.read_text(encoding='utf-8')
+              if old not in text:
+                  raise SystemExit(f'audit run marker not found: {path}')
+              path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
+      - name: Synchronize and compile
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+          python -m py_compile \
+            tools/review_data_products_v1_8_1_release_preparation_20260727.py \
+            tools/review_data_products_v1_8_1_preflight_20260727.py \
+            tools/review_data_products_v1_8_1_publication_20260727.py \
+            tests/test_data_products_v1_8_1_release_preparation.py \
+            tests/test_data_products_v1_8_1_preflight.py \
+            tests/test_data_products_v1_8_1_publication.py
+
+      - name: Run focused publication contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/review_data_products_v1_8_1_release_preparation_20260727.py --check
+          python tools/review_data_products_v1_8_1_preflight_20260727.py --check
+          python tools/review_data_products_v1_8_1_publication_20260727.py --check
+          python -m unittest -q \
+            tests.test_data_products_v1_8_1_release_preparation \
+            tests.test_data_products_v1_8_1_preflight \
+            tests.test_data_products_v1_8_1_publication
+
+      - name: Run full repository validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_*.py' -q
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+      - name: Commit publication record
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/data_products_v1_8_1_publication_audit.json \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/releases/data-products-v1.8.1.md \
+            project/state.json \
+            tests/test_data_products_v1_8_1_release_preparation.py \
+            tests/test_data_products_v1_8_1_preflight.py \
+            tests/test_data_products_v1_8_1_publication.py \
+            tools/review_data_products_v1_8_1_release_preparation_20260727.py \
+            tools/review_data_products_v1_8_1_preflight_20260727.py \
+            tools/review_data_products_v1_8_1_publication_20260727.py
+          git diff --cached --check
+          git commit -m 'release(data-products): record v1.8.1 publication'
+          git push origin HEAD:agent/data-products-v1-8-1-publication-record
