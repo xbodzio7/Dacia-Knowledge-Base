@@ -34,16 +34,36 @@ jobs:
       - name: Materialize and validate closure review
         shell: bash
         run: |
-          set -euo pipefail
-          python tools/materialize_brochure_chassis_modeling_closure_20260726.py
-          python tools/dkb.py project-state --apply
-          python tools/review_brochure_chassis_modeling_closure_20260726.py --check
-          python tools/verify_brochure_chassis_measurement_context_model_20260726.py --check
-          python tools/dkb.py validate
-          python tools/dkb.py project-state --check
-          python tests/test_brochure_chassis_modeling_closure_review.py -v
-          python -m unittest discover -s tests -p 'test_*.py' -v
-          git diff --check
+          set +e
+          log=.github/brochure-chassis-closure-materialization.log
+          : > "$log"
+          status=0
+          python tools/materialize_brochure_chassis_modeling_closure_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/review_brochure_chassis_modeling_closure_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/verify_brochure_chassis_measurement_context_model_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_brochure_chassis_modeling_closure_review.py -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> "$log" 2>&1 || status=$?
+          fi
+          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
@@ -51,3 +71,4 @@ jobs:
             git commit -m 'docs(data): materialize brochure chassis modeling closure'
             git push origin HEAD:agent/brochure-chassis-modeling-closure-review
           fi
+          exit "$status"
