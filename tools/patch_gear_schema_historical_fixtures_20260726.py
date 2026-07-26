@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Normalize historical fixtures to the exact selected-gear value schema."""
+"""Normalize historical fixtures and gear-aware compatibility contracts."""
 
 from __future__ import annotations
 
@@ -15,22 +15,30 @@ def replace_required(path: Path, pattern: str, replacement: str) -> None:
     if count == 0:
         if replacement in text:
             return
-        raise RuntimeError(f"fixture anchor missing in {path}: {pattern!r}")
+        raise RuntimeError(f"anchor missing in {path}: {pattern!r}")
     path.write_text(updated, encoding="utf-8")
+
+
+def replace_text(path: Path, old: str, new: str) -> None:
+    text = path.read_text(encoding="utf-8")
+    if old in text:
+        path.write_text(text.replace(old, new, 1), encoding="utf-8")
+    elif new not in text:
+        raise RuntimeError(f"anchor missing in {path}: {old!r}")
 
 
 comparison = ROOT / "tests" / "test_configuration_comparison.py"
 comparison_rows = {
-    "a_power_old": ("1", "engine_power", "90", "2026-01-01", "src_a"),
-    "a_power": ("2", "engine_power", "100", "2026-06-01", "src_a"),
-    "b_power": ("3", "engine_power", "100", "2026-06-01", "src_b"),
-    "a_torque": ("4", "engine_torque", "180", "2026-06-01", "src_a"),
+    "a_power_old": ("1", "cfg_a", "engine_power", "90", "2026-01-01", "src_a"),
+    "a_power": ("2", "cfg_a", "engine_power", "100", "2026-06-01", "src_a"),
+    "b_power": ("3", "cfg_b", "engine_power", "100", "2026-06-01", "src_b"),
+    "a_torque": ("4", "cfg_a", "engine_torque", "180", "2026-06-01", "src_a"),
 }
-for code, (identifier, attribute, value, date, source) in comparison_rows.items():
+for code, (identifier, configuration, attribute, value, date, source) in comparison_rows.items():
     canonical = f'''                [
                     "{identifier}",
                     "{code}",
-                    "{'cfg_b' if code == 'b_power' else 'cfg_a'}",
+                    "{configuration}",
                     "{attribute}",
                     "",
                     "",
@@ -42,7 +50,7 @@ for code, (identifier, attribute, value, date, source) in comparison_rows.items(
     pattern = rf'''                \[
                     "{identifier}",
                     "{code}",
-                    "{'cfg_b' if code == 'b_power' else 'cfg_a'}",
+                    "{configuration}",
                     "{attribute}",
 .*?                \],'''
     replace_required(comparison, pattern, canonical)
@@ -55,11 +63,7 @@ shortlist_rows = {
     "cfg_a_power": '(4, "cfg_a_power", "cfg_a", "engine_power", "petrol", "", 90, "2026-01-01", "src_a", ""),',
 }
 for code, canonical in shortlist_rows.items():
-    replace_required(
-        shortlist,
-        rf'\([^\n]*"{code}"[^\n]*\),',
-        canonical,
-    )
+    replace_required(shortlist, rf'\([^\n]*"{code}"[^\n]*\),', canonical)
 
 validate = ROOT / "tests" / "test_validate_cli.py"
 text = validate.read_text(encoding="utf-8")
@@ -102,4 +106,25 @@ if addition not in text:
     text = text.replace(needle, addition)
 validate.write_text(text, encoding="utf-8")
 
-print("PASS: historical selected-gear fixtures normalized")
+# Cargo importers remain reproducible after the master schema gains gear_number.
+duster = ROOT / "tools" / "import_duster_brochure_cargo_20260726.py"
+replace_text(
+    duster,
+    '            "attribute_code": "boot_capacity", "fuel_type_code": "", "value": str(observation["value"]),',
+    '            "attribute_code": "boot_capacity", "fuel_type_code": "", "gear_number": "", "value": str(observation["value"]),',
+)
+
+# A range conflicts only with a scalar lacking selected-gear context.
+ranges = ROOT / "tools" / "import_configuration_value_ranges.py"
+replace_text(
+    ranges,
+    '            row.get("fuel_type_code", ""),\n            row.get("observation_date", ""),',
+    '            row.get("fuel_type_code", ""),\n            row.get("gear_number", ""),\n            row.get("observation_date", ""),',
+)
+replace_text(
+    ranges,
+    '        semantic = (row.configuration_code, spec.attribute_code, fuel, spec.observation_date)',
+    '        semantic = (row.configuration_code, spec.attribute_code, fuel, "", spec.observation_date)',
+)
+
+print("PASS: historical selected-gear contracts normalized")
