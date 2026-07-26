@@ -180,6 +180,11 @@ def existing_import_semantics(
             f"{path.name}.fuel_type_code",
             allow_empty=True,
         )
+        default_gear = require_string(
+            payload.get("gear_number", ""),
+            f"{path.name}.gear_number",
+            allow_empty=True,
+        )
         for row in require_list(payload.get("rows"), f"{path.name}.rows"):
             item = require_mapping(row, f"{path.name} row")
             configuration_code = require_string(
@@ -191,10 +196,16 @@ def existing_import_semantics(
                 f"{path.name}.row.fuel_type_code",
                 allow_empty=True,
             )
+            gear_number = require_string(
+                item.get("gear_number", default_gear),
+                f"{path.name}.row.gear_number",
+                allow_empty=True,
+            )
             semantic = (
                 configuration_code,
                 attribute_code,
                 fuel_type_code,
+                gear_number,
                 observation_date,
                 "",
             )
@@ -264,6 +275,7 @@ def load_repository_context(
             row.get("configuration_code", ""),
             row.get("attribute_code", ""),
             row.get("fuel_type_code", ""),
+            row.get("gear_number", ""),
             row.get("observation_date", ""),
             semantic_signature(cargo_context) if cargo_context else "",
         )
@@ -481,6 +493,7 @@ def build_found_candidate(
         configuration_code,
         attribute_code,
         fuel_type_code,
+        "",
         observation_date,
         "",
     )
