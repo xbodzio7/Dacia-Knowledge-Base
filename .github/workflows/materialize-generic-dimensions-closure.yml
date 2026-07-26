@@ -54,7 +54,7 @@ jobs:
           if [ "$status" -eq 0 ]; then
             python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
           fi
-          if [ "$status"" -eq 0 ]; then
+          if [ "$status" -eq 0 ]; then
             git diff --check >> "$log" 2>&1 || status=$?
           fi
           cat "$log"
