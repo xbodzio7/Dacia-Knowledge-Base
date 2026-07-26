@@ -1,4 +1,4 @@
-name: Inventory Sandero Stepway Chassis
+name: Materialize Sandero Stepway Chassis
 
 on:
   pull_request:
@@ -10,13 +10,16 @@ on:
       - synchronize
     paths:
       - .github/workflows/inventory-sandero-stepway-chassis.yml
-      - tools/inventory_sandero_stepway_chassis_20260726.py
+      - data/imports/brochure_technical_values/sandero-stepway-chassis-20260202.json
+      - tools/import_sandero_stepway_chassis_20260726.py
+      - tools/materialize_sandero_stepway_chassis_20260726.py
+      - tests/test_sandero_stepway_chassis_20260726.py
 
 permissions:
   contents: write
 
 jobs:
-  inventory:
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
@@ -24,25 +27,51 @@ jobs:
         with:
           ref: agent/sandero-stepway-chassis-observation-import
           fetch-depth: 0
-      - name: Install PDF extraction backend
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Build inventory
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Materialize and validate package
         shell: bash
         run: |
-          output=.github/sandero-stepway-chassis-inventory.txt
-          {
-            echo '=== SANDERO PDF PAGE 17 ==='
-            pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' -
-            echo
-            echo '=== STEPWAY PDF PAGE 17 ==='
-            pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf' -
-            echo
-            python tools/inventory_sandero_stepway_chassis_20260726.py
-          } > "$output"
+          set +e
+          log=.github/sandero-stepway-chassis-materialization.log
+          : > "$log"
+          status=0
+          python tools/import_sandero_stepway_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/materialize_sandero_stepway_chassis_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/import_sandero_stepway_chassis_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/verify_brochure_chassis_measurement_context_model_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_sandero_stepway_chassis_20260726.py -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> "$log" 2>&1 || status=$?
+          fi
+          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$output"
+          git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'chore(data): persist Sandero Stepway chassis inventory'
+            git commit -m 'feat(data): materialize Sandero Stepway chassis observations'
             git push origin HEAD:agent/sandero-stepway-chassis-observation-import
           fi
+          exit "$status"
