@@ -1,4 +1,4 @@
-name: Inspect Gear Schema Surfaces
+name: Materialize Gear Performance Schema
 
 on:
   pull_request:
@@ -10,12 +10,15 @@ on:
       - synchronize
     paths:
       - .github/workflows/inspect-gear-schema-surfaces.yml
+      - tools/establish_brochure_gear_performance_schema_20260726.py
+      - tools/validators/gear_contexts.py
+      - tests/test_brochure_gear_performance_schema_foundation.py
 
 permissions:
   contents: write
 
 jobs:
-  inspect:
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - name: Check out schema branch
@@ -24,24 +27,41 @@ jobs:
           ref: agent/brochure-gear-performance-schema-foundation
           fetch-depth: 0
 
-      - name: Inspect observation schema consumers
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize schema and run tests
         run: |
-          {
-            echo '=== PYTHON AND TEST FILES REFERENCING fuel_type_code ==='
-            grep -RIl --include='*.py' 'fuel_type_code' tools tests scripts | sort || true
-            echo
-            echo '=== PYTHON AND TEST FILES REFERENCING configuration_attribute_values.csv ==='
-            grep -RIl --include='*.py' 'configuration_attribute_values.csv' tools tests scripts | sort || true
-            echo
-            echo '=== FIELD CONSTANTS AND SEMANTIC KEYS ==='
-            grep -RIn --include='*.py' -E 'VALUE_FIELDS|fieldnames=.*fuel|attribute_code.*fuel_type_code|fuel_type_code.*value|technical_context|semantic.*key|latest\(' tools tests scripts | head -n 1200 || true
-            echo
-            echo '=== IMPORT TOOL FILES ==='
-            find tools -maxdepth 2 -type f -name '*.py' | sort | grep -E 'import|configuration|reporting' || true
-          } > .github/gear-schema-surfaces.log
-          cat .github/gear-schema-surfaces.log
+          set +e
+          : > .github/gear-schema-materialization.log
+          status=0
+          python tools/establish_brochure_gear_performance_schema_20260726.py >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_brochure_gear_performance_schema_foundation.py -v >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> .github/gear-schema-materialization.log 2>&1 || status=$?
+          fi
+          cat .github/gear-schema-materialization.log
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .github/gear-schema-surfaces.log
-          git commit -m 'chore(schema): persist gear schema surface inspection'
-          git push origin HEAD:agent/brochure-gear-performance-schema-foundation
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(schema): persist selected-gear foundation'
+            git push origin HEAD:agent/brochure-gear-performance-schema-foundation
+          fi
+          exit "$status"
