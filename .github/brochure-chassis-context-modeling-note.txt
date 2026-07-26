@@ -1,1 +1,0 @@
-Variant A approved by the repository owner on 2026-07-26: separate unambiguous attributes, no generic measurement-context table.
