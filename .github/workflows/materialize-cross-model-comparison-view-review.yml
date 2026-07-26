@@ -40,9 +40,27 @@ jobs:
           from pathlib import Path
 
           verifier = Path("tools/review_data_products_v1_7_0_release_preparation_20260726.py")
-          verifier_text = verifier.read_text(encoding="utf-8")
-          if "project phase is missing" not in verifier_text:
-              raise SystemExit("v1.7.0 verifier was not normalized")
+          verifier_lines = verifier.read_text(encoding="utf-8").splitlines(keepends=True)
+          unindented = 'ensure(isinstance(state.get("phase"), str) and state["phase"], "project phase is missing")\n'
+          indented = '    ' + unindented
+          if unindented in verifier_lines:
+              start = verifier_lines.index(unindented)
+              try:
+                  end = next(
+                      index
+                      for index in range(start + 1, len(verifier_lines))
+                      if verifier_lines[index].startswith(
+                          '    ensure(state.get("baseline", {})'
+                      )
+                  )
+              except StopIteration as exc:
+                  raise SystemExit("v1.7.0 verifier state boundary is missing") from exc
+              for index in range(start, end):
+                  if verifier_lines[index].strip():
+                      verifier_lines[index] = "    " + verifier_lines[index]
+              verifier.write_text("".join(verifier_lines), encoding="utf-8")
+          elif indented not in verifier_lines:
+              raise SystemExit("v1.7.0 verifier state block is missing")
 
           test_path = Path("tests/test_data_products_v1_7_0_release_preparation.py")
           lines = test_path.read_text(encoding="utf-8").splitlines(keepends=True)
@@ -99,6 +117,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$log" README.md CHANGELOG.md project/ROADMAP.md \
             project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json \
+            tools/review_data_products_v1_7_0_release_preparation_20260726.py \
             tests/test_data_products_v1_7_0_release_preparation.py
           if ! git diff --cached --quiet; then
             git commit -m 'docs(report): materialize cross-model view review'
