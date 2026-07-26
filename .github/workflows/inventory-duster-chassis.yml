@@ -1,0 +1,45 @@
+name: Inventory Duster Chassis
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inventory-duster-chassis.yml
+      - tools/inventory_duster_chassis_20260726.py
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/duster-chassis-observation-import
+          fetch-depth: 0
+      - name: Install PDF extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build inventory
+        shell: bash
+        run: |
+          output=.github/duster-chassis-inventory.txt
+          {
+            echo '=== DUSTER PDF PAGES 20-21 ==='
+            pdftotext -f 20 -l 21 -layout 'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' -
+            echo
+            python tools/inventory_duster_chassis_20260726.py
+          } > "$output"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$output"
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist Duster chassis inventory'
+            git push origin HEAD:agent/duster-chassis-observation-import
+          fi
