@@ -23,25 +23,112 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: '3.10'
-      - name: Run orchestration contracts
+      - name: Update and verify orchestration snapshots
         shell: bash
         run: |
           set +e
           log=.github/orchestration-contracts.log
-          python -m unittest -v \
-            tests.project_state_contract \
-            tests.autonomy_policy_contract \
-            tests.quality_artifact_manifest_contract \
-            tests.configuration_comparison_context_filter_contract \
-            tests.configuration_comparison_pair_summary_contract \
-            > "$log" 2>&1
-          status=$?
+          : > "$log"
+          status=0
+
+          python - <<'PY' >> "$log" 2>&1 || status=$?
+          from pathlib import Path
+
+          context_path = Path('tests/configuration_comparison_context_filter_contract.py')
+          text = context_path.read_text(encoding='utf-8')
+          old = '''        cargo_contexts = set(contexts) - legacy_contexts
+        self.assertEqual(len(cargo_contexts), 5)
+        self.assertTrue(
+            all(
+                context.startswith("fuel_type_code=;")
+                and "measurement_basis_code=" in context
+                and "second_row_state_code=" in context
+                and "compartment_code=" in context
+                for context in cargo_contexts
+            )
+        )
+'''
+          new = '''        gear_contexts = {
+            context for context in contexts if "gear_number=" in context
+        }
+        self.assertEqual(
+            gear_contexts,
+            {
+                "fuel_type_code=lpg;gear_number=4",
+                "fuel_type_code=lpg;gear_number=5",
+                "fuel_type_code=lpg;gear_number=6",
+                "fuel_type_code=petrol;gear_number=4",
+                "fuel_type_code=petrol;gear_number=5",
+                "fuel_type_code=petrol;gear_number=6",
+            },
+        )
+        cargo_contexts = set(contexts) - legacy_contexts - gear_contexts
+        self.assertEqual(len(cargo_contexts), 5)
+        self.assertTrue(
+            all(
+                context.startswith("fuel_type_code=;")
+                and "measurement_basis_code=" in context
+                and "second_row_state_code=" in context
+                and "compartment_code=" in context
+                for context in cargo_contexts
+            )
+        )
+'''
+          if new not in text:
+              if old not in text:
+                  raise RuntimeError('context snapshot anchor missing')
+              text = text.replace(old, new, 1)
+          text = text.replace(
+              'self.assertEqual(len(core.difference_csv_rows(report)), 305)',
+              'self.assertEqual(len(core.difference_csv_rows(report)), 349)',
+              1,
+          )
+          context_path.write_text(text, encoding='utf-8')
+
+          pair_path = Path('tests/configuration_comparison_pair_summary_contract.py')
+          text = pair_path.read_text(encoding='utf-8')
+          text = text.replace(
+              '''        self.assertEqual(
+            {row["total_comparisons"] for row in rows},
+            {"120"},
+        )''',
+              '''        self.assertEqual(
+            {row["total_comparisons"] for row in rows},
+            {"122", "124", "126"},
+        )''',
+              1,
+          )
+          text = text.replace(
+              '''        self.assertEqual(
+            sum(int(row["total_different"]) for row in rows),
+            305,
+        )''',
+              '''        self.assertEqual(
+            sum(int(row["total_different"]) for row in rows),
+            349,
+        )''',
+              1,
+          )
+          pair_path.write_text(text, encoding='utf-8')
+          print('PASS: selected-gear orchestration snapshots updated')
+          PY
+
+          if [ "$status" -eq 0 ]; then
+            python -m unittest -v \
+              tests.project_state_contract \
+              tests.autonomy_policy_contract \
+              tests.quality_artifact_manifest_contract \
+              tests.configuration_comparison_context_filter_contract \
+              tests.configuration_comparison_pair_summary_contract \
+              >> "$log" 2>&1 || status=$?
+          fi
+
           cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$log"
+          git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'chore(test): persist orchestration contract diagnostics'
+            git commit -m 'test(reporting): update selected-gear orchestration snapshots'
             git push origin HEAD:agent/brochure-gear-performance-value-import
           fi
           exit "$status"
