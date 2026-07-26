@@ -34,6 +34,14 @@ for value in ("500", "1500", "1400"):
         f'"boot_capacity", "", "", "{value}", "2026-',
     )
 
+shortlist = ROOT / "tests" / "test_configuration_shortlist.py"
+for value in ("5", "7", "90"):
+    replace_all(
+        shortlist,
+        f', "", {value}, "2026-01-01",',
+        f', "", "", {value}, "2026-01-01",',
+    )
+
 validate = ROOT / "tests" / "test_validate_cli.py"
 text = validate.read_text(encoding="utf-8")
 old = '''            "5. Walidacja zakresów lat",
