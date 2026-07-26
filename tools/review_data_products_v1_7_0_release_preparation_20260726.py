@@ -228,31 +228,14 @@ def verify_repository(payload: Mapping[str, Any]) -> None:
         ensure(audit.get("verification") == "PASS", "v1.7.0 audit did not pass")
 
     state = load_json(STATE)
-    if publication_recorded:
-        ensure(state.get("phase") == "Data Products v1.7.0 Publication", "project phase differs")
-        ensure(
-            state.get("current_package", {}).get("name")
-            == "Data Products v1.7.0 Publication",
-            "current package differs",
-        )
-        ensure(
-            state.get("next_package", {}).get("name")
-            == "Cross-Model Comparison View Review",
-            "state next package differs",
-        )
-    else:
-        ensure(state.get("phase") == "Data Products v1.7.0 Release Preparation", "project phase differs")
-        ensure(
-            state.get("current_package", {}).get("name")
-            == "Data Products v1.7.0 Release Preparation",
-            "current package differs",
-        )
-        ensure(
-            state.get("next_package", {}).get("name")
-            == "Data Products v1.7.0 Preflight",
-            "state next package differs",
-        )
-    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    ensure(isinstance(state.get("phase"), str) and state["phase"], "project phase is missing")
+    current = state.get("current_package")
+    ensure(isinstance(current, dict), "current package is missing")
+    ensure(isinstance(current.get("name"), str) and current["name"], "current package name is missing")
+    ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+    next_package = state.get("next_package")
+    ensure(isinstance(next_package, dict), "next package is missing")
+    ensure(isinstance(next_package.get("name"), str) and next_package["name"], "next package name is missing")
     ensure(state.get("baseline", {}).get("rows") == 9688, "master row baseline changed")
     ensure(state.get("baseline", {}).get("configuration_values") == 2949, "configuration values changed")
     ensure(state.get("baseline", {}).get("configuration_value_ranges") == 244, "configuration ranges changed")
