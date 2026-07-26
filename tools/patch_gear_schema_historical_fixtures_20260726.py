@@ -1,51 +1,65 @@
 #!/usr/bin/env python3
-"""Update historical list-based fixtures after adding gear_number."""
+"""Normalize historical fixtures to the exact selected-gear value schema."""
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def replace_all(path: Path, old: str, new: str, minimum: int = 1) -> None:
+def replace_required(path: Path, pattern: str, replacement: str) -> None:
     text = path.read_text(encoding="utf-8")
-    count = text.count(old)
-    if count == 0 and new in text:
-        return
-    if count < minimum:
-        raise RuntimeError(f"fixture anchor missing in {path}: {old!r}")
-    path.write_text(text.replace(old, new), encoding="utf-8")
+    updated, count = re.subn(pattern, replacement, text, count=1, flags=re.DOTALL)
+    if count == 0:
+        if replacement in text:
+            return
+        raise RuntimeError(f"fixture anchor missing in {path}: {pattern!r}")
+    path.write_text(updated, encoding="utf-8")
 
 
 comparison = ROOT / "tests" / "test_configuration_comparison.py"
-for value in ("90", "100", "180"):
-    replace_all(
-        comparison,
-        f'                    "",\n                    "{value}",\n                    "2026-',
-        f'                    "",\n                    "",\n                    "{value}",\n                    "2026-',
-    )
-
-cargo = ROOT / "tests" / "test_brochure_cargo_context_reporting_foundation.py"
-for value in ("500", "1500", "1400"):
-    replace_all(
-        cargo,
-        f'"boot_capacity", "", "{value}", "2026-',
-        f'"boot_capacity", "", "", "{value}", "2026-',
-    )
+comparison_rows = {
+    "a_power_old": ("1", "engine_power", "90", "2026-01-01", "src_a"),
+    "a_power": ("2", "engine_power", "100", "2026-06-01", "src_a"),
+    "b_power": ("3", "engine_power", "100", "2026-06-01", "src_b"),
+    "a_torque": ("4", "engine_torque", "180", "2026-06-01", "src_a"),
+}
+for code, (identifier, attribute, value, date, source) in comparison_rows.items():
+    canonical = f'''                [
+                    "{identifier}",
+                    "{code}",
+                    "{'cfg_b' if code == 'b_power' else 'cfg_a'}",
+                    "{attribute}",
+                    "",
+                    "",
+                    "{value}",
+                    "{date}",
+                    "{source}",
+                    "",
+                ],'''
+    pattern = rf'''                \[
+                    "{identifier}",
+                    "{code}",
+                    "{'cfg_b' if code == 'b_power' else 'cfg_a'}",
+                    "{attribute}",
+.*?                \],'''
+    replace_required(comparison, pattern, canonical)
 
 shortlist = ROOT / "tests" / "test_configuration_shortlist.py"
-for value in ("5", "7"):
-    replace_all(
+shortlist_rows = {
+    "cfg_a_seats": '(1, "cfg_a_seats", "cfg_a", "number_of_seats", "", "", 5, "2026-01-01", "src_a", ""),',
+    "cfg_b_seats": '(2, "cfg_b_seats", "cfg_b", "number_of_seats", "", "", 5, "2026-01-01", "src_b", ""),',
+    "cfg_c_seats": '(3, "cfg_c_seats", "cfg_c", "number_of_seats", "", "", 7, "2026-01-01", "src_c", ""),',
+    "cfg_a_power": '(4, "cfg_a_power", "cfg_a", "engine_power", "petrol", "", 90, "2026-01-01", "src_a", ""),',
+}
+for code, canonical in shortlist_rows.items():
+    replace_required(
         shortlist,
-        f', "", {value}, "2026-01-01",',
-        f', "", "", {value}, "2026-01-01",',
+        rf'\([^\n]*"{code}"[^\n]*\),',
+        canonical,
     )
-replace_all(
-    shortlist,
-    ', "petrol", 90, "2026-01-01",',
-    ', "petrol", "", 90, "2026-01-01",',
-)
 
 validate = ROOT / "tests" / "test_validate_cli.py"
 text = validate.read_text(encoding="utf-8")
@@ -88,4 +102,4 @@ if addition not in text:
     text = text.replace(needle, addition)
 validate.write_text(text, encoding="utf-8")
 
-print("PASS: historical selected-gear fixtures updated")
+print("PASS: historical selected-gear fixtures normalized")
