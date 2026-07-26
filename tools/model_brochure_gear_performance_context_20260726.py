@@ -143,7 +143,7 @@ def check() -> None:
     ensure(
         header == [
             "id", "code", "configuration_code", "attribute_code",
-            "fuel_type_code", "value", "observation_date", "source_code", "notes",
+            "fuel_type_code", "gear_number", "value", "observation_date", "source_code", "notes",
         ],
         "modeling package changed the master value schema",
     )

@@ -51,6 +51,7 @@ TARGETS = {
     ),
     "configuration_attribute_values.csv": (
         "id", "code", "configuration_code", "attribute_code", "fuel_type_code",
+        "gear_number",
         "value", "observation_date", "source_code", "notes",
     ),
     "configuration_attribute_value_ranges.csv": (
@@ -263,6 +264,7 @@ def normalized_contract() -> dict[str, list[dict[str, str]]]:
                     "configuration_code": configuration_code,
                     "attribute_code": attribute_code,
                     "fuel_type_code": fuel_type_code,
+                    "gear_number": "",
                     "value": str(item["value"]),
                     "observation_date": DATE,
                     "source_code": source_code,

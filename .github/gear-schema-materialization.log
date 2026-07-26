@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/establish_brochure_gear_performance_schema_20260726.py", line 278, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/establish_brochure_gear_performance_schema_20260726.py", line 265, in main
+    patch_importer()
+    ~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/establish_brochure_gear_performance_schema_20260726.py", line 144, in patch_importer
+    replace_once(path, '                "fuel_type_code": fuel,\n                "value": row.value,', '                "fuel_type_code": fuel,\n                "gear_number": gear,\n                "value": row.value,')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/establish_brochure_gear_performance_schema_20260726.py", line 26, in replace_once
+    raise PatchError(f"anchor missing in {path}: {old[:100]!r}")
+PatchError: anchor missing in /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_configuration_values.py: '                "fuel_type_code": fuel,\n                "value": row.value,'

@@ -101,6 +101,7 @@ class SanderoFrontWheelDriveValueTests(unittest.TestCase):
                 "configuration_code",
                 "attribute_code",
                 "fuel_type_code",
+                "gear_number",
                 "value",
                 "observation_date",
                 "source_code",

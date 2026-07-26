@@ -28,12 +28,15 @@ except ModuleNotFoundError:  # package import in unit tests
 
 SPEC_VERSION = 1
 SPEC_KIND = "configuration_attribute_values"
+GEAR_ELIGIBLE_ATTRIBUTES = frozenset({"elasticity_80_120"})
+GEAR_PATTERN = re.compile(r"[1-9][0-9]*")
 VALUE_FIELDS = (
     "id",
     "code",
     "configuration_code",
     "attribute_code",
     "fuel_type_code",
+    "gear_number",
     "value",
     "observation_date",
     "source_code",
@@ -59,7 +62,7 @@ ROW_REQUIRED_KEYS = {
     "value",
     "source_text",
 }
-ROW_OPTIONAL_KEYS = {"fuel_type_code"}
+ROW_OPTIONAL_KEYS = {"fuel_type_code", "gear_number"}
 ALLOWED_PLACEHOLDERS = {
     "page",
     "section",
@@ -68,6 +71,7 @@ ALLOWED_PLACEHOLDERS = {
     "configuration_code",
     "attribute_code",
     "fuel_type_code",
+    "gear_number",
 }
 
 
@@ -82,6 +86,7 @@ class ImportRow:
     value: str
     source_text: str
     fuel_type_code: str | None = None
+    gear_number: str | None = None
 
 
 @dataclass(frozen=True)
@@ -94,6 +99,7 @@ class ImportSpec:
     status: str
     observation_date: str
     fuel_type_code: str
+    gear_number: str
     source_page: int
     source_section: str
     notes_template: str
@@ -142,6 +148,14 @@ def _require_positive_integer(value: Any, label: str) -> int:
     return value
 
 
+def _validate_gear_number(value: str, label: str) -> str:
+    _ensure(
+        value == "" or GEAR_PATTERN.fullmatch(value) is not None,
+        f"{label} must be empty or a canonical positive integer",
+    )
+    return value
+
+
 def _validate_iso_date(value: str, label: str) -> str:
     try:
         parsed = date.fromisoformat(value)
@@ -171,6 +185,7 @@ def _validate_template(template: str) -> None:
             configuration_code="configuration",
             attribute_code="attribute",
             fuel_type_code="",
+            gear_number="",
         )
     except (KeyError, ValueError) as exc:
         raise ImportSpecError(f"invalid notes_template: {exc}") from exc
@@ -186,7 +201,7 @@ def load_spec(path: Path) -> ImportSpec:
         raise ImportSpecError(f"invalid JSON in spec {path}: {exc}") from exc
 
     _ensure(isinstance(payload, dict), "spec root must be a JSON object")
-    _strict_keys(payload, TOP_LEVEL_KEYS, label="spec")
+    _strict_keys(payload, TOP_LEVEL_KEYS, label="spec", optional={"gear_number"})
     _ensure(payload["version"] == SPEC_VERSION, "unsupported spec version")
     _ensure(payload["kind"] == SPEC_KIND, "unsupported spec kind")
 
@@ -198,7 +213,7 @@ def load_spec(path: Path) -> ImportSpec:
     _ensure(isinstance(rows_payload, list) and rows_payload, "rows must be a non-empty list")
 
     rows: list[ImportRow] = []
-    seen_configurations: set[tuple[str, str]] = set()
+    seen_configurations: set[tuple[str, str, str]] = set()
     for index, item in enumerate(rows_payload, start=1):
         label = f"rows[{index}]"
         _ensure(isinstance(item, dict), f"{label} must be an object")
@@ -222,9 +237,20 @@ def load_spec(path: Path) -> ImportSpec:
                 f"{label}.fuel_type_code",
                 allow_empty=True,
             )
+        row_gear = item.get("gear_number")
+        if row_gear is not None:
+            row_gear = _validate_gear_number(
+                _require_string(
+                    row_gear,
+                    f"{label}.gear_number",
+                    allow_empty=True,
+                ),
+                f"{label}.gear_number",
+            )
         semantic_key = (
             configuration_code,
             "" if row_fuel is None else row_fuel,
+            "" if row_gear is None else row_gear,
         )
         _ensure(
             semantic_key not in seen_configurations,
@@ -238,6 +264,7 @@ def load_spec(path: Path) -> ImportSpec:
                 value=value,
                 source_text=source_text,
                 fuel_type_code=row_fuel,
+                gear_number=row_gear,
             )
         )
 
@@ -260,6 +287,14 @@ def load_spec(path: Path) -> ImportSpec:
             payload["fuel_type_code"],
             "fuel_type_code",
             allow_empty=True,
+        ),
+        gear_number=_validate_gear_number(
+            _require_string(
+                payload.get("gear_number", ""),
+                "gear_number",
+                allow_empty=True,
+            ),
+            "gear_number",
         ),
         source_page=_require_positive_integer(payload["source_page"], "source_page"),
         source_section=_require_string(payload["source_section"], "source_section"),
@@ -312,11 +347,14 @@ def _row_code(
     configuration_code: str,
     attribute_code: str,
     fuel_type_code: str,
+    gear_number: str,
     observation_date: str,
 ) -> str:
     parts = [configuration_code, attribute_code]
     if fuel_type_code:
         parts.append(fuel_type_code)
+    if gear_number:
+        parts.append(f"gear{gear_number}")
     parts.append(observation_date.replace("-", ""))
     return "_".join(parts)
 
@@ -393,6 +431,12 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
         _ensure(source.get("file_path", "") != "", f"{label} source has no file path")
 
         fuel = spec.fuel_type_code if row.fuel_type_code is None else row.fuel_type_code
+        gear = spec.gear_number if row.gear_number is None else row.gear_number
+        if gear:
+            _ensure(
+                spec.attribute_code in GEAR_ELIGIBLE_ATTRIBUTES,
+                f"{label} uses gear_number for ineligible attribute {spec.attribute_code!r}",
+            )
         if fuel:
             _ensure(
                 fuel in known_fuels,
@@ -414,6 +458,7 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
             configuration_code=row.configuration_code,
             attribute_code=spec.attribute_code,
             fuel_type_code=fuel,
+            gear_number=gear,
         )
         _ensure(notes.strip() != "", f"{label} generated empty notes")
 
@@ -424,11 +469,13 @@ def build_expected_rows(repository: Path, spec: ImportSpec) -> tuple[dict[str, s
                     row.configuration_code,
                     spec.attribute_code,
                     fuel,
+                    gear,
                     spec.observation_date,
                 ),
                 "configuration_code": row.configuration_code,
                 "attribute_code": spec.attribute_code,
                 "fuel_type_code": fuel,
+                "gear_number": "",
                 "value": row.value,
                 "observation_date": spec.observation_date,
                 "source_code": row.source_code,
