@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_0_publication",
+  "status": "PASS",
+  "release_id": 360115681,
+  "release_tag": "data-products-v1.8.0",
+  "release_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.8.0",
+  "published_at": "2026-07-26T20:50:24Z",
+  "source_commit": "becd218228e3f4f0cdd312b0ed836ade487422b1",
+  "workflow_run": 30219809423,
+  "draft": false,
+  "prerelease": false,
+  "asset_count": 3,
+  "assets": {
+    "SHA256SUMS": {
+      "asset_id": 490686122,
+      "size_bytes": 213,
+      "sha256": "8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596",
+      "api_digest": "sha256:8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596",
+      "download_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/download/data-products-v1.8.0/SHA256SUMS"
+    },
+    "dacia-knowledge-base-data-products-v1.8.0.zip": {
+      "asset_id": 490686120,
+      "size_bytes": 62141187,
+      "sha256": "2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9",
+      "api_digest": "sha256:2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9",
+      "download_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/download/data-products-v1.8.0/dacia-knowledge-base-data-products-v1.8.0.zip"
+    },
+    "data-product-release-manifest.json": {
+      "asset_id": 490686121,
+      "size_bytes": 20606,
+      "sha256": "af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b",
+      "api_digest": "sha256:af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b",
+      "download_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/download/data-products-v1.8.0/data-product-release-manifest.json"
+    }
+  },
+  "public_redownload_verification": "PASS"
+}
