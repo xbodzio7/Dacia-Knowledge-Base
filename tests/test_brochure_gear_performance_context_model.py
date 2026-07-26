@@ -91,6 +91,7 @@ class BrochureGearPerformanceContextModelTests(unittest.TestCase):
         self.assertEqual({row.get("gear_number", "") for row in csv.DictReader(VALUES_PATH.open(encoding="utf-8-sig", newline=""))}, {""})
         self.assertEqual({row.get("gear_number", "") for row in csv.DictReader(VALUES_PATH.open(encoding="utf-8-sig", newline=""))}, {""})
         self.assertEqual({row.get("gear_number", "") for row in csv.DictReader(VALUES_PATH.open(encoding="utf-8-sig", newline=""))}, {""})
+        self.assertEqual({row.get("gear_number", "") for row in csv.DictReader(VALUES_PATH.open(encoding="utf-8-sig", newline=""))}, {""})
         decisions = DECISIONS_PATH.read_text(encoding="utf-8")
         self.assertIn("## D-024 — Observation-level selected-gear context", decisions)
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
