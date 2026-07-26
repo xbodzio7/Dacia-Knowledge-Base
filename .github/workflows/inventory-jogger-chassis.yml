@@ -13,6 +13,7 @@ on:
       - data/imports/brochure_technical_values/jogger-chassis-20251217.json
       - tools/import_jogger_chassis_20260726.py
       - tools/materialize_jogger_chassis_20260726.py
+      - tools/repair_jogger_chassis_regressions_20260726.py
       - tests/test_jogger_chassis_20260726.py
 
 permissions:
@@ -41,6 +42,9 @@ jobs:
           python tools/import_jogger_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
           if [ "$status" -eq 0 ]; then
             python tools/materialize_jogger_chassis_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_jogger_chassis_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
