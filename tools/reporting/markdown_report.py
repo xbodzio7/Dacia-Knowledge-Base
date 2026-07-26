@@ -19,6 +19,8 @@ def write_validation_report(
     uniqueness_errors: Sequence[str] = (),
     references_ok: bool = True,
     reference_errors: Sequence[str] = (),
+    gear_contexts_ok: bool = True,
+    gear_context_errors: Sequence[str] = (),
     year_ranges_ok: bool = True,
     year_range_errors: Sequence[str] = (),
     statuses_ok: bool = True,
@@ -42,6 +44,7 @@ def write_validation_report(
         and csv_ok
         and uniqueness_ok
         and references_ok
+        and gear_contexts_ok
         and year_ranges_ok
         and statuses_ok
         and association_ranges_ok
@@ -92,6 +95,10 @@ def write_validation_report(
             f"**{'PASS' if references_ok else 'FAIL'}**\n"
         )
         handle.write(
+            f"- Selected-gear context: "
+            f"**{'PASS' if gear_contexts_ok else 'FAIL'}**\n"
+        )
+        handle.write(
             f"- Year ranges: "
             f"**{'PASS' if year_ranges_ok else 'FAIL'}**\n"
         )
@@ -131,6 +138,12 @@ def write_validation_report(
             for error in reference_errors:
                 handle.write(f"- {error}\n")
 
+            handle.write("\n")
+
+        if gear_context_errors:
+            handle.write("## Selected-gear context errors\n\n")
+            for error in gear_context_errors:
+                handle.write(f"- {error}\n")
             handle.write("\n")
 
         if year_range_errors:

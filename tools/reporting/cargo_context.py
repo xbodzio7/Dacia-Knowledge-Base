@@ -50,15 +50,34 @@ def semantic_signature(context: Mapping[str, str] | None) -> str:
     )
 
 
+def observation_signature(
+    gear_number: str = "",
+    cargo_context_signature: str = "",
+) -> str:
+    """Return the non-lossy context signature beyond attribute and fuel."""
+
+    parts: list[str] = []
+    if gear_number:
+        parts.append(f"gear_number={gear_number}")
+    if cargo_context_signature:
+        parts.append(cargo_context_signature)
+    return ";".join(parts)
+
+
 def technical_context(
     fuel_type_code: str,
     cargo_context: Mapping[str, str] | None = None,
+    gear_number: str = "",
 ) -> str:
     """Return the exact filter/export context for one technical observation."""
 
-    fuel = f"fuel_type_code={fuel_type_code}"
+    parts = [f"fuel_type_code={fuel_type_code}"]
+    if gear_number:
+        parts.append(f"gear_number={gear_number}")
     cargo = semantic_signature(cargo_context)
-    return fuel if not cargo else f"{fuel};{cargo}"
+    if cargo:
+        parts.append(cargo)
+    return ";".join(parts)
 
 
 def cargo_context_json(context: Mapping[str, str] | None) -> str:
@@ -163,6 +182,7 @@ def cargo_observations(
                 "value_code": str(row.get("code", "")),
                 "value": str(row.get("value", "")),
                 "fuel_type_code": str(row.get("fuel_type_code", "")),
+                "gear_number": str(row.get("gear_number", "")),
                 "observation_date": str(row.get("observation_date", "")),
                 "source_code": str(row.get("source_code", "")),
                 "cargo_context": dict(context) if isinstance(context, Mapping) else None,
@@ -172,6 +192,7 @@ def cargo_observations(
                 "context": technical_context(
                     str(row.get("fuel_type_code", "")),
                     context if isinstance(context, Mapping) else None,
+                    str(row.get("gear_number", "")),
                 ),
             }
         )

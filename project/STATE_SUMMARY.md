@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Gear-Specific Performance Context Modeling**
+**Brochure Gear-Specific Performance Schema Foundation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 813
+- Tests: 821
 - Master CSV files: 46
 - Master rows: 8782
 - Configuration values: 2118
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Gear-Specific Performance Context Modeling** — `complete`
+**Brochure Gear-Specific Performance Schema Foundation** — `complete`
 
-Accept the smallest reusable observation-level representation for 80-120 km/h elasticity values qualified by selected gear while reusing existing fuel and exact-configuration dimensions.
+Add the optional gear_number scalar-observation qualifier, validation, import-spec, SQLite, data-dictionary and reporting-key support without importing brochure elasticity values.
 
 ## Next package
 
-**Brochure Gear-Specific Performance Schema Foundation** — `planned`
+**Brochure Gear-Specific Performance Value Import** — `planned`
 
-Add the optional gear_number column, semantic validation, import-spec, SQLite, data-dictionary and reporting support without importing brochure elasticity values.
+Import exact Sandero, Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context.
 
 ## Autonomy
 

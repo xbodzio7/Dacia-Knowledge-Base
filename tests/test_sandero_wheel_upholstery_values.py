@@ -48,7 +48,7 @@ class SanderoWheelUpholsteryValueTests(unittest.TestCase):
             list(self.rows[0]),
             [
                 "id", "code", "configuration_code", "attribute_code",
-                "fuel_type_code", "value", "observation_date",
+                "fuel_type_code", "gear_number", "value", "observation_date",
                 "source_code", "notes",
             ],
         )

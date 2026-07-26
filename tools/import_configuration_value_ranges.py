@@ -304,6 +304,7 @@ def build_expected_rows(repository: Path, spec: RangeImportSpec) -> tuple[dict[s
             row.get("configuration_code", ""),
             row.get("attribute_code", ""),
             row.get("fuel_type_code", ""),
+            row.get("gear_number", ""),
             row.get("observation_date", ""),
         )
         for row in scalar_values
@@ -320,7 +321,7 @@ def build_expected_rows(repository: Path, spec: RangeImportSpec) -> tuple[dict[s
         fuel = spec.fuel_type_code if row.fuel_type_code is None else row.fuel_type_code
         if fuel:
             _ensure(fuel in fuel_codes, f"{label} uses unknown fuel_type_code {fuel!r}")
-        semantic = (row.configuration_code, spec.attribute_code, fuel, spec.observation_date)
+        semantic = (row.configuration_code, spec.attribute_code, fuel, "", spec.observation_date)
         _ensure(semantic not in scalar_semantic, f"{label} conflicts with a scalar observation on the same date")
         notes = spec.notes_template.format(
             page=spec.source_page,

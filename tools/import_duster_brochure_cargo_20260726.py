@@ -23,7 +23,7 @@ SOURCE_CODE = "src_pl_duster_mini_brochure_20251020"
 SOURCE_FILE = "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf"
 SOURCE_SHA256 = "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8"
 RELATIONSHIP = "brochure_technical_data_for"
-VALUE_FIELDS = ("id", "code", "configuration_code", "attribute_code", "fuel_type_code", "value", "observation_date", "source_code", "notes")
+VALUE_FIELDS = ("id", "code", "configuration_code", "attribute_code", "fuel_type_code", "gear_number", "value", "observation_date", "source_code", "notes")
 CONTEXT_FIELDS = ("id", "code", "configuration_attribute_value_code", "measurement_basis_code", "second_row_state_code", "third_row_state_code", "compartment_code", "spare_wheel_state_code", "tyre_repair_kit_state_code", "double_floor_state_code", "notes")
 SOURCE_CONFIGURATION_FIELDS = ("id", "source_code", "configuration_code", "relationship", "notes")
 CONTEXT_SPEC_FIELDS = CONTEXT_FIELDS[3:-1]
@@ -193,7 +193,7 @@ def expected_rows(spec: Mapping[str, Any]) -> tuple[list[dict[str, str]], list[d
         value_code = f"{configuration_code}_boot_capacity_{observation['context_code']}_20251020"
         values.append({
             "id": str(value_id), "code": value_code, "configuration_code": configuration_code,
-            "attribute_code": "boot_capacity", "fuel_type_code": "", "value": str(observation["value"]),
+            "attribute_code": "boot_capacity", "fuel_type_code": "", "gear_number": "", "value": str(observation["value"]),
             "observation_date": "2025-10-20", "source_code": SOURCE_CODE,
             "notes": f"Source page 20, powertrain-specific cargo table: {observation['source_text']}",
         })

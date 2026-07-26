@@ -115,16 +115,17 @@ class ConfigurationShortlistTests(unittest.TestCase):
                 "configuration_code",
                 "attribute_code",
                 "fuel_type_code",
+                "gear_number",
                 "value",
                 "observation_date",
                 "source_code",
                 "notes",
             ),
             [
-                (1, "cfg_a_seats", "cfg_a", "number_of_seats", "", 5, "2026-01-01", "src_a", ""),
-                (2, "cfg_b_seats", "cfg_b", "number_of_seats", "", 5, "2026-01-01", "src_b", ""),
-                (3, "cfg_c_seats", "cfg_c", "number_of_seats", "", 7, "2026-01-01", "src_c", ""),
-                (4, "cfg_a_power", "cfg_a", "engine_power", "petrol", 90, "2026-01-01", "src_a", ""),
+                (1, "cfg_a_seats", "cfg_a", "number_of_seats", "", "", 5, "2026-01-01", "src_a", ""),
+                (2, "cfg_b_seats", "cfg_b", "number_of_seats", "", "", 5, "2026-01-01", "src_b", ""),
+                (3, "cfg_c_seats", "cfg_c", "number_of_seats", "", "", 7, "2026-01-01", "src_c", ""),
+                (4, "cfg_a_power", "cfg_a", "engine_power", "petrol", "", 90, "2026-01-01", "src_a", ""),
             ],
         )
         self.write_csv(
