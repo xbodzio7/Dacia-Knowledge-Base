@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.7.0 Release Preparation",
+  "phase": "Data Products v1.7.0 Publication",
   "reference_delivery": {
-    "name": "Duster Eco-G 120 Automatic Homologation Evidence",
-    "pull_request": 244,
-    "head_sha": "f8dba789260fb65236e02e6a70c3eb187dd1aefd",
-    "quality_run": 1397
+    "name": "Data Products v1.7.0 Release Preparation",
+    "pull_request": 275,
+    "head_sha": "f97e732add506400b9e47ee95e59a3caf8382daf",
+    "quality_run": 1934
   },
   "baseline": {
     "tests": 971,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.7.0 Release Preparation",
+    "name": "Data Products v1.7.0 Publication",
     "status": "complete",
-    "goal": "Freeze the v1.7.0 release identity and publication sequence, prove deterministic generation and offline workspace verification, and preserve the diagnostic candidate as non-final evidence without creating a tag or release."
+    "goal": "Publish and independently re-verify immutable data-products-v1.7.0 assets from exact green main commit 99e0e19b86cad6eae619f37702464e6a5a761cd8 after the release-preparation package."
   },
   "next_package": {
-    "name": "Data Products v1.7.0 Preflight",
+    "name": "Cross-Model Comparison View Review",
     "status": "planned",
-    "goal": "Build twice from the exact squash-merged main commit, record the final sizes and SHA-256 values of the three canonical assets, and confirm that the v1.7.0 tag and GitHub Release do not yet exist."
+    "goal": "Review a source-safe cross-model overview that preserves independent reporting scopes, avoids heterogeneous pair comparisons, and introduces no ranking, recommendation or inferred value."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
