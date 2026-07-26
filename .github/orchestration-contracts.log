@@ -1,0 +1,110 @@
+test_apply_writes_exact_summary_and_state (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_duplicate_operations_are_rejected (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_invalid_sha_is_rejected (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_live_baseline_projection_detects_drift (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_repository_baseline_matches_canonical_state (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_repository_state_is_valid_and_summary_is_current (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_summary_is_deterministic (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_synchronized_state_updates_only_live_fields (tests.project_state_contract.ProjectStateContractTests) ... ok
+test_current_green_mergeable_ci_continues_to_merge (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_declared_stop_condition_requires_user_action (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_in_scope_failure_is_repaired_and_retried (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_invalid_passing_ci_event_is_rejected (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_out_of_scope_failure_requires_scope_decision (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_rendered_decision_is_deterministic (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_stale_head_is_reverified_without_stopping (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_successful_stages_continue_without_user_action (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_transient_mergeability_is_retried (tests.autonomy_policy_contract.AutonomyPolicyContractTests) ... ok
+test_cli_generation_and_verification (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_duplicate_basenames_are_rejected (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_generation_is_deterministic_and_sorted (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_missing_and_unexpected_files_are_rejected (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_verification_detects_content_tampering (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_written_manifest_verifies_extracted_bundle (tests.quality_artifact_manifest_contract.QualityArtifactManifestContractTests) ... ok
+test_context_composes_with_pair_domain_and_item_filters (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_context_is_validated_against_full_report_before_pair_filter (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_exact_context_filters_price_and_empty_equipment_rows (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_fixture_exposes_catalog_contexts (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_repository_snapshot_context_counts_and_default_compatibility (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... FAIL
+test_unified_cli_routes_only_context_and_help_to_wrapper (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_unknown_context_is_rejected (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_wrapper_preserves_json_markdown_and_csv_schema (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests) ... ok
+test_deterministic_json_and_markdown (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_contains_only_recorded_differences (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_domain_filter_composes_with_pair_type (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_empty_filter_has_header_only (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_item_filter_composes_with_other_filters (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_distinguishes_recorded_differences_and_evidence_states (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_overlapping_ranges_preserve_relation_and_endpoints (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_pair_type_filter_recalculates_scope_and_summary (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_duplicate_current_price (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_evidence_scope_drift (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_difference_domain (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_difference_item_code (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_pair_type_filter (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_cli_writes_pair_summary (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests) ... ok
+test_csv_is_deterministic_and_has_stable_schema (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests) ... ok
+test_fixture_summary_uses_existing_pair_counts (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests) ... ok
+test_pair_type_filter_produces_header_only_when_empty (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests) ... ok
+test_repository_snapshot_has_21_pairs_and_expected_types (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests) ... FAIL
+test_deterministic_json_and_markdown (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_contains_only_recorded_differences (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_domain_filter_composes_with_pair_type (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_empty_filter_has_header_only (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_difference_csv_item_filter_composes_with_other_filters (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_distinguishes_recorded_differences_and_evidence_states (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_overlapping_ranges_preserve_relation_and_endpoints (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_pair_type_filter_recalculates_scope_and_summary (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_duplicate_current_price (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_evidence_scope_drift (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_difference_domain (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_difference_item_code (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+test_rejects_unknown_pair_type_filter (tests.test_configuration_comparison.ConfigurationComparisonTests) ... ok
+
+======================================================================
+FAIL: test_repository_snapshot_context_counts_and_default_compatibility (tests.configuration_comparison_context_filter_contract.ConfigurationComparisonContextFilterContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/configuration_comparison_context_filter_contract.py", line 298, in test_repository_snapshot_context_counts_and_default_compatibility
+    self.assertEqual(len(cargo_contexts), 5)
+AssertionError: 11 != 5
+
+======================================================================
+FAIL: test_repository_snapshot_has_21_pairs_and_expected_types (tests.configuration_comparison_pair_summary_contract.ConfigurationComparisonPairSummaryContractTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/configuration_comparison_pair_summary_contract.py", line 141, in test_repository_snapshot_has_21_pairs_and_expected_types
+    self.assertEqual(
+AssertionError: Items in the first set but not the second:
+'126'
+'124'
+'122'
+Items in the second set but not the first:
+'120'
+
+----------------------------------------------------------------------
+Ran 62 tests in 1.333s
+
+FAILED (failures=2)
+Artifact manifest written to /tmp/tmpksnsy7hg/artifact-manifest.json: 1 files, 9 bytes
+Artifact manifest verified: 1 files, 9 bytes
+JSON configuration comparison report written to /tmp/tmpon_2oblf/comparison.json
+Markdown configuration comparison report written to /tmp/tmpon_2oblf/comparison.md
+HTML configuration comparison report written to /tmp/tmpon_2oblf/comparison.html
+CSV configuration differences written to /tmp/tmpon_2oblf/differences.csv
+Configuration comparison
+------------------------
+As of                  : 2026-06-01
+Active configurations  : 2
+Pair type filter       : all
+Available pairs        : 1
+Selected pairs         : 1
+Price differences      : 1
+Technical differences  : 0
+Equipment differences  : 1
+CSV difference domain  : all
+CSV difference item    : all
+CSV difference context : market=PL;currency_code=PLN
+CSV difference rows    : 1
+Not-comparable states  : 3
+Configuration comparison pair summary written to /tmp/tmptmszvqv5/pair-summary.csv: 1 pairs
