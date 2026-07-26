@@ -1,0 +1,53 @@
+name: Diagnose Generic Dimension Quality
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/diagnose-generic-dimension-quality.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/brochure-generic-dimensions-observation-import
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Run and persist quality diagnostics
+        shell: bash
+        run: |
+          set +e
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file .github/generic-dimension-quality.log \
+            --summary-json .github/generic-dimension-quality-summary.json
+          status=$?
+          cat .github/generic-dimension-quality-summary.json
+          tail -n 120 .github/generic-dimension-quality.log
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/generic-dimension-quality.log .github/generic-dimension-quality-summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: persist generic dimension quality diagnostics'
+            git push origin HEAD:agent/brochure-generic-dimensions-observation-import
+          fi
+          exit "$status"
