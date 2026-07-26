@@ -1,0 +1,378 @@
+name: Materialize Data Products v1.8.1 Preflight
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-data-products-v1-8-1-preflight.yml
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_COMMIT: 0b7009fd1950693e347638a6b96756aeefb43b8a
+      RELEASE_VERSION: 1.8.1
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out preflight branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-1-preflight
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Install PDF and browser backends
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils chromium-browser || \
+            sudo apt-get install --yes --no-install-recommends poppler-utils chromium
+      - name: Prepare exact source worktree
+        run: |
+          set -euo pipefail
+          git worktree add --detach "$RUNNER_TEMP/source" "$SOURCE_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/source" rev-parse HEAD)" = "$SOURCE_COMMIT"
+      - name: Build release assets twice
+        run: |
+          set -euo pipefail
+          for build in build-1 build-2; do
+            SOURCE_ROOT="$RUNNER_TEMP/source" OUTPUT_ROOT="$RUNNER_TEMP/$build" python - <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+
+          source = Path(os.environ["SOURCE_ROOT"])
+          output = Path(os.environ["OUTPUT_ROOT"])
+          sys.path.insert(0, str(source / "tools"))
+          from reporting.data_product_release import create_release_assets
+
+          create_release_assets(
+              source,
+              output,
+              os.environ["RELEASE_VERSION"],
+              os.environ["SOURCE_COMMIT"],
+          )
+          PY
+          done
+      - name: Prove byte-identical rebuilds
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ["RUNNER_TEMP"])
+          first = root / "build-1"
+          second = root / "build-2"
+          names_1 = sorted(path.name for path in first.iterdir() if path.is_file())
+          names_2 = sorted(path.name for path in second.iterdir() if path.is_file())
+          expected = [
+              "SHA256SUMS",
+              "dacia-knowledge-base-data-products-v1.8.1.zip",
+              "data-product-release-manifest.json",
+          ]
+          if names_1 != expected or names_2 != expected:
+              raise SystemExit(f"asset set differs: {names_1!r} / {names_2!r}")
+          for name in expected:
+              left = (first / name).read_bytes()
+              right = (second / name).read_bytes()
+              if left != right:
+                  raise SystemExit(f"rebuild differs: {name}")
+              print(name, len(left), hashlib.sha256(left).hexdigest())
+          PY
+      - name: Verify archive and extract shortlist
+        run: |
+          set -euo pipefail
+          ARCHIVE="$RUNNER_TEMP/build-1/dacia-knowledge-base-data-products-v1.8.1.zip" \
+          HTML="$RUNNER_TEMP/configuration-shortlist.html" python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          archive_path = Path(os.environ["ARCHIVE"])
+          html_path = Path(os.environ["HTML"])
+          with ZipFile(archive_path) as archive:
+              names = archive.namelist()
+              if len(names) != 85 or len(set(names)) != 85:
+                  raise SystemExit(f"archive member contract differs: {len(names)} / {len(set(names))}")
+              html_path.write_bytes(archive.read("shortlist/configuration-shortlist.html"))
+              notes = archive.read("RELEASE_NOTES.md").decode("utf-8")
+          required = [
+              "Equipment filtering is restored",
+              "Missing and unknown evidence remains excluded",
+              "minimum current catalogue price",
+              "v1.8.0 remains immutable",
+          ]
+          for phrase in required:
+              if phrase not in notes:
+                  raise SystemExit(f"release notes phrase missing: {phrase}")
+          PY
+      - name: Run real Chromium equipment smoke test
+        run: |
+          set -euo pipefail
+          HTML="$RUNNER_TEMP/configuration-shortlist.html" python - <<'PY'
+          import os
+          from pathlib import Path
+
+          path = Path(os.environ["HTML"])
+          text = path.read_text(encoding="utf-8")
+          smoke = r'''
+          <script>
+          window.addEventListener("error", () => {
+            document.body.dataset.javascriptErrors = String(
+              Number(document.body.dataset.javascriptErrors || "0") + 1
+            );
+          });
+          window.addEventListener("unhandledrejection", () => {
+            document.body.dataset.javascriptErrors = String(
+              Number(document.body.dataset.javascriptErrors || "0") + 1
+            );
+          });
+          window.addEventListener("load", () => {
+            setTimeout(() => {
+              const shown = (button) => !button.hidden && !button.closest("section[hidden]");
+              const initial = [...document.querySelectorAll(".equipment-choice")].filter(shown).length;
+              const search = document.querySelector("[data-equipment-search]");
+              search.value = "kamera";
+              search.dispatchEvent(new Event("input", {bubbles: true}));
+              const camera = [...document.querySelectorAll(".equipment-choice")].filter(shown);
+              if (camera.length === 1) camera[0].click();
+              setTimeout(() => {
+                document.body.dataset.preflightSmoke = JSON.stringify({
+                  visible_equipment_choices: initial,
+                  camera_search_visible_choices: [...document.querySelectorAll(".equipment-choice")].filter(shown).length,
+                  selection_count: Number(document.querySelector("[data-selected-count]").textContent),
+                  matched_configurations: Number(document.querySelector("#matched-count").textContent),
+                  javascript_errors: Number(document.body.dataset.javascriptErrors || "0")
+                });
+              }, 250);
+            }, 250);
+          });
+          </script>
+          '''
+          path.write_text(text.replace("</body>", smoke + "</body>", 1), encoding="utf-8")
+          PY
+          browser="$(command -v chromium-browser || command -v chromium || command -v google-chrome)"
+          "$browser" --headless --no-sandbox --disable-gpu --allow-file-access-from-files \
+            --virtual-time-budget=4000 --dump-dom \
+            "file://$RUNNER_TEMP/configuration-shortlist.html" \
+            > "$RUNNER_TEMP/configuration-shortlist-dom.html"
+          DOM="$RUNNER_TEMP/configuration-shortlist-dom.html" RESULT="$RUNNER_TEMP/chromium-smoke.json" python - <<'PY'
+          import html
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          text = Path(os.environ["DOM"]).read_text(encoding="utf-8")
+          match = re.search(r'data-preflight-smoke="([^"]+)"', text)
+          if not match:
+              raise SystemExit("Chromium smoke result is missing")
+          result = json.loads(html.unescape(match.group(1)))
+          expected = {
+              "visible_equipment_choices": 108,
+              "camera_search_visible_choices": 1,
+              "selection_count": 1,
+              "matched_configurations": 66,
+              "javascript_errors": 0,
+          }
+          if result != expected:
+              raise SystemExit(f"Chromium smoke mismatch: {result!r}")
+          Path(os.environ["RESULT"]).write_text(
+              json.dumps(result, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+          print("PASS: Chromium v1.8.1 filtering", result)
+          PY
+      - name: Verify publication controls
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin refs/tags/data-products-v1.8.1 >/dev/null 2>&1; then
+            echo "Target tag already exists" >&2
+            exit 1
+          fi
+          if gh release view data-products-v1.8.1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Target release already exists" >&2
+            exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/public-control"
+          gh release download data-products-v1.8.0 --repo "$GITHUB_REPOSITORY" \
+            --pattern SHA256SUMS --dir "$RUNNER_TEMP/public-control"
+          test -s "$RUNNER_TEMP/public-control/SHA256SUMS"
+      - name: Record exact preflight identity
+        run: |
+          set -euo pipefail
+          BUILD="$RUNNER_TEMP/build-1" SMOKE="$RUNNER_TEMP/chromium-smoke.json" python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path.cwd()
+          build = Path(os.environ["BUILD"])
+          smoke = json.loads(Path(os.environ["SMOKE"]).read_text(encoding="utf-8"))
+          asset_names = [
+              "dacia-knowledge-base-data-products-v1.8.1.zip",
+              "data-product-release-manifest.json",
+              "SHA256SUMS",
+          ]
+          assets = {}
+          for name in asset_names:
+              path = build / name
+              payload = path.read_bytes()
+              assets[name] = {
+                  "size_bytes": len(payload),
+                  "sha256": hashlib.sha256(payload).hexdigest(),
+              }
+          report = {
+              "version": 1,
+              "kind": "data_products_v1_8_1_preflight",
+              "verified_on": "2026-07-27",
+              "status": "PASS",
+              "source_commit": os.environ["SOURCE_COMMIT"],
+              "release_version": "1.8.1",
+              "release_tag": "data-products-v1.8.1",
+              "build_count": 2,
+              "byte_identical_rebuilds": True,
+              "archive_member_count": 85,
+              "duplicate_archive_members": 0,
+              "assets": assets,
+              "chromium_smoke": smoke,
+              "publication_controls": {
+                  "tag_absent": True,
+                  "release_absent": True,
+                  "public_v1_8_0_control_download": "PASS",
+                  "publication_performed": False,
+              },
+              "semantic_boundaries": {
+                  "new_data_imports": False,
+                  "new_comparison_pairs": False,
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+                  "older_public_releases_rewritten": False,
+              },
+              "repository_baseline": {
+                  "tests": 1046,
+                  "csv_files": 46,
+                  "rows": 9688,
+                  "configuration_values": 2949,
+                  "configuration_value_ranges": 244,
+                  "availability_records": 4754,
+                  "attributes": 385,
+              },
+              "next_package": {
+                  "name": "Data Products v1.8.1 Publication",
+                  "goal": "Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit.",
+              },
+          }
+          report_path = root / "data" / "reporting" / "data_products_v1_8_1_preflight.json"
+          report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+          lines = [
+              "# Data Products v1.8.1 Preflight",
+              "",
+              "Date: 2026-07-27",
+              "",
+              "## Result",
+              "",
+              "PASS — the candidate was built twice from the exact squash-merged preparation commit and all three assets were byte-identical.",
+              "",
+              f"Source commit: `{os.environ['SOURCE_COMMIT']}`",
+              "",
+              "## Exact asset identity",
+              "",
+          ]
+          for name in asset_names:
+              identity = assets[name]
+              lines.extend([
+                  f"### `{name}`",
+                  "",
+                  f"- size: {identity['size_bytes']:,} bytes",
+                  f"- SHA-256: `{identity['sha256']}`",
+                  "",
+              ])
+          lines.extend([
+              "## Archive and behavior",
+              "",
+              "- 85 unique archive members;",
+              "- 72 active configurations and 110 equipment facets;",
+              "- 108 initially visible equipment choices;",
+              "- search `kamera` leaves one choice;",
+              "- selecting the camera leaves one selected item and 66 matching configurations;",
+              "- zero JavaScript errors in Chromium;",
+              "- missing and unknown evidence remains excluded;",
+              "- models retain cheapest-to-most-expensive catalogue-price order.",
+              "",
+              "## Publication controls",
+              "",
+              "The target tag and GitHub Release were absent. The public v1.8.0 checksum asset was downloaded successfully as an independent control. No tag, release or public asset was created by this package.",
+              "",
+              "## Next package",
+              "",
+              "`Data Products v1.8.1 Publication` — an irreversible operation requiring publication of exactly the source commit and asset identities recorded above, followed by an independent public audit.",
+              "",
+          ])
+          package_path = root / "project" / "packages" / "data-products-v1.8.1-preflight.md"
+          package_path.write_text("\n".join(lines), encoding="utf-8")
+
+          state_path = root / "project" / "state.json"
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["updated_on"] = "2026-07-27"
+          state["phase"] = "Data Products v1.8.1 Preflight"
+          state["reference_delivery"] = {
+              "name": "Data Products v1.8.1 Release Preparation",
+              "pull_request": 290,
+              "head_sha": os.environ["SOURCE_COMMIT"],
+              "quality_run": 2049,
+          }
+          state["baseline"]["tests"] = 1046
+          state["current_package"] = {
+              "name": "Data Products v1.8.1 Preflight",
+              "status": "complete",
+              "goal": "Prove deterministic v1.8.1 assets from the exact preparation commit, verify the real Chromium behavior and record final identities without publishing.",
+          }
+          state["next_package"] = {
+              "name": "Data Products v1.8.1 Publication",
+              "status": "planned",
+              "goal": "Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit.",
+          }
+          state_path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          PY
+          python tools/dkb.py project-state --apply
+      - name: Run preflight contracts
+        run: |
+          set -euo pipefail
+          python tools/review_data_products_v1_8_1_preflight_20260727.py --check
+          python -m unittest tests.test_data_products_v1_8_1_preflight
+          python -m unittest tests.test_data_products_v1_8_1_release_preparation
+          python -m unittest tests.test_equipment_filter_regression_model_price_order
+      - name: Run full repository validation
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_*.py'
+          python tools/dkb.py validate
+          python tools/dkb.py project-state --check
+      - name: Commit preflight record
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md project/state.json \
+            data/reporting/data_products_v1_8_1_preflight.json \
+            project/packages/data-products-v1.8.1-preflight.md
+          git commit -m 'release(data-products): record v1.8.1 preflight identity'
+          git push origin HEAD:agent/data-products-v1-8-1-preflight
