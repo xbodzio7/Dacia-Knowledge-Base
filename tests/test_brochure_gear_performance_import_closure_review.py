@@ -109,11 +109,10 @@ class BrochureGearPerformanceImportClosureReviewTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: brochure selected-gear performance import closure review", completed.stdout)
 
-    def test_project_state_advances_to_official_brochure_gap_review(self) -> None:
+    def test_project_state_preserves_closure_baseline_after_follow_up_reviews(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Brochure Gear-Specific Performance Import Closure Review")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Official Brochure Technical Gap Review")
+        self.assertGreaterEqual(state["baseline"]["tests"], 834)
         self.assertEqual(state["baseline"]["configuration_values"], 2188)
         self.assertEqual(state["baseline"]["rows"], 8852)
         self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
