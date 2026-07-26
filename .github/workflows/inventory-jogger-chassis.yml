@@ -1,4 +1,4 @@
-name: Inventory Jogger Chassis
+name: Materialize Jogger Chassis
 
 on:
   pull_request:
@@ -10,13 +10,16 @@ on:
       - synchronize
     paths:
       - .github/workflows/inventory-jogger-chassis.yml
-      - tools/inventory_jogger_chassis_20260726.py
+      - data/imports/brochure_technical_values/jogger-chassis-20251217.json
+      - tools/import_jogger_chassis_20260726.py
+      - tools/materialize_jogger_chassis_20260726.py
+      - tests/test_jogger_chassis_20260726.py
 
 permissions:
   contents: write
 
 jobs:
-  inventory:
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
@@ -24,22 +27,51 @@ jobs:
         with:
           ref: agent/jogger-chassis-observation-import
           fetch-depth: 0
-      - name: Install PDF extraction backend
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Build inventory
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Materialize and validate package
         shell: bash
         run: |
-          output=.github/jogger-chassis-inventory.txt
-          {
-            echo '=== JOGGER PDF PAGE 19 ==='
-            pdftotext -f 19 -l 19 -layout 'PDF/Broszury/DACIA JOGGER broszura 20251217.pdf' -
-            echo
-            python tools/inventory_jogger_chassis_20260726.py
-          } > "$output"
+          set +e
+          log=.github/jogger-chassis-materialization.log
+          : > "$log"
+          status=0
+          python tools/import_jogger_chassis_20260726.py --apply >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/materialize_jogger_chassis_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/import_jogger_chassis_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/verify_brochure_chassis_measurement_context_model_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py validate >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tests/test_jogger_chassis_20260726.py -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest discover -s tests -p 'test_*.py' -v >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            git diff --check >> "$log" 2>&1 || status=$?
+          fi
+          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$output"
+          git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'chore(data): persist Jogger chassis inventory'
+            git commit -m 'feat(data): materialize Jogger chassis observations'
             git push origin HEAD:agent/jogger-chassis-observation-import
           fi
+          exit "$status"
