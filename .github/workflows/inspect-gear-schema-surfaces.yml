@@ -1,0 +1,47 @@
+name: Inspect Gear Schema Surfaces
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inspect-gear-schema-surfaces.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out schema branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/brochure-gear-performance-schema-foundation
+          fetch-depth: 0
+
+      - name: Inspect observation schema consumers
+        run: |
+          {
+            echo '=== PYTHON AND TEST FILES REFERENCING fuel_type_code ==='
+            grep -RIl --include='*.py' 'fuel_type_code' tools tests scripts | sort || true
+            echo
+            echo '=== PYTHON AND TEST FILES REFERENCING configuration_attribute_values.csv ==='
+            grep -RIl --include='*.py' 'configuration_attribute_values.csv' tools tests scripts | sort || true
+            echo
+            echo '=== FIELD CONSTANTS AND SEMANTIC KEYS ==='
+            grep -RIn --include='*.py' -E 'VALUE_FIELDS|fieldnames=.*fuel|attribute_code.*fuel_type_code|fuel_type_code.*value|technical_context|semantic.*key|latest\(' tools tests scripts | head -n 1200 || true
+            echo
+            echo '=== IMPORT TOOL FILES ==='
+            find tools -maxdepth 2 -type f -name '*.py' | sort | grep -E 'import|configuration|reporting' || true
+          } > .github/gear-schema-surfaces.log
+          cat .github/gear-schema-surfaces.log
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/gear-schema-surfaces.log
+          git commit -m 'chore(schema): persist gear schema surface inspection'
+          git push origin HEAD:agent/brochure-gear-performance-schema-foundation
