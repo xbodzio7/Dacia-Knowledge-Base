@@ -1,9 +1,9 @@
-source_sha=a10550cffd371460c7a8e49b6eeb2550373c5f96
+source_sha=4e496f06b6482f02559ab1e961bfe6043802b5c4
 Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
+Repository commit       : 4e496f06b6482f02559ab1e961bfe6043802b5c4
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -14,7 +14,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
+Repository commit       : 4e496f06b6482f02559ab1e961bfe6043802b5c4
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-second/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -25,7 +25,7 @@ Versioned data product release
 ------------------------------
 Version                 : 1.7.0
 Tag                     : data-products-v1.7.0
-Repository commit       : a10550cffd371460c7a8e49b6eeb2550373c5f96
+Repository commit       : 4e496f06b6482f02559ab1e961bfe6043802b5c4
 Selected configurations : 72
 Independent scopes      : 19
 Archive                 : /home/runner/work/_temp/release-first/dacia-knowledge-base-data-products-v1.7.0.zip
@@ -33,7 +33,23 @@ Manifest                : /home/runner/work/_temp/release-first/data-product-rel
 Checksums               : /home/runner/work/_temp/release-first/SHA256SUMS
 PASS: release verify
 PASS: deterministic double build
-Traceback (most recent call last):
-  File "<stdin>", line 5, in <module>
-ModuleNotFoundError: No module named 'reporting'
-exit_status=1
+materialized local workspace at /home/runner/work/_temp/workspace
+PASS: candidate workspace verification
+Verified data product release download
+--------------------------------------
+Version                 : 1.6.1
+Tag                     : data-products-v1.6.1
+Repository commit       : 4b77571c788b862a6543161b9343a35f464bd7c6
+Selected configurations : 69
+Independent scopes      : 18
+Assets                  : /home/runner/work/_temp/public-v1.6.1/assets
+Contents                : /home/runner/work/_temp/public-v1.6.1/contents
+Workspace index         : /home/runner/work/_temp/public-v1.6.1/index.html
+Shortlist HTML          : /home/runner/work/_temp/public-v1.6.1/contents/shortlist/configuration-shortlist.html
+Comparison workbook     : /home/runner/work/_temp/public-v1.6.1/contents/comparison-bundle/configuration-comparison-workbook.xlsx
+Bundle manifest         : /home/runner/work/_temp/public-v1.6.1/contents/comparison-bundle/comparison-bundle-manifest.json
+Release notes           : /home/runner/work/_temp/public-v1.6.1/contents/RELEASE_NOTES.md
+PASS: public v1.6.1 download
+PASS: public v1.6.1 workspace verification
+PASS: preparation candidate receipt written
+exit_status=0
