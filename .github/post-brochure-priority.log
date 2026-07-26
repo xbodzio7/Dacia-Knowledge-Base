@@ -125,7 +125,7 @@ test_repository_readiness_covers_72_configurations_and_19_scopes (__main__.PostB
 test_review_metadata_and_weight_policy_are_exact (__main__.PostBrochurePrioritySelectionReviewTests.test_review_metadata_and_weight_policy_are_exact) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 1.161s
+Ran 8 tests in 1.063s
 
 OK
 test_accepts_distinct_pairs_with_same_interval (test_association_intervals.AssociationIntervalValidationTests.test_accepts_distinct_pairs_with_same_interval) ... ok
@@ -216,7 +216,7 @@ test_semantic_validator_rejects_non_boot_capacity_value (test_brochure_cargo_con
 test_sqlite_includes_relation_and_context_dictionaries (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_sqlite_includes_relation_and_context_dictionaries) ... ok
 test_state_and_master_baseline_expose_schema_only_package (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_state_and_master_baseline_expose_schema_only_package) ... ok
 test_status_rules_cover_all_context_dictionaries (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_status_rules_cover_all_context_dictionaries) ... ok
-/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fbeb0d7e980>
+/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f8e7f6c2980>
   d = dict(zip(self.fieldnames, row))
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 test_all_four_importers_reproduce_current_contract (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_all_four_importers_reproduce_current_contract) ... ok
@@ -297,7 +297,7 @@ test_preserves_existing_database_on_failure (test_build_sqlite.SqliteBuildTests.
 test_rejects_duplicate_table_names (test_build_sqlite.SqliteBuildTests.test_rejects_duplicate_table_names) ... ok
 test_replaces_existing_database_after_success (test_build_sqlite.SqliteBuildTests.test_replaces_existing_database_after_success) ... ok
 test_bigster_items_are_mapped_only_to_source_backed_configurations (test_commercial_items_20260703.CommercialItems20260703Tests.test_bigster_items_are_mapped_only_to_source_backed_configurations) ... ok
-test_browser_catalog_contains_real_price_components (test_commercial_items_20260703.CommercialItems20260703Tests.test_browser_catalog_contains_real_price_components) ... /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fbeb03ef880>
+test_browser_catalog_contains_real_price_components (test_commercial_items_20260703.CommercialItems20260703Tests.test_browser_catalog_contains_real_price_components) ... /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f8e7eabb880>
   d = dict(zip(self.fieldnames, row))
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
@@ -371,7 +371,7 @@ test_found_candidate_reuses_existing_string_model (test_configuration_gap_resolu
 test_json_and_markdown_are_deterministic (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_json_and_markdown_are_deterministic) ... ok
 test_parse_args_accepts_specs_and_outputs (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_parse_args_accepts_specs_and_outputs) ... ok
 test_rejects_ambiguous_evidence (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_ambiguous_evidence) ... ok
-test_rejects_existing_conflicting_value (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_existing_conflicting_value) ... /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpmuwg4je4/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+test_rejects_existing_conflicting_value (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_existing_conflicting_value) ... /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp0plce255/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
   rows = list(csv.DictReader(path.open(encoding="utf-8")))
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
@@ -447,7 +447,7 @@ test_master_table_has_exact_schema_and_first_import (test_configuration_value_ra
 test_repository_range_table_is_valid (test_configuration_value_ranges.ConfigurationValueRangeTests.test_repository_range_table_is_valid) ... ok
 test_spec_rejects_noncanonical_decimal_endpoint (test_configuration_value_ranges.ConfigurationValueRangeTests.test_spec_rejects_noncanonical_decimal_endpoint) ... ok
 test_spec_rejects_reversed_or_degenerate_range (test_configuration_value_ranges.ConfigurationValueRangeTests.test_spec_rejects_reversed_or_degenerate_range) ... ok
-test_sqlite_builder_discovers_populated_range_table (test_configuration_value_ranges.ConfigurationValueRangeTests.test_sqlite_builder_discovers_populated_range_table) ... Building SQLite database: /tmp/tmpgbaeclmr/dkb.sqlite
+test_sqlite_builder_discovers_populated_range_table (test_configuration_value_ranges.ConfigurationValueRangeTests.test_sqlite_builder_discovers_populated_range_table) ... Building SQLite database: /tmp/tmp0ontcgq4/dkb.sqlite
 Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
   data/master/attribute_categories.csv -> attribute_categories: 30 rows
   data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
@@ -495,21 +495,21 @@ Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/da
   data/master/validation_rules.csv -> validation_rules: 8 rows
   data/master/value_types.csv -> value_types: 7 rows
   data/master/versions.csv -> versions: 18 rows
-Database ready: /tmp/tmpgbaeclmr/dkb.sqlite
-Building SQLite database: /tmp/tmpqoe_wor9/reports/test.sqlite
-Source directory: /tmp/tmpqoe_wor9/data/master
+Database ready: /tmp/tmp0ontcgq4/dkb.sqlite
+Building SQLite database: /tmp/tmp8qunl5_y/reports/test.sqlite
+Source directory: /tmp/tmp8qunl5_y/data/master
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpqoe_wor9/reports/test.sqlite
-Building SQLite database: /tmp/tmpj5hge00u/nested/directory/test.sqlite
-Source directory: /tmp/tmpj5hge00u/data/master
+Database ready: /tmp/tmp8qunl5_y/reports/test.sqlite
+Building SQLite database: /tmp/tmp4d3dc93n/nested/directory/test.sqlite
+Source directory: /tmp/tmp4d3dc93n/data/master
   data/master/models.csv -> models: 1 rows
-Database ready: /tmp/tmpj5hge00u/nested/directory/test.sqlite
-Building SQLite database: /tmp/tmpo53byowc/test.sqlite
-Source directory: /tmp/tmpo53byowc/data/master
-Building SQLite database: /tmp/tmpw5adg2zm/test.sqlite
-Source directory: /tmp/tmpw5adg2zm/data/master
+Database ready: /tmp/tmp4d3dc93n/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmp3k8olm01/test.sqlite
+Source directory: /tmp/tmp3k8olm01/data/master
+Building SQLite database: /tmp/tmphv8rn93w/test.sqlite
+Source directory: /tmp/tmphv8rn93w/data/master
   data/master/models.csv -> models: 1 rows
-Database ready: /tmp/tmpw5adg2zm/test.sqlite
+Database ready: /tmp/tmphv8rn93w/test.sqlite
 Configuration comparison bundle
 -------------------------------
 Selected configurations : 2
@@ -518,8 +518,8 @@ Comparable scopes       : 1
 Singleton scopes        : 0
 Cross-scope pairs       : none
 - sandero_stepway_ecog120_automatic | comparable | configurations=2 | pairs=1 | differences=9
-Manifest               : /tmp/tmp9movq7bl/first/comparison-bundle-manifest.json
-JSON configuration comparison report written to /tmp/tmpvwy0mxx8/comparison.json
+Manifest               : /tmp/tmpxn0nqhua/first/comparison-bundle-manifest.json
+JSON configuration comparison report written to /tmp/tmp_ozz0e69/comparison.json
 Configuration comparison
 ------------------------
 As of                  : 2026-06-01
@@ -534,20 +534,20 @@ CSV difference domain   : all
 CSV difference item     : all
 CSV difference rows     : 2
 Not-comparable states  : 3
-HTML configuration comparison report written to /tmp/tmpvwy0mxx8/comparison.html
-JSON configuration shortlist written to /tmp/tmpeavkvw7l/shortlist.json
-Markdown configuration shortlist written to /tmp/tmpeavkvw7l/shortlist.md
-CSV configuration shortlist written to /tmp/tmpeavkvw7l/shortlist.csv
+HTML configuration comparison report written to /tmp/tmp_ozz0e69/comparison.html
+JSON configuration shortlist written to /tmp/tmpoo31fweu/shortlist.json
+Markdown configuration shortlist written to /tmp/tmpoo31fweu/shortlist.md
+CSV configuration shortlist written to /tmp/tmpoo31fweu/shortlist.csv
 Configuration shortlist as of 2026-01-01
 Matched 2 of 4 active configurations.
 - 70000 PLN | Model A Expression | Eco-G 120 | manual | 5 seats | cfg_a
 - 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
-JSON configuration shortlist written to /tmp/tmpjzgo13n2/shortlist.json
-Interactive HTML configuration shortlist written to /tmp/tmpjzgo13n2/shortlist.html
+JSON configuration shortlist written to /tmp/tmp7jd9_89_/shortlist.json
+Interactive HTML configuration shortlist written to /tmp/tmp7jd9_89_/shortlist.html
 Configuration shortlist as of 2026-01-01
 Matched 1 of 4 active configurations.
 - 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
-Building SQLite database: /tmp/tmpfjcyf9cm/dkb.sqlite
+Building SQLite database: /tmp/tmp_fvr7oxa/dkb.sqlite
 Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
   data/master/attribute_categories.csv -> attribute_categories: 30 rows
   data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
@@ -596,7 +596,7 @@ test_rejects_malformed_csv_quoting (test_csv_validator.CsvValidatorTests.test_re
 test_rejects_short_row (test_csv_validator.CsvValidatorTests.test_rejects_short_row) ... ok
 test_rejects_windows_1250 (test_csv_validator.CsvValidatorTests.test_rejects_windows_1250) ... ok
 test_reports_missing_file (test_csv_validator.CsvValidatorTests.test_reports_missing_file) ... ok
-/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fbeb1608220>
+/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/csv.py:186: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f8e7fd4c220>
   d = dict(zip(self.fieldnames, row))
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 test_archive_inventory_is_safe_sorted_and_deterministic (test_data_product_release.DataProductReleaseTests.test_archive_inventory_is_safe_sorted_and_deterministic) ... ok
@@ -931,21 +931,21 @@ test_registration_keeps_versions_unprojected_and_derived_links_unique (test_offi
 test_registered_sources_files_and_relationships (test_official_my26_sources_20260703.OfficialMy26Sources20260703Tests.test_registered_sources_files_and_relationships) ... ok
 test_explicit_push_updates_only_current_branch (test_package_publish.PackagePublishTests.test_explicit_push_updates_only_current_branch) ... ok
 test_failed_push_writes_fail_handoff (test_package_publish.PackagePublishTests.test_failed_push_writes_fail_handoff) ... ERROR: git push -u origin tooling/test failed with exit code 1
-Handoff: /tmp/dkb-publish-euwmm48g/output/handoff.json
+Handoff: /tmp/dkb-publish-wtt_bc45/output/handoff.json
 ok
 test_finish_failure_writes_fail_handoff (test_package_publish.PackagePublishTests.test_finish_failure_writes_fail_handoff) ... ERROR: package-finish failed with exit code 7
-Handoff: /tmp/dkb-publish-_u0flsmc/output/handoff.json
+Handoff: /tmp/dkb-publish-zxqezl1c/output/handoff.json
 ok
 test_generates_small_pass_handoff (test_package_publish.PackagePublishTests.test_generates_small_pass_handoff) ... ok
 test_invalid_receipt_runs_full_quality (test_package_publish.PackagePublishTests.test_invalid_receipt_runs_full_quality) ... ok
 test_publishes_exact_manifest_from_empty_staging (test_package_publish.PackagePublishTests.test_publishes_exact_manifest_from_empty_staging) ... ok
 test_rejects_additional_staged_path (test_package_publish.PackagePublishTests.test_rejects_additional_staged_path) ... ERROR: package-publish requires an empty staging area before start: ['extra.txt']
-Handoff: /tmp/dkb-publish-d95bqjbz/output/handoff.json
+Handoff: /tmp/dkb-publish-ux7zcq00/output/handoff.json
 ok
 test_rejects_additional_untracked_path (test_package_publish.PackagePublishTests.test_rejects_additional_untracked_path) ... ERROR: working tree path manifest differs
 expected: ['tools/example.py']
 actual:   ['extra.txt', 'tools/example.py']
-Handoff: /tmp/dkb-publish-_u_fgdgy/output/handoff.json
+Handoff: /tmp/dkb-publish-uc19iey5/output/handoff.json
 ok
 test_reuses_valid_receipt_without_quality (test_package_publish.PackagePublishTests.test_reuses_valid_receipt_without_quality) ... ok
 test_safe_rerun_does_not_create_second_commit (test_package_publish.PackagePublishTests.test_safe_rerun_does_not_create_second_commit) ... 
@@ -963,7 +963,7 @@ test_safe_rerun_does_not_create_second_commit (test_package_publish.PackagePubli
   data/master/validation_rules.csv -> validation_rules: 8 rows
   data/master/value_types.csv -> value_types: 7 rows
   data/master/versions.csv -> versions: 18 rows
-Database ready: /tmp/tmpfjcyf9cm/dkb.sqlite
+Database ready: /tmp/tmp_fvr7oxa/dkb.sqlite
 Versioned data product release
 ------------------------------
 Version                 : 1.2.3
@@ -971,9 +971,9 @@ Tag                     : data-products-v1.2.3
 Repository commit       : 1111111111111111111111111111111111111111
 Selected configurations : 72
 Independent scopes      : 19
-Archive                 : /tmp/tmpxc93n4e_/release/dacia-knowledge-base-data-products-v1.2.3.zip
-Manifest                : /tmp/tmpxc93n4e_/release/data-product-release-manifest.json
-Checksums               : /tmp/tmpxc93n4e_/release/SHA256SUMS
+Archive                 : /tmp/tmptzvvltca/release/dacia-knowledge-base-data-products-v1.2.3.zip
+Manifest                : /tmp/tmptzvvltca/release/data-product-release-manifest.json
+Checksums               : /tmp/tmptzvvltca/release/SHA256SUMS
 CSV files checked : 1
 Already UTF-8     : 1
 Windows-1250      : 0
@@ -983,7 +983,7 @@ Converted 0 file(s) to UTF-8.
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 8d0ded54757c0697b90c120636bf4c711b22439d
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -993,21 +993,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: 7393706ca32a5d506d2e2588b0811db9068a577e
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 8d0ded54757c0697b90c120636bf4c711b22439d
-HEAD   : 7393706ca32a5d506d2e2588b0811db9068a577e
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
+HEAD   : 3d40fad37b82447f81d8573717fcb26cf097ed54
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-7393706 (HEAD -> tooling/test) tooling: publish test
+3d40fad (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1024,15 +1024,15 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== PUSH =====
-Remote HEAD: 7393706ca32a5d506d2e2588b0811db9068a577e
+Remote HEAD: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-dqj79bjx/output/handoff.json
+Handoff: /tmp/dkb-publish-vk449pyp/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 8d0ded54757c0697b90c120636bf4c711b22439d
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1042,21 +1042,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: 9839f3f8f45693d4614a89c4833aa7036f89b33c
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 8d0ded54757c0697b90c120636bf4c711b22439d
-HEAD   : 9839f3f8f45693d4614a89c4833aa7036f89b33c
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
+HEAD   : 3d40fad37b82447f81d8573717fcb26cf097ed54
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-9839f3f (HEAD -> tooling/test) tooling: publish test
+3d40fad (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1078,7 +1078,7 @@ PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1088,7 +1088,7 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
@@ -1096,7 +1096,7 @@ Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1106,21 +1106,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
+HEAD   : 3d40fad37b82447f81d8573717fcb26cf097ed54
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-d87b7ee (HEAD -> tooling/test) tooling: publish test
+3d40fad (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1137,12 +1137,12 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-h8u2wx6_/output/handoff.json
+Handoff: /tmp/dkb-publish-4ms3z017/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1155,21 +1155,21 @@ Quality receipt created: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
+HEAD   : 3d40fad37b82447f81d8573717fcb26cf097ed54
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-d87b7ee (HEAD -> tooling/test) tooling: publish test
+3d40fad (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1186,12 +1186,12 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-ft7nwtxn/output/handoff.json
+Handoff: /tmp/dkb-publish-axme1dw8/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1201,21 +1201,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Commit: 3d40fad37b82447f81d8573717fcb26cf097ed54
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
+HEAD   : 3d40fad37b82447f81d8573717fcb26cf097ed54
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-d87b7ee (HEAD -> tooling/test) tooling: publish test
+3d40fad (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1232,12 +1232,12 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-xdv34gtv/output/handoff.json
+Handoff: /tmp/dkb-publish-_hpriiag/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 
@@ -1245,7 +1245,7 @@ Files  : 1
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : 06067eed997c432f3d7dbbcf8d1105b932a2a95e
 Subject: tooling: publish test
 Files  : 1
 
@@ -1253,7 +1253,7 @@ Files  : 1
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : f25db708df252199214737b2d3e757ec6a1df740
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1263,21 +1263,21 @@ Quality receipt: PASS (298 tests)
 Staged paths: 1
 
 ===== COMMIT =====
-Commit: d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Commit: d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : d87b7eed7bfef0d2e2cd0be99912a44da19a9780
+Base   : f25db708df252199214737b2d3e757ec6a1df740
+HEAD   : d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-d87b7ee (HEAD -> tooling/test) tooling: publish test
+d25ee1d (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1294,12 +1294,12 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-lggf2m5o/output/handoff.json
+Handoff: /tmp/dkb-publish-j7pmuyvp/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : f25db708df252199214737b2d3e757ec6a1df740
 Subject: tooling: publish test
 Files  : 1
 Mode   : precommit
@@ -1317,96 +1317,96 @@ test_rejects_receipt_with_other_path_manifest (test_package_receipt.PackageRecei
 test_rejects_receipt_with_other_subject (test_package_receipt.PackageReceiptTests.test_rejects_receipt_with_other_subject) ... ok
 test_requires_receipt_output_outside_repository (test_package_receipt.PackageReceiptTests.test_requires_receipt_output_outside_repository) ... ok
 test_utf8_path_and_content_have_stable_state (test_package_receipt.PackageReceiptTests.test_utf8_path_and_content_have_stable_state) ... ok
-test_finish_manifest_accepts_exact_commit (test_package_workflow.PackageWorkflowTests.test_finish_manifest_accepts_exact_commit) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-b5nuehjv/remote
+test_finish_manifest_accepts_exact_commit (test_package_workflow.PackageWorkflowTests.test_finish_manifest_accepts_exact_commit) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7g1zru_l/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_manifest_rejects_multiple_commits (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_multiple_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-1ambicie/remote
+test_finish_manifest_rejects_multiple_commits (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_multiple_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-hlxu7y9a/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_manifest_rejects_wrong_paths (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_paths) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-fan85x49/remote
+test_finish_manifest_rejects_wrong_paths (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_paths) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-fcfvcgnd/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_manifest_rejects_wrong_subject (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_subject) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-40w83z07/remote
+test_finish_manifest_rejects_wrong_subject (test_package_workflow.PackageWorkflowTests.test_finish_manifest_rejects_wrong_subject) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-knyij1jg/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_rejects_branch_without_commits (test_package_workflow.PackageWorkflowTests.test_finish_rejects_branch_without_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-qd18ylj2/remote
+test_finish_rejects_branch_without_commits (test_package_workflow.PackageWorkflowTests.test_finish_rejects_branch_without_commits) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vuq543i0/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_rejects_dirty_working_tree (test_package_workflow.PackageWorkflowTests.test_finish_rejects_dirty_working_tree) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-w74_irkg/remote
+test_finish_rejects_dirty_working_tree (test_package_workflow.PackageWorkflowTests.test_finish_rejects_dirty_working_tree) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-wvwvneh6/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_finish_reports_clean_committed_package (test_package_workflow.PackageWorkflowTests.test_finish_reports_clean_committed_package) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rt_agbus/remote
+test_finish_reports_clean_committed_package (test_package_workflow.PackageWorkflowTests.test_finish_reports_clean_committed_package) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-ju5c8aph/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
 test_path_is_allowed_handles_files_and_directories (test_package_workflow.PackageWorkflowTests.test_path_is_allowed_handles_files_and_directories) ... ok
-test_review_accepts_untracked_file_inside_scope (test_package_workflow.PackageWorkflowTests.test_review_accepts_untracked_file_inside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7_l2c8gh/remote
+test_review_accepts_untracked_file_inside_scope (test_package_workflow.PackageWorkflowTests.test_review_accepts_untracked_file_inside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-0wygk775/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_manifest_accepts_exact_scope_and_utf8_diff (test_package_workflow.PackageWorkflowTests.test_review_manifest_accepts_exact_scope_and_utf8_diff) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7mu55f35/remote
+test_review_manifest_accepts_exact_scope_and_utf8_diff (test_package_workflow.PackageWorkflowTests.test_review_manifest_accepts_exact_scope_and_utf8_diff) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-d_sj0i05/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_manifest_quality_writes_default_receipt (test_package_workflow.PackageWorkflowTests.test_review_manifest_quality_writes_default_receipt) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-zkyk32lx/remote
+test_review_manifest_quality_writes_default_receipt (test_package_workflow.PackageWorkflowTests.test_review_manifest_quality_writes_default_receipt) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-c2wq4k_7/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_manifest_rejects_path_mismatch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_path_mismatch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-7i_9spxl/remote
+test_review_manifest_rejects_path_mismatch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_path_mismatch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-uiiydakn/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_manifest_rejects_wrong_base_sha (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_base_sha) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-hme6t_6u/remote
+test_review_manifest_rejects_wrong_base_sha (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_base_sha) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-mz8g508a/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_manifest_rejects_wrong_branch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-q1szb__2/remote
+test_review_manifest_rejects_wrong_branch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_wrong_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-3nhouga2/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_rejects_file_outside_scope (test_package_workflow.PackageWorkflowTests.test_review_rejects_file_outside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-0lpl2ewa/remote
+test_review_rejects_file_outside_scope (test_package_workflow.PackageWorkflowTests.test_review_rejects_file_outside_scope) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rk9pafu5/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
 test_review_rejects_receipt_without_quality (test_package_workflow.PackageWorkflowTests.test_review_rejects_receipt_without_quality) ... ok
-test_review_runs_quality_when_requested (test_package_workflow.PackageWorkflowTests.test_review_runs_quality_when_requested) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-0kvrfzcl/remote
+test_review_runs_quality_when_requested (test_package_workflow.PackageWorkflowTests.test_review_runs_quality_when_requested) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-_9j7z9vc/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
-test_review_show_diff_includes_untracked_content (test_package_workflow.PackageWorkflowTests.test_review_show_diff_includes_untracked_content) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-4xczl3wq/remote
+test_review_show_diff_includes_untracked_content (test_package_workflow.PackageWorkflowTests.test_review_show_diff_includes_untracked_content) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-apr0q22e/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/test'
 ok
 test_run_git_ignores_ambient_git_context (test_package_workflow.PackageWorkflowTests.test_run_git_ignores_ambient_git_context) ... ok
-test_start_creates_branch_from_synchronized_main (test_package_workflow.PackageWorkflowTests.test_start_creates_branch_from_synchronized_main) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-a3j36nxc/remote
+test_start_creates_branch_from_synchronized_main (test_package_workflow.PackageWorkflowTests.test_start_creates_branch_from_synchronized_main) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-b8xumq04/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 Switched to a new branch 'tooling/workflow-test'
 ok
 test_start_rejects_dirty_working_tree (test_package_workflow.PackageWorkflowTests.test_start_rejects_dirty_working_tree) ... ok
-test_start_rejects_existing_local_branch (test_package_workflow.PackageWorkflowTests.test_start_rejects_existing_local_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-f8kqico2/remote
+test_start_rejects_existing_local_branch (test_package_workflow.PackageWorkflowTests.test_start_rejects_existing_local_branch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-h0yg3ikv/remote
  * branch            main       -> FETCH_HEAD
 Already up to date.
 ok
@@ -1421,28 +1421,28 @@ test_review_metadata_and_weight_policy_are_exact (test_post_brochure_priority_se
 test_builds_ci_equivalent_steps (test_quality.QualityTests.test_builds_ci_equivalent_steps) ... ok
 test_captured_mode_stops_after_first_failure (test_quality.QualityTests.test_captured_mode_stops_after_first_failure) ... ==> First: FAIL
 boom\n
-Quality checks failed at: First (exit code 5). Full log: /tmp/tmpcubhf11j/quality.log
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpgmc95o4c/quality.log
 ok
 test_concise_failure_replays_name_and_traceback (test_quality.QualityTests.test_concise_failure_replays_name_and_traceback) ... ok
 test_concise_success_writes_full_log_and_summary (test_quality.QualityTests.test_concise_success_writes_full_log_and_summary) ... ok
 test_parse_args_accepts_structured_outputs (test_quality.QualityTests.test_parse_args_accepts_structured_outputs) ... ok
 test_quality_environment_forces_utf8 (test_quality.QualityTests.test_quality_environment_forces_utf8) ... ok
 test_run_step_handles_operating_system_error (test_quality.QualityTests.test_run_step_handles_operating_system_error) ... 
-Commit: 57ac3fbdac2fa9fe4d1480c1ddbda514ec3183e0
+Commit: d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : 57ac3fbdac2fa9fe4d1480c1ddbda514ec3183e0
+Base   : f25db708df252199214737b2d3e757ec6a1df740
+HEAD   : d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-57ac3fb (HEAD -> tooling/test) tooling: publish test
+d25ee1d (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1459,31 +1459,31 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-y1d53y9f/output/handoff.json
+Handoff: /tmp/dkb-publish-epy0n88t/output/handoff.json
 PASS
 
 ===== PACKAGE PUBLISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
+Base   : f25db708df252199214737b2d3e757ec6a1df740
 Subject: tooling: publish test
 Files  : 1
 Mode   : committed
 Quality receipt: PASS (298 tests)
-Existing package commit reused: 57ac3fbdac2fa9fe4d1480c1ddbda514ec3183e0
+Existing package commit reused: d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 
 ===== PACKAGE FINISH =====
 
 ===== PACKAGE FINISH =====
 Branch : tooling/test
-Base   : 5f0788e46add68b0251f16f5d898c9eb9edb1dc7
-HEAD   : 57ac3fbdac2fa9fe4d1480c1ddbda514ec3183e0
+Base   : f25db708df252199214737b2d3e757ec6a1df740
+HEAD   : d25ee1d7d62daa59bb635f4533c4f09ba473e9e6
 Commits: 1
 Files  : 1
 Subject: tooling: publish test
 Manifest: PASS
 
 ===== COMMITS =====
-57ac3fb (HEAD -> tooling/test) tooling: publish test
+d25ee1d (HEAD -> tooling/test) tooling: publish test
 
 ===== CHANGED PATHS =====
 tools/example.py
@@ -1500,7 +1500,7 @@ Command : git push -u origin tooling/test
 PASS
 
 ===== COMPLETE =====
-Handoff: /tmp/dkb-publish-y1d53y9f/output/handoff.json
+Handoff: /tmp/dkb-publish-epy0n88t/output/handoff.json
 PASS
 
 ==> Broken
@@ -1741,7 +1741,7 @@ test_reports_empty_id (test_uniqueness.UniqueColumnValidationTests.test_reports_
 test_scans_all_master_csv_files (test_uniqueness.UniqueColumnValidationTests.test_scans_all_master_csv_files) ... ok
 test_validate_command_executes_complete_validator (test_validate_cli.ValidateCliIntegrationTests.test_validate_command_executes_complete_validator) ... ok
 test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
-test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmp7fcpb_wg/missing.sqlite
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmph71bgxjh/missing.sqlite
 ok
 test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
 test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
@@ -1821,36 +1821,36 @@ AssertionError: 'Post-Brochure Priority Selection Review' != 'Brochure Generic D
 
 
 ----------------------------------------------------------------------
-Ran 963 tests in 49.688s
+Ran 963 tests in 44.869s
 
 FAILED (failures=4)
-Building SQLite database: /tmp/tmpbxr4ro2m/test.sqlite
-Source directory: /tmp/tmpbxr4ro2m/data/master
+Building SQLite database: /tmp/tmpdm7_pj92/test.sqlite
+Source directory: /tmp/tmpdm7_pj92/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpbxr4ro2m/test.sqlite
-Building SQLite database: /tmp/tmp4waghglv/test.sqlite
-Source directory: /tmp/tmp4waghglv/data/master
+Database ready: /tmp/tmpdm7_pj92/test.sqlite
+Building SQLite database: /tmp/tmpdv7zgk7c/test.sqlite
+Source directory: /tmp/tmpdv7zgk7c/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp4waghglv/test.sqlite
-Building SQLite database: /tmp/tmp3qubl86d/test.sqlite
-Source directory: /tmp/tmp3qubl86d/data/master
+Database ready: /tmp/tmpdv7zgk7c/test.sqlite
+Building SQLite database: /tmp/tmphipueyi5/test.sqlite
+Source directory: /tmp/tmphipueyi5/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp3qubl86d/test.sqlite
-Building SQLite database: /tmp/tmp244uqt7w/test.sqlite
-Source directory: /tmp/tmp244uqt7w/data/master
+Database ready: /tmp/tmphipueyi5/test.sqlite
+Building SQLite database: /tmp/tmpkuhgjjx2/test.sqlite
+Source directory: /tmp/tmpkuhgjjx2/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmp244uqt7w/test.sqlite
-Building SQLite database: /tmp/tmpu2l8aee_/test.sqlite
-Source directory: /tmp/tmpu2l8aee_/data/master
+Database ready: /tmp/tmpkuhgjjx2/test.sqlite
+Building SQLite database: /tmp/tmpjoev0pu0/test.sqlite
+Source directory: /tmp/tmpjoev0pu0/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpu2l8aee_/test.sqlite
-Building SQLite database: /tmp/tmpx8ra53f_/test.sqlite
-Source directory: /tmp/tmpx8ra53f_/data/master
+Database ready: /tmp/tmpjoev0pu0/test.sqlite
+Building SQLite database: /tmp/tmpzddg7jlr/test.sqlite
+Source directory: /tmp/tmpzddg7jlr/data/master
   data/master/attributes.csv -> attributes: 1 rows
   data/master/models.csv -> models: 2 rows
-Database ready: /tmp/tmpx8ra53f_/test.sqlite
+Database ready: /tmp/tmpzddg7jlr/test.sqlite
