@@ -12,6 +12,7 @@ on:
       - .github/workflows/materialize-brochure-chassis-context-modeling.yml
       - data/reporting/brochure_chassis_measurement_context_model.json
       - tools/materialize_brochure_chassis_measurement_context_modeling_20260726.py
+      - tools/repair_brochure_chassis_context_regressions_20260726.py
       - tools/verify_brochure_chassis_measurement_context_model_20260726.py
       - tests/test_brochure_chassis_measurement_context_modeling_20260726.py
 
@@ -39,6 +40,9 @@ jobs:
           : > "$log"
           status=0
           python tools/materialize_brochure_chassis_measurement_context_modeling_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_brochure_chassis_context_regressions_20260726.py >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
           fi
