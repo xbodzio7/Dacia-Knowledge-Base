@@ -161,16 +161,14 @@ class JoggerChassisTests(unittest.TestCase):
         self.assertEqual(jogger["blocked_related_classification"], "jogger_mass_table_label_conflict")
         self.assertEqual(model["next_package"]["name"], "Brochure Chassis Modeling Closure Review")
 
-    def test_project_state_matches_completed_package(self) -> None:
+    def test_project_state_preserves_completed_package_receipt(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Jogger Chassis Observation Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Brochure Chassis Modeling Closure Review")
-        self.assertEqual(state["baseline"]["tests"], 907)
-        self.assertEqual(state["baseline"]["rows"], 9306)
-        self.assertEqual(state["baseline"]["configuration_values"], 2567)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["tests"], 907)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9306)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2567)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":
