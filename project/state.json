@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Eco-G 120 Automatic Brochure Technical Import",
+  "phase": "Bigster and Duster Brochure Towing Mass Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 850,
+    "tests": 858,
     "csv_files": 46,
-    "rows": 8888,
-    "configuration_values": 2224,
+    "rows": 8939,
+    "configuration_values": 2272,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Eco-G 120 Automatic Brochure Technical Import",
+    "name": "Bigster and Duster Brochure Towing Mass Import",
     "status": "complete",
-    "goal": "Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields."
+    "goal": "Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries."
   },
   "next_package": {
-    "name": "Bigster and Duster Brochure Towing Mass Import",
+    "name": "Jogger Brochure Hybrid Performance Completion",
     "status": "planned",
-    "goal": "Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries."
+    "goal": "Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
