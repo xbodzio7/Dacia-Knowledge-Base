@@ -65,6 +65,13 @@ REPORTING_ATTRIBUTES = {
     "duster_mildhybrid140_4x2_completeness.json": DIMENSIONS - {"overall_height"},
     "duster_hybrid155_completeness.json": DIMENSIONS - {"overall_height"},
 }
+EXPECTED_EXTREME_AUTOMATIC_REVIEW_KEYS = {
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|front_track|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|ground_clearance|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_height|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_width_with_mirrors|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|rear_track|none",
+}
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -179,6 +186,26 @@ class BrochureGenericDimensionsImportTests(unittest.TestCase):
         self.assertEqual(report["import_receipt"]["status"], "imported")
         self.assertEqual(report["import_receipt"]["scalar_values"], 382)
         self.assertEqual(report["import_receipt"]["duster_4x4_status"], "deferred_without_exact_source_relationship")
+
+        evidence = json.loads((REPORTING / "configuration_gap_evidence.json").read_text(encoding="utf-8"))
+        selected_evidence = {
+            item["triage_key"]: item
+            for item in evidence["decisions"]
+            if item.get("triage_key") in EXPECTED_EXTREME_AUTOMATIC_REVIEW_KEYS
+        }
+        self.assertEqual(set(selected_evidence), EXPECTED_EXTREME_AUTOMATIC_REVIEW_KEYS)
+        self.assertTrue(all(item["reviewed_pages"] == [2] for item in selected_evidence.values()))
+        self.assertTrue(all(item["classification"] == "not_stated" for item in selected_evidence.values()))
+
+        plan = json.loads((REPORTING / "configuration_gap_resolution_plan.json").read_text(encoding="utf-8"))
+        selected_plan = {
+            item["triage_key"]: item
+            for item in plan["decisions"]
+            if item.get("triage_key") in EXPECTED_EXTREME_AUTOMATIC_REVIEW_KEYS
+        }
+        self.assertEqual(set(selected_plan), EXPECTED_EXTREME_AUTOMATIC_REVIEW_KEYS)
+        self.assertTrue(all(item["reviewed_pages"] == [2] for item in selected_plan.values()))
+        self.assertTrue(all(item["resolution_state"] == "closed_not_stated" for item in selected_plan.values()))
 
     def test_project_state_matches_completed_import(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
