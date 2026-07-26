@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "kind": "official_brochure_residual_evidence_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_closure": "official_brochure_technical_gap_resolution_closure_review.json",
+  "scope": {
+    "sources": 5,
+    "residual_classifications": 16
+  },
+  "resolution_summary": {
+    "stable_non_import": 11,
+    "closed_by_existing_exact_coverage": 2,
+    "semantic_mapping_review_candidate": 3
+  },
+  "stable_non_import": [
+    {
+      "code": "bigster_core_powertrain_covered_or_newer",
+      "resolution": "corroborating_source_only"
+    },
+    {
+      "code": "jogger_core_powertrain_covered_or_newer",
+      "resolution": "corroborating_source_only"
+    },
+    {
+      "code": "sandero_manual_core_covered",
+      "resolution": "corroborating_source_only"
+    },
+    {
+      "code": "stepway_core_covered",
+      "resolution": "corroborating_source_only"
+    },
+    {
+      "code": "duster_core_powertrain_covered_or_newer",
+      "resolution": "corroborating_source_only"
+    },
+    {
+      "code": "sandero_tce100_without_exact_configuration",
+      "resolution": "blocked_until_exact_configuration_exists"
+    },
+    {
+      "code": "stepway_tce110_without_exact_configuration",
+      "resolution": "blocked_until_exact_configuration_exists"
+    },
+    {
+      "code": "duster_hybridg150_without_exact_configuration",
+      "resolution": "blocked_until_exact_configuration_exists"
+    },
+    {
+      "code": "jogger_blank_wltp_cells",
+      "resolution": "no_observation"
+    },
+    {
+      "code": "sandero_wltp_placeholders",
+      "resolution": "no_observation"
+    },
+    {
+      "code": "jogger_mass_table_label_conflict",
+      "resolution": "blocked_until_corrected_official_source"
+    }
+  ],
+  "closed_by_existing_exact_coverage": [
+    {
+      "code": "bigster_dimensions_covered_and_cargo_deferred",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "active_configurations": 14,
+      "existing_dimension_values": 140,
+      "existing_source_code": "src_pl_bigster_price_my26_20260703",
+      "covered_attributes": [
+        "overall_length",
+        "overall_width",
+        "overall_width_with_mirrors",
+        "overall_height",
+        "wheelbase",
+        "front_track",
+        "rear_track",
+        "front_overhang",
+        "rear_overhang",
+        "ground_clearance"
+      ],
+      "resolution": "newer_exact_configuration_coverage"
+    },
+    {
+      "code": "stepway_dimensions_and_cargo",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "active_configurations": 5,
+      "existing_dimension_values": 25,
+      "existing_source_scope": "five exact configuration PDFs dated 2026-06-26",
+      "covered_attributes": [
+        "overall_length",
+        "overall_width",
+        "wheelbase",
+        "front_overhang",
+        "rear_overhang"
+      ],
+      "resolution": "later_exact_configuration_coverage"
+    }
+  ],
+  "semantic_mapping_review_candidates": [
+    {
+      "code": "sandero_dimensions_and_cargo",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "source_page": 20,
+      "active_configurations": 4,
+      "existing_exact_dimension_configurations": 2,
+      "missing_exact_dimension_configurations": 2,
+      "candidate_attributes": [
+        "overall_length",
+        "overall_width",
+        "overall_width_with_mirrors",
+        "overall_height",
+        "wheelbase",
+        "front_track",
+        "rear_track",
+        "front_overhang",
+        "rear_overhang"
+      ],
+      "review_requirements": [
+        "map each diagram value to an existing attribute using visual page semantics",
+        "confirm whether the model-wide page can project to both automatic configurations",
+        "retain cargo under the existing ISO 3832 context model"
+      ],
+      "status": "semantic_mapping_review_candidate"
+    },
+    {
+      "code": "jogger_dimensions_and_cargo",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "source_page": 22,
+      "active_configurations": 22,
+      "existing_exact_dimension_configurations": 0,
+      "missing_exact_dimension_configurations": 22,
+      "candidate_attributes": [
+        "overall_length",
+        "overall_width",
+        "overall_width_with_mirrors",
+        "overall_height",
+        "roof_height_with_rails",
+        "wheelbase",
+        "ground_clearance",
+        "front_track",
+        "rear_track",
+        "front_overhang",
+        "rear_overhang"
+      ],
+      "review_requirements": [
+        "distinguish overall height from roof-rail height using visual page semantics",
+        "separate shared exterior dimensions from seat-layout-specific interior dimensions",
+        "project only source-explicit model-wide values to all twenty-two exact configurations",
+        "retain cargo under the existing seat-state context model"
+      ],
+      "status": "semantic_mapping_review_candidate"
+    },
+    {
+      "code": "duster_wltp_placeholders_and_dimensions",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "source_page": 24,
+      "active_configurations": 27,
+      "existing_exact_dimension_configurations": 0,
+      "existing_brochure_turning_configurations": 10,
+      "candidate_attributes": [
+        "overall_length",
+        "overall_width",
+        "overall_width_with_mirrors",
+        "overall_height",
+        "wheelbase",
+        "ground_clearance",
+        "front_track",
+        "rear_track",
+        "front_overhang",
+        "rear_overhang",
+        "approach_angle",
+        "departure_angle"
+      ],
+      "review_requirements": [
+        "map starred 4x2 and double-starred 4x4 diagram values visually",
+        "define the exact configuration projection scope independently from blank WLTP cells",
+        "do not broaden the 2025 brochure to later or unrepresented powertrains without explicit model-wide evidence",
+        "retain cargo under the existing drive and repair-kit context model"
+      ],
+      "status": "semantic_mapping_review_candidate"
+    }
+  ],
+  "current_dimension_coverage": {
+    "sandero_exact_values": 10,
+    "sandero_exact_configurations": 2,
+    "stepway_exact_values": 25,
+    "stepway_exact_configurations": 5,
+    "jogger_exact_values": 0,
+    "jogger_exact_configurations": 0,
+    "bigster_exact_values": 140,
+    "bigster_exact_configurations": 14,
+    "duster_exact_values": 0,
+    "duster_exact_configurations": 0,
+    "duster_basis_qualified_turning_values": 10
+  },
+  "non_inference_contract": [
+    "Diagram numbers are not mapped to attributes from text extraction order alone.",
+    "Model-wide dimensions are projected only after the exact configuration scope is documented.",
+    "Seat-layout-specific interior measurements are not treated as shared exterior dimensions.",
+    "Blank WLTP cells and country placeholders remain no-observation evidence.",
+    "Cargo values remain governed by the existing contextual cargo model.",
+    "Superseded exact dimension observations are not duplicated as a second current baseline."
+  ],
+  "closure_decision": "Close eleven residual classifications as stable non-imports and two as already covered by later exact configuration evidence. Advance Sandero, Jogger and Duster generic dimension diagrams to a dedicated semantic mapping review without importing any diagram value in this package.",
+  "next_package": {
+    "name": "Brochure Generic Dimensions Semantic Mapping Review",
+    "goal": "Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order."
+  }
+}

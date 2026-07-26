@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Official Brochure Technical Gap Resolution Closure Review**
+**Official Brochure Residual Evidence Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 923
+- Tests: 931
 - Master CSV files: 46
 - Master rows: 9306
 - Configuration values: 2567
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Brochure Technical Gap Resolution Closure Review** — `complete`
+**Official Brochure Residual Evidence Review** — `complete`
 
-Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals.
+Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports.
 
 ## Next package
 
-**Official Brochure Residual Evidence Review** — `planned`
+**Brochure Generic Dimensions Semantic Mapping Review** — `planned`
 
-Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports.
+Visually map the Sandero, Jogger and Duster dimension diagrams to existing attributes, define exact projection scopes, and produce an import plan without inferring labels from text extraction order.
 
 ## Autonomy
 
