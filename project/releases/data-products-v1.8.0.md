@@ -77,6 +77,10 @@ Finally, an independent workflow downloaded the public release through the repos
 
 This release publishes the current evidence-backed repository state. It does not resolve deferred exact-configuration evidence, ambiguous source relationships or missing exact Spring sources. Missing evidence remains unknown rather than unavailable, and no comparison crosses an independent reporting scope.
 
+## Next package
+
+`Cross-Model Navigation Usability Review` — review consumer discoverability of the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics in the review package.
+
 ## Immutability
 
 The release assets and tag are immutable. Later corrections, source-backed additions or interface changes must use a new semantic version and must not replace or rewrite `data-products-v1.8.0`.
