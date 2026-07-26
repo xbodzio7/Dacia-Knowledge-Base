@@ -14,6 +14,7 @@ on:
       - tools/import_duster_chassis_20260726.py
       - tools/materialize_duster_chassis_20260726.py
       - tools/repair_duster_chassis_import_scope_20260726.py
+      - tools/repair_duster_chassis_regressions_20260726.py
       - tests/test_duster_chassis_20260726.py
 
 permissions:
@@ -45,6 +46,9 @@ jobs:
           fi
           if [ "$status" -eq 0 ]; then
             python tools/materialize_duster_chassis_20260726.py >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/repair_duster_chassis_regressions_20260726.py >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
