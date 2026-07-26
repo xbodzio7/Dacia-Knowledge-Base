@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.6.1` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.7.0` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.6.1 \
-  --output-directory ../dkb-data-products-v1.6.1
+  --version 1.7.0 \
+  --output-directory ../dkb-data-products-v1.7.0
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.6.1
+  --workspace-directory ../dkb-data-products-v1.7.0
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -716,7 +716,9 @@ Wydanie [`data-products-v1.5.0`](https://github.com/xbodzio7/Dacia-Knowledge-Bas
 
 Wydanie [`data-products-v1.6.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.0) zostało opublikowane z dokładnego commita `539fba58d1ee2ef538c782b20e049be482d72988`. Używa oficjalnych zdjęć pięciu rodzin modeli Dacia Polska z lokalnym fallbackiem SVG, przedstawia wybory w stylu konfiguratora, umieszcza ceny minimalną i maksymalną w jednym wierszu, pokazuje wyłącznie źródłowo kompletne i rzeczywiście różnicujące wyposażenie oraz porównuje wszystkie zapisane parametry techniczne i wyposażenie. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.0.md`.
 
-Najnowsza poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
+Poprawka [`data-products-v1.6.1`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.6.1) została opublikowana z dokładnego commita `4b77571c788b862a6543161b9343a35f464bd7c6`. Pole „Filtruj listę wyposażenia” rzeczywiście ukrywa niedopasowane nazwy, wybrane pozycje pozostają aktywne do jawnego usunięcia, a lista oferuje wyłącznie źródłowo kompletne dodatki zgodne z bieżącym wyborem. Alternatywy wzajemnie się wykluczające są ukrywane, natomiast braki danych o opcjach innych modeli nadal pozostają niewiadomą. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.6.1.md`, a opis poprawki w `project/packages/equipment-facet-interaction-fix.md`.
+
+Najnowsze wydanie [`data-products-v1.7.0`](https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.7.0) zostało opublikowane z dokładnego commita `99e0e19b86cad6eae619f37702464e6a5a761cd8`. Obejmuje 72 aktywne konfiguracje, 19 niezależnych zakresów, 114 par i 1695 różnic w 83-elementowym archiwum JSON, Markdown, CSV, HTML i XLSX. Publiczne assety, tag, offline workspace oraz dokładny HTML zostały ponownie pobrane i niezależnie zweryfikowane. Trwały zapis publikacji znajduje się w `project/releases/data-products-v1.7.0.md`.
 
 Bieżący przekrojowy import wyposażenia zapisuje 31 dokładnych obserwacji fabrycznej anteny typu „płetwa rekina” dla Sandero, Sandero Stepway i Joggera oraz sześć nowszych obserwacji seryjnych elektrycznie składanych lusterek dla Joggera Journey. Wersje z jawnie wskazaną anteną biczową otrzymują status fabrycznej płetwy `not_available`; akcesoria, nieudowodnione rozszerzenia pakietów i niejednoznaczne stany Dustera pozostają poza importem. Szczegóły zawiera `project/packages/official-configurator-cross-model-option-coverage-20260724.md`.
 
