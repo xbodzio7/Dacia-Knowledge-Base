@@ -121,16 +121,20 @@ jobs:
           state_path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
           PY
           python tools/dkb.py project-state --apply
-      - name: Run focused release-preparation contracts
-        run: |
-          set -euo pipefail
-          python -m py_compile tools/review_data_products_v1_8_1_release_preparation_20260727.py
-          node --check tools/reporting/configuration_shortlist_browser.js
-          python tools/review_data_products_v1_8_1_release_preparation_20260727.py --check
-          python -m unittest tests.test_data_products_v1_8_1_release_preparation
-          python -m unittest tests.test_equipment_filter_regression_model_price_order
-          python -m unittest tests.test_data_products_v1_8_0_release_preparation
-          python -m unittest tests.test_data_products_v1_8_0_publication
+      - name: Compile v1.8.1 verifier
+        run: python -m py_compile tools/review_data_products_v1_8_1_release_preparation_20260727.py
+      - name: Check shortlist browser JavaScript
+        run: node --check tools/reporting/configuration_shortlist_browser.js
+      - name: Run v1.8.1 preparation verifier
+        run: python tools/review_data_products_v1_8_1_release_preparation_20260727.py --check
+      - name: Run v1.8.1 preparation tests
+        run: python -m unittest tests.test_data_products_v1_8_1_release_preparation
+      - name: Run regression package tests
+        run: python -m unittest tests.test_equipment_filter_regression_model_price_order
+      - name: Preserve v1.8.0 preparation history
+        run: python -m unittest tests.test_data_products_v1_8_0_release_preparation
+      - name: Preserve v1.8.0 publication history
+        run: python -m unittest tests.test_data_products_v1_8_0_publication
       - name: Run full repository validation
         run: |
           set -euo pipefail
