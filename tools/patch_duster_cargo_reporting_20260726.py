@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add canonical boot-capacity coverage to exact Duster reporting scopes."""
+"""Add canonical boot-capacity coverage and repair the Duster model guard."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTING = ROOT / "data" / "reporting"
+IMPORTER = ROOT / "tools" / "import_duster_brochure_cargo_20260726.py"
 TARGETS = {
     "duster_iii_essential_ecog120_4x2_manual",
     "duster_iii_expression_ecog120_4x2_manual",
@@ -21,6 +22,15 @@ TARGETS = {
     "duster_iii_journey_hybrid155_4x2_automatic",
 }
 SLOT = {"attribute_code": "boot_capacity", "fuel_type_code": ""}
+
+text = IMPORTER.read_text(encoding="utf-8")
+old = 'ensure(not any(row.get("powertrain_label") == "hybrid-G 150 4x4" for row in rows.values()), "unreviewed exact 4x4 configuration now exists")'
+new = 'ensure(not any(code.startswith("duster_iii_") and row.get("powertrain_label") == "hybrid-G 150 4x4" for code, row in rows.items()), "unreviewed exact Duster 4x4 configuration now exists")'
+if old in text:
+    IMPORTER.write_text(text.replace(old, new), encoding="utf-8")
+elif new not in text:
+    raise RuntimeError("Duster 4x4 guard anchor missing")
+
 changed: list[str] = []
 for path in sorted(REPORTING.glob("*completeness.json")):
     payload = json.loads(path.read_text(encoding="utf-8"))
