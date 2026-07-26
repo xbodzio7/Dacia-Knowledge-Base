@@ -2368,7 +2368,9 @@
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
       "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2391,7 +2393,9 @@
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
       "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2414,7 +2418,9 @@
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
       "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2437,7 +2443,9 @@
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
       "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2460,7 +2468,9 @@
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
       "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,

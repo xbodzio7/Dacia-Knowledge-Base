@@ -2661,7 +2661,9 @@
       "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
       "resolution_route": "none",
       "resolution_state": "closed_not_stated",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sequence": 85,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
@@ -2690,7 +2692,9 @@
       "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
       "resolution_route": "none",
       "resolution_state": "closed_not_stated",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sequence": 86,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
@@ -2719,7 +2723,9 @@
       "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
       "resolution_route": "none",
       "resolution_state": "closed_not_stated",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sequence": 87,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
@@ -2748,7 +2754,9 @@
       "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
       "resolution_route": "none",
       "resolution_state": "closed_not_stated",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sequence": 88,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
@@ -2777,7 +2785,9 @@
       "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
       "resolution_route": "none",
       "resolution_state": "closed_not_stated",
-      "reviewed_pages": [],
+      "reviewed_pages": [
+        2
+      ],
       "sequence": 89,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
