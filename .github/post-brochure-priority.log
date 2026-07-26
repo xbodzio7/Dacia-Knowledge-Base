@@ -1,0 +1,15 @@
+Synchronized project state and documentation:
+  CHANGELOG.md
+  README.md
+  project/ROADMAP.md
+  project/SESSION_STATE.md
+  project/STATE_SUMMARY.md
+  project/state.json
+Project state: PASS
+Tests          : 963
+Master rows    : 9688
+Phase          : Post-Brochure Priority Selection Review
+Current package: Post-Brochure Priority Selection Review
+Next package   : Data Products v1.7.0 Release Preparation
+Autonomy mode  : autonomous_until_action_required
+ERROR: missing evidence scope: sandero_stepway_ecog120_automatic_gap_evidence.spec
