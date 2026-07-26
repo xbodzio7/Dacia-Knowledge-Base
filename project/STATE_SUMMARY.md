@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster and Duster Brochure Towing Mass Import**
+**Jogger Brochure Hybrid Performance Completion**
 
 ## Reference delivery
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 858
+- Tests: 867
 - Master CSV files: 46
-- Master rows: 8939
-- Configuration values: 2272
+- Master rows: 9015
+- Configuration values: 2290
 - Configuration import specifications: 117
-- Configuration value ranges: 176
+- Configuration value ranges: 234
 - Configuration range import specifications: 20
 - Availability records: 4754
 - Canonical attributes: 381
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster and Duster Brochure Towing Mass Import** — `complete`
+**Jogger Brochure Hybrid Performance Completion** — `complete`
 
-Import exact gross train weight and unbraked trailer weight observations from the official Bigster and Duster brochures for the reviewed active configurations, using existing attributes and preserving powertrain boundaries.
+Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence.
 
 ## Next package
 
-**Jogger Brochure Hybrid Performance Completion** — `planned`
+**Brochure Chassis Measurement Context Modeling** — `planned`
 
-Complete the exact Jogger hybrid 155 acceleration and source-stated battery capacity observations and import source engine-speed points or ranges without flattening five-/seven-seat or fuel-specific evidence.
+Model explicit measurement and specification context for turning circle, maximum kerb mass, payload and compound tyre, brake and suspension evidence before importing the remaining official brochure chassis observations.
 
 ## Autonomy
 

@@ -121,7 +121,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 858 testów automatycznych,
+- 867 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

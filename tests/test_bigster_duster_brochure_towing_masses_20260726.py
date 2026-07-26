@@ -160,14 +160,15 @@ class BigsterDusterBrochureTowingMassTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: Bigster and Duster brochure towing masses", completed.stdout)
 
-    def test_project_state_advances_to_jogger_hybrid_completion(self) -> None:
+    def test_project_state_preserves_towing_mass_baseline_after_follow_up_packages(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Bigster and Duster Brochure Towing Mass Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Jogger Brochure Hybrid Performance Completion")
-        self.assertEqual(state["baseline"]["configuration_values"], 2272)
-        self.assertEqual(state["baseline"]["rows"], 8939)
-        self.assertEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["tests"], 858)
+        self.assertGreaterEqual(state["baseline"]["rows"], 8939)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2272)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 176)
+        self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 117)
+        self.assertGreaterEqual(state["baseline"]["configuration_range_import_specs"], 20)
 
 
 if __name__ == "__main__":

@@ -93,6 +93,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "hybrid_battery_type",
       "fuel_type_code": ""
     },
@@ -106,6 +110,10 @@
     },
     {
       "attribute_code": "injection_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "max_power_rpm",
       "fuel_type_code": ""
     },
     {

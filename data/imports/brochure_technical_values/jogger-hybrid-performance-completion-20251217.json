@@ -46,7 +46,7 @@
     },
     {
       "attribute_code": "max_power_rpm",
-      "fuel_type_code": "petrol",
+      "fuel_type_code": "",
       "value": "5600",
       "source_text": "Silnik spalinowy hybrid 155: maks. moc 105 kW (140 KM) przy 5600 obr./min",
       "configurations": [
@@ -168,7 +168,7 @@
     },
     {
       "attribute_code": "max_torque_rpm",
-      "fuel_type_code": "petrol",
+      "fuel_type_code": "",
       "minimum_value": "3000",
       "maximum_value": "4000",
       "source_text": "Silnik spalinowy hybrid 155: maks. moment od 3000 do 4000 obr./min",
