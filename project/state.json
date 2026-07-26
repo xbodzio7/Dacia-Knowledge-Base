@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.8.1 Preflight",
+  "phase": "Data Products v1.8.1 Publication",
   "reference_delivery": {
-    "name": "Data Products v1.8.1 Release Preparation",
-    "pull_request": 290,
-    "head_sha": "0b7009fd1950693e347638a6b96756aeefb43b8a",
-    "quality_run": 2049
+    "name": "Data Products v1.8.1 Preflight",
+    "pull_request": 291,
+    "head_sha": "7c692d89bd17810e7ca379ea20f33fc4fdd84a03",
+    "quality_run": 2055
   },
   "baseline": {
-    "tests": 1046,
+    "tests": 1054,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.8.1 Preflight",
+    "name": "Data Products v1.8.1 Publication",
     "status": "complete",
-    "goal": "Prove deterministic v1.8.1 assets from the exact preparation commit, verify the real Chromium behavior and record final identities without publishing."
+    "goal": "Record the immutable data-products-v1.8.1 tag, exact source commit, three public assets, restored equipment-filter behavior and independent public workspace audit after verified preflight and publication."
   },
   "next_package": {
-    "name": "Data Products v1.8.1 Publication",
+    "name": "Cross-Model Navigation Usability Review",
     "status": "planned",
-    "goal": "Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit."
+    "goal": "Resume the deferred review of consumer discoverability and navigation for the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

@@ -127,14 +127,11 @@ def verify_rebuild(payload: Mapping[str, Any]) -> None:
 
 
 def verify_state() -> None:
-    ensure(not PUBLIC_RECORD.exists(), "v1.8.1 publication record already exists")
     state = load_json(STATE)
-    ensure(state.get("phase") == "Data Products v1.8.1 Preflight", "project phase differs")
-    ensure(state.get("current_package", {}).get("name") == "Data Products v1.8.1 Preflight", "current package differs")
+    ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
     ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
-    ensure(state.get("next_package", {}).get("name") == "Data Products v1.8.1 Publication", "state next package differs")
     baseline = state.get("baseline", {})
-    ensure(baseline.get("tests") == 1046, "test baseline differs")
+    ensure(isinstance(baseline.get("tests"), int) and baseline["tests"] >= 1046, "test baseline regressed")
     ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
     ensure(baseline.get("rows") == 9688, "master row baseline changed")
     ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
