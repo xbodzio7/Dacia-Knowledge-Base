@@ -1,0 +1,60 @@
+name: Repair Equipment Materializer Indentation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/repair-equipment-materializer.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out regression-fix branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/equipment-filter-regression-model-price-order
+          fetch-depth: 0
+      - name: Repair generated test indentation
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          workflow = Path('.github/workflows/materialize-equipment-filter-regression-model-price-order.yml')
+          lines = workflow.read_text(encoding='utf-8').splitlines(keepends=True)
+          marker = "replacement = '''    def test_verifier_and_project_state_preserve_publication_history(self) -> None:"
+          try:
+              start = next(index for index, line in enumerate(lines) if marker in line)
+              end = next(
+                  index
+                  for index in range(start + 1, len(lines))
+                  if lines[index].strip() == "'''"
+              )
+          except StopIteration as exc:
+              raise SystemExit('historical publication replacement block differs') from exc
+
+          changed = 0
+          for index in range(start + 1, end):
+              if lines[index].strip():
+                  lines[index] = '    ' + lines[index]
+                  changed += 1
+          if changed != 25:
+              raise SystemExit(f'expected to reindent 25 non-empty lines, got {changed}')
+
+          workflow.write_text(''.join(lines), encoding='utf-8')
+          PY
+      - name: Commit repaired materializer
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .github/workflows/repair-equipment-materializer.yml
+          git add .github/workflows/materialize-equipment-filter-regression-model-price-order.yml \
+            .github/workflows/repair-equipment-materializer.yml
+          git commit -m 'ci: repair equipment materializer indentation'
+          git push origin HEAD:agent/equipment-filter-regression-model-price-order
