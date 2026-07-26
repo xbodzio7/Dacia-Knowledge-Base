@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "kind": "cross_model_navigation_usability_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_release": {
+    "version": "1.8.0",
+    "tag": "data-products-v1.8.0",
+    "release_id": 360115681,
+    "source_commit": "becd218228e3f4f0cdd312b0ed836ade487422b1",
+    "publication_record": "data-products-v1.8.0.md",
+    "verification": "PASS"
+  },
+  "observed_workspace": {
+    "content_file_count": 85,
+    "index_local_link_count": 83,
+    "primary_card_count": 4,
+    "scope_report_link_count": 76,
+    "asset_link_count": 3,
+    "index_sha256": "ad2074a55e110ac11a518b441cbdc51864d5c7223cba75812c5b719facdf9b24",
+    "primary_cards": [
+      "Configuration shortlist",
+      "Comparison workbook",
+      "Comparison bundle manifest",
+      "Release notes"
+    ],
+    "published_cross_model_members": [
+      "cross-model/cross-model-comparison-view.json",
+      "cross-model/cross-model-comparison-view.html"
+    ],
+    "dedicated_cross_model_primary_card": false,
+    "cross_model_content_verification": "PASS",
+    "cross_model_local_target_verification": "PASS"
+  },
+  "problem_statement": "The cross-model HTML is valid, verified and present in the immutable public workspace, but a consumer opening index.html cannot reach it through a dedicated primary product card. Changing the v1.8.0 index unconditionally would alter the already audited deterministic index for an immutable historical release.",
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "consumer_discoverability": 30,
+      "historical_determinism": 30,
+      "existing_tooling_reuse": 20,
+      "low_implementation_risk": 20
+    },
+    "decision_rule": "Select the highest weighted option that makes the published product discoverable without changing the audited v1.8.0 workspace, comparison semantics or source-backed data."
+  },
+  "options": [
+    {
+      "rank": 1,
+      "code": "version_gated_primary_card",
+      "name": "Version-Gated Cross-Model Primary Card",
+      "status": "selected",
+      "scores": {
+        "consumer_discoverability": 5,
+        "historical_determinism": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 4
+      },
+      "weighted_score": 96,
+      "decision": "Add a fifth Start here card that links to contents/cross-model/cross-model-comparison-view.html only for release versions 1.8.1 and later. Preserve byte-identical v1.8.0 index generation and its 83-link audit contract."
+    },
+    {
+      "rank": 2,
+      "code": "documentation_only_discovery",
+      "name": "Documentation-Only Discovery",
+      "status": "rejected_insufficient",
+      "scores": {
+        "consumer_discoverability": 2,
+        "historical_determinism": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 5
+      },
+      "weighted_score": 82,
+      "rejection_reason": "README and release notes already describe the product, but users entering through the offline workspace still lack a direct product card. Documentation alone does not solve local discoverability."
+    },
+    {
+      "rank": 3,
+      "code": "mutate_v1_8_0_index",
+      "name": "Change the v1.8.0 Index In Place",
+      "status": "rejected_determinism",
+      "scores": {
+        "consumer_discoverability": 5,
+        "historical_determinism": 1,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 2
+      },
+      "weighted_score": 60,
+      "rejection_reason": "An unconditional card would change the audited v1.8.0 index hash and local-link count, causing old verified workspaces to differ from later downloads of the same immutable release."
+    },
+    {
+      "rank": 4,
+      "code": "interactive_workspace_search",
+      "name": "Interactive Workspace Search and Filtering",
+      "status": "deferred_scope_expansion",
+      "scores": {
+        "consumer_discoverability": 4,
+        "historical_determinism": 3,
+        "existing_tooling_reuse": 2,
+        "low_implementation_risk": 1
+      },
+      "weighted_score": 54,
+      "decision": "Search and filtering may be useful later, but adding JavaScript and a new interaction model is unnecessary for exposing one existing product and exceeds the current usability correction."
+    }
+  ],
+  "selection": {
+    "code": "version_gated_primary_card",
+    "name": "Version-Gated Cross-Model Primary Card",
+    "weighted_score": 96,
+    "rationale": "The workspace index already validates every release member and has the release version available during rendering. A version-gated primary card reuses the verified-content path contract, gives immediate local access to the published cross-model HTML and preserves historical v1.8.0 bytes by introducing the card only in a patch release."
+  },
+  "implementation_contract": {
+    "next_package": "Cross-Model Workspace Index Entry",
+    "introduced_release_version": "1.8.1",
+    "member_path": "cross-model/cross-model-comparison-view.html",
+    "workspace_path": "contents/cross-model/cross-model-comparison-view.html",
+    "card_title": "Cross-model navigation",
+    "card_description": "Browse five model families and launch only existing scope-safe comparisons.",
+    "legacy_v1_8_0_contract": {
+      "primary_card_count": 4,
+      "index_local_link_count": 83,
+      "index_sha256": "ad2074a55e110ac11a518b441cbdc51864d5c7223cba75812c5b719facdf9b24"
+    },
+    "v1_8_1_contract": {
+      "primary_card_count": 5,
+      "index_local_link_count": 84,
+      "dedicated_cross_model_card": true
+    },
+    "required_behavior": [
+      "validate the cross-model HTML against the release manifest before linking",
+      "require the local file to exist in the extracted workspace",
+      "preserve the exact v1.8.0 index output",
+      "add exactly one primary local link for v1.8.1 and later",
+      "keep comparison-scope links and asset links unchanged",
+      "keep the index static and JavaScript-free"
+    ],
+    "non_goals": [
+      "changing_public_v1_8_0_assets",
+      "changing_v1_8_0_index_bytes",
+      "new_data_imports",
+      "new_comparison_pairs",
+      "ranking",
+      "recommendations",
+      "inferred_values",
+      "workspace_search_or_filtering"
+    ]
+  },
+  "repository_baseline": {
+    "tests": 1030,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Cross-Model Workspace Index Entry",
+    "goal": "Implement and test a version-gated fifth workspace-index card for releases 1.8.1 and later while reproducing the exact audited v1.8.0 index and changing no release data or comparison semantics."
+  }
+}
