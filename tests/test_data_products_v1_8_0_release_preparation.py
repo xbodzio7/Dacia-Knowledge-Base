@@ -153,22 +153,12 @@ class DataProductsV180ReleasePreparationTests(unittest.TestCase):
             capture_output=True,
             check=False,
         )
-        self.assertEqual(
-            completed.returncode,
-            0,
-            completed.stderr or completed.stdout,
-        )
-        self.assertIn(
-            "PASS: Data Products v1.8.0 release preparation",
-            completed.stdout,
-        )
+        self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+        self.assertIn("PASS: Data Products v1.8.0 release preparation", completed.stdout)
         state = json.loads(STATE.read_text(encoding="utf-8"))
         self.assertTrue(state["phase"])
         self.assertTrue(state["current_package"]["name"])
-        self.assertIn(
-            state["current_package"]["status"],
-            {"planned", "active", "blocked", "complete"},
-        )
+        self.assertIn(state["current_package"]["status"], {"planned", "active", "blocked", "complete"})
         self.assertTrue(state["next_package"]["name"])
         self.assertGreaterEqual(state["baseline"]["tests"], 1014)
         self.assertGreaterEqual(state["baseline"]["rows"], 9688)
