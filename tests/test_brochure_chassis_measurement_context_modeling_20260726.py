@@ -96,7 +96,7 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
         self.assertEqual(statuses["sandero_chassis_and_maximum_mass_modeling"], "imported")
         self.assertEqual(statuses["stepway_chassis_and_maximum_mass_modeling"], "imported")
         self.assertEqual(statuses["duster_chassis_mass_and_payload_modeling"], "imported")
-        self.assertEqual(statuses["jogger_chassis_candidate_and_modeling"], "model_defined_import_pending")
+        self.assertEqual(statuses["jogger_chassis_candidate_and_modeling"], "imported")
 
     def test_jogger_ambiguous_mass_labels_remain_blocked(self) -> None:
         jogger = next(
@@ -110,14 +110,14 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
     def test_follow_up_imports_respect_modeled_attributes(self) -> None:
         scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] in NEW_CODES]
         ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row["attribute_code"] in NEW_CODES]
-        self.assertEqual(len(scalar), 66)
+        self.assertEqual(len(scalar), 88)
         self.assertEqual(
             {row["attribute_code"] for row in scalar},
             {"turning_circle_between_kerbs", "turning_circle_wheel_track", "maximum_kerb_weight"},
         )
         self.assertEqual(
             {row["observation_date"] for row in scalar},
-            {"2025-10-20", "2025-12-10", "2026-02-02"},
+            {"2025-10-20", "2025-12-10", "2025-12-17", "2026-02-02"},
         )
         self.assertEqual(len(ranges), 10)
         self.assertEqual({row["attribute_code"] for row in ranges}, {"payload"})

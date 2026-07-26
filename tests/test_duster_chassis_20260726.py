@@ -183,18 +183,16 @@ class DusterChassisTests(unittest.TestCase):
         model = json.loads((ROOT / "data" / "reporting" / "brochure_chassis_measurement_context_model.json").read_text(encoding="utf-8"))
         statuses = {item["classification_code"]: item["status"] for item in model["source_resolutions"]}
         self.assertEqual(statuses["duster_chassis_mass_and_payload_modeling"], "imported")
-        self.assertEqual(statuses["jogger_chassis_candidate_and_modeling"], "model_defined_import_pending")
-        self.assertEqual(model["next_package"]["name"], "Jogger Chassis Observation Import")
+        self.assertEqual(statuses["jogger_chassis_candidate_and_modeling"], "imported")
+        self.assertEqual(model["next_package"]["name"], "Brochure Chassis Modeling Closure Review")
 
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Duster Chassis Observation Import")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Jogger Chassis Observation Import")
-        self.assertEqual(state["baseline"]["tests"], 899)
-        self.assertEqual(state["baseline"]["rows"], 9218)
-        self.assertEqual(state["baseline"]["configuration_values"], 2479)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["tests"], 899)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9218)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2479)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":

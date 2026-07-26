@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Chassis Observation Import**
+**Jogger Chassis Observation Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 899
+- Tests: 907
 - Master CSV files: 46
-- Master rows: 9218
-- Configuration values: 2479
+- Master rows: 9306
+- Configuration values: 2567
 - Configuration import specifications: 117
 - Configuration value ranges: 244
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Chassis Observation Import** — `complete`
+**Jogger Chassis Observation Import** — `complete`
 
-Import exact wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for ten active Duster configurations under D-016.
+Import exact between-kerbs turning diameter and source-text tyre and suspension observations for all twenty-two active Jogger configurations under D-016 without reinterpreting the ambiguous mass table.
 
 ## Next package
 
-**Jogger Chassis Observation Import** — `planned`
+**Brochure Chassis Modeling Closure Review** — `planned`
 
-Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict.
+Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved.
 
 ## Autonomy
 

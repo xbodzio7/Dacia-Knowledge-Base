@@ -126,14 +126,16 @@
     },
     {
       "classification_code": "jogger_chassis_candidate_and_modeling",
-      "status": "model_defined_import_pending",
+      "status": "imported",
       "turning_attribute": "turning_circle_between_kerbs",
       "text_attributes": [
         "standard_tyre_specification",
         "front_suspension",
         "rear_suspension"
       ],
-      "blocked_related_classification": "jogger_mass_table_label_conflict"
+      "blocked_related_classification": "jogger_mass_table_label_conflict",
+      "import_package": "Jogger Chassis Observation Import",
+      "imported_on": "2026-07-26"
     },
     {
       "classification_code": "sandero_chassis_and_maximum_mass_modeling",
@@ -183,7 +185,7 @@
     "maximum_payload": "Retained for explicitly maximum-qualified scalar observations."
   },
   "next_package": {
-    "name": "Jogger Chassis Observation Import",
-    "goal": "Import the unambiguous between-kerbs turning diameter and source-text tyre and suspension observations for active Jogger configurations while preserving the separate unresolved mass-table label conflict."
+    "name": "Brochure Chassis Modeling Closure Review",
+    "goal": "Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved."
   }
 }
