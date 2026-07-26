@@ -93,13 +93,13 @@ class BrochureCargoContextReportingFoundationTests(unittest.TestCase):
             [["6", "boot_capacity", "Capacities", "Boot capacity", "integer", "L", "", "active"]],
         )
         value_rows = [
-            ["5", "a_boot_main", "cfg_a", "boot_capacity", "", "500", "2026-06-01", "src_a", ""],
-            ["6", "b_boot_main", "cfg_b", "boot_capacity", "", "500", "2026-06-01", "src_b", ""],
-            ["7", "a_boot_max", "cfg_a", "boot_capacity", "", "1500", "2026-06-01", "src_a", ""],
+            ["5", "a_boot_main", "cfg_a", "boot_capacity", "", "", "500", "2026-06-01", "src_a", ""],
+            ["6", "b_boot_main", "cfg_b", "boot_capacity", "", "", "500", "2026-06-01", "src_b", ""],
+            ["7", "a_boot_max", "cfg_a", "boot_capacity", "", "", "1500", "2026-06-01", "src_a", ""],
         ]
         if not omit_b_maximum:
             value_rows.append(
-                ["8", "b_boot_max", "cfg_b", "boot_capacity", "", "1400", "2026-06-01", "src_b", ""]
+                ["8", "b_boot_max", "cfg_b", "boot_capacity", "", "", "1400", "2026-06-01", "src_b", ""]
             )
         self._append_rows(master / "configuration_attribute_values.csv", value_rows)
 

@@ -48,14 +48,15 @@ class ValidateCliIntegrationTests(unittest.TestCase):
             "2. Walidacja plików CSV",
             "3. Walidacja unikalności kluczy",
             "4. Walidacja relacji między tabelami",
-            "5. Walidacja zakresów lat",
-            "6. Walidacja statusów i cyklu życia",
-            "7. Walidacja okresów dostępności powiązań",
-            "8. Walidacja nakładających się okresów powiązań",
-            "9. Walidacja kontraktu reguł danych",
-            "10. Wykonywanie reguł danych",
-            "11. Zbieranie statystyk",
-            "12. Generowanie raportu",
+            "5. Walidacja kontekstu wybranego biegu",
+            "6. Walidacja zakresów lat",
+            "7. Walidacja statusów i cyklu życia",
+            "8. Walidacja okresów dostępności powiązań",
+            "9. Walidacja nakładających się okresów powiązań",
+            "10. Walidacja kontraktu reguł danych",
+            "11. Wykonywanie reguł danych",
+            "12. Zbieranie statystyk",
+            "13. Generowanie raportu",
             f"{len(REFERENCE_RULES)} relacji",
         )
 
@@ -91,6 +92,10 @@ class ValidateCliIntegrationTests(unittest.TestCase):
         )
         self.assertIn(
             "- Cross-file references: **PASS**",
+            report,
+        )
+        self.assertIn(
+            "- Selected-gear context: **PASS**",
             report,
         )
         self.assertIn(
