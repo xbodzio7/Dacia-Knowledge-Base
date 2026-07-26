@@ -55,7 +55,7 @@ SCOPE_SPECS = {
     "jogger_tce110_manual_completeness.json": "jogger_tce110_manual_gap_evidence.spec",
     "sandero_ecog120_automatic_completeness.json": "sandero_ecog120_automatic_gap_evidence.json",
     "sandero_ecog120_manual_completeness.json": "sandero_ecog120_manual_gap_evidence.json",
-    "sandero_stepway_ecog120_automatic_completeness.json": "sandero_stepway_ecog120_automatic_gap_evidence.spec",
+    "sandero_stepway_ecog120_automatic_completeness.json": "sandero_stepway_ecog120_automatic_gap_evidence.json",
 }
 EXPECTED_EXACT_BLOCKERS = {
     "sandero_tce100_without_exact_configuration",
