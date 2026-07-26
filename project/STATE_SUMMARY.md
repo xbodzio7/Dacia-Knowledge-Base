@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-25
+- State updated: 2026-07-26
 
 ## Phase
 
-**Bigster Brochure Cargo Value Import**
+**Duster Brochure Cargo Value Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 799
+- Tests: 803
 - Master CSV files: 46
-- Master rows: 8644
-- Configuration values: 2054
+- Master rows: 8782
+- Configuration values: 2118
 - Configuration import specifications: 114
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Brochure Cargo Value Import** — `complete`
+**Duster Brochure Cargo Value Import** — `complete`
 
-Import 68 source-backed Bigster boot_capacity observations across exact 4x2 powertrains while preserving measurement, rear-bench, repair-kit and spare-wheel context and deferring contradictory 4x4 evidence.
+Import 64 source-backed Duster boot_capacity observations for exact Eco-G 120 manual, mild hybrid 140 4x2 manual and hybrid 155 4x2 automatic configurations while preserving measurement, seat and repair-kit or spare-wheel context.
 
 ## Next package
 
-**Duster Brochure Cargo Value Import** — `planned`
+**Brochure Cargo Import Closure Review** — `planned`
 
-Import source-backed Duster cargo observations only where drive type, powertrain, seat state and repair-kit or spare-wheel context map exactly to modeled configurations.
+Review all completed brochure cargo imports and explicit deferrals, verify cross-model reporting behavior and close the cargo-import milestone without projecting unresolved evidence.
 
 ## Autonomy
 

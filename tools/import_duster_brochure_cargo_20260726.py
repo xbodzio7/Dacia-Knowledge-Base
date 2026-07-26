@@ -181,7 +181,7 @@ def verify_configurations(spec: Mapping[str, Any]) -> None:
             expected_counts[str(code)] = 8 if code in group["spare_wheel_configurations"] else 4
     ensure(expected_counts == Counter(code for code, _ in entries(spec)), "configuration observation counts differ")
     ensure(FORBIDDEN_AUTOMATICS <= set(rows), "automatic deferral targets changed")
-    ensure(not any(row.get("powertrain_label") == "hybrid-G 150 4x4" for row in rows.values()), "unreviewed exact 4x4 configuration now exists")
+    ensure(not any(code.startswith("duster_iii_") and row.get("powertrain_label") == "hybrid-G 150 4x4" for code, row in rows.items()), "unreviewed exact Duster 4x4 configuration now exists")
 
 
 def expected_rows(spec: Mapping[str, Any]) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
