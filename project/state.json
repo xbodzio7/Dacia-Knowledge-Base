@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.8.1 Release Preparation",
+  "phase": "Data Products v1.8.1 Preflight",
   "reference_delivery": {
-    "name": "Equipment Filter Regression and Model Price Ordering",
-    "pull_request": 289,
-    "head_sha": "c425b3997c11132e7c325b843e9e13f44a5a9105",
-    "quality_run": 2040
+    "name": "Data Products v1.8.1 Release Preparation",
+    "pull_request": 290,
+    "head_sha": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+    "quality_run": 2049
   },
   "baseline": {
-    "tests": 1038,
+    "tests": 1046,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.8.1 Release Preparation",
+    "name": "Data Products v1.8.1 Preflight",
     "status": "complete",
-    "goal": "Prepare and verify an immutable patch-release candidate containing the restored equipment filtering and cheapest-to-most-expensive model ordering without changing source-backed data or rewriting older public releases."
+    "goal": "Prove deterministic v1.8.1 assets from the exact preparation commit, verify the real Chromium behavior and record final identities without publishing."
   },
   "next_package": {
-    "name": "Data Products v1.8.1 Preflight",
+    "name": "Data Products v1.8.1 Publication",
     "status": "planned",
-    "goal": "Build the v1.8.1 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the real Chromium equipment-filter behavior and all release contracts, and record final identities without publishing."
+    "goal": "Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

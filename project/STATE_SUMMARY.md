@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Data Products v1.8.1 Release Preparation**
+**Data Products v1.8.1 Preflight**
 
 ## Reference delivery
 
-- Package: Equipment Filter Regression and Model Price Ordering
-- Pull Request: #289
-- Verified head: `c425b3997c11132e7c325b843e9e13f44a5a9105`
-- Quality run: #2040
+- Package: Data Products v1.8.1 Release Preparation
+- Pull Request: #290
+- Verified head: `0b7009fd1950693e347638a6b96756aeefb43b8a`
+- Quality run: #2049
 
 ## Verified baseline
 
-- Tests: 1038
+- Tests: 1046
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.8.1 Release Preparation** — `complete`
+**Data Products v1.8.1 Preflight** — `complete`
 
-Prepare and verify an immutable patch-release candidate containing the restored equipment filtering and cheapest-to-most-expensive model ordering without changing source-backed data or rewriting older public releases.
+Prove deterministic v1.8.1 assets from the exact preparation commit, verify the real Chromium behavior and record final identities without publishing.
 
 ## Next package
 
-**Data Products v1.8.1 Preflight** — `planned`
+**Data Products v1.8.1 Publication** — `planned`
 
-Build the v1.8.1 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the real Chromium equipment-filter behavior and all release contracts, and record final identities without publishing.
+Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit.
 
 ## Autonomy
 
