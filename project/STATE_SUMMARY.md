@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Data Products v1.8.0 Publication**
+**Equipment Filter Regression and Model Price Ordering**
 
 ## Reference delivery
 
-- Package: Data Products v1.8.0 Release Preparation
-- Pull Request: #284
-- Verified head: `c6d7fab8d20b7b66e38517084060e92c9d9f8a18`
-- Quality run: #2004
+- Package: Data Products v1.8.0 Publication
+- Pull Request: #288
+- Verified head: `dca8b9fadf0058060fa1a2be17520bc3eedf3fb7`
+- Quality run: #2023
 
 ## Verified baseline
 
-- Tests: 1022
+- Tests: 1030
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.8.0 Publication** — `complete`
+**Equipment Filter Regression and Model Price Ordering** — `complete`
 
-Record the immutable data-products-v1.8.0 tag, exact source commit, three public assets and independent offline workspace audit after verified preflight and publication.
+Restore usable equipment filtering and selection after portfolio expansion, preserve explicit missing and unknown evidence semantics, and order model choices from the lowest recorded current catalogue price to the highest.
 
 ## Next package
 
-**Cross-Model Navigation Usability Review** — `planned`
+**Data Products v1.8.1 Release Preparation** — `planned`
 
-Review consumer discoverability and navigation of the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package.
+Prepare and verify a patch release containing the restored equipment filtering and cheapest-to-most-expensive model ordering, without changing source-backed data or rewriting older public releases.
 
 ## Autonomy
 

@@ -189,8 +189,8 @@
     if (items.length < 2) return [];
     return equipmentCodes(items).filter((code) => {
       const coverage = equipmentCoverage(items, code);
-      return coverage.missing === 0 && coverage.unknown === 0
-        && coverage.available > 0 && coverage.not_available > 0;
+      const excluded = coverage.not_available + coverage.unknown + coverage.missing;
+      return coverage.available > 0 && excluded > 0;
     });
   }
 

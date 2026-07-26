@@ -438,6 +438,25 @@ def collect_browser_catalog(
         return (missing, amount, item["model_code"], item["version_code"], item["configuration_code"])
 
     catalog_configurations.sort(key=sort_key)
+    model_min_prices: dict[str, float] = {}
+    for item in catalog_configurations:
+        price = item["catalog_price"]
+        if price.get("state") != "recorded":
+            continue
+        model_code = item["model_code"]
+        amount = float(price["amount"])
+        current = model_min_prices.get(model_code)
+        if current is None or amount < current:
+            model_min_prices[model_code] = amount
+    ordered_model_codes = sorted(
+        active_model_codes,
+        key=lambda code: (
+            code not in model_min_prices,
+            model_min_prices.get(code, float("inf")),
+            models[code].get("name", ""),
+            code,
+        ),
+    )
     active_versions = [versions[code] for code in sorted(active_version_codes)]
     equipment_facets = []
     for code in sorted(equipment_codes):
@@ -474,8 +493,18 @@ def collect_browser_catalog(
         "initial_filters": core._filters_payload(criteria),
         "facets": {
             "models": [
-                {"code": code, "name": models[code].get("name", ""), "media": media.get(code, {})}
-                for code in sorted(active_model_codes)
+                {
+                    "code": code,
+                    "name": models[code].get("name", ""),
+                    "media": media.get(code, {}),
+                    "minimum_catalog_price_pln": (
+                        int(model_min_prices[code])
+                        if code in model_min_prices
+                        and model_min_prices[code].is_integer()
+                        else model_min_prices.get(code)
+                    ),
+                }
+                for code in ordered_model_codes
             ],
             "versions": [
                 {"code": row["code"], "name": row.get("name", ""), "model_code": row.get("model_code", "")}

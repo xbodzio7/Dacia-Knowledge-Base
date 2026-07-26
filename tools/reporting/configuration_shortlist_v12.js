@@ -285,7 +285,7 @@
         </div>
         <div class="selected-filter-list" data-selected-list></div>
       </div>
-      <p class="equipment-availability-note" data-availability-note>Lista pokazuje tylko pozycje, które można teraz dodać bez utraty wszystkich wyników. Już wybrane pozycje pozostają zaznaczone.</p>
+      <p class="equipment-availability-note" data-availability-note>Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej bieżącej konfiguracji. Brak danych i status nieustalony nie spełniają filtra. Już wybrane pozycje pozostają zaznaczone.</p>
       <label class="equipment-picker-search">Filtruj listę wyposażenia
         <input type="search" data-equipment-search placeholder="np. kamera, fotele, nawigacja">
         <span>To pole filtruje nazwy na poniższej liście; nie wyszukuje samochodów bez zaznaczenia pozycji.</span>
@@ -356,7 +356,7 @@
       const note = wrapper.querySelector("[data-availability-note]");
       note.textContent = selectionConflict
         ? "Wybrane pozycje nie występują razem w żadnej potwierdzonej konfiguracji. Usuń jedną z zaznaczonych pozycji; system nie odznacza filtrów automatycznie."
-        : "Lista pokazuje tylko źródłowo kompletne pozycje, które można dodać do bieżącego wyboru i które nadal różnicują pozostałe konfiguracje. Alternatywy wykluczające się oraz pozycje z brakami danych są ukryte.";
+        : "Lista pokazuje pozycje potwierdzone jako dostępne w co najmniej jednej zgodnej konfiguracji i nadal różnicujące wyniki. Brak danych i status nieustalony nie spełniają filtra; po zaznaczeniu taka konfiguracja zostaje wykluczona.";
       note.classList.toggle("has-removal", selectionConflict);
 
       const query = wrapper.querySelector("[data-equipment-search]").value.trim().toLocaleLowerCase("pl");
