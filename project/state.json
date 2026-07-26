@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-Brochure Priority Selection Review",
+  "phase": "Data Products v1.7.0 Release Preparation",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 963,
+    "tests": 971,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Post-Brochure Priority Selection Review",
+    "name": "Data Products v1.7.0 Release Preparation",
     "status": "complete",
-    "goal": "Rank the remaining source-backed data, reporting and release opportunities after closure of the official brochure evidence milestone and select the highest-value next package without weakening evidence boundaries."
+    "goal": "Freeze the v1.7.0 release identity and publication sequence, prove deterministic generation and offline workspace verification, and preserve the diagnostic candidate as non-final evidence without creating a tag or release."
   },
   "next_package": {
-    "name": "Data Products v1.7.0 Release Preparation",
+    "name": "Data Products v1.7.0 Preflight",
     "status": "planned",
-    "goal": "Freeze the v1.7.0 release version and notes, generate deterministic assets from a green source commit, independently verify download and offline workspace behavior, and prepare exact tag-to-commit publication evidence without changing data semantics."
+    "goal": "Build twice from the exact squash-merged main commit, record the final sizes and SHA-256 values of the three canonical assets, and confirm that the v1.7.0 tag and GitHub Release do not yet exist."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
