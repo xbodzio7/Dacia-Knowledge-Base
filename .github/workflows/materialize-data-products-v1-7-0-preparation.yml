@@ -34,33 +34,46 @@ jobs:
       - name: Build, reproduce and verify candidate
         shell: bash
         run: |
-          set -euo pipefail
+          set +e
+          log=.github/data-products-v1.7.0-preparation.log
+          : > "$log"
+          status=0
           source_sha="$(git rev-parse HEAD)"
           first="${RUNNER_TEMP}/release-first"
           second="${RUNNER_TEMP}/release-second"
           workspace="${RUNNER_TEMP}/workspace"
           public_workspace="${RUNNER_TEMP}/public-v1.6.1"
 
+          echo "source_sha=$source_sha" >> "$log"
           python tools/dkb.py data-product-release \
             --version 1.7.0 \
             --commit-sha "$source_sha" \
-            --output-directory "$first"
-          python tools/dkb.py data-product-release \
-            --version 1.7.0 \
-            --commit-sha "$source_sha" \
-            --output-directory "$second"
-          python tools/dkb.py data-product-release \
-            --output-directory "$first" \
-            --verify
-
-          cmp "$first/dacia-knowledge-base-data-products-v1.7.0.zip" \
-              "$second/dacia-knowledge-base-data-products-v1.7.0.zip"
-          cmp "$first/data-product-release-manifest.json" \
-              "$second/data-product-release-manifest.json"
-          cmp "$first/SHA256SUMS" "$second/SHA256SUMS"
-
-          mkdir -p "$workspace"
-          python - "$first/dacia-knowledge-base-data-products-v1.7.0.zip" "$workspace" <<'PY'
+            --output-directory "$first" >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: first build" >> "$log"
+            python tools/dkb.py data-product-release \
+              --version 1.7.0 \
+              --commit-sha "$source_sha" \
+              --output-directory "$second" >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: second build" >> "$log"
+            python tools/dkb.py data-product-release \
+              --output-directory "$first" \
+              --verify >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: release verify" >> "$log"
+            cmp "$first/dacia-knowledge-base-data-products-v1.7.0.zip" \
+                "$second/dacia-knowledge-base-data-products-v1.7.0.zip" >> "$log" 2>&1 || status=$?
+            cmp "$first/data-product-release-manifest.json" \
+                "$second/data-product-release-manifest.json" >> "$log" 2>&1 || status=$?
+            cmp "$first/SHA256SUMS" "$second/SHA256SUMS" >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: deterministic double build" >> "$log"
+            mkdir -p "$workspace"
+            python - "$first/dacia-knowledge-base-data-products-v1.7.0.zip" "$workspace" >> "$log" 2>&1 <<'PY' || status=$?
           import sys
           from pathlib import Path
           from zipfile import ZipFile
@@ -73,21 +86,31 @@ jobs:
                   if destination not in target.parents and target != destination:
                       raise SystemExit(f"unsafe archive member: {item.filename}")
               handle.extractall(destination)
+          print(f"extracted to {destination}")
           PY
-          python tools/dkb.py data-product-workspace-verify \
-            --workspace-directory "$workspace" \
-            --json > "${RUNNER_TEMP}/workspace-verification.json"
-
-          python tools/dkb.py data-product-release-download \
-            --version 1.6.1 \
-            --output-directory "$public_workspace"
-          python tools/dkb.py data-product-workspace-verify \
-            --workspace-directory "$public_workspace" \
-            --json > "${RUNNER_TEMP}/public-workspace-verification.json"
-
-          python - "$first" "$source_sha" \
-            "${RUNNER_TEMP}/workspace-verification.json" \
-            "${RUNNER_TEMP}/public-workspace-verification.json" <<'PY'
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py data-product-workspace-verify \
+              --workspace-directory "$workspace" \
+              --json > "${RUNNER_TEMP}/workspace-verification.json" 2>> "$log" || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: candidate workspace verification" >> "$log"
+            python tools/dkb.py data-product-release-download \
+              --version 1.6.1 \
+              --output-directory "$public_workspace" >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: public v1.6.1 download" >> "$log"
+            python tools/dkb.py data-product-workspace-verify \
+              --workspace-directory "$public_workspace" \
+              --json > "${RUNNER_TEMP}/public-workspace-verification.json" 2>> "$log" || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            echo "PASS: public v1.6.1 workspace verification" >> "$log"
+            python - "$first" "$source_sha" \
+              "${RUNNER_TEMP}/workspace-verification.json" \
+              "${RUNNER_TEMP}/public-workspace-verification.json" >> "$log" 2>&1 <<'PY' || status=$?
           import hashlib
           import json
           import sys
@@ -142,13 +165,20 @@ jobs:
           }
           output = Path(".github/data-products-v1.7.0-preparation-candidate.json")
           output.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-          print(output.read_text(encoding="utf-8"))
+          print("PASS: preparation candidate receipt written")
           PY
+          fi
 
+          echo "exit_status=$status" >> "$log"
+          cat "$log"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .github/data-products-v1.7.0-preparation-candidate.json
+          git add "$log"
+          if [ -f .github/data-products-v1.7.0-preparation-candidate.json ]; then
+            git add .github/data-products-v1.7.0-preparation-candidate.json
+          fi
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: persist v1.7.0 preparation candidate'
+            git commit -m 'chore: persist v1.7.0 preparation diagnostics'
             git push origin HEAD:agent/data-products-v1-7-0-release-preparation
           fi
+          exit "$status"
