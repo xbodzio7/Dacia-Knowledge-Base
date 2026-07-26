@@ -1,0 +1,48 @@
+name: Inventory Bigster Duster Towing Masses
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inventory-bigster-duster-towing-masses.yml
+      - tools/inventory_bigster_duster_towing_masses_20260726.py
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/bigster-duster-brochure-towing-mass-import
+          fetch-depth: 0
+      - name: Install PDF extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build inventory
+        shell: bash
+        run: |
+          output=.github/bigster-duster-towing-mass-inventory.txt
+          {
+            echo '=== BIGSTER PDF PAGE 20 ==='
+            pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf' -
+            echo
+            echo '=== DUSTER PDF PAGE 20 ==='
+            pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' -
+            echo
+            python tools/inventory_bigster_duster_towing_masses_20260726.py
+          } > "$output"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$output"
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist towing mass inventory'
+            git push origin HEAD:agent/bigster-duster-brochure-towing-mass-import
+          fi
