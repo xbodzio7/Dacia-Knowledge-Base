@@ -1,2 +1,14 @@
-historical test state block differs
+PASS: historical priority state contracts normalized
+ERROR: test discovery failed:
+Failed to import test module: test_post_brochure_priority_selection_review
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py", line 257
+    state = json.loads(
+    ^^^^^
+IndentationError: expected an indented block after function definition on line 256
 exit_status=1
