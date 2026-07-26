@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Data Products v1.8.0 Release Preparation**
+**Data Products v1.8.0 Publication**
 
 ## Reference delivery
 
-- Package: Post-Cross-Model Priority Selection Review
-- Pull Request: #283
-- Verified head: `529244171d2678ba984ce075327e004a1c00160a`
-- Quality run: #2000
+- Package: Data Products v1.8.0 Release Preparation
+- Pull Request: #284
+- Verified head: `c6d7fab8d20b7b66e38517084060e92c9d9f8a18`
+- Quality run: #2004
 
 ## Verified baseline
 
-- Tests: 1014
+- Tests: 1022
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.8.0 Release Preparation** — `complete`
+**Data Products v1.8.0 Publication** — `complete`
 
-Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics.
+Record the immutable data-products-v1.8.0 tag, exact source commit, three public assets and independent offline workspace audit after verified preflight and publication.
 
 ## Next package
 
-**Data Products v1.8.0 Preflight** — `planned`
+**Cross-Model Navigation Usability Review** — `planned`
 
-Build the v1.8.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify all release and offline workspace contracts, and record final sizes and SHA-256 values without creating a tag or release.
+Review consumer discoverability and navigation of the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package.
 
 ## Autonomy
 
