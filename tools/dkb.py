@@ -34,6 +34,11 @@ SCRIPT_COMMANDS = {
         "[--json FILE] [--markdown FILE] [--csv FILE] "
         "[--html FILE]",
     ),
+    "cross-model-comparison-view": (
+        "cross_model_comparison_view.py",
+        "Generate scope-preserving model and reporting-scope navigation.",
+        "[--json FILE] [--html FILE]",
+    ),
     "data-product-release": (
         "data_product_release.py",
         "Build or verify deterministic versioned data-product release assets.",
@@ -246,6 +251,10 @@ def usage() -> None:
     print(
         "  python tools/dkb.py configuration-shortlist --transmission automatic "
         "--max-price 100000 --html ../configuration-shortlist.html"
+    )
+    print(
+        "  python tools/dkb.py cross-model-comparison-view "
+        "--json cross-model-view.json --html cross-model-view.html"
     )
     print(
         "  python tools/dkb.py data-product-release --version 1.0.0 "
