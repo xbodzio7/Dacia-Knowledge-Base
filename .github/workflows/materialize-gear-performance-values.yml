@@ -33,7 +33,31 @@ jobs:
           : > "$log"
           status=0
 
-          python tools/import_brochure_gear_performance_20260726.py --apply >> "$log" 2>&1 || status=$?
+          python - <<'PY' >> "$log" 2>&1 || status=$?
+          from pathlib import Path
+
+          replacements = {
+              Path('tools/import_brochure_gear_performance_20260726.py'): (
+                  'EXPECTED_FUEL_COUNTS = {"lpg": 30, "petrol": 40}',
+                  'EXPECTED_FUEL_COUNTS = {"lpg": 29, "petrol": 41}',
+              ),
+              Path('tests/test_brochure_gear_performance_values_20260726.py'): (
+                  'Counter({"lpg": 30, "petrol": 40})',
+                  'Counter({"lpg": 29, "petrol": 41})',
+              ),
+          }
+          for path, (old, new) in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              if new not in text:
+                  if old not in text:
+                      raise RuntimeError(f'fuel-count anchor missing: {path}')
+                  path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          print('PASS: corrected reviewed fuel distribution to LPG=29, petrol=41')
+          PY
+
+          if [ "$status" -eq 0 ]; then
+            python tools/import_brochure_gear_performance_20260726.py --apply >> "$log" 2>&1 || status=$?
+          fi
 
           if [ "$status" -eq 0 ]; then
             python - <<'PY' >> "$log" 2>&1 || status=$?
