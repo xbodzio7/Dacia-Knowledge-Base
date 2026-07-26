@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Classified the remaining technical evidence in all five archived official brochures into 29 reviewed groups: current or newer coverage, exact scalar/range candidates, ambiguous or blank evidence, unmodeled configurations and fields requiring explicit chassis/mass context modeling.
 * Closed the selected-gear brochure performance milestone after verifying 70 exact observations across three sources, 31 configurations, six gear/fuel contexts, eight reporting surfaces and six explicit non-import boundaries.
 * Imported 70 exact `elasticity_80_120` observations from the official Sandero, Sandero Stepway and Jogger brochures across 31 configurations, preserving selected gear, fuel and five-/seven-seat context without filling unstated Stepway automatic gears.
 * Imported 68 context-aware `boot_capacity` observations from the official 2025-12-10 Bigster brochure across 11 exact 4x2 configurations, preserving repair-kit, optional spare-wheel, seat-state and measurement-basis context.
@@ -271,7 +272,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 834 tests.
+* The automated test suite now contains 842 tests.
 * The verified master-data baseline now contains 46 CSV files and 8852 rows.
 * SQLite verification now covers 46 tables and 8852 rows.
 * Configuration attribute values now contain 2188 dated records.

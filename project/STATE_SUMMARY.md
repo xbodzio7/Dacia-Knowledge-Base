@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Gear-Specific Performance Import Closure Review**
+**Official Brochure Technical Gap Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 834
+- Tests: 842
 - Master CSV files: 46
 - Master rows: 8852
 - Configuration values: 2188
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Gear-Specific Performance Import Closure Review** — `complete`
+**Official Brochure Technical Gap Review** — `complete`
 
-Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package.
+Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling.
 
 ## Next package
 
-**Official Brochure Technical Gap Review** — `planned`
+**Sandero Eco-G 120 Automatic Brochure Technical Import** — `planned`
 
-Classify the remaining non-cargo and non-selected-gear technical evidence in the archived official brochures, separating exact reusable observations from duplicates, ambiguous tables and evidence requiring additional context modeling.
+Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields.
 
 ## Autonomy
 
