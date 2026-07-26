@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Cross-Model Comparison View Foundation**
+**Cross-Model Comparison View Closure Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Comparison View Review
-- Pull Request: #280
-- Verified head: `607fbe45415fa1035570cccd1f564d2f8f87f82b`
-- Quality run: #1970
+- Package: Cross-Model Comparison View Foundation
+- Pull Request: #281
+- Verified head: `d9b38fbafe7d13285af2c21a58389f452389d00f`
+- Quality run: #1992
 
 ## Verified baseline
 
-- Tests: 990
+- Tests: 998
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Comparison View Foundation** — `complete`
+**Cross-Model Comparison View Closure Review** — `complete`
 
-Add deterministic JSON and standalone HTML navigation over five model families and nineteen existing scopes, integrate both products into the release and offline workspace, and preserve all comparison and non-inference boundaries.
+Verify the generator, unified CLI, 85-member release archive, offline local targets, existing-scope links, explicit unknown handling and non-inference boundaries without changing master data.
 
 ## Next package
 
-**Cross-Model Comparison View Closure Review** — `planned`
+**Post-Cross-Model Priority Selection Review** — `planned`
 
-Verify the generator, unified CLI, release archive, offline workspace, existing-scope links, unknown handling and non-inference boundaries without changing master data.
+Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package.
 
 ## Autonomy
 
