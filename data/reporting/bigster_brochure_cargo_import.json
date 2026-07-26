@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_cargo_import",
+  "implemented_on": "2026-07-26",
+  "observation_date": "2025-12-10",
+  "source_page": 20,
+  "source_code": "src_pl_bigster_brochure_20251210",
+  "model": "bigster",
+  "configurations": 11,
+  "configuration_values_imported": 68,
+  "cargo_context_rows_imported": 68,
+  "source_configuration_relationships": 11,
+  "groups": {
+    "mild_hybrid_g_140": {
+      "configurations": 4,
+      "values": [
+        609,
+        1877,
+        660,
+        1960
+      ],
+      "spare_wheel": "explicitly unavailable"
+    },
+    "mild_hybrid_140": {
+      "configurations": 4,
+      "repair_kit_values": [
+        667,
+        1937,
+        702,
+        2002
+      ],
+      "spare_wheel_values": [
+        624,
+        1894,
+        681,
+        1981
+      ],
+      "spare_wheel_scope": "Expression, Journey and Extreme only"
+    },
+    "hybrid_155": {
+      "configurations": 3,
+      "repair_kit_values": [
+        546,
+        1851,
+        612,
+        1912
+      ],
+      "spare_wheel_values": [
+        488,
+        1791,
+        566,
+        1866
+      ]
+    }
+  },
+  "deferred": {
+    "hybrid_g_150_4x4_values": [
+      444,
+      1712,
+      556,
+      1856
+    ],
+    "hybrid_g_150_4x4_reason": "The technical table says no repair kit / spare wheel, while the same brochure equipment table marks the repair kit as standard.",
+    "generic_dimensions_values": [
+      667,
+      702,
+      1937,
+      2002
+    ],
+    "generic_dimensions_reason": "The dimensions page states no double floor and no spare wheel but does not identify a powertrain, so it is not projected by numerical matching."
+  },
+  "next_package": "Duster Brochure Cargo Value Import"
+}

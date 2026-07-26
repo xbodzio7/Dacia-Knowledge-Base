@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Brochure Cargo Value Import**
+**Bigster Brochure Cargo Value Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 795
+- Tests: 799
 - Master CSV files: 46
-- Master rows: 8497
-- Configuration values: 1986
+- Master rows: 8644
+- Configuration values: 2054
 - Configuration import specifications: 114
 - Configuration value ranges: 176
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Brochure Cargo Value Import** — `complete`
+**Bigster Brochure Cargo Value Import** — `complete`
 
-Import 110 source-backed Jogger boot_capacity observations across exact five- and seven-seat layouts while preserving second-row, third-row and measurement-basis context and deferring the ambiguous seven-seat maximum.
+Import 68 source-backed Bigster boot_capacity observations across exact 4x2 powertrains while preserving measurement, rear-bench, repair-kit and spare-wheel context and deferring contradictory 4x4 evidence.
 
 ## Next package
 
-**Bigster Brochure Cargo Value Import** — `planned`
+**Duster Brochure Cargo Value Import** — `planned`
 
-Import source-backed Bigster cargo observations with exact measurement basis, rear-bench state, repair-kit or spare-wheel and double-floor context.
+Import source-backed Duster cargo observations only where drive type, powertrain, seat state and repair-kit or spare-wheel context map exactly to modeled configurations.
 
 ## Autonomy
 
