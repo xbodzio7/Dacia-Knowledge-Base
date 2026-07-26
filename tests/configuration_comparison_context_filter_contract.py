@@ -294,7 +294,21 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             "market=PL;currency_code=PLN",
         }
         self.assertTrue(legacy_contexts <= set(contexts))
-        cargo_contexts = set(contexts) - legacy_contexts
+        gear_contexts = {
+            context for context in contexts if "gear_number=" in context
+        }
+        self.assertEqual(
+            gear_contexts,
+            {
+                "fuel_type_code=lpg;gear_number=4",
+                "fuel_type_code=lpg;gear_number=5",
+                "fuel_type_code=lpg;gear_number=6",
+                "fuel_type_code=petrol;gear_number=4",
+                "fuel_type_code=petrol;gear_number=5",
+                "fuel_type_code=petrol;gear_number=6",
+            },
+        )
+        cargo_contexts = set(contexts) - legacy_contexts - gear_contexts
         self.assertEqual(len(cargo_contexts), 5)
         self.assertTrue(
             all(
@@ -309,7 +323,7 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             context_filter.render_difference_csv(report),
             core.render_difference_csv(report),
         )
-        self.assertEqual(len(core.difference_csv_rows(report)), 305)
+        self.assertEqual(len(core.difference_csv_rows(report)), 349)
 
         expected_counts = {
             "": 24,
