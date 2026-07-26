@@ -55,9 +55,8 @@ def regenerate_gap_plan() -> None:
     evidence_path = ROOT / gap_plan.DEFAULT_EVIDENCE_SPEC
     plan_path = ROOT / gap_plan.DEFAULT_PLAN_SPEC
     evidence = gap_plan.read_json(evidence_path, "evidence specification")
-    model = gap_plan.load_repository_context(ROOT)
-    expected = gap_plan.build_expected_plan_spec(evidence, model)
-    plan_path.write_text(json.dumps(expected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    expected = gap_plan.build_expected_plan_spec(ROOT, evidence)
+    plan_path.write_text(gap_plan.render_json(expected), encoding="utf-8")
 
 
 def scope_diagnostic(spec_name: str, evidence_name: str, as_of: str) -> dict[str, object]:
