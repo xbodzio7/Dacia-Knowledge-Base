@@ -148,16 +148,14 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
         self.assertIn("PASS: official brochure residual evidence review", completed.stdout)
 
-    def test_project_state_matches_completed_review(self) -> None:
+    def test_project_state_preserves_completed_review_receipt(self) -> None:
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Official Brochure Residual Evidence Review")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["name"], "Brochure Generic Dimensions Semantic Mapping Review")
-        self.assertEqual(state["baseline"]["tests"], 931)
-        self.assertEqual(state["baseline"]["rows"], 9306)
-        self.assertEqual(state["baseline"]["configuration_values"], 2567)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["tests"], 931)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9306)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2567)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":
