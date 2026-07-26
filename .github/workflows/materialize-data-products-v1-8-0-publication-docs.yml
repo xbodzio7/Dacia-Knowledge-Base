@@ -1,0 +1,90 @@
+name: Materialize Data Products v1.8.0 Publication Docs
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/materialize-data-products-v1-8-0-publication-docs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out publication-record branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-0-publication-record
+          fetch-depth: 0
+      - name: Update public release documentation
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          old = """Najnowsze zweryfikowane publiczne wydanie `data-products-v1.7.0` można pobrać, sprawdzić
+          oraz bezpiecznie rozpakować jedną komendą:
+
+          ```bash
+          python tools/dkb.py data-product-release-download \\
+            --version 1.7.0 \\
+            --output-directory ../dkb-data-products-v1.7.0
+          ```
+          """
+          new = """Najnowsze zweryfikowane publiczne wydanie `data-products-v1.8.0` można pobrać, sprawdzić
+          oraz bezpiecznie rozpakować jedną komendą:
+
+          ```bash
+          python tools/dkb.py data-product-release-download \\
+            --version 1.8.0 \\
+            --output-directory ../dkb-data-products-v1.8.0
+          ```
+          """
+          if old not in text:
+              raise SystemExit("README release-download block differs")
+          text = text.replace(old, new, 1)
+          text = text.replace(
+              "otwarcia: interaktywną shortlistę HTML, skoroszyt XLSX porównań, manifest\n"
+              "pakietu i notatki wydania.",
+              "otwarcia: interaktywną shortlistę HTML, przekrojową nawigację pięciu rodzin\n"
+              "modeli, skoroszyt XLSX porównań, manifest pakietu i notatki wydania.",
+              1,
+          )
+          text = text.replace(
+              "--workspace-directory ../dkb-data-products-v1.7.0",
+              "--workspace-directory ../dkb-data-products-v1.8.0",
+              1,
+          )
+          readme.write_text(text, encoding="utf-8")
+
+          changelog = Path("CHANGELOG.md")
+          text = changelog.read_text(encoding="utf-8")
+          anchor = "* Published and independently re-verified minor release `data-products-v1.7.0` from exact main commit `99e0e19b86cad6eae619f37702464e6a5a761cd8`, covering 72 active configurations, 19 independent scopes, 114 within-scope pairs, 1,695 differences and 83 deterministic archive members with verified public browser and offline workspace payloads.\n"
+          entry = "* Published and independently re-verified minor release `data-products-v1.8.0` from exact main commit `becd218228e3f4f0cdd312b0ed836ade487422b1`, adding deterministic scope-preserving cross-model JSON and static HTML navigation while retaining 72 configurations, 19 scopes, 114 within-scope pairs and 1,695 differences in an 85-member archive with a verified public offline workspace.\n"
+          if entry not in text:
+              if anchor not in text:
+                  raise SystemExit("CHANGELOG v1.7.0 anchor differs")
+              text = text.replace(anchor, anchor + entry, 1)
+          changelog.write_text(text, encoding="utf-8")
+
+          roadmap = Path("project/ROADMAP.md")
+          text = roadmap.read_text(encoding="utf-8")
+          anchor = "- publiczne wydanie `data-products-v1.7.0` z 72 konfiguracjami, 19 niezależnymi zakresami, 83-elementowym archiwum, dokładnym powiązaniem tagu z zielonym commitem oraz niezależnym audytem assetów, offline workspace i opublikowanego HTML,\n"
+          entry = "- publiczne wydanie `data-products-v1.8.0` z 85-elementowym archiwum, przekrojową nawigacją pięciu rodzin modeli, 19 zachowanymi zakresami, dokładnym powiązaniem tagu z zielonym commitem oraz niezależnym audytem trzech assetów i offline workspace,\n"
+          if entry not in text:
+              if anchor not in text:
+                  raise SystemExit("ROADMAP v1.7.0 anchor differs")
+              text = text.replace(anchor, anchor + entry, 1)
+          roadmap.write_text(text, encoding="utf-8")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md CHANGELOG.md project/ROADMAP.md
+          git commit -m 'docs(release): publish v1.8.0 consumer references'
+          git push origin HEAD:agent/data-products-v1-8-0-publication-record
