@@ -1,0 +1,323 @@
+name: Data Products v1.8.0 Preflight
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/data-products-v1-8-0-preflight.yml
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: becd218228e3f4f0cdd312b0ed836ade487422b1
+      VERSION: 1.8.0
+      TAG: data-products-v1.8.0
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out preflight branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-0-preflight
+          fetch-depth: 0
+      - name: Check out exact release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: becd218228e3f4f0cdd312b0ed836ade487422b1
+          path: source
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+      - name: Verify source and publication absence
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C source rev-parse HEAD)" = "$SOURCE_SHA"
+          if git -C source ls-remote --exit-code --tags origin "refs/tags/$TAG" >"$RUNNER_TEMP/tag.txt"; then
+            echo "Tag already exists: $TAG" >&2
+            exit 1
+          else
+            status=$?
+            test "$status" -eq 2
+          fi
+          if gh api "repos/xbodzio7/Dacia-Knowledge-Base/releases/tags/$TAG" >"$RUNNER_TEMP/release.json" 2>"$RUNNER_TEMP/release.err"; then
+            echo "Release already exists: $TAG" >&2
+            exit 1
+          fi
+          grep -q "HTTP 404" "$RUNNER_TEMP/release.err"
+      - name: Build twice and prove exact identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          first="$RUNNER_TEMP/v1.8.0-first"
+          second="$RUNNER_TEMP/v1.8.0-second"
+          python source/tools/dkb.py data-product-release \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$first"
+          python source/tools/dkb.py data-product-release \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$second"
+          python source/tools/dkb.py data-product-release \
+            --verify \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$first"
+          python source/tools/dkb.py data-product-release \
+            --verify \
+            --version "$VERSION" \
+            --commit-sha "$SOURCE_SHA" \
+            --output-directory "$second"
+          archive="dacia-knowledge-base-data-products-v1.8.0.zip"
+          cmp "$first/$archive" "$second/$archive"
+          cmp "$first/data-product-release-manifest.json" "$second/data-product-release-manifest.json"
+          cmp "$first/SHA256SUMS" "$second/SHA256SUMS"
+      - name: Verify candidate product and canonical workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          first="$RUNNER_TEMP/v1.8.0-first"
+          workspace="$RUNNER_TEMP/v1.8.0-workspace"
+          mkdir -p "$workspace/assets"
+          cp "$first"/* "$workspace/assets/"
+          SOURCE_ROOT="$GITHUB_WORKSPACE/source" WORKSPACE="$workspace" SOURCE_SHA="$SOURCE_SHA" PYTHONPATH="$GITHUB_WORKSPACE/source/tools" python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          import posixpath
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+          from zipfile import ZipFile
+
+          from reporting.data_product_release_download import _extract_verified_contents
+          from reporting.data_product_release_model import verify_release_assets
+          from reporting.data_product_workspace_index import write_workspace_index
+
+          workspace = Path(os.environ["WORKSPACE"])
+          source_sha = os.environ["SOURCE_SHA"]
+          assets = workspace / "assets"
+          manifest = verify_release_assets(assets)
+          assert manifest["release_version"] == "1.8.0"
+          assert manifest["release_tag"] == "data-products-v1.8.0"
+          assert manifest["repository_commit"] == source_sha
+          assert manifest["selected_configuration_count"] == 72
+          assert manifest["scope_group_count"] == 19
+          assert manifest["comparable_scope_count"] == 19
+          assert manifest["singleton_scope_count"] == 0
+          assert manifest["cross_scope_pairs_generated"] is False
+          assert manifest["ranking_generated"] is False
+          assert manifest["recommendations_generated"] is False
+          assert manifest["inferred_values_generated"] is False
+
+          archive_path = assets / "dacia-knowledge-base-data-products-v1.8.0.zip"
+          with ZipFile(archive_path) as archive:
+              names = archive.namelist()
+              name_set = set(names)
+              assert len(names) == 85
+              assert len(name_set) == 85
+              view_name = "cross-model/cross-model-comparison-view.json"
+              html_name = "cross-model/cross-model-comparison-view.html"
+              assert view_name in name_set
+              assert html_name in name_set
+              view = json.loads(archive.read(view_name).decode("utf-8"))
+              html = archive.read(html_name).decode("utf-8")
+              bundle = json.loads(
+                  archive.read(
+                      "comparison-bundle/comparison-bundle-manifest.json"
+                  ).decode("utf-8")
+              )
+          summary = view["summary"]
+          assert summary["model_family_count"] == 5
+          assert summary["reporting_scope_count"] == 19
+          assert summary["active_configuration_count"] == 72
+          assert summary["within_scope_pair_count"] == 114
+          assert summary["cross_scope_pairs_generated"] is False
+          assert summary["ranking_generated"] is False
+          assert summary["recommendations_generated"] is False
+          assert summary["inferred_values_generated"] is False
+          assert "<script" not in html.lower()
+          assert "<img" not in html.lower()
+          assert "nie podano" in html
+          models = {item["model_code"]: item for item in view["models"]}
+          for code in ("bigster", "duster_iii"):
+              assert models[code]["seat_summary_state"] == "not_stated"
+              assert models[code]["recorded_seat_values"] == []
+          groups = bundle["groups"]
+          assert len(groups) == 19
+          assert sum(item["pair_count"] for item in groups) == 114
+          assert sum(item["total_differences"] for item in groups) == 1695
+
+          def target(source: str, href: str) -> str:
+              value = posixpath.normpath(
+                  posixpath.join(posixpath.dirname(source), href)
+              )
+              assert value != ".." and not value.startswith("../")
+              return value
+
+          comparison_paths = [
+              value
+              for scope in view["scopes"]
+              for value in scope["comparison_paths"].values()
+          ]
+          assert len(comparison_paths) == 76
+          navigation_paths = [
+              view["navigation"]["shortlist_html"],
+              view["navigation"]["comparison_bundle_manifest"],
+          ]
+          for href in comparison_paths + navigation_paths:
+              assert target(view_name, href) in name_set
+
+          class Links(HTMLParser):
+              def __init__(self) -> None:
+                  super().__init__()
+                  self.hrefs: list[str] = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == "a":
+                      value = dict(attrs).get("href")
+                      if value:
+                          self.hrefs.append(value)
+
+          parser = Links()
+          parser.feed(html)
+          local_hrefs = [
+              href
+              for href in parser.hrefs
+              if not href.startswith("#")
+              and not urlsplit(href).scheme
+              and not urlsplit(href).netloc
+          ]
+          assert len(local_hrefs) == 57
+          for href in local_hrefs:
+              assert target(html_name, href) in name_set
+
+          _extract_verified_contents(assets, workspace / "contents", manifest)
+          metadata = {
+              "release_version": "1.8.0",
+              "release_tag": "data-products-v1.8.0",
+              "repository_commit": source_sha,
+              "release_url": (
+                  "https://github.com/xbodzio7/Dacia-Knowledge-Base/"
+                  "releases/tag/data-products-v1.8.0"
+              ),
+          }
+          write_workspace_index(workspace, manifest, metadata)
+          PY
+          python source/tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "$workspace" --json \
+            > "$RUNNER_TEMP/v1.8.0-workspace-verification.json"
+      - name: Verify public v1.7.0 control download
+        shell: bash
+        run: |
+          set -euo pipefail
+          control="$RUNNER_TEMP/v1.7.0-control"
+          python source/tools/dkb.py data-product-release-download \
+            --version 1.7.0 \
+            --output-directory "$control"
+          python source/tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "$control" --json \
+            > "$RUNNER_TEMP/v1.7.0-control-verification.json"
+      - name: Record exact preflight identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          FIRST="$RUNNER_TEMP/v1.8.0-first" SOURCE_SHA="$SOURCE_SHA" python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          root = Path(os.environ["FIRST"])
+          source_sha = os.environ["SOURCE_SHA"]
+          archive = root / "dacia-knowledge-base-data-products-v1.8.0.zip"
+          manifest_path = root / "data-product-release-manifest.json"
+          checksums = root / "SHA256SUMS"
+
+          def record(path: Path) -> dict[str, object]:
+              return {
+                  "name": path.name,
+                  "size_bytes": path.stat().st_size,
+                  "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+              }
+
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          with ZipFile(archive) as bundle:
+              names = bundle.namelist()
+              comparison = json.loads(
+                  bundle.read(
+                      "comparison-bundle/comparison-bundle-manifest.json"
+                  ).decode("utf-8")
+              )
+              cross_model = json.loads(
+                  bundle.read(
+                      "cross-model/cross-model-comparison-view.json"
+                  ).decode("utf-8")
+              )
+          payload = {
+              "version": 1,
+              "kind": "data_products_v1_8_0_preflight",
+              "status": "PASS",
+              "source_commit": source_sha,
+              "release_version": "1.8.0",
+              "release_tag": "data-products-v1.8.0",
+              "workflow_run": int(os.environ["GITHUB_RUN_ID"]),
+              "tag_absent": True,
+              "release_absent": True,
+              "publication_performed": False,
+              "build_count": 2,
+              "byte_identical_rebuilds": True,
+              "release_verification": "PASS",
+              "offline_workspace_verification": "PASS",
+              "public_v1_7_0_control_verification": "PASS",
+              "selected_configuration_count": manifest["selected_configuration_count"],
+              "scope_group_count": manifest["scope_group_count"],
+              "within_scope_pair_count": sum(
+                  item["pair_count"] for item in comparison["groups"]
+              ),
+              "recorded_difference_count": sum(
+                  item["total_differences"] for item in comparison["groups"]
+              ),
+              "archive_member_count": len(names),
+              "cross_model": {
+                  "model_family_count": cross_model["summary"]["model_family_count"],
+                  "reporting_scope_count": cross_model["summary"]["reporting_scope_count"],
+                  "active_configuration_count": cross_model["summary"]["active_configuration_count"],
+                  "within_scope_pair_count": cross_model["summary"]["within_scope_pair_count"],
+                  "comparison_path_count": sum(
+                      len(scope["comparison_paths"])
+                      for scope in cross_model["scopes"]
+                  ),
+                  "navigation_path_count": 2,
+                  "html_local_file_link_count": 57,
+              },
+              "assets": {
+                  "archive": record(archive),
+                  "manifest": record(manifest_path),
+                  "checksums": record(checksums),
+              },
+          }
+          output = Path(".github/data-products-v1.8.0-preflight.json")
+          output.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(payload, ensure_ascii=False, indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/data-products-v1.8.0-preflight.json
+          git commit -m 'ci(release): record v1.8.0 preflight identity'
+          git push origin HEAD:agent/data-products-v1-8-0-preflight
