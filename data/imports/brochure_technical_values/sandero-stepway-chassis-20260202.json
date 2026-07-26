@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_chassis_observations",
+  "reviewed_on": "2026-07-26",
+  "observation_date": "2026-02-02",
+  "source_page": 17,
+  "source_section": "ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI",
+  "value_id_start": 2291,
+  "groups": [
+    {
+      "code": "sandero_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "configurations": [
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual"
+      ],
+      "observations": [
+        {
+          "attribute_code": "turning_circle_between_kerbs",
+          "value": "10.64",
+          "source_text": "Średnica zawracania między krawężnikami: 10,64"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1209",
+          "source_text": "Maksymalna masa własna 120 Eco-G: 1209 kg"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "185/65 R15 88H - 195/55 R16 87H",
+          "source_text": "Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+        },
+        {
+          "attribute_code": "front_suspension",
+          "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        },
+        {
+          "attribute_code": "rear_suspension",
+          "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        }
+      ]
+    },
+    {
+      "code": "sandero_ecog120_automatic",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "configurations": [
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_journey_ecog120_automatic"
+      ],
+      "observations": [
+        {
+          "attribute_code": "turning_circle_between_kerbs",
+          "value": "10.64",
+          "source_text": "Średnica zawracania między krawężnikami: 10,64"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1232",
+          "source_text": "Maksymalna masa własna 120 Eco-G auto: 1232 kg"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "185/65 R15 88H - 195/55 R16 87H",
+          "source_text": "Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+        },
+        {
+          "attribute_code": "front_suspension",
+          "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        },
+        {
+          "attribute_code": "rear_suspension",
+          "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        }
+      ]
+    },
+    {
+      "code": "stepway_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "configurations": [
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "observations": [
+        {
+          "attribute_code": "turning_circle_between_kerbs",
+          "value": "10.64",
+          "source_text": "Układ kierowniczy – średnica zawracania między krawężnikami: 10,64 m"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1225",
+          "source_text": "Maksymalna masa pojazdu gotowego do jazdy 120 Eco-G: 1225 kg"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "205/60 R16 92H",
+          "source_text": "Wymiary opon: 205/60 R16 92H"
+        },
+        {
+          "attribute_code": "front_suspension",
+          "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Przednie zawieszenie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        },
+        {
+          "attribute_code": "rear_suspension",
+          "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        }
+      ]
+    },
+    {
+      "code": "stepway_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "configurations": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "observations": [
+        {
+          "attribute_code": "turning_circle_between_kerbs",
+          "value": "10.64",
+          "source_text": "Układ kierowniczy – średnica zawracania między krawężnikami: 10,64 m"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1249",
+          "source_text": "Maksymalna masa pojazdu gotowego do jazdy 120 Eco-G auto: 1249 kg"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "205/60 R16 92H",
+          "source_text": "Wymiary opon: 205/60 R16 92H"
+        },
+        {
+          "attribute_code": "front_suspension",
+          "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Przednie zawieszenie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        },
+        {
+          "attribute_code": "rear_suspension",
+          "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+          "source_text": "Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+        }
+      ]
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "code": "unmodeled_tce_columns",
+      "reason": "The Sandero TCe 100 and Stepway TCe 110 columns have no exact active configuration in master data."
+    },
+    {
+      "code": "legacy_turning_circle_not_rewritten",
+      "reason": "Existing later context-free turning_circle observations remain unchanged; basis-qualified brochure evidence uses turning_circle_between_kerbs."
+    },
+    {
+      "code": "later_configuration_values_remain_current",
+      "reason": "Later exact configuration-PDF tyre observations dated 2026-06-26 remain the reporting winners where present."
+    },
+    {
+      "code": "unrelated_technical_rows_excluded",
+      "reason": "Powertrain, WLTP, cargo and generic dimension rows are outside this chassis package."
+    }
+  ]
+}
