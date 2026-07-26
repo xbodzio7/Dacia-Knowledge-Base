@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Brochure Cargo Value Import**
+**Brochure Cargo Import Closure Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 803
+- Tests: 808
 - Master CSV files: 46
 - Master rows: 8782
 - Configuration values: 2118
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Brochure Cargo Value Import** — `complete`
+**Brochure Cargo Import Closure Review** — `complete`
 
-Import 64 source-backed Duster boot_capacity observations for exact Eco-G 120 manual, mild hybrid 140 4x2 manual and hybrid 155 4x2 automatic configurations while preserving measurement, seat and repair-kit or spare-wheel context.
+Verify the complete 287-observation brochure cargo corpus, cross-model context preservation and all explicit non-import boundaries, then close the cargo-import milestone without inferred values.
 
 ## Next package
 
-**Brochure Cargo Import Closure Review** — `planned`
+**Brochure Gear-Specific Performance Context Modeling** — `planned`
 
-Review all completed brochure cargo imports and explicit deferrals, verify cross-model reporting behavior and close the cargo-import milestone without projecting unresolved evidence.
+Define the smallest reusable representation for brochure performance observations qualified by gear number, fuel and passenger layout without importing elasticity values.
 
 ## Autonomy
 
