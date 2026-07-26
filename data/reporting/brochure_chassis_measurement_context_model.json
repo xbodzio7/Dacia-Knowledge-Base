@@ -112,7 +112,7 @@
   "source_resolutions": [
     {
       "classification_code": "bigster_chassis_measurement_modeling",
-      "status": "model_defined_import_pending",
+      "status": "imported",
       "turning_attribute": "turning_circle_between_kerbs",
       "mass_attribute": "maximum_kerb_weight",
       "text_attributes": [
@@ -120,7 +120,9 @@
         "front_brake_type",
         "rear_brake_type",
         "standard_tyre_specification"
-      ]
+      ],
+      "import_package": "Bigster Chassis Observation Import",
+      "imported_on": "2026-07-26"
     },
     {
       "classification_code": "jogger_chassis_candidate_and_modeling",
@@ -179,7 +181,7 @@
     "maximum_payload": "Retained for explicitly maximum-qualified scalar observations."
   },
   "next_package": {
-    "name": "Bigster Chassis Observation Import",
-    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for the active Bigster configurations under D-016."
+    "name": "Duster Chassis Observation Import",
+    "goal": "Import wheel-track turning diameter, maximum kerb weight, payload ranges and source-text steering, brake and tyre observations for the active Duster configurations under D-016."
   }
 }

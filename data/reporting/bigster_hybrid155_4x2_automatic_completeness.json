@@ -66,6 +66,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "front_brake_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "front_overhang",
       "fuel_type_code": ""
     },
@@ -126,6 +130,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "maximum_kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "maximum_payload",
       "fuel_type_code": ""
     },
@@ -154,6 +162,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "rear_brake_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "rear_overhang",
       "fuel_type_code": ""
     },
@@ -162,11 +174,19 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "standard_tyre_specification",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "standing_km",
       "fuel_type_code": ""
     },
     {
       "attribute_code": "starter_generator_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "steering_type",
       "fuel_type_code": ""
     },
     {
@@ -183,6 +203,10 @@
     },
     {
       "attribute_code": "traction_motor_torque",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle_between_kerbs",
       "fuel_type_code": ""
     },
     {
