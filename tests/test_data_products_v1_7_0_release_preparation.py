@@ -13,6 +13,10 @@ MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "data_products_v1_7_0_release_preparation.json"
 VERIFIER = ROOT / "tools" / "review_data_products_v1_7_0_release_preparation_20260726.py"
 STATE = ROOT / "project" / "state.json"
+TARGET_RELEASE = ROOT / "project" / "releases" / "data-products-v1.7.0.md"
+TARGET_AUDIT = (
+    ROOT / "project" / "releases" / "data-products-v1.7.0-publication-audit.json"
+)
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -130,7 +134,16 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             self.report["next_package"]["name"],
             "Data Products v1.7.0 Preflight",
         )
-        self.assertFalse((ROOT / "project/releases/data-products-v1.7.0.md").exists())
+        self.assertEqual(TARGET_RELEASE.is_file(), TARGET_AUDIT.is_file())
+        if TARGET_AUDIT.is_file():
+            audit = json.loads(TARGET_AUDIT.read_text(encoding="utf-8"))
+            self.assertEqual(audit["release_id"], 360090447)
+            self.assertEqual(audit["tag"], "data-products-v1.7.0")
+            self.assertEqual(
+                audit["target_commit_sha"],
+                "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+            )
+            self.assertEqual(audit["verification"], "PASS")
 
     def test_preparation_verifier_reproduces_repository_contract(self) -> None:
         completed = subprocess.run(
@@ -150,18 +163,29 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             completed.stdout,
         )
 
-    def test_project_state_advances_to_post_merge_preflight(self) -> None:
+    def test_project_state_advances_after_release_preparation(self) -> None:
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Data Products v1.7.0 Release Preparation")
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Data Products v1.7.0 Release Preparation",
-        )
+        if TARGET_RELEASE.is_file():
+            self.assertEqual(state["phase"], "Data Products v1.7.0 Publication")
+            self.assertEqual(
+                state["current_package"]["name"],
+                "Data Products v1.7.0 Publication",
+            )
+            self.assertEqual(
+                state["next_package"]["name"],
+                "Cross-Model Comparison View Review",
+            )
+        else:
+            self.assertEqual(state["phase"], "Data Products v1.7.0 Release Preparation")
+            self.assertEqual(
+                state["current_package"]["name"],
+                "Data Products v1.7.0 Release Preparation",
+            )
+            self.assertEqual(
+                state["next_package"]["name"],
+                "Data Products v1.7.0 Preflight",
+            )
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Data Products v1.7.0 Preflight",
-        )
         self.assertEqual(state["next_package"]["status"], "planned")
         self.assertEqual(state["baseline"]["tests"], 971)
         self.assertEqual(state["baseline"]["rows"], 9688)

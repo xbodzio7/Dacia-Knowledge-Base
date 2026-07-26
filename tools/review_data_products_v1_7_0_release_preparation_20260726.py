@@ -19,6 +19,12 @@ SELECTION = REPORTING / "post_brochure_priority_selection_review.json"
 STATE = ROOT / "project" / "state.json"
 PREVIOUS_RELEASE = ROOT / "project" / "releases" / "data-products-v1.6.1.md"
 TARGET_RELEASE = ROOT / "project" / "releases" / "data-products-v1.7.0.md"
+TARGET_AUDIT = (
+    ROOT
+    / "project"
+    / "releases"
+    / "data-products-v1.7.0-publication-audit.json"
+)
 
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -204,20 +210,49 @@ def verify_repository(payload: Mapping[str, Any]) -> None:
     )
     ensure(all(path.is_file() for path in required_tools), "release tooling is incomplete")
     ensure(PREVIOUS_RELEASE.is_file(), "previous public release record is missing")
-    ensure(not TARGET_RELEASE.exists(), "v1.7.0 publication record exists during preparation")
+
+    publication_recorded = TARGET_RELEASE.is_file() or TARGET_AUDIT.is_file()
+    ensure(
+        TARGET_RELEASE.is_file() == TARGET_AUDIT.is_file(),
+        "v1.7.0 publication records are incomplete",
+    )
+    if publication_recorded:
+        audit = load_json(TARGET_AUDIT)
+        ensure(audit.get("release_id") == 360090447, "v1.7.0 release ID differs")
+        ensure(audit.get("tag") == "data-products-v1.7.0", "v1.7.0 release tag differs")
+        ensure(
+            audit.get("target_commit_sha")
+            == "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+            "v1.7.0 target commit differs",
+        )
+        ensure(audit.get("verification") == "PASS", "v1.7.0 audit did not pass")
 
     state = load_json(STATE)
-    ensure(state.get("phase") == "Data Products v1.7.0 Release Preparation", "project phase differs")
-    ensure(
-        state.get("current_package", {}).get("name")
-        == "Data Products v1.7.0 Release Preparation",
-        "current package differs",
-    )
+    if publication_recorded:
+        ensure(state.get("phase") == "Data Products v1.7.0 Publication", "project phase differs")
+        ensure(
+            state.get("current_package", {}).get("name")
+            == "Data Products v1.7.0 Publication",
+            "current package differs",
+        )
+        ensure(
+            state.get("next_package", {}).get("name")
+            == "Cross-Model Comparison View Review",
+            "state next package differs",
+        )
+    else:
+        ensure(state.get("phase") == "Data Products v1.7.0 Release Preparation", "project phase differs")
+        ensure(
+            state.get("current_package", {}).get("name")
+            == "Data Products v1.7.0 Release Preparation",
+            "current package differs",
+        )
+        ensure(
+            state.get("next_package", {}).get("name")
+            == "Data Products v1.7.0 Preflight",
+            "state next package differs",
+        )
     ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
-    ensure(
-        state.get("next_package", {}).get("name") == "Data Products v1.7.0 Preflight",
-        "state next package differs",
-    )
     ensure(state.get("baseline", {}).get("rows") == 9688, "master row baseline changed")
     ensure(state.get("baseline", {}).get("configuration_values") == 2949, "configuration values changed")
     ensure(state.get("baseline", {}).get("configuration_value_ranges") == 244, "configuration ranges changed")
