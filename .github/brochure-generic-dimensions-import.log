@@ -1,7 +1,7 @@
 PASS: brochure generic dimension observations
 PASS: generic brochure dimension import integration materialized
 PASS: generic dimension import receipt verifiers updated
-PASS: residual verifier payload assigned
+PASS: residual verifier payload already assigned
 Synchronized project state and documentation:
   project/STATE_SUMMARY.md
   project/state.json
@@ -13,7 +13,7 @@ Current package: Brochure Generic Dimensions Observation Import
 Next package   : Brochure Generic Dimensions Import Closure Review
 Autonomy mode  : autonomous_until_action_required
 PASS: brochure generic dimension observations
-  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py", line 233
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py", line 235
     else:
     ^^^^
 SyntaxError: invalid syntax
