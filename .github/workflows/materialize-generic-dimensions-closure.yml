@@ -12,6 +12,7 @@ on:
       - .github/workflows/materialize-generic-dimensions-closure.yml
       - data/reporting/brochure_generic_dimensions_import_closure_review.json
       - tools/review_brochure_generic_dimensions_import_closure_20260726.py
+      - tools/repair_generic_dimensions_closure_state_tests_20260726.py
       - tests/test_brochure_generic_dimensions_import_closure_review.py
       - project/state.json
 
@@ -38,7 +39,10 @@ jobs:
           log=.github/generic-dimensions-closure.log
           : > "$log"
           status=0
-          python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          python tools/repair_generic_dimensions_closure_state_tests_20260726.py >> "$log" 2>&1 || status=$?
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
+          fi
           if [ "$status" -eq 0 ]; then
             python tools/review_brochure_generic_dimensions_import_closure_20260726.py --check >> "$log" 2>&1 || status=$?
           fi
