@@ -1,0 +1,48 @@
+name: Inventory Sandero Stepway Chassis
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .github/workflows/inventory-sandero-stepway-chassis.yml
+      - tools/inventory_sandero_stepway_chassis_20260726.py
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/sandero-stepway-chassis-observation-import
+          fetch-depth: 0
+      - name: Install PDF extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build inventory
+        shell: bash
+        run: |
+          output=.github/sandero-stepway-chassis-inventory.txt
+          {
+            echo '=== SANDERO PDF PAGE 17 ==='
+            pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' -
+            echo
+            echo '=== STEPWAY PDF PAGE 17 ==='
+            pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf' -
+            echo
+            python tools/inventory_sandero_stepway_chassis_20260726.py
+          } > "$output"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$output"
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(data): persist Sandero Stepway chassis inventory'
+            git push origin HEAD:agent/sandero-stepway-chassis-observation-import
+          fi
