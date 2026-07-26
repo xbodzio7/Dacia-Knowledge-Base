@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Equipment Filter Regression and Model Price Ordering",
+  "phase": "Data Products v1.8.1 Release Preparation",
   "reference_delivery": {
-    "name": "Data Products v1.8.0 Publication",
-    "pull_request": 288,
-    "head_sha": "dca8b9fadf0058060fa1a2be17520bc3eedf3fb7",
-    "quality_run": 2023
+    "name": "Equipment Filter Regression and Model Price Ordering",
+    "pull_request": 289,
+    "head_sha": "c425b3997c11132e7c325b843e9e13f44a5a9105",
+    "quality_run": 2040
   },
   "baseline": {
-    "tests": 1030,
+    "tests": 1038,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Equipment Filter Regression and Model Price Ordering",
+    "name": "Data Products v1.8.1 Release Preparation",
     "status": "complete",
-    "goal": "Restore usable equipment filtering and selection after portfolio expansion, preserve explicit missing and unknown evidence semantics, and order model choices from the lowest recorded current catalogue price to the highest."
+    "goal": "Prepare and verify an immutable patch-release candidate containing the restored equipment filtering and cheapest-to-most-expensive model ordering without changing source-backed data or rewriting older public releases."
   },
   "next_package": {
-    "name": "Data Products v1.8.1 Release Preparation",
+    "name": "Data Products v1.8.1 Preflight",
     "status": "planned",
-    "goal": "Prepare and verify a patch release containing the restored equipment filtering and cheapest-to-most-expensive model ordering, without changing source-backed data or rewriting older public releases."
+    "goal": "Build the v1.8.1 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the real Chromium equipment-filter behavior and all release contracts, and record final identities without publishing."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

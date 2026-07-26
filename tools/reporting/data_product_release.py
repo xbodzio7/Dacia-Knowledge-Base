@@ -167,30 +167,49 @@ def _release_notes(
 ) -> str:
     summary = shortlist["summary"]
     assert isinstance(summary, dict)
-    return "\n".join(
+    lines = [
+        f"# Dacia Knowledge Base Data Products v{version}",
+        "",
+        f"- Release tag: `{release_tag(version)}`",
+        f"- Repository commit: `{commit_sha}`",
+        f"- Snapshot date: `{shortlist['as_of']}`",
+        "- Selected configurations: "
+        f"{bundle['selected_configuration_count']}",
+        f"- Independent scopes: {bundle['scope_group_count']}",
+        f"- Comparable scopes: {bundle['comparable_scope_count']}",
+        f"- Singleton scopes: {bundle['singleton_scope_count']}",
+        "- Cross-scope pairs: none",
+        "- Formats: " + ", ".join(PRODUCT_FORMATS),
+        "",
+        "The archive contains the complete active-configuration shortlist, "
+        "one full-portfolio comparison bundle and a scope-preserving "
+        "cross-model navigation view. Existing source dates, evidence "
+        "states and independent reporting scopes are preserved.",
+        "",
+    ]
+    if version == "1.8.1":
+        lines.extend(
+            [
+                "Equipment filtering is restored for partially covered source data: "
+                "108 equipment choices remain visible in the current 72-configuration "
+                "catalog, and selecting the rear-view camera narrows the result to 66.",
+                "",
+                "Missing and unknown evidence remains excluded rather than inferred as "
+                "availability. Model choices are ordered by the minimum current "
+                "catalogue price, from Sandero through Bigster.",
+                "",
+                "The public v1.8.0 remains immutable; this correction is delivered only "
+                "as the new data-products-v1.8.1 patch release.",
+                "",
+            ]
+        )
+    lines.extend(
         [
-            f"# Dacia Knowledge Base Data Products v{version}",
-            "",
-            f"- Release tag: `{release_tag(version)}`",
-            f"- Repository commit: `{commit_sha}`",
-            f"- Snapshot date: `{shortlist['as_of']}`",
-            "- Selected configurations: "
-            f"{bundle['selected_configuration_count']}",
-            f"- Independent scopes: {bundle['scope_group_count']}",
-            f"- Comparable scopes: {bundle['comparable_scope_count']}",
-            f"- Singleton scopes: {bundle['singleton_scope_count']}",
-            "- Cross-scope pairs: none",
-            "- Formats: " + ", ".join(PRODUCT_FORMATS),
-            "",
-            "The archive contains the complete active-configuration shortlist, "
-            "one full-portfolio comparison bundle and a scope-preserving "
-            "cross-model navigation view. Existing source dates, evidence "
-            "states and independent reporting scopes are preserved.",
-            "",
             "No ranking, recommendations or inferred values are generated.",
             "",
         ]
     )
+    return "\n".join(lines)
 
 
 def _archive_record(path: Path, root: Path) -> dict[str, Any]:
