@@ -167,7 +167,7 @@ producentów, umożliwia porównywanie pojazdów między sobą. (4) Podana łado
        SKONFIGURUJ I ZAMÓW
                                                                                                                         MENU
 
-=== DUSTER PDF PAGE 20 ===
+=== DUSTER PDF PAGES 20-21 ===
 O6. SPECYFIKACJE TECHNICZNE
 
 
@@ -303,6 +303,144 @@ umożliwia porównanie różnych modeli. (5) Podana ładowność dotyczy pierwsz
 
         KLIKNIJ I KONFIGURUJ
                                                                                                                     MENU
+O6. SPECYFIKACJE TECHNICZNE
+
+
+
+
+                                           SILNIKI
+                                                                     hybrid-G 150 4 × 4*                    hybrid 155
+
+
+      SILNIKI
+                                                                  Benzyna / LPG / Elektryczny        Benzyna / Elektryczny full
+Źródło energii                                                         mild hybrid 48V                    hybrid 260 V
+
+Jazda w trybie w pełni elektrycznym                                           Tak                                 Tak
+
+Maks. moc kW EWG (KM) przy prędkości obrotowej       230 (silnik spal.) /
+                                                                                                            116 (155 KM)
+                                               87 (silnik el.) oddzielnie przy
+silnika (obr./min)                                                                                        przy 5300–5750**
+                                                         2100–3500
+
+Maks. moment obrotowy w Nm EWG (m·kg) przy                                    230                 172 (silnik spal.) / 205 (silnik el.)
+prędkości obrotowej silnika (obr./min)                                  przy 1900–4000                     przy 3000–4000
+
+Rodzaj wtrysku paliwa                                                     Bezpośredni                        Bezpośredni
+
+Pojemność skokowa (cm3)                                                       1199                               1789
+
+Liczba cylindrów / liczba zaworów                                   3 cylindry / 12 zaworów           4 cylindry / 16 zaworów
+
+Norma emisji spalin                                                        Euro 6E bis                        Euro 6E bis
+
+Filtr cząstek stałych(1)                                                      Tak                                 Tak
+
+Stop & Start(2)                                                               Tak                                 Tak
+
+      AKUMULATORY
+                                                                     Litowo-jonowy / 48 V /           Litowo-jonowy / 260 V /
+Akumulator trakcyjny                                                       0,84 kWh                          1,4 kWh
+
+      OSIĄGI
+Prędkość maksymalna (km/h)                                                    180                                 180
+
+0-100 km/h (s)                                                                10,4                                9,4
+
+      SKRZYNIA BIEGÓW I UKŁAD PRZENIESIENIA NAPĘDU
+                                                                 4 × 4 z silnikiem elektrycznym
+Układ przeniesienia napędu                                                     z tyłu
+                                                                                                                  4×2
+
+                                                                         Automatyczna                      Automatyczna
+Rodzaj skrzyni biegów / liczba biegów                                  dwusprzęgłowa / 6                  Multimode / 4+2
+
+      UKŁAD KIEROWNICZY
+                                                                   Elektryczne wspomaganie           Elektryczne wspomaganie
+Układ kierowniczy                                                    układu kierowniczego              układu kierowniczego
+
+Średnica zawracania wg śladu kół (m)                                         10,87                               10,96
+
+      UKŁAD HAMULCOWY
+                                                                    Tarczowe wentylowane              Tarczowe wentylowane
+Przód: tarcze wentylowane / średnica (mm)                                 Φ296x26                           Φ296x26
+
+                                                                  Tarczowe z automatycznym            Bębnowe 9" / Tarczowe
+Tył: hamulce bębnowe / średnica (cale)                              hamulcem postojowym            z automatycznym hamulcem
+                                                                          Φ280x9,6                    postojowym Φ280x9,6
+
+      KOŁA I OPONY
+                                                                         225/60/R17                          215/65/R17
+Opony montowane w standardzie                                            225/55/R18                          215/60/R18
+                                                                        wielosezonowe                          letnie
+
+      ZUŻYCIE PALIWA I EMISJA(3)
+Protokół badania                                                             WLTP(4)                            WLTP(4)
+
+Tryb Eco                                                                      Tak                                 Tak
+
+Pojemność zbiornika paliwa (l)                                       LPG: 50 / Benzyna: 50                         50
+
+                                                                 do określenia w zależności od
+Emisja CO2 (g/km)                                                            kraju
+                                                                                                               105/107
+
+                                                                 do określenia w zależności od
+Zużycie paliwa w cyklu mieszanym (l/100 km)                                  kraju
+                                                                                                                4,6/4,7
+
+
+      MASY (kg) I POJEMNOŚCI (dm3 lub litry)
+Maks. masa całkowita samochodu gotowego
+                                                                              1505                               1454
+do jazdy
+Dopuszczalna masa całkowita (DMC) zespołu
+                                                                              3465                               2655
+pojazdów
+Dopuszczalna masa całkowita (DMC) pojazdu                                     1965                               1905
+
+Maks./min. ładowność(5)                                                     460/481                            451/525
+
+Maks. masa całkowita przyczepy hamowanej                                      1500                                750
+
+Maks. masa przyczepy bez hamulca                                              750                                 725
+
+Min. pojemność bagażnika pod osłoną, z zestawem
+                                                                              348                              430 / 349
+naprawczym / kołem zapasowym(6) (dm3 VDA)
+Maks. pojemność bagażnika po złożeniu tylnej
+kanapy, z zestawem naprawczym / kołem                                         1414                           1545 / 1415
+zapasowym(6) (dm3 VDA)
+Maks. pojemność bagażnika pod osłoną,
+                                                                              400                              496 / 401
+z zestawem naprawczym / kołem zapasowym (l)
+Maks. pojemność bagażnika po złożeniu tylnej
+kanapy, z zestawem naprawczym / kołem                                         1527                           1609 / 1528
+zapasowym (l)
+
+
+
+
+  Silniki benzynowe z filtrem cząstek stałych (DPF): aby obniżyć poziom emisji cząstek stałych, nowe silniki benzynowe
+(1)
+
+z wtryskiem bezpośrednim wyposażono w filtr cząstek stałych, który znajduje się w układzie wydechowym. Filtr usuwa cząstki
+stałe z gazów wydechowych, a następnie wypala je podczas automatycznego procesu regeneracji, który jest powtarzany
+w regularnych odstępach czasu. Filtr cząstek stałych jest bezobsługowy. (2) Rozrusznik i akumulator współpracują z systemem
+Stop & Start. (3) Oficjalne dane dotyczące zużycia paliwa i poziomu emisji podano zgodnie z obowiązującymi przepisami. (4) WLTP
+(Światowa zharmonizowana procedura badania pojazdów lekkich, ang. Worldwide Harmonized Light Vehicles Test Procedure):
+nowy protokół, który w porównaniu z protokołem NEDC umożliwia uzyskanie wyników bardziej zbliżonych do wyników
+otrzymywanych w rzeczywistych warunkach eksploatacji. Zużycie paliwa i poziom emisji CO2 są homologowane zgodnie ze
+standardową metodą pomiaru, określoną w obowiązujących przepisach. Metoda jest identyczna dla wszystkich producentów, co
+umożliwia porównanie różnych modeli. (5) Podana ładowność dotyczy pierwszego poziomu wyposażenia. (6) Zgodnie z normą ISO
+3832. * Dostępne w późniejszym terminie. ** Łączna moc układu spalinowo-elektrycznego.
+
+
+
+
+        KLIKNIJ I KONFIGURUJ
+                                                                                                                     MENU
 
 === ATTRIBUTE CONTRACTS ===
 {"category": "Weights", "code": "gross_train_weight", "data_type": "integer", "description": "Maximum permissible combined vehicle and trailer weight", "id": "127", "name": "Gross train weight", "status": "active", "unit": "kg"}
