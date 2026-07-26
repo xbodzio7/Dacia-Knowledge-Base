@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Materialize values and verify package
+      - name: Repair reporting integration and verify package
         shell: bash
         run: |
           set +e
@@ -34,70 +34,115 @@ jobs:
           status=0
 
           python - <<'PY' >> "$log" 2>&1 || status=$?
-          from pathlib import Path
+          from __future__ import annotations
 
-          replacements = {
-              Path('tools/import_brochure_gear_performance_20260726.py'): (
-                  'EXPECTED_FUEL_COUNTS = {"lpg": 30, "petrol": 40}',
-                  'EXPECTED_FUEL_COUNTS = {"lpg": 29, "petrol": 41}',
-              ),
-              Path('tests/test_brochure_gear_performance_values_20260726.py'): (
-                  'Counter({"lpg": 30, "petrol": 40})',
-                  'Counter({"lpg": 29, "petrol": 41})',
-              ),
-          }
-          for path, (old, new) in replacements.items():
-              text = path.read_text(encoding='utf-8')
-              if new not in text:
-                  if old not in text:
-                      raise RuntimeError(f'fuel-count anchor missing: {path}')
-                  path.write_text(text.replace(old, new, 1), encoding='utf-8')
-          print('PASS: corrected reviewed fuel distribution to LPG=29, petrol=41')
-          PY
-
-          if [ "$status" -eq 0 ]; then
-            python tools/import_brochure_gear_performance_20260726.py --apply >> "$log" 2>&1 || status=$?
-          fi
-
-          if [ "$status" -eq 0 ]; then
-            python - <<'PY' >> "$log" 2>&1 || status=$?
+          import csv
           import json
           from pathlib import Path
 
-          state_path = Path('project/state.json')
-          state = json.loads(state_path.read_text(encoding='utf-8'))
-          state['updated_on'] = '2026-07-26'
-          state['phase'] = 'Brochure Gear-Specific Performance Value Import'
-          state['current_package'] = {
-              'name': 'Brochure Gear-Specific Performance Value Import',
-              'status': 'complete',
-              'goal': 'Import exact Sandero, Sandero Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context.',
-          }
-          state['next_package'] = {
-              'name': 'Brochure Gear-Specific Performance Import Closure Review',
-              'status': 'planned',
-              'goal': 'Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package.',
-          }
-          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          def replace_once(path: Path, old: str, new: str) -> None:
+              text = path.read_text(encoding='utf-8')
+              if new in text:
+                  return
+              if old not in text:
+                  raise RuntimeError(f'anchor missing in {path}: {old[:80]!r}')
+              path.write_text(text.replace(old, new, 1), encoding='utf-8')
 
-          changelog_path = Path('CHANGELOG.md')
-          changelog = changelog_path.read_text(encoding='utf-8')
-          entry = '* Imported 70 exact `elasticity_80_120` observations from the official Sandero, Sandero Stepway and Jogger brochures across 31 configurations, preserving selected gear, fuel and five-/seven-seat context without filling unstated Stepway automatic gears.\n'
-          if entry not in changelog:
-              marker = '### Added\n\n'
-              if marker not in changelog:
-                  raise RuntimeError('CHANGELOG Added marker missing')
-              changelog = changelog.replace(marker, marker + entry, 1)
-              changelog_path.write_text(changelog, encoding='utf-8')
-          print('PASS: package state and changelog updated')
+          base = Path('tools/_configuration_completeness_base.py')
+          replace_once(
+              base,
+              "    annotate_scalar_values,\n    read_context_rows,\n",
+              "    annotate_scalar_values,\n    observation_signature,\n    read_context_rows,\n",
+          )
+          replace_once(
+              base,
+              "field not in {'fuel_type_code', '_cargo_context_signature'}",
+              "field not in {'fuel_type_code', 'gear_number', '_cargo_context_signature'}",
+          )
+          replace_once(
+              base,
+              "{**row, '_cargo_context_signature': '', '_cargo_context': None}",
+              "{**row, 'gear_number': '', '_cargo_context_signature': '', '_cargo_context': None}",
+          )
+          replace_once(
+              base,
+              "            'fuel_type_code',\n            '_cargo_context_signature',\n",
+              "            'fuel_type_code',\n            'gear_number',\n            '_cargo_context_signature',\n",
+          )
+          text = base.read_text(encoding='utf-8')
+          old = "            'fuel_type_code',\n            '_cargo_context_signature',\n"
+          new = "            'fuel_type_code',\n            'gear_number',\n            '_cargo_context_signature',\n"
+          if old in text:
+              base.write_text(text.replace(old, new, 1), encoding='utf-8')
+          replace_once(
+              base,
+              "        current_value_groups.setdefault(base_key, {})[current_key[3]] = current_row",
+              "        signature = observation_signature(current_key[3], current_key[4])\n        current_value_groups.setdefault(base_key, {})[signature] = current_row",
+          )
+
+          with Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='') as handle:
+              imported = [
+                  row for row in csv.DictReader(handle)
+                  if row.get('attribute_code') == 'elasticity_80_120'
+                  and row.get('source_code') in {
+                      'src_pl_sandero_brochure_20260202',
+                      'src_pl_sandero_stepway_brochure_20260202',
+                      'src_pl_jogger_brochure_20251217',
+                  }
+              ]
+
+          changed_specs = []
+          for path in sorted(Path('data/reporting').glob('*.json')):
+              try:
+                  payload = json.loads(path.read_text(encoding='utf-8'))
+              except json.JSONDecodeError:
+                  continue
+              if not isinstance(payload, dict):
+                  continue
+              slots = payload.get('technical_slots')
+              configurations = payload.get('configurations')
+              if not isinstance(slots, list) or not isinstance(configurations, list):
+                  continue
+              selected = {
+                  str(item.get('configuration_code', ''))
+                  for item in configurations
+                  if isinstance(item, dict)
+              }
+              fuels = sorted({
+                  row['fuel_type_code']
+                  for row in imported
+                  if row.get('configuration_code') in selected
+              })
+              if not fuels:
+                  continue
+              existing = {
+                  (str(item.get('attribute_code', '')), str(item.get('fuel_type_code', '')))
+                  for item in slots
+                  if isinstance(item, dict)
+              }
+              changed = False
+              for fuel in fuels:
+                  key = ('elasticity_80_120', fuel)
+                  if key not in existing:
+                      slots.append({'attribute_code': key[0], 'fuel_type_code': key[1]})
+                      existing.add(key)
+                      changed = True
+              if changed:
+                  slots.sort(key=lambda item: (str(item.get('attribute_code', '')), str(item.get('fuel_type_code', ''))))
+                  path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+                  changed_specs.append(path.as_posix())
+
+          print('PASS: completeness latest key includes gear_number')
+          print(f'PASS: reporting slots updated in {len(changed_specs)} specs')
+          for path in changed_specs:
+              print(f'  {path}')
           PY
-          fi
 
-          if [ "$status" -eq 0 ]; then
-            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
-          fi
           if [ "$status" -eq 0 ]; then
             python tools/import_brochure_gear_performance_20260726.py --check >> "$log" 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply >> "$log" 2>&1 || status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py validate >> "$log" 2>&1 || status=$?
@@ -120,7 +165,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m 'feat(data): materialize selected-gear performance values'
+            git commit -m 'fix(reporting): preserve selected-gear observations'
             git push origin HEAD:agent/brochure-gear-performance-value-import
           fi
           exit "$status"
