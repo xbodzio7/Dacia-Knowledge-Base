@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Chassis Measurement Context Modeling",
+  "phase": "Sandero and Stepway Chassis Observation Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,10 +15,10 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 875,
+    "tests": 883,
     "csv_files": 46,
-    "rows": 9019,
-    "configuration_values": 2290,
+    "rows": 9064,
+    "configuration_values": 2335,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 234,
     "configuration_range_import_specs": 20,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Chassis Measurement Context Modeling",
+    "name": "Sandero and Stepway Chassis Observation Import",
     "status": "complete",
-    "goal": "Define explicit turning-circle measurement bases, maximum kerb mass and scalar-or-range payload semantics while reusing existing source-text chassis specification attributes."
+    "goal": "Import exact between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for nine active Sandero and Sandero Stepway configurations under D-016."
   },
   "next_package": {
-    "name": "Sandero and Stepway Chassis Observation Import",
+    "name": "Bigster Chassis Observation Import",
     "status": "planned",
-    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016."
+    "goal": "Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for the active Bigster configurations under D-016."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

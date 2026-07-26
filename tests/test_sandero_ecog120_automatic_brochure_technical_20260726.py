@@ -38,8 +38,6 @@ FORBIDDEN = {
     "co2_emissions",
     "fuel_consumption_combined",
     "turning_circle",
-    "standard_tyre_specification",
-    "maximum_kerb_weight",
     "front_suspension_specification",
     "rear_suspension_specification",
     "injection_type",

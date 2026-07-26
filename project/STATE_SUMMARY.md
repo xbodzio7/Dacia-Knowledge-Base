@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Brochure Chassis Measurement Context Modeling**
+**Sandero and Stepway Chassis Observation Import**
 
 ## Reference delivery
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 875
+- Tests: 883
 - Master CSV files: 46
-- Master rows: 9019
-- Configuration values: 2290
+- Master rows: 9064
+- Configuration values: 2335
 - Configuration import specifications: 117
 - Configuration value ranges: 234
 - Configuration range import specifications: 20
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Brochure Chassis Measurement Context Modeling** — `complete`
+**Sandero and Stepway Chassis Observation Import** — `complete`
 
-Define explicit turning-circle measurement bases, maximum kerb mass and scalar-or-range payload semantics while reusing existing source-text chassis specification attributes.
+Import exact between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for nine active Sandero and Sandero Stepway configurations under D-016.
 
 ## Next package
 
-**Sandero and Stepway Chassis Observation Import** — `planned`
+**Bigster Chassis Observation Import** — `planned`
 
-Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text tyre and suspension observations for the active Sandero and Sandero Stepway configurations under D-016.
+Import the unambiguous between-kerbs turning diameter, maximum kerb weight and source-text steering, brake and tyre observations for the active Bigster configurations under D-016.
 
 ## Autonomy
 
