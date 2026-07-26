@@ -1,0 +1,743 @@
+=== JOGGER PDF PAGE 19 ===
+06. SILNIKI
+
+
+
+                                           TCe 110            Eco-G 120                 Eco-G 120 auto              hybrid 155
+
+
+ SILNIKI
+Źródło energii                              Benzyna         LPG           Benzyna        LPG           Benzyna    Benzyna Elektryczność
+
+                                              81            90              84           90              84
+Maks. moc kW EWG (KM) przy                                                                                              105 (140)
+                                            od 5000       od 4500         od 4500      od 4500         od 4500
+prędkości obrotowej silnika (obr./min)                                                                              przy 5600; łącznie
+                                            do 5250       do 5000         do 5000      do 5000         do 5000
+
+Maks. moment obrotowy w Nm EWG                200           197             190          197             190      172 (silnik spalinowy)
+(m·kg) przy prędkości obrotowej             od 2900       od 1750         od 2000      od 1750         od 2000    od 3000 do 4000 + 205
+silnika (obr./min.)                         do 3500       do 3750         do 4000      do 3750         do 4000     (silnik elektryczny)
+
+                                                                                         Dwusprzęgłowa               Automatyczna
+Typ skrzyni biegów                         Manualna            Manualna
+                                                                                          automatyczna                Multimode
+
+                                          Bezpośredni
+                                                                            Bez-                         Bez-
+Rodzaj wtrysku paliwa                     z turbodoła-    Pośredni                     Pośredni                   Pośredni          -
+                                                                          pośredni                     pośredni
+                                           dowaniem
+
+Pojemność skokowa (cm3)                       999                    1199                         1199             1789             -
+
+Liczba cylindrów / zaworów                    3/12                   3/12                         3/12              4/16            -
+
+Norma emisji spalin                                                                Euro 6e bis
+
+ AKUMULATOR
+                                                                                                                     Litowo-jonowy /
+Akumulator trakcyjny                           -                      -                            -
+                                                                                                                     230 V / 1,4 kWh
+
+ ZAWIESZENIE I UKŁAD KIEROWNICZY
+Rozmiar opon                                                                     205/60 R16 92H
+
+Układ kierowniczy – średnica
+                                                                                     11.39
+zawracania między krawężnikami (m)
+
+                                              Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi
+Przednie zawieszenie
+                                                           amortyzatorami hydraulicznymi i stabilizatorem
+
+                                         Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi
+Tylne zawieszenie
+                                                                           i stabilizatorem
+
+ OSIĄGI
+Prędkość maksymalna (km/h)                                                            180
+
+0–100 km/h (s)
+                    Wersja 5-miejscowa        10,5          10,9            11,9         10,4            11,4                8,9
+                    Wersja 7-miejscowa        11,2           11              12          10,7            11,7                 9
+
+Elastyczność w zakresie średnich
+prędkości: od 80 do 120 km/h (s) na
+IV biegu
+                  Wersja 5-miejscowa          11,4          8,1             9,1          8,3             9,2                 6,4
+                  Wersja 7-miejscowa          12,3          8,2             9,2          8,7             9,5                 6,5
+
+ ZUŻYCIE PALIWA I EMISJA(1)
+Protokół badania                                                                     WLTP(2)
+
+Pojemność zbiornika paliwa (l)                 50         50/40(3)          50         50/40(3)          50                  50
+
+Emisja CO2 (g/km)
+
+Zużycie paliwa w cyklu mieszanym
+(l/100 km)
+
+ MASY I POJEMNOŚCI
+Minimalna masa własna
+               Wersja 5-miejscowa             1193                   1292                         1326                       1359
+               Wersja 7-miejscowa             1221                   1321                         1354                       1388
+
+Dopuszczalna masa całkowita (DMC)
+zespołu pojazdów
+                Wersja 5-miejscowa            1230                   1312                         1335                       1373
+                Wersja 7-miejscowa            1261                   1342                         1364                       1405
+
+Dopuszczalna masa całkowita (DMC)
+pojazdu
+               Wersja 5-miejscowa             2885                   2965                         2985                       2830
+               Wersja 7-miejscowa             3055                   3140                         3160                       3000
+
+Dopuszczalna masa całkowita (DMC)
+pojazdu
+               Wersja 5-miejscowa             1685                   1765                         1785                       1830
+               Wersja 7-miejscowa             1855                   1940                         1960                       2000
+
+Maks. masa całkowita przyczepy
+hamowanej
+                Wersja 5-miejscowa            1200                   1200                         1200                       1200
+                Wersja 7-miejscowa            1200                   1200                         1200                       1200
+
+
+
+
+(1) Oficjalne zużycie paliwa i emisja spalin, zgodnie z obowiązującymi przepisami. (2) WLTP (światowa zharmonizowana procedura
+badania pojazdów lekkich; ang. Worldwide Harmonized Light Vehicles Test Procedures): nowy protokół, który w porównaniu
+z protokołem NEDC umożliwia uzyskanie wyników bardziej zbliżonych do wyników obserwowanych w rzeczywistych warunkach
+eksploatacji. Wartości emisji CO2 są homologowane zgodnie ze standardową metodą pomiaru, określoną w obowiązujących
+przepisach. Metoda jest identyczna dla wszystkich producentów, co umożliwia porównanie różnych modeli. (3) Poj. całkowita / poj.
+użyteczna.
+
+
+
+
+     SKONFIGURUJ I ZAMÓW
+                                                                                                                           MENU
+
+=== ATTRIBUTE CONTRACTS ===
+{"category": "Performance", "code": "acceleration_0_100", "data_type": "decimal", "description": "Acceleration from 0 to 100 km/h", "id": "105", "name": "0-100 km/h acceleration", "status": "active", "unit": "s"}
+{"category": "Hybrid System", "code": "hybrid_battery_capacity_source_stated", "data_type": "decimal", "description": "Hybrid battery capacity exactly as stated by the source without classifying it as gross, net or usable.", "id": "386", "name": "Source-stated hybrid battery capacity", "status": "active", "unit": "kWh"}
+{"category": "Engine", "code": "max_power_rpm", "data_type": "integer", "description": "Engine speed at maximum power", "id": "25", "name": "Maximum power RPM", "status": "active", "unit": "rpm"}
+{"category": "Engine", "code": "max_torque_rpm", "data_type": "integer", "description": "Engine speed at maximum torque", "id": "26", "name": "Maximum torque RPM", "status": "active", "unit": "rpm"}
+
+=== ACTIVE JOGGER CONFIGURATIONS ===
+{"code": "jogger_essential_5seat_ecog120_manual", "id": "32", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_essential"}
+{"code": "jogger_essential_7seat_ecog120_manual", "id": "43", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_essential"}
+{"code": "jogger_expression_5seat_ecog120_manual", "id": "33", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_expression"}
+{"code": "jogger_expression_5seat_hybrid155_automatic", "id": "40", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_expression"}
+{"code": "jogger_expression_5seat_tce110_manual", "id": "37", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_expression"}
+{"code": "jogger_expression_7seat_ecog120_manual", "id": "44", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_expression"}
+{"code": "jogger_expression_7seat_hybrid155_automatic", "id": "51", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_expression"}
+{"code": "jogger_expression_7seat_tce110_manual", "id": "48", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_expression"}
+{"code": "jogger_extreme_5seat_ecog120_automatic", "id": "35", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "automatic", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_5seat_ecog120_manual", "id": "34", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_5seat_hybrid155_automatic", "id": "41", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_5seat_tce110_manual", "id": "38", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_7seat_ecog120_automatic", "id": "46", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "automatic", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_7seat_ecog120_manual", "id": "45", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "manual", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_7seat_hybrid155_automatic", "id": "52", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_extreme"}
+{"code": "jogger_extreme_7seat_tce110_manual", "id": "49", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_extreme"}
+{"code": "jogger_journey_5seat_ecog120_automatic", "id": "36", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "automatic", "version_code": "jogger_journey"}
+{"code": "jogger_journey_5seat_hybrid155_automatic", "id": "42", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_journey"}
+{"code": "jogger_journey_5seat_tce110_manual", "id": "39", "notes": "Page-1 catalogue combination; 5 seats are also stored as number_of_seats.", "number_of_seats": "5", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_journey"}
+{"code": "jogger_journey_7seat_ecog120_automatic", "id": "47", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "Eco-G 120", "status": "active", "transmission_type": "automatic", "version_code": "jogger_journey"}
+{"code": "jogger_journey_7seat_hybrid155_automatic", "id": "53", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "hybrid 155", "status": "active", "transmission_type": "automatic", "version_code": "jogger_journey"}
+{"code": "jogger_journey_7seat_tce110_manual", "id": "50", "notes": "Page-1 catalogue combination; 7 seats are also stored as number_of_seats.", "number_of_seats": "7", "powertrain_label": "TCe 110", "status": "active", "transmission_type": "manual", "version_code": "jogger_journey"}
+
+=== CURRENT SCALAR VALUES ===
+{"attribute_code": "acceleration_0_100", "code": "jogger_essential_5seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "915", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_essential_5seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "916", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_5seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "917", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_5seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "918", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "919", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "920", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.9"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_ecog120_automatic_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "lpg", "gear_number": "", "id": "921", "notes": "Source page 6, section OSIĄGI: LPG: 10,4 / 10,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.4"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_ecog120_automatic_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "petrol", "gear_number": "", "id": "922", "notes": "Source page 6, section OSIĄGI: Ben: 11,4 / 11,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.4"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_5seat_ecog120_automatic_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "lpg", "gear_number": "", "id": "923", "notes": "Source page 6, section OSIĄGI: LPG: 10,4 / 10,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.4"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_5seat_ecog120_automatic_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "petrol", "gear_number": "", "id": "924", "notes": "Source page 6, section OSIĄGI: Ben: 11,4 / 11,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.4"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_5seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_expression_5seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "925", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.5"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_extreme_5seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "926", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.5"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_5seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_journey_5seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "927", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.5"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_essential_7seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "928", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_essential_7seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "929", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "12.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_7seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "930", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_7seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "931", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "12.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "lpg", "gear_number": "", "id": "932", "notes": "Source page 6, section OSIĄGI: LPG: 10,9 / 11,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "petrol", "gear_number": "", "id": "933", "notes": "Source page 6, section OSIĄGI: Ben: 11,9 / 12,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "12.0"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_ecog120_automatic_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "lpg", "gear_number": "", "id": "934", "notes": "Source page 6, section OSIĄGI: LPG: 10,4 / 10,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.7"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_ecog120_automatic_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "petrol", "gear_number": "", "id": "935", "notes": "Source page 6, section OSIĄGI: Ben: 11,4 / 11,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.7"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_7seat_ecog120_automatic_acceleration_0_100_lpg_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "lpg", "gear_number": "", "id": "936", "notes": "Source page 6, section OSIĄGI: LPG: 10,4 / 10,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "10.7"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_7seat_ecog120_automatic_acceleration_0_100_petrol_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "petrol", "gear_number": "", "id": "937", "notes": "Source page 6, section OSIĄGI: Ben: 11,4 / 11,7", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.7"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_7seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_expression_7seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "938", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.2"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_extreme_7seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "939", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.2"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_7seat_tce110_manual_acceleration_0_100_20260401", "configuration_code": "jogger_journey_7seat_tce110_manual", "fuel_type_code": "", "gear_number": "", "id": "940", "notes": "Source page 6, section OSIĄGI: 10,5 / 11,2", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "11.2"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_5seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_expression_5seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1007", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_extreme_5seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1008", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_5seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_journey_5seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1009", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_7seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_expression_7seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1010", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_extreme_7seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1011", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_7seat_hybrid155_automatic_max_torque_rpm_20260401", "configuration_code": "jogger_journey_7seat_hybrid155_automatic", "fuel_type_code": "", "gear_number": "", "id": "1012", "notes": "Source page 6, section SILNIKI: 172 przy 3 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "value": "3000"}
+
+=== CURRENT RANGE VALUES ===
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_5seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_expression_5seat_hybrid155_automatic", "fuel_type_code": "", "id": "87", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_5seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_extreme_5seat_hybrid155_automatic", "fuel_type_code": "", "id": "88", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_5seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_journey_5seat_hybrid155_automatic", "fuel_type_code": "", "id": "89", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_expression_7seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_expression_7seat_hybrid155_automatic", "fuel_type_code": "", "id": "90", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_extreme_7seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_extreme_7seat_hybrid155_automatic", "fuel_type_code": "", "id": "91", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "acceleration_0_100", "code": "jogger_journey_7seat_hybrid155_automatic_acceleration_0_100_range_20260401", "configuration_code": "jogger_journey_7seat_hybrid155_automatic", "fuel_type_code": "", "id": "92", "lower_inclusive": "true", "maximum_value": "9", "minimum_value": "8.9", "notes": "Source page 6, section OSIĄGI: 8,9-9,0", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_essential_5seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "93", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_essential_5seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "94", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_5seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "95", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_5seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "96", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_5seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "97", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_5seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "98", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_essential_7seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "99", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_essential_7seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "100", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_7seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "101", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_7seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "102", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_7seat_ecog120_manual_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "103", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_7seat_ecog120_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "104", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_essential_5seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "105", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_essential_5seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_essential_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "106", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_5seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "107", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_5seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "108", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "lpg", "id": "109", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_manual", "fuel_type_code": "petrol", "id": "110", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_essential_7seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "111", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_essential_7seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_essential_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "112", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_7seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "113", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_7seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "114", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_ecog120_manual_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "lpg", "id": "115", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_ecog120_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_manual", "fuel_type_code": "petrol", "id": "116", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_5seat_ecog120_automatic_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "117", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_5seat_ecog120_automatic_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "118", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_5seat_ecog120_automatic_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "119", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_5seat_ecog120_automatic_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "120", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_7seat_ecog120_automatic_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "121", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_7seat_ecog120_automatic_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "122", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_7seat_ecog120_automatic_max_power_rpm_lpg_range_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "123", "lower_inclusive": "true", "maximum_value": "5000", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: LPG: 90 (122) przy 4 500 - 5 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_7seat_ecog120_automatic_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "124", "lower_inclusive": "true", "maximum_value": "5750", "minimum_value": "4500", "notes": "Source page 6, section SILNIKI: Ben: 84 (114) przy 4 500 - 5 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_ecog120_automatic_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "125", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_ecog120_automatic_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "126", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_5seat_ecog120_automatic_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "127", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_5seat_ecog120_automatic_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_5seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "128", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_ecog120_automatic_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "129", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_ecog120_automatic_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "130", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_7seat_ecog120_automatic_max_torque_rpm_lpg_range_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "lpg", "id": "131", "lower_inclusive": "true", "maximum_value": "3750", "minimum_value": "1750", "notes": "Source page 6, section SILNIKI: LPG: 197 przy 1 750 - 3 750", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_7seat_ecog120_automatic_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_7seat_ecog120_automatic", "fuel_type_code": "petrol", "id": "132", "lower_inclusive": "true", "maximum_value": "4000", "minimum_value": "2000", "notes": "Source page 6, section SILNIKI: Ben: 190 przy 2 000 - 4 000", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_5seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "133", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_5seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "134", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_5seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "135", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_expression_7seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "136", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_extreme_7seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "137", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_power_rpm", "code": "jogger_journey_7seat_tce110_manual_max_power_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "138", "lower_inclusive": "true", "maximum_value": "5250", "minimum_value": "5000", "notes": "Source page 6, section SILNIKI: 81 (110) przy 5 000- 5 250", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_5seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "139", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_5seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "140", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_5seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_5seat_tce110_manual", "fuel_type_code": "petrol", "id": "141", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_expression_7seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_expression_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "142", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_extreme_7seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_extreme_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "143", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+{"attribute_code": "max_torque_rpm", "code": "jogger_journey_7seat_tce110_manual_max_torque_rpm_petrol_range_20260401", "configuration_code": "jogger_journey_7seat_tce110_manual", "fuel_type_code": "petrol", "id": "144", "lower_inclusive": "true", "maximum_value": "3500", "minimum_value": "2900", "notes": "Source page 6, section SILNIKI: 200 przy 2 900 - 3 500", "observation_date": "2026-04-01", "source_code": "src_pl_jogger_price_my26_20260401", "upper_inclusive": "true"}
+
+=== SOURCE RELATIONSHIPS ===
+{"configuration_code": "jogger_essential_5seat_ecog120_manual", "id": "174", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_5seat_ecog120_manual", "id": "175", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_5seat_ecog120_manual", "id": "176", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_5seat_ecog120_automatic", "id": "177", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_5seat_ecog120_automatic", "id": "178", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_5seat_tce110_manual", "id": "179", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_5seat_tce110_manual", "id": "180", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_5seat_tce110_manual", "id": "181", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_5seat_hybrid155_automatic", "id": "182", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_5seat_hybrid155_automatic", "id": "183", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_5seat_hybrid155_automatic", "id": "184", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_essential_7seat_ecog120_manual", "id": "185", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_7seat_ecog120_manual", "id": "186", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_7seat_ecog120_manual", "id": "187", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_7seat_ecog120_automatic", "id": "188", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_7seat_ecog120_automatic", "id": "189", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_7seat_tce110_manual", "id": "190", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_7seat_tce110_manual", "id": "191", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_7seat_tce110_manual", "id": "192", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_expression_7seat_hybrid155_automatic", "id": "193", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_extreme_7seat_hybrid155_automatic", "id": "194", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+{"configuration_code": "jogger_journey_7seat_hybrid155_automatic", "id": "195", "notes": "The official model brochure lists five- and seven-seat Jogger variants and gives the corresponding cargo table on page 22. The exact seat count is verified against configuration-level master data.", "relationship": "brochure_technical_data_for", "source_code": "src_pl_jogger_brochure_20251217"}
+
+=== MASTER ID BOUNDARIES ===
+{"configuration_attribute_value_ranges_max_id": 176, "configuration_attribute_values_max_id": 2272, "source_configurations_max_id": 219}
+
+=== REPORTING SPECS REFERENCING JOGGER TARGETS OR ATTRIBUTES ===
+{"attribute_refs": ["acceleration_0_100", "hybrid_battery_capacity_source_stated", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/bigster_hybrid155_4x2_automatic_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "hybrid_battery_capacity_source_stated", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "hybrid_battery_capacity_source_stated", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "hybrid_battery_capacity_source_stated", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "hybrid_battery_capacity_source_stated", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "hybrid_battery_capacity_source_stated", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "hybrid_battery_capacity_source_stated", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "hybrid_battery_capacity_source_stated", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100"], "path": "data/reporting/configuration_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_ecog100_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_ecog120_automatic_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_ecog120_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm"], "path": "data/reporting/duster_hybrid140_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_hybrid155_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_mildhybrid130_4x2_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_mildhybrid130_4x4_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/duster_mildhybrid140_4x2_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/jogger_ecog120_automatic_completeness.json", "relevant_decisions": [], "target_refs": ["jogger_extreme_5seat_ecog120_automatic", "jogger_extreme_7seat_ecog120_automatic", "jogger_journey_5seat_ecog120_automatic", "jogger_journey_7seat_ecog120_automatic"], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/jogger_ecog120_manual_completeness.json", "relevant_decisions": [], "target_refs": ["jogger_essential_5seat_ecog120_manual", "jogger_essential_7seat_ecog120_manual", "jogger_expression_5seat_ecog120_manual", "jogger_expression_7seat_ecog120_manual", "jogger_extreme_5seat_ecog120_manual", "jogger_extreme_7seat_ecog120_manual"], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100", "max_torque_rpm"], "path": "data/reporting/jogger_hybrid155_automatic_completeness.json", "relevant_decisions": [], "target_refs": ["jogger_expression_5seat_hybrid155_automatic", "jogger_expression_7seat_hybrid155_automatic", "jogger_extreme_5seat_hybrid155_automatic", "jogger_extreme_7seat_hybrid155_automatic", "jogger_journey_5seat_hybrid155_automatic", "jogger_journey_7seat_hybrid155_automatic"], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_torque_rpm", "fuel_type_code": ""}]}
+{"attribute_refs": ["acceleration_0_100", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/jogger_tce110_manual_completeness.json", "relevant_decisions": [], "target_refs": ["jogger_expression_5seat_tce110_manual", "jogger_expression_7seat_tce110_manual", "jogger_extreme_5seat_tce110_manual", "jogger_extreme_7seat_tce110_manual", "jogger_journey_5seat_tce110_manual", "jogger_journey_7seat_tce110_manual"], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": ""}, {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol"}, {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100", "hybrid_battery_capacity_source_stated", "max_power_rpm", "max_torque_rpm"], "path": "data/reporting/official_brochure_technical_gap_review.json", "relevant_decisions": [], "target_refs": [], "technical_slots": []}
+{"attribute_refs": ["acceleration_0_100"], "path": "data/reporting/sandero_ecog120_automatic_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100"], "path": "data/reporting/sandero_ecog120_manual_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}]}
+{"attribute_refs": ["acceleration_0_100"], "path": "data/reporting/sandero_stepway_ecog120_automatic_completeness.json", "relevant_decisions": [], "target_refs": [], "technical_slots": [{"attribute_code": "acceleration_0_100", "fuel_type_code": "lpg"}, {"attribute_code": "acceleration_0_100", "fuel_type_code": "petrol"}]}
+
+=== DECLARATIVE RANGE IMPORT EXAMPLES ===
+data/imports/configuration_value_ranges/bigster-page6-maximum-payload-range-20260703.json
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 145,
+  "attribute_code": "maximum_payload",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2026-07-03",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "MASY (kg)",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    }
+  ]
+}
+
+data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-co2-emissions-range-20260401.json
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 33,
+  "attribute_code": "co2_emissions",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "g/km",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "121",
+      "maximum_value": "123",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 121-123",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "137",
+      "maximum_value": "138",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 137-138",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "121",
+      "maximum_value": "123",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 121-123",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "137",
+      "maximum_value": "138",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 137-138",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "121",
+      "maximum_value": "123",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 121-123",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "137",
+      "maximum_value": "138",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 137-138",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "121",
+      "maximum_value": "123",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 121-123",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "137",
+      "maximum_value": "138",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 137-138",
+      "fuel_type_code": "petrol"
+    }
+  ]
+}
+
+data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-fuel-consumption-range-20260401.json
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 25,
+  "attribute_code": "fuel_consumption_combined",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "l/100 km",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "7.5",
+      "maximum_value": "7.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 7,5-7,6",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "6",
+      "maximum_value": "6.1",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 6,0-6,1",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "7.5",
+      "maximum_value": "7.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 7,5-7,6",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "6",
+      "maximum_value": "6.1",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 6,0-6,1",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "7.5",
+      "maximum_value": "7.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 7,5-7,6",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "6",
+      "maximum_value": "6.1",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 6,0-6,1",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "7.5",
+      "maximum_value": "7.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 7,5-7,6",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "6",
+      "maximum_value": "6.1",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 6,0-6,1",
+      "fuel_type_code": "petrol"
+    }
+  ]
+}
+
+data/imports/configuration_value_ranges/jogger-page6-ecog120-automatic-max-power-rpm-range-20260401.json
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 117,
+  "attribute_code": "max_power_rpm",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "rpm",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4500",
+      "maximum_value": "5750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    }
+  ]
+}
+
+range_spec_examples=4
