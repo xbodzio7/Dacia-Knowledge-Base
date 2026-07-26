@@ -34,8 +34,8 @@ jobs:
             echo '=== BIGSTER PDF PAGE 20 ==='
             pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf' -
             echo
-            echo '=== DUSTER PDF PAGE 20 ==='
-            pdftotext -f 20 -l 20 -layout 'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' -
+            echo '=== DUSTER PDF PAGES 20-21 ==='
+            pdftotext -f 20 -l 21 -layout 'PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf' -
             echo
             python tools/inventory_bigster_duster_towing_masses_20260726.py
           } > "$output"
