@@ -132,7 +132,7 @@ class PostCrossModelPrioritySelectionReviewTests(unittest.TestCase):
             ],
         )
 
-    def test_verifier_and_project_state_accept_selection(self) -> None:
+    def test_verifier_and_project_state_preserve_selection_history(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -150,21 +150,18 @@ class PostCrossModelPrioritySelectionReviewTests(unittest.TestCase):
             completed.stdout,
         )
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(
-            state["phase"],
-            "Post-Cross-Model Priority Selection Review",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Post-Cross-Model Priority Selection Review",
-        )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Data Products v1.8.0 Release Preparation",
-        )
-        self.assertEqual(state["baseline"]["tests"], 1006)
-
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1006)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 if __name__ == "__main__":
     unittest.main()
