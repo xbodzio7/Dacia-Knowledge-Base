@@ -43,6 +43,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
             [
                 "sandero-acceleration-0-100-lpg-20260626.json",
                 "sandero-acceleration-0-100-petrol-20260626.json",
+                "sandero-brochure-elasticity-80-120-20260202.json",
                 "sandero-engine-power-lpg-20260626.json",
                 "sandero-engine-power-petrol-20260626.json",
                 "sandero-engine-torque-lpg-20260626.json",
@@ -50,6 +51,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-maximum-payload-20260626.json",
                 "sandero-standing-km-lpg-20260626.json",
                 "sandero-standing-km-petrol-20260626.json",
+                "sandero-stepway-brochure-elasticity-80-120-20260202.json",
                 "sandero-stepway-essential-wheel-design-20260626.json",
                 "sandero-total-valve-count-20260626.json",
             ],
@@ -71,7 +73,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
     def test_specs_generate_globally_disjoint_identifiers(self) -> None:
         identifiers: list[str] = []
         codes: list[str] = []
-        semantic: list[tuple[str, str, str, str]] = []
+        semantic: list[tuple[str, str, str, str, str]] = []
         for spec in self.specs:
             rows = importer.build_expected_rows(ROOT, spec)
             identifiers.extend(row["id"] for row in rows)
@@ -81,6 +83,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                     row["configuration_code"],
                     row["attribute_code"],
                     row["fuel_type_code"],
+                    row["gear_number"],
                     row["observation_date"],
                 )
                 for row in rows

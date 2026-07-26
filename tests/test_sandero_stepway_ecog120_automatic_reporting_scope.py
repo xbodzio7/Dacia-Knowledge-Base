@@ -32,7 +32,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 2)
-        self.assertEqual(scope["technical_slots"], 45)
+        self.assertEqual(scope["technical_slots"], 47)
         self.assertEqual(scope["equipment_attributes"], 69)
         self.assertEqual(scope["sources"], 2)
 
@@ -40,12 +40,12 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 90,
-                "coverage_percent": "98.89",
-                "denominator": 90,
+                "applicable": 94,
+                "coverage_percent": "98.94",
+                "denominator": 94,
                 "missing": 1,
                 "not_applicable": 0,
-                "present": 89,
+                "present": 93,
             },
         )
         self.assertEqual(
@@ -93,7 +93,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
                 "source_missing": 0,
             },
         )
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 89)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 93)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 121)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 2)
         self.assertEqual(len(self.coverage["gaps"]), 18)
@@ -116,7 +116,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 69, "different": 1, "equal": 55, "not_comparable": 13},
                 "prices": {"comparisons": 1, "different": 1, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 50, "different": 7, "equal": 42, "not_comparable": 1},
+                "technical": {"comparisons": 52, "different": 7, "equal": 44, "not_comparable": 1},
                 "total_differences": 9,
             },
         )

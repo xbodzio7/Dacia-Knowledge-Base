@@ -61,6 +61,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "elasticity_80_120",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "elasticity_80_120",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "emission_standard",
       "fuel_type_code": ""
     },

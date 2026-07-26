@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Gear-Specific Performance Schema Foundation",
+  "phase": "Brochure Gear-Specific Performance Value Import",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,11 +15,11 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 821,
+    "tests": 828,
     "csv_files": 46,
-    "rows": 8782,
-    "configuration_values": 2118,
-    "configuration_import_specs": 114,
+    "rows": 8852,
+    "configuration_values": 2188,
+    "configuration_import_specs": 117,
     "configuration_value_ranges": 176,
     "configuration_range_import_specs": 20,
     "availability_records": 4754,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Gear-Specific Performance Schema Foundation",
+    "name": "Brochure Gear-Specific Performance Value Import",
     "status": "complete",
-    "goal": "Add the optional gear_number scalar-observation qualifier, validation, import-spec, SQLite, data-dictionary and reporting-key support without importing brochure elasticity values."
+    "goal": "Import exact Sandero, Sandero Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context."
   },
   "next_package": {
-    "name": "Brochure Gear-Specific Performance Value Import",
+    "name": "Brochure Gear-Specific Performance Import Closure Review",
     "status": "planned",
-    "goal": "Import exact Sandero, Stepway and Jogger 80-120 km/h elasticity observations with selected-gear, fuel and exact-configuration context."
+    "goal": "Verify the cross-model selected-gear import milestone, reporting preservation and all explicit non-import boundaries before selecting the next evidence package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
