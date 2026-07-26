@@ -97,6 +97,74 @@ jobs:
           '''
           release.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
 
+          historical_verifier = Path(
+              "tools/review_equipment_filter_regression_model_price_order_20260726.py"
+          )
+          text = historical_verifier.read_text(encoding="utf-8")
+          start = text.index("    state = load_json(STATE)\n")
+          end = text.index("\n\ndef verify() -> None:\n", start)
+          replacement = '''    state = load_json(STATE)
+              ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
+              current = state.get("current_package")
+              ensure(isinstance(current, Mapping), "current package is missing")
+              ensure(isinstance(current.get("name"), str) and bool(current["name"]), "current package name is missing")
+              ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+              next_package = state.get("next_package")
+              ensure(isinstance(next_package, Mapping), "next package is missing")
+              ensure(isinstance(next_package.get("name"), str) and bool(next_package["name"]), "next package name is missing")
+              baseline = state.get("baseline", {})
+              ensure(baseline.get("tests", 0) >= 1030, "test baseline regressed")
+              ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
+              ensure(baseline.get("rows", 0) >= 9688, "master row baseline regressed")
+              ensure(baseline.get("configuration_values", 0) >= 2949, "configuration values regressed")
+              ensure(baseline.get("configuration_value_ranges", 0) >= 244, "configuration ranges regressed")
+              ensure(baseline.get("availability_records", 0) >= 4754, "availability baseline regressed")
+              ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
+          '''
+          historical_verifier.write_text(
+              text[:start] + replacement + text[end:],
+              encoding="utf-8",
+          )
+
+          historical_tests = Path(
+              "tests/test_equipment_filter_regression_model_price_order.py"
+          )
+          text = historical_tests.read_text(encoding="utf-8")
+          marker = "    def test_verifier_and_project_state_accept_fix(self) -> None:\n"
+          start = text.index(marker)
+          end = text.index("\n\nif __name__ == \"__main__\":", start)
+          replacement = '''    def test_verifier_and_project_state_preserve_fix_history(self) -> None:
+              completed = subprocess.run(
+                  [sys.executable, str(VERIFIER), "--check"],
+                  cwd=ROOT,
+                  text=True,
+                  capture_output=True,
+                  check=False,
+              )
+              self.assertEqual(
+                  completed.returncode,
+                  0,
+                  completed.stderr or completed.stdout,
+              )
+              self.assertIn(
+                  "PASS: equipment filter regression and model price ordering",
+                  completed.stdout,
+              )
+              state = json.loads(STATE.read_text(encoding="utf-8"))
+              self.assertTrue(state["phase"])
+              self.assertTrue(state["current_package"]["name"])
+              self.assertIn(
+                  state["current_package"]["status"],
+                  {"planned", "active", "blocked", "complete"},
+              )
+              self.assertTrue(state["next_package"]["name"])
+              self.assertGreaterEqual(state["baseline"]["tests"], 1030)
+          '''
+          historical_tests.write_text(
+              text[:start] + replacement + text[end:],
+              encoding="utf-8",
+          )
+
           state_path = Path("project/state.json")
           state = json.loads(state_path.read_text(encoding="utf-8"))
           state["updated_on"] = "2026-07-27"
@@ -148,7 +216,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md \
             project/STATE_SUMMARY.md project/state.json \
-            tools/reporting/data_product_release.py
+            tools/reporting/data_product_release.py \
+            tools/review_equipment_filter_regression_model_price_order_20260726.py \
+            tests/test_equipment_filter_regression_model_price_order.py
           if ! git diff --cached --quiet; then
             git commit -m 'feat(data-products): prepare v1.8.1 release candidate'
             git push origin HEAD:agent/data-products-v1-8-1-release-preparation
