@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Chassis Observation Import",
+  "phase": "Brochure Chassis Modeling Closure Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 907,
+    "tests": 915,
     "csv_files": 46,
     "rows": 9306,
     "configuration_values": 2567,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Chassis Observation Import",
+    "name": "Brochure Chassis Modeling Closure Review",
     "status": "complete",
-    "goal": "Import exact between-kerbs turning diameter and source-text tyre and suspension observations for all twenty-two active Jogger configurations under D-016 without reinterpreting the ambiguous mass table."
+    "goal": "Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved."
   },
   "next_package": {
-    "name": "Brochure Chassis Modeling Closure Review",
+    "name": "Official Brochure Technical Gap Resolution Closure Review",
     "status": "planned",
-    "goal": "Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved."
+    "goal": "Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
