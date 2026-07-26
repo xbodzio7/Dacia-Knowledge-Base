@@ -193,7 +193,7 @@ def expected_rows(spec: Mapping[str, Any]) -> tuple[list[dict[str, str]], list[d
         value_code = f"{configuration_code}_boot_capacity_{observation['context_code']}_20251020"
         values.append({
             "id": str(value_id), "code": value_code, "configuration_code": configuration_code,
-            "attribute_code": "boot_capacity", "fuel_type_code": "", "value": str(observation["value"]),
+            "attribute_code": "boot_capacity", "fuel_type_code": "", "gear_number": "", "value": str(observation["value"]),
             "observation_date": "2025-10-20", "source_code": SOURCE_CODE,
             "notes": f"Source page 20, powertrain-specific cargo table: {observation['source_text']}",
         })
