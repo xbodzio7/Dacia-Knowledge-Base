@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_0_preflight",
+  "status": "PASS",
+  "source_commit": "becd218228e3f4f0cdd312b0ed836ade487422b1",
+  "release_version": "1.8.0",
+  "release_tag": "data-products-v1.8.0",
+  "workflow_run": 30219704364,
+  "tag_absent": true,
+  "release_absent": true,
+  "publication_performed": false,
+  "build_count": 2,
+  "byte_identical_rebuilds": true,
+  "release_verification": "PASS",
+  "offline_workspace_verification": "PASS",
+  "public_v1_7_0_control_verification": "PASS",
+  "selected_configuration_count": 72,
+  "scope_group_count": 19,
+  "within_scope_pair_count": 114,
+  "recorded_difference_count": 1695,
+  "archive_member_count": 85,
+  "cross_model": {
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "active_configuration_count": 72,
+    "within_scope_pair_count": 114,
+    "comparison_path_count": 76,
+    "navigation_path_count": 2,
+    "html_local_file_link_count": 57
+  },
+  "assets": {
+    "archive": {
+      "name": "dacia-knowledge-base-data-products-v1.8.0.zip",
+      "size_bytes": 62141187,
+      "sha256": "2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9"
+    },
+    "manifest": {
+      "name": "data-product-release-manifest.json",
+      "size_bytes": 20606,
+      "sha256": "af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b"
+    },
+    "checksums": {
+      "name": "SHA256SUMS",
+      "size_bytes": 213,
+      "sha256": "8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596"
+    }
+  }
+}
