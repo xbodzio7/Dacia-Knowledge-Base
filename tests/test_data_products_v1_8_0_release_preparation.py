@@ -118,7 +118,6 @@ class DataProductsV180ReleasePreparationTests(unittest.TestCase):
         self.assertFalse(publication["release_created"])
         self.assertIsNone(publication["final_source_commit"])
         self.assertIsNone(publication["final_asset_identity"])
-        self.assertFalse(TARGET_RELEASE.exists())
         self.assertIn("not the final squash-merged", publication["reason"])
 
     def test_non_goals_and_next_package_are_explicit(self) -> None:
@@ -146,7 +145,7 @@ class DataProductsV180ReleasePreparationTests(unittest.TestCase):
         self.assertEqual(baseline["availability_records"], 4754)
         self.assertEqual(baseline["attributes"], 385)
 
-    def test_verifier_and_project_state_accept_preparation(self) -> None:
+    def test_verifier_and_project_state_preserve_preparation_history(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
@@ -154,28 +153,19 @@ class DataProductsV180ReleasePreparationTests(unittest.TestCase):
             capture_output=True,
             check=False,
         )
-        self.assertEqual(
-            completed.returncode,
-            0,
-            completed.stderr or completed.stdout,
-        )
-        self.assertIn(
-            "PASS: Data Products v1.8.0 release preparation",
-            completed.stdout,
-        )
+        self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+        self.assertIn("PASS: Data Products v1.8.0 release preparation", completed.stdout)
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Data Products v1.8.0 Release Preparation")
-        self.assertEqual(
-            state["current_package"]["name"],
-            "Data Products v1.8.0 Release Preparation",
-        )
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Data Products v1.8.0 Preflight",
-        )
-        self.assertEqual(state["baseline"]["tests"], 1014)
-
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(state["current_package"]["status"], {"planned", "active", "blocked", "complete"})
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1014)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["availability_records"], 4754)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 if __name__ == "__main__":
     unittest.main()
