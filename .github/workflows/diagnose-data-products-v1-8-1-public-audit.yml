@@ -1,0 +1,248 @@
+name: Diagnose Public Data Products v1.8.1 Audit
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - .github/workflows/diagnose-data-products-v1-8-1-public-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: 0b7009fd1950693e347638a6b96756aeefb43b8a
+      VERSION: 1.8.1
+      TAG: data-products-v1.8.1
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/data-products-v1-8-1-public-audit
+          fetch-depth: 0
+
+      - name: Check out exact source tools
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 0b7009fd1950693e347638a6b96756aeefb43b8a
+          path: source
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - name: Collect public audit diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          workspace="$RUNNER_TEMP/public-v1.8.1-diagnostic"
+          python source/tools/dkb.py data-product-release-download \
+            --version "$VERSION" \
+            --output-directory "$workspace"
+          python source/tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "$workspace" --json \
+            > "$RUNNER_TEMP/workspace-report.json"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/releases/tags/$TAG" > "$RUNNER_TEMP/release.json"
+          gh api "repos/xbodzio7/Dacia-Knowledge-Base/git/ref/tags/$TAG" > "$RUNNER_TEMP/tag.json"
+          WORKSPACE="$workspace" \
+          WORKSPACE_REPORT="$RUNNER_TEMP/workspace-report.json" \
+          RELEASE_JSON="$RUNNER_TEMP/release.json" \
+          TAG_JSON="$RUNNER_TEMP/tag.json" \
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          import posixpath
+          import re
+          import subprocess
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          workspace = Path(os.environ["WORKSPACE"])
+          contents = workspace / "contents"
+          report = json.loads(Path(os.environ["WORKSPACE_REPORT"]).read_text(encoding="utf-8"))
+          release = json.loads(Path(os.environ["RELEASE_JSON"]).read_text(encoding="utf-8"))
+          tag = json.loads(Path(os.environ["TAG_JSON"]).read_text(encoding="utf-8"))
+          files = [path for path in contents.rglob("*") if path.is_file()]
+          names = {path.relative_to(contents).as_posix() for path in files}
+          diagnostic = {
+              "workspace_report": report,
+              "release": {
+                  "id": release.get("id"),
+                  "tag_name": release.get("tag_name"),
+                  "draft": release.get("draft"),
+                  "prerelease": release.get("prerelease"),
+                  "published_at": release.get("published_at"),
+                  "assets": [
+                      {
+                          "id": item.get("id"),
+                          "name": item.get("name"),
+                          "size": item.get("size"),
+                          "digest": item.get("digest"),
+                      }
+                      for item in release.get("assets", [])
+                  ],
+              },
+              "tag": tag,
+              "content_file_count": len(files),
+              "shortlist_candidates": sorted(name for name in names if "shortlist" in name.lower()),
+              "cross_model_candidates": sorted(name for name in names if "cross-model" in name.lower()),
+          }
+
+          shortlist_path = contents / "shortlist/configuration-shortlist.html"
+          if shortlist_path.is_file():
+              shortlist = shortlist_path.read_text(encoding="utf-8")
+              match = re.search(
+                  r'<script id="configuration-catalog" type="application/json">(.*?)</script>',
+                  shortlist,
+                  flags=re.DOTALL,
+              )
+              diagnostic["shortlist"] = {
+                  "exists": True,
+                  "catalog_match": match is not None,
+              }
+              if match is not None:
+                  catalog = json.loads(match.group(1))
+                  facets = catalog.get("facets", {})
+                  models = facets.get("models", [])
+                  equipment = facets.get("equipment", [])
+                  diagnostic["shortlist"].update({
+                      "catalog_keys": sorted(catalog),
+                      "facet_keys": sorted(facets),
+                      "configuration_count": len(catalog.get("configurations", [])),
+                      "equipment_count": len(equipment),
+                      "model_count": len(models),
+                      "models": models,
+                  })
+                  browser = Path("source/tools/reporting/configuration_shortlist_browser.js")
+                  program = r'''
+                  const fs = require("fs");
+                  const api = require(process.argv[1]);
+                  const catalog = JSON.parse(fs.readFileSync(0, "utf8"));
+                  const initial = api.reconcileEquipmentSelection(catalog, {
+                    models: [], versions: [], transmissions: [], powertrains: [],
+                    required_equipment: [], required_standard_equipment: []
+                  });
+                  const camera = api.filterCatalog(catalog, {
+                    required_equipment: ["rear_view_camera"],
+                    required_standard_equipment: []
+                  });
+                  const missing = {
+                    configuration_code: "missing", model_code: "m", version_code: "v",
+                    transmission_type: "manual", powertrain_label: "p",
+                    catalog_price: {state: "missing"}, number_of_seats: {state: "missing"},
+                    equipment: {}
+                  };
+                  process.stdout.write(JSON.stringify({
+                    visible: initial.available_equipment.length,
+                    camera_matches: camera.results.length,
+                    missing_reasons: api.evaluate(missing, {
+                      required_equipment: ["rear_view_camera"], required_standard_equipment: []
+                    })
+                  }));
+                  '''
+                  completed = subprocess.run(
+                      ["node", "-e", program, str(browser)],
+                      input=json.dumps(catalog, ensure_ascii=False),
+                      text=True,
+                      capture_output=True,
+                      check=False,
+                  )
+                  diagnostic["shortlist"]["node"] = {
+                      "returncode": completed.returncode,
+                      "stdout": completed.stdout,
+                      "stderr": completed.stderr,
+                  }
+              notes = (contents / "RELEASE_NOTES.md").read_text(encoding="utf-8")
+              diagnostic["release_notes_checks"] = {
+                  "filtering": "Equipment filtering is restored" in notes,
+                  "missing": "Missing and unknown evidence remains excluded" in notes,
+                  "ordering": "minimum current catalogue price" in notes,
+                  "immutability": "v1.8.0 remains immutable" in notes,
+              }
+          else:
+              diagnostic["shortlist"] = {"exists": False}
+
+          view_path = contents / "cross-model/cross-model-comparison-view.json"
+          html_path = contents / "cross-model/cross-model-comparison-view.html"
+          if view_path.is_file() and html_path.is_file():
+              view = json.loads(view_path.read_text(encoding="utf-8"))
+              html = html_path.read_text(encoding="utf-8")
+              comparison_paths = [
+                  value
+                  for scope in view.get("scopes", [])
+                  for value in scope.get("comparison_paths", {}).values()
+              ]
+              navigation = view.get("navigation", {})
+              navigation_paths = [
+                  navigation.get("shortlist_html"),
+                  navigation.get("comparison_bundle_manifest"),
+              ]
+              class Links(HTMLParser):
+                  def __init__(self) -> None:
+                      super().__init__()
+                      self.hrefs: list[str] = []
+                  def handle_starttag(self, tag_name, attrs):
+                      if tag_name.lower() == "a":
+                          href = dict(attrs).get("href")
+                          if href:
+                              self.hrefs.append(href)
+              parser = Links()
+              parser.feed(html)
+              local_hrefs = [
+                  href for href in parser.hrefs
+                  if not href.startswith("#")
+                  and not urlsplit(href).scheme
+                  and not urlsplit(href).netloc
+              ]
+              def target(source: str, href: str | None) -> str | None:
+                  if href is None:
+                      return None
+                  return posixpath.normpath(posixpath.join(posixpath.dirname(source), href))
+              diagnostic["cross_model"] = {
+                  "summary": view.get("summary"),
+                  "models": view.get("models"),
+                  "comparison_path_count": len(comparison_paths),
+                  "navigation_paths": navigation_paths,
+                  "navigation_targets": [target("cross-model/cross-model-comparison-view.json", href) for href in navigation_paths],
+                  "navigation_targets_exist": [target("cross-model/cross-model-comparison-view.json", href) in names for href in navigation_paths],
+                  "local_href_count": len(local_hrefs),
+                  "missing_local_targets": sorted({
+                      target("cross-model/cross-model-comparison-view.html", href)
+                      for href in local_hrefs
+                      if target("cross-model/cross-model-comparison-view.html", href) not in names
+                  }),
+                  "contains_script": "<script" in html.lower(),
+                  "contains_img": "<img" in html.lower(),
+                  "contains_not_stated": "nie podano" in html,
+              }
+
+          Path(".github/data-products-v1.8.1-public-audit-diagnostic.json").write_text(
+              json.dumps(diagnostic, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit diagnostic receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/data-products-v1.8.1-public-audit-diagnostic.json
+          git commit -m 'ci(release): record v1.8.1 audit diagnostics'
+          git push origin HEAD:agent/data-products-v1-8-1-public-audit
