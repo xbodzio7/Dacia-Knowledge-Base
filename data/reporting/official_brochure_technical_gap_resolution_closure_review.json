@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "kind": "official_brochure_technical_gap_resolution_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_review": "official_brochure_technical_gap_review.json",
+  "original_inventory": {
+    "sources": 5,
+    "classifications": 29,
+    "priority_packages": 4,
+    "priority_classifications": 13,
+    "residual_classifications": 16
+  },
+  "priority_resolutions": [
+    {
+      "priority": 1,
+      "package": "Sandero Eco-G 120 Automatic Brochure Technical Import",
+      "pull_request": 260,
+      "merge_sha": "bd16b34",
+      "classification_codes": [
+        "sandero_ecog120_automatic_exact_candidate"
+      ],
+      "configurations": 2,
+      "scalar_values": 36,
+      "range_values": 0,
+      "new_attributes": 0,
+      "status": "resolved_by_import"
+    },
+    {
+      "priority": 2,
+      "package": "Bigster and Duster Brochure Towing Mass Import",
+      "pull_request": 261,
+      "merge_sha": "1d4665e",
+      "classification_codes": [
+        "bigster_gross_train_weight_candidate",
+        "bigster_unbraked_trailer_weight_candidate",
+        "duster_gross_train_weight_candidate",
+        "duster_unbraked_trailer_weight_candidate"
+      ],
+      "configurations": 24,
+      "scalar_values": 48,
+      "range_values": 0,
+      "new_attributes": 0,
+      "status": "resolved_by_import"
+    },
+    {
+      "priority": 3,
+      "package": "Jogger Brochure Hybrid Performance Completion",
+      "pull_request": 262,
+      "merge_sha": "fa99a1d",
+      "classification_codes": [
+        "jogger_hybrid155_acceleration_candidate",
+        "jogger_hybrid_battery_capacity_candidate",
+        "jogger_engine_speed_range_candidate"
+      ],
+      "configurations": 22,
+      "scalar_values": 18,
+      "range_values": 58,
+      "new_attributes": 0,
+      "status": "resolved_by_import"
+    },
+    {
+      "priority": 4,
+      "package": "Brochure Chassis Measurement Context Modeling and Imports",
+      "pull_requests": [263, 264, 265, 266, 267, 268],
+      "merge_shas": ["49738fc", "c6c03e9", "911668b", "e4bf3cc", "e4844ec", "2cc4573"],
+      "classification_codes": [
+        "bigster_chassis_measurement_modeling",
+        "jogger_chassis_candidate_and_modeling",
+        "sandero_chassis_and_maximum_mass_modeling",
+        "stepway_chassis_and_maximum_mass_modeling",
+        "duster_chassis_mass_and_payload_modeling"
+      ],
+      "configurations": 55,
+      "scalar_values": 277,
+      "range_values": 10,
+      "new_attributes": 4,
+      "status": "resolved_by_model_and_import"
+    }
+  ],
+  "resolution_totals": {
+    "classifications": 13,
+    "scalar_values": 379,
+    "range_values": 68,
+    "new_attributes": 4
+  },
+  "current_brochure_coverage": {
+    "scalar_values": 736,
+    "range_values": 68,
+    "scalar_values_by_source": {
+      "src_pl_sandero_brochure_20260202": 92,
+      "src_pl_sandero_stepway_brochure_20260202": 72,
+      "src_pl_jogger_brochure_20251217": 248,
+      "src_pl_bigster_brochure_20251210": 180,
+      "src_pl_duster_mini_brochure_20251020": 144
+    },
+    "range_values_by_source": {
+      "src_pl_jogger_brochure_20251217": 58,
+      "src_pl_duster_mini_brochure_20251020": 10
+    },
+    "priority_scalar_id_range": [2189, 2567],
+    "priority_range_id_range": [177, 244]
+  },
+  "residual_evidence": {
+    "classifications": 16,
+    "status_counts": {
+      "covered_or_superseded": 5,
+      "covered_or_explicitly_deferred": 4,
+      "unmodeled_exact_configuration": 3,
+      "no_observation": 2,
+      "ambiguous_source_evidence": 1,
+      "no_observation_or_generic_projection": 1
+    },
+    "classification_codes": [
+      "bigster_core_powertrain_covered_or_newer",
+      "bigster_dimensions_covered_and_cargo_deferred",
+      "jogger_core_powertrain_covered_or_newer",
+      "jogger_mass_table_label_conflict",
+      "jogger_blank_wltp_cells",
+      "jogger_dimensions_and_cargo",
+      "sandero_manual_core_covered",
+      "sandero_tce100_without_exact_configuration",
+      "sandero_wltp_placeholders",
+      "sandero_dimensions_and_cargo",
+      "stepway_core_covered",
+      "stepway_tce110_without_exact_configuration",
+      "stepway_dimensions_and_cargo",
+      "duster_core_powertrain_covered_or_newer",
+      "duster_hybridg150_without_exact_configuration",
+      "duster_wltp_placeholders_and_dimensions"
+    ]
+  },
+  "non_inference_contract": [
+    "No value is created from blank WLTP cells or country-dependent placeholders.",
+    "No brochure column is projected without an exact active configuration.",
+    "No generic dimension row is assigned to a powertrain without an exact projection review.",
+    "No Jogger mass-table row is semantically reassigned without corrected official evidence.",
+    "Covered or superseded observations remain corroborating evidence rather than duplicate current baselines."
+  ],
+  "closure_decision": "Close the four-package priority queue from the official brochure technical gap review. All thirteen actionable classifications are resolved through exact imports or D-016 context modeling, while all sixteen residual classifications remain explicitly covered, deferred, unmodeled, absent or ambiguous without inferred data.",
+  "next_package": {
+    "name": "Official Brochure Residual Evidence Review",
+    "goal": "Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports."
+  }
+}

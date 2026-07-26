@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Chassis Modeling Closure Review",
+  "phase": "Official Brochure Technical Gap Resolution Closure Review",
   "reference_delivery": {
     "name": "Duster Eco-G 120 Automatic Homologation Evidence",
     "pull_request": 244,
@@ -15,7 +15,7 @@
     "quality_run": 1397
   },
   "baseline": {
-    "tests": 915,
+    "tests": 923,
     "csv_files": 46,
     "rows": 9306,
     "configuration_values": 2567,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Brochure Chassis Modeling Closure Review",
+    "name": "Official Brochure Technical Gap Resolution Closure Review",
     "status": "complete",
-    "goal": "Verify that all five D-016 chassis modeling resolutions are imported, all source and reporting contracts remain green, and the separate Jogger mass-table label conflict remains explicitly unresolved."
+    "goal": "Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals."
   },
   "next_package": {
-    "name": "Official Brochure Technical Gap Resolution Closure Review",
+    "name": "Official Brochure Residual Evidence Review",
     "status": "planned",
-    "goal": "Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals."
+    "goal": "Re-audit the sixteen residual brochure classifications against the current repository, determine whether generic dimensions or newly modeled exact configurations have become actionable, and preserve blank, superseded and ambiguous evidence as explicit non-imports."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
