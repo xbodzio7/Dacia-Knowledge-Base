@@ -1,9 +1,0 @@
-status: 1
-head_before_commit: a7419fb4bccbd76956f652b6c71438c7987f8837
----
-Traceback (most recent call last):
-  File "<stdin>", line 11, in <module>
-  File "/home/runner/work/_temp/original.yml", line 1
-    name: Materialize Cross-Model Workspace Entry Point
-             ^
-IndentationError: unexpected indent

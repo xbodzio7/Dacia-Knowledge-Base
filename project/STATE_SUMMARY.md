@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Cross-Model Navigation Usability Review**
+**Cross-Model Workspace Entry Point**
 
 ## Reference delivery
 
-- Package: Data Products v1.8.1 Publication
-- Pull Request: #294
-- Verified head: `3b7709b41dca39f1822d20bb9a20fd61144f5443`
-- Quality run: #2086
+- Package: Cross-Model Navigation Usability Review
+- Pull Request: #295
+- Verified head: `2ca040708e9f8bba92abe70693395c6a5447252f`
+- Quality run: #2102
 
 ## Verified baseline
 
-- Tests: 1062
+- Tests: 1070
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Navigation Usability Review** — `complete`
+**Cross-Model Workspace Entry Point** — `complete`
 
-Review consumer discoverability of the published cross-model products and select the smallest workspace-only entry-point improvement without changing immutable release assets or comparison semantics.
+Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index while preserving older releases and immutable public assets.
 
 ## Next package
 
-**Cross-Model Workspace Entry Point** — `planned`
+**Post-Cross-Model Workspace Priority Selection Review** — `planned`
 
-Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics.
+Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package.
 
 ## Autonomy
 

@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Cross-Model Navigation Usability Review",
+  "phase": "Cross-Model Workspace Entry Point",
   "reference_delivery": {
-    "name": "Data Products v1.8.1 Publication",
-    "pull_request": 294,
-    "head_sha": "3b7709b41dca39f1822d20bb9a20fd61144f5443",
-    "quality_run": 2086
+    "name": "Cross-Model Navigation Usability Review",
+    "pull_request": 295,
+    "head_sha": "2ca040708e9f8bba92abe70693395c6a5447252f",
+    "quality_run": 2102
   },
   "baseline": {
-    "tests": 1062,
+    "tests": 1070,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Cross-Model Navigation Usability Review",
+    "name": "Cross-Model Workspace Entry Point",
     "status": "complete",
-    "goal": "Review consumer discoverability of the published cross-model products and select the smallest workspace-only entry-point improvement without changing immutable release assets or comparison semantics."
+    "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index while preserving older releases and immutable public assets."
   },
   "next_package": {
-    "name": "Cross-Model Workspace Entry Point",
+    "name": "Post-Cross-Model Workspace Priority Selection Review",
     "status": "planned",
-    "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics."
+    "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
