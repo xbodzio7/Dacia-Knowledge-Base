@@ -1,0 +1,96 @@
+{
+  "fields": [
+    "id",
+    "code",
+    "version_code",
+    "powertrain_label",
+    "transmission_type",
+    "status",
+    "notes"
+  ],
+  "max_numeric_id": 72,
+  "row_count": 72,
+  "selected": [
+    {
+      "code": "sandero_iii_expression_ecog120_manual",
+      "id": "1",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "manual",
+      "version_code": "sandero_iii_expression"
+    },
+    {
+      "code": "sandero_iii_journey_ecog120_manual",
+      "id": "2",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "manual",
+      "version_code": "sandero_iii_journey"
+    },
+    {
+      "code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "3",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "manual",
+      "version_code": "sandero_stepway_iii_essential"
+    },
+    {
+      "code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "4",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "automatic",
+      "version_code": "sandero_stepway_iii_expression"
+    },
+    {
+      "code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "5",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "manual",
+      "version_code": "sandero_stepway_iii_expression"
+    },
+    {
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "6",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "automatic",
+      "version_code": "sandero_stepway_iii_extreme"
+    },
+    {
+      "code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "7",
+      "notes": "",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "manual",
+      "version_code": "sandero_stepway_iii_extreme"
+    },
+    {
+      "code": "sandero_iii_expression_ecog120_automatic",
+      "id": "68",
+      "notes": "Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "automatic",
+      "version_code": "sandero_iii_expression"
+    },
+    {
+      "code": "sandero_iii_journey_ecog120_automatic",
+      "id": "69",
+      "notes": "Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.",
+      "powertrain_label": "Eco-G 120",
+      "status": "active",
+      "transmission_type": "automatic",
+      "version_code": "sandero_iii_journey"
+    }
+  ]
+}

@@ -1,72 +1,72 @@
 [
   {
-    "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
     "bytes": 8541016,
-    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
     "pages": 21,
+    "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
     "text_path": "diagnostics/catalog-recovery/DACIA SANDERO STEPWAY broszura 20260202.txt"
   },
   {
-    "path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
     "bytes": 8358370,
-    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
     "pages": 21,
+    "path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
     "text_path": "diagnostics/catalog-recovery/DACIA SANDERO broszura 20260202.txt"
   },
   {
-    "path": "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf",
     "bytes": 1703737,
-    "sha256": "5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783",
     "pages": 7,
+    "path": "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf",
+    "sha256": "5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783",
     "text_path": "diagnostics/catalog-recovery/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf",
     "bytes": 841868,
-    "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
     "pages": 10,
+    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf",
+    "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.pdf",
     "bytes": 846375,
-    "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
     "pages": 10,
+    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.pdf",
+    "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.pdf",
     "bytes": 846245,
-    "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
     "pages": 10,
+    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.pdf",
+    "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
     "bytes": 842138,
-    "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
     "pages": 10,
+    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+    "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
     "bytes": 842520,
-    "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
     "pages": 10,
+    "path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
+    "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf",
     "bytes": 724661,
-    "sha256": "82a8853d90b492e48595ff33db73632dc309b8a12d08d11dd3c259fca4eaff68",
     "pages": 9,
+    "path": "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf",
+    "sha256": "82a8853d90b492e48595ff33db73632dc309b8a12d08d11dd3c259fca4eaff68",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO expression Eco-G 120 f.txt"
   },
   {
-    "path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
     "bytes": 724677,
-    "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
     "pages": 9,
+    "path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
+    "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
     "text_path": "diagnostics/catalog-recovery/NOWE SANDERO journey Eco-G 120 f.txt"
   }
 ]

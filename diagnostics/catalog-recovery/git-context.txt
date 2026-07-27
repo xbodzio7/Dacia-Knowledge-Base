@@ -1,5 +1,5 @@
 ===== ALL REFS =====
-refs/heads/agent/sandero-stepway-catalog-recovery 72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b chore(ci): refine catalog recovery diagnostics
+refs/heads/agent/sandero-stepway-catalog-recovery b69365603f7541acd4925bb49c8cf4f1d04df3c3 chore(ci): add catalogue projection diagnostics
 refs/remotes/origin/agent/bigster-brochure-cargo-import 1586e01eec18f2549a92d906c84db2c3f2994c72 chore(data): remove Bigster cargo patch helper
 refs/remotes/origin/agent/bigster-catalogue-foundation ae2eeec517ef29616fb5ca66c04ac0bccfdfc71e chore: add temporary Bigster snapshot workflow
 refs/remotes/origin/agent/bigster-catalogue-foundation-v1-3 e82c349075eae5c1c8814182fbc286b96b563e2f Document Bigster comparison scopes
@@ -84,7 +84,7 @@ refs/remotes/origin/agent/recover-main-snapshot-20260722 c426a0a93511631de63150d
 refs/remotes/origin/agent/register-sandero-stepway-price-20260703 23627379d611c637e6d800e7a37b71f54678a148 docs: record additive source mapping semantics
 refs/remotes/origin/agent/sandero-ecog120-automatic-brochure-technical-import 6d4c8462f8cc06e482aaa3783161b23ff22b4d49 chore(data): remove one-time Sandero regression repair
 refs/remotes/origin/agent/sandero-stepway-brochure-cargo-import a59b241a3c96f0bfd841a84fa096ec2e2c24254f chore(data): remove final quality summary
-refs/remotes/origin/agent/sandero-stepway-catalog-recovery 72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b chore(ci): refine catalog recovery diagnostics
+refs/remotes/origin/agent/sandero-stepway-catalog-recovery b69365603f7541acd4925bb49c8cf4f1d04df3c3 chore(ci): add catalogue projection diagnostics
 refs/remotes/origin/agent/sandero-stepway-chassis-observation-import b5c1bfaa3a9e957fc2de68b5fb7a86cb3f934ca6 chore(reporting): remove one-off orchestration repair script
 refs/remotes/origin/agent/verified-pdf-candidate-ledger-foundation 637eae82f194e564d932c3095fead0cb29f8aae1 test(pdf): gate verified candidate ledger foundation
 refs/remotes/origin/analysis/sandero-packages-options-gap 52503d5016e53ee551d63c0f4269f0ee7e4cfca1 docs: define evidence gate for packages and options
@@ -401,7 +401,7 @@ c426a0a93511631de63150daca2716a30d573048	refs/heads/agent/recover-main-snapshot-
 23627379d611c637e6d800e7a37b71f54678a148	refs/heads/agent/register-sandero-stepway-price-20260703
 6d4c8462f8cc06e482aaa3783161b23ff22b4d49	refs/heads/agent/sandero-ecog120-automatic-brochure-technical-import
 a59b241a3c96f0bfd841a84fa096ec2e2c24254f	refs/heads/agent/sandero-stepway-brochure-cargo-import
-72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b	refs/heads/agent/sandero-stepway-catalog-recovery
+b69365603f7541acd4925bb49c8cf4f1d04df3c3	refs/heads/agent/sandero-stepway-catalog-recovery
 b5c1bfaa3a9e957fc2de68b5fb7a86cb3f934ca6	refs/heads/agent/sandero-stepway-chassis-observation-import
 637eae82f194e564d932c3095fead0cb29f8aae1	refs/heads/agent/verified-pdf-candidate-ledger-foundation
 52503d5016e53ee551d63c0f4269f0ee7e4cfca1	refs/heads/analysis/sandero-packages-options-gap
@@ -621,15 +621,17 @@ b8ba25cbd1ea37ac42589d49cbdfed56d945911b	refs/heads/transport/export-current-mai
 9e7eb78a3db2701f0294831c20115be7e31fbbf4	refs/heads/transport/export-main-v120-review
 
 ===== TARGET REMOTE REFLOG =====
-72cdebf refs/heads/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:01:33 +0000}: branch: Created from refs/remotes/origin/agent/sandero-stepway-catalog-recovery
-72cdebf refs/remotes/origin/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:01:33 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
-68ac5ec refs/remotes/origin/data/sandero-stepway-catalog-completion@{2026-07-27 19:01:33 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
-72cdebf HEAD@{2026-07-27 19:01:33 +0000}: checkout: moving from master to agent/sandero-stepway-catalog-recovery
+b693656 refs/heads/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:08:01 +0000}: branch: Created from refs/remotes/origin/agent/sandero-stepway-catalog-recovery
+b693656 refs/remotes/origin/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:08:01 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
+68ac5ec refs/remotes/origin/data/sandero-stepway-catalog-completion@{2026-07-27 19:08:01 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
+b693656 HEAD@{2026-07-27 19:08:01 +0000}: checkout: moving from master to agent/sandero-stepway-catalog-recovery
 
 ===== UNREACHABLE OBJECTS =====
 
 ===== RECENT ALL-BRANCH GRAPH =====
-* 72cdebf (HEAD -> agent/sandero-stepway-catalog-recovery, origin/agent/sandero-stepway-catalog-recovery) chore(ci): refine catalog recovery diagnostics
+* b693656 (HEAD -> agent/sandero-stepway-catalog-recovery, origin/agent/sandero-stepway-catalog-recovery) chore(ci): add catalogue projection diagnostics
+* 09b27fd chore(data): refine catalog recovery context
+* 72cdebf chore(ci): refine catalog recovery diagnostics
 * 2f74c64 chore(data): capture catalog recovery context
 * 366e0a3 chore(ci): add catalog recovery diagnostics
 | * 579e750 (origin/main) Merge pull request #192 from xbodzio7/agent/bigster-catalogue-foundation
@@ -1086,5 +1088,3 @@ b8ba25cbd1ea37ac42589d49cbdfed56d945911b	refs/heads/transport/export-current-mai
 | | * 6aab43c feat(data): materialize generic brochure dimensions
 | | * bf71aa2 ci(data): synchronize generic dimension reporting evidence
 | | * fae684d chore(data): sync generic dimension reporting evidence
-| | * e287c21 feat(data): materialize generic brochure dimensions
-| | * 5966567 ci(data): normalize generic dimension receipts idempotently

@@ -1,0 +1,824 @@
+{
+  "fields": [
+    "id",
+    "code",
+    "category",
+    "name",
+    "data_type",
+    "unit",
+    "description",
+    "status"
+  ],
+  "selected": [
+    {
+      "category": "Safety",
+      "code": "tyre_pressure_monitoring_system",
+      "data_type": "boolean",
+      "description": "Vehicle equipped with a tyre pressure monitoring system (TPMS)",
+      "id": "147",
+      "name": "Tyre pressure monitoring system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Doors",
+      "code": "keyless_entry",
+      "data_type": "boolean",
+      "description": "Vehicle equipped with passive keyless entry",
+      "id": "200",
+      "name": "Keyless entry",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Seats",
+      "code": "driver_seat_height_adjustment",
+      "data_type": "boolean",
+      "description": "Driver seat height adjustment available",
+      "id": "212",
+      "name": "Driver seat height adjustment",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Seats",
+      "code": "heated_front_seats",
+      "data_type": "boolean",
+      "description": "Front seats equipped with heating",
+      "id": "214",
+      "name": "Heated front seats",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Seats",
+      "code": "rear_seat_folding",
+      "data_type": "string",
+      "description": "Rear seat folding configuration (e.g. 60:40 or 40:20:40)",
+      "id": "218",
+      "name": "Rear seat folding",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Seats",
+      "code": "isofix_rear",
+      "data_type": "boolean",
+      "description": "ISOFIX anchor points available on rear seats",
+      "id": "225",
+      "name": "ISOFIX rear",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Windows",
+      "code": "front_windows_power",
+      "data_type": "boolean",
+      "description": "Front windows electrically operated",
+      "id": "231",
+      "name": "Front power windows",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Windows",
+      "code": "rear_windows_power",
+      "data_type": "boolean",
+      "description": "Rear windows electrically operated",
+      "id": "232",
+      "name": "Rear power windows",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Windows",
+      "code": "one_touch_windows",
+      "data_type": "boolean",
+      "description": "One-touch up/down window control",
+      "id": "233",
+      "name": "One-touch windows",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Windows",
+      "code": "rain_sensing_wipers",
+      "data_type": "boolean",
+      "description": "Automatic rain-sensing wipers",
+      "id": "238",
+      "name": "Rain sensing wipers",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "side_mirrors_electric_adjustment",
+      "data_type": "boolean",
+      "description": "Electric adjustment of side mirrors",
+      "id": "242",
+      "name": "Electric side mirror adjustment",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "side_mirrors_heated",
+      "data_type": "boolean",
+      "description": "Side mirrors with heating function",
+      "id": "243",
+      "name": "Heated side mirrors",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "side_mirrors_folding",
+      "data_type": "boolean",
+      "description": "Electrically folding side mirrors",
+      "id": "244",
+      "name": "Power folding side mirrors",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "blind_spot_monitoring",
+      "data_type": "boolean",
+      "description": "System detecting vehicles in blind spots",
+      "id": "247",
+      "name": "Blind spot monitoring system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "rear_parking_sensors",
+      "data_type": "boolean",
+      "description": "Rear parking distance sensors",
+      "id": "248",
+      "name": "Rear parking sensors",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "front_parking_sensors",
+      "data_type": "boolean",
+      "description": "Front parking distance sensors",
+      "id": "249",
+      "name": "Front parking sensors",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "parking_assist_system",
+      "data_type": "boolean",
+      "description": "Automated parking assistance system",
+      "id": "250",
+      "name": "Parking assist system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "rear_view_camera",
+      "data_type": "boolean",
+      "description": "Rear reversing camera",
+      "id": "251",
+      "name": "Rear view camera",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "360_camera_system",
+      "data_type": "boolean",
+      "description": "Surround view camera system",
+      "id": "252",
+      "name": "360-degree camera system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "automatic_headlights",
+      "data_type": "boolean",
+      "description": "Automatic headlight activation based on ambient light",
+      "id": "255",
+      "name": "Automatic headlights",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "led_daytime_running_lights",
+      "data_type": "boolean",
+      "description": "LED DRL system",
+      "id": "256",
+      "name": "LED daytime running lights",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "fog_lights_front",
+      "data_type": "boolean",
+      "description": "Front fog lamp system",
+      "id": "259",
+      "name": "Front fog lights",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "high_beam_assist",
+      "data_type": "boolean",
+      "description": "Automatic high beam control",
+      "id": "261",
+      "name": "High beam assist",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "ADAS",
+      "code": "traffic_sign_recognition",
+      "data_type": "boolean",
+      "description": "Detects and interprets road signs",
+      "id": "268",
+      "name": "Traffic sign recognition",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "ADAS",
+      "code": "lane_keep_assist",
+      "data_type": "boolean",
+      "description": "Actively maintains lane position",
+      "id": "270",
+      "name": "Lane keep assist",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "ADAS",
+      "code": "automatic_emergency_braking",
+      "data_type": "boolean",
+      "description": "Automatically applies brakes in critical situations",
+      "id": "271",
+      "name": "Automatic emergency braking",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "touchscreen",
+      "data_type": "boolean",
+      "description": "Touch-sensitive infotainment display",
+      "id": "280",
+      "name": "Touchscreen",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "navigation_system",
+      "data_type": "boolean",
+      "description": "Built-in GPS navigation system",
+      "id": "283",
+      "name": "Navigation system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "bluetooth_connectivity",
+      "data_type": "boolean",
+      "description": "Wireless phone connection via Bluetooth",
+      "id": "288",
+      "name": "Bluetooth connectivity",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "wireless_charging",
+      "data_type": "boolean",
+      "description": "Wireless smartphone charging pad",
+      "id": "290",
+      "name": "Wireless charging",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "connected_services",
+      "data_type": "boolean",
+      "description": "Online connected vehicle services",
+      "id": "292",
+      "name": "Connected services",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "HVAC",
+      "code": "manual_air_conditioning",
+      "data_type": "boolean",
+      "description": "Manual climate control system",
+      "id": "293",
+      "name": "Manual air conditioning",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "HVAC",
+      "code": "automatic_climate_control",
+      "data_type": "boolean",
+      "description": "Automatic temperature regulation system",
+      "id": "294",
+      "name": "Automatic climate control",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "HVAC",
+      "code": "heated_windscreen",
+      "data_type": "boolean",
+      "description": "Front windscreen heating system",
+      "id": "301",
+      "name": "Heated windscreen",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "onboard_computer",
+      "data_type": "boolean",
+      "description": "Vehicle information computer available to the driver",
+      "id": "310",
+      "name": "On-board computer",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "media_display_system",
+      "data_type": "boolean",
+      "description": "Dacia Media Display multimedia system",
+      "id": "311",
+      "name": "Media Display system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "media_control_system",
+      "data_type": "boolean",
+      "description": "Dacia Media Control multimedia system",
+      "id": "312",
+      "name": "Media Control system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "wireless_smartphone_replication",
+      "data_type": "boolean",
+      "description": "Wireless smartphone screen and application replication",
+      "id": "313",
+      "name": "Wireless smartphone replication",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "instrument_cluster_colour_7",
+      "data_type": "boolean",
+      "description": "Seven-inch colour driver information display",
+      "id": "314",
+      "name": "7-inch colour instrument display",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Infotainment",
+      "code": "instrument_cluster_tft_3_5",
+      "data_type": "boolean",
+      "description": "Three-and-a-half-inch TFT driver information display",
+      "id": "315",
+      "name": "3.5-inch TFT instrument display",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Steering",
+      "code": "steering_wheel_height_adjustment",
+      "data_type": "boolean",
+      "description": "Steering wheel can be adjusted vertically",
+      "id": "316",
+      "name": "Steering wheel height adjustment",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Steering",
+      "code": "steering_wheel_reach_adjustment",
+      "data_type": "boolean",
+      "description": "Steering wheel can be adjusted longitudinally",
+      "id": "317",
+      "name": "Steering wheel reach adjustment",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Seats",
+      "code": "front_centre_armrest",
+      "data_type": "boolean",
+      "description": "Front centre console includes an armrest",
+      "id": "318",
+      "name": "Front centre armrest",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Capacities",
+      "code": "adjustable_boot_floor",
+      "data_type": "boolean",
+      "description": "Luggage compartment floor has multiple height positions",
+      "id": "319",
+      "name": "Adjustable boot floor",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Mirrors",
+      "code": "manual_day_night_rearview_mirror",
+      "data_type": "boolean",
+      "description": "Interior rear-view mirror has manual day and night positions",
+      "id": "320",
+      "name": "Manual day/night rear-view mirror",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Windows",
+      "code": "high_filtering_glass",
+      "data_type": "boolean",
+      "description": "Vehicle glazing has enhanced light or heat filtering",
+      "id": "321",
+      "name": "High-filtering glass",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "led_headlights",
+      "data_type": "boolean",
+      "description": "Main headlight system uses LED technology",
+      "id": "322",
+      "name": "LED headlights",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "fog_lights",
+      "data_type": "boolean",
+      "description": "Vehicle is equipped with fog lights",
+      "id": "323",
+      "name": "Fog lights",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "boot_compartment_lighting",
+      "data_type": "boolean",
+      "description": "Luggage compartment has dedicated lighting",
+      "id": "324",
+      "name": "Boot compartment lighting",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Lighting",
+      "code": "third_brake_light",
+      "data_type": "boolean",
+      "description": "Vehicle has a high-mounted third stop lamp",
+      "id": "325",
+      "name": "Third brake light",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "cruise_control",
+      "data_type": "boolean",
+      "description": "Vehicle speed can be maintained automatically",
+      "id": "326",
+      "name": "Cruise control",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "speed_limiter",
+      "data_type": "boolean",
+      "description": "Driver-selectable maximum speed limiter",
+      "id": "327",
+      "name": "Speed limiter",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "one_touch_turn_signals",
+      "data_type": "boolean",
+      "description": "Brief indicator input triggers a programmed flash sequence",
+      "id": "328",
+      "name": "One-touch turn signals",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "gear_shift_indicator",
+      "data_type": "boolean",
+      "description": "Driver display provides gear-change recommendations",
+      "id": "329",
+      "name": "Gear shift indicator",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "electronic_stability_control",
+      "data_type": "boolean",
+      "description": "Electronic stability control system",
+      "id": "330",
+      "name": "Electronic stability control",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Driving Systems",
+      "code": "hill_start_assist",
+      "data_type": "boolean",
+      "description": "Vehicle assists the driver when starting on a gradient",
+      "id": "331",
+      "name": "Hill-start assist",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Brakes",
+      "code": "electronic_parking_brake",
+      "data_type": "boolean",
+      "description": "Parking brake is electrically operated",
+      "id": "332",
+      "name": "Electronic parking brake",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Drivetrain",
+      "code": "extended_grip",
+      "data_type": "boolean",
+      "description": "Dacia Extended Grip traction assistance",
+      "id": "333",
+      "name": "Extended Grip",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "HVAC",
+      "code": "heated_steering_wheel",
+      "data_type": "boolean",
+      "description": "Steering wheel includes an electric heating function",
+      "id": "334",
+      "name": "Heated steering wheel",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "rear_seat_belt_pretensioners",
+      "data_type": "boolean",
+      "description": "Rear seating positions include seat-belt pretensioning.",
+      "id": "335",
+      "name": "Rear seat-belt pretensioners",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "seat_belt_reminder",
+      "data_type": "boolean",
+      "description": "Vehicle warns occupants when a seat belt is not fastened.",
+      "id": "336",
+      "name": "Seat-belt reminder",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "driver_front_airbag",
+      "data_type": "boolean",
+      "description": "Frontal airbag for the driver.",
+      "id": "337",
+      "name": "Driver front airbag",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "passenger_front_airbag",
+      "data_type": "boolean",
+      "description": "Frontal airbag for the front passenger.",
+      "id": "338",
+      "name": "Passenger front airbag",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "emergency_stop_signal",
+      "data_type": "boolean",
+      "description": "Hazard warning lights activate automatically under hard braking.",
+      "id": "339",
+      "name": "Emergency stop signal",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "rear_three_point_seat_belts",
+      "data_type": "boolean",
+      "description": "Rear seating positions use three-point seat belts.",
+      "id": "340",
+      "name": "Rear three-point seat belts",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "emergency_call_ecall",
+      "data_type": "boolean",
+      "description": "Vehicle supports the European eCall emergency-call function.",
+      "id": "341",
+      "name": "Emergency call eCall",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Doors",
+      "code": "central_locking",
+      "data_type": "boolean",
+      "description": "Vehicle doors are controlled by a central locking system.",
+      "id": "342",
+      "name": "Central locking",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "front_side_airbags",
+      "data_type": "boolean",
+      "description": "Front occupants are protected by side airbags.",
+      "id": "343",
+      "name": "Front side airbags",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "curtain_airbags",
+      "data_type": "boolean",
+      "description": "Vehicle is equipped with curtain airbags.",
+      "id": "344",
+      "name": "Curtain airbags",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Brakes",
+      "code": "anti_lock_braking_system",
+      "data_type": "boolean",
+      "description": "Anti-lock braking system prevents wheel lock under braking.",
+      "id": "345",
+      "name": "Anti-lock braking system",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Wheels",
+      "code": "tyre_repair_kit",
+      "data_type": "boolean",
+      "description": "Vehicle includes a tyre puncture repair kit.",
+      "id": "346",
+      "name": "Tyre repair kit",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "front_seat_belt_pretensioners",
+      "data_type": "boolean",
+      "description": "Front seat belts include pyrotechnic pretensioners.",
+      "id": "347",
+      "name": "Front seat-belt pretensioners",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "ADAS",
+      "code": "safe_distance_warning",
+      "data_type": "boolean",
+      "description": "Vehicle warns when the following distance is unsafe.",
+      "id": "348",
+      "name": "Safe-distance warning",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "driver_seat_belt_height_adjustment",
+      "data_type": "boolean",
+      "description": "Driver seat-belt upper anchorage can be adjusted for height.",
+      "id": "349",
+      "name": "Driver seat-belt height adjustment",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Doors",
+      "code": "automatic_door_locking",
+      "data_type": "boolean",
+      "description": "Doors lock automatically after the vehicle starts moving.",
+      "id": "350",
+      "name": "Automatic door locking",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Safety",
+      "code": "alcohol_interlock_preparation",
+      "data_type": "boolean",
+      "description": "Vehicle is prepared for installation of an alcohol interlock.",
+      "id": "351",
+      "name": "Alcohol interlock preparation",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Doors",
+      "code": "glass_sunroof",
+      "data_type": "boolean",
+      "description": "Electrically operated glass sunroof",
+      "id": "365",
+      "name": "Glass sunroof",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Exterior",
+      "code": "roof_rails",
+      "data_type": "boolean",
+      "description": "Roof rails fitted as standard or option.",
+      "id": "366",
+      "name": "Roof rails",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Exterior",
+      "code": "modular_roof_rails",
+      "data_type": "boolean",
+      "description": "Roof rails convertible for transverse load carrying.",
+      "id": "367",
+      "name": "Modular roof rails",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "Exterior",
+      "code": "shark_fin_antenna",
+      "data_type": "boolean",
+      "description": "Shark-fin roof antenna.",
+      "id": "368",
+      "name": "Shark-fin antenna",
+      "status": "active",
+      "unit": ""
+    },
+    {
+      "category": "ADAS",
+      "code": "my_safety_button",
+      "data_type": "boolean",
+      "description": "Dedicated control for selected driver-assistance systems.",
+      "id": "372",
+      "name": "My Safety button",
+      "status": "active",
+      "unit": ""
+    }
+  ]
+}

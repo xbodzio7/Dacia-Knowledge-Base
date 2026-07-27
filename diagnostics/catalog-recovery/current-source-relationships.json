@@ -1,0 +1,316 @@
+{
+  "counts_by_source_relationship": {
+    "src_pl_cross_model_option_coverage_20260724|web_option_coverage_documents": 9,
+    "src_pl_sandero_brochure_20260202|brochure_technical_data_for": 4,
+    "src_pl_sandero_expression_ecog120_mt_20260626|documents": 1,
+    "src_pl_sandero_journey_ecog120_mt_20260626|documents": 1,
+    "src_pl_sandero_official_web_configurations_20260723|web_configuration_documents": 4,
+    "src_pl_sandero_stepway_brochure_20260202|brochure_technical_data_for": 5,
+    "src_pl_sandero_stepway_essential_ecog120_mt_20260626|documents": 1,
+    "src_pl_sandero_stepway_expression_ecog120_at_20260626|documents": 1,
+    "src_pl_sandero_stepway_expression_ecog120_mt_20260626|documents": 1,
+    "src_pl_sandero_stepway_extreme_ecog120_at_20260626|documents": 1,
+    "src_pl_sandero_stepway_extreme_ecog120_mt_20260626|documents": 1,
+    "src_pl_sandero_stepway_official_web_configurations_20260723|web_configuration_documents": 5,
+    "src_pl_sandero_stepway_price_my26_20260703|documents": 7
+  },
+  "fields": [
+    "id",
+    "source_code",
+    "configuration_code",
+    "relationship",
+    "notes"
+  ],
+  "max_numeric_id": 219,
+  "row_count": 219,
+  "selected": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "1",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "2",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "3",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "4",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "5",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "6",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "7",
+      "notes": "",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "54",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "55",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "56",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "57",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "58",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "59",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "60",
+      "notes": "Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.",
+      "relationship": "documents",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "107",
+      "notes": "Official version page explicitly lists Eco-G 120 with manual gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "108",
+      "notes": "Official version page explicitly lists Eco-G 120 with manual gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "109",
+      "notes": "Official version page explicitly lists Eco-G 120 with automatic gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "110",
+      "notes": "Official version page explicitly lists Eco-G 120 with manual gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "111",
+      "notes": "Official version page explicitly lists Eco-G 120 with automatic gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "112",
+      "notes": "Official version page explicitly lists Eco-G 120 with manual gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "id": "113",
+      "notes": "Official version page explicitly lists Eco-G 120 with automatic gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "114",
+      "notes": "Official version page explicitly lists Eco-G 120 with manual gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "id": "115",
+      "notes": "Official version page explicitly lists Eco-G 120 with automatic gearbox and catalogue price; only source-visible version highlights are expanded.",
+      "relationship": "web_configuration_documents",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "id": "116",
+      "notes": "Active configuration belongs to exact grade sandero_iii_expression documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "117",
+      "notes": "Active configuration belongs to exact grade sandero_iii_expression documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "id": "118",
+      "notes": "Active configuration belongs to exact grade sandero_iii_journey documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "119",
+      "notes": "Active configuration belongs to exact grade sandero_iii_journey documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "120",
+      "notes": "Active configuration belongs to exact grade sandero_stepway_iii_essential documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "121",
+      "notes": "Active configuration belongs to exact grade sandero_stepway_iii_expression documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "122",
+      "notes": "Active configuration belongs to exact grade sandero_stepway_iii_expression documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "123",
+      "notes": "Active configuration belongs to exact grade sandero_stepway_iii_extreme documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "124",
+      "notes": "Active configuration belongs to exact grade sandero_stepway_iii_extreme documented by the official equipment page observed 2026-07-24.",
+      "relationship": "web_option_coverage_documents",
+      "source_code": "src_pl_cross_model_option_coverage_20260724"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "165",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "166",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "id": "167",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "id": "168",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "id": "169",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "170",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "171",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "172",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "173",
+      "notes": "The model-level official brochure lists the represented Eco-G 120 powertrain and gives one model-wide cargo table on page 20; the active configuration inherits five-seat layout from master data.",
+      "relationship": "brochure_technical_data_for",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    }
+  ],
+  "selected_count": 41
+}
