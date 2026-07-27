@@ -1,21 +1,21 @@
 {
   "version": 1,
-  "updated_on": "2026-07-26",
+  "updated_on": "2026-07-27",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.8.1 Publication",
+  "phase": "Cross-Model Navigation Usability Review",
   "reference_delivery": {
-    "name": "Data Products v1.8.1 Preflight",
-    "pull_request": 291,
-    "head_sha": "7c692d89bd17810e7ca379ea20f33fc4fdd84a03",
-    "quality_run": 2055
+    "name": "Data Products v1.8.1 Publication",
+    "pull_request": 294,
+    "head_sha": "3b7709b41dca39f1822d20bb9a20fd61144f5443",
+    "quality_run": 2086
   },
   "baseline": {
-    "tests": 1054,
+    "tests": 1062,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Data Products v1.8.1 Publication",
+    "name": "Cross-Model Navigation Usability Review",
     "status": "complete",
-    "goal": "Record the immutable data-products-v1.8.1 tag, exact source commit, three public assets, restored equipment-filter behavior and independent public workspace audit after verified preflight and publication."
+    "goal": "Review consumer discoverability of the published cross-model products and select the smallest workspace-only entry-point improvement without changing immutable release assets or comparison semantics."
   },
   "next_package": {
-    "name": "Cross-Model Navigation Usability Review",
+    "name": "Cross-Model Workspace Entry Point",
     "status": "planned",
-    "goal": "Resume the deferred review of consumer discoverability and navigation for the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package."
+    "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
