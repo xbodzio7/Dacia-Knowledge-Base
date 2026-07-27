@@ -19,6 +19,7 @@ INDEX_NAME = "index.html"
 BUNDLE_MANIFEST_MEMBER = (
     "comparison-bundle/comparison-bundle-manifest.json"
 )
+CROSS_MODEL_HTML_MEMBER = "cross-model/cross-model-comparison-view.html"
 SCOPE_PATTERN = re.compile(r"[a-z0-9][a-z0-9_]*\Z")
 REPORT_LABELS = {
     "html": "Interactive HTML",
@@ -322,49 +323,62 @@ def _primary_links(
         bundle.get("workbook"),
         "comparison bundle workbook",
     )
-    links = (
+    links: list[dict[str, str]] = [
         {
-            "title": "Configuration shortlist",
-            "description": "Browse and filter all released active configurations.",
-            "path": _verified_content_path(
-                workspace_root,
-                release_members,
-                "shortlist/configuration-shortlist.html",
-                label="shortlist HTML",
-            ),
+  "title": "Configuration shortlist",
+  "description": "Browse and filter all released active configurations.",
+  "path": _verified_content_path(
+      workspace_root,
+      release_members,
+      "shortlist/configuration-shortlist.html",
+      label="shortlist HTML",
+  ),
         },
         {
-            "title": "Comparison workbook",
-            "description": "Open the six-sheet XLSX overview of all release scopes.",
-            "path": _verified_bundle_path(
-                workspace_root,
-                release_members,
-                workbook_name,
-                label="comparison workbook",
-            ),
+  "title": "Comparison workbook",
+  "description": "Open the six-sheet XLSX overview of all release scopes.",
+  "path": _verified_bundle_path(
+      workspace_root,
+      release_members,
+      workbook_name,
+      label="comparison workbook",
+  ),
         },
         {
-            "title": "Comparison bundle manifest",
-            "description": "Inspect scope groups, counts, artifact paths and hashes.",
-            "path": _verified_content_path(
-                workspace_root,
-                release_members,
-                BUNDLE_MANIFEST_MEMBER,
-                label="comparison bundle manifest",
-            ),
+  "title": "Comparison bundle manifest",
+  "description": "Inspect scope groups, counts, artifact paths and hashes.",
+  "path": _verified_content_path(
+      workspace_root,
+      release_members,
+      BUNDLE_MANIFEST_MEMBER,
+      label="comparison bundle manifest",
+  ),
         },
         {
-            "title": "Release notes",
-            "description": "Read the immutable product inventory and provenance summary.",
-            "path": _verified_content_path(
-                workspace_root,
-                release_members,
-                "RELEASE_NOTES.md",
-                label="release notes",
-            ),
+  "title": "Release notes",
+  "description": "Read the immutable product inventory and provenance summary.",
+  "path": _verified_content_path(
+      workspace_root,
+      release_members,
+      "RELEASE_NOTES.md",
+      label="release notes",
+  ),
         },
-    )
-    return links
+    ]
+    if CROSS_MODEL_HTML_MEMBER in release_members:
+        links.append(
+  {
+      "title": "Models and comparison scopes",
+      "description": "Browse model families and open only existing scope reports.",
+      "path": _verified_content_path(
+          workspace_root,
+          release_members,
+          CROSS_MODEL_HTML_MEMBER,
+          label="cross-model comparison HTML",
+      ),
+  }
+        )
+    return tuple(links)
 
 
 def _asset_links(
