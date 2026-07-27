@@ -1,0 +1,643 @@
+{
+  "failures": [
+    {
+      "kind": "ERROR",
+      "name": "setUpClass (test_data_product_release.DataProductReleaseTests)",
+      "locations": [],
+      "commands": [
+        "tools/reporting/data_product_release.py"
+      ],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py\", line 48, in setUpClass",
+        "    cls.manifest = create_release_assets(",
+        "                   ^^^^^^^^^^^^^^^^^^^^^^",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py\", line 248, in create_release_assets",
+        "    raise ReleaseError(",
+        "reporting.data_product_release_model.ReleaseError: complete release bundle must contain 19 independent scopes"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_advances_to_duster (test_bigster_chassis_20260726.BigsterChassisTests.test_model_receipt_advances_to_duster)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_bigster_chassis_20260726.py\", line 145, in test_model_receipt_advances_to_duster",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_all_four_importers_reproduce_current_contract (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_all_four_importers_reproduce_current_contract) (importer='tools/import_sandero_stepway_brochure_cargo_20260725.py')",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 106, in test_all_four_importers_reproduce_current_contract",
+        "    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)",
+        "AssertionError: 1 != 0 : ERROR: expected nine Sandero configurations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_receipt_matches_master_totals_by_source (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_closure_receipt_matches_master_totals_by_source)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 74, in test_closure_receipt_matches_master_totals_by_source",
+        "    self.assertEqual(value_counts[source], values, source)",
+        "AssertionError: 35 != 20 : src_pl_sandero_brochure_20260202"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_every_brochure_value_has_one_exact_context (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_every_brochure_value_has_one_exact_context)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 84, in test_every_brochure_value_has_one_exact_context",
+        "    self.assertEqual(len({row[\"configuration_attribute_value_code\"] for row in contexts}), 287)",
+        "AssertionError: 317 != 287"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_are_complete (test_brochure_chassis_measurement_context_modeling_20260726.BrochureChassisMeasurementContextModelTests.test_verifier_and_project_state_are_complete)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_measurement_context_modeling_20260726.py\", line 134, in test_verifier_and_project_state_are_complete",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_and_all_import_receipts_pass (test_brochure_chassis_modeling_closure_review.BrochureChassisModelingClosureReviewTests.test_closure_verifier_and_all_import_receipts_pass)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py\", line 166, in test_closure_verifier_and_all_import_receipts_pass",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_brochure_chassis_modeling_closure_20260726.py [-h] --check",
+        "review_brochure_chassis_modeling_closure_20260726.py: error: expected exactly 277 chassis scalar values"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_scalar_counts_ids_sources_and_configurations (test_brochure_chassis_modeling_closure_review.BrochureChassisModelingClosureReviewTests.test_exact_scalar_counts_ids_sources_and_configurations)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "    self.assertEqual([int(row[\"id\"]) for row in self.scalar], list(range(2291, 2568)))",
+        "AssertionError: Lists differ: [2291[1651 chars] 2567, 2975, 2979, 2980, 2981, 2982, 3028, 303[135 chars]3248] != [2291[1651 chars] 2567]",
+        "",
+        "First list contains 30 additional elements.",
+        "First extra element 277:",
+        "2975",
+        "",
+        "Diff is 2792 characters long. Set self.maxDiff to None to see it."
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_receipt_matches_exact_source_and_context_totals (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_closure_receipt_matches_exact_source_and_context_totals)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 51, in test_closure_receipt_matches_exact_source_and_context_totals",
+        "    self.assertEqual(Counter(row[\"source_code\"] for row in self.values), Counter(SOURCES))",
+        "AssertionError: Count[68 chars]rochure_20260202': 31, 'src_pl_sandero_brochure_20260202': 22}) != Count[68 chars]rochure_20260202': 22, 'src_pl_sandero_brochure_20260202': 16})"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_reproduces_repository_contract (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_closure_verifier_reproduces_repository_contract)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 109, in test_closure_verifier_reproduces_repository_contract",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_brochure_gear_performance_import_closure_20260726.py",
+        "       [-h] --check",
+        "review_brochure_gear_performance_import_closure_20260726.py: error: expected exactly 70 reviewed values"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_configuration_scope_preserves_jogger_layouts (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_exact_configuration_scope_preserves_jogger_layouts)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 58, in test_exact_configuration_scope_preserves_jogger_layouts",
+        "    self.assertEqual(sum(code.startswith(\"sandero_iii_\") for code in configurations), 4)",
+        "AssertionError: 7 != 4"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_declarative_import_contract_is_idempotent (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_declarative_import_contract_is_idempotent)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py\", line 114, in test_declarative_import_contract_is_idempotent",
+        "    self.assertEqual(result.returncode, 0, result.stderr or result.stdout)",
+        "AssertionError: 2 != 0 : usage: import_brochure_gear_performance_20260726.py [-h] (--apply | --check)",
+        "import_brochure_gear_performance_20260726.py: error: master data does not contain exactly 70 reviewed observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_ids_counts_and_observation_identity (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_exact_ids_counts_and_observation_identity)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "    self.assertEqual([int(row[\"id\"]) for row in self.rows], list(range(2119, 2189)))",
+        "AssertionError: Lists differ: [2119[409 chars] 2188, 2972, 2973, 3025, 3026, 3078, 3079, 313[45 chars]3239] != [2119[409 chars] 2188]",
+        "",
+        "First list contains 15 additional elements.",
+        "First extra element 70:",
+        "2972",
+        "",
+        "Diff is 794 characters long. Set self.maxDiff to None to see it."
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_source_fuel_gear_and_model_distributions (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_source_fuel_gear_and_model_distributions)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py\", line 47, in test_source_fuel_gear_and_model_distributions",
+        "    self.assertEqual(",
+        "AssertionError: Count[68 chars]rochure_20260202': 31, 'src_pl_sandero_brochure_20260202': 22}) != Count[68 chars]rochure_20260202': 22, 'src_pl_sandero_brochure_20260202': 16})"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_importer_mapping_receipt_and_deferrals_pass (test_brochure_generic_dimensions_import_20260726.BrochureGenericDimensionsImportTests.test_importer_mapping_receipt_and_deferrals_pass)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_20260726.py\", line 184, in test_importer_mapping_receipt_and_deferrals_pass",
+        "    self.assertEqual(mapped.returncode, 0, mapped.stderr or mapped.stdout)",
+        "AssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py",
+        "       [-h] --check",
+        "review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_reproduces_repository_contract (test_brochure_generic_dimensions_import_closure_review.BrochureGenericDimensionsImportClosureReviewTests.test_closure_verifier_reproduces_repository_contract)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_closure_review.py\", line 270, in test_closure_verifier_reproduces_repository_contract",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: checker failed: review_brochure_generic_dimensions_semantic_mapping_20260726.py: usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py",
+        "       [-h] --check",
+        "review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_source_relationships_define_thirty_six_import_targets (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_source_relationships_define_thirty_six_import_targets)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py\", line 116, in test_source_relationships_define_thirty_six_import_targets",
+        "    self.assertEqual(counts, Counter({",
+        "AssertionError: Count[63 chars]brochure_20251020': 10, 'src_pl_sandero_brochure_20260202': 7}) != Count[63 chars]brochure_20251020': 10, 'src_pl_sandero_brochure_20260202': 4})"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_complete_review (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_verifier_and_project_state_complete_review)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py\", line 176, in test_verifier_and_project_state_complete_review",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py",
+        "       [-h] --check",
+        "review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_july_catalog_prices_cover_all_registered_configuration_relationships (test_commercial_items_20260703.CommercialItems20260703Tests.test_july_catalog_prices_cover_all_registered_configuration_relationships)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_commercial_items_20260703.py\", line 82, in test_july_catalog_prices_cover_all_registered_configuration_relationships",
+        "    self.assertEqual(len({row[\"configuration_code\"] for row in july}), 39)",
+        "AssertionError: 47 != 39"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_scope_inventory_maps_all_active_configurations_once (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_scope_inventory_maps_all_active_configurations_once)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py\", line 64, in test_scope_inventory_maps_all_active_configurations_once",
+        "    self.assertEqual(len(scopes), 19)",
+        "AssertionError: 20 != 19"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_sheet_dimensions_filters_and_frozen_headers (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_sheet_dimensions_filters_and_frozen_headers)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py\", line 141, in test_sheet_dimensions_filters_and_frozen_headers",
+        "    self.assertEqual(dimension.attrib[\"ref\"], expected)",
+        "AssertionError: 'A1:M336' != 'A1:M302'",
+        "- A1:M336",
+        "?      ^^",
+        "+ A1:M302",
+        "?      ^^"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_every_configuration_occurs_once_and_pairs_stay_inside_scopes (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_every_configuration_occurs_once_and_pairs_stay_inside_scopes)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 124, in test_every_configuration_occurs_once_and_pairs_stay_inside_scopes",
+        "    self.assertEqual(len(codes), 72)",
+        "AssertionError: 78 != 72"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 102, in test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged",
+        "    self.assertEqual(len(mixed), 1)",
+        "AssertionError: 2 != 1"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_html_is_standalone_scope_safe_and_marks_unknown_values (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_html_is_standalone_scope_safe_and_marks_unknown_values)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 194, in test_html_is_standalone_scope_safe_and_marks_unknown_values",
+        "    self.assertEqual(len(comparison_links), 57)",
+        "AssertionError: 60 != 57"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_json_and_html_rendering_are_deterministic (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_json_and_html_rendering_are_deterministic)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 183, in test_json_and_html_rendering_are_deterministic",
+        "    self.assertEqual(html_text.count('class=\"scope-card\"'), 19)",
+        "AssertionError: 20 != 19"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_cards_have_exact_order_counts_and_price_coverage (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_model_cards_have_exact_order_counts_and_price_coverage)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 79, in test_model_cards_have_exact_order_counts_and_price_coverage",
+        "    self.assertEqual(model[\"configuration_count\"], values[0])",
+        "AssertionError: 7 != 4"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_summary_matches_scope_preserving_repository_baseline (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_summary_matches_scope_preserving_repository_baseline)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 41, in test_summary_matches_scope_preserving_repository_baseline",
+        "    self.assertEqual(",
+        "AssertionError: {'mod[41 chars]nt': 20, 'single_model_scope_count': 18, 'mixe[259 chars]alse} != {'mod[41 chars]nt': 19, 'single_model_scope_count': 18, 'mixe[259 chars]alse}",
+        "Diff is 917 characters long. Set self.maxDiff to None to see it."
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_closure_history (test_cross_model_comparison_view_closure_review.CrossModelComparisonViewClosureReviewTests.test_verifier_and_project_state_preserve_closure_history)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_closure_review.py\", line 146, in test_verifier_and_project_state_preserve_closure_history",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: view summary differs: reporting_scope_count"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_historical_review (test_cross_model_comparison_view_review.CrossModelComparisonViewReviewTests.test_verifier_and_project_state_preserve_historical_review)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_review.py\", line 159, in test_verifier_and_project_state_preserve_historical_review",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: active configuration count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_accepts_review (test_cross_model_navigation_usability_review.CrossModelNavigationUsabilityReviewTests.test_verifier_accepts_review)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_navigation_usability_review.py\", line 87, in test_verifier_accepts_review",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: generated scope count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_preparation_verifier_reproduces_repository_contract (test_data_products_v1_7_0_release_preparation.DataProductsV170ReleasePreparationTests.test_preparation_verifier_reproduces_repository_contract)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_7_0_release_preparation.py\", line 156, in test_preparation_verifier_reproduces_repository_contract",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: active configuration count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_0_release_preparation.DataProductsV180ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_0_release_preparation.py\", line 156, in test_verifier_and_project_state_preserve_preparation_history",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_accepts_preflight (test_data_products_v1_8_1_preflight.DataProductsV181PreflightTests.test_verifier_accepts_preflight)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_preflight.py\", line 102, in test_verifier_accepts_preflight",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_1_release_preparation.DataProductsV181ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_release_preparation.py\", line 148, in test_verifier_and_project_state_preserve_preparation_history",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_reporting_subset_remains_sandero_only (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_reporting_subset_remains_sandero_only)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_catalog_bootstrap.py\", line 153, in test_reporting_subset_remains_sandero_only",
+        "    self.assertEqual(scope[\"excluded_configurations\"], 65)",
+        "AssertionError: 71 != 65"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_and_project_state_advance_to_jogger (test_duster_chassis_20260726.DusterChassisTests.test_model_receipt_and_project_state_advance_to_jogger)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_chassis_20260726.py\", line 182, in test_model_receipt_and_project_state_advance_to_jogger",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_prices_and_reporting_scope_remain_stable (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_prices_and_reporting_scope_remain_stable)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_technical_specifications.py\", line 228, in test_prices_and_reporting_scope_remain_stable",
+        "    self.assertEqual(report[\"scope\"][\"excluded_configurations\"], 65)",
+        "AssertionError: 71 != 65"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_fix_history (test_equipment_filter_regression_model_price_order.EquipmentFilterRegressionModelPriceOrderTests.test_verifier_and_project_state_preserve_fix_history)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_equipment_filter_regression_model_price_order.py\", line 127, in test_verifier_and_project_state_preserve_fix_history",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: current configuration count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_closes_all_five_chassis_resolutions (test_jogger_chassis_20260726.JoggerChassisTests.test_model_receipt_closes_all_five_chassis_resolutions)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_chassis_20260726.py\", line 157, in test_model_receipt_closes_all_five_chassis_resolutions",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_dimension_coverage_matches_repository (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_current_dimension_coverage_matches_repository)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py\", line 113, in test_current_dimension_coverage_matches_repository",
+        "    self.assertEqual(len({row[\"configuration_code\"] for row in selected[\"sandero_iii\"]}), 4)",
+        "AssertionError: 7 != 4"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_review_verifier_and_source_closure_pass (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_review_verifier_and_source_closure_pass)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py\", line 171, in test_review_verifier_and_source_closure_pass",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_official_brochure_residual_evidence_20260726.py [-h] --check",
+        "review_official_brochure_residual_evidence_20260726.py: error: active Sandero scope differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_and_priority_receipts_pass (test_official_brochure_technical_gap_resolution_closure.OfficialBrochureTechnicalGapResolutionClosureTests.test_closure_verifier_and_priority_receipts_pass)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py\", line 179, in test_closure_verifier_and_priority_receipts_pass",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_official_brochure_technical_gap_resolution_closure_20260726.py",
+        "       [-h] --check",
+        "review_official_brochure_technical_gap_resolution_closure_20260726.py: error: expected exactly 1118 brochure scalar values"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_brochure_scalar_and_range_coverage_is_exact (test_official_brochure_technical_gap_resolution_closure.OfficialBrochureTechnicalGapResolutionClosureTests.test_current_brochure_scalar_and_range_coverage_is_exact)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py\", line 97, in test_current_brochure_scalar_and_range_coverage_is_exact",
+        "    self.assertEqual(",
+        "AssertionError: Count[92 chars]c_pl_sandero_brochure_20260202': 210, 'src_pl_[77 chars]150}) != Count[92 chars]c_pl_bigster_brochure_20251210': 180, 'src_pl_[76 chars] 72})"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_brochure_coverage_is_unchanged (test_official_brochure_technical_gap_review.OfficialBrochureTechnicalGapReviewTests.test_current_brochure_coverage_is_unchanged)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py\", line 68, in test_current_brochure_coverage_is_unchanged",
+        "    self.assertEqual(counts[\"elasticity_80_120\"], 70)",
+        "AssertionError: 85 != 70"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_review_verifier_reproduces_repository_contract (test_official_brochure_technical_gap_review.OfficialBrochureTechnicalGapReviewTests.test_review_verifier_reproduces_repository_contract)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py\", line 182, in test_review_verifier_reproduces_repository_contract",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 2 != 0 : usage: review_official_brochure_technical_gaps_20260726.py [-h] --check",
+        "review_official_brochure_technical_gaps_20260726.py: error: brochure cargo baseline differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_priority_verifier_reproduces_repository_contract (test_post_brochure_priority_selection_review.PostBrochurePrioritySelectionReviewTests.test_priority_verifier_reproduces_repository_contract)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py\", line 246, in test_priority_verifier_reproduces_repository_contract",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: active configuration count differs"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_selection_history (test_post_cross_model_priority_selection_review.PostCrossModelPrioritySelectionReviewTests.test_verifier_and_project_state_preserve_selection_history)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_cross_model_priority_selection_review.py\", line 143, in test_verifier_and_project_state_preserve_selection_history",
+        "    self.assertEqual(",
+        "AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_import_contract_check_passes (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_import_contract_check_passes)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_brochure_cargo_20260725.py\", line 72, in test_import_contract_check_passes",
+        "    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)",
+        "AssertionError: 1 != 0 : ERROR: expected nine Sandero configurations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_and_project_state_advance (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_model_receipt_and_project_state_advance)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_chassis_20260726.py\", line 169, in test_model_receipt_and_project_state_advance",
+        "    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)",
+        "AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+      ]
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_version_highlights_expand_to_24_exact_standard_observations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_version_highlights_expand_to_24_exact_standard_observations)",
+      "locations": [],
+      "commands": [],
+      "last_lines": [
+        "Traceback (most recent call last):",
+        "  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_official_web_20260723.py\", line 95, in test_version_highlights_expand_to_24_exact_standard_observations",
+        "    self.assertEqual(",
+        "AssertionError: Items in the second set but not the first:",
+        "('sandero_stepway_iii_expression_ecog120_automatic', 'modular_roof_rails')",
+        "('sandero_stepway_iii_essential_ecog120_manual', 'my_safety_button')",
+        "('sandero_stepway_iii_expression_ecog120_manual', 'modular_roof_rails')",
+        "('sandero_stepway_iii_essential_ecog120_manual', 'roof_rails')"
+      ]
+    }
+  ],
+  "files": {
+    "tools/reporting/data_product_release.py": "from __future__ import annotations\n\nimport shutil\nimport tempfile\nfrom pathlib import Path\nfrom typing import Any, Mapping\n\nfrom reporting.configuration_comparison_bundle import BundleError, create_bundle\nfrom reporting.configuration_shortlist import (\n    ShortlistCriteria,\n    ShortlistError,\n    collect_report,\n    render_csv,\n    render_json,\n    render_markdown,\n)\nfrom reporting.configuration_shortlist_html import collect_browser_catalog\nfrom reporting.configuration_shortlist_selection_html import render_html\nfrom reporting.cross_model_comparison_view import (\n    CrossModelViewError,\n    collect_view as collect_cross_model_view,\n    render_html as render_cross_model_html,\n    render_json as render_cross_model_json,\n)\nfrom reporting.data_product_release_model import (\n    CHECKSUMS_NAME,\n    MANIFEST_NAME,\n    RELEASE_SCHEMA_VERSION,\n    ReleaseError,\n    archive_name,\n    checksum_text,\n    file_record,\n    json_text,\n    normalize_commit_sha,\n    normalize_version,\n    release_tag,\n    sha256_file,\n    verify_release_assets,\n    write_deterministic_zip,\n    write_text,\n)\n\n\nPRODUCT_FORMATS = (\n    \"JSON\",\n    \"Markdown\",\n    \"CSV\",\n    \"HTML\",\n    \"XLSX\",\n)\n\n\ndef repository_root() -> Path:\n    return Path(__file__).resolve().parents[2]\n\n\ndef _prepare_output_directory(output_directory: Path) -> Path:\n    parent = output_directory.parent\n    parent.mkdir(parents=True, exist_ok=True)\n    if output_directory.exists():\n        if not output_directory.is_dir():\n            raise ReleaseError(\n                f\"release output path is not a directory: {output_directory}\"\n            )\n        if any(output_directory.iterdir()):\n            raise ReleaseError(\n                \"release output directory must not exist or must be empty: \"\n                f\"{output_directory}\"\n            )\n    return Path(\n        tempfile.mkdtemp(\n            prefix=f\".{output_directory.name}.build-\",\n            dir=parent,\n        )\n    )\n\n\ndef _write_shortlist(repository: Path, payload: Path) -> dict[str, Any]:\n    criteria = ShortlistCriteria()\n    report = collect_report(repository, criteria)\n    summary = report.get(\"summary\")\n    results = report.get(\"results\")\n    if not isinstance(summary, dict) or not isinstance(results, list):\n        raise ReleaseError(\"configuration shortlist report is malformed\")\n    active = summary.get(\"active_configurations\")\n    matched = summary.get(\"matched_configurations\")\n    if active != matched or matched != len(results):\n        raise ReleaseError(\n            \"complete release shortlist must include every active configuration\"\n        )\n\n    shortlist = payload / \"shortlist\"\n    write_text(shortlist / \"configuration-shortlist.json\", render_json(report))\n    write_text(\n        shortlist / \"configuration-shortlist.md\",\n        render_markdown(report),\n    )\n    write_text(shortlist / \"configuration-shortlist.csv\", render_csv(report))\n    catalog = collect_browser_catalog(repository, criteria)\n    write_text(\n        shortlist / \"configuration-shortlist.html\",\n        render_html(catalog),\n    )\n    return report\n\n\ndef _write_cross_model_view(\n    repository: Path,\n    payload: Path,\n) -> dict[str, Any]:\n    view = collect_cross_model_view(repository)\n    summary = view.get(\"summary\")\n    if not isinstance(summary, dict):\n        raise ReleaseError(\"cross-model view summary is missing\")\n    expected = {\n        \"model_family_count\": 5,\n        \"reporting_scope_count\": 19,\n        \"active_configuration_count\": 72,\n        \"within_scope_pair_count\": 114,\n        \"cross_scope_pairs_generated\": False,\n        \"ranking_generated\": False,\n        \"recommendations_generated\": False,\n        \"inferred_values_generated\": False,\n    }\n    for key, value in expected.items():\n        if summary.get(key) != value:\n            raise ReleaseError(\n                f\"cross-model view summary differs for {key}: \"\n                f\"{summary.get(key)!r}\"\n            )\n    directory = payload / \"cross-model\"\n    write_text(\n        directory / \"cross-model-comparison-view.json\",\n        render_cross_model_json(view),\n    )\n    write_text(\n        directory / \"cross-model-comparison-view.html\",\n        render_cross_model_html(view),\n    )\n    return view\n\n\ndef _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:\n    raw_results = report.get(\"results\")\n    if not isinstance(raw_results, list):\n        raise ReleaseError(\"configuration shortlist results must be a list\")\n    codes: list[str] = []\n    for item in raw_results:\n        if not isinstance(item, dict):\n            raise ReleaseError(\"configuration shortlist result must be an object\")\n        code = item.get(\"configuration_code\")\n        if not isinstance(code, str) or not code:\n            raise ReleaseError(\"configuration shortlist result has no code\")\n        codes.append(code)\n    if len(codes) != len(set(codes)):\n        raise ReleaseError(\n            \"complete release shortlist codes must be unique\"\n        )\n    return tuple(sorted(codes))\n\n\ndef _release_notes(\n    version: str,\n    commit_sha: str,\n    shortlist: Mapping[str, Any],\n    bundle: Mapping[str, Any],\n) -> str:\n    summary = shortlist[\"summary\"]\n    assert isinstance(summary, dict)\n    lines = [\n        f\"# Dacia Knowledge Base Data Products v{version}\",\n        \"\",\n        f\"- Release tag: `{release_tag(version)}`\",\n        f\"- Repository commit: `{commit_sha}`\",\n        f\"- Snapshot date: `{shortlist['as_of']}`\",\n        \"- Selected configurations: \"\n        f\"{bundle['selected_configuration_count']}\",\n        f\"- Independent scopes: {bundle['scope_group_count']}\",\n        f\"- Comparable scopes: {bundle['comparable_scope_count']}\",\n        f\"- Singleton scopes: {bundle['singleton_scope_count']}\",\n        \"- Cross-scope pairs: none\",\n        \"- Formats: \" + \", \".join(PRODUCT_FORMATS),\n        \"\",\n        \"The archive contains the complete active-configuration shortlist, \"\n        \"one full-portfolio comparison bundle and a scope-preserving \"\n        \"cross-model navigation view. Existing source dates, evidence \"\n        \"states and independent reporting scopes are preserved.\",\n        \"\",\n    ]\n    if version == \"1.8.1\":\n        lines.extend(\n            [\n                \"Equipment filtering is restored for partially covered source data: \"\n                \"108 equipment choices remain visible in the current 72-configuration \"\n                \"catalog, and selecting the rear-view camera narrows the result to 66.\",\n                \"\",\n                \"Missing and unknown evidence remains excluded rather than inferred as \"\n                \"availability. Model choices are ordered by the minimum current \"\n                \"catalogue price, from Sandero through Bigster.\",\n                \"\",\n                \"The public v1.8.0 remains immutable; this correction is delivered only \"\n                \"as the new data-products-v1.8.1 patch release.\",\n                \"\",\n            ]\n        )\n    lines.extend(\n        [\n            \"No ranking, recommendations or inferred values are generated.\",\n            \"\",\n        ]\n    )\n    return \"\\n\".join(lines)\n\n\ndef _archive_record(path: Path, root: Path) -> dict[str, Any]:\n    record = file_record(path, root)\n    return {\n        \"path\": record[\"path\"],\n        \"media_type\": record[\"media_type\"],\n        \"size_bytes\": record[\"size_bytes\"],\n        \"sha256\": record[\"sha256\"],\n    }\n\n\ndef create_release_assets(\n    repository: Path,\n    output_directory: Path,\n    version: str,\n    commit_sha: str,\n) -> dict[str, Any]:\n    normalized_version = normalize_version(version)\n    normalized_commit = normalize_commit_sha(commit_sha)\n    build_root = _prepare_output_directory(output_directory)\n    payload = build_root / \".payload\"\n    payload.mkdir()\n    try:\n        shortlist = _write_shortlist(repository, payload)\n        codes = _configuration_codes(shortlist)\n        bundle_directory = payload / \"comparison-bundle\"\n        bundle = create_bundle(\n            repository,\n            bundle_directory,\n            direct_codes=codes,\n        )\n        if bundle.get(\"selected_configuration_count\") != len(codes):\n            raise ReleaseError(\"comparison bundle selection is incomplete\")\n        if bundle.get(\"scope_group_count\") != 19:\n            raise ReleaseError(\n                \"complete release bundle must contain 19 independent scopes\"\n            )\n        if bundle.get(\"cross_scope_pairs_generated\") is not False:\n            raise ReleaseError(\"release bundle generated cross-scope pairs\")\n\n        cross_model_view = _write_cross_model_view(repository, payload)\n\n        write_text(\n            payload / \"RELEASE_NOTES.md\",\n            _release_notes(\n                normalized_version,\n                normalized_commit,\n                shortlist,\n                bundle,\n            ),\n        )\n\n        archive_path = build_root / archive_name(normalized_version)\n        files = write_deterministic_zip(payload, archive_path)\n        manifest = {\n            \"schema_version\": RELEASE_SCHEMA_VERSION,\n            \"release_version\": normalized_version,\n            \"release_tag\": release_tag(normalized_version),\n            \"repository_commit\": normalized_commit,\n            \"snapshot_date\": shortlist[\"as_of\"],\n            \"selected_configuration_count\": bundle[\n                \"selected_configuration_count\"\n            ],\n            \"scope_group_count\": bundle[\"scope_group_count\"],\n            \"model_family_count\": cross_model_view[\"summary\"][\n                \"model_family_count\"\n            ],\n            \"cross_model_view_generated\": True,\n            \"comparable_scope_count\": bundle[\"comparable_scope_count\"],\n            \"singleton_scope_count\": bundle[\"singleton_scope_count\"],\n            \"cross_scope_pairs_generated\": False,\n            \"ranking_generated\": False,\n            \"recommendations_generated\": False,\n            \"inferred_values_generated\": False,\n            \"archive\": _archive_record(archive_path, build_root),\n            \"files\": files,\n        }\n        manifest_path = build_root / MANIFEST_NAME\n        write_text(manifest_path, json_text(manifest))\n        write_text(\n            build_root / CHECKSUMS_NAME,\n            checksum_text(\n                {\n                    archive_path.name: sha256_file(archive_path),\n                    manifest_path.name: sha256_file(manifest_path),\n                }\n            ),\n        )\n        shutil.rmtree(payload)\n        verified = verify_release_assets(build_root)\n        if verified != manifest:\n            raise ReleaseError(\"verified release manifest changed after writing\")\n        if output_directory.exists():\n            output_directory.rmdir()\n        build_root.replace(output_directory)\n        return manifest\n    except (ShortlistError, BundleError, CrossModelViewError) as exc:\n        shutil.rmtree(build_root, ignore_errors=True)\n        raise ReleaseError(f\"cannot build data product release: {exc}\") from exc\n    except Exception:\n        shutil.rmtree(build_root, ignore_errors=True)\n        raise\n"
+  }
+}
