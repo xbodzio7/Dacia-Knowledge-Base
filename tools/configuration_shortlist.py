@@ -7,7 +7,7 @@ import argparse
 import sys
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Sequence
+from typing import Any, Mapping, Sequence
 
 from reporting.configuration_shortlist import (
     ShortlistCriteria,
@@ -20,7 +20,64 @@ from reporting.configuration_shortlist import (
     write_atomic,
 )
 from reporting.configuration_shortlist_html import collect_browser_catalog
-from reporting.configuration_shortlist_selection_html import render_html
+from reporting.configuration_shortlist_selection_html import (
+    render_html as render_selection_html,
+)
+
+
+_STICKY_COMPARISON_STYLE = r'''<style>
+:root{--comparison-sticky-top:0px}
+.comparison-panel{scroll-margin-top:calc(var(--comparison-sticky-top,0px) + 8px)}
+.comparison-table thead th{top:var(--comparison-sticky-top,0px)}
+@media(max-width:760px){:root{--comparison-sticky-top:0px!important}}
+</style>'''
+
+_STICKY_COMPARISON_SCRIPT = r'''<script>
+(function () {
+  "use strict";
+  const panel = document.querySelector("#selection-panel");
+  if (!panel) return;
+  const root = document.documentElement;
+  let frame = 0;
+  const update = () => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const sticky = getComputedStyle(panel).position === "sticky";
+      const offset = sticky ? Math.ceil(panel.offsetHeight + 18) : 0;
+      root.style.setProperty("--comparison-sticky-top", `${offset}px`);
+      frame = 0;
+    });
+  };
+  update();
+  window.addEventListener("resize", update, { passive: true });
+  if (typeof ResizeObserver === "function") {
+    new ResizeObserver(update).observe(panel);
+  }
+  if (typeof MutationObserver === "function") {
+    new MutationObserver(update).observe(panel, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+  }
+})();
+</script>'''
+
+
+def render_html(catalog: Mapping[str, Any]) -> str:
+    """Render the shortlist with a dynamic sticky comparison-header offset."""
+    rendered = render_selection_html(catalog)
+    marker = "</body>"
+    if marker not in rendered:
+        raise ShortlistError(
+            "cannot inject sticky comparison offset: missing body marker"
+        )
+    enhancement = (
+        f"{_STICKY_COMPARISON_STYLE}\n"
+        f"{_STICKY_COMPARISON_SCRIPT}\n"
+        f"{marker}"
+    )
+    return rendered.replace(marker, enhancement, 1)
 
 
 def _price(value: str) -> Decimal:
