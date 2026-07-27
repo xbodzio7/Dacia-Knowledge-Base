@@ -1,0 +1,54 @@
+name: Catalog Recovery Isolated Validation
+
+on:
+  pull_request:
+    branches:
+      - agent/catalog-recovery-validation-base
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Reconstruct and apply contract fixes
+        shell: bash
+        run: |
+          cat diagnostics/catalog-recovery/contract-patch-parts/part* > /tmp/local-contract-fixes.patch.gz.b64
+          test "$(wc -c < /tmp/local-contract-fixes.patch.gz.b64)" -eq 13244
+          echo "6efb5a49aab491e6bf05233ad864a736894c46d468fd69cb7c24722f35e10226  /tmp/local-contract-fixes.patch.gz.b64" | sha256sum -c -
+          base64 -d /tmp/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
+          echo "92ba325c2eca85b77110963c92575dff872b34df32aa2b78f824b488217b5a7c  /tmp/local-contract-fixes.patch" | sha256sum -c -
+          if git apply --check /tmp/local-contract-fixes.patch; then
+            git apply /tmp/local-contract-fixes.patch
+          elif git apply --reverse --check /tmp/local-contract-fixes.patch; then
+            echo "Contract fixes already applied."
+          else
+            echo "Patch neither applies nor is already present."
+            exit 1
+          fi
+      - name: Validate catalogue package
+        shell: bash
+        run: |
+          python -m compileall -q tools tests
+          python tools/import_sandero_stepway_catalog_completion.py --verify
+          python tools/dkb.py validate
+          python -m unittest discover -s tests -p 'test_*.py' -q
+      - name: Persist verified fixes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to persist."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          remote_head=$(git rev-parse "origin/${{ github.head_ref }}")
+          git add tools tests
+          git commit -m "test(catalog): preserve current and historical contracts"
+          git push --force-with-lease=refs/heads/${{ github.head_ref }}:${remote_head} origin HEAD:refs/heads/${{ github.head_ref }}
