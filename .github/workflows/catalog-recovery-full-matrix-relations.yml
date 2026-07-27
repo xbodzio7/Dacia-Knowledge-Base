@@ -1,4 +1,4 @@
-name: Catalog Main Snapshot
+name: Catalog Recovery Latest Snapshot
 
 on:
   pull_request:
@@ -14,14 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
-      - name: Build main snapshot
+          ref: agent/sandero-stepway-catalog-recovery-restored
+      - name: Build latest recovery snapshot
         shell: bash
         run: |
-          zip -q -r /tmp/dkb-main-snapshot.zip . -x '.git/*'
+          zip -q -r /tmp/dkb-recovery-latest.zip . -x '.git/*'
       - uses: actions/upload-artifact@v4
         with:
-          name: dkb-main-snapshot
-          path: /tmp/dkb-main-snapshot.zip
+          name: dkb-recovery-latest
+          path: /tmp/dkb-recovery-latest.zip
           retention-days: 7
           if-no-files-found: error
