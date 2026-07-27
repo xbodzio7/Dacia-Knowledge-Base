@@ -157,11 +157,23 @@ jobs:
           import sys
           from pathlib import Path
           root = Path.cwd()
+          side_effect_modules = {
+              'test_configuration_comparison_item_catalog',
+              'test_configuration_comparison_sticky_offset',
+              'test_configuration_reporting_scope',
+          }
           count = 0
           for path in sorted((root / 'tests').glob('test_*.py')):
               stem = path.stem
               if stem == 'test_pdf_candidate_extraction_automation_review':
                   command = [sys.executable, 'tools/review_pdf_candidate_extraction_automation_20260727.py', '--check']
+              elif stem in side_effect_modules:
+                  code = (
+                      'import importlib, unittest; '
+                      f'm=importlib.import_module("tests.{stem}"); '
+                      'm.load_tests(unittest.TestLoader(), unittest.TestSuite(), None)'
+                  )
+                  command = [sys.executable, '-c', code]
               elif stem == 'test_source_coverage_repository_as_of':
                   command = [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', path.name, '-q']
               else:
