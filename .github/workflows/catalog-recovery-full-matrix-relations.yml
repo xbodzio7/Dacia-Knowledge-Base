@@ -1,11 +1,6 @@
 name: Catalog Recovery Full Matrix Relations
 
 on:
-  push:
-    branches:
-      - agent/sandero-stepway-catalog-recovery-restored
-    paths:
-      - .github/workflows/catalog-recovery-full-matrix-relations.yml
   pull_request:
     branches:
       - main
@@ -20,18 +15,18 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: agent/sandero-stepway-catalog-recovery-restored
-      - name: Patch, apply and test
+      - name: Repair, apply and test
         shell: bash
         run: |
           set +e
           mkdir -p diagnostics/catalog-recovery
-          python tools/patch_catalog_source_relationship_scope.py > diagnostics/catalog-recovery/matrix-relations.log 2>&1
-          patch=$?
+          python tools/repair_catalog_source_registration.py > diagnostics/catalog-recovery/matrix-relations.log 2>&1
+          repair=$?
           apply=99
           verify=99
           validator=99
           tests=99
-          if [ "$patch" -eq 0 ]; then
+          if [ "$repair" -eq 0 ]; then
             python tools/import_sandero_stepway_catalog_completion.py --apply >> diagnostics/catalog-recovery/matrix-relations.log 2>&1
             apply=$?
           fi
@@ -43,40 +38,14 @@ jobs:
             python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/matrix-relations-tests.log 2>&1
             tests=$?
           fi
-          printf '{"patch_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$patch" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
-          git diff --binary > diagnostics/catalog-recovery/matrix-relations.patch
+          printf '{"repair_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$repair" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
           exit 0
-      - name: Attempt to persist result
+      - name: Persist result
         shell: bash
         run: |
-          set +e
-          {
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
-            echo "remote_head=${remote_head}"
-            git status --short
-            git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-*.log diagnostics/catalog-recovery/matrix-relations-summary.json
-            git diff --cached --stat
-            git commit -m "fix(data): cover full equipment matrix source scope"
-            commit_exit=$?
-            echo "commit_exit=${commit_exit}"
-            if [ "$commit_exit" -eq 0 ]; then
-              git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
-              push_exit=$?
-            else
-              push_exit=99
-            fi
-            echo "push_exit=${push_exit}"
-          } > diagnostics/catalog-recovery/matrix-relations-persist.log 2>&1
-          exit 0
-      - uses: actions/upload-artifact@v4
-        with:
-          name: matrix-relations-debug
-          path: |
-            diagnostics/catalog-recovery/matrix-relations-summary.json
-            diagnostics/catalog-recovery/matrix-relations.log
-            diagnostics/catalog-recovery/matrix-relations-validator.log
-            diagnostics/catalog-recovery/matrix-relations-tests.log
-            diagnostics/catalog-recovery/matrix-relations-persist.log
-            diagnostics/catalog-recovery/matrix-relations.patch
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
+          git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-summary.json diagnostics/catalog-recovery/matrix-relations-validator.log diagnostics/catalog-recovery/matrix-relations-tests.log
+          git commit -m "fix(data): synchronize catalogue source scope"
+          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
