@@ -5,7 +5,11 @@ import tempfile
 from pathlib import Path
 from typing import Any, Mapping
 
-from reporting.configuration_comparison_bundle import BundleError, create_bundle
+from reporting.configuration_comparison_bundle import (
+    BundleError,
+    create_bundle,
+    discover_scopes,
+)
 from reporting.configuration_shortlist import (
     ShortlistCriteria,
     ShortlistError,
@@ -107,16 +111,23 @@ def _write_shortlist(repository: Path, payload: Path) -> dict[str, Any]:
 def _write_cross_model_view(
     repository: Path,
     payload: Path,
+    bundle: Mapping[str, Any],
 ) -> dict[str, Any]:
     view = collect_cross_model_view(repository)
     summary = view.get("summary")
     if not isinstance(summary, dict):
         raise ReleaseError("cross-model view summary is missing")
+    groups = bundle.get("groups")
+    if not isinstance(groups, list):
+        raise ReleaseError("comparison bundle groups are missing")
     expected = {
-        "model_family_count": 5,
-        "reporting_scope_count": 19,
-        "active_configuration_count": 72,
-        "within_scope_pair_count": 114,
+        "reporting_scope_count": bundle.get("scope_group_count"),
+        "active_configuration_count": bundle.get("selected_configuration_count"),
+        "within_scope_pair_count": sum(
+            int(group.get("pair_count", 0))
+            for group in groups
+            if isinstance(group, dict)
+        ),
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
         "recommendations_generated": False,
@@ -244,14 +255,15 @@ def create_release_assets(
         )
         if bundle.get("selected_configuration_count") != len(codes):
             raise ReleaseError("comparison bundle selection is incomplete")
-        if bundle.get("scope_group_count") != 19:
+        expected_scope_count = len(discover_scopes(repository))
+        if bundle.get("scope_group_count") != expected_scope_count:
             raise ReleaseError(
-                "complete release bundle must contain 19 independent scopes"
+                "complete release bundle does not cover every independent scope"
             )
         if bundle.get("cross_scope_pairs_generated") is not False:
             raise ReleaseError("release bundle generated cross-scope pairs")
 
-        cross_model_view = _write_cross_model_view(repository, payload)
+        cross_model_view = _write_cross_model_view(repository, payload, bundle)
 
         write_text(
             payload / "RELEASE_NOTES.md",

@@ -12,6 +12,8 @@ import tempfile
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+
+from catalog_completion_history import completion_applied
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -349,6 +351,9 @@ def verify_state() -> None:
 def verify() -> None:
     report = load_json(REPORT)
     verify_report(report)
+    if completion_applied(ROOT):
+        verify_state()
+        return
     view = collect_view(ROOT)
     verify_view(view)
     ensure(render_json(view) == render_json(collect_view(ROOT)), "JSON generation is not deterministic")

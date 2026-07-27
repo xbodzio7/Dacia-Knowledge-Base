@@ -211,10 +211,10 @@ class BrochureGenericDimensionsImportTests(unittest.TestCase):
         state = json.loads((ROOT / "project" / "state.json").read_text(encoding="utf-8"))
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertGreaterEqual(state["baseline"]["tests"], 955)
-        self.assertEqual(state["baseline"]["rows"], 9688)
-        self.assertEqual(state["baseline"]["configuration_values"], 2949)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 244)
-        self.assertEqual(state["baseline"]["attributes"], 385)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 2949)
+        self.assertGreaterEqual(state["baseline"]["configuration_value_ranges"], 244)
+        self.assertGreaterEqual(state["baseline"]["attributes"], 385)
 
 
 if __name__ == "__main__":

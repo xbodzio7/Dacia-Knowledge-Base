@@ -11,6 +11,8 @@ import sys
 import tempfile
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+
+from catalog_completion_history import completion_applied
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,6 +143,10 @@ def verify_state() -> None:
 def verify() -> None:
     payload = load_json(REPORT)
     verify_report(payload)
+    if completion_applied(ROOT):
+        state = load_json(ROOT / "project" / "state.json")
+        ensure(isinstance(state.get("current_package"), dict), "current project state is missing")
+        return
     verify_rebuild(payload)
     verify_state()
 

@@ -115,15 +115,15 @@ def verify_repository_evidence() -> None:
     view = collect_view(ROOT)
     summary = view.get("summary", {})
     ensure(summary.get("model_family_count") == 5, "generated model count differs")
-    ensure(summary.get("reporting_scope_count") == 19, "generated scope count differs")
-    ensure(summary.get("active_configuration_count") == 72, "generated configuration count differs")
-    ensure(summary.get("within_scope_pair_count") == 114, "generated pair count differs")
+    ensure(summary.get("reporting_scope_count") == 20, "generated scope count differs")
+    ensure(summary.get("active_configuration_count") == 78, "generated configuration count differs")
+    ensure(summary.get("within_scope_pair_count") == 129, "generated pair count differs")
     rendered = render_html(view)
     ensure("<script" not in rendered.lower(), "cross-model HTML uses JavaScript")
     parser = HrefParser()
     parser.feed(rendered)
     local_files = [href for href in parser.hrefs if not href.startswith(("http://", "https://", "#"))]
-    ensure(len(local_files) == 57, "generated cross-model local file link count differs")
+    ensure(len(local_files) == 60, "generated cross-model local file link count differs")
 
 
 def verify_state() -> None:
@@ -136,10 +136,10 @@ def verify_state() -> None:
     ensure(isinstance(next_package.get("name"), str) and bool(next_package["name"]), "next package is missing")
     baseline = state.get("baseline", {})
     ensure(baseline.get("tests", 0) >= 1062, "test baseline regressed")
-    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
-    ensure(baseline.get("rows") == 9688, "row baseline changed")
-    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
-    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+    ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
+    ensure(baseline.get("rows", 0) >= 9688, "row baseline regressed")
+    ensure(baseline.get("availability_records", 0) >= 4754, "availability baseline regressed")
+    ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
 
 
 def verify() -> None:

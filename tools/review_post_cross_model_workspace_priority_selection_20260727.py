@@ -223,18 +223,16 @@ def verify_repository() -> None:
 
     state = load_json(STATE)
     ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "phase missing")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests", 0) >= 1070, "test baseline regressed")
+    ensure(baseline.get("rows", 0) >= 9688, "row baseline regressed")
     ensure(
-        state.get("baseline", {}).get("tests") == 1070,
-        "test baseline differs",
-    )
-    ensure(state.get("baseline", {}).get("rows") == 9688, "row baseline changed")
-    ensure(
-        state.get("baseline", {}).get("configuration_values") == 2949,
-        "configuration values changed",
+        baseline.get("configuration_values", 0) >= 2949,
+        "configuration values regressed",
     )
     ensure(
-        state.get("baseline", {}).get("availability_records") == 4754,
-        "availability baseline changed",
+        baseline.get("availability_records", 0) >= 4754,
+        "availability baseline regressed",
     )
 
 

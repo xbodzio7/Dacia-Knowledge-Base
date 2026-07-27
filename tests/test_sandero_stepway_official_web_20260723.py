@@ -11,6 +11,7 @@ from pathlib import Path
 REPOSITORY = Path(__file__).resolve().parents[1]
 MASTER = REPOSITORY / "data" / "master"
 SNAPSHOT = REPOSITORY / "project" / "sources" / "dacia-pl-sandero-stepway-configurations-20260723.json"
+CATALOG_SLICE_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260703"
 SOURCE_CODE = "src_pl_sandero_stepway_official_web_configurations_20260723"
 SNAPSHOT_SHA256 = "dd236991cba2f14f2b49e43cddbcf643741e6609dd5c2f4dbb0bb6e9dbf98ed3"
 
@@ -85,7 +86,7 @@ class SanderoStepwayOfficialWeb20260723Tests(unittest.TestCase):
         previous_pairs = {
             (row["configuration_code"], row["attribute_code"])
             for row in self.rows("configuration_attribute_availability.csv")
-            if row["source_code"] != SOURCE_CODE
+            if row["source_code"] not in {SOURCE_CODE, CATALOG_SLICE_SOURCE}
         }
         newly_covered = {
             (row["configuration_code"], row["attribute_code"])

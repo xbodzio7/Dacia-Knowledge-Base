@@ -13,6 +13,16 @@ from reporting.entity_catalog import generate_entity_catalog
 
 
 SCRIPT_COMMANDS = {
+    "model-media-cache": (
+        "cache_model_media.py",
+        "Refresh or verify the repository-local official model image cache.",
+        "--refresh|--verify [--offline] [--force] [--timeout SECONDS]",
+    ),
+    "sandero-stepway-catalog-completion": (
+        "import_sandero_stepway_catalog_completion.py",
+        "Apply or verify the source-bounded Sandero and Stepway catalogue completion.",
+        "--apply|--verify",
+    ),
     "autonomy-decision": (
         "autonomy_decision.py",
         "Resolve the next autonomous workflow action from an event.",
