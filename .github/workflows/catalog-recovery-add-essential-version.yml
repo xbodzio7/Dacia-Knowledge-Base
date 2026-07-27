@@ -1,0 +1,118 @@
+name: Catalog Recovery Add Essential Version
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-add-essential-version.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extend importer with Sandero Essential version
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/import_sandero_stepway_catalog_completion.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"\n\n',
+              '''STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"\n\nSANDERO_ESSENTIAL_VERSION = {\n    "code": "sandero_iii_essential",\n    "model_code": "sandero_iii",\n    "name": "Essential",\n    "status": "active",\n    "notes": "Source-backed trim from the official Polish Sandero MY26 price matrix effective 2026-07-03.",\n}\n\n''',
+              1,
+          )
+          text = text.replace(
+              'FIELDS = {\n    "configurations.csv": (',
+              '''FIELDS = {\n    "versions.csv": (\n        "id", "code", "model_code", "name", "status", "notes",\n    ),\n    "source_versions.csv": (\n        "id", "source_code", "version_code", "relationship", "notes",\n    ),\n    "configurations.csv": (''',
+              1,
+          )
+          text = text.replace(
+              '"configurations": 6,\n            "prices": 8,',
+              '"versions": 1,\n            "source_version_relationships": 1,\n            "configurations": 6,\n            "prices": 8,',
+              1,
+          )
+          text = text.replace(
+              'def _apply_source_relationships(path: Path, *, apply: bool) -> int:\n',
+              '''def _apply_source_versions(path: Path, *, apply: bool) -> int:\n    fields, rows = _read_csv(path)\n    if fields != list(FIELDS[path.name]):\n        raise CompletionError(f"unexpected header for {path}")\n    semantic = (PRICE_SOURCE, SANDERO_ESSENTIAL_VERSION["code"], "documents")\n    index = {\n        (row["source_code"], row["version_code"], row["relationship"]): row\n        for row in rows\n    }\n    current = index.get(semantic)\n    expected_notes = "Version column in the page-1 price matrix effective 2026-07-03."\n    if current is not None:\n        if current["notes"] != expected_notes:\n            raise CompletionError(f"source version relationship differs: {semantic}")\n        return 0\n    if not apply:\n        raise CompletionError(f"missing source version relationship: {semantic}")\n    row = {\n        "id": str(_next_id(rows)),\n        "source_code": PRICE_SOURCE,\n        "version_code": SANDERO_ESSENTIAL_VERSION["code"],\n        "relationship": "documents",\n        "notes": expected_notes,\n    }\n    rows.append(row)\n    _write_csv(path, fields, rows)\n    return 1\n\n\ndef _apply_source_relationships(path: Path, *, apply: bool) -> int:\n''',
+              1,
+          )
+          text = text.replace(
+              '''def complete(repository: Path, *, apply: bool) -> dict[str, int]:\n    repository = repository.resolve()\n    master = repository / "data/master"\n    _validate_references(repository)\n    technical_rows = [row for item in CONFIGURATIONS for row in _technical_rows(item)]\n    cargo_context_rows = _cargo_context_rows(technical_rows)\n\n    additions: dict[str, int] = {}\n    additions["configurations"], _ = _append_expected(\n''',
+              '''def complete(repository: Path, *, apply: bool) -> dict[str, int]:\n    repository = repository.resolve()\n    master = repository / "data/master"\n    additions: dict[str, int] = {}\n    additions["versions"], _ = _append_expected(\n        master / "versions.csv",\n        [SANDERO_ESSENTIAL_VERSION],\n        apply=apply,\n    )\n    additions["source_version_relationships"] = _apply_source_versions(\n        master / "source_versions.csv",\n        apply=apply,\n    )\n    _validate_references(repository)\n    technical_rows = [row for item in CONFIGURATIONS for row in _technical_rows(item)]\n    cargo_context_rows = _cargo_context_rows(technical_rows)\n\n    additions["configurations"], _ = _append_expected(\n''',
+              1,
+          )
+          compile(text, str(path), 'exec')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Apply and inspect catalogue completion
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery
+          : > diagnostics/catalog-recovery/materialize.log
+          run_step() {
+            echo "===== $1 =====" | tee -a diagnostics/catalog-recovery/materialize.log
+            shift
+            "$@" >> diagnostics/catalog-recovery/materialize.log 2>&1
+            status=$?
+            echo "exit=$status" | tee -a diagnostics/catalog-recovery/materialize.log
+            return $status
+          }
+          apply_status=0
+          verify_status=0
+          validate_status=0
+          run_step apply python tools/import_sandero_stepway_catalog_completion.py --apply || apply_status=$?
+          run_step verify python tools/import_sandero_stepway_catalog_completion.py --verify || verify_status=$?
+          run_step validate python tools/dkb.py validate || validate_status=$?
+          python - <<PY
+          import csv, json
+          from pathlib import Path
+          root = Path('.')
+          master = root / 'data/master'
+          def rows(name):
+              with (master / name).open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+          configurations = rows('configurations.csv')
+          summary = {
+              'apply_exit': int('$apply_status'),
+              'verify_exit': int('$verify_status'),
+              'validate_exit': int('$validate_status'),
+              'active_configurations': sum(row.get('status') == 'active' for row in configurations),
+              'configuration_rows': len(configurations),
+              'price_rows': len(rows('configuration_prices.csv')),
+              'technical_value_rows': len(rows('configuration_attribute_values.csv')),
+              'equipment_rows': len(rows('configuration_attribute_availability.csv')),
+              'cargo_context_rows': len(rows('configuration_cargo_volume_contexts.csv')),
+              'source_configuration_rows': len(rows('source_configurations.csv')),
+              'version_rows': len(rows('versions.csv')),
+              'source_version_rows': len(rows('source_versions.csv')),
+              'new_configurations': sorted(row['code'] for row in configurations if row['code'] in {
+                  'sandero_iii_essential_tce100_manual',
+                  'sandero_iii_expression_tce100_manual',
+                  'sandero_iii_journey_tce100_manual',
+                  'sandero_stepway_iii_essential_tce110_manual',
+                  'sandero_stepway_iii_expression_tce110_manual',
+                  'sandero_stepway_iii_extreme_tce110_manual',
+              }),
+          }
+          (root / 'diagnostics/catalog-recovery/materialize-summary.json').write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Commit patched importer and materialized package
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools data diagnostics/catalog-recovery/materialize.log diagnostics/catalog-recovery/materialize-summary.json
+          git commit -m "feat(data): materialize Sandero Stepway catalogue completion"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
