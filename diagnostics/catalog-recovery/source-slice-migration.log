@@ -1,0 +1,4 @@
+ERROR: command failed (1): /usr/bin/python /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_sandero_stepway_catalog_completion.py --apply
+From https://github.com/xbodzio7/Dacia-Knowledge-Base
+ * branch            main       -> FETCH_HEAD
+ERROR: equipment code collision: sandero_iii_expression_ecog120_manual_rear_view_camera_20260703

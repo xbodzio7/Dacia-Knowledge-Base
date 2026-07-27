@@ -12,9 +12,12 @@ from typing import Iterable, Mapping, Sequence
 
 OBSERVATION_DATE = "2026-07-03"
 BROCHURE_DATE = "2026-02-02"
-PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"
-SANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"
-STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"
+RAW_PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"
+RAW_SANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"
+RAW_STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"
+PRICE_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260703"
+SANDERO_BROCHURE_SOURCE = "src_pl_sandero_catalog_tce_slice_20260202"
+STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260202"
 
 SANDERO_ESSENTIAL_VERSION = {
     "code": "sandero_iii_essential",
@@ -343,6 +346,11 @@ REAR_SUSPENSION = (
 )
 
 FIELDS = {
+    "sources.csv": (
+        "id", "code", "source_type", "title", "publisher", "market",
+        "document_date", "external_reference", "file_path", "sha256",
+        "status", "notes",
+    ),
     "versions.csv": (
         "id", "code", "model_code", "name", "status", "notes",
     ),
@@ -1023,8 +1031,14 @@ def _write_package_contract(repository: Path, *, apply: bool) -> None:
         "kind": "sandero_stepway_catalog_completion",
         "observation_date": OBSERVATION_DATE,
         "price_source_code": PRICE_SOURCE,
+        "source_slices": [
+            PRICE_SOURCE,
+            SANDERO_BROCHURE_SOURCE,
+            STEPWAY_BROCHURE_SOURCE,
+        ],
         "configuration_codes": [str(item["code"]) for item in CONFIGURATIONS],
         "expected_additions": {
+            "sources": 3,
             "versions": 1,
             "source_version_relationships": 1,
             "configurations": 6,
@@ -1055,6 +1069,107 @@ def _write_package_contract(repository: Path, *, apply: bool) -> None:
     elif not path.exists() or path.read_text(encoding="utf-8") != rendered:
         raise CompletionError(f"package contract is missing or differs: {path}")
 
+
+
+def _source_slice_rows(repository: Path, *, apply: bool) -> list[dict[str, str]]:
+    master = repository / "data/master"
+    _, registered = _read_csv(master / "sources.csv")
+    raw_by_code = {row["code"]: row for row in registered}
+    definitions = (
+        (
+            PRICE_SOURCE,
+            RAW_PRICE_SOURCE,
+            "Sandero and Stepway MY26 TCe catalogue slice",
+            sorted(
+                {str(item["code"]) for item in CONFIGURATIONS}
+                | {code for code, _ in EXTRA_PRICE_OBSERVATIONS}
+            ),
+            [1, 2, 3, 4, 5, 6],
+            ["configuration", "price", "equipment", "technical", "trim"],
+        ),
+        (
+            SANDERO_BROCHURE_SOURCE,
+            RAW_SANDERO_BROCHURE_SOURCE,
+            "Sandero TCe 100 brochure technical slice",
+            sorted(
+                str(item["code"])
+                for item in CONFIGURATIONS
+                if item["model_family"] == "sandero"
+            ),
+            [17, 20],
+            ["technical", "performance", "chassis", "dimensions", "cargo"],
+        ),
+        (
+            STEPWAY_BROCHURE_SOURCE,
+            RAW_STEPWAY_BROCHURE_SOURCE,
+            "Sandero Stepway TCe 110 brochure technical slice",
+            sorted(
+                str(item["code"])
+                for item in CONFIGURATIONS
+                if item["model_family"] == "stepway"
+            ),
+            [17, 20],
+            ["technical", "performance", "chassis", "dimensions", "cargo"],
+        ),
+    )
+    rows: list[dict[str, str]] = []
+    for code, raw_code, title, configurations, pages, families in definitions:
+        raw = raw_by_code.get(raw_code)
+        if raw is None:
+            raise CompletionError(f"raw source missing: {raw_code}")
+        payload = {
+            "version": 1,
+            "kind": "official_source_slice",
+            "slice_code": code,
+            "raw_source_code": raw_code,
+            "raw_source": {
+                "title": raw["title"],
+                "publisher": raw["publisher"],
+                "market": raw["market"],
+                "document_date": raw["document_date"],
+                "external_reference": raw["external_reference"],
+                "file_path": raw["file_path"],
+                "sha256": raw["sha256"],
+            },
+            "selection": {
+                "configuration_codes": configurations,
+                "source_pages": pages,
+                "observation_families": families,
+            },
+            "non_inference": [
+                "The slice does not replace or alter the registered raw official document.",
+                "Every imported observation retains raw page and section provenance in its notes.",
+                "Only values directly visible in the selected official source are represented.",
+            ],
+        }
+        relative = Path("project/sources") / f"{code.removeprefix('src_pl_')}.json"
+        rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        target = repository / relative
+        if apply:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(rendered, encoding="utf-8")
+        elif not target.exists() or target.read_text(encoding="utf-8") != rendered:
+            raise CompletionError(f"source slice differs: {relative}")
+        digest = __import__("hashlib").sha256(rendered.encode("utf-8")).hexdigest()
+        rows.append(
+            {
+                "code": code,
+                "source_type": "normalized_snapshot",
+                "title": title,
+                "publisher": raw["publisher"],
+                "market": raw["market"],
+                "document_date": raw["document_date"],
+                "external_reference": raw["external_reference"],
+                "file_path": relative.as_posix(),
+                "sha256": digest,
+                "status": "active",
+                "notes": (
+                    f"Versioned source slice of {raw_code}; the raw official "
+                    "file remains canonical and hash-verified."
+                ),
+            }
+        )
+    return rows
 
 def _validate_references(repository: Path) -> None:
     master = repository / "data/master"
@@ -1154,6 +1269,12 @@ def complete(repository: Path, *, apply: bool) -> dict[str, int]:
     repository = repository.resolve()
     master = repository / "data/master"
     additions: dict[str, int] = {}
+    source_slice_rows = _source_slice_rows(repository, apply=apply)
+    additions["sources"], _ = _append_expected(
+        master / "sources.csv",
+        source_slice_rows,
+        apply=apply,
+    )
     additions["versions"], _ = _append_expected(
         master / "versions.csv",
         [SANDERO_ESSENTIAL_VERSION],
@@ -1195,7 +1316,6 @@ def complete(repository: Path, *, apply: bool) -> dict[str, int]:
         master / "configuration_attribute_availability.csv",
         apply=apply,
     )
-    _update_cargo_spec(repository, apply=apply)
     _write_reporting_scope(repository, apply=apply)
     _write_package_contract(repository, apply=apply)
 
