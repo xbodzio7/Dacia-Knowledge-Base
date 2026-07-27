@@ -33,15 +33,42 @@ jobs:
             exit 1
           fi
       - name: Validate catalogue package
+        id: validate
         shell: bash
         run: |
-          python -m compileall -q tools tests
-          python tools/import_sandero_stepway_catalog_completion.py --verify
-          python tools/dkb.py validate
-          python -m unittest discover -s tests -p 'test_*.py' -q
+          set +e
+          : > /tmp/catalog-validation.log
+          python -m compileall -q tools tests >> /tmp/catalog-validation.log 2>&1
+          compile=$?
+          python tools/import_sandero_stepway_catalog_completion.py --verify >> /tmp/catalog-validation.log 2>&1
+          importer=$?
+          python tools/dkb.py validate >> /tmp/catalog-validation.log 2>&1
+          validator=$?
+          python -m unittest discover -s tests -p 'test_*.py' -q >> /tmp/catalog-validation.log 2>&1
+          tests=$?
+          printf 'compile=%s\nimporter=%s\nvalidator=%s\ntests=%s\n' "$compile" "$importer" "$validator" "$tests" | tee /tmp/catalog-validation-summary.txt
+          if [ "$compile" -eq 0 ] && [ "$importer" -eq 0 ] && [ "$validator" -eq 0 ] && [ "$tests" -eq 0 ]; then
+            touch /tmp/catalog-validation-ok
+          else
+            grep -E '^(ERROR|FAIL):|^FAILED \(|^Ran [0-9]+ tests' /tmp/catalog-validation.log > /tmp/catalog-validation-failures.txt || true
+          fi
+          exit 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalog-validation-log
+          path: |
+            /tmp/catalog-validation.log
+            /tmp/catalog-validation-summary.txt
+            /tmp/catalog-validation-failures.txt
+          if-no-files-found: ignore
       - name: Persist verified fixes
         shell: bash
         run: |
+          if [ ! -f /tmp/catalog-validation-ok ]; then
+            cat /tmp/catalog-validation-summary.txt
+            cat /tmp/catalog-validation-failures.txt 2>/dev/null || true
+            exit 1
+          fi
           if git diff --quiet; then
             echo "No changes to persist."
             exit 0
