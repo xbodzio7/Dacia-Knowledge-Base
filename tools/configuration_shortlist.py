@@ -25,39 +25,162 @@ from reporting.configuration_shortlist_selection_html import (
 )
 
 
-_STICKY_COMPARISON_STYLE = r'''<style>
+_COMPARISON_ENHANCEMENT_STYLE = r'''<style>
 :root{--comparison-sticky-top:0px}
 .comparison-panel{scroll-margin-top:calc(var(--comparison-sticky-top,0px) + 8px)}
 .comparison-table thead th{top:var(--comparison-sticky-top,0px)}
+.comparison-group-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.comparison-group-controls button{min-height:36px;padding:7px 11px;border:1px solid #aeb8b0;border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;font-size:.76rem;font-weight:750}
+.comparison-group-controls button:disabled{cursor:not-allowed;opacity:.45}
+.comparison-table .comparison-category-row .comparison-category-label{position:sticky;left:0;z-index:4;min-width:210px;padding:0;background:#dfe9e2}
+.comparison-table .comparison-category-row .comparison-category-fill{background:#dfe9e2}
+.comparison-category-toggle{display:flex;width:100%;min-height:40px;align-items:center;gap:8px;padding:8px 12px;border:0;background:transparent;color:var(--accent);cursor:pointer;font:inherit;font-weight:800;letter-spacing:.05em;text-align:left;text-transform:uppercase}
+.comparison-category-toggle::before{content:"▾";flex:0 0 auto;font-size:1rem;line-height:1}
+.comparison-category-toggle[aria-expanded="false"]::before{content:"▸"}
+.comparison-category-toggle:focus-visible{outline:3px solid rgba(31,111,67,.24);outline-offset:-3px}
+.comparison-data-row[data-group-collapsed="true"]{display:none!important}
 @media(max-width:760px){:root{--comparison-sticky-top:0px!important}}
 </style>'''
 
-_STICKY_COMPARISON_SCRIPT = r'''<script>
+_COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
 (function () {
   "use strict";
-  const panel = document.querySelector("#selection-panel");
-  if (!panel) return;
+  const selectionPanel = document.querySelector("#selection-panel");
+  const comparisonPanel = document.querySelector("#comparison-panel");
+  const table = document.querySelector("#comparison-table");
+  if (!selectionPanel || !comparisonPanel || !table) return;
+
   const root = document.documentElement;
-  let frame = 0;
-  const update = () => {
-    if (frame) cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => {
-      const sticky = getComputedStyle(panel).position === "sticky";
-      const offset = sticky ? Math.ceil(panel.offsetHeight + 18) : 0;
+  const collapsedCategories = new Set();
+  let offsetFrame = 0;
+  let decorateFrame = 0;
+
+  const updateStickyOffset = () => {
+    if (offsetFrame) cancelAnimationFrame(offsetFrame);
+    offsetFrame = requestAnimationFrame(() => {
+      const sticky = getComputedStyle(selectionPanel).position === "sticky";
+      const offset = sticky ? Math.ceil(selectionPanel.offsetHeight + 18) : 0;
       root.style.setProperty("--comparison-sticky-top", `${offset}px`);
-      frame = 0;
+      offsetFrame = 0;
     });
   };
-  update();
-  window.addEventListener("resize", update, { passive: true });
+
+  const controls = document.createElement("div");
+  controls.className = "comparison-group-controls";
+  controls.setAttribute("aria-label", "Sterowanie grupami parametrów");
+  const collapseAll = document.createElement("button");
+  collapseAll.type = "button";
+  collapseAll.textContent = "Zwiń wszystkie grupy";
+  const expandAll = document.createElement("button");
+  expandAll.type = "button";
+  expandAll.textContent = "Rozwiń wszystkie grupy";
+  controls.append(collapseAll, expandAll);
+  const scroll = comparisonPanel.querySelector(".comparison-scroll");
+  if (scroll) comparisonPanel.insertBefore(controls, scroll);
+
+  const categoryRows = () => [...table.querySelectorAll("tr.comparison-category-row")];
+  const dataRows = () => [...table.querySelectorAll("tr.comparison-data-row")];
+
+  const applyCollapsedState = (category) => {
+    const collapsed = collapsedCategories.has(category);
+    for (const row of dataRows()) {
+      if (row.dataset.category === category) {
+        row.dataset.groupCollapsed = collapsed ? "true" : "false";
+      }
+    }
+    const heading = categoryRows().find((row) => row.dataset.category === category);
+    const button = heading && heading.querySelector(".comparison-category-toggle");
+    if (button) {
+      button.setAttribute("aria-expanded", String(!collapsed));
+      button.title = collapsed ? `Rozwiń grupę ${category}` : `Zwiń grupę ${category}`;
+    }
+  };
+
+  const updateControlState = () => {
+    const rows = categoryRows();
+    const categories = rows.map((row) => row.dataset.category).filter(Boolean);
+    collapseAll.disabled = categories.length === 0 || categories.every((category) => collapsedCategories.has(category));
+    expandAll.disabled = categories.length === 0 || categories.every((category) => !collapsedCategories.has(category));
+  };
+
+  const decorateCategoryRows = () => {
+    const columnCount = Math.max(1, table.querySelectorAll("thead th").length);
+    for (const row of categoryRows()) {
+      const category = row.dataset.category || "Pozostałe";
+      let labelCell = [...row.children].find((child) => child.tagName === "TH");
+      if (!labelCell) continue;
+      let toggle = labelCell.querySelector(".comparison-category-toggle");
+      if (!toggle) {
+        const label = labelCell.textContent.trim() || category;
+        labelCell.removeAttribute("colspan");
+        labelCell.classList.add("comparison-category-label");
+        labelCell.setAttribute("scope", "rowgroup");
+        toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "comparison-category-toggle";
+        toggle.dataset.category = category;
+        toggle.textContent = label;
+        labelCell.replaceChildren(toggle);
+        const fill = document.createElement("td");
+        fill.className = "comparison-category-fill";
+        fill.setAttribute("aria-hidden", "true");
+        fill.colSpan = Math.max(1, columnCount - 1);
+        row.append(fill);
+      } else {
+        const fill = row.querySelector(".comparison-category-fill");
+        if (fill) fill.colSpan = Math.max(1, columnCount - 1);
+      }
+      applyCollapsedState(category);
+    }
+    updateControlState();
+  };
+
+  const scheduleDecoration = () => {
+    if (decorateFrame) cancelAnimationFrame(decorateFrame);
+    decorateFrame = requestAnimationFrame(() => {
+      decorateCategoryRows();
+      decorateFrame = 0;
+    });
+  };
+
+  table.addEventListener("click", (event) => {
+    const toggle = event.target.closest(".comparison-category-toggle");
+    if (!toggle) return;
+    const category = toggle.dataset.category;
+    if (!category) return;
+    if (collapsedCategories.has(category)) collapsedCategories.delete(category);
+    else collapsedCategories.add(category);
+    applyCollapsedState(category);
+    updateControlState();
+  });
+
+  collapseAll.addEventListener("click", () => {
+    for (const row of categoryRows()) {
+      if (row.dataset.category) collapsedCategories.add(row.dataset.category);
+    }
+    decorateCategoryRows();
+  });
+
+  expandAll.addEventListener("click", () => {
+    collapsedCategories.clear();
+    decorateCategoryRows();
+  });
+
+  updateStickyOffset();
+  scheduleDecoration();
+  window.addEventListener("resize", updateStickyOffset, { passive: true });
   if (typeof ResizeObserver === "function") {
-    new ResizeObserver(update).observe(panel);
+    new ResizeObserver(updateStickyOffset).observe(selectionPanel);
   }
   if (typeof MutationObserver === "function") {
-    new MutationObserver(update).observe(panel, {
+    new MutationObserver(updateStickyOffset).observe(selectionPanel, {
       childList: true,
       subtree: true,
       characterData: true
+    });
+    new MutationObserver(scheduleDecoration).observe(table, {
+      childList: true,
+      subtree: true
     });
   }
 })();
@@ -65,16 +188,16 @@ _STICKY_COMPARISON_SCRIPT = r'''<script>
 
 
 def render_html(catalog: Mapping[str, Any]) -> str:
-    """Render the shortlist with a dynamic sticky comparison-header offset."""
+    """Render the shortlist with usable sticky comparison navigation."""
     rendered = render_selection_html(catalog)
     marker = "</body>"
     if marker not in rendered:
         raise ShortlistError(
-            "cannot inject sticky comparison offset: missing body marker"
+            "cannot inject comparison navigation enhancements: missing body marker"
         )
     enhancement = (
-        f"{_STICKY_COMPARISON_STYLE}\n"
-        f"{_STICKY_COMPARISON_SCRIPT}\n"
+        f"{_COMPARISON_ENHANCEMENT_STYLE}\n"
+        f"{_COMPARISON_ENHANCEMENT_SCRIPT}\n"
         f"{marker}"
     )
     return rendered.replace(marker, enhancement, 1)
