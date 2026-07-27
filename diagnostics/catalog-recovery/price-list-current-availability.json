@@ -1,0 +1,366 @@
+{
+  "attributes": [
+    "360_camera_system",
+    "automatic_climate_control",
+    "glass_sunroof",
+    "heated_front_seats",
+    "heated_steering_wheel",
+    "high_beam_assist",
+    "keyless_entry",
+    "navigation_system",
+    "rear_view_camera",
+    "side_mirrors_folding",
+    "wireless_charging"
+  ],
+  "configurations": [
+    "sandero_iii_expression_ecog120_manual",
+    "sandero_iii_journey_ecog120_manual",
+    "sandero_stepway_iii_expression_ecog120_automatic",
+    "sandero_stepway_iii_expression_ecog120_manual",
+    "sandero_stepway_iii_extreme_ecog120_automatic",
+    "sandero_stepway_iii_extreme_ecog120_manual"
+  ],
+  "count": 34,
+  "rows": [
+    {
+      "attribute_code": "rear_view_camera",
+      "availability_status": "optional",
+      "code": "sandero_iii_expression_ecog120_manual_rear_view_camera_20260703",
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "2978",
+      "notes": "Commercial option: Kamera cofania. Source wording: Kamera cofania",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_iii_expression_ecog120_manual_navigation_system_20260703",
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "2979",
+      "notes": "Commercial option: Nowy Media Nav Live. Source wording: Nowy Media Nav Live: nawigacja on-line z 8-letnią subskrypcją",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_manual_navigation_system_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "2980",
+      "notes": "Commercial option: Nowy Media Nav Live. Source wording: Nowy Media Nav Live: nawigacja on-line z 8-letnią subskrypcją",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_automatic_navigation_system_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "2981",
+      "notes": "Commercial option: Nowy Media Nav Live. Source wording: Nowy Media Nav Live: nawigacja on-line z 8-letnią subskrypcją",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "glass_sunroof",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_glass_sunroof_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "2982",
+      "notes": "Commercial option: Elektrycznie otwierany szklany dach. Source wording: Elektrycznie otwierany, szklany dach",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "glass_sunroof",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_glass_sunroof_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "2983",
+      "notes": "Commercial option: Elektrycznie otwierany szklany dach. Source wording: Elektrycznie otwierany, szklany dach",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_automatic_automatic_climate_control_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "2984",
+      "notes": "Commercial package: Pakiet COMFORT (Eco-G 120 auto). Source wording: klimatyzacja automatyczna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "keyless_entry",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_automatic_keyless_entry_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "2985",
+      "notes": "Commercial package: Pakiet COMFORT (Eco-G 120 auto). Source wording: bezkluczykowy dostęp Keyless Entry",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "optional",
+      "code": "sandero_iii_expression_ecog120_manual_automatic_climate_control_20260703",
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "2986",
+      "notes": "Commercial package: Pakiet THERMO. Source wording: Klimatyzacja automatyczna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_iii_expression_ecog120_manual_heated_front_seats_20260703",
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "id": "2987",
+      "notes": "Commercial package: Pakiet THERMO. Source wording: Fotele przednie podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_manual_automatic_climate_control_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "2988",
+      "notes": "Commercial package: Pakiet THERMO. Source wording: Klimatyzacja automatyczna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_manual_heated_front_seats_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "id": "2989",
+      "notes": "Commercial package: Pakiet THERMO. Source wording: Fotele przednie podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_expression_ecog120_automatic_heated_front_seats_20260703",
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "id": "2990",
+      "notes": "Commercial package: Pakiet THERMO. Source wording: Fotele przednie podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_heated_front_seats_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "2991",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: przednie fotele podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_heated_steering_wheel_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "2992",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: podgrzewana kierownica",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_heated_front_seats_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "2993",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: przednie fotele podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_heated_steering_wheel_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "2994",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: podgrzewana kierownica",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_heated_front_seats_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "2995",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: przednie fotele podgrzewane",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_heated_steering_wheel_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "2996",
+      "notes": "Commercial package: Pakiet ZIMOWY. Source wording: podgrzewana kierownica",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_navigation_system_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "2997",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: System multimedialny Nowy Media Nav z nawigacją on-line",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "wireless_charging",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_wireless_charging_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "2998",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: ładowarka indukcyjna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_navigation_system_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "2999",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: System multimedialny Nowy Media Nav z nawigacją on-line",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "wireless_charging",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_wireless_charging_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "3000",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: ładowarka indukcyjna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "navigation_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_navigation_system_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "3001",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: System multimedialny Nowy Media Nav z nawigacją on-line",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "wireless_charging",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_wireless_charging_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "3002",
+      "notes": "Commercial package: Pakiet MEDIA NAV LIVE. Source wording: ładowarka indukcyjna",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "side_mirrors_folding",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_side_mirrors_folding_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "3003",
+      "notes": "Commercial package: Pakiet EASY. Source wording: lusterka składane elektrycznie",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "high_beam_assist",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_high_beam_assist_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "3004",
+      "notes": "Commercial package: Pakiet EASY. Source wording: funkcja automatycznej zmiany świateł drogowych na mijania (AHL)",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional",
+      "code": "sandero_iii_journey_ecog120_manual_360_camera_system_20260703",
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "id": "3005",
+      "notes": "Commercial package: Pakiet EASY. Source wording: system Multiview kamera",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "side_mirrors_folding",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_side_mirrors_folding_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "3006",
+      "notes": "Commercial package: Pakiet EASY. Source wording: lusterka składane elektrycznie",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "high_beam_assist",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_high_beam_assist_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "3007",
+      "notes": "Commercial package: Pakiet EASY. Source wording: funkcja automatycznej zmiany świateł drogowych na mijania (AHL)",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_manual_360_camera_system_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "id": "3008",
+      "notes": "Commercial package: Pakiet EASY. Source wording: system Multiview kamera",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "side_mirrors_folding",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_side_mirrors_folding_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "3009",
+      "notes": "Commercial package: Pakiet EASY. Source wording: lusterka składane elektrycznie",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "high_beam_assist",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_high_beam_assist_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "3010",
+      "notes": "Commercial package: Pakiet EASY. Source wording: funkcja automatycznej zmiany świateł drogowych na mijania (AHL)",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    },
+    {
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional",
+      "code": "sandero_stepway_iii_extreme_ecog120_automatic_360_camera_system_20260703",
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "id": "3011",
+      "notes": "Commercial package: Pakiet EASY. Source wording: system Multiview kamera",
+      "observation_date": "2026-07-03",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+    }
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  ".github/data-products-v1.8.1-public-audit.json": [
+    "    \"within_scope_pair_count\": 114,"
+  ],
+  ".github/workflows/catalog-recovery-final-inventory.yml": [
+    "          # Inventory every explicit reporting scope and its combination count.",
+    "              scope_files.append({'path': path.as_posix(), 'configuration_count': len(codes), 'pair_count': pairs, 'configuration_codes': codes})",
+    "              'pair_count': total_pairs,",
+    "          # Find references that aggregate or validate all reporting scopes.",
+    "              hits = [line for line in lines if 'configuration_completeness' in line or 'reporting scope' in line.lower() or 'pair_count' in line]"
+  ],
+  "CHANGELOG.md": [
+    "* Transactional configuration comparison bundles that group explicit selections by independent reporting scope."
+  ],
+  "README.md": [
+    "`data/reporting/configuration_completeness.json`. Specyfikacja jawnie określa"
+  ],
+  "data/reporting/brochure_gear_performance_import_closure_review.json": [
+    "      \"configuration_completeness\","
+  ],
+  "data/reporting/brochure_generic_dimensions_import_closure_review.json": [
+    "  \"closure_decision\": \"Close the generic brochure dimension import milestone with all 382 approved historical observations verified across thirty-six exact configurations and nine reporting scopes. Preserve later exact Sandero precedence and retain every Duster 4x4, WLTP, contextual cargo and excluded-diagram boundary without inference.\","
+  ],
+  "data/reporting/cross_model_comparison_view_closure_review.json": [
+    "    \"within_scope_pair_count\": 114,",
+    "      \"pair_count\": 10,"
+  ],
+  "data/reporting/cross_model_comparison_view_review.json": [
+    "    \"within_scope_pair_count\": 114,",
+    "    \"pair_count\": 10,",
+    "      \"description\": \"Show five model-family summaries and a directory of nineteen existing reporting scopes. Launch comparison only inside an existing scope; preserve the one established Sandero/Stepway mixed scope.\",",
+    "    \"pair_generation_rule\": \"Generate or open pairs only from an existing reporting scope. Never synthesize a pair from model-card membership.\","
+  ],
+  "data/reporting/cross_model_navigation_usability_review.json": [
+    "      \"within_scope_pair_count\": 114,"
+  ],
+  "data/reporting/data_products_v1_7_0_release_preparation.json": [
+    "    \"pair_count\": 114,"
+  ],
+  "data/reporting/data_products_v1_8_0_publication_audit.json": [
+    "    \"within_scope_pair_count\": 114,",
+    "    \"within_scope_pair_count\": 114,"
+  ],
+  "data/reporting/data_products_v1_8_0_release_preparation.json": [
+    "    \"within_scope_pair_count\": 114,",
+    "    \"within_scope_pair_count\": 114,"
+  ],
+  "data/reporting/data_products_v1_8_1_publication_audit.json": [
+    "    \"within_scope_pair_count\": 114,"
+  ],
+  "data/reporting/data_products_v1_8_1_release_preparation.json": [
+    "    \"within_scope_pair_count\": 114,"
+  ],
+  "data/reporting/post_brochure_priority_selection_review.json": [
+    "    \"candidate_release_pair_count\": 114,"
+  ],
+  "project/audits/jogger-ecog120-automatic-reporting.json": [
+    "      \"unfiltered_pair_count\": 6,",
+    "      \"pair_count\": 6,"
+  ],
+  "project/audits/jogger-ecog120-manual-reporting.json": [
+    "      \"pair_count\": 15,",
+    "      \"unfiltered_pair_count\": 15"
+  ],
+  "project/audits/jogger-hybrid155-automatic-reporting.json": [
+    "      \"pair_count\": 15,",
+    "      \"unfiltered_pair_count\": 15"
+  ],
+  "project/audits/jogger-tce110-manual-reporting.json": [
+    "      \"pair_count\": 15,",
+    "      \"unfiltered_pair_count\": 15"
+  ],
+  "project/audits/sandero-ecog120-manual-reporting.json": [
+    "      \"pair_count\": 10,",
+    "      \"unfiltered_pair_count\": 10"
+  ],
+  "project/audits/sandero-stepway-ecog120-automatic-reporting.json": [
+    "      \"pair_count\": 1,",
+    "      \"unfiltered_pair_count\": 1"
+  ],
+  "project/packages/bigster-catalogue-foundation.md": [
+    "Four explicit reporting scopes group the catalogue by powertrain and transmission: mild hybrid 140 4x2 manual, mild hybrid-G 140 4x2 manual, Hybrid 155 4x2 automatic and Hybrid-G 150 4x4 automatic. The scopes contain no invented technical or equipment denominator; they only map the fourteen source-backed configurations into the existing comparison and release products."
+  ],
+  "project/packages/configuration-comparison-bundle-cli.md": [
+    "The command discovers the 13 current independent reporting scopes and validates that every active configuration is mapped exactly once. Selected codes are grouped by their existing completeness specification."
+  ],
+  "project/packages/cross-model-comparison-view-foundation.md": [
+    "Implement the scope-preserving navigation design selected in the preceding review without changing master data, reporting scopes or comparison calculations.",
+    "Each card exposes only source-safe navigation metadata: generation, body and segment codes, active configuration and version counts, exact latest catalogue-price range with coverage, recorded seat values, transmissions, powertrain labels, model-source provenance and links to existing reporting scopes."
+  ],
+  "project/packages/data-products-v1.7.0-release-preparation.md": [
+    "- 19 independent and comparable reporting scopes;",
+    "Every active configuration belongs to exactly one reporting scope. No cross-scope pairs are generated."
+  ],
+  "project/packages/data-products-v1.8.0-release-preparation.md": [
+    "- nineteen reporting scopes;",
+    "- a pair between independent reporting scopes;"
+  ],
+  "project/packages/jogger-hybrid155-automatic-reporting.md": [
+    "# Jogger Hybrid 155 Automatic Reporting Scope Promotion",
+    "This package promotes the six configurations selected in PR #134 into an explicit independent reporting scope. It changes no source data.",
+    "**Jogger TCe 110 Manual Reporting Scope Promotion** will publish the final homogeneous Jogger powertrain group."
+  ],
+  "project/packages/jogger-tce110-manual-reporting.md": [
+    "# Jogger TCe 110 Manual Reporting Scope Promotion",
+    "This package promotes the final six homogeneous current Jogger configurations into an explicit independent reporting scope. It changes no source data."
+  ],
+  "project/packages/official-configurator-sandero-configuration-import.md": [
+    "## Reporting scope",
+    "`sandero_ecog120_automatic` is added as an independent reporting scope with two configurations and one comparison pair. The release catalogue therefore contains 69 active configurations in 18 independent scopes."
+  ],
+  "project/packages/readme-duster-reporting-portfolio-correction.md": [
+    "- 13 independent homogeneous reporting scopes;",
+    "It now states that all 24 Duster configurations belong to seven independent homogeneous Duster reporting scopes inside the completed thirteen-scope portfolio."
+  ],
+  "project/packages/sandero-ecog120-manual-reporting.md": [
+    "# Sandero Eco-G 120 Manual Reporting Scope Promotion",
+    "This package promotes the five source-backed Sandero Eco-G 120 manual configurations into an independent reporting scope. It changes no master data and preserves all verified source-gap decisions.",
+    "The reporting scope contains:",
+    "**Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** will promote the separate two-configuration automatic group with its own filtered evidence contract."
+  ],
+  "project/packages/sandero-stepway-ecog120-automatic-reporting.md": [
+    "# Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion",
+    "This package promotes the two source-backed Sandero Stepway Eco-G 120 automatic configurations into an independent reporting scope. It changes no master data and preserves all verified source-gap decisions.",
+    "The reporting scope contains Sandero Stepway expression and extreme Eco-G 120 automatic. Each configuration retains its own registered Polish configuration PDF dated 2026-06-26.",
+    "**Sandero Reporting Portfolio Completion Review** will verify that all seven current Sandero configurations have isolated evidence-aware reporting scopes."
+  ],
+  "project/releases/data-products-v1.0.0.md": [
+    "- Independent and comparable reporting scopes: `13 / 13`"
+  ],
+  "project/releases/data-products-v1.7.0.md": [
+    "- 19 independent and comparable reporting scopes;",
+    "This release publishes the current evidence-backed repository state. It does not resolve deferred Duster 4x4 dimensions, ambiguous Jogger mass evidence or missing exact configurations. Missing evidence remains unknown rather than unavailable, and no comparison crosses an independent reporting scope."
+  ],
+  "project/releases/data-products-v1.8.0.md": [
+    "- 19 independent and comparable reporting scopes;",
+    "The products provide scope-preserving navigation over five model families and nineteen existing reporting scopes. The JSON contains seventy-six exact comparison-report paths and two navigation paths. The static HTML contains fifty-seven local file links, no JavaScript and no runtime image dependency.",
+    "This release publishes the current evidence-backed repository state. It does not resolve deferred exact-configuration evidence, ambiguous source relationships or missing exact Spring sources. Missing evidence remains unknown rather than unavailable, and no comparison crosses an independent reporting scope."
+  ],
+  "project/releases/data-products-v1.8.1.md": [
+    "- 19 independent reporting scopes;",
+    "Every active configuration remains in exactly one reporting scope. The release creates no cross-scope pair, ranking, recommendation or inferred value."
+  ],
+  "project/reviews/cross-model-comparison-view-closure-review-2026-07-26.md": [
+    "The repository now generates a deterministic machine-readable inventory and a standalone static navigation page over five model families and nineteen existing reporting scopes. The products preserve every established comparison boundary and introduce no new pair calculation."
+  ],
+  "project/reviews/cross-model-comparison-view-review-2026-07-26.md": [
+    "2. a directory of the nineteen existing reporting scopes;",
+    "- nineteen reporting scopes;",
+    "That scope is preserved exactly. Its existence does not establish comparability between other models, powertrains or reporting scopes.",
+    "- links to the reporting scopes containing that model.",
+    "Rejected because it bypasses the one-to-one mapping of configurations to reporting scopes and would introduce unsupported comparison semantics.",
+    "It will not change master data, schema, reporting scopes or comparison calculations."
+  ],
+  "project/reviews/data-product-distribution-planning-review.md": [
+    "- `comparison-bundle/` generated from that complete shortlist selection, preserving all independent reporting scopes, singleton handling, companion reports, bundle manifest and six-sheet XLSX workbook;",
+    "3. one-to-one mapping into the current independent reporting scopes;"
+  ],
+  "project/reviews/data-product-utilization-completion-review-2026-07-20.md": [
+    "The review covers the complete consumer path delivered through the current milestone. It does not change public release bytes, source data, reporting scopes or product semantics.",
+    "- source and provenance surfaces that preserve dates, evidence and independent reporting scopes."
+  ],
+  "project/reviews/data-product-utilization-milestone-review-2026-07-20.md": [
+    "No product ranks configurations, recommends a vehicle, fills absent observations or compares configurations across independent reporting scopes. The milestone uses only the existing source-backed portfolio."
+  ],
+  "project/reviews/data-product-utilization-milestone-review.md": [
+    "| Configuration Comparison Bundle CLI | PR #149 | Turn explicit selections into reports inside independent reporting scopes | Transactional JSON, Markdown, CSV and HTML outputs with SHA-256 manifest |",
+    "The current catalog maps all 53 active configurations exactly once to 13 independent reporting scopes. The workflow never generates cross-scope pairs, rankings, recommendations, inferred values or network requests."
+  ],
+  "project/reviews/duster-catalog-reporting-scope-boundary.md": [
+    "The accepted Duster source supports a bounded catalogue bootstrap, but the repository cannot currently add those configurations without making a new architecture decision about lifecycle and reporting scope.",
+    "The configuration completeness and comparison tools then require the configuration mappings in `configuration_completeness.json` to equal the entire set of configurations with that status. This assumption was safe while the repository contained only the seven fully reviewed Sandero and Sandero Stepway configurations.",
+    "2. introduce a lifecycle status for source-backed catalogue entities that are not yet in reporting scope;"
+  ],
+  "project/reviews/duster-catalog-reporting-scope-contract.md": [
+    "# Duster Catalog Reporting Scope Contract"
+  ],
+  "project/reviews/duster-ecog100-reporting-scope-promotion.md": [
+    "# Duster Eco-G 100 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-ecog120-reporting-scope-promotion.md": [
+    "# Duster Eco-G 120 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-hybrid140-reporting-scope-promotion.md": [
+    "# Duster Hybrid 140 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-hybrid140-reporting-selection.md": [
+    "powertrain groups remain outside Duster reporting scope:"
+  ],
+  "project/reviews/duster-hybrid155-reporting-scope-promotion.md": [
+    "# Duster Hybrid 155 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-hybrid155-reporting-selection.md": [
+    "homogeneous powertrain groups remain outside Duster reporting scope:"
+  ],
+  "project/reviews/duster-mildhybrid130-4x2-reporting-scope-promotion.md": [
+    "# Duster Mild Hybrid 130 4x2 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-mildhybrid130-4x2-reporting-selection.md": [
+    "reporting scope:",
+    "6. preserve every existing Sandero and Duster reporting scope and artifact."
+  ],
+  "project/reviews/duster-mildhybrid130-4x4-reporting-scope-promotion.md": [
+    "# Duster Mild Hybrid 130 4x4 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-mildhybrid130-4x4-reporting-selection.md": [
+    "two homogeneous groups remain outside Duster reporting scope:",
+    "6. preserve every existing Sandero and Duster reporting scope and artifact."
+  ],
+  "project/reviews/duster-mildhybrid140-4x2-reporting-scope-promotion.md": [
+    "# Duster Mild Hybrid 140 4x2 Reporting Scope Promotion"
+  ],
+  "project/reviews/duster-mildhybrid140-4x2-reporting-selection.md": [
+    "powertrain group remains outside reporting scope:",
+    "6. preserve every existing Sandero and Duster reporting scope and artifact."
+  ],
+  "project/reviews/github-actions-supply-chain-audit-2026-07-20.md": [
+    "The maintenance review also found stale Duster reporting statements in `README.md`. Merged PR #142 completed all thirteen independent reporting scopes, including seven Duster scopes, while the README still describes Duster as waiting for promotion."
+  ],
+  "project/reviews/jogger-ecog120-automatic-reporting-scope-promotion.md": [
+    "# Jogger Eco-G 120 Automatic Reporting Scope Promotion",
+    "This package promotes the four configurations selected in PR #130 into an explicit independent reporting scope. It changes no source data."
+  ],
+  "project/reviews/jogger-ecog120-automatic-reporting-selection.md": [
+    "7. preserve all Sandero and Duster reporting scopes and artifacts."
+  ],
+  "project/reviews/jogger-ecog120-manual-reporting-scope-promotion.md": [
+    "# Jogger Eco-G 120 Manual Reporting Scope Promotion",
+    "This package promotes the six configurations selected in PR #132 into an explicit independent reporting scope. It changes no source data."
+  ],
+  "project/reviews/jogger-equipment-availability-import.md": [
+    "**Jogger Technical Reporting Scope Selection** will select the first homogeneous Jogger reporting denominator."
+  ],
+  "project/reviews/jogger-equipment-matrix-intake.md": [
+    "The next package will add versioned Jogger equipment matrices and a deterministic importer, append exactly 1,166 records without changing the existing 1,811 availability rows, add source/provenance and status-distribution tests, update the baseline to 2,977 availability records, and preserve every Sandero and Duster reporting scope."
+  ],
+  "project/reviews/jogger-final-reporting-portfolio-review.md": [
+    "6. preserve every existing Sandero, Duster and Jogger Eco-G reporting scope and artifact namespace unchanged.",
+    "This decision does not create cross-powertrain comparisons and does not promote TCe 110 in the same package. After the Hybrid 155 automatic promotion, TCe 110 manual becomes the final planned Jogger reporting scope."
+  ],
+  "project/reviews/jogger-gearbox-reconciliation-selection.md": [
+    "reporting scope."
+  ],
+  "project/reviews/jogger-my26-20260401-source-intake.md": [
+    "Proceed to **Jogger Catalogue Reporting Scope Review**. That package will decide"
+  ],
+  "project/reviews/jogger-my26-catalogue-entity-foundation.md": [
+    "The package preserves the existing Sandero default reporting scope and all seven",
+    "Duster powertrain reporting scopes. The new Jogger entities are not silently"
+  ],
+  "project/reviews/jogger-my26-catalogue-reporting-scope-review.md": [
+    "# Jogger MY26 Catalogue Reporting Scope Review",
+    "reporting scopes unchanged, retain the 446-test baseline unless tests are"
+  ],
+  "project/reviews/jogger-page6-source-completion.md": [
+    "**Jogger Technical Reporting Scope Selection** will define the first bounded homogeneous reporting group without changing source data."
+  ],
+  "project/reviews/jogger-remaining-reporting-portfolio-review.md": [
+    "6. preserve the default Sandero scope, every Duster reporting scope and the Jogger Eco-G 120 automatic artifacts and denominators unchanged."
+  ],
+  "project/reviews/jogger-reporting-portfolio-completion.md": [
+    "The current Jogger MY26 portfolio now has an independent, source-complete reporting scope for every homogeneous powertrain and transmission group. No cross-powertrain denominator is introduced.",
+    "| Reporting scope | Configurations | Technical observations | Equipment observations | Prices | Pairs | Range comparisons | Total differences |"
+  ],
+  "project/reviews/post-cross-model-priority-selection-review-2026-07-26.md": [
+    "It must not import new data, expand the cross-model UI, generate rankings or recommendations, infer missing facts or create pairs between reporting scopes."
+  ],
+  "project/reviews/registered-source-reporting-portfolio-completion-review.md": [
+    "The 13 independent homogeneous reporting scopes cover every active configuration and every active registered source in the repository. No further model-expansion package can be created from the current source inventory without reusing an already completed denominator.",
+    "- 13 independent reporting scopes are active;"
+  ],
+  "project/reviews/sandero-reporting-portfolio-completion-review.md": [
+    "All seven current Sandero configurations now have independent reporting scopes separated by transmission. The historical mixed reporting specification remains available for backward-compatible tooling, but current promotion, regression and artifact contracts use the manual and automatic scopes independently.",
+    "| Reporting scope | Configurations | Sources | Technical denominator | Present technical | Equipment denominator | Recorded equipment | Prices | Pairs | Evidence decisions | Total differences |"
+  ],
+  "project/reviews/shortlist-to-comparison-workflow-planning.md": [
+    "The next package will add a transparent bundle command that turns explicit configuration selections into existing source-backed comparison reports. It will preserve the 13 independent reporting scopes and will never create cross-scope pairs."
+  ],
+  "project/reviews/source-backed-model-expansion-planning-review.md": [
+    "All 53 active configurations are present in at least one reporting specification. Duster and Jogger already use independent homogeneous powertrain/transmission scopes. Sandero remains the only model whose seven configurations are grouped in the historical mixed `configuration_completeness.json` scope.",
+    "Promote **Sandero Eco-G 120 Manual Reporting Scope** first because it has the wider source-backed denominator: five configurations, five sources, 225 technical observations, 345 equipment observations, five prices and ten deterministic comparisons.",
+    "Promote **Sandero Stepway Eco-G 120 Automatic Reporting Scope** second. It is a separate two-configuration transmission group and must not be merged into the manual comparison denominator.",
+    "**Sandero Eco-G 120 Manual Reporting Scope Promotion** is the active implementation package. **Sandero Stepway Eco-G 120 Automatic Reporting Scope Promotion** follows directly."
+  ],
+  "project/reviews/strategic-direction-maintenance-mode-2026-07-20.md": [
+    "It selects the next project direction without changing source data, public release assets, product semantics, reporting scopes or the existing consumer-tool architecture."
+  ],
+  "tests/configuration_comparison_pair_summary_contract.py": [
+    "    def test_fixture_summary_uses_existing_pair_counts(self) -> None:"
+  ],
+  "tests/data_product_workspace_fixture.py": [
+    "            \"pair_count\": 820,",
+    "                \"pair_count\": 0,"
+  ],
+  "tests/test_brochure_chassis_modeling_closure_review.py": [
+    "            \"configuration_completeness.json\","
+  ],
+  "tests/test_configuration_comparison.py": [
+    "            reporting / \"configuration_completeness.json\"",
+    "        self.assertEqual(report[\"scope\"][\"pair_count\"], 1)",
+    "            matching[\"scope\"][\"unfiltered_pair_count\"],",
+    "        self.assertEqual(matching[\"scope\"][\"pair_count\"], 1)",
+    "        self.assertEqual(empty[\"scope\"][\"unfiltered_pair_count\"], 1)",
+    "        self.assertEqual(empty[\"scope\"][\"pair_count\"], 0)"
+  ],
+  "tests/test_configuration_comparison_bundle.py": [
+    "        self.assertEqual(group[\"pair_count\"], 1)",
+    "        self.assertEqual(report[\"scope\"][\"pair_count\"], 1)"
+  ],
+  "tests/test_configuration_comparison_workbook.py": [
+    "        self.assertEqual(overview[\"total_pair_count\"], 2)",
+    "        self.assertEqual(singleton[\"pair_count\"], 0)",
+    "        self.assertEqual(sum(int(row[\"pair_count\"]) for row in rows), 2)"
+  ],
+  "tests/test_configuration_completeness.py": [
+    "import configuration_completeness as completeness  # noqa: E402",
+    "        spec_path = reporting / 'configuration_completeness.json'"
+  ],
+  "tests/test_configuration_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402",
+    "    from tests.test_configuration_completeness import ConfigurationCompletenessTests  # noqa: E402",
+    "    from test_configuration_completeness import ConfigurationCompletenessTests  # type: ignore[no-redef]  # noqa: E402"
+  ],
+  "tests/test_cross_model_comparison_view.py": [
+    "                \"within_scope_pair_count\": 114,",
+    "        self.assertEqual(scope[\"pair_count\"], 10)",
+    "            sum(scope[\"pair_count\"] for scope in self.view[\"scopes\"]),",
+    "                scope[\"pair_count\"]"
+  ],
+  "tests/test_cross_model_comparison_view_closure_review.py": [
+    "        self.assertEqual(contract[\"within_scope_pair_count\"], 114)",
+    "        self.assertEqual(mixed[\"pair_count\"], 10)"
+  ],
+  "tests/test_cross_model_comparison_view_review.py": [
+    "        self.assertEqual(inventory[\"within_scope_pair_count\"], 114)",
+    "        self.assertEqual(mixed[\"pair_count\"], 10)"
+  ],
+  "tests/test_cross_model_navigation_usability_review.py": [
+    "        self.assertEqual(product[\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_data_product_release.py": [
+    "        self.assertEqual(view[\"summary\"][\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_data_products_v1_7_0_release_preparation.py": [
+    "        self.assertEqual(baseline[\"pair_count\"], 114)"
+  ],
+  "tests/test_data_products_v1_8_0_publication.py": [
+    "        self.assertEqual(contents[\"within_scope_pair_count\"], 114)",
+    "        self.assertEqual(product[\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_data_products_v1_8_0_release_preparation.py": [
+    "        self.assertEqual(candidate[\"within_scope_pair_count\"], 114)",
+    "        self.assertEqual(contract[\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_data_products_v1_8_1_publication.py": [
+    "        self.assertEqual(contents[\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_data_products_v1_8_1_release_preparation.py": [
+    "        self.assertEqual(candidate[\"within_scope_pair_count\"], 114)"
+  ],
+  "tests/test_dkb_cli.py": [
+    "    def test_configuration_completeness_help_and_forwarding(",
+    "                str(TOOLS_DIRECTORY / \"configuration_completeness.py\"),"
+  ],
+  "tests/test_duster_catalog_bootstrap.py": [
+    "import configuration_completeness  # noqa: E402",
+    "        report = configuration_completeness.collect_report(",
+    "            ROOT / \"data\" / \"reporting\" / \"configuration_completeness.json\","
+  ],
+  "tests/test_duster_ecog120_automatic_cargo_20260725.py": [
+    "import configuration_completeness  # noqa: E402",
+    "        report = configuration_completeness.collect_report("
+  ],
+  "tests/test_duster_ecog120_automatic_homologation_20260725.py": [
+    "import configuration_completeness  # noqa: E402",
+    "        report = configuration_completeness.collect_report("
+  ],
+  "tests/test_duster_ecog120_automatic_stock_20260724.py": [
+    "import configuration_completeness  # noqa: E402",
+    "        report = configuration_completeness.collect_report("
+  ],
+  "tests/test_duster_ecog120_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402",
+    "        \"pair_count\": 6,",
+    "        \"pair_count\": 6,",
+    "        \"pair_count\": 6,",
+    "        \"pair_count\": 3,",
+    "        \"pair_count\": 3,",
+    "        \"pair_count\": 3,",
+    "        \"pair_count\": 3,",
+    "            pair_count = scope[\"pair_count\"]",
+    "            self.assertEqual(len(report[\"pairs\"]), pair_count, name)",
+    "                Counter({\"different_version_same_transmission\": pair_count}),",
+    "            pair_count = scope[\"pair_count\"]",
+    "            equipment_comparisons = pair_count * 58",
+    "                    \"comparisons\": pair_count,"
+  ],
+  "tests/test_duster_technical_specifications.py": [
+    "import configuration_completeness  # noqa: E402",
+    "        report = configuration_completeness.collect_report(",
+    "            ROOT, ROOT / \"data\" / \"reporting\" / \"configuration_completeness.json\""
+  ],
+  "tests/test_jogger_ecog120_automatic_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_jogger_ecog120_manual_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_jogger_hybrid155_automatic_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_jogger_tce110_manual_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_post_brochure_priority_selection_review.py": [
+    "            self.report[\"repository_readiness\"][\"candidate_release_pair_count\"],"
+  ],
+  "tests/test_sandero_ecog120_manual_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_sandero_stepway_chassis_20260726.py": [
+    "    \"configuration_completeness.json\","
+  ],
+  "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py": [
+    "import configuration_completeness as completeness  # noqa: E402"
+  ],
+  "tests/test_source_coverage.py": [
+    "        spec_path = reporting / 'configuration_completeness.json'"
+  ],
+  "tools/_configuration_comparison_base.py": [
+    "    \"data/reporting/configuration_completeness.json\"",
+    "    unfiltered_pair_count = (",
+    "            \"unfiltered_pair_count\": unfiltered_pair_count,",
+    "            \"pair_count\": len(pairs),",
+    "            f\"{scope['unfiltered_pair_count']} |\"",
+    "        f\"| Selected configuration pairs | {scope['pair_count']} |\",",
+    "            f\"{report['scope']['unfiltered_pair_count']}\"",
+    "        print(f\"Selected pairs         : {report['scope']['pair_count']}\")"
+  ],
+  "tools/_configuration_completeness_base.py": [
+    "DEFAULT_SPEC = Path('data/reporting/configuration_completeness.json')"
+  ],
+  "tools/_source_coverage_base.py": [
+    "DEFAULT_SPEC = Path(\"data/reporting/configuration_completeness.json\")"
+  ],
+  "tools/configuration_comparison_bundle.py": [
+    "            \"Group selected configurations by independent reporting scope \"",
+    "            f\"pairs={group['pair_count']} | \""
+  ],
+  "tools/configuration_comparison_context.py": [
+    "            f\"{report['scope']['unfiltered_pair_count']}\"",
+    "        print(f\"Selected pairs         : {report['scope']['pair_count']}\")"
+  ],
+  "tools/configuration_completeness.py": [
+    "import _configuration_completeness_base as _base",
+    "from _configuration_completeness_base import *  # noqa: F401,F403"
+  ],
+  "tools/configuration_gap_triage.py": [
+    "import configuration_completeness",
+    "DEFAULT_SPEC = Path(\"data/reporting/configuration_completeness.json\")",
+    "    completeness_report = configuration_completeness.collect_report(",
+    "        configuration_completeness.CompletenessError,"
+  ],
+  "tools/cross_model_comparison_view.py": [
+    "            \"the existing reporting scopes without cross-scope pairs.\"",
+    "    print(f\"Reporting scopes      : {summary['reporting_scope_count']}\")",
+    "    print(f\"Within-scope pairs    : {summary['within_scope_pair_count']}\")"
+  ],
+  "tools/dkb.py": [
+    "        \"configuration_completeness.py\","
+  ],
+  "tools/import_duster_brochure_cargo_20260726.py": [
+    "        powertrain, transmission, config_count, repair_count, spare_count, values = expected",
+    "        ensure(len(configs) == config_count and len(repair_configs) == repair_count and len(spare_configs) == spare_count, f\"target count mismatch: {code}\")"
+  ],
+  "tools/reporting/configuration_comparison_bundle.py": [
+    "        \"pair_count\": report[\"scope\"][\"pair_count\"],",
+    "                        \"pair_count\": 0,"
+  ],
+  "tools/reporting/configuration_comparison_html.py": [
+    "        _metric(\"Pary\", scope[\"pair_count\"], f\"z {scope['unfiltered_pair_count']} dostępnych\"),"
+  ],
+  "tools/reporting/configuration_comparison_workbook_rows.py": [
+    "        \"report_as_of\", \"configuration_count\", \"configuration_codes\", \"pair_count\",",
+    "                int(group.get(\"pair_count\", 0)), int(group.get(\"total_differences\", 0)),",
+    "    total_pairs = sum(int(group.get(\"pair_count\", 0)) for group in manifest.get(\"groups\", []))",
+    "        (\"total_pair_count\", total_pairs),"
+  ],
+  "tools/reporting/configuration_scope.py": [
+    "                f\"duplicate configuration in reporting scope: {code}\""
+  ],
+  "tools/reporting/cross_model_comparison_view.py": [
+    "        pair_count = len(codes) * (len(codes) - 1) // 2",
+    "                \"pair_count\": pair_count,",
+    "            \"an active configuration belongs to more than one reporting scope\"",
+    "            \"reporting scopes do not cover every active configuration exactly once\"",
+    "    total_pairs = sum(int(item[\"pair_count\"]) for item in scope_records)",
+    "            \"within_scope_pair_count\": total_pairs,",
+    "    <div><dt>Istniejące pary</dt><dd>{scope.get(\"pair_count\")}</dd></div>",
+    "<div><strong>{summary.get(\"within_scope_pair_count\")}</strong>istniejących par</div>"
+  ],
+  "tools/reporting/data_product_release.py": [
+    "        \"within_scope_pair_count\": 114,",
+    "        \"states and independent reporting scopes are preserved.\","
+  ],
+  "tools/reporting/data_product_workspace_index.py": [
+    "        pair_count = _integer(",
+    "            group.get(\"pair_count\"),",
+    "            f\"group {scope}.pair_count\",",
+    "            if len(codes) != 1 or pair_count != 0 or difference_count != 0:",
+    "            if len(codes) < 2 or pair_count < 1:",
+    "                \"pair_count\": pair_count,",
+    "            str(scope[\"pair_count\"]),"
+  ],
+  "tools/review_brochure_chassis_modeling_closure_20260726.py": [
+    "    \"configuration_completeness.json\": {",
+    "    ensure(len(REPORTING_SCOPES) == 15, \"expected fifteen reporting scopes\")"
+  ],
+  "tools/review_brochure_gear_performance_import_closure_20260726.py": [
+    "    \"configuration_completeness.json\",",
+    "    ensure(totals.get(\"reporting_scopes\") == 8, \"closure reporting scope total differs\")",
+    "            \"configuration_completeness\","
+  ],
+  "tools/review_brochure_generic_dimensions_import_closure_20260726.py": [
+    "        ensure(required <= slots, f\"reporting scope is missing dimensions: {filename}\")",
+    "    ensure(len(REPORTING_SCOPES) == 9, \"reporting scope count differs\")"
+  ],
+  "tools/review_cross_model_comparison_view_20260726.py": [
+    "            \"pair_count\": len(scope.configuration_codes) * (len(scope.configuration_codes) - 1) // 2,",
+    "        \"pair_count\": sum(record[\"pair_count\"] for record in scope_records),",
+    "        \"within_scope_pair_count\": 114,",
+    "    ensure(mixed.get(\"pair_count\") == actual_mixed[\"pair_count\"] == 10, \"mixed scope pair count differs\")",
+    "    ensure(inventory[\"pair_count\"] == 114, \"within-scope pair count differs\")"
+  ],
+  "tools/review_cross_model_comparison_view_closure_20260726.py": [
+    "        \"within_scope_pair_count\": 114,",
+    "    ensure(mixed.get(\"pair_count\") == 10, \"mixed pair count differs\")",
+    "        \"within_scope_pair_count\": 114,",
+    "        sum(int(scope.get(\"pair_count\", 0)) for scope in scopes) == 114,",
+    "    ensure(mixed[0].get(\"pair_count\") == 10, \"mixed pair count differs\")"
+  ],
+  "tools/review_cross_model_comparison_view_history_20260726.py": [
+    "        inventory[\"pair_count\"] == 114,"
+  ],
+  "tools/review_cross_model_navigation_usability_20260727.py": [
+    "    ensure(summary.get(\"within_scope_pair_count\") == 114, \"generated pair count differs\")"
+  ],
+  "tools/review_data_products_v1_7_0_release_preparation_20260726.py": [
+    "    ensure(baseline.get(\"pair_count\") == 114, \"pair count differs\")"
+  ],
+  "tools/review_data_products_v1_8_0_publication_20260726.py": [
+    "        \"within_scope_pair_count\": 114,",
+    "        \"within_scope_pair_count\": 114,",
+    "        ensure(summary.get(\"within_scope_pair_count\") == 114, \"generated pair count differs\")",
+    "        ensure(sum(item.get(\"pair_count\", 0) for item in groups) == 114, \"generated bundle pairs differ\")"
+  ],
+  "tools/review_data_products_v1_8_0_release_preparation_20260726.py": [
+    "        \"within_scope_pair_count\": 114,",
+    "        \"within_scope_pair_count\": 114,",
+    "        ensure(summary.get(\"within_scope_pair_count\") == 114, \"cross-model pair count differs\")",
+    "        ensure(sum(int(group.get(\"pair_count\", 0)) for group in groups) == 114, \"bundle pair count differs\")"
+  ],
+  "tools/review_data_products_v1_8_1_publication_20260727.py": [
+    "    ensure(contents.get(\"within_scope_pair_count\") == 114, \"pair count differs\")"
+  ],
+  "tools/review_data_products_v1_8_1_release_preparation_20260727.py": [
+    "        \"within_scope_pair_count\": 114,"
+  ],
+  "tools/review_post_brochure_priority_selection_20260726.py": [
+    "    ensure(readiness.get(\"candidate_release_pair_count\") == 114, \"reported pair count differs\")"
+  ],
+  "tools/review_post_cross_model_priority_selection_20260726.py": [
+    "            sum(int(group.get(\"pair_count\", 0)) for group in groups) == 114,"
+  ]
+}

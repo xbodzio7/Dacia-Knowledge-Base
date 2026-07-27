@@ -1,0 +1,557 @@
+{
+  "data/master/attribute_categories.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description"
+    ],
+    "max_id": null,
+    "rows": 30
+  },
+  "data/master/attribute_enum_domains.csv": {
+    "fields": [
+      "attribute_code",
+      "domain_file",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 10
+  },
+  "data/master/attributes.csv": {
+    "fields": [
+      "id",
+      "code",
+      "category",
+      "name",
+      "data_type",
+      "unit",
+      "description",
+      "status"
+    ],
+    "max_id": 392,
+    "rows": 385
+  },
+  "data/master/body_types.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name_pl",
+      "name_en",
+      "description"
+    ],
+    "max_id": 8,
+    "rows": 8
+  },
+  "data/master/categories.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name_pl",
+      "name_en",
+      "description"
+    ],
+    "max_id": null,
+    "rows": 15
+  },
+  "data/master/commercial_item_attributes.csv": {
+    "fields": [
+      "id",
+      "code",
+      "commercial_item_code",
+      "attribute_code",
+      "source_text",
+      "notes"
+    ],
+    "max_id": 69,
+    "rows": 69
+  },
+  "data/master/commercial_item_configurations.csv": {
+    "fields": [
+      "id",
+      "code",
+      "commercial_item_code",
+      "configuration_code",
+      "availability_status",
+      "amount",
+      "currency_code",
+      "price_date",
+      "source_code",
+      "notes"
+    ],
+    "max_id": 142,
+    "rows": 142
+  },
+  "data/master/commercial_items.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name",
+      "item_type",
+      "observation_date",
+      "source_code",
+      "status",
+      "notes"
+    ],
+    "max_id": 28,
+    "rows": 28
+  },
+  "data/master/configuration_attribute_availability.csv": {
+    "fields": [
+      "id",
+      "code",
+      "configuration_code",
+      "attribute_code",
+      "availability_status",
+      "observation_date",
+      "source_code",
+      "notes"
+    ],
+    "max_id": 4754,
+    "rows": 4754
+  },
+  "data/master/configuration_attribute_value_ranges.csv": {
+    "fields": [
+      "id",
+      "code",
+      "configuration_code",
+      "attribute_code",
+      "fuel_type_code",
+      "minimum_value",
+      "maximum_value",
+      "lower_inclusive",
+      "upper_inclusive",
+      "observation_date",
+      "source_code",
+      "notes"
+    ],
+    "max_id": 244,
+    "rows": 244
+  },
+  "data/master/configuration_attribute_values.csv": {
+    "fields": [
+      "id",
+      "code",
+      "configuration_code",
+      "attribute_code",
+      "fuel_type_code",
+      "gear_number",
+      "value",
+      "observation_date",
+      "source_code",
+      "notes"
+    ],
+    "max_id": 2949,
+    "rows": 2949
+  },
+  "data/master/configuration_cargo_volume_contexts.csv": {
+    "fields": [
+      "id",
+      "code",
+      "configuration_attribute_value_code",
+      "measurement_basis_code",
+      "second_row_state_code",
+      "third_row_state_code",
+      "compartment_code",
+      "spare_wheel_state_code",
+      "tyre_repair_kit_state_code",
+      "double_floor_state_code",
+      "notes"
+    ],
+    "max_id": 287,
+    "rows": 287
+  },
+  "data/master/configuration_prices.csv": {
+    "fields": [
+      "id",
+      "code",
+      "configuration_code",
+      "market",
+      "price_type",
+      "amount",
+      "currency_code",
+      "price_date",
+      "source_code",
+      "notes"
+    ],
+    "max_id": 118,
+    "rows": 118
+  },
+  "data/master/configurations.csv": {
+    "fields": [
+      "id",
+      "code",
+      "version_code",
+      "powertrain_label",
+      "transmission_type",
+      "status",
+      "notes"
+    ],
+    "max_id": 72,
+    "rows": 72
+  },
+  "data/master/currencies.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name",
+      "numeric_code",
+      "minor_units",
+      "status",
+      "notes"
+    ],
+    "max_id": 1,
+    "rows": 1
+  },
+  "data/master/domains.csv": {
+    "fields": [
+      "domain",
+      "subdomain",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 13
+  },
+  "data/master/engines.csv": {
+    "fields": [
+      "id",
+      "code",
+      "manufacturer_code",
+      "name",
+      "engine_type",
+      "displacement_cm3",
+      "cylinders",
+      "induction",
+      "fuel_type",
+      "power_hp",
+      "power_kw",
+      "torque_nm",
+      "emission_standard",
+      "start_year",
+      "end_year",
+      "status",
+      "notes"
+    ],
+    "max_id": 14,
+    "rows": 14
+  },
+  "data/master/enums/aspiration_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 5
+  },
+  "data/master/enums/battery_chemistries.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 1
+  },
+  "data/master/enums/cargo_compartment_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 3
+  },
+  "data/master/enums/cargo_measurement_bases.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 2
+  },
+  "data/master/enums/cargo_seat_states.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 4
+  },
+  "data/master/enums/commercial_item_types.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name",
+      "status",
+      "description"
+    ],
+    "max_id": 2,
+    "rows": 2
+  },
+  "data/master/enums/context_presence_states.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 2
+  },
+  "data/master/enums/cylinder_configurations.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 5
+  },
+  "data/master/enums/drive_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 4
+  },
+  "data/master/enums/emission_standards.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 4
+  },
+  "data/master/enums/engine_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 6
+  },
+  "data/master/enums/equipment_availability_statuses.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 4
+  },
+  "data/master/enums/fuel_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 7
+  },
+  "data/master/enums/injection_types.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 5
+  },
+  "data/master/enums/recommended_fuels.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 6
+  },
+  "data/master/enums/transmission_type.csv": {
+    "fields": [
+      "code",
+      "name",
+      "description",
+      "status"
+    ],
+    "max_id": null,
+    "rows": 8
+  },
+  "data/master/gearboxes.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name",
+      "type",
+      "gears",
+      "manufacturer",
+      "drive_type",
+      "status",
+      "notes"
+    ],
+    "max_id": 7,
+    "rows": 7
+  },
+  "data/master/model_engines.csv": {
+    "fields": [
+      "id",
+      "model_code",
+      "engine_code",
+      "available_from",
+      "available_to",
+      "default_fuel",
+      "notes"
+    ],
+    "max_id": 30,
+    "rows": 30
+  },
+  "data/master/model_gearboxes.csv": {
+    "fields": [
+      "id",
+      "model_code",
+      "gearbox_code",
+      "available_from",
+      "available_to",
+      "notes"
+    ],
+    "max_id": 17,
+    "rows": 17
+  },
+  "data/master/models.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name",
+      "generation",
+      "production_from",
+      "production_to",
+      "body_type_code",
+      "segment_code",
+      "status",
+      "notes"
+    ],
+    "max_id": 19,
+    "rows": 19
+  },
+  "data/master/segments.csv": {
+    "fields": [
+      "id",
+      "code",
+      "name_pl",
+      "name_en",
+      "description"
+    ],
+    "max_id": 6,
+    "rows": 6
+  },
+  "data/master/source_configurations.csv": {
+    "fields": [
+      "id",
+      "source_code",
+      "configuration_code",
+      "relationship",
+      "notes"
+    ],
+    "max_id": 219,
+    "rows": 219
+  },
+  "data/master/source_models.csv": {
+    "fields": [
+      "id",
+      "source_code",
+      "model_code",
+      "relationship",
+      "notes"
+    ],
+    "max_id": 34,
+    "rows": 34
+  },
+  "data/master/source_versions.csv": {
+    "fields": [
+      "id",
+      "source_code",
+      "version_code",
+      "relationship",
+      "notes"
+    ],
+    "max_id": 62,
+    "rows": 62
+  },
+  "data/master/sources.csv": {
+    "fields": [
+      "id",
+      "code",
+      "source_type",
+      "title",
+      "publisher",
+      "market",
+      "document_date",
+      "external_reference",
+      "file_path",
+      "sha256",
+      "status",
+      "notes"
+    ],
+    "max_id": 27,
+    "rows": 27
+  },
+  "data/master/units.csv": {
+    "fields": [
+      "code",
+      "symbol",
+      "name",
+      "description"
+    ],
+    "max_id": null,
+    "rows": 27
+  },
+  "data/master/validation_rules.csv": {
+    "fields": [
+      "field",
+      "rule",
+      "severity",
+      "message"
+    ],
+    "max_id": null,
+    "rows": 8
+  },
+  "data/master/value_types.csv": {
+    "fields": [
+      "code",
+      "description"
+    ],
+    "max_id": null,
+    "rows": 7
+  },
+  "data/master/versions.csv": {
+    "fields": [
+      "id",
+      "code",
+      "model_code",
+      "name",
+      "status",
+      "notes"
+    ],
+    "max_id": 18,
+    "rows": 18
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "pair_count": 135,
+  "scope_count": 20,
+  "scopes": [
+    {
+      "configuration_codes": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/bigster_hybrid155_4x2_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "configuration_count": 7,
+      "pair_count": 21,
+      "path": "data/reporting/configuration_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_essential_ecog100_4x2_manual",
+        "duster_iii_expression_ecog100_4x2_manual",
+        "duster_iii_extreme_ecog100_4x2_manual",
+        "duster_iii_journey_ecog100_4x2_manual"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/duster_ecog100_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_ecog120_4x2_automatic",
+        "duster_iii_extreme_ecog120_4x2_automatic",
+        "duster_iii_journey_ecog120_4x2_automatic"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/duster_ecog120_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/duster_ecog120_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_hybrid140_4x2_automatic",
+        "duster_iii_extreme_hybrid140_4x2_automatic",
+        "duster_iii_journey_hybrid140_4x2_automatic",
+        "duster_iii_journey_plus_hybrid140_4x2_automatic"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/duster_hybrid140_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/duster_hybrid155_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_mildhybrid130_4x2_manual",
+        "duster_iii_extreme_mildhybrid130_4x2_manual",
+        "duster_iii_journey_mildhybrid130_4x2_manual"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/duster_mildhybrid130_4x2_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_mildhybrid130_4x4_manual",
+        "duster_iii_extreme_mildhybrid130_4x4_manual",
+        "duster_iii_journey_mildhybrid130_4x4_manual"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/duster_mildhybrid130_4x4_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual"
+      ],
+      "configuration_count": 3,
+      "pair_count": 3,
+      "path": "data/reporting/duster_mildhybrid140_4x2_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ],
+      "configuration_count": 4,
+      "pair_count": 6,
+      "path": "data/reporting/jogger_ecog120_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual"
+      ],
+      "configuration_count": 6,
+      "pair_count": 15,
+      "path": "data/reporting/jogger_ecog120_manual_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ],
+      "configuration_count": 6,
+      "pair_count": 15,
+      "path": "data/reporting/jogger_hybrid155_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_7seat_tce110_manual"
+      ],
+      "configuration_count": 6,
+      "pair_count": 15,
+      "path": "data/reporting/jogger_tce110_manual_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_journey_ecog120_automatic"
+      ],
+      "configuration_count": 2,
+      "pair_count": 1,
+      "path": "data/reporting/sandero_ecog120_automatic_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "configuration_count": 5,
+      "pair_count": 10,
+      "path": "data/reporting/sandero_ecog120_manual_completeness.json"
+    },
+    {
+      "configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "configuration_count": 2,
+      "pair_count": 1,
+      "path": "data/reporting/sandero_stepway_ecog120_automatic_completeness.json"
+    }
+  ]
+}
