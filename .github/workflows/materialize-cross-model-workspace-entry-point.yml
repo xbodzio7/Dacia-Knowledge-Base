@@ -1,0 +1,731 @@
+name: Materialize Cross-Model Workspace Entry Point
+
+on:
+  push:
+    branches:
+      - agent/cross-model-workspace-entry-point
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-cross-model-workspace-entry-point
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/cross-model-workspace-entry-point
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+
+      - name: Materialize implementation package
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          from pathlib import Path
+
+          ROOT = Path.cwd()
+
+          def write(path: str, content: str) -> None:
+              target = ROOT / path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(content, encoding="utf-8", newline="")
+
+          index_path = ROOT / "tools/reporting/data_product_workspace_index.py"
+          source = index_path.read_text(encoding="utf-8")
+          marker = 'BUNDLE_MANIFEST_MEMBER = (\n    "comparison-bundle/comparison-bundle-manifest.json"\n)\n'
+          replacement = marker + 'CROSS_MODEL_HTML_MEMBER = "cross-model/cross-model-comparison-view.html"\n'
+          if "CROSS_MODEL_HTML_MEMBER" not in source:
+              if marker not in source:
+                  raise SystemExit("workspace index constant marker not found")
+              source = source.replace(marker, replacement, 1)
+          start = source.index("def _primary_links(")
+          end = source.index("\n\ndef _asset_links", start)
+          primary = '''def _primary_links(
+    workspace_root: Path,
+    release_members: set[str],
+    bundle: Mapping[str, Any],
+) -> tuple[dict[str, str], ...]:
+    workbook_name = _file_record_path(
+        bundle.get("workbook"),
+        "comparison bundle workbook",
+    )
+    links: list[dict[str, str]] = [
+        {
+            "title": "Configuration shortlist",
+            "description": "Browse and filter all released active configurations.",
+            "path": _verified_content_path(
+                workspace_root,
+                release_members,
+                "shortlist/configuration-shortlist.html",
+                label="shortlist HTML",
+            ),
+        },
+        {
+            "title": "Comparison workbook",
+            "description": "Open the six-sheet XLSX overview of all release scopes.",
+            "path": _verified_bundle_path(
+                workspace_root,
+                release_members,
+                workbook_name,
+                label="comparison workbook",
+            ),
+        },
+        {
+            "title": "Comparison bundle manifest",
+            "description": "Inspect scope groups, counts, artifact paths and hashes.",
+            "path": _verified_content_path(
+                workspace_root,
+                release_members,
+                BUNDLE_MANIFEST_MEMBER,
+                label="comparison bundle manifest",
+            ),
+        },
+        {
+            "title": "Release notes",
+            "description": "Read the immutable product inventory and provenance summary.",
+            "path": _verified_content_path(
+                workspace_root,
+                release_members,
+                "RELEASE_NOTES.md",
+                label="release notes",
+            ),
+        },
+    ]
+    if CROSS_MODEL_HTML_MEMBER in release_members:
+        links.append(
+            {
+                "title": "Models and comparison scopes",
+                "description": "Browse model families and open only existing scope reports.",
+                "path": _verified_content_path(
+                    workspace_root,
+                    release_members,
+                    CROSS_MODEL_HTML_MEMBER,
+                    label="cross-model comparison HTML",
+                ),
+            }
+        )
+    return tuple(links)
+'''
+          source = source[:start] + primary + source[end:]
+          index_path.write_text(source, encoding="utf-8", newline="")
+
+          checks_path = ROOT / "tests/workspace_index_checks.py"
+          checks = checks_path.read_text(encoding="utf-8")
+          insert_at = checks.index("    def test_escapes_values_and_percent_encodes_local_paths")
+          new_checks = '''    def test_adds_cross_model_card_only_for_verified_member(self) -> None:
+        cross_model = self.contents / "cross-model/cross-model-comparison-view.html"
+        write_text(cross_model, "<!doctype html><title>Cross-model fixture</title>\\n")
+        self._add_release_member(cross_model)
+
+        rendered = render_workspace_index(
+            self.workspace,
+            self.manifest,
+            self.metadata,
+        )
+
+        self.assertEqual(rendered.count('class="product-card"'), 5)
+        self.assertIn("Models and comparison scopes", rendered)
+        self.assertIn(
+            'href="contents/cross-model/cross-model-comparison-view.html"',
+            rendered,
+        )
+
+    def test_keeps_four_cards_when_cross_model_member_is_absent(self) -> None:
+        rendered = render_workspace_index(
+            self.workspace,
+            self.manifest,
+            self.metadata,
+        )
+
+        self.assertEqual(rendered.count('class="product-card"'), 4)
+        self.assertNotIn("Models and comparison scopes", rendered)
+
+    def test_rejects_declared_cross_model_member_without_workspace_file(self) -> None:
+        missing = self.contents / "cross-model/cross-model-comparison-view.html"
+        records = self.manifest["files"]
+        assert isinstance(records, list)
+        records.append(
+            {
+                "path": "cross-model/cross-model-comparison-view.html",
+                "size_bytes": 1,
+                "sha256": "0" * 64,
+            }
+        )
+        records.sort(key=lambda item: item["path"])
+
+        with self.assertRaisesRegex(WorkspaceIndexError, "cross-model comparison HTML is missing"):
+            render_workspace_index(
+                self.workspace,
+                self.manifest,
+                self.metadata,
+            )
+
+'''
+          if "test_adds_cross_model_card_only_for_verified_member" not in checks:
+              checks = checks[:insert_at] + new_checks + checks[insert_at:]
+          checks_path.write_text(checks, encoding="utf-8", newline="")
+
+          workflow_path = ROOT / ".github/workflows/data-product-release-download.yml"
+          workflow = workflow_path.read_text(encoding="utf-8")
+          workflow = workflow.replace("Download immutable public v1.0.0", "Download immutable public v1.8.1")
+          workflow = workflow.replace(
+              "--version 1.0.0 --output-directory downloaded-release",
+              "--version 1.8.1 --output-directory downloaded-release",
+          )
+          workflow = workflow.replace(
+              "--version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e",
+              "--version 1.8.1 --commit-sha 0b7009fd1950693e347638a6b96756aeefb43b8a",
+          )
+          old_required = "required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/RELEASE_NOTES.md']"
+          new_required = "required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/cross-model/cross-model-comparison-view.html','contents/RELEASE_NOTES.md']"
+          if old_required not in workflow:
+              raise SystemExit("download workflow required entry points marker not found")
+          workflow = workflow.replace(old_required, new_required, 1)
+          old_contract = "assert local; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
+          new_contract = "assert len(local)==84, len(local); assert 'contents/cross-model/cross-model-comparison-view.html' in local; assert 'Models and comparison scopes' in text; assert text.count('class=\\\"product-card\\\"')==5; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
+          if old_contract not in workflow:
+              raise SystemExit("download workflow local contract marker not found")
+          workflow = workflow.replace(old_contract, new_contract, 1)
+          workflow_path.write_text(workflow, encoding="utf-8", newline="")
+
+          report = {
+              "version": 1,
+              "kind": "cross_model_workspace_entry_point",
+              "implemented_on": "2026-07-27",
+              "status": "complete",
+              "selected_by": "cross_model_navigation_usability_review.json",
+              "source_review": {
+                  "pull_request": 295,
+                  "merge_commit": "2ca040708e9f8bba92abe70693395c6a5447252f",
+                  "quality_run": 2102,
+              },
+              "implementation": {
+                  "release_member": "cross-model/cross-model-comparison-view.html",
+                  "workspace_path": "contents/cross-model/cross-model-comparison-view.html",
+                  "title": "Models and comparison scopes",
+                  "description": "Browse model families and open only existing scope reports.",
+                  "member_absent_primary_card_count": 4,
+                  "member_present_primary_card_count": 5,
+                  "public_v1_8_1_local_link_count": 84,
+                  "conditional_on_verified_manifest_membership": True,
+                  "requires_local_file": True,
+                  "uses_existing_safe_path_helpers": True,
+                  "parses_cross_model_json": False,
+                  "uses_javascript": False,
+                  "uses_external_runtime_resources": False,
+              },
+              "compatibility": {
+                  "synthetic_release_without_member": "PASS",
+                  "declared_member_without_file_rejected": True,
+                  "older_release_primary_card_count": 4,
+                  "historical_v1_8_1_publication_audit_local_links": 83,
+                  "historical_audit_rewritten": False,
+              },
+              "public_smoke_contract": {
+                  "release_version": "1.8.1",
+                  "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+                  "required_local_links": 84,
+                  "required_primary_cards": 5,
+                  "linux_windows_byte_parity_required": True,
+                  "all_local_targets_must_exist": True,
+              },
+              "semantic_boundaries": {
+                  "public_release_assets_changed": False,
+                  "public_release_tag_changed": False,
+                  "master_data_changed": False,
+                  "schema_changed": False,
+                  "comparison_engine_changed": False,
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+              },
+              "repository_baseline": {
+                  "tests": 1070,
+                  "csv_files": 46,
+                  "rows": 9688,
+                  "configuration_values": 2949,
+                  "configuration_value_ranges": 244,
+                  "availability_records": 4754,
+                  "attributes": 385,
+              },
+              "next_package": {
+                  "name": "Post-Cross-Model Workspace Priority Selection Review",
+                  "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package.",
+              },
+          }
+          write(
+              "data/reporting/cross_model_workspace_entry_point.json",
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+          )
+
+          package_doc = """# Cross-Model Workspace Entry Point
+
+Date: 2026-07-27
+
+## Goal
+
+Make the existing public cross-model HTML discoverable from the generated local workspace landing page without changing or republishing `data-products-v1.8.1`.
+
+## Implementation
+
+`tools/reporting/data_product_workspace_index.py` now recognizes the exact verified release member:
+
+```text
+cross-model/cross-model-comparison-view.html
+```
+
+When that member exists in the external manifest and the corresponding local file exists under `contents/`, the `Start here` section receives one additional card:
+
+- title: `Models and comparison scopes`;
+- description: `Browse model families and open only existing scope reports.`;
+- target: `contents/cross-model/cross-model-comparison-view.html`.
+
+The card uses the same manifest membership, safe-path, local-file and URL-encoding helpers as the other primary products.
+
+## Compatibility
+
+Releases without the cross-model member retain the original four-card layout. A manifest that declares the member without a corresponding extracted file is rejected transactionally.
+
+The synthetic fixture remains a member-absent compatibility case. Dedicated checks add a member-present case and a declared-but-missing failure case.
+
+## Public v1.8.1 smoke
+
+The standard `Verified Data Product Release Download` workflow now downloads immutable `data-products-v1.8.1` on Linux and Windows. It requires:
+
+- the existing exact source commit;
+- five primary cards;
+- 84 local links;
+- the exact cross-model local path;
+- all local targets to exist;
+- byte-identical generated `index.html` across operating systems.
+
+The historical publication audit remains immutable at 83 links because it records the downloader behavior at publication time. Regenerating a workspace with the newer downloader adds the local entry point without rewriting any release asset.
+
+## Boundaries
+
+No public tag or asset changes. No master-data or schema change. No comparison-engine change. No cross-scope pair, ranking, recommendation or inferred value is created.
+
+## Next package
+
+`Post-Cross-Model Workspace Priority Selection Review` — select the next highest-value package after the complete public-release and workspace discoverability flow.
+"""
+          write("project/packages/cross-model-workspace-entry-point.md", package_doc)
+
+          tests = r'''from __future__ import annotations
+
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import unquote
+
+ROOT = Path(__file__).resolve().parents[1]
+TOOLS = ROOT / "tools"
+TESTS = ROOT / "tests"
+sys.path.insert(0, str(TESTS))
+sys.path.insert(0, str(TOOLS))
+
+from data_product_workspace_fixture import create_workspace_payload  # noqa: E402
+from reporting.data_product_release_model import (  # noqa: E402
+    CHECKSUMS_NAME,
+    MANIFEST_NAME,
+    archive_name,
+    file_record,
+    write_text,
+)
+from reporting.data_product_workspace_index import (  # noqa: E402
+    CROSS_MODEL_HTML_MEMBER,
+    WorkspaceIndexError,
+    render_workspace_index,
+)
+
+REPORT = ROOT / "data/reporting/cross_model_workspace_entry_point.json"
+REVIEW = ROOT / "data/reporting/cross_model_navigation_usability_review.json"
+AUDIT = ROOT / "data/reporting/data_products_v1_8_1_publication_audit.json"
+STATE = ROOT / "project/state.json"
+VERIFIER = ROOT / "tools/review_cross_model_workspace_entry_point_20260727.py"
+WORKFLOW = ROOT / ".github/workflows/data-product-release-download.yml"
+VERSION = "1.2.3"
+COMMIT = "1" * 40
+
+
+class Parser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.hrefs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        href = dict(attrs).get("href")
+        if href:
+            self.hrefs.append(href)
+
+
+class CrossModelWorkspaceEntryPointTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.report = json.loads(REPORT.read_text(encoding="utf-8"))
+
+    def fixture(self, *, cross_model: bool) -> tuple[Path, dict[str, object], dict[str, object], tempfile.TemporaryDirectory[str]]:
+        temporary = tempfile.TemporaryDirectory()
+        root = Path(temporary.name) / "workspace"
+        assets = root / "assets"
+        contents = root / "contents"
+        assets.mkdir(parents=True)
+        create_workspace_payload(contents)
+        archive = assets / archive_name(VERSION)
+        archive.write_bytes(b"fixture")
+        write_text(assets / MANIFEST_NAME, "{}\n")
+        write_text(assets / CHECKSUMS_NAME, "fixture\n")
+        if cross_model:
+            write_text(contents / CROSS_MODEL_HTML_MEMBER, "<!doctype html><title>Models</title>\n")
+        files = [
+            file_record(path, contents)
+            for path in sorted(contents.rglob("*"))
+            if path.is_file()
+        ]
+        manifest: dict[str, object] = {
+            "release_version": VERSION,
+            "release_tag": "data-products-v1.2.3",
+            "repository_commit": COMMIT,
+            "snapshot_date": "2026-06-26",
+            "selected_configuration_count": 53,
+            "scope_group_count": 13,
+            "archive": file_record(archive, assets),
+            "files": files,
+        }
+        metadata: dict[str, object] = {
+            "release_tag": "data-products-v1.2.3",
+            "repository_commit": COMMIT,
+            "release_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.2.3",
+        }
+        return root, manifest, metadata, temporary
+
+    def test_metadata_and_review_selection_are_exact(self) -> None:
+        self.assertEqual(self.report["kind"], "cross_model_workspace_entry_point")
+        self.assertEqual(self.report["status"], "complete")
+        self.assertEqual(self.report["source_review"]["pull_request"], 295)
+        self.assertEqual(self.report["source_review"]["merge_commit"], "2ca040708e9f8bba92abe70693395c6a5447252f")
+        review = json.loads(REVIEW.read_text(encoding="utf-8"))
+        self.assertEqual(review["selection"]["code"], "conditional_primary_cross_model_card")
+
+    def test_member_absent_release_keeps_four_primary_cards(self) -> None:
+        root, manifest, metadata, temporary = self.fixture(cross_model=False)
+        self.addCleanup(temporary.cleanup)
+        rendered = render_workspace_index(root, manifest, metadata)
+        self.assertEqual(rendered.count('class="product-card"'), 4)
+        self.assertNotIn("Models and comparison scopes", rendered)
+
+    def test_verified_member_adds_exact_fifth_card(self) -> None:
+        root, manifest, metadata, temporary = self.fixture(cross_model=True)
+        self.addCleanup(temporary.cleanup)
+        rendered = render_workspace_index(root, manifest, metadata)
+        self.assertEqual(rendered.count('class="product-card"'), 5)
+        self.assertIn("Models and comparison scopes", rendered)
+        self.assertIn('href="contents/cross-model/cross-model-comparison-view.html"', rendered)
+
+    def test_declared_member_without_local_file_is_rejected(self) -> None:
+        root, manifest, metadata, temporary = self.fixture(cross_model=False)
+        self.addCleanup(temporary.cleanup)
+        records = manifest["files"]
+        assert isinstance(records, list)
+        records.append({"path": CROSS_MODEL_HTML_MEMBER, "size_bytes": 1, "sha256": "0" * 64})
+        with self.assertRaisesRegex(WorkspaceIndexError, "cross-model comparison HTML is missing"):
+            render_workspace_index(root, manifest, metadata)
+
+    def test_all_member_present_local_links_are_safe_and_exist(self) -> None:
+        root, manifest, metadata, temporary = self.fixture(cross_model=True)
+        self.addCleanup(temporary.cleanup)
+        parser = Parser()
+        parser.feed(render_workspace_index(root, manifest, metadata))
+        local = [href for href in parser.hrefs if not href.startswith("https://")]
+        self.assertIn("contents/cross-model/cross-model-comparison-view.html", local)
+        for href in local:
+            self.assertTrue(root.joinpath(*Path(unquote(href)).parts).is_file(), href)
+
+    def test_public_download_contract_targets_v1_8_1_and_84_links(self) -> None:
+        workflow = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("--version 1.8.1", workflow)
+        self.assertIn("0b7009fd1950693e347638a6b96756aeefb43b8a", workflow)
+        self.assertIn("len(local)==84", workflow)
+        self.assertIn("Models and comparison scopes", workflow)
+        self.assertIn("compare-workspace-index", workflow)
+
+    def test_historical_publication_audit_and_semantic_boundaries_remain_immutable(self) -> None:
+        audit = json.loads(AUDIT.read_text(encoding="utf-8"))
+        self.assertEqual(audit["workspace"]["index_local_link_count"], 83)
+        self.assertFalse(self.report["compatibility"]["historical_audit_rewritten"])
+        self.assertTrue(all(value is False for value in self.report["semantic_boundaries"].values()))
+
+    def test_project_state_and_verifier_accept_completed_package(self) -> None:
+        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertEqual(state["phase"], "Cross-Model Workspace Entry Point")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["name"], "Post-Cross-Model Workspace Priority Selection Review")
+        self.assertEqual(state["baseline"]["tests"], 1070)
+        completed = subprocess.run([sys.executable, str(VERIFIER), "--check"], cwd=ROOT, text=True, capture_output=True, check=False)
+        self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+        self.assertIn("PASS: Cross-Model Workspace Entry Point", completed.stdout)
+
+
+if __name__ == "__main__":
+    unittest.main()
+'''
+          write("tests/test_cross_model_workspace_entry_point.py", tests)
+
+          verifier = r'''#!/usr/bin/env python3
+"""Verify the Cross-Model Workspace Entry Point implementation."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+from typing import Any, Mapping, Sequence
+
+ROOT = Path(__file__).resolve().parents[1]
+REPORT = ROOT / "data/reporting/cross_model_workspace_entry_point.json"
+REVIEW = ROOT / "data/reporting/cross_model_navigation_usability_review.json"
+AUDIT = ROOT / "data/reporting/data_products_v1_8_1_publication_audit.json"
+INDEX = ROOT / "tools/reporting/data_product_workspace_index.py"
+WORKFLOW = ROOT / ".github/workflows/data-product-release-download.yml"
+STATE = ROOT / "project/state.json"
+
+
+class EntryPointError(RuntimeError):
+    """Raised when the workspace entry-point contract drifts."""
+
+
+def ensure(condition: bool, message: str) -> None:
+    if not condition:
+        raise EntryPointError(message)
+
+
+def load(path: Path) -> dict[str, Any]:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    ensure(isinstance(value, dict), f"expected JSON object: {path}")
+    return value
+
+
+def verify() -> None:
+    report = load(REPORT)
+    ensure(report.get("version") == 1, "report version differs")
+    ensure(report.get("kind") == "cross_model_workspace_entry_point", "report kind differs")
+    ensure(report.get("implemented_on") == "2026-07-27", "implementation date differs")
+    ensure(report.get("status") == "complete", "implementation is not complete")
+    ensure(report.get("selected_by") == "cross_model_navigation_usability_review.json", "selection source differs")
+    review = load(REVIEW)
+    ensure(review.get("selection", {}).get("code") == "conditional_primary_cross_model_card", "review selection differs")
+
+    implementation = report.get("implementation", {})
+    ensure(implementation.get("release_member") == "cross-model/cross-model-comparison-view.html", "member differs")
+    ensure(implementation.get("workspace_path") == "contents/cross-model/cross-model-comparison-view.html", "workspace path differs")
+    ensure(implementation.get("member_absent_primary_card_count") == 4, "absent card count differs")
+    ensure(implementation.get("member_present_primary_card_count") == 5, "present card count differs")
+    ensure(implementation.get("public_v1_8_1_local_link_count") == 84, "public link count differs")
+    ensure(implementation.get("conditional_on_verified_manifest_membership") is True, "manifest condition differs")
+    ensure(implementation.get("requires_local_file") is True, "local file requirement differs")
+    ensure(implementation.get("parses_cross_model_json") is False, "JSON parsing boundary differs")
+
+    source = INDEX.read_text(encoding="utf-8")
+    ensure('CROSS_MODEL_HTML_MEMBER = "cross-model/cross-model-comparison-view.html"' in source, "member constant missing")
+    ensure('if CROSS_MODEL_HTML_MEMBER in release_members:' in source, "conditional card missing")
+    ensure('"title": "Models and comparison scopes"' in source, "card title missing")
+    ensure('"description": "Browse model families and open only existing scope reports."' in source, "card description missing")
+    ensure("_verified_content_path(" in source, "verified path helper missing")
+
+    workflow = WORKFLOW.read_text(encoding="utf-8")
+    ensure("--version 1.8.1" in workflow, "public smoke version differs")
+    ensure("0b7009fd1950693e347638a6b96756aeefb43b8a" in workflow, "public smoke commit differs")
+    ensure("len(local)==84" in workflow, "public smoke link count missing")
+    ensure("Models and comparison scopes" in workflow, "public smoke card check missing")
+    ensure("compare-workspace-index" in workflow, "byte parity job missing")
+
+    audit = load(AUDIT)
+    ensure(audit.get("workspace", {}).get("index_local_link_count") == 83, "historical audit was rewritten")
+    ensure(all(value is False for value in report.get("semantic_boundaries", {}).values()), "semantic boundary differs")
+
+    state = load(STATE)
+    ensure(state.get("phase") == "Cross-Model Workspace Entry Point", "project phase differs")
+    ensure(state.get("current_package", {}).get("name") == "Cross-Model Workspace Entry Point", "current package differs")
+    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    ensure(state.get("next_package", {}).get("name") == "Post-Cross-Model Workspace Priority Selection Review", "next package differs")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests") == 1070, "test baseline differs")
+    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
+    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
+    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="Verify the implementation contract.")
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parse_args(argv)
+    try:
+        verify()
+    except (OSError, json.JSONDecodeError, EntryPointError, ValueError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
+    print("PASS: Cross-Model Workspace Entry Point")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+'''
+          write("tools/review_cross_model_workspace_entry_point_20260727.py", verifier)
+
+          review_test_path = ROOT / "tests/test_cross_model_navigation_usability_review.py"
+          review_test = review_test_path.read_text(encoding="utf-8")
+          old = '''        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertEqual(state["phase"], "Cross-Model Navigation Usability Review")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["name"], "Cross-Model Workspace Entry Point")
+        self.assertEqual(state["baseline"]["tests"], 1062)
+'''
+          new = '''        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(state["current_package"]["status"], {"planned", "active", "blocked", "complete"})
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1062)
+'''
+          if old not in review_test:
+              raise SystemExit("review test state block not found")
+          review_test_path.write_text(review_test.replace(old, new, 1), encoding="utf-8", newline="")
+
+          review_verifier_path = ROOT / "tools/review_cross_model_navigation_usability_20260727.py"
+          review_verifier = review_verifier_path.read_text(encoding="utf-8")
+          start = review_verifier.index("def verify_state() -> None:")
+          end = review_verifier.index("\n\ndef verify() -> None:", start)
+          generalized = '''def verify_state() -> None:
+    state = load_json(STATE)
+    ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
+    current = state.get("current_package", {})
+    ensure(isinstance(current.get("name"), str) and bool(current["name"]), "current package is missing")
+    ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+    next_package = state.get("next_package", {})
+    ensure(isinstance(next_package.get("name"), str) and bool(next_package["name"]), "next package is missing")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests", 0) >= 1062, "test baseline regressed")
+    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
+    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
+    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+'''
+          review_verifier_path.write_text(review_verifier[:start] + generalized + review_verifier[end:], encoding="utf-8", newline="")
+
+          state_path = ROOT / "project/state.json"
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["updated_on"] = "2026-07-27"
+          state["phase"] = "Cross-Model Workspace Entry Point"
+          state["reference_delivery"] = {
+              "name": "Cross-Model Navigation Usability Review",
+              "pull_request": 295,
+              "head_sha": "2ca040708e9f8bba92abe70693395c6a5447252f",
+              "quality_run": 2102,
+          }
+          state["baseline"]["tests"] = 1070
+          state["current_package"] = {
+              "name": "Cross-Model Workspace Entry Point",
+              "status": "complete",
+              "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index while preserving older releases and immutable public assets.",
+          }
+          state["next_package"] = {
+              "name": "Post-Cross-Model Workspace Priority Selection Review",
+              "status": "planned",
+              "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package.",
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="")
+          PY
+
+      - name: Synchronize generated documentation
+        run: python tools/dkb.py project-state --apply
+
+      - name: Compile implementation contracts
+        run: |
+          python -m compileall -q \
+            tools/reporting/data_product_workspace_index.py \
+            tools/review_cross_model_workspace_entry_point_20260727.py \
+            tests/test_cross_model_workspace_entry_point.py \
+            tests/workspace_index_checks.py
+
+      - name: Run focused implementation contracts
+        run: |
+          python tools/review_cross_model_navigation_usability_20260727.py --check
+          python tools/review_cross_model_workspace_entry_point_20260727.py --check
+          python tests/workspace_index_checks.py -q
+          python tests/workspace_download_integration_checks.py -q
+          python -m unittest -q \
+            tests.test_cross_model_navigation_usability_review \
+            tests.test_cross_model_workspace_entry_point
+
+      - name: Run full repository validation
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -q
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+      - name: Commit implementation package
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            .github/workflows/data-product-release-download.yml \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/cross_model_workspace_entry_point.json \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/packages/cross-model-workspace-entry-point.md \
+            project/state.json \
+            tests/test_cross_model_navigation_usability_review.py \
+            tests/test_cross_model_workspace_entry_point.py \
+            tests/workspace_index_checks.py \
+            tools/reporting/data_product_workspace_index.py \
+            tools/review_cross_model_navigation_usability_20260727.py \
+            tools/review_cross_model_workspace_entry_point_20260727.py
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(workspace): add cross-model entry point"
+            git push origin HEAD:agent/cross-model-workspace-entry-point
+          fi
