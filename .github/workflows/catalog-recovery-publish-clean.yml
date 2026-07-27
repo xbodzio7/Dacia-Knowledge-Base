@@ -1,0 +1,219 @@
+name: Publish Clean Catalogue Completion
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  publish-clean-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/sandero-stepway-catalog-recovery-restored
+          fetch-depth: 0
+      - name: Install PDF text extraction backend
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+      - name: Capture durable package
+        shell: bash
+        run: |
+          cat > /tmp/catalog-paths.txt <<'EOF'
+          assets/model-media/bigster-dd522b2c2f1fdce2.png
+          assets/model-media/duster_iii-88634b91786fc5fa.png
+          assets/model-media/jogger-c1140cc10db4cb6d.png
+          assets/model-media/manifest.json
+          assets/model-media/sandero_iii-c874fdf1a26ef51e.png
+          assets/model-media/sandero_stepway_iii-51ba507e0654a398.png
+          data/imports/catalog_completion/sandero-stepway-tce-20260703.json
+          data/master/configuration_attribute_availability.csv
+          data/master/configuration_attribute_values.csv
+          data/master/configuration_cargo_volume_contexts.csv
+          data/master/configuration_prices.csv
+          data/master/configurations.csv
+          data/master/source_configurations.csv
+          data/master/source_versions.csv
+          data/master/sources.csv
+          data/master/versions.csv
+          data/reporting/sandero_ecog120_automatic_gap_evidence.json
+          data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json
+          data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json
+          data/reporting/sandero_tce100_stepway_tce110_manual_gap_evidence.spec
+          project/sources/sandero_catalog_tce_slice_20260202.json
+          project/sources/sandero_stepway_catalog_tce_slice_20260202.json
+          project/sources/sandero_stepway_catalog_tce_slice_20260703.json
+          tests/project_state_contract.py
+          tests/test_attribute_enum_domains.py
+          tests/test_brochure_chassis_measurement_context_modeling_20260726.py
+          tests/test_brochure_generic_dimensions_import_20260726.py
+          tests/test_brochure_generic_dimensions_import_closure_review.py
+          tests/test_brochure_generic_dimensions_semantic_mapping_review.py
+          tests/test_configuration_comparison_bundle.py
+          tests/test_configuration_comparison_workbook.py
+          tests/test_cross_model_comparison_view.py
+          tests/test_cross_model_workspace_entry_point.py
+          tests/test_data_product_release.py
+          tests/test_data_products_v1_7_0_release_preparation.py
+          tests/test_data_products_v1_8_1_preflight.py
+          tests/test_duster_catalog_bootstrap.py
+          tests/test_duster_ecog120_automatic_stock_20260724.py
+          tests/test_duster_technical_specifications.py
+          tests/test_model_media_cache.py
+          tests/test_official_brochure_residual_evidence_review.py
+          tests/test_post_brochure_priority_selection_review.py
+          tests/test_sandero_euro_6e_bis_model.py
+          tests/test_sandero_stepway_official_web_20260723.py
+          tools/cache_model_media.py
+          tools/catalog_completion_history.py
+          tools/dkb.py
+          tools/import_sandero_stepway_catalog_completion.py
+          tools/reporting/configuration_shortlist_browser.js
+          tools/reporting/configuration_shortlist_html.py
+          tools/reporting/data_product_release.py
+          tools/review_brochure_generic_dimensions_import_closure_20260726.py
+          tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py
+          tools/review_cross_model_comparison_view_20260726.py
+          tools/review_cross_model_comparison_view_closure_20260726.py
+          tools/review_cross_model_comparison_view_history_20260726.py
+          tools/review_cross_model_navigation_usability_20260727.py
+          tools/review_cross_model_workspace_entry_point_20260727.py
+          tools/review_data_products_v1_7_0_release_preparation_20260726.py
+          tools/review_data_products_v1_8_0_release_preparation_20260726.py
+          tools/review_data_products_v1_8_1_preflight_20260727.py
+          tools/review_data_products_v1_8_1_publication_20260727.py
+          tools/review_data_products_v1_8_1_release_preparation_20260727.py
+          tools/review_equipment_filter_regression_model_price_order_20260726.py
+          tools/review_official_brochure_residual_evidence_20260726.py
+          tools/review_official_brochure_technical_gaps_20260726.py
+          tools/review_pdf_candidate_extraction_automation_20260727.py
+          tools/review_post_brochure_priority_selection_20260726.py
+          tools/review_post_cross_model_priority_selection_20260726.py
+          tools/verify_brochure_chassis_measurement_context_model_20260726.py
+          EOF
+          sed -i 's/^          //' /tmp/catalog-paths.txt
+          tar -cf /tmp/catalog-package.tar -T /tmp/catalog-paths.txt
+          cp diagnostics/catalog-recovery/historical-live-state-baselines.patch.gz.b64 /tmp/
+          cp diagnostics/catalog-recovery/current-project-state-contract.patch /tmp/
+          cp diagnostics/catalog-recovery/final-review-pdf.patch /tmp/
+      - name: Apply package to current main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B agent/sandero-stepway-catalog-completion origin/main
+          tar -xf /tmp/catalog-package.tar
+          base64 -d /tmp/historical-live-state-baselines.patch.gz.b64 | gzip -d > /tmp/historical.patch
+          git apply /tmp/historical.patch
+          git apply /tmp/current-project-state-contract.patch
+          git apply /tmp/final-review-pdf.patch
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('project/state.json')
+          state = json.loads(path.read_text(encoding='utf-8'))
+          name = 'Source-Bounded Sandero and Stepway Catalogue Completion'
+          state['updated_on'] = '2026-07-27'
+          state['phase'] = name
+          state['baseline'].update({
+              'tests': 1071,
+              'csv_files': 46,
+              'rows': 11092,
+              'configuration_values': 3267,
+              'configuration_import_specs': 117,
+              'configuration_value_ranges': 244,
+              'configuration_range_import_specs': 20,
+              'availability_records': 5770,
+              'attributes': 385,
+              'attribute_categories': 30,
+          })
+          state['current_package'] = {
+              'name': name,
+              'status': 'complete',
+              'goal': 'Complete the source-bounded Polish MY26 Sandero TCe 100 and Sandero Stepway TCe 110 catalogue from registered official price-list and brochure slices; add exact configurations, prices, technical observations, equipment states and cargo contexts; preserve historical release receipts; and cache official model media locally with conditional refresh and offline reuse.',
+          }
+          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+      - name: Validate clean package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/catalog-validation
+          exec > >(tee /tmp/catalog-validation/validation.log) 2>&1
+          python -m compileall -q tools scripts tests
+          python tools/import_sandero_stepway_catalog_completion.py --verify
+          python tools/cache_model_media.py --verify --offline
+          python tools/dkb.py normalize
+          python tools/dkb.py validate
+          python tools/dkb.py project-state --check
+          python - <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
+          root = Path.cwd()
+          count = 0
+          for path in sorted((root / 'tests').glob('test_*.py')):
+              stem = path.stem
+              if stem == 'test_pdf_candidate_extraction_automation_review':
+                  command = [sys.executable, 'tools/review_pdf_candidate_extraction_automation_20260727.py', '--check']
+              elif stem == 'test_source_coverage_repository_as_of':
+                  command = [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', path.name, '-q']
+              else:
+                  command = [sys.executable, '-m', 'unittest', '-q', f'tests.{stem}']
+              print('RUN', path.name, flush=True)
+              subprocess.run(command, cwd=root, check=True)
+              count += 1
+          print(f'validated_test_modules={count}')
+          PY
+          python tools/dkb.py sqlite --output /tmp/catalog-validation/dkb.sqlite
+          python tools/dkb.py sqlite-verify /tmp/catalog-validation/dkb.sqlite
+          python tools/dkb.py documentation-baseline --check --database /tmp/catalog-validation/dkb.sqlite --json /tmp/catalog-validation/baseline.json --markdown /tmp/catalog-validation/baseline.md
+          python tools/dkb.py configuration-shortlist --html /tmp/catalog-validation/shortlist.html --json /tmp/catalog-validation/shortlist.json
+          python - <<'PY'
+          import csv
+          import json
+          import re
+          from pathlib import Path
+          root = Path('.')
+          active = [row for row in csv.DictReader((root / 'data/master/configurations.csv').open(encoding='utf-8-sig')) if row['status'] == 'active']
+          contract = json.loads((root / 'data/imports/catalog_completion/sandero-stepway-tce-20260703.json').read_text(encoding='utf-8'))
+          html = Path('/tmp/catalog-validation/shortlist.html').read_text(encoding='utf-8')
+          manifest = json.loads((root / 'assets/model-media/manifest.json').read_text(encoding='utf-8'))
+          assert len(active) == 78
+          assert contract['expected_repository_totals'] == {
+              'active_configurations': 78,
+              'reporting_scopes': 21,
+              'unique_comparison_pairs': 120,
+          }
+          assert len(manifest['models']) == 5
+          assert 'data:image/' in html
+          assert not re.search(r'<img[^>]+src=["\']https?://', html, re.I)
+          print('catalogue_contract=PASS')
+          PY
+          git status --short
+      - name: Commit and publish clean branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          test -z "$(git status --short | grep -E '^.. (diagnostics/catalog-recovery|\.github/workflows/catalog-recovery)' || true)"
+          git add -A
+          git commit -m 'data(catalog): complete Sandero and Stepway TCe range'
+          git push --force-with-lease origin HEAD:refs/heads/agent/sandero-stepway-catalog-completion
+          git diff --name-status origin/main...HEAD > /tmp/catalog-validation/changed-files.txt
+          git log -1 --format='%H' > /tmp/catalog-validation/head-sha.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clean-catalogue-completion-validation
+          path: /tmp/catalog-validation
+          retention-days: 14
+          if-no-files-found: warn
