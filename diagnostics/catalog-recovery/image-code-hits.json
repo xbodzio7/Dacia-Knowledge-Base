@@ -1,0 +1,73 @@
+{
+  ".github/workflows/catalog-recovery-summary.yml": [
+    "                  if any(term in line.lower() for term in ('image_url', 'image url', 'thumbnail', 'miniature', 'model_image', 'urlopen', 'requests.get', 'httpx'))"
+  ],
+  "CHANGELOG.md": [
+    "* Deterministic offline SVG model thumbnails in model selectors, result cards and comparison headers without external network or image dependencies."
+  ],
+  "project/packages/data-products-v1.2.0-faceted-browser-multi-comparison.md": [
+    "## Offline model thumbnails"
+  ],
+  "project/packages/data-products-v1.6.0-configurator-style-full-comparison.md": [
+    "Resolve the buyer-facing problems found during direct review of `data-products-v1.5.0`: incorrect-looking model miniatures, unclear equipment search, misleading partial equipment coverage, separated price bounds and an equipment-only comparison."
+  ],
+  "project/sources/dacia-pl-model-media-20260724.json": [
+    "      \"image_url\": \"https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-sandero-bi1-ph2\",",
+    "      \"image_url\": \"https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-sandero-stepway-bi1-ph2\",",
+    "      \"image_url\": \"https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-jogger-ri1-ph2\",",
+    "      \"image_url\": \"https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FDU3%2Fduster%2Fc%2FA-ENS_0MDL2P1SERIELIM4_-TEHNV\",",
+    "      \"image_url\": \"https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-bigster-db3l1\","
+  ],
+  "tests/test_configuration_selection_export.py": [
+    "        self.assertIn(\"model-thumbnail-host\", rendered)",
+    "        self.assertIn(\"comparison-model-thumbnail\", rendered)"
+  ],
+  "tests/test_configuration_shortlist_html.py": [
+    "                            \"image_url\": \"https://www.dacia.pl/media/model-a.png\",",
+    "                            \"image_url\": \"https://www.dacia.pl/media/model-b.png\","
+  ],
+  "tests/test_cross_model_comparison_view.py": [
+    "            self.assertTrue(media[\"image_url\"].startswith(\"https://\"))"
+  ],
+  "tools/reporting/configuration_shortlist_browser.js": [
+    "          <div class=\"model-thumbnail-host\" data-model-code=\"${escapeHtml(item.model_code)}\" data-model-name=\"${escapeHtml(item.model_name)}\" data-version-name=\"${escapeHtml(item.version_name)}\"></div>"
+  ],
+  "tools/reporting/configuration_shortlist_html.py": [
+    "        image_url = str(source.get(\"image_url\", \"\"))",
+    "        if not image_url.startswith(_OFFICIAL_MEDIA_PREFIXES):",
+    "            \"image_url\": image_url,"
+  ],
+  "tools/reporting/configuration_shortlist_selection.js": [
+    "  function comparisonThumbnail(configuration) {",
+    "    const thumbnailApi = typeof globalThis !== \"undefined\"",
+    "    if (!thumbnailApi || typeof thumbnailApi.modelThumbnailMarkup !== \"function\") return \"\";",
+    "    return `<span class=\"comparison-model-thumbnail\">${thumbnailApi.modelThumbnailMarkup(",
+    "      return `<th scope=\"col\">${comparisonThumbnail(configuration)}<strong>${escapeHtml(configuration.model_name)}</strong><span class=\"comparison-version\">${escapeHtml(configuration.version_name)} · ${escapeHtml(configuration.powertrain_label)} · ${escapeHtml(transmission)}</span></th>`;",
+    "    const thumbnailApi = typeof globalThis !== \"undefined\" ? globalThis.DkbConfigurationShortlistV12 : null;",
+    "    if (thumbnailApi && typeof thumbnailApi.activateModelPhotos === \"function\") thumbnailApi.activateModelPhotos(table);",
+    "    renderComparison, comparisonThumbnail, applyDifferenceFilter, rowIsDifferent, categoryLabel"
+  ],
+  "tools/reporting/configuration_shortlist_selection_html.py": [
+    ".comparison-panel{scroll-margin-top:18px;padding:18px;margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(27,43,33,.06)}.comparison-heading-row{display:flex;align-items:start;justify-content:space-between;gap:16px}.comparison-heading-actions{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:10px}.difference-toggle{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:7px 11px;border:1px solid #aeb8b0;border-radius:8px;background:#fff;color:var(--ink);font-size:.78rem;font-weight:750;cursor:pointer}.difference-toggle input{width:18px;height:18px;accent-color:var(--accent)}.comparison-scroll{max-width:100%;overflow:auto;margin-top:14px;border:1px solid var(--line);border-radius:12px}.comparison-table{width:max-content;min-width:100%;border-collapse:separate;border-spacing:0;background:#fff;font-size:.78rem}.comparison-table th,.comparison-table td{min-width:210px;padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top}.comparison-table th:first-child{position:sticky;left:0;z-index:2;min-width:210px;background:var(--paper);text-align:left}.comparison-table thead th{position:sticky;top:0;z-index:1;background:var(--soft);text-align:left}.comparison-table thead th:first-child{z-index:3}.comparison-table thead strong{display:block;font-size:.94rem;color:var(--ink)}.comparison-table thead .comparison-version{display:block;margin-top:4px;color:var(--muted);font-size:.7rem;font-weight:600;line-height:1.35}.comparison-table .comparison-category-row th{position:sticky;left:0;z-index:2;padding:8px 12px;background:#dfe9e2;color:var(--accent);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}.comparison-table .is-different{background:var(--warn-soft)}.comparison-table tr[hidden]{display:none}.comparison-model-thumbnail{display:block;width:190px;max-width:100%;margin:0 auto 8px;color:#65736a}.comparison-model-thumbnail svg{display:block;width:100%;height:auto}",
+    ".native-model-select,.native-equipment-select{display:none!important}.model-picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.model-choice{position:relative;display:grid!important;grid-template-rows:118px auto;align-items:center;justify-items:center;gap:6px;min-height:160px!important;padding:10px!important;background:#fff!important;color:var(--ink)!important;text-align:center}.model-choice-thumb{display:block;width:190px;max-width:100%;color:#65736a}.model-choice svg,.model-thumbnail-host svg{display:block;width:100%;height:auto}.car-body{fill:#dfe6e1;stroke:currentColor;stroke-width:2}.car-window{fill:#aebbb3;stroke:currentColor;stroke-width:1.2}.car-window-divider,.car-line,.car-rail,.car-bumper,.car-wheel-spoke{fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round}.car-cladding{fill:#637069;opacity:.82}.car-accent{fill:none;stroke:#8b9a91;stroke-width:3}.car-accent-extreme{stroke:#b56f16}.car-accent-journey{stroke:#6a7f99}.car-light{fill:#f3c969;stroke:currentColor;stroke-width:.8}.car-wheel{fill:#27322c}.car-wheel-ring{fill:#aab6af;stroke:#27322c;stroke-width:1}.car-wheel-spoke{stroke:#39463f}.car-hub{fill:#e2e8e4}.model-choice-check{position:absolute;top:7px;right:8px;display:none;width:22px;height:22px;border-radius:999px;background:var(--accent);color:#fff;line-height:22px}.model-choice.is-selected{border-color:var(--accent)!important;background:var(--soft)!important;box-shadow:0 0 0 2px rgba(31,111,67,.12)}.model-choice.is-selected .model-choice-check{display:block}.model-thumbnail-host{width:100%;overflow:hidden;padding:4px 6px;color:#65736a;background:linear-gradient(180deg,var(--paper),transparent);border-radius:10px}.model-thumbnail-host svg{max-height:150px}.result-card-hero{grid-template-columns:minmax(210px,44%) minmax(0,1fr)}",
+    "@media(max-width:760px){.selection-panel{position:static;grid-template-columns:1fr}.selection-actions{justify-content:flex-start}.selected-list{grid-column:auto}.comparison-heading-row,.comparison-heading-actions{display:grid;justify-content:stretch}.model-picker{grid-template-columns:1fr}.result-card-hero{grid-template-columns:1fr}.comparison-model-thumbnail{width:150px}}"
+  ],
+  "tools/reporting/configuration_shortlist_v12.js": [
+    "  function modelThumbnailSvg(modelCode, modelName, versionName) {",
+    "  function modelThumbnailMarkup(item, versionName) {",
+    "    const fallback = modelThumbnailSvg(modelCode, modelName, version);",
+    "    if (!media.image_url) return `<span class=\"vehicle-photo-fallback-only\">${fallback}</span>`;",
+    "      <img class=\"vehicle-photo\" src=\"${escapeHtml(media.image_url)}\" alt=\"${label}\" loading=\"lazy\" referrerpolicy=\"no-referrer\">",
+    "      button.innerHTML = `<span class=\"model-choice-thumb\">${modelThumbnailMarkup(model, \"\")}</span><strong>${escapeHtml(model.name || option.textContent)}</strong><span class=\"model-choice-check\" aria-hidden=\"true\">✓</span>`;",
+    "      const thumbnail = card.querySelector(\".model-thumbnail-host\");",
+    "      if (thumbnail && thumbnail.dataset.renderedModel !== `${configuration.model_code}|${configuration.version_name}`) {",
+    "        thumbnail.innerHTML = modelThumbnailMarkup(configuration, configuration.version_name);",
+    "        activateModelPhotos(thumbnail);",
+    "        thumbnail.dataset.renderedModel = `${configuration.model_code}|${configuration.version_name}`;",
+    "    dispatchSelection, currentCriteria, modelThumbnailSvg, modelThumbnailMarkup, activateModelPhotos, vehicleSpec, trimKey, categoryLabel, CATEGORY_LABELS"
+  ],
+  "tools/reporting/data_product_release_download.py": [
+    "from urllib.request import Request, urlopen",
+    "    opener: OpenUrl = urlopen,"
+  ]
+}

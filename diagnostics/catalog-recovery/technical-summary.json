@@ -1,0 +1,3660 @@
+{
+  "sandero_iii_expression_ecog120_automatic": {
+    "by_source": {
+      "src_pl_sandero_brochure_20260202": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 5,
+          "braked_trailer_weight": 1,
+          "cylinder_count": 1,
+          "elasticity_80_120": 4,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "front_overhang": 1,
+          "front_suspension": 1,
+          "front_track": 1,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gearbox_type": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "ground_clearance": 1,
+          "maximum_kerb_weight": 1,
+          "minimum_kerb_weight": 1,
+          "overall_height": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "overall_width_with_mirrors": 1,
+          "rear_overhang": 1,
+          "rear_suspension": 1,
+          "rear_track": 1,
+          "standard_tyre_specification": 1,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle_between_kerbs": 1,
+          "wheelbase": 1
+        },
+        "count": 42,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "9.8"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "10.9"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "8.9"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "8.9"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "front_track",
+            "",
+            "",
+            "1533"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gearbox_type",
+            "",
+            "",
+            "dct"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2765"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1665"
+          ],
+          [
+            "ground_clearance",
+            "",
+            "",
+            "162"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1232"
+          ],
+          [
+            "minimum_kerb_weight",
+            "",
+            "",
+            "1205"
+          ],
+          [
+            "overall_height",
+            "",
+            "",
+            "1496"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1853"
+          ],
+          [
+            "overall_width_with_mirrors",
+            "",
+            "",
+            "2012"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "rear_track",
+            "",
+            "",
+            "1519"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "185/65 R15 88H - 195/55 R16 87H"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 37
+      }
+    },
+    "total": 42
+  },
+  "sandero_iii_expression_ecog120_manual": {
+    "by_source": {
+      "src_pl_sandero_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 4,
+          "front_overhang": 1,
+          "front_suspension": 1,
+          "front_track": 1,
+          "ground_clearance": 1,
+          "maximum_kerb_weight": 1,
+          "overall_height": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "overall_width_with_mirrors": 1,
+          "rear_overhang": 1,
+          "rear_suspension": 1,
+          "rear_track": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1,
+          "wheelbase": 1
+        },
+        "count": 24,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "7.4"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "11"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "8.4"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "11.7"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "front_track",
+            "",
+            "",
+            "1533"
+          ],
+          [
+            "ground_clearance",
+            "",
+            "",
+            "162"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1209"
+          ],
+          [
+            "overall_height",
+            "",
+            "",
+            "1496"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1853"
+          ],
+          [
+            "overall_width_with_mirrors",
+            "",
+            "",
+            "2012"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "rear_track",
+            "",
+            "",
+            "1519"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "185/65 R15 88H - 195/55 R16 87H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 19
+      },
+      "src_pl_sandero_expression_ecog120_mt_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 44,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.1"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.1"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "110"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "123"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "6.8"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.4"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2740"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1640"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1267"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "373"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1753"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.1"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.1"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "615"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "materiałowa w kolorze czarnym i wstawkami denim"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "ATARA"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "steel"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 43
+      }
+    },
+    "total": 68
+  },
+  "sandero_iii_journey_ecog120_automatic": {
+    "by_source": {
+      "src_pl_sandero_brochure_20260202": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 5,
+          "braked_trailer_weight": 1,
+          "cylinder_count": 1,
+          "elasticity_80_120": 4,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "front_overhang": 1,
+          "front_suspension": 1,
+          "front_track": 1,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gearbox_type": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "ground_clearance": 1,
+          "maximum_kerb_weight": 1,
+          "minimum_kerb_weight": 1,
+          "overall_height": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "overall_width_with_mirrors": 1,
+          "rear_overhang": 1,
+          "rear_suspension": 1,
+          "rear_track": 1,
+          "standard_tyre_specification": 1,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle_between_kerbs": 1,
+          "wheelbase": 1
+        },
+        "count": 42,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "9.8"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "10.9"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "8.9"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "8.9"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "front_track",
+            "",
+            "",
+            "1533"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gearbox_type",
+            "",
+            "",
+            "dct"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2765"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1665"
+          ],
+          [
+            "ground_clearance",
+            "",
+            "",
+            "162"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1232"
+          ],
+          [
+            "minimum_kerb_weight",
+            "",
+            "",
+            "1205"
+          ],
+          [
+            "overall_height",
+            "",
+            "",
+            "1496"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1853"
+          ],
+          [
+            "overall_width_with_mirrors",
+            "",
+            "",
+            "2012"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "rear_track",
+            "",
+            "",
+            "1519"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "185/65 R15 88H - 195/55 R16 87H"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 37
+      }
+    },
+    "total": 42
+  },
+  "sandero_iii_journey_ecog120_manual": {
+    "by_source": {
+      "src_pl_sandero_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 4,
+          "front_overhang": 1,
+          "front_suspension": 1,
+          "front_track": 1,
+          "ground_clearance": 1,
+          "maximum_kerb_weight": 1,
+          "overall_height": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "overall_width_with_mirrors": 1,
+          "rear_overhang": 1,
+          "rear_suspension": 1,
+          "rear_track": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1,
+          "wheelbase": 1
+        },
+        "count": 24,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "7.4"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "11"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "8.4"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "11.7"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "front_track",
+            "",
+            "",
+            "1533"
+          ],
+          [
+            "ground_clearance",
+            "",
+            "",
+            "162"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1209"
+          ],
+          [
+            "overall_height",
+            "",
+            "",
+            "1496"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1853"
+          ],
+          [
+            "overall_width_with_mirrors",
+            "",
+            "",
+            "2012"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "rear_track",
+            "",
+            "",
+            "1519"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "185/65 R15 88H - 195/55 R16 87H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 19
+      },
+      "src_pl_sandero_journey_ecog120_mt_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 44,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.1"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.1"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "110"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "123"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "6.8"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.4"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2740"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1640"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1269"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "371"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1753"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.1"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.1"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "615"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "materiałowa w kolorze denim i czarnymi wstawkami"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "TAMIA"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "alloy"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 43
+      }
+    },
+    "total": 68
+  },
+  "sandero_stepway_iii_essential_ecog120_manual": {
+    "by_source": {
+      "src_pl_sandero_stepway_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 6,
+          "front_suspension": 1,
+          "maximum_kerb_weight": 1,
+          "rear_suspension": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1
+        },
+        "count": 16,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "12"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "6",
+            "18"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "9"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "12.6"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "6",
+            "19"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1225"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ]
+        ],
+        "non_cargo_count": 11
+      },
+      "src_pl_sandero_stepway_essential_ecog120_mt_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 44,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.4"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.4"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "115"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "129"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "7.1"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.7"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2760"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1660"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1273"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "385"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1784"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.4"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.4"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "630"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "materiałowa stepway"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "ERALIA"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "steel"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 43
+      }
+    },
+    "total": 60
+  },
+  "sandero_stepway_iii_expression_ecog120_automatic": {
+    "by_source": {
+      "src_pl_sandero_stepway_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 2,
+          "front_suspension": 1,
+          "maximum_kerb_weight": 1,
+          "rear_suspension": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1
+        },
+        "count": 12,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8.3"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "9.1"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1249"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ]
+        ],
+        "non_cargo_count": 7
+      },
+      "src_pl_sandero_stepway_expression_ecog120_at_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 44,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.0"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.0"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "116"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "130"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "7.1"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.7"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2785"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1685"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1305"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "380"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1784"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.1"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.1"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "645"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "materiałowa stepway"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "ATARA"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "steel"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 43
+      }
+    },
+    "total": 56
+  },
+  "sandero_stepway_iii_expression_ecog120_manual": {
+    "by_source": {
+      "src_pl_sandero_stepway_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 6,
+          "front_suspension": 1,
+          "maximum_kerb_weight": 1,
+          "rear_suspension": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1
+        },
+        "count": 16,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "12"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "6",
+            "18"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "9"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "12.6"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "6",
+            "19"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1225"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ]
+        ],
+        "non_cargo_count": 11
+      },
+      "src_pl_sandero_stepway_expression_ecog120_mt_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 44,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.4"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.4"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "116"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "130"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "7.2"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.7"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2760"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1660"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1284"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "376"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1784"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.4"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.4"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "630"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "materiałowa stepway"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "ATARA"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "steel"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 43
+      }
+    },
+    "total": 60
+  },
+  "sandero_stepway_iii_extreme_ecog120_automatic": {
+    "by_source": {
+      "src_pl_sandero_stepway_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 2,
+          "front_suspension": 1,
+          "maximum_kerb_weight": 1,
+          "rear_suspension": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1
+        },
+        "count": 12,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8.3"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "9.1"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1249"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ]
+        ],
+        "non_cargo_count": 7
+      },
+      "src_pl_sandero_stepway_extreme_ecog120_at_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_finish": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 45,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.0"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.0"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "116"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "131"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "7.2"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.7"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2785"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1685"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1308"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "377"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1784"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.1"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.1"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "645"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "microclud extreme"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "TAMIA"
+          ],
+          [
+            "wheel_finish",
+            "",
+            "",
+            "black"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "alloy"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 44
+      }
+    },
+    "total": 57
+  },
+  "sandero_stepway_iii_extreme_ecog120_manual": {
+    "by_source": {
+      "src_pl_sandero_stepway_brochure_20260202": {
+        "attribute_counts": {
+          "boot_capacity": 5,
+          "elasticity_80_120": 6,
+          "front_suspension": 1,
+          "maximum_kerb_weight": 1,
+          "rear_suspension": 1,
+          "standard_tyre_specification": 1,
+          "turning_circle_between_kerbs": 1
+        },
+        "count": 16,
+        "identities": [
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1108"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "1455"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "328"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "78"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "4",
+            "8"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "5",
+            "12"
+          ],
+          [
+            "elasticity_80_120",
+            "lpg",
+            "6",
+            "18"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "4",
+            "9"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "5",
+            "12.6"
+          ],
+          [
+            "elasticity_80_120",
+            "petrol",
+            "6",
+            "19"
+          ],
+          [
+            "front_suspension",
+            "",
+            "",
+            "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "maximum_kerb_weight",
+            "",
+            "",
+            "1225"
+          ],
+          [
+            "rear_suspension",
+            "",
+            "",
+            "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "turning_circle_between_kerbs",
+            "",
+            "",
+            "10.64"
+          ]
+        ],
+        "non_cargo_count": 11
+      },
+      "src_pl_sandero_stepway_extreme_ecog120_mt_20260626": {
+        "attribute_counts": {
+          "acceleration_0_100": 2,
+          "boot_capacity": 1,
+          "braked_trailer_weight": 1,
+          "cargo_volume_vda": 1,
+          "co2_emissions": 2,
+          "cylinder_count": 1,
+          "drive_type": 1,
+          "emission_standard": 1,
+          "engine_displacement": 1,
+          "engine_power": 2,
+          "engine_torque": 2,
+          "exterior_color": 1,
+          "front_overhang": 1,
+          "fuel_consumption_combined": 2,
+          "fuel_tank_capacity": 1,
+          "gear_count": 1,
+          "gross_train_weight": 1,
+          "gross_vehicle_weight": 1,
+          "kerb_weight": 1,
+          "maximum_payload": 1,
+          "noise_level_at_50_kmh": 1,
+          "number_of_doors": 1,
+          "number_of_seats": 1,
+          "overall_length": 1,
+          "overall_width": 1,
+          "rear_overhang": 1,
+          "spare_wheel_type": 1,
+          "standard_tyre_specification": 1,
+          "standing_km": 2,
+          "top_speed": 1,
+          "total_valve_count": 1,
+          "turning_circle": 1,
+          "unbraked_trailer_weight": 1,
+          "upholstery_variant": 1,
+          "wheel_design": 1,
+          "wheel_finish": 1,
+          "wheel_material": 1,
+          "wheel_size": 1,
+          "wheelbase": 1
+        },
+        "count": 45,
+        "identities": [
+          [
+            "acceleration_0_100",
+            "lpg",
+            "",
+            "10.4"
+          ],
+          [
+            "acceleration_0_100",
+            "petrol",
+            "",
+            "11.4"
+          ],
+          [
+            "boot_capacity",
+            "",
+            "",
+            "410"
+          ],
+          [
+            "braked_trailer_weight",
+            "",
+            "",
+            "1100"
+          ],
+          [
+            "cargo_volume_vda",
+            "",
+            "",
+            "372"
+          ],
+          [
+            "co2_emissions",
+            "lpg",
+            "",
+            "117"
+          ],
+          [
+            "co2_emissions",
+            "petrol",
+            "",
+            "130"
+          ],
+          [
+            "cylinder_count",
+            "",
+            "",
+            "3"
+          ],
+          [
+            "drive_type",
+            "",
+            "",
+            "fwd"
+          ],
+          [
+            "emission_standard",
+            "",
+            "",
+            "euro_6e_bis"
+          ],
+          [
+            "engine_displacement",
+            "",
+            "",
+            "1199"
+          ],
+          [
+            "engine_power",
+            "lpg",
+            "",
+            "90"
+          ],
+          [
+            "engine_power",
+            "petrol",
+            "",
+            "84"
+          ],
+          [
+            "engine_torque",
+            "lpg",
+            "",
+            "197"
+          ],
+          [
+            "engine_torque",
+            "petrol",
+            "",
+            "190"
+          ],
+          [
+            "exterior_color",
+            "",
+            "",
+            "biel alpejska"
+          ],
+          [
+            "front_overhang",
+            "",
+            "",
+            "833"
+          ],
+          [
+            "fuel_consumption_combined",
+            "lpg",
+            "",
+            "7.2"
+          ],
+          [
+            "fuel_consumption_combined",
+            "petrol",
+            "",
+            "5.7"
+          ],
+          [
+            "fuel_tank_capacity",
+            "",
+            "",
+            "50"
+          ],
+          [
+            "gear_count",
+            "",
+            "",
+            "6"
+          ],
+          [
+            "gross_train_weight",
+            "",
+            "",
+            "2760"
+          ],
+          [
+            "gross_vehicle_weight",
+            "",
+            "",
+            "1660"
+          ],
+          [
+            "kerb_weight",
+            "",
+            "",
+            "1285"
+          ],
+          [
+            "maximum_payload",
+            "",
+            "",
+            "375"
+          ],
+          [
+            "noise_level_at_50_kmh",
+            "",
+            "",
+            "67"
+          ],
+          [
+            "number_of_doors",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "number_of_seats",
+            "",
+            "",
+            "5"
+          ],
+          [
+            "overall_length",
+            "",
+            "",
+            "4102"
+          ],
+          [
+            "overall_width",
+            "",
+            "",
+            "1784"
+          ],
+          [
+            "rear_overhang",
+            "",
+            "",
+            "665"
+          ],
+          [
+            "spare_wheel_type",
+            "",
+            "",
+            "tyre repair kit"
+          ],
+          [
+            "standard_tyre_specification",
+            "",
+            "",
+            "205/60 R16 92H"
+          ],
+          [
+            "standing_km",
+            "lpg",
+            "",
+            "32.4"
+          ],
+          [
+            "standing_km",
+            "petrol",
+            "",
+            "33.4"
+          ],
+          [
+            "top_speed",
+            "",
+            "",
+            "180"
+          ],
+          [
+            "total_valve_count",
+            "",
+            "",
+            "12"
+          ],
+          [
+            "turning_circle",
+            "",
+            "",
+            "10.64"
+          ],
+          [
+            "unbraked_trailer_weight",
+            "",
+            "",
+            "630"
+          ],
+          [
+            "upholstery_variant",
+            "",
+            "",
+            "microclud extreme"
+          ],
+          [
+            "wheel_design",
+            "",
+            "",
+            "TAMIA"
+          ],
+          [
+            "wheel_finish",
+            "",
+            "",
+            "black"
+          ],
+          [
+            "wheel_material",
+            "",
+            "",
+            "alloy"
+          ],
+          [
+            "wheel_size",
+            "",
+            "",
+            "16\""
+          ],
+          [
+            "wheelbase",
+            "",
+            "",
+            "2604"
+          ]
+        ],
+        "non_cargo_count": 44
+      }
+    },
+    "total": 61
+  }
+}
