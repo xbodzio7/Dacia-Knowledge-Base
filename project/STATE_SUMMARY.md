@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-Cross-Model Workspace Priority Selection Review**
+**PDF Candidate Extraction Automation Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Workspace Entry Point
-- Pull Request: #296
-- Verified head: `d5c68402e72dfa8b3f88654198a2e6ced82f8d98`
-- Quality run: #2147
+- Package: Post-Cross-Model Workspace Priority Selection Review
+- Pull Request: #297
+- Verified head: `e7750b327f6a3bd7796cb4967dc00fc6a3401e6c`
+- Quality run: #2158
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Cross-Model Workspace Priority Selection Review** — `complete`
+**PDF Candidate Extraction Automation Review** — `complete`
 
-Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data.
+Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports.
 
 ## Next package
 
-**PDF Candidate Extraction Automation Review** — `planned`
+**Verified PDF Candidate Ledger Foundation** — `planned`
 
-Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports.
+Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications.
 
 ## Autonomy
 

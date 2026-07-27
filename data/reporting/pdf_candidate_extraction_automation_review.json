@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "kind": "pdf_candidate_extraction_automation_review",
+  "reviewed_on": "2026-07-27",
+  "status": "complete",
+  "source_milestone": "post_cross_model_workspace_priority_selection_review.json",
+  "input_inventory": {
+    "receipt": "project/sources/official-dacia-brochures-20260725.json",
+    "registered_sources": 5,
+    "declared_pages": 114,
+    "declared_bytes": 40608101,
+    "all_sources_have_sha256": true,
+    "model_codes": [
+      "bigster",
+      "duster_iii",
+      "jogger",
+      "sandero_iii",
+      "sandero_stepway_iii"
+    ]
+  },
+  "existing_capabilities": {
+    "page_extraction_function": "import_configuration_values.extract_page_candidates",
+    "deterministic_text_backends": [
+      "pdftotext-raw",
+      "pdftotext-layout",
+      "pdftotext-default",
+      "pypdf",
+      "PyPDF2"
+    ],
+    "page_review_function": "configuration_gap_source_review.page_extraction",
+    "page_review_selection_policy": "recover registered source-text anchors first, then prefer layout or table-preserving output, then longer normalized text and stable backend name",
+    "source_integrity_checks": [
+      "registered file exists",
+      "registered SHA-256 matches",
+      "declared source page is extractable",
+      "declared section and exact source text are present before import verification"
+    ],
+    "strict_import_commands": [
+      "import-configuration-values",
+      "import-configuration-value-ranges"
+    ],
+    "existing_gap_review": "data/reporting/official_dacia_brochure_gap_review.json",
+    "existing_gap_review_master_observations_imported": 0
+  },
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "evidence_safety": 30,
+      "determinism": 25,
+      "candidate_utility": 20,
+      "existing_tooling_reuse": 15,
+      "low_implementation_risk": 10
+    }
+  },
+  "architecture_candidates": [
+    {
+      "rank": 1,
+      "code": "verified_page_candidate_ledger",
+      "name": "Verified PDF Page Candidate Ledger",
+      "status": "selected",
+      "scores": {
+        "evidence_safety": 5,
+        "determinism": 5,
+        "candidate_utility": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 4
+      },
+      "weighted_score": 98,
+      "reason": "Creates a durable candidate-only layer with page and span provenance, reuses verified PDF extraction, and prevents candidate text from becoming an approved import without a separate review decision."
+    },
+    {
+      "rank": 2,
+      "code": "gap_scoped_candidate_probe",
+      "name": "Gap-scoped Candidate Probe",
+      "status": "alternative",
+      "scores": {
+        "evidence_safety": 5,
+        "determinism": 5,
+        "candidate_utility": 4,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 4
+      },
+      "weighted_score": 94,
+      "reason": "Efficient for known gaps but hard-codes the current review queue and cannot become a reusable receipt-level extraction foundation."
+    },
+    {
+      "rank": 3,
+      "code": "raw_page_text_archive",
+      "name": "Raw Page Text Archive",
+      "status": "alternative",
+      "scores": {
+        "evidence_safety": 5,
+        "determinism": 5,
+        "candidate_utility": 2,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 5
+      },
+      "weighted_score": 85,
+      "reason": "Preserves text safely but provides no stable candidate identity, span contract or review queue."
+    },
+    {
+      "rank": 4,
+      "code": "direct_import_spec_synthesis",
+      "name": "Direct Import-spec Synthesis",
+      "status": "rejected_boundary",
+      "scores": {
+        "evidence_safety": 1,
+        "determinism": 4,
+        "candidate_utility": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 2
+      },
+      "weighted_score": 65,
+      "reason": "Conflates extraction with semantic approval and would create configuration, attribute or context projections that the source may not support."
+    },
+    {
+      "rank": 5,
+      "code": "ocr_first_multimodal_pipeline",
+      "name": "OCR-first Multimodal Pipeline",
+      "status": "deferred_out_of_scope",
+      "scores": {
+        "evidence_safety": 3,
+        "determinism": 2,
+        "candidate_utility": 4,
+        "existing_tooling_reuse": 1,
+        "low_implementation_risk": 1
+      },
+      "weighted_score": 49,
+      "reason": "Could help image-only pages later but introduces a new nondeterministic dependency and is unnecessary for the first text-backed foundation."
+    }
+  ],
+  "selection": {
+    "code": "verified_page_candidate_ledger",
+    "name": "Verified PDF Page Candidate Ledger",
+    "weighted_score": 98,
+    "rationale": "The repository already verifies source hashes, extracts individual pages through deterministic text backends and requires exact source text before approved imports. The missing layer is a canonical candidate ledger that preserves source, page, backend and text-span identity while remaining semantically unapproved."
+  },
+  "selected_architecture": {
+    "input_contract": {
+      "receipt_driven": true,
+      "sort_sources_by": "source_code",
+      "verify_before_extraction": [
+        "file_path",
+        "bytes",
+        "sha256",
+        "declared_pages"
+      ],
+      "fail_closed_on_integrity_difference": true
+    },
+    "extraction_contract": {
+      "page_scope": "every declared page of every registered source",
+      "canonical_backend_order": [
+        "pdftotext-layout",
+        "pdftotext-default",
+        "pdftotext-raw"
+      ],
+      "optional_backends_are_diagnostics_only": [
+        "pypdf",
+        "PyPDF2"
+      ],
+      "canonical_candidate_ids_do_not_depend_on_optional_backend_presence": true,
+      "line_endings": "LF",
+      "preserve_exact_text": true,
+      "store_normalized_text_separately": true,
+      "empty_or_unreadable_text_does_not_mean_not_stated": true
+    },
+    "candidate_identity": {
+      "algorithm": "sha256",
+      "components": [
+        "source_sha256",
+        "page",
+        "rule_code",
+        "line_start",
+        "line_end",
+        "normalized_text"
+      ],
+      "stable_sort": [
+        "source_code",
+        "page",
+        "line_start",
+        "line_end",
+        "rule_code",
+        "candidate_id"
+      ]
+    },
+    "required_candidate_fields": [
+      "candidate_id",
+      "source_code",
+      "source_file_path",
+      "source_sha256",
+      "document_date",
+      "model_code",
+      "page",
+      "backend",
+      "backend_version",
+      "rule_code",
+      "line_start",
+      "line_end",
+      "exact_text",
+      "normalized_text",
+      "candidate_kind",
+      "review_status"
+    ],
+    "candidate_kinds": [
+      "heading",
+      "table_row",
+      "scalar_text",
+      "range_text",
+      "availability_text",
+      "unclassified_text"
+    ],
+    "review_statuses": [
+      "unreviewed_candidate",
+      "requires_visual_review",
+      "ambiguous_source_evidence",
+      "explicit_non_import"
+    ],
+    "semantic_boundaries": {
+      "configuration_code_is_not_inferred": true,
+      "attribute_code_is_not_approved_by_extraction": true,
+      "units_are_not_canonicalized_without_review": true,
+      "missing_text_is_not_negative_evidence": true,
+      "diagram_or_image_content_requires_visual_review": true,
+      "candidate_output_is_not_an_import_spec": true,
+      "master_data_changes": false,
+      "approved_import_spec_generation": false,
+      "automatic_promotion": false
+    },
+    "artifacts": [
+      "canonical JSON candidate ledger",
+      "Markdown extraction and review summary"
+    ],
+    "determinism_requirements": [
+      "byte-identical repeated output with the same source files and backend version",
+      "source SHA-256 verification before extraction",
+      "stable source, page and candidate ordering",
+      "stable candidate identifiers",
+      "no timestamps or environment-specific absolute paths",
+      "exact UTF-8 and LF output"
+    ],
+    "promotion_boundary": {
+      "required_next_step": "a separately authored review decision cites candidate_id and exact source text",
+      "direct_candidate_to_master_import": false,
+      "direct_candidate_to_approved_import_spec": false
+    }
+  },
+  "implementation_contract": {
+    "command": "pdf-candidate-ledger",
+    "default_receipt": "project/sources/official-dacia-brochures-20260725.json",
+    "first_delivery_scope": {
+      "sources": 5,
+      "pages": 114,
+      "master_data_changes": 0,
+      "approved_import_specs_created": 0,
+      "ocr": false
+    },
+    "required_tests": [
+      "source receipt ordering and integrity verification",
+      "stable candidate identifiers",
+      "optional backend independence",
+      "empty text produces a visual-review or extraction boundary rather than not_stated",
+      "byte-identical repeated JSON and Markdown output",
+      "no data/master changes",
+      "no files under data/imports are created",
+      "CLI fails closed on bytes, SHA-256 or page-count drift"
+    ]
+  },
+  "non_goals": [
+    "OCR implementation",
+    "visual diagram interpretation",
+    "canonical attribute creation",
+    "configuration projection",
+    "master data import",
+    "approved import-spec generation",
+    "automatic evidence approval",
+    "resolving ambiguous source evidence"
+  ],
+  "next_package": {
+    "name": "Verified PDF Candidate Ledger Foundation",
+    "status": "planned",
+    "goal": "Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications."
+  }
+}

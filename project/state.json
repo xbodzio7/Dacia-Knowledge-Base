@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-Cross-Model Workspace Priority Selection Review",
+  "phase": "PDF Candidate Extraction Automation Review",
   "reference_delivery": {
-    "name": "Cross-Model Workspace Entry Point",
-    "pull_request": 296,
-    "head_sha": "d5c68402e72dfa8b3f88654198a2e6ced82f8d98",
-    "quality_run": 2147
+    "name": "Post-Cross-Model Workspace Priority Selection Review",
+    "pull_request": 297,
+    "head_sha": "e7750b327f6a3bd7796cb4967dc00fc6a3401e6c",
+    "quality_run": 2158
   },
   "baseline": {
     "tests": 1070,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Post-Cross-Model Workspace Priority Selection Review",
+    "name": "PDF Candidate Extraction Automation Review",
     "status": "complete",
-    "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data."
+    "goal": "Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports."
   },
   "next_package": {
-    "name": "PDF Candidate Extraction Automation Review",
+    "name": "Verified PDF Candidate Ledger Foundation",
     "status": "planned",
-    "goal": "Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports."
+    "goal": "Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
