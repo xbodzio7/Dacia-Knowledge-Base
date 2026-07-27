@@ -1,0 +1,61 @@
+name: Catalog Recovery State Sync
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-state-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record completed package and synchronize baseline
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('project/state.json')
+          state = json.loads(path.read_text(encoding='utf-8'))
+          state['phase'] = 'Verified PDF Candidate Ledger Foundation'
+          state['current_package'] = {
+              'name': 'Source-Bounded Sandero and Stepway Catalogue Completion',
+              'status': 'complete',
+              'goal': (
+                  'Complete the source-visible Polish MY26 Sandero and Sandero Stepway '
+                  'catalogue with six missing TCe 100/110 manual configurations, exact '
+                  'catalogue prices, source-bounded technical observations, the complete '
+                  'price-list equipment matrix, cargo contexts, one comparison scope and '
+                  'repository-local model-image caching without inventing unstated values.'
+              ),
+          }
+          state['next_package'] = {
+              'name': 'Verified PDF Candidate Ledger Foundation',
+              'status': 'planned',
+              'goal': (
+                  'Implement the receipt-driven pdf-candidate-ledger command and deterministic '
+                  'JSON and Markdown candidate artifacts for the five registered official '
+                  'brochures, preserving source, page, backend and span provenance while '
+                  'creating no master-data rows or approved import specifications.'
+              ),
+          }
+          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+
+      - name: Commit synchronized project state
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/state.json project/STATE_SUMMARY.md README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md
+          git commit -m "docs(state): record Sandero Stepway catalogue completion"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
