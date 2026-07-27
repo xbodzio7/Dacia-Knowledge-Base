@@ -41,10 +41,10 @@ jobs:
         run: python tests/workspace_verification_checks.py -q
       - name: Run consumer guide checks
         run: python tests/data_product_consumer_guide_checks.py -q
-      - name: Download immutable public v1.0.0
-        run: python tools/dkb.py data-product-release-download --version 1.0.0 --output-directory downloaded-release
+      - name: Download immutable public v1.8.1
+        run: python tools/dkb.py data-product-release-download --version 1.8.1 --output-directory downloaded-release
       - name: Independently verify downloaded assets
-        run: python tools/data_product_release.py --verify --version 1.0.0 --commit-sha 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e --output-directory downloaded-release/assets
+        run: python tools/data_product_release.py --verify --version 1.8.1 --commit-sha 0b7009fd1950693e347638a6b96756aeefb43b8a --output-directory downloaded-release/assets
       - name: Verify complete workspace offline
         run: python tools/dkb.py data-product-workspace-verify --workspace-directory downloaded-release --json
       - name: Reject a corrupted copied workspace without further changes
@@ -52,10 +52,10 @@ jobs:
           python -c "from pathlib import Path; import shutil,subprocess,sys; source=Path('downloaded-release'); copied=Path('corrupted-release'); shutil.copytree(source,copied); target=next(path for path in sorted((copied/'contents').rglob('*')) if path.is_file()); target.write_bytes(target.read_bytes()+b'corruption'); damaged=target.read_bytes(); result=subprocess.run([sys.executable,'tools/dkb.py','data-product-workspace-verify','--workspace-directory',str(copied)],capture_output=True,text=True); assert result.returncode != 0; assert target.read_bytes() == damaged; print(result.stderr.strip())"
       - name: Check ready-to-open entry points
         run: |
-          python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
+          python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/cross-model/cross-model-comparison-view.html','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
       - name: Verify local index links and offline contract
         run: |
-          python -c "from html.parser import HTMLParser; from pathlib import Path; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert local; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
+          python -c "from html.parser import HTMLParser; from pathlib import Path; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert len(local)==84, len(local); assert 'contents/cross-model/cross-model-comparison-view.html' in local; assert 'Models and comparison scopes' in text; assert text.count('class=\"product-card\"')==5; assert all(root.joinpath(*Path(unquote(href)).parts).is_file() for href in local)"
       - name: Upload deterministic workspace index
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
