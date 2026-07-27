@@ -24,3 +24,4 @@ jobs:
           name: dkb-main-snapshot
           path: /tmp/dkb-main-snapshot.zip
           retention-days: 7
+          if-no-files-found: error
