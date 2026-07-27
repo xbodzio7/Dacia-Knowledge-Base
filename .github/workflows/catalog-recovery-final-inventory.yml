@@ -1,0 +1,159 @@
+name: Catalog Recovery Final Inventory
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-final-inventory.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build final inventory
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import json
+          from collections import Counter, defaultdict
+          from itertools import combinations
+          from pathlib import Path
+
+          root = Path('.')
+          out = root / 'diagnostics/catalog-recovery'
+          out.mkdir(parents=True, exist_ok=True)
+
+          def read_csv(path: Path):
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          def dump(name: str, payload):
+              (out / name).write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+
+          master = root / 'data/master'
+          table_stats = {}
+          for path in sorted(master.rglob('*.csv')):
+              rows = read_csv(path)
+              ids = [int(r['id']) for r in rows if r.get('id', '').isdigit()]
+              table_stats[path.as_posix()] = {'rows': len(rows), 'max_id': max(ids, default=None), 'fields': list(rows[0]) if rows else []}
+          dump('table-stats.json', table_stats)
+
+          # Exact current rows attached to the July Sandero/Stepway price list.
+          source = 'src_pl_sandero_stepway_price_my26_20260703'
+          availability = read_csv(master / 'configuration_attribute_availability.csv')
+          source_rows = [r for r in availability if r.get('source_code') == source]
+          dump('price-list-current-availability.json', {
+              'count': len(source_rows),
+              'attributes': sorted({r['attribute_code'] for r in source_rows}),
+              'configurations': sorted({r['configuration_code'] for r in source_rows}),
+              'rows': source_rows,
+          })
+
+          exact_sources = {
+              'src_pl_sandero_expression_ecog120_mt_20260626',
+              'src_pl_sandero_journey_ecog120_mt_20260626',
+              'src_pl_sandero_stepway_essential_ecog120_mt_20260626',
+              'src_pl_sandero_stepway_expression_ecog120_at_20260626',
+              'src_pl_sandero_stepway_expression_ecog120_mt_20260626',
+              'src_pl_sandero_stepway_extreme_ecog120_at_20260626',
+              'src_pl_sandero_stepway_extreme_ecog120_mt_20260626',
+          }
+          exact_rows = [r for r in availability if r.get('source_code') in exact_sources]
+          union = sorted({r['attribute_code'] for r in exact_rows} | {r['attribute_code'] for r in source_rows})
+          by_configuration = {}
+          for code in sorted({r['configuration_code'] for r in exact_rows}):
+              rows = [r for r in exact_rows if r['configuration_code'] == code]
+              by_configuration[code] = {
+                  'count': len(rows),
+                  'source': sorted({r['source_code'] for r in rows}),
+                  'states': {r['attribute_code']: r['availability_status'] for r in rows},
+              }
+          dump('equipment-projection-contract.json', {
+              'exact_source_count': len(exact_rows),
+              'union_count': len(union),
+              'union_attributes': union,
+              'by_configuration': by_configuration,
+              'missing_per_configuration': {
+                  code: sorted(set(union) - set(item['states']))
+                  for code, item in by_configuration.items()
+              },
+              'current_price_list_rows': source_rows,
+          })
+
+          # Inventory every explicit reporting scope and its combination count.
+          scope_files = []
+          total_pairs = 0
+          for path in sorted((root / 'data/reporting').rglob('*.json')):
+              try:
+                  payload = json.loads(path.read_text(encoding='utf-8'))
+              except (OSError, json.JSONDecodeError):
+                  continue
+              if not isinstance(payload, dict) or not isinstance(payload.get('configurations'), list):
+                  continue
+              configs = payload['configurations']
+              codes = []
+              for item in configs:
+                  if isinstance(item, dict) and isinstance(item.get('configuration_code'), str):
+                      codes.append(item['configuration_code'])
+                  elif isinstance(item, str):
+                      codes.append(item)
+              if not codes:
+                  continue
+              pairs = len(list(combinations(codes, 2)))
+              total_pairs += pairs
+              scope_files.append({'path': path.as_posix(), 'configuration_count': len(codes), 'pair_count': pairs, 'configuration_codes': codes})
+          dump('reporting-scope-inventory.json', {
+              'scope_count': len(scope_files),
+              'pair_count': total_pairs,
+              'scopes': scope_files,
+          })
+
+          # Find references that aggregate or validate all reporting scopes.
+          reporting_hits = {}
+          for path in sorted(root.rglob('*')):
+              if not path.is_file() or path.suffix.lower() not in {'.py', '.yml', '.yaml', '.md', '.json'}:
+                  continue
+              if '.git' in path.parts or 'diagnostics' in path.parts:
+                  continue
+              try:
+                  lines = path.read_text(encoding='utf-8').splitlines()
+              except (OSError, UnicodeDecodeError):
+                  continue
+              hits = [line for line in lines if 'configuration_completeness' in line or 'reporting scope' in line.lower() or 'pair_count' in line]
+              if hits:
+                  reporting_hits[path.as_posix()] = hits
+          dump('reporting-scope-reference-hits.json', reporting_hits)
+
+          # Media implementation/test inventory.
+          media_paths = [
+              'project/sources/dacia-pl-model-media-20260724.json',
+              'tools/reporting/configuration_shortlist_html.py',
+              'tools/reporting/configuration_shortlist_v12.js',
+              'tests/test_configuration_shortlist_html.py',
+              'tests/test_cross_model_comparison_view.py',
+              'tests/test_configuration_selection_export.py',
+          ]
+          media = {}
+          for name in media_paths:
+              path = root / name
+              if path.exists():
+                  media[name] = path.read_text(encoding='utf-8')
+          dump('media-contract.json', media)
+          PY
+
+      - name: Commit final inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery
+          git commit -m "chore(data): inventory final catalogue contracts"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
