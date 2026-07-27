@@ -1,1 +1,0 @@
-triggered_after_pr_open: true
