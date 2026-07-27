@@ -1,0 +1,82 @@
+name: Catalog Recovery Source Slices Debug
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-source-slices-debug.yml
+
+permissions:
+  contents: write
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Execute embedded steps and preserve first failure
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import subprocess
+          from pathlib import Path
+
+          workflow = Path('.github/workflows/catalog-recovery-source-slices.yml')
+          lines = workflow.read_text(encoding='utf-8').splitlines()
+          scripts = []
+          index = 0
+          while index < len(lines):
+              if lines[index].strip() == 'run: |':
+                  indent = len(lines[index]) - len(lines[index].lstrip())
+                  index += 1
+                  collected = []
+                  while index < len(lines):
+                      line = lines[index]
+                      current_indent = len(line) - len(line.lstrip())
+                      if line.strip() and current_indent <= indent:
+                          break
+                      collected.append(line[indent + 2:] if len(line) >= indent + 2 else '')
+                      index += 1
+                  scripts.append('\n'.join(collected))
+                  continue
+              index += 1
+
+          target = Path('diagnostics/catalog-recovery/source-slices-debug.log')
+          target.parent.mkdir(parents=True, exist_ok=True)
+          summary = {'script_count': len(scripts), 'steps': []}
+          with target.open('w', encoding='utf-8') as handle:
+              handle.write(f'script_count={len(scripts)}\n')
+              for number, script in enumerate(scripts[:3], 1):
+                  handle.write(f'\n===== embedded step {number} =====\n')
+                  completed = subprocess.run(
+                      ['bash', '-lc', script],
+                      text=True,
+                      stdout=subprocess.PIPE,
+                      stderr=subprocess.STDOUT,
+                      check=False,
+                  )
+                  handle.write(completed.stdout)
+                  handle.write(f'\nexit={completed.returncode}\n')
+                  summary['steps'].append({'step': number, 'exit': completed.returncode})
+                  if completed.returncode:
+                      break
+          Path('diagnostics/catalog-recovery/source-slices-debug-summary.json').write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Commit diagnostic log only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/source-slices-debug.log diagnostics/catalog-recovery/source-slices-debug-summary.json
+          git commit -m "chore(data): record source-slice migration failure"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
