@@ -40,8 +40,8 @@ jobs:
 
           path = Path(os.environ["RUNNER_TEMP"]) / "original.yml"
           text = path.read_text(encoding="utf-8")
-          marker = "          python - <<'PY'\n"
-          start = text.index(marker) + len(marker)
+          marker = "          from __future__ import annotations\n"
+          start = text.index(marker)
           end = text.index("\n          PY\n", start)
           script = textwrap.dedent(text[start:end])
           exec(compile(script, str(path), "exec"), {"__name__": "__main__"})
