@@ -223,19 +223,34 @@ def verify_repository() -> None:
 
     state = load_json(STATE)
     ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "phase missing")
-    ensure(
-        state.get("baseline", {}).get("tests") == 1070,
-        "test baseline differs",
-    )
-    ensure(state.get("baseline", {}).get("rows") == 9688, "row baseline changed")
-    ensure(
-        state.get("baseline", {}).get("configuration_values") == 2949,
-        "configuration values changed",
-    )
-    ensure(
-        state.get("baseline", {}).get("availability_records") == 4754,
-        "availability baseline changed",
-    )
+    historical_package = "Post-Cross-Model Workspace Priority Selection Review"
+    current_package = state.get("current_package", {})
+    baseline = state.get("baseline", {})
+    if current_package.get("name") == historical_package:
+        ensure(state.get("phase") == historical_package, "project phase differs")
+        ensure(baseline.get("tests") == 1070, "test baseline differs")
+        ensure(baseline.get("rows") == 9688, "row baseline changed")
+        ensure(
+            baseline.get("configuration_values") == 2949,
+            "configuration values changed",
+        )
+        ensure(
+            baseline.get("availability_records") == 4754,
+            "availability baseline changed",
+        )
+    else:
+        ensure(current_package.get("status") == "complete", "current package is not complete")
+        ensure(state.get("phase") == current_package.get("name"), "project phase/current package differs")
+        ensure(int(baseline.get("tests", 0)) >= 1070, "test baseline regressed")
+        ensure(int(baseline.get("rows", 0)) >= 9688, "row baseline regressed")
+        ensure(
+            int(baseline.get("configuration_values", 0)) >= 2949,
+            "configuration values regressed",
+        )
+        ensure(
+            int(baseline.get("availability_records", 0)) >= 4754,
+            "availability baseline regressed",
+        )
 
 
 def verify() -> None:
