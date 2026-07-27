@@ -1,0 +1,60 @@
+name: Repair Cross-Model Workspace Entry Point Push
+
+on:
+  push:
+    branches:
+      - agent/cross-model-workspace-entry-point
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/cross-model-workspace-entry-point
+          fetch-depth: 0
+      - name: Repair malformed indentation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tests/workspace_index_checks.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''        with self.assertRaisesRegex(WorkspaceIndexError, "cross-model comparison HTML is missing"):
+  render_workspace_index(
+      self.workspace,
+      self.manifest,
+      self.metadata,
+  )
+'''
+          new = '''        with self.assertRaisesRegex(
+            WorkspaceIndexError,
+            "cross-model comparison HTML is missing",
+        ):
+            render_workspace_index(
+                self.workspace,
+                self.manifest,
+                self.metadata,
+            )
+'''
+          if old in text:
+              path.write_text(text.replace(old, new), encoding='utf-8', newline='')
+          PY
+      - name: Compile and run focused tests
+        run: |
+          python -m compileall -q tools scripts tests
+          python -m unittest -q tests.test_cross_model_workspace_entry_point
+          python -m unittest -q tests.workspace_index_checks
+      - name: Commit repair when needed
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add tests/workspace_index_checks.py
+          git commit -m "fix(tests): repair workspace entry point indentation"
+          git push origin HEAD:agent/cross-model-workspace-entry-point
