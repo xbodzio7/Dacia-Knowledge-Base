@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Cross-Model Workspace Entry Point",
+  "phase": "Post-Cross-Model Workspace Priority Selection Review",
   "reference_delivery": {
-    "name": "Cross-Model Navigation Usability Review",
-    "pull_request": 295,
-    "head_sha": "2ca040708e9f8bba92abe70693395c6a5447252f",
-    "quality_run": 2102
+    "name": "Cross-Model Workspace Entry Point",
+    "pull_request": 296,
+    "head_sha": "d5c68402e72dfa8b3f88654198a2e6ced82f8d98",
+    "quality_run": 2147
   },
   "baseline": {
-    "tests": 1070,
+    "tests": 1078,
     "csv_files": 46,
     "rows": 9688,
     "configuration_values": 2949,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Cross-Model Workspace Entry Point",
+    "name": "Post-Cross-Model Workspace Priority Selection Review",
     "status": "complete",
-    "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index while preserving older releases and immutable public assets."
+    "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data."
   },
   "next_package": {
-    "name": "Post-Cross-Model Workspace Priority Selection Review",
+    "name": "PDF Candidate Extraction Automation Review",
     "status": "planned",
-    "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package."
+    "goal": "Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
