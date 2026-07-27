@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "source_constant_block": true,
+    "fields_versions_marker": true,
+    "validation_marker": true,
+    "complete_additions_marker": true,
+    "cargo_call": true,
+    "expected_additions_marker": true,
+    "new_media_test": true,
+    "cargo_spec_on_main": true,
+    "package_contract": true,
+    "reporting_scope": true,
+    "gap_evidence": true
+  },
+  "all_pass": true,
+  "snippets": {
+    "FIELDS = {": "= (\n    \"Belka skrętna ze sprężynami śrubowymi, teleskopowymi \"\n    \"amortyzatorami hydraulicznymi i stabilizatorem\"\n)\n\nFIELDS = {\n    \"versions.csv\": (\n        \"id\", \"code\", \"model_code\", \"name\", \"status\", \"notes\",\n    ),\n    \"source_versions.csv\": (\n        \"id\", \"source_code\", \"version_code\", \"relationship\", \"notes\",\n    ),\n    \"configurations.csv\": (\n        \"id\", \"code\", \"version_code\", \"powertrain_label\",\n        \"transmission_type\", \"status\", \"notes\",\n    ),\n    \"configuration_prices.csv\": (\n        \"id\", \"code\", \"configuration_code\", \"market\", \"price_type\",\n        \"amount\", \"currency_code\", \"price_date\",",
+    "def _validate_references": "_text(encoding=\"utf-8\") != rendered:\n        raise CompletionError(f\"package contract is missing or differs: {path}\")\n\n\ndef _validate_references(repository: Path) -> None:\n    master = repository / \"data/master\"\n    _, versions = _read_csv(master / \"versions.csv\")\n    _, attributes = _read_csv(master / \"attributes.csv\")\n    _, sources = _read_csv(master / \"sources.csv\")\n    version_codes = {row[\"code\"] for row in versions}\n    attribute_codes = {row[\"code\"] for row in attributes}\n    source_codes = {row[\"code\"] for row in sources}\n    for item in CONFIGURATIONS:\n        if item[\"version_code\"] not in version_code",
+    "def complete(": "ex[semantic] = row\n        added += 1\n    if apply and added:\n        _write_csv(path, fields, rows)\n    return added\n\n\ndef complete(repository: Path, *, apply: bool) -> dict[str, int]:\n    repository = repository.resolve()\n    master = repository / \"data/master\"\n    additions: dict[str, int] = {}\n    additions[\"versions\"], _ = _append_expected(\n        master / \"versions.csv\",\n        [SANDERO_ESSENTIAL_VERSION],\n        apply=apply,\n    )\n    additions[\"source_version_relationships\"] = _apply_source_versions(\n        master / \"source_versions.csv\",\n        apply=apply,\n    )\n    _validate_references(repository)",
+    "expected_additions": "ice_source_code\": PRICE_SOURCE,\n        \"configuration_codes\": [str(item[\"code\"]) for item in CONFIGURATIONS],\n        \"expected_additions\": {\n            \"versions\": 1,\n            \"source_version_relationships\": 1,\n            \"configurations\": 6,\n            \"prices\": 8,\n            \"technical_values\": 318,\n            \"equipment_availability\": 1016,\n            \"cargo_contexts\": 30,\n            \"source_configuration_relationships\": 14,\n            \"reporting_scopes\": 1,\n        },\n        \"expected_repository_totals\": {\n            \"active_configurations\": 78,\n            \"reporting_scopes\": 21,\n            \"",
+    "_update_cargo_spec": "\"code\"]] = row\n        added += 1\n    if apply and added:\n        _write_csv(path, fields, rows)\n    return added\n\n\ndef _update_cargo_spec(repository: Path, *, apply: bool) -> None:\n    path = repository / \"data/imports/configuration_cargo_values/sandero-stepway-brochure-cargo-20260202.json\"\n    payload = json.loads(path.read_text(encoding=\"utf-8\"))\n    configurations = payload.get(\"configurations\")\n    if not isinstance(configurations, list):\n        raise CompletionError(\"invalid cargo import spec\")\n    existing = {\n        item[\"configuration_code\"]\n        for item in configurations\n        if isinstance(item"
+  }
+}
