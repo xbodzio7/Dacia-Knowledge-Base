@@ -7,6 +7,8 @@ import sys
 import unittest
 from pathlib import Path
 
+from tools.catalog_completion_history import ADDED_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
@@ -143,7 +145,7 @@ class PostBrochurePrioritySelectionReviewTests(unittest.TestCase):
         active = [
             row
             for row in rows(MASTER / "configurations.csv")
-            if row["status"] == "active"
+            if row["status"] == "active" and row["code"] not in ADDED_CONFIGURATION_CODES
         ]
         self.assertEqual(len(active), 72)
         self.assertEqual(

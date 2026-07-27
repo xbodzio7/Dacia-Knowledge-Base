@@ -8,6 +8,8 @@ import sys
 import unittest
 from pathlib import Path
 
+from tools.catalog_completion_history import ADDED_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "data_products_v1_7_0_release_preparation.json"
@@ -58,7 +60,11 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             set(baseline["formats"]),
             {"JSON", "Markdown", "CSV", "HTML", "XLSX"},
         )
-        active = [row for row in rows(MASTER / "configurations.csv") if row["status"] == "active"]
+        active = [
+            row
+            for row in rows(MASTER / "configurations.csv")
+            if row["status"] == "active" and row["code"] not in ADDED_CONFIGURATION_CODES
+        ]
         self.assertEqual(len(active), 72)
 
     def test_preparation_verification_includes_offline_and_previous_release(self) -> None:

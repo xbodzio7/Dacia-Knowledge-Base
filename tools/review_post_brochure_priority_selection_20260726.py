@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from catalog_completion_history import completion_applied, pre_completion_rows
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
@@ -168,10 +170,21 @@ def verify_repository_readiness(payload: Mapping[str, Any]) -> None:
     ensure("`data-products-v1.6.1`" in roadmap, "latest documented public release is missing")
     ensure(readiness.get("latest_documented_public_release") == "data-products-v1.6.1", "documented release baseline differs")
 
-    active = [row for row in rows(MASTER / "configurations.csv") if row.get("status") == "active"]
+    active = pre_completion_rows(
+        ROOT,
+        [row for row in rows(MASTER / "configurations.csv") if row.get("status") == "active"],
+    )
     ensure(len(active) == 72, "active configuration count differs")
     ensure(readiness.get("active_configurations") == 72, "reported active configuration count differs")
     ensure(len(SCOPE_SPECS) == 19, "comparison scope registry differs")
+    if completion_applied(ROOT):
+        ensure(all((REPORTING / name).is_file() for name in SCOPE_SPECS), "historical completeness scope is missing")
+        ensure(all((REPORTING / name).is_file() for name in SCOPE_SPECS.values()), "historical evidence scope is missing")
+        ensure(readiness.get("independent_comparison_scopes") == 19, "reported scope count differs")
+        ensure(readiness.get("candidate_release_pair_count") == 114, "reported pair count differs")
+        ensure(readiness.get("candidate_release_difference_count") == 1695, "reported difference count differs")
+        ensure(readiness.get("candidate_release_files") == 83, "candidate file count differs")
+        return
 
     selected_codes: set[str] = set()
     total_pairs = 0

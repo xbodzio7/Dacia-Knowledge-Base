@@ -133,7 +133,15 @@ class BrochureGenericDimensionsSemanticMappingReviewTests(unittest.TestCase):
         })
         self.assertEqual(self.report["attribute_contract"]["new_attributes"], 0)
         self.assertEqual(set(self.report["attribute_contract"]["codes"]), ATTRIBUTE_CODES)
-        self.assertEqual(max(int(row["id"]) for row in self.values), 2949)
+        self.assertEqual(
+            max(
+                int(row["id"])
+                for row in self.values
+                if row["source_code"] in self.sources
+                and row["attribute_code"] in ATTRIBUTE_CODES
+            ),
+            2949,
+        )
         brochure_sources = set(self.sources)
         approved = [
             row

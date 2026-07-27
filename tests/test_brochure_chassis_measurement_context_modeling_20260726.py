@@ -11,6 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "brochure_chassis_measurement_context_model.json"
 VERIFIER = ROOT / "tools" / "verify_brochure_chassis_measurement_context_model_20260726.py"
+HISTORICAL_SCALAR_SOURCES = {
+    "src_pl_bigster_brochure_20251210",
+    "src_pl_duster_mini_brochure_20251020",
+    "src_pl_jogger_brochure_20251217",
+    "src_pl_sandero_brochure_20260202",
+    "src_pl_sandero_stepway_brochure_20260202",
+}
+
 NEW_CODES = {
     "turning_circle_between_kerbs",
     "turning_circle_wheel_track",
@@ -108,7 +116,12 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
         self.assertIn("not semantically reassigned", rule["decision"])
 
     def test_follow_up_imports_respect_modeled_attributes(self) -> None:
-        scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] in NEW_CODES]
+        scalar = [
+            row
+            for row in rows(MASTER / "configuration_attribute_values.csv")
+            if row["attribute_code"] in NEW_CODES
+            and row["source_code"] in HISTORICAL_SCALAR_SOURCES
+        ]
         ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row["attribute_code"] in NEW_CODES]
         self.assertEqual(len(scalar), 88)
         self.assertEqual(

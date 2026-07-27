@@ -109,10 +109,10 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }
-        self.assertEqual(len(selected["sandero_iii"]), 50)
-        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 4)
-        self.assertEqual(len(selected["sandero_stepway_iii"]), 25)
-        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 5)
+        self.assertEqual(len(selected["sandero_iii"]), 80)
+        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 7)
+        self.assertEqual(len(selected["sandero_stepway_iii"]), 52)
+        self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 8)
         self.assertEqual(len(selected["jogger"]), 242)
         self.assertEqual(len({row["configuration_code"] for row in selected["jogger"]}), 22)
         self.assertEqual(len(selected["bigster"]), 140)
