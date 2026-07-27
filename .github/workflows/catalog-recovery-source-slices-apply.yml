@@ -1,0 +1,46 @@
+name: Catalog Recovery Source Slices Apply
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-source-slices-apply.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Migrate and test
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery
+          python tools/migrate_sandero_stepway_catalog_source_slices.py > diagnostics/catalog-recovery/source-slice-migration.log 2>&1
+          migration=$?
+          validator=99
+          tests=99
+          if [ "$migration" -eq 0 ]; then
+            python tools/dkb.py validate > diagnostics/catalog-recovery/source-slice-validator.log 2>&1
+            validator=$?
+            python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/source-slice-tests.log 2>&1
+            tests=$?
+          fi
+          printf '{"migration_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$migration" "$validator" "$tests" > diagnostics/catalog-recovery/source-slice-summary.json
+          exit 0
+
+      - name: Commit result
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data project/sources tools tests diagnostics/catalog-recovery/source-slice-*.log diagnostics/catalog-recovery/source-slice-summary.json
+          git commit -m "refactor(data): isolate catalogue completion source slices"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
