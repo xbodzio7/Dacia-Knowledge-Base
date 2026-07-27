@@ -92,7 +92,7 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
         self.assertEqual(sum(item["new_attributes"] for item in packages), 4)
 
     def test_current_brochure_scalar_and_range_coverage_is_exact(self) -> None:
-        self.assertEqual(len(self.scalar), 1118)
+        self.assertEqual(len(self.scalar), 1274)
         self.assertEqual(len(self.ranges), 68)
         self.assertEqual(
             Counter(row["source_code"] for row in self.scalar),

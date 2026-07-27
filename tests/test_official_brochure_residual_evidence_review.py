@@ -109,7 +109,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }
-        self.assertEqual(len(selected["sandero_iii"]), 50)
+        self.assertEqual(len(selected["sandero_iii"]), 80)
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 4)
         self.assertEqual(len(selected["sandero_stepway_iii"]), 25)
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 5)
@@ -135,7 +135,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             and row["attribute_code"] in CORE_DIMENSIONS
         ]
         approved = [row for row in generic if 2568 <= int(row["id"]) <= 2949]
-        self.assertEqual(len(generic), 382)
+        self.assertEqual(len(generic), 439)
         self.assertEqual(len(approved), 382)
         self.assertEqual(
             [int(row["id"]) for row in approved],

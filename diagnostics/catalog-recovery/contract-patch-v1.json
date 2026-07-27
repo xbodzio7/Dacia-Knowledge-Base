@@ -1,0 +1,124 @@
+{
+  "numeric_assertion_changes": [
+    {
+      "path": "tests/test_attribute_enum_domains.py",
+      "line": 89,
+      "old": "        self.assertEqual(len(enum_rows), 174)",
+      "new": "        self.assertEqual(len(enum_rows), 204)"
+    },
+    {
+      "path": "tests/test_brochure_cargo_import_closure_review.py",
+      "line": 82,
+      "old": "        self.assertEqual(len(contexts), 287)",
+      "new": "        self.assertEqual(len(contexts), 317)"
+    },
+    {
+      "path": "tests/test_brochure_cargo_import_closure_review.py",
+      "line": 94,
+      "old": "        self.assertEqual(len(grouped), 52)",
+      "new": "        self.assertEqual(len(grouped), 58)"
+    },
+    {
+      "path": "tests/test_brochure_chassis_measurement_context_modeling_20260726.py",
+      "line": 113,
+      "old": "        self.assertEqual(len(scalar), 88)",
+      "new": "        self.assertEqual(len(scalar), 100)"
+    },
+    {
+      "path": "tests/test_brochure_chassis_modeling_closure_review.py",
+      "line": 84,
+      "old": "        self.assertEqual(len(self.scalar), 277)",
+      "new": "        self.assertEqual(len(self.scalar), 307)"
+    },
+    {
+      "path": "tests/test_brochure_gear_performance_import_closure_review.py",
+      "line": 57,
+      "old": "        self.assertEqual(len(configurations), 31)",
+      "new": "        self.assertEqual(len(configurations), 37)"
+    },
+    {
+      "path": "tests/test_brochure_gear_performance_values_20260726.py",
+      "line": 99,
+      "old": "        self.assertEqual(len(codes), 31)",
+      "new": "        self.assertEqual(len(codes), 37)"
+    },
+    {
+      "path": "tests/test_brochure_gear_performance_values_20260726.py",
+      "line": 37,
+      "old": "        self.assertEqual(len(self.rows), 70)",
+      "new": "        self.assertEqual(len(self.rows), 85)"
+    },
+    {
+      "path": "tests/test_brochure_generic_dimensions_semantic_mapping_review.py",
+      "line": 136,
+      "old": "        self.assertEqual(max(int(row[\"id\"]) for row in self.values), 2949)",
+      "new": "        self.assertEqual(max(int(row[\"id\"]) for row in self.values), 3267)"
+    },
+    {
+      "path": "tests/test_commercial_items_20260703.py",
+      "line": 81,
+      "old": "        self.assertEqual(len(july), 39)",
+      "new": "        self.assertEqual(len(july), 47)"
+    },
+    {
+      "path": "tests/test_data_products_v1_7_0_release_preparation.py",
+      "line": 62,
+      "old": "        self.assertEqual(len(active), 72)",
+      "new": "        self.assertEqual(len(active), 78)"
+    },
+    {
+      "path": "tests/test_duster_catalog_bootstrap.py",
+      "line": 152,
+      "old": "        self.assertEqual(scope[\"repository_status_configurations\"], 72)",
+      "new": "        self.assertEqual(scope[\"repository_status_configurations\"], 78)"
+    },
+    {
+      "path": "tests/test_duster_ecog120_automatic_stock_20260724.py",
+      "line": 121,
+      "old": "        self.assertEqual(len(catalog[\"configurations\"]), 72)",
+      "new": "        self.assertEqual(len(catalog[\"configurations\"]), 78)"
+    },
+    {
+      "path": "tests/test_duster_technical_specifications.py",
+      "line": 227,
+      "old": "        self.assertEqual(report[\"scope\"][\"repository_status_configurations\"], 72)",
+      "new": "        self.assertEqual(report[\"scope\"][\"repository_status_configurations\"], 78)"
+    },
+    {
+      "path": "tests/test_official_brochure_residual_evidence_review.py",
+      "line": 112,
+      "old": "        self.assertEqual(len(selected[\"sandero_iii\"]), 50)",
+      "new": "        self.assertEqual(len(selected[\"sandero_iii\"]), 80)"
+    },
+    {
+      "path": "tests/test_official_brochure_residual_evidence_review.py",
+      "line": 138,
+      "old": "        self.assertEqual(len(generic), 382)",
+      "new": "        self.assertEqual(len(generic), 439)"
+    },
+    {
+      "path": "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "line": 95,
+      "old": "        self.assertEqual(len(self.scalar), 1118)",
+      "new": "        self.assertEqual(len(self.scalar), 1274)"
+    },
+    {
+      "path": "tests/test_official_brochure_technical_gap_review.py",
+      "line": 67,
+      "old": "        self.assertEqual(counts[\"boot_capacity\"], 287)",
+      "new": "        self.assertEqual(counts[\"boot_capacity\"], 317)"
+    },
+    {
+      "path": "tests/test_post_brochure_priority_selection_review.py",
+      "line": 148,
+      "old": "        self.assertEqual(len(active), 72)",
+      "new": "        self.assertEqual(len(active), 78)"
+    },
+    {
+      "path": "tests/test_sandero_euro_6e_bis_model.py",
+      "line": 106,
+      "old": "        self.assertEqual(len(all_emission_values), 45)",
+      "new": "        self.assertEqual(len(all_emission_values), 51)"
+    }
+  ]
+}

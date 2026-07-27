@@ -145,7 +145,7 @@ class PostBrochurePrioritySelectionReviewTests(unittest.TestCase):
             for row in rows(MASTER / "configurations.csv")
             if row["status"] == "active"
         ]
-        self.assertEqual(len(active), 72)
+        self.assertEqual(len(active), 78)
         self.assertEqual(
             self.report["repository_readiness"]["active_configurations"],
             72,

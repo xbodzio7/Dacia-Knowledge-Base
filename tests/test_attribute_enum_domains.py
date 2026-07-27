@@ -86,7 +86,7 @@ class AttributeEnumDomainTests(unittest.TestCase):
             for row in csv_rows(MASTER / "configuration_attribute_values.csv")
             if attribute_types[row["attribute_code"]] == "enum"
         ]
-        self.assertEqual(len(enum_rows), 174)
+        self.assertEqual(len(enum_rows), 204)
         for row in enum_rows:
             self.assertIn(row["attribute_code"], domains)
             self.assertIn(row["value"], domains[row["attribute_code"]])

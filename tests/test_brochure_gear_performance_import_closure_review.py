@@ -54,7 +54,7 @@ class BrochureGearPerformanceImportClosureReviewTests(unittest.TestCase):
 
     def test_exact_configuration_scope_preserves_jogger_layouts(self) -> None:
         configurations = {row["configuration_code"] for row in self.values}
-        self.assertEqual(len(configurations), 31)
+        self.assertEqual(len(configurations), 37)
         self.assertEqual(sum(code.startswith("sandero_iii_") for code in configurations), 4)
         self.assertEqual(sum(code.startswith("sandero_stepway_iii_") for code in configurations), 5)
         jogger = {code for code in configurations if code.startswith("jogger_")}

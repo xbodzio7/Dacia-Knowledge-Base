@@ -16,8 +16,8 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 "file": "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf",
                 "sha256": "5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783",
                 "models": {"sandero_iii", "sandero_stepway_iii"},
-                "versions": {"sandero_iii_expression", "sandero_iii_journey", "sandero_stepway_iii_essential", "sandero_stepway_iii_expression", "sandero_stepway_iii_extreme"},
-                "configuration_count": 7,
+                "versions": {"sandero_iii_essential", "sandero_iii_expression", "sandero_iii_journey", "sandero_stepway_iii_essential", "sandero_stepway_iii_expression", "sandero_stepway_iii_extreme"},
+                "configuration_count": 15,
             },
             "src_pl_duster_price_my26_20260703": {
                 "file": "PDF/Cenniki/DACIA DUSTER cennik MY26 20260703.pdf",

@@ -110,7 +110,7 @@ class BrochureChassisMeasurementContextModelTests(unittest.TestCase):
     def test_follow_up_imports_respect_modeled_attributes(self) -> None:
         scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] in NEW_CODES]
         ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row["attribute_code"] in NEW_CODES]
-        self.assertEqual(len(scalar), 88)
+        self.assertEqual(len(scalar), 100)
         self.assertEqual(
             {row["attribute_code"] for row in scalar},
             {"turning_circle_between_kerbs", "turning_circle_wheel_track", "maximum_kerb_weight"},

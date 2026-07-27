@@ -34,7 +34,7 @@ class BrochureGearPerformanceValueTests(unittest.TestCase):
         ]
 
     def test_exact_ids_counts_and_observation_identity(self) -> None:
-        self.assertEqual(len(self.rows), 70)
+        self.assertEqual(len(self.rows), 85)
         self.assertEqual([int(row["id"]) for row in self.rows], list(range(2119, 2189)))
         self.assertEqual(len({row["code"] for row in self.rows}), 70)
         self.assertEqual(
@@ -96,7 +96,7 @@ class BrochureGearPerformanceValueTests(unittest.TestCase):
 
     def test_exact_configuration_scope_and_seat_layouts(self) -> None:
         codes = {row["configuration_code"] for row in self.rows}
-        self.assertEqual(len(codes), 31)
+        self.assertEqual(len(codes), 37)
         self.assertFalse(any(code.startswith(("sandero_iii_tce", "sandero_stepway_iii_tce")) for code in codes))
         jogger = {code for code in codes if code.startswith("jogger_")}
         self.assertEqual(len(jogger), 22)

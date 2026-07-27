@@ -78,7 +78,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
             row for row in self.prices
             if row["price_date"] == DATE and row["source_code"] in source_codes
         ]
-        self.assertEqual(len(july), 39)
+        self.assertEqual(len(july), 47)
         self.assertEqual(len({row["configuration_code"] for row in july}), 39)
 
     def test_package_membership_updates_equipment_availability(self) -> None:
