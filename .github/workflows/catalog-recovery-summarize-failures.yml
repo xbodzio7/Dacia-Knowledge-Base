@@ -1,0 +1,26 @@
+name: Catalog Recovery Summarize Failures
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-summarize-failures.yml
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Summarize
+        run: python tools/summarize_recovery_test_failures.py diagnostics/catalog-recovery/equipment-source-tests.log diagnostics/catalog-recovery/equipment-source-failures.json
+      - name: Commit summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/equipment-source-failures.json
+          git commit -m "chore(test): summarize current recovery failures"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
