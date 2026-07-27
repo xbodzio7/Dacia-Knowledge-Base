@@ -1,4 +1,4 @@
-"""Zero-count gate for comparison headers below the sticky selection panel."""
+"""Zero-count gate for comparison headers and collapsible parameter groups."""
 
 from __future__ import annotations
 
@@ -15,12 +15,21 @@ import configuration_shortlist  # noqa: E402
 
 def _verify() -> None:
     source = (TOOLS / "configuration_shortlist.py").read_text(encoding="utf-8")
-    assert "--comparison-sticky-top" in source
-    assert ".comparison-table thead th{top:var(--comparison-sticky-top,0px)}" in source
-    assert "panel.offsetHeight + 18" in source
-    assert "ResizeObserver" in source
-    assert "MutationObserver" in source
-    assert "getComputedStyle(panel).position === \"sticky\"" in source
+    for marker in (
+        "--comparison-sticky-top",
+        ".comparison-table thead th{top:var(--comparison-sticky-top,0px)}",
+        "selectionPanel.offsetHeight + 18",
+        "ResizeObserver",
+        "MutationObserver",
+        'getComputedStyle(selectionPanel).position === "sticky"',
+        "comparison-category-label",
+        "comparison-category-toggle",
+        "Zwiń wszystkie grupy",
+        "Rozwiń wszystkie grupy",
+        "data-group-collapsed",
+        "collapsedCategories",
+    ):
+        assert marker in source, marker
 
     rendered = configuration_shortlist.render_html(
         {
@@ -55,8 +64,10 @@ def _verify() -> None:
         }
     )
     assert rendered.count("--comparison-sticky-top") >= 3
-    assert "new ResizeObserver(update).observe(panel)" in rendered
-    assert "new MutationObserver(update).observe(panel" in rendered
+    assert "new ResizeObserver(updateStickyOffset).observe(selectionPanel)" in rendered
+    assert "new MutationObserver(scheduleDecoration).observe(table" in rendered
+    assert "Sterowanie grupami parametrów" in rendered
+    assert "comparison-category-fill" in rendered
     assert rendered.index("--comparison-sticky-top") < rendered.rindex("</body>")
 
 
