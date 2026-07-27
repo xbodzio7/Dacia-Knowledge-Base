@@ -1,0 +1,128 @@
+name: Catalog Recovery Diagnostics
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Build recovery report
+        shell: bash
+        run: |
+          mkdir -p diagnostics/catalog-recovery
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import json
+          import subprocess
+          from pathlib import Path
+
+          root = Path('.')
+          out = root / 'diagnostics/catalog-recovery/repository-context.txt'
+
+          def section(title: str, body: str = '') -> None:
+              with out.open('a', encoding='utf-8', newline='') as handle:
+                  handle.write(f'\n\n===== {title} =====\n')
+                  handle.write(body)
+                  if body and not body.endswith('\n'):
+                      handle.write('\n')
+
+          def run(args: list[str]) -> str:
+              result = subprocess.run(args, text=True, encoding='utf-8', errors='replace', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False)
+              return f'$ {" ".join(args)}\nexit={result.returncode}\n{result.stdout}'
+
+          out.write_text('Dacia Knowledge Base catalog recovery report\n', encoding='utf-8')
+          section('GIT', run(['git', 'status', '--short', '--branch']) + run(['git', 'rev-parse', 'HEAD']))
+          section('PROJECT STATE', (root / 'project/state.json').read_text(encoding='utf-8'))
+          section('TRACKED PATHS MATCHING DOMAIN', '\n'.join(
+              p.as_posix() for p in sorted(root.rglob('*'))
+              if p.is_file() and any(token in p.as_posix().lower() for token in ('sandero', 'stepway', 'configuration', 'cargo', 'comparison', 'source'))
+          ))
+          section('ALL PDF PATHS', '\n'.join(p.as_posix() for p in sorted(root.rglob('*.pdf'))))
+          section('DATA MASTER FILES', '\n'.join(p.as_posix() for p in sorted((root / 'data/master').rglob('*.csv'))))
+          section('IMPORT SPEC FILES', '\n'.join(p.as_posix() for p in sorted((root / 'data/imports').rglob('*')) if p.is_file()))
+          section('TOOLS MATCHING DOMAIN', '\n'.join(p.as_posix() for p in sorted((root / 'tools').rglob('*.py')) if any(token in p.name.lower() for token in ('configuration', 'cargo', 'comparison', 'sandero', 'stepway', 'import'))))
+          section('TESTS MATCHING DOMAIN', '\n'.join(p.as_posix() for p in sorted((root / 'tests').rglob('*.py')) if any(token in p.name.lower() for token in ('configuration', 'cargo', 'comparison', 'sandero', 'stepway', 'import'))))
+          section('DKB HELP', run(['python', 'tools/dkb.py', '--help']))
+
+          csv_files = sorted((root / 'data/master').rglob('*.csv'))
+          for path in csv_files:
+              try:
+                  with path.open(encoding='utf-8', newline='') as handle:
+                      reader = csv.DictReader(handle)
+                      rows = list(reader)
+                      fieldnames = reader.fieldnames or []
+              except Exception as exc:
+                  section(f'CSV ERROR {path.as_posix()}', repr(exc))
+                  continue
+              selected = []
+              for row in rows:
+                  joined = ' | '.join(str(v) for v in row.values()).lower()
+                  if 'sandero' in joined or 'stepway' in joined:
+                      selected.append(row)
+              if selected or any(token in path.name.lower() for token in ('configuration', 'cargo', 'comparison', 'source')):
+                  payload = {
+                      'path': path.as_posix(),
+                      'fieldnames': fieldnames,
+                      'row_count': len(rows),
+                      'selected_count': len(selected),
+                      'selected_rows': selected,
+                  }
+                  section(f'CSV SNAPSHOT {path.as_posix()}', json.dumps(payload, ensure_ascii=False, indent=2))
+
+          for path in sorted((root / 'data/imports').rglob('*')):
+              if not path.is_file() or path.suffix.lower() not in {'.json', '.csv', '.md', '.txt'}:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except Exception:
+                  continue
+              lowered = text.lower()
+              if 'sandero' in lowered or 'stepway' in lowered:
+                  section(f'IMPORT SPEC {path.as_posix()}', text)
+
+          for path in sorted(root.rglob('*.pdf')):
+              lowered = path.name.lower()
+              if 'sandero' not in lowered and 'stepway' not in lowered:
+                  continue
+              txt = root / 'diagnostics/catalog-recovery' / f'{path.stem}.txt'
+              subprocess.run(['pdftotext', '-layout', path.as_posix(), txt.as_posix()], check=False)
+              if txt.exists():
+                  section(f'PDF TEXT {path.as_posix()}', txt.read_text(encoding='utf-8', errors='replace'))
+
+          for path in sorted((root / 'project').rglob('*.md')):
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except Exception:
+                  continue
+              lowered = text.lower()
+              if 'catalog completion' in lowered or 'katalog' in lowered and ('sandero' in lowered or 'stepway' in lowered):
+                  section(f'PROJECT REFERENCE {path.as_posix()}', text)
+          PY
+
+      - name: Commit diagnostic report
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery
+          git commit -m "chore(data): capture catalog recovery context"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
