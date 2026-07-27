@@ -32,7 +32,24 @@ jobs:
         with:
           python-version: "3.13"
       - name: Run downloader regression tests
-        run: python -m unittest -q tests.test_data_product_release_download
+        id: downloader-regression
+        continue-on-error: true
+        shell: bash
+        run: python -m unittest -q tests.test_data_product_release_download > "${RUNNER_TEMP}/downloader-regression.log" 2>&1
+      - name: Upload downloader regression diagnostics
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: downloader-regression-${{ matrix.artifact }}
+          path: ${{ runner.temp }}/downloader-regression.log
+          if-no-files-found: error
+          retention-days: 1
+      - name: Fail on downloader regression failure
+        if: steps.downloader-regression.outcome == 'failure'
+        shell: bash
+        run: |
+          cat "${RUNNER_TEMP}/downloader-regression.log"
+          exit 1
       - name: Run workspace renderer checks
         run: python tests/workspace_index_checks.py -q
       - name: Run workspace integration check
