@@ -1,0 +1,50 @@
+name: Catalog Recovery Technical Contract
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-technical-contract.yml
+
+permissions:
+  contents: write
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build compact technical templates
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, json
+          from collections import Counter
+          from pathlib import Path
+
+          root = Path('.')
+          out = root / 'diagnostics/catalog-recovery'
+          with (root / 'data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='') as handle:
+              values = list(csv.DictReader(handle))
+          targets = {
+              'sandero_iii_expression_ecog120_manual',
+              'sandero_stepway_iii_expression_ecog120_manual',
+          }
+          payload = {}
+          for code in sorted(targets):
+              rows = [row for row in values if row['configuration_code'] == code]
+              payload[code] = {
+                  'count': len(rows),
+                  'sources': dict(sorted(Counter(row['source_code'] for row in rows).items())),
+                  'rows': sorted(rows, key=lambda row: (row['attribute_code'], row['fuel_type_code'], row['gear_number'], row['observation_date'], row['source_code'])),
+              }
+          (out / 'representative-technical-rows.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+      - name: Commit contract
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/representative-technical-rows.json
+          git commit -m "chore(data): capture technical projection templates"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
