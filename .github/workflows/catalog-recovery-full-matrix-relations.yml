@@ -1,4 +1,4 @@
-name: Catalog Recovery Contract Validation
+name: Catalog Main Snapshot
 
 on:
   push:
@@ -8,48 +8,21 @@ on:
       - .github/workflows/catalog-recovery-full-matrix-relations.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-and-validate:
+  snapshot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/sandero-stepway-catalog-recovery-restored
-      - name: Apply local contract fixes
+          ref: main
+      - name: Build main snapshot
         shell: bash
         run: |
-          cat diagnostics/catalog-recovery/contract-patch-parts/part* > /tmp/local-contract-fixes.patch.gz.b64
-          test "$(wc -c < /tmp/local-contract-fixes.patch.gz.b64)" -eq 13244
-          echo "6efb5a49aab491e6bf05233ad864a736894c46d468fd69cb7c24722f35e10226  /tmp/local-contract-fixes.patch.gz.b64" | sha256sum -c -
-          base64 -d /tmp/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
-          echo "92ba325c2eca85b77110963c92575dff872b34df32aa2b78f824b488217b5a7c  /tmp/local-contract-fixes.patch" | sha256sum -c -
-          if git apply --check /tmp/local-contract-fixes.patch; then
-            git apply /tmp/local-contract-fixes.patch
-          elif git apply --reverse --check /tmp/local-contract-fixes.patch; then
-            echo "Contract fixes already applied."
-          else
-            echo "Patch neither applies nor is already present."
-            exit 1
-          fi
-      - name: Validate catalogue package
-        shell: bash
-        run: |
-          python -m compileall -q tools tests
-          python tools/import_sandero_stepway_catalog_completion.py --verify
-          python tools/dkb.py validate
-          python -m unittest discover -s tests -p 'test_*.py' -q
-      - name: Persist fixes
-        shell: bash
-        run: |
-          if git diff --quiet; then
-            echo "No changes to persist."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
-          git add tools tests
-          git commit -m "test(catalog): preserve current and historical contracts"
-          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
+          zip -q -r /tmp/dkb-main-snapshot.zip . -x '.git/*'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dkb-main-snapshot
+          path: /tmp/dkb-main-snapshot.zip
+          retention-days: 7
