@@ -1,0 +1,174 @@
+name: Catalog Recovery Full Quality
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-full-quality.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils
+
+      - name: Run full package verification
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery/full-quality
+          log=diagnostics/catalog-recovery/full-quality/full-quality.log
+          : > "$log"
+          overall=0
+
+          run_step() {
+            name="$1"
+            shift
+            echo "===== ${name} =====" | tee -a "$log"
+            "$@" >> "$log" 2>&1
+            status=$?
+            echo "exit=${status}" | tee -a "$log"
+            if [ "$status" -ne 0 ]; then overall=1; fi
+            return 0
+          }
+
+          run_step compile python -m compileall -q tools scripts tests
+          run_step unit-tests python -m unittest discover -s tests -p 'test_*.py' -q
+          run_step importer-verify python tools/import_sandero_stepway_catalog_completion.py --verify
+          run_step media-cache-verify-before python tools/cache_model_media.py --verify
+          run_step media-cache-conditional-refresh python tools/cache_model_media.py --refresh
+          cp assets/model-media/manifest.json diagnostics/catalog-recovery/full-quality/media-manifest-after-refresh.json
+          run_step media-cache-verify-after python tools/cache_model_media.py --verify
+          run_step validator python tools/dkb.py validate
+          run_step sqlite-build python tools/dkb.py sqlite --output diagnostics/catalog-recovery/full-quality/dkb.sqlite
+          run_step sqlite-verify python tools/dkb.py sqlite-verify diagnostics/catalog-recovery/full-quality/dkb.sqlite
+          run_step full-quality python tools/dkb.py quality --concise --database diagnostics/catalog-recovery/full-quality/quality.sqlite --log-file diagnostics/catalog-recovery/full-quality/quality.log --summary-json diagnostics/catalog-recovery/full-quality/quality-summary.json
+
+          scope=data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json
+          run_step new-scope-completeness python tools/dkb.py configuration-completeness --spec "$scope" --as-of 2026-07-03 --json diagnostics/catalog-recovery/full-quality/new-scope-completeness.json --markdown diagnostics/catalog-recovery/full-quality/new-scope-completeness.md
+          run_step new-scope-source-coverage python tools/dkb.py source-coverage --spec "$scope" --as-of 2026-07-03 --json diagnostics/catalog-recovery/full-quality/new-scope-source-coverage.json --markdown diagnostics/catalog-recovery/full-quality/new-scope-source-coverage.md
+          run_step new-scope-comparison python tools/dkb.py configuration-comparison --completeness-spec "$scope" --as-of 2026-07-03 --json diagnostics/catalog-recovery/full-quality/new-scope-comparison.json --markdown diagnostics/catalog-recovery/full-quality/new-scope-comparison.md --csv diagnostics/catalog-recovery/full-quality/new-scope-differences.csv --html diagnostics/catalog-recovery/full-quality/new-scope-comparison.html
+
+          run_step shortlist-json python tools/dkb.py configuration-shortlist --as-of 2026-07-03 --json diagnostics/catalog-recovery/full-quality/shortlist.json --html diagnostics/catalog-recovery/full-quality/shortlist.html
+
+          python - <<'PY' >> "$log" 2>&1
+          from __future__ import annotations
+          import json
+          import subprocess
+          from itertools import combinations
+          from pathlib import Path
+
+          root = Path('.')
+          out = root / 'diagnostics/catalog-recovery/full-quality'
+          specs = sorted((root / 'data/reporting').glob('*_completeness.json'))
+          pairs = set()
+          scope_results = []
+          status = 0
+          for spec in specs:
+              payload = json.loads(spec.read_text(encoding='utf-8'))
+              codes = []
+              for item in payload.get('configurations', []):
+                  if isinstance(item, dict):
+                      code = item.get('configuration_code')
+                  else:
+                      code = item
+                  if isinstance(code, str) and code:
+                      codes.append(code)
+              pairs.update(tuple(sorted(pair)) for pair in combinations(codes, 2))
+              stem = spec.stem.removesuffix('_completeness')
+              target = out / 'all-scopes' / stem
+              target.mkdir(parents=True, exist_ok=True)
+              commands = [
+                  ['python', 'tools/dkb.py', 'configuration-completeness', '--spec', str(spec), '--json', str(target / 'completeness.json')],
+                  ['python', 'tools/dkb.py', 'configuration-comparison', '--completeness-spec', str(spec), '--json', str(target / 'comparison.json')],
+              ]
+              exits = []
+              for command in commands:
+                  completed = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False)
+                  (target / ('completeness.log' if 'configuration-completeness' in command else 'comparison.log')).write_text(completed.stdout, encoding='utf-8')
+                  exits.append(completed.returncode)
+                  if completed.returncode:
+                      status = 1
+              scope_results.append({'spec': spec.as_posix(), 'configuration_count': len(codes), 'pair_count': len(list(combinations(codes, 2))), 'exits': exits})
+          shortlist = json.loads((out / 'shortlist.json').read_text(encoding='utf-8'))
+          shortlist_codes = [item.get('configuration_code') for item in shortlist.get('results', [])]
+          html = (out / 'shortlist.html').read_text(encoding='utf-8')
+          manifest = json.loads((root / 'assets/model-media/manifest.json').read_text(encoding='utf-8'))
+          summary = {
+              'scope_count': len(specs),
+              'unique_pair_count': len(pairs),
+              'all_scope_commands_exit': status,
+              'scope_results': scope_results,
+              'sandero_essential_tce100_in_shortlist_json': 'sandero_iii_essential_tce100_manual' in shortlist_codes,
+              'sandero_essential_tce100_in_shortlist_html': 'sandero_iii_essential_tce100_manual' in html,
+              'shortlist_has_embedded_image_data': 'data:image/' in html,
+              'shortlist_has_external_image_src': 'src="https://' in html,
+              'media_statuses_after_refresh': {code: item.get('status') for code, item in manifest.get('models', {}).items()},
+              'media_paths_after_refresh': {code: item.get('path') for code, item in manifest.get('models', {}).items()},
+          }
+          (out / 'scope-summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          if len(specs) != 21:
+              print(f'ERROR expected 21 scopes, found {len(specs)}')
+              status = 1
+          if len(pairs) != 120:
+              print(f'ERROR expected 120 unique pairs, found {len(pairs)}')
+              status = 1
+          if not summary['sandero_essential_tce100_in_shortlist_json'] or not summary['sandero_essential_tce100_in_shortlist_html']:
+              print('ERROR Sandero Essential TCe 100 missing from shortlist')
+              status = 1
+          if not summary['shortlist_has_embedded_image_data'] or summary['shortlist_has_external_image_src']:
+              print('ERROR shortlist image cache contract failed')
+              status = 1
+          raise SystemExit(status)
+          PY
+          scope_status=$?
+          echo "===== all-reporting-scopes =====" | tee -a "$log"
+          echo "exit=${scope_status}" | tee -a "$log"
+          if [ "$scope_status" -ne 0 ]; then overall=1; fi
+
+          python - <<PY
+          import json
+          from pathlib import Path
+          out = Path('diagnostics/catalog-recovery/full-quality')
+          payload = {
+              'overall_exit': int('$overall'),
+              'steps': {},
+          }
+          for line in (out / 'full-quality.log').read_text(encoding='utf-8').splitlines():
+              if line.startswith('===== ') and line.endswith(' ====='):
+                  current = line[6:-6]
+              elif line.startswith('exit='):
+                  payload['steps'][current] = int(line.split('=', 1)[1])
+          scope_path = out / 'scope-summary.json'
+          if scope_path.exists():
+              payload['scope_summary'] = json.loads(scope_path.read_text(encoding='utf-8'))
+          quality_path = out / 'quality-summary.json'
+          if quality_path.exists():
+              payload['quality_summary'] = json.loads(quality_path.read_text(encoding='utf-8'))
+          (out / 'summary.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit verification diagnostics
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f diagnostics/catalog-recovery/full-quality/*.sqlite
+          rm -rf diagnostics/catalog-recovery/full-quality/all-scopes
+          git add assets/model-media diagnostics/catalog-recovery/full-quality
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): record full catalogue completion verification"
+            git push origin HEAD:agent/sandero-stepway-catalog-recovery
+          fi
