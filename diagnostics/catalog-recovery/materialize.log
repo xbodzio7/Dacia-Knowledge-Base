@@ -1,9 +1,9 @@
 ===== apply =====
-ERROR: unknown version: sandero_iii_essential
-exit=1
+{"applied": {"cargo_contexts": 30, "configurations": 6, "equipment_availability": 1016, "prices": 8, "source_configuration_relationships": 14, "source_version_relationships": 1, "technical_values": 318, "versions": 1}}
+exit=0
 ===== verify =====
-ERROR: unknown version: sandero_iii_essential
-exit=1
+{"verified": true}
+exit=0
 ===== validate =====
 ======================================================================
 DKB Validator v0.10
@@ -77,13 +77,13 @@ Python     : 3.12.3
    ✅ OK (51 relacji)
 
 5. Walidacja kontekstu wybranego biegu
-   ✅ OK (2949 rekordów)
+   ✅ OK (3267 rekordów)
 
 6. Walidacja zakresów lat
    ✅ OK (80 rekordów, 4 reguły)
 
 7. Walidacja statusów i cyklu życia
-   ✅ OK (632 rekordów, 25 reguł)
+   ✅ OK (639 rekordów, 25 reguł)
 
 8. Walidacja okresów dostępności powiązań
    ✅ OK (77 kontroli, 3 reguły)
@@ -99,7 +99,7 @@ Python     : 3.12.3
 
 12. Zbieranie statystyk
    Plików CSV : 46
-   Wierszy    : 9688
+   Wierszy    : 11082
 
 13. Generowanie raportu
    ✅ Raport zapisany: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/reports/validation_report.md

@@ -16,6 +16,14 @@ PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"
 SANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"
 STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"
 
+SANDERO_ESSENTIAL_VERSION = {
+    "code": "sandero_iii_essential",
+    "model_code": "sandero_iii",
+    "name": "Essential",
+    "status": "active",
+    "notes": "Source-backed trim from the official Polish Sandero MY26 price matrix effective 2026-07-03.",
+}
+
 CONFIGURATIONS = (
     {
         "code": "sandero_iii_essential_tce100_manual",
@@ -335,6 +343,12 @@ REAR_SUSPENSION = (
 )
 
 FIELDS = {
+    "versions.csv": (
+        "id", "code", "model_code", "name", "status", "notes",
+    ),
+    "source_versions.csv": (
+        "id", "source_code", "version_code", "relationship", "notes",
+    ),
     "configurations.csv": (
         "id", "code", "version_code", "powertrain_label",
         "transmission_type", "status", "notes",
@@ -1011,6 +1025,8 @@ def _write_package_contract(repository: Path, *, apply: bool) -> None:
         "price_source_code": PRICE_SOURCE,
         "configuration_codes": [str(item["code"]) for item in CONFIGURATIONS],
         "expected_additions": {
+            "versions": 1,
+            "source_version_relationships": 1,
             "configurations": 6,
             "prices": 8,
             "technical_values": 318,
@@ -1066,6 +1082,35 @@ def _validate_references(repository: Path) -> None:
         raise CompletionError(f"unknown sources: {sorted(missing_sources)}")
 
 
+def _apply_source_versions(path: Path, *, apply: bool) -> int:
+    fields, rows = _read_csv(path)
+    if fields != list(FIELDS[path.name]):
+        raise CompletionError(f"unexpected header for {path}")
+    semantic = (PRICE_SOURCE, SANDERO_ESSENTIAL_VERSION["code"], "documents")
+    index = {
+        (row["source_code"], row["version_code"], row["relationship"]): row
+        for row in rows
+    }
+    current = index.get(semantic)
+    expected_notes = "Version column in the page-1 price matrix effective 2026-07-03."
+    if current is not None:
+        if current["notes"] != expected_notes:
+            raise CompletionError(f"source version relationship differs: {semantic}")
+        return 0
+    if not apply:
+        raise CompletionError(f"missing source version relationship: {semantic}")
+    row = {
+        "id": str(_next_id(rows)),
+        "source_code": PRICE_SOURCE,
+        "version_code": SANDERO_ESSENTIAL_VERSION["code"],
+        "relationship": "documents",
+        "notes": expected_notes,
+    }
+    rows.append(row)
+    _write_csv(path, fields, rows)
+    return 1
+
+
 def _apply_source_relationships(path: Path, *, apply: bool) -> int:
     fields, rows = _read_csv(path)
     if fields != list(FIELDS[path.name]):
@@ -1108,11 +1153,20 @@ def _apply_source_relationships(path: Path, *, apply: bool) -> int:
 def complete(repository: Path, *, apply: bool) -> dict[str, int]:
     repository = repository.resolve()
     master = repository / "data/master"
+    additions: dict[str, int] = {}
+    additions["versions"], _ = _append_expected(
+        master / "versions.csv",
+        [SANDERO_ESSENTIAL_VERSION],
+        apply=apply,
+    )
+    additions["source_version_relationships"] = _apply_source_versions(
+        master / "source_versions.csv",
+        apply=apply,
+    )
     _validate_references(repository)
     technical_rows = [row for item in CONFIGURATIONS for row in _technical_rows(item)]
     cargo_context_rows = _cargo_context_rows(technical_rows)
 
-    additions: dict[str, int] = {}
     additions["configurations"], _ = _append_expected(
         master / "configurations.csv",
         [_without_internal(item) for item in CONFIGURATIONS],

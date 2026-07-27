@@ -1,13 +1,22 @@
 {
-  "apply_exit": 1,
-  "verify_exit": 1,
+  "apply_exit": 0,
+  "verify_exit": 0,
   "validate_exit": 0,
-  "active_configurations": 72,
-  "configuration_rows": 72,
-  "price_rows": 118,
-  "technical_value_rows": 2949,
-  "equipment_rows": 4754,
-  "cargo_context_rows": 287,
-  "source_configuration_rows": 219,
-  "new_configurations": []
+  "active_configurations": 78,
+  "configuration_rows": 78,
+  "price_rows": 126,
+  "technical_value_rows": 3267,
+  "equipment_rows": 5770,
+  "cargo_context_rows": 317,
+  "source_configuration_rows": 233,
+  "version_rows": 19,
+  "source_version_rows": 63,
+  "new_configurations": [
+    "sandero_iii_essential_tce100_manual",
+    "sandero_iii_expression_tce100_manual",
+    "sandero_iii_journey_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "sandero_stepway_iii_expression_tce110_manual",
+    "sandero_stepway_iii_extreme_tce110_manual"
+  ]
 }
