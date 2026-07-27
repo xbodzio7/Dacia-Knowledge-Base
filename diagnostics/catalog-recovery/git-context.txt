@@ -1,0 +1,1090 @@
+===== ALL REFS =====
+refs/heads/agent/sandero-stepway-catalog-recovery 72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b chore(ci): refine catalog recovery diagnostics
+refs/remotes/origin/agent/bigster-brochure-cargo-import 1586e01eec18f2549a92d906c84db2c3f2994c72 chore(data): remove Bigster cargo patch helper
+refs/remotes/origin/agent/bigster-catalogue-foundation ae2eeec517ef29616fb5ca66c04ac0bccfdfc71e chore: add temporary Bigster snapshot workflow
+refs/remotes/origin/agent/bigster-catalogue-foundation-v1-3 e82c349075eae5c1c8814182fbc286b96b563e2f Document Bigster comparison scopes
+refs/remotes/origin/agent/bigster-chassis-observation-import 90b1ba06e7c2a369017d6133c5cfd6979c8d1254 chore(data): remove one-off Bigster materializer
+refs/remotes/origin/agent/bigster-duster-brochure-towing-mass-import 3f103724328626f82182c6e0357bc28a086ea904 chore(data): remove one-time towing mass regression repair
+refs/remotes/origin/agent/bigster-equipment-commercial-mapping-v1-4 778d10996b36397ccaf2f53e31dfe9f1ffa746c5 data(bigster): map MY26 equipment and commercial offers
+refs/remotes/origin/agent/bigster-technical-specifications-v1-5 8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f data(bigster): import MY26 technical specifications
+refs/remotes/origin/agent/brochure-cargo-context-reporting-foundation 6765bf132dc73543c28384e484efbe07c452de3a chore(reporting): remove diagnostic log
+refs/remotes/origin/agent/brochure-cargo-context-schema-foundation 925cb4a058a8d91ac6ef43e34ae8d35355b9ead5 chore(schema): remove temporary materializer
+refs/remotes/origin/agent/brochure-cargo-import-closure-review c6fff0c71104196e09509e76e087ba7f384a9d8c chore(data): remove cargo closure diagnostic log
+refs/remotes/origin/agent/brochure-cargo-measurement-context-model c7a99d696cc638ac24103413e3570352188eea18 chore(ci): remove cargo context materializer
+refs/remotes/origin/agent/brochure-chassis-measurement-context-modeling e4c642ac11894b018aee4212fb57b2acb6aef0f0 chore(model): remove one-off regression repair
+refs/remotes/origin/agent/brochure-chassis-modeling-closure-review 4c5902a883103ed7011ac234237cb6aee65dfcd7 chore(data): remove chassis closure state materializer
+refs/remotes/origin/agent/brochure-gear-performance-context-model 56d2455bba1c8ac7e27e7f1eaed5e49d3f38f303 chore(model): remove gear performance diagnostic log
+refs/remotes/origin/agent/brochure-gear-performance-import-closure-review ba166537329a9acf45214871ae972d08d6459eaf chore(data): remove temporary closure log
+refs/remotes/origin/agent/brochure-gear-performance-schema-foundation 72cb86d831948491f68fcba9904950fa11e66be3 chore(schema): remove one-time historical fixture patcher
+refs/remotes/origin/agent/brochure-gear-performance-value-import a8393b690a6b52052584bf0cb02a908e857fe64e chore(test): remove temporary final orchestration log
+refs/remotes/origin/agent/brochure-generic-dimensions-import-closure-review d7530bde9e7632eb1641d5d9927c303b4cbc3309 chore: remove generic dimensions closure repair helper
+refs/remotes/origin/agent/brochure-generic-dimensions-observation-import 2154b9fdd849a7bee634d03eb2a6484ca62cfb2a test: preserve reviewed dimension page evidence
+refs/remotes/origin/agent/brochure-generic-dimensions-semantic-mapping a325f839ed3ed0973ae6999f99bd35e67c5e92ef chore(data): remove generic dimensions mapping materializer
+refs/remotes/origin/agent/commercial-options-equipment-workbook-v1-2 eaeccfa3932e4fc5a601086188b8a4a4ea127fe9 Use a propagated checkout pin for workbook CI
+refs/remotes/origin/agent/cross-model-comparison-view-closure-review debe6d665a8ef3307426ac4ea63f95fbf8685796 chore(ci): remove cross-model closure materializer
+refs/remotes/origin/agent/cross-model-comparison-view-foundation d9b38fbafe7d13285af2c21a58389f452389d00f chore(ci): remove late foundation log
+refs/remotes/origin/agent/cross-model-comparison-view-review 607fbe45415fa1035570cccd1f564d2f8f87f82b chore(report): remove cross-model review log
+refs/remotes/origin/agent/cross-model-navigation-usability-review 8d7c67f2d8fea436999481431d6a53556431f211 docs(report): review cross-model navigation usability
+refs/remotes/origin/agent/cross-model-navigation-usability-review-v2 5671cae150558d22cce68772daf04510a8678b63 chore(review): remove review materializer
+refs/remotes/origin/agent/cross-model-workspace-entry-point d5c68402e72dfa8b3f88654198a2e6ced82f8d98 fix(ci): avoid shell-specific quote escaping
+refs/remotes/origin/agent/data-products-v1-1-html-release 801155a10e0f16787f93c85765eba0e8b3da0b15 feat(data-products): prepare v1.1.0 HTML selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-ci 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-clean 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-final 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-pr 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-pr2 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-pr3 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-pr4 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-pr5 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-prod 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-publish 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-ready 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-review 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-html-release-verified 150589750d137e785c33b36d0a4e4e60cdafcc7e feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-interface-selector 93fd3b82b3c584c6781f5065cc9251a5235a0357 feat(data-products): prepare v1.1.0 selector release
+refs/remotes/origin/agent/data-products-v1-1-performance 63b7b622f5a55d35f1283877737b55c6bee78451 fix(data-products): prevent equipment filter browser stalls
+refs/remotes/origin/agent/data-products-v1-1-single-equipment-filter 4c64e0c4bd949021b6d2f739426849f9183d5b11 fix(data-products): unify equipment selection and pricing status
+refs/remotes/origin/agent/data-products-v1-2-faceted-browser 6da128e7d35084c73ad600f035e41adee2cfd58c feat(data-products): add faceted filtering and multi-comparison
+refs/remotes/origin/agent/data-products-v1-3-complete-comparison a43e6aabe8f32cea255e5bd0db2feb8fd65c2844 chore: stage v1.3.0 verified package chunk 01
+refs/remotes/origin/agent/data-products-v1-3-full-comparison 47dfbf405b0c1b96d78f2a0eb77068c8af8e05bb feat(data-products): expand full comparison and configurator sources
+refs/remotes/origin/agent/data-products-v1-7-0-release-preparation f97e732add506400b9e47ee95e59a3caf8382daf chore(release): remove v1.7.0 package workflow
+refs/remotes/origin/agent/data-products-v1-8-0-preflight a0ee7443d0f4a96f2fe76a6cd065f4f713346c96 ci(release): record v1.8.0 preflight identity
+refs/remotes/origin/agent/data-products-v1-8-0-public-audit 78c4a766230c8da10feaa3fef1aee99d78e29acd ci(release): record v1.8.0 public audit
+refs/remotes/origin/agent/data-products-v1-8-0-publication-record dca8b9fadf0058060fa1a2be17520bc3eedf3fb7 chore(ci): remove v1.8.0 publication docs materializer
+refs/remotes/origin/agent/data-products-v1-8-0-publish 5b1c5134bba1eb5784b08e13ae73afe185732f30 ci(release): record v1.8.0 publication
+refs/remotes/origin/agent/data-products-v1-8-0-release-preparation c6d7fab8d20b7b66e38517084060e92c9d9f8a18 chore(ci): remove v1.8.0 preparation materializer
+refs/remotes/origin/agent/data-products-v1-8-1-preflight 96d58da4f30502c2c9f864f377c97d5ee783486c chore(ci): remove v1.8.1 preflight materializer
+refs/remotes/origin/agent/data-products-v1-8-1-public-audit 039b26c4de3adad0e6ea697c0b8bb994e458370b chore(release): remove v1.8.1 audit diagnostics
+refs/remotes/origin/agent/data-products-v1-8-1-publication-record 17eb0e43d5bbe80d5ffd46a30fbf0d735e76e2b5 chore(release): remove corrected v1.8.1 publication materializer
+refs/remotes/origin/agent/data-products-v1-8-1-publish e1803f579a38d7883e0bf639eed7858cbf4103ae chore(release): remove v1.8.1 publication workflow
+refs/remotes/origin/agent/data-products-v1-8-1-release-preparation 106fbc87ab80e5bc51b895a616f9733f0c22ff5e chore(ci): remove v1.8.1 preparation materializer
+refs/remotes/origin/agent/duster-brochure-cargo-import a819a52b73db7015382228713fb7d9169dcd0fde chore(data): remove Duster cargo patch helper
+refs/remotes/origin/agent/duster-chassis-observation-import 69bf3be425871200012ce7a695a2326f798bdb99 chore(data): remove one-off Duster regression repair
+refs/remotes/origin/agent/duster-ecog120-automatic-cargo-gap-closure beedea87c97191758aeff3d1066518ae2291cf44 chore(ci): remove temporary cargo materializer
+refs/remotes/origin/agent/duster-ecog120-automatic-homologation-evidence f8dba789260fb65236e02e6a70c3eb187dd1aefd ci: remove Duster project-state diagnostic workflow
+refs/remotes/origin/agent/duster-ecog120-automatic-intake e89a192725fa12b13743d51bde6e6f6bb96c0813 fix(ci): include Duster automatic comparison scope
+refs/remotes/origin/agent/duster-exact-stock-equipment-expansion 31d155bd60f85b05701eeb38fdfef980a717c90f chore: remove temporary README correction workflow
+refs/remotes/origin/agent/equipment-filter-regression-model-price-order 18bc7b422aa45b52a5657b14c96061f418e52e7c chore(ci): remove temporary materializer repair workflow
+refs/remotes/origin/agent/interactive-configuration-ux-v1-1 f3c26e52a9ff5849a7554a186c17a4fc34b375f5 feat(data-products): improve interactive configuration UX v1.1
+refs/remotes/origin/agent/jogger-brochure-cargo-import e44890420ee4cbc447ac4b66df312f2c894d25ed chore(data): remove reporting-expectation patch helper
+refs/remotes/origin/agent/jogger-brochure-hybrid-performance-completion 536039bbd824177e1fb62b39a2ee87e1d6d8f5d5 chore(data): remove one-time Jogger regression repair
+refs/remotes/origin/agent/jogger-chassis-observation-import b07e54bc09598beee5a961792b057b9b18405bb8 chore(data): remove Jogger chassis repair helper
+refs/remotes/origin/agent/official-brochure-residual-evidence-review 1d9b5ad6a8f8cfef69bf3926a6faec63a2ccc5d9 chore(data): remove residual brochure state materializer
+refs/remotes/origin/agent/official-brochure-technical-gap-resolution-closure 6491ce3ac0030248588f9f9eb35884db57340814 chore(data): remove official brochure gap closure materializer
+refs/remotes/origin/agent/official-brochure-technical-gap-review 6f902aec2e638fa2a822f5a9d6c0a304c8aac1ca chore(data): remove temporary brochure gap validation log
+refs/remotes/origin/agent/official-configurator-cross-model-option-coverage d32e5b18c3e646a4c48551976bdbfe75a053af90 docs(data): add consumer validation focus
+refs/remotes/origin/agent/official-configurator-sandero-import 723238c55f9cc7a0b45c5b60acf27d2dfe51ae87 feat(data): import official Sandero configuration observations
+refs/remotes/origin/agent/official-configurator-stepway-import b94ce12f5fbc366533d72fe6f7eda06f42ac9c92 feat(data): import official Stepway configuration observations
+refs/remotes/origin/agent/official-dacia-brochure-source-registration 0597f78c56502e034f43e5c9965fcb14bf1a0ce0 chore(ci): remove temporary brochure workflow
+refs/remotes/origin/agent/pdf-candidate-extraction-automation-review 0305350156b8758b71f70159c4b2fe67431511dc docs(state): synchronize PDF candidate extraction review summary
+refs/remotes/origin/agent/post-brochure-priority-selection-review 3affedc4eea7671619bfd8eca8aea83cdf801549 chore: remove historical state repair helper
+refs/remotes/origin/agent/post-cross-model-priority-selection-review 529244171d2678ba984ce075327e004a1c00160a chore(ci): remove priority selection materializer
+refs/remotes/origin/agent/post-cross-model-workspace-priority-selection-review e7750b327f6a3bd7796cb4967dc00fc6a3401e6c test(review): move priority checks to orchestration contract
+refs/remotes/origin/agent/recover-main-snapshot-20260722 c426a0a93511631de63150daca2716a30d573048 fix: write temporary snapshot outside repository
+refs/remotes/origin/agent/register-sandero-stepway-price-20260703 23627379d611c637e6d800e7a37b71f54678a148 docs: record additive source mapping semantics
+refs/remotes/origin/agent/sandero-ecog120-automatic-brochure-technical-import 6d4c8462f8cc06e482aaa3783161b23ff22b4d49 chore(data): remove one-time Sandero regression repair
+refs/remotes/origin/agent/sandero-stepway-brochure-cargo-import a59b241a3c96f0bfd841a84fa096ec2e2c24254f chore(data): remove final quality summary
+refs/remotes/origin/agent/sandero-stepway-catalog-recovery 72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b chore(ci): refine catalog recovery diagnostics
+refs/remotes/origin/agent/sandero-stepway-chassis-observation-import b5c1bfaa3a9e957fc2de68b5fb7a86cb3f934ca6 chore(reporting): remove one-off orchestration repair script
+refs/remotes/origin/agent/verified-pdf-candidate-ledger-foundation 637eae82f194e564d932c3095fead0cb29f8aae1 test(pdf): gate verified candidate ledger foundation
+refs/remotes/origin/analysis/sandero-packages-options-gap 52503d5016e53ee551d63c0f4269f0ee7e4cfca1 docs: define evidence gate for packages and options
+refs/remotes/origin/analysis/sandero-remaining-pdf-value-gap 9969c4fe1c0094553c1a6aed8ccc1228c37196d0 docs: define standard tyre specification boundary
+refs/remotes/origin/analysis/sandero-remaining-pdf-value-gap-reassessment 0455c66bb281e6c176f8626c43ab88995d10a18e docs: reassess remaining Sandero PDF value gaps
+refs/remotes/origin/analysis/sandero-remaining-technical-value-candidate-review 8f2e540f0bd033d6c0c4bc7d85ab963bee25b4a7 docs: select Sandero front-wheel-drive values
+refs/remotes/origin/analysis/sandero-wheel-upholstery-modeling 2330a8852c3f2aeb84bb04c620ed3967036a5516 docs: define wheel and upholstery value model
+refs/remotes/origin/architecture/attribute-enum-domains b5c5520822474fe3c76987485540133b3a2c8b9a Record final enum-domain package validation
+refs/remotes/origin/architecture/configuration-reporting-explicit-scope 0991457fa4f841e798f7afbcd7c7bf6199718760 chore: record final tree manifest
+refs/remotes/origin/architecture/configuration-reporting-explicit-scope-clean 498805d714a43ca8efbbd1edd2802a42da142dff test: support package and discovery imports
+refs/remotes/origin/architecture/configuration-value-ranges 98d99b570c09c5d2a180e81c53221ddd1f02e68c Record final range architecture validation
+refs/remotes/origin/architecture/duster-catalog-reporting-scope-boundary 4f6af9ed1ba2986319f7d138a3a85dcc2742f3f7 architecture: document Duster reporting scope boundary
+refs/remotes/origin/audit/data-products-v1.1.0-publication b1c2bcd4368acef60f87da2e7fc63c7760b7fcee docs(release): audit data-products-v1.1.0 publication
+refs/remotes/origin/audit/data-products-v1.1.1-publication 9bffde1a510061553b580387e5a997c81571c413 chore(release): retain v1.1.1 audit record
+refs/remotes/origin/audit/data-products-v1.2.0-publication 4ce4204f1c376d1f1dc6eef51903ad15495cfaba chore(release): audit public data-products-v1.2.0 assets
+refs/remotes/origin/audit/data-products-v1.3.0-publication 6a82ae4f2a8549c1d46146e1a08d1b6b74e985a8 chore(release): audit public data-products-v1.3.0 assets
+refs/remotes/origin/audit/data-products-v1.4.0-publication a0084a117327ba43ba107e88fdcd545946b73f77 chore(release): audit public data-products-v1.4.0 assets
+refs/remotes/origin/audit/data-products-v1.5.0-publication a7d9cecf98b42bc3528205b9f01c8895a2374e4d chore(release): audit data-products-v1.5.0 publication
+refs/remotes/origin/data/duster-catalog-bootstrap edec71fcb2b761f19d8b8742446c7c0045c5c6f7 ci: verify Duster catalogue bootstrap
+refs/remotes/origin/data/duster-catalog-price-import 2918141d1cf9b53951fed2e71c62519b00f524c9 docs: clarify final price validation head
+refs/remotes/origin/data/duster-equipment-availability-import 13eb8741b50324e4cfdd7f6761123428a8ec0e0a Scope historical availability regression contracts
+refs/remotes/origin/data/duster-technical-specification-import 9d0a44589f5f9cd60207b88d9dea0a42e9088110 test: scope legacy contracts for Duster technical data
+refs/remotes/origin/data/jogger-cargo-measurements 3f44646d64f4c5acbbc008cf5dca1a3a7d2d237f docs: record cargo package local validation
+refs/remotes/origin/data/jogger-equipment-availability 07939ef1d49b25819e59ef56634e5039a588950d docs: finalize Jogger equipment availability import
+refs/remotes/origin/data/jogger-gearbox-reconciliation 7a192b609f3a2d50c6dc220311cfbf857d9c8ea5 docs: record verified Jogger gearbox baseline
+refs/remotes/origin/data/jogger-injection-type-import 1443e00b4572bde3a8b3166f2b75f7f36ec43783 chore: remove resolved Jogger unit diagnostic
+refs/remotes/origin/data/jogger-lpg-capacities 8668217081aa8d3195e08733bdd205ac4f7bfdcf docs: record LPG package local validation
+refs/remotes/origin/data/jogger-minimum-kerb-weight de9f8b2c409db2d76bb2b14cfa75a7aa6c55a7a8 chore: remove minimum kerb weight diagnostic log
+refs/remotes/origin/data/jogger-my26-catalogue-entity-foundation b871a92b988da5ab43788697f6c283a44b951182 docs: record generalized Duster total contracts
+refs/remotes/origin/data/jogger-my26-technical-specifications c7466757c247c503f2da5cd73de544b595ec2d1e docs: record verified Jogger technical baseline
+refs/remotes/origin/data/jogger-payload-performance-ranges f7cedcfc740fcbc888b5f172bed3f1d79477dad9 Finalize Jogger payload and performance range review
+refs/remotes/origin/data/jogger-technical-specifications fe4933d456177bb9ef29b44ac39e46b8c67eeafa data: import selected Jogger technical specifications
+refs/remotes/origin/data/jogger-total-hybrid-system-power 0fafab52155a9b56f7aa08d5c13af428124f7541 docs: record hybrid system power local validation
+refs/remotes/origin/data/jogger-wltp-efficiency-ranges 28ea42b2ee7db22a3a169cf2f071f5f37aed7ee9 Remove temporary Jogger WLTP validation log
+refs/remotes/origin/data/sandero-50-kmh-noise-level-values 502868bd9478e97a1a5042c4689460cf5fc95ae0 data: import Sandero 50 km/h noise values
+refs/remotes/origin/data/sandero-acceleration-0-100-values 83a29e618ac02f1e0a4727b893079eac781f267f data: import Sandero 0-100 acceleration values
+refs/remotes/origin/data/sandero-engine-output-values b01aebe1d2c29741c083dd47cf041a713106b2b2 data: import Sandero engine output values
+refs/remotes/origin/data/sandero-equipment-availability 332fb2287d343e6cc07f7bf913f5217a938a79b5 data: import Sandero equipment availability
+refs/remotes/origin/data/sandero-euro-6e-bis-values a58e583b1d84ba57aea572394df39cee9baf0eec data: import Sandero Euro 6e BIS values
+refs/remotes/origin/data/sandero-exterior-colour-values 77172f7c099dd70af7ba26838f12b68245c5b8dc data: import Sandero exterior colour values
+refs/remotes/origin/data/sandero-front-wheel-drive-values ac2e6c308b15c1f9c384201b24cffa20550fd0c8 data: import Sandero front-wheel-drive values
+refs/remotes/origin/data/sandero-maximum-payload-values 814083edc1f63c8377226248046ae56bc05cc71d data: import Sandero maximum payload values
+refs/remotes/origin/data/sandero-number-of-doors-values 15532dad14b976d0fcabe8ed24f1bf9b591824f2 data: import Sandero number of doors values
+refs/remotes/origin/data/sandero-passive-safety-availability add4e9ef5272b795bfd1244b3f3abcd31eb53c17 data: import Sandero passive safety availability
+refs/remotes/origin/data/sandero-standard-tyre-specification b8d2aeeb3d81f8c61343941fe9098b63b98efcb6 data: import Sandero standard tyre specification values
+refs/remotes/origin/data/sandero-standing-km-values 43a7476328f878406ea63c9e37b5c1fe7391feab data: import Sandero standing kilometre values
+refs/remotes/origin/data/sandero-stepway-catalog-completion 68ac5ec69c88079b0355e734d359679cf1aba0de fix(ui): keep comparison navigation visible
+refs/remotes/origin/data/sandero-stepway-essential-wheel-design-value f2fba98b2316a834d8cf93bd4c33c3062c340c4c data: add Sandero Stepway Essential wheel design value
+refs/remotes/origin/data/sandero-total-valve-count-values 9fb78320d513782bd4b710d2d1d40d306395c978 data: import Sandero total valve count values
+refs/remotes/origin/data/sandero-wheel-upholstery-values 9663909502676eb0cce82d3ca3441e63d8ef2a3d data: import Sandero wheel and upholstery values
+refs/remotes/origin/dev/duster-ecog120-reporting-materialize c6af5364e0c7c99c93893797ba63c645df0421d5 ci: separate Duster workflow publication
+refs/remotes/origin/dev/duster-equipment-materialize e48214f2b0cc575b7de7ac478946dcbbc0b6f37d ci: repair Duster equipment regression contracts
+refs/remotes/origin/dev/duster-source-intake 4c33a90a779aed30ab73cd8df5d75302e11c59ae sources: register exact Duster price-list PDF
+refs/remotes/origin/diagnostic/current-main-initial-release-candidate 82bea219f7c02bcbcb1d5574a8befa63f11993ca chore: remove current main release diagnostics
+refs/remotes/origin/docs/configuration-gap-closure-milestone 9dbda999724d8cd303da5b8331357fd981f18161 docs: close configuration gap review milestone
+refs/remotes/origin/docs/legacy-narrative-state-migration afc8935e3139b406afdb262ddb2c8ebc4323578d docs: regenerate project state summary
+refs/remotes/origin/docs/record-data-products-v1.1.0-publication 7c70b8e7243c319f9947a0047d6d48b2da909a52 docs(release): record data-products-v1.1.0 publication
+refs/remotes/origin/docs/record-data-products-v1.1.1-publication 4c76a89f7e5c060ece6b17734a3e1b5636575263 docs(release): record data-products-v1.1.1 publication
+refs/remotes/origin/docs/record-data-products-v1.1.2-publication 802d920e7fe943602cfbe57c5b146859b1ba3b4d docs(release): record data-products-v1.1.2 publication
+refs/remotes/origin/docs/record-data-products-v1.2.0-publication 625170a01663dfe25189afcd10bbc5e7a4f2c0e0 docs(release): record data-products-v1.2.0 publication
+refs/remotes/origin/docs/record-data-products-v1.3.0-publication 733bd06dc2ccb4d836ee5534e1de568eff79cb88 docs(release): record data-products-v1.3.0 publication
+refs/remotes/origin/docs/record-data-products-v1.4.0-publication fc13ef38eb500c25ae310f5164bd19557fc39427 docs(release): record data-products-v1.4.0 publication
+refs/remotes/origin/docs/record-data-products-v1.5.0-publication 403248283c09d9cb75988a079b09b461ad621332 docs(release): record data-products-v1.5.0 publication
+refs/remotes/origin/docs/record-data-products-v1.6.0-publication 18129a0fea2e0c197dfa6aa26b1460381ee147f9 docs(release): record data-products-v1.6.0 publication
+refs/remotes/origin/docs/record-data-products-v1.6.1-publication eb89a2c37cf2439e988e0caef6919e07e59f1872 docs(release): record consumer verification scenarios
+refs/remotes/origin/docs/record-data-products-v1.7.0-publication 0e8e1e51e5a6e8071178a85752fa00eec1089c95 chore(release): remove v1.7.0 publication docs patcher
+refs/remotes/origin/docs/synchronize-declarative-import-milestone 26211680395e2040c421a0165251c704e2dea096 docs: synchronize declarative import milestone
+refs/remotes/origin/docs/synchronize-technical-value-closure 83d3b89217a02d2914512919ee25ba460fb07791 docs: synchronize Sandero technical value milestone
+refs/remotes/origin/feat/data-products-v1.6.0-configurator-style-full-comparison bacd6034c7d471b45948a9028b3f639e8e268854 feat(data-products): add configurator-style full comparison
+refs/remotes/origin/feature/data-product-consumer-guide 162b8217e50f5ca774199a261b7bb486bac468dc chore: remove consumer guide finalizer helper
+refs/remotes/origin/feature/equipment-availability-schema 050e979c68edd73ebf741c5a83daa467eb27986b data: add equipment availability schema
+refs/remotes/origin/feature/local-data-product-workspace-index 6ed48c776c8a76d28867912f648d82a0955ae4b9 ci: remove temporary workspace download diagnostics
+refs/remotes/origin/feature/local-data-product-workspace-verification d278eb71b97f782635c2b528a872f885bc367a36 docs: confirm explicit workspace verification checks
+refs/remotes/origin/feature/verified-data-product-release-download 50461aaea58c6ee7b9414d46fc32fe6de7d4a496 Remove full unit test diagnostics
+refs/remotes/origin/fix/comparison-sticky-header-offset 1837775e512ffac6039e7bb4ab10accbea020204 test(ui): cover sticky and collapsible comparison groups
+refs/remotes/origin/fix/equipment-facet-interaction 8dce2a3f6ccbeb563fb9532c7b86c36d294735bf docs(ui): record equipment facet scenarios
+refs/remotes/origin/main 579e75061287d62ce9fab3db76fca53c69be535a Merge pull request #192 from xbodzio7/agent/bigster-catalogue-foundation
+refs/remotes/origin/maintenance/download-artifact-v8-upgrade ff6872b2f695aeb1ef0128e3fa2e4a122387ce10 Upgrade download-artifact to v8
+refs/remotes/origin/maintenance/github-actions-dependabot-updates 66850ba5adc8b564cab955b95b3f30b65eb7ad70 Regenerate project state summary
+refs/remotes/origin/maintenance/github-actions-immutable-sha-pinning c08ff4d3ad73ab3f5f290adbcc1c2d205b746187 Regenerate project state summary
+refs/remotes/origin/maintenance/github-actions-inventory-correction 94683257f8f5db7bf2085480f4a08f6afedcc6ab Record GitHub Actions audit artifact digest
+refs/remotes/origin/maintenance/github-actions-supply-chain-audit 41289a6b976a45c0ac33fa830016569c48a14ee9 Regenerate project state summary
+refs/remotes/origin/maintenance/governance-only-ci-scope-reduction c92692588505fa6ace2b914b6d37315fd15dff8e Regenerate CI scope reduction state summary
+refs/remotes/origin/maintenance/governance-only-ci-verification 3f880c44f93aab16788b11235a46318a6b8d9a59 Regenerate governance-only verification summary
+refs/remotes/origin/maintenance/python-310-deprecation-notice 9b9c30195137036795caac8e28c2e3e7aebf7f16 Generate Python 3.10 deprecation notice summary
+refs/remotes/origin/maintenance/python-314-compatibility-verification d623e580e0148190b0cfc60c1bf369dad39454a0 Generate Python 3.14 verification state summary
+refs/remotes/origin/maintenance/readme-duster-reporting-portfolio-correction 3f50ef7386b491bdcec93c8bad89b02e4f2ae2fd Record deterministic README correction evidence
+refs/remotes/origin/maintenance/repository-hygiene-ci-baseline 686b588dfad1c68f03168d64371751c2fd9dceb8 Regenerate maintenance state summary
+refs/remotes/origin/maintenance/setup-node-v7-upgrade 30127d7ecc6aff8c25688b735f8e6ae912525fff Upgrade setup-node to v7 in shortlist HTML
+refs/remotes/origin/maintenance/setup-python-v7-upgrade 9b8f4b7a47a9dea809039fe9fed28d3ce39c8b57 Upgrade setup-python to v7
+refs/remotes/origin/model/sandero-50-kmh-noise-level 6a027acc4c5fb6a445bbd27f960a7c6cec106f49 model: add 50 km/h noise level attribute
+refs/remotes/origin/model/sandero-euro-6e-bis-emission-standard 1a42c1d2187c71d1b7da574660871d23acfcf909 model: add Euro 6e BIS emission standard
+refs/remotes/origin/model/sandero-maximum-payload e74494a1d1323b384836bc0d8087f46a0c45b2f1 model: add maximum payload attribute
+refs/remotes/origin/model/sandero-total-valve-count 892414c8750dd654d13d1997c9900266deacd358 model: add total valve count attribute
+refs/remotes/origin/noop-check a3001f196a75e3a8c3c4676df86e81f46ac9efa7 Record Data Products v1.0.0 Publication
+refs/remotes/origin/product/configuration-comparison-bundle-cli 960b410a5afb0389aa8d88572ff8141452068c4d Remove temporary comparison bundle finalizer script
+refs/remotes/origin/product/configuration-comparison-html 910bc7a010cf50359be1650b6a61a45ecc9f8d82 Remove temporary baseline fixer
+refs/remotes/origin/product/configuration-comparison-workbook-export c4006d67937272589833135ba4e56dd2628add50 ci: remove workbook changelog finalizer
+refs/remotes/origin/product/configuration-shortlist-cli 943c35929779183dcfe575fbe92dd7e004a771c9 Remove temporary configuration shortlist finalizer script
+refs/remotes/origin/product/interactive-configuration-selection-export 5197b94d430fbb4826e2d5655b62fef8209f85f5 ci: remove selection export finalizer script
+refs/remotes/origin/product/interactive-configuration-shortlist-html 9fa22b0a842880d34a1c489a059de44f3b7e4324 Remove temporary shortlist HTML finalizer script
+refs/remotes/origin/product/versioned-data-product-release-publication e7e5df25308b775e0b0b526baf6790d8616e5068 test: require fail-closed release identity checks
+refs/remotes/origin/project/record-data-products-v1.0.0-publication fdef0e4788a2927203f8621196e9eff3a38c5443 docs: mark data products v1.0.0 publication verified
+refs/remotes/origin/release/audit-data-products-v1.6.0 39559252ed84464afcb28f6d47c3e3740005e07f chore: add independent v1.6.0 release audit
+refs/remotes/origin/release/audit-data-products-v1.6.1 93c3aa2b07cd523fbacc0f4115a82f727481dc62 chore: audit public data-products-v1.6.1
+refs/remotes/origin/release/audit-data-products-v1.7.0 791f0612a22048ba812a3d1f121f0314e44d51c8 chore(release): audit public data-products-v1.7.0
+refs/remotes/origin/release/data-products-v1.0.0-authorized 6c7425f7c599e3088a511f824f1fa9b68128ce11 release: remove publication verification workflow
+refs/remotes/origin/release/data-products-v1.1.0-authorized 413b3854048c12f908a43ec6d0ccd1bb9442de10 chore: authorize one-time data-products-v1.1.0 publication
+refs/remotes/origin/release/data-products-v1.1.1-authorized ffce0385d585500000361641ebe99e5ef6887636 chore(release): authorize data-products-v1.1.1 publication
+refs/remotes/origin/release/data-products-v1.1.2-authorized 2831f3d6671fb848435cadd19b9444549d6bfdb4 chore(release): authorize data-products-v1.1.2 publication
+refs/remotes/origin/release/data-products-v1.2.0-authorized c76741f42b0f22b6116f8c09a7d27c70ee9c2a77 chore(release): authorize data-products-v1.2.0 publication
+refs/remotes/origin/release/data-products-v1.3.0-authorized f951f9b1de6f7ef1e7caa759020b176f5e2b2239 chore(release): authorize data-products-v1.3.0 publication
+refs/remotes/origin/release/data-products-v1.4.0-authorized 4a7a7bad4b512a484ab72a9620166ecf61d2b12f chore(release): authorize data-products-v1.4.0 publication
+refs/remotes/origin/release/data-products-v1.5.0-authorized 2d6e76d112ca0a88e8e6c05856004adba6310f60 chore(release): authorize data-products-v1.5.0 publication
+refs/remotes/origin/release/data-products-v1.5.0-preflight 42cd1023378230e83b58d266921dffee86fca431 fix(release): use static preflight output path
+refs/remotes/origin/release/preflight-data-products-v1.6.0 a0ecbde1543e4f53b8f6ab14ba9dd3576c6e97b9 chore: add v1.6.0 release preflight
+refs/remotes/origin/release/preflight-data-products-v1.6.1 71421934cafff9fee0234c212c5e0fc137046820 chore: preflight data-products-v1.6.1
+refs/remotes/origin/release/preflight-data-products-v1.7.0 cd2292ec6ec7768dca794778d1aa0ed7b3f3298a chore(release): preflight data-products-v1.7.0
+refs/remotes/origin/release/publish-data-products-v1.6.0 bfaf6cbb58725b8aaccc2c33bc2c03a83c8a8e7e chore: authorize v1.6.0 release publication
+refs/remotes/origin/release/publish-data-products-v1.6.1 dbd0c436acf83fbf78c44704a58ab2c46194600a chore: publish data-products-v1.6.1
+refs/remotes/origin/release/publish-data-products-v1.7.0 98e3a059cc8c00c0bce3cb53036af83479bbd4b9 chore(release): publish data-products-v1.7.0
+refs/remotes/origin/reporting/configuration-comparison 4ca228d98b416c8c6336c911aafe843808d5656f reporting: add configuration comparison report
+refs/remotes/origin/reporting/configuration-comparison-difference-context-filter d4d52bca0190d3ae633004c65c3d8f4e16065043 reporting: add exact difference context filter
+refs/remotes/origin/reporting/configuration-comparison-difference-domain-filter 6fd73e2087e42279bef6baa7657ebfb2daf0586e reporting: add comparison difference domain filter
+refs/remotes/origin/reporting/configuration-comparison-difference-export 177ba3a543551cb0e090d52025178c87c40ddfad reporting: add comparison difference CSV export
+refs/remotes/origin/reporting/configuration-comparison-difference-item-catalog bc1dd2eb7d06105ce1adf06b788733a0a56eed22 docs: record catalog artifact validation
+refs/remotes/origin/reporting/configuration-comparison-difference-item-filter 74d2104083671d63acff51bee9ff31b0c67ae281 reporting: add comparison difference item filter
+refs/remotes/origin/reporting/configuration-comparison-difference-item-filter-review 5dfd27f8f2e228dfbe770ea10a5fa31ba418a5ec reporting: review comparison difference item filter
+refs/remotes/origin/reporting/configuration-comparison-item-catalog-context-values 59448dbb0ff3c2d81a3940b9225586ef63fd8c75 docs: document comparison item catalog contexts
+refs/remotes/origin/reporting/configuration-comparison-item-catalog-quality-artifact 83d9f7e0c4741b9ce68ae69810408c56cd3758e2 docs: align catalog artifact contract with CSV
+refs/remotes/origin/reporting/configuration-comparison-item-catalog-review 837377b7bc22de9bf000ff3bf14d665192ad480e reporting: review comparison item catalog
+refs/remotes/origin/reporting/configuration-comparison-pair-summary 138e0618719397051b2a6923a2094f30245d72d9 reporting: add configuration pair summary artifact
+refs/remotes/origin/reporting/configuration-comparison-pair-type-filter 4f6409c0f0aa0e3c0e6f1e7536e44a73023efb83 reporting: add comparison pair-type filter
+refs/remotes/origin/reporting/configuration-data-completeness c39b0ba697b878dfe9381aa8c93dd1f1cc9acd71 reporting: add configuration completeness report
+refs/remotes/origin/reporting/configuration-gap-evidence 952e2f1a5fb60e1dbbdd677921d7de0e0f54215c reporting: add configuration gap evidence review
+refs/remotes/origin/reporting/configuration-gap-resolution-plan e0c3f8d52f34b7b82c05c312f2b5c2553e5717bf reporting: add configuration gap resolution plan
+refs/remotes/origin/reporting/configuration-gap-source-review 6dfd0b81040a684415a5f5ac66620e83bda8cac2 reporting: review configuration gap source pages
+refs/remotes/origin/reporting/configuration-gap-triage 1fb1c36b668a40de0858474bfe7aee5f62b527fa reporting: add configuration gap triage report
+refs/remotes/origin/reporting/configuration-value-ranges 647a0e342dade82a5425dab99d610df513e2b67a Record final range reporting validation
+refs/remotes/origin/reporting/duster-current-electrified-scopes dbb29c075e5b64b924b9cffca01c64b9f85428d7 reporting: register mild hybrid 140 comparison evidence
+refs/remotes/origin/reporting/duster-ecog100-scope-promotion 6b051f37bd10297b5a0ba0e6889448c4537822ab ci: remove temporary unit test diagnostics
+refs/remotes/origin/reporting/duster-ecog120-scope-promotion c47a3d93beaff1ce47c77a85831f52ae15149baf ci: publish Duster Eco-G 120 reporting artifacts
+refs/remotes/origin/reporting/duster-hybrid140-scope-promotion 66b97f8e2117df9f7f698ee43bebbc5d0ff7a488 docs: record verified Hybrid 140 comparison result
+refs/remotes/origin/reporting/duster-hybrid155-scope-promotion f875be0674417d43acbc412089ab15ececee26ef docs: synchronize post-Hybrid 155 project state
+refs/remotes/origin/reporting/duster-mildhybrid130-4x2-scope-promotion 9a25b70d9c150f543d913d8fb8d8702a79be4f3a docs: synchronize post-mild-hybrid 130 4x2 state
+refs/remotes/origin/reporting/duster-mildhybrid130-4x4-scope-promotion c69f23d587a2503e4e1511a930d5ed7a2aa656a4 docs: synchronize post-mild-hybrid 130 4x4 state
+refs/remotes/origin/reporting/duster-mildhybrid140-4x2-scope-promotion 83775c2aef05dc6649f78c3a07a77ed35e8720fe docs: synchronize completed Duster portfolio state
+refs/remotes/origin/reporting/jogger-ecog120-automatic a2f9f43c417058bc7924bfdaddbbf2b5d516b5b0 docs: record Jogger reporting artifact workflow
+refs/remotes/origin/reporting/jogger-ecog120-manual d08a9e7db367cd6d911369babbffaf49bbcc4216 ci: remove Jogger manual diagnostics
+refs/remotes/origin/reporting/jogger-hybrid155-automatic 66ac2012d6c60e11980c0accb005fb3db37e60de docs: synchronize Hybrid 155 project summary
+refs/remotes/origin/reporting/jogger-tce110-manual 77700f2ddffa61bf2a1bbf3ac5c820ab98fe7216 ci: remove TCe 110 finalizer
+refs/remotes/origin/reporting/quality-artifact-manifest e9e63301d2304523069e24bcd44224f4aa88a69d reporting: add Quality artifact manifest
+refs/remotes/origin/reporting/sandero-ecog120-manual b0995c3b5ef41fb368ad5e759f12a97dabd41b80 ci: remove Sandero manual finalizer
+refs/remotes/origin/reporting/sandero-stepway-ecog120-automatic f2d414dedd68a153b505d1211feba3329096cb5d ci: remove Sandero automatic finalizer
+refs/remotes/origin/reporting/source-coverage d93268d9f46caf9b20172b6e58d8ee7df05b1f1f reporting: add source coverage report
+refs/remotes/origin/review/configuration-discovery-shortlist-planning 8fa744b00f2c1a5e5cab12f1bb79b8166d94980c Remove temporary shortlist discovery workflow
+refs/remotes/origin/review/configuration-workbook-export-planning e267fa31953890f045d49d67a94fd566d3098f64 ci: remove unused workbook planning finalizer
+refs/remotes/origin/review/data-product-distribution-planning 5c861728f32eafaa52db0ef72974d841d599b530 docs: regenerate project state summary
+refs/remotes/origin/review/data-product-release-consumption 8207a33889388062f04eb9719c6401ecfed84d5f Remove consumption review trigger
+refs/remotes/origin/review/data-product-utilization-completion f9376ca16a49028a07176b560598f9c135a63d40 docs: mark strategic direction decision blocked
+refs/remotes/origin/review/data-product-utilization-milestone 1f58a89db47d2204bcfaeb085a8ac61f89ec1548 docs: sync utilization milestone summary
+refs/remotes/origin/review/data-product-utilization-milestone-2026-07-20 b5abac9eb8e71357fcdbdbf54cde0a33f89ca330 docs: generate milestone review state summary
+refs/remotes/origin/review/duster-hybrid140-reporting-selection 34caedbf15fcec3f7d59ff9b4eb6bd5f5946d422 docs: normalize Hybrid 140 selection wording
+refs/remotes/origin/review/duster-hybrid155-reporting-selection dff616a9e5ad5981aac156524a6ce9b08fd4321f docs: synchronize Hybrid 155 project state
+refs/remotes/origin/review/duster-mildhybrid130-4x2-reporting-selection ffb727fd80b8747e4607811a24e12ab04d4ed9c9 docs: synchronize mild hybrid 130 4x2 state
+refs/remotes/origin/review/duster-mildhybrid130-4x4-reporting-selection ee5dfd803f8ac7ecf07ca9962daee5e882f8db2a docs: synchronize mild hybrid 130 4x4 state
+refs/remotes/origin/review/duster-mildhybrid140-4x2-reporting-selection 1c6309f648b033d360c0c30c0cdce7d000f44bc6 docs: synchronize final Duster promotion state
+refs/remotes/origin/review/duster-powertrain-reporting-portfolio 99663f239cff67cd6ec775324c35ed93fe8d8ece docs: synchronize project state summary
+refs/remotes/origin/review/duster-reporting-portfolio-completion a491ddcb588b3150a8078cc6913948686ff26f0b docs: synchronize Jogger source intake block
+refs/remotes/origin/review/initial-data-product-release-readiness c64292e43f9b3fa02dedb9d755ddf619f2cde8b1 chore: remove initial release readiness diagnostics
+refs/remotes/origin/review/interactive-configuration-shortlist-html-planning c5571a9006143da3afcff7ebb9534d5cd1f9f982 Synchronize interactive shortlist HTML planning summary
+refs/remotes/origin/review/interactive-selection-export-planning b9bdf9160ba30a6c81f729750c52d3625bf15744 Synchronize interactive selection export planning summary
+refs/remotes/origin/review/jogger-cargo-measurement-modeling e28a747b83462af613bba04cec424fa554981fe7 docs: synchronize Jogger cargo measurement selection
+refs/remotes/origin/review/jogger-equipment-matrix-intake 56fbefc78e7f83225b5374b11b8dd1a562eef681 review: remove temporary Jogger equipment matrix layout
+refs/remotes/origin/review/jogger-final-reporting-portfolio 5f88586a2144040ef4d8093844cb42fae6749cae docs: synchronize final Jogger portfolio state
+refs/remotes/origin/review/jogger-gearbox-reconciliation 8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d docs: synchronize Jogger gearbox selection state
+refs/remotes/origin/review/jogger-hybrid-system-semantics 67bf395ff3924143c8957e0d770c4fe80d0f89d3 review: remove temporary hybrid enum audit
+refs/remotes/origin/review/jogger-injection-type-import-selection c3ebb86dff245e2e5c2566781e4dc19cfcc02928 docs: synchronize Jogger injection selection state
+refs/remotes/origin/review/jogger-lpg-capacity-modeling 19a6f286b007a56c3975d95188ac4712ebfc4f80 docs: synchronize Jogger LPG capacity selection
+refs/remotes/origin/review/jogger-my26-catalogue-scope f197080438b1bd591521df02a43243a909530a83 docs: synchronize Jogger catalogue scope selection
+refs/remotes/origin/review/jogger-page6-source-completion 3242cad48103214be7f23fabc0da31b19c4b8cff Align page-6 completion state goals
+refs/remotes/origin/review/jogger-payload-performance-ranges c4995a952f71b6dc07afd8948e877e67864a63a6 Synchronize Jogger payload selection state summary
+refs/remotes/origin/review/jogger-range-qualifier-modeling 13e5730271752861868a93475db989bf8899eeed review: remove temporary Jogger source extract
+refs/remotes/origin/review/jogger-remaining-reporting-portfolio b6b698582b096e707b2f19ab035dea57f1e682ee docs: synchronize Jogger portfolio state summary
+refs/remotes/origin/review/jogger-remaining-technical-architecture 3610e80771d5856344f27b22349d6afd5b0784b9 docs: synchronize blocked Jogger architecture state
+refs/remotes/origin/review/jogger-reporting-portfolio-completion 831379101a626b41068a4f0daed48a953b546b71 docs: summarize completed Jogger milestone
+refs/remotes/origin/review/jogger-reporting-scope-selection 07575ede7037a6bf1633a9e30b6b5ce72c9e69b9 review: remove temporary Jogger reporting group audit
+refs/remotes/origin/review/jogger-technical-denominator 1721ec6b1c2f24decd5a97e1d65abc7b6dec1dbb docs: synchronize Jogger technical selection state
+refs/remotes/origin/review/jogger-wltp-efficiency-ranges 75fc4d3d00e008fbf6d623ac0705fa9194287d3c Remove temporary Jogger source hash audit
+refs/remotes/origin/review/local-data-product-workspace-index 13bb769a37a41a16a1589b19094c1d2588b03d35 Confirm local workspace index review scope
+refs/remotes/origin/review/python-310-retirement-readiness a2043012b42344b15d59b721f6bf4f38baabf65f Generate Python 3.10 retirement readiness summary
+refs/remotes/origin/review/python-runtime-lifecycle-2026-07 16cebcf62ef3dbb8192b2ea43955cc068d817895 Generate Python runtime review state summary
+refs/remotes/origin/review/registered-source-reporting-portfolio-completion fd1e1a9bbe8b1acd52dc21c8b0818fd252519223 ci: remove registered source portfolio discovery
+refs/remotes/origin/review/sandero-reporting-portfolio-completion 65263fbd27642cc5c0997d72288f1d396fd6e619 docs: synchronize Sandero completion state
+refs/remotes/origin/review/shortlist-to-comparison-workflow-planning b55b09f8e27108a242fca10a4be46b92533f1c6f Remove temporary shortlist-to-comparison discovery workflow
+refs/remotes/origin/review/source-backed-model-expansion-planning 9906a90a682b39f60bdd2eed4611cd16f7ae0c59 ci: remove model expansion discovery workflow
+refs/remotes/origin/review/strategic-direction-maintenance-mode 56620b4e322668bae0fe78bda0429ecee064a117 Regenerate project state summary
+refs/remotes/origin/source/duster-intake-readiness d2daeb59d377e1d322261645fef7ee43d20732cc sources: record Duster intake readiness boundary
+refs/remotes/origin/source/jogger-my26-20260401-intake f84bf75ef099260a5d097d31b3c8df3a9edef5f4 docs: synchronize accepted Jogger source intake
+refs/remotes/origin/source/jogger-my26-binary-archival 38861121b9abcdd2af483c9a7942b16f13229e19 docs: synchronize post-archival project state
+refs/remotes/origin/testing/configuration-comparison-item-catalog-regression 35a5e3a392c15940ada001a37c3530761fd8d1e6 tests: guard comparison item catalog contract
+refs/remotes/origin/testing/configuration-comparison-item-catalog-regression-review 4979c9aeed79abe33daa7376556eef59c84ed6cb tests: review comparison item catalog regression coverage
+refs/remotes/origin/tmp-do-not-use 57fc9f768086a2837095d83488bbbec901ad7098 Commit finalized local workspace index package
+refs/remotes/origin/tooling/automated-documentation-state-sync d2b5fd33febb675317a2db8bc6b89a5c66c08d5b docs: regenerate project state summary
+refs/remotes/origin/tooling/autonomous-collaboration-policy 5769c4857899e461455d077a66ef585165ce9dd6 docs: regenerate autonomous project state summary
+refs/remotes/origin/tooling/declarative-configuration-value-imports 6c8c36564d15ca8a44ccc908c6d61fdd51bb67af tooling: add declarative configuration value imports
+refs/remotes/origin/tooling/generated-documentation-baseline 8c7298bc53f649c06c3e2e2fafede89ea7db5a3a tooling: add generated documentation baseline
+refs/remotes/origin/tooling/manifest-driven-package-publishing 4001ebea818673d9008b14e3c8bf13cd6a873eb6 tooling: add manifest-driven package publishing
+refs/remotes/origin/tooling/package-workflow-hardening 3b4101f1a7ddfb5b0f847c54b2da6bc47d436339 tooling: harden package workflow
+refs/remotes/origin/tooling/project-state-source-of-truth d3062cd0074895c2f7b96ab2ffa4650777f8a983 ci: enforce canonical project state
+refs/remotes/origin/transport/document-data-products-v1.6.0 3657dcae4d3421a60d67f24990ed4f968d330c92 chore: publish one v1.6.0 documentation commit
+refs/remotes/origin/transport/export-current-main b8ba25cbd1ea37ac42589d49cbdfed56d945911b noop3
+refs/remotes/origin/transport/export-main-equipment-facet-fix 1de4a10f9046ab4b2df546e23a69b1174981204b chore: finalize temporary export marker
+refs/remotes/origin/transport/export-main-v1.2.0-recorded 80d4053dcb8d52d702f577b3be27e50fb227fd6d chore: export current main for next browser package
+refs/remotes/origin/transport/export-main-v1.5.0-documentation 40431112e3c6b89f9ff166f6a830ac17a172f316 chore: publish one v1.5.0 documentation commit
+refs/remotes/origin/transport/export-main-v1.6.0 3e9fd7e36f3640fc0d6c190e3022c30eccc5ebd4 chore: use verified v1.6.0 patch chunks
+refs/remotes/origin/transport/export-main-v120-review 9e7eb78a3db2701f0294831c20115be7e31fbbf4 chore: trigger current main export
+refs/tags/data-products-v1.0.0 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e Initial Data Product Release Readiness Review (#157)
+refs/tags/data-products-v1.1.0 397958ba740c0b3b9370822d7e1d473c4829c11e feat(data-products): prepare v1.1.0 HTML selector release
+refs/tags/data-products-v1.1.1 b333f74e8426993e797a79c2e8621bd2f0f7bf4e fix(data-products): prevent equipment filter browser stalls
+refs/tags/data-products-v1.1.2 8b08dbd8d846610577437c150a0d39aeb3d868f4 fix(data-products): unify equipment selection and pricing status
+refs/tags/data-products-v1.2.0 2982ff68b8e1f3097403d96afd1754ae473c2aa3 feat(data-products): add faceted filtering and multi-comparison
+refs/tags/data-products-v1.3.0 beb2151853b2d3de8837ff7c5e8d2b55b78af76e feat(data-products): expand full comparison and configurator sources
+refs/tags/data-products-v1.4.0 85fff3f69cae97de900bf9422f2418de9f8335ee feat(data): import official Stepway configuration observations
+refs/tags/data-products-v1.5.0 7f325d254b68eb495204c01c075727ee34893e1f feat(data): import official Sandero configuration observations
+refs/tags/data-products-v1.6.0 539fba58d1ee2ef538c782b20e049be482d72988 feat(data-products): add configurator-style full comparison
+refs/tags/data-products-v1.6.1 4b77571c788b862a6543161b9343a35f464bd7c6 fix(ui): make equipment facets monotonic and searchable
+refs/tags/data-products-v1.7.0 99e0e19b86cad6eae619f37702464e6a5a761cd8 docs(release): prepare data-products-v1.7.0
+refs/tags/data-products-v1.8.0 becd218228e3f4f0cdd312b0ed836ade487422b1 docs(release): prepare data-products-v1.8.0
+refs/tags/data-products-v1.8.1 0b7009fd1950693e347638a6b96756aeefb43b8a feat(data-products): prepare v1.8.1 release candidate (#290)
+
+===== REMOTE HEADS =====
+1586e01eec18f2549a92d906c84db2c3f2994c72	refs/heads/agent/bigster-brochure-cargo-import
+ae2eeec517ef29616fb5ca66c04ac0bccfdfc71e	refs/heads/agent/bigster-catalogue-foundation
+e82c349075eae5c1c8814182fbc286b96b563e2f	refs/heads/agent/bigster-catalogue-foundation-v1-3
+90b1ba06e7c2a369017d6133c5cfd6979c8d1254	refs/heads/agent/bigster-chassis-observation-import
+3f103724328626f82182c6e0357bc28a086ea904	refs/heads/agent/bigster-duster-brochure-towing-mass-import
+778d10996b36397ccaf2f53e31dfe9f1ffa746c5	refs/heads/agent/bigster-equipment-commercial-mapping-v1-4
+8e52be3cf2bdb09e96b23f686a0b1d7c7ac89c5f	refs/heads/agent/bigster-technical-specifications-v1-5
+6765bf132dc73543c28384e484efbe07c452de3a	refs/heads/agent/brochure-cargo-context-reporting-foundation
+925cb4a058a8d91ac6ef43e34ae8d35355b9ead5	refs/heads/agent/brochure-cargo-context-schema-foundation
+c6fff0c71104196e09509e76e087ba7f384a9d8c	refs/heads/agent/brochure-cargo-import-closure-review
+c7a99d696cc638ac24103413e3570352188eea18	refs/heads/agent/brochure-cargo-measurement-context-model
+e4c642ac11894b018aee4212fb57b2acb6aef0f0	refs/heads/agent/brochure-chassis-measurement-context-modeling
+4c5902a883103ed7011ac234237cb6aee65dfcd7	refs/heads/agent/brochure-chassis-modeling-closure-review
+56d2455bba1c8ac7e27e7f1eaed5e49d3f38f303	refs/heads/agent/brochure-gear-performance-context-model
+ba166537329a9acf45214871ae972d08d6459eaf	refs/heads/agent/brochure-gear-performance-import-closure-review
+72cb86d831948491f68fcba9904950fa11e66be3	refs/heads/agent/brochure-gear-performance-schema-foundation
+a8393b690a6b52052584bf0cb02a908e857fe64e	refs/heads/agent/brochure-gear-performance-value-import
+d7530bde9e7632eb1641d5d9927c303b4cbc3309	refs/heads/agent/brochure-generic-dimensions-import-closure-review
+2154b9fdd849a7bee634d03eb2a6484ca62cfb2a	refs/heads/agent/brochure-generic-dimensions-observation-import
+a325f839ed3ed0973ae6999f99bd35e67c5e92ef	refs/heads/agent/brochure-generic-dimensions-semantic-mapping
+eaeccfa3932e4fc5a601086188b8a4a4ea127fe9	refs/heads/agent/commercial-options-equipment-workbook-v1-2
+debe6d665a8ef3307426ac4ea63f95fbf8685796	refs/heads/agent/cross-model-comparison-view-closure-review
+d9b38fbafe7d13285af2c21a58389f452389d00f	refs/heads/agent/cross-model-comparison-view-foundation
+607fbe45415fa1035570cccd1f564d2f8f87f82b	refs/heads/agent/cross-model-comparison-view-review
+8d7c67f2d8fea436999481431d6a53556431f211	refs/heads/agent/cross-model-navigation-usability-review
+5671cae150558d22cce68772daf04510a8678b63	refs/heads/agent/cross-model-navigation-usability-review-v2
+d5c68402e72dfa8b3f88654198a2e6ced82f8d98	refs/heads/agent/cross-model-workspace-entry-point
+801155a10e0f16787f93c85765eba0e8b3da0b15	refs/heads/agent/data-products-v1-1-html-release
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-ci
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-clean
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-final
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-pr
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-pr2
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-pr3
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-pr4
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-pr5
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-prod
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-publish
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-ready
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-review
+150589750d137e785c33b36d0a4e4e60cdafcc7e	refs/heads/agent/data-products-v1-1-html-release-verified
+93fd3b82b3c584c6781f5065cc9251a5235a0357	refs/heads/agent/data-products-v1-1-interface-selector
+63b7b622f5a55d35f1283877737b55c6bee78451	refs/heads/agent/data-products-v1-1-performance
+4c64e0c4bd949021b6d2f739426849f9183d5b11	refs/heads/agent/data-products-v1-1-single-equipment-filter
+6da128e7d35084c73ad600f035e41adee2cfd58c	refs/heads/agent/data-products-v1-2-faceted-browser
+a43e6aabe8f32cea255e5bd0db2feb8fd65c2844	refs/heads/agent/data-products-v1-3-complete-comparison
+47dfbf405b0c1b96d78f2a0eb77068c8af8e05bb	refs/heads/agent/data-products-v1-3-full-comparison
+f97e732add506400b9e47ee95e59a3caf8382daf	refs/heads/agent/data-products-v1-7-0-release-preparation
+a0ee7443d0f4a96f2fe76a6cd065f4f713346c96	refs/heads/agent/data-products-v1-8-0-preflight
+78c4a766230c8da10feaa3fef1aee99d78e29acd	refs/heads/agent/data-products-v1-8-0-public-audit
+dca8b9fadf0058060fa1a2be17520bc3eedf3fb7	refs/heads/agent/data-products-v1-8-0-publication-record
+5b1c5134bba1eb5784b08e13ae73afe185732f30	refs/heads/agent/data-products-v1-8-0-publish
+c6d7fab8d20b7b66e38517084060e92c9d9f8a18	refs/heads/agent/data-products-v1-8-0-release-preparation
+96d58da4f30502c2c9f864f377c97d5ee783486c	refs/heads/agent/data-products-v1-8-1-preflight
+039b26c4de3adad0e6ea697c0b8bb994e458370b	refs/heads/agent/data-products-v1-8-1-public-audit
+17eb0e43d5bbe80d5ffd46a30fbf0d735e76e2b5	refs/heads/agent/data-products-v1-8-1-publication-record
+e1803f579a38d7883e0bf639eed7858cbf4103ae	refs/heads/agent/data-products-v1-8-1-publish
+106fbc87ab80e5bc51b895a616f9733f0c22ff5e	refs/heads/agent/data-products-v1-8-1-release-preparation
+a819a52b73db7015382228713fb7d9169dcd0fde	refs/heads/agent/duster-brochure-cargo-import
+69bf3be425871200012ce7a695a2326f798bdb99	refs/heads/agent/duster-chassis-observation-import
+beedea87c97191758aeff3d1066518ae2291cf44	refs/heads/agent/duster-ecog120-automatic-cargo-gap-closure
+f8dba789260fb65236e02e6a70c3eb187dd1aefd	refs/heads/agent/duster-ecog120-automatic-homologation-evidence
+e89a192725fa12b13743d51bde6e6f6bb96c0813	refs/heads/agent/duster-ecog120-automatic-intake
+31d155bd60f85b05701eeb38fdfef980a717c90f	refs/heads/agent/duster-exact-stock-equipment-expansion
+18bc7b422aa45b52a5657b14c96061f418e52e7c	refs/heads/agent/equipment-filter-regression-model-price-order
+f3c26e52a9ff5849a7554a186c17a4fc34b375f5	refs/heads/agent/interactive-configuration-ux-v1-1
+e44890420ee4cbc447ac4b66df312f2c894d25ed	refs/heads/agent/jogger-brochure-cargo-import
+536039bbd824177e1fb62b39a2ee87e1d6d8f5d5	refs/heads/agent/jogger-brochure-hybrid-performance-completion
+b07e54bc09598beee5a961792b057b9b18405bb8	refs/heads/agent/jogger-chassis-observation-import
+1d9b5ad6a8f8cfef69bf3926a6faec63a2ccc5d9	refs/heads/agent/official-brochure-residual-evidence-review
+6491ce3ac0030248588f9f9eb35884db57340814	refs/heads/agent/official-brochure-technical-gap-resolution-closure
+6f902aec2e638fa2a822f5a9d6c0a304c8aac1ca	refs/heads/agent/official-brochure-technical-gap-review
+d32e5b18c3e646a4c48551976bdbfe75a053af90	refs/heads/agent/official-configurator-cross-model-option-coverage
+723238c55f9cc7a0b45c5b60acf27d2dfe51ae87	refs/heads/agent/official-configurator-sandero-import
+b94ce12f5fbc366533d72fe6f7eda06f42ac9c92	refs/heads/agent/official-configurator-stepway-import
+0597f78c56502e034f43e5c9965fcb14bf1a0ce0	refs/heads/agent/official-dacia-brochure-source-registration
+0305350156b8758b71f70159c4b2fe67431511dc	refs/heads/agent/pdf-candidate-extraction-automation-review
+3affedc4eea7671619bfd8eca8aea83cdf801549	refs/heads/agent/post-brochure-priority-selection-review
+529244171d2678ba984ce075327e004a1c00160a	refs/heads/agent/post-cross-model-priority-selection-review
+e7750b327f6a3bd7796cb4967dc00fc6a3401e6c	refs/heads/agent/post-cross-model-workspace-priority-selection-review
+c426a0a93511631de63150daca2716a30d573048	refs/heads/agent/recover-main-snapshot-20260722
+23627379d611c637e6d800e7a37b71f54678a148	refs/heads/agent/register-sandero-stepway-price-20260703
+6d4c8462f8cc06e482aaa3783161b23ff22b4d49	refs/heads/agent/sandero-ecog120-automatic-brochure-technical-import
+a59b241a3c96f0bfd841a84fa096ec2e2c24254f	refs/heads/agent/sandero-stepway-brochure-cargo-import
+72cdebf2257fbe9828fc2e991e03e26b5ae9ab3b	refs/heads/agent/sandero-stepway-catalog-recovery
+b5c1bfaa3a9e957fc2de68b5fb7a86cb3f934ca6	refs/heads/agent/sandero-stepway-chassis-observation-import
+637eae82f194e564d932c3095fead0cb29f8aae1	refs/heads/agent/verified-pdf-candidate-ledger-foundation
+52503d5016e53ee551d63c0f4269f0ee7e4cfca1	refs/heads/analysis/sandero-packages-options-gap
+9969c4fe1c0094553c1a6aed8ccc1228c37196d0	refs/heads/analysis/sandero-remaining-pdf-value-gap
+0455c66bb281e6c176f8626c43ab88995d10a18e	refs/heads/analysis/sandero-remaining-pdf-value-gap-reassessment
+8f2e540f0bd033d6c0c4bc7d85ab963bee25b4a7	refs/heads/analysis/sandero-remaining-technical-value-candidate-review
+2330a8852c3f2aeb84bb04c620ed3967036a5516	refs/heads/analysis/sandero-wheel-upholstery-modeling
+b5c5520822474fe3c76987485540133b3a2c8b9a	refs/heads/architecture/attribute-enum-domains
+0991457fa4f841e798f7afbcd7c7bf6199718760	refs/heads/architecture/configuration-reporting-explicit-scope
+498805d714a43ca8efbbd1edd2802a42da142dff	refs/heads/architecture/configuration-reporting-explicit-scope-clean
+98d99b570c09c5d2a180e81c53221ddd1f02e68c	refs/heads/architecture/configuration-value-ranges
+4f6af9ed1ba2986319f7d138a3a85dcc2742f3f7	refs/heads/architecture/duster-catalog-reporting-scope-boundary
+b1c2bcd4368acef60f87da2e7fc63c7760b7fcee	refs/heads/audit/data-products-v1.1.0-publication
+9bffde1a510061553b580387e5a997c81571c413	refs/heads/audit/data-products-v1.1.1-publication
+4ce4204f1c376d1f1dc6eef51903ad15495cfaba	refs/heads/audit/data-products-v1.2.0-publication
+6a82ae4f2a8549c1d46146e1a08d1b6b74e985a8	refs/heads/audit/data-products-v1.3.0-publication
+a0084a117327ba43ba107e88fdcd545946b73f77	refs/heads/audit/data-products-v1.4.0-publication
+a7d9cecf98b42bc3528205b9f01c8895a2374e4d	refs/heads/audit/data-products-v1.5.0-publication
+edec71fcb2b761f19d8b8742446c7c0045c5c6f7	refs/heads/data/duster-catalog-bootstrap
+2918141d1cf9b53951fed2e71c62519b00f524c9	refs/heads/data/duster-catalog-price-import
+13eb8741b50324e4cfdd7f6761123428a8ec0e0a	refs/heads/data/duster-equipment-availability-import
+9d0a44589f5f9cd60207b88d9dea0a42e9088110	refs/heads/data/duster-technical-specification-import
+3f44646d64f4c5acbbc008cf5dca1a3a7d2d237f	refs/heads/data/jogger-cargo-measurements
+07939ef1d49b25819e59ef56634e5039a588950d	refs/heads/data/jogger-equipment-availability
+7a192b609f3a2d50c6dc220311cfbf857d9c8ea5	refs/heads/data/jogger-gearbox-reconciliation
+1443e00b4572bde3a8b3166f2b75f7f36ec43783	refs/heads/data/jogger-injection-type-import
+8668217081aa8d3195e08733bdd205ac4f7bfdcf	refs/heads/data/jogger-lpg-capacities
+de9f8b2c409db2d76bb2b14cfa75a7aa6c55a7a8	refs/heads/data/jogger-minimum-kerb-weight
+b871a92b988da5ab43788697f6c283a44b951182	refs/heads/data/jogger-my26-catalogue-entity-foundation
+c7466757c247c503f2da5cd73de544b595ec2d1e	refs/heads/data/jogger-my26-technical-specifications
+f7cedcfc740fcbc888b5f172bed3f1d79477dad9	refs/heads/data/jogger-payload-performance-ranges
+fe4933d456177bb9ef29b44ac39e46b8c67eeafa	refs/heads/data/jogger-technical-specifications
+0fafab52155a9b56f7aa08d5c13af428124f7541	refs/heads/data/jogger-total-hybrid-system-power
+28ea42b2ee7db22a3a169cf2f071f5f37aed7ee9	refs/heads/data/jogger-wltp-efficiency-ranges
+502868bd9478e97a1a5042c4689460cf5fc95ae0	refs/heads/data/sandero-50-kmh-noise-level-values
+83a29e618ac02f1e0a4727b893079eac781f267f	refs/heads/data/sandero-acceleration-0-100-values
+b01aebe1d2c29741c083dd47cf041a713106b2b2	refs/heads/data/sandero-engine-output-values
+332fb2287d343e6cc07f7bf913f5217a938a79b5	refs/heads/data/sandero-equipment-availability
+a58e583b1d84ba57aea572394df39cee9baf0eec	refs/heads/data/sandero-euro-6e-bis-values
+77172f7c099dd70af7ba26838f12b68245c5b8dc	refs/heads/data/sandero-exterior-colour-values
+ac2e6c308b15c1f9c384201b24cffa20550fd0c8	refs/heads/data/sandero-front-wheel-drive-values
+814083edc1f63c8377226248046ae56bc05cc71d	refs/heads/data/sandero-maximum-payload-values
+15532dad14b976d0fcabe8ed24f1bf9b591824f2	refs/heads/data/sandero-number-of-doors-values
+add4e9ef5272b795bfd1244b3f3abcd31eb53c17	refs/heads/data/sandero-passive-safety-availability
+b8d2aeeb3d81f8c61343941fe9098b63b98efcb6	refs/heads/data/sandero-standard-tyre-specification
+43a7476328f878406ea63c9e37b5c1fe7391feab	refs/heads/data/sandero-standing-km-values
+68ac5ec69c88079b0355e734d359679cf1aba0de	refs/heads/data/sandero-stepway-catalog-completion
+f2fba98b2316a834d8cf93bd4c33c3062c340c4c	refs/heads/data/sandero-stepway-essential-wheel-design-value
+9fb78320d513782bd4b710d2d1d40d306395c978	refs/heads/data/sandero-total-valve-count-values
+9663909502676eb0cce82d3ca3441e63d8ef2a3d	refs/heads/data/sandero-wheel-upholstery-values
+c6af5364e0c7c99c93893797ba63c645df0421d5	refs/heads/dev/duster-ecog120-reporting-materialize
+e48214f2b0cc575b7de7ac478946dcbbc0b6f37d	refs/heads/dev/duster-equipment-materialize
+4c33a90a779aed30ab73cd8df5d75302e11c59ae	refs/heads/dev/duster-source-intake
+82bea219f7c02bcbcb1d5574a8befa63f11993ca	refs/heads/diagnostic/current-main-initial-release-candidate
+9dbda999724d8cd303da5b8331357fd981f18161	refs/heads/docs/configuration-gap-closure-milestone
+afc8935e3139b406afdb262ddb2c8ebc4323578d	refs/heads/docs/legacy-narrative-state-migration
+7c70b8e7243c319f9947a0047d6d48b2da909a52	refs/heads/docs/record-data-products-v1.1.0-publication
+4c76a89f7e5c060ece6b17734a3e1b5636575263	refs/heads/docs/record-data-products-v1.1.1-publication
+802d920e7fe943602cfbe57c5b146859b1ba3b4d	refs/heads/docs/record-data-products-v1.1.2-publication
+625170a01663dfe25189afcd10bbc5e7a4f2c0e0	refs/heads/docs/record-data-products-v1.2.0-publication
+733bd06dc2ccb4d836ee5534e1de568eff79cb88	refs/heads/docs/record-data-products-v1.3.0-publication
+fc13ef38eb500c25ae310f5164bd19557fc39427	refs/heads/docs/record-data-products-v1.4.0-publication
+403248283c09d9cb75988a079b09b461ad621332	refs/heads/docs/record-data-products-v1.5.0-publication
+18129a0fea2e0c197dfa6aa26b1460381ee147f9	refs/heads/docs/record-data-products-v1.6.0-publication
+eb89a2c37cf2439e988e0caef6919e07e59f1872	refs/heads/docs/record-data-products-v1.6.1-publication
+0e8e1e51e5a6e8071178a85752fa00eec1089c95	refs/heads/docs/record-data-products-v1.7.0-publication
+26211680395e2040c421a0165251c704e2dea096	refs/heads/docs/synchronize-declarative-import-milestone
+83d3b89217a02d2914512919ee25ba460fb07791	refs/heads/docs/synchronize-technical-value-closure
+bacd6034c7d471b45948a9028b3f639e8e268854	refs/heads/feat/data-products-v1.6.0-configurator-style-full-comparison
+162b8217e50f5ca774199a261b7bb486bac468dc	refs/heads/feature/data-product-consumer-guide
+050e979c68edd73ebf741c5a83daa467eb27986b	refs/heads/feature/equipment-availability-schema
+6ed48c776c8a76d28867912f648d82a0955ae4b9	refs/heads/feature/local-data-product-workspace-index
+d278eb71b97f782635c2b528a872f885bc367a36	refs/heads/feature/local-data-product-workspace-verification
+50461aaea58c6ee7b9414d46fc32fe6de7d4a496	refs/heads/feature/verified-data-product-release-download
+1837775e512ffac6039e7bb4ab10accbea020204	refs/heads/fix/comparison-sticky-header-offset
+8dce2a3f6ccbeb563fb9532c7b86c36d294735bf	refs/heads/fix/equipment-facet-interaction
+579e75061287d62ce9fab3db76fca53c69be535a	refs/heads/main
+ff6872b2f695aeb1ef0128e3fa2e4a122387ce10	refs/heads/maintenance/download-artifact-v8-upgrade
+66850ba5adc8b564cab955b95b3f30b65eb7ad70	refs/heads/maintenance/github-actions-dependabot-updates
+c08ff4d3ad73ab3f5f290adbcc1c2d205b746187	refs/heads/maintenance/github-actions-immutable-sha-pinning
+94683257f8f5db7bf2085480f4a08f6afedcc6ab	refs/heads/maintenance/github-actions-inventory-correction
+41289a6b976a45c0ac33fa830016569c48a14ee9	refs/heads/maintenance/github-actions-supply-chain-audit
+c92692588505fa6ace2b914b6d37315fd15dff8e	refs/heads/maintenance/governance-only-ci-scope-reduction
+3f880c44f93aab16788b11235a46318a6b8d9a59	refs/heads/maintenance/governance-only-ci-verification
+9b9c30195137036795caac8e28c2e3e7aebf7f16	refs/heads/maintenance/python-310-deprecation-notice
+d623e580e0148190b0cfc60c1bf369dad39454a0	refs/heads/maintenance/python-314-compatibility-verification
+3f50ef7386b491bdcec93c8bad89b02e4f2ae2fd	refs/heads/maintenance/readme-duster-reporting-portfolio-correction
+686b588dfad1c68f03168d64371751c2fd9dceb8	refs/heads/maintenance/repository-hygiene-ci-baseline
+30127d7ecc6aff8c25688b735f8e6ae912525fff	refs/heads/maintenance/setup-node-v7-upgrade
+9b8f4b7a47a9dea809039fe9fed28d3ce39c8b57	refs/heads/maintenance/setup-python-v7-upgrade
+6a027acc4c5fb6a445bbd27f960a7c6cec106f49	refs/heads/model/sandero-50-kmh-noise-level
+1a42c1d2187c71d1b7da574660871d23acfcf909	refs/heads/model/sandero-euro-6e-bis-emission-standard
+e74494a1d1323b384836bc0d8087f46a0c45b2f1	refs/heads/model/sandero-maximum-payload
+892414c8750dd654d13d1997c9900266deacd358	refs/heads/model/sandero-total-valve-count
+a3001f196a75e3a8c3c4676df86e81f46ac9efa7	refs/heads/noop-check
+960b410a5afb0389aa8d88572ff8141452068c4d	refs/heads/product/configuration-comparison-bundle-cli
+910bc7a010cf50359be1650b6a61a45ecc9f8d82	refs/heads/product/configuration-comparison-html
+c4006d67937272589833135ba4e56dd2628add50	refs/heads/product/configuration-comparison-workbook-export
+943c35929779183dcfe575fbe92dd7e004a771c9	refs/heads/product/configuration-shortlist-cli
+5197b94d430fbb4826e2d5655b62fef8209f85f5	refs/heads/product/interactive-configuration-selection-export
+9fa22b0a842880d34a1c489a059de44f3b7e4324	refs/heads/product/interactive-configuration-shortlist-html
+e7e5df25308b775e0b0b526baf6790d8616e5068	refs/heads/product/versioned-data-product-release-publication
+fdef0e4788a2927203f8621196e9eff3a38c5443	refs/heads/project/record-data-products-v1.0.0-publication
+39559252ed84464afcb28f6d47c3e3740005e07f	refs/heads/release/audit-data-products-v1.6.0
+93c3aa2b07cd523fbacc0f4115a82f727481dc62	refs/heads/release/audit-data-products-v1.6.1
+791f0612a22048ba812a3d1f121f0314e44d51c8	refs/heads/release/audit-data-products-v1.7.0
+6c7425f7c599e3088a511f824f1fa9b68128ce11	refs/heads/release/data-products-v1.0.0-authorized
+413b3854048c12f908a43ec6d0ccd1bb9442de10	refs/heads/release/data-products-v1.1.0-authorized
+ffce0385d585500000361641ebe99e5ef6887636	refs/heads/release/data-products-v1.1.1-authorized
+2831f3d6671fb848435cadd19b9444549d6bfdb4	refs/heads/release/data-products-v1.1.2-authorized
+c76741f42b0f22b6116f8c09a7d27c70ee9c2a77	refs/heads/release/data-products-v1.2.0-authorized
+f951f9b1de6f7ef1e7caa759020b176f5e2b2239	refs/heads/release/data-products-v1.3.0-authorized
+4a7a7bad4b512a484ab72a9620166ecf61d2b12f	refs/heads/release/data-products-v1.4.0-authorized
+2d6e76d112ca0a88e8e6c05856004adba6310f60	refs/heads/release/data-products-v1.5.0-authorized
+42cd1023378230e83b58d266921dffee86fca431	refs/heads/release/data-products-v1.5.0-preflight
+a0ecbde1543e4f53b8f6ab14ba9dd3576c6e97b9	refs/heads/release/preflight-data-products-v1.6.0
+71421934cafff9fee0234c212c5e0fc137046820	refs/heads/release/preflight-data-products-v1.6.1
+cd2292ec6ec7768dca794778d1aa0ed7b3f3298a	refs/heads/release/preflight-data-products-v1.7.0
+bfaf6cbb58725b8aaccc2c33bc2c03a83c8a8e7e	refs/heads/release/publish-data-products-v1.6.0
+dbd0c436acf83fbf78c44704a58ab2c46194600a	refs/heads/release/publish-data-products-v1.6.1
+98e3a059cc8c00c0bce3cb53036af83479bbd4b9	refs/heads/release/publish-data-products-v1.7.0
+4ca228d98b416c8c6336c911aafe843808d5656f	refs/heads/reporting/configuration-comparison
+d4d52bca0190d3ae633004c65c3d8f4e16065043	refs/heads/reporting/configuration-comparison-difference-context-filter
+6fd73e2087e42279bef6baa7657ebfb2daf0586e	refs/heads/reporting/configuration-comparison-difference-domain-filter
+177ba3a543551cb0e090d52025178c87c40ddfad	refs/heads/reporting/configuration-comparison-difference-export
+bc1dd2eb7d06105ce1adf06b788733a0a56eed22	refs/heads/reporting/configuration-comparison-difference-item-catalog
+74d2104083671d63acff51bee9ff31b0c67ae281	refs/heads/reporting/configuration-comparison-difference-item-filter
+5dfd27f8f2e228dfbe770ea10a5fa31ba418a5ec	refs/heads/reporting/configuration-comparison-difference-item-filter-review
+59448dbb0ff3c2d81a3940b9225586ef63fd8c75	refs/heads/reporting/configuration-comparison-item-catalog-context-values
+83d9f7e0c4741b9ce68ae69810408c56cd3758e2	refs/heads/reporting/configuration-comparison-item-catalog-quality-artifact
+837377b7bc22de9bf000ff3bf14d665192ad480e	refs/heads/reporting/configuration-comparison-item-catalog-review
+138e0618719397051b2a6923a2094f30245d72d9	refs/heads/reporting/configuration-comparison-pair-summary
+4f6409c0f0aa0e3c0e6f1e7536e44a73023efb83	refs/heads/reporting/configuration-comparison-pair-type-filter
+c39b0ba697b878dfe9381aa8c93dd1f1cc9acd71	refs/heads/reporting/configuration-data-completeness
+952e2f1a5fb60e1dbbdd677921d7de0e0f54215c	refs/heads/reporting/configuration-gap-evidence
+e0c3f8d52f34b7b82c05c312f2b5c2553e5717bf	refs/heads/reporting/configuration-gap-resolution-plan
+6dfd0b81040a684415a5f5ac66620e83bda8cac2	refs/heads/reporting/configuration-gap-source-review
+1fb1c36b668a40de0858474bfe7aee5f62b527fa	refs/heads/reporting/configuration-gap-triage
+647a0e342dade82a5425dab99d610df513e2b67a	refs/heads/reporting/configuration-value-ranges
+dbb29c075e5b64b924b9cffca01c64b9f85428d7	refs/heads/reporting/duster-current-electrified-scopes
+6b051f37bd10297b5a0ba0e6889448c4537822ab	refs/heads/reporting/duster-ecog100-scope-promotion
+c47a3d93beaff1ce47c77a85831f52ae15149baf	refs/heads/reporting/duster-ecog120-scope-promotion
+66b97f8e2117df9f7f698ee43bebbc5d0ff7a488	refs/heads/reporting/duster-hybrid140-scope-promotion
+f875be0674417d43acbc412089ab15ececee26ef	refs/heads/reporting/duster-hybrid155-scope-promotion
+9a25b70d9c150f543d913d8fb8d8702a79be4f3a	refs/heads/reporting/duster-mildhybrid130-4x2-scope-promotion
+c69f23d587a2503e4e1511a930d5ed7a2aa656a4	refs/heads/reporting/duster-mildhybrid130-4x4-scope-promotion
+83775c2aef05dc6649f78c3a07a77ed35e8720fe	refs/heads/reporting/duster-mildhybrid140-4x2-scope-promotion
+a2f9f43c417058bc7924bfdaddbbf2b5d516b5b0	refs/heads/reporting/jogger-ecog120-automatic
+d08a9e7db367cd6d911369babbffaf49bbcc4216	refs/heads/reporting/jogger-ecog120-manual
+66ac2012d6c60e11980c0accb005fb3db37e60de	refs/heads/reporting/jogger-hybrid155-automatic
+77700f2ddffa61bf2a1bbf3ac5c820ab98fe7216	refs/heads/reporting/jogger-tce110-manual
+e9e63301d2304523069e24bcd44224f4aa88a69d	refs/heads/reporting/quality-artifact-manifest
+b0995c3b5ef41fb368ad5e759f12a97dabd41b80	refs/heads/reporting/sandero-ecog120-manual
+f2d414dedd68a153b505d1211feba3329096cb5d	refs/heads/reporting/sandero-stepway-ecog120-automatic
+d93268d9f46caf9b20172b6e58d8ee7df05b1f1f	refs/heads/reporting/source-coverage
+8fa744b00f2c1a5e5cab12f1bb79b8166d94980c	refs/heads/review/configuration-discovery-shortlist-planning
+e267fa31953890f045d49d67a94fd566d3098f64	refs/heads/review/configuration-workbook-export-planning
+5c861728f32eafaa52db0ef72974d841d599b530	refs/heads/review/data-product-distribution-planning
+8207a33889388062f04eb9719c6401ecfed84d5f	refs/heads/review/data-product-release-consumption
+f9376ca16a49028a07176b560598f9c135a63d40	refs/heads/review/data-product-utilization-completion
+1f58a89db47d2204bcfaeb085a8ac61f89ec1548	refs/heads/review/data-product-utilization-milestone
+b5abac9eb8e71357fcdbdbf54cde0a33f89ca330	refs/heads/review/data-product-utilization-milestone-2026-07-20
+34caedbf15fcec3f7d59ff9b4eb6bd5f5946d422	refs/heads/review/duster-hybrid140-reporting-selection
+dff616a9e5ad5981aac156524a6ce9b08fd4321f	refs/heads/review/duster-hybrid155-reporting-selection
+ffb727fd80b8747e4607811a24e12ab04d4ed9c9	refs/heads/review/duster-mildhybrid130-4x2-reporting-selection
+ee5dfd803f8ac7ecf07ca9962daee5e882f8db2a	refs/heads/review/duster-mildhybrid130-4x4-reporting-selection
+1c6309f648b033d360c0c30c0cdce7d000f44bc6	refs/heads/review/duster-mildhybrid140-4x2-reporting-selection
+99663f239cff67cd6ec775324c35ed93fe8d8ece	refs/heads/review/duster-powertrain-reporting-portfolio
+a491ddcb588b3150a8078cc6913948686ff26f0b	refs/heads/review/duster-reporting-portfolio-completion
+c64292e43f9b3fa02dedb9d755ddf619f2cde8b1	refs/heads/review/initial-data-product-release-readiness
+c5571a9006143da3afcff7ebb9534d5cd1f9f982	refs/heads/review/interactive-configuration-shortlist-html-planning
+b9bdf9160ba30a6c81f729750c52d3625bf15744	refs/heads/review/interactive-selection-export-planning
+e28a747b83462af613bba04cec424fa554981fe7	refs/heads/review/jogger-cargo-measurement-modeling
+56fbefc78e7f83225b5374b11b8dd1a562eef681	refs/heads/review/jogger-equipment-matrix-intake
+5f88586a2144040ef4d8093844cb42fae6749cae	refs/heads/review/jogger-final-reporting-portfolio
+8e23ae210f49bd6fc3ed655e34ad4b1b15650d2d	refs/heads/review/jogger-gearbox-reconciliation
+67bf395ff3924143c8957e0d770c4fe80d0f89d3	refs/heads/review/jogger-hybrid-system-semantics
+c3ebb86dff245e2e5c2566781e4dc19cfcc02928	refs/heads/review/jogger-injection-type-import-selection
+19a6f286b007a56c3975d95188ac4712ebfc4f80	refs/heads/review/jogger-lpg-capacity-modeling
+f197080438b1bd591521df02a43243a909530a83	refs/heads/review/jogger-my26-catalogue-scope
+3242cad48103214be7f23fabc0da31b19c4b8cff	refs/heads/review/jogger-page6-source-completion
+c4995a952f71b6dc07afd8948e877e67864a63a6	refs/heads/review/jogger-payload-performance-ranges
+13e5730271752861868a93475db989bf8899eeed	refs/heads/review/jogger-range-qualifier-modeling
+b6b698582b096e707b2f19ab035dea57f1e682ee	refs/heads/review/jogger-remaining-reporting-portfolio
+3610e80771d5856344f27b22349d6afd5b0784b9	refs/heads/review/jogger-remaining-technical-architecture
+831379101a626b41068a4f0daed48a953b546b71	refs/heads/review/jogger-reporting-portfolio-completion
+07575ede7037a6bf1633a9e30b6b5ce72c9e69b9	refs/heads/review/jogger-reporting-scope-selection
+1721ec6b1c2f24decd5a97e1d65abc7b6dec1dbb	refs/heads/review/jogger-technical-denominator
+75fc4d3d00e008fbf6d623ac0705fa9194287d3c	refs/heads/review/jogger-wltp-efficiency-ranges
+13bb769a37a41a16a1589b19094c1d2588b03d35	refs/heads/review/local-data-product-workspace-index
+a2043012b42344b15d59b721f6bf4f38baabf65f	refs/heads/review/python-310-retirement-readiness
+16cebcf62ef3dbb8192b2ea43955cc068d817895	refs/heads/review/python-runtime-lifecycle-2026-07
+fd1e1a9bbe8b1acd52dc21c8b0818fd252519223	refs/heads/review/registered-source-reporting-portfolio-completion
+65263fbd27642cc5c0997d72288f1d396fd6e619	refs/heads/review/sandero-reporting-portfolio-completion
+b55b09f8e27108a242fca10a4be46b92533f1c6f	refs/heads/review/shortlist-to-comparison-workflow-planning
+9906a90a682b39f60bdd2eed4611cd16f7ae0c59	refs/heads/review/source-backed-model-expansion-planning
+56620b4e322668bae0fe78bda0429ecee064a117	refs/heads/review/strategic-direction-maintenance-mode
+d2daeb59d377e1d322261645fef7ee43d20732cc	refs/heads/source/duster-intake-readiness
+f84bf75ef099260a5d097d31b3c8df3a9edef5f4	refs/heads/source/jogger-my26-20260401-intake
+38861121b9abcdd2af483c9a7942b16f13229e19	refs/heads/source/jogger-my26-binary-archival
+35a5e3a392c15940ada001a37c3530761fd8d1e6	refs/heads/testing/configuration-comparison-item-catalog-regression
+4979c9aeed79abe33daa7376556eef59c84ed6cb	refs/heads/testing/configuration-comparison-item-catalog-regression-review
+57fc9f768086a2837095d83488bbbec901ad7098	refs/heads/tmp-do-not-use
+d2b5fd33febb675317a2db8bc6b89a5c66c08d5b	refs/heads/tooling/automated-documentation-state-sync
+5769c4857899e461455d077a66ef585165ce9dd6	refs/heads/tooling/autonomous-collaboration-policy
+6c8c36564d15ca8a44ccc908c6d61fdd51bb67af	refs/heads/tooling/declarative-configuration-value-imports
+8c7298bc53f649c06c3e2e2fafede89ea7db5a3a	refs/heads/tooling/generated-documentation-baseline
+4001ebea818673d9008b14e3c8bf13cd6a873eb6	refs/heads/tooling/manifest-driven-package-publishing
+3b4101f1a7ddfb5b0f847c54b2da6bc47d436339	refs/heads/tooling/package-workflow-hardening
+d3062cd0074895c2f7b96ab2ffa4650777f8a983	refs/heads/tooling/project-state-source-of-truth
+3657dcae4d3421a60d67f24990ed4f968d330c92	refs/heads/transport/document-data-products-v1.6.0
+b8ba25cbd1ea37ac42589d49cbdfed56d945911b	refs/heads/transport/export-current-main
+1de4a10f9046ab4b2df546e23a69b1174981204b	refs/heads/transport/export-main-equipment-facet-fix
+80d4053dcb8d52d702f577b3be27e50fb227fd6d	refs/heads/transport/export-main-v1.2.0-recorded
+40431112e3c6b89f9ff166f6a830ac17a172f316	refs/heads/transport/export-main-v1.5.0-documentation
+3e9fd7e36f3640fc0d6c190e3022c30eccc5ebd4	refs/heads/transport/export-main-v1.6.0
+9e7eb78a3db2701f0294831c20115be7e31fbbf4	refs/heads/transport/export-main-v120-review
+
+===== TARGET REMOTE REFLOG =====
+72cdebf refs/heads/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:01:33 +0000}: branch: Created from refs/remotes/origin/agent/sandero-stepway-catalog-recovery
+72cdebf refs/remotes/origin/agent/sandero-stepway-catalog-recovery@{2026-07-27 19:01:33 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
+68ac5ec refs/remotes/origin/data/sandero-stepway-catalog-completion@{2026-07-27 19:01:33 +0000}: fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*: storing head
+72cdebf HEAD@{2026-07-27 19:01:33 +0000}: checkout: moving from master to agent/sandero-stepway-catalog-recovery
+
+===== UNREACHABLE OBJECTS =====
+
+===== RECENT ALL-BRANCH GRAPH =====
+* 72cdebf (HEAD -> agent/sandero-stepway-catalog-recovery, origin/agent/sandero-stepway-catalog-recovery) chore(ci): refine catalog recovery diagnostics
+* 2f74c64 chore(data): capture catalog recovery context
+* 366e0a3 chore(ci): add catalog recovery diagnostics
+| * 579e750 (origin/main) Merge pull request #192 from xbodzio7/agent/bigster-catalogue-foundation
+|/| 
+| * ae2eeec (origin/agent/bigster-catalogue-foundation) chore: add temporary Bigster snapshot workflow
+* | 68ac5ec (origin/data/sandero-stepway-catalog-completion) fix(ui): keep comparison navigation visible
+| | * 1837775 (origin/fix/comparison-sticky-header-offset) test(ui): cover sticky and collapsible comparison groups
+| | * c59a886 feat(ui): keep comparison groups visible and collapsible
+| | * 5afb68b test(ui): gate sticky comparison header offset
+| | * 7f64a43 fix(ui): keep comparison headers below selection panel
+| |/  
+|/|   
+| | * 637eae8 (origin/agent/verified-pdf-candidate-ledger-foundation) test(pdf): gate verified candidate ledger foundation
+| | * 575e280 feat(pdf): add verified candidate ledger foundation
+| |/  
+|/|   
+* | 834e9db docs(review): select verified PDF candidate ledger (#298)
+| | * 0305350 (origin/agent/pdf-candidate-extraction-automation-review) docs(state): synchronize PDF candidate extraction review summary
+| | * 8b761d5 docs(state): select verified PDF candidate ledger foundation
+| | * a3e6122 test(review): gate PDF candidate extraction architecture
+| | * debc135 test(review): add PDF candidate extraction verifier
+| | * 858de21 docs(review): document PDF candidate extraction architecture
+| | * 9104f0f docs(review): add PDF candidate extraction architecture report
+| |/  
+|/|   
+* | 474670b docs(review): select PDF candidate extraction review (#297)
+| | * e7750b3 (origin/agent/post-cross-model-workspace-priority-selection-review) test(review): move priority checks to orchestration contract
+| | * 5a209b5 docs(state): preserve roadmap discovery baseline
+| | * bb64cbe docs(state): preserve discovery baseline documentation
+| | * dcd96e4 docs(state): refresh generated baseline summary
+| | * 56e5aac docs(state): preserve discovery test baseline
+| | * d7a525a test(review): preserve historical discovery baseline
+| | * 70f5a31 test(review): add priority review orchestration contracts
+| | * bb02820 test(review): generalize completed workspace verifier state
+| | * 365c6ca test(review): generalize completed workspace state contract
+| | * 02617a1 docs(state): refresh roadmap quality baseline
+| | * bf8e26e docs(state): refresh session quality baseline
+| | * 3f4159f docs(state): refresh generated project summary
+| | * ea49347 docs(state): select PDF candidate extraction review
+| | * 86e32b2 test(review): cover post-workspace priority selection
+| | * eb49831 test(review): add post-workspace priority verifier
+| | * 31a10af docs(review): document post-workspace priority selection
+| | * 925c294 docs(review): record post-workspace priority ranking
+| |/  
+|/|   
+* | 1b1800a feat(workspace): add cross-model entry point (#296)
+| | * d5c6840 (origin/agent/cross-model-workspace-entry-point) fix(ci): avoid shell-specific quote escaping
+| | * acc2484 fix(ci): use POSIX URL paths on Windows
+| | * bdcc303 fix(ci): allow implemented cross-model review contract
+| | * 4ac29c1 chore(ci): remove temporary workspace repair log
+| | * d4ba4b4 fix(tests): repair workspace entry point indentation
+| | * de38e62 chore(ci): remove temporary workspace repair workflow
+| | * 7b28143 chore(ci): remove looping workspace repair workflow
+| | * 2beab28 feat(workspace): add cross-model entry point
+| | * 9e391df feat(workspace): add cross-model entry point
+| | * 3ac1fa4 chore(ci): trigger workspace repair on push
+| | * e030792 chore(ci): repair workspace entry point formatting
+| | * 2427530 chore(workspace): remove downloader repair trigger
+| | * 78fc9ca chore(workspace): restore standard shortlist workflow
+| | * f1c3363 ci(workspace): restore clean public v1.8.1 smoke
+| | * db35e64 ci(workspace): repair downloader contract and self-clean
+| | * 168ecdf chore(workspace): trigger downloader contract repair
+| | * 310708f ci(workspace): update downloader workflow contract test
+| | * 81d32e5 ci(workspace): capture downloader regression failure
+| | * fd9a277 chore(workspace): remove materializer diagnostic
+| | * b6648ed chore(workspace): restore standard shortlist workflow
+| | * b00f217 feat(workspace): materialize cross-model entry point
+| | * ac0987c ci(workspace): verify public v1.8.1 cross-model entry point
+| | * fed2616 feat(workspace): add cross-model entry point
+| | * bc1dc73 ci(workspace): separate code commit from workflow edits
+| | * ec119d8 ci(workspace): restore exact generated contracts
+| | * b8a7f41 test(workspace): add exact cross-model entry-point verifier
+| | * 49d7245 test(workspace): add exact cross-model entry-point contracts
+| | * ebeac1a ci(workspace): normalize generated test indentation
+| | * 4168001 ci(workspace): upload full materializer diagnostics
+| | * c3ee007 ci(workspace): stabilize materializer push
+| | * d4dd424 ci(workspace): run entry-point materializer from existing workflow
+| | * f9ef63c ci(workspace): run one-shot entry-point materializer
+| | * c8e7179 ci(workspace): stop recursive diagnostic workflow
+| | * 708daa9 ci(workspace): use line-based script extraction
+| | * 4c999c5 feat(workspace): materialize cross-model entry point
+| | * a7419fb ci(workspace): extract exact materialization block
+| | * b80aac4 feat(workspace): materialize cross-model entry point
+| | * e4c35dd ci(workspace): diagnose and materialize entry point
+| | * 25994d5 ci(workspace): replace v2 with diagnostic materializer
+| | * 9121307 ci(workspace): fix materializer temp path
+| | * 74774fe ci(workspace): materialize entry point v2
+| | * 9896e73 ci(workspace): replace blocked materializer
+| | * 1e8690c chore(workspace): trigger entry-point materializer
+| | * 4a16491 ci(workspace): materialize cross-model entry point
+| |/  
+|/|   
+* | 2ca0407 docs(review): select cross-model workspace entry point
+| | * 5671cae (origin/agent/cross-model-navigation-usability-review-v2) chore(review): remove review materializer
+| | * 6cf428c chore(review): remove documentation materializer
+| | * e39c247 docs(review): synchronize cross-model navigation state
+| | * 1b91867 ci(review): synchronize review documentation
+| | * a4732c0 docs(review): synchronize roadmap baseline
+| | * 3fd6219 docs(review): synchronize session baseline
+| | * 1116982 docs(review): synchronize project state summary
+| | * c983e9b test(release): preserve completed v1.8.1 publication verifier
+| | * 68dff95 test(release): preserve completed v1.8.1 publication history
+| | * e25b9f9 docs(review): advance cross-model navigation state
+| | * 1a582cb test(review): add cross-model navigation verifier
+| | * 24710f9 test(review): add cross-model navigation contracts
+| | * a5de260 docs(review): document cross-model workspace decision
+| | * 58f79dc docs(review): record cross-model navigation decision
+| | * 8e727df ci(review): materialize cross-model navigation usability review
+| |/  
+|/|   
+* | 3b7709b release(data-products): record v1.8.1 publication
+| | * 17eb0e4 (origin/agent/data-products-v1-8-1-publication-record) chore(release): remove corrected v1.8.1 publication materializer
+| | * d8ab9b6 chore(release): remove v1.8.1 publication materializer
+| | * 5ea0f30 release(data-products): record v1.8.1 publication
+| | * b6483c1 chore(release): remove v1.8.1 publication diagnostics
+| | * d42172d chore(release): remove v1.8.1 publication repair workflow
+| | * 5cd0879 chore(release): remove v1.8.1 publication diagnostics workflow
+| | * a1b170e ci(release): diagnose v1.8.1 publication record
+| | * 4e958ee ci(release): add corrected v1.8.1 publication materializer
+| | * 08104a2 ci(release): diagnose v1.8.1 publication record
+| | * 5ac356d ci(release): add v1.8.1 publication record diagnostics
+| | * 64579ca test(release): preserve v1.8.1 preparation history
+| | * ea10997 ci(release): repair v1.8.1 publication history contracts
+| | * d1f0948 ci(release): materialize v1.8.1 publication record
+| |/  
+|/|   
+* | ed8ed6d release(data-products): independently audit public v1.8.1
+| | * 039b26c (origin/agent/data-products-v1-8-1-public-audit) chore(release): remove v1.8.1 audit diagnostics
+| | * 6df3aad chore(release): remove completed v1.8.1 public audit workflow
+| | * 09e206c ci(release): record v1.8.1 public audit
+| | * 7838c5b chore(release): remove superseded v1.8.1 public audit workflow
+| | * 137fa35 chore(release): remove v1.8.1 audit repair workflow
+| | * 95af9fd chore(release): remove v1.8.1 audit diagnostics workflow
+| | * f20a2f2 ci(release): record v1.8.1 public audit
+| | * d69dec5 ci(release): add corrected v1.8.1 public audit
+| | * 076c082 ci(release): add v1.8.1 audit repair
+| | * 3a51742 ci(release): record v1.8.1 audit diagnostics
+| | * 15ef9eb ci(release): add v1.8.1 audit diagnostics
+| | * 46f2464 ci(release): add v1.8.1 public audit workflow
+| |/  
+|/|   
+* | 4151870 release(data-products): publish v1.8.1 exact assets
+| | * e1803f5 (origin/agent/data-products-v1-8-1-publish) chore(release): remove v1.8.1 publication workflow
+| | * a000ad0 ci(release): record v1.8.1 publication
+| | * babd6e4 ci(release): add v1.8.1 publication workflow
+| |/  
+|/|   
+* | 7c692d8 release(data-products): preflight v1.8.1 exact identity (#291)
+| | * 96d58da (origin/agent/data-products-v1-8-1-preflight) chore(ci): remove v1.8.1 preflight materializer
+| | * 16c532a release(data-products): record v1.8.1 preflight identity
+| | * c035f72 test(project): generalize v1.8.1 preparation state contract
+| | * 23767b1 test(project): preserve v1.8.1 preparation history
+| | * b32f202 ci: materialize data products v1.8.1 preflight
+| | * c1690d9 test(data-products): cover v1.8.1 preflight
+| | * da8286f test(data-products): add v1.8.1 preflight verifier
+| |/  
+|/|   
+* | 0b7009f (tag: data-products-v1.8.1) feat(data-products): prepare v1.8.1 release candidate (#290)
+| | * 106fbc8 (origin/agent/data-products-v1-8-1-release-preparation) chore(ci): remove v1.8.1 preparation materializer
+| | * 1c101eb feat(data-products): prepare v1.8.1 release candidate
+| | * 705255b ci: simplify v1.8.1 preparation materializer
+| | * a992a64 test(project): generalize completed regression verifier state
+| | * 56e1609 test(project): preserve completed regression history
+| | * 4e80f68 ci: preserve completed regression package history
+| | * 3be0178 ci: split v1.8.1 preparation diagnostics
+| | * 474f149 ci: materialize data products v1.8.1 release preparation
+| | * 7049421 test(data-products): cover v1.8.1 release preparation
+| | * 29b6e24 test(data-products): add v1.8.1 preparation verifier
+| | * 05e755d docs(project): document v1.8.1 release preparation
+| | * 762e716 feat(data-products): define v1.8.1 release preparation
+| |/  
+|/|   
+* | c425b39 fix(data-products): restore equipment filtering and price-order models (#289)
+| | * 18bc7b4 (origin/agent/equipment-filter-regression-model-price-order) chore(ci): remove temporary materializer repair workflow
+| | * 7cb018b chore(ci): remove temporary verifier materializer
+| | * 21a8ce6 chore(ci): remove temporary equipment materializer
+| | * d0c0b7c chore(ci): remove temporary equipment diagnostics
+| | * 2cee25c chore(ci): remove temporary equipment diagnostics
+| | * 18f66f2 chore(ci): remove temporary equipment diagnostics
+| | * 28c6ceb fix(data-products): restore equipment filtering and price-order models
+| | * 54d6b1d test(data-products): verify rendered catalog model order
+| | * 8102a8a ci: materialize corrected rendered catalog assertion
+| | * 6ce2769 ci: isolate equipment HTML contract failure
+| | * b57aa4f ci: isolate equipment verifier assertion
+| | * bceffd4 ci: isolate equipment materializer contract failure
+| | * 01633d2 ci: repair equipment materializer indentation
+| | * 924af9b ci: repair equipment materializer indentation
+| | * 6bcc7f6 fix(ci): make equipment regression materialization robust
+| | * 7500655 ci(data-products): materialize equipment filter regression fix
+| | * 3416604 docs(state): prioritize equipment filter regression fix
+| | * ad71466 test(report): cover equipment filter regression fix
+| | * 384f808 test(report): add equipment filter regression verifier
+| | * 4128544 docs(package): document equipment filter regression fix
+| | * bc0d6ea docs(report): define equipment filter regression fix
+| |/  
+|/|   
+| | * 8d7c67f (origin/agent/cross-model-navigation-usability-review) docs(report): review cross-model navigation usability
+| |/  
+|/|   
+* | 0c44745 docs(release): record data-products-v1.8.0 publication
+| | * dca8b9f (origin/agent/data-products-v1-8-0-publication-record) chore(ci): remove v1.8.0 publication docs materializer
+| | * ef9f371 docs(release): publish v1.8.0 consumer references
+| | * fd3b94e ci(release): materialize v1.8.0 publication docs
+| | * 88bccf4 chore(ci): remove v1.8.0 publication diagnostic workflow
+| | * 39f1ac3 chore(ci): remove v1.8.0 publication materializer
+| | * 2806ce4 chore(ci): remove v1.8.0 publication diagnostic log
+| | * 0dc81d1 docs(release): diagnose v1.8.0 publication record
+| | * 733c167 ci(release): diagnose v1.8.0 publication record
+| | * 5c9841e docs(release): materialize v1.8.0 publication record
+| | * c28886e docs(release): name v1.8.0 follow-up package
+| | * 81cd782 ci(release): materialize v1.8.0 publication record
+| | * 8ad3842 docs(state): record Data Products v1.8.0 publication
+| | * d9587d1 test(release): cover v1.8.0 publication
+| | * 18428c7 test(release): add v1.8.0 publication verifier
+| | * 3ba7532 docs(release): document data-products-v1.8.0 publication
+| | * 525548e docs(release): record v1.8.0 public audit
+| |/  
+|/|   
+| | * 78c4a76 (origin/agent/data-products-v1-8-0-public-audit) ci(release): record v1.8.0 public audit
+| | * 63d40b6 fix(release): distinguish workspace files from index links
+| | * 919ef0a ci(release): audit public data-products-v1.8.0
+| |/  
+|/|   
+| | * 5b1c513 (origin/agent/data-products-v1-8-0-publish) ci(release): record v1.8.0 publication
+| | * b8d2915 ci(release): publish data-products-v1.8.0
+| |/  
+|/|   
+| | * a0ee744 (origin/agent/data-products-v1-8-0-preflight) ci(release): record v1.8.0 preflight identity
+| | * f43b4de ci(release): preflight data-products-v1.8.0
+| |/  
+|/|   
+* | becd218 (tag: data-products-v1.8.0) docs(release): prepare data-products-v1.8.0
+| | * c6d7fab (origin/agent/data-products-v1-8-0-release-preparation) chore(ci): remove v1.8.0 preparation materializer
+| | * bc926ab docs(release): materialize v1.8.0 preparation
+| | * 5b5cb37 ci(release): materialize v1.8.0 preparation
+| | * 01d5110 docs(state): prepare Data Products v1.8.0 release
+| | * be6e15b test(release): cover v1.8.0 preparation
+| | * 42c3456 test(release): add v1.8.0 preparation verifier
+| | * e3ae38d docs(release): document v1.8.0 preparation
+| | * d90c1d8 docs(release): add v1.8.0 preparation contract
+| |/  
+|/|   
+* | 86e0e24 docs(report): select post-cross-model priority
+| | * 5292441 (origin/agent/post-cross-model-priority-selection-review) chore(ci): remove priority selection materializer
+| | * 235c862 docs(report): materialize post-cross-model priority selection
+| | * fe7bbb5 ci(review): materialize post-cross-model priority selection
+| | * 4b5079e docs(state): select Data Products v1.8.0 preparation
+| | * a45ca6b test(report): cover post-cross-model priority selection
+| | * 57445a4 test(report): add post-cross-model priority verifier
+| | * d5fa82f docs(review): record post-cross-model priority selection
+| | * bfe839b docs(report): select post-cross-model priority
+| |/  
+|/|   
+* | 911c646 docs(report): close cross-model comparison view milestone
+| | * debe6d6 (origin/agent/cross-model-comparison-view-closure-review) chore(ci): remove cross-model closure materializer
+| | * 160138e docs(report): materialize cross-model view closure
+| | * b2cf9ba ci(review): materialize cross-model view closure
+| | * 04f408a docs(state): close cross-model comparison view milestone
+| | * 3a6f955 test(report): cover cross-model view closure review
+| | * c0e2af9 test(report): add cross-model view closure verifier
+| | * 014b508 docs(review): document cross-model view closure
+| | * a25e866 docs(report): add cross-model view closure contract
+| |/  
+|/|   
+* | 4f11eaa feat(data-products): add cross-model navigation foundation
+| | * d9b38fb (origin/agent/cross-model-comparison-view-foundation) chore(ci): remove late foundation log
+| | * 73c7133 feat(data-products): materialize cross-model view foundation
+| | * 4d3968d chore(ci): remove foundation verifier workflow
+| | * ce22029 chore(ci): remove second foundation materializer
+| | * 078e1f9 chore(ci): remove first foundation materializer
+| | * cec9131 chore(ci): remove cross-model foundation log
+| | * 8b1350e test(report): allow cross-model review to remain historical
+| | * 4c91f6b feat(data-products): materialize cross-model view foundation
+| | * cb6812b test(report): preserve historical cross-model review contract
+| | * d41a961 feat(data-products): materialize cross-model view foundation
+| | * 3dc8d18 ci(data-products): verify cross-model view foundation
+| | * ce6fdda test(release): cover cross-model navigation assets
+| | * b001885 feat(data-products): materialize cross-model view foundation
+| | * 80173c3 feat(release): include cross-model navigation products
+| | * 6edcfc7 feat(data-products): materialize cross-model view foundation
+| | * 0351e73 ci(data-products): rerun cross-model view foundation
+| | * 3e4ff23 feat(data-products): materialize cross-model view foundation
+| | * 3d8de85 ci(data-products): materialize cross-model view foundation
+| | * 6edc8fd docs(state): advance cross-model view foundation
+| | * 3ae3c9c docs(data-products): document cross-model view foundation
+| | * a56a084 test(report): cover cross-model comparison view
+| | * 8b5ec39 feat(cli): add cross-model view command
+| | * d50eb33 feat(report): add scope-preserving cross-model view
+| |/  
+|/|   
+* | c303459 docs(report): review cross-model comparison view
+| | * 607fbe4 (origin/agent/cross-model-comparison-view-review) chore(report): remove cross-model review log
+| | * bc83f28 chore(report): remove cross-model materializer
+| | * 3eb7c0d chore(report): remove cross-model inventory artifact
+| | * 6010f99 chore(report): remove cross-model inventory workflow
+| | * 7e175ab docs(report): materialize cross-model view review
+| | * b49a386 fix(release): restore v1.7.0 verifier indentation
+| | * 6c05307 docs(report): materialize cross-model view review
+| | * 393f27f fix(test): restore v1.7.0 historical test indentation
+| | * 24f707a docs(report): materialize cross-model view review
+| | * cb312de test(release): preserve v1.7.0 publication across follow-ups
+| | * 48efd70 docs(report): materialize cross-model view review
+| | * 5ba87c1 ci(report): materialize cross-model view review
+| | * 9db13aa test(report): cover cross-model view review
+| | * 39b9abe docs(state): advance cross-model view review
+| | * 2d6e90c feat(report): add cross-model view verifier
+| | * 1897187 docs(report): document cross-model view decision
+| | * 413abba docs(report): add cross-model view review
+| | * 67af92e chore(report): persist cross-model view inventory
+| | * 22c2e65 ci(report): inventory cross-model comparison view
+| |/  
+|/|   
+* | 6a36a28 docs(release): record data-products-v1.7.0 publication
+| | * 0e8e1e5 (origin/docs/record-data-products-v1.7.0-publication) chore(release): remove v1.7.0 publication docs patcher
+| | * 0334b24 chore(release): remove v1.7.0 publication rerun workflow
+| | * ccedde9 chore(release): remove v1.7.0 publication materializer
+| | * 9185436 chore(release): remove v1.7.0 publication log
+| | * cee8084 docs(release): publish v1.7.0 references
+| | * 2fb4695 ci(docs): update v1.7.0 publication references
+| | * 29efee3 docs(release): materialize v1.7.0 publication record
+| | * 7f7519f ci(release): rerun v1.7.0 publication materialization
+| | * 62de3cb test(release): preserve v1.7.0 preparation after publication
+| | * af72277 docs(release): materialize v1.7.0 publication record
+| | * d12c431 ci(release): materialize v1.7.0 publication record
+| | * 85cba0a docs(state): record v1.7.0 publication
+| | * efe199d docs(release): close v1.7.0 publication sequence
+| | * c1c2a2b docs(release): document v1.7.0 publication
+| | * 27173c6 docs(release): record v1.7.0 public audit
+| |/  
+|/|   
+| | * 791f061 (origin/release/audit-data-products-v1.7.0) chore(release): audit public data-products-v1.7.0
+| |/  
+|/|   
+| | * 98e3a05 (origin/release/publish-data-products-v1.7.0) chore(release): publish data-products-v1.7.0
+| |/  
+|/|   
+| | * cd2292e (origin/release/preflight-data-products-v1.7.0) chore(release): preflight data-products-v1.7.0
+| |/  
+|/|   
+* | 99e0e19 (tag: data-products-v1.7.0) docs(release): prepare data-products-v1.7.0
+| | * f97e732 (origin/agent/data-products-v1-7-0-release-preparation) chore(release): remove v1.7.0 package workflow
+| | * 227eff3 chore(release): remove v1.7.0 preparation log
+| | * 3ba6f41 chore(release): remove v1.7.0 diagnostic receipt
+| | * 8f4033a chore(release): remove v1.7.0 package log
+| | * c8ddbfe docs(release): materialize v1.7.0 preparation state
+| | * 91c9e13 fix(test): restore historical test indentation
+| | * fca9eb1 docs(release): materialize v1.7.0 preparation state
+| | * 11811dc fix(test): patch historical priority test by function boundary
+| | * 9c40573 docs(release): materialize v1.7.0 preparation state
+| | * 928aab9 test(release): preserve priority selection after follow-up
+| | * 5cf90ff docs(release): materialize v1.7.0 preparation state
+| | * 2d5499f ci(release): prevent package materialization loop
+| | * 9640caa chore(release): remove v1.7.0 preparation workflow
+| | * f4c8950 chore: persist v1.7.0 preparation diagnostics
+| | * d9e8d37 ci(release): materialize v1.7.0 preparation package
+| | * ab251f1 chore: persist v1.7.0 preparation diagnostics
+| | * 18db177 docs(state): advance to v1.7.0 preflight
+| | * 6a228f3 docs(release): clarify diagnostic identity deferral
+| | * 0e0ec86 test(release): cover v1.7.0 preparation
+| | * 81b555c chore: persist v1.7.0 preparation diagnostics
+| | * 113404b feat(release): add v1.7.0 preparation verifier
+| | * 4eef4af chore: persist v1.7.0 preparation diagnostics
+| | * e573c52 docs(release): document v1.7.0 preparation
+| | * 30ade39 docs(release): add v1.7.0 preparation contract
+| | * 697c3b1 chore: persist v1.7.0 preparation diagnostics
+| | * 4e496f0 fix(release): expose reporting modules to workspace check
+| | * 582de17 chore: persist v1.7.0 preparation diagnostics
+| | * a10550c fix(release): materialize local candidate workspace
+| | * 992e853 chore: persist v1.7.0 preparation diagnostics
+| | * 08e72a1 chore: persist v1.7.0 preparation diagnostics
+| | * cc25f22 chore: validate v1.7.0 release preparation
+| |/  
+|/|   
+* | 79f48db docs(report): select post-brochure priority
+| | * 3affedc (origin/agent/post-brochure-priority-selection-review) chore: remove historical state repair helper
+| | * e3bd7e9 chore: remove priority scope name helper
+| | * 16922ba chore: remove post-brochure priority workflow
+| | * bfa97f0 chore: remove post-brochure priority log
+| | * f40545f docs(report): materialize post-brochure priority
+| | * e64bd6c chore: stabilize historical priority contracts
+| | * 6f84044 docs(report): materialize post-brochure priority
+| | * f3cd6bf chore: add historical state contract repair
+| | * 0561d2c docs(report): materialize post-brochure priority
+| | * 81e0115 chore: repair priority scope evidence path
+| | * 3339955 docs(report): materialize post-brochure priority
+| | * b8995ab chore: add priority scope name repair
+| | * da5a846 docs(report): materialize post-brochure priority
+| | * 4580cd9 chore: materialize post-brochure priority
+| | * d93f463 docs(state): select v1.7.0 release preparation
+| | * 4254b50 test: cover post-brochure priority selection
+| | * e062aec test: verify post-brochure priority selection
+| | * 836da06 docs(report): rank post-brochure priorities
+| |/  
+|/|   
+* | 9fdd21a docs(report): close generic dimensions import
+| | * d7530bd (origin/agent/brochure-generic-dimensions-import-closure-review) chore: remove generic dimensions closure repair helper
+| | * e5c9fe7 chore: remove generic dimensions closure workflow
+| | * 2940da0 chore: remove generic dimensions closure log
+| | * 8f87e1f docs(report): materialize generic dimensions closure
+| | * 1b5bb23 chore: advance historical closure tests
+| | * 72910fa chore: add closure state test repair
+| | * e24eb67 docs(report): materialize generic dimensions closure
+| | * d684f32 fix: correct closure materialization condition
+| | * deb61b7 chore: materialize generic dimensions closure
+| | * a9d5d70 docs(state): close generic dimensions import review
+| | * 29f58ae test: cover generic dimensions import closure
+| | * aca7f2f test: verify generic dimensions import closure
+| | * a6b77b0 docs(report): close generic dimensions import
+| |/  
+|/|   
+* | b46248d feat(data): import approved brochure dimensions
+| | * 2154b9f (origin/agent/brochure-generic-dimensions-observation-import) test: preserve reviewed dimension page evidence
+| | * fe6cb1a chore: remove reviewed-page repair helper
+| | * 4ac96de chore: remove reviewed-page diagnostic helper
+| | * 9626738 chore: remove generic dimension repair workflow
+| | * b3edff9 chore: remove generic dimension quality log
+| | * 5b2e2f2 chore: remove generic dimension quality summary
+| | * eb47726 chore: remove reviewed-page diagnostics
+| | * ee9e2bf fix(reporting): restore reviewed dimension pages
+| | * fdc5db3 chore: apply reviewed-page evidence repair
+| | * 896a583 chore: add reviewed-page evidence repair
+| | * 39a09d3 chore: rerun reviewed-page trace
+| | * e6e64bf chore: persist reviewed-page diagnostics
+| | * 5f7bde2 chore: trace reviewed-page evidence
+| | * a1b8efc chore: persist reviewed-page diagnostics
+| | * 4f75ab7 chore: diagnose missing reviewed pages
+| | * c37112c chore: persist generic dimension quality diagnostics
+| | * aa351ef chore: diagnose missing reviewed pages
+| | * 977edff chore: persist generic dimension quality diagnostics
+| | * 4e5af84 chore: diagnose generic dimension quality gate
+| | * 8072ee1 test: update pair summary dimension counts
+| | * 866b33c test: document generic dimension ID receipt
+| | * 205be35 chore: remove generic dimension snapshot repair
+| | * 01fcf11 chore: remove generic dimension reporting repair
+| | * bb83f35 chore: remove generic dimension receipt repair
+| | * ffb80e0 chore: remove generic dimension verifier normalizer
+| | * bad0ccf chore: remove generic dimension materializer
+| | * 4a30029 chore: remove residual payload repair helper
+| | * c8f7a44 chore: remove generic dimension diagnostic helper
+| | * dedc8a7 chore: remove generic dimension materialization workflow
+| | * d778cf9 chore: remove generic dimension diagnostics
+| | * 752e531 chore: remove generic dimension materialization log
+| | * 9c1527e feat(data): materialize generic brochure dimensions
+| | * 03495d1 chore: apply generic dimension snapshot repairs
+| | * 5e320b6 feat(data): materialize generic brochure dimensions
+| | * c7a296d chore: add generic dimension snapshot repair
+| | * 02cab94 feat(data): materialize generic brochure dimensions
+| | * 3ec975a chore: compact generic dimension diagnostics
+| | * c3ab4bc feat(data): materialize generic brochure dimensions
+| | * 565f0af fix: regenerate current gap plan from repository
+| | * 2ff6054 feat(data): materialize generic brochure dimensions
+| | * 1f4b994 ci(data): persist exact dimension reporting diagnostics
+| | * ed76051 chore(data): add generic dimension snapshot diagnostics
+| | * 6aab43c feat(data): materialize generic brochure dimensions
+| | * bf71aa2 ci(data): synchronize generic dimension reporting evidence
+| | * fae684d chore(data): sync generic dimension reporting evidence
+| | * e287c21 feat(data): materialize generic brochure dimensions
+| | * 5966567 ci(data): normalize generic dimension receipts idempotently
