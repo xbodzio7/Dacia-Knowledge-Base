@@ -74,7 +74,7 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.14"
-      - name: Materialize and restore workflow
+      - name: Materialize non-workflow package files
         shell: bash
         run: |
           set +e
@@ -97,15 +97,16 @@ jobs:
           if [ "$status" -eq 0 ]; then
             git checkout origin/agent/cross-model-workspace-entry-point -- \
               tests/test_cross_model_workspace_entry_point.py \
-              tools/review_cross_model_workspace_entry_point_20260727.py
+              tools/review_cross_model_workspace_entry_point_20260727.py \
+              .github/workflows/configuration-shortlist.yml \
+              .github/workflows/materialize-cross-model-workspace-entry-point-v4.yml \
+              .github/workflows/data-product-release-download.yml
             status=$?
           fi
           if [ "$status" -eq 0 ]; then
             python tools/dkb.py project-state --apply >> "${RUNNER_TEMP}/materializer.log" 2>&1
             status=$?
           fi
-          git checkout origin/main -- .github/workflows/configuration-shortlist.yml
-          rm -f .github/workflows/materialize-cross-model-workspace-entry-point-v4.yml
           rm -f .github/cross-model-workspace-entry-point.trigger
           rm -f .github/cross-model-workspace-entry-point-materializer.log
           if [ "$status" -ne 0 ]; then
@@ -124,7 +125,6 @@ jobs:
             exit 1
           fi
           git commit -m "feat(workspace): add cross-model entry point"
-          git pull --rebase origin agent/cross-model-workspace-entry-point
           git push origin HEAD:agent/cross-model-workspace-entry-point
       - name: Upload materializer diagnostics
         if: always()
