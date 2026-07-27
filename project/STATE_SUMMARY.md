@@ -8,22 +8,22 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-26
+- State updated: 2026-07-27
 
 ## Phase
 
-**Data Products v1.8.1 Publication**
+**Cross-Model Navigation Usability Review**
 
 ## Reference delivery
 
-- Package: Data Products v1.8.1 Preflight
-- Pull Request: #291
-- Verified head: `7c692d89bd17810e7ca379ea20f33fc4fdd84a03`
-- Quality run: #2055
+- Package: Data Products v1.8.1 Publication
+- Pull Request: #294
+- Verified head: `3b7709b41dca39f1822d20bb9a20fd61144f5443`
+- Quality run: #2086
 
 ## Verified baseline
 
-- Tests: 1054
+- Tests: 1062
 - Master CSV files: 46
 - Master rows: 9688
 - Configuration values: 2949
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.8.1 Publication** — `complete`
+**Cross-Model Navigation Usability Review** — `complete`
 
-Record the immutable data-products-v1.8.1 tag, exact source commit, three public assets, restored equipment-filter behavior and independent public workspace audit after verified preflight and publication.
+Review consumer discoverability of the published cross-model products and select the smallest workspace-only entry-point improvement without changing immutable release assets or comparison semantics.
 
 ## Next package
 
-**Cross-Model Navigation Usability Review** — `planned`
+**Cross-Model Workspace Entry Point** — `planned`
 
-Resume the deferred review of consumer discoverability and navigation for the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package.
+Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics.
 
 ## Autonomy
 
