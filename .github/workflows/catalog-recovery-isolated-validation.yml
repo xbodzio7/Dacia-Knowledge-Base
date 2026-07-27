@@ -53,6 +53,9 @@ jobs:
           base64 -d diagnostics/catalog-recovery/historical-live-state-baselines.patch.gz.b64 | gzip -d > /tmp/historical-live-state-baselines.patch
           test "$(wc -c < /tmp/historical-live-state-baselines.patch)" -eq 8363
           echo "ce4d8bd1c98b0a35db58290233b92bcc8eb1a25eec21be7fd0705997f72702a9  /tmp/historical-live-state-baselines.patch" | sha256sum -c -
+          cp diagnostics/catalog-recovery/current-project-state-contract.patch /tmp/current-project-state-contract.patch
+          test "$(wc -c < /tmp/current-project-state-contract.patch)" -eq 1053
+          echo "9e0f6d06743180797322d8da95f5438442fd5bcd64796bdca06f100e185caa08  /tmp/current-project-state-contract.patch" | sha256sum -c -
       - name: Apply to current main and synchronize state
         shell: bash
         run: |
@@ -62,6 +65,7 @@ jobs:
           checkout_exit=$?
           apply_exit=99
           historical_exit=99
+          current_state_exit=99
           if [ "$checkout_exit" -eq 0 ]; then
             git apply --3way --index /tmp/catalog-completion.patch >> /tmp/catalog-apply.log 2>&1
             apply_exit=$?
@@ -70,14 +74,19 @@ jobs:
             git apply --index /tmp/historical-live-state-baselines.patch >> /tmp/catalog-apply.log 2>&1
             historical_exit=$?
           fi
+          if [ "$historical_exit" -eq 0 ]; then
+            git apply --index /tmp/current-project-state-contract.patch >> /tmp/catalog-apply.log 2>&1
+            current_state_exit=$?
+          fi
           {
             echo "checkout_exit=${checkout_exit}"
             echo "apply_exit=${apply_exit}"
             echo "historical_exit=${historical_exit}"
+            echo "current_state_exit=${current_state_exit}"
             git status --short || true
             git diff --name-only --diff-filter=U || true
           } >> /tmp/catalog-apply.log
-          if [ "$checkout_exit" -ne 0 ] || [ "$apply_exit" -ne 0 ] || [ "$historical_exit" -ne 0 ]; then
+          if [ "$checkout_exit" -ne 0 ] || [ "$apply_exit" -ne 0 ] || [ "$historical_exit" -ne 0 ] || [ "$current_state_exit" -ne 0 ]; then
             cat /tmp/catalog-apply.log
             exit 1
           fi
@@ -125,6 +134,17 @@ jobs:
           python -m compileall -q tools tests
           python tools/import_sandero_stepway_catalog_completion.py --verify
           python tools/dkb.py model-media-cache --verify --offline
+          python -m unittest -q \
+            tests.test_package_workflow \
+            tests.test_package_receipt \
+            tests.test_package_publish \
+            tests.test_dkb_cli \
+            tests.test_quality \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
           python tools/dkb.py project-state --check
           python tools/dkb.py quality --concise --log-file /tmp/catalog-quality.log --summary-json /tmp/catalog-quality-summary.json --database /tmp/catalog-quality.sqlite
           python - <<'PY'
