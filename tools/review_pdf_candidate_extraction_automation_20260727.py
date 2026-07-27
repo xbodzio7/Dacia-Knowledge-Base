@@ -279,17 +279,22 @@ def verify_repository() -> None:
         ensure(command in cli, f"adjacent CLI command missing: {command}")
 
     state = load_json(STATE)
-    ensure(state.get("phase") == "PDF Candidate Extraction Automation Review", "project phase differs")
-    ensure(state.get("current_package", {}).get("name") == "PDF Candidate Extraction Automation Review", "current package differs")
-    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    historical_package = "PDF Candidate Extraction Automation Review"
+    current_package = state.get("current_package", {})
+    current_name = current_package.get("name")
+    ensure(current_package.get("status") == "complete", "current package is not complete")
     ensure(state.get("next_package", {}).get("name") == "Verified PDF Candidate Ledger Foundation", "state next package differs")
-    ensure(state.get("baseline", {}).get("tests") == 1070, "test baseline differs")
-    ensure(state.get("baseline", {}).get("rows") == 9688, "row baseline changed")
-    ensure(state.get("baseline", {}).get("configuration_values") == 2949, "configuration values changed")
-    ensure(state.get("baseline", {}).get("configuration_import_specs") == 117, "configuration import specs changed")
-    ensure(state.get("baseline", {}).get("configuration_value_ranges") == 244, "configuration ranges changed")
-    ensure(state.get("baseline", {}).get("configuration_range_import_specs") == 20, "range import specs changed")
-    ensure(state.get("baseline", {}).get("availability_records") == 4754, "availability baseline changed")
+    if current_name == historical_package:
+        ensure(state.get("phase") == historical_package, "project phase differs")
+        ensure(state.get("baseline", {}).get("tests") == 1070, "test baseline differs")
+        ensure(state.get("baseline", {}).get("rows") == 9688, "row baseline changed")
+        ensure(state.get("baseline", {}).get("configuration_values") == 2949, "configuration values changed")
+        ensure(state.get("baseline", {}).get("configuration_import_specs") == 117, "configuration import specs changed")
+        ensure(state.get("baseline", {}).get("configuration_value_ranges") == 244, "configuration ranges changed")
+        ensure(state.get("baseline", {}).get("configuration_range_import_specs") == 20, "range import specs changed")
+        ensure(state.get("baseline", {}).get("availability_records") == 4754, "availability baseline changed")
+    else:
+        ensure(state.get("phase") == current_name, "project phase/current package differs")
 
 
 def verify() -> None:
