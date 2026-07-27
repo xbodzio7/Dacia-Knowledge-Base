@@ -1,0 +1,157 @@
+name: Catalog Recovery Media Cache
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-media-cache.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cache-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Integrate local image cache
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          dkb = Path('tools/dkb.py')
+          text = dkb.read_text(encoding='utf-8')
+          marker = 'SCRIPT_COMMANDS = {\n'
+          addition = '''SCRIPT_COMMANDS = {\n    "model-media-cache": (\n        "cache_model_media.py",\n        "Refresh or verify the repository-local official model image cache.",\n        "--refresh|--verify [--offline] [--force] [--timeout SECONDS]",\n    ),\n    "sandero-stepway-catalog-completion": (\n        "import_sandero_stepway_catalog_completion.py",\n        "Apply or verify the source-bounded Sandero and Stepway catalogue completion.",\n        "--apply|--verify",\n    ),\n'''
+          if '"model-media-cache"' not in text:
+              text = text.replace(marker, addition, 1)
+          dkb.write_text(text, encoding='utf-8')
+
+          html = Path('tools/reporting/configuration_shortlist_html.py')
+          text = html.read_text(encoding='utf-8')
+          if 'from cache_model_media import MediaCacheError' not in text:
+              text = text.replace(
+                  'from typing import Any, Mapping\n\n',
+                  'from typing import Any, Mapping\n\nfrom cache_model_media import MediaCacheError, data_uri as model_media_data_uri\n\n',
+                  1,
+              )
+          old = '''        result[model_code] = {\n            "image_url": image_url,\n            "source_page_url": page_url,\n            "source_name": str(source.get("source_name", "Dacia Polska")),\n            "captured_on": captured_on,\n        }\n'''
+          new = '''        result[model_code] = {\n            "image_url": image_url,\n            "source_page_url": page_url,\n            "source_name": str(source.get("source_name", "Dacia Polska")),\n            "captured_on": captured_on,\n        }\n        try:\n            local_image = model_media_data_uri(repository, model_code)\n        except (MediaCacheError, OSError):\n            local_image = ""\n        if local_image:\n            result[model_code]["image_data_uri"] = local_image\n'''
+          if 'result[model_code]["image_data_uri"]' not in text:
+              if old not in text:
+                  raise SystemExit('model media block not found')
+              text = text.replace(old, new, 1)
+          text = text.replace(
+              'Oficjalne zdjęcia modeli są pobierane z serwisu Dacia Polska; bez internetu pozostaje lokalna sylwetka zastępcza.',
+              'Oficjalne zdjęcia modeli są osadzone z lokalnej pamięci podręcznej; przy braku sieci używany jest zapisany plik lub lokalna sylwetka zastępcza.',
+              1,
+          )
+          html.write_text(text, encoding='utf-8')
+
+          browser = Path('tools/reporting/configuration_shortlist_browser.js')
+          text = browser.read_text(encoding='utf-8')
+          marker = '  function renderResults(container, outcome) {\n'
+          helper = '''  function modelThumbnailMarkup(item) {\n    const media = item && item.model_media || {};\n    const alt = `${item.model_name || "Dacia"} ${item.version_name || ""}`.trim();\n    if (media.image_data_uri) {\n      return `<img src="${escapeHtml(media.image_data_uri)}" alt="${escapeHtml(alt)}" loading="lazy">`;\n    }\n    return `<svg viewBox="0 0 800 450" role="img" aria-label="${escapeHtml(alt)}">\n      <rect width="800" height="450" rx="32" fill="#eef2ed"></rect>\n      <path d="M150 292h500l-46-103c-12-27-39-45-69-45H317c-31 0-59 19-70 48l-35 91-62 9z" fill="#cbd5cb"></path>\n      <path d="M281 168h249c21 0 40 12 49 31l28 63H230l29-75c4-11 13-19 22-19z" fill="#83958a"></path>\n      <circle cx="262" cy="301" r="56" fill="#34433a"></circle><circle cx="262" cy="301" r="25" fill="#d9dfd9"></circle>\n      <circle cx="562" cy="301" r="56" fill="#34433a"></circle><circle cx="562" cy="301" r="25" fill="#d9dfd9"></circle>\n    </svg>`;\n  }\n\n  function renderResults(container, outcome) {\n'''
+          if 'function modelThumbnailMarkup(item)' not in text:
+              text = text.replace(marker, helper, 1)
+          text = text.replace(
+              '<div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}"></div>',
+              '<div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}">${modelThumbnailMarkup(item)}</div>',
+              1,
+          )
+          browser.write_text(text, encoding='utf-8')
+
+          html_text = html.read_text(encoding='utf-8')
+          css_marker = '.equipment-missing,.equipment-not_available{background:var(--danger-soft);color:var(--danger)}details'
+          css_replacement = '.equipment-missing,.equipment-not_available{background:var(--danger-soft);color:var(--danger)}.model-thumbnail-host{display:grid;place-items:center;min-height:120px}.model-thumbnail-host img,.model-thumbnail-host svg{display:block;width:100%;max-height:190px;object-fit:contain}details'
+          if css_marker in html_text:
+              html_text = html_text.replace(css_marker, css_replacement, 1)
+          html.write_text(html_text, encoding='utf-8')
+          PY
+
+          cat > tests/test_model_media_cache.py <<'PY'
+          from __future__ import annotations
+
+          import json
+          import sys
+          import tempfile
+          import unittest
+          from pathlib import Path
+
+          REPOSITORY = Path(__file__).resolve().parents[1]
+          sys.path.insert(0, str(REPOSITORY / "tools"))
+
+          import cache_model_media as media  # noqa: E402
+
+
+          class ModelMediaCacheTests(unittest.TestCase):
+              def fixture(self, root: Path) -> Path:
+                  source = root / media.SOURCE_PATH
+                  source.parent.mkdir(parents=True, exist_ok=True)
+                  source.write_text(
+                      json.dumps(
+                          {
+                              "captured_on": "2026-07-24",
+                              "models": {
+                                  "sandero_iii": {
+                                      "model_name": "Sandero",
+                                      "source_page_url": "https://www.dacia.pl/samochody/sandero.html",
+                                      "image_url": "https://www.dacia.pl/media/sandero.png",
+                                      "source_name": "Dacia Polska",
+                                  }
+                              },
+                          }
+                      ),
+                      encoding="utf-8",
+                  )
+                  return root
+
+              def test_offline_first_run_creates_deterministic_local_fallback(self) -> None:
+                  with tempfile.TemporaryDirectory() as directory:
+                      repository = self.fixture(Path(directory))
+                      first = media.refresh(repository, offline=True)
+                      manifest_before = json.loads(
+                          (repository / media.MANIFEST_PATH).read_text(encoding="utf-8")
+                      )
+                      second = media.refresh(repository, offline=True)
+                      manifest_after = json.loads(
+                          (repository / media.MANIFEST_PATH).read_text(encoding="utf-8")
+                      )
+                      verified = media.verify(repository)
+                      embedded = media.data_uri(repository, "sandero_iii")
+                  self.assertEqual(first["statuses"]["sandero_iii"], "placeholder_offline")
+                  self.assertEqual(second["statuses"]["sandero_iii"], "cached_offline")
+                  self.assertEqual(
+                      manifest_before["models"]["sandero_iii"]["sha256"],
+                      manifest_after["models"]["sandero_iii"]["sha256"],
+                  )
+                  self.assertTrue(verified["verified"])
+                  self.assertTrue(embedded.startswith("data:image/svg+xml;base64,"))
+
+
+          if __name__ == "__main__":
+              unittest.main()
+          PY
+
+      - name: Refresh cache and run focused quality checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics/catalog-recovery
+          python tools/cache_model_media.py --refresh | tee diagnostics/catalog-recovery/media-cache-refresh.json
+          python tools/cache_model_media.py --verify | tee diagnostics/catalog-recovery/media-cache-verify.json
+          python -m unittest tests.test_model_media_cache tests.test_configuration_shortlist_html
+          python tools/import_sandero_stepway_catalog_completion.py --verify
+          python tools/dkb.py validate
+
+      - name: Commit cache integration
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets tools tests diagnostics/catalog-recovery/media-cache-refresh.json diagnostics/catalog-recovery/media-cache-verify.json
+          git commit -m "feat(media): cache official model images for offline reports"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
