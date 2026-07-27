@@ -1,0 +1,48 @@
+name: Catalog Recovery Contract Occurrences
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-contract-occurrences.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate stale contracts
+        shell: bash
+        run: |
+          mkdir -p diagnostics/catalog-recovery
+          {
+            for pattern in \
+              '19 independent scopes' \
+              'active configuration count differs' \
+              'current configuration count differs' \
+              'active Sandero count differs' \
+              'active Sandero scope differs' \
+              'generated scope count differs' \
+              'view summary differs' \
+              'an exact Sandero TCe 100 configuration now exists' \
+              'expected eighty-eight modeled scalar chassis observations' \
+              'len(scalar), 88' \
+              'len(active), 72' \
+              'len(catalog["configurations"]), 72' \
+              'len(all_emission_values), 45' \
+              'len(enum_rows), 174'; do
+              echo "===== $pattern ====="
+              grep -RFn --include='*.py' --include='*.json' --include='*.spec' "$pattern" tools tests data/reporting project || true
+            done
+          } > diagnostics/catalog-recovery/contract-occurrences.txt
+      - name: Commit inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/contract-occurrences.txt
+          git commit -m "chore(test): inventory stale current-state contracts"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
