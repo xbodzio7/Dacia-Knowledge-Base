@@ -101,7 +101,16 @@ def verify_repository_evidence() -> None:
         "Release notes",
     ):
         ensure(title in source, f"current primary product missing: {title}")
-    ensure("cross-model/cross-model-comparison-view.html" not in source, "cross-model entry point already implemented")
+    member = "cross-model/cross-model-comparison-view.html"
+    if member in source:
+        ensure(
+            "if CROSS_MODEL_HTML_MEMBER in release_members:" in source,
+            "implemented cross-model entry point is not conditional",
+        )
+        ensure(
+            '"title": "Models and comparison scopes"' in source,
+            "implemented cross-model entry point title differs",
+        )
 
     view = collect_view(ROOT)
     summary = view.get("summary", {})
