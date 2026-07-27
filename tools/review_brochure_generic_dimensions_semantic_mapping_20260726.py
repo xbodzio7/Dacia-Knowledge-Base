@@ -264,7 +264,7 @@ def source_relationship_targets() -> dict[str, set[str]]:
 def verify_projection_scopes() -> None:
     configurations, models = active_configuration_models()
     model_counts = Counter(models.values())
-    ensure(model_counts["sandero_iii"] == 4, "active Sandero count differs")
+    ensure(model_counts["sandero_iii"] == 7, "active Sandero count differs")
     ensure(model_counts["jogger"] == 22, "active Jogger count differs")
     ensure(model_counts["duster_iii"] == 27, "active Duster count differs")
 
@@ -333,13 +333,13 @@ def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
         ]
         for model in ("sandero_iii", "jogger", "duster_iii")
     }
-    ensure(len(current_by_model["sandero_iii"]) == 50, "post-import Sandero dimension coverage differs")
-    ensure(len({row["configuration_code"] for row in current_by_model["sandero_iii"]}) == 4, "post-import Sandero configuration count differs")
+    ensure(len(current_by_model["sandero_iii"]) == 80, "post-import Sandero dimension coverage differs")
+    ensure(len({row["configuration_code"] for row in current_by_model["sandero_iii"]}) == 7, "post-import Sandero configuration count differs")
     ensure(len(current_by_model["jogger"]) == 242, "post-import Jogger dimension coverage differs")
     ensure(len({row["configuration_code"] for row in current_by_model["jogger"]}) == 22, "post-import Jogger configuration count differs")
     ensure(len(current_by_model["duster_iii"]) == 100, "post-import Duster dimension coverage differs")
     ensure(len({row["configuration_code"] for row in current_by_model["duster_iii"]}) == 10, "post-import Duster configuration count differs")
-    ensure(max(int(row["id"]) for row in values) == 2949, "configuration value ID boundary differs")
+    ensure(max(int(row["id"]) for row in brochure_generic) == 2949, "historical configuration value ID boundary differs")
 
 def planned_rows(payload: Mapping[str, Any]) -> list[tuple[str, str, int]]:
     targets = source_relationship_targets()

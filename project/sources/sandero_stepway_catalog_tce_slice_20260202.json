@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "kind": "official_source_slice",
+  "slice_code": "src_pl_sandero_stepway_catalog_tce_slice_20260202",
+  "raw_source_code": "src_pl_sandero_stepway_brochure_20260202",
+  "raw_source": {
+    "title": "DACIA SANDERO STEPWAY broszura",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-02-02",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+  },
+  "selection": {
+    "configuration_codes": [
+      "sandero_stepway_iii_essential_tce110_manual",
+      "sandero_stepway_iii_expression_tce110_manual",
+      "sandero_stepway_iii_extreme_tce110_manual"
+    ],
+    "source_pages": [
+      17,
+      20
+    ],
+    "observation_families": [
+      "technical",
+      "performance",
+      "chassis",
+      "dimensions",
+      "cargo"
+    ]
+  },
+  "non_inference": [
+    "The slice does not replace or alter the registered raw official document.",
+    "Every imported observation retains raw page and section provenance in its notes.",
+    "Only values directly visible in the selected official source are represented."
+  ]
+}

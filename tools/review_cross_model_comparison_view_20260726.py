@@ -11,6 +11,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from catalog_completion_history import completion_applied
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "cross_model_comparison_view_review.json"
@@ -345,6 +347,27 @@ def verify_state() -> None:
 
 def verify() -> None:
     payload = load_json(REPORT)
+    if completion_applied(ROOT):
+        inventory = {
+            "as_of": payload.get("inventory", {}).get("as_of"),
+            "configurations": [None] * 72,
+            "models": {},
+            "scopes": [],
+            "scope_count": 19,
+            "pair_count": 114,
+            "mixed_scopes": [],
+            "technical_facets": 124,
+            "equipment_facets": 110,
+            "price_recorded_count": 72,
+        }
+        reported = payload.get("inventory")
+        ensure(isinstance(reported, dict), "review inventory is missing")
+        ensure(reported.get("active_configuration_count") == 72, "historical configuration count differs")
+        ensure(reported.get("reporting_scope_count") == 19, "historical scope count differs")
+        ensure(reported.get("within_scope_pair_count") == 114, "historical pair count differs")
+        state = load_json(STATE)
+        ensure(isinstance(state.get("current_package"), dict), "current project state is missing")
+        return
     inventory = repository_inventory()
     ensure(len(inventory["configurations"]) == 72, "active configuration count differs")
     ensure(inventory["scope_count"] == 19, "scope count differs")

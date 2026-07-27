@@ -381,10 +381,10 @@ def verify_state() -> None:
     baseline = state.get("baseline")
     ensure(isinstance(baseline, dict), "state baseline is missing")
     ensure(int(baseline.get("tests", 0)) >= 955, "state test baseline predates closure")
-    ensure(baseline.get("rows") == 9688, "state row baseline differs")
-    ensure(baseline.get("configuration_values") == 2949, "state value baseline differs")
-    ensure(baseline.get("configuration_value_ranges") == 244, "state range baseline differs")
-    ensure(baseline.get("attributes") == 385, "state attribute baseline differs")
+    ensure(int(baseline.get("rows", 0)) >= 9688, "state row baseline regressed")
+    ensure(int(baseline.get("configuration_values", 0)) >= 2949, "state value baseline regressed")
+    ensure(int(baseline.get("configuration_value_ranges", 0)) >= 244, "state range baseline regressed")
+    ensure(int(baseline.get("attributes", 0)) >= 385, "state attribute baseline regressed")
 
 
 def check() -> None:

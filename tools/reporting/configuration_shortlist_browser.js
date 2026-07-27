@@ -280,6 +280,21 @@
     return seats.state === "recorded" ? `${seats.value} miejsc` : "Liczba miejsc: brak danych";
   }
 
+  function modelThumbnailMarkup(item) {
+    const media = item && item.model_media || {};
+    const alt = `${item.model_name || "Dacia"} ${item.version_name || ""}`.trim();
+    if (media.image_data_uri) {
+      return `<img src="${escapeHtml(media.image_data_uri)}" alt="${escapeHtml(alt)}" loading="lazy">`;
+    }
+    return `<svg viewBox="0 0 800 450" role="img" aria-label="${escapeHtml(alt)}">
+      <rect width="800" height="450" rx="32" fill="#eef2ed"></rect>
+      <path d="M150 292h500l-46-103c-12-27-39-45-69-45H317c-31 0-59 19-70 48l-35 91-62 9z" fill="#cbd5cb"></path>
+      <path d="M281 168h249c21 0 40 12 49 31l28 63H230l29-75c4-11 13-19 22-19z" fill="#83958a"></path>
+      <circle cx="262" cy="301" r="56" fill="#34433a"></circle><circle cx="262" cy="301" r="25" fill="#d9dfd9"></circle>
+      <circle cx="562" cy="301" r="56" fill="#34433a"></circle><circle cx="562" cy="301" r="25" fill="#d9dfd9"></circle>
+    </svg>`;
+  }
+
   function renderResults(container, outcome) {
     if (!outcome.results.length) {
       container.innerHTML = '<p class="empty">Żadna konfiguracja nie spełnia wszystkich kryteriów.</p>';
@@ -297,7 +312,7 @@
         : item.transmission_type === "manual" ? "manualna" : item.transmission_type;
       return `<article class="result-card" data-configuration-code="${escapeHtml(item.configuration_code)}">
         <div class="result-card-hero">
-          <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}"></div>
+          <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}">${modelThumbnailMarkup(item)}</div>
           <div class="result-card-title">
             <p class="result-model-name">${escapeHtml(item.model_name)}</p>
             <h3>${escapeHtml(item.version_name)}</h3>

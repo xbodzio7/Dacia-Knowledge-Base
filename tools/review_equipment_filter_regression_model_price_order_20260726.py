@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from catalog_completion_history import completion_applied
+
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = (
     ROOT
@@ -293,6 +295,11 @@ def verify_repository() -> None:
 def verify() -> None:
     payload = load_json(REPORT)
     verify_report(payload)
+    if completion_applied(ROOT):
+        state = load_json(STATE)
+        ensure(int(state.get("baseline", {}).get("tests", 0)) >= 1030, "test baseline regressed")
+        ensure(int(state.get("baseline", {}).get("configuration_values", 0)) >= 2949, "configuration values regressed")
+        return
     verify_repository()
 
 

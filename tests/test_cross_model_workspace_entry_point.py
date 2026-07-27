@@ -219,8 +219,8 @@ class CrossModelWorkspaceEntryPointTests(unittest.TestCase):
         )
         self.assertTrue(state["next_package"]["name"])
         self.assertGreaterEqual(state["baseline"]["tests"], 1070)
-        self.assertEqual(state["baseline"]["rows"], 9688)
-        self.assertEqual(state["baseline"]["availability_records"], 4754)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["availability_records"], 4754)
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,

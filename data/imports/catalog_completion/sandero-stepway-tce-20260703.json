@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_catalog_completion",
+  "observation_date": "2026-07-03",
+  "price_source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+  "source_slices": [
+    "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+    "src_pl_sandero_catalog_tce_slice_20260202",
+    "src_pl_sandero_stepway_catalog_tce_slice_20260202"
+  ],
+  "configuration_codes": [
+    "sandero_iii_essential_tce100_manual",
+    "sandero_iii_expression_tce100_manual",
+    "sandero_iii_journey_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "sandero_stepway_iii_expression_tce110_manual",
+    "sandero_stepway_iii_extreme_tce110_manual"
+  ],
+  "expected_additions": {
+    "sources": 3,
+    "versions": 1,
+    "source_version_relationships": 1,
+    "configurations": 6,
+    "prices": 8,
+    "technical_values": 318,
+    "equipment_availability": 1016,
+    "cargo_contexts": 30,
+    "source_configuration_relationships": 21,
+    "reporting_scopes": 1
+  },
+  "expected_repository_totals": {
+    "active_configurations": 78,
+    "reporting_scopes": 21,
+    "unique_comparison_pairs": 120
+  },
+  "non_inference": [
+    "Only source-visible TCe 100 and TCe 110 configurations are added.",
+    "Price observations exclude financing and promotional claims.",
+    "Cargo context fields remain empty when the brochure does not state them.",
+    "The equipment matrix preserves the 34 earlier observations from the same source and adds only missing states.",
+    "No value is derived arithmetically from another technical observation."
+  ]
+}

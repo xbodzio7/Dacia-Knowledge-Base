@@ -42,12 +42,12 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["summary"],
             {
                 "model_family_count": 5,
-                "reporting_scope_count": 19,
+                "reporting_scope_count": 20,
                 "single_model_scope_count": 18,
-                "mixed_model_scope_count": 1,
-                "active_configuration_count": 72,
-                "within_scope_pair_count": 114,
-                "catalog_price_recorded_count": 72,
+                "mixed_model_scope_count": 2,
+                "active_configuration_count": 78,
+                "within_scope_pair_count": 129,
+                "catalog_price_recorded_count": 78,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
                 "recommendations_generated": False,
@@ -67,8 +67,8 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             ],
         )
         expected = {
-            "sandero_iii": (4, 2, 68000, 80500, 4),
-            "sandero_stepway_iii": (5, 3, 71700, 89400, 5),
+            "sandero_iii": (7, 3, 63900, 80500, 7),
+            "sandero_stepway_iii": (8, 3, 71700, 89400, 8),
             "jogger": (22, 4, 77900, 118050, 22),
             "duster_iii": (27, 5, 82000, 123600, 27),
             "bigster": (14, 4, 101400, 137600, 14),
@@ -99,8 +99,8 @@ class CrossModelComparisonViewTests(unittest.TestCase):
 
     def test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged(self) -> None:
         mixed = [item for item in self.view["scopes"] if item["mixed_model"]]
-        self.assertEqual(len(mixed), 1)
-        scope = mixed[0]
+        self.assertEqual(len(mixed), 2)
+        scope = self.scopes["sandero_ecog120_manual"]
         self.assertEqual(scope["slug"], "sandero_ecog120_manual")
         self.assertEqual(
             scope["model_codes"],
@@ -109,11 +109,15 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(scope["configuration_count"], 5)
         self.assertEqual(scope["pair_count"], 10)
         self.assertEqual(scope["technical_slot_count"], 56)
-        self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 1)
+        self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 2)
         self.assertEqual(
             self.models["sandero_stepway_iii"]["shared_scope_count"],
-            1,
+            2,
         )
+        tce_scope = self.scopes["sandero_tce100_stepway_tce110_manual"]
+        self.assertEqual(tce_scope["configuration_count"], 6)
+        self.assertEqual(tce_scope["pair_count"], 15)
+        self.assertEqual(tce_scope["technical_slot_count"], 48)
 
     def test_every_configuration_occurs_once_and_pairs_stay_inside_scopes(self) -> None:
         codes = [
@@ -121,11 +125,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             for scope in self.view["scopes"]
             for code in scope["configuration_codes"]
         ]
-        self.assertEqual(len(codes), 72)
+        self.assertEqual(len(codes), 78)
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            114,
+            129,
         )
         self.assertTrue(
             all(
@@ -180,8 +184,8 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(json.loads(json_text), self.view)
         self.assertTrue(html_text.startswith("<!doctype html>"))
         self.assertEqual(html_text.count('class="model-card"'), 5)
-        self.assertEqual(html_text.count('class="scope-card"'), 19)
-        self.assertEqual(html_text.count('class="badge mixed"'), 1)
+        self.assertEqual(html_text.count('class="scope-card"'), 20)
+        self.assertEqual(html_text.count('class="badge mixed"'), 2)
 
     def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
         rendered = render_html(self.view)
@@ -191,7 +195,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 57)
+        self.assertEqual(len(comparison_links), 60)
         self.assertTrue(
             all(link.startswith("../comparison-bundle/") for link in comparison_links)
         )

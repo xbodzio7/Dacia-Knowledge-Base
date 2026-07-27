@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "PDF Candidate Extraction Automation Review",
+  "phase": "Source-Bounded Sandero and Stepway Catalogue Completion",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,21 +15,21 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1070,
+    "tests": 1071,
     "csv_files": 46,
-    "rows": 9688,
-    "configuration_values": 2949,
+    "rows": 11092,
+    "configuration_values": 3267,
     "configuration_import_specs": 117,
     "configuration_value_ranges": 244,
     "configuration_range_import_specs": 20,
-    "availability_records": 4754,
+    "availability_records": 5770,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "PDF Candidate Extraction Automation Review",
+    "name": "Source-Bounded Sandero and Stepway Catalogue Completion",
     "status": "complete",
-    "goal": "Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports."
+    "goal": "Complete the source-bounded Polish MY26 Sandero TCe 100 and Sandero Stepway TCe 110 catalogue from registered official price-list and brochure slices; add exact configurations, prices, technical observations, equipment states and cargo contexts; preserve historical release receipts; and cache official model media locally with conditional refresh and offline reuse."
   },
   "next_package": {
     "name": "Verified PDF Candidate Ledger Foundation",

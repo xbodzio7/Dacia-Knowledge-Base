@@ -12,7 +12,7 @@
 
 ## Phase
 
-**PDF Candidate Extraction Automation Review**
+**Source-Bounded Sandero and Stepway Catalogue Completion**
 
 ## Reference delivery
 
@@ -23,22 +23,22 @@
 
 ## Verified baseline
 
-- Tests: 1070
+- Tests: 1071
 - Master CSV files: 46
-- Master rows: 9688
-- Configuration values: 2949
+- Master rows: 11092
+- Configuration values: 3267
 - Configuration import specifications: 117
 - Configuration value ranges: 244
 - Configuration range import specifications: 20
-- Availability records: 4754
+- Availability records: 5770
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**PDF Candidate Extraction Automation Review** — `complete`
+**Source-Bounded Sandero and Stepway Catalogue Completion** — `complete`
 
-Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports.
+Complete the source-bounded Polish MY26 Sandero TCe 100 and Sandero Stepway TCe 110 catalogue from registered official price-list and brochure slices; add exact configurations, prices, technical observations, equipment states and cargo contexts; preserve historical release receipts; and cache official model media locally with conditional refresh and offline reuse.
 
 ## Next package
 

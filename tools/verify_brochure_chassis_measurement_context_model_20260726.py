@@ -57,6 +57,14 @@ EXPECTED_EXISTING_ATTRIBUTES = {
     "maximum_payload": ("integer", "kg"),
 }
 
+HISTORICAL_SCALAR_SOURCES = {
+    "src_pl_bigster_brochure_20251210",
+    "src_pl_duster_mini_brochure_20251020",
+    "src_pl_jogger_brochure_20251217",
+    "src_pl_sandero_brochure_20260202",
+    "src_pl_sandero_stepway_brochure_20260202",
+}
+
 EXPECTED_CLASSIFICATIONS = {
     "bigster_chassis_measurement_modeling",
     "jogger_chassis_candidate_and_modeling",
@@ -171,7 +179,12 @@ def verify_decision() -> None:
 
 def verify_model_only_boundary() -> None:
     new_codes = set(EXPECTED_NEW_ATTRIBUTES)
-    scalar = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("attribute_code") in new_codes]
+    scalar = [
+        row
+        for row in rows(MASTER / "configuration_attribute_values.csv")
+        if row.get("attribute_code") in new_codes
+        and row.get("source_code") in HISTORICAL_SCALAR_SOURCES
+    ]
     ranges = [row for row in rows(MASTER / "configuration_attribute_value_ranges.csv") if row.get("attribute_code") in new_codes]
     ensure(len(scalar) == 88, "expected eighty-eight modeled scalar chassis observations")
     ensure(
@@ -185,13 +198,7 @@ def verify_model_only_boundary() -> None:
     )
     ensure(
         {row.get("source_code") for row in scalar}
-        == {
-            "src_pl_bigster_brochure_20251210",
-            "src_pl_duster_mini_brochure_20251020",
-            "src_pl_jogger_brochure_20251217",
-            "src_pl_sandero_brochure_20260202",
-            "src_pl_sandero_stepway_brochure_20260202",
-        },
+        == HISTORICAL_SCALAR_SOURCES,
         "modeled scalar source set differs",
     )
     ensure(

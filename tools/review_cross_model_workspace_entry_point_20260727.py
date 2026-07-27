@@ -169,13 +169,13 @@ def verify() -> None:
     )
     baseline = state.get("baseline", {})
     ensure(baseline.get("tests", 0) >= 1070, "test baseline regressed")
-    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
-    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
+    ensure(baseline.get("rows", 0) >= 9688, "row baseline regressed")
     ensure(
-        baseline.get("availability_records") == 4754,
-        "availability baseline changed",
+        baseline.get("availability_records", 0) >= 4754,
+        "availability baseline regressed",
     )
-    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+    ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:

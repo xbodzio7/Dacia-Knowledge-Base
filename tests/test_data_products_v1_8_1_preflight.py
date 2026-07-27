@@ -89,7 +89,7 @@ class DataProductsV181PreflightTests(unittest.TestCase):
         self.assertTrue(state["phase"])
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertGreaterEqual(state["baseline"]["tests"], 1046)
-        self.assertEqual(state["baseline"]["rows"], 9688)
+        self.assertGreaterEqual(state["baseline"]["rows"], 9688)
 
     def test_verifier_accepts_preflight(self) -> None:
         completed = subprocess.run(

@@ -14,6 +14,15 @@ from typing import Any, Iterable, Sequence
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "official_brochure_technical_gap_review.json"
+CATALOG_COMPLETION = ROOT / "data" / "imports" / "catalog_completion" / "sandero-stepway-tce-20260703.json"
+EXPECTED_CATALOG_CONFIGURATIONS = {
+    "sandero_iii_essential_tce100_manual",
+    "sandero_iii_expression_tce100_manual",
+    "sandero_iii_journey_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "sandero_stepway_iii_expression_tce110_manual",
+    "sandero_stepway_iii_extreme_tce110_manual",
+}
 
 SOURCE_CONTRACTS = {
     "src_pl_bigster_brochure_20251210": (
@@ -272,8 +281,24 @@ def verify_priority_candidates(by_code: dict[str, dict[str, Any]]) -> None:
 
 def verify_non_import_boundaries() -> None:
     configurations = active_configurations()
-    ensure(not any(code.startswith("sandero_iii_") and "tce100" in code for code in configurations), "an exact Sandero TCe 100 configuration now exists")
-    ensure(not any(code.startswith("sandero_stepway_iii_") and "tce110" in code for code in configurations), "an exact Stepway TCe 110 configuration now exists")
+    exact_catalog = {
+        code
+        for code in configurations
+        if (code.startswith("sandero_iii_") and "tce100" in code)
+        or (code.startswith("sandero_stepway_iii_") and "tce110" in code)
+    }
+    if CATALOG_COMPLETION.exists():
+        contract = json.loads(CATALOG_COMPLETION.read_text(encoding="utf-8"))
+        ensure(
+            set(contract.get("configuration_codes", [])) == EXPECTED_CATALOG_CONFIGURATIONS,
+            "catalogue completion configuration scope differs",
+        )
+        ensure(
+            exact_catalog == EXPECTED_CATALOG_CONFIGURATIONS,
+            "exact TCe catalogue configurations differ from the bounded completion package",
+        )
+    else:
+        ensure(not exact_catalog, "an exact Sandero or Stepway TCe catalogue configuration now exists")
     ensure(not any(code.startswith("duster_iii_") and "hybridg150" in code for code in configurations), "an exact Duster hybrid-G 150 configuration now exists")
 
 
