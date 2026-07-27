@@ -1,0 +1,52 @@
+name: Catalog Recovery Equipment Source Slice Fix
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-equipment-source-slice-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch, complete and test
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery
+          python tools/patch_catalog_equipment_source_slices.py > diagnostics/catalog-recovery/equipment-source-fix.log 2>&1
+          patch=$?
+          apply=99
+          verify=99
+          validator=99
+          tests=99
+          if [ "$patch" -eq 0 ]; then
+            python tools/import_sandero_stepway_catalog_completion.py --apply >> diagnostics/catalog-recovery/equipment-source-fix.log 2>&1
+            apply=$?
+          fi
+          if [ "$apply" -eq 0 ]; then
+            python tools/import_sandero_stepway_catalog_completion.py --verify >> diagnostics/catalog-recovery/equipment-source-fix.log 2>&1
+            verify=$?
+            python tools/dkb.py validate > diagnostics/catalog-recovery/equipment-source-validator.log 2>&1
+            validator=$?
+            python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/equipment-source-tests.log 2>&1
+            tests=$?
+          fi
+          printf '{"patch_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$patch" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/equipment-source-summary.json
+          exit 0
+
+      - name: Commit result
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data project/sources tools tests diagnostics/catalog-recovery/equipment-source-*.log diagnostics/catalog-recovery/equipment-source-summary.json
+          git commit -m "fix(data): preserve legacy catalogue equipment cells"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
