@@ -1,0 +1,583 @@
+{
+  "count": 50,
+  "failures": [
+    {
+      "kind": "ERROR",
+      "name": "setUpClass (test_data_product_release.DataProductReleaseTests)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py",
+          "line": 309
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/configuration_comparison.py",
+          "line": 46
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/_configuration_comparison_base.py",
+          "line": 706
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/reporting/data_product_release.py",
+          "line": 240
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py",
+          "line": 401
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py",
+          "line": 315
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_data_product_release.py",
+          "line": 48
+        },
+        {
+          "path": "Dacia-Knowledge-Base/tools/reporting/data_product_release.py",
+          "line": 312
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py\", line 309, in _render_group\n    report = comparison.collect_report(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_comparison.py\", line 46, in collect_report\n    report = _ORIGINAL_COLLECT(\n             ^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/_configuration_comparison_base.py\", line 706, in collect_report\n    raise ComparisonError(\n_configuration_comparison_base.ComparisonError: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py\", line 240, in create_release_assets\n    bundle = create_bundle(\n             ^^^^^^^^^^^^^^\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py\", line 401, in create_bundle\n    _render_group(\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/configuration_comparison_bundle.py\", line 315, in _render_group\n    raise BundleError(\nreporting.configuration_comparison_bundle.BundleError: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py\", line 48, in setUpClass\n    cls.manifest = create_release_assets(\n                   ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py\", line 312, in create_release_assets\n    raise ReleaseError(f\"cannot build data product release: {exc}\") from exc\nreporting.data_product_release_model.ReleaseError: cannot build data product release: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_advances_to_duster (test_bigster_chassis_20260726.BigsterChassisTests.test_model_receipt_advances_to_duster)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_bigster_chassis_20260726.py",
+          "line": 145
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_bigster_chassis_20260726.py\", line 145, in test_model_receipt_advances_to_duster\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_all_four_importers_reproduce_current_contract (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_all_four_importers_reproduce_current_contract) (importer='tools/import_sandero_stepway_brochure_cargo_20260725.py')",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py",
+          "line": 106
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 106, in test_all_four_importers_reproduce_current_contract\n    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)\nAssertionError: 1 != 0 : ERROR: expected nine Sandero configurations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_receipt_matches_master_totals_by_source (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_closure_receipt_matches_master_totals_by_source)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py",
+          "line": 74
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 74, in test_closure_receipt_matches_master_totals_by_source\n    self.assertEqual(value_counts[source], values, source)\nAssertionError: 35 != 20 : src_pl_sandero_brochure_20260202"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_every_brochure_value_has_one_exact_context (test_brochure_cargo_import_closure_review.BrochureCargoImportClosureReviewTests.test_every_brochure_value_has_one_exact_context)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py",
+          "line": 84
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_cargo_import_closure_review.py\", line 84, in test_every_brochure_value_has_one_exact_context\n    self.assertEqual(len({row[\"configuration_attribute_value_code\"] for row in contexts}), 287)\nAssertionError: 317 != 287"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_are_complete (test_brochure_chassis_measurement_context_modeling_20260726.BrochureChassisMeasurementContextModelTests.test_verifier_and_project_state_are_complete)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_chassis_measurement_context_modeling_20260726.py",
+          "line": 134
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_measurement_context_modeling_20260726.py\", line 134, in test_verifier_and_project_state_are_complete\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_and_all_import_receipts_pass (test_brochure_chassis_modeling_closure_review.BrochureChassisModelingClosureReviewTests.test_closure_verifier_and_all_import_receipts_pass)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py",
+          "line": 166
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py\", line 166, in test_closure_verifier_and_all_import_receipts_pass\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_brochure_chassis_modeling_closure_20260726.py [-h] --check\nreview_brochure_chassis_modeling_closure_20260726.py: error: expected exactly 277 chassis scalar values"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_scalar_counts_ids_sources_and_configurations (test_brochure_chassis_modeling_closure_review.BrochureChassisModelingClosureReviewTests.test_exact_scalar_counts_ids_sources_and_configurations)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py",
+          "line": 85
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py\", line 85, in test_exact_scalar_counts_ids_sources_and_configurations\n    self.assertEqual([int(row[\"id\"]) for row in self.scalar], list(range(2291, 2568)))\nAssertionError: Lists differ: [2291[1651 chars] 2567, 2975, 2979, 2980, 2981, 2982, 3028, 303[135 chars]3248] != [2291[1651 chars] 2567]\n\nFirst list contains 30 additional elements.\nFirst extra element 277:\n2975\n\nDiff is 2792 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_receipt_matches_exact_source_and_context_totals (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_closure_receipt_matches_exact_source_and_context_totals)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py",
+          "line": 51
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 51, in test_closure_receipt_matches_exact_source_and_context_totals\n    self.assertEqual(Counter(row[\"source_code\"] for row in self.values), Counter(SOURCES))\nAssertionError: Count[68 chars]rochure_20260202': 31, 'src_pl_sandero_brochure_20260202': 22}) != Count[68 chars]rochure_20260202': 22, 'src_pl_sandero_brochure_20260202': 16})"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_reproduces_repository_contract (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_closure_verifier_reproduces_repository_contract)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py",
+          "line": 109
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 109, in test_closure_verifier_reproduces_repository_contract\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_brochure_gear_performance_import_closure_20260726.py\n       [-h] --check\nreview_brochure_gear_performance_import_closure_20260726.py: error: expected exactly 70 reviewed values"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_configuration_scope_preserves_jogger_layouts (test_brochure_gear_performance_import_closure_review.BrochureGearPerformanceImportClosureReviewTests.test_exact_configuration_scope_preserves_jogger_layouts)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py",
+          "line": 58
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_import_closure_review.py\", line 58, in test_exact_configuration_scope_preserves_jogger_layouts\n    self.assertEqual(sum(code.startswith(\"sandero_iii_\") for code in configurations), 4)\nAssertionError: 7 != 4"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_declarative_import_contract_is_idempotent (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_declarative_import_contract_is_idempotent)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py",
+          "line": 114
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py\", line 114, in test_declarative_import_contract_is_idempotent\n    self.assertEqual(result.returncode, 0, result.stderr or result.stdout)\nAssertionError: 2 != 0 : usage: import_brochure_gear_performance_20260726.py [-h] (--apply | --check)\nimport_brochure_gear_performance_20260726.py: error: master data does not contain exactly 70 reviewed observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_exact_ids_counts_and_observation_identity (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_exact_ids_counts_and_observation_identity)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py",
+          "line": 38
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py\", line 38, in test_exact_ids_counts_and_observation_identity\n    self.assertEqual([int(row[\"id\"]) for row in self.rows], list(range(2119, 2189)))\nAssertionError: Lists differ: [2119[409 chars] 2188, 2972, 2973, 3025, 3026, 3078, 3079, 313[45 chars]3239] != [2119[409 chars] 2188]\n\nFirst list contains 15 additional elements.\nFirst extra element 70:\n2972\n\nDiff is 794 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_source_fuel_gear_and_model_distributions (test_brochure_gear_performance_values_20260726.BrochureGearPerformanceValueTests.test_source_fuel_gear_and_model_distributions)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py",
+          "line": 47
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_gear_performance_values_20260726.py\", line 47, in test_source_fuel_gear_and_model_distributions\n    self.assertEqual(\nAssertionError: Count[68 chars]rochure_20260202': 31, 'src_pl_sandero_brochure_20260202': 22}) != Count[68 chars]rochure_20260202': 22, 'src_pl_sandero_brochure_20260202': 16})"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_importer_mapping_receipt_and_deferrals_pass (test_brochure_generic_dimensions_import_20260726.BrochureGenericDimensionsImportTests.test_importer_mapping_receipt_and_deferrals_pass)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_20260726.py",
+          "line": 184
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_20260726.py\", line 184, in test_importer_mapping_receipt_and_deferrals_pass\n    self.assertEqual(mapped.returncode, 0, mapped.stderr or mapped.stdout)\nAssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py\n       [-h] --check\nreview_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_reproduces_repository_contract (test_brochure_generic_dimensions_import_closure_review.BrochureGenericDimensionsImportClosureReviewTests.test_closure_verifier_reproduces_repository_contract)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_closure_review.py",
+          "line": 270
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_closure_review.py\", line 270, in test_closure_verifier_reproduces_repository_contract\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: checker failed: review_brochure_generic_dimensions_semantic_mapping_20260726.py: usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py\n       [-h] --check\nreview_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_source_relationships_define_thirty_six_import_targets (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_source_relationships_define_thirty_six_import_targets)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py",
+          "line": 116
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py\", line 116, in test_source_relationships_define_thirty_six_import_targets\n    self.assertEqual(counts, Counter({\nAssertionError: Count[63 chars]brochure_20251020': 10, 'src_pl_sandero_brochure_20260202': 7}) != Count[63 chars]brochure_20251020': 10, 'src_pl_sandero_brochure_20260202': 4})"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_complete_review (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_verifier_and_project_state_complete_review)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py",
+          "line": 176
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py\", line 176, in test_verifier_and_project_state_complete_review\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py\n       [-h] --check\nreview_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_july_catalog_prices_cover_all_registered_configuration_relationships (test_commercial_items_20260703.CommercialItems20260703Tests.test_july_catalog_prices_cover_all_registered_configuration_relationships)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_commercial_items_20260703.py",
+          "line": 82
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_commercial_items_20260703.py\", line 82, in test_july_catalog_prices_cover_all_registered_configuration_relationships\n    self.assertEqual(len({row[\"configuration_code\"] for row in july}), 39)\nAssertionError: 47 != 39"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_scope_inventory_maps_all_active_configurations_once (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_scope_inventory_maps_all_active_configurations_once)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py",
+          "line": 64
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py\", line 64, in test_scope_inventory_maps_all_active_configurations_once\n    self.assertEqual(len(scopes), 19)\nAssertionError: 20 != 19"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_sheet_dimensions_filters_and_frozen_headers (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_sheet_dimensions_filters_and_frozen_headers)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py",
+          "line": 141
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py\", line 141, in test_sheet_dimensions_filters_and_frozen_headers\n    self.assertEqual(dimension.attrib[\"ref\"], expected)\nAssertionError: 'A1:M336' != 'A1:M302'\n- A1:M336\n?      ^^\n+ A1:M302\n?      ^^"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_every_configuration_occurs_once_and_pairs_stay_inside_scopes (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_every_configuration_occurs_once_and_pairs_stay_inside_scopes)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 124
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 124, in test_every_configuration_occurs_once_and_pairs_stay_inside_scopes\n    self.assertEqual(len(codes), 72)\nAssertionError: 78 != 72"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 102
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 102, in test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged\n    self.assertEqual(len(mixed), 1)\nAssertionError: 2 != 1"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_html_is_standalone_scope_safe_and_marks_unknown_values (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_html_is_standalone_scope_safe_and_marks_unknown_values)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 194
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 194, in test_html_is_standalone_scope_safe_and_marks_unknown_values\n    self.assertEqual(len(comparison_links), 57)\nAssertionError: 60 != 57"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_json_and_html_rendering_are_deterministic (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_json_and_html_rendering_are_deterministic)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 183
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 183, in test_json_and_html_rendering_are_deterministic\n    self.assertEqual(html_text.count('class=\"scope-card\"'), 19)\nAssertionError: 20 != 19"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_cards_have_exact_order_counts_and_price_coverage (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_model_cards_have_exact_order_counts_and_price_coverage)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 79
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 79, in test_model_cards_have_exact_order_counts_and_price_coverage\n    self.assertEqual(model[\"configuration_count\"], values[0])\nAssertionError: 7 != 4"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_summary_matches_scope_preserving_repository_baseline (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_summary_matches_scope_preserving_repository_baseline)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py",
+          "line": 41
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py\", line 41, in test_summary_matches_scope_preserving_repository_baseline\n    self.assertEqual(\nAssertionError: {'mod[41 chars]nt': 20, 'single_model_scope_count': 18, 'mixe[259 chars]alse} != {'mod[41 chars]nt': 19, 'single_model_scope_count': 18, 'mixe[259 chars]alse}\nDiff is 917 characters long. Set self.maxDiff to None to see it."
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_closure_history (test_cross_model_comparison_view_closure_review.CrossModelComparisonViewClosureReviewTests.test_verifier_and_project_state_preserve_closure_history)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_closure_review.py",
+          "line": 146
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_closure_review.py\", line 146, in test_verifier_and_project_state_preserve_closure_history\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: view summary differs: reporting_scope_count"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_historical_review (test_cross_model_comparison_view_review.CrossModelComparisonViewReviewTests.test_verifier_and_project_state_preserve_historical_review)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_review.py",
+          "line": 159
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_review.py\", line 159, in test_verifier_and_project_state_preserve_historical_review\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: active configuration count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_accepts_review (test_cross_model_navigation_usability_review.CrossModelNavigationUsabilityReviewTests.test_verifier_accepts_review)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_cross_model_navigation_usability_review.py",
+          "line": 87
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_navigation_usability_review.py\", line 87, in test_verifier_accepts_review\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: generated scope count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_preparation_verifier_reproduces_repository_contract (test_data_products_v1_7_0_release_preparation.DataProductsV170ReleasePreparationTests.test_preparation_verifier_reproduces_repository_contract)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_data_products_v1_7_0_release_preparation.py",
+          "line": 156
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_7_0_release_preparation.py\", line 156, in test_preparation_verifier_reproduces_repository_contract\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: active configuration count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_0_release_preparation.DataProductsV180ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_data_products_v1_8_0_release_preparation.py",
+          "line": 156
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_0_release_preparation.py\", line 156, in test_verifier_and_project_state_preserve_preparation_history\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: cannot build data product release: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_accepts_preflight (test_data_products_v1_8_1_preflight.DataProductsV181PreflightTests.test_verifier_accepts_preflight)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_preflight.py",
+          "line": 102
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_preflight.py\", line 102, in test_verifier_accepts_preflight\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: cannot build data product release: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_1_release_preparation.DataProductsV181ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_release_preparation.py",
+          "line": 148
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_release_preparation.py\", line 148, in test_verifier_and_project_state_preserve_preparation_history\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: cannot build data product release: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_reporting_subset_remains_sandero_only (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_reporting_subset_remains_sandero_only)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_duster_catalog_bootstrap.py",
+          "line": 153
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_catalog_bootstrap.py\", line 153, in test_reporting_subset_remains_sandero_only\n    self.assertEqual(scope[\"excluded_configurations\"], 65)\nAssertionError: 71 != 65"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_and_project_state_advance_to_jogger (test_duster_chassis_20260726.DusterChassisTests.test_model_receipt_and_project_state_advance_to_jogger)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_duster_chassis_20260726.py",
+          "line": 182
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_chassis_20260726.py\", line 182, in test_model_receipt_and_project_state_advance_to_jogger\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_prices_and_reporting_scope_remain_stable (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_prices_and_reporting_scope_remain_stable)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_duster_technical_specifications.py",
+          "line": 228
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_technical_specifications.py\", line 228, in test_prices_and_reporting_scope_remain_stable\n    self.assertEqual(report[\"scope\"][\"excluded_configurations\"], 65)\nAssertionError: 71 != 65"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_fix_history (test_equipment_filter_regression_model_price_order.EquipmentFilterRegressionModelPriceOrderTests.test_verifier_and_project_state_preserve_fix_history)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_equipment_filter_regression_model_price_order.py",
+          "line": 127
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_equipment_filter_regression_model_price_order.py\", line 127, in test_verifier_and_project_state_preserve_fix_history\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: current configuration count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_closes_all_five_chassis_resolutions (test_jogger_chassis_20260726.JoggerChassisTests.test_model_receipt_closes_all_five_chassis_resolutions)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_jogger_chassis_20260726.py",
+          "line": 157
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_chassis_20260726.py\", line 157, in test_model_receipt_closes_all_five_chassis_resolutions\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_dimension_coverage_matches_repository (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_current_dimension_coverage_matches_repository)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py",
+          "line": 113
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py\", line 113, in test_current_dimension_coverage_matches_repository\n    self.assertEqual(len({row[\"configuration_code\"] for row in selected[\"sandero_iii\"]}), 4)\nAssertionError: 7 != 4"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_review_verifier_and_source_closure_pass (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_review_verifier_and_source_closure_pass)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py",
+          "line": 171
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py\", line 171, in test_review_verifier_and_source_closure_pass\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_official_brochure_residual_evidence_20260726.py [-h] --check\nreview_official_brochure_residual_evidence_20260726.py: error: active Sandero scope differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_closure_verifier_and_priority_receipts_pass (test_official_brochure_technical_gap_resolution_closure.OfficialBrochureTechnicalGapResolutionClosureTests.test_closure_verifier_and_priority_receipts_pass)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py",
+          "line": 179
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py\", line 179, in test_closure_verifier_and_priority_receipts_pass\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_official_brochure_technical_gap_resolution_closure_20260726.py\n       [-h] --check\nreview_official_brochure_technical_gap_resolution_closure_20260726.py: error: expected exactly 1118 brochure scalar values"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_brochure_scalar_and_range_coverage_is_exact (test_official_brochure_technical_gap_resolution_closure.OfficialBrochureTechnicalGapResolutionClosureTests.test_current_brochure_scalar_and_range_coverage_is_exact)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py",
+          "line": 97
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py\", line 97, in test_current_brochure_scalar_and_range_coverage_is_exact\n    self.assertEqual(\nAssertionError: Count[92 chars]c_pl_sandero_brochure_20260202': 210, 'src_pl_[77 chars]150}) != Count[92 chars]c_pl_bigster_brochure_20251210': 180, 'src_pl_[76 chars] 72})"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_current_brochure_coverage_is_unchanged (test_official_brochure_technical_gap_review.OfficialBrochureTechnicalGapReviewTests.test_current_brochure_coverage_is_unchanged)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py",
+          "line": 68
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py\", line 68, in test_current_brochure_coverage_is_unchanged\n    self.assertEqual(counts[\"elasticity_80_120\"], 70)\nAssertionError: 85 != 70"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_review_verifier_reproduces_repository_contract (test_official_brochure_technical_gap_review.OfficialBrochureTechnicalGapReviewTests.test_review_verifier_reproduces_repository_contract)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py",
+          "line": 182
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py\", line 182, in test_review_verifier_reproduces_repository_contract\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 2 != 0 : usage: review_official_brochure_technical_gaps_20260726.py [-h] --check\nreview_official_brochure_technical_gaps_20260726.py: error: brochure cargo baseline differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_priority_verifier_reproduces_repository_contract (test_post_brochure_priority_selection_review.PostBrochurePrioritySelectionReviewTests.test_priority_verifier_reproduces_repository_contract)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py",
+          "line": 246
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py\", line 246, in test_priority_verifier_reproduces_repository_contract\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: active configuration count differs"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_verifier_and_project_state_preserve_selection_history (test_post_cross_model_priority_selection_review.PostCrossModelPrioritySelectionReviewTests.test_verifier_and_project_state_preserve_selection_history)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_post_cross_model_priority_selection_review.py",
+          "line": 143
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_cross_model_priority_selection_review.py\", line 143, in test_verifier_and_project_state_preserve_selection_history\n    self.assertEqual(\nAssertionError: 1 != 0 : ERROR: cannot build data product release: comparison failed for scope sandero_ecog120_automatic: evidence decisions differ from current missing comparison scope; missing=[], extra=[('equipment', 'sandero_iii_expression_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_climate_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_colour_7', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'keyless_entry', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_expression_ecog120_automatic', 'wireless_smartphone_replication', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'adjustable_boot_floor', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'alcohol_interlock_preparation', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'anti_lock_braking_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_door_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_emergency_braking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'automatic_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'blind_spot_monitoring', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'bluetooth_connectivity', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'boot_compartment_lighting', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'central_locking', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'cruise_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'curtain_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'driver_seat_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_parking_brake', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'electronic_stability_control', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'emergency_call_ecall', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'extended_grip', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'fog_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_centre_armrest', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_side_airbags', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'front_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'heated_steering_wheel', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'hill_start_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'instrument_cluster_tft_3_5', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'lane_keep_assist', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_daytime_running_lights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'led_headlights', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'manual_air_conditioning', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'media_control_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'onboard_computer', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'one_touch_windows', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'passenger_front_airbag', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rain_sensing_wipers', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_parking_sensors', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_seat_folding', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_view_camera', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'rear_windows_power', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_electric_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'side_mirrors_heated', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'speed_limiter', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_height_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'steering_wheel_reach_adjustment', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'touchscreen', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'traffic_sign_recognition', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_pressure_monitoring_system', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'tyre_repair_kit', ''), ('equipment', 'sandero_iii_journey_ecog120_automatic', 'wireless_smartphone_replication', '')]"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_import_contract_check_passes (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_import_contract_check_passes)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_sandero_stepway_brochure_cargo_20260725.py",
+          "line": 72
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_brochure_cargo_20260725.py\", line 72, in test_import_contract_check_passes\n    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)\nAssertionError: 1 != 0 : ERROR: expected nine Sandero configurations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_model_receipt_and_project_state_advance (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_model_receipt_and_project_state_advance)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_sandero_stepway_chassis_20260726.py",
+          "line": 169
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_chassis_20260726.py\", line 169, in test_model_receipt_and_project_state_advance\n    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)\nAssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations"
+    },
+    {
+      "kind": "FAIL",
+      "name": "test_version_highlights_expand_to_24_exact_standard_observations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_version_highlights_expand_to_24_exact_standard_observations)",
+      "locations": [
+        {
+          "path": "Dacia-Knowledge-Base/tests/test_sandero_stepway_official_web_20260723.py",
+          "line": 95
+        }
+      ],
+      "body": "Traceback (most recent call last):\n  File \"/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_official_web_20260723.py\", line 95, in test_version_highlights_expand_to_24_exact_standard_observations\n    self.assertEqual(\nAssertionError: Items in the second set but not the first:\n('sandero_stepway_iii_essential_ecog120_manual', 'roof_rails')\n('sandero_stepway_iii_expression_ecog120_manual', 'modular_roof_rails')\n('sandero_stepway_iii_expression_ecog120_automatic', 'modular_roof_rails')\n('sandero_stepway_iii_essential_ecog120_manual', 'my_safety_button')"
+    }
+  ]
+}
