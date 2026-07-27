@@ -133,11 +133,15 @@ jobs:
 
           contract = json.loads(Path('data/imports/catalog_completion/sandero-stepway-tce-20260703.json').read_text(encoding='utf-8'))
           assert len(contract['configuration_codes']) == 6
-          assert contract['expected_counts']['reporting_scopes'] == 21
-          assert contract['expected_counts']['unique_comparison_pairs'] == 120
+          totals = contract['expected_repository_totals']
+          assert totals['active_configurations'] == 78
+          assert totals['reporting_scopes'] == 21
+          assert totals['unique_comparison_pairs'] == 120
           scope = json.loads(Path('data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json').read_text(encoding='utf-8'))
-          assert scope['configuration_count'] == 6
-          assert scope['comparison_pair_count'] == 15
+          configurations = scope['configurations']
+          assert len(configurations) == 6
+          assert len(configurations) * (len(configurations) - 1) // 2 == 15
+          assert len(scope['technical_slots']) == 48
           print(json.dumps({'configurations': 78, 'independent_scopes': 20, 'contract_scopes': 21, 'unique_pairs': 120}, sort_keys=True))
           PY
       - name: Commit and publish clean branch
