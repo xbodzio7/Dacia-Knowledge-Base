@@ -1,10 +1,10 @@
 {
   "captured_on": "2026-07-24",
-  "checked_at": "2026-07-27T19:52:01+00:00",
+  "checked_at": "2026-07-27T19:55:34+00:00",
   "models": {
     "bigster": {
       "captured_on": "2026-07-24",
-      "checked_at": "2026-07-27T19:52:01+00:00",
+      "checked_at": "2026-07-27T19:55:34+00:00",
       "content_type": "image/png",
       "etag": "",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-bigster-db3l1",
@@ -14,11 +14,11 @@
       "sha256": "dd522b2c2f1fdce22933dbfbc22a31cd5eba3da63d80b509b78dc507dab118c9",
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv.html",
-      "status": "downloaded"
+      "status": "unchanged_content"
     },
     "duster_iii": {
       "captured_on": "2026-07-24",
-      "checked_at": "2026-07-27T19:52:01+00:00",
+      "checked_at": "2026-07-27T19:55:34+00:00",
       "content_type": "image/png",
       "etag": "",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FDU3%2Fduster%2Fc%2FA-ENS_0MDL2P1SERIELIM4_-TEHNV",
@@ -28,11 +28,11 @@
       "sha256": "88634b91786fc5fad0e80d43db02ccae846479798dc23bc4b87e5f5da63958bd",
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv.html",
-      "status": "downloaded"
+      "status": "unchanged_content"
     },
     "jogger": {
       "captured_on": "2026-07-24",
-      "checked_at": "2026-07-27T19:52:01+00:00",
+      "checked_at": "2026-07-27T19:55:34+00:00",
       "content_type": "image/png",
       "etag": "",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-jogger-ri1-ph2",
@@ -42,11 +42,11 @@
       "sha256": "c1140cc10db4cb6d590ada7f3cb62722e13964476bc37a5e7ccfefddf34afb61",
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/samochody/jogger-hybydowy.html",
-      "status": "downloaded"
+      "status": "unchanged_content"
     },
     "sandero_iii": {
       "captured_on": "2026-07-24",
-      "checked_at": "2026-07-27T19:52:01+00:00",
+      "checked_at": "2026-07-27T19:55:34+00:00",
       "content_type": "image/png",
       "etag": "",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-sandero-bi1-ph2",
@@ -56,11 +56,11 @@
       "sha256": "c874fdf1a26ef51e93fa817e830609626fb84255bdb30a6d5a1e072ca207b73e",
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/samochody/sandero-miejskie.html",
-      "status": "downloaded"
+      "status": "unchanged_content"
     },
     "sandero_stepway_iii": {
       "captured_on": "2026-07-24",
-      "checked_at": "2026-07-27T19:52:01+00:00",
+      "checked_at": "2026-07-27T19:55:34+00:00",
       "content_type": "image/png",
       "etag": "",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-sandero-stepway-bi1-ph2",
@@ -70,7 +70,7 @@
       "sha256": "51ba507e0654a3984153fd469f4865821a2198e89441517244718eab1e5dbc53",
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover.html",
-      "status": "downloaded"
+      "status": "unchanged_content"
     }
   },
   "source_path": "project/sources/dacia-pl-model-media-20260724.json",

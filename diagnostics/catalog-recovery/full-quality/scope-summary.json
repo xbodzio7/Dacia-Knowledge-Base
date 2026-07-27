@@ -1,0 +1,214 @@
+{
+  "scope_count": 21,
+  "unique_pair_count": 139,
+  "all_scope_commands_exit": 1,
+  "scope_results": [
+    {
+      "spec": "data/reporting/bigster_hybrid155_4x2_automatic_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/configuration_completeness.json",
+      "configuration_count": 7,
+      "pair_count": 21,
+      "exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_ecog100_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_ecog120_automatic_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_ecog120_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_hybrid140_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_hybrid155_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_mildhybrid130_4x2_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_mildhybrid130_4x4_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/duster_mildhybrid140_4x2_completeness.json",
+      "configuration_count": 3,
+      "pair_count": 3,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/jogger_ecog120_automatic_completeness.json",
+      "configuration_count": 4,
+      "pair_count": 6,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/jogger_ecog120_manual_completeness.json",
+      "configuration_count": 6,
+      "pair_count": 15,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/jogger_hybrid155_automatic_completeness.json",
+      "configuration_count": 6,
+      "pair_count": 15,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/jogger_tce110_manual_completeness.json",
+      "configuration_count": 6,
+      "pair_count": 15,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/sandero_ecog120_automatic_completeness.json",
+      "configuration_count": 2,
+      "pair_count": 1,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/sandero_ecog120_manual_completeness.json",
+      "configuration_count": 5,
+      "pair_count": 10,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
+      "configuration_count": 2,
+      "pair_count": 1,
+      "exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "spec": "data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json",
+      "configuration_count": 6,
+      "pair_count": 15,
+      "exits": [
+        0,
+        1
+      ]
+    }
+  ],
+  "sandero_essential_tce100_in_shortlist_json": true,
+  "sandero_essential_tce100_in_shortlist_html": true,
+  "shortlist_has_embedded_image_data": true,
+  "shortlist_has_external_image_src": false,
+  "media_statuses_after_refresh": {
+    "bigster": "unchanged_content",
+    "duster_iii": "unchanged_content",
+    "jogger": "unchanged_content",
+    "sandero_iii": "unchanged_content",
+    "sandero_stepway_iii": "unchanged_content"
+  },
+  "media_paths_after_refresh": {
+    "bigster": "assets/model-media/bigster-dd522b2c2f1fdce2.png",
+    "duster_iii": "assets/model-media/duster_iii-88634b91786fc5fa.png",
+    "jogger": "assets/model-media/jogger-c1140cc10db4cb6d.png",
+    "sandero_iii": "assets/model-media/sandero_iii-c874fdf1a26ef51e.png",
+    "sandero_stepway_iii": "assets/model-media/sandero_stepway_iii-51ba507e0654a398.png"
+  }
+}
