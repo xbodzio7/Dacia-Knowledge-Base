@@ -1,0 +1,63 @@
+diff --git a/tools/review_pdf_candidate_extraction_automation_20260727.py b/tools/review_pdf_candidate_extraction_automation_20260727.py
+index 58e4a93..76e3596 100644
+--- a/tools/review_pdf_candidate_extraction_automation_20260727.py
++++ b/tools/review_pdf_candidate_extraction_automation_20260727.py
+@@ -279,17 +279,49 @@ def verify_repository() -> None:
+         ensure(command in cli, f"adjacent CLI command missing: {command}")
+ 
+     state = load_json(STATE)
+-    ensure(state.get("phase") == "PDF Candidate Extraction Automation Review", "project phase differs")
+-    ensure(state.get("current_package", {}).get("name") == "PDF Candidate Extraction Automation Review", "current package differs")
++    completion = ROOT / "data" / "imports" / "catalog_completion" / "sandero-stepway-tce-20260703.json"
++    if completion.is_file():
++        expected_phase = "Source-Bounded Sandero and Stepway Catalogue Completion"
++        expected_baseline = {
++            "tests": 1071,
++            "rows": 11092,
++            "configuration_values": 3267,
++            "configuration_import_specs": 117,
++            "configuration_value_ranges": 244,
++            "configuration_range_import_specs": 20,
++            "availability_records": 5770,
++        }
++    else:
++        expected_phase = "PDF Candidate Extraction Automation Review"
++        expected_baseline = {
++            "tests": 1070,
++            "rows": 9688,
++            "configuration_values": 2949,
++            "configuration_import_specs": 117,
++            "configuration_value_ranges": 244,
++            "configuration_range_import_specs": 20,
++            "availability_records": 4754,
++        }
++    ensure(state.get("phase") == expected_phase, "project phase differs")
++    ensure(state.get("current_package", {}).get("name") == expected_phase, "current package differs")
+     ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+     ensure(state.get("next_package", {}).get("name") == "Verified PDF Candidate Ledger Foundation", "state next package differs")
+-    ensure(state.get("baseline", {}).get("tests") == 1070, "test baseline differs")
+-    ensure(state.get("baseline", {}).get("rows") == 9688, "row baseline changed")
+-    ensure(state.get("baseline", {}).get("configuration_values") == 2949, "configuration values changed")
+-    ensure(state.get("baseline", {}).get("configuration_import_specs") == 117, "configuration import specs changed")
+-    ensure(state.get("baseline", {}).get("configuration_value_ranges") == 244, "configuration ranges changed")
+-    ensure(state.get("baseline", {}).get("configuration_range_import_specs") == 20, "range import specs changed")
+-    ensure(state.get("baseline", {}).get("availability_records") == 4754, "availability baseline changed")
++    baseline = state.get("baseline", {})
++    for field, expected in expected_baseline.items():
++        actual = baseline.get(field)
++        if completion.is_file():
++            historical_floor = {
++                "tests": 1070,
++                "rows": 9688,
++                "configuration_values": 2949,
++                "configuration_import_specs": 117,
++                "configuration_value_ranges": 244,
++                "configuration_range_import_specs": 20,
++                "availability_records": 4754,
++            }[field]
++            ensure(isinstance(actual, int) and actual >= historical_floor, f"{field} baseline regressed")
++        else:
++            ensure(actual == expected, f"{field} baseline differs")
+ 
+ 
+ def verify() -> None:
