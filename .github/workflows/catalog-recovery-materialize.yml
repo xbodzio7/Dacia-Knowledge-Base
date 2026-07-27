@@ -1,0 +1,81 @@
+name: Catalog Recovery Materialize
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply and inspect catalogue completion
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery
+          : > diagnostics/catalog-recovery/materialize.log
+          run_step() {
+            echo "===== $1 =====" | tee -a diagnostics/catalog-recovery/materialize.log
+            shift
+            "$@" >> diagnostics/catalog-recovery/materialize.log 2>&1
+            status=$?
+            echo "exit=$status" | tee -a diagnostics/catalog-recovery/materialize.log
+            return $status
+          }
+
+          apply_status=0
+          verify_status=0
+          validate_status=0
+          run_step apply python tools/import_sandero_stepway_catalog_completion.py --apply || apply_status=$?
+          run_step verify python tools/import_sandero_stepway_catalog_completion.py --verify || verify_status=$?
+          run_step validate python tools/dkb.py validate || validate_status=$?
+
+          python - <<PY
+          import csv, json
+          from pathlib import Path
+          root = Path('.')
+          master = root / 'data/master'
+          def count(name):
+              with (master / name).open(encoding='utf-8-sig', newline='') as handle:
+                  return sum(1 for _ in csv.DictReader(handle))
+          configurations = []
+          with (master / 'configurations.csv').open(encoding='utf-8-sig', newline='') as handle:
+              configurations = list(csv.DictReader(handle))
+          summary = {
+              'apply_exit': int('$apply_status'),
+              'verify_exit': int('$verify_status'),
+              'validate_exit': int('$validate_status'),
+              'active_configurations': sum(row.get('status') == 'active' for row in configurations),
+              'configuration_rows': len(configurations),
+              'price_rows': count('configuration_prices.csv'),
+              'technical_value_rows': count('configuration_attribute_values.csv'),
+              'equipment_rows': count('configuration_attribute_availability.csv'),
+              'cargo_context_rows': count('configuration_cargo_volume_contexts.csv'),
+              'source_configuration_rows': count('source_configurations.csv'),
+              'new_configurations': [
+                  row['code'] for row in configurations
+                  if row['code'].endswith(('tce100_manual', 'tce110_manual'))
+                  and ('sandero_iii_' in row['code'] or 'sandero_stepway_iii_' in row['code'])
+              ],
+          }
+          (root / 'diagnostics/catalog-recovery/materialize-summary.json').write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Commit materialized package and diagnostics
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data tools diagnostics/catalog-recovery/materialize.log diagnostics/catalog-recovery/materialize-summary.json
+          git commit -m "feat(data): materialize Sandero Stepway catalogue completion"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
