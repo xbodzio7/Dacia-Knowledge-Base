@@ -1,4 +1,4 @@
-name: Catalog Recovery Full Matrix Relations
+name: Catalog Recovery Snapshot
 
 on:
   pull_request:
@@ -6,46 +6,20 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  patch-and-test:
+  snapshot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: agent/sandero-stepway-catalog-recovery-restored
-      - name: Repair, apply and test
+      - name: Build repository snapshot
         shell: bash
         run: |
-          set +e
-          mkdir -p diagnostics/catalog-recovery
-          python tools/repair_catalog_source_registration.py > diagnostics/catalog-recovery/matrix-relations.log 2>&1
-          repair=$?
-          apply=99
-          verify=99
-          validator=99
-          tests=99
-          if [ "$repair" -eq 0 ]; then
-            python tools/import_sandero_stepway_catalog_completion.py --apply >> diagnostics/catalog-recovery/matrix-relations.log 2>&1
-            apply=$?
-          fi
-          if [ "$apply" -eq 0 ]; then
-            python tools/import_sandero_stepway_catalog_completion.py --verify >> diagnostics/catalog-recovery/matrix-relations.log 2>&1
-            verify=$?
-            python tools/dkb.py validate > diagnostics/catalog-recovery/matrix-relations-validator.log 2>&1
-            validator=$?
-            python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/matrix-relations-tests.log 2>&1
-            tests=$?
-          fi
-          printf '{"repair_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$repair" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
-          exit 0
-      - name: Persist result
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
-          git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-summary.json diagnostics/catalog-recovery/matrix-relations-validator.log diagnostics/catalog-recovery/matrix-relations-tests.log
-          git commit -m "fix(data): synchronize catalogue source scope"
-          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
+          zip -q -r /tmp/dkb-recovery-snapshot.zip . -x '.git/*'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dkb-recovery-snapshot
+          path: /tmp/dkb-recovery-snapshot.zip
