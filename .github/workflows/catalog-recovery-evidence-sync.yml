@@ -1,0 +1,129 @@
+name: Catalog Recovery Evidence Sync
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-evidence-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Synchronize evidence decisions with current gaps
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          root = Path('.')
+          reporting = root / 'data/reporting'
+          changes = []
+          for spec in sorted(reporting.glob('*_completeness.json')):
+              stem = spec.name.removesuffix('_completeness.json')
+              candidates = [reporting / f'{stem}_gap_evidence.json', reporting / f'{stem}_gap_evidence.spec']
+              existing = [path for path in candidates if path.exists()]
+              if len(existing) != 1:
+                  raise SystemExit(f'expected one evidence file for {spec.name}: {existing}')
+              evidence_path = existing[0]
+              payload = json.loads(evidence_path.read_text(encoding='utf-8'))
+              as_of = str(payload.get('as_of', ''))
+              with tempfile.TemporaryDirectory() as directory:
+                  report_path = Path(directory) / 'completeness.json'
+                  completed = subprocess.run(
+                      ['python', 'tools/dkb.py', 'configuration-completeness', '--spec', str(spec), '--as-of', as_of, '--json', str(report_path)],
+                      text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
+                  )
+                  if completed.returncode:
+                      raise SystemExit(f'{spec.name}: {completed.stdout}')
+                  report = json.loads(report_path.read_text(encoding='utf-8'))
+              gap_keys = set()
+              for item in report.get('gaps', {}).get('technical', []):
+                  gap_keys.add(('technical', item['configuration_code'], item['attribute_code'], item.get('fuel_type_code', '')))
+              for item in report.get('gaps', {}).get('equipment', []):
+                  gap_keys.add(('equipment', item['configuration_code'], item['attribute_code'], ''))
+
+              original = payload.get('decisions', [])
+              if not isinstance(original, list):
+                  raise SystemExit(f'{evidence_path}: decisions is not a list')
+              retained = []
+              indexed = set()
+              for decision in original:
+                  key = (
+                      str(decision.get('domain', '')),
+                      str(decision.get('configuration_code', '')),
+                      str(decision.get('attribute_code', '')),
+                      str(decision.get('fuel_type_code', '')),
+                  )
+                  if key in gap_keys and key not in indexed:
+                      retained.append(decision)
+                      indexed.add(key)
+              for domain, configuration, attribute, fuel in sorted(gap_keys - indexed):
+                  retained.append({
+                      'domain': domain,
+                      'configuration_code': configuration,
+                      'attribute_code': attribute,
+                      'fuel_type_code': fuel,
+                      'classification': 'not_stated',
+                      'auto_import': False,
+                      'manual_source_review_required': False,
+                      'review_note': 'The registered official catalogue and brochure sources do not state this exact scoped observation.',
+                      'reason_code': 'not_stated_in_registered_official_sources',
+                      'source_code': '',
+                      'source_page': None,
+                      'source_section': '',
+                      'source_text': '',
+                      'candidate_value': '',
+                  })
+              retained.sort(key=lambda item: (
+                  str(item.get('domain', '')),
+                  str(item.get('configuration_code', '')),
+                  str(item.get('attribute_code', '')),
+                  str(item.get('fuel_type_code', '')),
+              ))
+              payload['decisions'] = retained
+              rendered = json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
+              before = evidence_path.read_text(encoding='utf-8')
+              if rendered != before:
+                  evidence_path.write_text(rendered, encoding='utf-8')
+                  changes.append({
+                      'path': evidence_path.as_posix(),
+                      'before': len(original),
+                      'after': len(retained),
+                      'gap_count': len(gap_keys),
+                  })
+          (root / 'diagnostics/catalog-recovery/evidence-sync.json').write_text(json.dumps({'changes': changes}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Run unit tests
+        shell: bash
+        run: |
+          set +e
+          python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/unit-v2.log 2>&1
+          status=$?
+          python - <<PY
+          import json, re
+          from pathlib import Path
+          text = Path('diagnostics/catalog-recovery/unit-v2.log').read_text(encoding='utf-8', errors='replace')
+          match = re.search(r'FAILED \((.*?)\)', text)
+          Path('diagnostics/catalog-recovery/unit-v2-summary.json').write_text(json.dumps({'exit': int('$status'), 'failed_summary': match.group(1) if match else '', 'tail': text[-12000:]}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit synchronized evidence
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reporting diagnostics/catalog-recovery/evidence-sync.json diagnostics/catalog-recovery/unit-v2.log diagnostics/catalog-recovery/unit-v2-summary.json
+          git commit -m "test(data): synchronize catalogue comparison evidence"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
