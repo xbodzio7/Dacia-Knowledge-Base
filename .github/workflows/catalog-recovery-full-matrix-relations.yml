@@ -18,7 +18,11 @@ jobs:
       - name: Apply local contract fixes
         shell: bash
         run: |
-          base64 -d diagnostics/catalog-recovery/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
+          cat diagnostics/catalog-recovery/contract-patch-parts/part* > /tmp/local-contract-fixes.patch.gz.b64
+          test "$(wc -c < /tmp/local-contract-fixes.patch.gz.b64)" -eq 13244
+          echo "6efb5a49aab491e6bf05233ad864a736894c46d468fd69cb7c24722f35e10226  /tmp/local-contract-fixes.patch.gz.b64" | sha256sum -c -
+          base64 -d /tmp/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
+          echo "92ba325c2eca85b77110963c92575dff872b34df32aa2b78f824b488217b5a7c  /tmp/local-contract-fixes.patch" | sha256sum -c -
           if git apply --check /tmp/local-contract-fixes.patch; then
             git apply /tmp/local-contract-fixes.patch
           elif git apply --reverse --check /tmp/local-contract-fixes.patch; then
