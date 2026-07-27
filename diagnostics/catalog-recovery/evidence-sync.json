@@ -1,0 +1,22 @@
+{
+  "changes": [
+    {
+      "path": "data/reporting/sandero_ecog120_automatic_gap_evidence.json",
+      "before": 174,
+      "after": 76,
+      "gap_count": 76
+    },
+    {
+      "path": "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",
+      "before": 18,
+      "after": 18,
+      "gap_count": 18
+    },
+    {
+      "path": "data/reporting/sandero_tce100_stepway_tce110_manual_gap_evidence.spec",
+      "before": 0,
+      "after": 3,
+      "gap_count": 3
+    }
+  ]
+}
