@@ -1,11 +1,9 @@
 name: Catalog Main Snapshot
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/sandero-stepway-catalog-recovery-restored
-    paths:
-      - .github/workflows/catalog-recovery-full-matrix-relations.yml
+      - main
 
 permissions:
   contents: read
