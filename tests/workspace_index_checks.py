@@ -164,23 +164,23 @@ class DataProductWorkspaceIndexTests(unittest.TestCase):
         self._add_release_member(cross_model)
 
         rendered = render_workspace_index(
-  self.workspace,
-  self.manifest,
-  self.metadata,
+            self.workspace,
+            self.manifest,
+            self.metadata,
         )
 
         self.assertEqual(rendered.count('class="product-card"'), 5)
         self.assertIn("Models and comparison scopes", rendered)
         self.assertIn(
-  'href="contents/cross-model/cross-model-comparison-view.html"',
-  rendered,
+            'href="contents/cross-model/cross-model-comparison-view.html"',
+            rendered,
         )
 
     def test_keeps_four_cards_when_cross_model_member_is_absent(self) -> None:
         rendered = render_workspace_index(
-  self.workspace,
-  self.manifest,
-  self.metadata,
+            self.workspace,
+            self.manifest,
+            self.metadata,
         )
 
         self.assertEqual(rendered.count('class="product-card"'), 4)
@@ -191,20 +191,23 @@ class DataProductWorkspaceIndexTests(unittest.TestCase):
         records = self.manifest["files"]
         assert isinstance(records, list)
         records.append(
-  {
-      "path": "cross-model/cross-model-comparison-view.html",
-      "size_bytes": 1,
-      "sha256": "0" * 64,
-  }
+            {
+                "path": "cross-model/cross-model-comparison-view.html",
+                "size_bytes": 1,
+                "sha256": "0" * 64,
+            }
         )
         records.sort(key=lambda item: item["path"])
 
-        with self.assertRaisesRegex(WorkspaceIndexError, "cross-model comparison HTML is missing"):
-  render_workspace_index(
-      self.workspace,
-      self.manifest,
-      self.metadata,
-  )
+        with self.assertRaisesRegex(
+            WorkspaceIndexError,
+            "cross-model comparison HTML is missing",
+        ):
+            render_workspace_index(
+                self.workspace,
+                self.manifest,
+                self.metadata,
+            )
 
     def test_escapes_values_and_percent_encodes_local_paths(self) -> None:
         bundle = copy.deepcopy(self.bundle)
