@@ -1,0 +1,49 @@
+name: Catalog Recovery Test Failure Compact
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-test-failure-compact.yml
+
+permissions:
+  contents: write
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compact failure inventory
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          root = Path('.')
+          payload = json.loads((root / 'diagnostics/catalog-recovery/test-failure-inventory-v2.json').read_text(encoding='utf-8'))
+          rows = []
+          for failure in payload['failures']:
+              test_location = next((item for item in failure['locations'] if '/tests/' in item['path']), failure['locations'][0] if failure['locations'] else {'path': '', 'line': 0})
+              body_lines = [line.strip() for line in failure['body'].splitlines() if line.strip()]
+              key_lines = [line for line in body_lines if line.startswith(('AssertionError:', 'ComparisonError:', 'BundleError:', 'ReleaseError:', 'review_', 'ERROR:')) or ': error:' in line]
+              message = key_lines[-1] if key_lines else (body_lines[-1] if body_lines else '')
+              if len(message) > 500:
+                  message = message[:500] + '…'
+              rows.append({
+                  'kind': failure['kind'],
+                  'name': failure['name'],
+                  'path': test_location['path'].split('Dacia-Knowledge-Base/', 1)[-1],
+                  'line': test_location['line'],
+                  'message': message,
+              })
+          (root / 'diagnostics/catalog-recovery/test-failure-compact.json').write_text(json.dumps({'count': len(rows), 'rows': rows}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit compact inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/test-failure-compact.json
+          git commit -m "chore(data): compact remaining catalogue failures"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
