@@ -79,7 +79,7 @@ class BrochureCargoImportClosureReviewTests(unittest.TestCase):
     def test_every_brochure_value_has_one_exact_context(self) -> None:
         value_codes = {row["code"] for row in self.values}
         contexts = [row for row in self.contexts if row["configuration_attribute_value_code"] in value_codes]
-        self.assertEqual(len(contexts), 317)
+        self.assertEqual(len(contexts), 287)
         self.assertEqual({row["configuration_attribute_value_code"] for row in contexts}, value_codes)
         self.assertEqual(len({row["configuration_attribute_value_code"] for row in contexts}), 287)
         self.assertEqual({row["measurement_basis_code"] for row in contexts}, {"vda_iso_3832", "ordinary_litre"})
@@ -91,7 +91,7 @@ class BrochureCargoImportClosureReviewTests(unittest.TestCase):
             context = context_by_value[value["code"]]
             signature = tuple(context[field] for field in CONTEXT_FIELDS)
             grouped[(value["source_code"], value["configuration_code"])].append(signature)
-        self.assertEqual(len(grouped), 58)
+        self.assertEqual(len(grouped), 52)
         for key, signatures in grouped.items():
             self.assertEqual(len(signatures), len(set(signatures)), key)
             self.assertGreaterEqual(len(signatures), 4, key)

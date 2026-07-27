@@ -1,0 +1,16 @@
+script_count=4
+
+===== embedded step 1 =====
+From https://github.com/xbodzio7/Dacia-Knowledge-Base
+ * branch            main       -> FETCH_HEAD
+
+exit=0
+
+===== embedded step 2 =====
+bash: line 16: warning: here-document at line 1 delimited by end-of-file (wanted `PY')
+  File "<stdin>", line 15
+    helper = r'''
+             ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 15)
+
+exit=1

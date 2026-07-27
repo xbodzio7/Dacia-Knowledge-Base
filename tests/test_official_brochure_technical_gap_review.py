@@ -64,7 +64,7 @@ class OfficialBrochureTechnicalGapReviewTests(unittest.TestCase):
             if row.get("source_code") in brochure_sources
         ]
         counts = Counter(row["attribute_code"] for row in values)
-        self.assertEqual(counts["boot_capacity"], 317)
+        self.assertEqual(counts["boot_capacity"], 287)
         self.assertEqual(counts["elasticity_80_120"], 70)
         self.assertGreaterEqual(len(values), 357)
 

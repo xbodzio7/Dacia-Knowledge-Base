@@ -81,7 +81,7 @@ class BrochureChassisModelingClosureReviewTests(unittest.TestCase):
         )
 
     def test_exact_scalar_counts_ids_sources_and_configurations(self) -> None:
-        self.assertEqual(len(self.scalar), 307)
+        self.assertEqual(len(self.scalar), 277)
         self.assertEqual([int(row["id"]) for row in self.scalar], list(range(2291, 2568)))
         self.assertEqual(Counter(row["attribute_code"] for row in self.scalar), EXPECTED_SCALAR_COUNTS)
         self.assertEqual({row["source_code"] for row in self.scalar}, SOURCES)

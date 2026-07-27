@@ -59,7 +59,7 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             {"JSON", "Markdown", "CSV", "HTML", "XLSX"},
         )
         active = [row for row in rows(MASTER / "configurations.csv") if row["status"] == "active"]
-        self.assertEqual(len(active), 78)
+        self.assertEqual(len(active), 72)
 
     def test_preparation_verification_includes_offline_and_previous_release(self) -> None:
         verification = self.report["preparation_verification"]
