@@ -1,0 +1,36 @@
+===== 19 independent scopes =====
+tools/reporting/data_product_release.py:249:                "complete release bundle must contain 19 independent scopes"
+data/reporting/data_products_v1_8_0_release_preparation.json:73:      "19 independent scopes",
+===== active configuration count differs =====
+tools/review_cross_model_comparison_view_20260726.py:349:    ensure(len(inventory["configurations"]) == 72, "active configuration count differs")
+tools/review_cross_model_comparison_view_history_20260726.py:23:        "active configuration count differs",
+tools/review_data_products_v1_7_0_release_preparation_20260726.py:189:    ensure(len(active) == 72, "active configuration count differs")
+tools/review_post_brochure_priority_selection_20260726.py:172:    ensure(len(active) == 72, "active configuration count differs")
+tools/review_post_brochure_priority_selection_20260726.py:173:    ensure(readiness.get("active_configurations") == 72, "reported active configuration count differs")
+===== current configuration count differs =====
+tools/review_equipment_filter_regression_model_price_order_20260726.py:201:    ensure(isinstance(configurations, list) and len(configurations) == 72, "current configuration count differs")
+===== active Sandero count differs =====
+tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py:267:    ensure(model_counts["sandero_iii"] == 4, "active Sandero count differs")
+===== active Sandero scope differs =====
+tools/review_official_brochure_residual_evidence_20260726.py:175:    ensure(counts["sandero_iii"] == 4, "active Sandero scope differs")
+===== generated scope count differs =====
+tools/review_cross_model_navigation_usability_20260727.py:118:    ensure(summary.get("reporting_scope_count") == 19, "generated scope count differs")
+tools/review_data_products_v1_8_0_publication_20260726.py:196:        ensure(manifest.get("scope_group_count") == 19, "generated scope count differs")
+===== view summary differs =====
+tools/reporting/data_product_release.py:128:                f"cross-model view summary differs for {key}: "
+tools/review_cross_model_comparison_view_closure_20260726.py:195:        ensure(summary.get(key) == value, f"view summary differs: {key}")
+===== an exact Sandero TCe 100 configuration now exists =====
+tools/review_official_brochure_technical_gaps_20260726.py:275:    ensure(not any(code.startswith("sandero_iii_") and "tce100" in code for code in configurations), "an exact Sandero TCe 100 configuration now exists")
+===== expected eighty-eight modeled scalar chassis observations =====
+tools/verify_brochure_chassis_measurement_context_model_20260726.py:176:    ensure(len(scalar) == 88, "expected eighty-eight modeled scalar chassis observations")
+===== len(scalar), 88 =====
+tests/test_brochure_chassis_measurement_context_modeling_20260726.py:113:        self.assertEqual(len(scalar), 88)
+===== len(active), 72 =====
+tests/test_post_brochure_priority_selection_review.py:148:        self.assertEqual(len(active), 72)
+tests/test_data_products_v1_7_0_release_preparation.py:62:        self.assertEqual(len(active), 72)
+===== len(catalog["configurations"]), 72 =====
+tests/test_duster_ecog120_automatic_stock_20260724.py:121:        self.assertEqual(len(catalog["configurations"]), 72)
+===== len(all_emission_values), 45 =====
+tests/test_sandero_euro_6e_bis_model.py:106:        self.assertEqual(len(all_emission_values), 45)
+===== len(enum_rows), 174 =====
+tests/test_attribute_enum_domains.py:89:        self.assertEqual(len(enum_rows), 174)
