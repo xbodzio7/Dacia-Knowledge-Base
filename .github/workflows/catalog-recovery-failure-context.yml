@@ -1,0 +1,80 @@
+name: Catalog Recovery Failure Context
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-failure-context.yml
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture exact test and verifier context
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import json, re
+          from pathlib import Path
+
+          root = Path('.')
+          log = (root / 'diagnostics/catalog-recovery/unit-v2.log').read_text(encoding='utf-8', errors='replace')
+          pattern = re.compile(r'^={70}\n(?P<kind>FAIL|ERROR): (?P<name>.+?)\n-{70}\n(?P<body>.*?)(?=^={70}\n|^-{70}\nRan )', re.MULTILINE | re.DOTALL)
+          output = []
+          referenced = set()
+          for match in pattern.finditer(log):
+              body = match.group('body').strip()
+              locations = []
+              for raw, number in re.findall(r'File "([^"]+)", line (\d+)', body):
+                  marker = '/Dacia-Knowledge-Base/'
+                  relative = raw.split(marker, 1)[-1] if marker in raw else raw
+                  path = root / relative
+                  if not path.is_file():
+                      continue
+                  line_number = int(number)
+                  lines = path.read_text(encoding='utf-8', errors='replace').splitlines()
+                  start = max(1, line_number - 20)
+                  end = min(len(lines), line_number + 20)
+                  locations.append({
+                      'path': relative,
+                      'line': line_number,
+                      'start': start,
+                      'end': end,
+                      'content': '\n'.join(f'{index:04d}: {lines[index - 1]}' for index in range(start, end + 1)),
+                  })
+                  referenced.add(relative)
+              commands = sorted(set(re.findall(r'(?:tools|scripts)/[A-Za-z0-9_./-]+\.py', body)))
+              for command in commands:
+                  referenced.add(command)
+              output.append({'kind': match.group('kind'), 'name': match.group('name'), 'locations': locations, 'commands': commands, 'last_lines': body.splitlines()[-8:]})
+
+          files = {}
+          for relative in sorted(referenced):
+              path = root / relative
+              if path.is_file() and path.suffix in {'.py', '.json', '.spec'}:
+                  text = path.read_text(encoding='utf-8', errors='replace')
+                  if len(text) <= 50000:
+                      files[relative] = text
+                  else:
+                      needles = ('expected', 'active', 'configuration', 'scalar', 'scope', 'count', 'source_code')
+                      selected = []
+                      for number, line in enumerate(text.splitlines(), 1):
+                          if any(needle in line.lower() for needle in needles):
+                              selected.append(f'{number:04d}: {line}')
+                      files[relative] = '\n'.join(selected[:800])
+          target = root / 'diagnostics/catalog-recovery/failure-context.json'
+          target.write_text(json.dumps({'failures': output, 'files': files}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit context
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/failure-context.json
+          git commit -m "chore(data): capture remaining failure source context"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
