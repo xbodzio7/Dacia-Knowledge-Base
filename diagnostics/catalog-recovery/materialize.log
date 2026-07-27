@@ -1,0 +1,106 @@
+===== apply =====
+ERROR: unknown version: sandero_iii_essential
+exit=1
+===== verify =====
+ERROR: unknown version: sandero_iii_essential
+exit=1
+===== validate =====
+======================================================================
+DKB Validator v0.10
+======================================================================
+Repository : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base
+Python     : 3.12.3
+
+1. Sprawdzanie struktury repozytorium
+   ✅ OK
+
+2. Walidacja plików CSV
+   ✅ data/imports/bigster_commercial_item_attributes_20260703.csv
+   ✅ data/imports/bigster_commercial_item_configurations_20260703.csv
+   ✅ data/imports/bigster_commercial_items_20260703.csv
+   ✅ data/imports/bigster_equipment_availability_20260703.csv
+   ✅ data/imports/duster_equipment_availability_appearance.csv
+   ✅ data/imports/duster_equipment_availability_control.csv
+   ✅ data/imports/jogger_equipment_availability_comfort_20260401.csv
+   ✅ data/imports/jogger_equipment_availability_safety_20260401.csv
+   ✅ data/master/attribute_categories.csv
+   ✅ data/master/attribute_enum_domains.csv
+   ✅ data/master/attributes.csv
+   ✅ data/master/body_types.csv
+   ✅ data/master/categories.csv
+   ✅ data/master/commercial_item_attributes.csv
+   ✅ data/master/commercial_item_configurations.csv
+   ✅ data/master/commercial_items.csv
+   ✅ data/master/configuration_attribute_availability.csv
+   ✅ data/master/configuration_attribute_value_ranges.csv
+   ✅ data/master/configuration_attribute_values.csv
+   ✅ data/master/configuration_cargo_volume_contexts.csv
+   ✅ data/master/configuration_prices.csv
+   ✅ data/master/configurations.csv
+   ✅ data/master/currencies.csv
+   ✅ data/master/domains.csv
+   ✅ data/master/engines.csv
+   ✅ data/master/enums/aspiration_types.csv
+   ✅ data/master/enums/battery_chemistries.csv
+   ✅ data/master/enums/cargo_compartment_types.csv
+   ✅ data/master/enums/cargo_measurement_bases.csv
+   ✅ data/master/enums/cargo_seat_states.csv
+   ✅ data/master/enums/commercial_item_types.csv
+   ✅ data/master/enums/context_presence_states.csv
+   ✅ data/master/enums/cylinder_configurations.csv
+   ✅ data/master/enums/drive_types.csv
+   ✅ data/master/enums/emission_standards.csv
+   ✅ data/master/enums/engine_types.csv
+   ✅ data/master/enums/equipment_availability_statuses.csv
+   ✅ data/master/enums/fuel_types.csv
+   ✅ data/master/enums/injection_types.csv
+   ✅ data/master/enums/recommended_fuels.csv
+   ✅ data/master/enums/transmission_type.csv
+   ✅ data/master/gearboxes.csv
+   ✅ data/master/model_engines.csv
+   ✅ data/master/model_gearboxes.csv
+   ✅ data/master/models.csv
+   ✅ data/master/segments.csv
+   ✅ data/master/source_configurations.csv
+   ✅ data/master/source_models.csv
+   ✅ data/master/source_versions.csv
+   ✅ data/master/sources.csv
+   ✅ data/master/units.csv
+   ✅ data/master/validation_rules.csv
+   ✅ data/master/value_types.csv
+   ✅ data/master/versions.csv
+
+3. Walidacja unikalności kluczy
+   ✅ OK (63 kolumn kluczowych)
+
+4. Walidacja relacji między tabelami
+   ✅ OK (51 relacji)
+
+5. Walidacja kontekstu wybranego biegu
+   ✅ OK (2949 rekordów)
+
+6. Walidacja zakresów lat
+   ✅ OK (80 rekordów, 4 reguły)
+
+7. Walidacja statusów i cyklu życia
+   ✅ OK (632 rekordów, 25 reguł)
+
+8. Walidacja okresów dostępności powiązań
+   ✅ OK (77 kontroli, 3 reguły)
+
+9. Walidacja nakładających się okresów powiązań
+   ✅ OK (47 rekordów, 2 reguły)
+
+10. Walidacja kontraktu reguł danych
+   ✅ OK (8 reguł)
+
+11. Wykonywanie reguł danych
+   ✅ OK (8 reguł, 385 rekordów)
+
+12. Zbieranie statystyk
+   Plików CSV : 46
+   Wierszy    : 9688
+
+13. Generowanie raportu
+   ✅ Raport zapisany: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/reports/validation_report.md
+exit=0

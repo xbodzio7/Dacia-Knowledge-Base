@@ -1,0 +1,13 @@
+{
+  "apply_exit": 1,
+  "verify_exit": 1,
+  "validate_exit": 0,
+  "active_configurations": 72,
+  "configuration_rows": 72,
+  "price_rows": 118,
+  "technical_value_rows": 2949,
+  "equipment_rows": 4754,
+  "cargo_context_rows": 287,
+  "source_configuration_rows": 219,
+  "new_configurations": []
+}
