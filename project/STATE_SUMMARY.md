@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Cross-Model Workspace Entry Point**
+**Post-Cross-Model Workspace Priority Selection Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Navigation Usability Review
-- Pull Request: #295
-- Verified head: `2ca040708e9f8bba92abe70693395c6a5447252f`
-- Quality run: #2102
+- Package: Cross-Model Workspace Entry Point
+- Pull Request: #296
+- Verified head: `d5c68402e72dfa8b3f88654198a2e6ced82f8d98`
+- Quality run: #2147
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Workspace Entry Point** — `complete`
+**Post-Cross-Model Workspace Priority Selection Review** — `complete`
 
-Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index while preserving older releases and immutable public assets.
+Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data.
 
 ## Next package
 
-**Post-Cross-Model Workspace Priority Selection Review** — `planned`
+**PDF Candidate Extraction Automation Review** — `planned`
 
-Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package.
+Inventory registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select a deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports.
 
 ## Autonomy
 

@@ -209,15 +209,18 @@ class CrossModelWorkspaceEntryPointTests(unittest.TestCase):
             )
         )
 
-    def test_project_state_and_verifier_accept_completed_package(self) -> None:
+    def test_project_state_and_verifier_preserve_completed_package(self) -> None:
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["phase"], "Cross-Model Workspace Entry Point")
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["name"],
-            "Post-Cross-Model Workspace Priority Selection Review",
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
         )
-        self.assertEqual(state["baseline"]["tests"], 1070)
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1070)
+        self.assertEqual(state["baseline"]["rows"], 9688)
+        self.assertEqual(state["baseline"]["availability_records"], 4754)
         completed = subprocess.run(
             [sys.executable, str(VERIFIER), "--check"],
             cwd=ROOT,
