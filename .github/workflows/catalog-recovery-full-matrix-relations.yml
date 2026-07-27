@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: agent/sandero-stepway-catalog-recovery-restored
       - name: Patch, apply and test
         shell: bash
         run: |
@@ -44,7 +46,6 @@ jobs:
           printf '{"patch_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$patch" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
           exit 0
       - name: Commit result
-        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
