@@ -1,9 +1,11 @@
 name: Catalog Recovery Contract Validation
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - agent/sandero-stepway-catalog-recovery-restored
+    paths:
+      - .github/workflows/catalog-recovery-full-matrix-relations.yml
 
 permissions:
   contents: write
