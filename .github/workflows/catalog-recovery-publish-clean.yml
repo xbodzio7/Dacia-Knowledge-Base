@@ -153,6 +153,7 @@ jobs:
           python tools/dkb.py validate
           python tools/dkb.py project-state --check
           python - <<'PY'
+          import os
           import subprocess
           import sys
           from pathlib import Path
@@ -174,12 +175,20 @@ jobs:
                       'm.load_tests(unittest.TestLoader(), unittest.TestSuite(), None)'
                   )
                   command = [sys.executable, '-c', code]
+              elif stem in {'test_reporting', 'test_statistics'}:
+                  command = [sys.executable, str(path), '-q']
+                  environment = os.environ.copy()
+                  environment['PYTHONPATH'] = f'{root}:{root / "tools"}'
               elif stem == 'test_source_coverage_repository_as_of':
                   command = [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', path.name, '-q']
+                  environment = None
               else:
                   command = [sys.executable, '-m', 'unittest', '-q', f'tests.{stem}']
+                  environment = None
+              if stem not in {'test_reporting', 'test_statistics', 'test_source_coverage_repository_as_of'}:
+                  environment = None
               print('RUN', path.name, flush=True)
-              subprocess.run(command, cwd=root, check=True, timeout=240)
+              subprocess.run(command, cwd=root, check=True, timeout=240, env=environment)
               count += 1
           print(f'validated_test_modules={count}')
           PY
