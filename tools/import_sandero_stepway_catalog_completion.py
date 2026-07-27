@@ -800,9 +800,7 @@ def _price_rows() -> list[dict[str, str]]:
 
 def _source_relationship_rows() -> list[dict[str, str]]:
     rows = []
-    price_codes = [str(item["code"]) for item in CONFIGURATIONS]
-    price_codes.extend(code for code, _ in EXTRA_PRICE_OBSERVATIONS)
-    for configuration_code in price_codes:
+    for configuration_code in MATRIX_CONFIGURATIONS:
         rows.append(
             {
                 "source_code": PRICE_SOURCE,
@@ -1056,7 +1054,7 @@ def _write_package_contract(repository: Path, *, apply: bool) -> None:
             "technical_values": 318,
             "equipment_availability": 1016,
             "cargo_contexts": 30,
-            "source_configuration_relationships": 14,
+            "source_configuration_relationships": 21,
             "reporting_scopes": 1,
         },
         "expected_repository_totals": {
@@ -1090,10 +1088,7 @@ def _source_slice_rows(repository: Path, *, apply: bool) -> list[dict[str, str]]
             PRICE_SOURCE,
             RAW_PRICE_SOURCE,
             "Sandero and Stepway MY26 TCe catalogue slice",
-            sorted(
-                {str(item["code"]) for item in CONFIGURATIONS}
-                | {code for code, _ in EXTRA_PRICE_OBSERVATIONS}
-            ),
+            list(MATRIX_CONFIGURATIONS),
             [1, 2, 3, 4, 5, 6],
             ["configuration", "price", "equipment", "technical", "trim"],
         ),

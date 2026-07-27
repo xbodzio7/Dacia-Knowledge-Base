@@ -15,13 +15,20 @@
   "selection": {
     "configuration_codes": [
       "sandero_iii_essential_tce100_manual",
-      "sandero_iii_expression_ecog120_automatic",
       "sandero_iii_expression_tce100_manual",
-      "sandero_iii_journey_ecog120_automatic",
       "sandero_iii_journey_tce100_manual",
+      "sandero_iii_expression_ecog120_manual",
+      "sandero_iii_expression_ecog120_automatic",
+      "sandero_iii_journey_ecog120_manual",
+      "sandero_iii_journey_ecog120_automatic",
       "sandero_stepway_iii_essential_tce110_manual",
       "sandero_stepway_iii_expression_tce110_manual",
-      "sandero_stepway_iii_extreme_tce110_manual"
+      "sandero_stepway_iii_extreme_tce110_manual",
+      "sandero_stepway_iii_essential_ecog120_manual",
+      "sandero_stepway_iii_expression_ecog120_manual",
+      "sandero_stepway_iii_expression_ecog120_automatic",
+      "sandero_stepway_iii_extreme_ecog120_manual",
+      "sandero_stepway_iii_extreme_ecog120_automatic"
     ],
     "source_pages": [
       1,
