@@ -1,0 +1,114 @@
+name: Catalog Recovery Summary
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-summary.yml
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build compact summaries
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import json
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path('.')
+          out = root / 'diagnostics/catalog-recovery'
+          out.mkdir(parents=True, exist_ok=True)
+
+          def rows(path: str):
+              with (root / path).open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          configs = [r for r in rows('data/master/configurations.csv') if 'sandero' in r['code']]
+          codes = {r['code'] for r in configs}
+
+          values = [r for r in rows('data/master/configuration_attribute_values.csv') if r['configuration_code'] in codes]
+          value_summary = {}
+          for code in sorted(codes):
+              current = [r for r in values if r['configuration_code'] == code]
+              source_groups = defaultdict(list)
+              for row in current:
+                  source_groups[row['source_code']].append(row)
+              value_summary[code] = {
+                  'total': len(current),
+                  'by_source': {
+                      source: {
+                          'count': len(group),
+                          'non_cargo_count': sum(r['attribute_code'] != 'boot_capacity' for r in group),
+                          'attribute_counts': dict(sorted(Counter(r['attribute_code'] for r in group).items())),
+                          'identities': sorted(
+                              [r['attribute_code'], r['fuel_type_code'], r['gear_number'], r['value']]
+                              for r in group
+                          ),
+                      }
+                      for source, group in sorted(source_groups.items())
+                  },
+              }
+
+          availability = [r for r in rows('data/master/configuration_attribute_availability.csv') if r['configuration_code'] in codes]
+          availability_summary = {}
+          for code in sorted(codes):
+              current = [r for r in availability if r['configuration_code'] == code]
+              source_groups = defaultdict(list)
+              for row in current:
+                  source_groups[row['source_code']].append(row)
+              availability_summary[code] = {
+                  'total': len(current),
+                  'by_source': {
+                      source: {
+                          'count': len(group),
+                          'statuses': dict(sorted(Counter(r['availability_status'] for r in group).items())),
+                          'attribute_statuses': sorted(
+                              [r['attribute_code'], r['availability_status']]
+                              for r in group
+                          ),
+                      }
+                      for source, group in sorted(source_groups.items())
+                  },
+              }
+
+          image_hits = {}
+          for path in sorted(root.rglob('*')):
+              if not path.is_file() or path.suffix.lower() not in {'.py', '.js', '.json', '.yml', '.yaml', '.md', '.html'}:
+                  continue
+              if '.git' in path.parts or 'diagnostics' in path.parts:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except (UnicodeDecodeError, OSError):
+                  continue
+              matched = [
+                  line for line in text.splitlines()
+                  if any(term in line.lower() for term in ('image_url', 'image url', 'thumbnail', 'miniature', 'model_image', 'urlopen', 'requests.get', 'httpx'))
+              ]
+              if matched:
+                  image_hits[path.as_posix()] = matched
+
+          (out / 'technical-summary.json').write_text(json.dumps(value_summary, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          (out / 'availability-summary.json').write_text(json.dumps(availability_summary, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          (out / 'image-code-hits.json').write_text(json.dumps(image_hits, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit summaries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery
+          git commit -m "chore(data): summarize catalogue recovery projections"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
