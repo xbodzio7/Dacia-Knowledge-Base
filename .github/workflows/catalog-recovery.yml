@@ -34,86 +34,128 @@ jobs:
           import hashlib
           import json
           import subprocess
+          from collections import Counter, defaultdict
           from pathlib import Path
 
           root = Path('.')
           target = root / 'diagnostics/catalog-recovery'
 
           def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
-              with path.open(encoding='utf-8', newline='') as handle:
+              with path.open(encoding='utf-8-sig', newline='') as handle:
                   reader = csv.DictReader(handle)
                   return list(reader.fieldnames or []), list(reader)
 
-          configurations_path = root / 'data/master/configurations.csv'
-          configuration_fields, configurations = read_csv(configurations_path)
+          def write_json(name: str, payload: object) -> None:
+              (target / name).write_text(
+                  json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + '\n',
+                  encoding='utf-8',
+              )
+
+          configuration_fields, configurations = read_csv(root / 'data/master/configurations.csv')
           selected_configurations = [
               row for row in configurations
-              if any(token in ' | '.join(row.values()).lower() for token in ('sandero', 'stepway'))
+              if 'sandero' in row.get('code', '').lower() or 'stepway' in row.get('code', '').lower()
           ]
-          configuration_codes = {
-              row.get('code', '') or row.get('configuration_code', '')
-              for row in selected_configurations
-          }
-          configuration_codes.discard('')
+          configuration_codes = {row['code'] for row in selected_configurations}
 
-          payload: dict[str, object] = {
-              'base_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
-              'configuration_fields': configuration_fields,
-              'configuration_codes': sorted(configuration_codes),
-              'tables': {},
-          }
+          write_json('current-configurations.json', {
+              'fields': configuration_fields,
+              'row_count': len(configurations),
+              'max_numeric_id': max(int(row['id']) for row in configurations if row.get('id', '').isdigit()),
+              'selected': selected_configurations,
+          })
 
-          for path in sorted((root / 'data/master').rglob('*.csv')):
+          price_fields, prices = read_csv(root / 'data/master/configuration_prices.csv')
+          selected_prices = [row for row in prices if row.get('configuration_code') in configuration_codes]
+          write_json('current-prices.json', {
+              'fields': price_fields,
+              'row_count': len(prices),
+              'max_numeric_id': max(int(row['id']) for row in prices if row.get('id', '').isdigit()),
+              'selected_count': len(selected_prices),
+              'selected': selected_prices,
+              'counts_by_configuration': dict(sorted(Counter(row['configuration_code'] for row in selected_prices).items())),
+              'counts_by_source': dict(sorted(Counter(row['source_code'] for row in selected_prices).items())),
+          })
+
+          relationship_fields, relationships = read_csv(root / 'data/master/source_configurations.csv')
+          selected_relationships = [row for row in relationships if row.get('configuration_code') in configuration_codes]
+          write_json('current-source-relationships.json', {
+              'fields': relationship_fields,
+              'row_count': len(relationships),
+              'max_numeric_id': max(int(row['id']) for row in relationships if row.get('id', '').isdigit()),
+              'selected_count': len(selected_relationships),
+              'selected': selected_relationships,
+              'counts_by_source_relationship': {
+                  f'{source}|{relationship}': count
+                  for (source, relationship), count in sorted(Counter(
+                      (row['source_code'], row['relationship']) for row in selected_relationships
+                  ).items())
+              },
+          })
+
+          value_fields, values = read_csv(root / 'data/master/configuration_attribute_values.csv')
+          selected_values = [row for row in values if row.get('configuration_code') in configuration_codes]
+          grouped_values: dict[str, object] = {}
+          for code in sorted(configuration_codes):
+              rows = [row for row in selected_values if row.get('configuration_code') == code]
+              grouped_values[code] = {
+                  'count': len(rows),
+                  'by_source': dict(sorted(Counter(row['source_code'] for row in rows).items())),
+                  'by_attribute': dict(sorted(Counter(row['attribute_code'] for row in rows).items())),
+                  'rows': rows,
+              }
+          write_json('technical-templates.json', {
+              'fields': value_fields,
+              'row_count': len(values),
+              'max_numeric_id': max(int(row['id']) for row in values if row.get('id', '').isdigit()),
+              'selected_count': len(selected_values),
+              'configurations': grouped_values,
+          })
+
+          availability_fields, availability = read_csv(root / 'data/master/configuration_attribute_availability.csv')
+          selected_availability = [row for row in availability if row.get('configuration_code') in configuration_codes]
+          grouped_availability: dict[str, object] = {}
+          for code in sorted(configuration_codes):
+              rows = [row for row in selected_availability if row.get('configuration_code') == code]
+              grouped_availability[code] = {
+                  'count': len(rows),
+                  'by_source': dict(sorted(Counter(row['source_code'] for row in rows).items())),
+                  'by_status': dict(sorted(Counter(row['availability_status'] for row in rows).items())),
+                  'attributes': sorted({row['attribute_code'] for row in rows}),
+                  'rows': rows,
+              }
+          write_json('availability-templates.json', {
+              'fields': availability_fields,
+              'row_count': len(availability),
+              'max_numeric_id': max(int(row['id']) for row in availability if row.get('id', '').isdigit()),
+              'selected_count': len(selected_availability),
+              'counts_by_source': dict(sorted(Counter(row['source_code'] for row in selected_availability).items())),
+              'configurations': grouped_availability,
+          })
+
+          attribute_fields, attributes = read_csv(root / 'data/master/attributes.csv')
+          availability_attribute_codes = {row['attribute_code'] for row in selected_availability}
+          write_json('availability-attribute-catalog.json', {
+              'fields': attribute_fields,
+              'selected': [row for row in attributes if row.get('code') in availability_attribute_codes],
+          })
+
+          # Find exact repository surfaces that enumerate configuration scopes.
+          scope_hits: dict[str, list[str]] = {}
+          text_suffixes = {'.py', '.json', '.yml', '.yaml', '.md', '.txt', '.csv'}
+          for path in sorted(root.rglob('*')):
+              if not path.is_file() or path.suffix.lower() not in text_suffixes:
+                  continue
+              if any(part in {'.git', 'diagnostics'} for part in path.parts):
+                  continue
               try:
-                  fields, rows = read_csv(path)
-              except Exception as exc:
-                  payload['tables'][path.as_posix()] = {'error': repr(exc)}
+                  lines = path.read_text(encoding='utf-8').splitlines()
+              except (UnicodeDecodeError, OSError):
                   continue
-              selected: list[dict[str, str]] = []
-              for row in rows:
-                  values = set(row.values())
-                  joined = ' | '.join(row.values()).lower()
-                  if values & configuration_codes or 'sandero' in joined or 'stepway' in joined:
-                      selected.append(row)
-              if selected or path.name in {
-                  'configuration_attribute_availability.csv',
-                  'configuration_attribute_values.csv',
-                  'configuration_attribute_value_ranges.csv',
-                  'configuration_cargo_volume_contexts.csv',
-                  'configuration_prices.csv',
-                  'configurations.csv',
-                  'source_configurations.csv',
-              }:
-                  numeric_ids = []
-                  for row in rows:
-                      raw = row.get('id', '')
-                      if raw.isdigit():
-                          numeric_ids.append(int(raw))
-                  payload['tables'][path.as_posix()] = {
-                      'fields': fields,
-                      'row_count': len(rows),
-                      'max_numeric_id': max(numeric_ids, default=None),
-                      'selected_count': len(selected),
-                      'selected_rows': selected,
-                  }
-
-          import_specs: dict[str, object] = {}
-          for path in sorted((root / 'data/imports').rglob('*')):
-              if not path.is_file() or path.suffix.lower() not in {'.json', '.csv', '.md', '.txt'}:
-                  continue
-              try:
-                  text = path.read_text(encoding='utf-8')
-              except Exception:
-                  continue
-              lowered = text.lower()
-              if 'sandero' in lowered or 'stepway' in lowered:
-                  import_specs[path.as_posix()] = text
-          payload['import_specs'] = import_specs
-
-          (target / 'key-data.json').write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + '\n',
-              encoding='utf-8',
-          )
+              matched = [line for line in lines if any(code in line for code in configuration_codes)]
+              if matched:
+                  scope_hits[path.as_posix()] = matched
+          write_json('configuration-reference-hits.json', scope_hits)
 
           source_index = []
           for path in sorted(root.rglob('*.pdf')):
@@ -122,13 +164,8 @@ jobs:
                   continue
               data = path.read_bytes()
               info = subprocess.run(
-                  ['pdfinfo', path.as_posix()],
-                  text=True,
-                  encoding='utf-8',
-                  errors='replace',
-                  stdout=subprocess.PIPE,
-                  stderr=subprocess.STDOUT,
-                  check=False,
+                  ['pdfinfo', path.as_posix()], text=True, encoding='utf-8', errors='replace',
+                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
               ).stdout
               pages = None
               for line in info.splitlines():
@@ -137,16 +174,11 @@ jobs:
               txt = target / f'{path.stem}.txt'
               subprocess.run(['pdftotext', '-layout', path.as_posix(), txt.as_posix()], check=False)
               source_index.append({
-                  'path': path.as_posix(),
-                  'bytes': len(data),
-                  'sha256': hashlib.sha256(data).hexdigest(),
-                  'pages': pages,
+                  'path': path.as_posix(), 'bytes': len(data),
+                  'sha256': hashlib.sha256(data).hexdigest(), 'pages': pages,
                   'text_path': txt.as_posix() if txt.exists() else None,
               })
-          (target / 'source-index.json').write_text(
-              json.dumps(source_index, ensure_ascii=False, indent=2) + '\n',
-              encoding='utf-8',
-          )
+          write_json('source-index.json', source_index)
           PY
 
           {
@@ -172,5 +204,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add diagnostics/catalog-recovery
-          git commit -m "chore(data): refine catalog recovery context"
+          git commit -m "chore(data): capture catalogue projection context"
           git push origin HEAD:agent/sandero-stepway-catalog-recovery
