@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "kind": "cross_model_navigation_usability_review",
+  "reviewed_on": "2026-07-27",
+  "status": "complete",
+  "source_release": {
+    "version": "1.8.1",
+    "tag": "data-products-v1.8.1",
+    "release_id": 360138130,
+    "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+    "publication_record_commit": "3b7709b41dca39f1822d20bb9a20fd61144f5443",
+    "publication_record_pull_request": 294,
+    "archive_member_count": 85,
+    "workspace_local_link_count": 83,
+    "cross_model_html_local_file_link_count": 57,
+    "verification": "PASS"
+  },
+  "current_discoverability": {
+    "workspace_index": {
+      "primary_card_count": 4,
+      "primary_titles": [
+        "Configuration shortlist",
+        "Comparison workbook",
+        "Comparison bundle manifest",
+        "Release notes"
+      ],
+      "scope_report_link_count": 76,
+      "asset_link_count": 3,
+      "total_local_link_count": 83,
+      "cross_model_html_linked": false,
+      "cross_model_json_linked": false,
+      "cross_model_entry_point_count": 0
+    },
+    "cross_model_product": {
+      "html_member": "cross-model/cross-model-comparison-view.html",
+      "json_member": "cross-model/cross-model-comparison-view.json",
+      "model_family_count": 5,
+      "reporting_scope_count": 19,
+      "active_configuration_count": 72,
+      "within_scope_pair_count": 114,
+      "local_file_launch_count": 57,
+      "javascript_used": false,
+      "runtime_image_dependency": false,
+      "byte_deterministic": true
+    },
+    "structural_gap": "The generated workspace landing page exposes every scope report but has no link to the published model-family navigation product."
+  },
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "discoverability_gain": 35,
+      "backward_compatibility": 20,
+      "semantic_safety": 20,
+      "low_implementation_risk": 15,
+      "maintenance_simplicity": 10
+    }
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "code": "conditional_primary_cross_model_card",
+      "name": "Conditional Cross-Model Primary Card",
+      "status": "selected",
+      "weighted_score": 100,
+      "decision": "Add one Start here card only when the exact verified cross-model HTML member exists."
+    },
+    {
+      "rank": 2,
+      "code": "embed_model_navigation_in_workspace_index",
+      "name": "Embed Model Navigation in Workspace Index",
+      "status": "not_selected",
+      "weighted_score": 82,
+      "decision": "Do not duplicate a verified dedicated product in the generated index."
+    },
+    {
+      "rank": 3,
+      "code": "leave_workspace_index_unchanged",
+      "name": "Leave Workspace Index Unchanged",
+      "status": "not_selected",
+      "weighted_score": 72,
+      "decision": "Rejected because the model-family product remains unreachable from index.html."
+    },
+    {
+      "rank": 4,
+      "code": "add_search_or_filtering_to_cross_model_html",
+      "name": "Add Search or Filtering to Cross-Model HTML",
+      "status": "deferred_new_release",
+      "weighted_score": 62,
+      "decision": "Deferred because v1.8.1 assets are immutable and the current gap is entry-point discovery."
+    },
+    {
+      "rank": 5,
+      "code": "republish_with_return_navigation",
+      "name": "Republish Cross-Model Product with Return Navigation",
+      "status": "not_selected",
+      "weighted_score": 58,
+      "decision": "Rejected because changing immutable release members would require a new semantic version."
+    }
+  ],
+  "selection": {
+    "code": "conditional_primary_cross_model_card",
+    "name": "Conditional Cross-Model Primary Card",
+    "weighted_score": 100,
+    "title": "Models and comparison scopes",
+    "description": "Browse model families and open only existing scope reports.",
+    "workspace_path": "contents/cross-model/cross-model-comparison-view.html",
+    "rationale": "The product is already public, deterministic, offline and semantically bounded. One verified card closes the discovery gap without copying product logic or changing release assets."
+  },
+  "implementation_contract": {
+    "member_presence_condition": "cross-model/cross-model-comparison-view.html",
+    "member_absent_primary_card_count": 4,
+    "member_present_primary_card_count": 5,
+    "v1_8_1_expected_local_link_count": 84,
+    "older_release_behavior_unchanged": true,
+    "release_republication_required": false,
+    "cross_model_json_primary_link_required": false,
+    "cross_model_payload_parsing_required": false,
+    "javascript_required": false,
+    "external_runtime_resource_required": false,
+    "required_checks": [
+      "verified_manifest_membership",
+      "verified_local_file_existence",
+      "safe_relative_path",
+      "conditional_fixture_coverage",
+      "older_release_fixture_coverage",
+      "all_local_links_exist",
+      "linux_windows_byte_parity",
+      "public_v1_8_1_download_smoke"
+    ]
+  },
+  "semantic_boundaries": {
+    "public_release_assets_changed": false,
+    "public_release_tag_changed": false,
+    "master_data_changed": false,
+    "schema_changed": false,
+    "comparison_engine_changed": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "repository_baseline": {
+    "tests": 1054,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Cross-Model Workspace Entry Point",
+    "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics."
+  }
+}
