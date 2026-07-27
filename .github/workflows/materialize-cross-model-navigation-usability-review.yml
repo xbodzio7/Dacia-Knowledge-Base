@@ -1,0 +1,757 @@
+name: Materialize Cross-Model Navigation Usability Review
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-cross-model-navigation-usability-review-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out review branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/cross-model-navigation-usability-review-v2
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+
+      - name: Materialize review package
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          from pathlib import Path
+
+          ROOT = Path.cwd()
+
+          def write(path: str, content: str) -> None:
+              target = ROOT / path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(content, encoding="utf-8", newline="")
+
+          report = {
+              "version": 1,
+              "kind": "cross_model_navigation_usability_review",
+              "reviewed_on": "2026-07-27",
+              "status": "complete",
+              "source_release": {
+                  "version": "1.8.1",
+                  "tag": "data-products-v1.8.1",
+                  "release_id": 360138130,
+                  "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+                  "publication_record_commit": "3b7709b41dca39f1822d20bb9a20fd61144f5443",
+                  "publication_pull_request": 292,
+                  "independent_audit_pull_request": 293,
+                  "publication_record_pull_request": 294,
+                  "archive_member_count": 85,
+                  "workspace_local_link_count": 83,
+                  "cross_model_html_local_file_link_count": 57,
+                  "verification": "PASS",
+              },
+              "current_discoverability": {
+                  "workspace_index": {
+                      "primary_card_count": 4,
+                      "primary_titles": [
+                          "Configuration shortlist",
+                          "Comparison workbook",
+                          "Comparison bundle manifest",
+                          "Release notes",
+                      ],
+                      "scope_report_link_count": 76,
+                      "asset_link_count": 3,
+                      "total_local_link_count": 83,
+                      "cross_model_html_linked": False,
+                      "cross_model_json_linked": False,
+                      "cross_model_entry_point_count": 0,
+                  },
+                  "cross_model_product": {
+                      "html_member": "cross-model/cross-model-comparison-view.html",
+                      "json_member": "cross-model/cross-model-comparison-view.json",
+                      "model_family_count": 5,
+                      "reporting_scope_count": 19,
+                      "active_configuration_count": 72,
+                      "within_scope_pair_count": 114,
+                      "local_file_launch_count": 57,
+                      "javascript_used": False,
+                      "runtime_image_dependency": False,
+                      "byte_deterministic": True,
+                      "role": "Model-family-led discovery of existing scope reports without creating cross-scope comparisons.",
+                  },
+                  "structural_gap": "The generated workspace landing page exposes every scope report but has no link to the published model-family navigation product, so that product is not discoverable from index.html without release-note or path knowledge.",
+              },
+              "selection_policy": {
+                  "scale": "1_to_5",
+                  "weights_percent": {
+                      "discoverability_gain": 35,
+                      "backward_compatibility": 20,
+                      "semantic_safety": 20,
+                      "low_implementation_risk": 15,
+                      "maintenance_simplicity": 10,
+                  },
+                  "decision_rule": "Select the smallest verified workspace-only change that makes the published cross-model HTML discoverable, preserves older releases and does not alter immutable assets or comparison semantics.",
+              },
+              "candidates": [
+                  {
+                      "rank": 1,
+                      "code": "conditional_primary_cross_model_card",
+                      "name": "Conditional Cross-Model Primary Card",
+                      "status": "selected",
+                      "scores": {
+                          "discoverability_gain": 5,
+                          "backward_compatibility": 5,
+                          "semantic_safety": 5,
+                          "low_implementation_risk": 5,
+                          "maintenance_simplicity": 5,
+                      },
+                      "weighted_score": 100,
+                      "decision": "Add one Start here card only when the exact verified cross-model HTML member exists. Link to the existing static HTML and leave older releases unchanged.",
+                  },
+                  {
+                      "rank": 2,
+                      "code": "embed_model_navigation_in_workspace_index",
+                      "name": "Embed Model Navigation in Workspace Index",
+                      "status": "not_selected",
+                      "scores": {
+                          "discoverability_gain": 5,
+                          "backward_compatibility": 4,
+                          "semantic_safety": 4,
+                          "low_implementation_risk": 3,
+                          "maintenance_simplicity": 3,
+                      },
+                      "weighted_score": 82,
+                      "decision": "Do not duplicate model and scope presentation in the generated index while a verified dedicated product already exists.",
+                  },
+                  {
+                      "rank": 3,
+                      "code": "leave_workspace_index_unchanged",
+                      "name": "Leave Workspace Index Unchanged",
+                      "status": "not_selected",
+                      "scores": {
+                          "discoverability_gain": 1,
+                          "backward_compatibility": 5,
+                          "semantic_safety": 5,
+                          "low_implementation_risk": 5,
+                          "maintenance_simplicity": 5,
+                      },
+                      "weighted_score": 72,
+                      "decision": "Rejected because the only user-facing model-family navigation product remains structurally unreachable from the landing page.",
+                  },
+                  {
+                      "rank": 4,
+                      "code": "add_search_or_filtering_to_cross_model_html",
+                      "name": "Add Search or Filtering to Cross-Model HTML",
+                      "status": "deferred_new_release",
+                      "scores": {
+                          "discoverability_gain": 5,
+                          "backward_compatibility": 2,
+                          "semantic_safety": 3,
+                          "low_implementation_risk": 1,
+                          "maintenance_simplicity": 2,
+                      },
+                      "weighted_score": 62,
+                      "decision": "Deferred because v1.8.1 assets are immutable and the current gap is entry-point discovery rather than in-page filtering.",
+                  },
+                  {
+                      "rank": 5,
+                      "code": "republish_with_return_navigation",
+                      "name": "Republish Cross-Model Product with Return Navigation",
+                      "status": "not_selected",
+                      "scores": {
+                          "discoverability_gain": 4,
+                          "backward_compatibility": 1,
+                          "semantic_safety": 4,
+                          "low_implementation_risk": 2,
+                          "maintenance_simplicity": 2,
+                      },
+                      "weighted_score": 58,
+                      "decision": "Rejected for this gap because changing immutable release members would require a new semantic version and provides less value than a workspace-only entry point.",
+                  },
+              ],
+              "selection": {
+                  "code": "conditional_primary_cross_model_card",
+                  "name": "Conditional Cross-Model Primary Card",
+                  "weighted_score": 100,
+                  "title": "Models and comparison scopes",
+                  "description": "Browse model families and open only existing scope reports.",
+                  "workspace_path": "contents/cross-model/cross-model-comparison-view.html",
+                  "rationale": "The cross-model HTML is already public, deterministic, offline and semantically bounded. A single verified card closes the discoverability gap without copying product logic, changing release assets or introducing JavaScript.",
+              },
+              "implementation_contract": {
+                  "member_presence_condition": "cross-model/cross-model-comparison-view.html",
+                  "member_absent_primary_card_count": 4,
+                  "member_present_primary_card_count": 5,
+                  "v1_8_1_expected_local_link_count": 84,
+                  "older_release_behavior_unchanged": True,
+                  "release_republication_required": False,
+                  "cross_model_json_primary_link_required": False,
+                  "cross_model_payload_parsing_required": False,
+                  "javascript_required": False,
+                  "external_runtime_resource_required": False,
+                  "required_checks": [
+                      "verified_manifest_membership",
+                      "verified_local_file_existence",
+                      "safe_relative_path",
+                      "conditional_fixture_coverage",
+                      "older_release_fixture_coverage",
+                      "all_local_links_exist",
+                      "linux_windows_byte_parity",
+                      "public_v1_8_1_download_smoke",
+                  ],
+              },
+              "semantic_boundaries": {
+                  "public_release_assets_changed": False,
+                  "public_release_tag_changed": False,
+                  "master_data_changed": False,
+                  "schema_changed": False,
+                  "comparison_engine_changed": False,
+                  "cross_scope_pairs_generated": False,
+                  "ranking_generated": False,
+                  "recommendations_generated": False,
+                  "inferred_values_generated": False,
+              },
+              "non_goals": [
+                  "modify_or_republish_data_products_v1_8_1",
+                  "add_search_or_filtering_to_immutable_cross_model_html",
+                  "duplicate_model_cards_inside_workspace_index",
+                  "add_cross_model_pair_generation",
+                  "add_ranking_or_recommendations",
+                  "change_source_backed_data",
+              ],
+              "repository_baseline": {
+                  "tests": 1054,
+                  "csv_files": 46,
+                  "rows": 9688,
+                  "configuration_values": 2949,
+                  "configuration_value_ranges": 244,
+                  "availability_records": 4754,
+                  "attributes": 385,
+              },
+              "next_package": {
+                  "name": "Cross-Model Workspace Entry Point",
+                  "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve the four-card layout for releases without that member, and verify local links plus Linux/Windows byte parity without changing release assets or comparison semantics.",
+              },
+          }
+          write(
+              "data/reporting/cross_model_navigation_usability_review.json",
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+          )
+
+          review = """# Cross-Model Navigation Usability Review
+
+Date: 2026-07-27
+
+## Decision
+
+Select a conditional fifth `Start here` card in the generated workspace `index.html`.
+
+The card should be titled `Models and comparison scopes`, describe the product as a model-family route to existing reports and link to:
+
+```text
+contents/cross-model/cross-model-comparison-view.html
+```
+
+It must appear only when the exact verified release member `cross-model/cross-model-comparison-view.html` exists.
+
+## Current discoverability gap
+
+Public `data-products-v1.8.1` contains eighty-five verified content files. Its generated workspace index contains eighty-three local links:
+
+- four primary product cards;
+- seventy-six report links across nineteen scopes;
+- three original-asset links.
+
+The four current primary cards lead to the shortlist, workbook, bundle manifest and release notes. Neither cross-model member is linked from the landing page.
+
+The published cross-model HTML is already a complete consumer-facing navigation product. It presents five model families, nineteen established scopes and fifty-seven local report launches while preserving all comparison boundaries. Because the landing page does not link it, a user must know the internal path or discover it through documentation outside the workspace.
+
+## Selected option
+
+The selected option is one conditional primary card.
+
+For a release containing the verified HTML member:
+
+- the primary-card count changes from four to five;
+- the total local-link count for the current v1.8.1 workspace changes from eighty-three to eighty-four;
+- the card opens the existing immutable cross-model HTML;
+- no cross-model JSON parsing or duplicated model rendering is added to the workspace index.
+
+For an older release without the member, the index remains byte-compatible with its existing four-card product set after regeneration by the same implementation version.
+
+## Why this option
+
+The existing cross-model product already provides model-family cards, anchors to relevant scopes and links to existing reports. Recreating those structures in `index.html` would duplicate logic and increase maintenance risk.
+
+Adding search or filtering to the cross-model page would change an immutable release member and require a new semantic version. That is not necessary to close the current discovery gap.
+
+The selected card is therefore the smallest change with the highest consumer value. It uses the existing verified inventory and safe-path mechanisms, requires no new architecture and leaves release assets untouched.
+
+## Implementation contract
+
+The implementation package must:
+
+- detect the exact HTML member in the verified release manifest;
+- require the corresponding local file to exist under `contents/`;
+- use the existing safe relative-path and percent-encoding helpers;
+- add exactly one primary card when present;
+- retain exactly four primary cards when absent;
+- keep the cross-model JSON as a non-primary machine-readable product;
+- preserve an offline, JavaScript-free workspace index;
+- update synthetic fixtures for both member-present and member-absent cases;
+- verify every local link;
+- preserve deterministic Linux/Windows bytes;
+- smoke-test a public v1.8.1 download.
+
+## Boundaries
+
+This review changes no public tag or release asset, imports no data and changes no schema or comparison engine. It creates no pair, ranking, recommendation or inferred value.
+
+The historical v1.8.1 audit remains exact at eighty-three workspace links. A later downloader implementation may generate an eighty-four-link index from the same immutable assets; that does not rewrite the historical public audit.
+
+## Next package
+
+`Cross-Model Workspace Entry Point` — implement the selected conditional primary card and its compatibility tests without modifying or republishing `data-products-v1.8.1`.
+"""
+          write(
+              "project/reviews/cross-model-navigation-usability-review-2026-07-27.md",
+              review,
+          )
+
+          tests = r'''from __future__ import annotations
+
+import json
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+REPORT = ROOT / "data" / "reporting" / "cross_model_navigation_usability_review.json"
+STATE = ROOT / "project" / "state.json"
+VERIFIER = ROOT / "tools" / "review_cross_model_navigation_usability_20260727.py"
+
+
+class CrossModelNavigationUsabilityReviewTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.report = json.loads(REPORT.read_text(encoding="utf-8"))
+
+    def test_metadata_and_source_release_are_exact(self) -> None:
+        self.assertEqual(self.report["version"], 1)
+        self.assertEqual(self.report["kind"], "cross_model_navigation_usability_review")
+        self.assertEqual(self.report["reviewed_on"], "2026-07-27")
+        self.assertEqual(self.report["status"], "complete")
+        source = self.report["source_release"]
+        self.assertEqual(source["version"], "1.8.1")
+        self.assertEqual(source["release_id"], 360138130)
+        self.assertEqual(source["publication_record_commit"], "3b7709b41dca39f1822d20bb9a20fd61144f5443")
+        self.assertEqual(source["verification"], "PASS")
+
+    def test_current_workspace_discoverability_gap_is_exact(self) -> None:
+        current = self.report["current_discoverability"]["workspace_index"]
+        self.assertEqual(current["primary_card_count"], 4)
+        self.assertEqual(current["scope_report_link_count"], 76)
+        self.assertEqual(current["asset_link_count"], 3)
+        self.assertEqual(current["total_local_link_count"], 83)
+        self.assertFalse(current["cross_model_html_linked"])
+        self.assertFalse(current["cross_model_json_linked"])
+        self.assertEqual(current["cross_model_entry_point_count"], 0)
+
+    def test_published_cross_model_product_is_ready_for_entry_point(self) -> None:
+        product = self.report["current_discoverability"]["cross_model_product"]
+        self.assertEqual(product["model_family_count"], 5)
+        self.assertEqual(product["reporting_scope_count"], 19)
+        self.assertEqual(product["active_configuration_count"], 72)
+        self.assertEqual(product["within_scope_pair_count"], 114)
+        self.assertEqual(product["local_file_launch_count"], 57)
+        self.assertFalse(product["javascript_used"])
+        self.assertFalse(product["runtime_image_dependency"])
+        self.assertTrue(product["byte_deterministic"])
+
+    def test_candidate_ranking_selects_smallest_workspace_change(self) -> None:
+        candidates = self.report["candidates"]
+        self.assertEqual([item["rank"] for item in candidates], [1, 2, 3, 4, 5])
+        self.assertEqual(candidates[0]["code"], "conditional_primary_cross_model_card")
+        self.assertEqual(candidates[0]["weighted_score"], 100)
+        self.assertEqual(candidates[0]["status"], "selected")
+        self.assertTrue(all(candidates[index]["weighted_score"] > candidates[index + 1]["weighted_score"] for index in range(len(candidates) - 1)))
+
+    def test_selected_entry_point_contract_is_conditional_and_backward_compatible(self) -> None:
+        selection = self.report["selection"]
+        contract = self.report["implementation_contract"]
+        self.assertEqual(selection["title"], "Models and comparison scopes")
+        self.assertEqual(selection["workspace_path"], "contents/cross-model/cross-model-comparison-view.html")
+        self.assertEqual(contract["member_absent_primary_card_count"], 4)
+        self.assertEqual(contract["member_present_primary_card_count"], 5)
+        self.assertEqual(contract["v1_8_1_expected_local_link_count"], 84)
+        self.assertTrue(contract["older_release_behavior_unchanged"])
+        self.assertFalse(contract["release_republication_required"])
+        self.assertFalse(contract["cross_model_payload_parsing_required"])
+
+    def test_immutability_and_semantic_boundaries_are_preserved(self) -> None:
+        boundaries = self.report["semantic_boundaries"]
+        self.assertTrue(all(value is False for value in boundaries.values()))
+        self.assertIn("modify_or_republish_data_products_v1_8_1", self.report["non_goals"])
+        self.assertIn("add_ranking_or_recommendations", self.report["non_goals"])
+
+    def test_project_state_selects_implementation_package(self) -> None:
+        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertEqual(state["phase"], "Cross-Model Navigation Usability Review")
+        self.assertEqual(state["current_package"]["name"], "Cross-Model Navigation Usability Review")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["name"], "Cross-Model Workspace Entry Point")
+        self.assertEqual(state["baseline"]["tests"], 1062)
+        self.assertEqual(self.report["next_package"]["name"], "Cross-Model Workspace Entry Point")
+
+    def test_verifier_accepts_review(self) -> None:
+        completed = subprocess.run(
+            [sys.executable, str(VERIFIER), "--check"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+        self.assertIn("PASS: Cross-Model Navigation Usability Review", completed.stdout)
+
+
+if __name__ == "__main__":
+    unittest.main()
+'''
+          write("tests/test_cross_model_navigation_usability_review.py", tests)
+
+          verifier = r'''#!/usr/bin/env python3
+"""Verify the Cross-Model Navigation Usability Review decision."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from html.parser import HTMLParser
+from pathlib import Path
+from typing import Any, Mapping, Sequence
+
+ROOT = Path(__file__).resolve().parents[1]
+REPORT = ROOT / "data" / "reporting" / "cross_model_navigation_usability_review.json"
+AUDIT = ROOT / "data" / "reporting" / "data_products_v1_8_1_publication_audit.json"
+WORKSPACE_INDEX = ROOT / "tools" / "reporting" / "data_product_workspace_index.py"
+STATE = ROOT / "project" / "state.json"
+
+sys.path.insert(0, str(ROOT / "tools"))
+
+from reporting.cross_model_comparison_view import collect_view, render_html  # noqa: E402
+
+
+class ReviewError(RuntimeError):
+    """Raised when the usability review contract drifts."""
+
+
+class HrefParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.hrefs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        href = dict(attrs).get("href")
+        if href:
+            self.hrefs.append(href)
+
+
+def ensure(condition: bool, message: str) -> None:
+    if not condition:
+        raise ReviewError(message)
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    ensure(isinstance(payload, dict), f"expected JSON object: {path}")
+    return payload
+
+
+def verify_report(report: Mapping[str, Any]) -> None:
+    ensure(report.get("version") == 1, "review version differs")
+    ensure(report.get("kind") == "cross_model_navigation_usability_review", "review kind differs")
+    ensure(report.get("reviewed_on") == "2026-07-27", "review date differs")
+    ensure(report.get("status") == "complete", "review is not complete")
+
+    source = report.get("source_release", {})
+    ensure(source.get("version") == "1.8.1", "source version differs")
+    ensure(source.get("release_id") == 360138130, "source release ID differs")
+    ensure(source.get("publication_record_commit") == "3b7709b41dca39f1822d20bb9a20fd61144f5443", "source publication record differs")
+    ensure(source.get("archive_member_count") == 85, "source archive count differs")
+    ensure(source.get("workspace_local_link_count") == 83, "source workspace link count differs")
+    ensure(source.get("cross_model_html_local_file_link_count") == 57, "source cross-model link count differs")
+
+    workspace = report.get("current_discoverability", {}).get("workspace_index", {})
+    ensure(workspace.get("primary_card_count") == 4, "current primary card count differs")
+    ensure(workspace.get("scope_report_link_count") == 76, "current scope link count differs")
+    ensure(workspace.get("asset_link_count") == 3, "current asset link count differs")
+    ensure(workspace.get("total_local_link_count") == 83, "current local link count differs")
+    ensure(workspace.get("cross_model_entry_point_count") == 0, "current cross-model entry point differs")
+
+    candidates = report.get("candidates")
+    ensure(isinstance(candidates, list) and len(candidates) == 5, "candidate set differs")
+    ensure([item.get("rank") for item in candidates] == [1, 2, 3, 4, 5], "candidate ranks differ")
+    ensure(candidates[0].get("code") == "conditional_primary_cross_model_card", "selected candidate differs")
+    ensure(candidates[0].get("weighted_score") == 100, "selected score differs")
+
+    selection = report.get("selection", {})
+    ensure(selection.get("workspace_path") == "contents/cross-model/cross-model-comparison-view.html", "selected path differs")
+    contract = report.get("implementation_contract", {})
+    ensure(contract.get("member_absent_primary_card_count") == 4, "absent-member card count differs")
+    ensure(contract.get("member_present_primary_card_count") == 5, "present-member card count differs")
+    ensure(contract.get("v1_8_1_expected_local_link_count") == 84, "planned local link count differs")
+    ensure(contract.get("older_release_behavior_unchanged") is True, "older release compatibility differs")
+    ensure(contract.get("release_republication_required") is False, "review requires republication")
+    ensure(all(value is False for value in report.get("semantic_boundaries", {}).values()), "semantic boundary differs")
+
+
+def verify_repository_evidence() -> None:
+    audit = load_json(AUDIT)
+    ensure(audit.get("status") == "PASS", "public audit did not pass")
+    workspace = audit.get("workspace", {})
+    ensure(workspace.get("content_file_count") == 85, "audited content count differs")
+    ensure(workspace.get("index_local_link_count") == 83, "audited index link count differs")
+    cross_model = audit.get("cross_model", {})
+    ensure(cross_model.get("model_family_count") == 5, "audited model count differs")
+    ensure(cross_model.get("reporting_scope_count") == 19, "audited scope count differs")
+    ensure(cross_model.get("html_local_file_link_count") == 57, "audited cross-model link count differs")
+
+    source = WORKSPACE_INDEX.read_text(encoding="utf-8")
+    for title in (
+        "Configuration shortlist",
+        "Comparison workbook",
+        "Comparison bundle manifest",
+        "Release notes",
+    ):
+        ensure(title in source, f"current primary product missing: {title}")
+    ensure("cross-model/cross-model-comparison-view.html" not in source, "cross-model entry point already implemented")
+
+    view = collect_view(ROOT)
+    summary = view.get("summary", {})
+    ensure(summary.get("model_family_count") == 5, "generated model count differs")
+    ensure(summary.get("reporting_scope_count") == 19, "generated scope count differs")
+    ensure(summary.get("active_configuration_count") == 72, "generated configuration count differs")
+    ensure(summary.get("within_scope_pair_count") == 114, "generated pair count differs")
+    rendered = render_html(view)
+    ensure("<script" not in rendered.lower(), "cross-model HTML uses JavaScript")
+    parser = HrefParser()
+    parser.feed(rendered)
+    local_files = [
+        href
+        for href in parser.hrefs
+        if not href.startswith(("http://", "https://", "#"))
+    ]
+    ensure(len(local_files) == 57, "generated cross-model local file link count differs")
+
+
+def verify_state() -> None:
+    state = load_json(STATE)
+    ensure(state.get("phase") == "Cross-Model Navigation Usability Review", "project phase differs")
+    ensure(state.get("current_package", {}).get("name") == "Cross-Model Navigation Usability Review", "current package differs")
+    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    ensure(state.get("next_package", {}).get("name") == "Cross-Model Workspace Entry Point", "next package differs")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests") == 1062, "test baseline differs")
+    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
+    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
+    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+
+
+def verify() -> None:
+    verify_report(load_json(REPORT))
+    verify_repository_evidence()
+    verify_state()
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="Verify the review contract.")
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parse_args(argv)
+    try:
+        verify()
+    except (OSError, json.JSONDecodeError, ReviewError, ValueError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
+    print("PASS: Cross-Model Navigation Usability Review")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+'''
+          write("tools/review_cross_model_navigation_usability_20260727.py", verifier)
+
+          publication_test_path = ROOT / "tests/test_data_products_v1_8_1_publication.py"
+          publication_test = publication_test_path.read_text(encoding="utf-8")
+          old_test_state = '''        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertEqual(state["phase"], "Data Products v1.8.1 Publication")
+        self.assertEqual(state["current_package"]["name"], "Data Products v1.8.1 Publication")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["name"], "Cross-Model Navigation Usability Review")
+        self.assertEqual(state["baseline"]["tests"], 1054)
+'''
+          new_test_state = '''        state = json.loads(STATE.read_text(encoding="utf-8"))
+        self.assertTrue(state["phase"])
+        self.assertTrue(state["current_package"]["name"])
+        self.assertIn(
+            state["current_package"]["status"],
+            {"planned", "active", "blocked", "complete"},
+        )
+        self.assertTrue(state["next_package"]["name"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1054)
+'''
+          if old_test_state not in publication_test:
+              raise SystemExit("publication test state block not found")
+          publication_test_path.write_text(
+              publication_test.replace(old_test_state, new_test_state),
+              encoding="utf-8",
+              newline="",
+          )
+
+          publication_verifier_path = ROOT / "tools/review_data_products_v1_8_1_publication_20260727.py"
+          publication_verifier = publication_verifier_path.read_text(encoding="utf-8")
+          old_verifier_state = '''    state = load_json(STATE)
+    ensure(state.get("phase") == "Data Products v1.8.1 Publication", "project phase differs")
+    ensure(state.get("current_package", {}).get("name") == "Data Products v1.8.1 Publication", "current package differs")
+    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    ensure(state.get("next_package", {}).get("name") == "Cross-Model Navigation Usability Review", "next package differs")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests") == 1054, "test baseline differs")
+    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
+    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
+    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+'''
+          new_verifier_state = '''    state = load_json(STATE)
+    ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
+    current = state.get("current_package", {})
+    ensure(isinstance(current.get("name"), str) and bool(current["name"]), "current package is missing")
+    ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current package status differs")
+    next_package = state.get("next_package", {})
+    ensure(isinstance(next_package.get("name"), str) and bool(next_package["name"]), "next package is missing")
+    baseline = state.get("baseline", {})
+    ensure(baseline.get("tests", 0) >= 1054, "test baseline regressed")
+    ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
+    ensure(baseline.get("rows") == 9688, "row baseline changed")
+    ensure(baseline.get("availability_records") == 4754, "availability baseline changed")
+    ensure(baseline.get("attributes") == 385, "attribute baseline changed")
+'''
+          if old_verifier_state not in publication_verifier:
+              raise SystemExit("publication verifier state block not found")
+          publication_verifier_path.write_text(
+              publication_verifier.replace(old_verifier_state, new_verifier_state),
+              encoding="utf-8",
+              newline="",
+          )
+
+          state_path = ROOT / "project/state.json"
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          state["updated_on"] = "2026-07-27"
+          state["phase"] = "Cross-Model Navigation Usability Review"
+          state["reference_delivery"] = {
+              "name": "Data Products v1.8.1 Publication",
+              "pull_request": 294,
+              "head_sha": "3b7709b41dca39f1822d20bb9a20fd61144f5443",
+              "quality_run": 2086,
+          }
+          state["baseline"]["tests"] = 1062
+          state["current_package"] = {
+              "name": "Cross-Model Navigation Usability Review",
+              "status": "complete",
+              "goal": "Review consumer discoverability of the published cross-model products and select the smallest workspace-only entry-point improvement without changing immutable release assets or comparison semantics.",
+          }
+          state["next_package"] = {
+              "name": "Cross-Model Workspace Entry Point",
+              "status": "planned",
+              "goal": "Add one conditional verified primary card for the existing cross-model HTML to the generated workspace index, preserve four cards for releases without that member, and verify safe local links plus Linux/Windows byte parity without changing release assets or comparison semantics.",
+          }
+          state_path.write_text(
+              json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="",
+          )
+          PY
+
+      - name: Synchronize generated project documentation
+        run: python tools/dkb.py project-state --apply
+
+      - name: Compile review contracts
+        run: |
+          python -m compileall -q \
+            tests/test_cross_model_navigation_usability_review.py \
+            tests/test_data_products_v1_8_1_publication.py \
+            tools/review_cross_model_navigation_usability_20260727.py \
+            tools/review_data_products_v1_8_1_publication_20260727.py
+
+      - name: Run focused review contracts
+        run: |
+          python tools/review_data_products_v1_8_1_publication_20260727.py --check
+          python tools/review_cross_model_navigation_usability_20260727.py --check
+          python -m unittest -q \
+            tests.test_data_products_v1_8_1_publication \
+            tests.test_cross_model_navigation_usability_review
+
+      - name: Run full repository validation
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -q
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+      - name: Commit review package
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/cross_model_navigation_usability_review.json \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/reviews/cross-model-navigation-usability-review-2026-07-27.md \
+            project/state.json \
+            tests/test_cross_model_navigation_usability_review.py \
+            tests/test_data_products_v1_8_1_publication.py \
+            tools/review_cross_model_navigation_usability_20260727.py \
+            tools/review_data_products_v1_8_1_publication_20260727.py
+          if ! git diff --cached --quiet; then
+            git commit -m "docs(review): select cross-model workspace entry point"
+            git push origin HEAD:agent/cross-model-navigation-usability-review-v2
+          fi
