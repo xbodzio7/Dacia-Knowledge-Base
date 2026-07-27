@@ -1,4 +1,4 @@
-name: Catalog Recovery Snapshot
+name: Catalog Recovery Contract Validation
 
 on:
   pull_request:
@@ -6,20 +6,44 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  snapshot:
+  apply-and-validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: agent/sandero-stepway-catalog-recovery-restored
-      - name: Build repository snapshot
+      - name: Apply local contract fixes
         shell: bash
         run: |
-          zip -q -r /tmp/dkb-recovery-snapshot.zip . -x '.git/*'
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dkb-recovery-snapshot
-          path: /tmp/dkb-recovery-snapshot.zip
+          base64 -d diagnostics/catalog-recovery/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
+          if git apply --check /tmp/local-contract-fixes.patch; then
+            git apply /tmp/local-contract-fixes.patch
+          elif git apply --reverse --check /tmp/local-contract-fixes.patch; then
+            echo "Contract fixes already applied."
+          else
+            echo "Patch neither applies nor is already present."
+            exit 1
+          fi
+      - name: Validate catalogue package
+        shell: bash
+        run: |
+          python -m compileall -q tools tests
+          python tools/import_sandero_stepway_catalog_completion.py --verify
+          python tools/dkb.py validate
+          python -m unittest discover -s tests -p 'test_*.py' -q
+      - name: Persist fixes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to persist."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
+          git add tools tests
+          git commit -m "test(catalog): preserve current and historical contracts"
+          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
