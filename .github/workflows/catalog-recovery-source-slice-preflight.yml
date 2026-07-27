@@ -1,0 +1,59 @@
+name: Catalog Recovery Source Slice Preflight
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-source-slice-preflight.yml
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Inspect migration assumptions
+        shell: bash
+        run: |
+          mkdir -p diagnostics/catalog-recovery
+          git fetch origin main
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          root = Path('.')
+          path = root / 'tools/import_sandero_stepway_catalog_completion.py'
+          text = path.read_text(encoding='utf-8')
+          checks = {
+              'source_constant_block': '''PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"\nSANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"\nSTEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"\n''' in text,
+              'fields_versions_marker': '''FIELDS = {\n    "versions.csv": (''' in text,
+              'validation_marker': '\ndef _validate_references(repository: Path) -> None:\n' in text,
+              'complete_additions_marker': '''    additions: dict[str, int] = {}\n    additions["versions"], _ = _append_expected(''' in text,
+              'cargo_call': '    _update_cargo_spec(repository, apply=apply)\n' in text,
+              'expected_additions_marker': '"versions": 1,\n            "source_version_relationships": 1,' in text,
+              'new_media_test': (root / 'tests/test_model_media_cache.py').is_file(),
+              'cargo_spec_on_main': subprocess.run(['git', 'cat-file', '-e', 'origin/main:data/imports/configuration_cargo_values/sandero-stepway-brochure-cargo-20260202.json']).returncode == 0,
+              'package_contract': (root / 'data/imports/catalog_completion/sandero-stepway-tce-20260703.json').is_file(),
+              'reporting_scope': (root / 'data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json').is_file(),
+              'gap_evidence': (root / 'data/reporting/sandero_tce100_stepway_tce110_manual_gap_evidence.spec').is_file(),
+          }
+          snippets = {}
+          for needle in ('FIELDS = {', 'def _validate_references', 'def complete(', 'expected_additions', '_update_cargo_spec'):
+              index = text.find(needle)
+              snippets[needle] = text[max(0, index - 120):index + 500] if index >= 0 else ''
+          payload = {'checks': checks, 'all_pass': all(checks.values()), 'snippets': snippets}
+          (root / 'diagnostics/catalog-recovery/source-slice-preflight.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit preflight
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/source-slice-preflight.json
+          git commit -m "chore(data): record source-slice migration preflight"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
