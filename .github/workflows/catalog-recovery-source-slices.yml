@@ -1,0 +1,373 @@
+name: Catalog Recovery Source Slices
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-source-slices.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore historical contracts and isolate new source slices
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          cp tests/test_model_media_cache.py /tmp/test_model_media_cache.py
+          git checkout origin/main -- tests
+          cp /tmp/test_model_media_cache.py tests/test_model_media_cache.py
+          git show origin/main:data/imports/configuration_cargo_values/sandero-stepway-brochure-cargo-20260202.json > data/imports/configuration_cargo_values/sandero-stepway-brochure-cargo-20260202.json
+
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          master = root / 'data/master'
+          new_configs = {
+              'sandero_iii_essential_tce100_manual',
+              'sandero_iii_expression_tce100_manual',
+              'sandero_iii_journey_tce100_manual',
+              'sandero_stepway_iii_essential_tce110_manual',
+              'sandero_stepway_iii_expression_tce110_manual',
+              'sandero_stepway_iii_extreme_tce110_manual',
+          }
+          price_configs = new_configs | {
+              'sandero_iii_expression_ecog120_automatic',
+              'sandero_iii_journey_ecog120_automatic',
+          }
+          raw_price = 'src_pl_sandero_stepway_price_my26_20260703'
+          raw_sandero = 'src_pl_sandero_brochure_20260202'
+          raw_stepway = 'src_pl_sandero_stepway_brochure_20260202'
+          slice_price = 'src_pl_sandero_stepway_catalog_tce_slice_20260703'
+          slice_sandero = 'src_pl_sandero_catalog_tce_slice_20260202'
+          slice_stepway = 'src_pl_sandero_stepway_catalog_tce_slice_20260202'
+
+          def read(path: Path):
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  reader = csv.DictReader(handle)
+                  return list(reader.fieldnames or []), list(reader)
+
+          def write(path: Path, fields, rows):
+              with path.open('w', encoding='utf-8', newline='') as handle:
+                  writer = csv.DictWriter(handle, fieldnames=fields, lineterminator='\n')
+                  writer.writeheader()
+                  writer.writerows(rows)
+
+          source_fields, source_rows = read(master / 'sources.csv')
+          raw_by_code = {row['code']: row for row in source_rows}
+          slices = [
+              {
+                  'code': slice_price,
+                  'raw': raw_price,
+                  'title': 'Sandero and Stepway MY26 TCe catalogue slice',
+                  'configurations': sorted(price_configs),
+                  'pages': [1, 2, 3, 4, 5, 6],
+                  'families': ['configuration', 'price', 'equipment', 'technical', 'trim'],
+              },
+              {
+                  'code': slice_sandero,
+                  'raw': raw_sandero,
+                  'title': 'Sandero TCe 100 brochure technical slice',
+                  'configurations': sorted(code for code in new_configs if code.startswith('sandero_iii_')),
+                  'pages': [17, 20],
+                  'families': ['technical', 'performance', 'chassis', 'dimensions', 'cargo'],
+              },
+              {
+                  'code': slice_stepway,
+                  'raw': raw_stepway,
+                  'title': 'Sandero Stepway TCe 110 brochure technical slice',
+                  'configurations': sorted(code for code in new_configs if code.startswith('sandero_stepway_iii_')),
+                  'pages': [17, 20],
+                  'families': ['technical', 'performance', 'chassis', 'dimensions', 'cargo'],
+              },
+          ]
+          project_sources = root / 'project/sources'
+          project_sources.mkdir(parents=True, exist_ok=True)
+          existing_sources = {row['code']: row for row in source_rows}
+          next_id = max(int(row['id']) for row in source_rows) + 1
+          for item in slices:
+              raw = raw_by_code[item['raw']]
+              payload = {
+                  'version': 1,
+                  'kind': 'official_source_slice',
+                  'slice_code': item['code'],
+                  'raw_source_code': item['raw'],
+                  'raw_source': {
+                      'title': raw['title'],
+                      'publisher': raw['publisher'],
+                      'market': raw['market'],
+                      'document_date': raw['document_date'],
+                      'external_reference': raw['external_reference'],
+                      'file_path': raw['file_path'],
+                      'sha256': raw['sha256'],
+                  },
+                  'selection': {
+                      'configuration_codes': item['configurations'],
+                      'source_pages': item['pages'],
+                      'observation_families': item['families'],
+                  },
+                  'non_inference': [
+                      'The slice does not replace or alter the registered raw official document.',
+                      'Every imported observation retains raw page and section provenance in its notes.',
+                      'Only values directly visible in the selected official source are represented.',
+                  ],
+              }
+              path = project_sources / f"{item['code'].removeprefix('src_pl_')}.json"
+              rendered = json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
+              path.write_text(rendered, encoding='utf-8')
+              digest = hashlib.sha256(rendered.encode('utf-8')).hexdigest()
+              expected = {
+                  'code': item['code'],
+                  'source_type': 'normalized_snapshot',
+                  'title': item['title'],
+                  'publisher': raw['publisher'],
+                  'market': raw['market'],
+                  'document_date': raw['document_date'],
+                  'external_reference': raw['external_reference'],
+                  'file_path': path.as_posix(),
+                  'sha256': digest,
+                  'status': 'active',
+                  'notes': f"Versioned source slice of {item['raw']}; the raw official file remains canonical and hash-verified.",
+              }
+              current = existing_sources.get(item['code'])
+              if current is None:
+                  source_rows.append({'id': str(next_id), **expected})
+                  next_id += 1
+                  existing_sources[item['code']] = source_rows[-1]
+              else:
+                  current.update(expected)
+          write(master / 'sources.csv', source_fields, source_rows)
+
+          fields, rows = read(master / 'configuration_attribute_values.csv')
+          for row in rows:
+              if row['configuration_code'] not in new_configs:
+                  continue
+              if row['source_code'] == raw_sandero:
+                  row['source_code'] = slice_sandero
+              elif row['source_code'] == raw_stepway:
+                  row['source_code'] = slice_stepway
+              elif row['source_code'] == raw_price:
+                  row['source_code'] = slice_price
+          write(master / 'configuration_attribute_values.csv', fields, rows)
+
+          fields, rows = read(master / 'configuration_prices.csv')
+          for row in rows:
+              if row['configuration_code'] in price_configs and row['price_date'] == '2026-07-03' and int(row['id']) > 118:
+                  row['source_code'] = slice_price
+          write(master / 'configuration_prices.csv', fields, rows)
+
+          fields, rows = read(master / 'configuration_attribute_availability.csv')
+          for row in rows:
+              if row['observation_date'] == '2026-07-03' and row['source_code'] == raw_price and int(row['id']) > 4754:
+                  row['source_code'] = slice_price
+          write(master / 'configuration_attribute_availability.csv', fields, rows)
+
+          fields, rows = read(master / 'source_configurations.csv')
+          for row in rows:
+              if int(row['id']) <= 219:
+                  continue
+              if row['source_code'] == raw_price:
+                  row['source_code'] = slice_price
+              elif row['source_code'] == raw_sandero:
+                  row['source_code'] = slice_sandero
+              elif row['source_code'] == raw_stepway:
+                  row['source_code'] = slice_stepway
+          write(master / 'source_configurations.csv', fields, rows)
+
+          fields, rows = read(master / 'source_versions.csv')
+          for row in rows:
+              if int(row['id']) > 62 and row['source_code'] == raw_price:
+                  row['source_code'] = slice_price
+          write(master / 'source_versions.csv', fields, rows)
+
+          # Update the durable package and reporting source mappings.
+          package_path = root / 'data/imports/catalog_completion/sandero-stepway-tce-20260703.json'
+          package = json.loads(package_path.read_text(encoding='utf-8'))
+          package['price_source_code'] = slice_price
+          package['source_slices'] = [item['code'] for item in slices]
+          package['expected_additions']['sources'] = 3
+          package_path.write_text(json.dumps(package, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          scope_path = root / 'data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json'
+          scope = json.loads(scope_path.read_text(encoding='utf-8'))
+          for item in scope['configurations']:
+              item['source_code'] = slice_price
+          scope_path.write_text(json.dumps(scope, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          evidence_path = root / 'data/reporting/sandero_tce100_stepway_tce110_manual_gap_evidence.spec'
+          evidence = json.loads(evidence_path.read_text(encoding='utf-8'))
+          for decision in evidence.get('decisions', []):
+              decision['source_code'] = slice_stepway
+          evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Make the importer generate and verify source slices
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/import_sandero_stepway_catalog_completion.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"\nSANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"\nSTEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"\n'''
+          new = '''RAW_PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"\nRAW_SANDERO_BROCHURE_SOURCE = "src_pl_sandero_brochure_20260202"\nRAW_STEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_brochure_20260202"\nPRICE_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260703"\nSANDERO_BROCHURE_SOURCE = "src_pl_sandero_catalog_tce_slice_20260202"\nSTEPWAY_BROCHURE_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260202"\n'''
+          if old not in text:
+              raise SystemExit('source constant block not found')
+          text = text.replace(old, new, 1)
+          text = text.replace(
+              '''FIELDS = {\n    "versions.csv": (''',
+              '''FIELDS = {\n    "sources.csv": (\n        "id", "code", "source_type", "title", "publisher", "market",\n        "document_date", "external_reference", "file_path", "sha256",\n        "status", "notes",\n    ),\n    "versions.csv": (''',
+              1,
+          )
+          marker = '\ndef _validate_references(repository: Path) -> None:\n'
+          helper = r'''
+def _source_slice_rows(repository: Path, *, apply: bool) -> list[dict[str, str]]:
+    master = repository / "data/master"
+    _, registered = _read_csv(master / "sources.csv")
+    raw_by_code = {row["code"]: row for row in registered}
+    definitions = (
+        (
+            PRICE_SOURCE,
+            RAW_PRICE_SOURCE,
+            "Sandero and Stepway MY26 TCe catalogue slice",
+            sorted({str(item["code"]) for item in CONFIGURATIONS} | {code for code, _ in EXTRA_PRICE_OBSERVATIONS}),
+            [1, 2, 3, 4, 5, 6],
+            ["configuration", "price", "equipment", "technical", "trim"],
+        ),
+        (
+            SANDERO_BROCHURE_SOURCE,
+            RAW_SANDERO_BROCHURE_SOURCE,
+            "Sandero TCe 100 brochure technical slice",
+            sorted(str(item["code"]) for item in CONFIGURATIONS if item["model_family"] == "sandero"),
+            [17, 20],
+            ["technical", "performance", "chassis", "dimensions", "cargo"],
+        ),
+        (
+            STEPWAY_BROCHURE_SOURCE,
+            RAW_STEPWAY_BROCHURE_SOURCE,
+            "Sandero Stepway TCe 110 brochure technical slice",
+            sorted(str(item["code"]) for item in CONFIGURATIONS if item["model_family"] == "stepway"),
+            [17, 20],
+            ["technical", "performance", "chassis", "dimensions", "cargo"],
+        ),
+    )
+    rows = []
+    for code, raw_code, title, configurations, pages, families in definitions:
+        raw = raw_by_code.get(raw_code)
+        if raw is None:
+            raise CompletionError(f"raw source missing: {raw_code}")
+        payload = {
+            "version": 1,
+            "kind": "official_source_slice",
+            "slice_code": code,
+            "raw_source_code": raw_code,
+            "raw_source": {
+                "title": raw["title"],
+                "publisher": raw["publisher"],
+                "market": raw["market"],
+                "document_date": raw["document_date"],
+                "external_reference": raw["external_reference"],
+                "file_path": raw["file_path"],
+                "sha256": raw["sha256"],
+            },
+            "selection": {
+                "configuration_codes": configurations,
+                "source_pages": pages,
+                "observation_families": families,
+            },
+            "non_inference": [
+                "The slice does not replace or alter the registered raw official document.",
+                "Every imported observation retains raw page and section provenance in its notes.",
+                "Only values directly visible in the selected official source are represented.",
+            ],
+        }
+        relative = Path("project/sources") / f"{code.removeprefix('src_pl_')}.json"
+        rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        target = repository / relative
+        if apply:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(rendered, encoding="utf-8")
+        elif not target.exists() or target.read_text(encoding="utf-8") != rendered:
+            raise CompletionError(f"source slice differs: {relative}")
+        digest = __import__("hashlib").sha256(rendered.encode("utf-8")).hexdigest()
+        rows.append({
+            "code": code,
+            "source_type": "normalized_snapshot",
+            "title": title,
+            "publisher": raw["publisher"],
+            "market": raw["market"],
+            "document_date": raw["document_date"],
+            "external_reference": raw["external_reference"],
+            "file_path": relative.as_posix(),
+            "sha256": digest,
+            "status": "active",
+            "notes": f"Versioned source slice of {raw_code}; the raw official file remains canonical and hash-verified.",
+        })
+    return rows
+
+'''
+          if marker not in text:
+              raise SystemExit('validation marker not found')
+          text = text.replace(marker, helper + marker, 1)
+          text = text.replace(
+              '''    additions: dict[str, int] = {}\n    additions["versions"], _ = _append_expected(''',
+              '''    additions: dict[str, int] = {}\n    source_slice_rows = _source_slice_rows(repository, apply=apply)\n    additions["sources"], _ = _append_expected(\n        master / "sources.csv",\n        source_slice_rows,\n        apply=apply,\n    )\n    additions["versions"], _ = _append_expected(''',
+              1,
+          )
+          text = text.replace('    _update_cargo_spec(repository, apply=apply)\n', '')
+          text = text.replace(
+              '"versions": 1,\n            "source_version_relationships": 1,',
+              '"sources": 3,\n            "versions": 1,\n            "source_version_relationships": 1,',
+              1,
+          )
+          compile(text, str(path), 'exec')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Verify migration and run tests
+        shell: bash
+        run: |
+          set +e
+          mkdir -p diagnostics/catalog-recovery
+          python tools/import_sandero_stepway_catalog_completion.py --verify > diagnostics/catalog-recovery/source-slices-importer.log 2>&1
+          importer=$?
+          python tools/dkb.py validate > diagnostics/catalog-recovery/source-slices-validator.log 2>&1
+          validator=$?
+          python -m unittest discover -s tests -p 'test_*.py' -q > diagnostics/catalog-recovery/unit-v3.log 2>&1
+          tests=$?
+          python - <<PY
+          import json, re
+          from pathlib import Path
+          text = Path('diagnostics/catalog-recovery/unit-v3.log').read_text(encoding='utf-8', errors='replace')
+          match = re.search(r'FAILED \((.*?)\)', text)
+          Path('diagnostics/catalog-recovery/unit-v3-summary.json').write_text(json.dumps({
+              'importer_exit': int('$importer'),
+              'validator_exit': int('$validator'),
+              'tests_exit': int('$tests'),
+              'failed_summary': match.group(1) if match else '',
+              'tail': text[-14000:],
+          }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit source-slice migration
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data project/sources tools tests diagnostics/catalog-recovery/source-slices-*.log diagnostics/catalog-recovery/unit-v3.log diagnostics/catalog-recovery/unit-v3-summary.json
+          git commit -m "refactor(data): isolate catalogue completion source slices"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
