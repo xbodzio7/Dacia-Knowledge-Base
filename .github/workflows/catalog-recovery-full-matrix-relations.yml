@@ -50,6 +50,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
           git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-*.log diagnostics/catalog-recovery/matrix-relations-summary.json
           git commit -m "fix(data): cover full equipment matrix source scope"
-          git push origin HEAD:agent/sandero-stepway-catalog-recovery-restored
+          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
