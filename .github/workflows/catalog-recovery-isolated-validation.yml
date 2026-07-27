@@ -45,12 +45,27 @@ jobs:
       - name: Apply to current main and synchronize state
         shell: bash
         run: |
-          set -euo pipefail
+          set +e
           clean_branch=agent/sandero-stepway-catalog-completion
-          git checkout -B "$clean_branch" origin/main
-          git apply --3way --index /tmp/catalog-completion.patch
+          git checkout -B "$clean_branch" origin/main > /tmp/catalog-apply.log 2>&1
+          checkout_exit=$?
+          apply_exit=99
+          if [ "$checkout_exit" -eq 0 ]; then
+            git apply --3way --index /tmp/catalog-completion.patch >> /tmp/catalog-apply.log 2>&1
+            apply_exit=$?
+          fi
+          {
+            echo "checkout_exit=${checkout_exit}"
+            echo "apply_exit=${apply_exit}"
+            git status --short || true
+            git diff --name-only --diff-filter=U || true
+          } >> /tmp/catalog-apply.log
+          if [ "$checkout_exit" -ne 0 ] || [ "$apply_exit" -ne 0 ]; then
+            cat /tmp/catalog-apply.log
+            exit 1
+          fi
           if git diff --cached --name-only | grep -E '(^diagnostics/catalog-recovery/|^\.github/workflows/catalog-recovery|^tools/(migrate_sandero_stepway_catalog_source_slices|patch_catalog_equipment_source_slices|patch_catalog_source_relationship_scope|repair_catalog_source_registration|summarize_recovery_test_failures)\.py$'; then
-            echo "Recovery-only file entered clean branch."
+            echo "Recovery-only file entered clean branch." | tee -a /tmp/catalog-apply.log
             exit 1
           fi
           python - <<'PY'
@@ -84,7 +99,7 @@ jobs:
           }
           path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
-          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --apply >> /tmp/catalog-apply.log 2>&1
           git add -A
       - name: Validate clean package
         shell: bash
@@ -122,6 +137,7 @@ jobs:
           name: clean-catalogue-completion-build
           path: |
             /tmp/catalog-completion-files.txt
+            /tmp/catalog-apply.log
             /tmp/catalog-quality.log
             /tmp/catalog-quality-summary.json
           if-no-files-found: ignore
