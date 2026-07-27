@@ -32,10 +32,11 @@ jobs:
         run: |
           git show 4a1649199236b3b323594689fbeae56c166a7bf8:.github/workflows/materialize-cross-model-workspace-entry-point.yml > "${RUNNER_TEMP}/original.yml"
           python - <<'PY'
+          import os
           from pathlib import Path
           import textwrap
 
-          path = Path("${RUNNER_TEMP}/original.yml")
+          path = Path(os.environ["RUNNER_TEMP"]) / "original.yml"
           text = path.read_text(encoding="utf-8")
           marker = "          python - <<'PY'\n"
           start = text.index(marker) + len(marker)
