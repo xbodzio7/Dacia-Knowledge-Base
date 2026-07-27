@@ -44,13 +44,39 @@ jobs:
             tests=$?
           fi
           printf '{"patch_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$patch" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
+          git diff --binary > diagnostics/catalog-recovery/matrix-relations.patch
           exit 0
-      - name: Commit result
+      - name: Attempt to persist result
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
-          git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-*.log diagnostics/catalog-recovery/matrix-relations-summary.json
-          git commit -m "fix(data): cover full equipment matrix source scope"
-          git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
+          set +e
+          {
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            remote_head=$(git rev-parse origin/agent/sandero-stepway-catalog-recovery-restored)
+            echo "remote_head=${remote_head}"
+            git status --short
+            git add data project/sources tools diagnostics/catalog-recovery/matrix-relations-*.log diagnostics/catalog-recovery/matrix-relations-summary.json
+            git diff --cached --stat
+            git commit -m "fix(data): cover full equipment matrix source scope"
+            commit_exit=$?
+            echo "commit_exit=${commit_exit}"
+            if [ "$commit_exit" -eq 0 ]; then
+              git push --force-with-lease=refs/heads/agent/sandero-stepway-catalog-recovery-restored:${remote_head} origin HEAD:refs/heads/agent/sandero-stepway-catalog-recovery-restored
+              push_exit=$?
+            else
+              push_exit=99
+            fi
+            echo "push_exit=${push_exit}"
+          } > diagnostics/catalog-recovery/matrix-relations-persist.log 2>&1
+          exit 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: matrix-relations-debug
+          path: |
+            diagnostics/catalog-recovery/matrix-relations-summary.json
+            diagnostics/catalog-recovery/matrix-relations.log
+            diagnostics/catalog-recovery/matrix-relations-validator.log
+            diagnostics/catalog-recovery/matrix-relations-tests.log
+            diagnostics/catalog-recovery/matrix-relations-persist.log
+            diagnostics/catalog-recovery/matrix-relations.patch
