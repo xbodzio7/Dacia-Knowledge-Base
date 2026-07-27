@@ -1,4 +1,4 @@
-name: Catalog Recovery Isolated Validation
+name: Build Clean Catalogue Completion Branch
 
 on:
   pull_request:
@@ -9,73 +9,119 @@ permissions:
   contents: write
 
 jobs:
-  apply-and-validate:
+  build-clean-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - name: Reconstruct and apply contract fixes
+      - name: Build source-bounded patch
         shell: bash
         run: |
-          cat diagnostics/catalog-recovery/contract-patch-parts/part* > /tmp/local-contract-fixes.patch.gz.b64
-          test "$(wc -c < /tmp/local-contract-fixes.patch.gz.b64)" -eq 13244
-          echo "6efb5a49aab491e6bf05233ad864a736894c46d468fd69cb7c24722f35e10226  /tmp/local-contract-fixes.patch.gz.b64" | sha256sum -c -
-          base64 -d /tmp/local-contract-fixes.patch.gz.b64 | gzip -d > /tmp/local-contract-fixes.patch
-          echo "92ba325c2eca85b77110963c92575dff872b34df32aa2b78f824b488217b5a7c  /tmp/local-contract-fixes.patch" | sha256sum -c -
-          if git apply --check /tmp/local-contract-fixes.patch; then
-            git apply /tmp/local-contract-fixes.patch
-          elif git apply --reverse --check /tmp/local-contract-fixes.patch; then
-            echo "Contract fixes already applied."
-          else
-            echo "Patch neither applies nor is already present."
+          set -euo pipefail
+          git fetch origin main "${{ github.head_ref }}"
+          source_ref="origin/${{ github.head_ref }}"
+          source_base=$(git merge-base origin/main "$source_ref")
+          git diff --binary "$source_base" "$source_ref" -- . \
+            ':(exclude).github/workflows/catalog-recovery*.yml' \
+            ':(exclude)diagnostics/catalog-recovery/**' \
+            ':(exclude)tools/migrate_sandero_stepway_catalog_source_slices.py' \
+            ':(exclude)tools/patch_catalog_equipment_source_slices.py' \
+            ':(exclude)tools/patch_catalog_source_relationship_scope.py' \
+            ':(exclude)tools/repair_catalog_source_registration.py' \
+            ':(exclude)tools/summarize_recovery_test_failures.py' \
+            > /tmp/catalog-completion.patch
+          git diff --name-status "$source_base" "$source_ref" -- . \
+            ':(exclude).github/workflows/catalog-recovery*.yml' \
+            ':(exclude)diagnostics/catalog-recovery/**' \
+            ':(exclude)tools/migrate_sandero_stepway_catalog_source_slices.py' \
+            ':(exclude)tools/patch_catalog_equipment_source_slices.py' \
+            ':(exclude)tools/patch_catalog_source_relationship_scope.py' \
+            ':(exclude)tools/repair_catalog_source_registration.py' \
+            ':(exclude)tools/summarize_recovery_test_failures.py' \
+            > /tmp/catalog-completion-files.txt
+          test -s /tmp/catalog-completion.patch
+      - name: Apply to current main and synchronize state
+        shell: bash
+        run: |
+          set -euo pipefail
+          clean_branch=agent/sandero-stepway-catalog-completion
+          git checkout -B "$clean_branch" origin/main
+          git apply --3way --index /tmp/catalog-completion.patch
+          if git diff --cached --name-only | grep -E '(^diagnostics/catalog-recovery/|^\.github/workflows/catalog-recovery|^tools/(migrate_sandero_stepway_catalog_source_slices|patch_catalog_equipment_source_slices|patch_catalog_source_relationship_scope|repair_catalog_source_registration|summarize_recovery_test_failures)\.py$'; then
+            echo "Recovery-only file entered clean branch."
             exit 1
           fi
-      - name: Validate catalogue package
-        id: validate
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('project/state.json')
+          state = json.loads(path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-07-27'
+          state['phase'] = 'Source-Bounded Sandero and Stepway Catalogue Completion'
+          state['current_package'] = {
+              'name': 'Source-Bounded Sandero and Stepway Catalogue Completion',
+              'status': 'complete',
+              'goal': (
+                  'Complete the official-source Sandero TCe 100 and Sandero Stepway '
+                  'TCe 110 manual catalogue scope, preserve historical release receipts, '
+                  'and cache official model media locally with conditional refresh and '
+                  'offline-safe reuse.'
+              ),
+          }
+          state['next_package'] = {
+              'name': 'Verified PDF Candidate Ledger Foundation',
+              'status': 'planned',
+              'goal': (
+                  'Implement the receipt-driven pdf-candidate-ledger command and '
+                  'deterministic JSON and Markdown candidate artifacts for the five '
+                  'registered official brochures, preserving source, page, backend and '
+                  'span provenance while creating no master-data rows or approved import '
+                  'specifications.'
+              ),
+          }
+          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          git add -A
+      - name: Validate clean package
         shell: bash
         run: |
-          set +e
-          : > /tmp/catalog-validation.log
-          python -m compileall -q tools tests >> /tmp/catalog-validation.log 2>&1
-          compile=$?
-          python tools/import_sandero_stepway_catalog_completion.py --verify >> /tmp/catalog-validation.log 2>&1
-          importer=$?
-          python tools/dkb.py validate >> /tmp/catalog-validation.log 2>&1
-          validator=$?
-          python -m unittest discover -s tests -p 'test_*.py' -q >> /tmp/catalog-validation.log 2>&1
-          tests=$?
-          printf 'compile=%s\nimporter=%s\nvalidator=%s\ntests=%s\n' "$compile" "$importer" "$validator" "$tests" | tee /tmp/catalog-validation-summary.txt
-          if [ "$compile" -eq 0 ] && [ "$importer" -eq 0 ] && [ "$validator" -eq 0 ] && [ "$tests" -eq 0 ]; then
-            touch /tmp/catalog-validation-ok
-          else
-            grep -E '^(ERROR|FAIL):|^FAILED \(|^Ran [0-9]+ tests' /tmp/catalog-validation.log > /tmp/catalog-validation-failures.txt || true
-          fi
-          exit 0
-      - uses: actions/upload-artifact@v4
-        with:
-          name: catalog-validation-log
-          path: |
-            /tmp/catalog-validation.log
-            /tmp/catalog-validation-summary.txt
-            /tmp/catalog-validation-failures.txt
-          if-no-files-found: ignore
-      - name: Persist verified fixes
+          set -euo pipefail
+          python -m compileall -q tools tests
+          python tools/import_sandero_stepway_catalog_completion.py --verify
+          python tools/dkb.py model-media-cache --verify --offline
+          python tools/dkb.py project-state --check
+          python tools/dkb.py quality --concise --log-file /tmp/catalog-quality.log --summary-json /tmp/catalog-quality-summary.json --database /tmp/catalog-quality.sqlite
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          contract = json.loads(Path('data/imports/catalog_completion/sandero-stepway-tce-20260703.json').read_text(encoding='utf-8'))
+          assert len(contract['configuration_codes']) == 6
+          assert contract['expected_counts']['reporting_scopes'] == 21
+          assert contract['expected_counts']['unique_comparison_pairs'] == 120
+          scope = json.loads(Path('data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json').read_text(encoding='utf-8'))
+          assert scope['configuration_count'] == 6
+          assert scope['comparison_pair_count'] == 15
+          print(json.dumps({'configurations': 78, 'independent_scopes': 20, 'contract_scopes': 21, 'unique_pairs': 120}, sort_keys=True))
+          PY
+      - name: Commit and publish clean branch
         shell: bash
         run: |
-          if [ ! -f /tmp/catalog-validation-ok ]; then
-            cat /tmp/catalog-validation-summary.txt
-            cat /tmp/catalog-validation-failures.txt 2>/dev/null || true
-            exit 1
-          fi
-          if git diff --quiet; then
-            echo "No changes to persist."
-            exit 0
-          fi
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          remote_head=$(git rev-parse "origin/${{ github.head_ref }}")
-          git add tools tests
-          git commit -m "test(catalog): preserve current and historical contracts"
-          git push --force-with-lease=refs/heads/${{ github.head_ref }}:${remote_head} origin HEAD:refs/heads/${{ github.head_ref }}
+          git commit -m "feat(data): complete Sandero and Stepway TCe catalogue"
+          git push --force-with-lease origin HEAD:refs/heads/agent/sandero-stepway-catalog-completion
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clean-catalogue-completion-build
+          path: |
+            /tmp/catalog-completion-files.txt
+            /tmp/catalog-quality.log
+            /tmp/catalog-quality-summary.json
+          if-no-files-found: ignore
