@@ -6,6 +6,9 @@ on:
       - agent/sandero-stepway-catalog-recovery-restored
     paths:
       - .github/workflows/catalog-recovery-full-matrix-relations.yml
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -41,6 +44,7 @@ jobs:
           printf '{"patch_exit":%s,"apply_exit":%s,"verify_exit":%s,"validator_exit":%s,"tests_exit":%s}\n' "$patch" "$apply" "$verify" "$validator" "$tests" > diagnostics/catalog-recovery/matrix-relations-summary.json
           exit 0
       - name: Commit result
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
