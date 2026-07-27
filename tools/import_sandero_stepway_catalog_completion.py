@@ -922,6 +922,16 @@ def _apply_equipment(path: Path, *, apply: bool) -> int:
             expected["attribute_code"],
         )
         current = by_semantic.get(semantic)
+        if current is None:
+            legacy = by_semantic.get(
+                (
+                    RAW_PRICE_SOURCE,
+                    expected["configuration_code"],
+                    expected["attribute_code"],
+                )
+            )
+            if legacy is not None and legacy["observation_date"] == OBSERVATION_DATE:
+                current = legacy
         if current is not None:
             if current["availability_status"] != expected["availability_status"]:
                 raise CompletionError(

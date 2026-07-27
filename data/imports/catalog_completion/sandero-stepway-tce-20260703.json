@@ -2,7 +2,12 @@
   "version": 1,
   "kind": "sandero_stepway_catalog_completion",
   "observation_date": "2026-07-03",
-  "price_source_code": "src_pl_sandero_stepway_price_my26_20260703",
+  "price_source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+  "source_slices": [
+    "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+    "src_pl_sandero_catalog_tce_slice_20260202",
+    "src_pl_sandero_stepway_catalog_tce_slice_20260202"
+  ],
   "configuration_codes": [
     "sandero_iii_essential_tce100_manual",
     "sandero_iii_expression_tce100_manual",
@@ -12,6 +17,7 @@
     "sandero_stepway_iii_extreme_tce110_manual"
   ],
   "expected_additions": {
+    "sources": 3,
     "versions": 1,
     "source_version_relationships": 1,
     "configurations": 6,

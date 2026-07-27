@@ -4,27 +4,27 @@
   "configurations": [
     {
       "configuration_code": "sandero_iii_essential_tce100_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     },
     {
       "configuration_code": "sandero_iii_expression_tce100_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     },
     {
       "configuration_code": "sandero_iii_journey_tce100_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     },
     {
       "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     },
     {
       "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     },
     {
       "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
-      "source_code": "src_pl_sandero_stepway_price_my26_20260703"
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703"
     }
   ],
   "technical_slots": [
