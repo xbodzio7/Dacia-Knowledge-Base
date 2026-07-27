@@ -1,0 +1,1075 @@
+/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_gap_resolution_plan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpkn_po31n/data/master/configuration_attribute_values.csv' mode='r' encoding='utf-8'>
+  rows = list(csv.DictReader(path.open(encoding="utf-8")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Building SQLite database: /tmp/tmpznmm2bko/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 385 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 5770 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 244 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 3267 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 317 rows
+  data/master/configuration_prices.csv -> configuration_prices: 126 rows
+  data/master/configurations.csv -> configurations: 78 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 240 rows
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 63 rows
+  data/master/sources.csv -> sources: 30 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 19 rows
+Database ready: /tmp/tmpznmm2bko/dkb.sqlite
+Building SQLite database: /tmp/tmp3fwkeqrl/reports/test.sqlite
+Source directory: /tmp/tmp3fwkeqrl/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp3fwkeqrl/reports/test.sqlite
+Building SQLite database: /tmp/tmpozxifumt/nested/directory/test.sqlite
+Source directory: /tmp/tmpozxifumt/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpozxifumt/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmplc8naopr/test.sqlite
+Source directory: /tmp/tmplc8naopr/data/master
+Building SQLite database: /tmp/tmpp_es15xl/test.sqlite
+Source directory: /tmp/tmpp_es15xl/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpp_es15xl/test.sqlite
+Configuration comparison bundle
+-------------------------------
+Selected configurations : 2
+Scope groups            : 1
+Comparable scopes       : 1
+Singleton scopes        : 0
+Cross-scope pairs       : none
+- sandero_stepway_ecog120_automatic | comparable | configurations=2 | pairs=1 | differences=9
+Manifest               : /tmp/tmpfnml20ek/first/comparison-bundle-manifest.json
+JSON configuration comparison report written to /tmp/tmptq98e9j0/comparison.json
+Configuration comparison
+------------------------
+As of                  : 2026-06-01
+Active configurations  : 2
+Pair type filter       : all
+Available pairs        : 1
+Selected pairs         : 1
+Price differences      : 1
+Technical differences  : 0
+Equipment differences  : 1
+CSV difference domain   : all
+CSV difference item     : all
+CSV difference rows     : 2
+Not-comparable states  : 3
+HTML configuration comparison report written to /tmp/tmptq98e9j0/comparison.html
+JSON configuration shortlist written to /tmp/tmpxpksps8b/shortlist.json
+Markdown configuration shortlist written to /tmp/tmpxpksps8b/shortlist.md
+CSV configuration shortlist written to /tmp/tmpxpksps8b/shortlist.csv
+Configuration shortlist as of 2026-01-01
+Matched 2 of 4 active configurations.
+- 70000 PLN | Model A Expression | Eco-G 120 | manual | 5 seats | cfg_a
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+JSON configuration shortlist written to /tmp/tmpa1djvavm/shortlist.json
+Interactive HTML configuration shortlist written to /tmp/tmpa1djvavm/shortlist.html
+Configuration shortlist as of 2026-01-01
+Matched 1 of 4 active configurations.
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+Building SQLite database: /tmp/tmprc3ubkhz/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 10 rows
+  data/master/attributes.csv -> attributes: 385 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 69 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 142 rows
+  data/master/commercial_items.csv -> commercial_items: 28 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 5770 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 244 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 3267 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 317 rows
+  data/master/configuration_prices.csv -> configuration_prices: 126 rows
+  data/master/configurations.csv -> configurations: 78 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 1 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rowsERROR: git push -u origin tooling/test failed with exit code 1
+Handoff: /tmp/dkb-publish-t86t95s2/output/handoff.json
+ERROR: package-finish failed with exit code 7
+Handoff: /tmp/dkb-publish-tvwphu__/output/handoff.json
+ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+Handoff: /tmp/dkb-publish-1a3igqpt/output/handoff.json
+ERROR: working tree path manifest differs
+expected: ['tools/example.py']
+actual:   ['extra.txt', 'tools/example.py']
+Handoff: /tmp/dkb-publish-umozhpbv/output/handoff.json
+
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 240 rows
+  data/master/source_models.csv -> source_models: 34 rows
+  data/master/source_versions.csv -> source_versions: 63 rows
+  data/master/sources.csv -> sources: 30 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 19 rows
+Database ready: /tmp/tmprc3ubkhz/dkb.sqlite
+Cross-model comparison view
+---------------------------
+Model families        : 5
+Reporting scopes      : 20
+Active configurations : 78
+Within-scope pairs    : 129
+Cross-scope pairs     : none
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c9aa838dd8e2c97c2eacd3f803f93744ec470227
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c9aa838dd8e2c97c2eacd3f803f93744ec470227
+HEAD   : cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+cfc0c9b (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-pqxy0yj4/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c9aa838dd8e2c97c2eacd3f803f93744ec470227
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : c9aa838dd8e2c97c2eacd3f803f93744ec470227
+HEAD   : cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+cfc0c9b (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : c9aa838dd8e2c97c2eacd3f803f93744ec470227
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: cfc0c9b2e64cd273b94179fbb1e8c754f5d0b6f2
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-fwm4t2r3/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-isxlrkgz/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-y3wkmhyj/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-79oyi0mb/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-gdz5jzmp/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vsm_g0_f/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-wsjn_od9/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-5qjx5q3y/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-micc1c7_/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-myh9x8_r/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-670iaszd/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rjoflzvy/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-ddtc_93d/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-3zx4fpzf/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-vlrqzyvn/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-6ewi4xl_/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-jnuo87d0/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-oayknhf2/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-hi6s3fes/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-rgni6csp/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-720ca843/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Switched to a new branch 'tooling/workflow-test'
+From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-aiid6_9h/remote
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+==> First: FAIL
+boom\n
+Quality checks failed at: First (exit code 5). Full log: /tmp/tmpnnmb9edp/quality.log
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-n_ra5p26/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: c1372fcb6ca1df8857d0aefb739ac2da32db7808
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 6396bea253158d913ec3376553c77e2d4cab6865
+HEAD   : c1372fcb6ca1df8857d0aefb739ac2da32db7808
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+c1372fc (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-n_ra5p26/output/handoff.json
+PASS
+
+==> Broken
+ERROR: SQLite database does not exist: /tmp/tmpb9ipkaym/missing.sqlite
+======================================================================
+ERROR: setUpClass (test_data_product_release.DataProductReleaseTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_product_release.py", line 48, in setUpClass
+    cls.manifest = create_release_assets(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/reporting/data_product_release.py", line 248, in create_release_assets
+    raise ReleaseError(
+reporting.data_product_release_model.ReleaseError: complete release bundle must contain 19 independent scopes
+
+======================================================================
+FAIL: test_every_enum_observation_resolves_through_registry (test_attribute_enum_domains.AttributeEnumDomainTests.test_every_enum_observation_resolves_through_registry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_attribute_enum_domains.py", line 89, in test_every_enum_observation_resolves_through_registry
+    self.assertEqual(len(enum_rows), 174)
+AssertionError: 204 != 174
+
+======================================================================
+FAIL: test_model_receipt_advances_to_duster (test_bigster_chassis_20260726.BigsterChassisTests.test_model_receipt_advances_to_duster)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_bigster_chassis_20260726.py", line 145, in test_model_receipt_advances_to_duster
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+======================================================================
+FAIL: test_follow_up_imports_respect_modeled_attributes (test_brochure_chassis_measurement_context_modeling_20260726.BrochureChassisMeasurementContextModelTests.test_follow_up_imports_respect_modeled_attributes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_measurement_context_modeling_20260726.py", line 113, in test_follow_up_imports_respect_modeled_attributes
+    self.assertEqual(len(scalar), 88)
+AssertionError: 100 != 88
+
+======================================================================
+FAIL: test_verifier_and_project_state_are_complete (test_brochure_chassis_measurement_context_modeling_20260726.BrochureChassisMeasurementContextModelTests.test_verifier_and_project_state_are_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_measurement_context_modeling_20260726.py", line 134, in test_verifier_and_project_state_are_complete
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+======================================================================
+FAIL: test_closure_verifier_and_all_import_receipts_pass (test_brochure_chassis_modeling_closure_review.BrochureChassisModelingClosureReviewTests.test_closure_verifier_and_all_import_receipts_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_chassis_modeling_closure_review.py", line 166, in test_closure_verifier_and_all_import_receipts_pass
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 2 != 0 : usage: review_brochure_chassis_modeling_closure_20260726.py [-h] --check
+review_brochure_chassis_modeling_closure_20260726.py: error: ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+
+======================================================================
+FAIL: test_importer_mapping_receipt_and_deferrals_pass (test_brochure_generic_dimensions_import_20260726.BrochureGenericDimensionsImportTests.test_importer_mapping_receipt_and_deferrals_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_20260726.py", line 184, in test_importer_mapping_receipt_and_deferrals_pass
+    self.assertEqual(mapped.returncode, 0, mapped.stderr or mapped.stdout)
+AssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py
+       [-h] --check
+review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs
+
+
+======================================================================
+FAIL: test_closure_verifier_reproduces_repository_contract (test_brochure_generic_dimensions_import_closure_review.BrochureGenericDimensionsImportClosureReviewTests.test_closure_verifier_reproduces_repository_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_import_closure_review.py", line 270, in test_closure_verifier_reproduces_repository_contract
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: checker failed: review_brochure_generic_dimensions_semantic_mapping_20260726.py: usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py
+       [-h] --check
+review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs
+
+
+
+======================================================================
+FAIL: test_import_plan_has_382_unique_historical_values (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_import_plan_has_382_unique_historical_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py", line 136, in test_import_plan_has_382_unique_historical_values
+    self.assertEqual(max(int(row["id"]) for row in self.values), 2949)
+AssertionError: 3267 != 2949
+
+======================================================================
+FAIL: test_verifier_and_project_state_complete_review (test_brochure_generic_dimensions_semantic_mapping_review.BrochureGenericDimensionsSemanticMappingReviewTests.test_verifier_and_project_state_complete_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_brochure_generic_dimensions_semantic_mapping_review.py", line 176, in test_verifier_and_project_state_complete_review
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 2 != 0 : usage: review_brochure_generic_dimensions_semantic_mapping_20260726.py
+       [-h] --check
+review_brochure_generic_dimensions_semantic_mapping_20260726.py: error: active Sandero count differs
+
+
+======================================================================
+FAIL: test_scope_inventory_maps_all_active_configurations_once (test_configuration_comparison_bundle.ConfigurationComparisonBundleTests.test_scope_inventory_maps_all_active_configurations_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_bundle.py", line 64, in test_scope_inventory_maps_all_active_configurations_once
+    self.assertEqual(len(scopes), 19)
+AssertionError: 20 != 19
+
+======================================================================
+FAIL: test_sheet_dimensions_filters_and_frozen_headers (test_configuration_comparison_workbook.ConfigurationComparisonWorkbookTests.test_sheet_dimensions_filters_and_frozen_headers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_configuration_comparison_workbook.py", line 141, in test_sheet_dimensions_filters_and_frozen_headers
+    self.assertEqual(dimension.attrib["ref"], expected)
+AssertionError: 'A1:M336' != 'A1:M302'
+- A1:M336
+?      ^^
++ A1:M302
+?      ^^
+
+
+======================================================================
+FAIL: test_every_configuration_occurs_once_and_pairs_stay_inside_scopes (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_every_configuration_occurs_once_and_pairs_stay_inside_scopes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 124, in test_every_configuration_occurs_once_and_pairs_stay_inside_scopes
+    self.assertEqual(len(codes), 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 102, in test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged
+    self.assertEqual(len(mixed), 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_html_is_standalone_scope_safe_and_marks_unknown_values (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_html_is_standalone_scope_safe_and_marks_unknown_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 194, in test_html_is_standalone_scope_safe_and_marks_unknown_values
+    self.assertEqual(len(comparison_links), 57)
+AssertionError: 60 != 57
+
+======================================================================
+FAIL: test_json_and_html_rendering_are_deterministic (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_json_and_html_rendering_are_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 183, in test_json_and_html_rendering_are_deterministic
+    self.assertEqual(html_text.count('class="scope-card"'), 19)
+AssertionError: 20 != 19
+
+======================================================================
+FAIL: test_model_cards_have_exact_order_counts_and_price_coverage (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_model_cards_have_exact_order_counts_and_price_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 79, in test_model_cards_have_exact_order_counts_and_price_coverage
+    self.assertEqual(model["configuration_count"], values[0])
+AssertionError: 7 != 4
+
+======================================================================
+FAIL: test_summary_matches_scope_preserving_repository_baseline (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_summary_matches_scope_preserving_repository_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view.py", line 41, in test_summary_matches_scope_preserving_repository_baseline
+    self.assertEqual(
+AssertionError: {'mod[41 chars]nt': 20, 'single_model_scope_count': 18, 'mixe[259 chars]alse} != {'mod[41 chars]nt': 19, 'single_model_scope_count': 18, 'mixe[259 chars]alse}
+Diff is 917 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_closure_history (test_cross_model_comparison_view_closure_review.CrossModelComparisonViewClosureReviewTests.test_verifier_and_project_state_preserve_closure_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_closure_review.py", line 146, in test_verifier_and_project_state_preserve_closure_history
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: view summary differs: reporting_scope_count
+
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_historical_review (test_cross_model_comparison_view_review.CrossModelComparisonViewReviewTests.test_verifier_and_project_state_preserve_historical_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_comparison_view_review.py", line 159, in test_verifier_and_project_state_preserve_historical_review
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: active configuration count differs
+
+
+======================================================================
+FAIL: test_verifier_accepts_review (test_cross_model_navigation_usability_review.CrossModelNavigationUsabilityReviewTests.test_verifier_accepts_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_cross_model_navigation_usability_review.py", line 87, in test_verifier_accepts_review
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: generated scope count differs
+
+
+======================================================================
+FAIL: test_candidate_baseline_covers_complete_current_portfolio (test_data_products_v1_7_0_release_preparation.DataProductsV170ReleasePreparationTests.test_candidate_baseline_covers_complete_current_portfolio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_7_0_release_preparation.py", line 62, in test_candidate_baseline_covers_complete_current_portfolio
+    self.assertEqual(len(active), 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_preparation_verifier_reproduces_repository_contract (test_data_products_v1_7_0_release_preparation.DataProductsV170ReleasePreparationTests.test_preparation_verifier_reproduces_repository_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_7_0_release_preparation.py", line 156, in test_preparation_verifier_reproduces_repository_contract
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: active configuration count differs
+
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_0_release_preparation.DataProductsV180ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_0_release_preparation.py", line 156, in test_verifier_and_project_state_preserve_preparation_history
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes
+
+
+======================================================================
+FAIL: test_verifier_accepts_preflight (test_data_products_v1_8_1_preflight.DataProductsV181PreflightTests.test_verifier_accepts_preflight)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_preflight.py", line 102, in test_verifier_accepts_preflight
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes
+
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_preparation_history (test_data_products_v1_8_1_release_preparation.DataProductsV181ReleasePreparationTests.test_verifier_and_project_state_preserve_preparation_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_data_products_v1_8_1_release_preparation.py", line 148, in test_verifier_and_project_state_preserve_preparation_history
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes
+
+
+======================================================================
+FAIL: test_reporting_subset_remains_sandero_only (test_duster_catalog_bootstrap.DusterCatalogBootstrapTests.test_reporting_subset_remains_sandero_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_catalog_bootstrap.py", line 152, in test_reporting_subset_remains_sandero_only
+    self.assertEqual(scope["repository_status_configurations"], 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_model_receipt_and_project_state_advance_to_jogger (test_duster_chassis_20260726.DusterChassisTests.test_model_receipt_and_project_state_advance_to_jogger)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_chassis_20260726.py", line 182, in test_model_receipt_and_project_state_advance_to_jogger
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+======================================================================
+FAIL: test_browser_catalog_contains_new_configurations_and_current_mirror_states (test_duster_ecog120_automatic_stock_20260724.DusterEcoG120AutomaticStock20260724Tests.test_browser_catalog_contains_new_configurations_and_current_mirror_states)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_ecog120_automatic_stock_20260724.py", line 121, in test_browser_catalog_contains_new_configurations_and_current_mirror_states
+    self.assertEqual(len(catalog["configurations"]), 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_prices_and_reporting_scope_remain_stable (test_duster_technical_specifications.DusterTechnicalSpecificationTests.test_prices_and_reporting_scope_remain_stable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_duster_technical_specifications.py", line 227, in test_prices_and_reporting_scope_remain_stable
+    self.assertEqual(report["scope"]["repository_status_configurations"], 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_fix_history (test_equipment_filter_regression_model_price_order.EquipmentFilterRegressionModelPriceOrderTests.test_verifier_and_project_state_preserve_fix_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_equipment_filter_regression_model_price_order.py", line 127, in test_verifier_and_project_state_preserve_fix_history
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: current configuration count differs
+
+
+======================================================================
+FAIL: test_model_receipt_closes_all_five_chassis_resolutions (test_jogger_chassis_20260726.JoggerChassisTests.test_model_receipt_closes_all_five_chassis_resolutions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_jogger_chassis_20260726.py", line 157, in test_model_receipt_closes_all_five_chassis_resolutions
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+======================================================================
+FAIL: test_current_dimension_coverage_matches_repository (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_current_dimension_coverage_matches_repository)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py", line 112, in test_current_dimension_coverage_matches_repository
+    self.assertEqual(len(selected["sandero_iii"]), 50)
+AssertionError: 80 != 50
+
+======================================================================
+FAIL: test_review_verifier_and_source_closure_pass (test_official_brochure_residual_evidence_review.OfficialBrochureResidualEvidenceReviewTests.test_review_verifier_and_source_closure_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_residual_evidence_review.py", line 171, in test_review_verifier_and_source_closure_pass
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 2 != 0 : usage: review_official_brochure_residual_evidence_20260726.py [-h] --check
+review_official_brochure_residual_evidence_20260726.py: error: active Sandero scope differs
+
+
+======================================================================
+FAIL: test_closure_verifier_and_priority_receipts_pass (test_official_brochure_technical_gap_resolution_closure.OfficialBrochureTechnicalGapResolutionClosureTests.test_closure_verifier_and_priority_receipts_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_resolution_closure.py", line 179, in test_closure_verifier_and_priority_receipts_pass
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 2 != 0 : usage: review_official_brochure_technical_gap_resolution_closure_20260726.py
+       [-h] --check
+review_official_brochure_technical_gap_resolution_closure_20260726.py: error: usage: review_official_brochure_technical_gaps_20260726.py [-h] --check
+review_official_brochure_technical_gaps_20260726.py: error: an exact Sandero TCe 100 configuration now exists
+
+
+
+======================================================================
+FAIL: test_review_verifier_reproduces_repository_contract (test_official_brochure_technical_gap_review.OfficialBrochureTechnicalGapReviewTests.test_review_verifier_reproduces_repository_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_official_brochure_technical_gap_review.py", line 182, in test_review_verifier_reproduces_repository_contract
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 2 != 0 : usage: review_official_brochure_technical_gaps_20260726.py [-h] --check
+review_official_brochure_technical_gaps_20260726.py: error: an exact Sandero TCe 100 configuration now exists
+
+
+======================================================================
+FAIL: test_priority_verifier_reproduces_repository_contract (test_post_brochure_priority_selection_review.PostBrochurePrioritySelectionReviewTests.test_priority_verifier_reproduces_repository_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py", line 246, in test_priority_verifier_reproduces_repository_contract
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: active configuration count differs
+
+
+======================================================================
+FAIL: test_repository_readiness_covers_72_configurations_and_19_scopes (test_post_brochure_priority_selection_review.PostBrochurePrioritySelectionReviewTests.test_repository_readiness_covers_72_configurations_and_19_scopes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_brochure_priority_selection_review.py", line 148, in test_repository_readiness_covers_72_configurations_and_19_scopes
+    self.assertEqual(len(active), 72)
+AssertionError: 78 != 72
+
+======================================================================
+FAIL: test_verifier_and_project_state_preserve_selection_history (test_post_cross_model_priority_selection_review.PostCrossModelPrioritySelectionReviewTests.test_verifier_and_project_state_preserve_selection_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_cross_model_priority_selection_review.py", line 143, in test_verifier_and_project_state_preserve_selection_history
+    self.assertEqual(
+AssertionError: 1 != 0 : ERROR: complete release bundle must contain 19 independent scopes
+
+
+======================================================================
+FAIL: test_configuration_values_reference_controlled_standards (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_configuration_values_reference_controlled_standards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_euro_6e_bis_model.py", line 106, in test_configuration_values_reference_controlled_standards
+    self.assertEqual(len(all_emission_values), 45)
+AssertionError: 51 != 45
+
+======================================================================
+FAIL: test_model_receipt_and_project_state_advance (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_model_receipt_and_project_state_advance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_chassis_20260726.py", line 169, in test_model_receipt_and_project_state_advance
+    self.assertEqual(completed.returncode, 0, completed.stderr or completed.stdout)
+AssertionError: 1 != 0 : ERROR: expected eighty-eight modeled scalar chassis observations
+
+
+======================================================================
+FAIL: test_version_highlights_expand_to_24_exact_standard_observations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_version_highlights_expand_to_24_exact_standard_observations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_sandero_stepway_official_web_20260723.py", line 95, in test_version_highlights_expand_to_24_exact_standard_observations
+    self.assertEqual(
+AssertionError: Items in the second set but not the first:
+('sandero_stepway_iii_essential_ecog120_manual', 'roof_rails')
+('sandero_stepway_iii_expression_ecog120_automatic', 'modular_roof_rails')
+('sandero_stepway_iii_essential_ecog120_manual', 'my_safety_button')
+('sandero_stepway_iii_expression_ecog120_manual', 'modular_roof_rails')
+
+----------------------------------------------------------------------
+Ran 1058 tests in 51.439s
+
+FAILED (failures=41, errors=1)
+Building SQLite database: /tmp/tmphmaayyag/test.sqlite
+Source directory: /tmp/tmphmaayyag/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmphmaayyag/test.sqlite
+Building SQLite database: /tmp/tmpxqgekvfi/test.sqlite
+Source directory: /tmp/tmpxqgekvfi/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpxqgekvfi/test.sqlite
+Building SQLite database: /tmp/tmppcp99bw8/test.sqlite
+Source directory: /tmp/tmppcp99bw8/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmppcp99bw8/test.sqlite
+Building SQLite database: /tmp/tmp09pu0imo/test.sqlite
+Source directory: /tmp/tmp09pu0imo/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp09pu0imo/test.sqlite
+Building SQLite database: /tmp/tmp0qrbljfz/test.sqlite
+Source directory: /tmp/tmp0qrbljfz/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp0qrbljfz/test.sqlite
+Building SQLite database: /tmp/tmpsh5lome0/test.sqlite
+Source directory: /tmp/tmpsh5lome0/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpsh5lome0/test.sqlite

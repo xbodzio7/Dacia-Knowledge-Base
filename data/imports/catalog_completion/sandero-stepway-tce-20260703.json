@@ -25,7 +25,7 @@
     "technical_values": 318,
     "equipment_availability": 1016,
     "cargo_contexts": 30,
-    "source_configuration_relationships": 14,
+    "source_configuration_relationships": 21,
     "reporting_scopes": 1
   },
   "expected_repository_totals": {
