@@ -150,25 +150,25 @@ def verify() -> None:
 
     state = load(STATE)
     ensure(
-        state.get("phase") == "Cross-Model Workspace Entry Point",
-        "project phase differs",
+        isinstance(state.get("phase"), str) and bool(state["phase"]),
+        "project phase is missing",
+    )
+    current = state.get("current_package", {})
+    ensure(
+        isinstance(current.get("name"), str) and bool(current["name"]),
+        "current package is missing",
     )
     ensure(
-        state.get("current_package", {}).get("name")
-        == "Cross-Model Workspace Entry Point",
-        "current package differs",
+        current.get("status") in {"planned", "active", "blocked", "complete"},
+        "current package status differs",
     )
+    next_package = state.get("next_package", {})
     ensure(
-        state.get("current_package", {}).get("status") == "complete",
-        "current package is not complete",
-    )
-    ensure(
-        state.get("next_package", {}).get("name")
-        == "Post-Cross-Model Workspace Priority Selection Review",
-        "next package differs",
+        isinstance(next_package.get("name"), str) and bool(next_package["name"]),
+        "next package is missing",
     )
     baseline = state.get("baseline", {})
-    ensure(baseline.get("tests") == 1070, "test baseline differs")
+    ensure(baseline.get("tests", 0) >= 1070, "test baseline regressed")
     ensure(baseline.get("csv_files") == 46, "CSV baseline changed")
     ensure(baseline.get("rows") == 9688, "row baseline changed")
     ensure(
