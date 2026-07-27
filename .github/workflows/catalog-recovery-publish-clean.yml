@@ -94,13 +94,12 @@ jobs:
           tools/review_pdf_candidate_extraction_automation_20260727.py
           tools/review_post_brochure_priority_selection_20260726.py
           tools/review_post_cross_model_priority_selection_20260726.py
+          tools/review_post_cross_model_workspace_priority_selection_20260727.py
           tools/verify_brochure_chassis_measurement_context_model_20260726.py
           EOF
           sed -i 's/^          //' /tmp/catalog-paths.txt
           tar -cf /tmp/catalog-package.tar -T /tmp/catalog-paths.txt
-          cp diagnostics/catalog-recovery/historical-live-state-baselines.patch.gz.b64 /tmp/
-          cp diagnostics/catalog-recovery/current-project-state-contract.patch /tmp/
-          cp diagnostics/catalog-recovery/final-review-pdf.patch /tmp/
+          cp diagnostics/catalog-recovery/recovery-final-text.patch.gz.b64 /tmp/
       - name: Apply package to current main
         shell: bash
         run: |
@@ -108,10 +107,11 @@ jobs:
           git fetch origin main
           git checkout -B agent/sandero-stepway-catalog-completion origin/main
           tar -xf /tmp/catalog-package.tar
-          base64 -d /tmp/historical-live-state-baselines.patch.gz.b64 | gzip -d > /tmp/historical.patch
-          git apply /tmp/historical.patch
-          git apply /tmp/current-project-state-contract.patch
-          git apply /tmp/final-review-pdf.patch
+          echo '1971313072f13de2d717a6155795bd1609006608c2fc66f881054c053774ac15  /tmp/recovery-final-text.patch.gz.b64' | sha256sum -c -
+          base64 -d /tmp/recovery-final-text.patch.gz.b64 | gzip -d > /tmp/recovery-final-text.patch
+          echo 'c937024c628c754f7af23132669f273267daaf8f82a85583ad8523670c5c2b04  /tmp/recovery-final-text.patch' | sha256sum -c -
+          git apply --check /tmp/recovery-final-text.patch
+          git apply /tmp/recovery-final-text.patch
           python - <<'PY'
           import json
           from pathlib import Path
@@ -150,7 +150,6 @@ jobs:
           python -m compileall -q tools scripts tests
           python tools/import_sandero_stepway_catalog_completion.py --verify
           python tools/cache_model_media.py --verify --offline
-          python tools/dkb.py normalize
           python tools/dkb.py validate
           python tools/dkb.py project-state --check
           python - <<'PY'
@@ -168,7 +167,7 @@ jobs:
               else:
                   command = [sys.executable, '-m', 'unittest', '-q', f'tests.{stem}']
               print('RUN', path.name, flush=True)
-              subprocess.run(command, cwd=root, check=True)
+              subprocess.run(command, cwd=root, check=True, timeout=240)
               count += 1
           print(f'validated_test_modules={count}')
           PY
@@ -197,17 +196,16 @@ jobs:
           assert not re.search(r'<img[^>]+src=["\']https?://', html, re.I)
           print('catalogue_contract=PASS')
           PY
-          git status --short
+          test -z "$(git status --short | grep -E '^.. (diagnostics/catalog-recovery|\.github/workflows/catalog-recovery)' || true)"
       - name: Commit and publish clean branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          test -z "$(git status --short | grep -E '^.. (diagnostics/catalog-recovery|\.github/workflows/catalog-recovery)' || true)"
           git add -A
           git commit -m 'data(catalog): complete Sandero and Stepway TCe range'
-          git push --force-with-lease origin HEAD:refs/heads/agent/sandero-stepway-catalog-completion
+          git push --force origin HEAD:refs/heads/agent/sandero-stepway-catalog-completion
           git diff --name-status origin/main...HEAD > /tmp/catalog-validation/changed-files.txt
           git log -1 --format='%H' > /tmp/catalog-validation/head-sha.txt
       - uses: actions/upload-artifact@v4
