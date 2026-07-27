@@ -1,0 +1,93 @@
+name: Catalog Recovery Test Failure Inventory
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-test-failure-inventory.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse failures and locate stale constants
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          import re
+          from pathlib import Path
+
+          root = Path('.')
+          log_path = root / 'diagnostics/catalog-recovery/full-quality/quality.log'
+          text = log_path.read_text(encoding='utf-8', errors='replace')
+          pattern = re.compile(
+              r'^={70}\n(?P<kind>FAIL|ERROR): (?P<name>.+?)\n-{70}\n(?P<body>.*?)(?=^={70}\n|^-{70}\nRan )',
+              re.MULTILINE | re.DOTALL,
+          )
+          failures = []
+          files = set()
+          for match in pattern.finditer(text):
+              body = match.group('body').strip()
+              paths = re.findall(r'File "([^"]+)"', body)
+              relative = []
+              for raw in paths:
+                  marker = '/Dacia-Knowledge-Base/'
+                  if marker in raw:
+                      rel = raw.split(marker, 1)[1]
+                      relative.append(rel)
+                      files.add(rel)
+              failures.append({
+                  'kind': match.group('kind'),
+                  'name': match.group('name'),
+                  'files': relative,
+                  'body': body,
+              })
+
+          constants = {}
+          needles = [
+              '72', '19', '88', '382', '1118', '287', '45',
+              'expected nine Sandero configurations',
+              'active configuration count differs',
+              'current configuration count differs',
+              'sandero_iii_essential',
+          ]
+          for path in sorted(root.rglob('*')):
+              if not path.is_file() or path.suffix.lower() not in {'.py', '.json', '.spec', '.md'}:
+                  continue
+              if '.git' in path.parts or 'diagnostics' in path.parts:
+                  continue
+              try:
+                  lines = path.read_text(encoding='utf-8').splitlines()
+              except (OSError, UnicodeDecodeError):
+                  continue
+              hits = []
+              for number, line in enumerate(lines, 1):
+                  if any(needle in line for needle in needles):
+                      hits.append({'line': number, 'text': line})
+              if hits:
+                  constants[path.as_posix()] = hits
+
+          output = root / 'diagnostics/catalog-recovery/test-failure-inventory.json'
+          output.write_text(json.dumps({
+              'failure_count': len(failures),
+              'failure_files': sorted(files),
+              'failures': failures,
+              'constant_hits': constants,
+          }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/test-failure-inventory.json
+          git commit -m "chore(data): inventory stale catalogue test contracts"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
