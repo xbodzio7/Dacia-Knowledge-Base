@@ -1,0 +1,43 @@
+name: Catalog Recovery Test Failure Inventory V2
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-catalog-recovery
+    paths:
+      - .github/workflows/catalog-recovery-test-failure-inventory-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse current failures
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          root = Path('.')
+          text = (root / 'diagnostics/catalog-recovery/unit-v1.log').read_text(encoding='utf-8', errors='replace')
+          pattern = re.compile(r'^={70}\n(?P<kind>FAIL|ERROR): (?P<name>.+?)\n-{70}\n(?P<body>.*?)(?=^={70}\n|^-{70}\nRan )', re.MULTILINE | re.DOTALL)
+          failures = []
+          for match in pattern.finditer(text):
+              body = match.group('body').strip()
+              locations = []
+              for raw, line in re.findall(r'File "([^"]+)", line (\d+)', body):
+                  marker = '/Dacia-Knowledge-Base/'
+                  locations.append({'path': raw.split(marker, 1)[-1] if marker in raw else raw, 'line': int(line)})
+              failures.append({'kind': match.group('kind'), 'name': match.group('name'), 'locations': locations, 'body': body})
+          (root / 'diagnostics/catalog-recovery/test-failure-inventory-v2.json').write_text(json.dumps({'count': len(failures), 'failures': failures}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/catalog-recovery/test-failure-inventory-v2.json
+          git commit -m "chore(data): inventory remaining catalogue contracts"
+          git push origin HEAD:agent/sandero-stepway-catalog-recovery
