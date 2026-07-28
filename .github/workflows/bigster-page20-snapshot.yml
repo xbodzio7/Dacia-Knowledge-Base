@@ -1,0 +1,30 @@
+name: Bigster Page 20 Package Snapshot
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    if: github.head_ref == 'agent/bigster-technical-page20-ambiguity-review-20260728'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Build exact repository snapshot
+        run: |
+          zip -qr /tmp/repository-snapshot.zip . -x '.git/*'
+          printf '%s\n' '${{ github.event.pull_request.head.sha }}' > /tmp/repository-snapshot-head-sha.txt
+      - name: Upload repository snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: bigster-page20-repository-snapshot
+          path: |
+            /tmp/repository-snapshot.zip
+            /tmp/repository-snapshot-head-sha.txt
+          retention-days: 1
