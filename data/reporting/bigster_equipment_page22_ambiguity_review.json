@@ -1,0 +1,1395 @@
+{
+  "version": 1,
+  "kind": "bigster_equipment_page22_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_009",
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 22,
+    "review_basis": "authored visual review of the archived page-22 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 7,
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "model_code": "bigster",
+    "domain": "equipment_matrix",
+    "page": 22,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 7,
+    "decision_counts": {
+      "covered": 3,
+      "partially_covered": 4
+    },
+    "selected_evidence_signature_count": 18,
+    "selected_evidence_record_count": 126,
+    "rejected_attached_signature_count": 0,
+    "rejected_attached_record_count": 0,
+    "candidates_with_selected_evidence": 7,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "f8361f7eaf42bbf01040e78423f7190b9de86d9aff2ae02d12bae1666a3330ba",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 22,
+      "line_end": 22,
+      "exact_text": "Klimatyzacja manualna                                               •            -             -             -",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete manual-air-conditioning row",
+      "source_availability": {
+        "essential": "standard",
+        "expression": "not_available",
+        "journey": "not_available",
+        "extreme": "not_available"
+      },
+      "rationale": "This complete row preserves manual air conditioning as standard in Essential and unavailable in Expression, Journey and Extreme.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "manual_air_conditioning",
+            "availability_status": "not_available"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "manual_air_conditioning",
+            "availability_status": "standard"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_manual_air_conditioning_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "1aad4a730531585a37da9d3c73eb9115f9cca5a2eddd495d54e7a01e83f679a8",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 24,
+      "line_end": 24,
+      "exact_text": "Klimatyzacja automatyczna dwustrefowa",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "first line of the dual-zone automatic-climate row with rear vents",
+      "source_availability": {
+        "essential": "all three facts not_available",
+        "expression": "all three facts standard",
+        "journey": "all three facts standard",
+        "extreme": "all three facts standard"
+      },
+      "rationale": "This is the first line of one three-line visual row: automatic climate control, dual-zone operation and rear vents are unavailable in Essential and standard in the other trims. The three attributes remain distinct.",
+      "selected_evidence_signature_count": 6,
+      "selected_evidence_record_count": 42,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "automatic_climate_control",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "automatic_climate_control",
+            "availability_status": "standard"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_automatic_climate_control_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_automatic_climate_control_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "dual_zone_climate_control",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "dual_zone_climate_control",
+            "availability_status": "standard"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_dual_zone_climate_control_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "rear_air_vents",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "rear_air_vents",
+            "availability_status": "standard"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_rear_air_vents_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_rear_air_vents_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "01f11f75e7390b17ccd40b4d46b23c55cb30ebfb71fdb6f292c07ae977b2f528",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 29,
+      "line_end": 29,
+      "exact_text": "Lusterka składane elektrycznie                                      -            •             •             •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete electrically folding mirrors row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "standard",
+        "journey": "standard",
+        "extreme": "standard"
+      },
+      "rationale": "This complete row preserves electrically folding mirrors as unavailable in Essential and standard in all higher trims.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "side_mirrors_folding",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "side_mirrors_folding",
+            "availability_status": "standard"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_side_mirrors_folding_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "ad2df36a0dce4c4d725438894b52fd307695f3bd0cab142a509be8aa67859473",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 40,
+      "line_end": 40,
+      "exact_text": "Konsola centralna z podłokietnikiem",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "first line of the centre-console-with-armrest-and-storage row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "standard",
+        "journey": "not_available",
+        "extreme": "not_available"
+      },
+      "rationale": "This is the first line of the Expression centre-console row. Essential has a low console, while Journey and Extreme use the separate high-console row; the variants are not merged.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "front_centre_armrest",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "front_centre_armrest",
+            "availability_status": "standard"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_front_centre_armrest_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_front_centre_armrest_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "4119069370e836ed8bf21cc28b8e9c5a9d889d4abbbfe789c1c9c229fb1d2d34",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 48,
+      "line_end": 48,
+      "exact_text": "Ładowarka indukcyjna                                                -            -             •             •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete wireless-charging row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "journey": "standard",
+        "extreme": "standard"
+      },
+      "rationale": "This complete row preserves wireless charging as unavailable in Essential and Expression and standard in Journey and Extreme.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "wireless_charging",
+            "availability_status": "not_available"
+          },
+          "record_count": 6,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "wireless_charging",
+            "availability_status": "standard"
+          },
+          "record_count": 8,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_wireless_charging_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_wireless_charging_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "e114af3d6918ae90c0ad19482028be640e718e50f989a1c282e0473f16759684",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 97,
+      "line_end": 97,
+      "exact_text": "kierownica podgrzewana",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "final line of the Winter package row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "optional_package",
+        "journey": "optional_package",
+        "extreme": "optional_package"
+      },
+      "rationale": "This fragment closes the Winter package row. The heated steering wheel is unavailable in Essential and optional or package-bound in the other trims; it is not promoted to standard.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "heated_steering_wheel",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "heated_steering_wheel",
+            "availability_status": "optional"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_heated_steering_wheel_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "be9a3c17edaa4a791a8cbec07a987499acd8691f37c0712c06f5434d9f519437",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 22,
+      "line_start": 100,
+      "line_end": 100,
+      "exact_text": "podgrzewana przednia szyba",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "final line of the Winter Plus package row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "optional_package",
+        "journey": "optional_package",
+        "extreme": "optional_package"
+      },
+      "rationale": "This fragment closes the Winter Plus package row. The heated windscreen is unavailable in Essential and optional or package-bound in the other trims; it is not promoted to standard.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "heated_windscreen",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "heated_windscreen",
+            "availability_status": "optional"
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_heated_windscreen_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_heated_windscreen_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "multi_line_rows_are_reviewed_as_visual_units": true,
+    "automatic_climate_dual_zone_and_rear_vents_remain_distinct": true,
+    "centre_console_variants_remain_distinct": true,
+    "winter_package_components_remain_optional_or_unavailable": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 20 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 5 ambiguous equipment candidates from Jogger brochure page 20 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Mini Equipment Page 22 Ambiguity Review",
+  "phase": "Bigster Equipment Page 22 Ambiguity Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1342,
+    "tests": 1367,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Mini Equipment Page 22 Ambiguity Review",
+    "name": "Bigster Equipment Page 22 Ambiguity Review",
     "status": "complete",
-    "goal": "Review all 11 ambiguous equipment candidates from Duster mini-brochure page 22 while preserving multi-line safety rows, trim columns and standard, optional and unavailable states as non-substitutable."
+    "goal": "Review all 7 ambiguous equipment candidates from Bigster brochure page 22 while preserving climate, console and Winter-package row boundaries and trim states as non-substitutable."
   },
   "next_package": {
-    "name": "Bigster Equipment Page 22 Ambiguity Review",
+    "name": "Jogger Equipment Page 20 Ambiguity Review",
     "status": "planned",
-    "goal": "Review the 7 ambiguous equipment candidates from Bigster brochure page 22 against their 18 preserved evidence signatures without creating master-data rows or approved import specifications."
+    "goal": "Review the 5 ambiguous equipment candidates from Jogger brochure page 20 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

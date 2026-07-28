@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of 7 ambiguous Bigster brochure page-22 equipment candidates: 3 covered and 4 partially covered decisions, all 18 attached signatures and 126 exact records, preserving climate, console and Winter-package row boundaries without master-data or approved import changes.
 * Added an authored review of 11 ambiguous Duster mini-brochure page-22 equipment candidates: 3 covered and 8 partially covered decisions, 23 selected signatures and 524 exact records, preserving multi-line safety rows, trim columns and optional parking markers without master-data or approved import changes.
 * Added an authored review of 26 ambiguous Duster mini-brochure page-23 equipment candidates: 6 covered and 20 partially covered decisions, 43 selected signatures and 518 exact records, preserving trim columns, multi-line rows and standard/optional/unavailable symbols without master-data or approved import changes.
 * Added an authored review of the single ambiguous Duster mini-brochure page-21 steering row: one valid steering-type signature with three Hybrid 155 records, explicit rejection of six adjacent-row signatures, and no master-data or approved import-spec changes.
@@ -290,7 +291,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1342 tests.
+* The automated test suite now contains 1367 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
