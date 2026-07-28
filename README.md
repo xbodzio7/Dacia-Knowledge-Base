@@ -285,6 +285,7 @@ Dostępne komendy:
 | `duster-mini-equipment-page23-ambiguity-review` | Autorski przegląd 26 niejednoznacznych kandydatów wyposażenia Dustera ze strony 23 |
 | `duster-mini-equipment-page22-ambiguity-review` | Autorski przegląd 11 niejednoznacznych kandydatów wyposażenia Dustera ze strony 22 |
 | `bigster-equipment-page22-ambiguity-review` | Autorski przegląd 7 niejednoznacznych kandydatów wyposażenia Bigstera ze strony 22 |
+| `jogger-equipment-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych kandydatów wyposażenia Joggera ze strony 20 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -655,6 +656,17 @@ python tools/dkb.py bigster-equipment-page22-ambiguity-review --verify
 ```
 
 Trzy pełne wiersze są pokryte, a cztery fragmenty wielowierszowych opisów pozostają częściowo pokryte. Zachowano wszystkie 18 sygnatur i 126 rekordów. Klimatyzacja automatyczna, dwustrefowość i nawiewy z tyłu pozostają odrębnymi faktami jednego wiersza; warianty konsoli centralnej nie są łączone; kierownica i szyba z pakietów zimowych pozostają opcjonalne albo niedostępne, a nie standardowe. `data/master` i `data/imports` nie są zmieniane.
+
+### Autorski przegląd wyposażenia Jogger — strona 20
+
+Komenda `jogger-equipment-page20-ambiguity-review` rozstrzyga 5 kandydatów z `residual_gap_010` na podstawie wizualnego układu macierzy oraz dokładnie przypiętych dowodów:
+
+```bash
+python tools/dkb.py jogger-equipment-page20-ambiguity-review
+python tools/dkb.py jogger-equipment-page20-ambiguity-review --verify
+```
+
+Trzy fragmenty wielowierszowych opisów są częściowo pokryte. Końcowa klauzula o dezaktywacji poduszki pasażera pozostaje kontekstem bez importu, ponieważ przypięte sygnatury opisują wyłącznie obecność poduszek. Pełny wiersz kamery cofania pozostaje odroczonym konfliktem: broszura z 17.12.2025 oznacza Journey jako niedostępne, a cennik z 01.04.2026 zawiera Journey jako standard. Zachowano 8 sygnatur i 154 rekordy bez automatycznego rozstrzygnięcia konfliktu. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1161,7 +1173,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1367 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1392 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
