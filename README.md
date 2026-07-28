@@ -284,6 +284,7 @@ Dostępne komendy:
 | `duster-mini-technical-page21-ambiguity-review` | Autorski przegląd niejednoznacznego wiersza układu kierowniczego Dustera ze strony 21 |
 | `duster-mini-equipment-page23-ambiguity-review` | Autorski przegląd 26 niejednoznacznych kandydatów wyposażenia Dustera ze strony 23 |
 | `duster-mini-equipment-page22-ambiguity-review` | Autorski przegląd 11 niejednoznacznych kandydatów wyposażenia Dustera ze strony 22 |
+| `bigster-equipment-page22-ambiguity-review` | Autorski przegląd 7 niejednoznacznych kandydatów wyposażenia Bigstera ze strony 22 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -643,6 +644,17 @@ python tools/dkb.py duster-mini-equipment-page22-ambiguity-review --verify
 ```
 
 Trzy pełne wiersze są pokryte, a osiem fragmentów wielowierszowych pozostaje częściowo pokrytych. Wybrano 23 sygnatury i 524 rekordy. Automatyczne światła nie dziedziczą dowodów czujnika deszczu, tylny czujnik parkowania nie dziedziczy dowodu przedniego, a opcjonalne czujniki przednie i boczne nie są przepisywane jako standard. Wiersze ESC/HSA oraz pasów z napinaczami i bez regulacji wysokości zachowują odrębne atrybuty we wspólnych granicach wizualnych. `data/master` i `data/imports` nie są zmieniane.
+
+### Autorski przegląd wyposażenia Bigster — strona 22
+
+Komenda `bigster-equipment-page22-ambiguity-review` rozstrzyga 7 kandydatów z `residual_gap_009` na podstawie wizualnego układu macierzy oraz dokładnie przypiętych dowodów:
+
+```bash
+python tools/dkb.py bigster-equipment-page22-ambiguity-review
+python tools/dkb.py bigster-equipment-page22-ambiguity-review --verify
+```
+
+Trzy pełne wiersze są pokryte, a cztery fragmenty wielowierszowych opisów pozostają częściowo pokryte. Zachowano wszystkie 18 sygnatur i 126 rekordów. Klimatyzacja automatyczna, dwustrefowość i nawiewy z tyłu pozostają odrębnymi faktami jednego wiersza; warianty konsoli centralnej nie są łączone; kierownica i szyba z pakietów zimowych pozostają opcjonalne albo niedostępne, a nie standardowe. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1149,7 +1161,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1342 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1367 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

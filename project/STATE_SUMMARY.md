@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Equipment Page 22 Ambiguity Review**
+**Bigster Equipment Page 22 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1342
+- Tests: 1367
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Equipment Page 22 Ambiguity Review** — `complete`
+**Bigster Equipment Page 22 Ambiguity Review** — `complete`
 
-Review all 11 ambiguous equipment candidates from Duster mini-brochure page 22 while preserving multi-line safety rows, trim columns and standard, optional and unavailable states as non-substitutable.
+Review all 7 ambiguous equipment candidates from Bigster brochure page 22 while preserving climate, console and Winter-package row boundaries and trim states as non-substitutable.
 
 ## Next package
 
-**Bigster Equipment Page 22 Ambiguity Review** — `planned`
+**Jogger Equipment Page 20 Ambiguity Review** — `planned`
 
-Review the 7 ambiguous equipment candidates from Bigster brochure page 22 against their 18 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 5 ambiguous equipment candidates from Jogger brochure page 20 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
