@@ -44,7 +44,7 @@ jobs:
 
       - name: Materialize package sources
         run: |
-          cat .github/materializer/pdf-candidate-coverage-reconciliation/payload-*.txt > "${RUNNER_TEMP}/payload.b64"
+          cat .github/materializer/pdf-candidate-coverage-reconciliation/part-* > "${RUNNER_TEMP}/payload.b64"
           base64 --decode "${RUNNER_TEMP}/payload.b64" > "${RUNNER_TEMP}/payload.tar.gz"
           tar -xzf "${RUNNER_TEMP}/payload.tar.gz" -C .
           python .github/materializer/apply_patch.py
