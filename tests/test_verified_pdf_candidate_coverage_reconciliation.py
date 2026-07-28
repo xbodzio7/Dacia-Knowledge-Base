@@ -1,0 +1,346 @@
+from __future__ import annotations
+
+import copy
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+TOOLS = ROOT / "tools"
+sys.path.insert(0, str(TOOLS))
+
+import verified_pdf_candidate_coverage_reconciliation as reconciliation  # noqa: E402
+
+LEDGER = ROOT / reconciliation.DEFAULT_LEDGER
+REVIEW = ROOT / reconciliation.DEFAULT_REVIEW
+ARTIFACT_JSON = ROOT / reconciliation.DEFAULT_JSON
+ARTIFACT_MARKDOWN = ROOT / reconciliation.DEFAULT_MARKDOWN
+
+
+class CoverageReconciliationUnitTests(unittest.TestCase):
+    def candidate(self, **overrides: object) -> dict[str, object]:
+        payload: dict[str, object] = {
+            "candidate_id": "a" * 64,
+            "source_code": "source_a",
+            "model_code": "model_a",
+            "page": 7,
+            "line_start": 3,
+            "line_end": 3,
+            "candidate_kind": "table_row",
+            "rule_code": "table_row_surface",
+            "exact_text": "Światła do jazdy dziennej LED      •     •",
+            "normalized_text": "Światła do jazdy dziennej LED • •",
+        }
+        payload.update(overrides)
+        return payload
+
+    def group(self, **overrides: object) -> dict[str, object]:
+        payload: dict[str, object] = {
+            "group_id": "group_a",
+            "source_code": "source_a",
+            "model_code": "model_a",
+            "domain": "technical_tables",
+            "page_start": 7,
+            "page_end": 7,
+            "candidate_ids": ["a" * 64],
+            "decision_code": reconciliation.TARGET_DECISION,
+        }
+        payload.update(overrides)
+        return payload
+
+    def evidence(self, **overrides: object) -> dict[str, object]:
+        signature = {"attribute_code": "daytime_lights", "value": "LED"}
+        payload: dict[str, object] = {
+            "table": "configuration_attribute_values",
+            "record_code": "record_a",
+            "configuration_code": "configuration_a",
+            "model_code": "model_a",
+            "source_code": "source_a",
+            "source_page": 7,
+            "notes": "Official brochure page 7: Światła do jazdy dziennej LED",
+            "note_tokens": reconciliation.meaningful_tokens(
+                "Official brochure page 7: Światła do jazdy dziennej LED"
+            ),
+            "signature": signature,
+            "signature_key": reconciliation.signature_key(signature),
+        }
+        payload.update(overrides)
+        return payload
+
+    def test_match_key_is_unicode_and_punctuation_stable(self) -> None:
+        self.assertEqual(
+            reconciliation.match_key("Światła — ŁÓDŹ, 205/60 R16"),
+            "swiatla lodz 205 60 r16",
+        )
+
+    def test_candidate_tokens_prefer_left_table_label(self) -> None:
+        self.assertEqual(
+            reconciliation.candidate_match_tokens(self.candidate()),
+            ["swiatla", "jazdy", "dziennej", "led"],
+        )
+
+    def test_ordered_match_requires_two_tokens(self) -> None:
+        self.assertFalse(reconciliation.is_ordered_subsequence(["swiatla"], ["swiatla"]))
+        self.assertTrue(
+            reconciliation.is_ordered_subsequence(
+                ["swiatla", "dziennej", "led"],
+                ["swiatla", "do", "jazdy", "dziennej", "led"],
+            )
+        )
+
+    def test_heading_is_explicit_non_import(self) -> None:
+        candidate = self.candidate(candidate_kind="heading", exact_text="OSIĄGI")
+        result = reconciliation.reconcile_candidate(candidate, self.group(), [])
+        self.assertEqual(result["coverage_status"], "explicit_non_import")
+
+    def test_numbered_footnote_is_explicit_non_import(self) -> None:
+        candidate = self.candidate(exact_text="(1) Oficjalne wartości homologacyjne")
+        result = reconciliation.reconcile_candidate(candidate, self.group(), [])
+        self.assertEqual(result["coverage_status"], "explicit_non_import")
+
+    def test_technical_match_requires_same_source_and_page(self) -> None:
+        candidate = self.candidate()
+        group = self.group()
+        good = self.evidence()
+        wrong_source = self.evidence(record_code="wrong_source", source_code="source_b")
+        wrong_page = self.evidence(record_code="wrong_page", source_page=8)
+        matches = reconciliation.evidence_matches(candidate, group, [good, wrong_source, wrong_page])
+        self.assertEqual([match["record_code"] for match in matches], ["record_a"])
+
+    def test_equipment_match_requires_same_model_and_availability_table(self) -> None:
+        candidate = self.candidate()
+        group = self.group(domain="equipment_matrix")
+        availability_signature = {
+            "attribute_code": "led_daytime_running_lights",
+            "availability_status": "standard",
+        }
+        good = self.evidence(
+            table="configuration_attribute_availability",
+            source_code="catalogue_source",
+            signature=availability_signature,
+            signature_key=reconciliation.signature_key(availability_signature),
+        )
+        wrong_model = dict(good, record_code="wrong_model", model_code="model_b")
+        wrong_table = self.evidence(record_code="wrong_table")
+        matches = reconciliation.evidence_matches(candidate, group, [good, wrong_model, wrong_table])
+        self.assertEqual([match["record_code"] for match in matches], ["record_a"])
+
+    def test_single_signature_is_already_covered(self) -> None:
+        duplicate = dict(self.evidence(), record_code="record_b", configuration_code="configuration_b")
+        result = reconciliation.reconcile_candidate(
+            self.candidate(), self.group(), [self.evidence(), duplicate]
+        )
+        self.assertEqual(result["coverage_status"], "already_covered")
+        self.assertEqual(len(result["evidence_signatures"]), 1)
+        self.assertEqual(result["evidence_signatures"][0]["record_count"], 2)
+
+    def test_multiple_signatures_are_ambiguous(self) -> None:
+        second_signature = {"attribute_code": "daytime_lights", "value": "halogen"}
+        second = self.evidence(
+            record_code="record_b",
+            signature=second_signature,
+            signature_key=reconciliation.signature_key(second_signature),
+        )
+        result = reconciliation.reconcile_candidate(
+            self.candidate(), self.group(), [self.evidence(), second]
+        )
+        self.assertEqual(result["coverage_status"], "ambiguous")
+        self.assertEqual(len(result["evidence_signatures"]), 2)
+
+    def test_no_match_is_unresolved_not_negative_evidence(self) -> None:
+        result = reconciliation.reconcile_candidate(self.candidate(), self.group(), [])
+        self.assertEqual(result["coverage_status"], "unresolved")
+        self.assertNotIn("not_stated", json.dumps(result))
+
+    def test_target_groups_require_exact_review_boundary(self) -> None:
+        groups = []
+        for index in range(10):
+            groups.append(
+                self.group(
+                    group_id=f"group_{index}",
+                    domain="technical_tables" if index < 5 else "equipment_matrix",
+                )
+            )
+        selected = reconciliation.target_groups({"groups": groups})
+        self.assertEqual(len(selected), 10)
+        with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "exactly 10"):
+            reconciliation.target_groups({"groups": groups[:-1]})
+
+    def test_build_assigns_every_selected_candidate_once(self) -> None:
+        candidates = []
+        groups = []
+        for index in range(10):
+            candidate_id = f"{index:064x}"
+            candidate = self.candidate(
+                candidate_id=candidate_id,
+                source_code=f"source_{index}",
+                model_code=f"model_{index}",
+                page=index + 1,
+                exact_text="OSIĄGI",
+                normalized_text="OSIĄGI",
+                candidate_kind="heading",
+            )
+            candidates.append(candidate)
+            groups.append(
+                self.group(
+                    group_id=f"group_{index}",
+                    source_code=f"source_{index}",
+                    model_code=f"model_{index}",
+                    domain="technical_tables" if index < 5 else "equipment_matrix",
+                    page_start=index + 1,
+                    page_end=index + 1,
+                    candidate_ids=[candidate_id],
+                )
+            )
+        ledger = {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates}
+        review = {
+            "version": 1,
+            "kind": "verified_pdf_candidate_ledger_review",
+            "status": "complete",
+            "policy": {
+                "every_candidate_assigned_exactly_once": True,
+                "master_data_changes": False,
+                "approved_import_spec_generation": False,
+            },
+            "groups": groups,
+        }
+        payload = reconciliation.build_reconciliation(ledger, review, [])
+        self.assertEqual(payload["summary"]["candidate_count"], 10)
+        self.assertEqual(
+            payload["summary"]["coverage_status_counts"]["explicit_non_import"], 10
+        )
+
+    def test_duplicate_selected_candidate_is_rejected(self) -> None:
+        candidates = []
+        groups = []
+        shared_id = "b" * 64
+        for index in range(10):
+            candidate_id = shared_id if index < 2 else f"{index:064x}"
+            if candidate_id not in {candidate["candidate_id"] for candidate in candidates}:
+                candidates.append(
+                    self.candidate(
+                        candidate_id=candidate_id,
+                        source_code=f"source_{index}",
+                        model_code=f"model_{index}",
+                        page=index + 1,
+                        exact_text="OSIĄGI",
+                        normalized_text="OSIĄGI",
+                        candidate_kind="heading",
+                    )
+                )
+            groups.append(
+                self.group(
+                    group_id=f"group_{index}",
+                    source_code=f"source_{index if index != 1 else 0}",
+                    model_code=f"model_{index if index != 1 else 0}",
+                    domain="technical_tables" if index < 5 else "equipment_matrix",
+                    page_start=index + 1,
+                    page_end=index + 1,
+                    candidate_ids=[candidate_id],
+                )
+            )
+        ledger = {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates}
+        review = {
+            "version": 1,
+            "kind": "verified_pdf_candidate_ledger_review",
+            "status": "complete",
+            "policy": {
+                "every_candidate_assigned_exactly_once": True,
+                "master_data_changes": False,
+                "approved_import_spec_generation": False,
+            },
+            "groups": groups,
+        }
+        with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "assigned twice"):
+            reconciliation.build_reconciliation(ledger, review, [])
+
+    def test_render_and_json_are_deterministic(self) -> None:
+        payload = {
+            "summary": {
+                "target_groups": 1,
+                "candidate_count": 1,
+                "coverage_status_counts": {
+                    "already_covered": 0,
+                    "ambiguous": 0,
+                    "explicit_non_import": 1,
+                    "unresolved": 0,
+                },
+            },
+            "domain_status_counts": {
+                "technical_tables": {
+                    "already_covered": 0,
+                    "ambiguous": 0,
+                    "explicit_non_import": 1,
+                    "unresolved": 0,
+                }
+            },
+            "groups": [
+                {
+                    "group_id": "group_a",
+                    "source_code": "source_a",
+                    "domain": "technical_tables",
+                    "page_start": 7,
+                    "page_end": 7,
+                    "candidate_count": 1,
+                    "coverage_status_counts": {
+                        "already_covered": 0,
+                        "ambiguous": 0,
+                        "explicit_non_import": 1,
+                        "unresolved": 0,
+                    },
+                }
+            ],
+            "next_package": {"name": reconciliation.NEXT_PACKAGE},
+        }
+        self.assertEqual(reconciliation.canonical_json(payload), reconciliation.canonical_json(copy.deepcopy(payload)))
+        self.assertEqual(reconciliation.render_markdown(payload), reconciliation.render_markdown(copy.deepcopy(payload)))
+
+    def test_restricted_output_paths_are_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data/master").mkdir(parents=True)
+            with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "restricted"):
+                reconciliation.ensure_safe_output(root, Path("data/master/output.json"))
+            with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "restricted"):
+                reconciliation.ensure_safe_output(root, Path("data/imports/output.json"))
+
+
+class CoverageReconciliationRepositoryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.payload, cls.markdown = reconciliation.build_from_paths(
+            ROOT, reconciliation.DEFAULT_LEDGER, reconciliation.DEFAULT_REVIEW
+        )
+
+    def test_real_reconciliation_has_expected_candidate_partition(self) -> None:
+        self.assertEqual(self.payload["summary"]["target_groups"], 10)
+        self.assertEqual(self.payload["summary"]["candidate_count"], 1583)
+        self.assertEqual(
+            self.payload["summary"]["coverage_status_counts"],
+            {
+                "already_covered": 122,
+                "ambiguous": 108,
+                "explicit_non_import": 195,
+                "unresolved": 1158,
+            },
+        )
+        candidate_ids = [item["candidate_id"] for item in self.payload["candidates"]]
+        self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
+
+    def test_committed_artifacts_are_byte_identical_and_review_only(self) -> None:
+        self.assertEqual(ARTIFACT_JSON.read_text(encoding="utf-8"), reconciliation.canonical_json(self.payload))
+        self.assertEqual(ARTIFACT_MARKDOWN.read_text(encoding="utf-8"), self.markdown)
+        encoded = reconciliation.canonical_json(self.payload)
+        self.assertNotIn('"approved_import_spec"', encoded)
+        self.assertTrue(self.payload["policy"]["master_data_changes"] is False)
+        self.assertTrue(self.payload["policy"]["automatic_promotion"] is False)
+        self.assertEqual(
+            self.payload["next_package"]["name"],
+            "Verified PDF Candidate Residual Gap Prioritization",
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

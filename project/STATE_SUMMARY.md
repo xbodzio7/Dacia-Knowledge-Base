@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Verified PDF Candidate Ledger Review**
+**Verified PDF Candidate Coverage Reconciliation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1100
+- Tests: 1117
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified PDF Candidate Ledger Review** — `complete`
+**Verified PDF Candidate Coverage Reconciliation** — `complete`
 
-Review the source-bounded ledger and group every candidate span into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports.
+Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports.
 
 ## Next package
 
-**Verified PDF Candidate Coverage Reconciliation** — `planned`
+**Verified PDF Candidate Residual Gap Prioritization** — `planned`
 
-Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports.
+Prioritize unresolved and ambiguous candidate IDs into small source- and page-bounded residual review packages, without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
