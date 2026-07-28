@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - agent/pdf-candidate-coverage-reconciliation-20260728
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
