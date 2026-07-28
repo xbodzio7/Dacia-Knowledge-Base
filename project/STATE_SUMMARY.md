@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Equipment Page 23 Ambiguity Review**
+**Duster Mini Equipment Page 22 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1317
+- Tests: 1342
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Equipment Page 23 Ambiguity Review** — `complete`
+**Duster Mini Equipment Page 22 Ambiguity Review** — `complete`
 
-Review all 26 ambiguous equipment candidates from Duster mini-brochure page 23 while preserving trim columns, multi-line rows and standard, optional and unavailable symbols as non-substitutable.
+Review all 11 ambiguous equipment candidates from Duster mini-brochure page 22 while preserving multi-line safety rows, trim columns and standard, optional and unavailable states as non-substitutable.
 
 ## Next package
 
-**Duster Mini Equipment Page 22 Ambiguity Review** — `planned`
+**Bigster Equipment Page 22 Ambiguity Review** — `planned`
 
-Review the 11 ambiguous equipment candidates from Duster mini-brochure page 22 against their 27 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 7 ambiguous equipment candidates from Bigster brochure page 22 against their 18 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
