@@ -38,6 +38,11 @@ SCRIPT_COMMANDS = {
         "Review the highest-priority Bigster page-20 ambiguity package against exact evidence.",
         "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "jogger-technical-page19-ambiguity-review": (
+        "jogger_technical_page19_ambiguity_review.py",
+        "Review the Jogger page-19 ambiguity package against exact evidence and source conflicts.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

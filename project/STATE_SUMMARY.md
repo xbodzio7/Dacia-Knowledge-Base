@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Technical Page 20 Ambiguity Review**
+**Jogger Technical Page 19 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1163
+- Tests: 1189
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Technical Page 20 Ambiguity Review** — `complete`
+**Jogger Technical Page 19 Ambiguity Review** — `complete`
 
-Review all 23 highest-priority ambiguous technical candidates from Bigster brochure page 20 against their preserved evidence signatures without creating master-data rows or approved import specifications.
+Review all 16 ambiguous technical candidates from Jogger brochure page 19 while preserving mislabeled mass rows and superseded Hybrid 155 values as non-importable.
 
 ## Next package
 
-**Jogger Technical Page 19 Ambiguity Review** — `planned`
+**Duster Mini Technical Page 20 Ambiguity Review** — `planned`
 
-Review the 16 ambiguous technical candidates from Jogger brochure page 19 against their 34 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 5 ambiguous technical candidates from the Duster mini-brochure page 20 against their 26 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 

@@ -279,6 +279,7 @@ Dostępne komendy:
 | `pdf-candidate-coverage-reconciliation` | Konserwatywne porównanie kandydatów technicznych i wyposażeniowych z istniejącymi dowodami |
 | `pdf-candidate-residual-gap-prioritization` | Priorytetyzacja niejednoznacznych i nierozstrzygniętych kandydatów w małe paczki przeglądu |
 | `bigster-technical-page20-ambiguity-review` | Autorski przegląd 23 niejednoznacznych fragmentów tabeli technicznej Bigstera |
+| `jogger-technical-page19-ambiguity-review` | Autorski przegląd 16 niejednoznacznych fragmentów tabeli technicznej Joggera |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -557,6 +558,17 @@ w sygnaturach heurystycznych. Wybrano 36 sygnatur i 143 dokładne rekordy.
 Przegląd nie zmienia `data/master`, nie tworzy ani nie modyfikuje importów i
 nie zastępuje masy pojazdu masą zestawu ani masy przyczepy z hamulcem masą
 przyczepy bez hamulca.
+
+### Autorski przegląd tabeli technicznej Joggera — strona 19
+
+Komenda `jogger-technical-page19-ambiguity-review` rozstrzyga 16 kandydatów z `residual_gap_002` i wybiera tylko dowody przypięte do dokładnego kandydata:
+
+```bash
+python tools/dkb.py jogger-technical-page19-ambiguity-review
+python tools/dkb.py jogger-technical-page19-ambiguity-review --verify
+```
+
+Wynik obejmuje 1 kandydat pokryty, 2 częściowo pokryte, 7 odroczonych konfliktów źródłowych i 6 niezgodności sygnatur. Wybrano 3 sygnatury i 28 rekordów. Sprzeczne etykiety mas, starsze 105 kW Hybrid 155 i dowody przyspieszenia przypięte do innych atrybutów pozostają nieimportowalne. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1063,7 +1075,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1163 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1189 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
