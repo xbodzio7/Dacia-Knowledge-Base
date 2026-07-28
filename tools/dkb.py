@@ -43,6 +43,11 @@ SCRIPT_COMMANDS = {
         "Review the Jogger page-19 ambiguity package against exact evidence and source conflicts.",
         "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "duster-mini-technical-page20-ambiguity-review": (
+        "duster_mini_technical_page20_ambiguity_review.py",
+        "Review the Duster mini-brochure page-20 ambiguity package against exact evidence.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

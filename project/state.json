@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Technical Page 19 Ambiguity Review",
+  "phase": "Duster Mini Technical Page 20 Ambiguity Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1189,
+    "tests": 1215,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Technical Page 19 Ambiguity Review",
+    "name": "Duster Mini Technical Page 20 Ambiguity Review",
     "status": "complete",
-    "goal": "Review all 16 ambiguous technical candidates from Jogger brochure page 19 while preserving mislabeled mass rows and superseded Hybrid 155 values as non-importable."
+    "goal": "Review all 5 ambiguous technical candidates from Duster mini-brochure page 20 while preserving page-21 Hybrid 155 values and adjacent-candidate evidence as non-substitutable."
   },
   "next_package": {
-    "name": "Duster Mini Technical Page 20 Ambiguity Review",
+    "name": "Sandero Technical Page 17 Ambiguity Review",
     "status": "planned",
-    "goal": "Review the 5 ambiguous technical candidates from the Duster mini-brochure page 20 against their 26 preserved evidence signatures without creating master-data rows or approved import specifications."
+    "goal": "Review the 5 ambiguous technical candidates from the Sandero brochure page 17 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

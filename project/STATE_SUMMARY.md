@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Technical Page 19 Ambiguity Review**
+**Duster Mini Technical Page 20 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1189
+- Tests: 1215
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Technical Page 19 Ambiguity Review** — `complete`
+**Duster Mini Technical Page 20 Ambiguity Review** — `complete`
 
-Review all 16 ambiguous technical candidates from Jogger brochure page 19 while preserving mislabeled mass rows and superseded Hybrid 155 values as non-importable.
+Review all 5 ambiguous technical candidates from Duster mini-brochure page 20 while preserving page-21 Hybrid 155 values and adjacent-candidate evidence as non-substitutable.
 
 ## Next package
 
-**Duster Mini Technical Page 20 Ambiguity Review** — `planned`
+**Sandero Technical Page 17 Ambiguity Review** — `planned`
 
-Review the 5 ambiguous technical candidates from the Duster mini-brochure page 20 against their 26 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 5 ambiguous technical candidates from the Sandero brochure page 17 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
