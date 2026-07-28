@@ -275,6 +275,7 @@ Dostępne komendy:
 | `configuration-gap-resolution-plan` | Planowanie małych pakietów rozstrzygających luki konfiguracji |
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `pdf-candidate-ledger` | Budowa i weryfikacja deterministycznego rejestru kandydatów z przypiętych broszur PDF |
+| `pdf-candidate-ledger-review` | Pełny przegląd grup dowodowych i przypisań `candidate_id` bez tworzenia importów |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -483,6 +484,22 @@ python tools/dkb.py configuration-gap-resolution-plan   --json ../configuration-
 Plan nie zapisuje nowych specyfikacji importu, nie modyfikuje `data/master`
 i utrzymuje `auto_import = false`. Brak kandydata oznacza zamknięcie bieżącego
 cyklu weryfikacji, a nie deklarację kompletności wszystkich danych pojazdu.
+
+### Przegląd rejestru kandydatów PDF
+
+Komenda `pdf-candidate-ledger-review` przypisuje wszystkie 4 256 kandydatów
+do 30 źródłowo i stronicowo ograniczonych decyzji grupowych:
+
+```bash
+python tools/dkb.py pdf-candidate-ledger-review
+python tools/dkb.py pdf-candidate-ledger-review --verify
+```
+
+Każdy kandydat występuje dokładnie raz, a 60 kotwic zachowuje `candidate_id`
+i niezmieniony tekst źródłowy. Review rozdziela treści opisowe, wymagane
+mapowanie encji, rekonsyliację techniki i wyposażenia, semantykę wizualną
+wymiarów oraz jawne nie-importy. Nie modyfikuje `data/master` ani nie tworzy
+zatwierdzonych specyfikacji w `data/imports`.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -989,7 +1006,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1086 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1100 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

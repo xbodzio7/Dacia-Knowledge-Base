@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Verified PDF Candidate Ledger Foundation",
+  "phase": "Verified PDF Candidate Ledger Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1086,
+    "tests": 1100,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Verified PDF Candidate Ledger Foundation",
+    "name": "Verified PDF Candidate Ledger Review",
     "status": "complete",
-    "goal": "Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications."
+    "goal": "Review the source-bounded ledger and group every candidate span into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports."
   },
   "next_package": {
-    "name": "Verified PDF Candidate Ledger Review",
+    "name": "Verified PDF Candidate Coverage Reconciliation",
     "status": "planned",
-    "goal": "Review the source-bounded ledger and group candidate spans into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports."
+    "goal": "Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
