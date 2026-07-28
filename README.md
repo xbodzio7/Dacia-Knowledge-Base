@@ -276,6 +276,7 @@ Dostępne komendy:
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
 | `pdf-candidate-ledger` | Budowa i weryfikacja deterministycznego rejestru kandydatów z przypiętych broszur PDF |
 | `pdf-candidate-ledger-review` | Pełny przegląd grup dowodowych i przypisań `candidate_id` bez tworzenia importów |
+| `pdf-candidate-coverage-reconciliation` | Konserwatywne porównanie kandydatów technicznych i wyposażeniowych z istniejącymi dowodami |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -500,6 +501,24 @@ i niezmieniony tekst źródłowy. Review rozdziela treści opisowe, wymagane
 mapowanie encji, rekonsyliację techniki i wyposażenia, semantykę wizualną
 wymiarów oraz jawne nie-importy. Nie modyfikuje `data/master` ani nie tworzy
 zatwierdzonych specyfikacji w `data/imports`.
+
+### Pojednanie pokrycia kandydatów PDF
+
+Komenda `pdf-candidate-coverage-reconciliation` porównuje 1 583 kandydatów
+z dziesięciu grup technicznych i wyposażeniowych z aktywnymi rekordami
+źródłowymi:
+
+```bash
+python tools/dkb.py pdf-candidate-coverage-reconciliation
+python tools/dkb.py pdf-candidate-coverage-reconciliation --verify
+```
+
+Bieżący wynik klasyfikuje 122 kandydatów jako `already_covered`, 108 jako
+`ambiguous`, 1 158 jako `unresolved` i 195 jako `explicit_non_import`.
+Technika wymaga zgodności źródła i strony, a wyposażenie zgodności modelu oraz
+uporządkowanego tekstu. Brak dopasowania nie oznacza `not_stated` ani
+`not_available`. Artefakt nie zmienia `data/master`, nie tworzy specyfikacji
+w `data/imports` i nie zatwierdza automatycznej promocji.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1006,7 +1025,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1100 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1117 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

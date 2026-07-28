@@ -23,6 +23,11 @@ SCRIPT_COMMANDS = {
         "Build or verify the source-bounded evidence-decision review of the PDF candidate ledger.",
         "[--ledger FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "pdf-candidate-coverage-reconciliation": (
+        "verified_pdf_candidate_coverage_reconciliation.py",
+        "Reconcile reviewed technical and equipment candidates against current exact evidence.",
+        "[--ledger FILE] [--review FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",
