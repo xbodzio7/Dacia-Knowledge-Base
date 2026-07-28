@@ -20,7 +20,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1215 testów automatycznych zakończonych powodzeniem,
+- 1241 testów automatycznych zakończonych powodzeniem,
 - 46 pliki CSV w `data/master`,
 - 11092 rekordów danych,
 - 51 relacje między tabelami,
@@ -48,7 +48,7 @@ Bieżąca kolejka obejmuje dokładnie 1 266 kandydatów zachowanych przez
 przez źródło, domenę, stronę i status, po najwyżej 40 kandydatów. Priorytet nie
 jest zgodą na import.
 
-Paczki `residual_gap_001`, `residual_gap_002` i `residual_gap_003` zostały przejrzane autorsko. Bigster ma 23 decyzje, 36 sygnatur i 143 rekordy. Jogger ma 16 decyzji, 3 sygnatury i 28 rekordów; sprzeczne etykiety mas, starsze wartości Hybrid 155 i dowody przypięte do innych atrybutów pozostają nieimportowalne. Duster ma 5 decyzji, 9 sygnatur i 34 rekordy; dowody ze strony 21 i sąsiednich kandydatów nie są podstawiane. Następna paczka obejmuje 5 kandydatów technicznych ze strony 17 broszury Sandero.
+Paczki `residual_gap_001`–`residual_gap_004` zostały przejrzane autorsko. Bigster ma 23 decyzje, 36 sygnatur i 143 rekordy. Jogger ma 16 decyzji, 3 sygnatury i 28 rekordów; sprzeczne etykiety mas, starsze wartości Hybrid 155 i dowody przypięte do innych atrybutów pozostają nieimportowalne. Duster ma 5 decyzji, 9 sygnatur i 34 rekordy; dowody ze strony 21 i sąsiednich kandydatów nie są podstawiane. Sandero ma 5 częściowo pokrytych decyzji, 8 sygnatur i 16 rekordów; wartości TCe/manual bez przypiętego dowodu oraz granice masy pojazdu i zespołu pozostają nieinferowane. Następna paczka obejmuje 4 kandydatów technicznych ze strony 17 broszury Sandero Stepway.
 
 ## Working Mode
 

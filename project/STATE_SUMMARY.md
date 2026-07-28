@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Technical Page 20 Ambiguity Review**
+**Sandero Technical Page 17 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1215
+- Tests: 1241
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Technical Page 20 Ambiguity Review** — `complete`
+**Sandero Technical Page 17 Ambiguity Review** — `complete`
 
-Review all 5 ambiguous technical candidates from Duster mini-brochure page 20 while preserving page-21 Hybrid 155 values and adjacent-candidate evidence as non-substitutable.
+Review all 5 ambiguous technical candidates from Sandero brochure page 17 while preserving unattached TCe/manual values and repeated gross-mass row boundaries as non-substitutable.
 
 ## Next package
 
-**Sandero Technical Page 17 Ambiguity Review** — `planned`
+**Sandero Stepway Technical Page 17 Ambiguity Review** — `planned`
 
-Review the 5 ambiguous technical candidates from the Sandero brochure page 17 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 4 ambiguous technical candidates from the Sandero Stepway brochure page 17 against their 12 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 

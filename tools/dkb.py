@@ -48,6 +48,11 @@ SCRIPT_COMMANDS = {
         "Review the Duster mini-brochure page-20 ambiguity package against exact evidence.",
         "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "sandero-technical-page17-ambiguity-review": (
+        "sandero_technical_page17_ambiguity_review.py",
+        "Review the Sandero page-17 ambiguity package against exact evidence and row boundaries.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "kind": "sandero_technical_page17_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_004",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17,
+    "review_basis": "authored visual review of the archived page-17 technical table"
+  },
+  "scope": {
+    "candidate_count": 5,
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "model_code": "sandero_iii",
+    "domain": "technical_tables",
+    "page": 17,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "adjacent_candidate_evidence_not_silently_substituted": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "unattached_powertrain_values_not_inferred": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 5,
+    "decision_counts": {
+      "covered_by_selected_evidence": 0,
+      "partially_covered": 5
+    },
+    "selected_evidence_signature_count": 8,
+    "selected_evidence_record_count": 16,
+    "candidates_with_selected_evidence": 5,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "af8a18cbf33fdcd88948e6aee518dafabcbd161530767a7dfe5af917885ca481",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "line_start": 15,
+      "line_end": 15,
+      "exact_text": "Maks. moc w kW EWG (KM)",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "Both attached signatures match the LPG and petrol cells for the Eco-G 120 automatic column. The same values printed for the manual Eco-G column and the 74 kW TCe value have no attached records and are not inferred.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 4,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "engine_power",
+            "value": "90",
+            "fuel_type_code": "lpg",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_engine_power_lpg_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_engine_power_lpg_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "engine_power",
+            "value": "84",
+            "fuel_type_code": "petrol",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_engine_power_petrol_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_engine_power_petrol_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "engine_power",
+          "source_values": [
+            "74",
+            "90",
+            "84"
+          ],
+          "reason": "The row also prints TCe 100 and manual Eco-G values, but the attached evidence covers only two automatic Eco-G configurations."
+        }
+      ]
+    },
+    {
+      "candidate_id": "515189b35b81d62360ad7b68509b7e48fe6d8607f89baa4cd10a4be0fc5478c3",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "line_start": 19,
+      "line_end": 19,
+      "exact_text": "Maks. moment obrotowy w Nm",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "Both attached signatures match the LPG and petrol torque cells for the Eco-G 120 automatic column. TCe 100 and manual Eco-G cells remain source facts because no matching records are attached to this candidate.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 4,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "engine_torque",
+            "value": "197",
+            "fuel_type_code": "lpg",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_engine_torque_lpg_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_engine_torque_lpg_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "engine_torque",
+            "value": "190",
+            "fuel_type_code": "petrol",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_engine_torque_petrol_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_engine_torque_petrol_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "engine_torque",
+          "source_values": [
+            "200",
+            "197",
+            "190"
+          ],
+          "reason": "The complete visual row contains TCe 100 and manual Eco-G values beyond the attached automatic-configuration evidence."
+        }
+      ]
+    },
+    {
+      "candidate_id": "9e24e542a7f69f9b3e053325bb9b606de1c0142e0bb19b3ba882cee4b3d196bf",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "line_start": 82,
+      "line_end": 82,
+      "exact_text": "Maksymalna masa własna                      1132                        1209                               1232",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "The two attached masses match the manual and automatic Eco-G columns. The visible 1132 kg TCe value has no attached evidence and is not projected to any configuration.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 4,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1209",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_manual",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1232",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "source_values": [
+            "1132"
+          ],
+          "reason": "The TCe column is visible in the source row but is outside the attached evidence set."
+        }
+      ]
+    },
+    {
+      "candidate_id": "8c95af2d22e4b73b8cce5e064156bcab2a61942c6164133eb0b6652e688d4c1e",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "line_start": 84,
+      "line_end": 84,
+      "exact_text": "Dopuszczalna masa całkowita",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "This first repeated label fragment begins the vehicle-GVW row and therefore selects only the attached 1665 kg gross-vehicle signature. The attached 2765 kg gross-train signature belongs to the following row and is rejected here.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 2,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "gross_vehicle_weight",
+            "value": "1665",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_gross_vehicle_weight_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_gross_vehicle_weight_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "source_values": [
+            "1570",
+            "1640"
+          ],
+          "reason": "The TCe and manual Eco-G vehicle-GVW values are visible but have no attached signatures for this candidate."
+        }
+      ]
+    },
+    {
+      "candidate_id": "7d03dc1a0f23d041d391cc4a2e7ff42ad1c1582209a5bc866a24fc6f5d554df2",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "line_start": 87,
+      "line_end": 87,
+      "exact_text": "Dopuszczalna masa całkowita",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "This second repeated label fragment begins the gross-train row and therefore selects only the attached 2765 kg gross-train signature. The attached 1665 kg gross-vehicle signature belongs to the preceding row and is rejected here.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 2,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "gross_train_weight",
+            "value": "2765",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_expression_ecog120_automatic_gross_train_weight_20260202",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_iii_journey_ecog120_automatic_gross_train_weight_20260202",
+              "configuration_code": "sandero_iii_journey_ecog120_automatic",
+              "source_code": "src_pl_sandero_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "gross_train_weight",
+          "source_values": [
+            "2550",
+            "2740"
+          ],
+          "reason": "The TCe and manual Eco-G gross-train values are visible but have no attached signatures for this candidate."
+        }
+      ]
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "cross_attribute_evidence_remains_non_substitutable": true,
+    "unattached_powertrain_values_remain_source_facts": true,
+    "partial_coverage_does_not_authorize_missing_value_inference": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Sandero Stepway Technical Page 17 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 4 ambiguous technical candidates from the Sandero Stepway brochure page 17 against their 12 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}
