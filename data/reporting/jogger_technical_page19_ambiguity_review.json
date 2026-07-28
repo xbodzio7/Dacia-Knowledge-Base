@@ -1,0 +1,727 @@
+{
+  "version": 1,
+  "kind": "jogger_technical_page19_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_002",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19,
+    "review_basis": "authored visual review of the archived page-19 technical table"
+  },
+  "scope": {
+    "candidate_count": 16,
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "model_code": "jogger",
+    "domain": "technical_tables",
+    "page": 19,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "adjacent_line_evidence_not_silently_attached": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 16,
+    "decision_counts": {
+      "context_only_non_import": 0,
+      "covered_by_selected_evidence": 1,
+      "deferred_source_conflict": 7,
+      "partially_covered": 2,
+      "unresolved_signature_mismatch": 6
+    },
+    "selected_evidence_signature_count": 3,
+    "selected_evidence_record_count": 28,
+    "candidates_with_selected_evidence": 3,
+    "candidates_without_selected_evidence": 13
+  },
+  "decisions": [
+    {
+      "candidate_id": "91156aecc0c5e1c4f3c907a8d7bed4a6e48cc8ebd1b6c53a36b4ead6c5a737c3",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 12,
+      "line_end": 12,
+      "exact_text": "Maks. moc kW EWG (KM) przy                                                                                              105 (140)",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The row states 105 kW total Hybrid 155 output, every attached signature is max-power engine speed, and the later official MY26 source states 116 kW. The conflict remains non-importable.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "hybrid_system_power_total",
+          "source_values": [
+            "105"
+          ],
+          "reason": "The older brochure value conflicts with the later official 116 kW observation and has no attached power signature."
+        }
+      ]
+    },
+    {
+      "candidate_id": "af25bb2ab9eafa6499e0439b643700e4476f3b0e64ffc6c5bd86c6d038bd099f",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 51,
+      "line_end": 51,
+      "exact_text": "                                                           amortyzatorami hydraulicznymi i stabilizatorem",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered_by_selected_evidence",
+      "rationale": "The visual line is the continuation of the front-suspension row; the attached rear-suspension signature belongs to the next labelled row.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 22,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "front_suspension",
+            "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_front_suspension_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_front_suspension_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "87f2256211644e68452882048c3c195bc6f8131db92038884e9f9aef4faf2281",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 61,
+      "line_end": 61,
+      "exact_text": "                    Wersja 5-miejscowa        10,5          10,9            11,9         10,4            11,4                8,9",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "Only the attached 8.9-second signature belongs to this five-seat row; 9 seconds belongs to the seven-seat row.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 3,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "acceleration_0_100",
+            "value": "8.9",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "acceleration_0_100",
+          "source_values": [
+            "10.5",
+            "10.9",
+            "11.9",
+            "10.4",
+            "11.4"
+          ],
+          "reason": "Visible five-seat values without signatures attached to this candidate."
+        }
+      ]
+    },
+    {
+      "candidate_id": "dc6fdb0c6ad6ccde3275ec5df42e1cdaf1cbaa606b12d339b2234fff2417f238",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 62,
+      "line_end": 62,
+      "exact_text": "                    Wersja 7-miejscowa        11,2           11              12          10,7            11,7                 9",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "Only the attached 9-second signature belongs to this seven-seat row; 8.9 seconds belongs to the five-seat row.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 3,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "acceleration_0_100",
+            "value": "9",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_acceleration_0_100_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "acceleration_0_100",
+          "source_values": [
+            "11.2",
+            "11",
+            "12",
+            "10.7",
+            "11.7"
+          ],
+          "reason": "Visible seven-seat values without signatures attached to this candidate."
+        }
+      ]
+    },
+    {
+      "candidate_id": "a9cbecb27287715ea402b4ae8ba2754e10b0b994bea11d48e2eae3c2051d56e5",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 67,
+      "line_end": 67,
+      "exact_text": "                  Wersja 5-miejscowa          11,4          8,1             9,1          8,3             9,2                 6,4",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is 80–120 km/h elasticity, but both attached signatures are 0–100 km/h acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "source_values": [
+            "11.4",
+            "8.1",
+            "9.1",
+            "8.3",
+            "9.2",
+            "6.4"
+          ],
+          "reason": "No matching elasticity signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "3e57e1eae5d0f58acf0756a50ff74047cc45c30cd1efe0729d8be2f920ae1315",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 68,
+      "line_end": 68,
+      "exact_text": "                  Wersja 7-miejscowa          12,3          8,2             9,2          8,7             9,5                 6,5",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is 80–120 km/h elasticity, but both attached signatures are 0–100 km/h acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "source_values": [
+            "12.3",
+            "8.2",
+            "9.2",
+            "8.7",
+            "9.5",
+            "6.5"
+          ],
+          "reason": "No matching elasticity signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "123c5c41b995919ac7aa0157fc195514ecc93df2bf1b15268051b8e60a3504ac",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 82,
+      "line_end": 82,
+      "exact_text": "               Wersja 5-miejscowa             1193                   1292                         1326                       1359",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is five-seat minimum kerb mass, but both attached signatures are acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "minimum_kerb_weight",
+          "source_values": [
+            "1193",
+            "1292",
+            "1326",
+            "1359"
+          ],
+          "reason": "No matching mass signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "b9aeb4aed7119c4e5920f29463cdb73908d18d5f9b2fdc9afee2ddec407ecefe",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 83,
+      "line_end": 83,
+      "exact_text": "               Wersja 7-miejscowa             1221                   1321                         1354                       1388",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is seven-seat minimum kerb mass, but both attached signatures are acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "minimum_kerb_weight",
+          "source_values": [
+            "1221",
+            "1321",
+            "1354",
+            "1388"
+          ],
+          "reason": "No matching mass signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "72df9514c775a1e00171477bb61d20407e9c34a1b2bf2c4366e9f7e8e6211982",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 87,
+      "line_end": 87,
+      "exact_text": "                Wersja 5-miejscowa            1230                   1312                         1335                       1373",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The printed gross-train label conflicts with values below gross vehicle weight that follow a maximum-kerb-mass pattern; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "source_values": [
+            "1230",
+            "1312",
+            "1335",
+            "1373"
+          ],
+          "reason": "Likely five-seat maximum kerb masses, but the source label conflicts; no import meaning is approved."
+        }
+      ]
+    },
+    {
+      "candidate_id": "f09c7f9f12583734f27b8282f460661317f2e04fead563099253d13097999b41",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 88,
+      "line_end": 88,
+      "exact_text": "                Wersja 7-miejscowa            1261                   1342                         1364                       1405",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The printed gross-train label conflicts with values below gross vehicle weight that follow a maximum-kerb-mass pattern; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "source_values": [
+            "1261",
+            "1342",
+            "1364",
+            "1405"
+          ],
+          "reason": "Likely seven-seat maximum kerb masses, but the source label conflicts; no import meaning is approved."
+        }
+      ]
+    },
+    {
+      "candidate_id": "a97212de9458f15c537f77ea07a2c876fa82108c54cca5ab727d3f68c0030155",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 92,
+      "line_end": 92,
+      "exact_text": "               Wersja 5-miejscowa             2885                   2965                         2985                       2830",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The printed gross-vehicle label conflicts with values equal to gross vehicle plus braked trailer, the gross-train pattern; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "gross_train_weight",
+          "source_values": [
+            "2885",
+            "2965",
+            "2985",
+            "2830"
+          ],
+          "reason": "Numerically five-seat gross train weights, but the printed label conflicts."
+        }
+      ]
+    },
+    {
+      "candidate_id": "259cb9881353399e4f854a0ec9ec976c633835640dad94f92a36975ba3934a08",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 93,
+      "line_end": 93,
+      "exact_text": "               Wersja 7-miejscowa             3055                   3140                         3160                       3000",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The printed gross-vehicle label conflicts with values equal to gross vehicle plus braked trailer, the gross-train pattern; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "gross_train_weight",
+          "source_values": [
+            "3055",
+            "3140",
+            "3160",
+            "3000"
+          ],
+          "reason": "Numerically seven-seat gross train weights, but the printed label conflicts."
+        }
+      ]
+    },
+    {
+      "candidate_id": "4fac5cebdeae28892c2ee77ced0abb3bd59006918fef0462f69b1b8dd0e6999e",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 97,
+      "line_end": 97,
+      "exact_text": "               Wersja 5-miejscowa             1685                   1765                         1785                       1830",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is five-seat gross vehicle weight, but both attached signatures are acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "source_values": [
+            "1685",
+            "1765",
+            "1785",
+            "1830"
+          ],
+          "reason": "No matching mass signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "a140b4a368f27e1b1b815bb6c70c80635bad3e0cbbcdaaa3442bde6450e0dd94",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 98,
+      "line_end": 98,
+      "exact_text": "               Wersja 7-miejscowa             1855                   1940                         1960                       2000",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The row is seven-seat gross vehicle weight, but both attached signatures are acceleration.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "source_values": [
+            "1855",
+            "1940",
+            "1960",
+            "2000"
+          ],
+          "reason": "No matching mass signature is attached."
+        }
+      ]
+    },
+    {
+      "candidate_id": "371081416255a70abb7008af66e06bd9284fa208d6d2f3bea1685203eaf2ecc0",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 102,
+      "line_end": 102,
+      "exact_text": "                Wersja 5-miejscowa            1200                   1200                         1200                       1200",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The older brochure assigns 1200 kg to Hybrid 155, while the later official source assigns 1000 kg; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "braked_trailer_weight",
+          "source_values": [
+            "1200",
+            "1200",
+            "1200",
+            "1200"
+          ],
+          "reason": "The Hybrid 155 value conflicts with the later official 1000 kg observation."
+        }
+      ]
+    },
+    {
+      "candidate_id": "6cf0cdad93218297dd60fd7d35499aa3c252987c7a867dbac1b9bbd2067904ed",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "line_start": 103,
+      "line_end": 103,
+      "exact_text": "                Wersja 7-miejscowa            1200                   1200                         1200                       1200",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "rationale": "The older brochure assigns 1200 kg to Hybrid 155, while the later official source assigns 1000 kg; attached acceleration signatures are rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "braked_trailer_weight",
+          "source_values": [
+            "1200",
+            "1200",
+            "1200",
+            "1200"
+          ],
+          "reason": "The Hybrid 155 value conflicts with the later official 1000 kg observation."
+        }
+      ]
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "source_conflict_deferral_is_preserved": true,
+    "signature_mismatch_does_not_authorize_cross_attribute_substitution": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Duster Mini Technical Page 20 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 5 ambiguous technical candidates from the Duster mini-brochure page 20 against their 26 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

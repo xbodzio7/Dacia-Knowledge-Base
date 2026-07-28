@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of all 16 ambiguous Jogger page-19 technical-table candidates: 1 covered by selected exact evidence, 2 partially covered, 7 deferred source conflicts and 6 explicit cross-attribute signature mismatches, selecting 3 signatures and 28 records without master-data or import-spec changes.
 * Added an authored review of all 23 ambiguous Bigster page-20 technical-table candidates: 9 covered by selected exact evidence, 3 partially covered, 7 context-only non-imports, 2 preserved Hybrid-G 150 cargo deferrals and 2 explicit cross-attribute signature mismatches, selecting 36 signatures and 143 records without master-data or import-spec changes.
 * Added deterministic residual-gap prioritization for all 1,266 ambiguous and unresolved verified PDF candidates: 52 source/domain/page/status-bounded review packages of at most 40 candidates, preserving exact IDs, text and evidence without master-data or approved import-spec changes.
 * Added deterministic candidate-level coverage reconciliation for 1,583 reviewed technical and equipment spans: 122 already covered, 108 ambiguous, 1,158 unresolved and 195 explicit non-import, with no master-data or approved import-spec changes.
@@ -283,7 +284,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1163 tests.
+* The automated test suite now contains 1189 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.

@@ -121,12 +121,13 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 - źródłowy katalog, wyposażenie, oferty handlowe i techniczne specyfikacje Bigster MY26 dla 14 konfiguracji.
 - deterministyczna kolejka 52 małych paczek przeglądu dla 1 266 niejednoznacznych i nierozstrzygniętych kandydatów PDF, z zachowaniem źródła, strony, tekstu i dowodów oraz bez automatycznej promocji.
-- autorski przegląd 23 niejednoznacznych fragmentów technicznej tabeli Bigstera ze strony 20, z 36 wybranymi sygnaturami, 143 rekordami dowodowymi, zachowanymi odroczeniami Hybrid-G 150 i jawnym zakazem podstawiania dowodów między atrybutami.
+- autorski przegląd 23 niejednoznacznych fragmentów technicznej tabeli Bigstera ze strony 20, z 36 wybranymi sygnaturami, 143 rekordami dowodowymi, zachowanymi odroczeniami Hybrid-G 150 i jawnym zakazem podstawiania dowodów między atrybutami,
+- autorski przegląd 16 niejednoznacznych fragmentów tabeli Joggera ze strony 19, z 3 wybranymi sygnaturami, 28 rekordami oraz zachowanymi konfliktami etykiet mas i Hybrid 155.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1163 testów automatycznych,
+- 1189 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
