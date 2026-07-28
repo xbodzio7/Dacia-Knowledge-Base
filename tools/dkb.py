@@ -28,6 +28,11 @@ SCRIPT_COMMANDS = {
         "Reconcile reviewed technical and equipment candidates against current exact evidence.",
         "[--ledger FILE] [--review FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "pdf-candidate-residual-gap-prioritization": (
+        "verified_pdf_candidate_residual_gap_prioritization.py",
+        "Prioritize ambiguous and unresolved verified-PDF candidates into bounded review packages.",
+        "[--reconciliation FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

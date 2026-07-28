@@ -277,6 +277,7 @@ Dostępne komendy:
 | `pdf-candidate-ledger` | Budowa i weryfikacja deterministycznego rejestru kandydatów z przypiętych broszur PDF |
 | `pdf-candidate-ledger-review` | Pełny przegląd grup dowodowych i przypisań `candidate_id` bez tworzenia importów |
 | `pdf-candidate-coverage-reconciliation` | Konserwatywne porównanie kandydatów technicznych i wyposażeniowych z istniejącymi dowodami |
+| `pdf-candidate-residual-gap-prioritization` | Priorytetyzacja niejednoznacznych i nierozstrzygniętych kandydatów w małe paczki przeglądu |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -519,6 +520,23 @@ Technika wymaga zgodności źródła i strony, a wyposażenie zgodności modelu 
 uporządkowanego tekstu. Brak dopasowania nie oznacza `not_stated` ani
 `not_available`. Artefakt nie zmienia `data/master`, nie tworzy specyfikacji
 w `data/imports` i nie zatwierdza automatycznej promocji.
+
+### Priorytetyzacja pozostałych luk kandydatów PDF
+
+Komenda `pdf-candidate-residual-gap-prioritization` dzieli wszystkie 1 266
+kandydatów `ambiguous` i `unresolved` na 52 deterministyczne paczki:
+
+```bash
+python tools/dkb.py pdf-candidate-residual-gap-prioritization
+python tools/dkb.py pdf-candidate-residual-gap-prioritization --verify
+```
+
+Każda paczka zachowuje jedną granicę źródła, domeny, strony i statusu oraz
+zawiera najwyżej 40 kandydatów. Wszystkie identyfikatory, dokładne teksty,
+zakresy linii i dowody są kopiowane bez reinterpretacji. Pierwsza paczka
+obejmuje 23 niejednoznaczne wiersze techniczne z 20. strony broszury Bigster,
+190 odwołań do sygnatur dowodowych i 703 odwołania do rekordów. Kolejka nie
+zmienia `data/master`, nie tworzy importów i nie oznacza zatwierdzenia danych.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1025,7 +1043,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1117 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1138 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

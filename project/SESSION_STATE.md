@@ -20,7 +20,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1117 testów automatycznych zakończonych powodzeniem,
+- 1138 testów automatycznych zakończonych powodzeniem,
 - 46 pliki CSV w `data/master`,
 - 11092 rekordów danych,
 - 51 relacje między tabelami,
@@ -39,6 +39,16 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 <!-- dkb:documentation-baseline:session:end -->
 
 Dodatkowe kontrakty stanu projektu i autonomii są uruchamiane jawnie w CI poza historycznym licznikiem discovery `test_*.py`.
+
+## Verified PDF Residual Review Boundary
+
+Bieżąca kolejka obejmuje dokładnie 1 266 kandydatów zachowanych przez
+`verified_pdf_candidate_coverage_reconciliation.json`: 108 `ambiguous` i
+1 158 `unresolved`. Są przypisane dokładnie raz do 52 paczek ograniczonych
+przez źródło, domenę, stronę i status, po najwyżej 40 kandydatów. Priorytet nie
+jest zgodą na import. Następny pakiet przegląda 23 niejednoznaczne wiersze
+techniczne z 20. strony broszury Bigster i musi zachować identyfikatory,
+dokładny tekst oraz proweniencję dowodów.
 
 ## Working Mode
 

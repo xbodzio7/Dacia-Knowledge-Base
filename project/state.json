@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Verified PDF Candidate Coverage Reconciliation",
+  "phase": "Verified PDF Candidate Residual Gap Prioritization",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1117,
+    "tests": 1138,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Verified PDF Candidate Coverage Reconciliation",
+    "name": "Verified PDF Candidate Residual Gap Prioritization",
     "status": "complete",
-    "goal": "Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports."
+    "goal": "Partition every ambiguous and unresolved verified PDF candidate exactly once into deterministic source-, domain-, page- and status-bounded review packages without creating master-data rows or approved import specifications."
   },
   "next_package": {
-    "name": "Verified PDF Candidate Residual Gap Prioritization",
+    "name": "Bigster Technical Page 20 Ambiguity Review",
     "status": "planned",
-    "goal": "Prioritize unresolved and ambiguous candidate IDs into small source- and page-bounded residual review packages, without creating master-data rows or approved import specifications."
+    "goal": "Review the 23 highest-priority ambiguous technical candidates from Bigster brochure page 20 against their preserved evidence signatures without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added deterministic residual-gap prioritization for all 1,266 ambiguous and unresolved verified PDF candidates: 52 source/domain/page/status-bounded review packages of at most 40 candidates, preserving exact IDs, text and evidence without master-data or approved import-spec changes.
 * Added deterministic candidate-level coverage reconciliation for 1,583 reviewed technical and equipment spans: 122 already covered, 108 ambiguous, 1,158 unresolved and 195 explicit non-import, with no master-data or approved import-spec changes.
 * Added a complete review partition for all 4,256 verified PDF candidates: 30 source/page-bounded evidence decisions, 60 exact-text anchors, zero unassigned candidates and zero duplicate assignments, while preserving a strict no-import boundary.
 * Added a receipt-verified PDF candidate ledger for five official brochures and all 114 declared pages, producing 4,256 stable source/page/backend/line-span candidates plus deterministic JSON and Markdown artifacts without creating master-data rows or approved import specifications.
@@ -281,7 +282,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1117 tests.
+* The automated test suite now contains 1138 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
