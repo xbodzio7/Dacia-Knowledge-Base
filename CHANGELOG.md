@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of all 5 ambiguous Sandero page-17 technical-table candidates: all remain partially covered, selecting 8 exact signatures and 16 records while preserving unattached TCe/manual values and gross-vehicle/gross-train row boundaries without master-data or import-spec changes.
 * Added an authored review of all 5 ambiguous Duster mini-brochure page-20 technical-table candidates: 3 covered and 2 partially covered, selecting 9 exact signatures and 34 records while preserving page-21 Hybrid 155 and adjacent-candidate evidence as non-substitutable and making no master-data or import-spec changes.
 * Added an authored review of all 16 ambiguous Jogger page-19 technical-table candidates: 1 covered by selected exact evidence, 2 partially covered, 7 deferred source conflicts and 6 explicit cross-attribute signature mismatches, selecting 3 signatures and 28 records without master-data or import-spec changes.
 * Added an authored review of all 23 ambiguous Bigster page-20 technical-table candidates: 9 covered by selected exact evidence, 3 partially covered, 7 context-only non-imports, 2 preserved Hybrid-G 150 cargo deferrals and 2 explicit cross-attribute signature mismatches, selecting 36 signatures and 143 records without master-data or import-spec changes.
@@ -285,7 +286,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1215 tests.
+* The automated test suite now contains 1241 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
