@@ -278,6 +278,7 @@ Dostępne komendy:
 | `pdf-candidate-ledger-review` | Pełny przegląd grup dowodowych i przypisań `candidate_id` bez tworzenia importów |
 | `pdf-candidate-coverage-reconciliation` | Konserwatywne porównanie kandydatów technicznych i wyposażeniowych z istniejącymi dowodami |
 | `pdf-candidate-residual-gap-prioritization` | Priorytetyzacja niejednoznacznych i nierozstrzygniętych kandydatów w małe paczki przeglądu |
+| `bigster-technical-page20-ambiguity-review` | Autorski przegląd 23 niejednoznacznych fragmentów tabeli technicznej Bigstera |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -537,6 +538,25 @@ zakresy linii i dowody są kopiowane bez reinterpretacji. Pierwsza paczka
 obejmuje 23 niejednoznaczne wiersze techniczne z 20. strony broszury Bigster,
 190 odwołań do sygnatur dowodowych i 703 odwołania do rekordów. Kolejka nie
 zmienia `data/master`, nie tworzy importów i nie oznacza zatwierdzenia danych.
+
+### Autorski przegląd tabeli technicznej Bigstera — strona 20
+
+Komenda `bigster-technical-page20-ambiguity-review` rozstrzyga dokładnie
+23 kandydatów z paczki `residual_gap_001` na podstawie układu tabeli i
+zachowanych sygnatur dowodowych:
+
+```bash
+python tools/dkb.py bigster-technical-page20-ambiguity-review
+python tools/dkb.py bigster-technical-page20-ambiguity-review --verify
+```
+
+Wynik obejmuje 9 kandydatów pokrytych wybranymi dowodami, 3 częściowo
+pokryte fragmenty, 7 kwalifikatorów kontekstowych bez samodzielnego importu,
+2 odroczenia kolumny Hybrid-G 150 4x4 oraz 2 przypadki niezgodności atrybutu
+w sygnaturach heurystycznych. Wybrano 36 sygnatur i 143 dokładne rekordy.
+Przegląd nie zmienia `data/master`, nie tworzy ani nie modyfikuje importów i
+nie zastępuje masy pojazdu masą zestawu ani masy przyczepy z hamulcem masą
+przyczepy bez hamulca.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1043,7 +1063,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1138 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1163 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
