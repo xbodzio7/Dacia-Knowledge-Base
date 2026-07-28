@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-27",
+  "updated_on": "2026-07-28",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Source-Bounded Sandero and Stepway Catalogue Completion",
+  "phase": "Verified PDF Candidate Ledger Foundation",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1071,
+    "tests": 1086,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Source-Bounded Sandero and Stepway Catalogue Completion",
+    "name": "Verified PDF Candidate Ledger Foundation",
     "status": "complete",
-    "goal": "Complete the source-bounded Polish MY26 Sandero TCe 100 and Sandero Stepway TCe 110 catalogue from registered official price-list and brochure slices; add exact configurations, prices, technical observations, equipment states and cargo contexts; preserve historical release receipts; and cache official model media locally with conditional refresh and offline reuse."
+    "goal": "Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications."
   },
   "next_package": {
-    "name": "Verified PDF Candidate Ledger Foundation",
+    "name": "Verified PDF Candidate Ledger Review",
     "status": "planned",
-    "goal": "Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications."
+    "goal": "Review the source-bounded ledger and group candidate spans into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

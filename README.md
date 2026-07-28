@@ -274,6 +274,7 @@ Dostępne komendy:
 | `data-product-release-download` | Pobranie, weryfikacja i bezpieczne rozpakowanie publicznego wydania |
 | `configuration-gap-resolution-plan` | Planowanie małych pakietów rozstrzygających luki konfiguracji |
 | `configuration-gap-source-review` | Weryfikacja luk na istotnych stronach zarejestrowanych PDF |
+| `pdf-candidate-ledger` | Budowa i weryfikacja deterministycznego rejestru kandydatów z przypiętych broszur PDF |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -285,6 +286,21 @@ Dostępne komendy:
 | `package-publish` | Dokładny staging, jeden commit, finish i opcjonalny push |
 | `package-finish` | Kontrola commitu przed pushem i Pull Requestem |
 
+
+### Zweryfikowany rejestr kandydatów PDF
+
+Pięć przypiętych oficjalnych broszur i wszystkie 114 zadeklarowanych stron
+można przetworzyć do 4 256 stabilnych kandydatów tekstowych:
+
+```bash
+python tools/dkb.py pdf-candidate-ledger
+python tools/dkb.py pdf-candidate-ledger --verify
+```
+
+Komenda przed ekstrakcją sprawdza ścieżkę, rozmiar, SHA-256 i liczbę stron
+każdego PDF-u. Artefakty zachowują źródło, stronę, backend i zakres linii,
+lecz nie tworzą danych głównych ani zatwierdzonych specyfikacji importu.
+Pusta warstwa tekstowa oznacza `requires_visual_review`, nigdy `not_stated`.
 ### Walidacja
 
 Komenda sprawdza strukturę repozytorium, kodowanie UTF-8 i strukturę plików CSV, unikalność kluczy `id` i `code`, relacje między tabelami, poprawność zakresów lat, spójność statusów i cyklu życia encji, zgodność okresów dostępności powiązań z okresami encji nadrzędnych, brak zduplikowanych i nakładających się okresów dla tej samej pary powiązań, zgodność deklaratywnych reguł danych z aktualnym schematem tabel oraz wykonuje te reguły na katalogu atrybutów. Reguły o poziomie `warning` są raportowane, ale nie powodują niepowodzenia walidacji.
@@ -973,7 +989,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1071 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1086 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

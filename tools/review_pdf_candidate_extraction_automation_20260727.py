@@ -279,10 +279,22 @@ def verify_repository() -> None:
         ensure(command in cli, f"adjacent CLI command missing: {command}")
 
     state = load_json(STATE)
-    completion = ROOT / "data" / "imports" / "catalog_completion" / "sandero-stepway-tce-20260703.json"
+    current = state.get("current_package", {})
+    current_name = current.get("name")
+    ensure(isinstance(current_name, str) and bool(current_name), "current package is missing")
+    ensure(state.get("phase") == current_name, "project phase/current package differ")
+    ensure(current.get("status") == "complete", "current package is not complete")
+
+    completion = (
+        ROOT
+        / "data"
+        / "imports"
+        / "catalog_completion"
+        / "sandero-stepway-tce-20260703.json"
+    )
+    foundation = ROOT / "data" / "reporting" / "official_dacia_pdf_candidate_ledger.json"
     if completion.is_file():
-        expected_phase = "Source-Bounded Sandero and Stepway Catalogue Completion"
-        expected_baseline = {
+        baseline_floor = {
             "tests": 1071,
             "rows": 11092,
             "configuration_values": 3267,
@@ -292,8 +304,7 @@ def verify_repository() -> None:
             "availability_records": 5770,
         }
     else:
-        expected_phase = "PDF Candidate Extraction Automation Review"
-        expected_baseline = {
+        baseline_floor = {
             "tests": 1070,
             "rows": 9688,
             "configuration_values": 2949,
@@ -302,26 +313,29 @@ def verify_repository() -> None:
             "configuration_range_import_specs": 20,
             "availability_records": 4754,
         }
-    ensure(state.get("phase") == expected_phase, "project phase differs")
-    ensure(state.get("current_package", {}).get("name") == expected_phase, "current package differs")
-    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
-    ensure(state.get("next_package", {}).get("name") == "Verified PDF Candidate Ledger Foundation", "state next package differs")
+
     baseline = state.get("baseline", {})
-    for field, expected in expected_baseline.items():
+    for field, minimum in baseline_floor.items():
         actual = baseline.get(field)
-        if completion.is_file():
-            historical_floor = {
-                "tests": 1070,
-                "rows": 9688,
-                "configuration_values": 2949,
-                "configuration_import_specs": 117,
-                "configuration_value_ranges": 244,
-                "configuration_range_import_specs": 20,
-                "availability_records": 4754,
-            }[field]
-            ensure(isinstance(actual, int) and actual >= historical_floor, f"{field} baseline regressed")
-        else:
-            ensure(actual == expected, f"{field} baseline differs")
+        ensure(
+            isinstance(actual, int) and actual >= minimum,
+            f"{field} baseline regressed",
+        )
+
+    if foundation.is_file():
+        ensure('"pdf-candidate-ledger"' in cli, "candidate-ledger CLI command missing")
+    else:
+        expected_current = (
+            "Source-Bounded Sandero and Stepway Catalogue Completion"
+            if completion.is_file()
+            else "PDF Candidate Extraction Automation Review"
+        )
+        ensure(current_name == expected_current, "historical current package differs")
+        ensure(
+            state.get("next_package", {}).get("name")
+            == "Verified PDF Candidate Ledger Foundation",
+            "state next package differs",
+        )
 
 
 def verify() -> None:
