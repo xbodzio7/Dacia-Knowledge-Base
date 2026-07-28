@@ -290,6 +290,7 @@ Dostępne komendy:
 | `jogger-equipment-page21-ambiguity-review` | Autorski przegląd kandydata podgrzewanej kierownicy Joggera ze strony 21 |
 | `sandero-equipment-page18-ambiguity-review` | Autorski przegląd kandydata kamery cofania Sandero ze strony 18 |
 | `sandero-equipment-page19-ambiguity-review` | Autorski przegląd wspólnego wiersza regulatora i ogranicznika prędkości Sandero ze strony 19 |
+| `sandero-stepway-equipment-page18-ambiguity-review` | Autorski przegląd odrębnych wierszy relingów zwykłych i modułowych Sandero Stepway ze strony 18 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -1221,8 +1222,19 @@ python tools/dkb.py sandero-equipment-page19-ambiguity-review --verify
 
 Broszura drukuje jeden kompletny wiersz regulatora i ogranicznika prędkości, oba seryjne w Essential, Expression i Journey. Pakiet zachowuje `cruise_control` i `speed_limiter` jako dwa odrębne atrybuty, obie przypięte sygnatury oraz wszystkie 4 dokładne rekordy; nie projektuje brakujących rekordów na Essential i nie zatwierdza importu.
 
+### Sandero Stepway equipment page-18 ambiguity review
+
+Komenda `sandero-stepway-equipment-page18-ambiguity-review` rozstrzyga pojedynczy kandydat z `residual_gap_015`:
+
+```bash
+python tools/dkb.py sandero-stepway-equipment-page18-ambiguity-review
+python tools/dkb.py sandero-stepway-equipment-page18-ambiguity-review --verify
+```
+
+Broszura drukuje dwa kolejne, lecz odrębne wiersze: zwykłe relingi są seryjne tylko w Essential, a modułowe relingi w kolorze szary Megalith są seryjne w Expression i Extreme. Pakiet wybiera dokładny rekord `roof_rails:standard` dla Essential, zachowuje i jawnie odrzuca sygnaturę `modular_roof_rails:standard` z dwoma rekordami Expression oraz nie projektuje brakujących stanów między wersjami.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1492 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1517 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

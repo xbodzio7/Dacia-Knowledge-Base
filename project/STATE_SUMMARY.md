@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 19 Ambiguity Review**
+**Sandero Stepway Equipment Page 18 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1492
+- Tests: 1517
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Ambiguity Review** — `complete`
+**Sandero Stepway Equipment Page 18 Ambiguity Review** — `complete`
 
-Review the 1 ambiguous combined cruise-control and speed-limiter candidate from Sandero brochure page 19 while preserving both distinct standard signatures and all three standard trim states.
+Review the 1 ambiguous roof-rails candidate from Sandero Stepway brochure page 18 while preserving the separate plain and modular roof-rail rows and all attached evidence.
 
 ## Next package
 
-**Sandero Stepway Equipment Page 18 Ambiguity Review** — `planned`
+**Bigster Technical Page 20 Unresolved Review — Chunk 1** — `planned`
 
-Review the 1 ambiguous equipment candidate from Sandero Stepway brochure page 18 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review chunk 1 of the 40 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
