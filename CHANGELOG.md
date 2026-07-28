@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of the single ambiguous Jogger brochure page-21 heated-steering-wheel candidate: one deferred brochure-versus-price-list Journey conflict, both attached signatures and all 30 exact records, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Bigster brochure page-21 panoramic-roof candidate: 1 covered decision, all 3 attached signatures and 14 exact records, preserving unavailable, optional and standard trim states without master-data or approved import changes.
 * Added an authored review of 5 ambiguous Jogger brochure page-20 equipment candidates: 3 partially covered decisions, 1 context-only passenger-airbag deactivation clause and 1 deferred rear-camera source conflict, with 8 selected signatures and 154 exact records and no master-data or approved import changes.
 * Added an authored review of 7 ambiguous Bigster brochure page-22 equipment candidates: 3 covered and 4 partially covered decisions, all 18 attached signatures and 126 exact records, preserving climate, console and Winter-package row boundaries without master-data or approved import changes.
@@ -293,7 +294,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1417 tests.
+* The automated test suite now contains 1442 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
