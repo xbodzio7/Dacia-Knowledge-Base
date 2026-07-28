@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added chunk 1 of the authored Bigster brochure page-20 unresolved technical review: 40 exact candidates regrouped into 18 visual table groups, with 16 unresolved signature mismatches, 24 context-only fragments, zero attached evidence, an explicit reference to the prior rear-brake decision and a five-package milestone conclusion, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Sandero Stepway brochure page-18 roof-rails candidate: 1 covered decision, 1 selected plain-roof-rail signature and record, plus 1 preserved and explicitly rejected modular-roof-rail signature with 2 records, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Sandero brochure page-19 combined cruise-control and speed-limiter candidate: 1 covered decision, both attached standard signatures and all 4 exact records, preserving all three standard trim markers without master-data or approved import changes.
 * Added an authored review of the single ambiguous Sandero brochure page-18 rear-view-camera candidate: one deferred brochure/price-list-versus-later-official-web Expression conflict, both attached signatures and all 4 exact records, without master-data or approved import changes.
@@ -297,7 +298,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1517 tests.
+* The automated test suite now contains 1542 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.

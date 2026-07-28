@@ -279,6 +279,7 @@ Dostępne komendy:
 | `pdf-candidate-coverage-reconciliation` | Konserwatywne porównanie kandydatów technicznych i wyposażeniowych z istniejącymi dowodami |
 | `pdf-candidate-residual-gap-prioritization` | Priorytetyzacja niejednoznacznych i nierozstrzygniętych kandydatów w małe paczki przeglądu |
 | `bigster-technical-page20-ambiguity-review` | Autorski przegląd 23 niejednoznacznych fragmentów tabeli technicznej Bigstera |
+| `bigster-technical-page20-unresolved-review-chunk1` | Autorski przegląd pierwszych 40 nierozstrzygniętych kandydatów technicznych Bigstera ze strony 20 |
 | `jogger-technical-page19-ambiguity-review` | Autorski przegląd 16 niejednoznacznych fragmentów tabeli technicznej Joggera |
 | `duster-mini-technical-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych fragmentów tabeli technicznej minibroszury Dustera |
 | `duster-mini-technical-page21-ambiguity-review` | Autorski przegląd niejednoznacznego wiersza układu kierowniczego Dustera ze strony 21 |
@@ -1233,8 +1234,19 @@ python tools/dkb.py sandero-stepway-equipment-page18-ambiguity-review --verify
 
 Broszura drukuje dwa kolejne, lecz odrębne wiersze: zwykłe relingi są seryjne tylko w Essential, a modułowe relingi w kolorze szary Megalith są seryjne w Expression i Extreme. Pakiet wybiera dokładny rekord `roof_rails:standard` dla Essential, zachowuje i jawnie odrzuca sygnaturę `modular_roof_rails:standard` z dwoma rekordami Expression oraz nie projektuje brakujących stanów między wersjami.
 
+### Bigster technical page-20 unresolved review — chunk 1
+
+Komenda `bigster-technical-page20-unresolved-review-chunk1` przegląda pierwsze 40 kandydatów z `residual_gap_016`:
+
+```bash
+python tools/dkb.py bigster-technical-page20-unresolved-review-chunk1
+python tools/dkb.py bigster-technical-page20-unresolved-review-chunk1 --verify
+```
+
+Pakiet odtwarza wizualny układ czterech kolumn napędowych i 18 grup wierszy. Szesnaście kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 24 nagłówki i zawinięte fragmenty są `context_only_non_import`. Wartości widoczne w źródle są zapisane wyłącznie jako ustalenia przeglądu, bez zgody na import; fragmenty tylnych hamulców odsyłają do wcześniejszej decyzji `residual_gap_001`. Przegląd pięciu ostatnich pakietów nie wymagał nowej decyzji architektonicznej ani osobnego PR-a audytowego.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1517 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1542 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

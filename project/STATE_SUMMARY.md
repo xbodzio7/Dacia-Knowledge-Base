@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Equipment Page 18 Ambiguity Review**
+**Bigster Technical Page 20 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1517
+- Tests: 1542
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Equipment Page 18 Ambiguity Review** — `complete`
+**Bigster Technical Page 20 Unresolved Review — Chunk 1** — `complete`
 
-Review the 1 ambiguous roof-rails candidate from Sandero Stepway brochure page 18 while preserving the separate plain and modular roof-rail rows and all attached evidence.
+Review the first 40 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and the prior rear-brake decision.
 
 ## Next package
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 1** — `planned`
+**Bigster Technical Page 20 Unresolved Review — Chunk 2** — `planned`
 
-Review chunk 1 of the 40 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications.
+Review chunk 2 of the remaining 29 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications.
 
 ## Autonomy
 

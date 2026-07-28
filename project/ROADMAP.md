@@ -134,11 +134,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd pojedynczego kandydata kamery cofania Sandero ze strony 18, z 1 odroczonym konfliktem stanu Expression między broszurą i cennikiem a późniejszą stroną oficjalną, obiema sygnaturami i 4 rekordami oraz zachowaniem odrębnego stanu Journey,
 - autorski przegląd pojedynczego wspólnego wiersza regulatora i ogranicznika prędkości Sandero ze strony 19, z 1 pokrytą decyzją, obiema standardowymi sygnaturami i 4 rekordami oraz zachowaniem dwóch odrębnych atrybutów i trzech seryjnych stanów wersji,
 - autorski przegląd pojedynczego kandydata relingów dachowych Sandero Stepway ze strony 18, z 1 pokrytą decyzją, 1 wybraną sygnaturą i rekordem zwykłych relingów oraz 1 zachowaną i jawnie odrzuconą sygnaturą relingów modułowych z 2 rekordami sąsiedniego wiersza,
+- autorski przegląd pierwszych 40 nierozstrzygniętych kandydatów tabel technicznych Bigstera ze strony 20, z 16 błędami niedopasowania sygnatury, 24 fragmentami kontekstowymi, 18 wizualnymi grupami wierszy, zerem przypiętych dowodów oraz odwołaniem do wcześniejszej decyzji dotyczącej tylnych hamulców,
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1517 testów automatycznych,
+- 1542 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
