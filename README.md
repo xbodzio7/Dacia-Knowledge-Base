@@ -282,6 +282,7 @@ Dostępne komendy:
 | `jogger-technical-page19-ambiguity-review` | Autorski przegląd 16 niejednoznacznych fragmentów tabeli technicznej Joggera |
 | `duster-mini-technical-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych fragmentów tabeli technicznej minibroszury Dustera |
 | `duster-mini-technical-page21-ambiguity-review` | Autorski przegląd niejednoznacznego wiersza układu kierowniczego Dustera ze strony 21 |
+| `duster-mini-equipment-page23-ambiguity-review` | Autorski przegląd 26 niejednoznacznych kandydatów wyposażenia Dustera ze strony 23 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -618,6 +619,18 @@ python tools/dkb.py duster-mini-technical-page21-ambiguity-review --verify
 ```
 
 Kandydat pozostaje częściowo pokryty. Wybrano wyłącznie sygnaturę elektrycznego wspomagania układu kierowniczego z 3 rekordami Hybrid 155. Średnica zawracania, hamulce, opony, masa własna i ładowność należą do innych wierszy i nie są podstawiane. Identyczna wartość w kolumnie Hybrid-G 150 4×4 pozostaje faktem źródłowym bez przypiętych rekordów. `data/master` i `data/imports` nie są zmieniane.
+
+
+### Autorski przegląd wyposażenia Duster Mini — strona 23
+
+Komenda `duster-mini-equipment-page23-ambiguity-review` rozstrzyga 26 kandydatów z `residual_gap_007` na podstawie wizualnego układu macierzy oraz dokładnie przypiętych dowodów:
+
+```bash
+python tools/dkb.py duster-mini-equipment-page23-ambiguity-review
+python tools/dkb.py duster-mini-equipment-page23-ambiguity-review --verify
+```
+
+Sześć pełnych wierszy jest pokrytych, a 20 fragmentów wielowierszowych pozostaje częściowo pokrytych. Wybrano 43 sygnatury i 518 rekordów. Symbole `•`, `¤` i `-` zachowują znaczenie standardu, opcji i niedostępności; element pakietu nie staje się wyposażeniem standardowym. Dowody `one_touch_windows`, regulacji lędźwiowej, zwykłego regulatora prędkości i innych sąsiednich atrybutów nie są podstawiane do analizowanych wierszy. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1124,7 +1137,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1292 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1317 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
