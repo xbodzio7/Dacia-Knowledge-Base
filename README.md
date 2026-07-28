@@ -286,6 +286,7 @@ Dostępne komendy:
 | `duster-mini-equipment-page22-ambiguity-review` | Autorski przegląd 11 niejednoznacznych kandydatów wyposażenia Dustera ze strony 22 |
 | `bigster-equipment-page22-ambiguity-review` | Autorski przegląd 7 niejednoznacznych kandydatów wyposażenia Bigstera ze strony 22 |
 | `jogger-equipment-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych kandydatów wyposażenia Joggera ze strony 20 |
+| `bigster-equipment-page21-ambiguity-review` | Autorski przegląd kandydata panoramicznego dachu Bigstera ze strony 21 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -667,6 +668,17 @@ python tools/dkb.py jogger-equipment-page20-ambiguity-review --verify
 ```
 
 Trzy fragmenty wielowierszowych opisów są częściowo pokryte. Końcowa klauzula o dezaktywacji poduszki pasażera pozostaje kontekstem bez importu, ponieważ przypięte sygnatury opisują wyłącznie obecność poduszek. Pełny wiersz kamery cofania pozostaje odroczonym konfliktem: broszura z 17.12.2025 oznacza Journey jako niedostępne, a cennik z 01.04.2026 zawiera Journey jako standard. Zachowano 8 sygnatur i 154 rekordy bez automatycznego rozstrzygnięcia konfliktu. `data/master` i `data/imports` nie są zmieniane.
+
+### Autorski przegląd wyposażenia Bigster — strona 21
+
+Komenda `bigster-equipment-page21-ambiguity-review` rozstrzyga pojedynczy kandydat z `residual_gap_011`:
+
+```bash
+python tools/dkb.py bigster-equipment-page21-ambiguity-review
+python tools/dkb.py bigster-equipment-page21-ambiguity-review --verify
+```
+
+Kompletny wiersz otwieranego panoramicznego dachu jest pokryty wszystkimi 3 sygnaturami i 14 rekordami. Essential i Expression pozostają niedostępne, Journey opcjonalne, a Extreme standardowe. Symbol opcji Journey nie jest przepisywany jako standard ani zatwierdzenie importu. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1173,7 +1185,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1392 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1417 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
