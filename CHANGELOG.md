@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of the single ambiguous Duster mini-brochure page-21 steering row: one valid steering-type signature with three Hybrid 155 records, explicit rejection of six adjacent-row signatures, and no master-data or approved import-spec changes.
 * Added an authored review of all 4 ambiguous Sandero Stepway page-17 technical-table candidates: 3 partially covered and 1 unresolved cross-row signature mismatch, selecting 5 exact signatures and 15 records while preserving steering, minimum/maximum kerb-mass and TCe/Eco-G boundaries without master-data or import-spec changes.
 * Added an authored review of all 5 ambiguous Sandero page-17 technical-table candidates: all remain partially covered, selecting 8 exact signatures and 16 records while preserving unattached TCe/manual values and gross-vehicle/gross-train row boundaries without master-data or import-spec changes.
 * Added an authored review of all 5 ambiguous Duster mini-brochure page-20 technical-table candidates: 3 covered and 2 partially covered, selecting 9 exact signatures and 34 records while preserving page-21 Hybrid 155 and adjacent-candidate evidence as non-substitutable and making no master-data or import-spec changes.
@@ -287,7 +288,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1267 tests.
+* The automated test suite now contains 1292 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
