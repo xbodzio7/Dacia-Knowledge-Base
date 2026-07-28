@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Equipment Page 20 Ambiguity Review",
+  "phase": "Bigster Equipment Page 21 Ambiguity Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1392,
+    "tests": 1417,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Equipment Page 20 Ambiguity Review",
+    "name": "Bigster Equipment Page 21 Ambiguity Review",
     "status": "complete",
-    "goal": "Review all 5 ambiguous equipment candidates from Jogger brochure page 20 while preserving ESC/HSA and front-airbag row boundaries, the unattached passenger-airbag deactivation clause and the brochure-versus-price-list rear-camera conflict."
+    "goal": "Review the single ambiguous panoramic-roof candidate from Bigster brochure page 21 while preserving unavailable, optional and standard trim states as non-substitutable."
   },
   "next_package": {
-    "name": "Bigster Equipment Page 21 Ambiguity Review",
+    "name": "Jogger Equipment Page 21 Ambiguity Review",
     "status": "planned",
-    "goal": "Review the 1 ambiguous equipment candidate from Bigster brochure page 21 against its 3 preserved evidence signatures without creating master-data rows or approved import specifications."
+    "goal": "Review the 1 ambiguous equipment candidate from Jogger brochure page 21 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
