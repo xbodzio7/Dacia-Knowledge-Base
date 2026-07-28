@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Mini Technical Page 21 Ambiguity Review",
+  "phase": "Duster Mini Equipment Page 23 Ambiguity Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1292,
+    "tests": 1317,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Mini Technical Page 21 Ambiguity Review",
+    "name": "Duster Mini Equipment Page 23 Ambiguity Review",
     "status": "complete",
-    "goal": "Review the 1 ambiguous steering candidate from Duster mini-brochure page 21 while preserving steering-type, turning-circle, brake, tyre, mass, payload and powertrain boundaries as non-substitutable."
+    "goal": "Review all 26 ambiguous equipment candidates from Duster mini-brochure page 23 while preserving trim columns, multi-line rows and standard, optional and unavailable symbols as non-substitutable."
   },
   "next_package": {
-    "name": "Duster Mini Equipment Page 23 Ambiguity Review",
+    "name": "Duster Mini Equipment Page 22 Ambiguity Review",
     "status": "planned",
-    "goal": "Review the 26 ambiguous equipment candidates from Duster mini-brochure page 23 against their 61 preserved evidence signatures without creating master-data rows or approved import specifications."
+    "goal": "Review the 11 ambiguous equipment candidates from Duster mini-brochure page 22 against their 27 preserved evidence signatures without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
