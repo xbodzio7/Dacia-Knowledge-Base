@@ -33,6 +33,11 @@ SCRIPT_COMMANDS = {
         "Prioritize ambiguous and unresolved verified-PDF candidates into bounded review packages.",
         "[--reconciliation FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "bigster-technical-page20-ambiguity-review": (
+        "bigster_technical_page20_ambiguity_review.py",
+        "Review the highest-priority Bigster page-20 ambiguity package against exact evidence.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

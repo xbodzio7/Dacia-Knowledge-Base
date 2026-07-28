@@ -20,7 +20,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1138 testów automatycznych zakończonych powodzeniem,
+- 1163 testów automatycznych zakończonych powodzeniem,
 - 46 pliki CSV w `data/master`,
 - 11092 rekordów danych,
 - 51 relacje między tabelami,
@@ -46,9 +46,13 @@ Bieżąca kolejka obejmuje dokładnie 1 266 kandydatów zachowanych przez
 `verified_pdf_candidate_coverage_reconciliation.json`: 108 `ambiguous` i
 1 158 `unresolved`. Są przypisane dokładnie raz do 52 paczek ograniczonych
 przez źródło, domenę, stronę i status, po najwyżej 40 kandydatów. Priorytet nie
-jest zgodą na import. Następny pakiet przegląda 23 niejednoznaczne wiersze
-techniczne z 20. strony broszury Bigster i musi zachować identyfikatory,
-dokładny tekst oraz proweniencję dowodów.
+jest zgodą na import.
+
+Paczka `residual_gap_001` została przejrzana autorsko. Wszystkie 23 fragmenty
+strony 20 broszury Bigster mają jawne decyzje: 9 pokrytych, 3 częściowo
+pokryte, 7 kontekstowych nie-importów, 2 zachowane odroczenia Hybrid-G 150 i
+2 niezgodności sygnatur między atrybutami. Następna paczka obejmuje 16
+niejednoznacznych kandydatów technicznych ze strony 19 broszury Jogger.
 
 ## Working Mode
 
