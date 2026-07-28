@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added a complete review partition for all 4,256 verified PDF candidates: 30 source/page-bounded evidence decisions, 60 exact-text anchors, zero unassigned candidates and zero duplicate assignments, while preserving a strict no-import boundary.
 * Added a receipt-verified PDF candidate ledger for five official brochures and all 114 declared pages, producing 4,256 stable source/page/backend/line-span candidates plus deterministic JSON and Markdown artifacts without creating master-data rows or approved import specifications.
 * Added 18 scalar and 58 closed-range historical Jogger brochure observations: exact five-/seven-seat hybrid 155 acceleration, neutral source-stated 1.4 kWh battery capacity, the hybrid combustion-engine power point, and fuel-preserving maximum-power/torque engine-speed intervals across all 22 configurations, while retaining later MY26 observations as current.
 * Imported 48 exact gross-train and unbraked-trailer mass observations from the official Bigster and Duster brochures across 24 active configurations, preserving exact powertrain boundaries and retaining newer Duster Eco-G 120 automatic homologation evidence.
@@ -279,7 +280,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1086 tests.
+* The automated test suite now contains 1100 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.

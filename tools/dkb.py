@@ -18,6 +18,11 @@ SCRIPT_COMMANDS = {
         "Build or verify deterministic candidate-only artifacts for registered PDF brochures.",
         "[--receipt FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "pdf-candidate-ledger-review": (
+        "verified_pdf_candidate_ledger_review.py",
+        "Build or verify the source-bounded evidence-decision review of the PDF candidate ledger.",
+        "[--ledger FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",

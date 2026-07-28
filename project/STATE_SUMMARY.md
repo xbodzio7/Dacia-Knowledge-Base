@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Verified PDF Candidate Ledger Foundation**
+**Verified PDF Candidate Ledger Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1086
+- Tests: 1100
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified PDF Candidate Ledger Foundation** — `complete`
+**Verified PDF Candidate Ledger Review** — `complete`
 
-Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications.
+Review the source-bounded ledger and group every candidate span into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports.
 
 ## Next package
 
-**Verified PDF Candidate Ledger Review** — `planned`
+**Verified PDF Candidate Coverage Reconciliation** — `planned`
 
-Review the source-bounded ledger and group candidate spans into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports.
+Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports.
 
 ## Autonomy
 
