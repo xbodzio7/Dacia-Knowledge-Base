@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-27
+- State updated: 2026-07-28
 
 ## Phase
 
-**Source-Bounded Sandero and Stepway Catalogue Completion**
+**Verified PDF Candidate Ledger Foundation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1071
+- Tests: 1086
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Source-Bounded Sandero and Stepway Catalogue Completion** — `complete`
+**Verified PDF Candidate Ledger Foundation** — `complete`
 
-Complete the source-bounded Polish MY26 Sandero TCe 100 and Sandero Stepway TCe 110 catalogue from registered official price-list and brochure slices; add exact configurations, prices, technical observations, equipment states and cargo contexts; preserve historical release receipts; and cache official model media locally with conditional refresh and offline reuse.
+Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications.
 
 ## Next package
 
-**Verified PDF Candidate Ledger Foundation** — `planned`
+**Verified PDF Candidate Ledger Review** — `planned`
 
-Implement the receipt-driven pdf-candidate-ledger command and deterministic JSON and Markdown candidate artifacts for the five registered official brochures, preserving source, page, backend and span provenance while creating no master-data rows or approved import specifications.
+Review the source-bounded ledger and group candidate spans into separately authored evidence decisions, preserving candidate IDs and exact text without creating imports.
 
 ## Autonomy
 

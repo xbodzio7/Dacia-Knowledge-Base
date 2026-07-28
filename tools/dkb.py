@@ -13,6 +13,11 @@ from reporting.entity_catalog import generate_entity_catalog
 
 
 SCRIPT_COMMANDS = {
+    "pdf-candidate-ledger": (
+        "pdf_candidate_ledger.py",
+        "Build or verify deterministic candidate-only artifacts for registered PDF brochures.",
+        "[--receipt FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "model-media-cache": (
         "cache_model_media.py",
         "Refresh or verify the repository-local official model image cache.",
