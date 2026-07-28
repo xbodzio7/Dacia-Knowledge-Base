@@ -120,11 +120,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - wersjonowany workflow publikacji pakietów,
 - kanoniczny `project/state.json`, automatyczna synchronizacja dokumentacji i polityka `ACTION_REQUIRED`.
 - źródłowy katalog, wyposażenie, oferty handlowe i techniczne specyfikacje Bigster MY26 dla 14 konfiguracji.
+- deterministyczna kolejka 52 małych paczek przeglądu dla 1 266 niejednoznacznych i nierozstrzygniętych kandydatów PDF, z zachowaniem źródła, strony, tekstu i dowodów oraz bez automatycznej promocji.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1117 testów automatycznych,
+- 1138 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

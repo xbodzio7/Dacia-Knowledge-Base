@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Verified PDF Candidate Coverage Reconciliation**
+**Verified PDF Candidate Residual Gap Prioritization**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1117
+- Tests: 1138
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified PDF Candidate Coverage Reconciliation** — `complete`
+**Verified PDF Candidate Residual Gap Prioritization** — `complete`
 
-Reconcile reviewed technical and equipment candidate groups against current exact source-backed observations and availability records, classifying candidate IDs as already covered, unresolved, ambiguous or explicit non-import without creating imports.
+Partition every ambiguous and unresolved verified PDF candidate exactly once into deterministic source-, domain-, page- and status-bounded review packages without creating master-data rows or approved import specifications.
 
 ## Next package
 
-**Verified PDF Candidate Residual Gap Prioritization** — `planned`
+**Bigster Technical Page 20 Ambiguity Review** — `planned`
 
-Prioritize unresolved and ambiguous candidate IDs into small source- and page-bounded residual review packages, without creating master-data rows or approved import specifications.
+Review the 23 highest-priority ambiguous technical candidates from Bigster brochure page 20 against their preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
