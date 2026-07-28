@@ -289,6 +289,7 @@ Dostępne komendy:
 | `bigster-equipment-page21-ambiguity-review` | Autorski przegląd kandydata panoramicznego dachu Bigstera ze strony 21 |
 | `jogger-equipment-page21-ambiguity-review` | Autorski przegląd kandydata podgrzewanej kierownicy Joggera ze strony 21 |
 | `sandero-equipment-page18-ambiguity-review` | Autorski przegląd kandydata kamery cofania Sandero ze strony 18 |
+| `sandero-equipment-page19-ambiguity-review` | Autorski przegląd wspólnego wiersza regulatora i ogranicznika prędkości Sandero ze strony 19 |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
 | `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
@@ -1209,8 +1210,19 @@ python tools/dkb.py sandero-equipment-page18-ambiguity-review --verify
 
 Broszura zachowuje trzy odrębne stany kamery cofania: Essential — niedostępna, Expression — opcja, Journey — standard. Cennik nadal potwierdza opcję dla Expression manual, natomiast późniejsza oficjalna strona wersji oznacza kamerę jako seryjną dla Expression manual i automatic. Konflikt pozostaje jawny i nie jest zgodą na import.
 
+### Sandero equipment page-19 ambiguity review
+
+Komenda `sandero-equipment-page19-ambiguity-review` rozstrzyga pojedynczy kandydat z `residual_gap_014`:
+
+```bash
+python tools/dkb.py sandero-equipment-page19-ambiguity-review
+python tools/dkb.py sandero-equipment-page19-ambiguity-review --verify
+```
+
+Broszura drukuje jeden kompletny wiersz regulatora i ogranicznika prędkości, oba seryjne w Essential, Expression i Journey. Pakiet zachowuje `cruise_control` i `speed_limiter` jako dwa odrębne atrybuty, obie przypięte sygnatury oraz wszystkie 4 dokładne rekordy; nie projektuje brakujących rekordów na Essential i nie zatwierdza importu.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1467 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1492 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

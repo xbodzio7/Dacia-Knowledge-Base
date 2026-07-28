@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an authored review of the single ambiguous Sandero brochure page-19 combined cruise-control and speed-limiter candidate: 1 covered decision, both attached standard signatures and all 4 exact records, preserving all three standard trim markers without master-data or approved import changes.
 * Added an authored review of the single ambiguous Sandero brochure page-18 rear-view-camera candidate: one deferred brochure/price-list-versus-later-official-web Expression conflict, both attached signatures and all 4 exact records, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Jogger brochure page-21 heated-steering-wheel candidate: one deferred brochure-versus-price-list Journey conflict, both attached signatures and all 30 exact records, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Bigster brochure page-21 panoramic-roof candidate: 1 covered decision, all 3 attached signatures and 14 exact records, preserving unavailable, optional and standard trim states without master-data or approved import changes.
@@ -295,7 +296,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1467 tests.
+* The automated test suite now contains 1492 tests.
 * The verified master-data baseline now contains 46 CSV files and 11092 rows.
 * SQLite verification now covers 46 tables and 11092 rows.
 * Configuration attribute values now contain 3267 dated records.
