@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "kind": "sandero_equipment_page19_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_014",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 19,
+    "review_basis": "authored visual review of the archived page-19 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "model_code": "sandero_iii",
+    "domain": "equipment_matrix",
+    "page": 19,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "covered": 1
+    },
+    "selected_evidence_signature_count": 2,
+    "selected_evidence_record_count": 4,
+    "rejected_attached_signature_count": 0,
+    "rejected_attached_record_count": 0,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "95fc01e2757ac30f1c2f3a5f43cc0b52f65e6097240d2179401eac2b2a17b32c",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 19,
+      "line_start": 20,
+      "line_end": 20,
+      "exact_text": "Regulator i ogranicznik prędkości                                       •           •           •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete combined speed-limiter and cruise-control row",
+      "source_availability": {
+        "essential": "standard",
+        "expression": "standard",
+        "journey": "standard"
+      },
+      "rationale": "The 2026-02-02 brochure prints one complete combined row for cruise control and the speed limiter, with both functions standard in Essential, Expression and Journey. The two attached signatures preserve these as distinct attributes, while the four exact Expression and Journey vehicle-sheet records confirm the standard state without substituting either function for the other. The candidate is covered as an authored review only and does not approve an import or project values between configurations.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 4,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "cruise_control",
+            "availability_status": "standard"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_expression_ecog120_manual_cruise_control_20260626",
+              "configuration_code": "sandero_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+              "source_page": 3,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_journey_ecog120_manual_cruise_control_20260626",
+              "configuration_code": "sandero_iii_journey_ecog120_manual",
+              "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "speed_limiter",
+            "availability_status": "standard"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_expression_ecog120_manual_speed_limiter_20260626",
+              "configuration_code": "sandero_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+              "source_page": 3,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_journey_ecog120_manual_speed_limiter_20260626",
+              "configuration_code": "sandero_iii_journey_ecog120_manual",
+              "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "complete_row_trim_states_are_preserved": true,
+    "combined_row_maps_to_two_distinct_standard_attributes": true,
+    "essential_expression_and_journey_source_states_remain_standard": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Sandero Stepway Equipment Page 18 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous equipment candidate from Sandero Stepway brochure page 18 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

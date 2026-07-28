@@ -132,11 +132,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd 5 niejednoznacznych kandydatów wyposażenia Joggera ze strony 20, z 3 częściowo pokrytymi decyzjami, 1 kontekstem bez importu i 1 odroczonym konfliktem kamery, 8 sygnaturami i 154 rekordami oraz zachowaniem granic ESC/HSA i poduszek powietrznych,
 - autorski przegląd pojedynczego kandydata panoramicznego dachu Bigstera ze strony 21, z 1 pokrytą decyzją, wszystkimi 3 sygnaturami i 14 rekordami oraz zachowaniem stanów niedostępny, opcjonalny i standardowy,
 - autorski przegląd pojedynczego kandydata kamery cofania Sandero ze strony 18, z 1 odroczonym konfliktem stanu Expression między broszurą i cennikiem a późniejszą stroną oficjalną, obiema sygnaturami i 4 rekordami oraz zachowaniem odrębnego stanu Journey,
+- autorski przegląd pojedynczego wspólnego wiersza regulatora i ogranicznika prędkości Sandero ze strony 19, z 1 pokrytą decyzją, obiema standardowymi sygnaturami i 4 rekordami oraz zachowaniem dwóch odrębnych atrybutów i trzech seryjnych stanów wersji,
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1467 testów automatycznych,
+- 1492 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

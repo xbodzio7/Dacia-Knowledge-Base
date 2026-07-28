@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 18 Ambiguity Review**
+**Sandero Equipment Page 19 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1467
+- Tests: 1492
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 18 Ambiguity Review** — `complete`
+**Sandero Equipment Page 19 Ambiguity Review** — `complete`
 
-Review the 1 ambiguous rear-view-camera candidate from Sandero brochure page 18 while preserving the brochure and price-list versus later official-web Expression conflict and the distinct Journey standard state.
+Review the 1 ambiguous combined cruise-control and speed-limiter candidate from Sandero brochure page 19 while preserving both distinct standard signatures and all three standard trim states.
 
 ## Next package
 
-**Sandero Equipment Page 19 Ambiguity Review** — `planned`
+**Sandero Stepway Equipment Page 18 Ambiguity Review** — `planned`
 
-Review the 1 ambiguous equipment candidate from Sandero brochure page 19 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 1 ambiguous equipment candidate from Sandero Stepway brochure page 18 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
