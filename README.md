@@ -282,6 +282,7 @@ Dostępne komendy:
 | `jogger-technical-page19-ambiguity-review` | Autorski przegląd 16 niejednoznacznych fragmentów tabeli technicznej Joggera |
 | `duster-mini-technical-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych fragmentów tabeli technicznej minibroszury Dustera |
 | `sandero-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero ze strony 17 |
+| `sandero-stepway-technical-page17-ambiguity-review` | Autorski przegląd niejednoznacznych kandydatów technicznych Sandero Stepway ze strony 17 |
 | `configuration-gap-evidence` | Konserwatywna klasyfikacja dowodów dla luk konfiguracji |
 | `configuration-gap-triage` | Deterministyczna kolejka weryfikacji luk konfiguracji |
 | `source-coverage` | Raport rejestracji źródeł, sekcji i rekordów |
@@ -594,6 +595,17 @@ python tools/dkb.py sandero-technical-page17-ambiguity-review --verify
 ```
 
 Wszystkie 5 kandydatów pozostaje częściowo pokrytych. Wybrano 8 sygnatur i 16 rekordów: pary LPG/benzyna dla mocy i momentu automatu, dwie masy własne Eco-G oraz osobne masy pojazdu i zespołu pojazdów. Wartości TCe i manualnego Eco-G bez przypiętych rekordów pozostają faktami źródłowymi, a dowody `gross_vehicle_weight` i `gross_train_weight` nie są zamieniane między powtarzającymi się fragmentami etykiet. `data/master` i `data/imports` nie są zmieniane.
+
+### Autorski przegląd tabeli technicznej Sandero Stepway — strona 17
+
+Komenda `sandero-stepway-technical-page17-ambiguity-review` rozstrzyga 4 kandydatów z `residual_gap_005` na podstawie wizualnego układu tabeli i dokładnie przypiętych dowodów:
+
+```bash
+python tools/dkb.py sandero-stepway-technical-page17-ambiguity-review
+python tools/dkb.py sandero-stepway-technical-page17-ambiguity-review --verify
+```
+
+Trzy kandydaty są częściowo pokryte, a fragment linii 80 pozostaje nierozstrzygniętym błędem sygnatury. Wybrano 5 sygnatur i 15 rekordów: średnicę zawracania 10,64 m oraz masy 1225 i 1249 kg dla dwóch fragmentów maksymalnej masy własnej. Dowody zawieszenia, opon i mas nie są podstawiane do etykiety układu kierowniczego, a maksymalne masy nie są przenoszone do fragmentu minimalnej masy 1095/1194/1222 kg. `data/master` i `data/imports` nie są zmieniane.
 
 ### Przegląd stron źródłowych dla luk konfiguracji
 
@@ -1100,7 +1112,7 @@ python tools/import_bigster_technical_specifications.py --check
 ```
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1241 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1267 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza

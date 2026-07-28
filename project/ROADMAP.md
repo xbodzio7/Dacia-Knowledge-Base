@@ -124,11 +124,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd 23 niejednoznacznych fragmentów technicznej tabeli Bigstera ze strony 20, z 36 wybranymi sygnaturami, 143 rekordami dowodowymi, zachowanymi odroczeniami Hybrid-G 150 i jawnym zakazem podstawiania dowodów między atrybutami,
 - autorski przegląd 16 niejednoznacznych fragmentów tabeli Joggera ze strony 19, z 3 wybranymi sygnaturami, 28 rekordami oraz zachowanymi konfliktami etykiet mas i Hybrid 155.
 - autorski przegląd 5 niejednoznacznych fragmentów tabeli Sandero ze strony 17, z 8 wybranymi sygnaturami i 16 rekordami oraz zachowanymi granicami TCe/manual i masy pojazdu względem masy zespołu.
+- autorski przegląd 4 niejednoznacznych fragmentów tabeli Sandero Stepway ze strony 17, z 5 wybranymi sygnaturami i 15 rekordami oraz jawnym odrzuceniem dowodów między etykietą układu kierowniczego i sąsiednimi wierszami mas.
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1241 testów automatycznych,
+- 1267 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
