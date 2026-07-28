@@ -68,6 +68,11 @@ SCRIPT_COMMANDS = {
         "Review the Bigster brochure page-22 equipment ambiguity package against exact evidence.",
         "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "jogger-equipment-page20-ambiguity-review": (
+        "jogger_equipment_page20_ambiguity_review.py",
+        "Review the Jogger brochure page-20 equipment ambiguity package against exact evidence.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "sandero-technical-page17-ambiguity-review": (
         "sandero_technical_page17_ambiguity_review.py",
         "Review the Sandero page-17 ambiguity package against exact evidence and row boundaries.",

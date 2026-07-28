@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Equipment Page 22 Ambiguity Review**
+**Jogger Equipment Page 20 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1367
+- Tests: 1392
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Equipment Page 22 Ambiguity Review** — `complete`
+**Jogger Equipment Page 20 Ambiguity Review** — `complete`
 
-Review all 7 ambiguous equipment candidates from Bigster brochure page 22 while preserving climate, console and Winter-package row boundaries and trim states as non-substitutable.
+Review all 5 ambiguous equipment candidates from Jogger brochure page 20 while preserving ESC/HSA and front-airbag row boundaries, the unattached passenger-airbag deactivation clause and the brochure-versus-price-list rear-camera conflict.
 
 ## Next package
 
-**Jogger Equipment Page 20 Ambiguity Review** — `planned`
+**Bigster Equipment Page 21 Ambiguity Review** — `planned`
 
-Review the 5 ambiguous equipment candidates from Jogger brochure page 20 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 1 ambiguous equipment candidate from Bigster brochure page 21 against its 3 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 

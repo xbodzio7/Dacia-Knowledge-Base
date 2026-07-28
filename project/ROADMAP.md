@@ -129,11 +129,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd 26 niejednoznacznych kandydatów wyposażenia Dustera ze strony 23, z 6 pokrytymi i 20 częściowo pokrytymi decyzjami, 43 sygnaturami i 518 rekordami oraz zachowaniem symboli standardu, opcji, niedostępności i granic pakietów,
 - autorski przegląd 11 niejednoznacznych kandydatów wyposażenia Dustera ze strony 22, z 3 pokrytymi i 8 częściowo pokrytymi decyzjami, 23 sygnaturami i 524 rekordami oraz zachowaniem granic wierszy ESC/HSA, pasów bezpieczeństwa, zestawu wskaźników i czujników parkowania,
 - autorski przegląd 7 niejednoznacznych kandydatów wyposażenia Bigstera ze strony 22, z 3 pokrytymi i 4 częściowo pokrytymi decyzjami, wszystkimi 18 sygnaturami i 126 rekordami oraz zachowaniem granic klimatyzacji, konsol centralnych i pakietów zimowych,
+- autorski przegląd 5 niejednoznacznych kandydatów wyposażenia Joggera ze strony 20, z 3 częściowo pokrytymi decyzjami, 1 kontekstem bez importu i 1 odroczonym konfliktem kamery, 8 sygnaturami i 154 rekordami oraz zachowaniem granic ESC/HSA i poduszek powietrznych,
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1367 testów automatycznych,
+- 1392 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
