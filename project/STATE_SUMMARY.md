@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Technical Page 17 Ambiguity Review**
+**Sandero Stepway Technical Page 17 Ambiguity Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1241
+- Tests: 1267
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Technical Page 17 Ambiguity Review** — `complete`
+**Sandero Stepway Technical Page 17 Ambiguity Review** — `complete`
 
-Review all 5 ambiguous technical candidates from Sandero brochure page 17 while preserving unattached TCe/manual values and repeated gross-mass row boundaries as non-substitutable.
+Review all 4 ambiguous technical candidates from Sandero Stepway brochure page 17 while preserving steering, minimum/maximum kerb-mass and TCe/Eco-G boundaries as non-substitutable.
 
 ## Next package
 
-**Sandero Stepway Technical Page 17 Ambiguity Review** — `planned`
+**Duster Mini Technical Page 21 Ambiguity Review** — `planned`
 
-Review the 4 ambiguous technical candidates from the Sandero Stepway brochure page 17 against their 12 preserved evidence signatures without creating master-data rows or approved import specifications.
+Review the 1 ambiguous technical candidate from the Duster mini-brochure page 21 against its 7 preserved evidence signatures without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
