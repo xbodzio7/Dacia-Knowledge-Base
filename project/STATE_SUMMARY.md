@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 1**
+**Bigster Equipment Page 21 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 1** — `complete`
+**Bigster Equipment Page 21 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving four-grade availability columns, wrapped labels and zero attached evidence.
+Review the middle 40 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving four-grade states, repeated labels and zero attached evidence.
 
 ## Next package
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 2** — `planned`
+**Bigster Equipment Page 21 Unresolved Review — Chunk 3** — `planned`
 
-Review the next 40 of 107 unresolved Bigster brochure page-21 equipment candidates without creating master-data rows or approved import specifications.
+Review the final 27 of 107 unresolved Bigster brochure page-21 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
