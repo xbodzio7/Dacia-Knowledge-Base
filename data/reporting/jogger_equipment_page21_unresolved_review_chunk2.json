@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page21_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_046",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 32,
+    "group_candidate_count": 72,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 8,
+    "decision_counts": {
+      "context_only_non_import": 24,
+      "unresolved_signature_mismatch": 8
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_equipment_page21_unresolved_review_chunk2.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "remaining comfort equipment",
+      "multimedia systems",
+      "availability legend"
+    ],
+    "third_row_window_multiline_states_preserved": true,
+    "multimedia_system_rows_kept_separate": true,
+    "availability_legend_non_import": true,
+    "literal_markers_preserved": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_and_qualifier_lines_kept_with_visual_rows": true,
+    "legend_not_promoted_to_equipment": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_047",
+    "candidate_count": 40,
+    "group_candidate_count": 70,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}
