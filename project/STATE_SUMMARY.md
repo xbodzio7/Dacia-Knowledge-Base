@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1**
+**Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1** — `complete`
+**Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence.
+Review the final 30 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Next package
 
-**Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 2** — `planned`
+**Bigster Equipment Page 22 Unresolved Review — Chunk 1** — `planned`
 
-Review the final 30 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates without creating master-data rows or approved import specifications.
+Review the first 40 of 69 unresolved Bigster brochure page-22 equipment candidates while preserving source visual rows and zero attached evidence.
 
 ## Autonomy
 
