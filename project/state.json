@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Equipment Page 21 Unresolved Review — Chunk 2",
+  "phase": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Equipment Page 21 Unresolved Review — Chunk 2",
+    "name": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1",
     "status": "complete",
-    "goal": "Review the final 32 of 72 unresolved Jogger brochure page-21 equipment candidates without creating master-data rows or approved import specifications."
+    "goal": "Review the first 40 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence."
   },
   "next_package": {
-    "name": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 1",
+    "name": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 2",
     "status": "planned",
-    "goal": "Review the first 40 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence."
+    "goal": "Review the final 30 of 70 unresolved Sandero Stepway brochure page-19 equipment candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
