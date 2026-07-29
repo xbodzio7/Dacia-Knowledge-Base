@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Technical Page 17 Unresolved Review — Chunk 2**
+**Bigster Equipment Page 21 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Technical Page 17 Unresolved Review — Chunk 2** — `complete`
+**Bigster Equipment Page 21 Unresolved Review — Chunk 1** — `complete`
 
-Review the final unresolved Sandero brochure page-17 technical candidate as measurement-method footnote context without creating master-data rows or approved import specifications.
+Review the first 40 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving four-grade availability columns, wrapped labels and zero attached evidence.
 
 ## Next package
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 1** — `planned`
+**Bigster Equipment Page 21 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving four-grade availability columns, wrapped labels and zero attached evidence.
+Review the next 40 of 107 unresolved Bigster brochure page-21 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
