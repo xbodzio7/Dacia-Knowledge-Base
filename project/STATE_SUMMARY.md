@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 2**
+**Duster Mini Technical Page 21 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 2** — `complete`
+**Duster Mini Technical Page 21 Unresolved Review — Chunk 1** — `complete`
 
-Review the remaining 29 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and literal source-value order.
+Review the first 40 unresolved Duster mini-brochure page-21 technical candidates by visual row boundaries while preserving zero attached evidence and non-import source findings.
 
 ## Next package
 
-**Duster Mini Technical Page 21 Unresolved Review — Chunk 1** — `planned`
+**Duster Mini Technical Page 21 Unresolved Review — Chunk 2** — `planned`
 
-Review the first bounded chunk of unresolved Duster mini-brochure page-21 technical candidates without creating master-data rows or approved import specifications.
+Review the remaining 21 unresolved Duster mini-brochure page-21 technical candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
