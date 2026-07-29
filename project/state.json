@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1",
+  "phase": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1",
+    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2",
     "status": "complete",
-    "goal": "Review the first 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates while preserving three-grade order, wrapped colour and material values and zero attached evidence."
+    "goal": "Review the middle 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates while preserving three-grade states, multi-line safety rows and zero attached evidence."
   },
   "next_package": {
-    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2",
+    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 3",
     "status": "planned",
-    "goal": "Review the middle 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications."
+    "goal": "Review the final 17 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
