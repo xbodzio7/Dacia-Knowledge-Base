@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Equipment Page 22 Unresolved Review — Chunk 1**
+**Bigster Equipment Page 22 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Equipment Page 22 Unresolved Review — Chunk 1** — `complete`
+**Bigster Equipment Page 22 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 69 unresolved Bigster brochure page-22 equipment candidates while preserving source visual rows and zero attached evidence.
+Review the final 29 of 69 unresolved Bigster brochure page-22 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Next package
 
-**Bigster Equipment Page 22 Unresolved Review — Chunk 2** — `planned`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `planned`
 
-Review the final 29 of 69 unresolved Bigster brochure page-22 equipment candidates without creating master-data rows or approved import specifications.
+Review the first 40 of 65 unresolved Sandero brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence.
 
 ## Autonomy
 
