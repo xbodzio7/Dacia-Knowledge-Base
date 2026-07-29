@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_technical_page17_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_023",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 17
+  },
+  "scope": {
+    "candidate_count": 9,
+    "group_candidate_count": 49,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 4,
+    "decision_counts": {
+      "context_only_non_import": 9,
+      "unresolved_signature_mismatch": 0
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_stepway_technical_page17_unresolved_review_chunk2.md"
+  },
+  "prior_chunk_reference": {
+    "report_path": "data/reporting/sandero_stepway_technical_page17_unresolved_review_chunk1.json",
+    "package_id": "residual_gap_022",
+    "status": "complete",
+    "candidate_count": 40,
+    "group_candidate_count": 49,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0
+  },
+  "key_source_boundaries": {
+    "mass_columns": [
+      "TCe 110",
+      "120 Eco-G",
+      "120 Eco-G auto"
+    ],
+    "minimum_ready_mass_kg": [
+      "1095",
+      "1194",
+      "1222"
+    ],
+    "maximum_ready_mass_kg": [
+      "1149",
+      "1225",
+      "1249"
+    ],
+    "gross_combination_mass_kg": [
+      "2685",
+      "2760",
+      "2785"
+    ],
+    "gross_vehicle_mass_kg": [
+      "1585",
+      "1660",
+      "1685"
+    ],
+    "maximum_braked_trailer_mass_kg": [
+      "1100",
+      "1100",
+      "1100"
+    ],
+    "candidate_value_lines_present": false,
+    "mass_values_recorded_as_review_context_only": true,
+    "wltp_footnote_not_promoted": true
+  },
+  "milestone_review": {
+    "packages_since_previous_milestone": 5,
+    "packages": [
+      "Duster Mini Technical Page 21 Unresolved Review — Chunk 1",
+      "Duster Mini Technical Page 21 Unresolved Review — Chunk 2",
+      "Duster Mini Technical Page 20 Unresolved Review — Chunk 1",
+      "Duster Mini Technical Page 20 Unresolved Review — Chunk 2",
+      "Sandero Stepway Technical Page 17 Unresolved Review — Chunk 1"
+    ],
+    "new_architecture_decision_required": false,
+    "review_only_pull_request_required": false,
+    "conclusion": "The five-package interval preserved the established authored-review, zero-evidence and no-import boundaries without introducing a new domain, schema or architecture decision."
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "label_fragments_not_promoted": true,
+    "value_lines_outside_candidate_chunk_not_promoted": true,
+    "footnotes_not_promoted_to_observations": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Technical Page 19 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_024",
+    "candidate_count": 40,
+    "group_candidate_count": 43,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}
