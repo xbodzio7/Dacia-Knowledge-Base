@@ -1,0 +1,779 @@
+{
+  "version": 1,
+  "kind": "bigster_technical_page20_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_017",
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 20,
+    "review_basis": "authored visual review of the archived page-20 four-column technical table"
+  },
+  "scope": {
+    "candidate_count": 29,
+    "group_candidate_count": 69,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "model_code": "bigster",
+    "domain": "technical_tables",
+    "page": 20,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "source_page_layout": {
+    "table_type": "four-column technical specification table",
+    "powertrain_columns": [
+      "mild_hybrid_g_140",
+      "mild_hybrid_140",
+      "hybrid_g_150_4x4",
+      "hybrid_155"
+    ],
+    "column_labels": {
+      "mild_hybrid_g_140": "MILD HYBRID-G 140",
+      "mild_hybrid_140": "MILD HYBRID 140",
+      "hybrid_g_150_4x4": "HYBRID-G 150 4×4",
+      "hybrid_155": "HYBRID 155"
+    },
+    "row_grouping_basis": "authored visual review; wrapped pdftotext lines, labels, footnotes and notes are grouped by alignment and source context"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "source_page_boundary_preserved": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "wrapped_lines_not_promoted_to_independent_observations": true,
+    "footnotes_and_notes_not_promoted_to_observations": true,
+    "zero_attached_evidence_preserved": true,
+    "source_facts_do_not_authorize_import": true,
+    "literal_source_values_preserved_without_invented_interpretation": true,
+    "prior_chunk_decisions_not_duplicated": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 29,
+    "logical_row_count": 16,
+    "decision_counts": {
+      "context_only_non_import": 21,
+      "unresolved_signature_mismatch": 8
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidates_with_source_facts": 8,
+    "candidates_without_source_facts": 21
+  },
+  "prior_chunk_reference": {
+    "report_path": "data/reporting/bigster_technical_page20_unresolved_review_chunk1.json",
+    "package_id": "residual_gap_016",
+    "status": "complete",
+    "candidate_count": 40,
+    "group_candidate_count": 69,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "reason": "Chunk 2 completes the same 69-candidate Bigster page-20 unresolved group without changing or reinterpreting the 40 decisions recorded in chunk 1."
+  },
+  "decisions": [
+    {
+      "candidate_id": "d46edaf25f33643101af3e65a29b0616f48f988f05524fa0736e8df431b91cd1",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 97,
+      "line_end": 97,
+      "exact_text": "Pojemność zbiornika (l)                LPG: 50 / Benzyna: 50       Benzyna: 50         LPG: 50 / Benzyna: 50          Benzyna: 50",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "fuel_tank_capacity",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "fuel_tank_capacity_l",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "LPG: 50",
+              "Benzyna: 50"
+            ],
+            "mild_hybrid_140": [
+              "Benzyna: 50"
+            ],
+            "hybrid_g_150_4x4": [
+              "LPG: 50",
+              "Benzyna: 50"
+            ],
+            "hybrid_155": [
+              "Benzyna: 50"
+            ]
+          },
+          "reason": "The row visibly distinguishes LPG and petrol tanks, but the package has no exact evidence signature and creates no approved observation."
+        }
+      ]
+    },
+    {
+      "candidate_id": "f3f2cee56c88bf0ded94562956bc9d76a2efc9132de59613b4e31551d901ec89",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 99,
+      "line_end": 99,
+      "exact_text": "Emisja CO₂ w cyklu mieszanym             Benzyna: 130/132",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "co2_emissions_combined",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "combined_cycle_co2_g_km",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "Benzyna: 130/132",
+              "LPG: 114/116"
+            ],
+            "mild_hybrid_140": [
+              "122/124"
+            ],
+            "hybrid_g_150_4x4": [
+              "134/117 (LPG)"
+            ],
+            "hybrid_155": [
+              "104/106"
+            ]
+          },
+          "reason": "The combined-cycle CO2 row and its fuel-specific continuations are visually legible, but zero attached signatures are preserved."
+        }
+      ]
+    },
+    {
+      "candidate_id": "37817c9ef40a2d6f4508c5a4bc78bf932491621fa47e9e42fbb0ef4b6cfee4e9",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 100,
+      "line_end": 100,
+      "exact_text": "                                                                     122/124                 134/117 (LPG)              104/106",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "co2_emissions_combined",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "2d1b7e18e22925b45956e1f09231c77bb3ff422a4ee4ab8894d3cca14911e246",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 101,
+      "line_end": 101,
+      "exact_text": "(g/km)                                     LPG: 114/116",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "co2_emissions_combined",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "c032e8a08459cdc00b18e91d4233ab4fa97f4f75662165d39b7a32d301976b6a",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 103,
+      "line_end": 103,
+      "exact_text": "Zużycie paliwa w cyklu                    Benzyna: 5,7/5,8",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "fuel_consumption_combined",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "combined_cycle_fuel_consumption_l_100km",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "Benzyna: 5,7/5,8",
+              "LPG: 7,0/7,1"
+            ],
+            "mild_hybrid_140": [
+              "5,4/5,5"
+            ],
+            "hybrid_g_150_4x4": [
+              "5,9/7,2 (LPG)"
+            ],
+            "hybrid_155": [
+              "4,6/4,7"
+            ]
+          },
+          "reason": "The combined-cycle consumption row is recorded literally as a review finding; no fuel projection or import approval is created."
+        }
+      ]
+    },
+    {
+      "candidate_id": "4ff4a60e40f9d71ed0baaede7a88918c89062c9f66735bd7be108de5a61012cd",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 104,
+      "line_end": 104,
+      "exact_text": "                                                                      5,4/5,5                5,9/7,2 (LPG)               4,6/4,7",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "fuel_consumption_combined",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "62b92041e43e442bf874d71ce9f0e52fc07b566c65889a21bb2841af5cd93d84",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 105,
+      "line_end": 105,
+      "exact_text": "mieszanym (l/100 km)                        LPG: 7,0/7,1",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "fuel_consumption_combined",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "eb790431e1cc475e2d79a08cf4adcee2d8e14f12e06718b094132b37b313bc6f",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 112,
+      "line_end": 112,
+      "exact_text": "zestawu",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "gross_combination_mass_label",
+      "row_role": "surrounding_row_label_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a surrounding row label without a complete value group in this chunk and is not promoted to data.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "ba798f2b000c07ed99dd763dffc4524cc5c734defeba0c6b7bdf431773427537",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 115,
+      "line_end": 115,
+      "exact_text": "pojazdu",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "gross_vehicle_mass_label",
+      "row_role": "surrounding_row_label_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a surrounding row label without a complete value group in this chunk and is not promoted to data.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "706cbcc8f77b270313501feeadf2672a2dcfaada8050b5f9579ec8cde167af07",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 116,
+      "line_end": 116,
+      "exact_text": "Ładowność min./maks.(4)                       452/521                451/540                   462/509                  453/521",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "payload",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "payload_min_max_kg",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "452/521"
+            ],
+            "mild_hybrid_140": [
+              "451/540"
+            ],
+            "hybrid_g_150_4x4": [
+              "462/509"
+            ],
+            "hybrid_155": [
+              "453/521"
+            ]
+          },
+          "reason": "The minimum/maximum payload values are visible in one row, but the unresolved package provides no supporting evidence signature."
+        }
+      ]
+    },
+    {
+      "candidate_id": "0090e32aff071699ec10ead237aaf8f8a90578b2ef0a2a01a0366f4b3ddda156",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 120,
+      "line_end": 120,
+      "exact_text": "z hamulcem",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "braked_trailer_mass_label",
+      "row_role": "surrounding_row_label_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a surrounding row label without a complete value group in this chunk and is not promoted to data.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "5e026ac71573a04d2c2ed40debd4d0ae3314d0efbc3e6de1edb9bea9822731af",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 124,
+      "line_end": 124,
+      "exact_text": "Pojemność bagażnika maks.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_vda_shelf",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "luggage_capacity_under_shelf_dm3_vda",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "609**"
+            ],
+            "mild_hybrid_140": [
+              "667 / 624"
+            ],
+            "hybrid_g_150_4x4": [
+              "444",
+              "nie ma zestawu naprawczego / koła zapasowego"
+            ],
+            "hybrid_155": [
+              "546 / 488"
+            ]
+          },
+          "reason": "VDA values and the printed equipment qualification remain literal source context; the review does not infer a configuration mapping."
+        }
+      ]
+    },
+    {
+      "candidate_id": "654b1f177e70f546f5aeaeb7611e461db885ba384e65fdba772fb34f904d7567",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 129,
+      "line_end": 129,
+      "exact_text": "Pojemność bagażnika maks.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_vda_folded",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "luggage_capacity_folded_rear_seat_dm3_vda",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "1877**"
+            ],
+            "mild_hybrid_140": [
+              "1937 / 1894"
+            ],
+            "hybrid_g_150_4x4": [
+              "1712"
+            ],
+            "hybrid_155": [
+              "1851 / 1791"
+            ]
+          },
+          "reason": "The folded-seat VDA capacities are legible, but no exact signature is attached and no approved import is generated."
+        }
+      ]
+    },
+    {
+      "candidate_id": "c696204d886334ed9ede53ef62601af4a13d768a940ce2fb62c09bb973b06a56",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 134,
+      "line_end": 134,
+      "exact_text": "Pojemność bagażnika maks.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_shelf",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "luggage_capacity_under_shelf_l",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "660**"
+            ],
+            "mild_hybrid_140": [
+              "702 / 681"
+            ],
+            "hybrid_g_150_4x4": [
+              "556",
+              "nie ma zestawu naprawczego / koła zapasowego"
+            ],
+            "hybrid_155": [
+              "612 / 566"
+            ]
+          },
+          "reason": "The litre values and printed equipment note are preserved exactly as review-only findings without reinterpretation."
+        }
+      ]
+    },
+    {
+      "candidate_id": "e8bac8018770ad5700a3c5264aadd581e0478ecb41ac72e1199bfd01d76e8f85",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 136,
+      "line_end": 136,
+      "exact_text": "                                               660**                 702 / 681          naprawczego / koła              612 / 566",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_shelf",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "4d253bd27ca96891c13a6d39d2eaf6edd9e588b433fb9d809ea47bc52d3c6812",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 138,
+      "line_end": 138,
+      "exact_text": "z kołem zapasowym (litry)",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_shelf",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "8a34087a01da7a65fd14364721c48d3d096cf4945fae31a9d340a90bbf6dba96",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 139,
+      "line_end": 139,
+      "exact_text": "Pojemność bagażnika maks.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_folded",
+      "row_role": "logical_row_anchor",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "The complete logical row is legible from the visual page layout, but this residual package contains no attached conservative evidence signature. The source fact is recorded for review only and does not approve an import.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "logical_attribute": "luggage_capacity_folded_rear_seat_l",
+          "values_by_powertrain": {
+            "mild_hybrid_g_140": [
+              "1960**"
+            ],
+            "mild_hybrid_140": [
+              "1960**",
+              "2002 / 1981"
+            ],
+            "hybrid_g_150_4x4": [
+              "1856"
+            ],
+            "hybrid_155": [
+              "1912 / 1866"
+            ]
+          },
+          "reason": "The printed sequence 1960** and 2002 / 1981 is preserved literally; the review does not invent which equipment state each value represents."
+        }
+      ]
+    },
+    {
+      "candidate_id": "e110da1c8e5e7e610b05d96bffe8e0ec4c995c7fb586a73edcfed7e8383cb829",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 141,
+      "line_end": 141,
+      "exact_text": "                                              1960**            1960** 2002 / 1981               1856                  1912 / 1866",
+      "candidate_kind": "table_row",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_folded",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "caf7989b8a2868a28ad8c5430aacbc2599eaeefc36450f68e34b4cc9559d890b",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 143,
+      "line_end": 143,
+      "exact_text": "z kołem zapasowym (litry)",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "luggage_liters_folded",
+      "row_role": "logical_row_fragment",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This line is a continuation or value fragment of the visually grouped logical row; it is not treated as a separate observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "8457614ebdada42125c9f74d03c121a0073bdc629b1e976ed8722ee471ec751a",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 149,
+      "line_end": 149,
+      "exact_text": "    Silniki benzynowe z filtrem cząstek stałych (FAP): aby ograniczyć emisję cząstek, nowe silniki benzynowe z bezpośrednim",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "particulate_filter_footnote",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "8f7a5919c9f97ea45ee8b1e7038138869ac9c9a8be7574bdf127aaa99df659a4",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 150,
+      "line_end": 150,
+      "exact_text": "wtryskiem paliwa wyposażone są obecnie w filtr cząstek stałych w układzie wydechowym. Filtr zatrzymuje cząstki obecne",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "particulate_filter_footnote",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "2772437a8b400e9ccbd061668cd76e2c94d45527cf2d4654bf1e2a1cf52ca4ff",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 151,
+      "line_end": 151,
+      "exact_text": "w spalinach, a następnie spala je poprzez automatyczną i bardzo regularną regenerację. Filtr cząstek stałych nie wymaga obsługi.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "particulate_filter_footnote",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "19388db4e52a601c94edcdeddd989f5eae51607a1bc5bd8783bcff171ba3334a",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 153,
+      "line_end": 153,
+      "exact_text": "    Zużycie paliwa i emisje homologowane zgodnie z obowiązującymi przepisami. (3) WLTP (Worldwide harmonized Light vehicles",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "homologation_payload_footnotes",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "d5349837f7f11bd75807719ab8142d51c6540e4d5493a647820b171184ef3600",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 154,
+      "line_end": 154,
+      "exact_text": "Test Procedures): ten nowy protokół pozwala uzyskać wyniki znacznie bliższe tym, które występują w codziennej eksploatacji,",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "homologation_payload_footnotes",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "ee1d6fdb632b416bd4e27b4ad721b245c46713d846e94c8ee1098f9dfa7ecaa7",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 155,
+      "line_end": 155,
+      "exact_text": "niż protokół NEDC. Emisja CO₂ jest homologowana zgodnie ze standardową i uregulowaną metodą. Identyczna dla wszystkich",
+      "candidate_kind": "availability_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "homologation_payload_footnotes",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "45c1548e0814df80bc781a411d195218f7c2555364e6e86a6feed04a849258c3",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 156,
+      "line_end": 156,
+      "exact_text": "producentów, umożliwia porównywanie pojazdów między sobą. (4) Podana ładowność dotyczy poziomu wyposażenia minimalnego.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "homologation_payload_footnotes",
+      "row_role": "footnote_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is source footnote context. It qualifies nearby printed values but is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "857d3aae30d2ca0dcf53e51b564cf819e624bcc9484cae9bc4f4cd51b07266ff",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 158,
+      "line_end": 158,
+      "exact_text": "    Zgodnie z normą ISO 3832.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "iso_3832_footnote",
+      "row_role": "source_note_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a source note preserved for interpretation boundaries; it is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "9df4673130aa0e7c2a268f2de727ff4e7a53338b3f0a90b285bd348d4012f623",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 160,
+      "line_end": 160,
+      "exact_text": "* Nie łączy się.",
+      "candidate_kind": "unclassified_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "incompatibility_note",
+      "row_role": "source_note_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a source note preserved for interpretation boundaries; it is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    },
+    {
+      "candidate_id": "eff1a4c5488c485d960a56525c6307588bc6fc9fb7217da6a79ef8e41e73df97",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "line_start": 161,
+      "line_end": 161,
+      "exact_text": "** Koło zapasowe niedostępne w wersji mild hybrid-G 140.",
+      "candidate_kind": "availability_text",
+      "input_coverage_status": "unresolved",
+      "logical_row": "spare_wheel_note",
+      "row_role": "source_note_context",
+      "authored_decision": "context_only_non_import",
+      "rationale": "This extracted line is a source note preserved for interpretation boundaries; it is not an independent observation.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": []
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "wrapped_fragments_footnotes_and_notes_are_context_only": true,
+    "clear_source_rows_without_signatures_remain_unresolved": true,
+    "printed_slashes_asterisks_and_value_order_are_preserved": true,
+    "source_values_are_not_projected_to_configurations": true,
+    "chunk_1_decisions_remain_unchanged": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Duster Mini Technical Page 21 Unresolved Review — Chunk 1",
+    "status": "planned",
+    "goal": "Review the first bounded chunk of unresolved Duster mini-brochure page-21 technical candidates without creating master-data rows or approved import specifications."
+  }
+}

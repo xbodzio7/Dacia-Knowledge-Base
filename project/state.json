@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-28",
+  "updated_on": "2026-07-29",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Technical Page 20 Unresolved Review — Chunk 1",
+  "phase": "Bigster Technical Page 20 Unresolved Review — Chunk 2",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,7 +15,7 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1542,
+    "tests": 1567,
     "csv_files": 46,
     "rows": 11092,
     "configuration_values": 3267,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Bigster Technical Page 20 Unresolved Review — Chunk 1",
+    "name": "Bigster Technical Page 20 Unresolved Review — Chunk 2",
     "status": "complete",
-    "goal": "Review the first 40 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and the prior rear-brake decision."
+    "goal": "Review the remaining 29 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and literal source-value order."
   },
   "next_package": {
-    "name": "Bigster Technical Page 20 Unresolved Review — Chunk 2",
+    "name": "Duster Mini Technical Page 21 Unresolved Review — Chunk 1",
     "status": "planned",
-    "goal": "Review chunk 2 of the remaining 29 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications."
+    "goal": "Review the first bounded chunk of unresolved Duster mini-brochure page-21 technical candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

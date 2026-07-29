@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-28
+- State updated: 2026-07-29
 
 ## Phase
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 1**
+**Bigster Technical Page 20 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1542
+- Tests: 1567
 - Master CSV files: 46
 - Master rows: 11092
 - Configuration values: 3267
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 1** — `complete`
+**Bigster Technical Page 20 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and the prior rear-brake decision.
+Review the remaining 29 unresolved Bigster brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and literal source-value order.
 
 ## Next package
 
-**Bigster Technical Page 20 Unresolved Review — Chunk 2** — `planned`
+**Duster Mini Technical Page 21 Unresolved Review — Chunk 1** — `planned`
 
-Review chunk 2 of the remaining 29 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications.
+Review the first bounded chunk of unresolved Duster mini-brochure page-21 technical candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 

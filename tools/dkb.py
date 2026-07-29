@@ -43,6 +43,11 @@ SCRIPT_COMMANDS = {
         "Review chunk 1 of unresolved Bigster page-20 technical candidates by visual row boundaries.",
         "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
     ),
+    "bigster-technical-page20-unresolved-review-chunk2": (
+        "bigster_technical_page20_unresolved_review_chunk2.py",
+        "Review chunk 2 of unresolved Bigster page-20 technical candidates by visual row boundaries.",
+        "[--prioritization FILE] [--json FILE] [--markdown FILE] [--verify]",
+    ),
     "jogger-technical-page19-ambiguity-review": (
         "jogger_technical_page19_ambiguity_review.py",
         "Review the Jogger page-19 ambiguity package against exact evidence and source conflicts.",

@@ -280,6 +280,7 @@ Dostępne komendy:
 | `pdf-candidate-residual-gap-prioritization` | Priorytetyzacja niejednoznacznych i nierozstrzygniętych kandydatów w małe paczki przeglądu |
 | `bigster-technical-page20-ambiguity-review` | Autorski przegląd 23 niejednoznacznych fragmentów tabeli technicznej Bigstera |
 | `bigster-technical-page20-unresolved-review-chunk1` | Autorski przegląd pierwszych 40 nierozstrzygniętych kandydatów technicznych Bigstera ze strony 20 |
+| `bigster-technical-page20-unresolved-review-chunk2` | Autorski przegląd pozostałych 29 nierozstrzygniętych kandydatów technicznych Bigstera ze strony 20 |
 | `jogger-technical-page19-ambiguity-review` | Autorski przegląd 16 niejednoznacznych fragmentów tabeli technicznej Joggera |
 | `duster-mini-technical-page20-ambiguity-review` | Autorski przegląd 5 niejednoznacznych fragmentów tabeli technicznej minibroszury Dustera |
 | `duster-mini-technical-page21-ambiguity-review` | Autorski przegląd niejednoznacznego wiersza układu kierowniczego Dustera ze strony 21 |
@@ -1245,8 +1246,19 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk1 --verify
 
 Pakiet odtwarza wizualny układ czterech kolumn napędowych i 18 grup wierszy. Szesnaście kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 24 nagłówki i zawinięte fragmenty są `context_only_non_import`. Wartości widoczne w źródle są zapisane wyłącznie jako ustalenia przeglądu, bez zgody na import; fragmenty tylnych hamulców odsyłają do wcześniejszej decyzji `residual_gap_001`. Przegląd pięciu ostatnich pakietów nie wymagał nowej decyzji architektonicznej ani osobnego PR-a audytowego.
 
+### Bigster technical page-20 unresolved review — chunk 2
+
+Komenda `bigster-technical-page20-unresolved-review-chunk2` przegląda pozostałych 29 kandydatów z `residual_gap_017`:
+
+```bash
+python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2
+python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
+```
+
+Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
+
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1542 testów, 46 pliki CSV, 11092 rekordów
+Zweryfikowany model obejmuje 1567 testów, 46 pliki CSV, 11092 rekordów
 danych, 51 relacje między tabelami, 3267 wartości konfiguracji, 117 skalarnych specyfikacji importu, 244 zakresów konfiguracji i 20
 specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
