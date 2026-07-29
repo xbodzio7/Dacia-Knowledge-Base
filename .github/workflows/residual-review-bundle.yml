@@ -45,17 +45,56 @@ jobs:
       - name: Run residual review bundle tests
         run: python -m unittest -v tests.residual_review_bundle_contract
 
-      - name: Generate source-verified review bundle
+      - name: Resolve residual package
+        id: package
         env:
           REQUESTED_PACKAGE_ID: ${{ inputs.package_id }}
         run: |
-          args=(
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from tools import residual_review_bundle
+
+          state = json.loads(Path("project/state.json").read_text(encoding="utf-8"))
+          requested = os.environ.get("REQUESTED_PACKAGE_ID", "").strip()
+          queue_complete = False
+          if requested:
+              package_id = requested
+          else:
+              try:
+                  package_id = residual_review_bundle.default_package_id(state)
+              except residual_review_bundle.ResidualReviewBundleError:
+                  packages = json.loads(
+                      Path(
+                          "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json"
+                      ).read_text(encoding="utf-8")
+                  )["packages"]
+                  current = state.get("current_package")
+                  if not (
+                      isinstance(current, dict)
+                      and current.get("kind") == "residual_review"
+                      and current.get("status") == "complete"
+                      and packages
+                      and current.get("package_id") == packages[-1].get("package_id")
+                  ):
+                      raise
+                  package_id = current["package_id"]
+                  queue_complete = True
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write(f"package_id={package_id}\n")
+              output.write(f"queue_complete={str(queue_complete).lower()}\n")
+          PY
+
+      - name: Generate source-verified review bundle
+        run: |
+          python tools/residual_review_bundle.py \
+            --package-id "${{ steps.package.outputs.package_id }}" \
             --output-directory "${RUNNER_TEMP}/residual-review-bundle"
-          )
-          if [ -n "${REQUESTED_PACKAGE_ID}" ]; then
-            args+=(--package-id "${REQUESTED_PACKAGE_ID}")
+          if [ "${{ steps.package.outputs.queue_complete }}" = "true" ]; then
+            echo "Canonical residual review queue is complete at ${{ steps.package.outputs.package_id }}."
           fi
-          python tools/residual_review_bundle.py "${args[@]}"
 
       - name: Upload residual review bundle
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
