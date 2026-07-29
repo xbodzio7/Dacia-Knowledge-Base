@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 3**
+**Jogger Equipment Page 20 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Equipment Page 21 Unresolved Review — Chunk 3** — `complete`
+**Jogger Equipment Page 20 Unresolved Review — Chunk 1** — `complete`
 
-Review the final 27 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving powertrain qualifiers, legend context and zero attached evidence.
+Review the first 40 of 103 unresolved Jogger brochure page-20 equipment candidates while preserving four-grade order, wrapped colour values and zero attached evidence.
 
 ## Next package
 
-**Jogger Equipment Page 20 Unresolved Review — Chunk 1** — `planned`
+**Jogger Equipment Page 20 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 103 unresolved Jogger brochure page-20 equipment candidates without creating master-data rows or approved import specifications.
+Review the middle 40 of 103 unresolved Jogger brochure page-20 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
