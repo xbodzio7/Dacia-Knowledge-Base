@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Equipment Page 22 Unresolved Review — Chunk 2**
+**Residual Review Bundle Workflow Automation**
 
 ## Reference delivery
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Bigster Equipment Page 22 Unresolved Review — Chunk 2** — `complete`
+**Residual Review Bundle Workflow Automation** — `complete`
 
-Review the final 29 of 69 unresolved Bigster brochure page-22 equipment candidates without creating master-data rows or approved import specifications.
+Generate source-verified residual-review candidate blocks, page text and page images locally or as a GitHub Actions artifact without duplicating existing package publication commands.
 
 ## Next package
 
