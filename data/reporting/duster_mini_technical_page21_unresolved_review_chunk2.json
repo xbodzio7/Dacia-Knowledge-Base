@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "kind": "duster_mini_technical_page21_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_019",
+  "source_receipt": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 21,
+    "group_candidate_count": 61,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 8,
+    "decision_counts": {
+      "context_only_non_import": 19,
+      "unresolved_signature_mismatch": 2
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk2.md"
+  },
+  "prior_chunk_reference": {
+    "report_path": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk1.json",
+    "package_id": "residual_gap_018",
+    "status": "complete",
+    "candidate_count": 40,
+    "group_candidate_count": 61,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0
+  },
+  "key_source_boundaries": {
+    "minimum_luggage_vda": {
+      "hybrid_g_150_4x4": "348",
+      "hybrid_155": "430 / 349",
+      "candidate_value_line_present": false
+    },
+    "maximum_luggage_folded_vda": {
+      "hybrid_g_150_4x4": "1414",
+      "hybrid_155": "1545 / 1415",
+      "candidate_value_line_present": true
+    },
+    "maximum_luggage_under_cover_l": {
+      "hybrid_g_150_4x4": "400",
+      "hybrid_155": "496 / 401",
+      "candidate_value_line_present": false
+    },
+    "maximum_luggage_folded_l": {
+      "hybrid_g_150_4x4": "1527",
+      "hybrid_155": "1609 / 1528",
+      "candidate_value_line_present": true
+    },
+    "repair_kit_and_spare_wheel_variants_not_collapsed": true,
+    "vda_and_litre_measures_not_interchanged": true,
+    "footnotes_remain_context_only": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "missing_value_lines_not_promoted": true,
+    "footnotes_not_promoted_to_observations": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Duster Mini Technical Page 20 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_020",
+    "candidate_count": 40,
+    "group_candidate_count": 60,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}
