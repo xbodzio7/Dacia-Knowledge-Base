@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_equipment_page19_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_047",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 19
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 70,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 22,
+    "decision_counts": {
+      "context_only_non_import": 18,
+      "unresolved_signature_mismatch": 22
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme"
+    ],
+    "reviewed_sections": [
+      "driving and instruments",
+      "visibility",
+      "comfort through steering-column adjustment"
+    ],
+    "steering_column_row_opened_for_chunk2": true,
+    "multirow_console_variants_preserved": true,
+    "literal_markers_preserved": true,
+    "missing_continuations_not_reconstructed": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "cross_chunk_row_not_completed_from_unassigned_candidate": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Stepway Equipment Page 19 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_048",
+    "candidate_count": 30,
+    "group_candidate_count": 70,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}
