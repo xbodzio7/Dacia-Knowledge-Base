@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Equipment Page 23 Unresolved Review — Chunk 3**
+**Sandero Equipment Page 18 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Equipment Page 23 Unresolved Review — Chunk 3** — `complete`
+**Sandero Equipment Page 18 Unresolved Review — Chunk 1** — `complete`
 
-Review the final 1 of 81 unresolved Duster mini-brochure page-23 equipment candidates as a source footnote continuation.
+Review the first 40 of 77 unresolved Sandero brochure page-18 equipment candidates while preserving three-grade visual rows and zero attached evidence.
 
 ## Next package
 
-**Sandero Equipment Page 18 Unresolved Review — Chunk 1** — `planned`
+**Sandero Equipment Page 18 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 77 unresolved Sandero brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
+Review the final 37 of 77 unresolved Sandero brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
