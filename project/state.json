@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Mini Technical Page 20 Unresolved Review — Chunk 1",
+  "phase": "Duster Mini Technical Page 20 Unresolved Review — Chunk 2",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Mini Technical Page 20 Unresolved Review — Chunk 1",
+    "name": "Duster Mini Technical Page 20 Unresolved Review — Chunk 2",
     "status": "complete",
-    "goal": "Review the first 40 unresolved Duster mini-brochure page-20 technical candidates by visual row boundaries while preserving zero attached evidence and incomplete-row safeguards."
+    "goal": "Review the remaining 20 unresolved Duster mini-brochure page-20 technical candidates while preserving luggage-measure boundaries, zero attached evidence and contextual footnotes."
   },
   "next_package": {
-    "name": "Duster Mini Technical Page 20 Unresolved Review — Chunk 2",
+    "name": "Sandero Stepway Technical Page 17 Unresolved Review — Chunk 1",
     "status": "planned",
-    "goal": "Review the remaining 20 unresolved Duster mini-brochure page-20 technical candidates without creating master-data rows or approved import specifications."
+    "goal": "Review the first 40 of 49 unresolved Sandero Stepway brochure page-17 technical candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
