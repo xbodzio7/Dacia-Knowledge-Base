@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Residual Review Queue Completion Handling**
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Residual Review Queue Completion Handling** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
 
-Keep the source-verified residual review bundle workflow green at canonical queue completion by reusing only the verified final package from the prioritization report.
+Review the final 25 of 65 unresolved Sandero brochure page-19 equipment candidates and close the canonical residual-review queue without promoting unsupported data.
 
 ## Next package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `planned`
+**Post-Residual Review Milestone Closure** — `planned`
 
-Review the final 25 of 65 unresolved Sandero brochure page-19 equipment candidates and close the page-level review without promoting unsupported data.
+Verify completion and exact accounting of all 52 canonical residual review packages, preserve every non-import and evidence boundary, and select the next source-backed package.
 
 ## Autonomy
 
