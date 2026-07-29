@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Equipment Page 20 Unresolved Review — Chunk 3**
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Equipment Page 20 Unresolved Review — Chunk 3** — `complete`
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1** — `complete`
 
-Review the final 23 of 103 unresolved Jogger brochure page-20 equipment candidates while preserving similar-row distinctions, powertrain qualifiers and zero attached evidence.
+Review the first 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates while preserving three-grade order, wrapped colour and material values and zero attached evidence.
 
 ## Next package
 
-**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1** — `planned`
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
+Review the middle 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
