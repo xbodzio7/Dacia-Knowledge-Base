@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Equipment Page 22 Unresolved Review — Chunk 3**
+**Duster Equipment Page 23 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Equipment Page 22 Unresolved Review — Chunk 3** — `complete`
+**Duster Equipment Page 23 Unresolved Review — Chunk 1** — `complete`
 
-Review the final 14 of 94 unresolved Duster mini-brochure page-22 equipment candidates while preserving HDC, package and footnote boundaries with zero attached evidence.
+Review the first 40 of 81 unresolved Duster mini-brochure page-23 equipment candidates while preserving visibility, comfort and multimedia row boundaries.
 
 ## Next package
 
-**Duster Equipment Page 23 Unresolved Review — Chunk 1** — `planned`
+**Duster Equipment Page 23 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 81 unresolved Duster mini-brochure page-23 equipment candidates without creating master-data rows or approved import specifications.
+Review the middle 40 of 81 unresolved Duster mini-brochure page-23 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
