@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Equipment Page 22 Unresolved Review — Chunk 2",
+  "phase": "Duster Equipment Page 22 Unresolved Review — Chunk 3",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Duster Equipment Page 22 Unresolved Review — Chunk 2",
+    "name": "Duster Equipment Page 22 Unresolved Review — Chunk 3",
     "status": "complete",
-    "goal": "Review the middle 40 of 94 unresolved Duster mini-brochure page-22 equipment candidates while preserving missing-label boundaries and powertrain qualifiers."
+    "goal": "Review the final 14 of 94 unresolved Duster mini-brochure page-22 equipment candidates while preserving HDC, package and footnote boundaries with zero attached evidence."
   },
   "next_package": {
-    "name": "Duster Equipment Page 22 Unresolved Review — Chunk 3",
+    "name": "Duster Equipment Page 23 Unresolved Review — Chunk 1",
     "status": "planned",
-    "goal": "Review the final 14 of 94 unresolved Duster mini-brochure page-22 equipment candidates without creating master-data rows or approved import specifications."
+    "goal": "Review the first 40 of 81 unresolved Duster mini-brochure page-23 equipment candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
