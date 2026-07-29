@@ -135,11 +135,12 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd pojedynczego wspólnego wiersza regulatora i ogranicznika prędkości Sandero ze strony 19, z 1 pokrytą decyzją, obiema standardowymi sygnaturami i 4 rekordami oraz zachowaniem dwóch odrębnych atrybutów i trzech seryjnych stanów wersji,
 - autorski przegląd pojedynczego kandydata relingów dachowych Sandero Stepway ze strony 18, z 1 pokrytą decyzją, 1 wybraną sygnaturą i rekordem zwykłych relingów oraz 1 zachowaną i jawnie odrzuconą sygnaturą relingów modułowych z 2 rekordami sąsiedniego wiersza,
 - autorski przegląd pierwszych 40 nierozstrzygniętych kandydatów tabel technicznych Bigstera ze strony 20, z 16 błędami niedopasowania sygnatury, 24 fragmentami kontekstowymi, 18 wizualnymi grupami wierszy, zerem przypiętych dowodów oraz odwołaniem do wcześniejszej decyzji dotyczącej tylnych hamulców,
+- autorski przegląd pozostałych 29 nierozstrzygniętych kandydatów tabel technicznych Bigstera ze strony 20, z 8 błędami niedopasowania sygnatury, 21 fragmentami, etykietami, przypisami i notami kontekstowymi, 16 wizualnymi obszarami, zerem przypiętych dowodów oraz literalnym zachowaniem sekwencji `1960**` i `2002 / 1981`,
 
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1542 testów automatycznych,
+- 1567 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
