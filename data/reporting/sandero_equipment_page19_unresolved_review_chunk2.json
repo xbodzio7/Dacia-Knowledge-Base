@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "kind": "sandero_equipment_page19_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-30",
+  "status": "complete",
+  "package_id": "residual_gap_052",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 19
+  },
+  "scope": {
+    "candidate_count": 25,
+    "group_candidate_count": 65,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 6,
+    "decision_counts": {
+      "context_only_non_import": 20,
+      "unresolved_signature_mismatch": 5
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "remaining comfort equipment",
+      "multimedia systems",
+      "availability legend"
+    ],
+    "unassigned_heated_steering_wheel_not_reconstructed": true,
+    "media_system_rows_kept_separate": true,
+    "wrapped_rows_preserved": true,
+    "availability_legend_non_import": true,
+    "literal_markers_preserved": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "state_fragments_kept_with_visual_rows": true,
+    "unassigned_page_rows_not_copied": true,
+    "legend_not_promoted_to_equipment": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Post-Residual Review Milestone Closure",
+    "package_id": "post_residual_review_milestone_closure_001",
+    "kind": "milestone_review",
+    "goal": "Verify completion and accounting of all 52 canonical residual review packages before selecting the next source-backed package."
+  }
+}
