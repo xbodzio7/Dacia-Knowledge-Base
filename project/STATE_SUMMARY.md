@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Technical Page 20 Unresolved Review — Chunk 2**
+**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Technical Page 20 Unresolved Review — Chunk 2** — `complete`
+**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 1** — `complete`
 
-Review the remaining 20 unresolved Duster mini-brochure page-20 technical candidates while preserving luggage-measure boundaries, zero attached evidence and contextual footnotes.
+Review the first 40 unresolved Sandero Stepway brochure page-17 technical candidates while preserving fuel subcolumns, wrapped rows, gearbox-specific elasticity and zero attached evidence.
 
 ## Next package
 
-**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 1** — `planned`
+**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 49 unresolved Sandero Stepway brochure page-17 technical candidates without creating master-data rows or approved import specifications.
+Review the remaining 9 unresolved Sandero Stepway brochure page-17 technical candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
