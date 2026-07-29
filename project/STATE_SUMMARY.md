@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1**
+**Residual Review Queue Completion Handling**
 
 ## Reference delivery
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `complete`
+**Residual Review Queue Completion Handling** — `complete`
 
-Review the first 40 of 65 unresolved Sandero brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence.
+Keep the source-verified residual review bundle workflow green at canonical queue completion by reusing only the verified final package from the prioritization report.
 
 ## Next package
 
