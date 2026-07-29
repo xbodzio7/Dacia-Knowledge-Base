@@ -60,6 +60,16 @@ Run this check at session start whenever repository execution is available:
 python tools/dkb.py project-state --check
 ```
 
+For a package whose canonical `kind` is `residual_review`, prepare the exact review input with:
+
+```bash
+python tools/residual_review_bundle.py --output-directory ../residual-review-bundle
+```
+
+The command resolves the package from `project/state.json`, verifies the canonical prioritization block and source receipt, checks the archived PDF SHA-256, and produces the candidate block, page text, and authoritative page PNG. When local binary-file access is unavailable, run the `Residual Review Bundle` GitHub Actions workflow and use its artifact instead of requesting a repository ZIP.
+
+The package ID, exact manifest paths and source boundary are read from `project/state.json`; they must not be copied from a handoff prompt.
+
 ---
 
 # Expected Output

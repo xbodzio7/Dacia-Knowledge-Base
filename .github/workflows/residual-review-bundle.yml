@@ -1,0 +1,66 @@
+name: Residual Review Bundle
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/residual-review-bundle.yml
+      - tools/residual_review_bundle.py
+      - tests/residual_review_bundle_contract.py
+      - project/state.json
+      - project/sources/official-dacia-brochures-20260725.json
+      - data/reporting/verified_pdf_candidate_residual_gap_prioritization.json
+  workflow_dispatch:
+    inputs:
+      package_id:
+        description: Canonical residual package ID; empty uses project/state.json
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  residual-review-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Install PDF rendering backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1 || ! command -v pdftoppm >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          pdftotext -v
+          pdftoppm -v
+
+      - name: Run residual review bundle tests
+        run: python -m unittest -v tests.residual_review_bundle_contract
+
+      - name: Generate source-verified review bundle
+        env:
+          REQUESTED_PACKAGE_ID: ${{ inputs.package_id }}
+        run: |
+          args=(
+            --output-directory "${RUNNER_TEMP}/residual-review-bundle"
+          )
+          if [ -n "${REQUESTED_PACKAGE_ID}" ]; then
+            args+=(--package-id "${REQUESTED_PACKAGE_ID}")
+          fi
+          python tools/residual_review_bundle.py "${args[@]}"
+
+      - name: Upload residual review bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: residual-review-bundle
+          path: ${{ runner.temp }}/residual-review-bundle
+          if-no-files-found: error
+          retention-days: 14
