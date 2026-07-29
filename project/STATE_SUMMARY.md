@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 18 Unresolved Review — Chunk 1**
+**Sandero Equipment Page 18 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 18 Unresolved Review — Chunk 1** — `complete`
+**Sandero Equipment Page 18 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 77 unresolved Sandero brochure page-18 equipment candidates while preserving three-grade visual rows and zero attached evidence.
+Review the final 37 of 77 unresolved Sandero brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Next package
 
-**Sandero Equipment Page 18 Unresolved Review — Chunk 2** — `planned`
+**Jogger Equipment Page 21 Unresolved Review — Chunk 1** — `planned`
 
-Review the final 37 of 77 unresolved Sandero brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
+Review the first 40 of 72 unresolved Jogger brochure page-21 equipment candidates while preserving source visual rows and zero attached evidence.
 
 ## Autonomy
 
