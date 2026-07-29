@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "kind": "sandero_technical_page17_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_027",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17
+  },
+  "scope": {
+    "candidate_count": 1,
+    "group_candidate_count": 41,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 1,
+    "decision_counts": {
+      "context_only_non_import": 1,
+      "unresolved_signature_mismatch": 0
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk2.md"
+  },
+  "key_source_boundaries": {
+    "candidate_id": "bee42afc0f99e6585b154b54810f13e658fb842a5f3a77c0ecc4408fb74c9825",
+    "exact_text": "przepisach. Metoda jest identyczna dla wszystkich producentów, co umożliwia porównanie różnych modeli.",
+    "visual_area": "WLTP and statutory CO2 measurement-method footnote continuation",
+    "continuation_only": true,
+    "contains_no_configuration_aligned_value": true,
+    "contains_no_importable_availability_state": true,
+    "prior_chunk_decisions_preserved": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "footnote_not_promoted_to_technical_value": true,
+    "footnote_not_promoted_to_availability": true,
+    "prior_chunk_not_reinterpreted": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Bigster Equipment Page 21 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_028",
+    "candidate_count": 40,
+    "group_candidate_count": 107,
+    "chunk_index": 1,
+    "chunk_count": 3
+  }
+}

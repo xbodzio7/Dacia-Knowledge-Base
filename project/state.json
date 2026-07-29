@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Technical Page 17 Unresolved Review — Chunk 1",
+  "phase": "Sandero Technical Page 17 Unresolved Review — Chunk 2",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Sandero Technical Page 17 Unresolved Review — Chunk 1",
+    "name": "Sandero Technical Page 17 Unresolved Review — Chunk 2",
     "status": "complete",
-    "goal": "Review the first 40 unresolved Sandero brochure page-17 technical candidates while preserving printed literals, fuel subcolumns, missing-value safeguards and zero attached evidence."
+    "goal": "Review the final unresolved Sandero brochure page-17 technical candidate as measurement-method footnote context without creating master-data rows or approved import specifications."
   },
   "next_package": {
-    "name": "Sandero Technical Page 17 Unresolved Review — Chunk 2",
+    "name": "Bigster Equipment Page 21 Unresolved Review — Chunk 1",
     "status": "planned",
-    "goal": "Review the remaining 1 unresolved Sandero brochure page-17 technical candidate without creating master-data rows or approved import specifications."
+    "goal": "Review the first 40 of 107 unresolved Bigster brochure page-21 equipment candidates while preserving four-grade availability columns, wrapped labels and zero attached evidence."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
