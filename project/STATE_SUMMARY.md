@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 2**
+**Jogger Technical Page 19 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Technical Page 17 Unresolved Review — Chunk 2** — `complete`
+**Jogger Technical Page 19 Unresolved Review — Chunk 1** — `complete`
 
-Review the remaining 9 unresolved Sandero Stepway brochure page-17 technical candidates while preserving mass-label and WLTP-footnote context, zero attached evidence and the no-import boundary.
+Review the first 40 unresolved Jogger brochure page-19 technical candidates while preserving fuel and energy columns, wrapped rows, printed DMC labels, zero attached evidence and missing-value safeguards.
 
 ## Next package
 
-**Jogger Technical Page 19 Unresolved Review — Chunk 1** — `planned`
+**Jogger Technical Page 19 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 43 unresolved Jogger brochure page-19 technical candidates without creating master-data rows or approved import specifications.
+Review the remaining 3 unresolved Jogger brochure page-19 technical candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
