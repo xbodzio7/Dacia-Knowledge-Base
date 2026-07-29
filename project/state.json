@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Equipment Page 20 Unresolved Review — Chunk 1",
+  "phase": "Jogger Equipment Page 20 Unresolved Review — Chunk 2",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 1",
+    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 2",
     "status": "complete",
-    "goal": "Review the first 40 of 103 unresolved Jogger brochure page-20 equipment candidates while preserving four-grade order, wrapped colour values and zero attached evidence."
+    "goal": "Review the middle 40 of 103 unresolved Jogger brochure page-20 equipment candidates while preserving cross-chunk trim, seat-count qualifiers and zero attached evidence."
   },
   "next_package": {
-    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 2",
+    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 3",
     "status": "planned",
-    "goal": "Review the middle 40 of 103 unresolved Jogger brochure page-20 equipment candidates without creating master-data rows or approved import specifications."
+    "goal": "Review the final 23 of 103 unresolved Jogger brochure page-20 equipment candidates without creating master-data rows or approved import specifications."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
