@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Residual Review Bundle Workflow Automation**
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Residual Review Bundle Workflow Automation** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `complete`
 
-Generate source-verified residual-review candidate blocks, page text and page images locally or as a GitHub Actions artifact without duplicating existing package publication commands.
+Review the first 40 of 65 unresolved Sandero brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence.
 
 ## Next package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `planned`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 65 unresolved Sandero brochure page-19 equipment candidates while preserving source visual rows and zero attached evidence.
+Review the final 25 of 65 unresolved Sandero brochure page-19 equipment candidates and close the page-level review without promoting unsupported data.
 
 ## Autonomy
 
