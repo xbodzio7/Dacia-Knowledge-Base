@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Technical Page 19 Unresolved Review — Chunk 2**
+**Sandero Technical Page 17 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Technical Page 19 Unresolved Review — Chunk 2** — `complete`
+**Sandero Technical Page 17 Unresolved Review — Chunk 1** — `complete`
 
-Review the remaining 3 unresolved Jogger brochure page-19 technical candidates while preserving measurement and tank-capacity footnotes as context, zero attached evidence and the no-import boundary.
+Review the first 40 unresolved Sandero brochure page-17 technical candidates while preserving printed literals, fuel subcolumns, missing-value safeguards and zero attached evidence.
 
 ## Next package
 
-**Sandero Technical Page 17 Unresolved Review — Chunk 1** — `planned`
+**Sandero Technical Page 17 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 41 unresolved Sandero brochure page-17 technical candidates without creating master-data rows or approved import specifications.
+Review the remaining 1 unresolved Sandero brochure page-17 technical candidate without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
