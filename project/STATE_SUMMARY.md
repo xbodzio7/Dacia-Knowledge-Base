@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1**
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1** — `complete`
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates while preserving three-grade order, wrapped colour and material values and zero attached evidence.
+Review the middle 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates while preserving three-grade states, multi-line safety rows and zero attached evidence.
 
 ## Next package
 
-**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2** — `planned`
+**Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 3** — `planned`
 
-Review the middle 40 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
+Review the final 17 of 97 unresolved Sandero Stepway brochure page-18 equipment candidates without creating master-data rows or approved import specifications.
 
 ## Autonomy
 
