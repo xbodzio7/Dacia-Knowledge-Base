@@ -24,6 +24,27 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Normalize materializer verifier block
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('tools/temporary_materialize_jogger_minimum_kerb_weight.py')
+          text = path.read_text(encoding='utf-8')
+          old = '    replace_once(verifier, old, textwrap.indent(textwrap.dedent(block), "    "))\n'
+          new = '''    block_lines = block.splitlines()
+              replacement = (
+                  "    " + block_lines[0] + "\\n"
+                  + textwrap.indent(textwrap.dedent("\\n".join(block_lines[1:])), "    ")
+                  + "\\n"
+              )
+              replace_once(verifier, old, replacement)
+          '''
+          new = '\n'.join(line[12:] if line.startswith('            ') else line for line in new.splitlines()) + '\n'
+          if text.count(old) != 1:
+              raise SystemExit(f'verifier replacement target count is {text.count(old)}')
+          path.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+          PY
       - name: Materialize and validate package
         run: python tools/temporary_materialize_jogger_minimum_kerb_weight.py
       - name: Commit final package and remove temporary tools
