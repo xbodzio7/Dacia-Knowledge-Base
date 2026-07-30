@@ -1,4 +1,4 @@
-"""Verify Jogger page 19 non-Hybrid braked-trailer source observations."""
+"""Verify the exact non-Hybrid subset of Jogger page 19 braked-trailer observations."""
 
 from __future__ import annotations
 
