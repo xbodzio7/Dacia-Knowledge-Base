@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Battery Capacity Conflict Observation Import**
+**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1618
+- Tests: 1626
 - Master CSV files: 46
-- Master rows: 11190
+- Master rows: 11194
 - Configuration values: 3335
 - Configuration import specifications: 126
-- Configuration value ranges: 274
-- Configuration range import specifications: 21
+- Configuration value ranges: 278
+- Configuration range import specifications: 22
 - Availability records: 5770
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Bigster Page 20 Battery Capacity Conflict Observation Import** — `complete`
+**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import** — `complete`
 
-Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.
+Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.
 
 ## Next package
 
-**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import** — `planned`
+**Bigster Page 20 Conflict Preservation Closure Review** — `planned`
 
-Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.
+Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation boundaries, confirm that context-blocked and anomalous evidence remains unimported, and select the next residual package without creating data changes.
 
 ## Autonomy
 
