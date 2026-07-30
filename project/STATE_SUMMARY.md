@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Minimum Kerb Weight Source Observations**
+**Jogger Page 19 Fuel and LPG Capacity Source Observations**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1640
+- Tests: 1648
 - Master CSV files: 46
-- Master rows: 11242
-- Configuration values: 3383
-- Configuration import specifications: 128
+- Master rows: 11284
+- Configuration values: 3425
+- Configuration import specifications: 131
 - Configuration value ranges: 278
 - Configuration range import specifications: 22
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Minimum Kerb Weight Source Observations** — `complete`
+**Jogger Page 19 Fuel and LPG Capacity Source Observations** — `complete`
 
-Add 22 source-specific minimum kerb weight observations from Jogger brochure page 19 for all current five- and seven-seat configurations where the printed values exactly match later official observations, without importing either mislabeled mass block.
+Preserve 22 source-specific 50 L petrol-tank observations and separate 50 L total plus 40 L usable/filling LPG observations for the ten current Eco-G 120 configurations without collapsing capacity semantics.
 
 ## Next package
 
-**Jogger Page 19 Fuel and LPG Capacity Source Observations** — `planned`
+**Jogger Page 19 Source Observation Import Closure** — `planned`
 
-Preserve source-specific 50 L petrol-tank observations for all 22 current Jogger configurations and separate 50 L total plus 40 L filling-capacity LPG observations for the ten current Eco-G 120 configurations, without collapsing distinct capacity semantics.
+Reconcile the completed acceleration, minimum-kerb-weight and fuel/LPG-capacity source-observation imports against the page 19 review, verify whether any safe exact import remains, and preserve all unresolved source conflicts and context-model requirements without changing master data.
 
 ## Autonomy
 

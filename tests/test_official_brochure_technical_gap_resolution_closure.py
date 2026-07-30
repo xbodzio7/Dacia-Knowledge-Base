@@ -34,7 +34,7 @@ EXPECTED_CURRENT_SCALAR = Counter(
     {
         "src_pl_sandero_brochure_20260202": 132,
         "src_pl_sandero_stepway_brochure_20260202": 72,
-        "src_pl_jogger_brochure_20251217": 538,
+        "src_pl_jogger_brochure_20251217": 580,
         "src_pl_bigster_brochure_20251210": 248,
         "src_pl_duster_mini_brochure_20251020": 244,
     }
@@ -95,7 +95,7 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
         self.assertEqual(sum(item["new_attributes"] for item in packages), 4)
 
     def test_current_brochure_scalar_and_range_coverage_is_exact(self) -> None:
-        self.assertEqual(len(self.scalar), 1234)
+        self.assertEqual(len(self.scalar), 1276)
         self.assertEqual(len(self.ranges), 102)
         self.assertEqual(
             Counter(row["source_code"] for row in self.scalar),
