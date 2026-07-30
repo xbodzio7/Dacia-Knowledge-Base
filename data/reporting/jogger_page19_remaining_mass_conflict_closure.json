@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "kind": "jogger_page19_remaining_mass_conflict_closure",
+  "reviewed_on": "2026-07-30",
+  "status": "complete_with_preserved_boundaries",
+  "package_id": "post_residual_jogger_page19_remaining_mass_conflict_closure_review_001",
+  "source": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19,
+    "observation_date": "2025-12-17"
+  },
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "observation_date": "2026-04-01"
+  },
+  "scope": {
+    "current_jogger_configurations": 22,
+    "completed_scalar_import_packages": 5,
+    "completed_scalar_observations": 128,
+    "preserved_mass_conflict_blocks": 2,
+    "preserved_hybrid_trailer_conflict_configurations": 6
+  },
+  "completed_import_receipts": [
+    {
+      "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+      "attribute": "acceleration_0_100",
+      "id_range": [
+        3336,
+        3361
+      ],
+      "observations": 26
+    },
+    {
+      "package_id": "post_residual_jogger_page19_minimum_kerb_weight_source_observation_import_001",
+      "attribute": "minimum_kerb_weight",
+      "id_range": [
+        3362,
+        3383
+      ],
+      "observations": 22
+    },
+    {
+      "package_id": "post_residual_jogger_page19_fuel_lpg_capacity_source_observation_import_001",
+      "attributes": [
+        "fuel_tank_capacity",
+        "lpg_vessel_capacity_total",
+        "lpg_vessel_filling_capacity"
+      ],
+      "id_range": [
+        3384,
+        3425
+      ],
+      "observations": 42
+    },
+    {
+      "package_id": "post_residual_jogger_page19_gross_vehicle_weight_source_observation_import_001",
+      "attribute": "gross_vehicle_weight",
+      "id_range": [
+        3426,
+        3447
+      ],
+      "observations": 22
+    },
+    {
+      "package_id": "post_residual_jogger_page19_braked_trailer_weight_non_hybrid_source_observation_import_001",
+      "attribute": "braked_trailer_weight",
+      "id_range": [
+        3448,
+        3463
+      ],
+      "observations": 16,
+      "excluded_hybrid155_configurations": 6
+    }
+  ],
+  "existing_exact_coverage_preserved": [
+    "maximum_torque",
+    "gearbox",
+    "injection",
+    "engine_displacement",
+    "cylinders_and_valves",
+    "emission_standard",
+    "front_suspension",
+    "rear_suspension",
+    "maximum_speed",
+    "elasticity_80_120"
+  ],
+  "remaining_mass_boundaries": [
+    {
+      "code": "maximum_kerb_like_mislabeled_block",
+      "printed_heading": "gross train weight",
+      "source_values": {
+        "five_seat": [
+          1230,
+          1312,
+          1335,
+          1373
+        ],
+        "seven_seat": [
+          1261,
+          1342,
+          1364,
+          1405
+        ]
+      },
+      "classification": "ambiguous_source_label",
+      "decision": "preserve_without_import_or_inferred_relabeling"
+    },
+    {
+      "code": "gross_train_like_mislabeled_block",
+      "printed_heading": "gross vehicle weight",
+      "source_values": {
+        "five_seat": [
+          2885,
+          2965,
+          2985,
+          2830
+        ],
+        "seven_seat": [
+          3055,
+          3140,
+          3160,
+          3000
+        ]
+      },
+      "classification": "ambiguous_source_label",
+      "decision": "preserve_without_import_or_inferred_relabeling"
+    },
+    {
+      "code": "hybrid155_braked_trailer_source_conflict",
+      "attribute": "braked_trailer_weight",
+      "brochure_value_kg": 1200,
+      "later_official_value_kg": 1000,
+      "configuration_count": 6,
+      "classification": "official_source_conflict",
+      "decision": "retain_later_current_value_and_do_not_add_conflicting_brochure_observation"
+    }
+  ],
+  "outside_mass_closure_follow_up": [
+    {
+      "code": "hybrid155_total_power_source_conflict",
+      "brochure_value_kw": 105,
+      "later_official_value_kw": 116
+    },
+    {
+      "code": "maximum_power_speed_ranges",
+      "classification": "range_and_fuel_context_review_required"
+    },
+    {
+      "code": "maximum_torque_speed_ranges",
+      "classification": "range_context_review_required"
+    },
+    {
+      "code": "energy_source_columns",
+      "classification": "context_model_required"
+    },
+    {
+      "code": "homologation_protocol",
+      "classification": "context_model_required"
+    }
+  ],
+  "closure_decision": {
+    "safe_exact_scalar_imports_complete": true,
+    "current_exact_values_overwritten": false,
+    "printed_labels_corrected_by_inference": false,
+    "official_source_conflicts_preserved": true,
+    "mass_conflict_review_complete": true
+  },
+  "next_package": {
+    "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
+    "kind": "review_closure",
+    "name": "Jogger Page 19 Range and Context Follow-up Review",
+    "status": "planned",
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "goal": "Review the remaining page-19 power-speed and torque-speed ranges, energy-source column semantics, homologation-protocol context and Hybrid 155 total-power conflict without changing current exact values or promoting context by inference.",
+    "manifest_paths": [
+      "data/reporting/jogger_page19_range_context_follow_up_review.json",
+      "data/reporting/jogger_page19_range_context_follow_up_review.md",
+      "project/reviews/jogger-page19-range-context-follow-up-review-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

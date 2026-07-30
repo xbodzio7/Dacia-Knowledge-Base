@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations",
+  "phase": "Jogger Page 19 Remaining Mass Conflict Closure Review",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,40 +27,30 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_page19_braked_trailer_weight_non_hybrid_source_observation_import_001",
-    "kind": "configuration_value_import",
-    "name": "Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations",
+    "package_id": "post_residual_jogger_page19_remaining_mass_conflict_closure_review_001",
+    "kind": "review_closure",
+    "name": "Jogger Page 19 Remaining Mass Conflict Closure Review",
     "status": "complete",
-    "goal": "Add the matching 1200 kg brochure-source braked trailer observations for the 16 current TCe 110 and Eco-G 120 configurations while explicitly excluding all six Hybrid 155 configurations because their later official value is 1000 kg.",
+    "goal": "Confirm that every safely importable exact page-19 scalar fact is covered while preserving the two mislabeled mass blocks and the Hybrid 155 trailer discrepancy as explicit non-import boundaries.",
     "manifest_paths": [
-      "data/imports/configuration_values/jogger-brochure-braked-trailer-weight-non-hybrid-20251217.json",
-      "data/master/configuration_attribute_values.csv",
-      "tests/test_jogger_page19_braked_trailer_weight_non_hybrid_source_observations.py",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
-      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
-      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
-      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
-      "tests/test_official_brochure_technical_gap_resolution_closure.py",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
+      "data/reporting/jogger_page19_remaining_mass_conflict_closure.json",
+      "data/reporting/jogger_page19_remaining_mass_conflict_closure.md",
+      "project/reviews/jogger-page19-remaining-mass-conflict-closure-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_jogger_page19_remaining_mass_conflict_closure_review_001",
+    "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
     "kind": "review_closure",
-    "name": "Jogger Page 19 Remaining Mass Conflict Closure Review",
+    "name": "Jogger Page 19 Range and Context Follow-up Review",
     "status": "planned",
     "source_code": "src_pl_jogger_brochure_20251217",
-    "goal": "Confirm that every safely importable exact page-19 fact is covered after the reviewed acceleration, minimum-mass, capacity, gross-vehicle-weight and non-Hybrid trailer packages, while preserving the two mislabeled maximum-kerb/gross-train blocks as explicit unresolved source conflicts.",
+    "goal": "Review the remaining page-19 power-speed and torque-speed ranges, energy-source column semantics, homologation-protocol context and Hybrid 155 total-power conflict without changing current exact values or promoting context by inference.",
     "manifest_paths": [
-      "data/reporting/jogger_page19_remaining_mass_conflict_closure.json",
-      "data/reporting/jogger_page19_remaining_mass_conflict_closure.md",
-      "project/reviews/jogger-page19-remaining-mass-conflict-closure-2026-07-30.md",
+      "data/reporting/jogger_page19_range_context_follow_up_review.json",
+      "data/reporting/jogger_page19_range_context_follow_up_review.md",
+      "project/reviews/jogger-page19-range-context-follow-up-review-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
