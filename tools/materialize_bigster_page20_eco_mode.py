@@ -36,5 +36,17 @@ new = '''    closure_text = closure_test.read_text(encoding="utf-8")
 '''
 if source.count(old) != 1:
     raise SystemExit("original materializer patch target differs")
+quality = subprocess.run(
+    ["git", "show", "origin/main:.github/workflows/quality.yml"],
+    cwd=ROOT,
+    text=True,
+    capture_output=True,
+    check=True,
+)
+(ROOT / ".github/workflows/quality.yml").write_text(
+    quality.stdout,
+    encoding="utf-8",
+    newline="\n",
+)
 PATH.write_text(source.replace(old, new), encoding="utf-8", newline="\n")
 os.execv(sys.executable, [sys.executable, str(PATH)])
