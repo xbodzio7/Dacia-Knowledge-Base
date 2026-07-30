@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Emission Standard Conflict Observation Import**
+**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1602
+- Tests: 1610
 - Master CSV files: 46
-- Master rows: 11176
-- Configuration values: 3321
-- Configuration import specifications: 124
+- Master rows: 11179
+- Configuration values: 3324
+- Configuration import specifications: 125
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Emission Standard Conflict Observation Import** — `complete`
+**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import** — `complete`
 
-Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.
+Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without importing the adjacent 1.4 kWh capacity context.
 
 ## Next package
 
-**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import** — `planned`
+**Bigster Page 20 Battery Capacity Conflict Observation Import** — `planned`
 
-Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without declaring either source authoritative.
+Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.
 
 ## Autonomy
 
