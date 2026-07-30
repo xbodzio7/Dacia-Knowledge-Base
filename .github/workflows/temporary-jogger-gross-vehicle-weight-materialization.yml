@@ -24,6 +24,29 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Align global DMC ambiguity boundary
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = [
+              (
+                  Path('tools/review_official_brochure_technical_gap_resolution_closure_20260726.py'),
+                  '    jogger_mass = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}\n',
+                  '    jogger_mass = {"maximum_kerb_weight", "gross_train_weight"}\n',
+              ),
+              (
+                  Path('tests/test_official_brochure_technical_gap_resolution_closure.py'),
+                  '            and row["attribute_code"] in {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}\n',
+                  '            and row["attribute_code"] in {"maximum_kerb_weight", "gross_train_weight"}\n',
+              ),
+          ]
+          for path, old, new in replacements:
+              text = path.read_text(encoding='utf-8')
+              if text.count(old) != 1:
+                  raise SystemExit(f'{path}: replacement target count is {text.count(old)}')
+              path.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+          PY
       - name: Materialize and validate package
         run: python tools/temporary_materialize_jogger_gross_vehicle_weight.py
       - name: Commit final package and remove temporary tools
