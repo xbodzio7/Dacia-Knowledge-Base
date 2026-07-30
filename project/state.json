@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Page 19 Range and Context Follow-up Review",
+  "phase": "Verified PDF Residual Queue Re-entry Review",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,29 +27,36 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
+    "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
     "kind": "review_closure",
-    "name": "Jogger Page 19 Range and Context Follow-up Review",
+    "name": "Verified PDF Residual Queue Re-entry Review",
     "status": "complete",
-    "goal": "Close remaining page-19 RPM-range and context questions by verifying existing range/scalar coverage, preserving official-source conflicts and refusing inference-based context promotion.",
+    "goal": "Exclude raw-priority boundaries already closed by later work and select the first genuinely actionable verified-PDF residual boundary using stable source/model/domain/page identity.",
     "manifest_paths": [
-      "data/reporting/jogger_page19_range_context_follow_up_review.json",
-      "data/reporting/jogger_page19_range_context_follow_up_review.md",
-      "project/reviews/jogger-page19-range-context-follow-up-review-2026-07-30.md",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
+      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
+    "package_id": "post_residual_duster_mini_technical_page20_reviewed_fact_reconciliation_001",
     "kind": "review_closure",
-    "name": "Verified PDF Residual Queue Re-entry Review",
+    "name": "Duster Mini Technical Page 20 Reviewed Fact Reconciliation",
     "status": "planned",
-    "goal": "Reconcile the remaining verified-PDF residual packages after complete Jogger page-19 closure, exclude already closed and explicit non-import boundaries, and select the next genuinely actionable package without reopening resolved work.",
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "source_page": 20,
+    "goal": "Reconcile all 65 previously reviewed Duster page-20 technical candidates against the current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.",
+    "source_review_packages": [
+      "residual_gap_003",
+      "residual_gap_020",
+      "residual_gap_021"
+    ],
     "manifest_paths": [
-      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
-      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
-      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-30.md",
+      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.json",
+      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.md",
+      "project/reviews/duster-mini-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
