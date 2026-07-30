@@ -5,6 +5,7 @@ import hashlib
 import json
 import shutil
 import unittest
+from decimal import Decimal
 from pathlib import Path
 
 from tools.import_configuration_values import _compact_text, extract_page_candidates
@@ -68,6 +69,10 @@ HYBRID_TARGETS = {
 def rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def decimal_map(values: dict) -> dict:
+    return {key: Decimal(value) for key, value in values.items()}
 
 
 class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
@@ -139,10 +144,10 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         self.assertEqual(len(fuel_scoped), 20)
         self.assertEqual(
             {
-                (row["configuration_code"], row["fuel_type_code"]): row["value"]
+                (row["configuration_code"], row["fuel_type_code"]): Decimal(row["value"])
                 for row in fuel_scoped
             },
-            ECOG_EXPECTED,
+            decimal_map(ECOG_EXPECTED),
         )
 
         tce_unscoped = [
@@ -155,8 +160,11 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         ]
         self.assertEqual(len(tce_unscoped), 6)
         self.assertEqual(
-            {row["configuration_code"]: row["value"] for row in tce_unscoped},
-            TCE_EXPECTED,
+            {
+                row["configuration_code"]: Decimal(row["value"])
+                for row in tce_unscoped
+            },
+            decimal_map(TCE_EXPECTED),
         )
         self.assertEqual(
             {row["observation_date"] for row in fuel_scoped + tce_unscoped},
