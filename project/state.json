@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import",
+  "phase": "Bigster Page 20 Emission Standard Conflict Observation Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,11 +15,11 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1595,
+    "tests": 1602,
     "csv_files": 46,
-    "rows": 11162,
-    "configuration_values": 3307,
-    "configuration_import_specs": 123,
+    "rows": 11176,
+    "configuration_values": 3321,
+    "configuration_import_specs": 124,
     "configuration_value_ranges": 274,
     "configuration_range_import_specs": 21,
     "availability_records": 5770,
@@ -27,16 +27,17 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_hybridg150_rpm_conflict_observation_import_001",
+    "package_id": "post_residual_bigster_page20_emission_standard_conflict_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import",
+    "name": "Bigster Page 20 Emission Standard Conflict Observation Import",
     "status": "complete",
-    "goal": "Add six older brochure observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while preserving and testing the later price-source values 5000 and 1750 and excluding electric-motor RPM context.",
+    "goal": "Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-hybridg150-max-power-rpm-20251210.json",
-      "data/imports/configuration_values/bigster-page20-hybridg150-max-torque-rpm-20251210.json",
+      "data/imports/configuration_values/bigster-page20-emission-standard-20251210.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_hybridg150_rpm_conflict_observations.py",
+      "tests/test_bigster_page20_emission_standard_conflict_observations.py",
+      "tests/test_attribute_enum_domains.py",
+      "tests/test_sandero_euro_6e_bis_model.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
@@ -52,16 +53,15 @@
     ]
   },
   "next_package": {
-    "package_id": "post_residual_bigster_page20_emission_standard_conflict_observation_import_001",
+    "package_id": "post_residual_bigster_page20_hybrid155_voltage_conflict_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Emission Standard Conflict Observation Import",
+    "name": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
     "status": "planned",
-    "goal": "Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.",
+    "goal": "Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without declaring either source authoritative.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-emission-standard-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybrid155-system-voltage-20251210.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_emission_standard_conflict_observations.py",
-      "tests/test_attribute_enum_domains.py",
+      "tests/test_bigster_page20_hybrid155_voltage_conflict_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
