@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Range and Context Follow-up Review**
+**Verified PDF Residual Queue Re-entry Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Range and Context Follow-up Review** — `complete`
+**Verified PDF Residual Queue Re-entry Review** — `complete`
 
-Close remaining page-19 RPM-range and context questions by verifying existing range/scalar coverage, preserving official-source conflicts and refusing inference-based context promotion.
+Exclude raw-priority boundaries already closed by later work and select the first genuinely actionable verified-PDF residual boundary using stable source/model/domain/page identity.
 
 ## Next package
 
-**Verified PDF Residual Queue Re-entry Review** — `planned`
+**Duster Mini Technical Page 20 Reviewed Fact Reconciliation** — `planned`
 
-Reconcile the remaining verified-PDF residual packages after complete Jogger page-19 closure, exclude already closed and explicit non-import boundaries, and select the next genuinely actionable package without reopening resolved work.
+Reconcile all 65 previously reviewed Duster page-20 technical candidates against the current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.
 
 ## Autonomy
 
