@@ -1,0 +1,53 @@
+name: Temporary Verified PDF Queue Re-entry II Diagnostic
+
+on:
+  push:
+    branches:
+      - agent/verified-pdf-queue-reentry-review-ii-20260731
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out queue review branch
+        uses: actions/checkout@v4
+
+      - name: Inspect current residual queue
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          print('TOP_LEVEL_KEYS', sorted(data))
+          packages = data.get('packages') or data.get('review_packages') or data.get('prioritized_packages') or []
+          print('PACKAGE_COUNT', len(packages))
+          if packages:
+              print('FIRST_PACKAGE_JSON', json.dumps(packages[0], ensure_ascii=False, sort_keys=True))
+          for index, package in enumerate(packages, start=1):
+              boundary = package.get('boundary') or {}
+              source = boundary.get('source_code') or package.get('source_code')
+              model = boundary.get('model_code') or package.get('model_code')
+              domain = boundary.get('domain') or package.get('domain')
+              page = boundary.get('page') or package.get('page')
+              status = package.get('status') or package.get('coverage_status')
+              candidate_ids = package.get('candidate_ids') or package.get('candidates') or []
+              if candidate_ids and isinstance(candidate_ids[0], dict):
+                  ids = [item.get('candidate_id') or item.get('id') for item in candidate_ids]
+              else:
+                  ids = candidate_ids
+              print('PACKAGE', index, package.get('package_id'), source, model, domain, page, status, len(ids), ids[:4], ids[-4:])
+
+          print('REVIEW_FILES')
+          for root in (Path('data/reporting'), Path('project/reviews')):
+              for item in sorted(root.glob('*')):
+                  name = item.name.lower()
+                  if any(token in name for token in ('reconciliation', 'closure', 'queue-reentry', 'unresolved-review', 'ambiguity-review')):
+                      print(item.as_posix())
+          PY
