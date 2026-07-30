@@ -28,6 +28,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import textwrap
           from pathlib import Path
 
           def replace_once(path: Path, old: str, new: str) -> None:
@@ -38,7 +39,7 @@ jobs:
 
           verifier = Path('tools/review_official_brochure_technical_gap_resolution_closure_20260726.py')
           old = '    ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")\n'
-          new = '''    jogger_acceleration = [
+          block = '''jogger_acceleration = [
               row
               for row in scalar
               if row.get("source_code") == "src_pl_jogger_brochure_20251217"
@@ -55,7 +56,7 @@ jobs:
               expected_total += 26
           ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
           '''
-          replace_once(verifier, old, new)
+          replace_once(verifier, old, textwrap.indent(textwrap.dedent(block), '    '))
 
           closure_test = Path('tests/test_official_brochure_technical_gap_resolution_closure.py')
           replace_once(
