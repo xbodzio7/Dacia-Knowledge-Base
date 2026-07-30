@@ -31,7 +31,7 @@
     "kind": "configuration_range_import",
     "name": "Bigster Page 20 Emissions and Consumption Range Import",
     "status": "complete",
-    "goal": "Add 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption ranges for 11 current Bigster configurations, requiring every upper endpoint to match the existing exact value and excluding Hybrid-G 150 4x4 fuel-specific exact pairs and every deferred source conflict.",
+    "goal": "Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict; canonicalize decimal endpoints; refresh live range-count and candidate-coverage contracts without rewriting historical closure receipts.",
     "manifest_paths": [
       "data/imports/configuration_value_ranges/bigster-page20-emissions-consumption-ranges-20251210.json",
       "data/master/configuration_attribute_value_ranges.csv",
@@ -41,7 +41,14 @@
       "README.md",
       "CHANGELOG.md",
       "project/ROADMAP.md",
-      "project/SESSION_STATE.md"
+      "project/SESSION_STATE.md",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_configuration_value_ranges.py",
+      "tests/test_jogger_payload_performance_ranges.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md"
     ]
   },
   "next_package": {

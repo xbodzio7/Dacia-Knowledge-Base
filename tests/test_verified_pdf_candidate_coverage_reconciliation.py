@@ -321,9 +321,9 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
             self.payload["summary"]["coverage_status_counts"],
             {
                 "already_covered": 122,
-                "ambiguous": 108,
+                "ambiguous": 109,
                 "explicit_non_import": 195,
-                "unresolved": 1158,
+                "unresolved": 1157,
             },
         )
         candidate_ids = [item["candidate_id"] for item in self.payload["candidates"]]

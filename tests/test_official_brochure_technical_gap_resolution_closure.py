@@ -45,6 +45,9 @@ EXPECTED_RANGES = Counter(
         "src_pl_duster_mini_brochure_20251020": 10,
     }
 )
+EXPECTED_CURRENT_RANGES = EXPECTED_RANGES + Counter(
+    {"src_pl_bigster_brochure_20251210": 30}
+)
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -93,12 +96,12 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
 
     def test_current_brochure_scalar_and_range_coverage_is_exact(self) -> None:
         self.assertEqual(len(self.scalar), 1118)
-        self.assertEqual(len(self.ranges), 68)
+        self.assertEqual(len(self.ranges), 98)
         self.assertEqual(
             Counter(row["source_code"] for row in self.scalar),
             EXPECTED_CURRENT_SCALAR,
         )
-        self.assertEqual(Counter(row["source_code"] for row in self.ranges), EXPECTED_RANGES)
+        self.assertEqual(Counter(row["source_code"] for row in self.ranges), EXPECTED_CURRENT_RANGES)
         self.assertEqual(
             Counter(self.report["current_brochure_coverage"]["scalar_values_by_source"]),
             EXPECTED_SCALAR,

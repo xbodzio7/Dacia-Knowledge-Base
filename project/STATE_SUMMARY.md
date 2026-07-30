@@ -38,7 +38,7 @@
 
 **Bigster Page 20 Emissions and Consumption Range Import** — `complete`
 
-Add 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption ranges for 11 current Bigster configurations, requiring every upper endpoint to match the existing exact value and excluding Hybrid-G 150 4x4 fuel-specific exact pairs and every deferred source conflict.
+Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict; canonicalize decimal endpoints; refresh live range-count and candidate-coverage contracts without rewriting historical closure receipts.
 
 ## Next package
 
