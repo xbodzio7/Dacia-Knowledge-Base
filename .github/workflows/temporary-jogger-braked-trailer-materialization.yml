@@ -28,11 +28,13 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import textwrap
 
           checker = Path('tools/review_official_brochure_technical_gap_resolution_closure_20260726.py')
           text = checker.read_text(encoding='utf-8')
           anchor = '    ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")\n'
-          block = '''    jogger_braked_trailer_weight = [
+          block = textwrap.indent(textwrap.dedent('''\
+          jogger_braked_trailer_weight = [
               row
               for row in scalar
               if row.get("source_code") == "src_pl_jogger_brochure_20251217"
@@ -72,7 +74,7 @@ jobs:
               )
               expected_scalar.update({"src_pl_jogger_brochure_20251217": 16})
               expected_total += 16
-          '''
+          '''), '    ')
           if text.count(anchor) != 1:
               raise SystemExit(f'checker anchor count is {text.count(anchor)}')
           checker.write_text(text.replace(anchor, block + anchor), encoding='utf-8', newline='\n')
