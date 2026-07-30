@@ -240,6 +240,25 @@ def verify_current_coverage() -> None:
         ensure(len(eco_mode) == 14, "Bigster eco-mode receipt differs")
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
         expected_total += 14
+    deferred_gap_attributes = {
+        "hybrid_system_power_total": 3,
+        "traction_motor_torque": 3,
+        "hybrid_battery_type": 14,
+    }
+    deferred_gap = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") in deferred_gap_attributes
+    ]
+    if deferred_gap:
+        ensure(
+            Counter(row.get("attribute_code", "") for row in deferred_gap)
+            == Counter(deferred_gap_attributes),
+            "Bigster deferred import-gap receipt differs",
+        )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 20})
+        expected_total += 20
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")

@@ -122,6 +122,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "hybrid_battery_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "hybrid_system_voltage",
       "fuel_type_code": ""
     },
@@ -203,6 +211,10 @@
     },
     {
       "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "traction_motor_torque",
       "fuel_type_code": ""
     },
     {
