@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import",
+  "phase": "Bigster Page 20 Conflict Preservation Closure Review",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,41 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_mildhybridg140_payload_range_conflict_observation_import_001",
-    "kind": "configuration_value_range_import",
-    "name": "Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import",
-    "status": "complete",
-    "goal": "Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.",
-    "manifest_paths": [
-      "data/imports/configuration_value_ranges/bigster-page20-mildhybridg140-maximum-payload-20251210.json",
-      "data/master/configuration_attribute_value_ranges.csv",
-      "tests/test_bigster_page20_mildhybridg140_payload_range_conflict_observations.py",
-      "tests/test_configuration_value_ranges.py",
-      "tests/test_jogger_payload_performance_ranges.py",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
-      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
-      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
-      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
-      "tests/test_official_brochure_technical_gap_resolution_closure.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_bigster_page20_conflict_preservation_closure_review_001",
     "kind": "review",
     "name": "Bigster Page 20 Conflict Preservation Closure Review",
-    "status": "planned",
-    "goal": "Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation boundaries, confirm that context-blocked and anomalous evidence remains unimported, and select the next residual package without creating data changes.",
+    "status": "complete",
+    "goal": "Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation packages, confirm that context-blocked and anomalous evidence remains unimported, close the page-20 conflict boundary, and return to the deterministic residual queue without creating data changes.",
     "manifest_paths": [
       "data/reporting/bigster_page20_conflict_preservation_closure_review.json",
       "data/reporting/bigster_page20_conflict_preservation_closure_review.md",
       "project/reviews/bigster-page20-conflict-preservation-closure-review-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "residual_gap_051",
+    "kind": "review",
+    "name": "Sandero Equipment Page 19 Unresolved Review — Chunk 1",
+    "status": "planned",
+    "goal": "Review the first 40 of 65 unresolved Sandero equipment-matrix candidates on page 19, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.",
+    "manifest_paths": [
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.json",
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.md",
+      "project/reviews/sandero-equipment-page19-unresolved-review-chunk1-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
