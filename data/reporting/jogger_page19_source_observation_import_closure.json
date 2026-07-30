@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "kind": "jogger_page19_source_observation_import_closure",
+  "reviewed_on": "2026-07-30",
+  "status": "complete",
+  "package_id": "post_residual_jogger_page19_source_observation_import_closure_001",
+  "source": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19,
+    "observation_date": "2025-12-17"
+  },
+  "reviewed_reconciliation": "data/reporting/jogger_technical_page19_reviewed_fact_reconciliation.json",
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "observation_date": "2026-04-01"
+  },
+  "summary": {
+    "completed_new_source_observations": 90,
+    "completed_import_packages": 3,
+    "remaining_safe_import_areas": 2,
+    "remaining_safe_observations": 38,
+    "remaining_deferred_conflict_areas": 5,
+    "remaining_context_model_areas": 2,
+    "page19_import_queue_closed": false
+  },
+  "completed_imports": [
+    {
+      "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+      "attribute_codes": ["acceleration_0_100"],
+      "observation_count": 26,
+      "id_range": [3336, 3361],
+      "result": "complete"
+    },
+    {
+      "package_id": "post_residual_jogger_page19_minimum_kerb_weight_source_observation_import_001",
+      "attribute_codes": ["minimum_kerb_weight"],
+      "observation_count": 22,
+      "id_range": [3362, 3383],
+      "result": "complete"
+    },
+    {
+      "package_id": "post_residual_jogger_page19_fuel_lpg_capacity_source_observation_import_001",
+      "attribute_codes": [
+        "fuel_tank_capacity",
+        "lpg_vessel_capacity_total",
+        "lpg_vessel_filling_capacity"
+      ],
+      "observation_count": 42,
+      "id_range": [3384, 3425],
+      "result": "complete"
+    }
+  ],
+  "already_covered_before_this_sequence": [
+    {
+      "fact_code": "maximum_torque_speed",
+      "attribute_codes": ["max_torque_rpm"],
+      "decision": "no_new_import",
+      "reason": "Source-specific TCe 110, Eco-G 120 and Hybrid 155 torque-speed ranges from page 19 are already registered by the earlier Jogger hybrid-performance package."
+    },
+    {
+      "fact_code": "maximum_power_speed_matching_subset",
+      "attribute_codes": ["max_power_rpm"],
+      "decision": "no_new_import_for_matching_subset",
+      "reason": "The matching TCe 110 and Eco-G LPG source ranges are already registered; the Eco-G petrol upper endpoint remains a source conflict."
+    }
+  ],
+  "remaining_safe_imports": [
+    {
+      "priority": 1,
+      "fact_code": "gross_vehicle_weight",
+      "attribute_code": "gross_vehicle_weight",
+      "target_configuration_count": 22,
+      "planned_observation_count": 22,
+      "source_values": {
+        "five_seat": ["1685", "1765", "1785", "1830"],
+        "seven_seat": ["1855", "1940", "1960", "2000"]
+      },
+      "comparison_result": "all printed values exactly match current official observations",
+      "safety": "exact configuration targets and kilogram semantics are already governed"
+    },
+    {
+      "priority": 2,
+      "fact_code": "braked_trailer_weight_non_hybrid",
+      "attribute_code": "braked_trailer_weight",
+      "target_configuration_count": 16,
+      "planned_observation_count": 16,
+      "source_value": "1200",
+      "comparison_result": "all TCe 110 and Eco-G 120 values match current official observations",
+      "exclusion": "six Hybrid 155 configurations remain deferred because the brochure states 1200 kg while the later official source states 1000 kg"
+    }
+  ],
+  "deferred_conflicts": [
+    {
+      "fact_code": "maximum_power_hybrid155",
+      "reason": "brochure 105 kW versus later official 116 kW"
+    },
+    {
+      "fact_code": "maximum_power_speed_ecog120_petrol",
+      "reason": "brochure upper endpoint 5000 rpm versus later official 5750 rpm"
+    },
+    {
+      "fact_code": "maximum_kerb_like_mislabeled_block",
+      "reason": "printed gross-train heading conflicts with maximum-kerb-like magnitudes"
+    },
+    {
+      "fact_code": "gross_train_like_mislabeled_block",
+      "reason": "printed gross-vehicle heading conflicts with gross-train-like magnitudes"
+    },
+    {
+      "fact_code": "braked_trailer_weight_hybrid155",
+      "reason": "brochure 1200 kg versus later official 1000 kg"
+    }
+  ],
+  "context_model_requirements": [
+    {
+      "fact_code": "energy_source_columns",
+      "reason": "the printed multi-column row spans governed fuel, hybrid and electric-energy context rather than one scalar attribute"
+    },
+    {
+      "fact_code": "test_protocol",
+      "reason": "no approved governed homologation-protocol attribute exists; the WLTP footnote remains context only"
+    }
+  ],
+  "policy": {
+    "review_only": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false,
+    "current_exact_values_not_overwritten": true,
+    "official_source_conflicts_preserved": true,
+    "printed_labels_not_corrected_by_inference": true
+  },
+  "next_package": {
+    "package_id": "post_residual_jogger_page19_gross_vehicle_weight_source_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Jogger Page 19 Gross Vehicle Weight Source Observations",
+    "status": "planned",
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "target_configuration_count": 22,
+    "planned_observation_count": 22,
+    "goal": "Add source-specific gross vehicle weight observations from Jogger brochure page 19 for all 22 current configurations where the printed kilogram values exactly match current official observations, without importing either mislabeled adjacent mass block.",
+    "manifest_paths": [
+      "data/imports/configuration_values/jogger-brochure-gross-vehicle-weight-20251217.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_jogger_page19_gross_vehicle_weight_source_observations.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}
