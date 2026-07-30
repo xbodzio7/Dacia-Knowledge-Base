@@ -27,8 +27,9 @@ source = gzip.decompress(base64.b64decode(payload)).decode("utf-8")
 replacements = {
     'SECTION = "DANE TECHNICZNE"': 'SECTION = "ZUŻYCIE PALIWA I EMISJA CO2"',
     'self.assertEqual(spec["source_section"], "DANE TECHNICZNE")': 'self.assertEqual(spec["source_section"], "ZUŻYCIE PALIWA I EMISJA CO2")',
-    '113 kW (150 KM) – moc łączna': '113 (150 KM) – moc łączna',
-    '87 N.m przy 1630 obr./min – elektryczny': '87 przy 1630 (elektryczny)',
+    '113 kW (150 KM)': '113 (150 KM)',
+    '87 N.m przy 1630 obr./min': '87 przy 1630',
+    'tests.test_data_product_release_model': 'tests.test_data_product_release',
 }
 for old, new in replacements.items():
     if old not in source:
