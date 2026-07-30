@@ -1,0 +1,32 @@
+name: Temporary verified PDF residual review closure audit
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/verified-pdf-residual-review-closure-audit-20260730
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Audit all residual review packages
+        run: python tools/audit_verified_pdf_residual_review_closure.py
+      - name: Upload audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-pdf-residual-review-closure-audit
+          path: verified_pdf_residual_review_closure_audit
+          if-no-files-found: error
+          retention-days: 7
