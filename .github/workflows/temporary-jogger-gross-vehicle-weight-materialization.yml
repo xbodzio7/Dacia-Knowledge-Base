@@ -1,0 +1,54 @@
+name: Temporary Jogger gross vehicle weight materialization
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/jogger-page19-gross-vehicle-weight-20260730'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: agent/jogger-page19-gross-vehicle-weight-20260730
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+      - name: Install PDF text extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Materialize and validate package
+        run: python tools/temporary_materialize_jogger_gross_vehicle_weight.py
+      - name: Commit final package and remove temporary tools
+        run: |
+          rm .github/workflows/temporary-jogger-page19-gvw-diagnostic.yml
+          rm .github/workflows/temporary-jogger-gross-vehicle-weight-materialization.yml
+          rm tools/temporary_materialize_jogger_gross_vehicle_weight.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/imports/configuration_values/jogger-brochure-gross-vehicle-weight-20251217.json \
+            data/master/configuration_attribute_values.csv \
+            tests/test_jogger_page19_gross_vehicle_weight_source_observations.py \
+            tools/import_jogger_chassis_20260726.py \
+            tests/test_jogger_chassis_20260726.py \
+            tools/review_official_brochure_technical_gap_resolution_closure_20260726.py \
+            tests/test_official_brochure_technical_gap_resolution_closure.py \
+            data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
+            data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
+            tests/test_verified_pdf_candidate_coverage_reconciliation.py \
+            tests/test_verified_pdf_candidate_residual_gap_prioritization.py \
+            README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md \
+            project/state.json project/STATE_SUMMARY.md \
+            .github/workflows/temporary-jogger-page19-gvw-diagnostic.yml \
+            .github/workflows/temporary-jogger-gross-vehicle-weight-materialization.yml \
+            tools/temporary_materialize_jogger_gross_vehicle_weight.py
+          git commit -m "data(jogger): add page 19 gross vehicle weights"
+          git push origin HEAD:agent/jogger-page19-gross-vehicle-weight-20260730
