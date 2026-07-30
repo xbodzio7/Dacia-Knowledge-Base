@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
+  "phase": "Bigster Page 20 Battery Capacity Conflict Observation Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,11 +15,11 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1610,
+    "tests": 1618,
     "csv_files": 46,
-    "rows": 11179,
-    "configuration_values": 3324,
-    "configuration_import_specs": 125,
+    "rows": 11190,
+    "configuration_values": 3335,
+    "configuration_import_specs": 126,
     "configuration_value_ranges": 274,
     "configuration_range_import_specs": 21,
     "availability_records": 5770,
@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_hybrid155_voltage_conflict_observation_import_001",
+    "package_id": "post_residual_bigster_page20_battery_capacity_conflict_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
+    "name": "Bigster Page 20 Battery Capacity Conflict Observation Import",
     "status": "complete",
-    "goal": "Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without importing the adjacent 1.4 kWh capacity context.",
+    "goal": "Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-hybrid155-system-voltage-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybrid-battery-capacity-source-stated-20251210.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_hybrid155_voltage_conflict_observations.py",
+      "tests/test_bigster_page20_battery_capacity_conflict_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
@@ -51,15 +51,15 @@
     ]
   },
   "next_package": {
-    "package_id": "post_residual_bigster_page20_battery_capacity_conflict_observation_import_001",
-    "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Battery Capacity Conflict Observation Import",
+    "package_id": "post_residual_bigster_page20_mildhybridg140_payload_range_conflict_observation_import_001",
+    "kind": "configuration_value_range_import",
+    "name": "Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import",
     "status": "planned",
-    "goal": "Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.",
+    "goal": "Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-hybrid-battery-capacity-source-stated-20251210.json",
-      "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_battery_capacity_conflict_observations.py",
+      "data/imports/configuration_value_ranges/bigster-page20-mildhybridg140-maximum-payload-20251210.json",
+      "data/master/configuration_attribute_value_ranges.csv",
+      "tests/test_bigster_page20_mildhybridg140_payload_range_conflict_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",

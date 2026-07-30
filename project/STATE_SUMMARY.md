@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import**
+**Bigster Page 20 Battery Capacity Conflict Observation Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1610
+- Tests: 1618
 - Master CSV files: 46
-- Master rows: 11179
-- Configuration values: 3324
-- Configuration import specifications: 125
+- Master rows: 11190
+- Configuration values: 3335
+- Configuration import specifications: 126
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import** — `complete`
+**Bigster Page 20 Battery Capacity Conflict Observation Import** — `complete`
 
-Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without importing the adjacent 1.4 kWh capacity context.
+Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.
 
 ## Next package
 
-**Bigster Page 20 Battery Capacity Conflict Observation Import** — `planned`
+**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import** — `planned`
 
-Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.
+Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.
 
 ## Autonomy
 
