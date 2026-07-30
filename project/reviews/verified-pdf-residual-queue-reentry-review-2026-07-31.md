@@ -5,7 +5,7 @@ Package: `post_residual_verified_pdf_queue_reentry_review_002`
 
 ## Decision
 
-The next actionable stable boundary is Sandero III technical tables, page 17. Its ambiguity review and both unresolved chunks are complete, covering 46 candidates, but no reconciliation against the current master exists.
+The next actionable stable boundary is Sandero III technical tables, page 17. Its ambiguity review and both unresolved chunks are complete, covering 46 candidates, but no reconciliation against the current master exists. The selection is based on the stable source/model/domain/page key rather than a historical package ordinal.
 
 ## Exclusions
 
