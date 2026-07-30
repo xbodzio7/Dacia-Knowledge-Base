@@ -1,0 +1,140 @@
+name: Temporary repair Jogger acceleration live contracts
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/jogger-page19-acceleration-observations-20260730'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/jogger-page19-acceleration-observations-20260730
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install PDF text extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Update live source and reporting contracts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          def replace_once(path: Path, old: str, new: str) -> None:
+              text = path.read_text(encoding='utf-8')
+              if text.count(old) != 1:
+                  raise SystemExit(f'{path}: replacement target count for {old!r} is {text.count(old)}')
+              path.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+
+          verifier = Path('tools/review_official_brochure_technical_gap_resolution_closure_20260726.py')
+          old = '    ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")\n'
+          new = '''    jogger_acceleration = [
+              row
+              for row in scalar
+              if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+              and row.get("attribute_code") == "acceleration_0_100"
+              and 3336 <= int(row.get("id", "0")) <= 3361
+          ]
+          if jogger_acceleration:
+              ensure(len(jogger_acceleration) == 26, "Jogger acceleration source-observation receipt differs")
+              ensure(
+                  [int(row["id"]) for row in jogger_acceleration] == list(range(3336, 3362)),
+                  "Jogger acceleration source-observation IDs differ",
+              )
+              expected_scalar.update({"src_pl_jogger_brochure_20251217": 26})
+              expected_total += 26
+          ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
+          '''
+          replace_once(verifier, old, new)
+
+          closure_test = Path('tests/test_official_brochure_technical_gap_resolution_closure.py')
+          replace_once(
+              closure_test,
+              '        "src_pl_jogger_brochure_20251217": 490,\n',
+              '        "src_pl_jogger_brochure_20251217": 516,\n',
+          )
+          replace_once(
+              closure_test,
+              '        self.assertEqual(len(self.scalar), 1186)\n',
+              '        self.assertEqual(len(self.scalar), 1212)\n',
+          )
+
+          hybrid_test = Path('tests/test_jogger_brochure_hybrid_performance_20260726.py')
+          replace_once(
+              hybrid_test,
+              '            and row.get("attribute_code") in SCALAR_ATTRIBUTES\n',
+              '            and row.get("attribute_code") in SCALAR_ATTRIBUTES\n            and "hybrid155" in row.get("configuration_code", "")\n',
+          )
+
+          reporting_test = Path('tests/test_jogger_tce110_manual_reporting_scope.py')
+          replacements = [
+              ('        self.assertEqual(scope["technical_slots"], 41)\n', '        self.assertEqual(scope["technical_slots"], 42)\n'),
+              ('                "applicable": 246,\n', '                "applicable": 252,\n'),
+              ('                "denominator": 246,\n', '                "denominator": 252,\n'),
+              ('                "present": 246,\n', '                "present": 252,\n'),
+              ('        self.assertEqual(self.coverage["records"]["technical"]["present"], 246)\n', '        self.assertEqual(self.coverage["records"]["technical"]["present"], 252)\n'),
+              ('                "technical": {"comparisons": 720, "equal": 558, "different": 72, "not_comparable": 90},\n', '                "technical": {"comparisons": 735, "equal": 564, "different": 81, "not_comparable": 90},\n'),
+              ('                "total_differences": 219,\n', '                "total_differences": 228,\n'),
+          ]
+          for old_text, new_text in replacements:
+              replace_once(reporting_test, old_text, new_text)
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          manifest = state['current_package']['manifest_paths']
+          additions = [
+              'tools/review_official_brochure_technical_gap_resolution_closure_20260726.py',
+              'tests/test_official_brochure_technical_gap_resolution_closure.py',
+              'tests/test_jogger_brochure_hybrid_performance_20260726.py',
+              'tests/test_jogger_tce110_manual_reporting_scope.py',
+              'data/reporting/verified_pdf_candidate_coverage_reconciliation.json',
+              'data/reporting/verified_pdf_candidate_coverage_reconciliation.md',
+          ]
+          for item in additions:
+              if item not in manifest:
+                  manifest.insert(-2, item)
+          if len(manifest) != len(set(manifest)):
+              raise SystemExit('current package manifest contains duplicates')
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
+          PY
+      - name: Regenerate coverage reconciliation
+        run: python tools/verified_pdf_candidate_coverage_reconciliation.py
+      - name: Run targeted and full validation
+        run: |
+          python tools/review_official_brochure_technical_gap_resolution_closure_20260726.py --check
+          python -m unittest -v \
+            tests.test_jogger_page19_acceleration_source_observations \
+            tests.test_jogger_brochure_hybrid_performance_20260726 \
+            tests.test_jogger_tce110_manual_reporting_scope \
+            tests.test_official_brochure_technical_gap_resolution_closure \
+            tests.test_verified_pdf_candidate_coverage_reconciliation
+          python -m unittest -q
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+      - name: Commit final contracts and remove workflow
+        run: |
+          rm .github/workflows/temporary-jogger-acceleration-live-contract-repair.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            tools/review_official_brochure_technical_gap_resolution_closure_20260726.py \
+            tests/test_official_brochure_technical_gap_resolution_closure.py \
+            tests/test_jogger_brochure_hybrid_performance_20260726.py \
+            tests/test_jogger_tce110_manual_reporting_scope.py \
+            data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
+            data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            .github/workflows/temporary-jogger-acceleration-live-contract-repair.yml
+          git commit -m "fix(contracts): refresh Jogger acceleration coverage"
+          git push origin HEAD:agent/jogger-page19-acceleration-observations-20260730
