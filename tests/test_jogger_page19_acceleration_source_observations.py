@@ -1,4 +1,4 @@
-"""Verify the Jogger page 19 acceleration import and its live compatibility contracts."""
+"""Verify the Jogger page 19 acceleration import, live contracts and baseline compatibility."""
 
 from __future__ import annotations
 
