@@ -32,18 +32,48 @@ jobs:
           path = Path('tools/temporary_materialize_jogger_minimum_kerb_weight.py')
           text = path.read_text(encoding='utf-8')
           old = '    replace_once(verifier, old, textwrap.indent(textwrap.dedent(block), "    "))\n'
-          new = '''    block_lines = block.splitlines()
-              replacement = (
-                  "    " + block_lines[0] + "\\n"
-                  + textwrap.indent(textwrap.dedent("\\n".join(block_lines[1:])), "    ")
-                  + "\\n"
-              )
-              replace_once(verifier, old, replacement)
-          '''
-          new = '\n'.join(line[12:] if line.startswith('            ') else line for line in new.splitlines()) + '\n'
+          new = (
+              '    block_lines = block.splitlines()\n'
+              '    replacement = (\n'
+              '        "    " + block_lines[0] + "\\n"\n'
+              '        + textwrap.indent(textwrap.dedent("\\n".join(block_lines[1:])), "    ")\n'
+              '        + "\\n"\n'
+              '    )\n'
+              '    replace_once(verifier, old, replacement)\n'
+          )
           if text.count(old) != 1:
               raise SystemExit(f'verifier replacement target count is {text.count(old)}')
           path.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+          PY
+      - name: Preserve exact ambiguous mass boundary
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          checker = Path('tools/import_jogger_chassis_20260726.py')
+          text = checker.read_text(encoding='utf-8')
+          old = '    ensure(not any(row["source_code"] == SOURCE_CODE and row["attribute_code"] in MASS_ATTRIBUTES and row["observation_date"] == "2025-12-17" for row in read_rows(VALUE_PATH)), "ambiguous Jogger mass evidence was imported")\n'
+          new = '''    ensure(
+              not any(
+                  row["source_code"] == SOURCE_CODE
+                  and row["attribute_code"] in {"maximum_kerb_weight", "gross_vehicle_weight", "gross_train_weight"}
+                  and row["observation_date"] == "2025-12-17"
+                  for row in read_rows(VALUE_PATH)
+              ),
+              "ambiguous Jogger mass evidence was imported",
+          )
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f'ambiguous boundary replacement target count is {text.count(old)}')
+          checker.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+
+          materializer = Path('tools/temporary_materialize_jogger_minimum_kerb_weight.py')
+          text = materializer.read_text(encoding='utf-8')
+          old = '            "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",\n'
+          new = old + '            "tools/import_jogger_chassis_20260726.py",\n'
+          if text.count(old) != 1:
+              raise SystemExit(f'manifest insertion target count is {text.count(old)}')
+          materializer.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
           PY
       - name: Materialize and validate package
         run: python tools/temporary_materialize_jogger_minimum_kerb_weight.py
@@ -58,6 +88,7 @@ jobs:
             data/master/configuration_attribute_values.csv \
             tests/test_jogger_page19_minimum_kerb_weight_source_observations.py \
             tools/review_official_brochure_technical_gap_resolution_closure_20260726.py \
+            tools/import_jogger_chassis_20260726.py \
             tests/test_official_brochure_technical_gap_resolution_closure.py \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
