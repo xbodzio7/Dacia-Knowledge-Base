@@ -285,6 +285,22 @@ def verify_current_coverage() -> None:
         ensure({row.get("value", "") for row in emission_conflicts} == {"euro_6e_bis"}, "Bigster emission-standard values differ")
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
         expected_total += 14
+    voltage_conflicts = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "hybrid_system_voltage"
+        and row.get("value") == "280"
+    ]
+    if voltage_conflicts:
+        ensure(len(voltage_conflicts) == 3, "Bigster Hybrid 155 voltage conflict-observation receipt differs")
+        ensure({row.get("configuration_code", "") for row in voltage_conflicts} == {
+            "bigster_expression_hybrid155_4x2_automatic",
+            "bigster_extreme_hybrid155_4x2_automatic",
+            "bigster_journey_hybrid155_4x2_automatic",
+        }, "Bigster Hybrid 155 voltage targets differ")
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 3})
+        expected_total += 3
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
