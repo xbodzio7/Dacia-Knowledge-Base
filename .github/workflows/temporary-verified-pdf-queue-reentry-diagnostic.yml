@@ -17,31 +17,61 @@ jobs:
         with:
           ref: agent/verified-pdf-queue-reentry-20260730
           persist-credentials: false
-      - name: Print residual package queue
+      - name: Print candidate evidence for leading residual boundaries
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json')
-          payload = json.loads(path.read_text(encoding='utf-8'))
-          print('SUMMARY', json.dumps(payload.get('summary', {}), ensure_ascii=False, sort_keys=True))
-          for package in payload.get('packages', []):
-              evidence = package.get('evidence', [])
-              texts = []
-              for item in evidence[:3]:
-                  text = str(item.get('normalized_text') or item.get('text') or item.get('source_text') or '')
-                  texts.append(' '.join(text.split())[:180])
-              print('PACKAGE', json.dumps({
-                  'priority': package.get('priority'),
-                  'package_id': package.get('package_id'),
-                  'source_code': package.get('source_code'),
-                  'model_code': package.get('model_code'),
-                  'domain': package.get('domain'),
-                  'page': package.get('page'),
-                  'coverage_status': package.get('coverage_status'),
-                  'candidate_count': package.get('candidate_count'),
-                  'candidate_ids': package.get('candidate_ids', [])[:5],
-                  'texts': texts,
+          priority_path = Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json')
+          reconciliation_path = Path('data/reporting/verified_pdf_candidate_coverage_reconciliation.json')
+          priority = json.loads(priority_path.read_text(encoding='utf-8'))
+          reconciliation = json.loads(reconciliation_path.read_text(encoding='utf-8'))
+
+          candidates = {}
+          def walk(value):
+              if isinstance(value, dict):
+                  identifier = value.get('candidate_id')
+                  if identifier:
+                      candidates[str(identifier)] = value
+                  for nested in value.values():
+                      walk(nested)
+              elif isinstance(value, list):
+                  for nested in value:
+                      walk(nested)
+          walk(reconciliation)
+
+          print('SUMMARY', json.dumps(priority.get('summary', {}), ensure_ascii=False, sort_keys=True))
+          selected_ids = {
+              'residual_gap_001', 'residual_gap_002', 'residual_gap_003',
+              'residual_gap_004', 'residual_gap_005', 'residual_gap_006',
+              'residual_gap_016', 'residual_gap_017', 'residual_gap_018',
+          }
+          for package in priority.get('packages', []):
+              if package.get('package_id') not in selected_ids:
+                  continue
+              print('BOUNDARY', json.dumps({
+                  key: package.get(key)
+                  for key in (
+                      'priority', 'package_id', 'source_code', 'model_code', 'domain',
+                      'page', 'coverage_status', 'candidate_count', 'evidence_signature_count',
+                      'evidence_record_count',
+                  )
               }, ensure_ascii=False, sort_keys=True))
+              for identifier in package.get('candidate_ids', []):
+                  candidate = candidates.get(str(identifier))
+                  if candidate is None:
+                      print('CANDIDATE_MISSING', identifier)
+                      continue
+                  compact = json.dumps(candidate, ensure_ascii=False, sort_keys=True)
+                  print('CANDIDATE', str(identifier), compact[:2500])
+
+          print('REVIEW_ARTIFACTS')
+          roots = [Path('data/reporting'), Path('project/reviews')]
+          keywords = ('bigster', 'jogger', 'duster', 'technical', 'residual', 'conflict')
+          for root in roots:
+              for path in sorted(root.glob('*')):
+                  name = path.name.lower()
+                  if any(keyword in name for keyword in keywords):
+                      print(path.as_posix())
           PY
