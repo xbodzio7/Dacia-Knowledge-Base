@@ -14,7 +14,7 @@ Package: `post_residual_jogger_page19_range_context_follow_up_review_001`
 
 All reviewed RPM observations already exist. The only material RPM source difference is the Eco-G petrol maximum-power upper endpoint (`5000` versus later `5750`), which is correctly preserved as two dated observations. Hybrid 155 maximum-power speed `5600 rpm` is independently covered and does not resolve the total-power conflict.
 
-Energy-source columns and WLTP footnotes are context, not missing scalar values. The brochure's Hybrid 155 total of `105 kW` conflicts with six later `116 kW` observations and remains unimported.
+Energy-source columns and WLTP footnotes are contextual evidence, not missing scalar values. The brochure's Hybrid 155 total of `105 kW` conflicts with six later `116 kW` observations and remains unimported.
 
 ## Closure
 
