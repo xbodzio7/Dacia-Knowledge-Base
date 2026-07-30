@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Deferred Import Gap Import**
+**Bigster Page 20 Remaining Conflict Boundary Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Deferred Import Gap Import** — `complete`
+**Bigster Page 20 Remaining Conflict Boundary Review** — `complete`
 
-Add exactly 20 evidence-safe scalar observations from three strict single-attribute specs: total hybrid-system power and traction-motor torque for the three Hybrid-G 150 4x4 configurations, plus lithium-ion battery type for all 14 Bigster configurations, while preserving all RPM, capacity and voltage conflicts.
+Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports, separate source-observation-ready contradictions from context-blocked evidence, and select one narrow conflict-preservation package.
 
 ## Next package
 
-**Bigster Page 20 Remaining Conflict Boundary Review** — `planned`
+**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import** — `planned`
 
-Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports. Preserve contradictory official observations and select only the next source-safe package supported by the repository model.
+Add six older brochure source observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while retaining and explicitly testing the later price-source values 5000 and 1750. Do not import electric-motor RPM context.
 
 ## Autonomy
 
