@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-Residual Review Milestone Closure**
+**Bigster Technical Page 20 Reviewed Fact Reconciliation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Residual Review Milestone Closure** — `complete`
+**Bigster Technical Page 20 Reviewed Fact Reconciliation** — `complete`
 
-Verify completion and exact accounting of all 52 canonical residual review packages, repair the single exact-text transcription defect, preserve every non-import and evidence boundary, keep the final source-verified bundle reproducible after milestone closure, and select the next source-backed package.
+Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications, while keeping the verified final residual bundle reproducible after the project advances beyond milestone closure.
 
 ## Next package
 
-**Bigster Technical Page 20 Reviewed Fact Reconciliation** — `planned`
+**Bigster Page 20 Emissions and Consumption Range Import** — `planned`
 
-Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.
+Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict.
 
 ## Autonomy
 

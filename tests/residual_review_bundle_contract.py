@@ -249,10 +249,16 @@ class ResidualReviewBundleContractTests(unittest.TestCase):
 
     def test_post_closure_state_resolves_final_verified_package(self) -> None:
         state = read_json(STATE)
-        self.assertEqual(state["current_package"]["kind"], "milestone_review")
+        closure = read_json(CLOSURE)
+        last = last_prioritization_package()
+        self.assertEqual(closure["status"], "complete")
+        self.assertEqual(closure["scope"]["last_package_id"], last["package_id"])
+        self.assertTrue(
+            closure["verification"]["candidate_ids_and_exact_text_match_prioritization"]
+        )
         package, queue_complete = active_state_package(state)
         self.assertTrue(queue_complete)
-        self.assertEqual(package["package_id"], last_prioritization_package()["package_id"])
+        self.assertEqual(package["package_id"], last["package_id"])
 
     def test_output_directory_must_be_empty(self) -> None:
         state = read_json(STATE)
