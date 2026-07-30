@@ -15,37 +15,99 @@ PRIORITIZATION = (
     ROOT / "data" / "reporting" / "verified_pdf_candidate_residual_gap_prioritization.json"
 )
 SOURCE_RECEIPT = ROOT / "project" / "sources" / "official-dacia-brochures-20260725.json"
+CLOSURE = (
+    ROOT
+    / "data"
+    / "reporting"
+    / "verified_pdf_candidate_residual_review_closure.json"
+)
 
 
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def last_prioritization_package() -> dict:
+    packages = read_json(PRIORITIZATION)["packages"]
+    return packages[-1]
+
+
+def verified_closure_final_package() -> dict:
+    last = last_prioritization_package()
+    closure = read_json(CLOSURE)
+    verification = closure.get("verification", {})
+    packages = read_json(PRIORITIZATION)["packages"]
+    if not (
+        closure.get("status") == "complete"
+        and closure.get("scope", {}).get("package_count") == len(packages)
+        and closure.get("scope", {}).get("last_package_id") == last["package_id"]
+        and verification.get("package_ids_sequential_and_unique") is True
+        and verification.get("one_complete_review_report_per_package") is True
+        and verification.get("candidate_ids_assigned_exactly_once") is True
+        and verification.get("candidate_ids_and_exact_text_match_prioritization") is True
+    ):
+        raise residual_review_bundle.ResidualReviewBundleError(
+            "canonical residual closure is missing or not verified"
+        )
+    source = next(
+        item
+        for item in read_json(SOURCE_RECEIPT)["sources"]
+        if item["source_code"] == last["source_code"]
+    )
+    review_bundle = {
+        key: last[key]
+        for key in (
+            "source_code",
+            "model_code",
+            "domain",
+            "page",
+            "candidate_count",
+            "group_candidate_count",
+            "chunk_index",
+            "chunk_count",
+            "evidence_signature_count",
+            "evidence_record_count",
+        )
+    }
+    review_bundle.update(
+        {
+            "source_path": source["file_path"],
+            "source_sha256": source["sha256"],
+            "prioritization_path": str(PRIORITIZATION.relative_to(ROOT)),
+            "source_receipt_path": str(SOURCE_RECEIPT.relative_to(ROOT)),
+        }
+    )
+    return {
+        "package_id": last["package_id"],
+        "kind": "residual_review",
+        "status": "complete",
+        "review_bundle": review_bundle,
+    }
+
+
 def active_state_package(state: dict) -> tuple[dict, bool]:
     try:
         package_id = residual_review_bundle.default_package_id(state)
         queue_complete = False
-    except residual_review_bundle.ResidualReviewBundleError:
+    except residual_review_bundle.ResidualReviewBundleError as original_error:
         current = state.get("current_package")
         last = last_prioritization_package()
-        if not (
+        if (
             isinstance(current, dict)
             and current.get("kind") == "residual_review"
             and current.get("status") == "complete"
             and current.get("package_id") == last.get("package_id")
         ):
-            raise
-        return current, True
+            return current, True
+        try:
+            return verified_closure_final_package(), True
+        except (FileNotFoundError, KeyError, StopIteration, json.JSONDecodeError):
+            raise original_error
     for key in ("current_package", "next_package"):
         package = state.get(key)
         if isinstance(package, dict) and package.get("package_id") == package_id:
             return package, queue_complete
     raise AssertionError(f"state package not found: {package_id}")
-
-
-def last_prioritization_package() -> dict:
-    packages = read_json(PRIORITIZATION)["packages"]
-    return packages[-1]
 
 
 class ResidualReviewBundleContractTests(unittest.TestCase):
@@ -185,6 +247,13 @@ class ResidualReviewBundleContractTests(unittest.TestCase):
         with self.assertRaises(residual_review_bundle.ResidualReviewBundleError):
             residual_review_bundle.default_package_id(state)
 
+    def test_post_closure_state_resolves_final_verified_package(self) -> None:
+        state = read_json(STATE)
+        self.assertEqual(state["current_package"]["kind"], "milestone_review")
+        package, queue_complete = active_state_package(state)
+        self.assertTrue(queue_complete)
+        self.assertEqual(package["package_id"], last_prioritization_package()["package_id"])
+
     def test_output_directory_must_be_empty(self) -> None:
         state = read_json(STATE)
         package, _queue_complete = active_state_package(state)
@@ -207,6 +276,8 @@ class ResidualReviewBundleContractTests(unittest.TestCase):
         self.assertIn("python tools/residual_review_bundle.py", workflow)
         self.assertIn("queue_complete", workflow)
         self.assertIn("packages[-1]", workflow)
+        self.assertIn("verified_pdf_candidate_residual_review_closure.json", workflow)
+        self.assertIn('closure.get("scope", {}).get("last_package_id")', workflow)
         self.assertIn('--package-id "${{ steps.package.outputs.package_id }}"', workflow)
         self.assertIn("actions/upload-artifact@", workflow)
         self.assertIn("retention-days: 14", workflow)

@@ -25,7 +25,7 @@ The chunk covers lighting, exterior styling, wheels, interior trim and upholster
 
 | # | Line | Candidate | Group | Decision | Exact text |
 | ---: | ---: | --- | --- | --- | --- |
-| 1 | 9 | `222fc25f1f01849adf078dda720357f80ab3aa0d9687e96f7fb596704019fc02` | `headlights` | `context_only_non_import` | `Reflektory z charakterystycznym układem światuł` |
+| 1 | 9 | `222fc25f1f01849adf078dda720357f80ab3aa0d9687e96f7fb596704019fc02` | `headlights` | `context_only_non_import` | `Reflektory z charakterystycznym układem świateł` |
 | 2 | 10 | `c37445ea5ed62c2c52377c0c1eefe141de9cf1677609974c9ea62d5f240fa5c2` | `headlights` | `unresolved_signature_mismatch` | `                                                          •                     •                    •` |
 | 3 | 12 | `4d12688f6888d102d799b4d78d0803e2f0efe358708842f09d2ecb4218a7f18e` | `automatic_lights` | `context_only_non_import` | `Automatycznie włączane światła do jazdy` |
 | 4 | 13 | `fd05edebee3bc9f3034afa4275dcdbb686ce9c0c5c82dc6b5df4686b859019de` | `automatic_lights` | `unresolved_signature_mismatch` | `                                                          •                     •                    •` |
