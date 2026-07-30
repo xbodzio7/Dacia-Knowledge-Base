@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Verified PDF Candidate Residual Review Closure",
+  "phase": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
   "reference_delivery": {
-    "name": "Post-Cross-Model Workspace Priority Selection Review",
-    "pull_request": 297,
-    "head_sha": "e7750b327f6a3bd7796cb4967dc00fc6a3401e6c",
-    "quality_run": 2158
+    "name": "Verified PDF Candidate Residual Review Closure",
+    "pull_request": 391,
+    "head_sha": "981fe8aa476d19849256a5965bff63936b335cfc",
+    "quality_run": 2542
   },
   "baseline": {
     "tests": 1626,
@@ -27,29 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_verified_pdf_candidate_review_closure_001",
-    "kind": "review",
-    "name": "Verified PDF Candidate Residual Review Closure",
-    "status": "complete",
-    "goal": "Verify the complete 52-package authored residual review delivery against the deterministic prioritization and per-package artifacts, close the residual queue without data changes, and select the next project phase.",
-    "manifest_paths": [
-      "data/reporting/verified_pdf_candidate_residual_review_closure.json",
-      "data/reporting/verified_pdf_candidate_residual_review_closure.md",
-      "project/reviews/verified-pdf-candidate-residual-review-closure-2026-07-30.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_jogger_technical_page19_reconciliation_001",
     "kind": "source_reconciliation_review",
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Reconcile the complete technical source facts and preserved conflicts from Jogger brochure page 19 across residual_gap_002, residual_gap_024 and residual_gap_025 against current exact Jogger configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.",
     "manifest_paths": [
       "data/reporting/jogger_technical_page19_reviewed_fact_reconciliation.json",
       "data/reporting/jogger_technical_page19_reviewed_fact_reconciliation.md",
       "project/reviews/jogger-technical-page19-reviewed-fact-reconciliation-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Jogger Page 19 Acceleration Source Observations",
+    "status": "planned",
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "target_configuration_count": 16,
+    "excluded_existing_hybrid_configuration_count": 6,
+    "planned_observation_count": 26,
+    "goal": "Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.",
+    "manifest_paths": [
+      "data/imports/jogger_page19_acceleration_source_observations_20251217.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_jogger_page19_acceleration_source_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
