@@ -1,0 +1,2249 @@
+{
+  "configurations": [
+    {
+      "code": "sandero_iii_essential_tce100_manual",
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    },
+    {
+      "code": "sandero_iii_expression_ecog120_automatic",
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "automatic"
+    },
+    {
+      "code": "sandero_iii_expression_ecog120_manual",
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "manual"
+    },
+    {
+      "code": "sandero_iii_expression_tce100_manual",
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    },
+    {
+      "code": "sandero_iii_journey_ecog120_automatic",
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "automatic"
+    },
+    {
+      "code": "sandero_iii_journey_ecog120_manual",
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "manual"
+    },
+    {
+      "code": "sandero_iii_journey_tce100_manual",
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    }
+  ],
+  "same_source_page17_scalar_count": 72,
+  "same_source_page17_range_count": 0,
+  "same_source_page17_by_attribute": {
+    "acceleration_0_100": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "9.8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_acceleration_0_100_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 9,8 s dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "10.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_acceleration_0_100_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 10,9 s dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "9.8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_acceleration_0_100_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 9,8 s dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "10.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_acceleration_0_100_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 10,9 s dla benzyny"
+      }
+    ],
+    "braked_trailer_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_braked_trailer_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maksymalna masa przyczepy hamowanej: 1100 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_braked_trailer_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maksymalna masa przyczepy hamowanej: 1100 kg"
+      }
+    ],
+    "cylinder_count": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_cylinder_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Liczba cylindrów: 3"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_cylinder_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Liczba cylindrów: 3"
+      }
+    ],
+    "elasticity_80_120": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "11",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "11.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "11",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "11.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"
+      }
+    ],
+    "emission_standard": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "euro_6e_bis",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_emission_standard_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Norma emisji spalin: Euro 6e bis"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "emission_standard",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "euro_6e_bis",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_emission_standard_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Norma emisji spalin: Euro 6e bis"
+      }
+    ],
+    "engine_displacement": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_displacement_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność skokowa: 1199 cm3"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_displacement_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność skokowa: 1199 cm3"
+      }
+    ],
+    "engine_power": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_power_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 90 kW dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_power_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 84 kW dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_power_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 90 kW dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_power_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 84 kW dla benzyny"
+      }
+    ],
+    "engine_torque": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_torque_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 197 Nm dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_torque_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 190 Nm dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_torque_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 197 Nm dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_torque_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 190 Nm dla benzyny"
+      }
+    ],
+    "front_suspension": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "front_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_front_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "front_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_front_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "front_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_front_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "front_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_front_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Zawieszenie przednie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      }
+    ],
+    "fuel_tank_capacity": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_fuel_tank_capacity_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność zbiornika paliwa: 50 l"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_fuel_tank_capacity_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność zbiornika paliwa: 50 l"
+      }
+    ],
+    "gear_count": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gear_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "6",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gear_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Automatyczna skrzynia 6-biegowa"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gear_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "6",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gear_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Automatyczna skrzynia 6-biegowa"
+      }
+    ],
+    "gearbox_type": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "dct",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gearbox_type_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Automatyczna skrzynia dwusprzęgłowa"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gearbox_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "dct",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gearbox_type_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Automatyczna skrzynia dwusprzęgłowa"
+      }
+    ],
+    "gross_train_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2765",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gross_train_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2765",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gross_train_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"
+      }
+    ],
+    "gross_vehicle_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1665",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gross_vehicle_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita pojazdu: 1665 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1665",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gross_vehicle_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita pojazdu: 1665 kg"
+      }
+    ],
+    "maximum_kerb_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1209",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G: 1209 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1209",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G: 1209 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1232",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G auto: 1232 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1232",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G auto: 1232 kg"
+      }
+    ],
+    "minimum_kerb_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1205",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_minimum_kerb_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Minimalna masa własna: 1205 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "minimum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1205",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_minimum_kerb_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Minimalna masa własna: 1205 kg"
+      }
+    ],
+    "rear_suspension": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "rear_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_rear_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "rear_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_rear_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "rear_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_rear_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "rear_suspension",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_rear_suspension_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+      }
+    ],
+    "standard_tyre_specification": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "standard_tyre_specification",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "185/65 R15 88H - 195/55 R16 87H",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_standard_tyre_specification_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "standard_tyre_specification",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "185/65 R15 88H - 195/55 R16 87H",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_standard_tyre_specification_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "standard_tyre_specification",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "185/65 R15 88H - 195/55 R16 87H",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_standard_tyre_specification_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "standard_tyre_specification",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "185/65 R15 88H - 195/55 R16 87H",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_standard_tyre_specification_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H"
+      }
+    ],
+    "top_speed": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "180",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_top_speed_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Prędkość maksymalna: 180 km/h dla obu paliw"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "top_speed",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "180",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_top_speed_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Prędkość maksymalna: 180 km/h dla obu paliw"
+      }
+    ],
+    "total_valve_count": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_total_valve_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Łączna liczba zaworów: 12"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_total_valve_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Łączna liczba zaworów: 12"
+      }
+    ],
+    "turning_circle_between_kerbs": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "turning_circle_between_kerbs",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "10.64",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_turning_circle_between_kerbs_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Średnica zawracania między krawężnikami: 10,64"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "turning_circle_between_kerbs",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "10.64",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_turning_circle_between_kerbs_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Średnica zawracania między krawężnikami: 10,64"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "turning_circle_between_kerbs",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "10.64",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_turning_circle_between_kerbs_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Średnica zawracania między krawężnikami: 10,64"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "turning_circle_between_kerbs",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "10.64",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_turning_circle_between_kerbs_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Średnica zawracania między krawężnikami: 10,64"
+      }
+    ]
+  },
+  "latest_key_values_by_attribute": {
+    "acceleration_0_100": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "9.7",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_acceleration_0_100_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: 0–100 km/h: 9.7 s"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "9.8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_acceleration_0_100_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 9,8 s dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "10.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_acceleration_0_100_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 10,9 s dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "10.1",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_acceleration_0_100_lpg_20260626",
+        "notes": "Source page 5, section Osiągi: Przyspieszenie 0-100 Km/H (S) 10,1 (LPG) / 11,1"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "11.1",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_acceleration_0_100_petrol_20260626",
+        "notes": "Source page 5, section Osiągi: Przyspieszenie 0-100 Km/H (S) 10,1 (LPG) / 11,1"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "9.7",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_acceleration_0_100_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: 0–100 km/h: 9.7 s"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "9.8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_acceleration_0_100_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 9,8 s dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "10.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_acceleration_0_100_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: 0–100 km/h: 10,9 s dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "10.1",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_acceleration_0_100_lpg_20260626",
+        "notes": "Source page 5, section Osiągi: Przyspieszenie 0-100 Km/H (S) 10,1 (LPG) / 11,1"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "11.1",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_acceleration_0_100_petrol_20260626",
+        "notes": "Source page 5, section Osiągi: Przyspieszenie 0-100 Km/H (S) 10,1 (LPG) / 11,1"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "acceleration_0_100",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "9.7",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_acceleration_0_100_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: 0–100 km/h: 9.7 s"
+      }
+    ],
+    "braked_trailer_weight": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "980",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_braked_trailer_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa przyczepy hamowanej: 980 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_braked_trailer_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maksymalna masa przyczepy hamowanej: 1100 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_braked_trailer_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "980",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_braked_trailer_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa przyczepy hamowanej: 980 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_braked_trailer_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maksymalna masa przyczepy hamowanej: 1100 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1100",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_braked_trailer_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "braked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "980",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_braked_trailer_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa przyczepy hamowanej: 980 kg"
+      }
+    ],
+    "cylinder_count": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_cylinder_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_cylinder_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Liczba cylindrów: 3"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_cylinder_count_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_cylinder_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_cylinder_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Liczba cylindrów: 3"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_cylinder_count_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "cylinder_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "3",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_cylinder_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      }
+    ],
+    "elasticity_80_120": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 4. biegu: 7.4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "10.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 5. biegu: 10.7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "11",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "11.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 4. biegu: 7.4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "10.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 5. biegu: 10.7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "8",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "8.9",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_lpg_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel lpg: Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "gear_number": "5",
+        "value": "11",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_lpg_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel lpg: Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "8.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 4, fuel petrol: Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "11.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — OSIĄGI, selected gear 5, fuel petrol: Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "4",
+        "value": "7.4",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_elasticity_80_120_petrol_gear4_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 4. biegu: 7.4 s (benzyna)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "5",
+        "value": "10.7",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_elasticity_80_120_petrol_gear5_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — OSIĄGI: Elastyczność 80–120 km/h na 5. biegu: 10.7 s (benzyna)"
+      }
+    ],
+    "engine_displacement": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "999",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_engine_displacement_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność skokowa: 999 cm³"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_displacement_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność skokowa: 1199 cm3"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_engine_displacement_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "999",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_engine_displacement_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność skokowa: 999 cm³"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_displacement_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność skokowa: 1199 cm3"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1199",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_engine_displacement_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "engine_displacement",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "999",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_engine_displacement_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność skokowa: 999 cm³"
+      }
+    ],
+    "engine_power": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "74",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_engine_power_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalna moc: 74 kW przy 5000 obr./min."
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_power_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 90 kW dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_power_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 84 kW dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_engine_power_lpg_20260626",
+        "notes": "Source page 6, section Silnik: Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_engine_power_petrol_20260626",
+        "notes": "Source page 6, section Silnik: Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "74",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_engine_power_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalna moc: 74 kW przy 5000 obr./min."
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_power_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 90 kW dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_power_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moc: 84 kW dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "90",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_engine_power_lpg_20260626",
+        "notes": "Source page 6, section Silnik: Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "84",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_engine_power_petrol_20260626",
+        "notes": "Source page 6, section Silnik: Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "engine_power",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "74",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_engine_power_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalna moc: 74 kW przy 5000 obr./min."
+      }
+    ],
+    "engine_torque": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "200",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_engine_torque_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalny moment obrotowy: 200 Nm przy 2900 obr./min."
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_torque_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 197 Nm dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_engine_torque_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 190 Nm dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_engine_torque_lpg_20260626",
+        "notes": "Source page 6, section Silnik: Maksymalny Moment Obrotowy W Nm 197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_engine_torque_petrol_20260626",
+        "notes": "Source page 6, section Silnik: Maksymalny Moment Obrotowy W Nm 197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "200",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_engine_torque_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalny moment obrotowy: 200 Nm przy 2900 obr./min."
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_torque_lpg_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 197 Nm dla LPG"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_engine_torque_petrol_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Maks. moment obrotowy: 190 Nm dla benzyny"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "lpg",
+        "gear_number": "",
+        "value": "197",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_engine_torque_lpg_20260626",
+        "notes": "Source page 6, section Silnik: Maksymalny Moment Obrotowy W Nm 197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "190",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_engine_torque_petrol_20260626",
+        "notes": "Source page 6, section Silnik: Maksymalny Moment Obrotowy W Nm 197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "engine_torque",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "value": "200",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_engine_torque_petrol_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Maksymalny moment obrotowy: 200 Nm przy 2900 obr./min."
+      }
+    ],
+    "fuel_tank_capacity": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_fuel_tank_capacity_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność zbiornika paliwa: 50 l"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_fuel_tank_capacity_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność zbiornika paliwa: 50 l"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_fuel_tank_capacity_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_fuel_tank_capacity_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność zbiornika paliwa: 50 l"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_fuel_tank_capacity_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Pojemność zbiornika paliwa: 50 l"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_fuel_tank_capacity_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "fuel_tank_capacity",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "50",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_fuel_tank_capacity_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Pojemność zbiornika paliwa: 50 l"
+      }
+    ],
+    "fuel_type": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "fuel_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "petrol",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_fuel_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj paliwa: petrol"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "fuel_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "petrol",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_fuel_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj paliwa: petrol"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "fuel_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "petrol",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_fuel_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj paliwa: petrol"
+      }
+    ],
+    "gross_train_weight": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2550",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_gross_train_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita zespołu pojazdów: 2550 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2765",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gross_train_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2740",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_gross_train_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2550",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_gross_train_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita zespołu pojazdów: 2550 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2765",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gross_train_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita zespołu pojazdów: 2765 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2740",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_gross_train_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "gross_train_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "2550",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_gross_train_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita zespołu pojazdów: 2550 kg"
+      }
+    ],
+    "gross_vehicle_weight": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1570",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_gross_vehicle_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita pojazdu: 1570 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1665",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_gross_vehicle_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita pojazdu: 1665 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1640",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_gross_vehicle_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1570",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_gross_vehicle_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita pojazdu: 1570 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1665",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_gross_vehicle_weight_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Dopuszczalna masa całkowita pojazdu: 1665 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1640",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_gross_vehicle_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "gross_vehicle_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1570",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_gross_vehicle_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Dopuszczalna masa całkowita pojazdu: 1570 kg"
+      }
+    ],
+    "injection_type": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "injection_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "direct_injection",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_injection_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj wtrysku: bezpośredni"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "injection_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "direct_injection",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_injection_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj wtrysku: bezpośredni"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "injection_type",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "direct_injection",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_injection_type_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Rodzaj wtrysku: bezpośredni"
+      }
+    ],
+    "maximum_kerb_weight": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1132",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_essential_tce100_manual_maximum_kerb_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa pojazdu gotowego do jazdy: 1132 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1232",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G auto: 1232 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1209",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_manual_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G: 1209 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1132",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_expression_tce100_manual_maximum_kerb_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa pojazdu gotowego do jazdy: 1132 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1232",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G auto: 1232 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1209",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_manual_maximum_kerb_weight_20260202",
+        "notes": "Source page 17, section ZAWIESZENIE I UKŁAD KIEROWNICZY / MASY I POJEMNOŚCI: Maksymalna masa własna 120 Eco-G: 1209 kg"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "maximum_kerb_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "1132",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_catalog_tce_slice_20260202",
+        "code": "sandero_iii_journey_tce100_manual_maximum_kerb_weight_20260202",
+        "notes": "Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Maksymalna masa pojazdu gotowego do jazdy: 1132 kg"
+      }
+    ],
+    "total_valve_count": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_essential_tce100_manual_total_valve_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_expression_ecog120_automatic_total_valve_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Łączna liczba zaworów: 12"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_total_valve_count_20260626",
+        "notes": "Source page 6, section Silnik: Liczba Zaworów 12"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_expression_tce100_manual_total_valve_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-02-02",
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "code": "sandero_iii_journey_ecog120_automatic_total_valve_count_20260202",
+        "notes": "Source page 17, section 06. SILNIKI — dane techniczne, osiągi oraz masy i pojemności: Łączna liczba zaworów: 12"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_total_valve_count_20260626",
+        "notes": "Source page 6, section Silnik: Liczba Zaworów 12"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "total_valve_count",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "12",
+        "observation_date": "2026-07-03",
+        "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+        "code": "sandero_iii_journey_tce100_manual_total_valve_count_20260703",
+        "notes": "Official source page 6, section DANE TECHNICZNE: Liczba cylindrów / zaworów: 3 / 12"
+      }
+    ],
+    "unbraked_trailer_weight": [
+      {
+        "configuration_code": "sandero_iii_expression_ecog120_manual",
+        "attribute_code": "unbraked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "615",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+        "code": "sandero_iii_expression_ecog120_manual_unbraked_trailer_weight_20260626",
+        "notes": ""
+      },
+      {
+        "configuration_code": "sandero_iii_journey_ecog120_manual",
+        "attribute_code": "unbraked_trailer_weight",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "value": "615",
+        "observation_date": "2026-06-26",
+        "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+        "code": "sandero_iii_journey_ecog120_manual_unbraked_trailer_weight_20260626",
+        "notes": ""
+      }
+    ]
+  },
+  "latest_rpm_ranges_by_attribute": {},
+  "configuration_identity": {
+    "sandero_iii_essential_tce100_manual": {
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    },
+    "sandero_iii_expression_ecog120_automatic": {
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "automatic"
+    },
+    "sandero_iii_expression_ecog120_manual": {
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "manual"
+    },
+    "sandero_iii_expression_tce100_manual": {
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    },
+    "sandero_iii_journey_ecog120_automatic": {
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "automatic"
+    },
+    "sandero_iii_journey_ecog120_manual": {
+      "powertrain_label": "Eco-G 120",
+      "transmission_type": "manual"
+    },
+    "sandero_iii_journey_tce100_manual": {
+      "powertrain_label": "TCe 100",
+      "transmission_type": "manual"
+    }
+  }
+}
