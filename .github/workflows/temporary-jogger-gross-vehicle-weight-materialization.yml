@@ -56,6 +56,11 @@ jobs:
                   '            and row.get("attribute_code") in {"maximum_kerb_weight", "gross_train_weight"}\n',
               ),
               (
+                  Path('tools/review_brochure_generic_dimensions_import_closure_20260726.py'),
+                  '    jogger_mass_attributes = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}\n',
+                  '    jogger_mass_attributes = {"maximum_kerb_weight", "gross_train_weight"}\n',
+              ),
+              (
                   Path('tests/test_verified_pdf_candidate_residual_gap_prioritization.py'),
                   '        self.assertEqual(payload["summary"]["package_count"], 52)\n',
                   '        self.assertEqual(payload["summary"]["package_count"], 51)\n',
@@ -75,6 +80,7 @@ jobs:
               + '            "tools/review_brochure_chassis_modeling_closure_20260726.py",\n'
               + '            "tests/test_brochure_chassis_modeling_closure_review.py",\n'
               + '            "tools/review_official_brochure_residual_evidence_20260726.py",\n'
+              + '            "tools/review_brochure_generic_dimensions_import_closure_20260726.py",\n'
           )
           if text.count(old) != 1:
               raise SystemExit(f'manifest insertion target count is {text.count(old)}')
@@ -100,6 +106,7 @@ jobs:
             tools/review_brochure_chassis_modeling_closure_20260726.py \
             tests/test_brochure_chassis_modeling_closure_review.py \
             tools/review_official_brochure_residual_evidence_20260726.py \
+            tools/review_brochure_generic_dimensions_import_closure_20260726.py \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
             tests/test_verified_pdf_candidate_coverage_reconciliation.py \
