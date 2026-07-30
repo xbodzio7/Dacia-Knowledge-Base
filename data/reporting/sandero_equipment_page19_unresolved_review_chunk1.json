@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "sandero_equipment_page19_unresolved_review_chunk1",
-  "reviewed_on": "2026-07-29",
+  "reviewed_on": "2026-07-30",
   "status": "complete",
   "package_id": "residual_gap_051",
   "source_receipt": {
@@ -36,21 +36,29 @@
       "journey"
     ],
     "reviewed_sections": [
-      "driving and instruments",
-      "visibility",
-      "comfort through heated front seats"
+      "PROWADZENIE SAMOCHODU I PRZYRZĄDY",
+      "WIDOCZNOŚĆ",
+      "KOMFORT through heated front seats"
     ],
-    "wrapped_rows_preserved": true,
-    "unassigned_page_rows_not_reconstructed": true,
-    "chunk_boundary_after_heated_front_seats": true,
-    "slash_separated_states_preserved": true,
+    "wrapped_rows_kept_as_single_visual_groups": [
+      "trip_computer",
+      "low_center_console",
+      "high_center_console",
+      "automatic_climate",
+      "central_lock",
+      "driver_impulse_window",
+      "steering_column_adjustment"
+    ],
+    "manual_and_automatic_climate_kept_separate": true,
+    "low_and_high_center_consoles_kept_separate": true,
     "literal_markers_preserved": true
   },
   "policy": {
     "zero_attached_evidence_preserved": true,
     "grade_states_not_projected": true,
-    "state_fragments_kept_with_visual_rows": true,
-    "cross_chunk_candidate_not_copied": true,
+    "marker_lines_kept_with_visual_rows": true,
+    "wrapped_label_fragments_not_promoted": true,
+    "complete_rows_without_signatures_remain_unresolved": true,
     "master_data_changes": false,
     "approved_import_spec_generation": false,
     "automatic_promotion": false
