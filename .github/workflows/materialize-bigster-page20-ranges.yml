@@ -1,0 +1,44 @@
+name: Materialize Bigster page 20 range package
+
+on:
+  push:
+    branches:
+      - agent/bigster-page20-emissions-consumption-ranges-materialize-20260730
+    paths:
+      - .github/workflows/materialize-bigster-page20-ranges.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out materialization branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and verify package
+        run: python tools/materialize_bigster_page20_ranges.py
+
+      - name: Commit deterministic outputs
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add \
+            data/imports/configuration_value_ranges/bigster-page20-emissions-consumption-ranges-20251210.json \
+            data/master/configuration_attribute_value_ranges.csv \
+            tests/test_bigster_page20_emissions_consumption_ranges.py \
+            project/state.json project/STATE_SUMMARY.md \
+            README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md
+          git rm tools/materialize_bigster_page20_ranges.py .github/workflows/materialize-bigster-page20-ranges.yml
+          git commit -m 'build: materialize Bigster page 20 range package'
+          git push origin HEAD
