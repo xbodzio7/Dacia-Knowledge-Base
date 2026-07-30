@@ -274,24 +274,22 @@ class ResidualGapPrioritizationRepositoryTests(unittest.TestCase):
         self.assertEqual(payload["summary"]["candidate_count"], 1264)
         self.assertEqual(
             payload["summary"]["coverage_status_counts"],
-            {"ambiguous": 109, "unresolved": 1155},
+            {'ambiguous': 110, 'unresolved': 1154},
         )
         self.assertEqual(payload["summary"]["package_count"], 52)
         self.assertEqual(payload["summary"]["maximum_package_size"], 40)
         self.assertEqual(
             payload["highest_priority_package"],
-            {
-                "package_id": "residual_gap_001",
-                "priority": 1,
-                "source_code": "src_pl_bigster_brochure_20251210",
-                "model_code": "bigster",
-                "domain": "technical_tables",
-                "page": 20,
-                "coverage_status": "ambiguous",
-                "candidate_count": 24,
-                "evidence_signature_count": 196,
-                "evidence_record_count": 727,
-            },
+            {'package_id': 'residual_gap_001',
+             'priority': 1,
+             'source_code': 'src_pl_bigster_brochure_20251210',
+             'model_code': 'bigster',
+             'domain': 'technical_tables',
+             'page': 20,
+             'coverage_status': 'ambiguous',
+             'candidate_count': 25,
+             'evidence_signature_count': 198,
+             'evidence_record_count': 733},
         )
         assigned = [identifier for package in payload["packages"] for identifier in package["candidate_ids"]]
         self.assertEqual(len(assigned), len(set(assigned)))

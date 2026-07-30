@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Remaining Conflict Boundary Review",
+  "phase": "Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,11 +15,11 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1587,
+    "tests": 1595,
     "csv_files": 46,
-    "rows": 11156,
-    "configuration_values": 3301,
-    "configuration_import_specs": 121,
+    "rows": 11162,
+    "configuration_values": 3307,
+    "configuration_import_specs": 123,
     "configuration_value_ranges": 274,
     "configuration_range_import_specs": 21,
     "availability_records": 5770,
@@ -27,30 +27,41 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_remaining_conflict_boundary_review_001",
-    "kind": "review",
-    "name": "Bigster Page 20 Remaining Conflict Boundary Review",
-    "status": "complete",
-    "goal": "Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports, separate source-observation-ready contradictions from context-blocked evidence, and select one narrow conflict-preservation package.",
-    "manifest_paths": [
-      "data/reporting/bigster_page20_remaining_conflict_boundary_review.json",
-      "data/reporting/bigster_page20_remaining_conflict_boundary_review.md",
-      "project/reviews/bigster-page20-remaining-conflict-boundary-review-2026-07-30.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_bigster_page20_hybridg150_rpm_conflict_observation_import_001",
     "kind": "configuration_value_import",
     "name": "Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import",
-    "status": "planned",
-    "goal": "Add six older brochure source observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while retaining and explicitly testing the later price-source values 5000 and 1750. Do not import electric-motor RPM context.",
+    "status": "complete",
+    "goal": "Add six older brochure observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while preserving and testing the later price-source values 5000 and 1750 and excluding electric-motor RPM context.",
     "manifest_paths": [
       "data/imports/configuration_values/bigster-page20-hybridg150-max-power-rpm-20251210.json",
       "data/imports/configuration_values/bigster-page20-hybridg150-max-torque-rpm-20251210.json",
       "data/master/configuration_attribute_values.csv",
       "tests/test_bigster_page20_hybridg150_rpm_conflict_observations.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_bigster_page20_emission_standard_conflict_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Bigster Page 20 Emission Standard Conflict Observation Import",
+    "status": "planned",
+    "goal": "Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.",
+    "manifest_paths": [
+      "data/imports/configuration_values/bigster-page20-emission-standard-20251210.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_bigster_page20_emission_standard_conflict_observations.py",
+      "tests/test_attribute_enum_domains.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
