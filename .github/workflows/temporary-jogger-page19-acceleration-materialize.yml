@@ -24,10 +24,31 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Diagnose source-text contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from tools.import_configuration_values import _compact_text, extract_page_candidates
+          spec=json.loads(Path("data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json").read_text())
+          pdf=Path("PDF/Broszury/DACIA JOGGER broszura 20251217.pdf")
+          section=_compact_text(spec["source_section"])
+          texts=sorted({_compact_text(row["source_text"]) for row in spec["rows"]})
+          print("SECTION", spec["source_section"], section)
+          for label, text in extract_page_candidates(pdf, 19):
+              compact=_compact_text(text)
+              print(label, "section", section in compact, "length", len(compact))
+              for required in texts:
+                  print(label, "text", required in compact, required[:120])
+          PY
       - name: Apply and verify import
         run: |
-          python tools/dkb.py import-configuration-values             --spec data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json             --apply
-          python tools/dkb.py import-configuration-values             --spec data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json             --verify
+          python tools/dkb.py import-configuration-values \
+            --spec data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json \
+            --apply
+          python tools/dkb.py import-configuration-values \
+            --spec data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json \
+            --verify
       - name: Validate package and synchronize state
         run: |
           python -m unittest -v tests.test_jogger_page19_acceleration_source_observations
@@ -38,6 +59,12 @@ jobs:
           rm .github/workflows/temporary-jogger-page19-acceleration-materialize.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json             data/master/configuration_attribute_values.csv             tests/test_jogger_page19_acceleration_source_observations.py             project/state.json             project/STATE_SUMMARY.md             .github/workflows/temporary-jogger-page19-acceleration-materialize.yml
+          git add \
+            data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json \
+            data/master/configuration_attribute_values.csv \
+            tests/test_jogger_page19_acceleration_source_observations.py \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            .github/workflows/temporary-jogger-page19-acceleration-materialize.yml
           git commit -m "feat(data): add Jogger page 19 acceleration observations"
           git push origin HEAD:agent/jogger-page19-acceleration-materialize-20260730
