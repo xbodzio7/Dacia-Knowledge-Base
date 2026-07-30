@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations**
+**Jogger Page 19 Remaining Mass Conflict Closure Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations** — `complete`
+**Jogger Page 19 Remaining Mass Conflict Closure Review** — `complete`
 
-Add the matching 1200 kg brochure-source braked trailer observations for the 16 current TCe 110 and Eco-G 120 configurations while explicitly excluding all six Hybrid 155 configurations because their later official value is 1000 kg.
+Confirm that every safely importable exact page-19 scalar fact is covered while preserving the two mislabeled mass blocks and the Hybrid 155 trailer discrepancy as explicit non-import boundaries.
 
 ## Next package
 
-**Jogger Page 19 Remaining Mass Conflict Closure Review** — `planned`
+**Jogger Page 19 Range and Context Follow-up Review** — `planned`
 
-Confirm that every safely importable exact page-19 fact is covered after the reviewed acceleration, minimum-mass, capacity, gross-vehicle-weight and non-Hybrid trailer packages, while preserving the two mislabeled maximum-kerb/gross-train blocks as explicit unresolved source conflicts.
+Review the remaining page-19 power-speed and torque-speed ranges, energy-source column semantics, homologation-protocol context and Hybrid 155 total-power conflict without changing current exact values or promoting context by inference.
 
 ## Autonomy
 
