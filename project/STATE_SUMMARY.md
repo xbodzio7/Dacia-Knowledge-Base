@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Gross Vehicle Weight Source Observations**
+**Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1655
+- Tests: 1662
 - Master CSV files: 46
-- Master rows: 11306
-- Configuration values: 3447
-- Configuration import specifications: 132
+- Master rows: 11322
+- Configuration values: 3463
+- Configuration import specifications: 133
 - Configuration value ranges: 278
 - Configuration range import specifications: 22
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Gross Vehicle Weight Source Observations** — `complete`
+**Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations** — `complete`
 
-Add 22 source-specific gross vehicle weight observations from Jogger brochure page 19 where every printed kilogram value exactly matches the later official source, without importing either adjacent mislabeled mass block.
+Add the matching 1200 kg brochure-source braked trailer observations for the 16 current TCe 110 and Eco-G 120 configurations while explicitly excluding all six Hybrid 155 configurations because their later official value is 1000 kg.
 
 ## Next package
 
-**Jogger Page 19 Non-Hybrid Braked Trailer Weight Source Observations** — `planned`
+**Jogger Page 19 Remaining Mass Conflict Closure Review** — `planned`
 
-Add the matching 1200 kg brochure-source braked trailer observations for the 16 current TCe 110 and Eco-G 120 configurations while explicitly excluding all six Hybrid 155 configurations because their later official value is 1000 kg.
+Confirm that every safely importable exact page-19 fact is covered after the reviewed acceleration, minimum-mass, capacity, gross-vehicle-weight and non-Hybrid trailer packages, while preserving the two mislabeled maximum-kerb/gross-train blocks as explicit unresolved source conflicts.
 
 ## Autonomy
 

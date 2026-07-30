@@ -22,13 +22,13 @@
     "target_groups": 10,
     "candidate_count": 1583,
     "coverage_status_counts": {
-      "already_covered": 124,
+      "already_covered": 125,
       "ambiguous": 115,
       "explicit_non_import": 195,
-      "unresolved": 1149
+      "unresolved": 1148
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3370,
+      "configuration_attribute_values": 3386,
       "configuration_attribute_value_ranges": 278,
       "configuration_attribute_availability": 5770
     }
@@ -41,10 +41,10 @@
       "unresolved": 835
     },
     "technical_tables": {
-      "already_covered": 54,
+      "already_covered": 55,
       "ambiguous": 61,
       "explicit_non_import": 112,
-      "unresolved": 314
+      "unresolved": 313
     }
   },
   "source_status_counts": {
@@ -61,10 +61,10 @@
       "unresolved": 296
     },
     "src_pl_jogger_brochure_20251217": {
-      "already_covered": 12,
+      "already_covered": 13,
       "ambiguous": 27,
       "explicit_non_import": 27,
-      "unresolved": 213
+      "unresolved": 212
     },
     "src_pl_sandero_brochure_20260202": {
       "already_covered": 19,
@@ -164,10 +164,10 @@
       "page_end": 19,
       "candidate_count": 82,
       "coverage_status_counts": {
-        "already_covered": 9,
+        "already_covered": 10,
         "ambiguous": 21,
         "explicit_non_import": 14,
-        "unresolved": 38
+        "unresolved": 37
       }
     },
     {
@@ -50166,6 +50166,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -51095,6 +51234,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -52100,6 +52378,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -53029,6 +53446,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -54782,6 +55338,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -55711,6 +56406,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -56963,6 +57797,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -57892,6 +58865,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -59143,6 +60255,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -60072,6 +61323,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -61323,6 +62713,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -62260,6 +63789,145 @@
         },
         {
           "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
             "attribute_code": "gross_vehicle_weight",
             "value": "1685",
             "fuel_type_code": "",
@@ -62806,9 +64474,149 @@
         "calkowita",
         "przyczepy"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "7becbe1a9a7966350a8fb8e497fc942862caff0a7bc7e3cb8a84c696400988c8",
@@ -63230,6 +65038,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -64167,6 +66114,145 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "braked_trailer_weight",
+            "value": "1200",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_braked_trailer_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
