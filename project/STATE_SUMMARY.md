@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Technical Page 20 Reviewed Fact Reconciliation**
+**Bigster Page 20 Emissions and Consumption Range Import**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1567
+- Tests: 1574
 - Master CSV files: 46
-- Master rows: 11092
+- Master rows: 11122
 - Configuration values: 3267
 - Configuration import specifications: 117
-- Configuration value ranges: 244
-- Configuration range import specifications: 20
+- Configuration value ranges: 274
+- Configuration range import specifications: 21
 - Availability records: 5770
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Bigster Technical Page 20 Reviewed Fact Reconciliation** — `complete`
+**Bigster Page 20 Emissions and Consumption Range Import** — `complete`
 
-Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications, while keeping the verified final residual bundle reproducible after the project advances beyond milestone closure.
+Add 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption ranges for 11 current Bigster configurations, requiring every upper endpoint to match the existing exact value and excluding Hybrid-G 150 4x4 fuel-specific exact pairs and every deferred source conflict.
 
 ## Next package
 
-**Bigster Page 20 Emissions and Consumption Range Import** — `planned`
+**Bigster Page 20 Eco Mode Import** — `planned`
 
-Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict.
+Add eco_mode=true for all 14 current Bigster configurations from the shared page-20 Tak source value, preserving existing source-to-configuration links and without touching any deferred technical conflict.
 
 ## Autonomy
 
