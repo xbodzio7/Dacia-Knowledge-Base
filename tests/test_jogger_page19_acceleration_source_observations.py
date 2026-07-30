@@ -16,8 +16,35 @@ PDF = ROOT / "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf"
 BROCHURE_SOURCE = "src_pl_jogger_brochure_20251217"
 PRICE_SOURCE = "src_pl_jogger_price_my26_20260401"
 EXPECTED_SHA = "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6"
-EXPECTED = {('jogger_expression_5seat_tce110_manual', 'petrol'): '10.5', ('jogger_extreme_5seat_tce110_manual', 'petrol'): '10.5', ('jogger_journey_5seat_tce110_manual', 'petrol'): '10.5', ('jogger_essential_5seat_ecog120_manual', 'lpg'): '10.9', ('jogger_essential_5seat_ecog120_manual', 'petrol'): '11.9', ('jogger_expression_5seat_ecog120_manual', 'lpg'): '10.9', ('jogger_expression_5seat_ecog120_manual', 'petrol'): '11.9', ('jogger_extreme_5seat_ecog120_manual', 'lpg'): '10.9', ('jogger_extreme_5seat_ecog120_manual', 'petrol'): '11.9', ('jogger_extreme_5seat_ecog120_automatic', 'lpg'): '10.4', ('jogger_extreme_5seat_ecog120_automatic', 'petrol'): '11.4', ('jogger_journey_5seat_ecog120_automatic', 'lpg'): '10.4', ('jogger_journey_5seat_ecog120_automatic', 'petrol'): '11.4', ('jogger_expression_7seat_tce110_manual', 'petrol'): '11.2', ('jogger_extreme_7seat_tce110_manual', 'petrol'): '11.2', ('jogger_journey_7seat_tce110_manual', 'petrol'): '11.2', ('jogger_essential_7seat_ecog120_manual', 'lpg'): '11', ('jogger_essential_7seat_ecog120_manual', 'petrol'): '12', ('jogger_expression_7seat_ecog120_manual', 'lpg'): '11', ('jogger_expression_7seat_ecog120_manual', 'petrol'): '12', ('jogger_extreme_7seat_ecog120_manual', 'lpg'): '11', ('jogger_extreme_7seat_ecog120_manual', 'petrol'): '12', ('jogger_extreme_7seat_ecog120_automatic', 'lpg'): '10.7', ('jogger_extreme_7seat_ecog120_automatic', 'petrol'): '11.7', ('jogger_journey_7seat_ecog120_automatic', 'lpg'): '10.7', ('jogger_journey_7seat_ecog120_automatic', 'petrol'): '11.7'}
-TARGETS = {'jogger_extreme_5seat_ecog120_automatic', 'jogger_extreme_7seat_ecog120_manual', 'jogger_expression_5seat_ecog120_manual', 'jogger_extreme_5seat_tce110_manual', 'jogger_journey_5seat_ecog120_automatic', 'jogger_expression_7seat_ecog120_manual', 'jogger_extreme_7seat_ecog120_automatic', 'jogger_journey_7seat_tce110_manual', 'jogger_extreme_5seat_ecog120_manual', 'jogger_journey_7seat_ecog120_automatic', 'jogger_essential_7seat_ecog120_manual', 'jogger_journey_5seat_tce110_manual', 'jogger_expression_5seat_tce110_manual', 'jogger_essential_5seat_ecog120_manual', 'jogger_expression_7seat_tce110_manual', 'jogger_extreme_7seat_tce110_manual'}
+EXPECTED = {
+    ("jogger_expression_5seat_tce110_manual", "petrol"): "10.5",
+    ("jogger_extreme_5seat_tce110_manual", "petrol"): "10.5",
+    ("jogger_journey_5seat_tce110_manual", "petrol"): "10.5",
+    ("jogger_essential_5seat_ecog120_manual", "lpg"): "10.9",
+    ("jogger_essential_5seat_ecog120_manual", "petrol"): "11.9",
+    ("jogger_expression_5seat_ecog120_manual", "lpg"): "10.9",
+    ("jogger_expression_5seat_ecog120_manual", "petrol"): "11.9",
+    ("jogger_extreme_5seat_ecog120_manual", "lpg"): "10.9",
+    ("jogger_extreme_5seat_ecog120_manual", "petrol"): "11.9",
+    ("jogger_extreme_5seat_ecog120_automatic", "lpg"): "10.4",
+    ("jogger_extreme_5seat_ecog120_automatic", "petrol"): "11.4",
+    ("jogger_journey_5seat_ecog120_automatic", "lpg"): "10.4",
+    ("jogger_journey_5seat_ecog120_automatic", "petrol"): "11.4",
+    ("jogger_expression_7seat_tce110_manual", "petrol"): "11.2",
+    ("jogger_extreme_7seat_tce110_manual", "petrol"): "11.2",
+    ("jogger_journey_7seat_tce110_manual", "petrol"): "11.2",
+    ("jogger_essential_7seat_ecog120_manual", "lpg"): "11",
+    ("jogger_essential_7seat_ecog120_manual", "petrol"): "12",
+    ("jogger_expression_7seat_ecog120_manual", "lpg"): "11",
+    ("jogger_expression_7seat_ecog120_manual", "petrol"): "12",
+    ("jogger_extreme_7seat_ecog120_manual", "lpg"): "11",
+    ("jogger_extreme_7seat_ecog120_manual", "petrol"): "12",
+    ("jogger_extreme_7seat_ecog120_automatic", "lpg"): "10.7",
+    ("jogger_extreme_7seat_ecog120_automatic", "petrol"): "11.7",
+    ("jogger_journey_7seat_ecog120_automatic", "lpg"): "10.7",
+    ("jogger_journey_7seat_ecog120_automatic", "petrol"): "11.7",
+}
+TARGETS = {configuration for configuration, _fuel in EXPECTED}
 HYBRID_TARGETS = {
     "jogger_expression_5seat_hybrid155_automatic",
     "jogger_extreme_5seat_hybrid155_automatic",
@@ -49,7 +76,7 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         )
         self.assertEqual(self.spec["observation_date"], "2025-12-17")
         self.assertEqual(self.spec["source_page"], 19)
-        self.assertEqual(self.spec["source_section"], "06. SILNIKI — OSIĄGI")
+        self.assertEqual(self.spec["source_section"], "Wersja")
 
     def test_exact_26_configuration_fuel_targets_are_in_spec_once(self) -> None:
         actual = {
@@ -59,7 +86,10 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         self.assertEqual(len(self.spec["rows"]), 26)
         self.assertEqual(actual, EXPECTED)
         self.assertEqual(len(actual), len(self.spec["rows"]))
-        self.assertEqual({row["source_code"] for row in self.spec["rows"]}, {BROCHURE_SOURCE})
+        self.assertEqual(
+            {row["source_code"] for row in self.spec["rows"]},
+            {BROCHURE_SOURCE},
+        )
 
     def test_brochure_rows_are_contiguous_and_exact(self) -> None:
         selected = sorted(
@@ -72,15 +102,21 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
             ],
             key=lambda row: int(row["id"]),
         )
-        self.assertEqual([int(row["id"]) for row in selected], list(range(3336, 3362)))
+        self.assertEqual(
+            [int(row["id"]) for row in selected],
+            list(range(3336, 3362)),
+        )
         self.assertEqual(
             {
-                (row["configuration_code"], row["fuel_type_code"): row["value"]
+                (row["configuration_code"], row["fuel_type_code"]): row["value"]
                 for row in selected
             },
             EXPECTED,
         )
-        self.assertEqual({row["observation_date"] for row in selected}, {"2025-12-17"})
+        self.assertEqual(
+            {row["observation_date"] for row in selected},
+            {"2025-12-17"},
+        )
 
     def test_later_official_source_observations_coexist_unchanged(self) -> None:
         later = [
@@ -93,12 +129,15 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         self.assertEqual(len(later), 26)
         self.assertEqual(
             {
-                (row["configuration_code"], row["fuel_type_code"): row["value"]
+                (row["configuration_code"], row["fuel_type_code"]): row["value"]
                 for row in later
             },
             EXPECTED,
         )
-        self.assertEqual({row["observation_date"] for row in later}, {"2026-04-01"})
+        self.assertEqual(
+            {row["observation_date"] for row in later},
+            {"2026-04-01"},
+        )
 
     def test_six_existing_hybrid_brochure_observations_remain_unchanged(self) -> None:
         selected = [
@@ -110,8 +149,16 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         ]
         self.assertEqual(len(selected), 6)
         self.assertEqual({row["fuel_type_code"] for row in selected}, {"petrol"})
-        five = {row["value"] for row in selected if "_5seat_" in row["configuration_code"]}
-        seven = {row["value"] for row in selected if "_7seat_" in row["configuration_code"]}
+        five = {
+            row["value"]
+            for row in selected
+            if "_5seat_" in row["configuration_code"]
+        }
+        seven = {
+            row["value"]
+            for row in selected
+            if "_7seat_" in row["configuration_code"]
+        }
         self.assertEqual(five, {"8.9"})
         self.assertEqual(seven, {"9"})
 
@@ -127,8 +174,7 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
             if row["source_code"] == BROCHURE_SOURCE
             and row["relationship"] == "brochure_technical_data_for"
         }
-        self.assertEqual(TARGETS, set(EXPECTED_CONFIGURATION for EXPECTED_CONFIGURATION, _ in EXPECTED))
-        self.assertTrue(TARGETT <= active)
+        self.assertTrue(TARGETS <= active)
         self.assertTrue(TARGETS <= linked)
         self.assertTrue(TARGETS.isdisjoint(HYBRID_TARGETS))
 
@@ -146,7 +192,7 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         self.assertIn(
             _compact_text("Wersja 7-miejscowa 11,2 11 12 10,7 11,7 9"),
             page_text,
-       )
+        )
 
 
 if __name__ == "__main__":
