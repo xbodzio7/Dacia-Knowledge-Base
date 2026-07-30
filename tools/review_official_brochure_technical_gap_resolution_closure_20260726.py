@@ -274,6 +274,17 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 6})
         expected_total += 6
+    emission_conflicts = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "emission_standard"
+    ]
+    if emission_conflicts:
+        ensure(len(emission_conflicts) == 14, "Bigster emission-standard conflict-observation receipt differs")
+        ensure({row.get("value", "") for row in emission_conflicts} == {"euro_6e_bis"}, "Bigster emission-standard values differ")
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
+        expected_total += 14
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
