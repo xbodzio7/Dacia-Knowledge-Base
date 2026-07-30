@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Emissions and Consumption Range Import**
+**Bigster Page 20 Eco Mode Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1574
+- Tests: 1580
 - Master CSV files: 46
-- Master rows: 11122
-- Configuration values: 3267
-- Configuration import specifications: 117
+- Master rows: 11136
+- Configuration values: 3281
+- Configuration import specifications: 118
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Emissions and Consumption Range Import** — `complete`
+**Bigster Page 20 Eco Mode Import** — `complete`
 
-Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict; canonicalize decimal endpoints; refresh live range-count and candidate-coverage contracts without rewriting historical closure receipts.
+Add eco_mode=true for all 14 current Bigster configurations from the shared page-20 Tak source value, preserving exact source-to-configuration relationships and without touching any deferred technical conflict.
 
 ## Next package
 
-**Bigster Page 20 Eco Mode Import** — `planned`
+**Bigster Page 20 Deferred Import Gap Review** — `planned`
 
-Add eco_mode=true for all 14 current Bigster configurations from the shared page-20 Tak source value, preserving existing source-to-configuration links and without touching any deferred technical conflict.
+Review the three non-conflicting subfacts embedded in page-20 rows that also contain deferred conflicts: Hybrid-G 150 4x4 total system power 113 kW, traction-motor torque 87 Nm, and lithium-ion battery type. Verify existing attribute semantics and source relationships, preserve every RPM, capacity and voltage conflict, and select only a narrow evidence-safe follow-up package.
 
 ## Autonomy
 

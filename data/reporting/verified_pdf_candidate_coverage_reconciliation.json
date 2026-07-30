@@ -22,13 +22,13 @@
     "target_groups": 10,
     "candidate_count": 1583,
     "coverage_status_counts": {
-      "already_covered": 122,
+      "already_covered": 123,
       "ambiguous": 109,
       "explicit_non_import": 195,
-      "unresolved": 1157
+      "unresolved": 1156
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3190,
+      "configuration_attribute_values": 3204,
       "configuration_attribute_value_ranges": 274,
       "configuration_attribute_availability": 5770
     }
@@ -41,18 +41,18 @@
       "unresolved": 835
     },
     "technical_tables": {
-      "already_covered": 52,
+      "already_covered": 53,
       "ambiguous": 55,
       "explicit_non_import": 112,
-      "unresolved": 322
+      "unresolved": 321
     }
   },
   "source_status_counts": {
     "src_pl_bigster_brochure_20251210": {
-      "already_covered": 16,
+      "already_covered": 17,
       "ambiguous": 32,
       "explicit_non_import": 47,
-      "unresolved": 244
+      "unresolved": 243
     },
     "src_pl_duster_mini_brochure_20251020": {
       "already_covered": 60,
@@ -104,10 +104,10 @@
       "page_end": 20,
       "candidate_count": 130,
       "coverage_status_counts": {
-        "already_covered": 12,
+        "already_covered": 13,
         "ambiguous": 24,
         "explicit_non_import": 26,
-        "unresolved": 68
+        "unresolved": 67
       }
     },
     {
@@ -4150,9 +4150,133 @@
         "tryb",
         "eco"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "eco_mode",
+            "value": "true",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 14,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_eco_mode_20251210",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_eco_mode_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "d46edaf25f33643101af3e65a29b0616f48f988f05524fa0736e8df431b91cd1",
