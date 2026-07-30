@@ -45,6 +45,11 @@ jobs:
                   '    forbidden = {\n        "maximum_kerb_weight",\n        "gross_train_weight",\n        "gross_vehicle_weight",\n    }\n',
                   '    forbidden = {\n        "maximum_kerb_weight",\n        "gross_train_weight",\n    }\n',
               ),
+              (
+                  Path('tests/test_verified_pdf_candidate_residual_gap_prioritization.py'),
+                  '        self.assertEqual(payload["summary"]["package_count"], 52)\n',
+                  '        self.assertEqual(payload["summary"]["package_count"], 51)\n',
+              ),
           ]
           for path, old, new in replacements:
               text = path.read_text(encoding='utf-8')
