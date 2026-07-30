@@ -19,6 +19,7 @@ jobs:
       - name: Inspect current residual queue
         shell: bash
         run: |
+          # Print stable package boundaries and later review evidence.
           python - <<'PY'
           import json
           from pathlib import Path
