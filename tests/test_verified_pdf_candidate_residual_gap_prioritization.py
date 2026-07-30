@@ -274,7 +274,7 @@ class ResidualGapPrioritizationRepositoryTests(unittest.TestCase):
         self.assertEqual(payload["summary"]["candidate_count"], 1264)
         self.assertEqual(
             payload["summary"]["coverage_status_counts"],
-            {'ambiguous': 111, 'unresolved': 1153},
+            {'ambiguous': 112, 'unresolved': 1152},
         )
         self.assertEqual(payload["summary"]["package_count"], 52)
         self.assertEqual(payload["summary"]["maximum_package_size"], 40)

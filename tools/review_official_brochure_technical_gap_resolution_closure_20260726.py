@@ -367,7 +367,32 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_jogger_brochure_20251217": 22})
         expected_total += 22
+    jogger_fuel_lpg_capacities = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+        and 3384 <= int(row.get("id", "0")) <= 3425
+    ]
+    if jogger_fuel_lpg_capacities:
+        ensure(len(jogger_fuel_lpg_capacities) == 42, "Jogger fuel/LPG capacity source-observation receipt differs")
+        ensure(
+            [int(row["id"]) for row in jogger_fuel_lpg_capacities] == list(range(3384, 3426)),
+            "Jogger fuel/LPG capacity source-observation IDs differ",
+        )
+        ensure(
+            Counter((row.get("attribute_code", ""), row.get("fuel_type_code", ""), row.get("value", "")) for row in jogger_fuel_lpg_capacities)
+            == Counter({
+                ("fuel_tank_capacity", "petrol", "50"): 10,
+                ("fuel_tank_capacity", "", "50"): 12,
+                ("lpg_vessel_capacity_total", "lpg", "50"): 10,
+                ("lpg_vessel_filling_capacity", "lpg", "40"): 10,
+            }),
+            "Jogger fuel/LPG capacity source-observation semantics differ",
+        )
+        expected_scalar.update({"src_pl_jogger_brochure_20251217": 42})
+        expected_total += 42
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
+
 
     payload_range_conflicts = [
         row

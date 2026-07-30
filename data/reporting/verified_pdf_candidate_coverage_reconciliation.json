@@ -23,12 +23,12 @@
     "candidate_count": 1583,
     "coverage_status_counts": {
       "already_covered": 124,
-      "ambiguous": 111,
+      "ambiguous": 112,
       "explicit_non_import": 195,
-      "unresolved": 1153
+      "unresolved": 1152
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3306,
+      "configuration_attribute_values": 3348,
       "configuration_attribute_value_ranges": 278,
       "configuration_attribute_availability": 5770
     }
@@ -42,9 +42,9 @@
     },
     "technical_tables": {
       "already_covered": 54,
-      "ambiguous": 57,
+      "ambiguous": 58,
       "explicit_non_import": 112,
-      "unresolved": 318
+      "unresolved": 317
     }
   },
   "source_status_counts": {
@@ -62,9 +62,9 @@
     },
     "src_pl_jogger_brochure_20251217": {
       "already_covered": 12,
-      "ambiguous": 23,
+      "ambiguous": 24,
       "explicit_non_import": 27,
-      "unresolved": 217
+      "unresolved": 216
     },
     "src_pl_sandero_brochure_20260202": {
       "already_covered": 19,
@@ -165,9 +165,9 @@
       "candidate_count": 82,
       "coverage_status_counts": {
         "already_covered": 9,
-        "ambiguous": 17,
+        "ambiguous": 18,
         "explicit_non_import": 14,
-        "unresolved": 42
+        "unresolved": 41
       }
     },
     {
@@ -52567,9 +52567,390 @@
         "zbiornika",
         "paliwa"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "ambiguous",
+      "classification_basis": "multiple_existing_evidence_signatures",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "fuel_tank_capacity",
+            "value": "50",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 12,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_fuel_tank_capacity_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "fuel_tank_capacity",
+            "value": "50",
+            "fuel_type_code": "petrol",
+            "gear_number": ""
+          },
+          "record_count": 10,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_fuel_tank_capacity_petrol_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "lpg_vessel_capacity_total",
+            "value": "50",
+            "fuel_type_code": "lpg",
+            "gear_number": ""
+          },
+          "record_count": 10,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_lpg_vessel_capacity_total_lpg_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "lpg_vessel_filling_capacity",
+            "value": "40",
+            "fuel_type_code": "lpg",
+            "gear_number": ""
+          },
+          "record_count": 10,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_lpg_vessel_filling_capacity_lpg_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "18a08a000ceb2a5a97d73c0d4b4cc62b2bad87d42e502bc9635cd3066f85a032",
