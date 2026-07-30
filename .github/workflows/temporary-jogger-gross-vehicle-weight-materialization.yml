@@ -46,6 +46,16 @@ jobs:
                   '    forbidden = {\n        "maximum_kerb_weight",\n        "gross_train_weight",\n    }\n',
               ),
               (
+                  Path('tests/test_brochure_chassis_modeling_closure_review.py'),
+                  '        forbidden = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}\n',
+                  '        forbidden = {"maximum_kerb_weight", "gross_train_weight"}\n',
+              ),
+              (
+                  Path('tools/review_official_brochure_residual_evidence_20260726.py'),
+                  '            and row.get("attribute_code") in {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}\n',
+                  '            and row.get("attribute_code") in {"maximum_kerb_weight", "gross_train_weight"}\n',
+              ),
+              (
                   Path('tests/test_verified_pdf_candidate_residual_gap_prioritization.py'),
                   '        self.assertEqual(payload["summary"]["package_count"], 52)\n',
                   '        self.assertEqual(payload["summary"]["package_count"], 51)\n',
@@ -60,7 +70,12 @@ jobs:
           materializer = Path('tools/temporary_materialize_jogger_gross_vehicle_weight.py')
           text = materializer.read_text(encoding='utf-8')
           old = '            "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",\n'
-          new = old + '            "tools/review_brochure_chassis_modeling_closure_20260726.py",\n'
+          new = (
+              old
+              + '            "tools/review_brochure_chassis_modeling_closure_20260726.py",\n'
+              + '            "tests/test_brochure_chassis_modeling_closure_review.py",\n'
+              + '            "tools/review_official_brochure_residual_evidence_20260726.py",\n'
+          )
           if text.count(old) != 1:
               raise SystemExit(f'manifest insertion target count is {text.count(old)}')
           materializer.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
@@ -83,6 +98,8 @@ jobs:
             tools/review_official_brochure_technical_gap_resolution_closure_20260726.py \
             tests/test_official_brochure_technical_gap_resolution_closure.py \
             tools/review_brochure_chassis_modeling_closure_20260726.py \
+            tests/test_brochure_chassis_modeling_closure_review.py \
+            tools/review_official_brochure_residual_evidence_20260726.py \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
             tests/test_verified_pdf_candidate_coverage_reconciliation.py \
