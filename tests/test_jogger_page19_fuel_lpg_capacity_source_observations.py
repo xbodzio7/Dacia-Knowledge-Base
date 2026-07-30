@@ -1,4 +1,4 @@
-"""Verify Jogger page 19 fuel and LPG capacity source observations."""
+"""Verify Jogger page 19 fuel/LPG evidence, provenance and distinct capacity semantics."""
 
 from __future__ import annotations
 
