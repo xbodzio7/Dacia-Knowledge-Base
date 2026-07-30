@@ -53,3 +53,5 @@ jobs:
           git rm tools/materialize_bigster_page20_eco_mode.py .github/workflows/materialize-bigster-page20-eco-mode.yml
           git commit -m 'build: materialize Bigster page 20 eco-mode package'
           git push origin HEAD
+
+# Trigger retry: 2026-07-30T09:09+02:00
