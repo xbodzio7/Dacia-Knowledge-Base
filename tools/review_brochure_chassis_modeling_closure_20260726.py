@@ -402,7 +402,6 @@ def verify_ambiguous_boundary() -> None:
     forbidden = {
         "maximum_kerb_weight",
         "gross_train_weight",
-        "gross_vehicle_weight",
     }
     imported = [
         row

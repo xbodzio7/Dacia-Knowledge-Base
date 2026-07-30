@@ -259,7 +259,7 @@ def verify_non_import_boundaries(payload: Mapping[str, Any]) -> None:
     ensure(
         not any(
             row.get("source_code") == "src_pl_jogger_brochure_20251217"
-            and row.get("attribute_code") in {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}
+            and row.get("attribute_code") in {"maximum_kerb_weight", "gross_train_weight"}
             for row in values
         ),
         "ambiguous Jogger mass evidence was imported",

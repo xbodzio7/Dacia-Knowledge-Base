@@ -275,7 +275,7 @@ def verify_package(expected: Sequence[Mapping[str, str]]) -> None:
     ensure(
     not any(
         row["source_code"] == SOURCE_CODE
-        and row["attribute_code"] in {"maximum_kerb_weight", "gross_vehicle_weight", "gross_train_weight"}
+        and row["attribute_code"] in {"maximum_kerb_weight", "gross_train_weight"}
         and row["observation_date"] == "2025-12-17"
         for row in read_rows(VALUE_PATH)
     ),

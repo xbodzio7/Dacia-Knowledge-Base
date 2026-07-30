@@ -391,7 +391,25 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_jogger_brochure_20251217": 42})
         expected_total += 42
+    jogger_gross_vehicle_weight = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+        and row.get("attribute_code") == "gross_vehicle_weight"
+        and 3426 <= int(row.get("id", "0")) <= 3447
+    ]
+    if jogger_gross_vehicle_weight:
+        ensure(len(jogger_gross_vehicle_weight) == 22, "Jogger gross-vehicle-weight source-observation receipt differs")
+        ensure([int(row["id"]) for row in jogger_gross_vehicle_weight] == list(range(3426, 3448)), "Jogger gross-vehicle-weight source-observation IDs differ")
+        ensure(
+            Counter(row.get("value", "") for row in jogger_gross_vehicle_weight)
+            == Counter({"1685": 3, "1765": 3, "1785": 2, "1830": 3, "1855": 3, "1940": 3, "1960": 2, "2000": 3}),
+            "Jogger gross-vehicle-weight source-observation values differ",
+        )
+        expected_scalar.update({"src_pl_jogger_brochure_20251217": 22})
+        expected_total += 22
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
+
 
 
     payload_range_conflicts = [
@@ -445,7 +463,7 @@ def verify_non_import_boundaries() -> None:
         for row in rows(MASTER / "configuration_attribute_values.csv")
         if row.get("source_code") in SOURCES
     ]
-    jogger_mass = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}
+    jogger_mass = {"maximum_kerb_weight", "gross_train_weight"}
     ensure(
         not any(
             row.get("source_code") == "src_pl_jogger_brochure_20251217"

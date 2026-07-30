@@ -115,7 +115,6 @@ class JoggerChassisTests(unittest.TestCase):
             and row["observation_date"] == "2025-12-17"
             and row["attribute_code"] in {
                 "maximum_kerb_weight",
-                "gross_vehicle_weight",
                 "gross_train_weight",
             }
             for row in self.values

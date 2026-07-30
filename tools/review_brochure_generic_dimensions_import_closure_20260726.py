@@ -345,7 +345,7 @@ def verify_receipts_and_boundaries(values: Sequence[dict[str, str]]) -> None:
         "residual partial classification set differs",
     )
 
-    jogger_mass_attributes = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}
+    jogger_mass_attributes = {"maximum_kerb_weight", "gross_train_weight"}
     all_values = rows(MASTER / "configuration_attribute_values.csv")
     ensure(
         not any(
