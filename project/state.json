@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Emission Standard Conflict Observation Import",
+  "phase": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,11 +15,11 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1602,
+    "tests": 1610,
     "csv_files": 46,
-    "rows": 11176,
-    "configuration_values": 3321,
-    "configuration_import_specs": 124,
+    "rows": 11179,
+    "configuration_values": 3324,
+    "configuration_import_specs": 125,
     "configuration_value_ranges": 274,
     "configuration_range_import_specs": 21,
     "availability_records": 5770,
@@ -27,17 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_emission_standard_conflict_observation_import_001",
+    "package_id": "post_residual_bigster_page20_hybrid155_voltage_conflict_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Emission Standard Conflict Observation Import",
+    "name": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
     "status": "complete",
-    "goal": "Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.",
+    "goal": "Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without importing the adjacent 1.4 kWh capacity context.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-emission-standard-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybrid155-system-voltage-20251210.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_emission_standard_conflict_observations.py",
-      "tests/test_attribute_enum_domains.py",
-      "tests/test_sandero_euro_6e_bis_model.py",
+      "tests/test_bigster_page20_hybrid155_voltage_conflict_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
@@ -53,15 +51,15 @@
     ]
   },
   "next_package": {
-    "package_id": "post_residual_bigster_page20_hybrid155_voltage_conflict_observation_import_001",
+    "package_id": "post_residual_bigster_page20_battery_capacity_conflict_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import",
+    "name": "Bigster Page 20 Battery Capacity Conflict Observation Import",
     "status": "planned",
-    "goal": "Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without declaring either source authoritative.",
+    "goal": "Add hybrid_battery_capacity_source_stated=0.84 kWh as a 2025-12-10 brochure observation for the eleven 48 V Bigster configurations while retaining and testing the later 0.839 kWh price-source observations and without changing the Hybrid 155 1.4 kWh context.",
     "manifest_paths": [
-      "data/imports/configuration_values/bigster-page20-hybrid155-system-voltage-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybrid-battery-capacity-source-stated-20251210.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_bigster_page20_hybrid155_voltage_conflict_observations.py",
+      "tests/test_bigster_page20_battery_capacity_conflict_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
