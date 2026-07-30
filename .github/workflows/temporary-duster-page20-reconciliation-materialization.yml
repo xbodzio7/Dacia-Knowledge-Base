@@ -1,0 +1,45 @@
+name: Temporary Duster page 20 reconciliation materialization
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/duster-page20-reviewed-fact-reconciliation-20260730'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: agent/duster-page20-reviewed-fact-reconciliation-20260730
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+      - name: Materialize and validate reconciliation
+        run: python tools/temporary_materialize_duster_page20_reconciliation.py
+      - name: Commit final package and remove temporary tools
+        run: |
+          rm .github/workflows/temporary-duster-page20-reconciliation-diagnostic.yml
+          rm .github/workflows/temporary-duster-page20-reconciliation-materialization.yml
+          rm tools/temporary_duster_reconciliation_trigger.txt
+          rm tools/temporary_materialize_duster_page20_reconciliation.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.json \
+            data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.md \
+            project/reviews/duster-mini-technical-page20-reviewed-fact-reconciliation-2026-07-30.md \
+            project/state.json project/STATE_SUMMARY.md \
+            .github/workflows/temporary-duster-page20-reconciliation-diagnostic.yml \
+            .github/workflows/temporary-duster-page20-reconciliation-materialization.yml \
+            tools/temporary_duster_reconciliation_trigger.txt \
+            tools/temporary_materialize_duster_page20_reconciliation.py
+          git commit -m "docs(duster): reconcile page 20 reviewed facts"
+          git push origin HEAD:agent/duster-page20-reviewed-fact-reconciliation-20260730
