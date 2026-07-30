@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Verified PDF Residual Queue Re-entry Review**
+**Duster Mini Technical Page 20 Reviewed Fact Reconciliation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified PDF Residual Queue Re-entry Review** — `complete`
+**Duster Mini Technical Page 20 Reviewed Fact Reconciliation** — `complete`
 
-Exclude raw-priority boundaries already closed by later work and select the first genuinely actionable verified-PDF residual boundary using stable source/model/domain/page identity.
+Reconcile all 65 authored Duster page-20 technical candidates against current exact master data and produce a narrow 35-observation import handoff without changing master data in the reconciliation package.
 
 ## Next package
 
-**Duster Mini Technical Page 20 Reviewed Fact Reconciliation** — `planned`
+**Duster Mini Page 20 Exact Scalar Gap Import** — `planned`
 
-Reconcile all 65 previously reviewed Duster page-20 technical candidates against the current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.
+Add 35 append-only source-specific observations across the seven exact manual 4x2 Duster configurations: Euro 6E bis, particulate filter, Start & Stop, Eco mode and gross vehicle weight. Preserve injection type as a fuel-context modeling deferral and keep every context-only/non-import decision unchanged.
 
 ## Autonomy
 

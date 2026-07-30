@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Verified PDF Residual Queue Re-entry Review",
+  "phase": "Duster Mini Technical Page 20 Reviewed Fact Reconciliation",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,36 +27,63 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
+    "package_id": "post_residual_duster_mini_technical_page20_reviewed_fact_reconciliation_001",
     "kind": "review_closure",
-    "name": "Verified PDF Residual Queue Re-entry Review",
+    "name": "Duster Mini Technical Page 20 Reviewed Fact Reconciliation",
     "status": "complete",
-    "goal": "Exclude raw-priority boundaries already closed by later work and select the first genuinely actionable verified-PDF residual boundary using stable source/model/domain/page identity.",
+    "goal": "Reconcile all 65 authored Duster page-20 technical candidates against current exact master data and produce a narrow 35-observation import handoff without changing master data in the reconciliation package.",
     "manifest_paths": [
-      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
-      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
-      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-30.md",
+      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.json",
+      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.md",
+      "project/reviews/duster-mini-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_duster_mini_technical_page20_reviewed_fact_reconciliation_001",
-    "kind": "review_closure",
-    "name": "Duster Mini Technical Page 20 Reviewed Fact Reconciliation",
+    "package_id": "post_residual_duster_mini_page20_exact_scalar_gap_import_001",
+    "kind": "configuration_value_import",
+    "name": "Duster Mini Page 20 Exact Scalar Gap Import",
     "status": "planned",
     "source_code": "src_pl_duster_mini_brochure_20251020",
     "source_page": 20,
-    "goal": "Reconcile all 65 previously reviewed Duster page-20 technical candidates against the current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.",
-    "source_review_packages": [
-      "residual_gap_003",
-      "residual_gap_020",
-      "residual_gap_021"
+    "goal": "Add 35 append-only source-specific observations across the seven exact manual 4x2 Duster configurations: Euro 6E bis, particulate filter, Start & Stop, Eco mode and gross vehicle weight. Preserve injection type as a fuel-context modeling deferral and keep every context-only/non-import decision unchanged.",
+    "target_configurations": [
+      "duster_iii_essential_ecog120_4x2_manual",
+      "duster_iii_expression_ecog120_4x2_manual",
+      "duster_iii_expression_mildhybrid140_4x2_manual",
+      "duster_iii_extreme_ecog120_4x2_manual",
+      "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "duster_iii_journey_ecog120_4x2_manual",
+      "duster_iii_journey_mildhybrid140_4x2_manual"
     ],
+    "attribute_counts": {
+      "emission_standard": 7,
+      "particulate_filter": 7,
+      "start_stop_system": 7,
+      "eco_mode": 7,
+      "gross_vehicle_weight": 7
+    },
+    "planned_value_id_start": 3464,
+    "planned_value_id_end": 3498,
     "manifest_paths": [
-      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.json",
-      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.md",
-      "project/reviews/duster-mini-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
+      "data/imports/configuration_values/duster-mini-page20-emission-standard-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-particulate-filter-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-start-stop-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-eco-mode-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-gross-vehicle-weight-20251020.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_duster_mini_page20_exact_scalar_gap_import.py",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
