@@ -23,12 +23,12 @@
     "candidate_count": 1583,
     "coverage_status_counts": {
       "already_covered": 124,
-      "ambiguous": 110,
+      "ambiguous": 111,
       "explicit_non_import": 195,
-      "unresolved": 1154
+      "unresolved": 1153
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3284,
+      "configuration_attribute_values": 3306,
       "configuration_attribute_value_ranges": 278,
       "configuration_attribute_availability": 5770
     }
@@ -42,9 +42,9 @@
     },
     "technical_tables": {
       "already_covered": 54,
-      "ambiguous": 56,
+      "ambiguous": 57,
       "explicit_non_import": 112,
-      "unresolved": 319
+      "unresolved": 318
     }
   },
   "source_status_counts": {
@@ -62,9 +62,9 @@
     },
     "src_pl_jogger_brochure_20251217": {
       "already_covered": 12,
-      "ambiguous": 22,
+      "ambiguous": 23,
       "explicit_non_import": 27,
-      "unresolved": 218
+      "unresolved": 217
     },
     "src_pl_sandero_brochure_20260202": {
       "already_covered": 19,
@@ -165,9 +165,9 @@
       "candidate_count": 82,
       "coverage_status_counts": {
         "already_covered": 9,
-        "ambiguous": 16,
+        "ambiguous": 17,
         "explicit_non_import": 14,
-        "unresolved": 43
+        "unresolved": 42
       }
     },
     {
@@ -50163,6 +50163,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -50567,6 +50831,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -51041,6 +51569,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -51450,6 +52242,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -51611,9 +52667,274 @@
         "masa",
         "wlasna"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "ambiguous",
+      "classification_basis": "multiple_existing_evidence_signatures",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "123c5c41b995919ac7aa0157fc195514ecc93df2bf1b15268051b8e60a3504ac",
@@ -52016,6 +53337,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -52425,6 +54010,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -52881,6 +54730,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -53285,6 +55398,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -53740,6 +56117,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -54144,6 +56785,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -54599,6 +57504,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -55003,6 +58172,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"
@@ -55458,6 +58891,270 @@
               "match_basis": "same_source_page_ordered_text"
             }
           ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
         }
       ]
     },
@@ -55862,6 +59559,270 @@
               "table": "configuration_attribute_values",
               "record_code": "jogger_extreme_7seat_ecog120_manual_acceleration_0_100_petrol_20251217",
               "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1193",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1221",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_tce110_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1292",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1321",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_essential_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1326",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1354",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1359",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "minimum_kerb_weight",
+            "value": "1388",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_brochure_20251217",
+              "source_page": 19,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_minimum_kerb_weight_20251217",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
               "source_code": "src_pl_jogger_brochure_20251217",
               "source_page": 19,
               "match_basis": "same_source_page_ordered_text"

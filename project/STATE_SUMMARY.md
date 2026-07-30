@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Acceleration Source Observations**
+**Jogger Page 19 Minimum Kerb Weight Source Observations**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1633
+- Tests: 1640
 - Master CSV files: 46
-- Master rows: 11220
-- Configuration values: 3361
-- Configuration import specifications: 127
+- Master rows: 11242
+- Configuration values: 3383
+- Configuration import specifications: 128
 - Configuration value ranges: 278
 - Configuration range import specifications: 22
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Acceleration Source Observations** — `complete`
+**Jogger Page 19 Minimum Kerb Weight Source Observations** — `complete`
 
-Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.
+Add 22 source-specific minimum kerb weight observations from Jogger brochure page 19 for all current five- and seven-seat configurations where the printed values exactly match later official observations, without importing either mislabeled mass block.
 
 ## Next package
 
-**Jogger Page 19 Minimum Kerb Weight Source Observations** — `planned`
+**Jogger Page 19 Fuel and LPG Capacity Source Observations** — `planned`
 
-Add source-specific minimum kerb weight observations from Jogger brochure page 19 for all 22 current five- and seven-seat configurations where the printed values exactly match current registered observations, without importing either mislabeled DMC block.
+Preserve source-specific 50 L petrol-tank observations for all 22 current Jogger configurations and separate 50 L total plus 40 L filling-capacity LPG observations for the ten current Eco-G 120 configurations, without collapsing distinct capacity semantics.
 
 ## Autonomy
 

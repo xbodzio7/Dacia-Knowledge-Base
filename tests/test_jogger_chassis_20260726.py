@@ -113,7 +113,11 @@ class JoggerChassisTests(unittest.TestCase):
         self.assertFalse(any(
             row["source_code"] == SOURCE
             and row["observation_date"] == "2025-12-17"
-            and row["attribute_code"] in MASS_ATTRIBUTES
+            and row["attribute_code"] in {
+                "maximum_kerb_weight",
+                "gross_vehicle_weight",
+                "gross_train_weight",
+            }
             for row in self.values
         ))
         review = json.loads((ROOT / "data" / "reporting" / "official_brochure_technical_gap_review.json").read_text(encoding="utf-8"))

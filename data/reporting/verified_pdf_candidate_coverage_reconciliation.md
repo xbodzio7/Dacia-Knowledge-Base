@@ -9,8 +9,8 @@ Candidate-level reconciliation against existing active source-backed records. Co
 | Reconciled review groups | 10 |
 | Reconciled candidates | 1583 |
 | Already covered | 124 |
-| Ambiguous | 110 |
-| Unresolved | 1154 |
+| Ambiguous | 111 |
+| Unresolved | 1153 |
 | Explicit non-import | 195 |
 
 ## Domains
@@ -18,7 +18,7 @@ Candidate-level reconciliation against existing active source-backed records. Co
 | Domain | Candidates | Covered | Ambiguous | Unresolved | Non-import |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `equipment_matrix` | 1042 | 70 | 54 | 835 | 83 |
-| `technical_tables` | 541 | 54 | 56 | 319 | 112 |
+| `technical_tables` | 541 | 54 | 57 | 318 | 112 |
 
 ## Groups
 
@@ -29,7 +29,7 @@ Candidate-level reconciliation against existing active source-backed records. Co
 | `duster_equipment_matrix` | `src_pl_duster_mini_brochure_20251020` | `equipment_matrix` | 22–23 | 280 | 47 | 37 | 175 | 21 |
 | `duster_technical_tables` | `src_pl_duster_mini_brochure_20251020` | `technical_tables` | 20–21 | 183 | 13 | 6 | 121 | 43 |
 | `jogger_equipment_matrix` | `src_pl_jogger_brochure_20251217` | `equipment_matrix` | 20–21 | 197 | 3 | 6 | 175 | 13 |
-| `jogger_technical_tables` | `src_pl_jogger_brochure_20251217` | `technical_tables` | 19 | 82 | 9 | 16 | 43 | 14 |
+| `jogger_technical_tables` | `src_pl_jogger_brochure_20251217` | `technical_tables` | 19 | 82 | 9 | 17 | 42 | 14 |
 | `sandero_equipment_matrix` | `src_pl_sandero_brochure_20260202` | `equipment_matrix` | 18–19 | 164 | 7 | 2 | 142 | 13 |
 | `sandero_stepway_equipment_matrix` | `src_pl_sandero_stepway_brochure_20260202` | `equipment_matrix` | 18–19 | 192 | 9 | 1 | 167 | 15 |
 | `sandero_stepway_technical_tables` | `src_pl_sandero_stepway_brochure_20260202` | `technical_tables` | 17 | 74 | 6 | 4 | 49 | 15 |

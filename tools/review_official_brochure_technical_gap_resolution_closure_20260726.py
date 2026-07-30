@@ -347,7 +347,28 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_jogger_brochure_20251217": 26})
         expected_total += 26
+    jogger_minimum_kerb_weight = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+        and row.get("attribute_code") == "minimum_kerb_weight"
+        and 3362 <= int(row.get("id", "0")) <= 3383
+    ]
+    if jogger_minimum_kerb_weight:
+        ensure(len(jogger_minimum_kerb_weight) == 22, "Jogger minimum-kerb-weight source-observation receipt differs")
+        ensure(
+            [int(row["id"]) for row in jogger_minimum_kerb_weight] == list(range(3362, 3384)),
+            "Jogger minimum-kerb-weight source-observation IDs differ",
+        )
+        ensure(
+            Counter(row.get("value", "") for row in jogger_minimum_kerb_weight)
+            == Counter({"1193": 3, "1292": 3, "1326": 2, "1359": 3, "1221": 3, "1321": 3, "1354": 2, "1388": 3}),
+            "Jogger minimum-kerb-weight source-observation values differ",
+        )
+        expected_scalar.update({"src_pl_jogger_brochure_20251217": 22})
+        expected_total += 22
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
+
     payload_range_conflicts = [
         row
         for row in ranges
