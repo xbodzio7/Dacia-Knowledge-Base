@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Remaining Conflict Boundary Review**
+**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1587
+- Tests: 1595
 - Master CSV files: 46
-- Master rows: 11156
-- Configuration values: 3301
-- Configuration import specifications: 121
+- Master rows: 11162
+- Configuration values: 3307
+- Configuration import specifications: 123
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Remaining Conflict Boundary Review** — `complete`
+**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import** — `complete`
 
-Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports, separate source-observation-ready contradictions from context-blocked evidence, and select one narrow conflict-preservation package.
+Add six older brochure observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while preserving and testing the later price-source values 5000 and 1750 and excluding electric-motor RPM context.
 
 ## Next package
 
-**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import** — `planned`
+**Bigster Page 20 Emission Standard Conflict Observation Import** — `planned`
 
-Add six older brochure source observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while retaining and explicitly testing the later price-source values 5000 and 1750. Do not import electric-motor RPM context.
+Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.
 
 ## Autonomy
 

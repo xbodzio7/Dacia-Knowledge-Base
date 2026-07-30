@@ -259,6 +259,21 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 20})
         expected_total += 20
+    rpm_conflicts = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") in {"max_power_rpm", "max_torque_rpm"}
+        and row.get("configuration_code", "").endswith("hybridg150_4x4_automatic")
+    ]
+    if rpm_conflicts:
+        ensure(
+            Counter((row.get("attribute_code", ""), row.get("value", "")) for row in rpm_conflicts)
+            == Counter({("max_power_rpm", "4500"): 3, ("max_torque_rpm", "4000"): 3}),
+            "Bigster RPM conflict-observation receipt differs",
+        )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 6})
+        expected_total += 6
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
