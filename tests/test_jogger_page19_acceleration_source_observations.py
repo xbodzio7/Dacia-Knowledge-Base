@@ -45,6 +45,16 @@ EXPECTED = {
     ("jogger_journey_7seat_ecog120_automatic", "petrol"): "11.7",
 }
 TARGETS = {configuration for configuration, _fuel in EXPECTED}
+TCE_EXPECTED = {
+    configuration: value
+    for (configuration, fuel), value in EXPECTED.items()
+    if fuel == "petrol" and "_tce110_" in configuration
+}
+ECOG_EXPECTED = {
+    (configuration, fuel): value
+    for (configuration, fuel), value in EXPECTED.items()
+    if "_ecog120_" in configuration
+}
 HYBRID_TARGETS = {
     "jogger_expression_5seat_hybrid155_automatic",
     "jogger_extreme_5seat_hybrid155_automatic",
@@ -119,23 +129,37 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
         )
 
     def test_later_official_source_observations_coexist_unchanged(self) -> None:
-        later = [
+        fuel_scoped = [
             row
             for row in self.values
             if row["source_code"] == PRICE_SOURCE
             and row["attribute_code"] == "acceleration_0_100"
-            and (row["configuration_code"], row["fuel_type_code"]) in EXPECTED
+            and (row["configuration_code"], row["fuel_type_code"]) in ECOG_EXPECTED
         ]
-        self.assertEqual(len(later), 26)
+        self.assertEqual(len(fuel_scoped), 20)
         self.assertEqual(
             {
                 (row["configuration_code"], row["fuel_type_code"]): row["value"]
-                for row in later
+                for row in fuel_scoped
             },
-            EXPECTED,
+            ECOG_EXPECTED,
+        )
+
+        tce_unscoped = [
+            row
+            for row in self.values
+            if row["source_code"] == PRICE_SOURCE
+            and row["attribute_code"] == "acceleration_0_100"
+            and row["configuration_code"] in TCE_EXPECTED
+            and row["fuel_type_code"] == ""
+        ]
+        self.assertEqual(len(tce_unscoped), 6)
+        self.assertEqual(
+            {row["configuration_code"]: row["value"] for row in tce_unscoped},
+            TCE_EXPECTED,
         )
         self.assertEqual(
-            {row["observation_date"] for row in later},
+            {row["observation_date"] for row in fuel_scoped + tce_unscoped},
             {"2026-04-01"},
         )
 
@@ -148,7 +172,7 @@ class JoggerPage19AccelerationSourceObservationTests(unittest.TestCase):
             and row["configuration_code"] in HYBRID_TARGETS
         ]
         self.assertEqual(len(selected), 6)
-        self.assertEqual({row["fuel_type_code"] for row in selected}, {"petrol"})
+        self.assertEqual({row["fuel_type_code"] for row in selected}, {""})
         five = {
             row["value"]
             for row in selected
