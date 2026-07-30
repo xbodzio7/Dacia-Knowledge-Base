@@ -29,9 +29,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y poppler-utils
 
-      - name: Show canonical page 20 text
-        run: pdftotext -f 20 -l 20 -layout "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf" -
-
       - name: Materialize and verify package
         run: python tools/materialize_bigster_page20_deferred_import.py
 
