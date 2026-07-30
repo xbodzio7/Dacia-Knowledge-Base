@@ -7,19 +7,19 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
+  "phase": "Jogger Page 19 Acceleration Source Observations",
   "reference_delivery": {
-    "name": "Verified PDF Candidate Residual Review Closure",
-    "pull_request": 391,
-    "head_sha": "981fe8aa476d19849256a5965bff63936b335cfc",
-    "quality_run": 2542
+    "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
+    "pull_request": 392,
+    "head_sha": "1eaa92e09e312117597474ffd8410b8abe54632e",
+    "quality_run": 2544
   },
   "baseline": {
-    "tests": 1626,
+    "tests": 1633,
     "csv_files": 46,
-    "rows": 11194,
-    "configuration_values": 3335,
-    "configuration_import_specs": 126,
+    "rows": 11220,
+    "configuration_values": 3361,
+    "configuration_import_specs": 127,
     "configuration_value_ranges": 278,
     "configuration_range_import_specs": 22,
     "availability_records": 5770,
@@ -27,33 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_technical_page19_reconciliation_001",
-    "kind": "source_reconciliation_review",
-    "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
+    "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Jogger Page 19 Acceleration Source Observations",
     "status": "complete",
-    "goal": "Reconcile the complete technical source facts and preserved conflicts from Jogger brochure page 19 across residual_gap_002, residual_gap_024 and residual_gap_025 against current exact Jogger configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.",
+    "goal": "Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.",
     "manifest_paths": [
-      "data/reporting/jogger_technical_page19_reviewed_fact_reconciliation.json",
-      "data/reporting/jogger_technical_page19_reviewed_fact_reconciliation.md",
-      "project/reviews/jogger-technical-page19-reviewed-fact-reconciliation-2026-07-30.md",
+      "data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_jogger_page19_acceleration_source_observations.py",
+      "data/reporting/jogger_tce110_manual_completeness.json",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+    "package_id": "post_residual_jogger_page19_minimum_kerb_weight_source_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Jogger Page 19 Acceleration Source Observations",
+    "name": "Jogger Page 19 Minimum Kerb Weight Source Observations",
     "status": "planned",
     "source_code": "src_pl_jogger_brochure_20251217",
-    "target_configuration_count": 16,
-    "excluded_existing_hybrid_configuration_count": 6,
-    "planned_observation_count": 26,
-    "goal": "Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.",
+    "target_configuration_count": 22,
+    "planned_observation_count": 22,
+    "goal": "Add source-specific minimum kerb weight observations from Jogger brochure page 19 for all 22 current five- and seven-seat configurations where the printed values exactly match current registered observations, without importing either mislabeled DMC block.",
     "manifest_paths": [
-      "data/imports/jogger_page19_acceleration_source_observations_20251217.json",
+      "data/imports/configuration_values/jogger-brochure-minimum-kerb-weight-20251217.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_jogger_page19_acceleration_source_observations.py",
+      "tests/test_jogger_page19_minimum_kerb_weight_source_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
