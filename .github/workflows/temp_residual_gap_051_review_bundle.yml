@@ -1,33 +1,36 @@
-name: Temporary residual gap 051 review bundle
+name: Temporary residual gap 051 review materializer
 
 on:
   pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build-review-bundle:
+  materialize-review:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out bundle branch
+      - name: Check out materialization branch
         uses: actions/checkout@v4
         with:
           ref: agent/residual-gap-051-review-bundle-20260730
-          fetch-depth: 1
+          fetch-depth: 0
+          persist-credentials: true
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install PDF renderer
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Build canonical review bundle
-        run: python tools/build_residual_gap_051_review_bundle.py
-      - name: Upload canonical review bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: residual-gap-051-review-bundle
-          path: review_bundle_residual_gap_051
-          if-no-files-found: error
-          retention-days: 7
+      - name: Materialize and verify review
+        run: python tools/materialize_residual_gap_051_review.py
+      - name: Commit deterministic outputs and remove temporary tooling
+        run: |
+          rm -f tools/materialize_residual_gap_051_review.py
+          rm -f tools/build_residual_gap_051_review_bundle.py
+          rm -f .github/workflows/temp_residual_gap_051_review_bundle.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "review: materialize Sandero page 19 unresolved chunk 1"
+          git push origin HEAD:agent/residual-gap-051-review-bundle-20260730
