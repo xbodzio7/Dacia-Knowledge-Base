@@ -12,7 +12,7 @@ Package: `post_residual_duster_mini_technical_page20_reviewed_fact_reconciliatio
 
 ## Result
 
-All 65 candidates are classified exactly once. Twenty are closed by existing exact values or configuration identity. Thirty-eight remain context/non-import. Two require context modeling rather than an unscoped import. Five exact candidate rows remain import-ready and expand to 35 source-specific observations across seven exact manual configurations.
+All 65 candidates are classified exactly once. Twenty are closed by existing exact values or configuration identity. Thirty-eight remain explicit context/non-import boundaries. Two require context modeling rather than an unscoped import. Five exact candidate rows remain import-ready and expand to 35 source-specific observations across seven exact manual configurations.
 
 ## Safety boundary
 
