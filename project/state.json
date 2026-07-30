@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Page 19 Acceleration Source Observations",
+  "phase": "Jogger Page 19 Minimum Kerb Weight Source Observations",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -15,11 +15,11 @@
     "quality_run": 2544
   },
   "baseline": {
-    "tests": 1633,
+    "tests": 1640,
     "csv_files": 46,
-    "rows": 11220,
-    "configuration_values": 3361,
-    "configuration_import_specs": 127,
+    "rows": 11242,
+    "configuration_values": 3383,
+    "configuration_import_specs": 128,
     "configuration_value_ranges": 278,
     "configuration_range_import_specs": 22,
     "availability_records": 5770,
@@ -27,22 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+    "package_id": "post_residual_jogger_page19_minimum_kerb_weight_source_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Jogger Page 19 Acceleration Source Observations",
+    "name": "Jogger Page 19 Minimum Kerb Weight Source Observations",
     "status": "complete",
-    "goal": "Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.",
+    "goal": "Add 22 source-specific minimum kerb weight observations from Jogger brochure page 19 for all current five- and seven-seat configurations where the printed values exactly match later official observations, without importing either mislabeled mass block.",
     "manifest_paths": [
-      "data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json",
+      "data/imports/configuration_values/jogger-brochure-minimum-kerb-weight-20251217.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_jogger_page19_acceleration_source_observations.py",
-      "data/reporting/jogger_tce110_manual_completeness.json",
+      "tests/test_jogger_page19_minimum_kerb_weight_source_observations.py",
       "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tools/import_jogger_chassis_20260726.py",
+      "tests/test_jogger_chassis_20260726.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
       "tests/test_official_brochure_technical_gap_resolution_closure.py",
-      "tests/test_jogger_brochure_hybrid_performance_20260726.py",
-      "tests/test_jogger_tce110_manual_reporting_scope.py",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
       "README.md",
       "CHANGELOG.md",
       "project/ROADMAP.md",
@@ -52,18 +53,18 @@
     ]
   },
   "next_package": {
-    "package_id": "post_residual_jogger_page19_minimum_kerb_weight_source_observation_import_001",
+    "package_id": "post_residual_jogger_page19_fuel_lpg_capacity_source_observation_import_001",
     "kind": "configuration_value_import",
-    "name": "Jogger Page 19 Minimum Kerb Weight Source Observations",
+    "name": "Jogger Page 19 Fuel and LPG Capacity Source Observations",
     "status": "planned",
     "source_code": "src_pl_jogger_brochure_20251217",
     "target_configuration_count": 22,
-    "planned_observation_count": 22,
-    "goal": "Add source-specific minimum kerb weight observations from Jogger brochure page 19 for all 22 current five- and seven-seat configurations where the printed values exactly match current registered observations, without importing either mislabeled DMC block.",
+    "planned_observation_count": 42,
+    "goal": "Preserve source-specific 50 L petrol-tank observations for all 22 current Jogger configurations and separate 50 L total plus 40 L filling-capacity LPG observations for the ten current Eco-G 120 configurations, without collapsing distinct capacity semantics.",
     "manifest_paths": [
-      "data/imports/configuration_values/jogger-brochure-minimum-kerb-weight-20251217.json",
+      "data/imports/configuration_values/jogger-brochure-fuel-lpg-capacities-20251217.json",
       "data/master/configuration_attribute_values.csv",
-      "tests/test_jogger_page19_minimum_kerb_weight_source_observations.py",
+      "tests/test_jogger_page19_fuel_lpg_capacity_source_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

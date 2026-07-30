@@ -272,7 +272,15 @@ def verify_package(expected: Sequence[Mapping[str, str]]) -> None:
     ensure(not missing and len(existing) == 88, f"package incomplete: missing={len(missing)}, existing={len(existing)}")
     package = [row for row in read_rows(VALUE_PATH) if 2480 <= int(row["id"]) <= 2567]
     ensure(package == [dict(row) for row in expected], "package ID slice differs")
-    ensure(not any(row["source_code"] == SOURCE_CODE and row["attribute_code"] in MASS_ATTRIBUTES and row["observation_date"] == "2025-12-17" for row in read_rows(VALUE_PATH)), "ambiguous Jogger mass evidence was imported")
+    ensure(
+    not any(
+        row["source_code"] == SOURCE_CODE
+        and row["attribute_code"] in {"maximum_kerb_weight", "gross_vehicle_weight", "gross_train_weight"}
+        and row["observation_date"] == "2025-12-17"
+        for row in read_rows(VALUE_PATH)
+    ),
+    "ambiguous Jogger mass evidence was imported",
+)
 
 
 def main() -> int:
