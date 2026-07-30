@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1**
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
 
-Review the first 40 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text, visual row grouping and literal grade markers without automatic promotion or master-data changes.
+Review the remaining 25 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text, visual row grouping and literal grade markers without automatic promotion or master-data changes.
 
 ## Next package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `planned`
+**Verified PDF Candidate Residual Review Closure** — `planned`
 
-Review the remaining 25 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.
+Verify the complete 52-package authored residual review delivery against the deterministic prioritization and per-package artifacts, close the residual queue without data changes, and select the next project phase.
 
 ## Autonomy
 
