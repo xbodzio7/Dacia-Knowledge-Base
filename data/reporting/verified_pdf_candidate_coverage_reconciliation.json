@@ -23,12 +23,12 @@
     "candidate_count": 1583,
     "coverage_status_counts": {
       "already_covered": 124,
-      "ambiguous": 109,
+      "ambiguous": 110,
       "explicit_non_import": 195,
-      "unresolved": 1155
+      "unresolved": 1154
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3224,
+      "configuration_attribute_values": 3230,
       "configuration_attribute_value_ranges": 274,
       "configuration_attribute_availability": 5770
     }
@@ -42,17 +42,17 @@
     },
     "technical_tables": {
       "already_covered": 54,
-      "ambiguous": 55,
+      "ambiguous": 56,
       "explicit_non_import": 112,
-      "unresolved": 320
+      "unresolved": 319
     }
   },
   "source_status_counts": {
     "src_pl_bigster_brochure_20251210": {
       "already_covered": 18,
-      "ambiguous": 32,
+      "ambiguous": 33,
       "explicit_non_import": 47,
-      "unresolved": 242
+      "unresolved": 241
     },
     "src_pl_duster_mini_brochure_20251020": {
       "already_covered": 60,
@@ -105,9 +105,9 @@
       "candidate_count": 130,
       "coverage_status_counts": {
         "already_covered": 14,
-        "ambiguous": 24,
+        "ambiguous": 25,
         "explicit_non_import": 26,
-        "unresolved": 66
+        "unresolved": 65
       }
     },
     {
@@ -852,9 +852,80 @@
         "silnik",
         "spalinowy"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "ambiguous",
+      "classification_basis": "multiple_existing_evidence_signatures",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "max_power_rpm",
+            "value": "4500",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_max_power_rpm_20251210",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_max_power_rpm_20251210",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_max_power_rpm_20251210",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "max_torque_rpm",
+            "value": "4000",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_max_torque_rpm_20251210",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_max_torque_rpm_20251210",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_max_torque_rpm_20251210",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "6c6f693ace59115446879ebf943ea316cc3bdf80a8f9878439ae0f27af123b04",
