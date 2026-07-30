@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Page 19 Fuel and LPG Capacity Source Observations",
+  "phase": "Jogger Page 19 Source Observation Import Closure",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,42 +27,32 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_page19_fuel_lpg_capacity_source_observation_import_001",
-    "kind": "configuration_value_import",
-    "name": "Jogger Page 19 Fuel and LPG Capacity Source Observations",
+    "package_id": "post_residual_jogger_page19_source_observation_import_closure_001",
+    "kind": "review",
+    "name": "Jogger Page 19 Source Observation Import Closure",
     "status": "complete",
-    "goal": "Preserve 22 source-specific 50 L petrol-tank observations and separate 50 L total plus 40 L usable/filling LPG observations for the ten current Eco-G 120 configurations without collapsing capacity semantics.",
+    "goal": "Reconcile the completed acceleration, minimum-kerb-weight and fuel/LPG-capacity source-observation imports against the page 19 review, identify the remaining safe exact imports, and preserve all unresolved source conflicts and context-model requirements without changing master data.",
     "manifest_paths": [
-      "data/imports/configuration_values/jogger-brochure-fuel-tank-capacity-20251217.json",
-      "data/imports/configuration_values/jogger-brochure-lpg-vessel-total-capacity-20251217.json",
-      "data/imports/configuration_values/jogger-brochure-lpg-vessel-filling-capacity-20251217.json",
-      "data/master/configuration_attribute_values.csv",
-      "tests/test_jogger_page19_fuel_lpg_capacity_source_observations.py",
-      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
-      "tests/test_official_brochure_technical_gap_resolution_closure.py",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
-      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
-      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
+      "data/reporting/jogger_page19_source_observation_import_closure.json",
+      "data/reporting/jogger_page19_source_observation_import_closure.md",
+      "project/reviews/jogger-page19-source-observation-import-closure-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_jogger_page19_source_observation_import_closure_001",
-    "kind": "review",
-    "name": "Jogger Page 19 Source Observation Import Closure",
+    "package_id": "post_residual_jogger_page19_gross_vehicle_weight_source_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Jogger Page 19 Gross Vehicle Weight Source Observations",
     "status": "planned",
     "source_code": "src_pl_jogger_brochure_20251217",
-    "goal": "Reconcile the completed acceleration, minimum-kerb-weight and fuel/LPG-capacity source-observation imports against the page 19 review, verify whether any safe exact import remains, and preserve all unresolved source conflicts and context-model requirements without changing master data.",
+    "target_configuration_count": 22,
+    "planned_observation_count": 22,
+    "goal": "Add source-specific gross vehicle weight observations from Jogger brochure page 19 for all 22 current configurations where the printed kilogram values exactly match current official observations, without importing either mislabeled adjacent mass block.",
     "manifest_paths": [
-      "data/reporting/jogger_page19_source_observation_import_closure.json",
-      "data/reporting/jogger_page19_source_observation_import_closure.md",
-      "project/reviews/jogger-page19-source-observation-import-closure-2026-07-30.md",
+      "data/imports/configuration_values/jogger-brochure-gross-vehicle-weight-20251217.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_jogger_page19_gross_vehicle_weight_source_observations.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
