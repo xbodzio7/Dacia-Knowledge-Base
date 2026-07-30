@@ -33,6 +33,7 @@ jobs:
           replacements = [
               ('Filtr cząstek stałych Da Da', 'Filtr cząstek stałych(1) Tak Tak'),
               ('Stop & Start Da Da', 'Stop & Start(2) Tak Tak'),
+              ('OSIĄGI I ZUŻYCIE PALIWA', 'OSIĄGI'),
               ('Tryb Eco Da Da', 'Tryb Eco Tak'),
               ('Dopuszczalna masa całkowita pojazdu (DMC) 1805 1830', 'Dopuszczalna masa całkowita (DMC) pojazdu 1805 1830'),
           ]
