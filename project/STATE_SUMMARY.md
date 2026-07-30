@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Verified PDF Residual Queue Re-entry Review II**
+**Sandero Technical Page 17 Reviewed Fact Reconciliation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Verified PDF Residual Queue Re-entry Review II** — `complete`
+**Sandero Technical Page 17 Reviewed Fact Reconciliation** — `complete`
 
-Rebuild the verified-PDF residual queue against later reconciliation, import and closure evidence; exclude completed technical boundaries; and select the first remaining actionable stable boundary without reopening explicit non-import decisions.
+Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data and hand off the only exact remaining gap as a bounded 20-range import.
 
 ## Next package
 
-**Sandero Technical Page 17 Reviewed Fact Reconciliation** — `planned`
+**Sandero Page 17 Power and Torque RPM Range Import** — `planned`
 
-Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.
+Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations, preserving fuel context, the printed TCe power-literal inconsistency and the missing automatic-petrol torque continuation.
 
 ## Autonomy
 
