@@ -332,6 +332,21 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 11})
         expected_total += 11
+    jogger_acceleration = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+        and row.get("attribute_code") == "acceleration_0_100"
+        and 3336 <= int(row.get("id", "0")) <= 3361
+    ]
+    if jogger_acceleration:
+        ensure(len(jogger_acceleration) == 26, "Jogger acceleration source-observation receipt differs")
+        ensure(
+            [int(row["id"]) for row in jogger_acceleration] == list(range(3336, 3362)),
+            "Jogger acceleration source-observation IDs differ",
+        )
+        expected_scalar.update({"src_pl_jogger_brochure_20251217": 26})
+        expected_total += 26
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     payload_range_conflicts = [
         row

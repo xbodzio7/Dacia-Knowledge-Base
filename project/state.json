@@ -37,6 +37,12 @@
       "data/master/configuration_attribute_values.csv",
       "tests/test_jogger_page19_acceleration_source_observations.py",
       "data/reporting/jogger_tce110_manual_completeness.json",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "tests/test_jogger_brochure_hybrid_performance_20260726.py",
+      "tests/test_jogger_tce110_manual_reporting_scope.py",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
