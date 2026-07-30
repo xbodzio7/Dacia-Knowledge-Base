@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Page 20 Exact Scalar Import Closure Review**
+**Verified PDF Residual Queue Re-entry Review II**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Page 20 Exact Scalar Import Closure Review** — `complete`
+**Verified PDF Residual Queue Re-entry Review II** — `complete`
 
-Verify the 35-row exact scalar receipt, close every reconciliation import-ready gap, preserve injection and context deferrals, and return the completed Duster page-20 boundary to global residual-queue selection.
+Rebuild the verified-PDF residual queue against later reconciliation, import and closure evidence; exclude completed technical boundaries; and select the first remaining actionable stable boundary without reopening explicit non-import decisions.
 
 ## Next package
 
-**Verified PDF Residual Queue Re-entry Review II** — `planned`
+**Sandero Technical Page 17 Reviewed Fact Reconciliation** — `planned`
 
-Rebuild the verified-PDF residual queue against current later reconciliation, import and closure evidence; exclude the completed Bigster, Jogger and Duster technical boundaries; and select the first remaining actionable stable source/model/domain/page boundary without reopening explicit non-import decisions.
+Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.
 
 ## Autonomy
 

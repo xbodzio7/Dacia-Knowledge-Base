@@ -1,9 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "kind": "verified_pdf_residual_queue_reentry_review",
-  "reviewed_on": "2026-07-30",
+  "reviewed_on": "2026-07-31",
   "status": "complete_with_actionable_selection",
-  "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
+  "package_id": "post_residual_verified_pdf_queue_reentry_review_002",
   "raw_queue_snapshot": {
     "candidate_count": 1266,
     "coverage_status_counts": {
@@ -53,7 +53,7 @@
         "residual_gap_016",
         "residual_gap_017"
       ],
-      "decision": "closed_by_later_reconciliation_and_conflict_preservation",
+      "decision": "closed_by_later_reconciliation_imports_and_conflict_preservation",
       "evidence": [
         "bigster_technical_page20_reviewed_fact_reconciliation.json",
         "bigster_page20_deferred_import_gap_review.json",
@@ -73,83 +73,134 @@
         "residual_gap_024",
         "residual_gap_025"
       ],
-      "decision": "closed_by_later_imports_and_explicit_conflict_boundaries",
+      "decision": "closed_by_later_reconciliation_imports_and_explicit_conflict_boundaries",
       "evidence": [
         "jogger_technical_page19_reviewed_fact_reconciliation.json",
         "jogger_page19_source_observation_import_closure.json",
         "jogger_page19_remaining_mass_conflict_closure.json",
         "jogger_page19_range_context_follow_up_review.json"
       ]
+    },
+    {
+      "boundary": {
+        "source_code": "src_pl_duster_mini_brochure_20251020",
+        "model_code": "duster_iii",
+        "domain": "technical_tables",
+        "page": 20
+      },
+      "raw_packages": [
+        "residual_gap_003",
+        "residual_gap_020",
+        "residual_gap_021"
+      ],
+      "decision": "closed_by_later_reconciliation_exact_import_and_closure",
+      "evidence": [
+        "duster_mini_technical_page20_reviewed_fact_reconciliation.json",
+        "duster_mini_page20_exact_scalar_import_closure.json"
+      ]
     }
   ],
   "selected_boundary": {
-    "source_code": "src_pl_duster_mini_brochure_20251020",
-    "model_code": "duster_iii",
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "model_code": "sandero_iii",
     "domain": "technical_tables",
-    "page": 20,
+    "page": 17,
     "raw_packages": [
-      "residual_gap_003",
-      "residual_gap_020",
-      "residual_gap_021"
+      "residual_gap_004",
+      "residual_gap_026",
+      "residual_gap_027"
     ],
-    "reviewed_candidates": 65,
+    "raw_package_receipts": [
+      {
+        "package_id": "residual_gap_004",
+        "priority": 4,
+        "coverage_status": "ambiguous",
+        "candidate_count": 5,
+        "chunk_index": 1,
+        "chunk_count": 1
+      },
+      {
+        "package_id": "residual_gap_026",
+        "priority": 26,
+        "coverage_status": "unresolved",
+        "candidate_count": 40,
+        "chunk_index": 1,
+        "chunk_count": 2
+      },
+      {
+        "package_id": "residual_gap_027",
+        "priority": 27,
+        "coverage_status": "unresolved",
+        "candidate_count": 1,
+        "chunk_index": 2,
+        "chunk_count": 2
+      }
+    ],
+    "reviewed_candidates": 46,
     "ambiguity_candidates": 5,
-    "unresolved_candidates": 60,
+    "unresolved_candidates": 41,
     "review_receipts": {
       "ambiguity": {
+        "candidate_count": 5,
         "decision_counts": {
-          "covered_by_selected_evidence": 3,
-          "partially_covered": 2
+          "covered_by_selected_evidence": 0,
+          "partially_covered": 5
         },
-        "selected_evidence_signature_count": 9,
-        "selected_evidence_record_count": 34
+        "selected_evidence_signature_count": 8,
+        "selected_evidence_record_count": 16,
+        "candidates_with_selected_evidence": 5,
+        "candidates_without_selected_evidence": 0
       },
       "unresolved_chunk_1": {
-        "logical_group_count": 30,
+        "logical_group_count": 20,
         "decision_counts": {
-          "context_only_non_import": 16,
-          "unresolved_signature_mismatch": 24
+          "context_only_non_import": 26,
+          "unresolved_signature_mismatch": 14
         },
         "selected_evidence_signature_count": 0,
         "selected_evidence_record_count": 0,
-        "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page20_unresolved_review_chunk1.md"
+        "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk1.md"
       },
       "unresolved_chunk_2": {
-        "logical_group_count": 8,
+        "logical_group_count": 1,
         "decision_counts": {
-          "context_only_non_import": 17,
-          "unresolved_signature_mismatch": 3
+          "context_only_non_import": 1,
+          "unresolved_signature_mismatch": 0
         },
         "selected_evidence_signature_count": 0,
         "selected_evidence_record_count": 0,
-        "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page20_unresolved_review_chunk2.md"
+        "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk2.md"
       }
     },
     "combined_authored_decision_counts": {
-      "covered_by_selected_evidence": 3,
-      "partially_covered": 2,
-      "context_only_non_import": 33,
-      "unresolved_signature_mismatch": 27
+      "covered_by_selected_evidence": 0,
+      "partially_covered": 5,
+      "context_only_non_import": 27,
+      "unresolved_signature_mismatch": 14
     },
-    "selection_reason": "All three source-review packages are complete, but no current-master reviewed-fact reconciliation exists. This is the first raw-priority technical boundary not closed by a later reconciliation or permanent non-import closure."
+    "selection_reason": "The ambiguity review and both unresolved chunks are complete, but no current-master reviewed-fact reconciliation exists. This is the first raw-priority technical boundary not closed by later reconciliation, exact import or permanent conflict/non-import closure."
+  },
+  "release_checkpoint_recommendation": {
+    "evaluate_data_products_v1_9_0_after_this_review": true,
+    "decision_rule": "Publish after this review unless the selected reconciliation yields one small exact import that can be completed and closed in no more than two additional pull requests."
   },
   "next_package": {
-    "package_id": "post_residual_duster_mini_technical_page20_reviewed_fact_reconciliation_001",
+    "package_id": "post_residual_sandero_technical_page17_reviewed_fact_reconciliation_001",
     "kind": "review_closure",
-    "name": "Duster Mini Technical Page 20 Reviewed Fact Reconciliation",
+    "name": "Sandero Technical Page 17 Reviewed Fact Reconciliation",
     "status": "planned",
-    "source_code": "src_pl_duster_mini_brochure_20251020",
-    "source_page": 20,
-    "goal": "Reconcile all 65 previously reviewed Duster page-20 technical candidates against the current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.",
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "source_page": 17,
+    "goal": "Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.",
     "source_review_packages": [
-      "residual_gap_003",
-      "residual_gap_020",
-      "residual_gap_021"
+      "residual_gap_004",
+      "residual_gap_026",
+      "residual_gap_027"
     ],
     "manifest_paths": [
-      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.json",
-      "data/reporting/duster_mini_technical_page20_reviewed_fact_reconciliation.md",
-      "project/reviews/duster-mini-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
+      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.json",
+      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.md",
+      "project/reviews/sandero-technical-page17-reviewed-fact-reconciliation-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
