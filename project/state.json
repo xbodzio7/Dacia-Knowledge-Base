@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Conflict Preservation Closure Review",
+  "phase": "Sandero Equipment Page 19 Unresolved Review — Chunk 1",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,29 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_conflict_preservation_closure_review_001",
+    "package_id": "residual_gap_051",
     "kind": "review",
-    "name": "Bigster Page 20 Conflict Preservation Closure Review",
+    "name": "Sandero Equipment Page 19 Unresolved Review — Chunk 1",
     "status": "complete",
-    "goal": "Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation packages, confirm that context-blocked and anomalous evidence remains unimported, close the page-20 conflict boundary, and return to the deterministic residual queue without creating data changes.",
+    "goal": "Review the first 40 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text, visual row grouping and literal grade markers without automatic promotion or master-data changes.",
     "manifest_paths": [
-      "data/reporting/bigster_page20_conflict_preservation_closure_review.json",
-      "data/reporting/bigster_page20_conflict_preservation_closure_review.md",
-      "project/reviews/bigster-page20-conflict-preservation-closure-review-2026-07-30.md",
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.json",
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.md",
+      "project/reviews/sandero-equipment-page19-unresolved-review-chunk1-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "residual_gap_051",
+    "package_id": "residual_gap_052",
     "kind": "review",
-    "name": "Sandero Equipment Page 19 Unresolved Review — Chunk 1",
+    "name": "Sandero Equipment Page 19 Unresolved Review — Chunk 2",
     "status": "planned",
-    "goal": "Review the first 40 of 65 unresolved Sandero equipment-matrix candidates on page 19, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.",
+    "goal": "Review the remaining 25 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.",
     "manifest_paths": [
-      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.json",
-      "data/reporting/sandero_equipment_page19_unresolved_review_chunk1.md",
-      "project/reviews/sandero-equipment-page19-unresolved-review-chunk1-2026-07-30.md",
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.json",
+      "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.md",
+      "project/reviews/sandero-equipment-page19-unresolved-review-chunk2-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
