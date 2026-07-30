@@ -22,13 +22,13 @@
     "target_groups": 10,
     "candidate_count": 1583,
     "coverage_status_counts": {
-      "already_covered": 125,
-      "ambiguous": 115,
+      "already_covered": 129,
+      "ambiguous": 116,
       "explicit_non_import": 195,
-      "unresolved": 1148
+      "unresolved": 1143
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3386,
+      "configuration_attribute_values": 3421,
       "configuration_attribute_value_ranges": 278,
       "configuration_attribute_availability": 5770
     }
@@ -41,10 +41,10 @@
       "unresolved": 835
     },
     "technical_tables": {
-      "already_covered": 55,
-      "ambiguous": 61,
+      "already_covered": 59,
+      "ambiguous": 62,
       "explicit_non_import": 112,
-      "unresolved": 313
+      "unresolved": 308
     }
   },
   "source_status_counts": {
@@ -55,10 +55,10 @@
       "unresolved": 241
     },
     "src_pl_duster_mini_brochure_20251020": {
-      "already_covered": 60,
-      "ambiguous": 43,
+      "already_covered": 64,
+      "ambiguous": 44,
       "explicit_non_import": 64,
-      "unresolved": 296
+      "unresolved": 291
     },
     "src_pl_jogger_brochure_20251217": {
       "already_covered": 13,
@@ -134,10 +134,10 @@
       "page_end": 21,
       "candidate_count": 183,
       "coverage_status_counts": {
-        "already_covered": 13,
-        "ambiguous": 6,
+        "already_covered": 17,
+        "ambiguous": 7,
         "explicit_non_import": 43,
-        "unresolved": 121
+        "unresolved": 116
       }
     },
     {
@@ -18673,9 +18673,77 @@
         "emisji",
         "spalin"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "emission_standard",
+            "value": "euro_6e_bis",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 7,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_essential_ecog120_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_ecog120_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_mildhybrid140_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_ecog120_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_mildhybrid140_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_ecog120_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_mildhybrid140_4x2_manual_emission_standard_20251020",
+              "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "a42bc5415d4c58cbbc41017c168c1b052783b6d592d4b7db237464a9dbacf212",
@@ -18694,9 +18762,77 @@
         "czastek",
         "stalych"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "particulate_filter",
+            "value": "true",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 7,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_essential_ecog120_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_ecog120_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_mildhybrid140_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_ecog120_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_mildhybrid140_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_ecog120_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_mildhybrid140_4x2_manual_particulate_filter_20251020",
+              "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "80d2e6da582b8ca97c61e3ed8e4379906d5dc7c42a7305cb8487c63632a356c6",
@@ -18714,9 +18850,77 @@
         "stop",
         "start"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "start_stop_system",
+            "value": "true",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 7,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_essential_ecog120_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_ecog120_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_mildhybrid140_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_ecog120_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_mildhybrid140_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_ecog120_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_mildhybrid140_4x2_manual_start_stop_system_20251020",
+              "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "582a0c78aea08dc40d5154f1d72dd4ca197d2f21eece8b4dc0930ceb155a3978",
@@ -20188,9 +20392,77 @@
         "tryb",
         "eco"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "eco_mode",
+            "value": "true",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 7,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_essential_ecog120_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_ecog120_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_mildhybrid140_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_ecog120_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_mildhybrid140_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_ecog120_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_mildhybrid140_4x2_manual_eco_mode_20251020",
+              "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "50c6d17d4775968c30c67d74b8fe9df484d49bdc9dc997b904b9604a8f0e9696",
@@ -20566,9 +20838,88 @@
         "dmc",
         "pojazdu"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "ambiguous",
+      "classification_basis": "multiple_existing_evidence_signatures",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "gross_vehicle_weight",
+            "value": "1805",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_essential_ecog120_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_ecog120_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_ecog120_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_ecog120_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "gross_vehicle_weight",
+            "value": "1830",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_mildhybrid140_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_mildhybrid140_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_mildhybrid140_4x2_manual_gross_vehicle_weight_20251020",
+              "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "3acabcb9d6f1db21630d6a687ae88008952748f44e44a04ca244dcfc3f863932",
