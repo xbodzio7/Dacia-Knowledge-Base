@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-29
+- State updated: 2026-07-30
 
 ## Phase
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2**
+**Post-Residual Review Milestone Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
+**Post-Residual Review Milestone Closure** — `complete`
 
-Review the final 25 of 65 unresolved Sandero brochure page-19 equipment candidates and close the canonical residual-review queue without promoting unsupported data.
+Verify completion and exact accounting of all 52 canonical residual review packages, repair the single exact-text transcription defect, preserve every non-import and evidence boundary, keep the final source-verified bundle reproducible after milestone closure, and select the next source-backed package.
 
 ## Next package
 
-**Post-Residual Review Milestone Closure** — `planned`
+**Bigster Technical Page 20 Reviewed Fact Reconciliation** — `planned`
 
-Verify completion and exact accounting of all 52 canonical residual review packages, preserve every non-import and evidence boundary, and select the next source-backed package.
+Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.
 
 ## Autonomy
 

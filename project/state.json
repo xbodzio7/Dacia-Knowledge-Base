@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-29",
+  "updated_on": "2026-07-30",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Equipment Page 19 Unresolved Review — Chunk 2",
+  "phase": "Post-Residual Review Milestone Closure",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -27,45 +27,32 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "residual_gap_052",
-    "kind": "residual_review",
-    "name": "Sandero Equipment Page 19 Unresolved Review — Chunk 2",
-    "status": "complete",
-    "goal": "Review the final 25 of 65 unresolved Sandero brochure page-19 equipment candidates and close the canonical residual-review queue without promoting unsupported data.",
-    "manifest_paths": [
-      "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.json",
-      "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.md",
-      "project/reviews/sandero-equipment-page19-unresolved-review-chunk2-2026-07-29.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ],
-    "review_bundle": {
-      "source_code": "src_pl_sandero_brochure_20260202",
-      "source_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
-      "source_sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
-      "model_code": "sandero_iii",
-      "domain": "equipment_matrix",
-      "page": 19,
-      "candidate_count": 25,
-      "group_candidate_count": 65,
-      "chunk_index": 2,
-      "chunk_count": 2,
-      "evidence_signature_count": 0,
-      "evidence_record_count": 0,
-      "prioritization_path": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
-      "source_receipt_path": "project/sources/official-dacia-brochures-20260725.json"
-    }
-  },
-  "next_package": {
     "package_id": "post_residual_review_milestone_closure_001",
     "kind": "milestone_review",
     "name": "Post-Residual Review Milestone Closure",
-    "status": "planned",
-    "goal": "Verify completion and exact accounting of all 52 canonical residual review packages, preserve every non-import and evidence boundary, and select the next source-backed package.",
+    "status": "complete",
+    "goal": "Verify completion and exact accounting of all 52 canonical residual review packages, repair the single exact-text transcription defect, preserve every non-import and evidence boundary, keep the final source-verified bundle reproducible after milestone closure, and select the next source-backed package.",
     "manifest_paths": [
       "data/reporting/verified_pdf_candidate_residual_review_closure.json",
       "data/reporting/verified_pdf_candidate_residual_review_closure.md",
+      "data/reporting/sandero_equipment_page18_unresolved_review_chunk1.md",
       "project/reviews/verified-pdf-candidate-residual-review-closure-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      ".github/workflows/residual-review-bundle.yml",
+      "tests/residual_review_bundle_contract.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_bigster_technical_page20_reconciliation_001",
+    "kind": "source_reconciliation_review",
+    "name": "Bigster Technical Page 20 Reviewed Fact Reconciliation",
+    "status": "planned",
+    "goal": "Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.",
+    "manifest_paths": [
+      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.json",
+      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.md",
+      "project/reviews/bigster-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
@@ -78,7 +65,7 @@
       "run_tests_and_quality",
       "create_package_commit",
       "push_package_branch",
-      "create_and_update_pull_request",
+      "create_and_update_pul_request",
       "repair_in_scope_ci_failures",
       "merge_green_pull_request",
       "update_project_state_and_generated_documentation"

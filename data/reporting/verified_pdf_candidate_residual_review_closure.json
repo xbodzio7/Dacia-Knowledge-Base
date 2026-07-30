@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "kind": "verified_pdf_candidate_residual_review_closure",
+  "reviewed_on": "2026-07-30",
+  "status": "complete",
+  "package_id": "post_residual_review_milestone_closure_001",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "scope": {
+    "package_count": 52,
+    "candidate_count": 1266,
+    "first_package_id": "residual_gap_001",
+    "last_package_id": "residual_gap_052",
+    "registered_source_count": 5
+  },
+  "accounting": {
+    "package_status_counts": {
+      "ambiguous": 15,
+      "unresolved": 37
+    },
+    "candidate_status_counts": {
+      "ambiguous": 108,
+      "unresolved": 1158
+    },
+    "package_domain_counts": {
+      "equipment_matrix": 34,
+      "technical_tables": 18
+    },
+    "candidate_domain_counts": {
+      "equipment_matrix": 889,
+      "technical_tables": 377
+    },
+    "package_source_counts": {
+      "src_pl_bigster_brochure_20251210": 10,
+      "src_pl_duster_mini_brochure_20251020": 14,
+      "src_pl_jogger_brochure_20251217": 10,
+      "src_pl_sandero_brochure_20260202": 9,
+      "src_pl_sandero_stepway_brochure_20260202": 9
+    },
+    "candidate_source_counts": {
+      "src_pl_bigster_brochure_20251210": 276,
+      "src_pl_duster_mini_brochure_20251020": 339,
+      "src_pl_jogger_brochure_20251217": 240,
+      "src_pl_sandero_brochure_20260202": 190,
+      "src_pl_sandero_stepway_brochure_20260202": 221
+    },
+    "decision_counts": {
+      "context_only_non_import": 635,
+      "covered": 15,
+      "covered_by_selected_evidence": 13,
+      "deferred_source_conflict": 12,
+      "partially_covered": 51,
+      "unresolved_signature_mismatch": 540
+    },
+    "attached_evidence_signature_count": 406,
+    "attached_evidence_record_count": 2604,
+    "selected_evidence_signature_count": 164,
+    "selected_evidence_record_count": 1614
+  },
+  "verification": {
+    "package_ids_sequential_and_unique": true,
+    "one_complete_review_report_per_package": true,
+    "candidate_ids_assigned_exactly_once": true,
+    "candidate_ids_and_exact_text_match_prioritization": true,
+    "source_domain_page_status_and_chunk_boundaries_match": true,
+    "decision_counts_cover_every_candidate": true,
+    "selected_evidence_is_subset_of_attached_evidence": true,
+    "all_package_policies_forbid_master_changes": true,
+    "all_package_policies_forbid_approved_import_specs": true,
+    "all_package_policies_forbid_automatic_promotion": true
+  },
+  "audit_digests": {
+    "prioritization_sha256": "21175cbf8f2970ce3adb82dfc832d04091e150d445f74756275b1dd98246a864",
+    "ordered_package_ids_sha256": "45ebd1a3a45ead3657f4b944ac3990350ac17dd238f133b4761f928bcf5e05f5",
+    "candidate_assignment_sha256": "4aa99a9c137587bda7618cfb62b6baf53c866d71f717238574bb5f540dd823b2",
+    "review_report_set_sha256": "13600393b74a22b06f786cbf54721822f8782d6324962a83e9bbd90eca803988"
+  },
+  "package_ids": [
+    "residual_gap_001",
+    "residual_gap_002",
+    "residual_gap_003",
+    "residual_gap_004",
+    "residual_gap_005",
+    "residual_gap_006",
+    "residual_gap_007",
+    "residual_gap_008",
+    "residual_gap_009",
+    "residual_gap_010",
+    "residual_gap_011",
+    "residual_gap_012",
+    "residual_gap_013",
+    "residual_gap_014",
+    "residual_gap_015",
+    "residual_gap_016",
+    "residual_gap_017",
+    "residual_gap_018",
+    "residual_gap_019",
+    "residual_gap_020",
+    "residual_gap_021",
+    "residual_gap_022",
+    "residual_gap_023",
+    "residual_gap_024",
+    "residual_gap_025",
+    "residual_gap_026",
+    "residual_gap_027",
+    "residual_gap_028",
+    "residual_gap_029",
+    "residual_gap_030",
+    "residual_gap_031",
+    "residual_gap_032",
+    "residual_gap_033",
+    "residual_gap_034",
+    "residual_gap_035",
+    "residual_gap_036",
+    "residual_gap_037",
+    "residual_gap_038",
+    "residual_gap_039",
+    "residual_gap_040",
+    "residual_gap_041",
+    "residual_gap_042",
+    "residual_gap_043",
+    "residual_gap_044",
+    "residual_gap_045",
+    "residual_gap_046",
+    "residual_gap_047",
+    "residual_gap_048",
+    "residual_gap_049",
+    "residual_gap_050",
+    "residual_gap_051",
+    "residual_gap_052"
+  ],
+  "exact_text_repairs": [
+    {
+      "package_id": "residual_gap_043",
+      "candidate_id": "222fc25f1f01849adf078dda720357f80ab3aa0d9687e96f7fb596704019fc02",
+      "path": "data/reporting/sandero_equipment_page18_unresolved_review_chunk1.md",
+      "incorrect_text": "Reflektory z charakterystycznym układem światuł",
+      "correct_text": "Reflektory z charakterystycznym układem świateł",
+      "reason": "The candidate ID was correct, but the authored Markdown copied one letter incorrectly. The corrected text now matches the canonical prioritization candidate verbatim."
+    }
+  ],
+  "decision_boundaries": {
+    "covered_or_selected_evidence_candidate_count": 28,
+    "partially_covered_candidate_count": 51,
+    "deferred_source_conflict_candidate_count": 12,
+    "context_only_non_import_candidate_count": 635,
+    "unresolved_signature_mismatch_candidate_count": 540,
+    "unresolved_is_not_negative_evidence": true,
+    "partial_coverage_is_not_import_approval": true,
+    "deferred_conflicts_remain_unresolved": true,
+    "context_fragments_remain_non_importable": true,
+    "no_master_data_changes": true,
+    "no_approved_import_spec_generation": true,
+    "no_automatic_promotion": true
+  },
+  "closure_decision": "Close the canonical residual-review queue after 52 complete source-bounded packages and exact accounting of all 1,266 candidates. Preserve 635 contextual non-imports, 540 unresolved signature mismatches, 51 partial-coverage decisions and 12 deferred source conflicts without negative inference or automatic promotion. Correct the single residual_gap_043 transcription error before selecting a new source-backed reconciliation package.",
+  "next_package": {
+    "package_id": "post_residual_bigster_technical_page20_reconciliation_001",
+    "kind": "source_reconciliation_review",
+    "name": "Bigster Technical Page 20 Reviewed Fact Reconciliation",
+    "status": "planned",
+    "goal": "Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.",
+    "source_packages": [
+      "residual_gap_016",
+      "residual_gap_017"
+    ],
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "page": 20,
+    "reviewed_source_fact_count": 24,
+    "manifest_paths": [
+      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.json",
+      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.md",
+      "project/reviews/bigster-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

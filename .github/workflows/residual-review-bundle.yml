@@ -9,6 +9,7 @@ on:
       - project/state.json
       - project/sources/official-dacia-brochures-20260725.json
       - data/reporting/verified_pdf_candidate_residual_gap_prioritization.json
+      - data/reporting/verified_pdf_candidate_residual_review_closure.json
   workflow_dispatch:
     inputs:
       package_id:
@@ -72,15 +73,36 @@ jobs:
                       ).read_text(encoding="utf-8")
                   )["packages"]
                   current = state.get("current_package")
-                  if not (
+                  final_package_id = packages[-1].get("package_id") if packages else None
+                  current_is_final = (
                       isinstance(current, dict)
                       and current.get("kind") == "residual_review"
                       and current.get("status") == "complete"
-                      and packages
-                      and current.get("package_id") == packages[-1].get("package_id")
-                  ):
+                      and current.get("package_id") == final_package_id
+                  )
+                  closure_path = Path(
+                      "data/reporting/verified_pdf_candidate_residual_review_closure.json"
+                  )
+                  closure_is_verified = False
+                  if closure_path.is_file() and final_package_id:
+                      closure = json.loads(closure_path.read_text(encoding="utf-8"))
+                      verification = closure.get("verification", {})
+                      closure_is_verified = (
+                          closure.get("status") == "complete"
+                          and closure.get("scope", {}).get("package_count") == len(packages)
+                          and closure.get("scope", {}).get("last_package_id")
+                          == final_package_id
+                          and verification.get("package_ids_sequential_and_unique") is True
+                          and verification.get("one_complete_review_report_per_package") is True
+                          and verification.get("candidate_ids_assigned_exactly_once") is True
+                          and verification.get(
+                              "candidate_ids_and_exact_text_match_prioritization"
+                          )
+                          is True
+                      )
+                  if not (current_is_final or closure_is_verified):
                       raise
-                  package_id = current["package_id"]
+                  package_id = final_package_id
                   queue_complete = True
           with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
               output.write(f"package_id={package_id}\n")
