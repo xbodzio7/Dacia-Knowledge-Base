@@ -1,0 +1,73 @@
+name: Finalize PR 366 as one commit
+
+on:
+  push:
+    branches:
+      - agent/pr366-finalize-one-commit-20260730
+    paths:
+      - .github/workflows/finalize-pr366-one-commit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Check out current PR source
+        run: |
+          git fetch origin agent/bigster-page20-emissions-consumption-ranges-20260730
+          git checkout -B pr366-source origin/agent/bigster-page20-emissions-consumption-ranges-20260730
+
+      - name: Update final residual-prioritization contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          test_path = Path("tests/test_verified_pdf_candidate_residual_gap_prioritization.py")
+          text = test_path.read_text(encoding="utf-8")
+          old = '{"ambiguous": 108, "unresolved": 1158}'
+          new = '{"ambiguous": 109, "unresolved": 1157}'
+          if text.count(old) != 1:
+              raise SystemExit("expected exactly one stale residual-prioritization count")
+          test_path.write_text(text.replace(old, new), encoding="utf-8", newline="\n")
+
+          state_path = Path("project/state.json")
+          state = json.loads(state_path.read_text(encoding="utf-8"))
+          manifest = state["current_package"]["manifest_paths"]
+          added = "tests/test_verified_pdf_candidate_residual_gap_prioritization.py"
+          anchor = "tests/test_verified_pdf_candidate_coverage_reconciliation.py"
+          if added not in manifest:
+              manifest.insert(manifest.index(anchor) + 1, added)
+          state_path.write_text(
+              json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          PY
+
+      - name: Verify targeted contract and project state
+        run: |
+          python -m unittest tests.test_verified_pdf_candidate_residual_gap_prioritization
+          python tools/dkb.py project-state --check
+
+      - name: Run complete unit suite
+        run: python -m unittest discover -s tests
+
+      - name: Rewrite PR branch as one commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add tests/test_verified_pdf_candidate_residual_gap_prioritization.py project/state.json
+          git reset --soft origin/main
+          git commit -m 'data: add Bigster page 20 emissions and consumption ranges'
+          git push --force origin HEAD:agent/bigster-page20-emissions-consumption-ranges-20260730
