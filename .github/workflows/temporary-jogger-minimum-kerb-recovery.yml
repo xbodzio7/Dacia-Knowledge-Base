@@ -1,0 +1,69 @@
+name: Temporary Jogger minimum kerb recovery
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  repair-and-dispatch:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/jogger-page19-minimum-kerb-weight-20260730'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: agent/jogger-page19-minimum-kerb-weight-20260730
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Repair literal source contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('.github/workflows/temporary-jogger-minimum-kerb-weight-materialization.yml')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              '"source_section": "Masa własna min"': '"source_section": "Minimalna masa własna"',
+              'self.assertEqual(self.spec["source_section"], "Masa własna min")': 'self.assertEqual(self.spec["source_section"], "Minimalna masa własna")',
+              '_compact_text("Masa własna min")': '_compact_text("Minimalna masa własna")',
+              '"source_text":"1193 1292 1326 1359"': '"source_text":"Wersja 5-miejscowa 1193 1292 1326 1359"',
+              '"source_text":"1221 1321 1354 1388"': '"source_text":"Wersja 7-miejscowa 1221 1321 1354 1388"',
+          }
+          expected_counts = {
+              '"source_section": "Masa własna min"': 1,
+              'self.assertEqual(self.spec["source_section"], "Masa własna min")': 1,
+              '_compact_text("Masa własna min")': 1,
+              '"source_text":"1193 1292 1326 1359"': 11,
+              '"source_text":"1221 1321 1354 1388"': 11,
+          }
+          for old, new in replacements.items():
+              count = text.count(old)
+              if count != expected_counts[old]:
+                  raise SystemExit(f'{old!r}: expected {expected_counts[old]} occurrences, found {count}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8', newline='\n')
+          PY
+      - name: Remove diagnostic and recovery workflows
+        run: |
+          rm .github/workflows/temporary-jogger-page19-text-diagnostic.yml
+          rm .github/workflows/temporary-jogger-minimum-kerb-recovery.yml
+      - name: Commit repaired materialization
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            .github/workflows/temporary-jogger-minimum-kerb-weight-materialization.yml \
+            .github/workflows/temporary-jogger-page19-text-diagnostic.yml \
+            .github/workflows/temporary-jogger-minimum-kerb-recovery.yml
+          git commit -m "ci(jogger): align minimum kerb source literals"
+          git push origin HEAD:agent/jogger-page19-minimum-kerb-weight-20260730
+      - name: Dispatch corrected materialization
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run temporary-jogger-minimum-kerb-weight-materialization.yml \
+            --ref agent/jogger-page19-minimum-kerb-weight-20260730
