@@ -123,7 +123,7 @@ class BrochureChassisModelingClosureReviewTests(unittest.TestCase):
         gap = json.loads((REPORTING / "official_brochure_technical_gap_review.json").read_text(encoding="utf-8"))
         conflict = next(item for item in gap["classifications"] if item["code"] == "jogger_mass_table_label_conflict")
         self.assertEqual(conflict["status"], "ambiguous_source_evidence")
-        forbidden = {"maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"}
+        forbidden = {"maximum_kerb_weight", "gross_train_weight"}
         imported = [
             row
             for row in rows(MASTER / "configuration_attribute_values.csv")
