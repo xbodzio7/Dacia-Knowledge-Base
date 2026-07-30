@@ -1,0 +1,47 @@
+name: Temporary verified PDF queue re-entry diagnostic
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/verified-pdf-queue-reentry-20260730'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: agent/verified-pdf-queue-reentry-20260730
+          persist-credentials: false
+      - name: Print residual package queue
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          print('SUMMARY', json.dumps(payload.get('summary', {}), ensure_ascii=False, sort_keys=True))
+          for package in payload.get('packages', []):
+              evidence = package.get('evidence', [])
+              texts = []
+              for item in evidence[:3]:
+                  text = str(item.get('normalized_text') or item.get('text') or item.get('source_text') or '')
+                  texts.append(' '.join(text.split())[:180])
+              print('PACKAGE', json.dumps({
+                  'priority': package.get('priority'),
+                  'package_id': package.get('package_id'),
+                  'source_code': package.get('source_code'),
+                  'model_code': package.get('model_code'),
+                  'domain': package.get('domain'),
+                  'page': package.get('page'),
+                  'coverage_status': package.get('coverage_status'),
+                  'candidate_count': package.get('candidate_count'),
+                  'candidate_ids': package.get('candidate_ids', [])[:5],
+                  'texts': texts,
+              }, ensure_ascii=False, sort_keys=True))
+          PY
