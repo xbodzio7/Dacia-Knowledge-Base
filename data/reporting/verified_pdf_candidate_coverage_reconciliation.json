@@ -22,13 +22,13 @@
     "target_groups": 10,
     "candidate_count": 1583,
     "coverage_status_counts": {
-      "already_covered": 123,
+      "already_covered": 124,
       "ambiguous": 109,
       "explicit_non_import": 195,
-      "unresolved": 1156
+      "unresolved": 1155
     },
     "active_evidence_record_counts": {
-      "configuration_attribute_values": 3204,
+      "configuration_attribute_values": 3224,
       "configuration_attribute_value_ranges": 274,
       "configuration_attribute_availability": 5770
     }
@@ -41,18 +41,18 @@
       "unresolved": 835
     },
     "technical_tables": {
-      "already_covered": 53,
+      "already_covered": 54,
       "ambiguous": 55,
       "explicit_non_import": 112,
-      "unresolved": 321
+      "unresolved": 320
     }
   },
   "source_status_counts": {
     "src_pl_bigster_brochure_20251210": {
-      "already_covered": 17,
+      "already_covered": 18,
       "ambiguous": 32,
       "explicit_non_import": 47,
-      "unresolved": 243
+      "unresolved": 242
     },
     "src_pl_duster_mini_brochure_20251020": {
       "already_covered": 60,
@@ -104,10 +104,10 @@
       "page_end": 20,
       "candidate_count": 130,
       "coverage_status_counts": {
-        "already_covered": 13,
+        "already_covered": 14,
         "ambiguous": 24,
         "explicit_non_import": 26,
-        "unresolved": 67
+        "unresolved": 66
       }
     },
     {
@@ -1095,9 +1095,133 @@
         "litowo",
         "jonowy"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "already_covered",
+      "classification_basis": "single_existing_evidence_signature",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "hybrid_battery_type",
+            "value": "lithium_ion",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 14,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_hybrid_battery_type_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "eab19e5c712c99e9fc939b62f30404672e293a8fee3ec6707d800d135f96f9e1",
