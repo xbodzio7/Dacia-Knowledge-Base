@@ -34,10 +34,12 @@ jobs:
           all_values = rows('data/master/configuration_attribute_values.csv')
           all_ranges = rows('data/master/configuration_attribute_value_ranges.csv')
           configs = {row['code']: row for row in rows('data/master/configurations.csv')}
+          versions = {row['code']: row for row in rows('data/master/versions.csv')}
           attributes = {row['code']: row for row in rows('data/master/attributes.csv')}
           targets = {
               code for code, row in configs.items()
               if row.get('status') == 'active'
+              and versions.get(row.get('version_code', ''), {}).get('model_code') == 'duster_iii'
               and row.get('powertrain_label') in {'Eco-G 120 4x2', 'mild hybrid 140 4x2'}
           }
           print('TARGETS', len(targets), json.dumps(sorted(targets)))
