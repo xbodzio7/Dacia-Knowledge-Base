@@ -1,3 +1,5 @@
+"""Verify the Jogger page 19 acceleration import and its live compatibility contracts."""
+
 from __future__ import annotations
 
 import csv
