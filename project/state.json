@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger Page 19 Remaining Mass Conflict Closure Review",
+  "phase": "Jogger Page 19 Range and Context Follow-up Review",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,30 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_jogger_page19_remaining_mass_conflict_closure_review_001",
+    "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
     "kind": "review_closure",
-    "name": "Jogger Page 19 Remaining Mass Conflict Closure Review",
+    "name": "Jogger Page 19 Range and Context Follow-up Review",
     "status": "complete",
-    "goal": "Confirm that every safely importable exact page-19 scalar fact is covered while preserving the two mislabeled mass blocks and the Hybrid 155 trailer discrepancy as explicit non-import boundaries.",
+    "goal": "Close remaining page-19 RPM-range and context questions by verifying existing range/scalar coverage, preserving official-source conflicts and refusing inference-based context promotion.",
     "manifest_paths": [
-      "data/reporting/jogger_page19_remaining_mass_conflict_closure.json",
-      "data/reporting/jogger_page19_remaining_mass_conflict_closure.md",
-      "project/reviews/jogger-page19-remaining-mass-conflict-closure-2026-07-30.md",
+      "data/reporting/jogger_page19_range_context_follow_up_review.json",
+      "data/reporting/jogger_page19_range_context_follow_up_review.md",
+      "project/reviews/jogger-page19-range-context-follow-up-review-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
+    "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
     "kind": "review_closure",
-    "name": "Jogger Page 19 Range and Context Follow-up Review",
+    "name": "Verified PDF Residual Queue Re-entry Review",
     "status": "planned",
-    "source_code": "src_pl_jogger_brochure_20251217",
-    "goal": "Review the remaining page-19 power-speed and torque-speed ranges, energy-source column semantics, homologation-protocol context and Hybrid 155 total-power conflict without changing current exact values or promoting context by inference.",
+    "goal": "Reconcile the remaining verified-PDF residual packages after complete Jogger page-19 closure, exclude already closed and explicit non-import boundaries, and select the next genuinely actionable package without reopening resolved work.",
     "manifest_paths": [
-      "data/reporting/jogger_page19_range_context_follow_up_review.json",
-      "data/reporting/jogger_page19_range_context_follow_up_review.md",
-      "project/reviews/jogger-page19-range-context-follow-up-review-2026-07-30.md",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
+      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-30.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
