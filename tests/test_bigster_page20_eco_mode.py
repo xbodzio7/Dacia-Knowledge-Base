@@ -72,7 +72,7 @@ class BigsterPage20EcoModeTests(unittest.TestCase):
         self.assertEqual({row["observation_date"] for row in selected}, {"2025-12-10"})
         self.assertTrue(all("Tryb Eco Tak" in row["notes"] for row in selected))
         all_eco = [row for row in read_csv(MASTER / "configuration_attribute_values.csv") if row["attribute_code"] == "eco_mode"]
-        self.assertEqual(len(all_eco), 14)
+        self.assertEqual(len(all_eco), 21)
 
     def test_every_imported_configuration_has_the_registered_source_relationship(self) -> None:
         linked = {

@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Technical Page 20 Reviewed Fact Reconciliation**
+**Duster Mini Page 20 Exact Scalar Gap Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1662
+- Tests: 1669
 - Master CSV files: 46
-- Master rows: 11322
-- Configuration values: 3463
-- Configuration import specifications: 133
+- Master rows: 11357
+- Configuration values: 3498
+- Configuration import specifications: 138
 - Configuration value ranges: 278
 - Configuration range import specifications: 22
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Technical Page 20 Reviewed Fact Reconciliation** — `complete`
+**Duster Mini Page 20 Exact Scalar Gap Import** — `complete`
 
-Reconcile all 65 authored Duster page-20 technical candidates against current exact master data and produce a narrow 35-observation import handoff without changing master data in the reconciliation package.
+Add 35 append-only source-specific Euro 6E bis, particulate-filter, Start & Stop, Eco-mode and gross-vehicle-weight observations across the seven exact manual Duster 4x2 configurations while preserving injection and context boundaries.
 
 ## Next package
 
-**Duster Mini Page 20 Exact Scalar Gap Import** — `planned`
+**Duster Mini Page 20 Exact Scalar Import Closure Review** — `planned`
 
-Add 35 append-only source-specific observations across the seven exact manual 4x2 Duster configurations: Euro 6E bis, particulate filter, Start & Stop, Eco mode and gross vehicle weight. Preserve injection type as a fuel-context modeling deferral and keep every context-only/non-import decision unchanged.
+Verify the 35-row exact scalar receipt, confirm all reconciliation import-ready gaps are closed, preserve injection/context deferrals and return the completed Duster page-20 boundary to global residual-queue selection.
 
 ## Autonomy
 

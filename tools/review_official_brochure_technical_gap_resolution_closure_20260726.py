@@ -448,6 +448,42 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_jogger_brochure_20251217": 16})
         expected_total += 16
+    duster_page20_exact_scalar_gap = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_duster_mini_brochure_20251020"
+        and 3464 <= int(row.get("id", "0")) <= 3498
+    ]
+    if duster_page20_exact_scalar_gap:
+        ensure(len(duster_page20_exact_scalar_gap) == 35, "Duster page-20 exact scalar gap receipt differs")
+        ensure([int(row["id"]) for row in duster_page20_exact_scalar_gap] == list(range(3464, 3499)), "Duster page-20 exact scalar gap IDs differ")
+        ensure(
+            Counter(row.get("attribute_code", "") for row in duster_page20_exact_scalar_gap)
+            == Counter({
+                "emission_standard": 7,
+                "particulate_filter": 7,
+                "start_stop_system": 7,
+                "eco_mode": 7,
+                "gross_vehicle_weight": 7,
+            }),
+            "Duster page-20 exact scalar gap attribute distribution differs",
+        )
+        ensure(
+            {row.get("configuration_code", "") for row in duster_page20_exact_scalar_gap}
+            == {
+                "duster_iii_essential_ecog120_4x2_manual",
+                "duster_iii_expression_ecog120_4x2_manual",
+                "duster_iii_extreme_ecog120_4x2_manual",
+                "duster_iii_journey_ecog120_4x2_manual",
+                "duster_iii_expression_mildhybrid140_4x2_manual",
+                "duster_iii_extreme_mildhybrid140_4x2_manual",
+                "duster_iii_journey_mildhybrid140_4x2_manual",
+            },
+            "Duster page-20 exact scalar gap target set differs",
+        )
+        ensure(not any(row.get("attribute_code") == "injection_type" for row in duster_page20_exact_scalar_gap), "Duster unscoped injection entered the package")
+        expected_scalar.update({"src_pl_duster_mini_brochure_20251020": 35})
+        expected_total += 35
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
 
 
