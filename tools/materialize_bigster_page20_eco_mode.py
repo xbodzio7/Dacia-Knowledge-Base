@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PATH = Path(__file__).resolve()
 SOURCE_COMMIT = "9437ce094378f153980f67ac5f0678d10fc6269b"
+RUNTIME = ROOT / "tools/.materialize_bigster_page20_eco_mode_runtime.py"
 
 completed = subprocess.run(
     ["git", "show", f"{SOURCE_COMMIT}:tools/materialize_bigster_page20_eco_mode.py"],
@@ -48,5 +48,5 @@ quality = subprocess.run(
     encoding="utf-8",
     newline="\n",
 )
-PATH.write_text(source.replace(old, new), encoding="utf-8", newline="\n")
-os.execv(sys.executable, [sys.executable, str(PATH)])
+RUNTIME.write_text(source.replace(old, new), encoding="utf-8", newline="\n")
+os.execv(sys.executable, [sys.executable, str(RUNTIME)])
