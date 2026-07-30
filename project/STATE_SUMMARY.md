@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import**
+**Bigster Page 20 Emission Standard Conflict Observation Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1595
+- Tests: 1602
 - Master CSV files: 46
-- Master rows: 11162
-- Configuration values: 3307
-- Configuration import specifications: 123
+- Master rows: 11176
+- Configuration values: 3321
+- Configuration import specifications: 124
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import** — `complete`
+**Bigster Page 20 Emission Standard Conflict Observation Import** — `complete`
 
-Add six older brochure observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while preserving and testing the later price-source values 5000 and 1750 and excluding electric-motor RPM context.
+Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.
 
 ## Next package
 
-**Bigster Page 20 Emission Standard Conflict Observation Import** — `planned`
+**Bigster Page 20 Hybrid 155 Voltage Conflict Observation Import** — `planned`
 
-Add euro_6e_bis as a 2025-12-10 brochure observation for all 14 current Bigster configurations while retaining and testing the later euro_6 price-source observations and without declaring either source authoritative.
+Add hybrid_system_voltage=280 V as a 2025-12-10 brochure observation for the three Hybrid 155 configurations while retaining and testing the later 200 V price-source observations and without declaring either source authoritative.
 
 ## Autonomy
 
