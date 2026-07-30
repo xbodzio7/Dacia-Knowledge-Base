@@ -333,9 +333,39 @@ def verify_current_coverage() -> None:
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 11})
         expected_total += 11
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
-    ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
+    payload_range_conflicts = [
+        row
+        for row in ranges
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "maximum_payload"
+        and row.get("minimum_value") == "452"
+        and row.get("maximum_value") == "521"
+    ]
+    expected_ranges = Counter(EXPECTED_CURRENT_RANGE_BY_SOURCE)
+    expected_range_total = 98
+    if payload_range_conflicts:
+        ensure(
+            len(payload_range_conflicts) == 4,
+            "Bigster Mild Hybrid-G 140 payload conflict-observation receipt differs",
+        )
+        ensure(
+            {row.get("configuration_code", "") for row in payload_range_conflicts}
+            == {
+                "bigster_essential_mildhybridg140_4x2_manual",
+                "bigster_expression_mildhybridg140_4x2_manual",
+                "bigster_extreme_mildhybridg140_4x2_manual",
+                "bigster_journey_mildhybridg140_4x2_manual",
+            },
+            "Bigster Mild Hybrid-G 140 payload targets differ",
+        )
+        expected_ranges.update({"src_pl_bigster_brochure_20251210": 4})
+        expected_range_total += 4
+    ensure(
+        len(ranges) == expected_range_total,
+        f"expected exactly {expected_range_total} current brochure ranges",
+    )
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
-    ensure(Counter(row.get("source_code", "") for row in ranges) == EXPECTED_CURRENT_RANGE_BY_SOURCE, "current master source range totals differ")
+    ensure(Counter(row.get("source_code", "") for row in ranges) == expected_ranges, "current master source range totals differ")
 
     priority_scalar = [row for row in scalar if 2189 <= int(row["id"]) <= 2567]
     priority_ranges = [row for row in ranges if 177 <= int(row["id"]) <= 244]
