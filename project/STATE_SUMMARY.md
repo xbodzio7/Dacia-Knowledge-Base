@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Eco Mode Import**
+**Bigster Page 20 Deferred Import Gap Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Eco Mode Import** — `complete`
+**Bigster Page 20 Deferred Import Gap Review** — `complete`
 
-Add eco_mode=true for all 14 current Bigster configurations from the shared page-20 Tak source value, preserving exact source-to-configuration relationships and without touching any deferred technical conflict.
+Review the three non-conflicting subfacts embedded in page-20 rows that also contain deferred conflicts, confirm their canonical attribute semantics and source relationships, preserve every RPM, capacity and voltage conflict, and define one narrow 20-observation follow-up import.
 
 ## Next package
 
-**Bigster Page 20 Deferred Import Gap Review** — `planned`
+**Bigster Page 20 Deferred Import Gap Import** — `planned`
 
-Review the three non-conflicting subfacts embedded in page-20 rows that also contain deferred conflicts: Hybrid-G 150 4x4 total system power 113 kW, traction-motor torque 87 Nm, and lithium-ion battery type. Verify existing attribute semantics and source relationships, preserve every RPM, capacity and voltage conflict, and select only a narrow evidence-safe follow-up package.
+Add exactly 20 evidence-safe scalar observations: 113 kW hybrid_system_power_total and 87 Nm traction_motor_torque for the three Hybrid-G 150 4x4 configurations, plus hybrid_battery_type=lithium_ion for all 14 current Bigster configurations. Preserve all engine and motor RPM, battery-capacity and voltage conflicts.
 
 ## Autonomy
 
