@@ -114,7 +114,7 @@ class JoggerPayloadPerformanceRangeTests(unittest.TestCase):
         self.assertEqual({row["attribute_code"] for row in self.selected}, {"maximum_payload", "acceleration_0_100", "max_power_rpm", "max_torque_rpm"})
 
     def test_prior_ranges_and_scalar_values_remain_unchanged(self) -> None:
-        self.assertEqual(len(self.ranges), 274)
+        self.assertEqual(len(self.ranges), 278)
         self.assertEqual(len([row for row in self.ranges if int(row["id"]) <= 244]), 244)
         self.assertEqual(len([row for row in self.ranges if int(row["id"]) <= 64]), 64)
         self.assertGreaterEqual(len(self.scalars), 1831)
