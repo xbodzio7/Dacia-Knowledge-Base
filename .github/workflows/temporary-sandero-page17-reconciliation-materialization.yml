@@ -1,0 +1,52 @@
+name: Temporary Sandero Page 17 Reconciliation Materialization
+
+on:
+  push:
+    branches:
+      - agent/sandero-page17-reviewed-fact-reconciliation-20260731
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out reconciliation branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sandero-page17-reviewed-fact-reconciliation-20260731
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and validate reconciliation
+        run: python tools/materialize_sandero_page17_reviewed_fact_reconciliation.py
+
+      - name: Commit final reconciliation and remove temporary files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/temporary-sandero-page17-reconciliation-materialization.yml
+          rm tools/materialize_sandero_page17_reviewed_fact_reconciliation.py
+          rm project/tmp/sandero-page17-reconciliation-diagnostic.json
+          rm project/tmp/sandero-page17-key-coverage.json
+          rm project/tmp/sandero-page17-coverage-matrix.json
+          git add \
+            data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.json \
+            data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.md \
+            project/reviews/sandero-technical-page17-reviewed-fact-reconciliation-2026-07-31.md \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            .github/workflows/temporary-sandero-page17-reconciliation-materialization.yml \
+            tools/materialize_sandero_page17_reviewed_fact_reconciliation.py \
+            project/tmp/sandero-page17-reconciliation-diagnostic.json \
+            project/tmp/sandero-page17-key-coverage.json \
+            project/tmp/sandero-page17-coverage-matrix.json
+          git commit -m "review(data): reconcile Sandero technical page 17"
+          git push origin HEAD:agent/sandero-page17-reviewed-fact-reconciliation-20260731
