@@ -40,6 +40,9 @@ EXPECTED_RANGE_BY_SOURCE = Counter(
         "src_pl_duster_mini_brochure_20251020": 10,
     }
 )
+EXPECTED_CURRENT_RANGE_BY_SOURCE = EXPECTED_RANGE_BY_SOURCE + Counter(
+    {"src_pl_bigster_brochure_20251210": 30}
+)
 EXPECTED_RESIDUAL_STATUS_COUNTS = Counter(
     {
         "covered_or_superseded": 5,
@@ -228,9 +231,9 @@ def verify_current_coverage() -> None:
         )
         expected_total = 1118
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
-    ensure(len(ranges) == 68, "expected exactly 68 brochure ranges")
+    ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
-    ensure(Counter(row.get("source_code", "") for row in ranges) == EXPECTED_RANGE_BY_SOURCE, "master source range totals differ")
+    ensure(Counter(row.get("source_code", "") for row in ranges) == EXPECTED_CURRENT_RANGE_BY_SOURCE, "current master source range totals differ")
 
     priority_scalar = [row for row in scalar if 2189 <= int(row["id"]) <= 2567]
     priority_ranges = [row for row in ranges if 177 <= int(row["id"]) <= 244]
