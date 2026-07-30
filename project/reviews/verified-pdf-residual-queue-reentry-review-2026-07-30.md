@@ -9,6 +9,6 @@ The generated 52-package queue was interpreted using stable source/model/domain/
 
 ## Decision
 
-Bigster page 20 and Jogger page 19 are excluded because their later closure chains are complete. Duster mini-brochure page 20 is the first remaining technical boundary with complete authored source reviews but no current-master reconciliation.
+Bigster page 20 and Jogger page 19 are excluded because their later closure chains are complete. Duster mini-brochure page 20 is the first remaining technical boundary with complete authored source reviews but no current-master reviewed-fact reconciliation.
 
 The selected handoff covers 65 candidates from ambiguity package `003` and unresolved packages `020–021`. The reconciliation must preserve the existing authored decisions, classify current coverage and produce follow-up imports only through later dedicated packages.
