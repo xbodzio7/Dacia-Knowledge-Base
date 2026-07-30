@@ -118,6 +118,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "hybrid_battery_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "hybrid_system_voltage",
       "fuel_type_code": ""
     },

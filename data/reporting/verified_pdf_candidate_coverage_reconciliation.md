@@ -8,9 +8,9 @@ Candidate-level reconciliation against existing active source-backed records. Co
 | --- | ---: |
 | Reconciled review groups | 10 |
 | Reconciled candidates | 1583 |
-| Already covered | 123 |
+| Already covered | 124 |
 | Ambiguous | 109 |
-| Unresolved | 1156 |
+| Unresolved | 1155 |
 | Explicit non-import | 195 |
 
 ## Domains
@@ -18,14 +18,14 @@ Candidate-level reconciliation against existing active source-backed records. Co
 | Domain | Candidates | Covered | Ambiguous | Unresolved | Non-import |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `equipment_matrix` | 1042 | 70 | 54 | 835 | 83 |
-| `technical_tables` | 541 | 53 | 55 | 321 | 112 |
+| `technical_tables` | 541 | 54 | 55 | 320 | 112 |
 
 ## Groups
 
 | Group | Source | Domain | Pages | Candidates | Covered | Ambiguous | Unresolved | Non-import |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `bigster_equipment_matrix` | `src_pl_bigster_brochure_20251210` | `equipment_matrix` | 21–22 | 209 | 4 | 8 | 176 | 21 |
-| `bigster_technical_tables` | `src_pl_bigster_brochure_20251210` | `technical_tables` | 20 | 130 | 13 | 24 | 67 | 26 |
+| `bigster_technical_tables` | `src_pl_bigster_brochure_20251210` | `technical_tables` | 20 | 130 | 14 | 24 | 66 | 26 |
 | `duster_equipment_matrix` | `src_pl_duster_mini_brochure_20251020` | `equipment_matrix` | 22–23 | 280 | 47 | 37 | 175 | 21 |
 | `duster_technical_tables` | `src_pl_duster_mini_brochure_20251020` | `technical_tables` | 20–21 | 183 | 13 | 6 | 121 | 43 |
 | `jogger_equipment_matrix` | `src_pl_jogger_brochure_20251217` | `equipment_matrix` | 20–21 | 197 | 3 | 6 | 175 | 13 |

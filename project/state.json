@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Page 20 Deferred Import Gap Review",
+  "phase": "Bigster Page 20 Deferred Import Gap Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,11 +15,11 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1580,
+    "tests": 1587,
     "csv_files": 46,
-    "rows": 11136,
-    "configuration_values": 3281,
-    "configuration_import_specs": 118,
+    "rows": 11156,
+    "configuration_values": 3301,
+    "configuration_import_specs": 121,
     "configuration_value_ranges": 274,
     "configuration_range_import_specs": 21,
     "availability_records": 5770,
@@ -27,31 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_page20_deferred_import_gap_review_001",
-    "kind": "review",
-    "name": "Bigster Page 20 Deferred Import Gap Review",
-    "status": "complete",
-    "goal": "Review the three non-conflicting subfacts embedded in page-20 rows that also contain deferred conflicts, confirm their canonical attribute semantics and source relationships, preserve every RPM, capacity and voltage conflict, and define one narrow 20-observation follow-up import.",
-    "manifest_paths": [
-      "data/reporting/bigster_page20_deferred_import_gap_review.json",
-      "data/reporting/bigster_page20_deferred_import_gap_review.md",
-      "project/reviews/bigster-page20-deferred-import-gap-review-2026-07-30.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_bigster_page20_deferred_import_gap_import_001",
     "kind": "configuration_value_import",
     "name": "Bigster Page 20 Deferred Import Gap Import",
-    "status": "planned",
-    "goal": "Add exactly 20 evidence-safe scalar observations: 113 kW hybrid_system_power_total and 87 Nm traction_motor_torque for the three Hybrid-G 150 4x4 configurations, plus hybrid_battery_type=lithium_ion for all 14 current Bigster configurations. Preserve all engine and motor RPM, battery-capacity and voltage conflicts.",
+    "status": "complete",
+    "goal": "Add exactly 20 evidence-safe scalar observations from three strict single-attribute specs: total hybrid-system power and traction-motor torque for the three Hybrid-G 150 4x4 configurations, plus lithium-ion battery type for all 14 Bigster configurations, while preserving all RPM, capacity and voltage conflicts.",
     "manifest_paths": [
       "data/imports/configuration_values/bigster-page20-hybrid-system-power-total-20251210.json",
       "data/imports/configuration_values/bigster-page20-traction-motor-torque-20251210.json",
       "data/imports/configuration_values/bigster-page20-hybrid-battery-type-20251210.json",
       "data/master/configuration_attribute_values.csv",
       "tests/test_bigster_page20_deferred_import_gaps.py",
+      "tests/test_attribute_enum_domains.py",
       "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json",
       "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json",
       "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json",
@@ -68,6 +55,20 @@
       "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
       "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
       "tests/test_official_brochure_technical_gap_resolution_closure.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_bigster_page20_remaining_conflict_boundary_review_001",
+    "kind": "review",
+    "name": "Bigster Page 20 Remaining Conflict Boundary Review",
+    "status": "planned",
+    "goal": "Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports. Preserve contradictory official observations and select only the next source-safe package supported by the repository model.",
+    "manifest_paths": [
+      "data/reporting/bigster_page20_remaining_conflict_boundary_review.json",
+      "data/reporting/bigster_page20_remaining_conflict_boundary_review.md",
+      "project/reviews/bigster-page20-remaining-conflict-boundary-review-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
     ]
   },
   "autonomy": {

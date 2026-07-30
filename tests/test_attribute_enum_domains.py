@@ -20,6 +20,8 @@ SPEC = (
     / "configuration_values"
     / "jogger-page6-hybrid-battery-chemistry-20260401.json"
 )
+JOGGER_SOURCE = "src_pl_jogger_price_my26_20260401"
+BIGSTER_SOURCE = "src_pl_bigster_brochure_20251210"
 HYBRID_CONFIGURATIONS = {
     "jogger_expression_5seat_hybrid155_automatic",
     "jogger_extreme_5seat_hybrid155_automatic",
@@ -86,7 +88,7 @@ class AttributeEnumDomainTests(unittest.TestCase):
             for row in csv_rows(MASTER / "configuration_attribute_values.csv")
             if attribute_types[row["attribute_code"]] == "enum"
         ]
-        self.assertEqual(len(enum_rows), 204)
+        self.assertEqual(len(enum_rows), 218)
         for row in enum_rows:
             self.assertIn(row["attribute_code"], domains)
             self.assertIn(row["value"], domains[row["attribute_code"]])
@@ -112,17 +114,42 @@ class AttributeEnumDomainTests(unittest.TestCase):
         )
         self.assertEqual({row["value"] for row in payload["rows"]}, {"lithium_ion"})
 
-    def test_six_lithium_ion_observations_are_materialized(self) -> None:
+    def test_twenty_lithium_ion_observations_are_materialized(self) -> None:
         rows = [
             row
             for row in csv_rows(MASTER / "configuration_attribute_values.csv")
             if row["attribute_code"] == "hybrid_battery_type"
         ]
-        self.assertEqual(len(rows), 6)
-        self.assertEqual({int(row["id"]) for row in rows}, set(range(1199, 1205)))
-        self.assertEqual({row["configuration_code"] for row in rows}, HYBRID_CONFIGURATIONS)
+        self.assertEqual(len(rows), 20)
         self.assertEqual({row["value"] for row in rows}, {"lithium_ion"})
-        self.assertEqual({row["observation_date"] for row in rows}, {"2026-04-01"})
+
+        jogger_rows = [row for row in rows if row["source_code"] == JOGGER_SOURCE]
+        self.assertEqual({int(row["id"]) for row in jogger_rows}, set(range(1199, 1205)))
+        self.assertEqual(
+            {row["configuration_code"] for row in jogger_rows},
+            HYBRID_CONFIGURATIONS,
+        )
+        self.assertEqual(
+            {row["observation_date"] for row in jogger_rows},
+            {"2026-04-01"},
+        )
+
+        active_bigster = {
+            row["code"]
+            for row in csv_rows(MASTER / "configurations.csv")
+            if row["status"] == "active" and row["code"].startswith("bigster_")
+        }
+        bigster_rows = [row for row in rows if row["source_code"] == BIGSTER_SOURCE]
+        self.assertEqual({int(row["id"]) for row in bigster_rows}, set(range(3288, 3302)))
+        self.assertEqual(
+            {row["configuration_code"] for row in bigster_rows},
+            active_bigster,
+        )
+        self.assertEqual(len(active_bigster), 14)
+        self.assertEqual(
+            {row["observation_date"] for row in bigster_rows},
+            {"2025-12-10"},
+        )
 
     def test_capacity_remains_deferred_and_provenance_is_preserved(self) -> None:
         values = csv_rows(MASTER / "configuration_attribute_values.csv")
@@ -136,20 +163,23 @@ class AttributeEnumDomainTests(unittest.TestCase):
         chemistry_rows = [
             row for row in values if row["attribute_code"] == "hybrid_battery_type"
         ]
+        expected_sources = {JOGGER_SOURCE, BIGSTER_SOURCE}
         self.assertEqual(
             {row["source_code"] for row in chemistry_rows},
-            {"src_pl_jogger_price_my26_20260401"},
+            expected_sources,
         )
         self.assertTrue(
-            all("litowo-jonowy" in row["notes"] for row in chemistry_rows)
+            all("litowo-jonowy" in row["notes"].lower() for row in chemistry_rows)
         )
-        source = next(
-            row
+        sources = {
+            row["code"]: row
             for row in csv_rows(MASTER / "sources.csv")
-            if row["code"] == "src_pl_jogger_price_my26_20260401"
-        )
-        self.assertEqual(len(source["sha256"]), 64)
-        self.assertTrue((ROOT / source["file_path"]).is_file())
+            if row["code"] in expected_sources
+        }
+        self.assertEqual(set(sources), expected_sources)
+        for source in sources.values():
+            self.assertEqual(len(source["sha256"]), 64)
+            self.assertTrue((ROOT / source["file_path"]).is_file())
 
 
 if __name__ == "__main__":

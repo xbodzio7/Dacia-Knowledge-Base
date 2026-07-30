@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Deferred Import Gap Review**
+**Bigster Page 20 Deferred Import Gap Import**
 
 ## Reference delivery
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1580
+- Tests: 1587
 - Master CSV files: 46
-- Master rows: 11136
-- Configuration values: 3281
-- Configuration import specifications: 118
+- Master rows: 11156
+- Configuration values: 3301
+- Configuration import specifications: 121
 - Configuration value ranges: 274
 - Configuration range import specifications: 21
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Deferred Import Gap Review** — `complete`
+**Bigster Page 20 Deferred Import Gap Import** — `complete`
 
-Review the three non-conflicting subfacts embedded in page-20 rows that also contain deferred conflicts, confirm their canonical attribute semantics and source relationships, preserve every RPM, capacity and voltage conflict, and define one narrow 20-observation follow-up import.
+Add exactly 20 evidence-safe scalar observations from three strict single-attribute specs: total hybrid-system power and traction-motor torque for the three Hybrid-G 150 4x4 configurations, plus lithium-ion battery type for all 14 Bigster configurations, while preserving all RPM, capacity and voltage conflicts.
 
 ## Next package
 
-**Bigster Page 20 Deferred Import Gap Import** — `planned`
+**Bigster Page 20 Remaining Conflict Boundary Review** — `planned`
 
-Add exactly 20 evidence-safe scalar observations: 113 kW hybrid_system_power_total and 87 Nm traction_motor_torque for the three Hybrid-G 150 4x4 configurations, plus hybrid_battery_type=lithium_ion for all 14 current Bigster configurations. Preserve all engine and motor RPM, battery-capacity and voltage conflicts.
+Reconcile the remaining page-20 RPM, injection, emission-standard, voltage, battery-capacity, payload and cargo conflicts after all evidence-safe imports. Preserve contradictory official observations and select only the next source-safe package supported by the repository model.
 
 ## Autonomy
 
