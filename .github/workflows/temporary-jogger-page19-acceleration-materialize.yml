@@ -24,22 +24,30 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Diagnose source-text contract
+      - name: Repair validated page-section contract
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          from tools.import_configuration_values import _compact_text, extract_page_candidates
-          spec=json.loads(Path("data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json").read_text())
-          pdf=Path("PDF/Broszury/DACIA JOGGER broszura 20251217.pdf")
-          section=_compact_text(spec["source_section"])
-          texts=sorted({_compact_text(row["source_text"]) for row in spec["rows"]})
-          print("SECTION", spec["source_section"], section)
-          for label, text in extract_page_candidates(pdf, 19):
-              compact=_compact_text(text)
-              print(label, "section", section in compact, "length", len(compact))
-              for required in texts:
-                  print(label, "text", required in compact, required[:120])
+
+          spec_path = Path("data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json")
+          payload = json.loads(spec_path.read_text(encoding="utf-8"))
+          if payload.get("source_section") != "06. SILNIKI — OSIĄGI":
+              raise SystemExit("unexpected source_section before repair")
+          payload["source_section"] = "Wersja"
+          spec_path.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+
+          test_path = Path("tests/test_jogger_page19_acceleration_source_observations.py")
+          text = test_path.read_text(encoding="utf-8")
+          old = 'self.assertEqual(self.spec["source_section"], "06. SILNIKI — OSIĄGI")'
+          new = 'self.assertEqual(self.spec["source_section"], "Wersja")'
+          if text.count(old) != 1:
+              raise SystemExit("test source_section replacement target differs")
+          test_path.write_text(text.replace(old, new), encoding="utf-8", newline="\n")
           PY
       - name: Apply and verify import
         run: |
