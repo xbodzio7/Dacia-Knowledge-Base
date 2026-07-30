@@ -1,0 +1,42 @@
+name: Temporary Sandero Page 17 Reconciliation Diagnostic
+
+on:
+  push:
+    branches:
+      - agent/sandero-page17-reviewed-fact-reconciliation-20260731
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out reconciliation branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sandero-page17-reviewed-fact-reconciliation-20260731
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Build diagnostic snapshot
+        run: python tools/materialize_sandero_page17_reconciliation_diagnostic.py
+
+      - name: Commit diagnostic and remove temporary tools
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/temporary-sandero-page17-reconciliation-diagnostic.yml
+          rm tools/materialize_sandero_page17_reconciliation_diagnostic.py
+          git add \
+            project/tmp/sandero-page17-reconciliation-diagnostic.json \
+            .github/workflows/temporary-sandero-page17-reconciliation-diagnostic.yml \
+            tools/materialize_sandero_page17_reconciliation_diagnostic.py
+          git commit -m "chore(review): capture Sandero page 17 reconciliation snapshot"
+          git push origin HEAD:agent/sandero-page17-reviewed-fact-reconciliation-20260731
