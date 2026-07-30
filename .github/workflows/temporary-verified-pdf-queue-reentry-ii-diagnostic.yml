@@ -1,4 +1,4 @@
-name: Temporary Verified PDF Queue Re-entry II Diagnostic
+name: Temporary Verified PDF Queue Re-entry II Materialization
 
 on:
   push:
@@ -7,48 +7,40 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  inspect:
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - name: Check out queue review branch
         uses: actions/checkout@v4
+        with:
+          ref: agent/verified-pdf-queue-reentry-review-ii-20260731
+          fetch-depth: 0
 
-      - name: Inspect current residual queue
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and validate queue review
+        run: python tools/materialize_verified_pdf_queue_reentry_review_ii.py
+
+      - name: Commit final review and remove temporary tools
         shell: bash
         run: |
-          # Print stable package boundaries and later review evidence.
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          path = Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json')
-          data = json.loads(path.read_text(encoding='utf-8'))
-          print('TOP_LEVEL_KEYS', sorted(data))
-          packages = data.get('packages') or data.get('review_packages') or data.get('prioritized_packages') or []
-          print('PACKAGE_COUNT', len(packages))
-          if packages:
-              print('FIRST_PACKAGE_JSON', json.dumps(packages[0], ensure_ascii=False, sort_keys=True))
-          for index, package in enumerate(packages, start=1):
-              boundary = package.get('boundary') or {}
-              source = boundary.get('source_code') or package.get('source_code')
-              model = boundary.get('model_code') or package.get('model_code')
-              domain = boundary.get('domain') or package.get('domain')
-              page = boundary.get('page') or package.get('page')
-              status = package.get('status') or package.get('coverage_status')
-              candidate_ids = package.get('candidate_ids') or package.get('candidates') or []
-              if candidate_ids and isinstance(candidate_ids[0], dict):
-                  ids = [item.get('candidate_id') or item.get('id') for item in candidate_ids]
-              else:
-                  ids = candidate_ids
-              print('PACKAGE', index, package.get('package_id'), source, model, domain, page, status, len(ids), ids[:4], ids[-4:])
-
-          print('REVIEW_FILES')
-          for root in (Path('data/reporting'), Path('project/reviews')):
-              for item in sorted(root.glob('*')):
-                  name = item.name.lower()
-                  if any(token in name for token in ('reconciliation', 'closure', 'queue-reentry', 'unresolved-review', 'ambiguity-review')):
-                      print(item.as_posix())
-          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/temporary-verified-pdf-queue-reentry-ii-diagnostic.yml
+          rm tools/materialize_verified_pdf_queue_reentry_review_ii.py
+          git add \
+            data/reporting/verified_pdf_residual_queue_reentry_review.json \
+            data/reporting/verified_pdf_residual_queue_reentry_review.md \
+            project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-31.md \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            .github/workflows/temporary-verified-pdf-queue-reentry-ii-diagnostic.yml \
+            tools/materialize_verified_pdf_queue_reentry_review_ii.py
+          git commit -m "review(pdf): select Sandero page 17 for reconciliation"
+          git push origin HEAD:agent/verified-pdf-queue-reentry-review-ii-20260731
