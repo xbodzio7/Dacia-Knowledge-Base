@@ -30,5 +30,17 @@ new = '"data_type": "integer", "unit": "rpm", "status": "active"'
 if source.count(old) != 3:
     raise SystemExit(f"expected three RPM contract occurrences, found {source.count(old)}")
 source = source.replace(old, new)
+quality = subprocess.run(
+    ["git", "show", "origin/main:.github/workflows/quality.yml"],
+    cwd=ROOT,
+    text=True,
+    capture_output=True,
+    check=True,
+)
+(ROOT / ".github/workflows/quality.yml").write_text(
+    quality.stdout,
+    encoding="utf-8",
+    newline="\n",
+)
 PATH.write_text(source, encoding="utf-8", newline="\n")
 os.execv(sys.executable, [sys.executable, str(PATH)])
