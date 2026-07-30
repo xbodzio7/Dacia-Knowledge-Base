@@ -119,7 +119,7 @@ jobs:
             tests.test_jogger_tce110_manual_reporting_scope \
             tests.test_official_brochure_technical_gap_resolution_closure \
             tests.test_verified_pdf_candidate_coverage_reconciliation
-          python -m unittest -q
+          python -m unittest discover -s tests -q
           python tools/dkb.py project-state --apply
           python tools/dkb.py project-state --check
       - name: Commit final contracts and remove workflow
