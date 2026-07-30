@@ -271,10 +271,10 @@ class ResidualGapPrioritizationRepositoryTests(unittest.TestCase):
         payload, markdown = prioritization.build_from_path(
             ROOT, prioritization.DEFAULT_RECONCILIATION
         )
-        self.assertEqual(payload["summary"]["candidate_count"], 1264)
+        self.assertEqual(payload["summary"]["candidate_count"], 1263)
         self.assertEqual(
             payload["summary"]["coverage_status_counts"],
-            {'ambiguous': 115, 'unresolved': 1149},
+            {'ambiguous': 115, 'unresolved': 1148},
         )
         self.assertEqual(payload["summary"]["package_count"], 51)
         self.assertEqual(payload["summary"]["maximum_package_size"], 40)

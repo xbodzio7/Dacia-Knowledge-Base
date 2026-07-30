@@ -408,6 +408,46 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_jogger_brochure_20251217": 22})
         expected_total += 22
+    jogger_braked_trailer_weight = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_jogger_brochure_20251217"
+        and row.get("attribute_code") == "braked_trailer_weight"
+    ]
+    if jogger_braked_trailer_weight:
+        ensure(len(jogger_braked_trailer_weight) == 16, "Jogger non-Hybrid braked-trailer source-observation receipt differs")
+        ensure(
+            [int(row["id"]) for row in jogger_braked_trailer_weight] == list(range(3448, 3464)),
+            "Jogger non-Hybrid braked-trailer source-observation IDs differ",
+        )
+        ensure(
+            {row.get("configuration_code", "") for row in jogger_braked_trailer_weight}
+            == {
+                "jogger_expression_5seat_tce110_manual",
+                "jogger_extreme_5seat_tce110_manual",
+                "jogger_journey_5seat_tce110_manual",
+                "jogger_essential_5seat_ecog120_manual",
+                "jogger_expression_5seat_ecog120_manual",
+                "jogger_extreme_5seat_ecog120_manual",
+                "jogger_extreme_5seat_ecog120_automatic",
+                "jogger_journey_5seat_ecog120_automatic",
+                "jogger_expression_7seat_tce110_manual",
+                "jogger_extreme_7seat_tce110_manual",
+                "jogger_journey_7seat_tce110_manual",
+                "jogger_essential_7seat_ecog120_manual",
+                "jogger_expression_7seat_ecog120_manual",
+                "jogger_extreme_7seat_ecog120_manual",
+                "jogger_extreme_7seat_ecog120_automatic",
+                "jogger_journey_7seat_ecog120_automatic",
+            },
+            "Jogger non-Hybrid braked-trailer targets differ",
+        )
+        ensure(
+            {row.get("value", "") for row in jogger_braked_trailer_weight} == {"1200"},
+            "Jogger non-Hybrid braked-trailer values differ",
+        )
+        expected_scalar.update({"src_pl_jogger_brochure_20251217": 16})
+        expected_total += 16
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
 
 
