@@ -1,4 +1,4 @@
-"""Verify Jogger page 19 minimum-kerb-weight source observations."""
+"""Verify Jogger page 19 minimum-kerb-weight evidence and conflict boundaries."""
 
 from __future__ import annotations
 
