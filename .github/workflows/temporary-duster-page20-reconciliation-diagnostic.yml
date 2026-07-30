@@ -25,58 +25,63 @@ jobs:
           from collections import Counter, defaultdict
           from pathlib import Path
 
-          ROOT = Path('.')
           SOURCE = 'src_pl_duster_mini_brochure_20251020'
 
           def rows(path):
               with Path(path).open(encoding='utf-8-sig', newline='') as handle:
                   return list(csv.DictReader(handle))
 
-          values = [row for row in rows('data/master/configuration_attribute_values.csv') if row['source_code'] == SOURCE]
-          ranges = [row for row in rows('data/master/configuration_attribute_value_ranges.csv') if row['source_code'] == SOURCE]
+          all_values = rows('data/master/configuration_attribute_values.csv')
+          all_ranges = rows('data/master/configuration_attribute_value_ranges.csv')
           configs = {row['code']: row for row in rows('data/master/configurations.csv')}
           attributes = {row['code']: row for row in rows('data/master/attributes.csv')}
+          targets = {
+              code for code, row in configs.items()
+              if row.get('status') == 'active'
+              and row.get('powertrain_label') in {'Eco-G 120 4x2', 'mild hybrid 140 4x2'}
+          }
+          print('TARGETS', len(targets), json.dumps(sorted(targets)))
 
-          print('VALUE_SUMMARY', len(values), json.dumps(Counter(row['attribute_code'] for row in values), sort_keys=True))
-          print('RANGE_SUMMARY', len(ranges), json.dumps(Counter(row['attribute_code'] for row in ranges), sort_keys=True))
+          source_values = [row for row in all_values if row['source_code'] == SOURCE]
+          source_ranges = [row for row in all_ranges if row['source_code'] == SOURCE]
+          print('SOURCE_VALUE_SUMMARY', len(source_values), json.dumps(Counter(row['attribute_code'] for row in source_values), sort_keys=True))
+          print('SOURCE_RANGE_SUMMARY', len(source_ranges), json.dumps(Counter(row['attribute_code'] for row in source_ranges), sort_keys=True))
+
+          target_values = [row for row in all_values if row['configuration_code'] in targets]
           grouped = defaultdict(list)
-          for row in values:
+          for row in target_values:
               grouped[row['attribute_code']].append(row)
+          print('TARGET_VALUE_ATTRIBUTES', len(grouped))
           for attribute in sorted(grouped):
               selected = grouped[attribute]
-              print('VALUE_ATTR', attribute, 'COUNT', len(selected), 'VALUES', sorted({row['value'] for row in selected}), 'FUELS', sorted({row['fuel_type_code'] for row in selected}), 'IDS', [row['id'] for row in selected[:3]], [row['id'] for row in selected[-3:]])
-              for row in selected[:8]:
-                  print('  VALUE', json.dumps({
-                      'id': row['id'], 'code': row['code'], 'configuration': row['configuration_code'],
+              print('TARGET_VALUE_ATTR', attribute, 'COUNT', len(selected), 'CONFIGS', len({row['configuration_code'] for row in selected}), 'VALUES', sorted({row['value'] for row in selected}), 'FUELS', sorted({row['fuel_type_code'] for row in selected}), 'SOURCES', sorted({row['source_code'] for row in selected}))
+              for row in selected:
+                  print('  TARGET_VALUE', json.dumps({
+                      'id': row['id'], 'configuration': row['configuration_code'],
                       'powertrain': configs.get(row['configuration_code'], {}).get('powertrain_label'),
                       'fuel': row['fuel_type_code'], 'gear': row['gear_number'], 'value': row['value'],
-                      'notes': row['notes'],
-                  }, ensure_ascii=False, sort_keys=True))
-          grouped_ranges = defaultdict(list)
-          for row in ranges:
-              grouped_ranges[row['attribute_code']].append(row)
-          for attribute in sorted(grouped_ranges):
-              selected = grouped_ranges[attribute]
-              print('RANGE_ATTR', attribute, 'COUNT', len(selected), 'BOUNDS', sorted({(row['minimum_value'], row['maximum_value']) for row in selected}), 'FUELS', sorted({row['fuel_type_code'] for row in selected}))
-              for row in selected[:10]:
-                  print('  RANGE', json.dumps({
-                      'id': row['id'], 'code': row['code'], 'configuration': row['configuration_code'],
-                      'powertrain': configs.get(row['configuration_code'], {}).get('powertrain_label'),
-                      'fuel': row['fuel_type_code'], 'gear': row['gear_number'],
-                      'minimum': row['minimum_value'], 'maximum': row['maximum_value'], 'notes': row['notes'],
+                      'date': row['observation_date'], 'source': row['source_code'], 'notes': row['notes'],
                   }, ensure_ascii=False, sort_keys=True))
 
-          relevant = [
-              'propulsion_system','fully_electric_driving','max_power','max_power_rpm','maximum_torque','max_torque_rpm',
-              'injection_type','engine_displacement','cylinder_count','valve_count','emission_standard',
-              'particulate_filter','stop_start','traction_battery_type','traction_battery_voltage',
-              'traction_battery_capacity','top_speed','acceleration_0_100','drive_type','transmission_type',
-              'gear_count','front_brake_disc_diameter','front_brake_disc_thickness','homologation_protocol',
-              'eco_mode','fuel_tank_capacity','gross_vehicle_weight','gross_train_weight',
-              'braked_trailer_weight','unbraked_trailer_weight','boot_capacity'
-          ]
-          print('ATTRIBUTE_CONTRACTS')
-          for code in relevant:
-              row = attributes.get(code)
-              print(code, json.dumps(row, ensure_ascii=False, sort_keys=True) if row else 'MISSING')
+          target_ranges = [row for row in all_ranges if row['configuration_code'] in targets]
+          grouped_ranges = defaultdict(list)
+          for row in target_ranges:
+              grouped_ranges[row['attribute_code']].append(row)
+          print('TARGET_RANGE_ATTRIBUTES', len(grouped_ranges))
+          for attribute in sorted(grouped_ranges):
+              selected = grouped_ranges[attribute]
+              print('TARGET_RANGE_ATTR', attribute, 'COUNT', len(selected), 'CONFIGS', len({row['configuration_code'] for row in selected}), 'BOUNDS', sorted({(row['minimum_value'], row['maximum_value']) for row in selected}), 'FUELS', sorted({row['fuel_type_code'] for row in selected}), 'SOURCES', sorted({row['source_code'] for row in selected}))
+              for row in selected:
+                  print('  TARGET_RANGE', json.dumps({
+                      'id': row['id'], 'configuration': row['configuration_code'],
+                      'powertrain': configs.get(row['configuration_code'], {}).get('powertrain_label'),
+                      'fuel': row['fuel_type_code'], 'minimum': row['minimum_value'], 'maximum': row['maximum_value'],
+                      'date': row['observation_date'], 'source': row['source_code'], 'notes': row['notes'],
+                  }, ensure_ascii=False, sort_keys=True))
+
+          terms = ('power','torque','injection','displacement','cylinder','valve','emission','particulate','stop','battery','speed','acceleration','drive','gear','brake','homolog','eco_mode','fuel_tank','vehicle_weight','train_weight','trailer','boot_capacity','electric')
+          print('RELEVANT_ATTRIBUTE_CONTRACTS')
+          for code in sorted(attributes):
+              if any(term in code for term in terms):
+                  print(code, json.dumps(attributes[code], ensure_ascii=False, sort_keys=True))
           PY
