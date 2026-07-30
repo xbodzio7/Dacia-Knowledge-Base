@@ -1,0 +1,1347 @@
+{
+  "group_sizes": {
+    "tce100_manual": 3,
+    "ecog120_automatic": 2,
+    "ecog120_manual": 2
+  },
+  "same_source_page17_scalar_count": 72,
+  "same_source_page17_range_count": 0,
+  "same_source_page17": {
+    "acceleration_0_100": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "9.8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "10.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "braked_trailer_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1100": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "cylinder_count": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "3": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "elasticity_80_120": {
+      "ecog120_automatic|lpg|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|lpg|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|lpg|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "7.4": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|lpg|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "11": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.4": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "11.7": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    },
+    "emission_standard": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "euro_6e_bis": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "engine_displacement": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1199": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "engine_power": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "90": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "84": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "engine_torque": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "197": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "190": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "front_suspension": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    },
+    "fuel_tank_capacity": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "50": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "gear_count": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "6": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "gearbox_type": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "dct": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "gross_train_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "2765": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "gross_vehicle_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1665": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "maximum_kerb_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1232": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1209": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    },
+    "minimum_kerb_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1205": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "rear_suspension": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    },
+    "standard_tyre_specification": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "185/65 R15 88H - 195/55 R16 87H": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "185/65 R15 88H - 195/55 R16 87H": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    },
+    "top_speed": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "180": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "total_valve_count": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "12": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      }
+    },
+    "turning_circle_between_kerbs": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "10.64": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "10.64": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    }
+  },
+  "latest_values": {
+    "acceleration_0_100": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "9.8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "10.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "10.1": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "11.1": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|petrol|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "9.7": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "braked_trailer_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1100": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1100": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "980": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "cylinder_count": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "3": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "3": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "3": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "elasticity_80_120": {
+      "ecog120_automatic|lpg|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|lpg|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.9": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|lpg|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "7.4": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|lpg|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "11": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|4": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "8.4": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|5": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "11.7": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|petrol|4": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "7.4": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      },
+      "tce100_manual|petrol|5": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "10.7": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "engine_displacement": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1199": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1199": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "999": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "engine_power": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "90": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "84": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "90": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "84": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|petrol|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "74": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "engine_torque": {
+      "ecog120_automatic|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "197": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_automatic|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "190": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|lpg|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "197": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "ecog120_manual|petrol|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "190": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|petrol|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "200": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "fuel_tank_capacity": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "50": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "50": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "50": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "fuel_type": {
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "petrol": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "gross_train_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "2765": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "2740": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "2550": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "gross_vehicle_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1665": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1640": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "1570": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "injection_type": {
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "direct_injection": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "maximum_kerb_weight": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1232": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "1209": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "1132": 3
+        },
+        "sources": {
+          "src_pl_sandero_catalog_tce_slice_20260202": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "total_valve_count": {
+      "ecog120_automatic|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "12": 2
+        },
+        "sources": {
+          "src_pl_sandero_brochure_20260202": 2
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_automatic",
+          "sandero_iii_journey_ecog120_automatic"
+        ]
+      },
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "12": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      },
+      "tce100_manual|none|none": {
+        "configuration_count": 3,
+        "row_count": 3,
+        "values": {
+          "12": 3
+        },
+        "sources": {
+          "src_pl_sandero_stepway_catalog_tce_slice_20260703": 3
+        },
+        "configurations": [
+          "sandero_iii_essential_tce100_manual",
+          "sandero_iii_expression_tce100_manual",
+          "sandero_iii_journey_tce100_manual"
+        ]
+      }
+    },
+    "unbraked_trailer_weight": {
+      "ecog120_manual|none|none": {
+        "configuration_count": 2,
+        "row_count": 2,
+        "values": {
+          "615": 2
+        },
+        "sources": {
+          "src_pl_sandero_expression_ecog120_mt_20260626": 1,
+          "src_pl_sandero_journey_ecog120_mt_20260626": 1
+        },
+        "configurations": [
+          "sandero_iii_expression_ecog120_manual",
+          "sandero_iii_journey_ecog120_manual"
+        ]
+      }
+    }
+  },
+  "latest_ranges": {}
+}
