@@ -230,6 +230,16 @@ def verify_current_coverage() -> None:
             }
         )
         expected_total = 1118
+    eco_mode = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "eco_mode"
+    ]
+    if eco_mode:
+        ensure(len(eco_mode) == 14, "Bigster eco-mode receipt differs")
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
+        expected_total += 14
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")

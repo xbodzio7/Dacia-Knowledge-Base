@@ -50,6 +50,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "eco_mode",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "emission_standard",
       "fuel_type_code": ""
     },
