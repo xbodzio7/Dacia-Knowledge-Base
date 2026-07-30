@@ -23,13 +23,13 @@
     "candidate_count": 1583,
     "coverage_status_counts": {
       "already_covered": 122,
-      "ambiguous": 108,
+      "ambiguous": 109,
       "explicit_non_import": 195,
-      "unresolved": 1158
+      "unresolved": 1157
     },
     "active_evidence_record_counts": {
       "configuration_attribute_values": 3190,
-      "configuration_attribute_value_ranges": 244,
+      "configuration_attribute_value_ranges": 274,
       "configuration_attribute_availability": 5770
     }
   },
@@ -42,17 +42,17 @@
     },
     "technical_tables": {
       "already_covered": 52,
-      "ambiguous": 54,
+      "ambiguous": 55,
       "explicit_non_import": 112,
-      "unresolved": 323
+      "unresolved": 322
     }
   },
   "source_status_counts": {
     "src_pl_bigster_brochure_20251210": {
       "already_covered": 16,
-      "ambiguous": 31,
+      "ambiguous": 32,
       "explicit_non_import": 47,
-      "unresolved": 245
+      "unresolved": 244
     },
     "src_pl_duster_mini_brochure_20251020": {
       "already_covered": 60,
@@ -105,9 +105,9 @@
       "candidate_count": 130,
       "coverage_status_counts": {
         "already_covered": 12,
-        "ambiguous": 23,
+        "ambiguous": 24,
         "explicit_non_import": 26,
-        "unresolved": 69
+        "unresolved": 68
       }
     },
     {
@@ -387,9 +387,280 @@
         "mild",
         "hybrid"
       ],
-      "coverage_status": "unresolved",
-      "classification_basis": "no_conservative_exact_evidence_match",
-      "evidence_signatures": []
+      "coverage_status": "ambiguous",
+      "classification_basis": "multiple_existing_evidence_signatures",
+      "evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "co2_emissions",
+            "minimum_value": "114",
+            "maximum_value": "116",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "lpg"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_co2_emissions_lpg_range_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_co2_emissions_lpg_range_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_co2_emissions_lpg_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_co2_emissions_lpg_range_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "co2_emissions",
+            "minimum_value": "122",
+            "maximum_value": "124",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "petrol"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "co2_emissions",
+            "minimum_value": "130",
+            "maximum_value": "132",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "petrol"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_co2_emissions_petrol_range_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "fuel_consumption_combined",
+            "minimum_value": "7",
+            "maximum_value": "7.1",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "lpg"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_fuel_consumption_combined_lpg_range_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_fuel_consumption_combined_lpg_range_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_fuel_consumption_combined_lpg_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_fuel_consumption_combined_lpg_range_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "fuel_consumption_combined",
+            "minimum_value": "5.4",
+            "maximum_value": "5.5",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "petrol"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "fuel_consumption_combined",
+            "minimum_value": "5.7",
+            "maximum_value": "5.8",
+            "lower_inclusive": "true",
+            "upper_inclusive": "true",
+            "fuel_type_code": "petrol"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_value_ranges",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_fuel_consumption_combined_petrol_range_20251210",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_brochure_20251210",
+              "source_page": 20,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ]
     },
     {
       "candidate_id": "22c7ab2ee31f8963bc80532bfe7ad73c0e6586e77bf9e4b8a20c7114c26eb016",

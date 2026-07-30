@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Bigster Technical Page 20 Reviewed Fact Reconciliation",
+  "phase": "Bigster Page 20 Emissions and Consumption Range Import",
   "reference_delivery": {
     "name": "Post-Cross-Model Workspace Priority Selection Review",
     "pull_request": 297,
@@ -15,42 +15,53 @@
     "quality_run": 2158
   },
   "baseline": {
-    "tests": 1567,
+    "tests": 1574,
     "csv_files": 46,
-    "rows": 11092,
+    "rows": 11122,
     "configuration_values": 3267,
     "configuration_import_specs": 117,
-    "configuration_value_ranges": 244,
-    "configuration_range_import_specs": 20,
+    "configuration_value_ranges": 274,
+    "configuration_range_import_specs": 21,
     "availability_records": 5770,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_bigster_technical_page20_reconciliation_001",
-    "kind": "source_reconciliation_review",
-    "name": "Bigster Technical Page 20 Reviewed Fact Reconciliation",
-    "status": "complete",
-    "goal": "Compare the 24 complete visual source facts preserved by residual_gap_016 and residual_gap_017 with current exact Bigster configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications, while keeping the verified final residual bundle reproducible after the project advances beyond milestone closure.",
-    "manifest_paths": [
-      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.json",
-      "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.md",
-      "project/reviews/bigster-technical-page20-reviewed-fact-reconciliation-2026-07-30.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "tests/residual_review_bundle_contract.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_bigster_page20_emissions_consumption_range_import_001",
     "kind": "configuration_range_import",
     "name": "Bigster Page 20 Emissions and Consumption Range Import",
-    "status": "planned",
-    "goal": "Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict.",
+    "status": "complete",
+    "goal": "Add the 30 non-conflicting inclusive CO2 and combined-cycle fuel-consumption range rows whose upper endpoints already match current exact Bigster values; exclude Hybrid-G 150 4x4 exact fuel-specific pairs and every deferred conflict; canonicalize decimal endpoints; refresh live range-count and candidate-coverage contracts without rewriting historical closure receipts.",
     "manifest_paths": [
       "data/imports/configuration_value_ranges/bigster-page20-emissions-consumption-ranges-20251210.json",
       "data/master/configuration_attribute_value_ranges.csv",
       "tests/test_bigster_page20_emissions_consumption_ranges.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_configuration_value_ranges.py",
+      "tests/test_jogger_payload_performance_ranges.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_bigster_page20_eco_mode_import_001",
+    "kind": "configuration_value_import",
+    "name": "Bigster Page 20 Eco Mode Import",
+    "status": "planned",
+    "goal": "Add eco_mode=true for all 14 current Bigster configurations from the shared page-20 Tak source value, preserving existing source-to-configuration links and without touching any deferred technical conflict.",
+    "manifest_paths": [
+      "data/imports/configuration_values/bigster-page20-eco-mode-20251210.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_bigster_page20_eco_mode.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

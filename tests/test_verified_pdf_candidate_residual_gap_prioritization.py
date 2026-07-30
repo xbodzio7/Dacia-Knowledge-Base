@@ -274,7 +274,7 @@ class ResidualGapPrioritizationRepositoryTests(unittest.TestCase):
         self.assertEqual(payload["summary"]["candidate_count"], 1266)
         self.assertEqual(
             payload["summary"]["coverage_status_counts"],
-            {"ambiguous": 108, "unresolved": 1158},
+            {"ambiguous": 109, "unresolved": 1157},
         )
         self.assertEqual(payload["summary"]["package_count"], 52)
         self.assertEqual(payload["summary"]["maximum_package_size"], 40)
@@ -288,9 +288,9 @@ class ResidualGapPrioritizationRepositoryTests(unittest.TestCase):
                 "domain": "technical_tables",
                 "page": 20,
                 "coverage_status": "ambiguous",
-                "candidate_count": 23,
-                "evidence_signature_count": 190,
-                "evidence_record_count": 703,
+                "candidate_count": 24,
+                "evidence_signature_count": 196,
+                "evidence_record_count": 727,
             },
         )
         assigned = [identifier for package in payload["packages"] for identifier in package["candidate_ids"]]
