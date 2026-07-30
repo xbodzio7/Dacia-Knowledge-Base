@@ -24,31 +24,6 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Repair validated page-section contract
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          spec_path = Path("data/imports/configuration_values/jogger-brochure-acceleration-0-100-20251217.json")
-          payload = json.loads(spec_path.read_text(encoding="utf-8"))
-          if payload.get("source_section") != "06. SILNIKI — OSIĄGI":
-              raise SystemExit("unexpected source_section before repair")
-          payload["source_section"] = "Wersja"
-          spec_path.write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-              newline="\n",
-          )
-
-          test_path = Path("tests/test_jogger_page19_acceleration_source_observations.py")
-          text = test_path.read_text(encoding="utf-8")
-          old = 'self.assertEqual(self.spec["source_section"], "06. SILNIKI — OSIĄGI")'
-          new = 'self.assertEqual(self.spec["source_section"], "Wersja")'
-          if text.count(old) != 1:
-              raise SystemExit("test source_section replacement target differs")
-          test_path.write_text(text.replace(old, new), encoding="utf-8", newline="\n")
-          PY
       - name: Apply and verify import
         run: |
           python tools/dkb.py import-configuration-values \
