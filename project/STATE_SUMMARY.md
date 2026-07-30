@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Jogger Page 19 Fuel and LPG Capacity Source Observations**
+**Jogger Page 19 Source Observation Import Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Page 19 Fuel and LPG Capacity Source Observations** — `complete`
+**Jogger Page 19 Source Observation Import Closure** — `complete`
 
-Preserve 22 source-specific 50 L petrol-tank observations and separate 50 L total plus 40 L usable/filling LPG observations for the ten current Eco-G 120 configurations without collapsing capacity semantics.
+Reconcile the completed acceleration, minimum-kerb-weight and fuel/LPG-capacity source-observation imports against the page 19 review, identify the remaining safe exact imports, and preserve all unresolved source conflicts and context-model requirements without changing master data.
 
 ## Next package
 
-**Jogger Page 19 Source Observation Import Closure** — `planned`
+**Jogger Page 19 Gross Vehicle Weight Source Observations** — `planned`
 
-Reconcile the completed acceleration, minimum-kerb-weight and fuel/LPG-capacity source-observation imports against the page 19 review, verify whether any safe exact import remains, and preserve all unresolved source conflicts and context-model requirements without changing master data.
+Add source-specific gross vehicle weight observations from Jogger brochure page 19 for all 22 current configurations where the printed kilogram values exactly match current official observations, without importing either mislabeled adjacent mass block.
 
 ## Autonomy
 
