@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Conflict Preservation Closure Review**
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Conflict Preservation Closure Review** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `complete`
 
-Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation packages, confirm that context-blocked and anomalous evidence remains unimported, close the page-20 conflict boundary, and return to the deterministic residual queue without creating data changes.
+Review the first 40 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text, visual row grouping and literal grade markers without automatic promotion or master-data changes.
 
 ## Next package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `planned`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `planned`
 
-Review the first 40 of 65 unresolved Sandero equipment-matrix candidates on page 19, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.
+Review the remaining 25 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.
 
 ## Autonomy
 
