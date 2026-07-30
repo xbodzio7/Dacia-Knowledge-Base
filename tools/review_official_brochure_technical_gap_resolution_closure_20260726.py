@@ -301,6 +301,37 @@ def verify_current_coverage() -> None:
         }, "Bigster Hybrid 155 voltage targets differ")
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 3})
         expected_total += 3
+    battery_capacity_conflicts = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "hybrid_battery_capacity_source_stated"
+        and row.get("value") == "0.84"
+    ]
+    if battery_capacity_conflicts:
+        ensure(
+            len(battery_capacity_conflicts) == 11,
+            "Bigster battery-capacity conflict-observation receipt differs",
+        )
+        ensure(
+            {row.get("configuration_code", "") for row in battery_capacity_conflicts}
+            == {
+                "bigster_essential_mildhybrid140_4x2_manual",
+                "bigster_expression_mildhybrid140_4x2_manual",
+                "bigster_extreme_mildhybrid140_4x2_manual",
+                "bigster_journey_mildhybrid140_4x2_manual",
+                "bigster_essential_mildhybridg140_4x2_manual",
+                "bigster_expression_mildhybridg140_4x2_manual",
+                "bigster_extreme_mildhybridg140_4x2_manual",
+                "bigster_journey_mildhybridg140_4x2_manual",
+                "bigster_expression_hybridg150_4x4_automatic",
+                "bigster_extreme_hybridg150_4x4_automatic",
+                "bigster_journey_hybridg150_4x4_automatic",
+            },
+            "Bigster battery-capacity conflict targets differ",
+        )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 11})
+        expected_total += 11
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
     ensure(len(ranges) == 98, "expected exactly 98 current brochure ranges")
     ensure(Counter(row.get("source_code", "") for row in scalar) == expected_scalar, "master source scalar totals differ")
