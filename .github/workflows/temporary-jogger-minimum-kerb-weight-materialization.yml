@@ -67,10 +67,47 @@ jobs:
               raise SystemExit(f'ambiguous boundary replacement target count is {text.count(old)}')
           checker.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
 
+          chassis_test = Path('tests/test_jogger_chassis_20260726.py')
+          text = chassis_test.read_text(encoding='utf-8')
+          old = '''        self.assertFalse(any(
+              row["source_code"] == SOURCE
+              and row["observation_date"] == "2025-12-17"
+              and row["attribute_code"] in MASS_ATTRIBUTES
+              for row in self.values
+          ))
+          '''
+          new = '''        self.assertFalse(any(
+              row["source_code"] == SOURCE
+              and row["observation_date"] == "2025-12-17"
+              and row["attribute_code"] in {
+                  "maximum_kerb_weight",
+                  "gross_vehicle_weight",
+                  "gross_train_weight",
+              }
+              for row in self.values
+          ))
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f'chassis-test replacement target count is {text.count(old)}')
+          chassis_test.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+
+          priority_test = Path('tests/test_verified_pdf_candidate_residual_gap_prioritization.py')
+          text = priority_test.read_text(encoding='utf-8')
+          old = "            {'ambiguous': 110, 'unresolved': 1154},\n"
+          new = "            {'ambiguous': 111, 'unresolved': 1153},\n"
+          if text.count(old) != 1:
+              raise SystemExit(f'priority-test replacement target count is {text.count(old)}')
+          priority_test.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+
           materializer = Path('tools/temporary_materialize_jogger_minimum_kerb_weight.py')
           text = materializer.read_text(encoding='utf-8')
           old = '            "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",\n'
-          new = old + '            "tools/import_jogger_chassis_20260726.py",\n'
+          new = (
+              old
+              + '            "tools/import_jogger_chassis_20260726.py",\n'
+              + '            "tests/test_jogger_chassis_20260726.py",\n'
+              + '            "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",\n'
+          )
           if text.count(old) != 1:
               raise SystemExit(f'manifest insertion target count is {text.count(old)}')
           materializer.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
@@ -89,10 +126,12 @@ jobs:
             tests/test_jogger_page19_minimum_kerb_weight_source_observations.py \
             tools/review_official_brochure_technical_gap_resolution_closure_20260726.py \
             tools/import_jogger_chassis_20260726.py \
+            tests/test_jogger_chassis_20260726.py \
             tests/test_official_brochure_technical_gap_resolution_closure.py \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
             tests/test_verified_pdf_candidate_coverage_reconciliation.py \
+            tests/test_verified_pdf_candidate_residual_gap_prioritization.py \
             README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md \
             project/state.json project/STATE_SUMMARY.md \
             .github/workflows/temporary-jogger-minimum-kerb-weight-materialization.yml \
