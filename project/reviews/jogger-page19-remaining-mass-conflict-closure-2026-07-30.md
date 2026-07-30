@@ -18,4 +18,4 @@ The two mislabeled mass blocks cannot be assigned to governed attributes without
 
 ## Closure
 
-The page-19 mass tranche is closed with preserved boundaries. No master-data change is authorized by this review. Remaining RPM-range, context and Hybrid-power questions are handed to the next review package.
+The page-19 mass tranche is closed with preserved, testable boundaries. No master-data change is authorized by this review. Remaining RPM-range, context and Hybrid-power questions are handed to the next review package.
