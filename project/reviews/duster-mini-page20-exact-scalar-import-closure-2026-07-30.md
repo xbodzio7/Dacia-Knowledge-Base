@@ -20,4 +20,4 @@ The source-stated direct-injection row remains unimported because it lacks the f
 
 ## Handoff
 
-The completed Duster page-20 technical boundary returns to global verified-PDF residual queue selection through `post_residual_verified_pdf_queue_reentry_review_002`.
+The completed Duster page-20 technical boundary returns to global verified-PDF residual queue selection through `post_residual_verified_pdf_queue_reentry_review_002`, using stable source/model/domain/page boundaries rather than historical package ordinals.
