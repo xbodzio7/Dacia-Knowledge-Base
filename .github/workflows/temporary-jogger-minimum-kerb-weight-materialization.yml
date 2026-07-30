@@ -69,24 +69,26 @@ jobs:
 
           chassis_test = Path('tests/test_jogger_chassis_20260726.py')
           text = chassis_test.read_text(encoding='utf-8')
-          old = '''        self.assertFalse(any(
-              row["source_code"] == SOURCE
-              and row["observation_date"] == "2025-12-17"
-              and row["attribute_code"] in MASS_ATTRIBUTES
-              for row in self.values
-          ))
-          '''
-          new = '''        self.assertFalse(any(
-              row["source_code"] == SOURCE
-              and row["observation_date"] == "2025-12-17"
-              and row["attribute_code"] in {
-                  "maximum_kerb_weight",
-                  "gross_vehicle_weight",
-                  "gross_train_weight",
-              }
-              for row in self.values
-          ))
-          '''
+          old = (
+              '        self.assertFalse(any(\n'
+              '            row["source_code"] == SOURCE\n'
+              '            and row["observation_date"] == "2025-12-17"\n'
+              '            and row["attribute_code"] in MASS_ATTRIBUTES\n'
+              '            for row in self.values\n'
+              '        ))\n'
+          )
+          new = (
+              '        self.assertFalse(any(\n'
+              '            row["source_code"] == SOURCE\n'
+              '            and row["observation_date"] == "2025-12-17"\n'
+              '            and row["attribute_code"] in {\n'
+              '                "maximum_kerb_weight",\n'
+              '                "gross_vehicle_weight",\n'
+              '                "gross_train_weight",\n'
+              '            }\n'
+              '            for row in self.values\n'
+              '        ))\n'
+          )
           if text.count(old) != 1:
               raise SystemExit(f'chassis-test replacement target count is {text.count(old)}')
           chassis_test.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
