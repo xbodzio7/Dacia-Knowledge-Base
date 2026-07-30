@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import**
+**Bigster Page 20 Conflict Preservation Closure Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 20 Mild Hybrid-G 140 Payload Range Conflict Observation Import** — `complete`
+**Bigster Page 20 Conflict Preservation Closure Review** — `complete`
 
-Add maximum_payload=452-521 kg as a 2025-12-10 brochure range observation for the four Mild Hybrid-G 140 configurations while retaining and testing the later 451-540 kg price-source range observations and without resolving the source conflict by date.
+Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation packages, confirm that context-blocked and anomalous evidence remains unimported, close the page-20 conflict boundary, and return to the deterministic residual queue without creating data changes.
 
 ## Next package
 
-**Bigster Page 20 Conflict Preservation Closure Review** — `planned`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 1** — `planned`
 
-Verify exact receipts and source coexistence for all five approved page-20 conflict-preservation boundaries, confirm that context-blocked and anomalous evidence remains unimported, and select the next residual package without creating data changes.
+Review the first 40 of 65 unresolved Sandero equipment-matrix candidates on page 19, preserving exact candidate IDs, source text and visual context without automatic promotion or master-data changes.
 
 ## Autonomy
 
