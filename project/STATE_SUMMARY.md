@@ -12,22 +12,22 @@
 
 ## Phase
 
-**Jogger Technical Page 19 Reviewed Fact Reconciliation**
+**Jogger Page 19 Acceleration Source Observations**
 
 ## Reference delivery
 
-- Package: Verified PDF Candidate Residual Review Closure
-- Pull Request: #391
-- Verified head: `981fe8aa476d19849256a5965bff63936b335cfc`
-- Quality run: #2542
+- Package: Jogger Technical Page 19 Reviewed Fact Reconciliation
+- Pull Request: #392
+- Verified head: `1eaa92e09e312117597474ffd8410b8abe54632e`
+- Quality run: #2544
 
 ## Verified baseline
 
-- Tests: 1626
+- Tests: 1633
 - Master CSV files: 46
-- Master rows: 11194
-- Configuration values: 3335
-- Configuration import specifications: 126
+- Master rows: 11220
+- Configuration values: 3361
+- Configuration import specifications: 127
 - Configuration value ranges: 278
 - Configuration range import specifications: 22
 - Availability records: 5770
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Technical Page 19 Reviewed Fact Reconciliation** — `complete`
+**Jogger Page 19 Acceleration Source Observations** — `complete`
 
-Reconcile the complete technical source facts and preserved conflicts from Jogger brochure page 19 across residual_gap_002, residual_gap_024 and residual_gap_025 against current exact Jogger configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.
+Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.
 
 ## Next package
 
-**Jogger Page 19 Acceleration Source Observations** — `planned`
+**Jogger Page 19 Minimum Kerb Weight Source Observations** — `planned`
 
-Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.
+Add source-specific minimum kerb weight observations from Jogger brochure page 19 for all 22 current five- and seven-seat configurations where the printed values exactly match current registered observations, without importing either mislabeled DMC block.
 
 ## Autonomy
 

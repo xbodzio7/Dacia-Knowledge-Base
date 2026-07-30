@@ -35,6 +35,7 @@ class JoggerBrochureHybridPerformanceTests(unittest.TestCase):
             if row.get("source_code") == SOURCE
             and row.get("observation_date") == "2025-12-17"
             and row.get("attribute_code") in SCALAR_ATTRIBUTES
+            and "hybrid155" in row.get("configuration_code", "")
         ]
         cls.ranges = [
             row for row in rows(MASTER / "configuration_attribute_value_ranges.csv")

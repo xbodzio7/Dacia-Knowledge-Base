@@ -33,6 +33,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "boot_capacity",
       "fuel_type_code": ""
     },
