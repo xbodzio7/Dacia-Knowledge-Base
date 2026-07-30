@@ -24,6 +24,23 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Align exact Polish source literals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/temporary_materialize_duster_page20_exact_scalar_import.py')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              ('Filtr cząstek stałych Da Da', 'Filtr cząstek stałych(1) Tak Tak'),
+              ('Stop & Start Da Da', 'Stop & Start(2) Tak Tak'),
+              ('Tryb Eco Da Da', 'Tryb Eco Tak Tak'),
+          ]
+          for old, new in replacements:
+              if text.count(old) != 1:
+                  raise SystemExit(f'source literal target count is {text.count(old)}: {old!r}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8', newline='\n')
+          PY
       - name: Materialize and validate import
         run: python tools/temporary_materialize_duster_page20_exact_scalar_import.py
       - name: Commit final package and remove temporary tools
