@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2**
+**Verified PDF Candidate Residual Review Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
+**Verified PDF Candidate Residual Review Closure** — `complete`
 
-Review the remaining 25 of 65 unresolved Sandero page-19 equipment-matrix candidates, preserving exact candidate IDs, source text, visual row grouping and literal grade markers without automatic promotion or master-data changes.
+Verify the complete 52-package authored residual review delivery against the deterministic prioritization and per-package artifacts, close the residual queue without data changes, and select the next project phase.
 
 ## Next package
 
-**Verified PDF Candidate Residual Review Closure** — `planned`
+**Jogger Technical Page 19 Reviewed Fact Reconciliation** — `planned`
 
-Verify the complete 52-package authored residual review delivery against the deterministic prioritization and per-package artifacts, close the residual queue without data changes, and select the next project phase.
+Reconcile the complete technical source facts and preserved conflicts from Jogger brochure page 19 across residual_gap_002, residual_gap_024 and residual_gap_025 against current exact Jogger configuration values and ranges; classify existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or creating approved import specifications.
 
 ## Autonomy
 
