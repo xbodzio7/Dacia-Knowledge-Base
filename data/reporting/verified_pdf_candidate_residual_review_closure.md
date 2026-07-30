@@ -1,21 +1,36 @@
 # Verified PDF Candidate Residual Review Closure
 
-The canonical residual-review queue is complete. This authored closure verifies every package against the deterministic prioritization report and preserves all evidence and non-import boundaries.
+Status: **complete**  
+Package: `post_residual_verified_pdf_candidate_review_closure_001`  
+Review date: 2026-07-30
 
-## Exact accounting
+## Scope
+
+This package revalidates the complete authored residual-review queue against the current `main`. It replaces the stale operational handoff in the same canonical report paths while preserving the earlier closure in Git history.
+
+No file under `data/master/**` or `data/imports/**` is changed. The review does not create an approved import specification and does not promote any candidate automatically.
+
+## Current-main verification
 
 | Measure | Result |
 | --- | ---: |
 | Review packages | 52 |
-| Candidate IDs | 1266 |
-| Ambiguous candidates | 108 |
-| Unresolved candidates | 1158 |
-| Technical-table candidates | 377 |
-| Equipment-matrix candidates | 889 |
+| Expected candidates | 1,266 |
+| Reviewed candidates | 1,266 |
+| Unique reviewed candidates | 1,266 |
+| Missing packages | 0 |
+| Duplicate review artifacts | 0 |
+| Mismatched package assignments | 0 |
+| Duplicate assigned candidate IDs | 0 |
+| Cross-package references | 1 |
 
-Every `residual_gap_001`–`residual_gap_052` package has one complete review report. Package IDs are sequential, candidate IDs are unique, every candidate is reviewed exactly once, and source, page, domain, status, chunk and candidate counts match the canonical prioritization report.
+The audit ran against `main` SHA `52686909f68384c75ea99ce258cbb6b314dd9523` and passed. Every package from `residual_gap_001` through `residual_gap_052` contains all of its assigned candidate IDs, and the global assignment remains exactly once.
 
-## Authored decisions
+## Cross-package reference disclosure
+
+`residual_gap_016` contains all 40 assigned candidates and also cites candidate `86e33e875ec789d2158604e3d0d69634b0a600856d47ca16c21be4cfeb2081cc` from another package as an explicit review reference. The reference is not counted as a `residual_gap_016` assignment and does not create a duplicate reviewed candidate.
+
+## Authored decision accounting
 
 | Decision | Candidates | Boundary |
 | --- | ---: | --- |
@@ -24,36 +39,33 @@ Every `residual_gap_001`–`residual_gap_052` package has one complete review re
 | `partially_covered` | 51 | partial evidence only; no full approval |
 | `deferred_source_conflict` | 12 | conflicting source states remain deferred |
 | `context_only_non_import` | 635 | headings, continuations, legends and other context remain non-importable |
-| `unresolved_signature_mismatch` | 540 | source fact or aligned state has no approved matching evidence signature |
+| `unresolved_signature_mismatch` | 540 | no conservative matching evidence signature is approved |
 
-The 1266 decisions reconcile exactly to the 1,266 prioritized candidates. The reviews selected 164 of 406 attached evidence-signature references and 1614 of 2,604 attached record references. Selection is always a subset of the candidate's attached evidence.
+The 1,266 decisions reconcile exactly to the prioritized candidate set. Selected evidence remains a subset of attached evidence: 164 of 406 signature references and 1,614 of 2,604 record references.
 
-## Source coverage
+## Historical continuity
 
-| Source | Packages | Candidates |
-| --- | ---: | ---: |
-| `src_pl_bigster_brochure_20251210` | 10 | 276 |
-| `src_pl_duster_mini_brochure_20251020` | 14 | 339 |
-| `src_pl_jogger_brochure_20251217` | 10 | 240 |
-| `src_pl_sandero_brochure_20260202` | 9 | 190 |
-| `src_pl_sandero_stepway_brochure_20260202` | 9 | 221 |
+The earlier closure in PR #364 selected the Bigster page-20 reviewed-fact reconciliation. That package was completed in PR #365, and the resulting Bigster conflict-preservation sequence was closed in PR #384. The queue then returned to, and completed, the re-authored `residual_gap_051` and `residual_gap_052` deliveries in PRs #386 and #389.
 
-## Exact-text repair
-
-The closure audit found one transcription defect in the authored Markdown for `residual_gap_043`. Candidate `222fc25f…19fc02` was written as “Reflektory z charakterystycznym układem **światuł**”; the canonical candidate and source text are “Reflektory z charakterystycznym układem **świateł**”. The candidate ID, group and decision were already correct. This package repairs only that copied word.
+The former Bigster handoff is therefore complete and must not be selected again.
 
 ## Preserved boundaries
 
-- `unresolved_signature_mismatch` remains absence of a conservative match, not negative evidence or permission to import;
-- `partially_covered` remains insufficient for full candidate approval;
-- source conflicts remain deferred and neither newer nor older evidence is silently preferred;
-- contextual fragments remain non-importable and are not converted into attributes, values or availability states;
-- no package in the queue changes `data/master`, creates an approved import specification or performs automatic promotion.
+- unresolved signature mismatch is not negative evidence;
+- partial coverage is not import approval;
+- source conflicts remain deferred without chronology-based preference;
+- contextual fragments remain non-importable;
+- the one cross-package citation is not reassigned;
+- no master data, import specification or approved source observation changes in this package.
 
-## Next source-backed package
+## Next source-backed phase
 
-**Bigster Technical Page 20 Reviewed Fact Reconciliation** will compare the 24 complete visual source facts preserved by `residual_gap_016` and `residual_gap_017` with current exact Bigster configuration values and ranges. It will distinguish existing coverage, import-ready gaps, context-model requirements and deferred conflicts without changing master data or producing approved imports.
+**Jogger Technical Page 19 Reviewed Fact Reconciliation** is selected next.
+
+The exact archived source is `src_pl_jogger_brochure_20251217`, page 19, SHA-256 `eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6`. The review boundary consists of `residual_gap_002`, `residual_gap_024` and `residual_gap_025`: 59 candidates in total, including 16 ambiguous and 43 unresolved candidates.
+
+The next package will compare the preserved source facts and conflicts with current exact Jogger values and ranges, classify existing coverage, safe import-ready gaps, context-model requirements and deferred conflicts, and make no data changes or approved import specifications.
 
 ## Closure decision
 
-Close the 52-package residual-review milestone. The complete accounting is preserved in the JSON report, and the next package starts a narrower source-backed reconciliation rather than treating unresolved candidates as missing or negative data.
+Close the current 52-package residual queue after exact current-main accounting. Continue with the Jogger page-19 source reconciliation rather than interpreting unresolved candidates as absent, false or automatically importable data.
