@@ -1,4 +1,4 @@
-"""Verify Jogger page 19 gross-vehicle-weight source observations."""
+"""Verify Jogger page 19 DMC evidence, coexistence and adjacent conflict boundaries."""
 
 from __future__ import annotations
 
