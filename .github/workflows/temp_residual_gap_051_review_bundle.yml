@@ -1,0 +1,33 @@
+name: Temporary residual gap 051 review bundle
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-review-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out bundle branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/residual-gap-051-review-bundle-20260730
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install PDF renderer
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build canonical review bundle
+        run: python tools/build_residual_gap_051_review_bundle.py
+      - name: Upload canonical review bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: residual-gap-051-review-bundle
+          path: review_bundle_residual_gap_051
+          if-no-files-found: error
+          retention-days: 7
