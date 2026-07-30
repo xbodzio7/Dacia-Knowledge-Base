@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: agent/verified-pdf-residual-review-closure-audit-20260730
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
