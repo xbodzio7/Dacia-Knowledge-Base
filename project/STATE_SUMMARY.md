@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Duster Mini Page 20 Exact Scalar Gap Import**
+**Duster Mini Page 20 Exact Scalar Import Closure Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Page 20 Exact Scalar Gap Import** — `complete`
+**Duster Mini Page 20 Exact Scalar Import Closure Review** — `complete`
 
-Add 35 append-only source-specific Euro 6E bis, particulate-filter, Start & Stop, Eco-mode and gross-vehicle-weight observations across the seven exact manual Duster 4x2 configurations while preserving injection and context boundaries.
+Verify the 35-row exact scalar receipt, close every reconciliation import-ready gap, preserve injection and context deferrals, and return the completed Duster page-20 boundary to global residual-queue selection.
 
 ## Next package
 
-**Duster Mini Page 20 Exact Scalar Import Closure Review** — `planned`
+**Verified PDF Residual Queue Re-entry Review II** — `planned`
 
-Verify the 35-row exact scalar receipt, confirm all reconciliation import-ready gaps are closed, preserve injection/context deferrals and return the completed Duster page-20 boundary to global residual-queue selection.
+Rebuild the verified-PDF residual queue against current later reconciliation, import and closure evidence; exclude the completed Bigster, Jogger and Duster technical boundaries; and select the first remaining actionable stable source/model/domain/page boundary without reopening explicit non-import decisions.
 
 ## Autonomy
 
