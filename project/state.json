@@ -43,6 +43,10 @@
       "tests/test_jogger_tce110_manual_reporting_scope.py",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
