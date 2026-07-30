@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster Mini Page 20 Exact Scalar Import Closure Review",
+  "phase": "Verified PDF Residual Queue Re-entry Review II",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -27,29 +27,36 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_duster_mini_page20_exact_scalar_gap_import_closure_001",
+    "package_id": "post_residual_verified_pdf_queue_reentry_review_002",
     "kind": "review_closure",
-    "name": "Duster Mini Page 20 Exact Scalar Import Closure Review",
+    "name": "Verified PDF Residual Queue Re-entry Review II",
     "status": "complete",
-    "goal": "Verify the 35-row exact scalar receipt, close every reconciliation import-ready gap, preserve injection and context deferrals, and return the completed Duster page-20 boundary to global residual-queue selection.",
+    "goal": "Rebuild the verified-PDF residual queue against later reconciliation, import and closure evidence; exclude completed technical boundaries; and select the first remaining actionable stable boundary without reopening explicit non-import decisions.",
     "manifest_paths": [
-      "data/reporting/duster_mini_page20_exact_scalar_import_closure.json",
-      "data/reporting/duster_mini_page20_exact_scalar_import_closure.md",
-      "project/reviews/duster-mini-page20-exact-scalar-import-closure-2026-07-30.md",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
+      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_residual_verified_pdf_queue_reentry_review_002",
+    "package_id": "post_residual_sandero_technical_page17_reviewed_fact_reconciliation_001",
     "kind": "review_closure",
-    "name": "Verified PDF Residual Queue Re-entry Review II",
+    "name": "Sandero Technical Page 17 Reviewed Fact Reconciliation",
     "status": "planned",
-    "goal": "Rebuild the verified-PDF residual queue against current later reconciliation, import and closure evidence; exclude the completed Bigster, Jogger and Duster technical boundaries; and select the first remaining actionable stable source/model/domain/page boundary without reopening explicit non-import decisions.",
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "source_page": 17,
+    "goal": "Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data, classify existing coverage, import-ready gaps, context-only evidence and deferred signature mismatches, without reopening source review or changing master data in the reconciliation package.",
+    "source_review_packages": [
+      "residual_gap_004",
+      "residual_gap_026",
+      "residual_gap_027"
+    ],
     "manifest_paths": [
-      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
-      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
-      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-31.md",
+      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.json",
+      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.md",
+      "project/reviews/sandero-technical-page17-reviewed-fact-reconciliation-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
