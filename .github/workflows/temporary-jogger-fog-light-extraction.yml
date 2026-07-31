@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  render:
+  inspect:
     if: github.head_ref == 'agent/jogger-my26-fog-light-superseding-observations-20260731'
     runs-on: ubuntu-latest
     steps:
@@ -17,52 +17,75 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: '3.13'
-      - name: Install renderer
-        run: python -m pip install --disable-pip-version-check pypdfium2==4.30.0 Pillow==11.3.0
-      - name: Verify and render exact equipment pages
+      - name: Verify complete dated contract
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          from hashlib import sha256
-          from pathlib import Path
-          import pypdfium2 as pdfium
+          from __future__ import annotations
 
-          sources = [
-              (
-                  Path('PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf'),
+          import csv
+          import hashlib
+          from pathlib import Path
+
+          root = Path('.')
+          configurations = {
+              'jogger_expression_5seat_ecog120_manual',
+              'jogger_expression_5seat_tce110_manual',
+              'jogger_expression_5seat_hybrid155_automatic',
+              'jogger_expression_7seat_ecog120_manual',
+              'jogger_expression_7seat_tce110_manual',
+              'jogger_expression_7seat_hybrid155_automatic',
+          }
+          sources = {
+              'src_pl_jogger_price_my26_20260401': (
+                  root / 'PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf',
                   'a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b',
-                  'april',
               ),
-              (
-                  Path('PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf'),
+              'src_pl_jogger_price_my26_20260703': (
+                  root / 'PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf',
                   '92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87',
-                  'july',
               ),
-          ]
-          output = Path('rendered-jogger-fog-pages')
-          output.mkdir(parents=True, exist_ok=True)
-          for path, expected, label in sources:
-              actual = sha256(path.read_bytes()).hexdigest()
+          }
+
+          def rows(path: str):
+              with (root / path).open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          for code, (path, expected) in sources.items():
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
               if actual != expected:
-                  raise SystemExit(f'{label} SHA mismatch: {actual}')
-              document = pdfium.PdfDocument(path)
-              print(label, 'pages', len(document), 'sha', actual)
-              for page_number in range(2, min(len(document), 6) + 1):
-                  page = document[page_number - 1]
-                  image = page.render(scale=220 / 72).to_pil()
-                  destination = output / f'{label}-page-{page_number}.png'
-                  image.save(destination)
-                  print(destination, image.size)
+                  raise SystemExit(f'{code} SHA mismatch: {actual}')
+              print('SOURCE', code, path, actual)
+
+          attributes = {row['code']: row for row in rows('data/master/attributes.csv')}
+          print('FOG_ATTRIBUTE', attributes['fog_lights'])
+          for code in ('fog_lights', 'fog_lights_front', 'fog_lights_rear'):
+              matching = [
+                  row for row in rows('data/master/configuration_attribute_availability.csv')
+                  if row['attribute_code'] == code
+              ]
+              print('EXISTING_ATTRIBUTE_ROWS', code, len(matching))
+
+          links = rows('data/master/source_configurations.csv')
+          for source_code in sources:
+              selected = [
+                  row for row in links
+                  if row['source_code'] == source_code
+                  and row['configuration_code'] in configurations
+              ]
+              print('SOURCE_LINKS', source_code, len(selected))
+              for row in selected:
+                  print(row)
+
+          availability = rows('data/master/configuration_attribute_availability.csv')
+          print('MAX_AVAILABILITY_ID', max(int(row['id']) for row in availability))
+          existing = [
+              row for row in availability
+              if row['configuration_code'] in configurations
+              and row['attribute_code'] == 'fog_lights'
+          ]
+          print('EXISTING_TARGET_HISTORY', len(existing))
+          for row in existing:
+              print(row)
           PY
-      - name: Upload rendered pages
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.2.0
-        with:
-          name: jogger-fog-light-source-pages
-          path: rendered-jogger-fog-pages/*.png
-          if-no-files-found: error
-          retention-days: 1
