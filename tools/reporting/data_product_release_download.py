@@ -41,8 +41,10 @@ ENTRY_POINTS = {
     "comparison_bundle_manifest": (
         "comparison-bundle/comparison-bundle-manifest.json"
     ),
-    "cross_model_html": "cross-model/cross-model-comparison-view.html",
     "release_notes": "RELEASE_NOTES.md",
+}
+OPTIONAL_ENTRY_POINTS = {
+    "cross_model_html": "cross-model/cross-model-comparison-view.html",
 }
 
 OpenUrl = Callable[[Request], Any]
@@ -265,6 +267,7 @@ def _extract_verified_contents(
     if not isinstance(raw_files, list):
         raise ReleaseDownloadError("verified release manifest has no files")
 
+    release_members: set[str] = set()
     contents_directory.mkdir()
     with ZipFile(archive_path) as archive:
         for raw_record in raw_files:
@@ -273,6 +276,7 @@ def _extract_verified_contents(
                     "verified release manifest file record is invalid"
                 )
             name = safe_member_name(str(raw_record.get("path", "")))
+            release_members.add(name)
             relative = PurePosixPath(name)
             destination = contents_directory.joinpath(*relative.parts)
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -286,6 +290,19 @@ def _extract_verified_contents(
         if not path.is_file():
             raise ReleaseDownloadError(
                 f"release is missing consumer entry point: {relative_name}"
+            )
+        entry_points[key] = (
+            Path(CONTENTS_DIRECTORY_NAME) / relative_name
+        ).as_posix()
+    for key, relative_name in OPTIONAL_ENTRY_POINTS.items():
+        if relative_name not in release_members:
+            continue
+        path = contents_directory.joinpath(
+            *PurePosixPath(relative_name).parts
+        )
+        if not path.is_file():
+            raise ReleaseDownloadError(
+                f"release is missing declared optional entry point: {relative_name}"
             )
         entry_points[key] = (
             Path(CONTENTS_DIRECTORY_NAME) / relative_name
