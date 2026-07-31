@@ -7,17 +7,17 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Official Source Intake Review",
+  "phase": "Spring Official PDF Source Registration",
   "reference_delivery": {
-    "name": "Post-Cross-Model Download Alignment Priority Review",
-    "pull_request": 419,
-    "head_sha": "982e1ee011411ce8c5bf1bcd852c40dadab2dab3",
-    "quality_run": 2736
+    "name": "Spring Official Source Intake Review",
+    "pull_request": 420,
+    "head_sha": "d69ee8c8ffffaddbf73ccac3c255e810c6dd6b98",
+    "quality_run": 2738
   },
   "baseline": {
     "tests": 1676,
     "csv_files": 46,
-    "rows": 11380,
+    "rows": 11384,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
@@ -27,24 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_official_source_intake_review_001",
-    "kind": "source_intake_review",
-    "name": "Spring Official Source Intake Review",
-    "status": "complete",
-    "goal": "Select the exact official Dacia Poland Spring source set and define a bounded, reproducible capture plan that separates immutable brochure evidence, dated dynamic configurator observations and exact stock-card evidence before any source registration or data import.",
-    "manifest_paths": [
-      "data/reporting/spring_official_source_intake_review.json",
-      "data/reporting/spring_official_source_intake_review.md",
-      "project/reviews/spring-official-source-intake-review-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_official_pdf_source_registration_001",
     "kind": "source_registration",
     "name": "Spring Official PDF Source Registration",
-    "status": "planned",
+    "status": "complete",
     "goal": "Archive, hash and register the exact official Polish Spring brochure dated 2026-02-19 and price list effective 2026-07-08, add model-level Spring relationships and a registration receipt, without importing configuration, price, equipment or technical observations.",
     "manifest_paths": [
       "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
@@ -53,6 +39,25 @@
       "data/master/source_models.csv",
       "data/reporting/spring_official_pdf_source_registration.json",
       "data/reporting/spring_official_pdf_source_registration.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "CHANGELOG.md",
+      "README.md",
+      "project/SESSION_STATE.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_official_configurator_snapshot_001",
+    "kind": "source_snapshot",
+    "name": "Spring Official Configurator Snapshot",
+    "status": "planned",
+    "goal": "Capture and register dated exact official Dacia Poland Spring configurator states for every explicitly observed grade and powertrain combination, preserving applicability and catalogue-price boundaries without importing master data.",
+    "manifest_paths": [
+      "project/sources/dacia-pl-spring-configurator-20260731.json",
+      "data/master/sources.csv",
+      "data/master/source_models.csv",
+      "data/reporting/spring_official_configurator_snapshot.json",
+      "data/reporting/spring_official_configurator_snapshot.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
