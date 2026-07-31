@@ -117,20 +117,22 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             importer.SELECTED_CONFIGURATIONS,
         )
 
-    def test_power_package_preserves_brochure_v2l_inconsistency(self) -> None:
+    def test_power_package_preserves_source_v2l_boundary(self) -> None:
         membership = next(
             row
             for row in self.memberships
             if row["code"] == "spring_power_package__vehicle_to_load"
         )
         self.assertIn("same brochure also lists V2L", membership["notes"])
-        base = next(
-            row
-            for row in self.availability
-            if row["configuration_code"] == "spring_extreme_electric100_automatic"
-            and row["attribute_code"] == "vehicle_to_load"
+        self.assertIn("funkcja ładowania dwukierunkowego V2L", membership["source_text"])
+        self.assertFalse(
+            any(
+                row["configuration_code"] == "spring_extreme_electric100_automatic"
+                and row["attribute_code"] == "vehicle_to_load"
+                for row in self.availability
+            ),
+            "This package must not backfill a direct availability row that the earlier matrix import did not contain.",
         )
-        self.assertEqual(base["availability_status"], "standard")
 
 
 if __name__ == "__main__":
