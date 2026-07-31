@@ -25,20 +25,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m pip install --quiet pyyaml
           python - <<'PY'
           from pathlib import Path
-          import yaml
+          import textwrap
 
-          workflow = yaml.safe_load(
-              Path('.github/workflows/tmp-interactive-shortlist-interface-repair.yml').read_text(encoding='utf-8')
-          )
-          step = next(
-              item for item in workflow['jobs']['materialize']['steps']
-              if item.get('name') == 'Repair shortlist interface'
-          )
+          source = Path('.github/workflows/tmp-interactive-shortlist-interface-repair.yml').read_text(encoding='utf-8')
+          marker = "      - name: Repair shortlist interface\n        shell: bash\n        run: |\n"
+          assert marker in source
+          block = source.split(marker, 1)[1]
           Path('/tmp/materialize-interface-repair.sh').write_text(
-              step['run'], encoding='utf-8'
+              textwrap.dedent(block), encoding='utf-8'
           )
           PY
           git show origin/main:.github/workflows/configuration-shortlist-html.yml > .github/workflows/configuration-shortlist-html.yml
