@@ -35,3 +35,4 @@ id,source_code,model_code,relationship,notes
 34,src_pl_duster_mini_brochure_20251020,duster_iii,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
 35,src_pl_spring_brochure_20260219,spring,brochure_for,Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.
 36,src_pl_spring_price_my25_stock_20260708,spring,price_list_for,Official Polish model-year-2025 stock price list effective 2026-07-08; catalogue and promotional states remain stock-bounded.
+37,src_pl_spring_official_configurator_20260731,spring,web_configuration_for,"Official Polish Spring configurator, comparison, version and grade-equipment pages observed 2026-07-31; exact states only."
