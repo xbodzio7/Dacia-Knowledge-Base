@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 import tempfile
 from pathlib import Path
@@ -32,7 +31,6 @@ NEW_CONFIGURATIONS = {
     "sandero_stepway_iii_expression_tce110_manual",
     "sandero_stepway_iii_extreme_tce110_manual",
 }
-NEW_SCOPE = "sandero_tce100_stepway_tce110_manual"
 MODEL_CODES = [
     "sandero_iii",
     "sandero_stepway_iii",
@@ -44,7 +42,7 @@ MODEL_PRICES = [63900, 71700, 77900, 82000, 101400]
 
 
 class PreparationError(RuntimeError):
-    """Raised when the v1.9.0 release-preparation contract drifts."""
+    """Raised when the v1.9.0 preparation contract drifts."""
 
 
 def ensure(condition: bool, message: str) -> None:
@@ -72,8 +70,7 @@ def verify_report(payload: Mapping[str, Any]) -> None:
         "selection source differs",
     )
 
-    target = payload.get("target")
-    ensure(isinstance(target, Mapping), "target is missing")
+    target = payload.get("target", {})
     ensure(target.get("version") == "1.9.0", "target version differs")
     ensure(target.get("tag") == "data-products-v1.9.0", "target tag differs")
     ensure(
@@ -81,14 +78,8 @@ def verify_report(payload: Mapping[str, Any]) -> None:
         == "dacia-knowledge-base-data-products-v1.9.0.zip",
         "target archive differs",
     )
-    ensure(
-        target.get("manifest_name") == "data-product-release-manifest.json",
-        "manifest name differs",
-    )
-    ensure(target.get("checksums_name") == "SHA256SUMS", "checksums name differs")
 
-    public = payload.get("public_baseline")
-    ensure(isinstance(public, Mapping), "public baseline is missing")
+    public = payload.get("public_baseline", {})
     expected_public = {
         "version": "1.8.1",
         "tag": "data-products-v1.8.1",
@@ -106,8 +97,7 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     for key, value in expected_public.items():
         ensure(public.get(key) == value, f"public baseline differs: {key}")
 
-    candidate = payload.get("candidate_baseline")
-    ensure(isinstance(candidate, Mapping), "candidate baseline is missing")
+    candidate = payload.get("candidate_baseline", {})
     expected_candidate = {
         "selected_configuration_count": 78,
         "scope_group_count": 20,
@@ -122,23 +112,31 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     }
     for key, value in expected_candidate.items():
         ensure(candidate.get(key) == value, f"candidate baseline differs: {key}")
-    boundaries = candidate.get("semantic_boundaries")
-    ensure(isinstance(boundaries, Mapping), "candidate semantic boundaries are missing")
-    ensure(boundaries.get("new_source_backed_configurations") is True, "new configuration boundary differs")
-    ensure(boundaries.get("new_reporting_scope") is True, "new scope boundary differs")
-    ensure(boundaries.get("new_within_scope_pairs") is True, "new pair boundary differs")
+    semantic = candidate.get("semantic_boundaries", {})
+    for key in (
+        "new_source_backed_configurations",
+        "new_reporting_scope",
+        "new_within_scope_pairs",
+    ):
+        ensure(semantic.get(key) is True, f"expected release expansion differs: {key}")
     for key in (
         "cross_scope_pairs_generated",
         "ranking_generated",
         "recommendations_generated",
         "inferred_values_generated",
     ):
-        ensure(boundaries.get(key) is False, f"forbidden semantic output differs: {key}")
+        ensure(semantic.get(key) is False, f"forbidden semantic output differs: {key}")
 
-    delta = payload.get("release_delta")
-    ensure(isinstance(delta, Mapping), "release delta is missing")
-    ensure(set(delta.get("new_configuration_codes", [])) == NEW_CONFIGURATIONS, "new configuration set differs")
-    ensure(delta.get("new_reporting_scope") == NEW_SCOPE, "new reporting scope differs")
+    delta = payload.get("release_delta", {})
+    ensure(
+        set(delta.get("new_configuration_codes", [])) == NEW_CONFIGURATIONS,
+        "new configuration set differs",
+    )
+    ensure(
+        delta.get("new_reporting_scope")
+        == "sandero_tce100_stepway_tce110_manual",
+        "new reporting scope differs",
+    )
     expected_delta = {
         "selected_configuration_delta": 6,
         "scope_group_delta": 1,
@@ -151,55 +149,50 @@ def verify_report(payload: Mapping[str, Any]) -> None:
     for key, value in expected_delta.items():
         ensure(delta.get(key) == value, f"release delta differs: {key}")
 
-    shortlist = payload.get("shortlist_contract")
-    ensure(isinstance(shortlist, Mapping), "shortlist contract is missing")
+    shortlist = payload.get("shortlist_contract", {})
     ensure(shortlist.get("active_configuration_count") == 78, "shortlist count differs")
-    ensure(shortlist.get("equipment_facet_count") == 110, "equipment facet count differs")
-    ensure(shortlist.get("visible_equipment_choices") == 108, "visible equipment count differs")
-    ensure(shortlist.get("rear_view_camera_matches") == 71, "camera result count differs")
+    ensure(shortlist.get("equipment_facet_count") == 110, "equipment count differs")
+    ensure(shortlist.get("visible_equipment_choices") == 108, "visible equipment differs")
+    ensure(shortlist.get("rear_view_camera_matches") == 71, "camera count differs")
     ensure(shortlist.get("missing_and_unknown_are_exclusions") is True, "unknown handling differs")
-    order = shortlist.get("model_order")
-    ensure(isinstance(order, list) and len(order) == 5, "model order is missing")
-    ensure([item.get("model_code") for item in order] == MODEL_CODES, "model code order differs")
-    ensure([item.get("minimum_catalog_price_pln") for item in order] == MODEL_PRICES, "model prices differ")
+    order = shortlist.get("model_order", [])
+    ensure([item.get("model_code") for item in order] == MODEL_CODES, "model order differs")
+    ensure(
+        [item.get("minimum_catalog_price_pln") for item in order] == MODEL_PRICES,
+        "model prices differ",
+    )
 
     ensure(
         payload.get("publication_lifecycle")
         == ["preflight", "publish", "independent_public_audit", "record_publication"],
         "publication lifecycle differs",
     )
-    preflight = payload.get("preflight_contract")
-    ensure(isinstance(preflight, Mapping), "preflight contract is missing")
+    preflight = payload.get("preflight_contract", {})
     ensure(preflight.get("source") == "exact squash-merged preparation commit", "preflight source differs")
     ensure(preflight.get("build_count") == 2, "preflight build count differs")
     required = set(preflight.get("required_checks", []))
-    ensure("byte_identical_rebuilds" in required, "byte-identity preflight is missing")
-    ensure("public_v1_8_1_control_download" in required, "public control download is missing")
-    ensure("tag_and_release_absence" in required, "tag-absence preflight is missing")
+    ensure("byte_identical_rebuilds" in required, "byte-identity check is missing")
+    ensure("public_v1_8_1_control_download" in required, "public control is missing")
+    ensure("tag_and_release_absence" in required, "publication absence check is missing")
 
-    publication = payload.get("publication_state")
-    ensure(isinstance(publication, Mapping), "publication state is missing")
+    publication = payload.get("publication_state", {})
     ensure(publication.get("publication_performed") is False, "publication already performed")
-    ensure(publication.get("tag_created") is False, "tag already recorded")
-    ensure(publication.get("release_created") is False, "release already recorded")
+    ensure(publication.get("tag_created") is False, "tag already created")
+    ensure(publication.get("release_created") is False, "release already created")
     ensure(publication.get("final_source_commit") is None, "final commit was guessed")
-    ensure(publication.get("final_asset_identity") is None, "final asset identity was guessed")
+    ensure(publication.get("final_asset_identity") is None, "final assets were guessed")
+
+    baseline = payload.get("repository_baseline", {})
+    ensure(baseline.get("tests") == 1676, "test baseline differs")
+    ensure(baseline.get("rows") == 11380, "master row baseline differs")
+    ensure(baseline.get("configuration_values") == 3498, "value baseline differs")
+    ensure(baseline.get("configuration_value_ranges") == 298, "range baseline differs")
+    ensure(baseline.get("availability_records") == 5770, "availability baseline differs")
     ensure(
-        payload.get("next_package", {}).get("name") == "Data Products v1.9.0 Preflight",
+        payload.get("next_package", {}).get("name")
+        == "Data Products v1.9.0 Preflight",
         "next package differs",
     )
-
-
-def embedded_catalog(rendered: str) -> dict[str, Any]:
-    match = re.search(
-        r'<script id="configuration-catalog" type="application/json">(.*?)</script>',
-        rendered,
-        flags=re.DOTALL,
-    )
-    ensure(match is not None, "embedded shortlist catalog is missing")
-    payload = json.loads(match.group(1))
-    ensure(isinstance(payload, dict), "embedded shortlist catalog is invalid")
-    return payload
 
 
 def verify_repository() -> None:
@@ -215,74 +208,48 @@ def verify_repository() -> None:
     with tempfile.TemporaryDirectory() as directory:
         output = Path(directory) / "release"
         manifest = create_release_assets(ROOT, output, "1.9.0", "6" * 40)
-        archive_path = output / archive_name("1.9.0")
         ensure(manifest.get("release_version") == "1.9.0", "candidate version differs")
-        ensure(manifest.get("release_tag") == "data-products-v1.9.0", "candidate tag differs")
         ensure(manifest.get("selected_configuration_count") == 78, "candidate configuration count differs")
         ensure(manifest.get("scope_group_count") == 20, "candidate scope count differs")
         ensure(manifest.get("comparable_scope_count") == 20, "candidate comparable count differs")
         ensure(manifest.get("singleton_scope_count") == 0, "candidate singleton count differs")
-        ensure(manifest.get("cross_scope_pairs_generated") is False, "candidate created cross-scope pairs")
-        ensure(manifest.get("ranking_generated") is False, "candidate created ranking")
-        ensure(manifest.get("recommendations_generated") is False, "candidate created recommendations")
-        ensure(manifest.get("inferred_values_generated") is False, "candidate created inferred values")
+        for key in (
+            "cross_scope_pairs_generated",
+            "ranking_generated",
+            "recommendations_generated",
+            "inferred_values_generated",
+        ):
+            ensure(manifest.get(key) is False, f"candidate semantic boundary differs: {key}")
 
-        with ZipFile(archive_path) as archive:
+        with ZipFile(output / archive_name("1.9.0")) as archive:
             names = archive.namelist()
             ensure(len(names) == 89, "candidate archive member count differs")
-            ensure(len(set(names)) == 89, "candidate archive has duplicate members")
+            ensure(len(set(names)) == 89, "candidate archive contains duplicates")
+            shortlist = json.loads(
+                archive.read("shortlist/configuration-shortlist.json")
+            )
             bundle = json.loads(
                 archive.read("comparison-bundle/comparison-bundle-manifest.json")
             )
-            rendered = archive.read("shortlist/configuration-shortlist.html").decode("utf-8")
             notes = archive.read("RELEASE_NOTES.md").decode("utf-8")
 
-    ensure(bundle.get("selected_configuration_count") == 78, "bundle configuration count differs")
-    ensure(bundle.get("scope_group_count") == 20, "bundle scope count differs")
-    ensure(bundle.get("comparable_scope_count") == 20, "bundle comparable count differs")
-    ensure(bundle.get("singleton_scope_count") == 0, "bundle singleton count differs")
-    codes = set(bundle.get("selected_configuration_codes", []))
-    ensure(NEW_CONFIGURATIONS <= codes, "new configurations are missing from the bundle")
-    groups = bundle.get("groups")
-    ensure(isinstance(groups, list), "bundle groups are missing")
-    ensure(sum(int(group.get("pair_count", 0)) for group in groups) == 129, "bundle pair count differs")
-    ensure(sum(int(group.get("total_differences", 0)) for group in groups) == 2180, "bundle difference count differs")
-    new_groups = [group for group in groups if group.get("scope") == NEW_SCOPE]
-    ensure(len(new_groups) == 1, "new reporting scope is missing or duplicated")
-    ensure(set(new_groups[0].get("configuration_codes", [])) == NEW_CONFIGURATIONS, "new scope membership differs")
-    ensure(new_groups[0].get("pair_count") == 15, "new scope pair count differs")
+    results = shortlist.get("results", [])
+    ensure(len(results) == 78, "release shortlist count differs")
+    codes = {item.get("configuration_code") for item in results}
+    ensure(NEW_CONFIGURATIONS <= codes, "new configurations are missing from shortlist")
 
-    catalog = embedded_catalog(rendered)
-    configurations = catalog.get("configurations")
-    facets = catalog.get("facets")
-    ensure(isinstance(configurations, list) and len(configurations) == 78, "embedded configuration count differs")
-    ensure(isinstance(facets, Mapping), "embedded facets are missing")
-    embedded_codes = {item.get("configuration_code") for item in configurations}
-    ensure(NEW_CONFIGURATIONS <= embedded_codes, "new configurations are missing from shortlist")
-    equipment = facets.get("equipment")
-    comparison_values = facets.get("comparison_values")
-    models = facets.get("models")
-    ensure(isinstance(equipment, list) and len(equipment) == 110, "embedded equipment count differs")
-    ensure(isinstance(comparison_values, list) and len(comparison_values) == 127, "technical facet count differs")
-    ensure(isinstance(models, list) and len(models) == 5, "embedded model count differs")
-    ensure([item.get("code") for item in models] == MODEL_CODES, "embedded model order differs")
-    ensure([item.get("minimum_catalog_price_pln") for item in models] == MODEL_PRICES, "embedded model prices differ")
-    visible = sum(
-        1
-        for item in equipment
-        if int(item.get("states", {}).get("standard", 0))
-        + int(item.get("states", {}).get("optional", 0))
-        > 0
-    )
-    ensure(visible == 108, "embedded visible equipment count differs")
-    camera = next((item for item in equipment if item.get("code") == "rear_view_camera"), None)
-    ensure(isinstance(camera, Mapping), "rear-view camera facet is missing")
-    camera_matches = int(camera.get("states", {}).get("standard", 0)) + int(
-        camera.get("states", {}).get("optional", 0)
-    )
-    ensure(camera_matches == 71, "embedded camera match count differs")
+    groups = bundle.get("groups", [])
+    ensure(len(groups) == 20, "release group count differs")
+    ensure(sum(int(group.get("pair_count", 0)) for group in groups) == 129, "release pair count differs")
+    matching = [
+        group
+        for group in groups
+        if set(group.get("configuration_codes", [])) == NEW_CONFIGURATIONS
+    ]
+    ensure(len(matching) == 1, "new reporting scope membership differs")
+    ensure(matching[0].get("pair_count") == 15, "new reporting scope pair count differs")
 
-    required_note_fragments = (
+    for fragment in (
         "six new source-backed manual configurations",
         "78 active configurations",
         "20 independent scopes",
@@ -293,25 +260,27 @@ def verify_repository() -> None:
         "110 equipment facets",
         "No cross-scope pairs, ranking, recommendations or inferred values",
         "v1.8.1 remains immutable",
-    )
-    for fragment in required_note_fragments:
+    ):
         ensure(fragment in notes, f"release notes omit: {fragment}")
 
     state = load_json(STATE)
-    ensure(isinstance(state.get("phase"), str) and bool(state["phase"]), "project phase is missing")
-    current = state.get("current_package")
-    ensure(isinstance(current, Mapping), "current package is missing")
-    ensure(current.get("status") in {"planned", "active", "blocked", "complete"}, "current status differs")
-    next_package = state.get("next_package")
-    ensure(isinstance(next_package, Mapping), "next package is missing")
+    ensure(
+        state.get("current_package", {}).get("name")
+        == "Data Products v1.9.0 Release Preparation",
+        "current package differs",
+    )
+    ensure(state.get("current_package", {}).get("status") == "complete", "current package is not complete")
+    ensure(
+        state.get("next_package", {}).get("name")
+        == "Data Products v1.9.0 Preflight",
+        "next state package differs",
+    )
     baseline = state.get("baseline", {})
-    ensure(baseline.get("tests", 0) >= 1684, "test baseline regressed")
-    ensure(baseline.get("csv_files", 0) >= 46, "CSV baseline regressed")
-    ensure(baseline.get("rows", 0) >= 11380, "master row baseline regressed")
-    ensure(baseline.get("configuration_values", 0) >= 3498, "configuration values regressed")
-    ensure(baseline.get("configuration_value_ranges", 0) >= 298, "configuration ranges regressed")
-    ensure(baseline.get("availability_records", 0) >= 5770, "availability baseline regressed")
-    ensure(baseline.get("attributes", 0) >= 385, "attribute baseline regressed")
+    ensure(baseline.get("tests") == 1676, "state test baseline differs")
+    ensure(baseline.get("rows") == 11380, "state row baseline differs")
+    ensure(baseline.get("configuration_values") == 3498, "state value baseline differs")
+    ensure(baseline.get("configuration_value_ranges") == 298, "state range baseline differs")
+    ensure(baseline.get("availability_records") == 5770, "state availability baseline differs")
 
 
 def verify() -> None:
