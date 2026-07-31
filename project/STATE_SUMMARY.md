@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.9.0 Release Preparation**
+**Data Products v1.9.0 Preflight**
 
 ## Reference delivery
 
-- Package: Sandero Page 17 Power and Torque RPM Range Import Closure
-- Pull Request: #409
-- Verified head: `710fa01ce5adeb49e675f740793184ba95e27f89`
-- Quality run: #2703
+- Package: Data Products v1.9.0 Release Preparation
+- Pull Request: #410
+- Verified head: `5c7e5e347d02ad17715e2348fdbc85fb400f4db4`
+- Quality run: #2705
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.9.0 Release Preparation** — `complete`
+**Data Products v1.9.0 Preflight** — `complete`
 
-Prepare and verify an immutable minor-release candidate containing six new source-backed Sandero and Sandero Stepway manual configurations, 78 active configurations in 20 independent scopes and the current complete data products, without publishing or rewriting public v1.8.1.
+Build the v1.9.0 assets twice from exact source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c, prove byte identity, verify all 78-configuration and 20-scope contracts, and record final asset sizes and SHA-256 values without creating a tag or release.
 
 ## Next package
 
-**Data Products v1.9.0 Preflight** — `planned`
+**Data Products v1.9.0 Publication** — `planned`
 
-Build the v1.9.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the 78-configuration and 20-scope release contracts, independently check public v1.8.1 and record final asset identities without creating a tag or release.
+Publish the permanent tag data-products-v1.9.0 at source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c with exactly the three preflighted assets, then independently download, audit and record the immutable public release.
 
 ## Autonomy
 
