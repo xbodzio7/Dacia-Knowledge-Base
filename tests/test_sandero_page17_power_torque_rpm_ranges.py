@@ -1,3 +1,5 @@
+"""Verify the exact Sandero page 17 power and torque RPM range receipt."""
+
 from __future__ import annotations
 
 import csv
