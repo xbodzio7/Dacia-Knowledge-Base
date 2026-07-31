@@ -22,12 +22,14 @@ jobs:
       - name: Install workflow parser
         run: python -m pip install --disable-pip-version-check pyyaml
 
-      - name: Replay materializer with historical preflight guard
+      - name: Materialize final Spring Electric 70 package
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
+          import json
           import subprocess
+          import sys
           from pathlib import Path
 
           import yaml
@@ -37,34 +39,82 @@ jobs:
           workflow = yaml.safe_load(original.read_text(encoding='utf-8'))
           script = workflow['jobs']['materialize']['steps'][1]['run']
 
-          patch = r'''
-          python - <<'PATCHPY'
-          import json
-          from pathlib import Path
+          prefix = "python - <<'PY'\n"
+          suffix = "\nPY\n\npython tools/dkb.py project-state --apply"
+          assert prefix in script and suffix in script
+          python_source = script.split(prefix, 1)[1].split(suffix, 1)[0]
+          exec(compile(python_source, '<spring-electric70-materializer>', 'exec'), {})
 
-          path = Path('tools/review_data_products_v1_9_0_preflight_20260731.py')
-          text = path.read_text(encoding='utf-8')
+          verifier = Path('tools/review_data_products_v1_9_0_preflight_20260731.py')
+          text = verifier.read_text(encoding='utf-8')
+          if 'import csv\n' not in text:
+              text = text.replace('import argparse\n', 'import argparse\nimport csv\n', 1)
           marker = 'def verify_rebuilds() -> None:\n'
-          guard = '''def verify_rebuilds() -> None:\n    # Historical v1.9.0 assets can be rebuilt only from their 78-configuration\n    # source catalogue. After later source-backed catalogue expansion, retain\n    # report, hash and public-release verification without pretending that the\n    # old release can be reconstructed from new master data.\n    configurations_path = ROOT / "data" / "master" / "configurations.csv"\n    active_count = sum(\n        1\n        for line in configurations_path.read_text(encoding="utf-8-sig").splitlines()[1:]\n        if line and ",active," in f",{line},"\n    )\n    if active_count != 78:\n        return\n'''
+          guard = (
+              'def verify_rebuilds() -> None:\n'
+              '    # Historical v1.9.0 assets can be rebuilt only from their\n'
+              '    # original 78-configuration source catalogue. Later\n'
+              '    # source-backed catalogue expansion retains report, hash\n'
+              '    # and public-release verification without rebuilding the\n'
+              '    # old release from newer master data.\n'
+              '    configurations_path = ROOT / "data" / "master" / "configurations.csv"\n'
+              '    with configurations_path.open(encoding="utf-8", newline="") as handle:\n'
+              '        active_count = sum(\n'
+              '            row.get("status") == "active"\n'
+              '            for row in csv.DictReader(handle)\n'
+              '        )\n'
+              '    if active_count != 78:\n'
+              '        return\n'
+          )
           assert text.count(marker) == 1
-          text = text.replace(marker, guard, 1)
-          path.write_text(text, encoding='utf-8')
+          verifier.write_text(text.replace(marker, guard, 1), encoding='utf-8')
 
           state_path = Path('project/state.json')
           state = json.loads(state_path.read_text(encoding='utf-8'))
           manifest = state['current_package']['manifest_paths']
-          verifier = 'tools/review_data_products_v1_9_0_preflight_20260731.py'
-          if verifier not in manifest:
-              manifest.append(verifier)
+          verifier_path = verifier.as_posix()
+          if verifier_path not in manifest:
+              manifest.append(verifier_path)
           state['current_package']['manifest_paths'] = sorted(set(manifest))
-          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          PATCHPY
-          '''
-          script = script.replace(
-              'python tools/dkb.py project-state --apply',
-              patch + '\npython tools/dkb.py project-state --apply',
-              1,
+          state_path.write_text(
+              json.dumps(state, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
           )
+
+          subprocess.run(
+              [sys.executable, 'tools/dkb.py', 'project-state', '--apply'],
+              check=True,
+          )
+          subprocess.run(
+              [sys.executable, 'tools/dkb.py', 'project-state', '--check'],
+              check=True,
+          )
+          subprocess.run(['git', 'diff', '--check'], check=True)
+
+          original.unlink()
           replay.unlink()
-          subprocess.run(['bash', '-euo', 'pipefail', '-c', script], check=True)
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(
+              [
+                  'git',
+                  'config',
+                  'user.email',
+                  '41898282+github-actions[bot]@users.noreply.github.com',
+              ],
+              check=True,
+          )
+          subprocess.run(['git', 'add', '-A'], check=True)
+          subprocess.run(
+              ['git', 'commit', '-m', 'data(spring): add Electric 70 catalogue foundation'],
+              check=True,
+          )
+          subprocess.run(
+              [
+                  'git',
+                  'push',
+                  'origin',
+                  'HEAD:agent/spring-electric70-catalogue-foundation-20260731',
+              ],
+              check=True,
+          )
           PY
