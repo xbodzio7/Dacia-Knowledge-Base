@@ -131,3 +131,19 @@ jobs:
           path: brochure-review-source-text
           if-no-files-found: error
           retention-days: 7
+      - name: Upload text repository snapshot
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.2.0
+        with:
+          name: brochure-review-repository-snapshot
+          path: |
+            data
+            project
+            tests
+            tools
+            .github/workflows
+            README.md
+            CHANGELOG.md
+            pyproject.toml
+            requirements*.txt
+          if-no-files-found: error
+          retention-days: 7
