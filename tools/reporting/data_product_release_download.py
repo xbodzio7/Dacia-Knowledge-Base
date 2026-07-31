@@ -41,6 +41,7 @@ ENTRY_POINTS = {
     "comparison_bundle_manifest": (
         "comparison-bundle/comparison-bundle-manifest.json"
     ),
+    "cross_model_html": "cross-model/cross-model-comparison-view.html",
     "release_notes": "RELEASE_NOTES.md",
 }
 
