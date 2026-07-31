@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.9.0 Priority Selection Review**
+**Post-v1.9.0 Cross-Model Navigation Reconciliation**
 
 ## Reference delivery
 
-- Package: Data Products v1.9.0 Publication Record
-- Pull Request: #414
-- Verified head: `8ec7fd09bf0fdfbb9b1f31902a443260973958f4`
-- Quality run: #2726
+- Package: Post-v1.9.0 Priority Selection Review
+- Pull Request: #415
+- Verified head: `5f00f0e3e105397ee1dce2dd9337110e029ecf30`
+- Quality run: #2728
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.9.0 Priority Selection Review** — `complete`
+**Post-v1.9.0 Cross-Model Navigation Reconciliation** — `complete`
 
-Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.
+Reconcile the previously completed cross-model workspace review and implementation against the audited v1.9.0 product, then isolate any remaining discoverability gap without rewriting historical review artifacts.
 
 ## Next package
 
-**Cross-Model Navigation Usability Review** — `planned`
+**Cross-Model Download Discoverability Alignment** — `planned`
 
-Review consumer discoverability of the published cross-model products and deterministic offline workspace, determine whether the workspace index needs a dedicated cross-model entry point, and define one bounded implementation recommendation without changing comparison semantics in the review package.
+Expose the already verified cross-model navigation HTML consistently through release-download metadata, terminal output and the consumer guide, with focused regression coverage and no change to workspace-index rendering, release assets or comparison semantics.
 
 ## Autonomy
 
