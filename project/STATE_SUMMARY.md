@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Interactive Shortlist Interface Repair**
+**Brochure Equipment Inheritance and Colour Review**
 
 ## Reference delivery
 
-- Package: Spring Electric 100 Singleton Catalogue Foundation
-- Pull Request: #426
-- Verified head: `f5a2233855213873152fd164b831d450bb05ef47`
-- Quality run: #2782
+- Package: Interactive Shortlist Interface Repair
+- Pull Request: #427
+- Verified head: `77ac01e37031d763574a30c865471804ce06b1aa`
+- Quality run: #2796
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Shortlist Interface Repair** — `complete`
+**Brochure Equipment Inheritance and Colour Review** — `complete`
 
-Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.
+Audit every registered brochure and price list for explicit factory colour offers, fixed and ranged paint prices, source-stated grade inheritance and repeated source-bounded equipment gaps, then select exact non-inferred import packages.
 
 ## Next package
 
-**Brochure Equipment Inheritance and Colour Review** — `planned`
+**Spring Version Equipment Matrix Availability Import** — `planned`
 
-Audit every registered brochure and price list for explicit factory colour offers, paid metallic and non-metallic colours, source-stated grade inheritance chains such as Expression = Essential +, and repeated missing technical or equipment observations, then select exact non-inferred import packages.
+Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.
 
 ## Autonomy
 
