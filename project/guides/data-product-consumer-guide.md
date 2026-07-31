@@ -10,7 +10,7 @@ Przepływ obejmuje:
 2. automatyczną kontrolę tagu, assetów, manifestu i sum SHA-256,
 3. bezpieczne rozpakowanie do lokalnego workspace,
 4. nawigację przez lokalny `index.html`,
-5. użycie shortlisty, skoroszytu i raportów zakresowych,
+5. użycie shortlisty, nawigacji modeli i zakresów, skoroszytu oraz raportów zakresowych,
 6. utworzenie własnego bundle porównań z wybranych konfiguracji,
 7. późniejszą, całkowicie offline'ową kontrolę integralności workspace.
 
@@ -48,6 +48,8 @@ Przed opublikowaniem workspace komenda:
 - tworzy deterministyczny `index.html`,
 - publikuje katalog docelowy atomowym przemianowaniem.
 
+Po sukcesie podsumowanie terminalowe pokazuje zweryfikowane punkty wejścia. Dla wydań zawierających produkt cross-model obejmuje również bezpośrednią ścieżkę `Cross-model navigation`. Starsze wydania bez tego członu zachowują wcześniejszy zestaw punktów wejścia.
+
 ## 2. Otwórz stronę startową
 
 Po sukcesie otwórz:
@@ -61,6 +63,7 @@ Strona działa bez serwera, JavaScriptu, zewnętrznych stylów i fontów. Zawier
 - wersję, tag, commit i datę snapshotu,
 - liczbę konfiguracji i niezależnych zakresów,
 - cztery podstawowe produkty,
+- warunkową piątą kartę `Models and comparison scopes`, gdy zweryfikowane wydanie zawiera cross-model HTML,
 - wszystkie zakresy porównań,
 - odnośniki do oryginalnych assetów proweniencji.
 
@@ -95,6 +98,18 @@ contents/comparison-bundle/comparison-bundle-manifest.json
 ```
 
 Manifest opisuje wybrane konfiguracje, zakresy porównywalne i singletony, liczbę par i różnic, pliki raportów oraz ich sumy SHA-256.
+
+### Nawigacja modeli i zakresów
+
+W wydaniach zawierających produkt cross-model dostępny jest zweryfikowany punkt wejścia:
+
+```text
+contents/cross-model/cross-model-comparison-view.html
+```
+
+Strona grupuje konfiguracje według rodzin modeli i istniejących niezależnych zakresów raportowych. Pozwala otwierać wyłącznie wygenerowane ścieżki i raporty, działa offline i nie tworzy par między zakresami, rankingów, rekomendacji ani wartości wywnioskowanych.
+
+Downloader wystawia tę ścieżkę w wyniku jako `cross_model_html` i pokazuje ją w terminalu jako `Cross-model navigation`. Gdy starsze wydanie nie zawiera tego członu, punkt wejścia nie jest dodawany ani drukowany.
 
 ### Raporty zakresowe
 
@@ -231,6 +246,7 @@ Produkty zachowują następujące zasady:
 | Pobranie wydania | `data-product-release-download --version 1.0.0` |
 | Główna nawigacja | `index.html` |
 | Filtrowanie konfiguracji | `contents/shortlist/configuration-shortlist.html` |
+| Nawigacja modeli i zakresów | `contents/cross-model/cross-model-comparison-view.html` |
 | Gotowy przegląd tabelaryczny | `configuration-comparison-workbook.xlsx` |
 | Struktura zakresów i artefaktów | `comparison-bundle-manifest.json` |
 | Własny bundle | `configuration-comparison-bundle` |

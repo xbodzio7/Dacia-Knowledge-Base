@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.9.0 Cross-Model Navigation Reconciliation**
+**Cross-Model Download Discoverability Alignment**
 
 ## Reference delivery
 
-- Package: Post-v1.9.0 Priority Selection Review
-- Pull Request: #415
-- Verified head: `5f00f0e3e105397ee1dce2dd9337110e029ecf30`
-- Quality run: #2728
+- Package: Post-v1.9.0 Cross-Model Navigation Reconciliation
+- Pull Request: #416
+- Verified head: `e89163edd30bf3ed749b12e59f0f7c1d2b96d0ca`
+- Quality run: #2730
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.9.0 Cross-Model Navigation Reconciliation** — `complete`
+**Cross-Model Download Discoverability Alignment** — `complete`
 
-Reconcile the previously completed cross-model workspace review and implementation against the audited v1.9.0 product, then isolate any remaining discoverability gap without rewriting historical review artifacts.
+Expose the already verified cross-model navigation HTML consistently through release-download metadata, terminal output and the consumer guide, with focused regression coverage and no change to workspace-index rendering, release assets or comparison semantics.
 
 ## Next package
 
-**Cross-Model Download Discoverability Alignment** — `planned`
+**Cross-Model Download Discoverability Alignment Closure** — `planned`
 
-Expose the already verified cross-model navigation HTML consistently through release-download metadata, terminal output and the consumer guide, with focused regression coverage and no change to workspace-index rendering, release assets or comparison semantics.
+Verify the conditional cross-model entry-point receipt across downloader metadata, terminal output, consumer documentation, public v1.9.0 and older-release compatibility, then record the closed usability boundary.
 
 ## Autonomy
 
