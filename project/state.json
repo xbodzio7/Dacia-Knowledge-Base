@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.9.0 Publication",
+  "phase": "Post-v1.9.0 Priority Selection Review",
   "reference_delivery": {
-    "name": "Data Products v1.9.0 Publication",
-    "pull_request": 412,
-    "head_sha": "430b05fb432b4404c3911c56b077ed5c71b036de",
-    "quality_run": 2713
+    "name": "Data Products v1.9.0 Publication Record",
+    "pull_request": 414,
+    "head_sha": "8ec7fd09bf0fdfbb9b1f31902a443260973958f4",
+    "quality_run": 2726
   },
   "baseline": {
     "tests": 1676,
@@ -27,29 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_9_0_publication_record_001",
-    "kind": "release_publication_record",
-    "name": "Data Products v1.9.0 Publication",
-    "status": "complete",
-    "goal": "Record the immutable public data-products-v1.9.0 identity, independent audit and exact release contents after successful publication.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_9_0_public_audit.json",
-      "project/releases/data-products-v1.9.0.md",
-      "tests/test_data_products_v1_9_0_preflight.py",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_9_0_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.9.0 Priority Selection Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.",
     "manifest_paths": [
       "data/reporting/post_v1_9_0_priority_selection_review.json",
       "data/reporting/post_v1_9_0_priority_selection_review.md",
       "project/reviews/post-v1.9.0-priority-selection-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "cross_model_navigation_usability_review_001",
+    "kind": "product_usability_review",
+    "name": "Cross-Model Navigation Usability Review",
+    "status": "planned",
+    "goal": "Review consumer discoverability of the published cross-model products and deterministic offline workspace, determine whether the workspace index needs a dedicated cross-model entry point, and define one bounded implementation recommendation without changing comparison semantics in the review package.",
+    "manifest_paths": [
+      "data/reporting/cross_model_navigation_usability_review.json",
+      "data/reporting/cross_model_navigation_usability_review.md",
+      "project/reviews/cross-model-navigation-usability-review-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
