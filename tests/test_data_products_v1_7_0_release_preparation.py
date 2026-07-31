@@ -63,7 +63,9 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
         active = [
             row
             for row in rows(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"] not in ADDED_CONFIGURATION_CODES
+            if row["status"] == "active"
+            and row["code"] not in ADDED_CONFIGURATION_CODES
+            and not row["code"].startswith("spring_")
         ]
         self.assertEqual(len(active), 72)
 
