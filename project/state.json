@@ -33,6 +33,8 @@
     "status": "complete",
     "goal": "Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.",
     "manifest_paths": [
+      ".github/workflows/configuration-comparison-bundle.yml",
+      ".github/workflows/configuration-selection-export.yml",
       "CHANGELOG.md",
       "README.md",
       "data/master/configuration_prices.csv",
