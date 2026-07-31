@@ -45,7 +45,9 @@
       "project/packages/spring-exterior-colour-options-20260731.md",
       "project/state.json",
       "tests/test_commercial_items_20260703.py",
+      "tests/test_spring_commercial_packages.py",
       "tests/test_spring_exterior_colour_options.py",
+      "tools/import_spring_commercial_packages.py",
       "tools/import_spring_exterior_colour_options.py"
     ]
   },
