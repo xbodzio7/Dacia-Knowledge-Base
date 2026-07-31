@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Interactive Shortlist Interface Repair",
+  "phase": "Brochure Equipment Inheritance and Colour Review",
   "reference_delivery": {
-    "name": "Spring Electric 100 Singleton Catalogue Foundation",
-    "pull_request": 426,
-    "head_sha": "f5a2233855213873152fd164b831d450bb05ef47",
-    "quality_run": 2782
+    "name": "Interactive Shortlist Interface Repair",
+    "pull_request": 427,
+    "head_sha": "77ac01e37031d763574a30c865471804ce06b1aa",
+    "quality_run": 2796
   },
   "baseline": {
     "tests": 1676,
@@ -27,37 +27,39 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "interactive_shortlist_interface_repair_001",
-    "kind": "user_interface_repair",
-    "name": "Interactive Shortlist Interface Repair",
-    "status": "complete",
-    "goal": "Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.",
-    "manifest_paths": [
-      "project/STATE_SUMMARY.md",
-      "project/packages/interactive-shortlist-interface-repair-20260731.md",
-      "project/state.json",
-      "tests/test_configuration_comparison_sticky_offset.py",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_configuration_shortlist_html.py",
-      "tools/configuration_shortlist.py",
-      "tools/reporting/configuration_shortlist_browser.js",
-      "tools/reporting/configuration_shortlist_html.py",
-      "tools/reporting/configuration_shortlist_selection.js",
-      "tools/reporting/configuration_shortlist_selection_html.py"
-    ]
-  },
-  "next_package": {
     "package_id": "brochure_equipment_inheritance_and_colour_review_001",
     "kind": "source_coverage_review",
     "name": "Brochure Equipment Inheritance and Colour Review",
-    "status": "planned",
-    "goal": "Audit every registered brochure and price list for explicit factory colour offers, paid metallic and non-metallic colours, source-stated grade inheritance chains such as Expression = Essential +, and repeated missing technical or equipment observations, then select exact non-inferred import packages.",
+    "status": "complete",
+    "goal": "Audit every registered brochure and price list for explicit factory colour offers, fixed and ranged paint prices, source-stated grade inheritance and repeated source-bounded equipment gaps, then select exact non-inferred import packages.",
     "manifest_paths": [
       "data/reporting/brochure_equipment_inheritance_and_colour_review.json",
       "data/reporting/brochure_equipment_inheritance_and_colour_review.md",
       "project/reviews/brochure-equipment-inheritance-and-colour-review-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_version_equipment_matrix_availability_001",
+    "kind": "equipment_availability_import",
+    "name": "Spring Version Equipment Matrix Availability Import",
+    "status": "planned",
+    "goal": "Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/spring_equipment_availability_20260219.csv",
+      "data/master/configuration_attribute_availability.csv",
+      "data/reporting/spring_electric100_automatic_completeness.json",
+      "data/reporting/spring_electric70_automatic_completeness.json",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-version-equipment-matrix-availability-20260731.md",
+      "project/state.json",
+      "tests/test_spring_equipment_availability.py",
+      "tools/import_spring_equipment_availability.py"
     ]
   },
   "autonomy": {
