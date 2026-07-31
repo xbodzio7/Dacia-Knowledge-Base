@@ -35,6 +35,7 @@
     "manifest_paths": [
       "data/reporting/data_products_v1_9_0_public_audit.json",
       "project/releases/data-products-v1.9.0.md",
+      "tests/test_data_products_v1_9_0_preflight.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
@@ -72,7 +73,7 @@
       "ambiguous_source_evidence",
       "new_domain_or_architecture_decision",
       "scope_expansion_beyond_current_milestone",
-      "destructive_costly_or_irversible_operation",
+      "destructive_costly_or_irreversible_operation",
       "manual_github_policy_block",
       "conflict_not_resolvable_from_repository_evidence"
     ],
