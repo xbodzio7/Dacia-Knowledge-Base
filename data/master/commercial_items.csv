@@ -27,3 +27,8 @@ id,code,name,item_type,observation_date,source_code,status,notes
 26,bigster_winter_package,Pakiet ZIMOWY,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
 27,bigster_winter_plus_package,Pakiet ZIMOWY PLUS,package,2026-07-03,src_pl_bigster_price_my26_20260703,active,
 28,bigster_panoramic_roof_option,Dach panoramiczny elektrycznie otwierany,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,Samodzielna opcja dla wersji Journey; seryjna w Extreme.
+29,spring_type2_charging_cable_option,Przewód ładowania ze złączem typu 2,option,2026-02-19,src_pl_spring_brochure_20260219,active,"Brochure pages 13-15 list the cable as a separate option for Essential, Expression and Extreme; no price is stated."
+30,spring_techno_package,Pakiet Techno,package,2026-02-19,src_pl_spring_brochure_20260219,active,Brochure page 14 lists the package only for Expression; no price is stated.
+31,spring_dc40_charging_option,Układ szybkiego ładowania DC 40 kW (CCS),option,2026-02-19,src_pl_spring_brochure_20260219,active,Brochure page 14 lists the standalone DC 40 kW charging option for Expression; no price is stated.
+32,spring_power_package,Pakiet Power,package,2026-02-19,src_pl_spring_brochure_20260219,active,Brochure page 15 lists the package only for Extreme; no price is stated.
+33,spring_city_package,Pakiet City,package,2026-02-19,src_pl_spring_brochure_20260219,active,Brochure page 15 lists the package only for Extreme; no price is stated.

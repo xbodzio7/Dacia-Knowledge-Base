@@ -1,0 +1,6 @@
+code,name,item_type,status,notes
+spring_type2_charging_cable_option,Przewód ładowania ze złączem typu 2,option,active,"Brochure pages 13-15 list the cable as a separate option for Essential, Expression and Extreme; no price is stated."
+spring_techno_package,Pakiet Techno,package,active,"Brochure page 14 lists the package only for Expression; no price is stated."
+spring_dc40_charging_option,Układ szybkiego ładowania DC 40 kW (CCS),option,active,"Brochure page 14 lists the standalone DC 40 kW charging option for Expression; no price is stated."
+spring_power_package,Pakiet Power,package,active,"Brochure page 15 lists the package only for Extreme; no price is stated."
+spring_city_package,Pakiet City,package,active,"Brochure page 15 lists the package only for Extreme; no price is stated."

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Version Equipment Matrix Availability Import",
+  "phase": "Spring Commercial Packages and Charging Options",
   "reference_delivery": {
     "name": "Brochure Equipment Inheritance and Colour Review",
     "pull_request": 428,
@@ -15,9 +15,9 @@
     "quality_run": 2805
   },
   "baseline": {
-    "tests": 1684,
+    "tests": 1692,
     "csv_files": 46,
-    "rows": 11534,
+    "rows": 11564,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
@@ -27,49 +27,48 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_version_equipment_matrix_availability_001",
-    "kind": "equipment_availability_import",
-    "name": "Spring Version Equipment Matrix Availability Import",
-    "status": "complete",
-    "goal": "Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/spring_equipment_availability_20260219.csv",
-      "data/master/configuration_attribute_availability.csv",
-      "data/master/source_configurations.csv",
-      "data/reporting/spring_electric100_automatic_completeness.json",
-      "data/reporting/spring_electric70_automatic_completeness.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/spring-version-equipment-matrix-availability-20260731.md",
-      "project/state.json",
-      "tests/test_spring_equipment_availability.py",
-      "tools/import_spring_equipment_availability.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_commercial_packages_and_charging_options_001",
     "kind": "commercial_catalog_import",
     "name": "Spring Commercial Packages and Charging Options",
-    "status": "planned",
-    "goal": "Import brochure-bounded applicability and membership for Pakiet Techno, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the exact Spring grades, preserving blank prices because the brochure states no amounts.",
+    "status": "complete",
+    "goal": "Import brochure-bounded applicability and membership for Pakiet Techno, the standalone Expression DC 40 kW option, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the three exact existing Spring configurations, preserving blank amounts because the brochure states no prices.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
-      "data/imports/spring_commercial_items_20260219.csv",
       "data/imports/spring_commercial_item_attributes_20260219.csv",
       "data/imports/spring_commercial_item_configurations_20260219.csv",
+      "data/imports/spring_commercial_items_20260219.csv",
+      "data/master/commercial_item_attributes.csv",
+      "data/master/commercial_item_configurations.csv",
+      "data/master/commercial_items.csv",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-commercial-packages-and-charging-options-20260731.md",
+      "project/state.json",
+      "tests/test_commercial_items_20260703.py",
+      "tests/test_spring_commercial_packages.py",
+      "tools/import_spring_commercial_packages.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_exterior_colour_price_options_001",
+    "kind": "commercial_catalog_import",
+    "name": "Spring Exterior Colour Price Options",
+    "status": "planned",
+    "goal": "Import exact source-bounded Spring exterior-colour option status and prices for the existing configurations, separating metallic and non-metallic colours and preserving every grade, model-year and campaign boundary.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/spring_exterior_colour_options_20260219.csv",
       "data/master/commercial_items.csv",
       "data/master/commercial_item_attributes.csv",
       "data/master/commercial_item_configurations.csv",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-commercial-packages-and-charging-options-20260731.md",
+      "project/packages/spring-exterior-colour-price-options-20260731.md",
       "project/state.json",
-      "tests/test_spring_commercial_packages.py",
-      "tools/import_spring_commercial_packages.py"
+      "tests/test_spring_exterior_colour_options.py",
+      "tools/import_spring_exterior_colour_options.py"
     ]
   },
   "autonomy": {

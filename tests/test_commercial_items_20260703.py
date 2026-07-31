@@ -14,6 +14,7 @@ from reporting.configuration_shortlist_html import collect_browser_catalog  # no
 
 MASTER = REPOSITORY / "data" / "master"
 DATE = "2026-07-03"
+SPRING_DATE = "2026-02-19"
 STOCK_DATE = "2026-07-24"
 LATEST_STEPWAY_PRICE_DATE = "2026-07-23"
 
@@ -33,11 +34,11 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 28)
-        self.assertEqual(len(self.members), 69)
-        self.assertEqual(len(self.mappings), 142)
-        self.assertEqual({row["observation_date"] for row in self.items}, {DATE})
-        self.assertEqual({row["price_date"] for row in self.mappings}, {DATE, STOCK_DATE})
+        self.assertEqual(len(self.items), 33)
+        self.assertEqual(len(self.members), 87)
+        self.assertEqual(len(self.mappings), 149)
+        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE})
+        self.assertEqual({row["price_date"] for row in self.mappings}, {"", DATE, STOCK_DATE})
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
 
@@ -52,6 +53,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "src_pl_duster_price_my26_20260703",
                 "src_pl_jogger_price_my26_20260703",
                 "src_pl_bigster_price_my26_20260703",
+                "src_pl_spring_brochure_20260219",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
