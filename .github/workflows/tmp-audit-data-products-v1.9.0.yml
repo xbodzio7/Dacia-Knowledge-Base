@@ -1,0 +1,401 @@
+name: Temporary audit Data Products v1.9.0
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/tmp-audit-data-products-v1.9.0.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-products-v1.9.0-public-audit
+  cancel-in-progress: true
+
+jobs:
+  audit-and-record:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
+      REPOSITORY: xbodzio7/Dacia-Knowledge-Base
+      PACKAGE_BRANCH: agent/data-products-v1.9.0-public-audit-20260731
+      RELEASE_VERSION: 1.9.0
+      RELEASE_TAG: data-products-v1.9.0
+      SOURCE_COMMIT: 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/data-products-v1.9.0-public-audit-20260731
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Download verified public workspace from scratch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py data-product-release-download \
+            --version "$RELEASE_VERSION" \
+            --output-directory "$RUNNER_TEMP/public-workspace"
+          python tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "$RUNNER_TEMP/public-workspace" \
+            --json > "$RUNNER_TEMP/workspace-verification.json"
+
+      - name: Audit public contents and semantic boundaries
+        shell: python
+        run: |
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          import re
+          import subprocess
+          import sys
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from typing import Any
+          from urllib.parse import urlsplit
+          from zipfile import ZipFile
+
+          root = Path('.')
+          workspace = Path(os.environ['RUNNER_TEMP']) / 'public-workspace'
+          assets = workspace / 'assets'
+          contents = workspace / 'contents'
+          publication_path = root / '.github' / 'data-products-v1.9.0-publication.json'
+          historical_audit_path = root / '.github' / 'data-products-v1.8.1-public-audit.json'
+          receipt_path = root / '.github' / 'data-products-v1.9.0-public-audit.json'
+
+          def load_json(path: Path) -> dict[str, Any]:
+              value = json.loads(path.read_text(encoding='utf-8'))
+              if not isinstance(value, dict):
+                  raise RuntimeError(f'expected JSON object: {path}')
+              return value
+
+          def ensure(condition: bool, message: str) -> None:
+              if not condition:
+                  raise RuntimeError(message)
+
+          def sha256(path: Path) -> str:
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+
+          publication = load_json(publication_path)
+          historical = load_json(historical_audit_path)
+          workspace_report = load_json(Path(os.environ['RUNNER_TEMP']) / 'workspace-verification.json')
+
+          ensure(publication.get('status') == 'PASS', 'publication receipt is not PASS')
+          ensure(publication.get('release_id') == 362975393, 'release ID differs')
+          ensure(publication.get('release_tag') == os.environ['RELEASE_TAG'], 'release tag differs')
+          ensure(publication.get('source_commit') == os.environ['SOURCE_COMMIT'], 'source commit differs')
+          ensure(publication.get('draft') is False, 'release is draft')
+          ensure(publication.get('prerelease') is False, 'release is prerelease')
+          ensure(publication.get('asset_count') == 3, 'publication asset count differs')
+
+          expected_assets = publication['assets']
+          ensure(set(expected_assets) == {
+              'SHA256SUMS',
+              'dacia-knowledge-base-data-products-v1.9.0.zip',
+              'data-product-release-manifest.json',
+          }, 'publication asset set differs')
+          for name, record in expected_assets.items():
+              path = assets / name
+              ensure(path.is_file(), f'downloaded asset missing: {name}')
+              ensure(path.stat().st_size == record['size_bytes'], f'asset size differs: {name}')
+              ensure(sha256(path) == record['sha256'], f'asset SHA-256 differs: {name}')
+
+          ensure(workspace_report == {
+              'schema_version': 1,
+              'status': 'verified',
+              'release_version': '1.9.0',
+              'release_tag': 'data-products-v1.9.0',
+              'repository_commit': os.environ['SOURCE_COMMIT'],
+              'snapshot_date': '2026-07-31',
+              'asset_count': 3,
+              'content_file_count': 89,
+              'selected_configuration_count': 78,
+              'scope_group_count': 20,
+              'index_local_link_count': 88,
+              'index_sha256': workspace_report.get('index_sha256'),
+          }, 'workspace verification report differs')
+          ensure(re.fullmatch(r'[0-9a-f]{64}', workspace_report['index_sha256']) is not None, 'index SHA-256 invalid')
+
+          archive_path = assets / 'dacia-knowledge-base-data-products-v1.9.0.zip'
+          with ZipFile(archive_path) as archive:
+              archive_names = archive.namelist()
+          ensure(len(archive_names) == 89, 'archive member count differs')
+          ensure(len(set(archive_names)) == 89, 'archive contains duplicate members')
+          ensure(archive_names == sorted(archive_names), 'archive members are not sorted')
+
+          manifest = load_json(assets / 'data-product-release-manifest.json')
+          ensure(manifest.get('release_version') == '1.9.0', 'manifest version differs')
+          ensure(manifest.get('release_tag') == os.environ['RELEASE_TAG'], 'manifest tag differs')
+          ensure(manifest.get('repository_commit') == os.environ['SOURCE_COMMIT'], 'manifest commit differs')
+          ensure(manifest.get('selected_configuration_count') == 78, 'manifest configuration count differs')
+          ensure(manifest.get('scope_group_count') == 20, 'manifest scope count differs')
+          ensure(manifest.get('comparable_scope_count') == 20, 'manifest comparable scope count differs')
+          ensure(manifest.get('singleton_scope_count') == 0, 'manifest singleton count differs')
+          ensure(manifest.get('model_family_count') == 5, 'manifest model family count differs')
+          for key in ('cross_scope_pairs_generated', 'ranking_generated', 'recommendations_generated', 'inferred_values_generated'):
+              ensure(manifest.get(key) is False, f'manifest semantic boundary differs: {key}')
+          files = manifest.get('files')
+          ensure(isinstance(files, list) and len(files) == 89, 'manifest file inventory differs')
+
+          shortlist = load_json(contents / 'shortlist' / 'configuration-shortlist.json')
+          ensure(shortlist.get('summary') == {
+              'active_configurations': 78,
+              'matched_configurations': 78,
+              'excluded_configurations': 0,
+              'exclusion_reason_counts': {},
+              'data_unknowns': shortlist['summary']['data_unknowns'],
+          }, 'shortlist summary differs')
+          results = shortlist.get('results')
+          ensure(isinstance(results, list) and len(results) == 78, 'shortlist results differ')
+          result_codes = {item.get('configuration_code') for item in results if isinstance(item, dict)}
+          new_configurations = {
+              'sandero_iii_essential_tce100_manual',
+              'sandero_iii_expression_tce100_manual',
+              'sandero_iii_journey_tce100_manual',
+              'sandero_stepway_iii_essential_tce110_manual',
+              'sandero_stepway_iii_expression_tce110_manual',
+              'sandero_stepway_iii_extreme_tce110_manual',
+          }
+          ensure(new_configurations <= result_codes, 'new Sandero configurations missing from shortlist')
+
+          shortlist_html = (contents / 'shortlist' / 'configuration-shortlist.html').read_text(encoding='utf-8')
+          match = re.search(
+              r'<script id="configuration-catalog" type="application/json">(.*?)</script>',
+              shortlist_html,
+              flags=re.DOTALL,
+          )
+          ensure(match is not None, 'embedded shortlist catalog missing')
+          catalog = json.loads(match.group(1))
+          ensure(isinstance(catalog, dict), 'embedded catalog invalid')
+          ensure(len(catalog.get('configurations', [])) == 78, 'embedded configuration count differs')
+          facets = catalog.get('facets')
+          ensure(isinstance(facets, dict), 'embedded facets missing')
+          equipment = facets.get('equipment')
+          models = facets.get('models')
+          ensure(isinstance(equipment, list) and len(equipment) == 110, 'equipment facet count differs')
+          ensure(isinstance(models, list) and len(models) == 5, 'model facet count differs')
+          expected_model_order = [
+              {'model_code': 'sandero_iii', 'minimum_catalog_price_pln': 63900},
+              {'model_code': 'sandero_stepway_iii', 'minimum_catalog_price_pln': 71700},
+              {'model_code': 'jogger', 'minimum_catalog_price_pln': 77900},
+              {'model_code': 'duster_iii', 'minimum_catalog_price_pln': 82000},
+              {'model_code': 'bigster', 'minimum_catalog_price_pln': 101400},
+          ]
+          actual_model_order = [
+              {
+                  'model_code': item.get('code'),
+                  'minimum_catalog_price_pln': item.get('minimum_catalog_price_pln'),
+              }
+              for item in models
+          ]
+          ensure(actual_model_order == expected_model_order, 'model order or prices differ')
+
+          node_program = r'''
+          const fs = require("fs");
+          const api = require(process.argv[1]);
+          const catalog = JSON.parse(fs.readFileSync(0, "utf8"));
+          const initial = api.reconcileEquipmentSelection(catalog, {
+            models: [], versions: [], transmissions: [], powertrains: [],
+            required_equipment: [], required_standard_equipment: []
+          });
+          const camera = api.filterCatalog(catalog, {
+            required_equipment: ["rear_view_camera"],
+            required_standard_equipment: []
+          });
+          const missing = {
+            configuration_code: "missing", model_code: "m", version_code: "v",
+            transmission_type: "manual", powertrain_label: "p",
+            catalog_price: {state: "missing"}, number_of_seats: {state: "missing"},
+            equipment: {}
+          };
+          process.stdout.write(JSON.stringify({
+            visible: initial.available_equipment.length,
+            camera_matches: camera.results.length,
+            missing_reasons: api.evaluate(missing, {
+              required_equipment: ["rear_view_camera"],
+              required_standard_equipment: []
+            })
+          }));
+          '''
+          completed = subprocess.run(
+              ['node', '-e', node_program, str(root / 'tools' / 'reporting' / 'configuration_shortlist_browser.js')],
+              input=json.dumps(catalog, ensure_ascii=False),
+              text=True,
+              capture_output=True,
+              check=False,
+          )
+          ensure(completed.returncode == 0, completed.stderr or completed.stdout)
+          filter_contract = json.loads(completed.stdout)
+          ensure(filter_contract.get('visible') == 108, 'visible equipment choices differ')
+          ensure(filter_contract.get('camera_matches') == 71, 'rear-view camera result count differs')
+          ensure('equipment_missing:rear_view_camera' in filter_contract.get('missing_reasons', []), 'missing camera evidence treated as available')
+
+          bundle = load_json(contents / 'comparison-bundle' / 'comparison-bundle-manifest.json')
+          ensure(bundle.get('selected_configuration_count') == 78, 'bundle configuration count differs')
+          ensure(bundle.get('scope_group_count') == 20, 'bundle scope count differs')
+          ensure(bundle.get('comparable_scope_count') == 20, 'bundle comparable count differs')
+          ensure(bundle.get('singleton_scope_count') == 0, 'bundle singleton count differs')
+          ensure(bundle.get('cross_scope_pairs_generated') is False, 'bundle generated cross-scope pairs')
+          groups = bundle.get('groups')
+          ensure(isinstance(groups, list) and len(groups) == 20, 'bundle groups differ')
+          ensure(sum(int(group.get('pair_count', 0)) for group in groups) == 129, 'bundle pair count differs')
+          ensure(sum(int(group.get('total_differences', 0)) for group in groups) == 2180, 'bundle difference count differs')
+          new_scope = next((group for group in groups if group.get('scope_slug') == 'sandero_tce100_stepway_tce110_manual'), None)
+          ensure(isinstance(new_scope, dict), 'new Sandero scope missing')
+          ensure(new_scope.get('configuration_count') == 6, 'new scope configuration count differs')
+          ensure(new_scope.get('pair_count') == 15, 'new scope pair count differs')
+
+          cross = load_json(contents / 'cross-model' / 'cross-model-comparison-view.json')
+          expected_cross_summary = {
+              'model_family_count': 5,
+              'reporting_scope_count': 20,
+              'single_model_scope_count': 18,
+              'mixed_model_scope_count': 2,
+              'active_configuration_count': 78,
+              'within_scope_pair_count': 129,
+              'catalog_price_recorded_count': 78,
+              'cross_scope_pairs_generated': False,
+              'ranking_generated': False,
+              'recommendations_generated': False,
+              'inferred_values_generated': False,
+          }
+          ensure(cross.get('summary') == expected_cross_summary, 'cross-model summary differs')
+          scopes = cross.get('scopes')
+          ensure(isinstance(scopes, list) and len(scopes) == 20, 'cross-model scope list differs')
+          comparison_path_count = sum(len(scope.get('comparison_paths', {})) for scope in scopes if isinstance(scope, dict))
+          ensure(comparison_path_count == 80, 'cross-model comparison path count differs')
+          navigation = cross.get('navigation')
+          ensure(isinstance(navigation, dict), 'cross-model navigation missing')
+          navigation_path_count = sum(1 for key in ('shortlist_html', 'comparison_bundle_manifest') if isinstance(navigation.get(key), str))
+          ensure(navigation_path_count == 2, 'cross-model navigation path count differs')
+          unknown_seat_models = sorted(
+              model.get('model_code')
+              for model in cross.get('models', [])
+              if isinstance(model, dict) and model.get('seat_summary_state') == 'not_stated'
+          )
+          ensure(unknown_seat_models == ['bigster', 'duster_iii'], 'unknown seat models differ')
+
+          class Links(HTMLParser):
+              def __init__(self) -> None:
+                  super().__init__()
+                  self.hrefs: list[str] = []
+              def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+                  if tag == 'a':
+                      href = dict(attrs).get('href')
+                      if href:
+                          self.hrefs.append(href)
+
+          parser = Links()
+          parser.feed((contents / 'cross-model' / 'cross-model-comparison-view.html').read_text(encoding='utf-8'))
+          cross_html_local_file_links = sum(
+              1
+              for href in parser.hrefs
+              if not urlsplit(href).scheme
+              and not urlsplit(href).netloc
+              and not (urlsplit(href).fragment and not urlsplit(href).path)
+          )
+          ensure(cross_html_local_file_links == 60, 'cross-model HTML local file link count differs')
+
+          old_release = json.loads(subprocess.check_output(
+              ['gh', 'api', f"repos/{os.environ['REPOSITORY']}/releases/tags/data-products-v1.8.1"],
+              text=True,
+          ))
+          ensure(old_release.get('id') == historical.get('release_id') == 360138130, 'v1.8.1 release identity changed')
+          old_assets = {item.get('name'): item for item in old_release.get('assets', []) if isinstance(item, dict)}
+          for name, record in historical.get('assets', {}).items():
+              item = old_assets.get(name)
+              ensure(isinstance(item, dict), f'v1.8.1 asset missing: {name}')
+              ensure(item.get('id') == record.get('asset_id'), f'v1.8.1 asset ID changed: {name}')
+              ensure(item.get('size') == record.get('size_bytes'), f'v1.8.1 asset size changed: {name}')
+              ensure(item.get('digest') in (None, record.get('api_digest')), f'v1.8.1 asset digest changed: {name}')
+
+          receipt = {
+              'version': 1,
+              'kind': 'data_products_v1_9_0_public_audit',
+              'status': 'PASS',
+              'audited_on': '2026-07-31',
+              'release_id': publication['release_id'],
+              'release_tag': publication['release_tag'],
+              'release_url': publication['release_url'],
+              'published_at': publication['published_at'],
+              'source_commit': publication['source_commit'],
+              'publication_workflow_run': publication['publication_workflow_run'],
+              'audit_workflow_run': int(os.environ['GITHUB_RUN_ID']),
+              'assets': {
+                  name: {
+                      'asset_id': record['asset_id'],
+                      'size_bytes': record['size_bytes'],
+                      'sha256': record['sha256'],
+                      'api_digest': record['api_digest'],
+                  }
+                  for name, record in sorted(expected_assets.items())
+              },
+              'workspace': {
+                  'asset_count': workspace_report['asset_count'],
+                  'content_file_count': workspace_report['content_file_count'],
+                  'index_local_link_count': workspace_report['index_local_link_count'],
+                  'index_sha256': workspace_report['index_sha256'],
+              },
+              'release_contents': {
+                  'selected_configuration_count': 78,
+                  'scope_group_count': 20,
+                  'within_scope_pair_count': 129,
+                  'recorded_difference_count': 2180,
+                  'archive_member_count': 89,
+                  'technical_comparison_facet_count': 127,
+                  'equipment_facet_count': 110,
+              },
+              'release_delta': {
+                  'new_configuration_codes': sorted(new_configurations),
+                  'new_reporting_scope': 'sandero_tce100_stepway_tce110_manual',
+              },
+              'equipment_filter': {
+                  'visible_choices': filter_contract['visible'],
+                  'camera_matches': filter_contract['camera_matches'],
+                  'missing_and_unknown_are_exclusions': True,
+              },
+              'model_order': actual_model_order,
+              'cross_model': {
+                  'model_family_count': 5,
+                  'reporting_scope_count': 20,
+                  'active_configuration_count': 78,
+                  'comparison_path_count': comparison_path_count,
+                  'navigation_path_count': navigation_path_count,
+                  'html_local_file_link_count': cross_html_local_file_links,
+                  'unknown_seat_models': unknown_seat_models,
+                  'unknown_state': 'not_stated',
+              },
+              'semantic_boundaries': {
+                  'cross_scope_pairs_generated': False,
+                  'ranking_generated': False,
+                  'recommendations_generated': False,
+                  'inferred_values_generated': False,
+                  'public_v1_8_1_rewritten': False,
+              },
+              'verification': 'PASS',
+          }
+          receipt_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+      - name: Commit exact one-file audit package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/tmp-audit-data-products-v1.9.0.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/data-products-v1.9.0-public-audit.json
+          git add -u .github/workflows/tmp-audit-data-products-v1.9.0.yml
+          git commit -m 'release(data-products): independently audit public v1.9.0'
+          git fetch origin main
+          changed="$(git diff --name-only origin/main...HEAD)"
+          test "$changed" = '.github/data-products-v1.9.0-public-audit.json'
+          git push origin "HEAD:$PACKAGE_BRANCH"
