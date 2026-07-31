@@ -62,3 +62,7 @@ id,source_code,version_code,relationship,notes
 61,src_ro_duster_ecog120_automatic_homologation_20260725,duster_iii_extreme,automatic_homologation_data_for,Exact automatic evidence observed 2026-07-25.
 62,src_ro_duster_ecog120_automatic_homologation_20260725,duster_iii_journey,automatic_homologation_data_for,Exact automatic evidence observed 2026-07-25.
 63,src_pl_sandero_stepway_catalog_tce_slice_20260703,sandero_iii_essential,documents,Version column in the page-1 price matrix effective 2026-07-03.
+64,src_pl_spring_brochure_20260219,spring_essential,documents,Official brochure grade column and equipment matrix; observation import remains separate.
+65,src_pl_spring_brochure_20260219,spring_expression,documents,Official brochure grade column and equipment matrix; observation import remains separate.
+66,src_pl_spring_official_configurator_20260731,spring_essential,documents,Exact current official version state observed 2026-07-31.
+67,src_pl_spring_official_configurator_20260731,spring_expression,documents,Exact current official version state observed 2026-07-31; grade-specific current catalogue price unresolved.

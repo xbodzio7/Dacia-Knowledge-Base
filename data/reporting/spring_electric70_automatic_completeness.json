@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "configuration_scope": "explicit_subset",
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "source_code": "src_pl_spring_official_configurator_20260731"
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "source_code": "src_pl_spring_official_configurator_20260731"
+    }
+  ],
+  "technical_slots": [],
+  "equipment_attributes": [],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}

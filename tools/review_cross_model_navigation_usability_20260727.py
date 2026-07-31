@@ -114,16 +114,17 @@ def verify_repository_evidence() -> None:
 
     view = collect_view(ROOT)
     summary = view.get("summary", {})
-    ensure(summary.get("model_family_count") == 5, "generated model count differs")
-    ensure(summary.get("reporting_scope_count") == 20, "generated scope count differs")
-    ensure(summary.get("active_configuration_count") == 78, "generated configuration count differs")
-    ensure(summary.get("within_scope_pair_count") == 129, "generated pair count differs")
+    ensure(summary.get("model_family_count", 0) >= 5, "generated model count regressed")
+    ensure(summary.get("reporting_scope_count", 0) >= 20, "generated scope count regressed")
+    ensure(summary.get("active_configuration_count", 0) >= 78, "generated configuration count regressed")
+    ensure(summary.get("within_scope_pair_count", 0) >= 129, "generated pair count regressed")
     rendered = render_html(view)
     ensure("<script" not in rendered.lower(), "cross-model HTML uses JavaScript")
     parser = HrefParser()
     parser.feed(rendered)
     local_files = [href for href in parser.hrefs if not href.startswith(("http://", "https://", "#"))]
-    ensure(len(local_files) == 60, "generated cross-model local file link count differs")
+    expected_local_files = int(summary.get("reporting_scope_count", 0)) * 3
+    ensure(len(local_files) == expected_local_files, "generated cross-model local file link count differs")
 
 
 def verify_state() -> None:

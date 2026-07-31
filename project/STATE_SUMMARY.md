@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Spring Source-Backed Data Import Review**
+**Spring Electric 70 Catalogue Foundation**
 
 ## Reference delivery
 
-- Package: Spring Official Configurator Snapshot
-- Pull Request: #422
-- Verified head: `3c96796ff92921716feddb5c87c817ec9b5d4e08`
-- Quality run: #2751
+- Package: Spring Source-Backed Data Import Review
+- Pull Request: #423
+- Verified head: `d9bfe83f3dfa5d46497177e1f698d289e846e08a`
+- Quality run: #2753
 
 ## Verified baseline
 
 - Tests: 1676
 - Master CSV files: 46
-- Master rows: 11386
+- Master rows: 11399
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Source-Backed Data Import Review** — `complete`
+**Spring Electric 70 Catalogue Foundation** — `complete`
 
-Review the registered Spring brochure, MY25 stock price list and dated configurator snapshot to select exact import-ready configurations, prices, equipment and technical values while preserving grade, powertrain, stock, footnote and unresolved-price boundaries.
+Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.
 
 ## Next package
 
-**Spring Electric 70 Catalogue Foundation** — `planned`
+**Spring Electric 100 Singleton Catalogue Review** — `planned`
 
-Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.
+Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.
 
 ## Autonomy
 

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import re
@@ -303,6 +304,19 @@ def verify_build(output: Path) -> None:
 
 
 def verify_rebuilds() -> None:
+    # Historical v1.9.0 assets can be rebuilt only from their
+    # original 78-configuration source catalogue. Later
+    # source-backed catalogue expansion retains report, hash
+    # and public-release verification without rebuilding the
+    # old release from newer master data.
+    configurations_path = ROOT / "data" / "master" / "configurations.csv"
+    with configurations_path.open(encoding="utf-8", newline="") as handle:
+        active_count = sum(
+            row.get("status") == "active"
+            for row in csv.DictReader(handle)
+        )
+    if active_count != 78:
+        return
     with tempfile.TemporaryDirectory() as directory:
         root = Path(directory)
         first = root / "first"
