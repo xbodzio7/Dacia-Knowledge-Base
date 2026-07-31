@@ -25,6 +25,42 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text extraction backend
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Register exact TCe brochure relationships
+        shell: python
+        run: |
+          import csv
+          from pathlib import Path
+
+          path = Path("data/master/source_configurations.csv")
+          with path.open(encoding="utf-8-sig", newline="") as handle:
+              reader = csv.DictReader(handle)
+              fields = list(reader.fieldnames or [])
+              rows = list(reader)
+          source = "src_pl_sandero_brochure_20260202"
+          targets = [
+              "sandero_iii_essential_tce100_manual",
+              "sandero_iii_expression_tce100_manual",
+              "sandero_iii_journey_tce100_manual",
+          ]
+          existing = {(row["source_code"], row["configuration_code"]) for row in rows}
+          next_id = max(int(row["id"]) for row in rows) + 1
+          for code in targets:
+              if (source, code) in existing:
+                  continue
+              item = {field: "" for field in fields}
+              item.update({
+                  "id": str(next_id),
+                  "source_code": source,
+                  "configuration_code": code,
+                  "relationship": "brochure_technical_data_for",
+                  "notes": "The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.",
+              })
+              rows.append(item)
+              next_id += 1
+          with path.open("w", encoding="utf-8", newline="") as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+              writer.writeheader()
+              writer.writerows(rows)
       - name: Materialize and validate ranges
         run: python tools/tmp_materialize_sandero_page17_ranges.py
       - name: Commit final package and remove temporary tools
