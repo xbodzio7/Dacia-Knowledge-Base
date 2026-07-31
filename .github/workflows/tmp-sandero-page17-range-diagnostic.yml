@@ -1,0 +1,28 @@
+name: Temporary Sandero page 17 range diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/tmp-sandero-page17-range-diagnostic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF text tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Inspect repository range machinery and page 17
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== RANGE IMPORT DIRECTORY ==='
+          find data/imports/configuration_value_ranges -maxdepth 1 -type f | sort | tail -40
+          echo '=== PAGE 17 TEXT ==='
+          pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' - | sed -n '1,240p'
+          echo '=== RANGE IMPORT CLI ==='
+          grep -n "def main\|--apply\|--verify\|ArgumentParser" tools/import_configuration_value_ranges.py | tail -40
