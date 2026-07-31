@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "kind": "spring_electric100_singleton_catalogue_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "source_evidence": {
+    "source_code": "src_pl_spring_official_configurator_20260731",
+    "snapshot_path": "project/sources/dacia-pl-spring-configurator-20260731.json",
+    "snapshot_sha256": "9b90aa2a2f81f1bc81509f04d3705887e8bd74af595f69a3e830c85c35b0601b",
+    "exact_state": {
+      "version_code": "spring_extreme",
+      "version_name": "Extreme",
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "powertrain_label": "electric 100",
+      "transmission_type": "automatic",
+      "catalog_price_pln": 85900,
+      "observed_on": "2026-07-31",
+      "price_evidence": "exact_official_comparison_state"
+    }
+  },
+  "catalogue_readiness": {
+    "version_import_ready": true,
+    "configuration_import_ready": true,
+    "catalogue_price_import_ready": true,
+    "source_version_relationship_ready": true,
+    "source_configuration_relationship_ready": true,
+    "technical_values_import_ready_in_this_package": false,
+    "equipment_import_ready_in_this_package": false
+  },
+  "singleton_contract": {
+    "scope_slug": "spring_electric100_automatic",
+    "configuration_count": 1,
+    "pair_count": 0,
+    "comparison_differences_generated": 0,
+    "scope_kind": "singleton",
+    "visible_in_shortlist": true,
+    "visible_in_workbook": true,
+    "visible_in_workspace": true,
+    "visible_in_cross_model_navigation": true,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "technical_slots": 0,
+    "equipment_attributes": 0
+  },
+  "expected_repository_delta": {
+    "versions": 1,
+    "configurations": 1,
+    "configuration_prices": 1,
+    "source_version_relationships": 2,
+    "source_configuration_relationships": 1,
+    "reporting_scopes": 1,
+    "master_rows": 6,
+    "active_configuration_total_after": 81,
+    "reporting_scope_total_after": 22,
+    "model_family_total_after": 6,
+    "within_scope_pair_total_after": 130,
+    "catalog_price_recorded_total_after": 81
+  },
+  "selection": {
+    "package_id": "spring_electric100_singleton_catalogue_foundation_001",
+    "kind": "singleton_catalogue_foundation",
+    "name": "Spring Electric 100 Singleton Catalogue Foundation",
+    "status": "planned",
+    "goal": "Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.",
+    "manifest_paths": [
+      ".github/workflows/configuration-comparison-bundle.yml",
+      ".github/workflows/configuration-selection-export.yml",
+      "CHANGELOG.md",
+      "README.md",
+      "data/master/configuration_prices.csv",
+      "data/master/configurations.csv",
+      "data/master/source_configurations.csv",
+      "data/master/source_versions.csv",
+      "data/master/versions.csv",
+      "data/reporting/spring_electric100_automatic_completeness.json",
+      "data/reporting/spring_electric100_automatic_gap_evidence.spec",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-electric100-singleton-catalogue-foundation-20260731.md",
+      "project/state.json",
+      "tests/test_configuration_comparison_bundle.py",
+      "tests/test_cross_model_comparison_view.py",
+      "tests/test_data_product_release.py",
+      "tests/test_duster_ecog120_automatic_stock_20260724.py",
+      "tools/catalog_completion_history.py"
+    ]
+  },
+  "deferred": [
+    {
+      "name": "Spring Dated Technical Observation Review",
+      "reason": "Range, consumption, charging, performance and mass values remain a separate dated source-specific import."
+    },
+    {
+      "name": "Spring Version Equipment Matrix Import",
+      "reason": "Standard, optional, unavailable and package-qualified states require dedicated applicability mapping."
+    },
+    {
+      "name": "Spring Exact Stock Card Snapshot",
+      "reason": "Dealer-stock prices and selected equipment remain exact-card observations."
+    }
+  ],
+  "non_goals": [
+    "create_cross_scope_pairs",
+    "compare_electric70_and_electric100_as_one_scope",
+    "import_technical_values",
+    "import_equipment_options_or_packages",
+    "derive_promotional_prices",
+    "create_cargo_configuration",
+    "publish_data_product_release"
+  ],
+  "decision": "SELECT_SPRING_ELECTRIC100_SINGLETON_CATALOGUE_FOUNDATION"
+}
