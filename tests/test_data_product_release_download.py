@@ -169,6 +169,10 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         )
         self.assertEqual(result["repository_commit"], COMMIT_SHA)
         self.assertEqual(result["entry_points"]["workspace_index"], "index.html")
+        self.assertEqual(
+            result["entry_points"]["cross_model_html"],
+            "contents/cross-model/cross-model-comparison-view.html",
+        )
         self.assertTrue((output / "index.html").is_file())
         self.assertEqual(
             set(result["entry_points"]),
@@ -371,6 +375,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
                 0,
             )
         self.assertIn("Workspace index", stdout.getvalue())
+        self.assertIn("Cross-model navigation", stdout.getvalue())
 
         completed = SimpleNamespace(returncode=23)
         with mock.patch.object(dkb.subprocess, "run", return_value=completed) as run:
