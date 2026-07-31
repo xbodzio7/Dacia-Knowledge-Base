@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added 126 direct Spring brochure equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100, preserving 106 standard, 7 optional and 13 unavailable matrix cells from pages 19-20 with three exact brochure-to-configuration provenance links and without importing packages, colours, technical data or inferred inheritance.
 * Added chunk 2 of the authored Bigster brochure page-20 unresolved technical review: the remaining 29 exact candidates regrouped into 16 visual areas, with 8 unresolved signature mismatches, 21 context-only fragments, labels, footnotes and notes, zero attached evidence and literal preservation of the printed `1960**` and `2002 / 1981` sequence, without master-data or approved import changes.
 * Added chunk 1 of the authored Bigster brochure page-20 unresolved technical review: 40 exact candidates regrouped into 18 visual table groups, with 16 unresolved signature mismatches, 24 context-only fragments, zero attached evidence, an explicit reference to the prior rear-brake decision and a five-package milestone conclusion, without master-data or approved import changes.
 * Added an authored review of the single ambiguous Sandero Stepway brochure page-18 roof-rails candidate: 1 covered decision, 1 selected plain-roof-rail signature and record, plus 1 preserved and explicitly rejected modular-roof-rail signature with 2 records, without master-data or approved import changes.
@@ -299,14 +300,14 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1676 tests.
-* The verified master-data baseline now contains 46 CSV files and 11405 rows.
-* SQLite verification now covers 46 tables and 11405 rows.
+* The automated test suite now contains 1684 tests.
+* The verified master-data baseline now contains 46 CSV files and 11534 rows.
+* SQLite verification now covers 46 tables and 11534 rows.
 * Configuration attribute values now contain 3498 dated records.
 * Declarative scalar configuration-value imports now contain 138 versioned JSON specifications.
 * Configuration value ranges now contain 298 dated records from 24 range specifications.
 * The canonical catalogue now contains 385 attributes in 30 categories.
-* Equipment availability now contains 5770 records: 4482 `standard`, 507 `optional`, 781 `not_available` and 0 `unknown`.
+* Equipment availability now contains 5896 records: 4588 `standard`, 514 `optional`, 794 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed

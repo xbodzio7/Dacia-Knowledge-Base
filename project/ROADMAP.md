@@ -140,7 +140,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1676 testów automatycznych,
+- 1684 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
@@ -161,6 +161,7 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 
 ## Data
 
+- Spring: utrzymywać bezpośrednią macierz 42 atrybutów wyposażenia oddzielnie od pakietów Techno/Power/City, przewodu typu 2, kolorów i danych technicznych; kolejne rekordy dodawać wyłącznie w granicach jawnego źródła.
 - dalsze pakiety, opcje i reguły zgodności po uzyskaniu jednoznacznych źródeł handlowych,
 - dalsze techniczne wartości konfiguracji,
 - dalsze wyposażenie wersji i konfiguracji,
