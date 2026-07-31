@@ -27,14 +27,18 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import textwrap
 
           source = Path('.github/workflows/tmp-interactive-shortlist-interface-repair.yml').read_text(encoding='utf-8')
           marker = "      - name: Repair shortlist interface\n        shell: bash\n        run: |\n"
           assert marker in source
           block = source.split(marker, 1)[1]
+          prefix = '          '
+          normalized = '\n'.join(
+              line[len(prefix):] if line.startswith(prefix) else line
+              for line in block.splitlines()
+          ) + '\n'
           Path('/tmp/materialize-interface-repair.sh').write_text(
-              textwrap.dedent(block), encoding='utf-8'
+              normalized, encoding='utf-8'
           )
           PY
           git show origin/main:.github/workflows/configuration-shortlist-html.yml > .github/workflows/configuration-shortlist-html.yml
