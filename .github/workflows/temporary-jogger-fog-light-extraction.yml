@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: '3.13'
       - name: Install PDF renderer
-        run: python -m pip install --disable-pip-version-check pypdfium2==4.30.0
+        run: python -m pip install --disable-pip-version-check pypdfium2==4.30.0 Pillow==11.3.0
       - name: Verify source and render image-only table pages
         shell: bash
         run: |
