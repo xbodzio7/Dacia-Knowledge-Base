@@ -41,3 +41,5 @@ Optional statuses qualified by `patrz: pakiety` remain direct availability obser
 ## Integrity
 
 `tools/import_spring_equipment_availability.py` verifies the registered source SHA-256, three active configuration/version relationships, brochure-to-version relations, exact matrix dimensions, status distribution, canonical attribute compatibility, idempotent output and the contiguous availability ID suffix `5771-5896` and source-link suffix `248-250`.
+
+The final cumulative diff contains exactly the fourteen package paths declared in `project/state.json`; the temporary workflow, materializer and encoded payload parts are absent.
