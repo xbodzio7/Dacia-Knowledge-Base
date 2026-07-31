@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-Cross-Model Download Alignment Priority Review**
+**Spring Official Source Intake Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Download Discoverability Alignment Closure
-- Pull Request: #418
-- Verified head: `a9f2e1a5a2255dbc706fdb230e4dd223ee9bf017`
-- Quality run: #2734
+- Package: Post-Cross-Model Download Alignment Priority Review
+- Pull Request: #419
+- Verified head: `982e1ee011411ce8c5bf1bcd852c40dadab2dab3`
+- Quality run: #2736
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Cross-Model Download Alignment Priority Review** — `complete`
+**Spring Official Source Intake Review** — `complete`
 
-Review the repository after closing cross-model download discoverability and select the next highest-value bounded source, data or product package without reopening completed usability, release or residual boundaries.
+Select the exact official Dacia Poland Spring source set and define a bounded, reproducible capture plan that separates immutable brochure evidence, dated dynamic configurator observations and exact stock-card evidence before any source registration or data import.
 
 ## Next package
 
-**Spring Official Source Intake Review** — `planned`
+**Spring Official PDF Source Registration** — `planned`
 
-Select the exact official Dacia Poland Spring source set and define a bounded, reproducible capture plan that separates immutable brochure evidence, dated dynamic configurator observations and exact stock-card evidence before any source registration or data import.
+Archive, hash and register the exact official Polish Spring brochure dated 2026-02-19 and price list effective 2026-07-08, add model-level Spring relationships and a registration receipt, without importing configuration, price, equipment or technical observations.
 
 ## Autonomy
 
