@@ -7,17 +7,17 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Electric 100 Singleton Catalogue Review",
+  "phase": "Spring Electric 100 Singleton Catalogue Foundation",
   "reference_delivery": {
-    "name": "Spring Electric 70 Catalogue Foundation",
-    "pull_request": 424,
-    "head_sha": "1f243e23a750c89a6ad0d00eccf4166550c1ae0c",
-    "quality_run": 2770
+    "name": "Spring Electric 100 Singleton Catalogue Review",
+    "pull_request": 425,
+    "head_sha": "bef39aa4b5234a0511ee2a8494317363dc36ab2d",
+    "quality_run": 2772
   },
   "baseline": {
     "tests": 1676,
     "csv_files": 46,
-    "rows": 11399,
+    "rows": 11405,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
@@ -27,24 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_electric100_singleton_catalogue_review_001",
-    "kind": "catalogue_import_review",
-    "name": "Spring Electric 100 Singleton Catalogue Review",
-    "status": "complete",
-    "goal": "Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.",
-    "manifest_paths": [
-      "data/reporting/spring_electric100_singleton_catalogue_review.json",
-      "data/reporting/spring_electric100_singleton_catalogue_review.md",
-      "project/reviews/spring-electric100-singleton-catalogue-review-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_electric100_singleton_catalogue_foundation_001",
     "kind": "singleton_catalogue_foundation",
     "name": "Spring Electric 100 Singleton Catalogue Foundation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.",
     "manifest_paths": [
       ".github/workflows/configuration-comparison-bundle.yml",
@@ -65,8 +51,23 @@
       "tests/test_configuration_comparison_bundle.py",
       "tests/test_cross_model_comparison_view.py",
       "tests/test_data_product_release.py",
-      "tests/test_duster_ecog120_automatic_stock_20260724.py",
+      "tests/test_duster_catalog_bootstrap.py",
+      "tests/test_duster_technical_specifications.py",
       "tools/catalog_completion_history.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_dated_technical_observation_review_001",
+    "kind": "technical_import_review",
+    "name": "Spring Dated Technical Observation Review",
+    "status": "planned",
+    "goal": "Compare the registered Spring brochure, MY25 stock price list and dated configurator snapshot, select exact source-specific technical observations for Electric 70 and Electric 100, and preserve date, grade, wheel, charging and conflicting-value boundaries before any import.",
+    "manifest_paths": [
+      "data/reporting/spring_dated_technical_observation_review.json",
+      "data/reporting/spring_dated_technical_observation_review.md",
+      "project/reviews/spring-dated-technical-observation-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
     ]
   },
   "autonomy": {

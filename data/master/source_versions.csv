@@ -66,3 +66,5 @@ id,source_code,version_code,relationship,notes
 65,src_pl_spring_brochure_20260219,spring_expression,documents,Official brochure grade column and equipment matrix; observation import remains separate.
 66,src_pl_spring_official_configurator_20260731,spring_essential,documents,Exact current official version state observed 2026-07-31.
 67,src_pl_spring_official_configurator_20260731,spring_expression,documents,Exact current official version state observed 2026-07-31; grade-specific current catalogue price unresolved.
+68,src_pl_spring_brochure_20260219,spring_extreme,documents,Official brochure grade column and equipment matrix; technical and equipment observation imports remain separate.
+69,src_pl_spring_official_configurator_20260731,spring_extreme,documents,Exact current official version state observed 2026-07-31.
