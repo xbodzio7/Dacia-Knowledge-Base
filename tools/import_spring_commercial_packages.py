@@ -316,7 +316,11 @@ def _assert_contiguous_ids(
 def check() -> None:
     require_header(ITEMS_OUTPUT, ITEM_FIELDS)
     items = read_rows(ITEMS_OUTPUT)
-    actual_items = _selected(items, lambda row: row.get("source_code") == SOURCE_CODE)
+    actual_items = _selected(
+        items,
+        lambda row: row.get("source_code") == SOURCE_CODE
+        and row.get("code") in EXPECTED_ITEMS,
+    )
     _assert_rows(actual_items, generated_items(), ITEM_FIELDS[1:], "Spring commercial items")
     _assert_contiguous_ids(actual_items, EXPECTED_ITEM_IDS, "Spring commercial item")
 
@@ -404,7 +408,8 @@ def apply() -> None:
         read_rows(ITEMS_OUTPUT),
         generated_items(),
         ITEM_FIELDS[1:],
-        lambda row: row.get("source_code") == SOURCE_CODE,
+        lambda row: row.get("source_code") == SOURCE_CODE
+        and row.get("code") in EXPECTED_ITEMS,
         EXPECTED_ITEM_IDS[0],
         "Spring commercial item",
     )
