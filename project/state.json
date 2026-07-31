@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Page 17 Power and Torque RPM Range Import Closure",
+  "phase": "Data Products v1.9.0 Release Preparation",
   "reference_delivery": {
-    "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
-    "pull_request": 392,
-    "head_sha": "1eaa92e09e312117597474ffd8410b8abe54632e",
-    "quality_run": 2544
+    "name": "Sandero Page 17 Power and Torque RPM Range Import Closure",
+    "pull_request": 409,
+    "head_sha": "710fa01ce5adeb49e675f740793184ba95e27f89",
+    "quality_run": 2703
   },
   "baseline": {
     "tests": 1676,
@@ -27,31 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_sandero_page17_power_torque_rpm_range_import_closure_001",
-    "kind": "review_closure",
-    "name": "Sandero Page 17 Power and Torque RPM Range Import Closure",
+    "package_id": "data_products_v1_9_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.9.0 Release Preparation",
     "status": "complete",
-    "goal": "Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve scalar, fuel-context and non-import boundaries, and release the data-products-v1.9.0 preparation checkpoint.",
+    "goal": "Prepare and verify an immutable minor-release candidate containing six new source-backed Sandero and Sandero Stepway manual configurations, 78 active configurations in 20 independent scopes and the current complete data products, without publishing or rewriting public v1.8.1.",
     "manifest_paths": [
-      "data/reporting/sandero_page17_power_torque_rpm_range_import_closure.json",
-      "data/reporting/sandero_page17_power_torque_rpm_range_import_closure.md",
-      "project/reviews/sandero-page17-power-torque-rpm-range-import-closure-2026-07-31.md",
+      "data/reporting/data_products_v1_9_0_release_preparation.json",
+      "project/packages/data-products-v1.9.0-release-preparation.md",
+      "tests/test_data_product_release.py",
+      "tools/review_data_products_v1_9_0_release_preparation_20260731.py",
+      "tools/reporting/data_product_release.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_9_0_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.9.0 Release Preparation",
+    "package_id": "data_products_v1_9_0_preflight_001",
+    "kind": "release_preflight",
+    "name": "Data Products v1.9.0 Preflight",
     "status": "planned",
-    "goal": "Prepare and verify an immutable minor-release candidate containing the completed Sandero page-17 RPM range coverage and all current source-backed data products, without publishing or changing source data.",
+    "goal": "Build the v1.9.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the 78-configuration and 20-scope release contracts, independently check public v1.8.1 and record final asset identities without creating a tag or release.",
     "manifest_paths": [
-      "data/reporting/data_products_v1_9_0_release_preparation.json",
-      "project/packages/data-products-v1.9.0-release-preparation.md",
-      "tests/test_data_products_v1_9_0_release_preparation.py",
+      "data/reporting/data_products_v1_9_0_preflight.json",
+      "project/packages/data-products-v1.9.0-preflight.md",
+      "tests/test_data_products_v1_9_0_preflight.py",
+      "tools/review_data_products_v1_9_0_preflight_20260731.py",
       "tools/review_data_products_v1_9_0_release_preparation_20260731.py",
-      "tools/reporting/data_product_release.py",
       "README.md",
       "CHANGELOG.md",
       "project/ROADMAP.md",

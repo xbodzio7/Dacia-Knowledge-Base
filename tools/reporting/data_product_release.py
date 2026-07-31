@@ -214,6 +214,24 @@ def _release_notes(
                 "",
             ]
         )
+    elif version == "1.9.0":
+        lines.extend(
+            [
+                "This minor release adds six new source-backed manual configurations: "
+                "three Sandero TCe 100 variants and three Sandero Stepway TCe 110 "
+                "variants. The complete portfolio now contains 78 active configurations "
+                "in 20 independent scopes.",
+                "",
+                "The scope-preserving bundle contains 129 within-scope pairs and 2,180 "
+                "recorded differences. The archive has 89 deterministic archive members, "
+                "127 technical comparison facets and 110 equipment facets.",
+                "",
+                "No cross-scope pairs, ranking, recommendations or inferred values are "
+                "introduced. Missing and unknown evidence remains excluded, and the "
+                "public v1.8.1 remains immutable.",
+                "",
+            ]
+        )
     lines.extend(
         [
             "No ranking, recommendations or inferred values are generated.",
