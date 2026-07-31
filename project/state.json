@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.9.0 Preflight",
+  "phase": "Data Products v1.9.0 Publication",
   "reference_delivery": {
-    "name": "Data Products v1.9.0 Release Preparation",
-    "pull_request": 410,
-    "head_sha": "5c7e5e347d02ad17715e2348fdbc85fb400f4db4",
-    "quality_run": 2705
+    "name": "Data Products v1.9.0 Publication",
+    "pull_request": 412,
+    "head_sha": "430b05fb432b4404c3911c56b077ed5c71b036de",
+    "quality_run": 2713
   },
   "baseline": {
     "tests": 1676,
@@ -27,37 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_9_0_preflight_001",
-    "kind": "release_preflight",
-    "name": "Data Products v1.9.0 Preflight",
+    "package_id": "data_products_v1_9_0_publication_record_001",
+    "kind": "release_publication_record",
+    "name": "Data Products v1.9.0 Publication",
     "status": "complete",
-    "goal": "Build the v1.9.0 assets twice from exact source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c, prove byte identity, verify all 78-configuration and 20-scope contracts, and record final asset sizes and SHA-256 values without creating a tag or release.",
+    "goal": "Record the immutable public data-products-v1.9.0 identity, independent audit and exact release contents after successful publication.",
     "manifest_paths": [
-      "data/reporting/data_products_v1_9_0_preflight.json",
-      "project/packages/data-products-v1.9.0-preflight.md",
+      "data/reporting/data_products_v1_9_0_public_audit.json",
+      "project/releases/data-products-v1.9.0.md",
       "tests/test_data_products_v1_9_0_preflight.py",
-      "tools/review_data_products_v1_9_0_preflight_20260731.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_9_0_publication_001",
-    "kind": "release_publication",
-    "name": "Data Products v1.9.0 Publication",
+    "package_id": "post_v1_9_0_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.9.0 Priority Selection Review",
     "status": "planned",
-    "goal": "Publish the permanent tag data-products-v1.9.0 at source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c with exactly the three preflighted assets, then independently download, audit and record the immutable public release.",
+    "goal": "Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.",
     "manifest_paths": [
-      "data/reporting/data_products_v1_9_0_publication.json",
-      "project/packages/data-products-v1.9.0-publication.md",
-      "project/releases/data-products-v1.9.0.md",
-      "tests/test_data_products_v1_9_0_publication.py",
-      "tools/publish_data_products_v1_9_0_20260731.py",
-      "tools/review_data_products_v1_9_0_preflight_20260731.py",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
+      "data/reporting/post_v1_9_0_priority_selection_review.json",
+      "data/reporting/post_v1_9_0_priority_selection_review.md",
+      "project/reviews/post-v1.9.0-priority-selection-review-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

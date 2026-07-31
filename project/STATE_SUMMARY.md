@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.9.0 Preflight**
+**Data Products v1.9.0 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.9.0 Release Preparation
-- Pull Request: #410
-- Verified head: `5c7e5e347d02ad17715e2348fdbc85fb400f4db4`
-- Quality run: #2705
+- Package: Data Products v1.9.0 Publication
+- Pull Request: #412
+- Verified head: `430b05fb432b4404c3911c56b077ed5c71b036de`
+- Quality run: #2713
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.9.0 Preflight** — `complete`
+**Data Products v1.9.0 Publication** — `complete`
 
-Build the v1.9.0 assets twice from exact source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c, prove byte identity, verify all 78-configuration and 20-scope contracts, and record final asset sizes and SHA-256 values without creating a tag or release.
+Record the immutable public data-products-v1.9.0 identity, independent audit and exact release contents after successful publication.
 
 ## Next package
 
-**Data Products v1.9.0 Publication** — `planned`
+**Post-v1.9.0 Priority Selection Review** — `planned`
 
-Publish the permanent tag data-products-v1.9.0 at source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c with exactly the three preflighted assets, then independently download, audit and record the immutable public release.
+Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.
 
 ## Autonomy
 
