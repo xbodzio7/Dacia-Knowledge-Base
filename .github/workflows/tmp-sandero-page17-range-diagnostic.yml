@@ -22,7 +22,7 @@ jobs:
           python-version: '3.13'
       - name: Install PDF text tools
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Materialize ephemeral data and report contracts
+      - name: Materialize ephemeral data and report focused contracts
         shell: bash
         run: |
           set -euo pipefail
@@ -42,36 +42,27 @@ jobs:
               w=csv.DictWriter(h,fieldnames=fields,lineterminator='\n'); w.writeheader(); w.writerows(rows)
           PY
           python tools/tmp_materialize_sandero_page17_ranges.py > /tmp/materialize.log 2>&1 || true
-          echo '=== MATERIALIZE TERMINAL SUMMARY ==='
-          tail -45 /tmp/materialize.log
-          echo '=== REPORTING SPECS CONTAINING TARGETS ==='
+          echo '=== BASELINE AND FAILURE IDS ==='
+          grep -E 'Tests +:|Master rows|Value ranges|Range import specs|^(ERROR|FAIL): ' /tmp/materialize.log | tail -120 || true
+          echo '=== RESIDUAL PACKAGE SUMMARIES ==='
           python - <<'PY'
           import json
           from pathlib import Path
-          needles={'sandero_iii_expression_ecog120_manual','sandero_iii_expression_ecog120_automatic','sandero_iii_essential_tce100_manual'}
-          for path in sorted(Path('data/reporting').glob('*.json')):
-              try: data=json.loads(path.read_text(encoding='utf-8'))
-              except Exception: continue
-              text=json.dumps(data)
-              if any(n in text for n in needles):
-                  print('\nFILE',path)
-                  print(json.dumps(data,ensure_ascii=False,indent=2)[:10000])
-          PY
-          echo '=== CURRENT PRIORITIZATION BOUNDARIES ==='
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          p=json.loads(Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json').read_text())
-          print('SUMMARY',p['summary'])
-          for item in p['packages']:
+          payload=json.loads(Path('data/reporting/verified_pdf_candidate_residual_gap_prioritization.json').read_text())
+          print(json.dumps(payload['summary'],sort_keys=True))
+          wanted={
+              ('src_pl_bigster_brochure_20251210','bigster','technical_tables',20),
+              ('src_pl_jogger_brochure_20251217','jogger','technical_tables',19),
+              ('src_pl_duster_mini_brochure_20251020','duster_iii','technical_tables',20),
+              ('src_pl_sandero_brochure_20260202','sandero_iii','technical_tables',17),
+          }
+          for item in payload['packages']:
               key=(item.get('source_code'),item.get('model_code'),item.get('domain'),item.get('page'))
-              if key in {
-                  ('src_pl_bigster_brochure_20251210','bigster','technical_tables',20),
-                  ('src_pl_jogger_brochure_20251217','jogger','technical_tables',19),
-                  ('src_pl_duster_mini_brochure_20251020','duster_iii','technical_tables',20),
-                  ('src_pl_sandero_brochure_20260202','sandero_iii','technical_tables',17),
-              }:
-                  print(json.dumps(item,ensure_ascii=False,sort_keys=True))
+              if key in wanted:
+                  compact={k:item.get(k) for k in ('package_id','priority','source_code','model_code','domain','page','coverage_status','candidate_count','group_candidate_count','chunk_index','chunk_count','evidence_signature_count','evidence_record_count')}
+                  compact['first_candidate_id']=(item.get('candidate_ids') or [''])[0]
+                  compact['last_candidate_id']=(item.get('candidate_ids') or [''])[-1]
+                  print(json.dumps(compact,sort_keys=True))
           PY
-          echo '=== EXACT CONTRACT LOCATIONS ==='
-          grep -RInE 'expected exactly 102 current brochure ranges|len\(self\.ranges\), 102|src_pl_sandero_brochure_20260202.*4|source relationships differ from imported chassis targets|source relationship counts differ|candidate_count.*23|group_candidate_count.*69' tools tests | head -160 || true
+          echo '=== EXACT GUARDS ==='
+          grep -RInE 'candidate_count[^\n]*(23|16|5)|group_candidate_count[^\n]*69|src_pl_sandero_brochure_20260202[^\n]*4|expected exactly 102 current brochure ranges|len\(self\.ranges\), 102|source relationships differ from imported chassis targets|source relationship counts differ' tools tests | head -240 || true
