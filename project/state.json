@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.9.0 Cross-Model Navigation Reconciliation",
+  "phase": "Cross-Model Download Discoverability Alignment",
   "reference_delivery": {
-    "name": "Post-v1.9.0 Priority Selection Review",
-    "pull_request": 415,
-    "head_sha": "5f00f0e3e105397ee1dce2dd9337110e029ecf30",
-    "quality_run": 2728
+    "name": "Post-v1.9.0 Cross-Model Navigation Reconciliation",
+    "pull_request": 416,
+    "head_sha": "e89163edd30bf3ed749b12e59f0f7c1d2b96d0ca",
+    "quality_run": 2730
   },
   "baseline": {
     "tests": 1676,
@@ -27,30 +27,30 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_9_0_cross_model_navigation_reconciliation_001",
-    "kind": "product_usability_reconciliation",
-    "name": "Post-v1.9.0 Cross-Model Navigation Reconciliation",
-    "status": "complete",
-    "goal": "Reconcile the previously completed cross-model workspace review and implementation against the audited v1.9.0 product, then isolate any remaining discoverability gap without rewriting historical review artifacts.",
-    "manifest_paths": [
-      "data/reporting/post_v1_9_0_cross_model_navigation_reconciliation.json",
-      "data/reporting/post_v1_9_0_cross_model_navigation_reconciliation.md",
-      "project/reviews/post-v1.9.0-cross-model-navigation-reconciliation-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "cross_model_download_discoverability_alignment_001",
     "kind": "product_usability_implementation",
     "name": "Cross-Model Download Discoverability Alignment",
-    "status": "planned",
+    "status": "complete",
     "goal": "Expose the already verified cross-model navigation HTML consistently through release-download metadata, terminal output and the consumer guide, with focused regression coverage and no change to workspace-index rendering, release assets or comparison semantics.",
     "manifest_paths": [
       "tools/reporting/data_product_release_download.py",
       "tools/data_product_release_download.py",
       "tests/test_data_product_release_download.py",
       "project/guides/data-product-consumer-guide.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "cross_model_download_discoverability_alignment_closure_001",
+    "kind": "review_closure",
+    "name": "Cross-Model Download Discoverability Alignment Closure",
+    "status": "planned",
+    "goal": "Verify the conditional cross-model entry-point receipt across downloader metadata, terminal output, consumer documentation, public v1.9.0 and older-release compatibility, then record the closed usability boundary.",
+    "manifest_paths": [
+      "data/reporting/cross_model_download_discoverability_alignment_closure.json",
+      "data/reporting/cross_model_download_discoverability_alignment_closure.md",
+      "project/reviews/cross-model-download-discoverability-alignment-closure-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
