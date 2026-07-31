@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Verify exact source and repository contracts
+      - name: Locate canonical fog-light semantics
         shell: bash
         run: |
           set -euo pipefail
@@ -25,70 +25,49 @@ jobs:
           from __future__ import annotations
 
           import csv
-          import hashlib
+          import unicodedata
           from pathlib import Path
 
           root = Path('.')
-          source = root / 'PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf'
-          expected_sha = '92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87'
-          actual_sha = hashlib.sha256(source.read_bytes()).hexdigest()
-          if actual_sha != expected_sha:
-              raise SystemExit(f'SHA mismatch: {actual_sha}')
-
-          configurations = {
-              'jogger_expression_5seat_ecog120_manual',
-              'jogger_expression_5seat_tce110_manual',
-              'jogger_expression_5seat_hybrid155_automatic',
-              'jogger_expression_7seat_ecog120_manual',
-              'jogger_expression_7seat_tce110_manual',
-              'jogger_expression_7seat_hybrid155_automatic',
-          }
 
           def rows(path: str):
               with (root / path).open(encoding='utf-8-sig', newline='') as handle:
-                  return list(csv.DictReader(handle))
+                  reader = csv.DictReader(handle)
+                  print('HEADER', path, reader.fieldnames)
+                  return list(reader)
 
-          attributes = {row['code']: row for row in rows('data/master/attributes.csv')}
-          print('ATTRIBUTE', attributes.get('front_fog_lights'))
+          def key(value: str) -> str:
+              text = unicodedata.normalize('NFKD', value).casefold().replace('ł', 'l')
+              return ''.join(ch for ch in text if not unicodedata.combining(ch))
 
-          config_rows = [
-              row for row in rows('data/master/configurations.csv')
-              if row['code'] in configurations
-          ]
-          print('CONFIGURATIONS', len(config_rows))
-          for row in config_rows:
-              print(row)
+          attributes = rows('data/master/attributes.csv')
+          print('ATTRIBUTE_MATCHES')
+          for row in attributes:
+              joined = key(' '.join(row.values()))
+              if 'fog' in joined or 'mgiel' in joined or 'przeciw' in joined:
+                  print(row)
 
-          source_links = [
-              row for row in rows('data/master/source_configurations.csv')
-              if row['source_code'] == 'src_pl_jogger_price_my26_20260703'
-              and row['configuration_code'] in configurations
-          ]
-          print('SOURCE_LINKS', len(source_links))
-          for row in source_links:
-              print(row)
+          spec_path = 'data/imports/jogger_equipment_availability_comfort_20260401.csv'
+          spec = rows(spec_path)
+          print('APRIL_SPEC_MATCHES')
+          for row in spec:
+              joined = key(' '.join(row.values()))
+              if 'fog' in joined or 'mgiel' in joined or 'przeciw' in joined:
+                  print(row)
 
           availability = rows('data/master/configuration_attribute_availability.csv')
-          print('MAX_AVAILABILITY_ID', max(int(row['id']) for row in availability))
-          history = [
-              row for row in availability
-              if row['configuration_code'] in configurations
-              and row['attribute_code'] == 'front_fog_lights'
-          ]
-          print('FOG_HISTORY', len(history))
-          for row in history:
-              print(row)
-
-          april_spec = [
-              row for row in rows('data/imports/jogger_equipment_availability_comfort_20260401.csv')
-              if row['configuration_code'] in configurations
-              and row['attribute_code'] == 'front_fog_lights'
-          ]
-          print('APRIL_SPEC', len(april_spec))
-          for row in april_spec:
-              print(row)
-
-          sources = {row['code']: row for row in rows('data/master/sources.csv')}
-          print('JULY_SOURCE', sources.get('src_pl_jogger_price_my26_20260703'))
-          print(f'SOURCE_SHA256={actual_sha}')
+          candidate_codes = {
+              row.get('attribute_code', '')
+              for row in spec
+              if 'fog' in key(' '.join(row.values()))
+              or 'mgiel' in key(' '.join(row.values()))
+              or 'przeciw' in key(' '.join(row.values()))
+          }
+          print('CANDIDATE_CODES', sorted(candidate_codes))
+          for code in sorted(candidate_codes):
+              matching = [row for row in availability if row['attribute_code'] == code]
+              print('AVAILABILITY', code, len(matching))
+              for row in matching:
+                  if row['configuration_code'].startswith('jogger_expression_'):
+                      print(row)
           PY
