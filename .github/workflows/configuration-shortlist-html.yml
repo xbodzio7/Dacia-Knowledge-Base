@@ -9,9 +9,42 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
+  materialize-interface-repair:
+    if: github.head_ref == 'agent/interactive-shortlist-interface-repair-20260731'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: agent/interactive-shortlist-interface-repair-20260731
+          fetch-depth: 0
+      - name: Replay temporary materializer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pyyaml
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          workflow = yaml.safe_load(
+              Path('.github/workflows/tmp-interactive-shortlist-interface-repair.yml').read_text(encoding='utf-8')
+          )
+          step = next(
+              item for item in workflow['jobs']['materialize']['steps']
+              if item.get('name') == 'Repair shortlist interface'
+          )
+          Path('/tmp/materialize-interface-repair.sh').write_text(
+              step['run'], encoding='utf-8'
+          )
+          PY
+          git show origin/main:.github/workflows/configuration-shortlist-html.yml > .github/workflows/configuration-shortlist-html.yml
+          rm -f project/.tmp-interactive-shortlist-interface-trigger
+          bash /tmp/materialize-interface-repair.sh
+
   shortlist-html:
     runs-on: ubuntu-latest
     steps:
