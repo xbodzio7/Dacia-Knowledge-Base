@@ -4,6 +4,10 @@ Date: 2026-07-31
 
 Status: **complete**
 
+## Materialization receipt
+
+The final package was materialized on the package branch as commit `4e4e6e99e72786321ba4c4098cb12cfad7c93d0f`. Both temporary workflow files were removed before the final diff, and the manifest records every resulting source, catalogue, reporting, tooling, test and generated-document change.
+
 ## Catalogue entities
 
 This package adds the source-backed Spring Essential and Expression versions and their exact Electric 70 automatic configurations. Together they form one comparable, scope-preserving reporting group.
