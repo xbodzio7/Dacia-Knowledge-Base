@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Cross-Model Download Discoverability Alignment**
+**Cross-Model Download Discoverability Alignment Closure**
 
 ## Reference delivery
 
-- Package: Post-v1.9.0 Cross-Model Navigation Reconciliation
-- Pull Request: #416
-- Verified head: `e89163edd30bf3ed749b12e59f0f7c1d2b96d0ca`
-- Quality run: #2730
+- Package: Cross-Model Download Discoverability Alignment
+- Pull Request: #417
+- Verified head: `b1c738748f1ab66c3acb28f7deb7b0bcd4a3810f`
+- Quality run: #2732
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Download Discoverability Alignment** — `complete`
+**Cross-Model Download Discoverability Alignment Closure** — `complete`
 
-Expose the already verified cross-model navigation HTML consistently through release-download metadata, terminal output and the consumer guide, with focused regression coverage and no change to workspace-index rendering, release assets or comparison semantics.
+Verify the conditional cross-model entry-point receipt across downloader metadata, terminal output, consumer documentation, public v1.9.0 and older-release compatibility, then record the closed usability boundary.
 
 ## Next package
 
-**Cross-Model Download Discoverability Alignment Closure** — `planned`
+**Post-Cross-Model Download Alignment Priority Review** — `planned`
 
-Verify the conditional cross-model entry-point receipt across downloader metadata, terminal output, consumer documentation, public v1.9.0 and older-release compatibility, then record the closed usability boundary.
+Review the repository after closing cross-model download discoverability and select the next highest-value bounded source, data or product package without reopening completed usability, release or residual boundaries.
 
 ## Autonomy
 
