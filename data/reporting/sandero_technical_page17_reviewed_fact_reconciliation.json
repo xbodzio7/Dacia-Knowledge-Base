@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "kind": "sandero_technical_page17_reviewed_fact_reconciliation",
+  "reviewed_on": "2026-07-31",
+  "status": "complete_with_small_range_import_handoff",
+  "package_id": "post_residual_sandero_technical_page17_reviewed_fact_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17,
+    "observation_date": "2026-02-02"
+  },
+  "source_review_packages": [
+    "residual_gap_004",
+    "residual_gap_026",
+    "residual_gap_027"
+  ],
+  "scope": {
+    "reviewed_candidates": 46,
+    "ambiguity_candidates": 5,
+    "unresolved_candidates": 41,
+    "active_target_configurations": 7,
+    "same_source_page17_scalar_observations": 72,
+    "same_source_page17_range_observations": 0
+  },
+  "authored_decision_receipts": {
+    "ambiguity": {
+      "candidate_count": 5,
+      "decision_counts": {
+        "covered_by_selected_evidence": 0,
+        "partially_covered": 5
+      },
+      "selected_evidence_signature_count": 8,
+      "selected_evidence_record_count": 16,
+      "candidates_with_selected_evidence": 5,
+      "candidates_without_selected_evidence": 0
+    },
+    "unresolved_chunk_1": {
+      "logical_group_count": 20,
+      "decision_counts": {
+        "context_only_non_import": 26,
+        "unresolved_signature_mismatch": 14
+      },
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk1.md"
+    },
+    "unresolved_chunk_2": {
+      "logical_group_count": 1,
+      "decision_counts": {
+        "context_only_non_import": 1,
+        "unresolved_signature_mismatch": 0
+      },
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk2.md"
+    }
+  },
+  "candidate_reconciliation": {
+    "current_exact_scalar_coverage": {
+      "candidate_count": 11,
+      "groups": [
+        "five ambiguity-row scalar facts: maximum power, maximum torque, maximum kerb weight, gross vehicle weight and gross train weight",
+        "six unresolved-row scalar facts: maximum power, maximum torque, cylinders/valves, acceleration and fourth-/fifth-gear elasticity"
+      ],
+      "decision": "current exact values exist across the seven active configurations; do not duplicate or overwrite them in reconciliation"
+    },
+    "current_configuration_or_fuel_identity_coverage": {
+      "candidate_count": 2,
+      "groups": [
+        "fuel-type row",
+        "manual/automatic six-speed gearbox row"
+      ],
+      "decision": "existing configuration, transmission and fuel-context modeling already represents these boundaries"
+    },
+    "import_ready_range_gap": {
+      "candidate_count": 2,
+      "planned_range_observations": 20,
+      "planned_range_id_start": 279,
+      "planned_range_id_end": 298,
+      "attribute_counts": {
+        "max_power_rpm": 11,
+        "max_torque_rpm": 9
+      },
+      "range_groups": [
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "5000",
+          "maximum_value": "5250",
+          "configurations": [
+            "sandero_iii_essential_tce100_manual",
+            "sandero_iii_expression_tce100_manual",
+            "sandero_iii_journey_tce100_manual"
+          ],
+          "source_text": "100 TCe: 74 (120 KM) od 5000 do 5250 obr./min; printed power literal retained without normalization"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "configurations": [
+            "sandero_iii_expression_ecog120_manual",
+            "sandero_iii_journey_ecog120_manual"
+          ],
+          "source_text": "120 Eco-G manual LPG: 90 (120 KM) od 4500 do 5000 obr./min"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "configurations": [
+            "sandero_iii_expression_ecog120_manual",
+            "sandero_iii_journey_ecog120_manual"
+          ],
+          "source_text": "120 Eco-G manual benzyna: 84 (114 KM) od 4500 do 5750 obr./min"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "configurations": [
+            "sandero_iii_expression_ecog120_automatic",
+            "sandero_iii_journey_ecog120_automatic"
+          ],
+          "source_text": "120 Eco-G automatic LPG: 90 (120 KM) od 4500 do 5000 obr./min"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "configurations": [
+            "sandero_iii_expression_ecog120_automatic",
+            "sandero_iii_journey_ecog120_automatic"
+          ],
+          "source_text": "120 Eco-G automatic benzyna: 84 (114 KM) od 4500 do 5750 obr./min"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "2900",
+          "maximum_value": "3500",
+          "configurations": [
+            "sandero_iii_essential_tce100_manual",
+            "sandero_iii_expression_tce100_manual",
+            "sandero_iii_journey_tce100_manual"
+          ],
+          "source_text": "100 TCe: 200 Nm od 2900 do 3500 obr./min"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "3750",
+          "configurations": [
+            "sandero_iii_expression_ecog120_manual",
+            "sandero_iii_journey_ecog120_manual"
+          ],
+          "source_text": "120 Eco-G manual LPG: 197 Nm od 1750 do 3750 obr./min"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "2000",
+          "maximum_value": "4000",
+          "configurations": [
+            "sandero_iii_expression_ecog120_manual",
+            "sandero_iii_journey_ecog120_manual"
+          ],
+          "source_text": "120 Eco-G manual benzyna: 190 Nm od 2000 do 4000 obr./min"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "3750",
+          "configurations": [
+            "sandero_iii_expression_ecog120_automatic",
+            "sandero_iii_journey_ecog120_automatic"
+          ],
+          "source_text": "120 Eco-G automatic LPG: 197 Nm od 1750 do 3750 obr./min"
+        }
+      ],
+      "excluded_automatic_petrol_torque_range": {
+        "configuration_count": 2,
+        "reason": "the source prints 190 Nm but no aligned rpm continuation in the reviewed extraction; no range is inferred"
+      }
+    },
+    "context_model_required": {
+      "candidate_count": 1,
+      "group": "direct-injection row",
+      "decision": "TCe direct injection is already covered, while the brochure's shared Eco-G row is not fuel-scoped; do not create an unscoped dual-fuel scalar"
+    },
+    "explicit_non_import_or_context": {
+      "candidate_count": 30,
+      "groups": [
+        "all 27 originally authored context-only candidates",
+        "WLTP protocol label",
+        "country-dependent CO2 continuation",
+        "country-dependent combined-consumption continuation"
+      ]
+    }
+  },
+  "partition_check": {
+    "candidate_count": 46,
+    "classified_once": true,
+    "class_counts": {
+      "current_exact_scalar_coverage": 11,
+      "current_configuration_or_fuel_identity_coverage": 2,
+      "import_ready_range_gap": 2,
+      "context_model_required": 1,
+      "explicit_non_import_or_context": 30
+    }
+  },
+  "source_boundaries_preserved": {
+    "printed_tce_heading_and_74_kw_parenthetical_conflict_not_normalized": true,
+    "fuel_subcolumns_not_collapsed": true,
+    "automatic_petrol_torque_rpm_not_inferred": true,
+    "country_dependent_values_not_invented": true,
+    "review_does_not_change_master_data": true
+  },
+  "release_checkpoint": {
+    "target_version": "data-products-v1.9.0",
+    "decision": "defer_until_small_range_import_and_closure",
+    "remaining_pr_count_before_release": 2,
+    "reason": "the only import-ready gap is a bounded 20-range package that can be imported and closed within two pull requests"
+  },
+  "next_package": {
+    "package_id": "post_residual_sandero_page17_power_torque_rpm_range_import_001",
+    "kind": "configuration_value_range_import",
+    "name": "Sandero Page 17 Power and Torque RPM Range Import",
+    "status": "planned",
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "source_page": 17,
+    "goal": "Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations, preserving fuel context, the printed TCe power-literal inconsistency and the missing automatic-petrol torque continuation.",
+    "planned_range_id_start": 279,
+    "planned_range_id_end": 298,
+    "planned_observation_count": 20,
+    "attribute_counts": {
+      "max_power_rpm": 11,
+      "max_torque_rpm": 9
+    },
+    "manifest_paths": [
+      "data/imports/brochure_technical_values/sandero-page17-power-torque-rpm-ranges-20260202.json",
+      "data/master/configuration_attribute_value_ranges.csv",
+      "tests/test_sandero_page17_power_torque_rpm_ranges.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}
