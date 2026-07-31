@@ -24,5 +24,9 @@ jobs:
           find data/imports/configuration_value_ranges -maxdepth 1 -type f | sort | tail -40
           echo '=== PAGE 17 TEXT ==='
           pdftotext -f 17 -l 17 -layout 'PDF/Broszury/DACIA SANDERO broszura 20260202.pdf' - | sed -n '1,240p'
+          echo '=== SOURCE RELATIONSHIPS ==='
+          grep 'src_pl_sandero_brochure_20260202' data/master/source_configurations.csv || true
+          echo '=== TARGET CONFIGURATIONS ==='
+          grep 'sandero_iii_.*\(tce100\|ecog120\)' data/master/configurations.csv || true
           echo '=== RANGE IMPORT CLI ==='
           grep -n "def main\|--apply\|--verify\|ArgumentParser" tools/import_configuration_value_ranges.py | tail -40
