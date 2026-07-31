@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/tmp-sandero-page17-range-materialize.yml'
       - 'tools/tmp_materialize_sandero_page17_ranges.py'
+      - 'tools/tmp_complete_sandero_range_contracts.py'
 
 permissions:
   contents: write
@@ -147,6 +148,8 @@ jobs:
           if old_counts not in text:
               raise RuntimeError('dimension test count block not found')
           test_path.write_text(text.replace(old_counts, new_counts), encoding='utf-8')
+      - name: Complete reporting and evidence contracts
+        run: python tools/tmp_complete_sandero_range_contracts.py
       - name: Materialize and validate ranges
         run: python tools/tmp_materialize_sandero_page17_ranges.py
       - name: Commit final package and remove temporary tools
@@ -156,6 +159,7 @@ jobs:
           rm -f .github/workflows/tmp-sandero-page17-range-diagnostic.yml
           rm -f .github/workflows/tmp-sandero-page17-range-materialize.yml
           rm -f tools/tmp_materialize_sandero_page17_ranges.py
+          rm -f tools/tmp_complete_sandero_range_contracts.py
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
