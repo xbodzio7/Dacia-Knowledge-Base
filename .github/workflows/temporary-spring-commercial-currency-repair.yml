@@ -9,11 +9,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: temporary-spring-commercial-currency-${{ github.event.pull_request.number }}
+  group: temporary-spring-commercial-final-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 jobs:
-  repair:
+  finalize:
     if: github.head_ref == 'agent/spring-commercial-packages-and-charging-options-20260731'
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Repair required-currency contract and materialize
+      - name: Repair schema contract and materialize package
         shell: bash
         run: |
           set -euo pipefail
@@ -38,48 +38,61 @@ jobs:
           from pathlib import Path
 
           importer_path = Path("tools/import_spring_commercial_packages.py")
-          importer = importer_path.read_text(encoding="utf-8")
-          old = '''        if row["amount"] or row["currency_code"]:
-              raise ContractError(f"brochure-stated blank price was not preserved: {row['code']}")'''
-          new = '''        if row["amount"] or row["currency_code"] != "PLN":
-              raise ContractError(
-                  f"Spring mapping must preserve a blank amount and required PLN currency: {row['code']}"
-              )'''
-          if old not in importer:
-              raise SystemExit("Importer blank-price validation anchor not found")
-          importer = importer.replace(old, new, 1)
-          old = '''            "amount": "",
-              "currency_code": "",
-              "price_date": "",'''
-          new = '''            "amount": "",
-              "currency_code": row["currency_code"],
-              "price_date": "",'''
-          if old not in importer:
-              raise SystemExit("Importer generated currency anchor not found")
-          importer_path.write_text(importer.replace(old, new, 1), encoding="utf-8")
+          lines = importer_path.read_text(encoding="utf-8").splitlines()
+          replaced_validation = False
+          output: list[str] = []
+          index = 0
+          while index < len(lines):
+              line = lines[index]
+              if line.strip() == 'if row["amount"] or row["currency_code"]:':
+                  if index + 1 >= len(lines) or "brochure-stated blank price" not in lines[index + 1]:
+                      raise SystemExit("Unexpected importer validation shape")
+                  output.extend([
+                      '        if row["amount"] or row["currency_code"] != "PLN":',
+                      '            raise ContractError(',
+                      '                f"Spring mapping must preserve a blank amount and required PLN currency: {row[\'code\']}"',
+                      '            )',
+                  ])
+                  replaced_validation = True
+                  index += 2
+                  continue
+              output.append(line)
+              index += 1
+          importer = "\n".join(output) + "\n"
+          if not replaced_validation:
+              raise SystemExit("Importer validation line not found")
+          old_currency = '            "currency_code": "",'
+          if importer.count(old_currency) != 1:
+              raise SystemExit(f"Expected one generated blank currency, found {importer.count(old_currency)}")
+          importer = importer.replace(
+              old_currency,
+              '            "currency_code": row["currency_code"],',
+              1,
+          )
+          importer_path.write_text(importer, encoding="utf-8")
 
           spring_test_path = Path("tests/test_spring_commercial_packages.py")
           spring_test = spring_test_path.read_text(encoding="utf-8")
           old = 'self.assertTrue(all(not row["amount"] and not row["currency_code"] for row in mappings))'
           new = 'self.assertTrue(all(not row["amount"] and row["currency_code"] == "PLN" for row in mappings))'
-          if old not in spring_test:
-              raise SystemExit("Spring test currency anchor not found")
+          if spring_test.count(old) != 1:
+              raise SystemExit("Spring test currency assertion not found exactly once")
           spring_test_path.write_text(spring_test.replace(old, new, 1), encoding="utf-8")
 
           aggregate_path = Path("tests/test_commercial_items_20260703.py")
           aggregate = aggregate_path.read_text(encoding="utf-8")
           old = 'self.assertEqual({row["currency_code"] for row in self.mappings}, {"", "PLN"})'
           new = 'self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})'
-          if old not in aggregate:
-              raise SystemExit("Aggregate currency anchor not found")
+          if aggregate.count(old) != 1:
+              raise SystemExit("Aggregate currency assertion not found exactly once")
           aggregate_path.write_text(aggregate.replace(old, new, 1), encoding="utf-8")
 
           package_path = Path("project/packages/spring-commercial-packages-and-charging-options-20260731.md")
           package = package_path.read_text(encoding="utf-8")
           old = "Therefore `amount`, `currency_code` and `price_date` remain blank. No zero price, estimated price, configurator price or price transferred from another document is introduced."
           new = "Therefore `amount` and `price_date` remain blank. `currency_code` is `PLN` only because the commercial mapping schema requires a valid currency reference; it does not create a price. No zero price, estimated price, configurator price or price transferred from another document is introduced."
-          if old not in package:
-              raise SystemExit("Package price-boundary anchor not found")
+          if package.count(old) != 1:
+              raise SystemExit("Package price-boundary sentence not found exactly once")
           package_path.write_text(package.replace(old, new, 1), encoding="utf-8")
           PY
 
@@ -139,7 +152,10 @@ jobs:
                   "tools/import_spring_exterior_colour_options.py",
               ],
           }
-          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          state_path.write_text(
+              json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
 
           readme_path = Path("README.md")
           readme = readme_path.read_text(encoding="utf-8")
@@ -176,11 +192,14 @@ jobs:
 
           python tools/dkb.py project-state --apply
 
-      - name: Verify repaired package
+      - name: Verify final package
         shell: bash
         run: |
           set -euo pipefail
-          python -m unittest tests.test_spring_commercial_packages tests.test_commercial_items_20260703 -v
+          python -m unittest \
+            tests.test_spring_commercial_packages \
+            tests.test_commercial_items_20260703 \
+            -v
           python tools/import_spring_commercial_packages.py --check
           python tools/validate_dkb.py
           python tools/dkb.py project-state --check
@@ -191,32 +210,49 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm -- \
+          git rm --ignore-unmatch -- \
             .github/workflows/temporary-spring-package-extraction.yml \
             .github/workflows/temporary-spring-commercial-materializer.yml \
             .github/workflows/temporary-spring-commercial-currency-repair.yml
           git add -- \
-            CHANGELOG.md README.md \
+            CHANGELOG.md \
+            README.md \
             data/imports/spring_commercial_item_attributes_20260219.csv \
             data/imports/spring_commercial_item_configurations_20260219.csv \
             data/imports/spring_commercial_items_20260219.csv \
             data/master/commercial_item_attributes.csv \
             data/master/commercial_item_configurations.csv \
             data/master/commercial_items.csv \
-            project/ROADMAP.md project/SESSION_STATE.md project/STATE_SUMMARY.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
             project/packages/spring-commercial-packages-and-charging-options-20260731.md \
             project/state.json \
-            tests/test_commercial_items_20260703.py tests/test_spring_commercial_packages.py \
+            tests/test_commercial_items_20260703.py \
+            tests/test_spring_commercial_packages.py \
             tools/import_spring_commercial_packages.py
           git commit -m "feat(data): import Spring commercial packages and charging options"
           python - <<'PY'
           import json
           import subprocess
           from pathlib import Path
-          expected = sorted(json.loads(Path("project/state.json").read_text(encoding="utf-8"))["current_package"]["manifest_paths"])
-          actual = sorted(line for line in subprocess.check_output(["git", "diff", "--name-only", "origin/main...HEAD"], text=True).splitlines() if line)
+
+          expected = sorted(
+              json.loads(Path("project/state.json").read_text(encoding="utf-8"))
+              ["current_package"]["manifest_paths"]
+          )
+          actual = sorted(
+              line
+              for line in subprocess.check_output(
+                  ["git", "diff", "--name-only", "origin/main...HEAD"],
+                  text=True,
+              ).splitlines()
+              if line
+          )
           if actual != expected:
-              raise SystemExit(f"Final manifest mismatch:\nexpected={expected!r}\nactual={actual!r}")
+              raise SystemExit(
+                  f"Final manifest mismatch:\nexpected={expected!r}\nactual={actual!r}"
+              )
           print(f"Final package manifest verified: {len(actual)} paths.")
           PY
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
