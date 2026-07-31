@@ -44,6 +44,7 @@
       "project/packages/jogger-my26-fog-light-superseding-observations-20260731.md",
       "project/state.json",
       "tests/test_jogger_fog_light_superseding_observations.py",
+      "tests/test_spring_equipment_availability.py",
       "tools/import_jogger_fog_light_superseding_observations.py"
     ]
   },
