@@ -166,7 +166,7 @@
     "rewriting_public_v1_8_1_assets"
   ],
   "repository_baseline": {
-    "tests": 1684,
+    "tests": 1676,
     "csv_files": 46,
     "rows": 11380,
     "configuration_values": 3498,
