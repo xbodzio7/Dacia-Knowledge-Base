@@ -90,6 +90,10 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         self.fixture.mkdir()
         payload = self.root / "payload"
         create_workspace_payload(payload)
+        write_text(
+            payload / "cross-model/cross-model-comparison-view.html",
+            "<!doctype html><title>Fixture cross-model navigation</title>\n",
+        )
         archive_path = self.fixture / ARCHIVE_NAME
         files = write_deterministic_zip(payload, archive_path)
         manifest = {
@@ -176,7 +180,7 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
         self.assertTrue((output / "index.html").is_file())
         self.assertEqual(
             set(result["entry_points"]),
-            set(ENTRY_POINTS) | {"workspace_index"},
+            set(ENTRY_POINTS) | {"workspace_index", "cross_model_html"},
         )
         self.assertEqual(
             sorted(path.name for path in output.iterdir()),
@@ -366,6 +370,9 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
                     key: (Path("contents") / relative).as_posix()
                     for key, relative in ENTRY_POINTS.items()
                 },
+                "cross_model_html": (
+                    "contents/cross-model/cross-model-comparison-view.html"
+                ),
             },
         }
         stdout = io.StringIO()
@@ -376,6 +383,26 @@ class DataProductReleaseDownloadTests(unittest.TestCase):
             )
         self.assertIn("Workspace index", stdout.getvalue())
         self.assertIn("Cross-model navigation", stdout.getvalue())
+
+        legacy_result = {
+            **result,
+            "entry_points": {
+                key: value
+                for key, value in result["entry_points"].items()
+                if key != "cross_model_html"
+            },
+        }
+        legacy_stdout = io.StringIO()
+        with mock.patch.object(
+            cli,
+            "download_release",
+            return_value=legacy_result,
+        ), redirect_stdout(legacy_stdout):
+            self.assertEqual(
+                cli.main(["--version", VERSION, "--output-directory", str(output)]),
+                0,
+            )
+        self.assertNotIn("Cross-model navigation", legacy_stdout.getvalue())
 
         completed = SimpleNamespace(returncode=23)
         with mock.patch.object(dkb.subprocess, "run", return_value=completed) as run:
