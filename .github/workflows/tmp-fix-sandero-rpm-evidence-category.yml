@@ -59,8 +59,8 @@ jobs:
                   ])
               payload['decisions'].sort(key=lambda item: item.get('triage_key', ''))
               path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          if changed != 39:
-              raise RuntimeError(f'expected 39 category corrections across scoped/global evidence, got {changed}')
+          if changed != 38:
+              raise RuntimeError(f'expected 38 category corrections across scoped/global evidence, got {changed}')
           subprocess.run([
               'python', 'tools/configuration_gap_resolution_plan.py',
               '--write-plan-spec', 'data/reporting/configuration_gap_resolution_plan.json'
