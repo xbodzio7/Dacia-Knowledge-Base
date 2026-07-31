@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  extract:
+  inspect:
     if: github.head_ref == 'agent/jogger-my26-fog-light-superseding-observations-20260731'
     runs-on: ubuntu-latest
     steps:
@@ -17,44 +17,78 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: '3.13'
-      - name: Install PDF renderer
-        run: python -m pip install --disable-pip-version-check pypdfium2==4.30.0 Pillow==11.3.0
-      - name: Verify source and render image-only table pages
+      - name: Verify exact source and repository contracts
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          from hashlib import sha256
+          from __future__ import annotations
+
+          import csv
+          import hashlib
           from pathlib import Path
-          import pypdfium2 as pdfium
 
-          path = Path('PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf')
-          expected = '92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87'
-          actual = sha256(path.read_bytes()).hexdigest()
-          if actual != expected:
-              raise SystemExit(f'SHA mismatch: {actual}')
-          print(f'SOURCE_SHA256={actual}')
+          root = Path('.')
+          source = root / 'PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf'
+          expected_sha = '92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87'
+          actual_sha = hashlib.sha256(source.read_bytes()).hexdigest()
+          if actual_sha != expected_sha:
+              raise SystemExit(f'SHA mismatch: {actual_sha}')
 
-          output = Path('rendered-jogger-pages')
-          output.mkdir(parents=True, exist_ok=True)
-          document = pdfium.PdfDocument(path)
-          for page_number in (3, 4, 6):
-              page = document[page_number - 1]
-              bitmap = page.render(scale=220 / 72)
-              image = bitmap.to_pil()
-              destination = output / f'page-{page_number}.png'
-              image.save(destination)
-              print(f'{destination}: {image.width}x{image.height}')
+          configurations = {
+              'jogger_expression_5seat_ecog120_manual',
+              'jogger_expression_5seat_tce110_manual',
+              'jogger_expression_5seat_hybrid155_automatic',
+              'jogger_expression_7seat_ecog120_manual',
+              'jogger_expression_7seat_tce110_manual',
+              'jogger_expression_7seat_hybrid155_automatic',
+          }
+
+          def rows(path: str):
+              with (root / path).open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          attributes = {row['code']: row for row in rows('data/master/attributes.csv')}
+          print('ATTRIBUTE', attributes.get('front_fog_lights'))
+
+          config_rows = [
+              row for row in rows('data/master/configurations.csv')
+              if row['code'] in configurations
+          ]
+          print('CONFIGURATIONS', len(config_rows))
+          for row in config_rows:
+              print(row)
+
+          source_links = [
+              row for row in rows('data/master/source_configurations.csv')
+              if row['source_code'] == 'src_pl_jogger_price_my26_20260703'
+              and row['configuration_code'] in configurations
+          ]
+          print('SOURCE_LINKS', len(source_links))
+          for row in source_links:
+              print(row)
+
+          availability = rows('data/master/configuration_attribute_availability.csv')
+          print('MAX_AVAILABILITY_ID', max(int(row['id']) for row in availability))
+          history = [
+              row for row in availability
+              if row['configuration_code'] in configurations
+              and row['attribute_code'] == 'front_fog_lights'
+          ]
+          print('FOG_HISTORY', len(history))
+          for row in history:
+              print(row)
+
+          april_spec = [
+              row for row in rows('data/imports/jogger_equipment_availability_comfort_20260401.csv')
+              if row['configuration_code'] in configurations
+              and row['attribute_code'] == 'front_fog_lights'
+          ]
+          print('APRIL_SPEC', len(april_spec))
+          for row in april_spec:
+              print(row)
+
+          sources = {row['code']: row for row in rows('data/master/sources.csv')}
+          print('JULY_SOURCE', sources.get('src_pl_jogger_price_my26_20260703'))
+          print(f'SOURCE_SHA256={actual_sha}')
           PY
-          ls -lh rendered-jogger-pages
-      - name: Upload rendered pages
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.2.0
-        with:
-          name: jogger-price-list-rendered-pages
-          path: rendered-jogger-pages/*.png
-          if-no-files-found: error
-          retention-days: 1
