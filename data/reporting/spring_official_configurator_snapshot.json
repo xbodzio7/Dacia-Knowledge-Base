@@ -3,6 +3,12 @@
   "kind": "spring_official_configurator_snapshot",
   "observed_on": "2026-07-31",
   "status": "complete",
+  "materialization": {
+    "workflow": "Temporary Spring Configurator Snapshot Replay",
+    "workflow_run": 30639505251,
+    "materialized_commit": "873acab11c729504fe3c157d64fc541b17591f05",
+    "result": "PASS"
+  },
   "source_code": "src_pl_spring_official_configurator_20260731",
   "snapshot_path": "project/sources/dacia-pl-spring-configurator-20260731.json",
   "snapshot_sha256": "9b90aa2a2f81f1bc81509f04d3705887e8bd74af595f69a3e830c85c35b0601b",
