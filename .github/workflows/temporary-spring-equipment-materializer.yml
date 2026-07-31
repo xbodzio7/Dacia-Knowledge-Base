@@ -1,0 +1,134 @@
+name: Temporary Spring Equipment Materializer
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-spring-equipment-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.head_ref == 'agent/spring-version-equipment-matrix-availability-20260731'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Materialize and import reviewed Spring matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/temporary_materialize_spring_equipment.py
+          python tools/import_spring_equipment_availability.py --apply
+          python tools/dkb.py project-state --apply
+
+      - name: Verify focused package contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_spring_equipment_availability -v
+          python tools/import_spring_equipment_availability.py --check
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/spring_electric70_automatic_completeness.json \
+            --as-of 2026-07-31 \
+            --json "${RUNNER_TEMP}/spring-electric70-completeness.json" \
+            --markdown "${RUNNER_TEMP}/spring-electric70-completeness.md"
+          python tools/dkb.py configuration-completeness \
+            --spec data/reporting/spring_electric100_automatic_completeness.json \
+            --as-of 2026-07-31 \
+            --json "${RUNNER_TEMP}/spring-electric100-completeness.json" \
+            --markdown "${RUNNER_TEMP}/spring-electric100-completeness.md"
+          python tools/validate_dkb.py
+          python tools/dkb.py project-state --check
+
+      - name: Commit final package and remove temporary files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git rm -- \
+            .github/workflows/temporary-spring-equipment-materializer.yml \
+            tools/temporary_materialize_spring_equipment.py \
+            tools/.temporary_spring_payload_*
+
+          git add -- \
+            CHANGELOG.md \
+            README.md \
+            data/imports/spring_equipment_availability_20260219.csv \
+            data/master/configuration_attribute_availability.csv \
+            data/master/source_configurations.csv \
+            data/reporting/spring_electric100_automatic_completeness.json \
+            data/reporting/spring_electric70_automatic_completeness.json \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/packages/spring-version-equipment-matrix-availability-20260731.md \
+            project/state.json \
+            tests/test_spring_equipment_availability.py \
+            tools/import_spring_equipment_availability.py
+
+          git diff --cached --quiet && {
+            echo "Materializer produced no staged package changes." >&2
+            exit 1
+          }
+
+          git commit -m "feat(data): import Spring equipment matrix"
+
+          python - <<'PY'
+          from __future__ import annotations
+
+          import subprocess
+
+          expected = sorted([
+              "CHANGELOG.md",
+              "README.md",
+              "data/imports/spring_equipment_availability_20260219.csv",
+              "data/master/configuration_attribute_availability.csv",
+              "data/master/source_configurations.csv",
+              "data/reporting/spring_electric100_automatic_completeness.json",
+              "data/reporting/spring_electric70_automatic_completeness.json",
+              "project/ROADMAP.md",
+              "project/SESSION_STATE.md",
+              "project/STATE_SUMMARY.md",
+              "project/packages/spring-version-equipment-matrix-availability-20260731.md",
+              "project/state.json",
+              "tests/test_spring_equipment_availability.py",
+              "tools/import_spring_equipment_availability.py",
+          ])
+          actual = sorted(
+              line
+              for line in subprocess.check_output(
+                  ["git", "diff", "--name-only", "origin/main...HEAD"],
+                  text=True,
+              ).splitlines()
+              if line
+          )
+          if actual != expected:
+              raise SystemExit(
+                  "Final package manifest mismatch:\n"
+                  f"expected={expected!r}\n"
+                  f"actual={actual!r}"
+              )
+          print(f"Final package manifest verified: {len(actual)} paths.")
+          PY
+
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
