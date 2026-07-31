@@ -3,6 +3,12 @@
   "kind": "spring_official_pdf_source_registration",
   "registered_on": "2026-07-31",
   "status": "complete",
+  "materialization": {
+    "workflow": "Temporary Spring PDF Source Materialization PR Trigger",
+    "workflow_run": 30638585782,
+    "materialized_commit": "1b1af4d453f96c640aa9f2378764502209adc999",
+    "result": "PASS"
+  },
   "sources": [
     {
       "source_code": "src_pl_spring_brochure_20260219",
