@@ -24,3 +24,5 @@ A separate source review will audit brochure colour offers, explicit grade inher
 ## Visual verification
 
 The generated final HTML was opened in headless Chromium. The audit confirmed a dark outer canvas and filter panel, five unique commercial grade choices across all six models, visible Duster and Bigster comparison columns, a fixed-width parameter column and an internally scrollable comparison table. The legacy page-level sticky offset and duplicate category filler discovered during that audit are repaired in this package.
+
+The final package manifest contains only the eleven interface, regression-test and project-state paths recorded in `project/state.json`; temporary materializer files and workflow triggers are absent.
