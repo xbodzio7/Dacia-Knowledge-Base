@@ -64,11 +64,11 @@ jobs:
           fs.writeFileSync(path.join(root, "browser-selection.json"), jsonText);
           fs.writeFileSync(path.join(root, "browser-selection.txt"), codeText);
           const payload = JSON.parse(jsonText);
-          if (payload.results.length !== 9) {
-            throw new Error(`expected 9 selected configurations, got ${payload.results.length}`);
+          if (payload.results.length !== 10) {
+            throw new Error(`expected 10 selected configurations, got ${payload.results.length}`);
           }
-          if (codeText.trim().split("\n").length !== 9) {
-            throw new Error("plain code export does not contain nine lines");
+          if (codeText.trim().split("\n").length !== 10) {
+            throw new Error("plain code export does not contain ten lines");
           }
           NODE
       - name: Consume browser selection with comparison bundle
@@ -97,10 +97,10 @@ jobs:
               ).read_text(encoding="utf-8")
           )
           assert selection["export_type"] == "interactive_configuration_selection"
-          assert selection["selection_summary"]["selected_configuration_count"] == 9
-          assert bundle["selected_configuration_count"] == 9
+          assert selection["selection_summary"]["selected_configuration_count"] == 10
+          assert bundle["selected_configuration_count"] == 10
           assert bundle["comparable_scope_count"] == 4
-          assert bundle["singleton_scope_count"] == 1
+          assert bundle["singleton_scope_count"] == 2
           assert bundle["cross_scope_pairs_generated"] is False
           assert (
               bundle["selected_configuration_codes"]
