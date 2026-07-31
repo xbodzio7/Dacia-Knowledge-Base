@@ -59,14 +59,23 @@ def template_for(
     decisions: list[dict], configuration: str, attribute: str, fuel: str
 ) -> dict:
     preferred_attribute = "engine_power" if attribute == "max_power_rpm" else "engine_torque"
-    candidates = [
+    metadata = [
+        item for item in decisions if item.get("configuration_code") == configuration
+    ]
+    if not metadata:
+        raise RuntimeError(f"no evidence metadata for {configuration}")
+    base = copy.deepcopy(sorted(metadata, key=lambda item: item.get("triage_key", ""))[0])
+    source_code = base.get("source_code", "")
+    technical = [
         item
         for item in decisions
         if item.get("domain") == "technical"
-        and item.get("configuration_code") == configuration
+        and item.get("source_code", "") == source_code
     ]
+    if not technical:
+        technical = [item for item in decisions if item.get("domain") == "technical"]
     ordered = sorted(
-        candidates,
+        technical,
         key=lambda item: (
             item.get("attribute_code") != preferred_attribute,
             item.get("fuel_type_code", "") != fuel,
@@ -75,8 +84,11 @@ def template_for(
         ),
     )
     if not ordered:
-        raise RuntimeError(f"no technical evidence template for {configuration}")
-    return ordered[0]
+        raise RuntimeError(f"no technical category template in evidence file for {configuration}")
+    technical_template = ordered[0]
+    base["category"] = technical_template.get("category", base.get("category", "Engine"))
+    base["reviewed_pages"] = technical_template.get("reviewed_pages", base.get("reviewed_pages", []))
+    return base
 
 
 def add_not_stated_decisions(
@@ -101,7 +113,7 @@ def add_not_stated_decisions(
             signature = ("technical", configuration, attribute, fuel)
             if signature in existing:
                 continue
-            item = copy.deepcopy(template_for(decisions, configuration, attribute, fuel))
+            item = template_for(decisions, configuration, attribute, fuel)
             item.update(
                 {
                     "attribute_code": attribute,
