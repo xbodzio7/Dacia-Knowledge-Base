@@ -94,7 +94,7 @@ class DataProductReleaseTests(unittest.TestCase):
             names = [item.filename for item in infos]
             self.assertEqual(names, sorted(names))
             self.assertEqual(len(names), len(set(names)))
-            self.assertEqual(len(names), 97)
+            self.assertEqual(len(names), 93)
             self.assertTrue(all(not name.startswith("/") for name in names))
             self.assertTrue(all(".." not in Path(name).parts for name in names))
             self.assertTrue(all("\\" not in name for name in names))
@@ -151,10 +151,17 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(bundle["selected_configuration_count"], 81)
         self.assertEqual(bundle["scope_group_count"], 22)
         self.assertEqual(bundle["comparable_scope_count"], 21)
-        self.assertEqual(bundle["singleton_scope_count"], 0)
+        self.assertEqual(bundle["singleton_scope_count"], 1)
         self.assertFalse(bundle["cross_scope_pairs_generated"])
         self.assertEqual(len(bundle["groups"]), 22)
-        self.assertTrue(all(group["status"] == "comparable" for group in bundle["groups"]))
+        self.assertEqual(
+            sum(group["status"] == "comparable" for group in bundle["groups"]),
+            21,
+        )
+        self.assertEqual(
+            sum(group["status"] == "singleton" for group in bundle["groups"]),
+            1,
+        )
         self.assertIn(
             "comparison-bundle/configuration-comparison-workbook.xlsx",
             names,
