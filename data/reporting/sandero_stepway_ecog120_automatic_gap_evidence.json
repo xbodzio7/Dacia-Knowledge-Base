@@ -514,7 +514,7 @@
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -532,14 +532,14 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|max_power_rpm|lpg"
+      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Engine|max_power_rpm|lpg"
     },
     {
       "attribute_code": "max_power_rpm",
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -557,14 +557,14 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|max_power_rpm|petrol"
+      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Engine|max_power_rpm|petrol"
     },
     {
       "attribute_code": "max_torque_rpm",
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -582,7 +582,7 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|max_torque_rpm|lpg"
+      "triage_key": "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Engine|max_torque_rpm|lpg"
     },
     {
       "attribute_code": "wheel_finish",
@@ -614,7 +614,7 @@
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -632,14 +632,14 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Wheels|max_power_rpm|lpg"
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Engine|max_power_rpm|lpg"
     },
     {
       "attribute_code": "max_power_rpm",
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -657,14 +657,14 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Wheels|max_power_rpm|petrol"
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Engine|max_power_rpm|petrol"
     },
     {
       "attribute_code": "max_torque_rpm",
       "auto_import": false,
       "basis": null,
       "candidate_value": "",
-      "category": "Wheels",
+      "category": "Engine",
       "classification": "not_stated",
       "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
       "document_date": "2026-06-26",
@@ -682,7 +682,7 @@
       "source_page": null,
       "source_section": "",
       "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Wheels|max_torque_rpm|lpg"
+      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Engine|max_torque_rpm|lpg"
     }
   ]
 }
