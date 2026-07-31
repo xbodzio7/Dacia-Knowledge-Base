@@ -7,7 +7,10 @@ import sys
 import unittest
 from pathlib import Path
 
-from tools.catalog_completion_history import ADDED_CONFIGURATION_CODES
+from tools.catalog_completion_history import (
+    ADDED_CONFIGURATION_CODES,
+    LATER_CONFIGURATION_CODES,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
@@ -142,10 +145,11 @@ class PostBrochurePrioritySelectionReviewTests(unittest.TestCase):
         )
 
     def test_repository_readiness_covers_72_configurations_and_19_scopes(self) -> None:
+        excluded = ADDED_CONFIGURATION_CODES | LATER_CONFIGURATION_CODES
         active = [
             row
             for row in rows(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"] not in ADDED_CONFIGURATION_CODES
+            if row["status"] == "active" and row["code"] not in excluded
         ]
         self.assertEqual(len(active), 72)
         self.assertEqual(
@@ -274,7 +278,6 @@ class PostBrochurePrioritySelectionReviewTests(unittest.TestCase):
             244,
         )
         self.assertGreaterEqual(state["baseline"]["attributes"], 385)
-
 
 
 if __name__ == "__main__":
