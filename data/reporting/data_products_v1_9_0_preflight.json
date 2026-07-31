@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_9_0_preflight",
+  "verified_on": "2026-07-31",
+  "status": "PASS",
+  "source_commit": "6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c",
+  "release_version": "1.9.0",
+  "release_tag": "data-products-v1.9.0",
+  "build_count": 2,
+  "byte_identical_rebuilds": true,
+  "archive_member_count": 89,
+  "duplicate_archive_members": 0,
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.9.0.zip": {
+      "size_bytes": 82612470,
+      "sha256": "4e114f171a80445369f2439466d0d102e894145614d9a221a0390452309f453d"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 21600,
+      "sha256": "519f371be16251533befdeb8147caba30bdf2f3bd2c0122f474c03924574c7ad"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 213,
+      "sha256": "48c9b648d6a2e848f6e35118c9530024637f06e50ff71cea861acd1a0c7bd9cb"
+    }
+  },
+  "candidate_contract": {
+    "active_configuration_count": 78,
+    "scope_group_count": 20,
+    "comparable_scope_count": 20,
+    "singleton_scope_count": 0,
+    "within_scope_pair_count": 129,
+    "recorded_difference_count": 2180,
+    "technical_comparison_facet_count": 127,
+    "equipment_facet_count": 110,
+    "new_configuration_codes": [
+      "sandero_iii_essential_tce100_manual",
+      "sandero_iii_expression_tce100_manual",
+      "sandero_iii_journey_tce100_manual",
+      "sandero_stepway_iii_essential_tce110_manual",
+      "sandero_stepway_iii_expression_tce110_manual",
+      "sandero_stepway_iii_extreme_tce110_manual"
+    ],
+    "new_reporting_scope": "sandero_tce100_stepway_tce110_manual",
+    "new_scope_pair_count": 15,
+    "new_scope_difference_count": 467
+  },
+  "verification_checks": {
+    "release_asset_verification": "PASS",
+    "candidate_scope_and_membership": "PASS",
+    "release_notes_contract": "PASS",
+    "offline_archive_verification": "PASS",
+    "public_v1_8_1_control_download": "PASS"
+  },
+  "publication_controls": {
+    "tag_absent": true,
+    "release_absent": true,
+    "publication_performed": false
+  },
+  "semantic_boundaries": {
+    "new_source_backed_configurations": true,
+    "new_reporting_scope": true,
+    "new_within_scope_pairs": true,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "older_public_releases_rewritten": false
+  },
+  "repository_baseline": {
+    "tests": 1676,
+    "csv_files": 46,
+    "rows": 11380,
+    "configuration_values": 3498,
+    "configuration_import_specs": 138,
+    "configuration_value_ranges": 298,
+    "configuration_range_import_specs": 24,
+    "availability_records": 5770,
+    "attributes": 385,
+    "attribute_categories": 30
+  },
+  "next_package": {
+    "name": "Data Products v1.9.0 Publication",
+    "goal": "Publish exactly source commit 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c and the three preflighted asset identities, then perform an independent public download audit and record the immutable release."
+  }
+}
