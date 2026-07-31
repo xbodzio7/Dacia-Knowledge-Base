@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Commercial Packages and Charging Options**
+**Spring Exterior Colour Options**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1692
+- Tests: 1699
 - Master CSV files: 46
-- Master rows: 11564
+- Master rows: 11594
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Commercial Packages and Charging Options** — `complete`
+**Spring Exterior Colour Options** — `complete`
 
-Import brochure-bounded applicability and membership for Pakiet Techno, the standalone Expression DC 40 kW option, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the three exact existing Spring configurations, preserving blank amounts because the brochure states no prices.
+Register the six source-visible Spring exterior-colour choices as unpriced options for exactly the three existing Spring configurations, preserving finish classes and avoiding a fabricated standard colour or current price.
 
 ## Next package
 
-**Spring Exterior Colour Price Options** — `planned`
+**Jogger MY26 Fog-Light Superseding Observations** — `planned`
 
-Import exact source-bounded Spring exterior-colour option status and prices for the existing configurations, separating metallic and non-metallic colours and preserving every grade, model-year and campaign boundary.
+Add six dated July 2026 not-available observations for front fog lights on the existing Jogger Expression configurations while retaining the April 2026 standard history.
 
 ## Autonomy
 

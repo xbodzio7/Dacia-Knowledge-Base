@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Commercial Packages and Charging Options",
+  "phase": "Spring Exterior Colour Options",
   "reference_delivery": {
     "name": "Brochure Equipment Inheritance and Colour Review",
     "pull_request": 428,
@@ -15,9 +15,9 @@
     "quality_run": 2805
   },
   "baseline": {
-    "tests": 1692,
+    "tests": 1699,
     "csv_files": 46,
-    "rows": 11564,
+    "rows": 11594,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
@@ -27,48 +27,44 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_commercial_packages_and_charging_options_001",
+    "package_id": "spring_exterior_colour_options_001",
     "kind": "commercial_catalog_import",
-    "name": "Spring Commercial Packages and Charging Options",
+    "name": "Spring Exterior Colour Options",
     "status": "complete",
-    "goal": "Import brochure-bounded applicability and membership for Pakiet Techno, the standalone Expression DC 40 kW option, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the three exact existing Spring configurations, preserving blank amounts because the brochure states no prices.",
+    "goal": "Register the six source-visible Spring exterior-colour choices as unpriced options for exactly the three existing Spring configurations, preserving finish classes and avoiding a fabricated standard colour or current price.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
-      "data/imports/spring_commercial_item_attributes_20260219.csv",
-      "data/imports/spring_commercial_item_configurations_20260219.csv",
-      "data/imports/spring_commercial_items_20260219.csv",
+      "data/imports/spring_exterior_colour_options_20260219.csv",
       "data/master/commercial_item_attributes.csv",
       "data/master/commercial_item_configurations.csv",
       "data/master/commercial_items.csv",
       "project/ROADMAP.md",
       "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-commercial-packages-and-charging-options-20260731.md",
+      "project/packages/spring-exterior-colour-options-20260731.md",
       "project/state.json",
       "tests/test_commercial_items_20260703.py",
-      "tests/test_spring_commercial_packages.py",
-      "tools/import_spring_commercial_packages.py"
+      "tests/test_spring_exterior_colour_options.py",
+      "tools/import_spring_exterior_colour_options.py"
     ]
   },
   "next_package": {
-    "package_id": "spring_exterior_colour_price_options_001",
-    "kind": "commercial_catalog_import",
-    "name": "Spring Exterior Colour Price Options",
+    "package_id": "jogger_my26_fog_light_superseding_observations_001",
+    "kind": "equipment_availability_import",
+    "name": "Jogger MY26 Fog-Light Superseding Observations",
     "status": "planned",
-    "goal": "Import exact source-bounded Spring exterior-colour option status and prices for the existing configurations, separating metallic and non-metallic colours and preserving every grade, model-year and campaign boundary.",
+    "goal": "Add six dated July 2026 not-available observations for front fog lights on the existing Jogger Expression configurations while retaining the April 2026 standard history.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
-      "data/imports/spring_exterior_colour_options_20260219.csv",
-      "data/master/commercial_items.csv",
-      "data/master/commercial_item_attributes.csv",
-      "data/master/commercial_item_configurations.csv",
+      "data/imports/jogger_front_fog_lights_20260703.csv",
+      "data/master/configuration_attribute_availability.csv",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-exterior-colour-price-options-20260731.md",
+      "project/packages/jogger-my26-fog-light-superseding-observations-20260731.md",
       "project/state.json",
-      "tests/test_spring_exterior_colour_options.py",
-      "tools/import_spring_exterior_colour_options.py"
+      "tests/test_jogger_fog_light_superseding_observations.py",
+      "tools/import_jogger_fog_light_superseding_observations.py"
     ]
   },
   "autonomy": {
