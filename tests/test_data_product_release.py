@@ -17,6 +17,7 @@ sys.path.insert(0, str(REPOSITORY / "tools"))
 
 import data_product_release as cli  # noqa: E402
 import reporting.data_product_release as release_module  # noqa: E402
+import review_data_products_v1_9_0_release_preparation_20260731 as v190_preparation  # noqa: E402
 from reporting.configuration_comparison_bundle import BundleError  # noqa: E402
 from reporting.data_product_release import create_release_assets  # noqa: E402
 from reporting.data_product_release_model import (  # noqa: E402
@@ -224,6 +225,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertIn("cross-model navigation view", notes)
         self.assertNotIn("workflow", notes.lower())
         self.assertNotIn("generated at", notes.lower())
+        v190_preparation.verify()
 
     def test_repeated_generation_is_byte_identical(self) -> None:
         second = self.root / "second-release"
