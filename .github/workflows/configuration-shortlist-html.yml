@@ -37,6 +37,9 @@ jobs:
               line[len(prefix):] if line.startswith(prefix) else line
               for line in block.splitlines()
           ) + '\n'
+          old_marker = 'marker = "\\n\'\'\'\\n\\n\\ndef _read_script"'
+          new_marker = 'marker = "\\n\'\'\'\\n\\n\\n\\ndef _read_script"'
+          normalized = normalized.replace(old_marker, new_marker, 1)
           Path('/tmp/materialize-interface-repair.sh').write_text(
               normalized, encoding='utf-8'
           )
