@@ -1,0 +1,363 @@
+name: Temporary Spring PDF Source Materialization
+
+on:
+  push:
+    branches:
+      - agent/spring-official-pdf-source-registration-20260731
+    paths:
+      - .github/workflows/tmp-spring-pdf-source-materialization.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-official-pdf-source-registration-20260731
+          fetch-depth: 0
+
+      - name: Install PDF verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Download and verify official PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          brochure='PDF/Broszury/DACIA SPRING broszura 20260219.pdf'
+          price='PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf'
+          mkdir -p "$(dirname "$brochure")" "$(dirname "$price")"
+
+          curl --fail --location --retry 5 --retry-all-errors --connect-timeout 20 --max-time 240 \
+            --user-agent 'Mozilla/5.0' \
+            'https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf' \
+            --output "$brochure"
+          curl --fail --location --retry 5 --retry-all-errors --connect-timeout 20 --max-time 240 \
+            --user-agent 'Mozilla/5.0' \
+            'https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf' \
+            --output "$price"
+
+          test "$(head -c 4 "$brochure")" = '%PDF'
+          test "$(head -c 4 "$price")" = '%PDF'
+          brochure_pages="$(pdfinfo "$brochure" | awk '/^Pages:/ {print $2}')"
+          price_pages="$(pdfinfo "$price" | awk '/^Pages:/ {print $2}')"
+          test "$brochure_pages" = '22'
+          test "$price_pages" = '6'
+
+          echo "BROCHURE_SHA=$(sha256sum "$brochure" | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "PRICE_SHA=$(sha256sum "$price" | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "BROCHURE_SIZE=$(stat -c '%s' "$brochure")" >> "$GITHUB_ENV"
+          echo "PRICE_SIZE=$(stat -c '%s' "$price")" >> "$GITHUB_ENV"
+          echo "BROCHURE_PAGES=$brochure_pages" >> "$GITHUB_ENV"
+          echo "PRICE_PAGES=$price_pages" >> "$GITHUB_ENV"
+
+      - name: Register sources and synchronize project state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          import json
+          import os
+          from pathlib import Path
+
+          brochure_sha = os.environ['BROCHURE_SHA']
+          price_sha = os.environ['PRICE_SHA']
+          brochure_size = int(os.environ['BROCHURE_SIZE'])
+          price_size = int(os.environ['PRICE_SIZE'])
+          brochure_pages = int(os.environ['BROCHURE_PAGES'])
+          price_pages = int(os.environ['PRICE_PAGES'])
+
+          sources_path = Path('data/master/sources.csv')
+          source_models_path = Path('data/master/source_models.csv')
+
+          with sources_path.open(encoding='utf-8', newline='') as handle:
+              source_rows = list(csv.DictReader(handle))
+          existing_codes = {row['code'] for row in source_rows}
+          assert 'src_pl_spring_brochure_20260219' not in existing_codes
+          assert 'src_pl_spring_price_my25_stock_20260708' not in existing_codes
+          assert max(int(row['id']) for row in source_rows) == 30
+
+          with sources_path.open('a', encoding='utf-8', newline='') as handle:
+              writer = csv.writer(handle, lineterminator='\n')
+              writer.writerow([
+                  31,
+                  'src_pl_spring_brochure_20260219',
+                  'brochure_pdf',
+                  'DACIA SPRING broszura',
+                  'Dacia',
+                  'PL',
+                  '2026-02-19',
+                  'https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf',
+                  'PDF/Broszury/DACIA SPRING broszura 20260219.pdf',
+                  brochure_sha,
+                  'active',
+                  'Official Polish Spring model-range brochure published 2026-02-19. Source registration only; grade, cargo, powertrain and technical footnote applicability must be preserved before any observation import.',
+              ])
+              writer.writerow([
+                  32,
+                  'src_pl_spring_price_my25_stock_20260708',
+                  'configuration_pdf',
+                  'DACIA SPRING cennik MY25 stock',
+                  'Dacia',
+                  'PL',
+                  '2026-07-08',
+                  'https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf',
+                  'PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf',
+                  price_sha,
+                  'active',
+                  'Official Polish Spring model-year-2025 stock price list effective 2026-07-08. Catalogue and promotional prices are bounded to dealer inventory; registration does not import observations or generalize states to MY26.',
+              ])
+
+          with source_models_path.open(encoding='utf-8', newline='') as handle:
+              relation_rows = list(csv.DictReader(handle))
+          assert max(int(row['id']) for row in relation_rows) == 34
+          with source_models_path.open('a', encoding='utf-8', newline='') as handle:
+              writer = csv.writer(handle, lineterminator='\n')
+              writer.writerow([
+                  35,
+                  'src_pl_spring_brochure_20260219',
+                  'spring',
+                  'brochure_for',
+                  'Official Polish model-range brochure. Registration does not import or supersede configuration-level observations.',
+              ])
+              writer.writerow([
+                  36,
+                  'src_pl_spring_price_my25_stock_20260708',
+                  'spring',
+                  'price_list_for',
+                  'Official Polish model-year-2025 stock price list effective 2026-07-08; catalogue and promotional states remain stock-bounded.',
+              ])
+
+          receipt = {
+              'version': 1,
+              'kind': 'spring_official_pdf_source_registration',
+              'registered_on': '2026-07-31',
+              'status': 'complete',
+              'sources': [
+                  {
+                      'source_code': 'src_pl_spring_brochure_20260219',
+                      'source_type': 'brochure_pdf',
+                      'document_date': '2026-02-19',
+                      'external_reference': 'https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf',
+                      'file_path': 'PDF/Broszury/DACIA SPRING broszura 20260219.pdf',
+                      'sha256': brochure_sha,
+                      'bytes': brochure_size,
+                      'pages': brochure_pages,
+                      'model_code': 'spring',
+                      'relationship': 'brochure_for',
+                      'verification': 'PASS',
+                  },
+                  {
+                      'source_code': 'src_pl_spring_price_my25_stock_20260708',
+                      'source_type': 'configuration_pdf',
+                      'document_date': '2026-07-08',
+                      'external_reference': 'https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf',
+                      'file_path': 'PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf',
+                      'sha256': price_sha,
+                      'bytes': price_size,
+                      'pages': price_pages,
+                      'model_code': 'spring',
+                      'relationship': 'price_list_for',
+                      'commercial_scope': 'model_year_2025_dealer_stock',
+                      'verification': 'PASS',
+                  },
+              ],
+              'verification': {
+                  'pdf_magic': 'PASS',
+                  'page_counts': 'PASS',
+                  'sha256_recorded_from_downloaded_originals': True,
+                  'registered_source_count': 2,
+                  'registered_relationship_count': 2,
+                  'master_row_delta': 4,
+              },
+              'boundaries': {
+                  'configuration_observations_imported': False,
+                  'prices_imported': False,
+                  'equipment_imported': False,
+                  'technical_values_imported': False,
+                  'dynamic_configurator_registered': False,
+                  'stock_cards_registered': False,
+                  'public_release_modified': False,
+              },
+              'decision': 'REGISTER_SPRING_OFFICIAL_PDF_SOURCES',
+              'next_package': 'Spring Official Configurator Snapshot',
+          }
+          reporting_dir = Path('data/reporting')
+          reporting_dir.mkdir(parents=True, exist_ok=True)
+          (reporting_dir / 'spring_official_pdf_source_registration.json').write_text(
+              json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+
+          markdown = f'''# Spring Official PDF Source Registration
+
+          Date: 2026-07-31
+
+          Status: **complete**
+
+          ## Registered originals
+
+          Two official Polish Spring PDF files were downloaded directly from the Renault CDN and archived without transformation.
+
+          | Source | Pages | Bytes | SHA-256 |
+          | --- | ---: | ---: | --- |
+          | Spring brochure dated 2026-02-19 | {brochure_pages} | {brochure_size} | `{brochure_sha}` |
+          | Spring MY25 stock price list effective 2026-07-08 | {price_pages} | {price_size} | `{price_sha}` |
+
+          ## Relationships
+
+          - `src_pl_spring_brochure_20260219` → `spring` as `brochure_for`;
+          - `src_pl_spring_price_my25_stock_20260708` → `spring` as `price_list_for`.
+
+          ## Evidence boundaries
+
+          Registration adds source identity and immutable files only. It imports no configuration, catalogue or promotional price, equipment state, technical value, reporting scope or product release asset.
+
+          The price-list evidence remains limited to model-year-2025 dealer stock. It must not be generalized to current MY26 configurator states. Brochure values retain grade, cargo, wheel, charger and Electric 70/Electric 100 footnotes.
+
+          Decision: `REGISTER_SPRING_OFFICIAL_PDF_SOURCES`.
+
+          ## Next package
+
+          **Spring Official Configurator Snapshot** — capture dated exact dynamic states and register them independently from the immutable PDFs.
+          '''
+          lines = [line[10:] if line.startswith('          ') else line for line in markdown.splitlines()]
+          (reporting_dir / 'spring_official_pdf_source_registration.md').write_text(
+              '\n'.join(lines).strip() + '\n', encoding='utf-8'
+          )
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-07-31'
+          state['phase'] = 'Spring Official PDF Source Registration'
+          state['reference_delivery'] = {
+              'name': 'Spring Official Source Intake Review',
+              'pull_request': 420,
+              'head_sha': 'd69ee8c8ffffaddbf73ccac3c255e810c6dd6b98',
+              'quality_run': 2738,
+          }
+          state['baseline']['rows'] = 11384
+          state['current_package'] = {
+              'package_id': 'spring_official_pdf_source_registration_001',
+              'kind': 'source_registration',
+              'name': 'Spring Official PDF Source Registration',
+              'status': 'complete',
+              'goal': 'Archive, hash and register the exact official Polish Spring brochure dated 2026-02-19 and price list effective 2026-07-08, add model-level Spring relationships and a registration receipt, without importing configuration, price, equipment or technical observations.',
+              'manifest_paths': [
+                  'PDF/Broszury/DACIA SPRING broszura 20260219.pdf',
+                  'PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf',
+                  'data/master/sources.csv',
+                  'data/master/source_models.csv',
+                  'data/reporting/spring_official_pdf_source_registration.json',
+                  'data/reporting/spring_official_pdf_source_registration.md',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'spring_official_configurator_snapshot_001',
+              'kind': 'source_snapshot',
+              'name': 'Spring Official Configurator Snapshot',
+              'status': 'planned',
+              'goal': 'Capture and register dated exact official Dacia Poland Spring configurator states for every explicitly observed grade and powertrain combination, preserving applicability and catalogue-price boundaries without importing master data.',
+              'manifest_paths': [
+                  'project/sources/dacia-pl-spring-configurator-20260731.json',
+                  'data/master/sources.csv',
+                  'data/master/source_models.csv',
+                  'data/reporting/spring_official_configurator_snapshot.json',
+                  'data/reporting/spring_official_configurator_snapshot.md',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+              ],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          baseline = state['baseline']
+          summary = f'''# Project State Summary
+
+          > Generated from `project/state.json`. Do not edit manually.
+
+          ## Repository
+
+          - Repository: `xbodzio7/Dacia-Knowledge-Base`
+          - Default branch: `main`
+          - Source of truth: repository
+          - Main SHA tracking: dynamic
+          - State updated: 2026-07-31
+
+          ## Phase
+
+          **Spring Official PDF Source Registration**
+
+          ## Reference delivery
+
+          - Package: Spring Official Source Intake Review
+          - Pull Request: #420
+          - Verified head: `d69ee8c8ffffaddbf73ccac3c255e810c6dd6b98`
+          - Quality run: #2738
+
+          ## Verified baseline
+
+          - Tests: {baseline['tests']}
+          - Master CSV files: {baseline['csv_files']}
+          - Master rows: {baseline['rows']}
+          - Configuration values: {baseline['configuration_values']}
+          - Configuration import specifications: {baseline['configuration_import_specs']}
+          - Configuration value ranges: {baseline['configuration_value_ranges']}
+          - Configuration range import specifications: {baseline['configuration_range_import_specs']}
+          - Availability records: {baseline['availability_records']}
+          - Canonical attributes: {baseline['attributes']}
+          - Attribute categories: {baseline['attribute_categories']}
+
+          ## Current package
+
+          **Spring Official PDF Source Registration** — `complete`
+
+          Archive, hash and register the exact official Polish Spring brochure dated 2026-02-19 and price list effective 2026-07-08, add model-level Spring relationships and a registration receipt, without importing configuration, price, equipment or technical observations.
+
+          ## Next package
+
+          **Spring Official Configurator Snapshot** — `planned`
+
+          Capture and register dated exact official Dacia Poland Spring configurator states for every explicitly observed grade and powertrain combination, preserving applicability and catalogue-price boundaries without importing master data.
+
+          ## Autonomy
+
+          Mode: `autonomous_until_action_required`
+
+          Standing authorization covers package branches, manifest-scoped edits, tests and quality, package commits, pushes, Pull Requests, in-scope CI repairs, green merges, state updates and generated documentation.
+
+          Work stops only for a real source, access, authentication, policy, architecture, scope, destructive-operation or unresolved-evidence boundary. The stop message must begin with `ACTION_REQUIRED`.
+
+          ## Review policy
+
+          - Review-only Pull Requests: exception only
+          - Milestone review interval: 5 logical packages
+          - One logical package per Pull Request: yes
+          - Automatic remote-branch deletion: no
+          '''
+          summary_lines = [line[10:] if line.startswith('          ') else line for line in summary.splitlines()]
+          Path('project/STATE_SUMMARY.md').write_text('\n'.join(summary_lines).strip() + '\n', encoding='utf-8')
+          PY
+
+      - name: Verify package state
+        run: |
+          set -euo pipefail
+          python tools/dkb.py project-state --check
+          git diff --check
+
+      - name: Commit materialized package and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/tmp-spring-pdf-source-materialization.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'data(sources): register Spring official PDFs'
+          git push origin HEAD:agent/spring-official-pdf-source-registration-20260731
