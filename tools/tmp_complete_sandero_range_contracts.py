@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -185,6 +186,18 @@ add_not_stated_decisions(
     AUTO_SLOTS,
 )
 
+# Rebuild the versioned resolution plan after evidence expansion.
+subprocess.run(
+    [
+        "python",
+        "tools/configuration_gap_resolution_plan.py",
+        "--write-plan-spec",
+        "data/reporting/configuration_gap_resolution_plan.json",
+    ],
+    cwd=ROOT,
+    check=True,
+)
+
 # Current official-brochure receipts include the 20 Sandero RPM ranges.
 replace(
     "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
@@ -200,6 +213,67 @@ replace(
     "tests/test_cross_model_comparison_view.py",
     'self.assertEqual(scope["technical_slot_count"], 56)',
     'self.assertEqual(scope["technical_slot_count"], 60)',
+)
+replace(
+    "tests/test_configuration_comparison_workbook.py",
+    '            "A1:AS236",',
+    '            "A1:AS239",',
+)
+
+# Manual Sandero/Stepway Eco-G 120 reporting expectations.
+manual_test = "tests/test_sandero_ecog120_manual_reporting_scope.py"
+replace(manual_test, 'self.assertEqual(scope["technical_slots"], 56)', 'self.assertEqual(scope["technical_slots"], 60)')
+replace(
+    manual_test,
+    '''                "applicable": 280,\n                "coverage_percent": "93.21",\n                "denominator": 280,\n                "missing": 19,\n                "not_applicable": 0,\n                "present": 261,''',
+    '''                "applicable": 300,\n                "coverage_percent": "89.67",\n                "denominator": 300,\n                "missing": 31,\n                "not_applicable": 0,\n                "present": 269,''',
+)
+replace(manual_test, 'len(self.completeness["gaps"]["technical"]), 19', 'len(self.completeness["gaps"]["technical"]), 31')
+replace(
+    manual_test,
+    '''                "covered": 136,\n                "denominator": 175,\n                "missing": 7,\n                "not_applicable": 0,\n                "partial": 32,\n                "source_missing": 0,''',
+    '''                "covered": 133,\n                "denominator": 175,\n                "missing": 7,\n                "not_applicable": 0,\n                "partial": 35,\n                "source_missing": 0,''',
+)
+replace(manual_test, 'self.coverage["records"]["technical"]["present"], 261', 'self.coverage["records"]["technical"]["present"], 269')
+replace(manual_test, 'len(self.coverage["gaps"]), 66', 'len(self.coverage["gaps"]), 78')
+replace(manual_test, 'sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 67', 'sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 103')
+replace(
+    manual_test,
+    '"technical": {"comparisons": 648, "different": 152, "equal": 429, "not_comparable": 67}',
+    '"technical": {"comparisons": 688, "different": 152, "equal": 433, "not_comparable": 103}',
+)
+replace(
+    manual_test,
+    '{"ambiguous": 0, "found": 0, "not_stated": 49, "out_of_scope": 17, "total": 66}',
+    '{"ambiguous": 0, "found": 0, "not_stated": 61, "out_of_scope": 17, "total": 78}',
+)
+replace(manual_test, 'self.assertEqual(ranged, [])', 'self.assertEqual(len(ranged), 40)')
+
+# Stepway Eco-G 120 automatic reporting expectations.
+auto_test = "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py"
+replace(auto_test, 'self.assertEqual(scope["technical_slots"], 51)', 'self.assertEqual(scope["technical_slots"], 54)')
+replace(
+    auto_test,
+    '''                "applicable": 102,\n                "coverage_percent": "99.02",\n                "denominator": 102,\n                "missing": 1,\n                "not_applicable": 0,\n                "present": 101,''',
+    '''                "applicable": 108,\n                "coverage_percent": "93.52",\n                "denominator": 108,\n                "missing": 7,\n                "not_applicable": 0,\n                "present": 101,''',
+)
+replace(auto_test, 'len(self.completeness["gaps"]["technical"]), 1', 'len(self.completeness["gaps"]["technical"]), 7')
+replace(
+    auto_test,
+    '{"covered": 5, "denominator": 8, "missing": 0, "partial": 3, "source_missing": 0}',
+    '{"covered": 4, "denominator": 8, "missing": 0, "partial": 4, "source_missing": 0}',
+)
+replace(auto_test, 'len(self.coverage["gaps"]), 18', 'len(self.coverage["gaps"]), 24')
+replace(auto_test, 'pair["summary"]["technical"]["not_comparable"], 1', 'pair["summary"]["technical"]["not_comparable"], 4')
+replace(
+    auto_test,
+    '"technical": {"comparisons": 56, "different": 7, "equal": 48, "not_comparable": 1}',
+    '"technical": {"comparisons": 59, "different": 7, "equal": 48, "not_comparable": 4}',
+)
+replace(
+    auto_test,
+    '{"ambiguous": 0, "found": 0, "not_stated": 10, "out_of_scope": 8, "total": 18}',
+    '{"ambiguous": 0, "found": 0, "not_stated": 16, "out_of_scope": 8, "total": 24}',
 )
 
 print("PASS: completed Sandero RPM range dependent contracts")
