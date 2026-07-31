@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-30",
+  "updated_on": "2026-07-31",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Technical Page 17 Reviewed Fact Reconciliation",
+  "phase": "Sandero Page 17 Power and Torque RPM Range Import",
   "reference_delivery": {
     "name": "Jogger Technical Page 19 Reviewed Fact Reconciliation",
     "pull_request": 392,
@@ -15,50 +15,71 @@
     "quality_run": 2544
   },
   "baseline": {
-    "tests": 1669,
+    "tests": 1676,
     "csv_files": 46,
-    "rows": 11357,
+    "rows": 11380,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
-    "configuration_value_ranges": 278,
-    "configuration_range_import_specs": 22,
+    "configuration_value_ranges": 298,
+    "configuration_range_import_specs": 24,
     "availability_records": 5770,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_sandero_technical_page17_reviewed_fact_reconciliation_001",
-    "kind": "review_closure",
-    "name": "Sandero Technical Page 17 Reviewed Fact Reconciliation",
-    "status": "complete",
-    "goal": "Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data and hand off the only exact remaining gap as a bounded 20-range import.",
-    "manifest_paths": [
-      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.json",
-      "data/reporting/sandero_technical_page17_reviewed_fact_reconciliation.md",
-      "project/reviews/sandero-technical-page17-reviewed-fact-reconciliation-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "post_residual_sandero_page17_power_torque_rpm_range_import_001",
     "kind": "configuration_value_range_import",
     "name": "Sandero Page 17 Power and Torque RPM Range Import",
+    "status": "complete",
+    "goal": "Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations while preserving fuel context and every reconciliation non-import boundary.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/configuration_value_ranges/sandero-page17-max-power-rpm-ranges-20260202.json",
+      "data/imports/configuration_value_ranges/sandero-page17-max-torque-rpm-ranges-20260202.json",
+      "data/master/configuration_attribute_value_ranges.csv",
+      "data/master/source_configurations.csv",
+      "data/reporting/configuration_completeness.json",
+      "data/reporting/configuration_gap_evidence.json",
+      "data/reporting/configuration_gap_resolution_plan.json",
+      "data/reporting/sandero_ecog120_automatic_completeness.json",
+      "data/reporting/sandero_ecog120_manual_completeness.json",
+      "data/reporting/sandero_ecog120_manual_gap_evidence.json",
+      "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
+      "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/state.json",
+      "tests/test_brochure_chassis_modeling_closure_review.py",
+      "tests/test_brochure_generic_dimensions_semantic_mapping_review.py",
+      "tests/test_configuration_comparison_workbook.py",
+      "tests/test_configuration_value_ranges.py",
+      "tests/test_cross_model_comparison_view.py",
+      "tests/test_jogger_payload_performance_ranges.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "tests/test_sandero_ecog120_manual_reporting_scope.py",
+      "tests/test_sandero_page17_power_torque_rpm_ranges.py",
+      "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py",
+      "tools/review_brochure_chassis_modeling_closure_20260726.py",
+      "tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tools/tmp_materialize_sandero_page17_ranges.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_residual_sandero_page17_power_torque_rpm_range_import_closure_001",
+    "kind": "review_closure",
+    "name": "Sandero Page 17 Power and Torque RPM Range Import Closure",
     "status": "planned",
     "source_code": "src_pl_sandero_brochure_20260202",
     "source_page": 17,
-    "goal": "Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations, preserving fuel context, the printed TCe power-literal inconsistency and the missing automatic-petrol torque continuation.",
-    "planned_range_id_start": 279,
-    "planned_range_id_end": 298,
-    "planned_observation_count": 20,
-    "attribute_counts": {
-      "max_power_rpm": 11,
-      "max_torque_rpm": 9
-    },
+    "goal": "Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve every scalar, fuel-context and non-import boundary, then publish data-products-v1.9.0.",
     "manifest_paths": [
-      "data/imports/brochure_technical_values/sandero-page17-power-torque-rpm-ranges-20260202.json",
-      "data/master/configuration_attribute_value_ranges.csv",
-      "tests/test_sandero_page17_power_torque_rpm_ranges.py",
+      "data/reporting/sandero_page17_power_torque_rpm_range_import_closure.json",
+      "data/reporting/sandero_page17_power_torque_rpm_range_import_closure.md",
+      "project/reviews/sandero-page17-power-torque-rpm-range-import-closure-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

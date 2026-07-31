@@ -239,3 +239,6 @@ id,source_code,configuration_code,relationship,notes
 238,src_pl_sandero_stepway_catalog_tce_slice_20260703,sandero_stepway_iii_expression_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
 239,src_pl_sandero_stepway_catalog_tce_slice_20260703,sandero_stepway_iii_extreme_ecog120_manual,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
 240,src_pl_sandero_stepway_catalog_tce_slice_20260703,sandero_stepway_iii_extreme_ecog120_automatic,documents,Non-empty page-1 price cell in the 2026-07-03 matrix; observations are imported separately.
+241,src_pl_sandero_brochure_20260202,sandero_iii_essential_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.
+242,src_pl_sandero_brochure_20260202,sandero_iii_expression_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.
+243,src_pl_sandero_brochure_20260202,sandero_iii_journey_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.

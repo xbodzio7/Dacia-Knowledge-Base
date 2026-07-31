@@ -107,11 +107,18 @@ class BrochureGenericDimensionsSemanticMappingReviewTests(unittest.TestCase):
         self.assertEqual(duster["deferred_mapping_template_values"], 10)
 
     def test_source_relationships_define_thirty_six_import_targets(self) -> None:
+        sandero_dimension_targets = {
+            "sandero_iii_expression_ecog120_manual",
+            "sandero_iii_journey_ecog120_manual",
+            "sandero_iii_expression_ecog120_automatic",
+            "sandero_iii_journey_ecog120_automatic",
+        }
         counts = Counter(
             row["source_code"]
             for row in self.relationships
             if row["relationship"] == "brochure_technical_data_for"
             and row["source_code"] in self.sources
+            and (row["source_code"] != "src_pl_sandero_brochure_20260202" or row["configuration_code"] in sandero_dimension_targets)
         )
         self.assertEqual(counts, Counter({
             "src_pl_sandero_brochure_20260202": 4,

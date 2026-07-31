@@ -90,6 +90,12 @@ EXPECTED_RELATIONSHIPS = {
     "src_pl_jogger_brochure_20251217": 22,
     "src_pl_duster_mini_brochure_20251020": 10,
 }
+SANDERO_DIMENSION_TARGETS = {
+    "sandero_iii_expression_ecog120_manual",
+    "sandero_iii_journey_ecog120_manual",
+    "sandero_iii_expression_ecog120_automatic",
+    "sandero_iii_journey_ecog120_automatic",
+}
 
 
 class ReviewError(RuntimeError):
@@ -251,14 +257,18 @@ def active_configuration_models() -> tuple[dict[str, dict[str, str]], dict[str, 
 
 
 def source_relationship_targets() -> dict[str, set[str]]:
-    return {
+    relationships = rows(MASTER / "source_configurations.csv")
+    result = {
         source: {
             row.get("configuration_code", "")
-            for row in rows(MASTER / "source_configurations.csv")
+            for row in relationships
             if row.get("source_code") == source and row.get("relationship") == "brochure_technical_data_for"
         }
         for source in SOURCE_CODES
     }
+    ensure(SANDERO_DIMENSION_TARGETS <= result["src_pl_sandero_brochure_20260202"], "historical Sandero dimension targets are no longer source-linked")
+    result["src_pl_sandero_brochure_20260202"] = set(SANDERO_DIMENSION_TARGETS)
+    return result
 
 
 def verify_projection_scopes() -> None:

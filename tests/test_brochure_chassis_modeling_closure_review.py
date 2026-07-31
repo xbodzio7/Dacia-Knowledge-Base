@@ -108,7 +108,7 @@ class BrochureChassisModelingClosureReviewTests(unittest.TestCase):
                 for row in relationships
                 if row["source_code"] == source and row["relationship"] == "brochure_technical_data_for"
             }
-            self.assertEqual(actual, expected, source)
+            self.assertTrue(expected <= actual, source)
 
     def test_all_model_resolutions_are_imported_but_jogger_mass_conflict_is_blocked(self) -> None:
         model = json.loads((REPORTING / "brochure_chassis_measurement_context_model.json").read_text(encoding="utf-8"))

@@ -32,7 +32,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 2)
-        self.assertEqual(scope["technical_slots"], 51)
+        self.assertEqual(scope["technical_slots"], 54)
         self.assertEqual(scope["equipment_attributes"], 69)
         self.assertEqual(scope["sources"], 2)
 
@@ -40,10 +40,10 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 102,
-                "coverage_percent": "99.02",
-                "denominator": 102,
-                "missing": 1,
+                "applicable": 108,
+                "coverage_percent": "93.52",
+                "denominator": 108,
+                "missing": 7,
                 "not_applicable": 0,
                 "present": 101,
             },
@@ -63,7 +63,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
                 "unknown": 0,
             },
         )
-        self.assertEqual(len(self.completeness["gaps"]["technical"]), 1)
+        self.assertEqual(len(self.completeness["gaps"]["technical"]), 7)
         self.assertEqual(len(self.completeness["gaps"]["equipment"]), 17)
 
     def test_source_coverage_preserves_partial_and_missing_sections(self) -> None:
@@ -80,23 +80,23 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(
             self.coverage["areas"],
-            {"covered": 5, "denominator": 8, "missing": 0, "partial": 3, "source_missing": 0},
+            {"covered": 4, "denominator": 8, "missing": 0, "partial": 4, "source_missing": 0},
         )
         self.assertEqual(
             self.coverage["sections"],
             {
-                "covered": 60,
+                "covered": 58,
                 "denominator": 70,
                 "missing": 2,
                 "not_applicable": 0,
-                "partial": 8,
+                "partial": 10,
                 "source_missing": 0,
             },
         )
         self.assertEqual(self.coverage["records"]["technical"]["present"], 101)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 121)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 2)
-        self.assertEqual(len(self.coverage["gaps"]), 18)
+        self.assertEqual(len(self.coverage["gaps"]), 24)
 
     def test_single_pair_is_same_transmission_and_evidence_aware(self) -> None:
         pairs = self.comparison["pairs"]
@@ -106,7 +106,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             Counter({"different_version_same_transmission": 1}),
         )
         pair = pairs[0]
-        self.assertEqual(pair["summary"]["technical"]["not_comparable"], 1)
+        self.assertEqual(pair["summary"]["technical"]["not_comparable"], 4)
         self.assertEqual(pair["summary"]["equipment"]["not_comparable"], 13)
         self.assertEqual(pair["summary"]["prices"]["not_comparable"], 0)
 
@@ -116,7 +116,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 69, "different": 1, "equal": 55, "not_comparable": 13},
                 "prices": {"comparisons": 1, "different": 1, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 56, "different": 7, "equal": 48, "not_comparable": 1},
+                "technical": {"comparisons": 59, "different": 7, "equal": 48, "not_comparable": 4},
                 "total_differences": 9,
             },
         )
@@ -124,7 +124,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
     def test_evidence_decisions_are_preserved_without_inference(self) -> None:
         self.assertEqual(
             self.comparison["evidence_summary"],
-            {"ambiguous": 0, "found": 0, "not_stated": 10, "out_of_scope": 8, "total": 18},
+            {"ambiguous": 0, "found": 0, "not_stated": 16, "out_of_scope": 8, "total": 24},
         )
         ranged = [
             item
