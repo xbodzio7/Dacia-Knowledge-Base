@@ -1,0 +1,324 @@
+name: Temporary Interactive Shortlist Interface Repair
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.head_ref == 'agent/interactive-shortlist-interface-repair-20260731'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/interactive-shortlist-interface-repair-20260731
+          fetch-depth: 0
+
+      - name: Repair shortlist interface
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          ROOT = Path('.')
+
+          # 1. Restore one coherent, browser-independent dark theme.
+          path = ROOT / 'tools' / 'reporting' / 'configuration_shortlist_html.py'
+          text = path.read_text(encoding='utf-8')
+          old = ':root{color-scheme:light;--ink:#17211b;--muted:#5e6a63;--paper:#f5f7f4;--panel:#fff;--line:#d8ded9;--accent:#1f6f43;--soft:#e5f2e9;--config-bg:#151918;--config-panel:#202523;--config-line:#6e746e;--config-text:#f8f6ee;--warn:#8b500d;--warn-soft:#fff1d9;--danger:#9c3030;--danger-soft:#fde8e8}'
+          new = ':root{color-scheme:dark;--ink:#f4f5ef;--muted:#b8c0ba;--paper:#111513;--panel:#1b211e;--line:#3f4943;--accent:#9fc9a9;--soft:#26392e;--config-bg:#151918;--config-panel:#202523;--config-line:#6e746e;--config-text:#f8f6ee;--warn:#f0b35e;--warn-soft:#3a2b18;--danger:#ff9a9a;--danger-soft:#3b2222}'
+          assert old in text
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          # 2. Group duplicate commercial grade names while retaining exact version-code filtering.
+          path = ROOT / 'tools' / 'reporting' / 'configuration_shortlist_browser.js'
+          text = path.read_text(encoding='utf-8')
+          old = '''  function versionsForModels(versions, modelCodes) {
+    const wanted = new Set(modelCodes || []);
+    if (!wanted.size) return [];
+    return (versions || []).filter((item) => wanted.has(item.model_code));
+  }
+
+  function populateVersions(catalog, modelCodes, selectedVersions) {
+    const select = document.querySelector("#versions");
+    const field = document.querySelector("#versions-field");
+    const items = versionsForModels(catalog.facets.versions, modelCodes);
+    select.innerHTML = optionMarkup(items, "code", versionOptionLabel);
+    select.disabled = items.length === 0;
+    if (field) field.hidden = items.length === 0;
+    setSelected(select, selectedVersions || []);
+  }
+'''
+          new = '''  function versionsForModels(versions, modelCodes) {
+    const wanted = new Set(modelCodes || []);
+    if (!wanted.size) return [];
+    return (versions || []).filter((item) => wanted.has(item.model_code));
+  }
+
+  function versionGroupKey(item) {
+    return String(item && (item.name || item.code) || "")
+      .trim().toLocaleLowerCase("pl");
+  }
+
+  function versionGroupsForModels(versions, modelCodes) {
+    const grouped = new Map();
+    for (const item of versionsForModels(versions, modelCodes)) {
+      const key = versionGroupKey(item);
+      if (!key) continue;
+      if (!grouped.has(key)) {
+        grouped.set(key, {
+          code: `grade:${key}`,
+          name: versionOptionLabel(item),
+          version_codes: [],
+          model_codes: []
+        });
+      }
+      const group = grouped.get(key);
+      group.version_codes.push(String(item.code));
+      group.model_codes.push(String(item.model_code));
+    }
+    return [...grouped.values()].map((group) => ({
+      ...group,
+      version_codes: unique(group.version_codes),
+      model_codes: unique(group.model_codes)
+    })).sort((left, right) =>
+      left.name.localeCompare(right.name, "pl") || left.code.localeCompare(right.code)
+    );
+  }
+
+  function optionVersionCodes(option) {
+    if (!option) return [];
+    const encoded = option.dataset.versionCodes;
+    if (!encoded) return option.value ? [option.value] : [];
+    try {
+      const parsed = JSON.parse(encoded);
+      return Array.isArray(parsed) ? unique(parsed) : [];
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function selectedVersionCodes(select) {
+    return unique([...(select ? select.selectedOptions : [])]
+      .flatMap((option) => optionVersionCodes(option)));
+  }
+
+  function setSelectedVersionCodes(select, versionCodes) {
+    if (!select) return;
+    const wanted = new Set(versionCodes || []);
+    for (const option of select.options) {
+      const codes = optionVersionCodes(option);
+      option.selected = codes.some((code) => wanted.has(code));
+    }
+  }
+
+  function versionGroupMarkup(items) {
+    return items.map((item) =>
+      `<option value="${escapeHtml(item.code)}" data-version-codes="${escapeHtml(JSON.stringify(item.version_codes))}">${escapeHtml(item.name)}</option>`
+    ).join("");
+  }
+
+  function populateVersions(catalog, modelCodes, selectedVersions) {
+    const select = document.querySelector("#versions");
+    const field = document.querySelector("#versions-field");
+    const items = versionGroupsForModels(catalog.facets.versions, modelCodes);
+    select.innerHTML = versionGroupMarkup(items);
+    select.disabled = items.length === 0;
+    if (field) field.hidden = items.length === 0;
+    setSelectedVersionCodes(select, selectedVersions || []);
+  }
+'''
+          assert old in text
+          text = text.replace(old, new, 1)
+          text = text.replace(
+              '      versions: selectedValues(document.querySelector("#versions")),',
+              '      versions: selectedVersionCodes(document.querySelector("#versions")),',
+              1,
+          )
+          text = text.replace(
+              '      const selectedVersions = selectedValues(document.querySelector("#versions"));',
+              '      const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));',
+              1,
+          )
+          old_export = '''    modelOptionLabel,
+    versionOptionLabel,
+    versionsForModels,
+    equipmentAvailable,'''
+          new_export = '''    modelOptionLabel,
+    versionOptionLabel,
+    versionsForModels,
+    versionGroupsForModels,
+    selectedVersionCodes,
+    equipmentAvailable,'''
+          assert old_export in text
+          path.write_text(text.replace(old_export, new_export, 1), encoding='utf-8')
+
+          # 3. Render category rows with a real fixed first cell instead of one oversized colspan cell.
+          path = ROOT / 'tools' / 'reporting' / 'configuration_shortlist_selection.js'
+          text = path.read_text(encoding='utf-8')
+          old = '        body.push(`<tr class="comparison-category-row" data-category="${escapeHtml(currentCategory)}"><th colspan="${comparison.configurations.length + 1}">${escapeHtml(currentCategory)}</th></tr>`);'
+          new = '        body.push(`<tr class="comparison-category-row" data-category="${escapeHtml(currentCategory)}"><th scope="rowgroup">${escapeHtml(currentCategory)}</th><td colspan="${comparison.configurations.length}" aria-hidden="true"></td></tr>`);'
+          assert old in text
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          # 4. Override legacy light surfaces and make both table axes sticky inside one scroll viewport.
+          path = ROOT / 'tools' / 'reporting' / 'configuration_shortlist_selection_html.py'
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              '"Format interaktywnej shortlisty HTML v1.5.",',
+              '"Format interaktywnej shortlisty HTML v1.6.",',
+              1,
+          )
+          marker = "\n'''\n\n\ndef _read_script"
+          assert marker in text
+          override = r'''
+
+/* Interface repair v1.6: one dark canvas and a two-axis sticky comparison grid. */
+.selection-panel{background:rgba(27,33,30,.98);border-color:var(--line);box-shadow:0 12px 34px rgba(0,0,0,.32)}
+.selection-actions button,.remove-selection,.comparison-heading-row button{background:var(--config-panel);color:var(--config-text);border-color:var(--line)}
+.selection-actions button:hover,.remove-selection:hover,.comparison-heading-row button:hover{border-color:#9fc9a9}
+.remove-selection{background:var(--paper)}
+.difference-toggle{background:var(--config-panel);color:var(--config-text);border-color:var(--line)}
+.comparison-panel{background:var(--panel);border-color:var(--line);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.comparison-scroll{max-height:calc(100vh - 96px);overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable both-edges;background:var(--panel)}
+.comparison-table{--parameter-column:280px;--data-column:260px;background:var(--panel)}
+.comparison-table th,.comparison-table td{width:var(--data-column);min-width:var(--data-column);max-width:var(--data-column);overflow-wrap:anywhere;background:var(--panel)}
+.comparison-table thead th{position:sticky;top:0;z-index:5;background:var(--soft)}
+.comparison-table thead th:first-child{left:0;z-index:8;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column)}
+.comparison-table .comparison-data-row>th:first-child{position:sticky;left:0;z-index:4;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column);background:var(--paper)}
+.comparison-table .comparison-category-row>th:first-child{position:sticky;left:0;z-index:7;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column);background:var(--soft)}
+.comparison-table .comparison-category-row>td{background:var(--soft)}
+.comparison-table .is-different{background:var(--warn-soft)}
+.selected-filter-summary{background:var(--config-panel);color:var(--config-text);border-color:var(--config-line)}
+.selected-filter-summary-head button,.equipment-picker-scroll,.equipment-choice{background:var(--config-panel)!important;color:var(--config-text)!important;border-color:var(--config-line)!important}
+.equipment-picker-group h3,.equipment-availability-note,.selected-filter-empty{color:#b9c0bb}
+.model-thumbnail-host{background:linear-gradient(180deg,var(--panel),transparent)}
+@media(max-width:680px){.comparison-table{--parameter-column:220px;--data-column:230px}.comparison-scroll{max-height:calc(100vh - 72px)}}
+@media print{:root{color-scheme:light;--ink:#17211b;--muted:#5e6a63;--paper:#f5f7f4;--panel:#fff;--line:#d8ded9;--accent:#1f6f43;--soft:#e5f2e9;--warn:#8b500d;--warn-soft:#fff1d9;--danger:#9c3030;--danger-soft:#fde8e8}.comparison-scroll{max-height:none;overflow:visible}.comparison-table thead th,.comparison-table .comparison-data-row>th:first-child,.comparison-table .comparison-category-row>th:first-child{position:static}}
+'''
+          text = text.replace(marker, override + marker, 1)
+          path.write_text(text, encoding='utf-8')
+
+          # 5. Strengthen focused contracts without increasing the test baseline.
+          path = ROOT / 'tests' / 'test_configuration_shortlist_html.py'
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              "        self.assertIn('.filters{display:grid;grid-template-columns:1fr', rendered)\n",
+              "        self.assertIn('.filters{display:grid;grid-template-columns:1fr', rendered)\n        self.assertIn(':root{color-scheme:dark;', rendered)\n",
+              1,
+          )
+          old_program = '''  both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code)
+}));'''
+          new_program = '''  both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code),
+  groups: api.versionGroupsForModels(versions, ["model_a", "model_b"]).map((item) => ({name: item.name, codes: item.version_codes}))
+}));'''
+          assert old_program in text
+          text = text.replace(old_program, new_program, 1)
+          old_assert = '        self.assertEqual(result["both"], ["a_one", "a_two", "b_one"])\n'
+          new_assert = '''        self.assertEqual(result["both"], ["a_one", "a_two", "b_one"])
+        self.assertEqual(
+            result["groups"],
+            [
+                {"name": "One", "codes": ["a_one", "b_one"]},
+                {"name": "Two", "codes": ["a_two"]},
+            ],
+        )
+'''
+          assert old_assert in text
+          path.write_text(text.replace(old_assert, new_assert, 1), encoding='utf-8')
+
+          path = ROOT / 'tests' / 'test_configuration_selection_export.py'
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              '        self.assertIn("Format interaktywnej shortlisty HTML v1.5.", rendered)',
+              '        self.assertIn("Format interaktywnej shortlisty HTML v1.6.", rendered)',
+              1,
+          )
+          anchor = '        self.assertIn("Pokaż tylko różnice", rendered)\n'
+          addition = '''        self.assertIn("Pokaż tylko różnice", rendered)
+        self.assertIn("--parameter-column:280px", rendered)
+        self.assertIn("max-height:calc(100vh - 96px)", rendered)
+        self.assertIn('scope="rowgroup"', rendered)
+        self.assertIn('aria-hidden="true"', rendered)
+'''
+          assert anchor in text
+          path.write_text(text.replace(anchor, addition, 1), encoding='utf-8')
+
+          package = ROOT / 'project' / 'packages' / 'interactive-shortlist-interface-repair-20260731.md'
+          package.parent.mkdir(parents=True, exist_ok=True)
+          package.write_text(
+              '''# Interactive Shortlist Interface Repair\n\nDate: 2026-07-31\n\nStatus: **complete**\n\n## User-visible repairs\n\n- restores one forced dark theme across the page, filters, result cards, selection panel and comparison table;\n- groups equal commercial grade names across selected models while expanding each choice to the exact underlying version codes;\n- gives the comparison parameter column and every configuration column deterministic widths;\n- keeps model headers visible during vertical scrolling inside the comparison viewport;\n- keeps parameter and category names visible during horizontal scrolling;\n- replaces the oversized category colspan cell with one sticky category label cell and a separate filler cell.\n\n## Semantics\n\nThe package changes presentation and filter ergonomics only. It does not infer missing values, merge reporting scopes, create cross-scope pairs, or modify source-backed catalogue data.\n\n## Follow-up\n\nA separate source review will audit brochure colour offers, explicit grade inheritance such as `Expression = Essential +`, and repeated missing values that may be resolved only through direct source statements.\n''',
+              encoding='utf-8',
+          )
+
+          state_path = ROOT / 'project' / 'state.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-07-31'
+          state['phase'] = 'Interactive Shortlist Interface Repair'
+          state['reference_delivery'] = {
+              'name': 'Spring Electric 100 Singleton Catalogue Foundation',
+              'pull_request': 426,
+              'head_sha': 'f5a2233855213873152fd164b831d450bb05ef47',
+              'quality_run': 2782,
+          }
+          state['current_package'] = {
+              'package_id': 'interactive_shortlist_interface_repair_001',
+              'kind': 'user_interface_repair',
+              'name': 'Interactive Shortlist Interface Repair',
+              'status': 'complete',
+              'goal': 'Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.',
+              'manifest_paths': [
+                  'CHANGELOG.md',
+                  'README.md',
+                  'project/SESSION_STATE.md',
+                  'project/STATE_SUMMARY.md',
+                  'project/packages/interactive-shortlist-interface-repair-20260731.md',
+                  'project/state.json',
+                  'tests/test_configuration_selection_export.py',
+                  'tests/test_configuration_shortlist_html.py',
+                  'tools/reporting/configuration_shortlist_browser.js',
+                  'tools/reporting/configuration_shortlist_html.py',
+                  'tools/reporting/configuration_shortlist_selection.js',
+                  'tools/reporting/configuration_shortlist_selection_html.py',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'brochure_equipment_inheritance_and_colour_review_001',
+              'kind': 'source_coverage_review',
+              'name': 'Brochure Equipment Inheritance and Colour Review',
+              'status': 'planned',
+              'goal': 'Audit every registered brochure and price list for explicit factory colour offers, paid metallic and non-metallic colours, source-stated grade inheritance chains such as Expression = Essential +, and repeated missing technical or equipment observations, then select exact non-inferred import packages.',
+              'manifest_paths': [
+                  'data/reporting/brochure_equipment_inheritance_and_colour_review.json',
+                  'data/reporting/brochure_equipment_inheritance_and_colour_review.md',
+                  'project/reviews/brochure-equipment-inheritance-and-colour-review-2026-07-31.md',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+              ],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+          node --check tools/reporting/configuration_shortlist_browser.js
+          node --check tools/reporting/configuration_shortlist_selection.js
+          node --check tools/reporting/configuration_shortlist_v12.js
+          python -m unittest -q \
+            tests.test_configuration_shortlist_html \
+            tests.test_configuration_selection_export
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+          git diff --check
+
+          rm .github/workflows/tmp-interactive-shortlist-interface-repair.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix(ui): repair interactive shortlist layout'
+          git push origin HEAD:agent/interactive-shortlist-interface-repair-20260731
