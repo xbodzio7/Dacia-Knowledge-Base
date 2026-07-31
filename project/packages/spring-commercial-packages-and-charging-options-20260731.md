@@ -38,3 +38,5 @@ The brochure states no amount for any of these items. Therefore `amount` and `pr
 ## Integrity
 
 `tools/import_spring_commercial_packages.py` verifies the source hash, exact active configuration boundary, registered source relationships, five-item specification, 18-membership distribution, seven page-bounded mappings, blank-price contract, idempotent output and contiguous ID suffixes for all three commercial tables.
+
+The final pull-request diff contains exactly the sixteen paths declared by the canonical project state and no temporary workflow or extraction file. This human-authored commit triggers the final standard CI verification after materialization.
