@@ -53,6 +53,30 @@ _SELECTION_CSS = r'''
 .equipment-picker-search span{color:#b9c0bb;font-size:.7rem;font-weight:550}.equipment-visible-count{margin:0!important;color:#c8cec8;font-size:.72rem}.equipment-empty{margin:0!important;padding:10px;border:1px dashed var(--config-line);color:#d8ddd8;font-size:.75rem}.equipment-picker-scroll{background:var(--config-panel)!important;border-color:var(--config-line)!important}.equipment-picker-group h3{color:#c9cec9!important}.equipment-choice{border-color:var(--config-line)!important;background:#282e2b!important;color:var(--config-text)!important}.equipment-choice:hover{border-color:#b9c39d!important}.equipment-choice.is-selected{border-color:#b9c39d!important;background:#505747!important;color:#fff!important;box-shadow:none}.selected-filter-summary{border-color:var(--config-line)!important;background:var(--config-panel)!important;color:var(--config-text)!important}.selected-filter-summary-head button{border-color:var(--config-line)!important;background:#2a302d!important;color:var(--config-text)!important}.selected-filter-empty,.equipment-availability-note{color:#c5cbc6!important}.selected-filter-chip{border-color:#89927f!important;background:#505747!important;color:#fff!important}
 @media(max-width:760px){.selection-panel{position:static;grid-template-columns:1fr}.selection-actions{justify-content:flex-start}.selected-list{grid-column:auto}.comparison-heading-row,.comparison-heading-actions{display:grid;justify-content:stretch}.model-picker{grid-template-columns:1fr}.result-card-hero{grid-template-columns:1fr}.comparison-model-thumbnail{width:150px}}
 @media print{.selection-panel,.selection-toggle,.selected-filter-summary,.comparison-heading-actions{display:none!important}.comparison-panel{box-shadow:none}}
+
+/* Interface repair v1.6: one dark canvas and a two-axis sticky comparison grid. */
+.selection-panel{background:rgba(27,33,30,.98);border-color:var(--line);box-shadow:0 12px 34px rgba(0,0,0,.32)}
+.selection-actions button,.remove-selection,.comparison-heading-row button{background:var(--config-panel);color:var(--config-text);border-color:var(--line)}
+.selection-actions button:hover,.remove-selection:hover,.comparison-heading-row button:hover{border-color:#9fc9a9}
+.remove-selection{background:var(--paper)}
+.difference-toggle{background:var(--config-panel);color:var(--config-text);border-color:var(--line)}
+.comparison-panel{background:var(--panel);border-color:var(--line);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.comparison-scroll{max-height:calc(100vh - 96px);overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable both-edges;background:var(--panel)}
+.comparison-table{--parameter-column:280px;--data-column:260px;background:var(--panel)}
+.comparison-table th,.comparison-table td{width:var(--data-column);min-width:var(--data-column);max-width:var(--data-column);overflow-wrap:anywhere;background:var(--panel)}
+.comparison-table thead th{position:sticky;top:0;z-index:5;background:var(--soft)}
+.comparison-table thead th:first-child{left:0;z-index:8;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column)}
+.comparison-table .comparison-data-row>th:first-child{position:sticky;left:0;z-index:4;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column);background:var(--paper)}
+.comparison-table .comparison-category-row>th:first-child{position:sticky;left:0;z-index:7;width:var(--parameter-column);min-width:var(--parameter-column);max-width:var(--parameter-column);background:var(--soft)}
+.comparison-table .comparison-category-row>td{background:var(--soft)}
+.comparison-table .is-different{background:var(--warn-soft)}
+.selected-filter-summary{background:var(--config-panel);color:var(--config-text);border-color:var(--config-line)}
+.selected-filter-summary-head button,.equipment-picker-scroll,.equipment-choice{background:var(--config-panel)!important;color:var(--config-text)!important;border-color:var(--config-line)!important}
+.equipment-picker-group h3,.equipment-availability-note,.selected-filter-empty{color:#b9c0bb}
+.model-thumbnail-host{background:linear-gradient(180deg,var(--panel),transparent)}
+@media(max-width:680px){.comparison-table{--parameter-column:220px;--data-column:230px}.comparison-scroll{max-height:calc(100vh - 72px)}}
+@media print{:root{color-scheme:light;--ink:#17211b;--muted:#5e6a63;--paper:#f5f7f4;--panel:#fff;--line:#d8ded9;--accent:#1f6f43;--soft:#e5f2e9;--warn:#8b500d;--warn-soft:#fff1d9;--danger:#9c3030;--danger-soft:#fde8e8}.comparison-scroll{max-height:none;overflow:visible}.comparison-table thead th,.comparison-table .comparison-data-row>th:first-child,.comparison-table .comparison-category-row>th:first-child{position:static}}
+
 '''
 
 
@@ -113,7 +137,7 @@ def render_html(catalog: Mapping[str, Any]) -> str:
     )
     rendered = rendered.replace(
         "Format interaktywnej shortlisty HTML v1.",
-        "Format interaktywnej shortlisty HTML v1.5.",
+        "Format interaktywnej shortlisty HTML v1.6.",
         1,
     )
     rendered = rendered.replace(

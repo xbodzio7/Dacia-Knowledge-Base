@@ -362,14 +362,77 @@
     return (versions || []).filter((item) => wanted.has(item.model_code));
   }
 
+  function versionGroupKey(item) {
+    return String(item && (item.name || item.code) || "")
+      .trim().toLocaleLowerCase("pl");
+  }
+
+  function versionGroupsForModels(versions, modelCodes) {
+    const grouped = new Map();
+    for (const item of versionsForModels(versions, modelCodes)) {
+      const key = versionGroupKey(item);
+      if (!key) continue;
+      if (!grouped.has(key)) {
+        grouped.set(key, {
+code: `grade:${key}`,
+name: versionOptionLabel(item),
+version_codes: [],
+model_codes: []
+        });
+      }
+      const group = grouped.get(key);
+      group.version_codes.push(String(item.code));
+      group.model_codes.push(String(item.model_code));
+    }
+    return [...grouped.values()].map((group) => ({
+      ...group,
+      version_codes: unique(group.version_codes),
+      model_codes: unique(group.model_codes)
+    })).sort((left, right) =>
+      left.name.localeCompare(right.name, "pl") || left.code.localeCompare(right.code)
+    );
+  }
+
+  function optionVersionCodes(option) {
+    if (!option) return [];
+    const encoded = option.dataset.versionCodes;
+    if (!encoded) return option.value ? [option.value] : [];
+    try {
+      const parsed = JSON.parse(encoded);
+      return Array.isArray(parsed) ? unique(parsed) : [];
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function selectedVersionCodes(select) {
+    return unique([...(select ? select.selectedOptions : [])]
+      .flatMap((option) => optionVersionCodes(option)));
+  }
+
+  function setSelectedVersionCodes(select, versionCodes) {
+    if (!select) return;
+    const wanted = new Set(versionCodes || []);
+    for (const option of select.options) {
+      const codes = optionVersionCodes(option);
+      option.selected = codes.some((code) => wanted.has(code));
+    }
+  }
+
+  function versionGroupMarkup(items) {
+    return items.map((item) =>
+      `<option value="${escapeHtml(item.code)}" data-version-codes="${escapeHtml(JSON.stringify(item.version_codes))}">${escapeHtml(item.name)}</option>`
+    ).join("");
+  }
+
   function populateVersions(catalog, modelCodes, selectedVersions) {
     const select = document.querySelector("#versions");
     const field = document.querySelector("#versions-field");
-    const items = versionsForModels(catalog.facets.versions, modelCodes);
-    select.innerHTML = optionMarkup(items, "code", versionOptionLabel);
+    const items = versionGroupsForModels(catalog.facets.versions, modelCodes);
+    select.innerHTML = versionGroupMarkup(items);
     select.disabled = items.length === 0;
     if (field) field.hidden = items.length === 0;
-    setSelected(select, selectedVersions || []);
+    setSelectedVersionCodes(select, selectedVersions || []);
   }
 
   function populateControls(catalog) {
@@ -390,7 +453,7 @@
     const search = document.querySelector("#search");
     return {
       models: selectedValues(document.querySelector("#models")),
-      versions: selectedValues(document.querySelector("#versions")),
+      versions: selectedVersionCodes(document.querySelector("#versions")),
       transmissions: transmission ? [transmission] : [],
       powertrains: selectedValues(document.querySelector("#powertrains")),
       minimum_price_pln: document.querySelector("#minimum-price").value,
@@ -446,7 +509,7 @@
 
     const models = document.querySelector("#models");
     models.addEventListener("change", () => {
-      const selectedVersions = selectedValues(document.querySelector("#versions"));
+      const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));
       populateVersions(catalog, selectedValues(models), selectedVersions);
       update();
     });
@@ -477,6 +540,8 @@
     modelOptionLabel,
     versionOptionLabel,
     versionsForModels,
+    versionGroupsForModels,
+    selectedVersionCodes,
     equipmentAvailable,
     availableEquipmentCodes,
     differentiatingEquipmentCodes,

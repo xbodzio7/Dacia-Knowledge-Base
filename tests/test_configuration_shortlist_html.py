@@ -145,6 +145,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
         self.assertNotIn('id="required-standard-equipment"', rendered)
         self.assertIn('>Wyposażenie\n      <select id="required-equipment"', rendered)
         self.assertIn('.filters{display:grid;grid-template-columns:1fr', rendered)
+        self.assertIn(':root{color-scheme:dark;', rendered)
         self.assertIn('class="price-range-row"', rendered)
         self.assertIn('class="result-card-hero"', rendered)
         self.assertIn('class="configuration-code" hidden', rendered)
@@ -339,7 +340,8 @@ process.stdout.write(JSON.stringify({
   version: api.versionOptionLabel(versions[0]),
   none: api.versionsForModels(versions, []).map((item) => item.code),
   modelA: api.versionsForModels(versions, ["model_a"]).map((item) => item.code),
-  both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code)
+  both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code),
+  groups: api.versionGroupsForModels(versions, ["model_a", "model_b"]).map((item) => ({name: item.name, codes: item.version_codes}))
 }));
 """
         completed = subprocess.run(
@@ -355,6 +357,13 @@ process.stdout.write(JSON.stringify({
         self.assertEqual(result["none"], [])
         self.assertEqual(result["modelA"], ["a_one", "a_two"])
         self.assertEqual(result["both"], ["a_one", "a_two", "b_one"])
+        self.assertEqual(
+  result["groups"],
+  [
+      {"name": "One", "codes": ["a_one", "b_one"]},
+      {"name": "Two", "codes": ["a_two"]},
+  ],
+        )
 
     def run_node(
         self,

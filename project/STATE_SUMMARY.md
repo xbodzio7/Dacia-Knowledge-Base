@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Electric 100 Singleton Catalogue Foundation**
+**Interactive Shortlist Interface Repair**
 
 ## Reference delivery
 
-- Package: Spring Electric 100 Singleton Catalogue Review
-- Pull Request: #425
-- Verified head: `bef39aa4b5234a0511ee2a8494317363dc36ab2d`
-- Quality run: #2772
+- Package: Spring Electric 100 Singleton Catalogue Foundation
+- Pull Request: #426
+- Verified head: `f5a2233855213873152fd164b831d450bb05ef47`
+- Quality run: #2782
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Electric 100 Singleton Catalogue Foundation** — `complete`
+**Interactive Shortlist Interface Repair** — `complete`
 
-Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.
+Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.
 
 ## Next package
 
-**Spring Dated Technical Observation Review** — `planned`
+**Brochure Equipment Inheritance and Colour Review** — `planned`
 
-Compare the registered Spring brochure, MY25 stock price list and dated configurator snapshot, select exact source-specific technical observations for Electric 70 and Electric 100, and preserve date, grade, wheel, charging and conflicting-value boundaries before any import.
+Audit every registered brochure and price list for explicit factory colour offers, paid metallic and non-metallic colours, source-stated grade inheritance chains such as Expression = Essential +, and repeated missing technical or equipment observations, then select exact non-inferred import packages.
 
 ## Autonomy
 
