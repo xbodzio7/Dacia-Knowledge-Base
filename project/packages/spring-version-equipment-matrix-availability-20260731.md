@@ -43,3 +43,5 @@ Optional statuses qualified by `patrz: pakiety` remain direct availability obser
 `tools/import_spring_equipment_availability.py` verifies the registered source SHA-256, three active configuration/version relationships, brochure-to-version relations, exact matrix dimensions, status distribution, canonical attribute compatibility, idempotent output and the contiguous availability ID suffix `5771-5896` and source-link suffix `248-250`.
 
 The final cumulative diff contains exactly the fifteen package paths declared in `project/state.json`; the temporary workflows, materializer and encoded payload parts are absent. The deterministic verified-PDF coverage reconciliation JSON is regenerated because its master-data evidence counts depend on `configuration_attribute_availability.csv`; the Markdown rendering remains byte-identical.
+
+The final pull-request verification is intentionally triggered from this human-authored commit after the self-removing materialization workflows completed.
