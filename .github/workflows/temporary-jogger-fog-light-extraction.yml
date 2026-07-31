@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  inspect:
+  render:
     if: github.head_ref == 'agent/jogger-my26-fog-light-superseding-observations-20260731'
     runs-on: ubuntu-latest
     steps:
@@ -17,57 +17,52 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Locate canonical fog-light semantics
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Install renderer
+        run: python -m pip install --disable-pip-version-check pypdfium2==4.30.0 Pillow==11.3.0
+      - name: Verify and render exact equipment pages
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          from __future__ import annotations
-
-          import csv
-          import unicodedata
+          from hashlib import sha256
           from pathlib import Path
+          import pypdfium2 as pdfium
 
-          root = Path('.')
-
-          def rows(path: str):
-              with (root / path).open(encoding='utf-8-sig', newline='') as handle:
-                  reader = csv.DictReader(handle)
-                  print('HEADER', path, reader.fieldnames)
-                  return list(reader)
-
-          def key(value: str) -> str:
-              text = unicodedata.normalize('NFKD', value).casefold().replace('ł', 'l')
-              return ''.join(ch for ch in text if not unicodedata.combining(ch))
-
-          attributes = rows('data/master/attributes.csv')
-          print('ATTRIBUTE_MATCHES')
-          for row in attributes:
-              joined = key(' '.join(row.values()))
-              if 'fog' in joined or 'mgiel' in joined or 'przeciw' in joined:
-                  print(row)
-
-          spec_path = 'data/imports/jogger_equipment_availability_comfort_20260401.csv'
-          spec = rows(spec_path)
-          print('APRIL_SPEC_MATCHES')
-          for row in spec:
-              joined = key(' '.join(row.values()))
-              if 'fog' in joined or 'mgiel' in joined or 'przeciw' in joined:
-                  print(row)
-
-          availability = rows('data/master/configuration_attribute_availability.csv')
-          candidate_codes = {
-              row.get('attribute_code', '')
-              for row in spec
-              if 'fog' in key(' '.join(row.values()))
-              or 'mgiel' in key(' '.join(row.values()))
-              or 'przeciw' in key(' '.join(row.values()))
-          }
-          print('CANDIDATE_CODES', sorted(candidate_codes))
-          for code in sorted(candidate_codes):
-              matching = [row for row in availability if row['attribute_code'] == code]
-              print('AVAILABILITY', code, len(matching))
-              for row in matching:
-                  if row['configuration_code'].startswith('jogger_expression_'):
-                      print(row)
+          sources = [
+              (
+                  Path('PDF/Cenniki/DACIA JOGGER cennik MY26 20260401.pdf'),
+                  'a03bb2de2cdadd51223e7d1a50aee898729172f39953bf2bfc946613d6e30d7b',
+                  'april',
+              ),
+              (
+                  Path('PDF/Cenniki/DACIA JOGGER cennik MY26 20260703.pdf'),
+                  '92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87',
+                  'july',
+              ),
+          ]
+          output = Path('rendered-jogger-fog-pages')
+          output.mkdir(parents=True, exist_ok=True)
+          for path, expected, label in sources:
+              actual = sha256(path.read_bytes()).hexdigest()
+              if actual != expected:
+                  raise SystemExit(f'{label} SHA mismatch: {actual}')
+              document = pdfium.PdfDocument(path)
+              print(label, 'pages', len(document), 'sha', actual)
+              for page_number in range(2, min(len(document), 6) + 1):
+                  page = document[page_number - 1]
+                  image = page.render(scale=220 / 72).to_pil()
+                  destination = output / f'{label}-page-{page_number}.png'
+                  image.save(destination)
+                  print(destination, image.size)
           PY
+      - name: Upload rendered pages
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.2.0
+        with:
+          name: jogger-fog-light-source-pages
+          path: rendered-jogger-fog-pages/*.png
+          if-no-files-found: error
+          retention-days: 1
