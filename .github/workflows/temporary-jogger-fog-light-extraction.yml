@@ -23,7 +23,7 @@ jobs:
           python-version: '3.13'
       - name: Install extraction backend
         run: python -m pip install --disable-pip-version-check pypdf==6.0.0
-      - name: Verify source and extract matching pages
+      - name: Verify source and extract all pages
         shell: bash
         run: |
           python - <<'PY'
@@ -40,9 +40,6 @@ jobs:
           print(f'SOURCE_SHA256={actual}')
           print(f'PAGE_COUNT={len(reader.pages)}')
           for index, page in enumerate(reader.pages):
-              text = page.extract_text(extraction_mode='layout') or ''
-              normalized = text.casefold()
-              if 'przeciwmgiel' in normalized or 'expression' in normalized and ('wyposażenie' in normalized or 'wyposazenie' in normalized):
-                  print(f'\n===== PDF PAGE {index + 1} =====')
-                  print(text)
+              print(f'\n===== PDF PAGE {index + 1} =====')
+              print(page.extract_text(extraction_mode='layout') or '')
           PY
