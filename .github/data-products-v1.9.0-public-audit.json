@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_9_0_public_audit",
+  "status": "PASS",
+  "audited_on": "2026-07-31",
+  "release_id": 362975393,
+  "release_tag": "data-products-v1.9.0",
+  "release_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.9.0",
+  "published_at": "2026-07-31T09:53:36Z",
+  "source_commit": "6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c",
+  "publication_workflow_run": 30621546974,
+  "audit_workflow_run": 30622774008,
+  "assets": {
+    "SHA256SUMS": {
+      "asset_id": 496530500,
+      "size_bytes": 213,
+      "sha256": "48c9b648d6a2e848f6e35118c9530024637f06e50ff71cea861acd1a0c7bd9cb",
+      "api_digest": "sha256:48c9b648d6a2e848f6e35118c9530024637f06e50ff71cea861acd1a0c7bd9cb"
+    },
+    "dacia-knowledge-base-data-products-v1.9.0.zip": {
+      "asset_id": 496530474,
+      "size_bytes": 82612470,
+      "sha256": "4e114f171a80445369f2439466d0d102e894145614d9a221a0390452309f453d",
+      "api_digest": "sha256:4e114f171a80445369f2439466d0d102e894145614d9a221a0390452309f453d"
+    },
+    "data-product-release-manifest.json": {
+      "asset_id": 496530499,
+      "size_bytes": 21600,
+      "sha256": "519f371be16251533befdeb8147caba30bdf2f3bd2c0122f474c03924574c7ad",
+      "api_digest": "sha256:519f371be16251533befdeb8147caba30bdf2f3bd2c0122f474c03924574c7ad"
+    }
+  },
+  "workspace": {
+    "asset_count": 3,
+    "content_file_count": 89,
+    "index_local_link_count": 88,
+    "index_sha256": "1e3f1572db21499e162ae4f5e04557070b1a7e878d5bf2a83f46c5dbc18a7cc2"
+  },
+  "release_contents": {
+    "selected_configuration_count": 78,
+    "scope_group_count": 20,
+    "within_scope_pair_count": 129,
+    "recorded_difference_count": 2180,
+    "archive_member_count": 89,
+    "technical_comparison_facet_count": 127,
+    "equipment_facet_count": 110
+  },
+  "release_delta": {
+    "new_configuration_codes": [
+      "sandero_iii_essential_tce100_manual",
+      "sandero_iii_expression_tce100_manual",
+      "sandero_iii_journey_tce100_manual",
+      "sandero_stepway_iii_essential_tce110_manual",
+      "sandero_stepway_iii_expression_tce110_manual",
+      "sandero_stepway_iii_extreme_tce110_manual"
+    ],
+    "new_reporting_scope": "sandero_tce100_stepway_tce110_manual"
+  },
+  "equipment_filter": {
+    "visible_choices": 85,
+    "camera_matches": 71,
+    "missing_and_unknown_are_exclusions": true
+  },
+  "model_order": [
+    {
+      "model_code": "sandero_iii",
+      "minimum_catalog_price_pln": 63900
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "minimum_catalog_price_pln": 71700
+    },
+    {
+      "model_code": "jogger",
+      "minimum_catalog_price_pln": 77900
+    },
+    {
+      "model_code": "duster_iii",
+      "minimum_catalog_price_pln": 82000
+    },
+    {
+      "model_code": "bigster",
+      "minimum_catalog_price_pln": 101400
+    }
+  ],
+  "cross_model": {
+    "model_family_count": 5,
+    "reporting_scope_count": 20,
+    "active_configuration_count": 78,
+    "comparison_path_count": 80,
+    "navigation_path_count": 2,
+    "html_local_file_link_count": 60,
+    "unknown_seat_models": [
+      "bigster",
+      "duster_iii"
+    ],
+    "unknown_state": "not_stated"
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "public_v1_8_1_rewritten": false
+  },
+  "verification": "PASS"
+}
