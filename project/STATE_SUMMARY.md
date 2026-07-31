@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Exterior Colour Options**
+**Jogger MY26 Fog-Light Superseding Observations**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1699
+- Tests: 1706
 - Master CSV files: 46
-- Master rows: 11594
+- Master rows: 11600
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
 - Configuration range import specifications: 24
-- Availability records: 5896
+- Availability records: 5902
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Spring Exterior Colour Options** — `complete`
+**Jogger MY26 Fog-Light Superseding Observations** — `complete`
 
-Register the six source-visible Spring exterior-colour choices as unpriced options for exactly the three existing Spring configurations, preserving finish classes and avoiding a fabricated standard colour or current price.
+Append six direct July 2026 not-available fog-light observations for the six existing Jogger Expression configurations while preserving the six April 2026 standard observations and using the source-faithful generic fog_lights attribute.
 
 ## Next package
 
-**Jogger MY26 Fog-Light Superseding Observations** — `planned`
+**Bigster MY26 Exact Paint Options** — `planned`
 
-Add six dated July 2026 not-available observations for front fog lights on the existing Jogger Expression configurations while retaining the April 2026 standard history.
+Import only exact fixed-price Bigster MY26 paint and two-tone commercial options for existing configurations, preserving grade applicability and avoiding named-colour or price-range inference.
 
 ## Autonomy
 

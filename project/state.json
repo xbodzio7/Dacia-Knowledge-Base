@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Exterior Colour Options",
+  "phase": "Jogger MY26 Fog-Light Superseding Observations",
   "reference_delivery": {
     "name": "Brochure Equipment Inheritance and Colour Review",
     "pull_request": 428,
@@ -15,58 +15,57 @@
     "quality_run": 2805
   },
   "baseline": {
-    "tests": 1699,
+    "tests": 1706,
     "csv_files": 46,
-    "rows": 11594,
+    "rows": 11600,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
     "configuration_range_import_specs": 24,
-    "availability_records": 5896,
+    "availability_records": 5902,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_exterior_colour_options_001",
-    "kind": "commercial_catalog_import",
-    "name": "Spring Exterior Colour Options",
-    "status": "complete",
-    "goal": "Register the six source-visible Spring exterior-colour choices as unpriced options for exactly the three existing Spring configurations, preserving finish classes and avoiding a fabricated standard colour or current price.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/spring_exterior_colour_options_20260219.csv",
-      "data/master/commercial_item_attributes.csv",
-      "data/master/commercial_item_configurations.csv",
-      "data/master/commercial_items.csv",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/spring-exterior-colour-options-20260731.md",
-      "project/state.json",
-      "tests/test_commercial_items_20260703.py",
-      "tests/test_spring_commercial_packages.py",
-      "tests/test_spring_exterior_colour_options.py",
-      "tools/import_spring_commercial_packages.py",
-      "tools/import_spring_exterior_colour_options.py"
-    ]
-  },
-  "next_package": {
     "package_id": "jogger_my26_fog_light_superseding_observations_001",
     "kind": "equipment_availability_import",
     "name": "Jogger MY26 Fog-Light Superseding Observations",
-    "status": "planned",
-    "goal": "Add six dated July 2026 not-available observations for front fog lights on the existing Jogger Expression configurations while retaining the April 2026 standard history.",
+    "status": "complete",
+    "goal": "Append six direct July 2026 not-available fog-light observations for the six existing Jogger Expression configurations while preserving the six April 2026 standard observations and using the source-faithful generic fog_lights attribute.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
-      "data/imports/jogger_front_fog_lights_20260703.csv",
+      "data/imports/jogger_fog_lights_20260703.csv",
       "data/master/configuration_attribute_availability.csv",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
       "project/packages/jogger-my26-fog-light-superseding-observations-20260731.md",
       "project/state.json",
       "tests/test_jogger_fog_light_superseding_observations.py",
+      "tests/test_spring_equipment_availability.py",
       "tools/import_jogger_fog_light_superseding_observations.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "bigster_my26_exact_paint_options_001",
+    "kind": "commercial_catalog_import",
+    "name": "Bigster MY26 Exact Paint Options",
+    "status": "planned",
+    "goal": "Import only exact fixed-price Bigster MY26 paint and two-tone commercial options for existing configurations, preserving grade applicability and avoiding named-colour or price-range inference.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/bigster_exact_paint_options_20260703.csv",
+      "data/master/commercial_items.csv",
+      "data/master/commercial_item_attributes.csv",
+      "data/master/commercial_item_configurations.csv",
+      "project/STATE_SUMMARY.md",
+      "project/packages/bigster-my26-exact-paint-options-20260731.md",
+      "project/state.json",
+      "tests/test_bigster_exact_paint_options.py",
+      "tools/import_bigster_exact_paint_options.py"
     ]
   },
   "autonomy": {
