@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Sandero Page 17 Power and Torque RPM Range Import Closure**
+**Data Products v1.9.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Jogger Technical Page 19 Reviewed Fact Reconciliation
-- Pull Request: #392
-- Verified head: `1eaa92e09e312117597474ffd8410b8abe54632e`
-- Quality run: #2544
+- Package: Sandero Page 17 Power and Torque RPM Range Import Closure
+- Pull Request: #409
+- Verified head: `710fa01ce5adeb49e675f740793184ba95e27f89`
+- Quality run: #2703
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Page 17 Power and Torque RPM Range Import Closure** — `complete`
+**Data Products v1.9.0 Release Preparation** — `complete`
 
-Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve scalar, fuel-context and non-import boundaries, and release the data-products-v1.9.0 preparation checkpoint.
+Prepare and verify an immutable minor-release candidate containing six new source-backed Sandero and Sandero Stepway manual configurations, 78 active configurations in 20 independent scopes and the current complete data products, without publishing or rewriting public v1.8.1.
 
 ## Next package
 
-**Data Products v1.9.0 Release Preparation** — `planned`
+**Data Products v1.9.0 Preflight** — `planned`
 
-Prepare and verify an immutable minor-release candidate containing the completed Sandero page-17 RPM range coverage and all current source-backed data products, without publishing or changing source data.
+Build the v1.9.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the 78-configuration and 20-scope release contracts, independently check public v1.8.1 and record final asset identities without creating a tag or release.
 
 ## Autonomy
 
