@@ -59,14 +59,16 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         "cross_model_html": "Cross-model navigation",
         "release_notes": "Release notes",
     }
-    for key in (
+    keys = [
         "workspace_index",
         "shortlist_html",
         "comparison_workbook",
         "comparison_bundle_manifest",
-        "cross_model_html",
-        "release_notes",
-    ):
+    ]
+    if "cross_model_html" in raw_entry_points:
+        keys.append("cross_model_html")
+    keys.append("release_notes")
+    for key in keys:
         print(
             f"{labels[key]:<24}: "
             f"{output / str(raw_entry_points[key])}"
