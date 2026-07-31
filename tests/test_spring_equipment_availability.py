@@ -92,13 +92,22 @@ class SpringEquipmentAvailabilityTests(unittest.TestCase):
         self.assertEqual([int(row["id"]) for row in actual], list(range(5771, 5897)))
         self.assertTrue(all(row["observation_date"] == "2026-02-19" for row in actual))
 
-    def test_existing_availability_is_preserved_before_spring_suffix(self) -> None:
+    def test_existing_availability_is_preserved_around_spring_block(self) -> None:
         actual = rows("configuration_attribute_availability.csv")
         baseline = [row for row in actual if int(row["id"]) <= 5770]
-        spring = [row for row in actual if int(row["id"]) >= 5771]
+        spring = [
+            row
+            for row in actual
+            if 5771 <= int(row["id"]) <= 5896
+            and row["source_code"] == IMPORTER.SOURCE_CODE
+            and row["configuration_code"] in IMPORTER.CONFIGURATION_VERSIONS
+        ]
+        later = [row for row in actual if int(row["id"]) >= 5897]
         self.assertEqual(len(baseline), 5770)
         self.assertEqual(len(spring), 126)
         self.assertFalse(any(row["configuration_code"].startswith("spring_") for row in baseline))
+        self.assertFalse(any(row["source_code"] == IMPORTER.SOURCE_CODE for row in later))
+        self.assertTrue(all(int(row["id"]) > 5896 for row in later))
 
     def test_source_hash_and_evidence_boundary_are_locked(self) -> None:
         self.assertEqual(IMPORTER.file_sha256(IMPORTER.SOURCE), IMPORTER.SOURCE_SHA256)
