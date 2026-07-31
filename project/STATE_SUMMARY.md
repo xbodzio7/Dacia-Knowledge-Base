@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Page 17 Power and Torque RPM Range Import**
+**Sandero Page 17 Power and Torque RPM Range Import Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Page 17 Power and Torque RPM Range Import** — `complete`
+**Sandero Page 17 Power and Torque RPM Range Import Closure** — `complete`
 
-Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations while preserving fuel context and every reconciliation non-import boundary.
+Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve scalar, fuel-context and non-import boundaries, and release the data-products-v1.9.0 preparation checkpoint.
 
 ## Next package
 
-**Sandero Page 17 Power and Torque RPM Range Import Closure** — `planned`
+**Data Products v1.9.0 Release Preparation** — `planned`
 
-Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve every scalar, fuel-context and non-import boundary, then publish data-products-v1.9.0.
+Prepare and verify an immutable minor-release candidate containing the completed Sandero page-17 RPM range coverage and all current source-backed data products, without publishing or changing source data.
 
 ## Autonomy
 
