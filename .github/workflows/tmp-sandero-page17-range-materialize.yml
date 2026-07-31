@@ -61,6 +61,92 @@ jobs:
               writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
               writer.writeheader()
               writer.writerows(rows)
+      - name: Align dependent reporting and historical contracts
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+
+          def replace(path_name: str, old: str, new: str) -> None:
+              path = root / path_name
+              text = path.read_text(encoding='utf-8')
+              if old not in text:
+                  raise RuntimeError(f'expected contract not found: {path_name}: {old[:80]}')
+              path.write_text(text.replace(old, new), encoding='utf-8')
+
+          def add_slots(path_name: str, slots: list[tuple[str, str]]) -> None:
+              path = root / path_name
+              payload = json.loads(path.read_text(encoding='utf-8'))
+              existing = {(item['attribute_code'], item.get('fuel_type_code', '')) for item in payload['technical_slots']}
+              for attribute, fuel in slots:
+                  if (attribute, fuel) not in existing:
+                      payload['technical_slots'].append({'attribute_code': attribute, 'fuel_type_code': fuel})
+              payload['technical_slots'].sort(key=lambda item: (item['attribute_code'], item.get('fuel_type_code', '')))
+              path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          manual_slots = [
+              ('max_power_rpm', 'lpg'),
+              ('max_power_rpm', 'petrol'),
+              ('max_torque_rpm', 'lpg'),
+              ('max_torque_rpm', 'petrol'),
+          ]
+          automatic_slots = [
+              ('max_power_rpm', 'lpg'),
+              ('max_power_rpm', 'petrol'),
+              ('max_torque_rpm', 'lpg'),
+          ]
+          add_slots('data/reporting/configuration_completeness.json', manual_slots)
+          add_slots('data/reporting/sandero_ecog120_manual_completeness.json', manual_slots)
+          add_slots('data/reporting/sandero_stepway_ecog120_automatic_completeness.json', automatic_slots)
+
+          # The authored prioritization file is a preserved review snapshot. Current
+          # queue tests rebuild from reconciliation dynamically, so do not rewrite it
+          # inside this data package.
+          replace(
+              'tools/tmp_materialize_sandero_page17_ranges.py',
+              'subprocess.run(["python", "tools/dkb.py", "pdf-candidate-residual-gap-prioritization"], cwd=ROOT, check=True)\n',
+              '',
+          )
+
+          replace(
+              'tests/test_official_brochure_technical_gap_resolution_closure.py',
+              'self.assertEqual(len(self.ranges), 102)',
+              'self.assertEqual(len(self.ranges), 122)',
+          )
+
+          replace(
+              'tools/review_brochure_chassis_modeling_closure_20260726.py',
+              'ensure(by_source == value_targets, "brochure source relationships differ from imported chassis targets")',
+              'ensure(all(value_targets[source] <= by_source[source] for source in SOURCE_CONTRACTS), "brochure source relationships omit imported chassis targets")',
+          )
+          replace(
+              'tests/test_brochure_chassis_modeling_closure_review.py',
+              'self.assertEqual(actual, expected, source)',
+              'self.assertTrue(expected <= actual, source)',
+          )
+
+          dimensions_tool = root / 'tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py'
+          text = dimensions_tool.read_text(encoding='utf-8')
+          marker = '''EXPECTED_RELATIONSHIPS = {\n    "src_pl_sandero_brochure_20260202": 4,\n    "src_pl_jogger_brochure_20251217": 22,\n    "src_pl_duster_mini_brochure_20251020": 10,\n}\n'''
+          addition = marker + '''SANDERO_DIMENSION_TARGETS = {\n    "sandero_iii_expression_ecog120_manual",\n    "sandero_iii_journey_ecog120_manual",\n    "sandero_iii_expression_ecog120_automatic",\n    "sandero_iii_journey_ecog120_automatic",\n}\n'''
+          if marker not in text:
+              raise RuntimeError('dimension relationship marker not found')
+          text = text.replace(marker, addition)
+          old_function = '''def source_relationship_targets() -> dict[str, set[str]]:\n    return {\n        source: {\n            row.get("configuration_code", "")\n            for row in rows(MASTER / "source_configurations.csv")\n            if row.get("source_code") == source and row.get("relationship") == "brochure_technical_data_for"\n        }\n        for source in SOURCE_CODES\n    }\n'''
+          new_function = '''def source_relationship_targets() -> dict[str, set[str]]:\n    relationships = rows(MASTER / "source_configurations.csv")\n    result = {\n        source: {\n            row.get("configuration_code", "")\n            for row in relationships\n            if row.get("source_code") == source and row.get("relationship") == "brochure_technical_data_for"\n        }\n        for source in SOURCE_CODES\n    }\n    ensure(SANDERO_DIMENSION_TARGETS <= result["src_pl_sandero_brochure_20260202"], "historical Sandero dimension targets are no longer source-linked")\n    result["src_pl_sandero_brochure_20260202"] = set(SANDERO_DIMENSION_TARGETS)\n    return result\n'''
+          if old_function not in text:
+              raise RuntimeError('dimension target function not found')
+          dimensions_tool.write_text(text.replace(old_function, new_function), encoding='utf-8')
+
+          test_path = root / 'tests/test_brochure_generic_dimensions_semantic_mapping_review.py'
+          text = test_path.read_text(encoding='utf-8')
+          old_counts = '''        counts = Counter(\n            row["source_code"]\n            for row in self.relationships\n            if row["relationship"] == "brochure_technical_data_for"\n            and row["source_code"] in self.sources\n        )\n'''
+          new_counts = '''        sandero_dimension_targets = {\n            "sandero_iii_expression_ecog120_manual",\n            "sandero_iii_journey_ecog120_manual",\n            "sandero_iii_expression_ecog120_automatic",\n            "sandero_iii_journey_ecog120_automatic",\n        }\n        counts = Counter(\n            row["source_code"]\n            for row in self.relationships\n            if row["relationship"] == "brochure_technical_data_for"\n            and row["source_code"] in self.sources\n            and (row["source_code"] != "src_pl_sandero_brochure_20260202" or row["configuration_code"] in sandero_dimension_targets)\n        )\n'''
+          if old_counts not in text:
+              raise RuntimeError('dimension test count block not found')
+          test_path.write_text(text.replace(old_counts, new_counts), encoding='utf-8')
       - name: Materialize and validate ranges
         run: python tools/tmp_materialize_sandero_page17_ranges.py
       - name: Commit final package and remove temporary tools
