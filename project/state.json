@@ -33,9 +33,6 @@
     "status": "complete",
     "goal": "Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.",
     "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
       "project/packages/interactive-shortlist-interface-repair-20260731.md",
       "project/state.json",
