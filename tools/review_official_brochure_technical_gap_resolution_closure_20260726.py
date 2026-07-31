@@ -41,7 +41,7 @@ EXPECTED_RANGE_BY_SOURCE = Counter(
     }
 )
 EXPECTED_CURRENT_RANGE_BY_SOURCE = EXPECTED_RANGE_BY_SOURCE + Counter(
-    {"src_pl_bigster_brochure_20251210": 30}
+    {"src_pl_bigster_brochure_20251210": 30, "src_pl_sandero_brochure_20260202": 20}
 )
 EXPECTED_RESIDUAL_STATUS_COUNTS = Counter(
     {
@@ -497,7 +497,7 @@ def verify_current_coverage() -> None:
         and row.get("maximum_value") == "521"
     ]
     expected_ranges = Counter(EXPECTED_CURRENT_RANGE_BY_SOURCE)
-    expected_range_total = 98
+    expected_range_total = 118
     if payload_range_conflicts:
         ensure(
             len(payload_range_conflicts) == 4,

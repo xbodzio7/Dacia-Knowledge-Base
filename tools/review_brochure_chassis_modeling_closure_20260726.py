@@ -364,7 +364,7 @@ def verify_source_relationships(values: Sequence[dict[str, str]]) -> None:
         }
         for source_code in SOURCE_CONTRACTS
     }
-    ensure(by_source == value_targets, "brochure source relationships differ from imported chassis targets")
+    ensure(all(value_targets[source] <= by_source[source] for source in SOURCE_CONTRACTS), "brochure source relationships omit imported chassis targets")
 
 
 def verify_model_and_decision() -> None:

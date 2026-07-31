@@ -140,7 +140,7 @@ class ConfigurationComparisonPairSummaryContractTests(unittest.TestCase):
         )
         self.assertEqual(
             {row["total_comparisons"] for row in rows},
-            {"131", "133", "135"},
+            {"135", "137", "139"},
         )
         self.assertEqual(
             sum(int(row["total_different"]) for row in rows),

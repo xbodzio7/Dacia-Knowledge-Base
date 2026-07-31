@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-30
+- State updated: 2026-07-31
 
 ## Phase
 
-**Sandero Technical Page 17 Reviewed Fact Reconciliation**
+**Sandero Page 17 Power and Torque RPM Range Import**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1669
+- Tests: 1676
 - Master CSV files: 46
-- Master rows: 11357
+- Master rows: 11380
 - Configuration values: 3498
 - Configuration import specifications: 138
-- Configuration value ranges: 278
-- Configuration range import specifications: 22
+- Configuration value ranges: 298
+- Configuration range import specifications: 24
 - Availability records: 5770
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Sandero Technical Page 17 Reviewed Fact Reconciliation** — `complete`
+**Sandero Page 17 Power and Torque RPM Range Import** — `complete`
 
-Reconcile all 46 previously reviewed Sandero page-17 technical candidates against current exact master data and hand off the only exact remaining gap as a bounded 20-range import.
+Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations while preserving fuel context and every reconciliation non-import boundary.
 
 ## Next package
 
-**Sandero Page 17 Power and Torque RPM Range Import** — `planned`
+**Sandero Page 17 Power and Torque RPM Range Import Closure** — `planned`
 
-Add 20 exact closed max-power and max-torque engine-speed ranges across the seven active Sandero III configurations, preserving fuel context, the printed TCe power-literal inconsistency and the missing automatic-petrol torque continuation.
+Verify the exact 20-range receipt, close the only import-ready Sandero page-17 gap, preserve every scalar, fuel-context and non-import boundary, then publish data-products-v1.9.0.
 
 ## Autonomy
 

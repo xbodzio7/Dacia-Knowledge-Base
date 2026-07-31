@@ -108,7 +108,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         )
         self.assertEqual(scope["configuration_count"], 5)
         self.assertEqual(scope["pair_count"], 10)
-        self.assertEqual(scope["technical_slot_count"], 56)
+        self.assertEqual(scope["technical_slot_count"], 60)
         self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 2)
         self.assertEqual(
             self.models["sandero_stepway_iii"]["shared_scope_count"],
