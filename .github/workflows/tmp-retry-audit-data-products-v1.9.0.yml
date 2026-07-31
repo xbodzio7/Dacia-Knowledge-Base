@@ -61,6 +61,10 @@ jobs:
           lines = text[start:end].splitlines()
           code = "\n".join(line[10:] if line.startswith('          ') else line for line in lines) + "\n"
           code = code.replace("'snapshot_date': '2026-07-31'", "'snapshot_date': '2026-07-24'")
+          code = code.replace(
+              "str(root / 'tools' / 'reporting' / 'configuration_shortlist_browser.js')",
+              "str((root / 'tools' / 'reporting' / 'configuration_shortlist_browser.js').resolve())",
+          )
           target = Path('/tmp/v1_9_0_public_audit.py')
           target.write_text(code, encoding='utf-8')
           PY
