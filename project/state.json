@@ -51,10 +51,16 @@
       "tests/test_configuration_comparison_bundle.py",
       "tests/test_cross_model_comparison_view.py",
       "tests/test_data_product_release.py",
+      "tests/test_data_products_v1_7_0_release_preparation.py",
       "tests/test_duster_catalog_bootstrap.py",
+      "tests/test_duster_ecog120_automatic_stock_20260724.py",
       "tests/test_duster_technical_specifications.py",
+      "tests/test_post_brochure_priority_selection_review.py",
+      "tools/catalog_completion_history.py",
       "tools/reporting/configuration_comparison_bundle.py",
       "tools/reporting/cross_model_comparison_view.py",
+      "tools/review_cross_model_navigation_usability_20260727.py",
+      "tools/review_data_products_v1_7_0_release_preparation_20260726.py",
       "tools/review_data_products_v1_9_0_preflight_20260731.py"
     ]
   },
