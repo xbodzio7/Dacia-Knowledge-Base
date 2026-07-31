@@ -13,4 +13,4 @@ The printed `100 TCe` / `74 (120 KM)` inconsistency is retained literally and do
 
 ## Handoff and release
 
-Proceed to `post_residual_sandero_page17_power_torque_rpm_range_import_001`, then its closure. Publish `data-products-v1.9.0` immediately after both PRs are green and merged.
+Proceed to `post_residual_sandero_page17_power_torque_rpm_range_import_001`, then its closure. The handoff is bounded to the 20 reviewed ranges and does not reopen scalar or context decisions. Publish `data-products-v1.9.0` immediately after both PRs are green and merged.
