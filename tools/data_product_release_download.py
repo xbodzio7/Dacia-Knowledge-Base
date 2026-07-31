@@ -56,6 +56,7 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         "shortlist_html": "Shortlist HTML",
         "comparison_workbook": "Comparison workbook",
         "comparison_bundle_manifest": "Bundle manifest",
+        "cross_model_html": "Cross-model navigation",
         "release_notes": "Release notes",
     }
     for key in (
@@ -63,6 +64,7 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         "shortlist_html",
         "comparison_workbook",
         "comparison_bundle_manifest",
+        "cross_model_html",
         "release_notes",
     ):
         print(
