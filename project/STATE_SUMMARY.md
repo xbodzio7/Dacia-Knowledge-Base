@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Version Equipment Matrix Availability Import**
+**Spring Commercial Packages and Charging Options**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1684
+- Tests: 1692
 - Master CSV files: 46
-- Master rows: 11534
+- Master rows: 11564
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Version Equipment Matrix Availability Import** — `complete`
+**Spring Commercial Packages and Charging Options** — `complete`
 
-Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.
+Import brochure-bounded applicability and membership for Pakiet Techno, the standalone Expression DC 40 kW option, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the three exact existing Spring configurations, preserving blank amounts because the brochure states no prices.
 
 ## Next package
 
-**Spring Commercial Packages and Charging Options** — `planned`
+**Spring Exterior Colour Price Options** — `planned`
 
-Import brochure-bounded applicability and membership for Pakiet Techno, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the exact Spring grades, preserving blank prices because the brochure states no amounts.
+Import exact source-bounded Spring exterior-colour option status and prices for the existing configurations, separating metallic and non-metallic colours and preserving every grade, model-year and campaign boundary.
 
 ## Autonomy
 

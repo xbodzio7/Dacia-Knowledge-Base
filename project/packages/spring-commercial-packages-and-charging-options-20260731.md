@@ -26,7 +26,7 @@ The five items contain 18 memberships to existing canonical attributes and seven
 
 ## Price boundary
 
-The brochure states no amount for any of these items. Therefore `amount`, `currency_code` and `price_date` remain blank. No zero price, estimated price, configurator price or price transferred from another document is introduced.
+The brochure states no amount for any of these items. Therefore `amount` and `price_date` remain blank. `currency_code` is `PLN` only because the commercial mapping schema requires a valid currency reference; it does not create a price. No zero price, estimated price, configurator price or price transferred from another document is introduced.
 
 ## Semantic boundaries
 

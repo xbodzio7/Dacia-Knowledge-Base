@@ -39,7 +39,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
         self.assertEqual(len(self.mappings), 149)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE})
         self.assertEqual({row["price_date"] for row in self.mappings}, {"", DATE, STOCK_DATE})
-        self.assertEqual({row["currency_code"] for row in self.mappings}, {"", "PLN"})
+        self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
 
     def test_each_item_has_membership_and_source(self) -> None:

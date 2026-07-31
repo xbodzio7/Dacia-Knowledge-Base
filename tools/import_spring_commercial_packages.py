@@ -238,8 +238,10 @@ def load_configurations_spec() -> list[dict[str, str]]:
             raise ContractError(f"mapping targets an unreviewed configuration: {row['configuration_code']}")
         if row["availability_status"] != "optional":
             raise ContractError(f"Spring mapping is not optional: {row['code']}")
-        if row["amount"] or row["currency_code"]:
-            raise ContractError(f"brochure-stated blank price was not preserved: {row['code']}")
+        if row["amount"] or row["currency_code"] != "PLN":
+            raise ContractError(
+                f"Spring mapping must preserve a blank amount and required PLN currency: {row['code']}"
+            )
         if not row["notes"].strip():
             raise ContractError(f"missing blank-price note: {row['code']}")
     return rows
@@ -275,7 +277,7 @@ def generated_configurations() -> list[dict[str, str]]:
             "configuration_code": row["configuration_code"],
             "availability_status": row["availability_status"],
             "amount": "",
-            "currency_code": "",
+            "currency_code": row["currency_code"],
             "price_date": "",
             "source_code": SOURCE_CODE,
             "notes": f"Source page {row['source_page']}. {row['notes']}",

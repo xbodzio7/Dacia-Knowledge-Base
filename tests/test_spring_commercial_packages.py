@@ -39,7 +39,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
         mappings = importer.load_configurations_spec()
         self.assertEqual(len(mappings), 7)
         self.assertTrue(all(row["availability_status"] == "optional" for row in mappings))
-        self.assertTrue(all(not row["amount"] and not row["currency_code"] for row in mappings))
+        self.assertTrue(all(not row["amount"] and row["currency_code"] == "PLN" for row in mappings))
 
     def test_master_rows_match_generated_contract_and_contiguous_suffixes(self) -> None:
         importer.check()
