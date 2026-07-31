@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added six source-bounded Spring exterior-colour options from brochure page 12, with five non-metallic and one metallic finish, eighteen exact optional mappings to the three existing Spring configurations, blank amounts and price dates, no fabricated standard colour and no new model, version or configuration.
 * Added five source-bounded Spring commercial items from brochure pages 13-15: the Type 2 charging cable for all three existing grades, Pakiet Techno and the standalone DC 40 kW option for Expression, plus Pakiet Power and Pakiet City for Extreme, with 18 exact equipment memberships, seven optional configuration mappings, deliberately blank amounts and dates, schema-required PLN currency references and no new models, versions or configurations.
 * Added 126 direct Spring brochure equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100, preserving 106 standard, 7 optional and 13 unavailable matrix cells from pages 19-20 with three exact brochure-to-configuration provenance links and without importing packages, colours, technical data or inferred inheritance.
 * Added chunk 2 of the authored Bigster brochure page-20 unresolved technical review: the remaining 29 exact candidates regrouped into 16 visual areas, with 8 unresolved signature mismatches, 21 context-only fragments, labels, footnotes and notes, zero attached evidence and literal preservation of the printed `1960**` and `2002 / 1981` sequence, without master-data or approved import changes.
@@ -301,9 +302,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1692 tests.
-* The verified master-data baseline now contains 46 CSV files and 11564 rows.
-* SQLite verification now covers 46 tables and 11564 rows.
+* The automated test suite now contains 1699 tests.
+* The verified master-data baseline now contains 46 CSV files and 11594 rows.
+* SQLite verification now covers 46 tables and 11594 rows.
 * Configuration attribute values now contain 3498 dated records.
 * Declarative scalar configuration-value imports now contain 138 versioned JSON specifications.
 * Configuration value ranges now contain 298 dated records from 24 range specifications.

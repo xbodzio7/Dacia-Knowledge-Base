@@ -173,6 +173,13 @@ mapowań do obecnych konfiguracji. Broszura nie podaje kwot, dlatego kwoty
 i daty cen pozostają puste; techniczna waluta `PLN` spełnia wymagany klucz
 schematu i nie tworzy ceny. Nie dodano modeli, wersji ani konfiguracji.
 
+Paleta Spring ze strony 12 jest modelowana osobno jako sześć wybieralnych
+opcji kolorystycznych dla trzech istniejących konfiguracji: Czerwony Brick,
+Seafoam, Szary Diamond, Lichen Khaki, Niebieski Stonewash i Biel Alpejska.
+Zachowano pięć lakierów niemetalizowanych i jeden metalizowany. Źródło nie
+podaje ceny, koloru standardowego ani ograniczeń wersji, więc kwoty i daty
+cen są puste, a pojedyncza wartość koloru konfiguracji nie jest wymyślana.
+
 Koła i tapicerka są modelowane jako wartości konfiguracji zgodnie z D-016.
 Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
 tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wspólny
@@ -1276,11 +1283,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1692 testów, 46 pliki CSV, 11564 rekordów
+Zweryfikowany model obejmuje 1699 testów, 46 pliki CSV, 11594 rekordów
 danych, 51 relacje między tabelami, 3498 wartości konfiguracji, 138 skalarnych specyfikacji importu, 298 zakresów konfiguracji i 24
 specyfikacji zakresów oraz 5896 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 46 tabele i 11564 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 46 tabele i 11594 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
