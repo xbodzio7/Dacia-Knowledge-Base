@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Electric 70 Catalogue Foundation**
+**Spring Electric 100 Singleton Catalogue Review**
 
 ## Reference delivery
 
-- Package: Spring Source-Backed Data Import Review
-- Pull Request: #423
-- Verified head: `d9bfe83f3dfa5d46497177e1f698d289e846e08a`
-- Quality run: #2753
+- Package: Spring Electric 70 Catalogue Foundation
+- Pull Request: #424
+- Verified head: `1f243e23a750c89a6ad0d00eccf4166550c1ae0c`
+- Quality run: #2770
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Electric 70 Catalogue Foundation** — `complete`
+**Spring Electric 100 Singleton Catalogue Review** — `complete`
 
-Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.
+Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.
 
 ## Next package
 
-**Spring Electric 100 Singleton Catalogue Review** — `planned`
+**Spring Electric 100 Singleton Catalogue Foundation** — `planned`
 
-Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.
+Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.
 
 ## Autonomy
 
