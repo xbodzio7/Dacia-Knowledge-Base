@@ -7,17 +7,17 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Source-Backed Data Import Review",
+  "phase": "Spring Electric 70 Catalogue Foundation",
   "reference_delivery": {
-    "name": "Spring Official Configurator Snapshot",
-    "pull_request": 422,
-    "head_sha": "3c96796ff92921716feddb5c87c817ec9b5d4e08",
-    "quality_run": 2751
+    "name": "Spring Source-Backed Data Import Review",
+    "pull_request": 423,
+    "head_sha": "d9bfe83f3dfa5d46497177e1f698d289e846e08a",
+    "quality_run": 2753
   },
   "baseline": {
     "tests": 1676,
     "csv_files": 46,
-    "rows": 11386,
+    "rows": 11399,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
@@ -27,24 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_source_backed_data_import_review_001",
-    "kind": "data_import_review",
-    "name": "Spring Source-Backed Data Import Review",
-    "status": "complete",
-    "goal": "Review the registered Spring brochure, MY25 stock price list and dated configurator snapshot to select exact import-ready configurations, prices, equipment and technical values while preserving grade, powertrain, stock, footnote and unresolved-price boundaries.",
-    "manifest_paths": [
-      "data/reporting/spring_source_backed_data_import_review.json",
-      "data/reporting/spring_source_backed_data_import_review.md",
-      "project/reviews/spring-source-backed-data-import-review-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_electric70_catalogue_foundation_001",
     "kind": "catalogue_foundation",
     "name": "Spring Electric 70 Catalogue Foundation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.",
     "manifest_paths": [
       "CHANGELOG.md",
@@ -61,12 +47,27 @@
       "project/packages/spring-electric70-catalogue-foundation-20260731.md",
       "project/state.json",
       "tests/test_configuration_comparison_bundle.py",
-      "tests/test_configuration_comparison_html.py",
-      "tests/test_configuration_comparison_workbook.py",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_configuration_shortlist.py",
-      "tests/test_configuration_shortlist_html.py",
-      "tests/test_data_product_release.py"
+      "tests/test_cross_model_comparison_view.py",
+      "tests/test_data_product_release.py",
+      "tests/test_duster_catalog_bootstrap.py",
+      "tests/test_duster_technical_specifications.py",
+      "tools/reporting/configuration_comparison_bundle.py",
+      "tools/reporting/cross_model_comparison_view.py",
+      "tools/review_data_products_v1_9_0_preflight_20260731.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_electric100_singleton_catalogue_review_001",
+    "kind": "catalogue_import_review",
+    "name": "Spring Electric 100 Singleton Catalogue Review",
+    "status": "planned",
+    "goal": "Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.",
+    "manifest_paths": [
+      "data/reporting/spring_electric100_singleton_catalogue_review.json",
+      "data/reporting/spring_electric100_singleton_catalogue_review.md",
+      "project/reviews/spring-electric100-singleton-catalogue-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
     ]
   },
   "autonomy": {

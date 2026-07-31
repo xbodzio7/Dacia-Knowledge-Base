@@ -242,3 +242,6 @@ id,source_code,configuration_code,relationship,notes
 241,src_pl_sandero_brochure_20260202,sandero_iii_essential_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.
 242,src_pl_sandero_brochure_20260202,sandero_iii_expression_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.
 243,src_pl_sandero_brochure_20260202,sandero_iii_journey_tce100_manual,brochure_technical_data_for,The model-level official brochure explicitly lists the represented 100 TCe powertrain and engine-speed rows on page 17.
+244,src_pl_spring_official_configurator_20260731,spring_essential_electric70_automatic,documents,Exact official grade and powertrain state observed 2026-07-31.
+245,src_pl_spring_official_configurator_20260731,spring_expression_electric70_automatic,documents,Exact official grade and powertrain state observed 2026-07-31; current price remains unresolved.
+246,src_pl_spring_price_my25_stock_20260708,spring_expression_electric70_automatic,documents,Explicit Expression Electric 70 catalogue cell bounded to model-year-2025 dealer stock.

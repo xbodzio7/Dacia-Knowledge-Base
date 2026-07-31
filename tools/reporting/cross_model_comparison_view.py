@@ -18,6 +18,7 @@ _MODEL_ORDER = {
     "jogger": 30,
     "duster_iii": 40,
     "bigster": 50,
+    "spring": 60,
 }
 _TRANSMISSION_LABELS = {
     "manual": "manualna",

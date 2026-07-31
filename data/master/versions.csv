@@ -18,3 +18,5 @@ id,code,model_code,name,status,notes
 17,bigster_extreme,bigster,Extreme,active,Source-backed trim from the official Polish Bigster MY26 price matrix effective 2026-07-03.
 18,bigster_journey,bigster,Journey,active,Source-backed trim from the official Polish Bigster MY26 price matrix effective 2026-07-03.
 19,sandero_iii_essential,sandero_iii,Essential,active,Source-backed trim from the official Polish Sandero MY26 price matrix effective 2026-07-03.
+20,spring_essential,spring,Essential,active,Source-backed current Spring grade from the official Polish brochure and configurator snapshot observed 2026-07-31.
+21,spring_expression,spring,Expression,active,Source-backed current Spring grade from the official Polish brochure and configurator snapshot observed 2026-07-31.
