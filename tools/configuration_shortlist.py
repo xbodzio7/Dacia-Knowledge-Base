@@ -30,10 +30,10 @@ _COMPARISON_ENHANCEMENT_STYLE = r'''<style>
 .comparison-panel{scroll-margin-top:calc(var(--comparison-sticky-top,0px) + 8px)}
 .comparison-table thead th{top:var(--comparison-sticky-top,0px)}
 .comparison-group-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
-.comparison-group-controls button{min-height:36px;padding:7px 11px;border:1px solid #aeb8b0;border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;font-size:.76rem;font-weight:750}
+.comparison-group-controls button{min-height:36px;padding:7px 11px;border:1px solid var(--line);border-radius:8px;background:var(--config-panel);color:var(--config-text);cursor:pointer;font-size:.76rem;font-weight:750}
 .comparison-group-controls button:disabled{cursor:not-allowed;opacity:.45}
-.comparison-table .comparison-category-row .comparison-category-label{position:sticky;left:0;z-index:4;min-width:210px;padding:0;background:#dfe9e2}
-.comparison-table .comparison-category-row .comparison-category-fill{background:#dfe9e2}
+.comparison-table .comparison-category-row .comparison-category-label{position:sticky;left:0;z-index:7;width:var(--parameter-column,280px);min-width:var(--parameter-column,280px);max-width:var(--parameter-column,280px);padding:0;background:var(--soft)}
+.comparison-table .comparison-category-row .comparison-category-fill{background:var(--soft)}
 .comparison-category-toggle{display:flex;width:100%;min-height:40px;align-items:center;gap:8px;padding:8px 12px;border:0;background:transparent;color:var(--accent);cursor:pointer;font:inherit;font-weight:800;letter-spacing:.05em;text-align:left;text-transform:uppercase}
 .comparison-category-toggle::before{content:"▾";flex:0 0 auto;font-size:1rem;line-height:1}
 .comparison-category-toggle[aria-expanded="false"]::before{content:"▸"}
@@ -59,7 +59,15 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
     if (offsetFrame) cancelAnimationFrame(offsetFrame);
     offsetFrame = requestAnimationFrame(() => {
       const sticky = getComputedStyle(selectionPanel).position === "sticky";
-      const offset = sticky ? Math.ceil(selectionPanel.offsetHeight + 18) : 0;
+      const scrollStyle = scroll ? getComputedStyle(scroll) : null;
+      const innerScroll = Boolean(
+        scrollStyle
+        && ["auto", "scroll"].includes(scrollStyle.overflowY)
+        && scrollStyle.maxHeight !== "none"
+      );
+      const offset = sticky && !innerScroll
+        ? Math.ceil(selectionPanel.offsetHeight + 18)
+        : 0;
       root.style.setProperty("--comparison-sticky-top", `${offset}px`);
       offsetFrame = 0;
     });
@@ -107,8 +115,10 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
     const columnCount = Math.max(1, table.querySelectorAll("thead th").length);
     for (const row of categoryRows()) {
       const category = row.dataset.category || "Pozostałe";
-      let labelCell = [...row.children].find((child) => child.tagName === "TH");
+      const labelCell = [...row.children].find((child) => child.tagName === "TH");
       if (!labelCell) continue;
+      let fill = row.querySelector(".comparison-category-fill")
+        || [...row.children].find((child) => child.tagName === "TD");
       let toggle = labelCell.querySelector(".comparison-category-toggle");
       if (!toggle) {
         const label = labelCell.textContent.trim() || category;
@@ -121,15 +131,14 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
         toggle.dataset.category = category;
         toggle.textContent = label;
         labelCell.replaceChildren(toggle);
-        const fill = document.createElement("td");
-        fill.className = "comparison-category-fill";
-        fill.setAttribute("aria-hidden", "true");
-        fill.colSpan = Math.max(1, columnCount - 1);
-        row.append(fill);
-      } else {
-        const fill = row.querySelector(".comparison-category-fill");
-        if (fill) fill.colSpan = Math.max(1, columnCount - 1);
       }
+      if (!fill) {
+        fill = document.createElement("td");
+        row.append(fill);
+      }
+      fill.classList.add("comparison-category-fill");
+      fill.setAttribute("aria-hidden", "true");
+      fill.colSpan = Math.max(1, columnCount - 1);
       applyCollapsedState(category);
     }
     updateControlState();
@@ -139,6 +148,7 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
     if (decorateFrame) cancelAnimationFrame(decorateFrame);
     decorateFrame = requestAnimationFrame(() => {
       decorateCategoryRows();
+      updateStickyOffset();
       decorateFrame = 0;
     });
   };

@@ -19,6 +19,9 @@ def _verify() -> None:
         "--comparison-sticky-top",
         ".comparison-table thead th{top:var(--comparison-sticky-top,0px)}",
         "selectionPanel.offsetHeight + 18",
+        "innerScroll",
+        'scrollStyle.maxHeight !== "none"',
+        'row.querySelector(".comparison-category-fill")',
         "ResizeObserver",
         "MutationObserver",
         'getComputedStyle(selectionPanel).position === "sticky"',
@@ -66,6 +69,8 @@ def _verify() -> None:
     assert rendered.count("--comparison-sticky-top") >= 3
     assert "new ResizeObserver(updateStickyOffset).observe(selectionPanel)" in rendered
     assert "new MutationObserver(scheduleDecoration).observe(table" in rendered
+    assert 'scrollStyle.maxHeight !== "none"' in rendered
+    assert 'row.querySelector(".comparison-category-fill")' in rendered
     assert "Sterowanie grupami parametrów" in rendered
     assert "comparison-category-fill" in rendered
     assert rendered.index("--comparison-sticky-top") < rendered.rindex("</body>")

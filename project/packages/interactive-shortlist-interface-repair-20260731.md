@@ -20,3 +20,7 @@ The package changes presentation and filter ergonomics only. It does not infer m
 ## Follow-up
 
 A separate source review will audit brochure colour offers, explicit grade inheritance such as `Expression = Essential +`, and repeated missing values that may be resolved only through direct source statements.
+
+## Visual verification
+
+The generated final HTML was opened in headless Chromium. The audit confirmed a dark outer canvas and filter panel, five unique commercial grade choices across all six models, visible Duster and Bigster comparison columns, a fixed-width parameter column and an internally scrollable comparison table. The legacy page-level sticky offset and duplicate category filler discovered during that audit are repaired in this package.

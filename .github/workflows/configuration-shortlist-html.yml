@@ -9,41 +9,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  materialize-scroll-integration-repair:
-    if: github.head_ref == 'agent/interactive-shortlist-interface-repair-20260731'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out package branch
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: agent/interactive-shortlist-interface-repair-20260731
-          fetch-depth: 0
-      - name: Repair legacy sticky-offset integration
-        shell: bash
-        run: |
-          set -euo pipefail
-          git show origin/main:.github/workflows/configuration-shortlist-html.yml > .github/workflows/configuration-shortlist-html.yml
-          python project/.tmp-scroll-integration-repair.py
-          rm project/.tmp-scroll-integration-repair.py
-          node --check tools/reporting/configuration_shortlist_browser.js
-          node --check tools/reporting/configuration_shortlist_selection.js
-          node --check tools/reporting/configuration_shortlist_v12.js
-          python -m unittest -q \
-            tests.test_configuration_shortlist_html \
-            tests.test_configuration_selection_export \
-            tests.test_configuration_comparison_sticky_offset
-          python tools/dkb.py project-state --apply
-          python tools/dkb.py project-state --check
-          git diff --check
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'fix(ui): integrate sticky headers with table scrolling'
-          git push origin HEAD:agent/interactive-shortlist-interface-repair-20260731
-
   shortlist-html:
     runs-on: ubuntu-latest
     steps:
