@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "kind": "cross_model_download_discoverability_alignment_closure",
+  "closed_on": "2026-07-31",
+  "status": "complete",
+  "delivery": {
+    "pull_request": 417,
+    "verified_head": "b1c738748f1ab66c3acb28f7deb7b0bcd4a3810f",
+    "squash_commit": "e0738860cfb4acb035d373cb829f5eebe40c196d",
+    "quality_run": 2732,
+    "test_baseline": 1676
+  },
+  "receipt": {
+    "member": "cross-model/cross-model-comparison-view.html",
+    "result_key": "cross_model_html",
+    "cli_label": "Cross-model navigation",
+    "conditional_exposure": true,
+    "older_release_compatibility": "PASS",
+    "consumer_guide_alignment": "PASS"
+  },
+  "verification": {
+    "quality": "PASS",
+    "python_3_10": "PASS",
+    "python_3_13": "PASS",
+    "python_3_14": "PASS",
+    "windows": "PASS",
+    "public_v1_0_0_download": "PASS",
+    "workflow_count": 17,
+    "failed_workflow_count": 0
+  },
+  "boundaries": {
+    "workspace_index_changed": false,
+    "cross_model_product_changed": false,
+    "source_data_changed": false,
+    "comparison_semantics_changed": false,
+    "public_v1_9_0_rewritten": false
+  },
+  "decision": "CLOSE_CROSS_MODEL_DOWNLOAD_DISCOVERABILITY_ALIGNMENT",
+  "next_package": "Post-Cross-Model Download Alignment Priority Review"
+}
