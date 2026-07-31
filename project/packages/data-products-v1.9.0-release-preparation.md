@@ -111,7 +111,7 @@ The preflight must prove byte-identical rebuilds, verify the six new configurati
 
 The prepared repository baseline is:
 
-- 1,684 tests;
+- 1,676 tests;
 - 46 CSV files;
 - 11,380 rows;
 - 3,498 scalar values and 138 scalar import specifications;
