@@ -40,6 +40,7 @@
       "data/master/source_configurations.csv",
       "data/reporting/spring_electric100_automatic_completeness.json",
       "data/reporting/spring_electric70_automatic_completeness.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
       "project/ROADMAP.md",
       "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
