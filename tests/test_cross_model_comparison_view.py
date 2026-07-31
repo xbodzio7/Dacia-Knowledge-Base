@@ -37,17 +37,17 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["kind"],
             "scope_preserving_cross_model_comparison_view",
         )
-        self.assertEqual(self.view["as_of"], "2026-07-25")
+        self.assertEqual(self.view["as_of"], "2026-07-31")
         self.assertEqual(
             self.view["summary"],
             {
-                "model_family_count": 5,
-                "reporting_scope_count": 20,
-                "single_model_scope_count": 18,
+                "model_family_count": 6,
+                "reporting_scope_count": 21,
+                "single_model_scope_count": 19,
                 "mixed_model_scope_count": 2,
-                "active_configuration_count": 78,
-                "within_scope_pair_count": 129,
-                "catalog_price_recorded_count": 78,
+                "active_configuration_count": 80,
+                "within_scope_pair_count": 130,
+                "catalog_price_recorded_count": 80,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
                 "recommendations_generated": False,
@@ -64,6 +64,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
                 "jogger",
                 "duster_iii",
                 "bigster",
+                "spring",
             ],
         )
         expected = {
@@ -72,6 +73,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             "jogger": (22, 4, 77900, 118050, 22),
             "duster_iii": (27, 5, 82000, 123600, 27),
             "bigster": (14, 4, 101400, 137600, 14),
+            "spring": (2, 2, 73500, 81500, 2),
         }
         for code, values in expected.items():
             model = self.models[code]
@@ -89,6 +91,8 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(self.models["bigster"]["seat_summary_state"], "not_stated")
         self.assertEqual(self.models["duster_iii"]["recorded_seat_values"], [])
         self.assertEqual(self.models["duster_iii"]["seat_summary_state"], "not_stated")
+        self.assertEqual(self.models["spring"]["recorded_seat_values"], [])
+        self.assertEqual(self.models["spring"]["seat_summary_state"], "not_stated")
         self.assertEqual(self.models["jogger"]["recorded_seat_values"], [5, 7])
         self.assertEqual(self.models["jogger"]["seat_summary_state"], "recorded")
         self.assertEqual(self.models["sandero_iii"]["recorded_seat_values"], [5])
@@ -129,7 +133,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            129,
+            130,
         )
         self.assertTrue(
             all(
@@ -169,6 +173,9 @@ class CrossModelComparisonViewTests(unittest.TestCase):
     def test_model_media_registry_is_reused_as_provenance_not_runtime_dependency(self) -> None:
         for model in self.view["models"]:
             media = model["model_media"]
+            if model["model_code"] == "spring":
+                self.assertEqual(media, {})
+                continue
             self.assertEqual(media["source_name"], "Dacia Polska")
             self.assertTrue(media["image_url"].startswith("https://"))
             self.assertTrue(media["source_page_url"].startswith("https://www.dacia.pl/"))
@@ -183,8 +190,8 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(html_text, render_html(self.view))
         self.assertEqual(json.loads(json_text), self.view)
         self.assertTrue(html_text.startswith("<!doctype html>"))
-        self.assertEqual(html_text.count('class="model-card"'), 5)
-        self.assertEqual(html_text.count('class="scope-card"'), 20)
+        self.assertEqual(html_text.count('class="model-card"'), 6)
+        self.assertEqual(html_text.count('class="scope-card"'), 21)
         self.assertEqual(html_text.count('class="badge mixed"'), 2)
 
     def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
@@ -195,7 +202,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 60)
+        self.assertEqual(len(comparison_links), 63)
         self.assertTrue(
             all(link.startswith("../comparison-bundle/") for link in comparison_links)
         )
