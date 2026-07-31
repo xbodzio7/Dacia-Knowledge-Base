@@ -266,7 +266,7 @@
     for (const row of comparison.rows) {
       if (row.category !== currentCategory) {
         currentCategory = row.category;
-        body.push(`<tr class="comparison-category-row" data-category="${escapeHtml(currentCategory)}"><th colspan="${comparison.configurations.length + 1}">${escapeHtml(currentCategory)}</th></tr>`);
+        body.push(`<tr class="comparison-category-row" data-category="${escapeHtml(currentCategory)}"><th scope="rowgroup">${escapeHtml(currentCategory)}</th><td colspan="${comparison.configurations.length}" aria-hidden="true"></td></tr>`);
       }
       const distinct = rowIsDifferent(row.values);
       const values = row.values.map((value) => `<td${distinct ? ' class="is-different"' : ""}>${escapeHtml(value)}</td>`).join("");

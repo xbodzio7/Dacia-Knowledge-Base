@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Electric 100 Singleton Catalogue Foundation",
+  "phase": "Interactive Shortlist Interface Repair",
   "reference_delivery": {
-    "name": "Spring Electric 100 Singleton Catalogue Review",
-    "pull_request": 425,
-    "head_sha": "bef39aa4b5234a0511ee2a8494317363dc36ab2d",
-    "quality_run": 2772
+    "name": "Spring Electric 100 Singleton Catalogue Foundation",
+    "pull_request": 426,
+    "head_sha": "f5a2233855213873152fd164b831d450bb05ef47",
+    "quality_run": 2782
   },
   "baseline": {
     "tests": 1676,
@@ -27,46 +27,36 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_electric100_singleton_catalogue_foundation_001",
-    "kind": "singleton_catalogue_foundation",
-    "name": "Spring Electric 100 Singleton Catalogue Foundation",
+    "package_id": "interactive_shortlist_interface_repair_001",
+    "kind": "user_interface_repair",
+    "name": "Interactive Shortlist Interface Repair",
     "status": "complete",
-    "goal": "Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.",
+    "goal": "Restore one coherent dark interface, group duplicate grade names across selected models, and make multi-configuration comparison headers, category labels and parameter names remain visible on both scroll axes without changing data semantics.",
     "manifest_paths": [
-      ".github/workflows/configuration-comparison-bundle.yml",
-      ".github/workflows/configuration-selection-export.yml",
       "CHANGELOG.md",
       "README.md",
-      "data/master/configuration_prices.csv",
-      "data/master/configurations.csv",
-      "data/master/source_configurations.csv",
-      "data/master/source_versions.csv",
-      "data/master/versions.csv",
-      "data/reporting/spring_electric100_automatic_completeness.json",
-      "data/reporting/spring_electric100_automatic_gap_evidence.spec",
       "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-electric100-singleton-catalogue-foundation-20260731.md",
+      "project/packages/interactive-shortlist-interface-repair-20260731.md",
       "project/state.json",
-      "tests/test_configuration_comparison_bundle.py",
-      "tests/test_cross_model_comparison_view.py",
-      "tests/test_data_product_release.py",
-      "tests/test_duster_catalog_bootstrap.py",
-      "tests/test_duster_ecog120_automatic_stock_20260724.py",
-      "tests/test_duster_technical_specifications.py",
-      "tools/catalog_completion_history.py"
+      "tests/test_configuration_selection_export.py",
+      "tests/test_configuration_shortlist_html.py",
+      "tools/reporting/configuration_shortlist_browser.js",
+      "tools/reporting/configuration_shortlist_html.py",
+      "tools/reporting/configuration_shortlist_selection.js",
+      "tools/reporting/configuration_shortlist_selection_html.py"
     ]
   },
   "next_package": {
-    "package_id": "spring_dated_technical_observation_review_001",
-    "kind": "technical_import_review",
-    "name": "Spring Dated Technical Observation Review",
+    "package_id": "brochure_equipment_inheritance_and_colour_review_001",
+    "kind": "source_coverage_review",
+    "name": "Brochure Equipment Inheritance and Colour Review",
     "status": "planned",
-    "goal": "Compare the registered Spring brochure, MY25 stock price list and dated configurator snapshot, select exact source-specific technical observations for Electric 70 and Electric 100, and preserve date, grade, wheel, charging and conflicting-value boundaries before any import.",
+    "goal": "Audit every registered brochure and price list for explicit factory colour offers, paid metallic and non-metallic colours, source-stated grade inheritance chains such as Expression = Essential +, and repeated missing technical or equipment observations, then select exact non-inferred import packages.",
     "manifest_paths": [
-      "data/reporting/spring_dated_technical_observation_review.json",
-      "data/reporting/spring_dated_technical_observation_review.md",
-      "project/reviews/spring-dated-technical-observation-review-2026-07-31.md",
+      "data/reporting/brochure_equipment_inheritance_and_colour_review.json",
+      "data/reporting/brochure_equipment_inheritance_and_colour_review.md",
+      "project/reviews/brochure-equipment-inheritance-and-colour-review-2026-07-31.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
