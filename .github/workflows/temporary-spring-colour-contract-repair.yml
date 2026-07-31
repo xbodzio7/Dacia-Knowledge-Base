@@ -1,6 +1,9 @@
 name: Temporary Spring Colour Contract Repair
 
 on:
+  push:
+    branches:
+      - agent/spring-exterior-colour-options-20260731
   pull_request:
     branches:
       - main
@@ -9,19 +12,19 @@ permissions:
   contents: write
 
 concurrency:
-  group: temporary-spring-colour-contract-${{ github.event.pull_request.number }}
+  group: temporary-spring-colour-contract-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   repair:
-    if: github.head_ref == 'agent/spring-exterior-colour-options-20260731'
+    if: github.event_name == 'push' || github.head_ref == 'agent/spring-exterior-colour-options-20260731'
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          repository: xbodzio7/Dacia-Knowledge-Base
+          ref: agent/spring-exterior-colour-options-20260731
           persist-credentials: true
           fetch-depth: 0
 
@@ -189,4 +192,4 @@ jobs:
               )
           print(f"Final package manifest verified: {len(actual)} paths.")
           PY
-          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          git push origin "HEAD:agent/spring-exterior-colour-options-20260731"
