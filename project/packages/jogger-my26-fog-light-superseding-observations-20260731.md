@@ -42,4 +42,4 @@ The `-` symbol is imported only because it is a direct matrix cell. No omitted r
 
 `tools/import_jogger_fog_light_superseding_observations.py` verifies both source hashes, the six exact active Expression configurations, both sets of source relationships, the active boolean `fog_lights` attribute, the six preserved April observations, the direct July specification, idempotent output and the contiguous availability suffix `5897-5902`.
 
-The final pull-request diff contains exactly twelve declared package paths and no temporary workflow or rendered source artifact. This human-authored commit triggers the standard full CI verification after successful materialization.
+The final pull-request diff contains exactly thirteen declared package paths and no temporary workflow or rendered source artifact. The Spring equipment regression test is narrowed to the exact Spring block `5771-5896`, so valid later imports can follow it without weakening the original 126-row contract.
