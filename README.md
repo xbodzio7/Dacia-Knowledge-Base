@@ -155,6 +155,16 @@ eCall, automatyczne blokowanie drzwi, ostrzeżenie o bezpiecznej odległości
 i przygotowanie do blokady alkoholowej. Oryginalne brzmienie pozycji i numer
 strony PDF są zachowane w polu `notes`.
 
+Bieżąca broszura Spring z 19 lutego 2026 r. dostarcza bezpośrednią macierz
+wyposażenia dla wersji Essential, Expression i Extreme. Import obejmuje 126
+datowanych rekordów dla 42 istniejących atrybutów i trzech dokładnych
+konfiguracji: 106 `standard`, 7 `optional` i 13 `not_available`. Trzy relacje
+`source_configurations.csv` wiążą broszurę z dokładnymi konfiguracjami. Statusy są
+odczytane z komórek stron 19-20; jawny łańcuch dziedziczenia wersji nie jest
+używany do rekonstruowania brakujących danych. Pakiety handlowe, przewód typu
+2, kolory, dane techniczne, Cargo oraz elementy bez bezpiecznego mapowania
+pozostają poza tym pakietem.
+
 Koła i tapicerka są modelowane jako wartości konfiguracji zgodnie z D-016.
 Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
 tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wspólny
@@ -1258,11 +1268,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1676 testów, 46 pliki CSV, 11405 rekordów
+Zweryfikowany model obejmuje 1684 testów, 46 pliki CSV, 11534 rekordów
 danych, 51 relacje między tabelami, 3498 wartości konfiguracji, 138 skalarnych specyfikacji importu, 298 zakresów konfiguracji i 24
-specyfikacji zakresów oraz 5770 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 5896 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 46 tabele i 11405 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 46 tabele i 11534 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

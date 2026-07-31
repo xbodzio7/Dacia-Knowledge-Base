@@ -7,50 +7,37 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Brochure Equipment Inheritance and Colour Review",
+  "phase": "Spring Version Equipment Matrix Availability Import",
   "reference_delivery": {
-    "name": "Interactive Shortlist Interface Repair",
-    "pull_request": 427,
-    "head_sha": "77ac01e37031d763574a30c865471804ce06b1aa",
-    "quality_run": 2796
+    "name": "Brochure Equipment Inheritance and Colour Review",
+    "pull_request": 428,
+    "head_sha": "da8b7e085c248b21cd59ed8e1cd5673821e33366",
+    "quality_run": 2805
   },
   "baseline": {
-    "tests": 1676,
+    "tests": 1684,
     "csv_files": 46,
-    "rows": 11405,
+    "rows": 11534,
     "configuration_values": 3498,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 298,
     "configuration_range_import_specs": 24,
-    "availability_records": 5770,
+    "availability_records": 5896,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "brochure_equipment_inheritance_and_colour_review_001",
-    "kind": "source_coverage_review",
-    "name": "Brochure Equipment Inheritance and Colour Review",
-    "status": "complete",
-    "goal": "Audit every registered brochure and price list for explicit factory colour offers, fixed and ranged paint prices, source-stated grade inheritance and repeated source-bounded equipment gaps, then select exact non-inferred import packages.",
-    "manifest_paths": [
-      "data/reporting/brochure_equipment_inheritance_and_colour_review.json",
-      "data/reporting/brochure_equipment_inheritance_and_colour_review.md",
-      "project/reviews/brochure-equipment-inheritance-and-colour-review-2026-07-31.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_version_equipment_matrix_availability_001",
     "kind": "equipment_availability_import",
     "name": "Spring Version Equipment Matrix Availability Import",
-    "status": "planned",
+    "status": "complete",
     "goal": "Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
       "data/imports/spring_equipment_availability_20260219.csv",
       "data/master/configuration_attribute_availability.csv",
+      "data/master/source_configurations.csv",
       "data/reporting/spring_electric100_automatic_completeness.json",
       "data/reporting/spring_electric70_automatic_completeness.json",
       "project/ROADMAP.md",
@@ -60,6 +47,28 @@
       "project/state.json",
       "tests/test_spring_equipment_availability.py",
       "tools/import_spring_equipment_availability.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_commercial_packages_and_charging_options_001",
+    "kind": "commercial_catalog_import",
+    "name": "Spring Commercial Packages and Charging Options",
+    "status": "planned",
+    "goal": "Import brochure-bounded applicability and membership for Pakiet Techno, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the exact Spring grades, preserving blank prices because the brochure states no amounts.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/spring_commercial_items_20260219.csv",
+      "data/imports/spring_commercial_item_attributes_20260219.csv",
+      "data/imports/spring_commercial_item_configurations_20260219.csv",
+      "data/master/commercial_items.csv",
+      "data/master/commercial_item_attributes.csv",
+      "data/master/commercial_item_configurations.csv",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-commercial-packages-and-charging-options-20260731.md",
+      "project/state.json",
+      "tests/test_spring_commercial_packages.py",
+      "tools/import_spring_commercial_packages.py"
     ]
   },
   "autonomy": {

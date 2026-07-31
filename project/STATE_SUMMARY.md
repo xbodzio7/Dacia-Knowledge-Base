@@ -12,39 +12,39 @@
 
 ## Phase
 
-**Brochure Equipment Inheritance and Colour Review**
+**Spring Version Equipment Matrix Availability Import**
 
 ## Reference delivery
 
-- Package: Interactive Shortlist Interface Repair
-- Pull Request: #427
-- Verified head: `77ac01e37031d763574a30c865471804ce06b1aa`
-- Quality run: #2796
+- Package: Brochure Equipment Inheritance and Colour Review
+- Pull Request: #428
+- Verified head: `da8b7e085c248b21cd59ed8e1cd5673821e33366`
+- Quality run: #2805
 
 ## Verified baseline
 
-- Tests: 1676
+- Tests: 1684
 - Master CSV files: 46
-- Master rows: 11405
+- Master rows: 11534
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
 - Configuration range import specifications: 24
-- Availability records: 5770
+- Availability records: 5896
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Brochure Equipment Inheritance and Colour Review** — `complete`
+**Spring Version Equipment Matrix Availability Import** — `complete`
 
-Audit every registered brochure and price list for explicit factory colour offers, fixed and ranged paint prices, source-stated grade inheritance and repeated source-bounded equipment gaps, then select exact non-inferred import packages.
+Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.
 
 ## Next package
 
-**Spring Version Equipment Matrix Availability Import** — `planned`
+**Spring Commercial Packages and Charging Options** — `planned`
 
-Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.
+Import brochure-bounded applicability and membership for Pakiet Techno, Pakiet Power, Pakiet City and the Type 2 charging-cable option across the exact Spring grades, preserving blank prices because the brochure states no amounts.
 
 ## Autonomy
 
