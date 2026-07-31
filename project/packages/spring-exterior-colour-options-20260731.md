@@ -43,4 +43,4 @@ The package does not create a single scalar `exterior_color` configuration value
 
 `tools/import_spring_exterior_colour_options.py` verifies the source hash, exact active Spring configuration boundary, six names and finish classifications, uniform three-grade applicability, blank-price contract, idempotent output and contiguous ID suffixes in all three commercial tables.
 
-The final pull-request diff contains exactly fourteen declared package paths and no temporary workflow or extraction file. This human-authored commit triggers the final standard CI verification after materialization.
+The final pull-request diff contains exactly sixteen declared package paths and no temporary workflow or extraction file. The earlier Spring package importer and its regression test are narrowed to their five exact commercial-item codes so later items from the same registered source cannot leak into that independent contract.
