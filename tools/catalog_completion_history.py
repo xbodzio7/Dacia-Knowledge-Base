@@ -20,6 +20,13 @@ ADDED_CONFIGURATION_CODES = frozenset(
     }
 )
 ADDED_SCOPE_SLUG = "sandero_tce100_stepway_tce110_manual"
+LATER_CONFIGURATION_CODES = frozenset(
+    {
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic",
+    }
+)
+LATER_SCOPE_SLUGS = frozenset({"spring_electric70_automatic"})
 
 T = TypeVar("T", bound=Mapping[str, str])
 
@@ -44,12 +51,16 @@ def pre_completion_rows(
     materialized = list(rows)
     if not completion_applied(repository):
         return materialized
-    return [row for row in materialized if row.get(code_field) not in ADDED_CONFIGURATION_CODES]
+    excluded = ADDED_CONFIGURATION_CODES | LATER_CONFIGURATION_CODES
+    return [row for row in materialized if row.get(code_field) not in excluded]
 
 
 def pre_completion_scope_paths(repository: Path, paths: Iterable[Path]) -> list[Path]:
     materialized = list(paths)
     if not completion_applied(repository):
         return materialized
-    suffix = f"{ADDED_SCOPE_SLUG}_completeness.json"
-    return [path for path in materialized if path.name != suffix]
+    excluded_suffixes = {
+        f"{ADDED_SCOPE_SLUG}_completeness.json",
+        *(f"{slug}_completeness.json" for slug in LATER_SCOPE_SLUGS),
+    }
+    return [path for path in materialized if path.name not in excluded_suffixes]
