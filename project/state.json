@@ -52,6 +52,7 @@
       "tests/test_cross_model_comparison_view.py",
       "tests/test_data_product_release.py",
       "tests/test_duster_catalog_bootstrap.py",
+      "tests/test_duster_ecog120_automatic_stock_20260724.py",
       "tests/test_duster_technical_specifications.py",
       "tools/catalog_completion_history.py"
     ]
