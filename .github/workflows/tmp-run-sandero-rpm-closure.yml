@@ -1,3 +1,4 @@
+# Trigger existing push workflow after initial registration.
 name: Temporary run Sandero RPM closure
 
 on:
