@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Cross-Model Download Discoverability Alignment Closure**
+**Post-Cross-Model Download Alignment Priority Review**
 
 ## Reference delivery
 
-- Package: Cross-Model Download Discoverability Alignment
-- Pull Request: #417
-- Verified head: `b1c738748f1ab66c3acb28f7deb7b0bcd4a3810f`
-- Quality run: #2732
+- Package: Cross-Model Download Discoverability Alignment Closure
+- Pull Request: #418
+- Verified head: `a9f2e1a5a2255dbc706fdb230e4dd223ee9bf017`
+- Quality run: #2734
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Download Discoverability Alignment Closure** — `complete`
+**Post-Cross-Model Download Alignment Priority Review** — `complete`
 
-Verify the conditional cross-model entry-point receipt across downloader metadata, terminal output, consumer documentation, public v1.9.0 and older-release compatibility, then record the closed usability boundary.
+Review the repository after closing cross-model download discoverability and select the next highest-value bounded source, data or product package without reopening completed usability, release or residual boundaries.
 
 ## Next package
 
-**Post-Cross-Model Download Alignment Priority Review** — `planned`
+**Spring Official Source Intake Review** — `planned`
 
-Review the repository after closing cross-model download discoverability and select the next highest-value bounded source, data or product package without reopening completed usability, release or residual boundaries.
+Select the exact official Dacia Poland Spring source set and define a bounded, reproducible capture plan that separates immutable brochure evidence, dated dynamic configurator observations and exact stock-card evidence before any source registration or data import.
 
 ## Autonomy
 
