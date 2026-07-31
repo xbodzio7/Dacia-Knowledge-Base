@@ -11,7 +11,7 @@ permissions:
 
 concurrency:
   group: data-products-v1.9.0-publication
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish-and-record:
@@ -77,136 +77,182 @@ jobs:
               path = root / name
               if path.stat().st_size != size:
                   raise RuntimeError(f'{name} size differs')
-              actual = hashlib.sha256(path.read_bytes()).hexdigest()
-              if actual != digest:
+              if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
                   raise RuntimeError(f'{name} SHA-256 differs')
           PY
           unzip -p "release-assets/$ARCHIVE_NAME" RELEASE_NOTES.md > release-notes.md
 
-      - name: Confirm publication target is absent
+      - name: Remove stale drafts and confirm target absence
         shell: bash
         run: |
           set -euo pipefail
-          if gh release view "$RELEASE_TAG" --repo "$REPOSITORY" >/dev/null 2>&1; then
-            echo "Target release already exists" >&2
-            exit 1
-          fi
+          gh api "repos/$REPOSITORY/releases?per_page=100" > releases.json
+          python - <<'PY' > stale-draft-ids.txt
+          import json
+          import os
+          from pathlib import Path
+          releases = json.loads(Path('releases.json').read_text())
+          for release in releases:
+              if release.get('tag_name') == os.environ['RELEASE_TAG'] and release.get('draft') is True:
+                  print(release['id'])
+              elif release.get('tag_name') == os.environ['RELEASE_TAG']:
+                  raise RuntimeError('final target release already exists')
+          PY
+          while read -r release_id; do
+            [ -z "$release_id" ] || gh api -X DELETE "repos/$REPOSITORY/releases/$release_id"
+          done < stale-draft-ids.txt
           if gh api "repos/$REPOSITORY/git/ref/tags/$RELEASE_TAG" >/dev/null 2>&1; then
             echo "Target tag already exists" >&2
             exit 1
           fi
 
-      - name: Publish exact assets and verify public redownload
+      - name: Create exact tag, draft and assets
         shell: bash
         run: |
           set -euo pipefail
-          created=0
+          release_id=''
           published=0
           cleanup() {
             status=$?
-            if [ "$status" -ne 0 ] && [ "$created" -eq 1 ] && [ "$published" -eq 0 ]; then
-              gh release delete "$RELEASE_TAG" --repo "$REPOSITORY" --yes --cleanup-tag || true
+            if [ "$status" -ne 0 ] && [ "$published" -eq 0 ]; then
+              if [ -n "$release_id" ]; then
+                gh api -X DELETE "repos/$REPOSITORY/releases/$release_id" || true
+              fi
+              gh api -X DELETE "repos/$REPOSITORY/git/refs/tags/$RELEASE_TAG" || true
             fi
             exit "$status"
           }
           trap cleanup EXIT
 
-          gh release create "$RELEASE_TAG" \
-            --repo "$REPOSITORY" \
-            --target "$SOURCE_COMMIT" \
-            --title "Dacia Knowledge Base Data Products v1.9.0" \
-            --notes-file release-notes.md \
-            --draft
-          created=1
+          gh api -X POST "repos/$REPOSITORY/git/refs" \
+            -f ref="refs/tags/$RELEASE_TAG" \
+            -f sha="$SOURCE_COMMIT" > tag-ref.json
 
-          gh release upload "$RELEASE_TAG" \
-            "release-assets/$ARCHIVE_NAME" \
-            release-assets/data-product-release-manifest.json \
-            release-assets/SHA256SUMS \
-            --repo "$REPOSITORY"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          request = {
+              'tag_name': os.environ['RELEASE_TAG'],
+              'target_commitish': os.environ['SOURCE_COMMIT'],
+              'name': 'Dacia Knowledge Base Data Products v1.9.0',
+              'body': Path('release-notes.md').read_text(encoding='utf-8'),
+              'draft': True,
+              'prerelease': False,
+          }
+          Path('release-request.json').write_text(json.dumps(request), encoding='utf-8')
+          PY
+          gh api -X POST "repos/$REPOSITORY/releases" \
+            --input release-request.json > draft-release.json
+          release_id="$(python -c "import json; print(json.load(open('draft-release.json'))['id'])")"
+          echo "$release_id" > release-id.txt
 
-          tag_target="$(gh api "repos/$REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')"
-          test "$tag_target" = "$SOURCE_COMMIT"
+          for name in "$ARCHIVE_NAME" data-product-release-manifest.json SHA256SUMS; do
+            curl --fail-with-body --silent --show-error -L \
+              -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              -H "Content-Type: application/octet-stream" \
+              --data-binary "@release-assets/$name" \
+              "https://uploads.github.com/repos/$REPOSITORY/releases/$release_id/assets?name=$name" \
+              > "uploaded-$name.json"
+          done
 
-          mkdir public-redownload
-          gh release download "$RELEASE_TAG" \
-            --repo "$REPOSITORY" \
-            --dir public-redownload
+          gh api "repos/$REPOSITORY/releases/$release_id" > draft-with-assets.json
+          mkdir private-redownload
+          python - <<'PY' > asset-downloads.tsv
+          import json
+          from pathlib import Path
+          release = json.loads(Path('draft-with-assets.json').read_text())
+          if len(release.get('assets', [])) != 3:
+              raise RuntimeError('draft asset count differs')
+          for asset in release['assets']:
+              print(f"{asset['id']}\t{asset['name']}")
+          PY
+          while IFS=$'\t' read -r asset_id name; do
+            curl --fail-with-body --silent --show-error -L \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/octet-stream" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$REPOSITORY/releases/assets/$asset_id" \
+              -o "private-redownload/$name"
+          done < asset-downloads.tsv
 
           python - <<'PY'
           from pathlib import Path
           import hashlib
           import os
-
-          root = Path('public-redownload')
           expected = {
               os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
               'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
               'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
           }
+          root = Path('private-redownload')
+          if {path.name for path in root.iterdir() if path.is_file()} != set(expected):
+              raise RuntimeError('private redownload asset set differs')
+          for name, (size, digest) in expected.items():
+              path = root / name
+              if path.stat().st_size != size:
+                  raise RuntimeError(f'private {name} size differs')
+              if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+                  raise RuntimeError(f'private {name} SHA-256 differs')
+          PY
+
+          printf '{"draft":false,"prerelease":false}' > finalize-release.json
+          gh api -X PATCH "repos/$REPOSITORY/releases/$release_id" \
+            --input finalize-release.json > final-release.json
+          published=1
+          trap - EXIT
+
+      - name: Verify public redownload and record receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir public-redownload
+          gh release download "$RELEASE_TAG" \
+            --repo "$REPOSITORY" \
+            --dir public-redownload
+          gh api "repos/$REPOSITORY/releases/tags/$RELEASE_TAG" > public-release.json
+          gh api "repos/$REPOSITORY/git/ref/tags/$RELEASE_TAG" > public-tag.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+          import os
+
+          expected = {
+              os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
+              'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
+              'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
+          }
+          root = Path('public-redownload')
           if {path.name for path in root.iterdir() if path.is_file()} != set(expected):
               raise RuntimeError('public redownload asset set differs')
           for name, (size, digest) in expected.items():
               path = root / name
               if path.stat().st_size != size:
                   raise RuntimeError(f'public {name} size differs')
-              actual = hashlib.sha256(path.read_bytes()).hexdigest()
-              if actual != digest:
+              if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
                   raise RuntimeError(f'public {name} SHA-256 differs')
-          PY
 
-          gh release edit "$RELEASE_TAG" \
-            --repo "$REPOSITORY" \
-            --draft=false \
-            --prerelease=false
-          published=1
-          trap - EXIT
-
-      - name: Record immutable publication receipt
-        shell: python
-        run: |
-          from __future__ import annotations
-
-          import hashlib
-          import json
-          import os
-          import subprocess
-          from pathlib import Path
-
-          repository = os.environ['REPOSITORY']
-          tag = os.environ['RELEASE_TAG']
-          source_commit = os.environ['SOURCE_COMMIT']
-          release = json.loads(subprocess.check_output(
-              ['gh', 'api', f'repos/{repository}/releases/tags/{tag}'],
-              text=True,
-          ))
+          release = json.loads(Path('public-release.json').read_text())
+          tag = json.loads(Path('public-tag.json').read_text())
           if release.get('draft') or release.get('prerelease'):
               raise RuntimeError('release is not final')
-          tag_target = subprocess.check_output(
-              ['gh', 'api', f'repos/{repository}/git/ref/tags/{tag}', '--jq', '.object.sha'],
-              text=True,
-          ).strip()
-          if tag_target != source_commit:
+          if tag.get('object', {}).get('sha') != os.environ['SOURCE_COMMIT']:
               raise RuntimeError('final tag target differs')
-
-          expected = {
-              os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
-              'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
-              'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
-          }
-          assets = {}
           api_assets = release.get('assets', [])
           if len(api_assets) != 3:
               raise RuntimeError('release asset count differs')
+          assets = {}
           for item in api_assets:
               name = item['name']
               if name not in expected:
                   raise RuntimeError(f'unexpected release asset: {name}')
               size, digest = expected[name]
-              path = Path('public-redownload') / name
-              actual = hashlib.sha256(path.read_bytes()).hexdigest()
-              if item['size'] != size or actual != digest:
-                  raise RuntimeError(f'asset identity differs: {name}')
+              if item['size'] != size:
+                  raise RuntimeError(f'API size differs: {name}')
               api_digest = item.get('digest')
               if api_digest not in (None, f'sha256:{digest}'):
                   raise RuntimeError(f'API digest differs: {name}')
@@ -217,16 +263,15 @@ jobs:
                   'api_digest': api_digest,
                   'download_url': item['browser_download_url'],
               }
-
           receipt = {
               'version': 1,
               'kind': 'data_products_v1_9_0_publication',
               'status': 'PASS',
               'release_id': release['id'],
-              'release_tag': tag,
+              'release_tag': os.environ['RELEASE_TAG'],
               'release_url': release['html_url'],
               'published_at': release['published_at'],
-              'source_commit': source_commit,
+              'source_commit': os.environ['SOURCE_COMMIT'],
               'workflow_run': int(os.environ['GITHUB_RUN_ID']),
               'draft': release['draft'],
               'prerelease': release['prerelease'],
@@ -234,8 +279,11 @@ jobs:
               'assets': dict(sorted(assets.items())),
               'public_redownload_verification': 'PASS',
           }
-          path = Path('.github/data-products-v1.9.0-publication.json')
-          path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          Path('.github/data-products-v1.9.0-publication.json').write_text(
+              json.dumps(receipt, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
 
       - name: Commit exact one-file publication package
         shell: bash
