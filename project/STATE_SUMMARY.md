@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Spring Electric 100 Singleton Catalogue Review**
+**Spring Electric 100 Singleton Catalogue Foundation**
 
 ## Reference delivery
 
-- Package: Spring Electric 70 Catalogue Foundation
-- Pull Request: #424
-- Verified head: `1f243e23a750c89a6ad0d00eccf4166550c1ae0c`
-- Quality run: #2770
+- Package: Spring Electric 100 Singleton Catalogue Review
+- Pull Request: #425
+- Verified head: `bef39aa4b5234a0511ee2a8494317363dc36ab2d`
+- Quality run: #2772
 
 ## Verified baseline
 
 - Tests: 1676
 - Master CSV files: 46
-- Master rows: 11399
+- Master rows: 11405
 - Configuration values: 3498
 - Configuration import specifications: 138
 - Configuration value ranges: 298
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Electric 100 Singleton Catalogue Review** — `complete`
+**Spring Electric 100 Singleton Catalogue Foundation** — `complete`
 
-Review the source-backed Extreme Electric 100 automatic configuration and its exact catalogue price, define the singleton reporting-product contract and select a bounded implementation without importing technical or equipment observations.
+Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.
 
 ## Next package
 
-**Spring Electric 100 Singleton Catalogue Foundation** — `planned`
+**Spring Dated Technical Observation Review** — `planned`
 
-Add the source-backed Spring Extreme version, its exact Electric 100 automatic configuration, the exact current catalogue price of 85,900 PLN, explicit source relationships and one zero-pair singleton reporting scope, without importing technical values, equipment, packages, stock-card observations or cross-scope comparisons.
+Compare the registered Spring brochure, MY25 stock price list and dated configurator snapshot, select exact source-specific technical observations for Electric 70 and Electric 100, and preserve date, grade, wheel, charging and conflicting-value boundaries before any import.
 
 ## Autonomy
 

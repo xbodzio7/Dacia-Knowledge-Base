@@ -79,3 +79,4 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 78,sandero_stepway_iii_extreme_tce110_manual,sandero_stepway_iii_extreme,TCe 110,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Stepway Extreme TCe 110 with a six-speed manual gearbox.
 79,spring_essential_electric70_automatic,spring_essential,electric 70,automatic,active,Exact current official configurator state observed 2026-07-31; no unobserved grade or powertrain combination inferred.
 80,spring_expression_electric70_automatic,spring_expression,electric 70,automatic,active,Exact current official configurator state observed 2026-07-31; current catalogue price remains unresolved and the registered price is MY25 dealer-stock bounded.
+81,spring_extreme_electric100_automatic,spring_extreme,electric 100,automatic,active,Exact current official comparison state observed 2026-07-31; kept separate from Electric 70 reporting scope.

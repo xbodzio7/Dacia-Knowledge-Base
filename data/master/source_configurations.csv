@@ -245,3 +245,4 @@ id,source_code,configuration_code,relationship,notes
 244,src_pl_spring_official_configurator_20260731,spring_essential_electric70_automatic,documents,Exact official grade and powertrain state observed 2026-07-31.
 245,src_pl_spring_official_configurator_20260731,spring_expression_electric70_automatic,documents,Exact official grade and powertrain state observed 2026-07-31; current price remains unresolved.
 246,src_pl_spring_price_my25_stock_20260708,spring_expression_electric70_automatic,documents,Explicit Expression Electric 70 catalogue cell bounded to model-year-2025 dealer stock.
+247,src_pl_spring_official_configurator_20260731,spring_extreme_electric100_automatic,documents,Exact official Extreme Electric 100 automatic state and catalogue price observed 2026-07-31.
