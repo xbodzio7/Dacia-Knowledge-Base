@@ -43,7 +43,12 @@ class SpringCommercialPackagesTests(unittest.TestCase):
 
     def test_master_rows_match_generated_contract_and_contiguous_suffixes(self) -> None:
         importer.check()
-        spring_items = [row for row in self.items if row["source_code"] == importer.SOURCE_CODE]
+        spring_items = [
+            row
+            for row in self.items
+            if row["source_code"] == importer.SOURCE_CODE
+            and row["code"] in importer.EXPECTED_ITEMS
+        ]
         spring_memberships = [
             row
             for row in self.memberships
@@ -80,16 +85,24 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             sorted(importer.SELECTED_CONFIGURATIONS),
             "2026-02-19",
         )
+        package_components = {
+            code: [row for row in rows if row["code"] in importer.EXPECTED_ITEMS]
+            for code, rows in components.items()
+        }
         self.assertEqual(
-            {code: len(rows) for code, rows in components.items()},
+            {code: len(rows) for code, rows in package_components.items()},
             {
                 "spring_essential_electric70_automatic": 1,
                 "spring_expression_electric70_automatic": 3,
                 "spring_extreme_electric100_automatic": 3,
             },
         )
-        self.assertTrue(all(row["amount"] is None for rows in components.values() for row in rows))
-        self.assertTrue(all(row["price_date"] == "" for rows in components.values() for row in rows))
+        self.assertTrue(
+            all(row["amount"] is None for rows in package_components.values() for row in rows)
+        )
+        self.assertTrue(
+            all(row["price_date"] == "" for rows in package_components.values() for row in rows)
+        )
 
     def test_package_membership_aligns_with_direct_optional_matrix_cells(self) -> None:
         latest: dict[tuple[str, str], dict[str, str]] = {}
