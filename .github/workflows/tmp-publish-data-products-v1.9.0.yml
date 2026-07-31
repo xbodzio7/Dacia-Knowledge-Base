@@ -1,0 +1,252 @@
+name: Temporary publish Data Products v1.9.0
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/tmp-publish-data-products-v1.9.0.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-products-v1.9.0-publication
+  cancel-in-progress: false
+
+jobs:
+  publish-and-record:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPOSITORY: xbodzio7/Dacia-Knowledge-Base
+      PACKAGE_BRANCH: agent/data-products-v1.9.0-publication-20260731
+      SOURCE_COMMIT: 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c
+      RELEASE_VERSION: 1.9.0
+      RELEASE_TAG: data-products-v1.9.0
+      ARCHIVE_NAME: dacia-knowledge-base-data-products-v1.9.0.zip
+      ARCHIVE_SIZE: '82612470'
+      ARCHIVE_SHA256: 4e114f171a80445369f2439466d0d102e894145614d9a221a0390452309f453d
+      MANIFEST_SIZE: '21600'
+      MANIFEST_SHA256: 519f371be16251533befdeb8147caba30bdf2f3bd2c0122f474c03924574c7ad
+      CHECKSUMS_SIZE: '213'
+      CHECKSUMS_SHA256: 48c9b648d6a2e848f6e35118c9530024637f06e50ff71cea861acd1a0c7bd9cb
+    steps:
+      - name: Check out publication branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/data-products-v1.9.0-publication-20260731
+          fetch-depth: 0
+
+      - name: Check out exact preparation source
+        uses: actions/checkout@v4
+        with:
+          ref: 6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c
+          path: source
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install PDF extraction backend
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Rebuild exact preflight assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python source/tools/dkb.py data-product-release \
+            --output-directory "$GITHUB_WORKSPACE/release-assets" \
+            --version "$RELEASE_VERSION" \
+            --commit-sha "$SOURCE_COMMIT"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import os
+
+          root = Path('release-assets')
+          expected = {
+              os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
+              'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
+              'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
+          }
+          if {path.name for path in root.iterdir() if path.is_file()} != set(expected):
+              raise RuntimeError('release asset set differs from preflight')
+          for name, (size, digest) in expected.items():
+              path = root / name
+              if path.stat().st_size != size:
+                  raise RuntimeError(f'{name} size differs')
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual != digest:
+                  raise RuntimeError(f'{name} SHA-256 differs')
+          PY
+          unzip -p "release-assets/$ARCHIVE_NAME" RELEASE_NOTES.md > release-notes.md
+
+      - name: Confirm publication target is absent
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" --repo "$REPOSITORY" >/dev/null 2>&1; then
+            echo "Target release already exists" >&2
+            exit 1
+          fi
+          if gh api "repos/$REPOSITORY/git/ref/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Target tag already exists" >&2
+            exit 1
+          fi
+
+      - name: Publish exact assets and verify public redownload
+        shell: bash
+        run: |
+          set -euo pipefail
+          created=0
+          published=0
+          cleanup() {
+            status=$?
+            if [ "$status" -ne 0 ] && [ "$created" -eq 1 ] && [ "$published" -eq 0 ]; then
+              gh release delete "$RELEASE_TAG" --repo "$REPOSITORY" --yes --cleanup-tag || true
+            fi
+            exit "$status"
+          }
+          trap cleanup EXIT
+
+          gh release create "$RELEASE_TAG" \
+            --repo "$REPOSITORY" \
+            --target "$SOURCE_COMMIT" \
+            --title "Dacia Knowledge Base Data Products v1.9.0" \
+            --notes-file release-notes.md \
+            --draft
+          created=1
+
+          gh release upload "$RELEASE_TAG" \
+            "release-assets/$ARCHIVE_NAME" \
+            release-assets/data-product-release-manifest.json \
+            release-assets/SHA256SUMS \
+            --repo "$REPOSITORY"
+
+          tag_target="$(gh api "repos/$REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')"
+          test "$tag_target" = "$SOURCE_COMMIT"
+
+          mkdir public-redownload
+          gh release download "$RELEASE_TAG" \
+            --repo "$REPOSITORY" \
+            --dir public-redownload
+
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import os
+
+          root = Path('public-redownload')
+          expected = {
+              os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
+              'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
+              'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
+          }
+          if {path.name for path in root.iterdir() if path.is_file()} != set(expected):
+              raise RuntimeError('public redownload asset set differs')
+          for name, (size, digest) in expected.items():
+              path = root / name
+              if path.stat().st_size != size:
+                  raise RuntimeError(f'public {name} size differs')
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual != digest:
+                  raise RuntimeError(f'public {name} SHA-256 differs')
+          PY
+
+          gh release edit "$RELEASE_TAG" \
+            --repo "$REPOSITORY" \
+            --draft=false \
+            --prerelease=false
+          published=1
+          trap - EXIT
+
+      - name: Record immutable publication receipt
+        shell: python
+        run: |
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          repository = os.environ['REPOSITORY']
+          tag = os.environ['RELEASE_TAG']
+          source_commit = os.environ['SOURCE_COMMIT']
+          release = json.loads(subprocess.check_output(
+              ['gh', 'api', f'repos/{repository}/releases/tags/{tag}'],
+              text=True,
+          ))
+          if release.get('draft') or release.get('prerelease'):
+              raise RuntimeError('release is not final')
+          tag_target = subprocess.check_output(
+              ['gh', 'api', f'repos/{repository}/git/ref/tags/{tag}', '--jq', '.object.sha'],
+              text=True,
+          ).strip()
+          if tag_target != source_commit:
+              raise RuntimeError('final tag target differs')
+
+          expected = {
+              os.environ['ARCHIVE_NAME']: (int(os.environ['ARCHIVE_SIZE']), os.environ['ARCHIVE_SHA256']),
+              'data-product-release-manifest.json': (int(os.environ['MANIFEST_SIZE']), os.environ['MANIFEST_SHA256']),
+              'SHA256SUMS': (int(os.environ['CHECKSUMS_SIZE']), os.environ['CHECKSUMS_SHA256']),
+          }
+          assets = {}
+          api_assets = release.get('assets', [])
+          if len(api_assets) != 3:
+              raise RuntimeError('release asset count differs')
+          for item in api_assets:
+              name = item['name']
+              if name not in expected:
+                  raise RuntimeError(f'unexpected release asset: {name}')
+              size, digest = expected[name]
+              path = Path('public-redownload') / name
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              if item['size'] != size or actual != digest:
+                  raise RuntimeError(f'asset identity differs: {name}')
+              api_digest = item.get('digest')
+              if api_digest not in (None, f'sha256:{digest}'):
+                  raise RuntimeError(f'API digest differs: {name}')
+              assets[name] = {
+                  'asset_id': item['id'],
+                  'size_bytes': size,
+                  'sha256': digest,
+                  'api_digest': api_digest,
+                  'download_url': item['browser_download_url'],
+              }
+
+          receipt = {
+              'version': 1,
+              'kind': 'data_products_v1_9_0_publication',
+              'status': 'PASS',
+              'release_id': release['id'],
+              'release_tag': tag,
+              'release_url': release['html_url'],
+              'published_at': release['published_at'],
+              'source_commit': source_commit,
+              'workflow_run': int(os.environ['GITHUB_RUN_ID']),
+              'draft': release['draft'],
+              'prerelease': release['prerelease'],
+              'asset_count': len(assets),
+              'assets': dict(sorted(assets.items())),
+              'public_redownload_verification': 'PASS',
+          }
+          path = Path('.github/data-products-v1.9.0-publication.json')
+          path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+      - name: Commit exact one-file publication package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/tmp-publish-data-products-v1.9.0.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'release(data-products): publish v1.9.0 exact assets'
+          git fetch origin main
+          changed="$(git diff --name-only origin/main...HEAD)"
+          test "$changed" = '.github/data-products-v1.9.0-publication.json'
+          git push origin "HEAD:$PACKAGE_BRANCH"
