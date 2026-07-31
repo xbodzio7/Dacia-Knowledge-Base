@@ -1,0 +1,133 @@
+name: Temporary Brochure Review Extraction
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  extract-registered-pdfs:
+    if: github.head_ref == 'agent/brochure-equipment-inheritance-colour-review-20260731'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out review branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install PDF text extraction backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          pdftotext -v
+      - name: Extract every registered brochure and price list
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import hashlib
+          import json
+          from pathlib import Path
+          import subprocess
+
+          root = Path.cwd()
+          output = root / "brochure-review-source-text"
+          output.mkdir(parents=True, exist_ok=True)
+          inventory = []
+          missing = []
+
+          with (root / "data/master/sources.csv").open(encoding="utf-8", newline="") as handle:
+              rows = list(csv.DictReader(handle))
+
+          selected = [
+              row for row in rows
+              if row["source_type"] in {"brochure_pdf", "configuration_pdf"}
+          ]
+          for row in selected:
+              source_path = root / row["file_path"]
+              item = {
+                  "id": int(row["id"]),
+                  "code": row["code"],
+                  "source_type": row["source_type"],
+                  "title": row["title"],
+                  "market": row["market"],
+                  "document_date": row["document_date"],
+                  "file_path": row["file_path"],
+                  "registered_sha256": row["sha256"],
+                  "status": row["status"],
+                  "notes": row["notes"],
+                  "file_present": source_path.is_file(),
+              }
+              if not source_path.is_file():
+                  item["extraction_status"] = "missing_repository_file"
+                  missing.append(row["file_path"])
+                  inventory.append(item)
+                  continue
+
+              actual_sha = hashlib.sha256(source_path.read_bytes()).hexdigest()
+              item["actual_sha256"] = actual_sha
+              if actual_sha != row["sha256"]:
+                  raise SystemExit(
+                      f"SHA-256 mismatch for {row['file_path']}: "
+                      f"expected {row['sha256']}, got {actual_sha}"
+                  )
+
+              text_name = f"{int(row['id']):03d}-{row['code']}.txt"
+              text_path = output / text_name
+              subprocess.run(
+                  ["pdftotext", "-layout", "-enc", "UTF-8", str(source_path), str(text_path)],
+                  check=True,
+              )
+              item["text_file"] = text_name
+              item["text_bytes"] = text_path.stat().st_size
+              item["extraction_status"] = "extracted"
+              inventory.append(item)
+
+          (output / "inventory.json").write_text(
+              json.dumps(
+                  {
+                      "registered_pdf_count": len(selected),
+                      "extracted_count": sum(i["extraction_status"] == "extracted" for i in inventory),
+                      "missing_count": len(missing),
+                      "missing_paths": missing,
+                      "sources": inventory,
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ) + "\n",
+              encoding="utf-8",
+          )
+          with (output / "inventory.tsv").open("w", encoding="utf-8", newline="") as handle:
+              writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
+              writer.writerow([
+                  "id", "code", "source_type", "document_date", "file_present",
+                  "extraction_status", "text_file", "title", "file_path",
+              ])
+              for item in inventory:
+                  writer.writerow([
+                      item["id"], item["code"], item["source_type"], item["document_date"],
+                      item["file_present"], item["extraction_status"], item.get("text_file", ""),
+                      item["title"], item["file_path"],
+                  ])
+          print(
+              f"Registered PDFs: {len(selected)}; extracted: "
+              f"{sum(i['extraction_status'] == 'extracted' for i in inventory)}; "
+              f"missing: {len(missing)}"
+          )
+          PY
+      - name: Upload extracted source text
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.2.0
+        with:
+          name: brochure-review-source-text
+          path: brochure-review-source-text
+          if-no-files-found: error
+          retention-days: 7
