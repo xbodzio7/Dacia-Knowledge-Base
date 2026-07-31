@@ -69,6 +69,14 @@ jobs:
               "ensure(filter_contract.get('visible') == 108, 'visible equipment choices differ')",
               "ensure(filter_contract.get('visible') == 85, 'visible equipment choices differ')",
           )
+          code = code.replace(
+              "group.get('scope_slug') == 'sandero_tce100_stepway_tce110_manual'",
+              "group.get('scope') == 'sandero_tce100_stepway_tce110_manual'",
+          )
+          code = code.replace(
+              "ensure(new_scope.get('configuration_count') == 6, 'new scope configuration count differs')",
+              "ensure(len(new_scope.get('configuration_codes', [])) == 6, 'new scope configuration count differs')",
+          )
           target = Path('/tmp/v1_9_0_public_audit.py')
           target.write_text(code, encoding='utf-8')
           PY
