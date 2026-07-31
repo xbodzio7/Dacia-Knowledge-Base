@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.9.0 Publication**
+**Post-v1.9.0 Priority Selection Review**
 
 ## Reference delivery
 
-- Package: Data Products v1.9.0 Publication
-- Pull Request: #412
-- Verified head: `430b05fb432b4404c3911c56b077ed5c71b036de`
-- Quality run: #2713
+- Package: Data Products v1.9.0 Publication Record
+- Pull Request: #414
+- Verified head: `8ec7fd09bf0fdfbb9b1f31902a443260973958f4`
+- Quality run: #2726
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.9.0 Publication** — `complete`
+**Post-v1.9.0 Priority Selection Review** — `complete`
 
-Record the immutable public data-products-v1.9.0 identity, independent audit and exact release contents after successful publication.
+Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.
 
 ## Next package
 
-**Post-v1.9.0 Priority Selection Review** — `planned`
+**Cross-Model Navigation Usability Review** — `planned`
 
-Review the current repository and published-product state, then select the next highest-value bounded package without reopening completed release or residual boundaries.
+Review consumer discoverability of the published cross-model products and deterministic offline workspace, determine whether the workspace index needs a dedicated cross-model entry point, and define one bounded implementation recommendation without changing comparison semantics in the review package.
 
 ## Autonomy
 
