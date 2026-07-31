@@ -180,6 +180,14 @@ Zachowano pięć lakierów niemetalizowanych i jeden metalizowany. Źródło nie
 podaje ceny, koloru standardowego ani ograniczeń wersji, więc kwoty i daty
 cen są puste, a pojedyncza wartość koloru konfiguracji nie jest wymyślana.
 
+Dwa cenniki Joggera MY26 zachowują jawną zmianę wyposażenia wersji
+Expression: na stronie 5 źródła z 1 kwietnia 2026 r. światła
+przeciwmgłowe są seryjne, a na stronie 4 źródła z 3 lipca 2026 r.
+są niedostępne. Sześć lipcowych obserwacji `fog_lights=not_available`
+uzupełnia sześć istniejących rekordów kwietniowych bez ich usuwania.
+Użyto ogólnego atrybutu `fog_lights`, ponieważ źródło nie mówi, że są
+to światła przednie. Nie dodano modeli, wersji ani konfiguracji.
+
 Koła i tapicerka są modelowane jako wartości konfiguracji zgodnie z D-016.
 Import rozdziela rozmiar, materiał, wzór i wykończenie koła oraz zachowuje
 tapicerkę jako nazwany wariant. Dla Stepway Essential zapisano wspólny
@@ -1283,11 +1291,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1699 testów, 46 pliki CSV, 11594 rekordów
+Zweryfikowany model obejmuje 1706 testów, 46 pliki CSV, 11600 rekordów
 danych, 51 relacje między tabelami, 3498 wartości konfiguracji, 138 skalarnych specyfikacji importu, 298 zakresów konfiguracji i 24
-specyfikacji zakresów oraz 5896 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 5902 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 46 tabele i 11594 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 46 tabele i 11600 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
