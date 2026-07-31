@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Regenerate data-dependent reconciliation artifacts
+      - name: Regenerate data-dependent reconciliation artifact
         shell: bash
         run: |
           set -euo pipefail
@@ -53,7 +53,6 @@ jobs:
               "data/reporting/spring_electric100_automatic_completeness.json",
               "data/reporting/spring_electric70_automatic_completeness.json",
               "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-              "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
               "project/ROADMAP.md",
               "project/SESSION_STATE.md",
               "project/STATE_SUMMARY.md",
@@ -74,9 +73,9 @@ jobs:
           package = package_path.read_text(encoding="utf-8")
           package = package.replace(
               "The final cumulative diff contains exactly the fourteen package paths declared in `project/state.json`; the temporary workflow, materializer and encoded payload parts are absent.",
-              "The final cumulative diff contains exactly the sixteen package paths declared in `project/state.json`; the temporary workflows, materializer and encoded payload parts are absent. The two deterministic verified-PDF coverage reconciliation artifacts are regenerated because their master-data evidence counts depend on `configuration_attribute_availability.csv`.",
+              "The final cumulative diff contains exactly the fifteen package paths declared in `project/state.json`; the temporary workflows, materializer and encoded payload parts are absent. The deterministic verified-PDF coverage reconciliation JSON is regenerated because its master-data evidence counts depend on `configuration_attribute_availability.csv`; the Markdown rendering remains byte-identical.",
           )
-          if "exactly the sixteen package paths" not in package:
+          if "exactly the fifteen package paths" not in package:
               raise SystemExit("package manifest statement was not updated")
           package_path.write_text(package, encoding="utf-8")
           PY
@@ -112,7 +111,6 @@ jobs:
             data/reporting/spring_electric100_automatic_completeness.json \
             data/reporting/spring_electric70_automatic_completeness.json \
             data/reporting/verified_pdf_candidate_coverage_reconciliation.json \
-            data/reporting/verified_pdf_candidate_coverage_reconciliation.md \
             project/ROADMAP.md \
             project/SESSION_STATE.md \
             project/STATE_SUMMARY.md \
@@ -141,7 +139,6 @@ jobs:
               "data/reporting/spring_electric100_automatic_completeness.json",
               "data/reporting/spring_electric70_automatic_completeness.json",
               "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-              "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
               "project/ROADMAP.md",
               "project/SESSION_STATE.md",
               "project/STATE_SUMMARY.md",
