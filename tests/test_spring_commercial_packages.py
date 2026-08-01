@@ -57,8 +57,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
         spring_mappings = [
             row
             for row in self.mappings
-            if row["source_code"] == importer.SOURCE_CODE
-            and row["commercial_item_code"] in importer.EXPECTED_ITEMS
+            if row["code"] in importer.EXPECTED_MAPPING_CODES
         ]
         self.assertEqual([int(row["id"]) for row in spring_items], list(range(29, 34)))
         self.assertEqual([int(row["id"]) for row in spring_memberships], list(range(70, 88)))
@@ -79,11 +78,11 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             set(importer.EXPECTED_MAPPING_PAGES),
         )
 
-    def test_unpriced_components_are_exposed_without_invented_amounts(self) -> None:
+    def test_reviewed_prices_and_remaining_unknowns_are_exposed_without_inference(self) -> None:
         components = collect_commercial_components(
             ROOT,
             sorted(importer.SELECTED_CONFIGURATIONS),
-            "2026-02-19",
+            "2026-07-31",
         )
         package_components = {
             code: [row for row in rows if row["code"] in importer.EXPECTED_ITEMS]
@@ -97,11 +96,37 @@ class SpringCommercialPackagesTests(unittest.TestCase):
                 "spring_extreme_electric100_automatic": 3,
             },
         )
-        self.assertTrue(
-            all(row["amount"] is None for rows in package_components.values() for row in rows)
+        extreme = {
+            row["code"]: row
+            for row in package_components["spring_extreme_electric100_automatic"]
+        }
+        self.assertEqual(extreme["spring_city_package"]["amount"], 1800.0)
+        self.assertEqual(extreme["spring_power_package"]["amount"], 3000.0)
+        self.assertEqual(
+            extreme["spring_type2_charging_cable_option"]["amount"],
+            None,
         )
-        self.assertTrue(
-            all(row["price_date"] == "" for rows in package_components.values() for row in rows)
+        unknown = [
+            row
+            for rows in package_components.values()
+            for row in rows
+            if row["amount"] is None
+        ]
+        self.assertEqual(
+    {
+        code: sum(row["amount"] is None for row in rows)
+        for code, rows in package_components.items()
+    },
+    {
+        "spring_essential_electric70_automatic": 1,
+        "spring_expression_electric70_automatic": 3,
+        "spring_extreme_electric100_automatic": 1,
+    },
+)
+        self.assertTrue(all(row["price_date"] == "" for row in unknown))
+        self.assertEqual(
+            {extreme[code]["price_date"] for code in ("spring_city_package", "spring_power_package")},
+            {"2026-07-31"},
         )
 
     def test_package_membership_aligns_with_direct_optional_matrix_cells(self) -> None:

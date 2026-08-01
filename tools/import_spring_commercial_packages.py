@@ -18,6 +18,22 @@ SOURCE = ROOT / "PDF" / "Broszury" / "DACIA SPRING broszura 20260219.pdf"
 SOURCE_CODE = "src_pl_spring_brochure_20260219"
 SOURCE_SHA256 = "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d"
 DATE = "2026-02-19"
+CONFIGURATOR_SOURCE_CODE = "src_pl_spring_official_configurator_20260731"
+CONFIGURATOR_PRICE_DATE = "2026-07-31"
+REVIEWED_PRICE_OVERRIDES = {
+    "spring_city_package__spring_extreme_electric100_automatic": (
+        "1800",
+        "Exact current Spring Extreme electric 100 package price accepted "
+        "after registered-source completeness review; no transfer to another "
+        "grade or powertrain.",
+    ),
+    "spring_power_package__spring_extreme_electric100_automatic": (
+        "3000",
+        "Exact current Spring Extreme electric 100 package price accepted "
+        "after registered-source completeness review; no transfer to another "
+        "grade or powertrain.",
+    ),
+}
 
 ITEMS_SPEC = IMPORTS / "spring_commercial_items_20260219.csv"
 ATTRIBUTES_SPEC = IMPORTS / "spring_commercial_item_attributes_20260219.csv"
@@ -102,6 +118,10 @@ EXPECTED_MAPPING_PAGES = {
     ("spring_dc40_charging_option", "spring_expression_electric70_automatic"): "14",
     ("spring_power_package", "spring_extreme_electric100_automatic"): "15",
     ("spring_city_package", "spring_extreme_electric100_automatic"): "15",
+}
+EXPECTED_MAPPING_CODES = {
+    f"{item_code}__{configuration_code}"
+    for item_code, configuration_code in EXPECTED_MAPPING_PAGES
 }
 EXPECTED_ITEM_IDS = (29, 33)
 EXPECTED_ATTRIBUTE_IDS = (70, 87)
@@ -270,8 +290,9 @@ def generated_attributes() -> list[dict[str, str]]:
 
 def generated_configurations() -> list[dict[str, str]]:
     verify_source_contract()
-    return [
-        {
+    generated: list[dict[str, str]] = []
+    for row in load_configurations_spec():
+        result = {
             "code": row["code"],
             "commercial_item_code": row["commercial_item_code"],
             "configuration_code": row["configuration_code"],
@@ -282,8 +303,19 @@ def generated_configurations() -> list[dict[str, str]]:
             "source_code": SOURCE_CODE,
             "notes": f"Source page {row['source_page']}. {row['notes']}",
         }
-        for row in load_configurations_spec()
-    ]
+        override = REVIEWED_PRICE_OVERRIDES.get(row["code"])
+        if override is not None:
+            amount, notes = override
+            result.update(
+                {
+                    "amount": amount,
+                    "price_date": CONFIGURATOR_PRICE_DATE,
+                    "source_code": CONFIGURATOR_SOURCE_CODE,
+                    "notes": notes,
+                }
+            )
+        generated.append(result)
+    return generated
 
 
 def _selected(rows: list[dict[str, str]], predicate) -> list[dict[str, str]]:
@@ -342,8 +374,7 @@ def check() -> None:
     configurations = read_rows(CONFIGURATIONS_OUTPUT)
     actual_configurations = _selected(
         configurations,
-        lambda row: row.get("source_code") == SOURCE_CODE
-        and row.get("commercial_item_code") in EXPECTED_ITEMS,
+        lambda row: row.get("code") in EXPECTED_MAPPING_CODES,
     )
     _assert_rows(
         actual_configurations,
@@ -425,8 +456,7 @@ def apply() -> None:
         read_rows(CONFIGURATIONS_OUTPUT),
         generated_configurations(),
         CONFIGURATION_FIELDS[1:],
-        lambda row: row.get("source_code") == SOURCE_CODE
-        and row.get("commercial_item_code") in EXPECTED_ITEMS,
+        lambda row: row.get("code") in EXPECTED_MAPPING_CODES,
         EXPECTED_CONFIGURATION_IDS[0],
         "Spring commercial mapping",
     )
