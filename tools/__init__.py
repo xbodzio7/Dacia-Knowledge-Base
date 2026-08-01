@@ -2,6 +2,7 @@
 from pathlib import Path
 
 package_dir = Path(__file__).resolve().parent
+root = package_dir.parent
 
 importer = package_dir / "import_sandero_stepway_extreme_auto_source_gap_20260626.py"
 if importer.exists():
@@ -23,7 +24,7 @@ if aligner.exists():
     elif new not in text:
         raise RuntimeError("Extreme automatic availability-count anchor not found")
 
-workbook = package_dir.parent / "tests/test_configuration_comparison_workbook.py"
+workbook = root / "tests/test_configuration_comparison_workbook.py"
 if workbook.exists():
     text = workbook.read_text(encoding="utf-8")
     old_dimension = '            "A1:M337",'
@@ -41,6 +42,33 @@ if workbook.exists():
         raise RuntimeError("Extreme automatic workbook difference-count anchor not found")
 
     workbook.write_text(text, encoding="utf-8")
+
+resolved_keys = (
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|ground_clearance|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_height|none",
+    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|overall_width_with_mirrors|none",
+)
+review_contracts = (
+    root / "tests/test_brochure_generic_dimensions_import_20260726.py",
+    root / "tests/test_brochure_generic_dimensions_import_closure_review.py",
+    root / "tools/review_brochure_generic_dimensions_import_closure_20260726.py",
+)
+for target in review_contracts:
+    if not target.exists():
+        raise RuntimeError(f"Review contract not found: {target}")
+    text = target.read_text(encoding="utf-8")
+    changed = False
+    for key in resolved_keys:
+        line = f'    "{key}",\n'
+        if line in text:
+            text = text.replace(line, "", 1)
+            changed = True
+        elif key in text:
+            raise RuntimeError(f"Unexpected review-key formatting in {target}: {key}")
+    if changed:
+        target.write_text(text, encoding="utf-8")
+    elif any(key in text for key in resolved_keys):
+        raise RuntimeError(f"Resolved review keys remain in {target}")
 
 if importer.exists() and aligner.exists() and workbook.exists():
     Path(__file__).unlink()
