@@ -32,8 +32,6 @@ jobs:
           fi
       - name: Materialize canonical package
         run: |
-          rm -f .github/workflows/temporary-spring-technical-dispatcher.yml
-          rm -f .github/workflows/temporary-spring-technical-finalizer.yml
           python tools/import_spring_technical_20260219.py --apply
           python tools/materialize_spring_technical_package_20260219.py
       - name: Verify package and full quality
@@ -43,12 +41,16 @@ jobs:
           python tools/dkb.py project-state --check
           python tools/dkb.py documentation-baseline --check
           python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
-      - name: Commit clean package
+      - name: Commit package data
         run: |
           git diff --check
           git diff --name-status origin/main
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add --all
+          if git diff --cached --quiet; then
+            echo 'No package changes to commit.'
+            exit 0
+          fi
           git commit -m 'feat(data): add Spring brochure technical observations'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
