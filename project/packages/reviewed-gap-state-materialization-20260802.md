@@ -18,6 +18,10 @@ Convert the completed registered-source review into two exact Spring package pri
 - kept every contextual candidate price outside calculated totals;
 - added deterministic importer and regression contracts.
 
+## Validation boundary
+
+The commercial comparison date is now 2026-07-31 because the imported exact Spring snapshot is newer than the previously latest 2026-07-24 observation. The workbook regression contract follows that source-backed date change; no unrelated workbook value is altered.
+
 ## Non-goals
 
 - no new model, version, domain or attribute;
