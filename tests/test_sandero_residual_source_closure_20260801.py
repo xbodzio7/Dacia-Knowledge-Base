@@ -74,13 +74,19 @@ class SanderoResidualSourceClosureTests(unittest.TestCase):
         ranked = {item["source_code"]: item for item in report["ranked_candidates"]}
         self.assertEqual(ranked["src_pl_sandero_stepway_catalog_tce_slice_20260703"]["selection_status"], "source_exhausted_not_stated")
 
-    def test_completed_closure_remains_preserved_after_follow_up_package(self):
+    def test_completed_closure_remains_preserved_after_follow_up_packages(self):
         state = payload(ROOT / "project/state.json")
-        self.assertEqual(state["reference_delivery"]["name"], "Sandero Residual Source Closure")
-        self.assertEqual(state["reference_delivery"]["pull_request"], 446)
-        self.assertEqual(state["current_package"]["package_id"], "interface_source_coverage_repair_001")
+        self.assertEqual(state["reference_delivery"]["name"], "Interface Source Coverage Repair")
+        self.assertEqual(state["reference_delivery"]["pull_request"], 447)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "registered_source_completeness_reconciliation_001",
+        )
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["package_id"], "registered_source_completeness_reconciliation_001")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
         self.assertEqual(state["baseline"]["configuration_values"], 3567)
         self.assertEqual(state["baseline"]["availability_records"], 5906)
 
