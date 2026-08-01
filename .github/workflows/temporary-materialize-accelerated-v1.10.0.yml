@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - agent/accelerated-v1.10.0-release-20260801
-    paths:
-      - tools/materialize_accelerated_v1_10_0_release_20260801.py
-      - .github/workflows/temporary-materialize-accelerated-v1.10.0.yml
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   materialize:
+    if: github.head_ref == 'agent/accelerated-v1.10.0-release-20260801' || github.ref == 'refs/heads/agent/accelerated-v1.10.0-release-20260801'
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
