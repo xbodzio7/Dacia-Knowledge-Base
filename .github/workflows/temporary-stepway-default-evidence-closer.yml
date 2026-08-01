@@ -66,6 +66,7 @@ jobs:
           python -m tools.close_stepway_essential_reporting_dependencies_20260801
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --check
           python -m tools.close_stepway_essential_reporting_dependencies_20260801 --check
       - name: Run package tests
         run: |
