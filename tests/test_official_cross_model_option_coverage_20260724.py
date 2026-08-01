@@ -132,7 +132,18 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
             row for row in mappings
             if row["commercial_item_code"] == "jogger_drive_package"
         ]
-        self.assertEqual(len(sandero_easy), 3)
+        self.assertEqual(len(sandero_easy), 6)
+        self.assertEqual(
+            {row["configuration_code"] for row in sandero_easy},
+            {
+                "sandero_iii_journey_tce100_manual",
+                "sandero_iii_journey_ecog120_manual",
+                "sandero_iii_journey_ecog120_automatic",
+                "sandero_stepway_iii_extreme_tce110_manual",
+                "sandero_stepway_iii_extreme_ecog120_manual",
+                "sandero_stepway_iii_extreme_ecog120_automatic",
+            },
+        )
         self.assertEqual(len(jogger_drive), 8)
         self.assertEqual(
             [row for row in self.rows("commercial_items.csv") if row.get("source_code") == SOURCE_CODE],
