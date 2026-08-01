@@ -1,4 +1,4 @@
-name: Temporary Sandero Expression Automatic Gap Audit
+name: Temporary Sandero Expression Automatic Gap Materializer
 
 on:
   pull_request:
@@ -6,14 +6,14 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: temporary-sandero-expression-auto-gap-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
-  audit:
+  materialize:
     if: github.event.pull_request.head.ref == 'agent/sandero-stepway-expression-auto-source-gap-20260801'
     runs-on: ubuntu-latest
     steps:
@@ -30,5 +30,59 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-      - name: Audit exact source and gaps
-        run: python -m tools.audit_sandero_stepway_expression_auto_source_gap_20260801
+      - name: Generate and apply package
+        run: |
+          python -m tools.build_sandero_stepway_expression_auto_source_gap_20260801
+          python -m tools.import_sandero_stepway_expression_auto_source_gap_20260626
+          python -m tools.close_stepway_expression_auto_reporting_dependencies_20260801
+          python tools/dkb.py configuration-gap-resolution-plan \
+            --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
+            --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
+            --markdown "$RUNNER_TEMP/configuration-gap-resolution-plan.md"
+          python tools/dkb.py project-state --apply
+          python -m tools.align_sandero_stepway_expression_auto_snapshot_contracts_20260801
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python -m tools.import_sandero_stepway_expression_auto_source_gap_20260626 --check
+          python -m tools.close_stepway_expression_auto_reporting_dependencies_20260801 --check
+          python tools/dkb.py project-state --check
+      - name: Run focused tests
+        run: |
+          python -m unittest -v tests.test_sandero_stepway_expression_auto_source_gap_20260626
+          python -m unittest -v tests.test_sandero_stepway_ecog120_automatic_reporting_scope
+          python -m unittest -v tests.test_sandero_stepway_extreme_source_gap_20260626
+          python -m unittest -v tests.test_sandero_stepway_expression_source_gap_20260626
+          python -m unittest -v tests.test_sandero_passive_safety_availability
+          python -m unittest -v tests.test_sandero_equipment_availability
+          python -m unittest -v tests.test_configuration_value_ranges
+          python -m unittest -v tests.configuration_comparison_context_filter_contract
+          python -m unittest -v tests.configuration_comparison_pair_summary_contract
+          python -m unittest -v tests.test_official_brochure_residual_evidence_review
+      - name: Run full quality gate
+        run: |
+          set +e
+          python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" > "$RUNNER_TEMP/quality.log" 2>&1
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual|ContractError|AlignmentError' "$RUNNER_TEMP/quality.log" | tail -n 200 || true
+            tail -n 350 "$RUNNER_TEMP/quality.log"
+          else
+            tail -n 120 "$RUNNER_TEMP/quality.log"
+          fi
+          exit "$code"
+      - name: Commit generated package
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all -- \
+            ':!.github/workflows/temporary-sandero-expression-auto-gap-audit.yml' \
+            ':!tools/build_sandero_stepway_expression_auto_source_gap_20260801.py' \
+            ':!tools/audit_sandero_stepway_expression_auto_source_gap_20260801.py'
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'data: close Stepway Expression automatic source gap'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
