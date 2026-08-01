@@ -62,7 +62,8 @@ const missing = api.buildPriceBreakdown({
 }, ["heated_front_seats"], []);
 assert.equal(missing.unknown_components.length, 1);
 assert.equal(missing.total_is_complete, false);
-assert.match(api.priceBreakdownMarkup(missing), /cena nieustalona/);
+assert.match(api.priceBreakdownMarkup(missing), /brak powiązania z cennikiem/);
+assert.match(api.priceBreakdownMarkup(missing), /Niepełne dopłaty nie zostały doliczone/);
 
 const manyAlternatives = Array.from({ length: 35 }, (_, index) => ({
   code: `alternative_${index}`,

@@ -17,20 +17,25 @@ def _verify() -> None:
     source = (TOOLS / "configuration_shortlist.py").read_text(encoding="utf-8")
     for marker in (
         "--comparison-sticky-top",
-        ".comparison-table thead th{top:var(--comparison-sticky-top,0px)}",
+        ".comparison-table thead th{top:0}",
+        'body:has(#comparison-panel:not([hidden])) .selection-panel',
+        ".selection-panel.comparison-is-open{position:static;top:auto}",
+        'selectionPanel.classList.toggle("comparison-is-open", comparisonOpen)',
         "selectionPanel.offsetHeight + 18",
-        "innerScroll",
-        'scrollStyle.maxHeight !== "none"',
         'row.querySelector(".comparison-category-fill")',
         "ResizeObserver",
         "MutationObserver",
         'getComputedStyle(selectionPanel).position === "sticky"',
         "comparison-category-label",
         "comparison-category-toggle",
-        "Zwiń wszystkie grupy",
-        "Rozwiń wszystkie grupy",
+        "Ukryj wszystkie grupy",
+        "Pokaż wszystkie grupy",
         "data-group-collapsed",
         "collapsedCategories",
+        "sessionStorage",
+        "dkb-comparison-collapsed-groups-v1",
+        "Kliknij nazwę grupy w tabeli",
+        "comparison-source-note",
     ):
         assert marker in source, marker
 
@@ -69,10 +74,12 @@ def _verify() -> None:
     assert rendered.count("--comparison-sticky-top") >= 3
     assert "new ResizeObserver(updateStickyOffset).observe(selectionPanel)" in rendered
     assert "new MutationObserver(scheduleDecoration).observe(table" in rendered
-    assert 'scrollStyle.maxHeight !== "none"' in rendered
+    assert 'attributeFilter: ["hidden"]' in rendered
     assert 'row.querySelector(".comparison-category-fill")' in rendered
     assert "Sterowanie grupami parametrów" in rendered
     assert "comparison-category-fill" in rendered
+    assert "Ukryj wszystkie grupy" in rendered
+    assert "Pokaż wszystkie grupy" in rendered
     assert rendered.index("--comparison-sticky-top") < rendered.rindex("</body>")
 
 

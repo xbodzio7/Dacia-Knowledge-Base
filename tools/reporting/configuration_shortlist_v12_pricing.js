@@ -180,12 +180,12 @@
     if (item.availability_status === "optional" && item.components.length) {
       const labels = item.components.map((component) => {
         const kind = component.kind === "package" ? "pakiet" : "opcja";
-        const price = component.amount === null ? "cena nieustalona" : "dopłata ujęta powyżej";
+        const price = component.amount === null ? "cena niepodana w źródle" : "dopłata ujęta powyżej";
         return `${kind}: ${component.name} (${price})`;
       });
       return labels.join("; ");
     }
-    if (item.availability_status === "optional") return "opcjonalne — cena nieustalona";
+    if (item.availability_status === "optional") return "opcjonalne — brak powiązania z cennikiem";
     if (item.availability_status === "not_available") return "niedostępne";
     if (item.availability_status === "unknown") return "status nieustalony";
     return "brak danych";
@@ -208,12 +208,16 @@
     const rows = [
       ...breakdown.known_components.map((component) =>
         `<li><span>${escapeHtml(component.name)}</span><strong>+ ${escapeHtml(formatMoney(component.amount, component.currency_code))}</strong></li>`),
-      ...breakdown.unknown_components.map((component) =>
-        `<li class="price-component-unknown"><span>${escapeHtml(component.name)}</span><strong>cena nieustalona</strong></li>`)
+      ...breakdown.unknown_components.map((component) => {
+        const status = component.source_code
+          ? "cena niepodana w źródle"
+          : "brak powiązania z cennikiem";
+        return `<li class="price-component-unknown"><span>${escapeHtml(component.name)}</span><strong>${escapeHtml(status)}</strong></li>`;
+      })
     ].join("");
     const components = rows ? `<ul class="configuration-price-components">${rows}</ul>` : "";
     const warning = breakdown.unknown_components.length
-      ? '<p class="configuration-price-warning">Nieznane dopłaty nie zostały doliczone do ceny.</p>' : "";
+      ? '<p class="configuration-price-warning">Niepełne dopłaty nie zostały doliczone do ceny.</p>' : "";
     const standard = breakdown.standard_amount === null
       ? ""
       : `<div class="configuration-price-standard">Cena standardowa: <strong>${escapeHtml(formatMoney(breakdown.standard_amount, breakdown.currency_code))}</strong></div>`;

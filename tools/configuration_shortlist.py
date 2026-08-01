@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -25,11 +26,22 @@ from reporting.configuration_shortlist_selection_html import (
 )
 
 
+_SPRING_MEDIA_SOURCE = Path(
+    "project/sources/dacia-pl-spring-model-media-20260801.json"
+)
+_OFFICIAL_MEDIA_PREFIXES = (
+    "https://www.dacia.pl/",
+    "https://cdn.group.renault.com/",
+)
+
 _COMPARISON_ENHANCEMENT_STYLE = r'''<style>
 :root{--comparison-sticky-top:0px}
-.comparison-panel{scroll-margin-top:calc(var(--comparison-sticky-top,0px) + 8px)}
-.comparison-table thead th{top:var(--comparison-sticky-top,0px)}
-.comparison-group-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.comparison-panel{scroll-margin-top:8px}
+.comparison-table thead th{top:0}
+body:has(#comparison-panel:not([hidden])) .selection-panel,
+.selection-panel.comparison-is-open{position:static;top:auto}
+.comparison-group-help{margin:12px 0 0;color:var(--config-muted);font-size:.82rem;line-height:1.45}
+.comparison-group-controls{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
 .comparison-group-controls button{min-height:36px;padding:7px 11px;border:1px solid var(--line);border-radius:8px;background:var(--config-panel);color:var(--config-text);cursor:pointer;font-size:.76rem;font-weight:750}
 .comparison-group-controls button:disabled{cursor:not-allowed;opacity:.45}
 .comparison-table .comparison-category-row .comparison-category-label{position:sticky;left:0;z-index:7;width:var(--parameter-column,280px);min-width:var(--parameter-column,280px);max-width:var(--parameter-column,280px);padding:0;background:var(--soft)}
@@ -39,6 +51,8 @@ _COMPARISON_ENHANCEMENT_STYLE = r'''<style>
 .comparison-category-toggle[aria-expanded="false"]::before{content:"▸"}
 .comparison-category-toggle:focus-visible{outline:3px solid rgba(31,111,67,.24);outline-offset:-3px}
 .comparison-data-row[data-group-collapsed="true"]{display:none!important}
+.comparison-source-note{display:inline-flex;align-items:center;justify-content:center;width:1.15rem;height:1.15rem;margin-left:.35rem;border:1px solid var(--line);border-radius:50%;color:var(--accent);font-size:.68rem;font-weight:800;line-height:1;vertical-align:middle;cursor:help}
+.comparison-source-note:focus-visible{outline:3px solid rgba(31,111,67,.24);outline-offset:2px}
 @media(max-width:760px){:root{--comparison-sticky-top:0px!important}}
 </style>'''
 
@@ -51,40 +65,59 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
   if (!selectionPanel || !comparisonPanel || !table) return;
 
   const root = document.documentElement;
+  const storageKey = "dkb-comparison-collapsed-groups-v1";
   const collapsedCategories = new Set();
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(storageKey) || "[]");
+    if (Array.isArray(stored)) {
+      for (const category of stored) {
+        if (typeof category === "string" && category) collapsedCategories.add(category);
+      }
+    }
+  } catch (_error) {
+    sessionStorage.removeItem(storageKey);
+  }
   let offsetFrame = 0;
   let decorateFrame = 0;
+
+  const persistCollapsedState = () => {
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify([...collapsedCategories]));
+    } catch (_error) {
+      // Session storage is an enhancement, not a requirement.
+    }
+  };
 
   const updateStickyOffset = () => {
     if (offsetFrame) cancelAnimationFrame(offsetFrame);
     offsetFrame = requestAnimationFrame(() => {
+      const comparisonOpen = !comparisonPanel.hidden;
+      selectionPanel.classList.toggle("comparison-is-open", comparisonOpen);
       const sticky = getComputedStyle(selectionPanel).position === "sticky";
-      const scrollStyle = scroll ? getComputedStyle(scroll) : null;
-      const innerScroll = Boolean(
-        scrollStyle
-        && ["auto", "scroll"].includes(scrollStyle.overflowY)
-        && scrollStyle.maxHeight !== "none"
-      );
-      const offset = sticky && !innerScroll
-        ? Math.ceil(selectionPanel.offsetHeight + 18)
-        : 0;
+      const offset = sticky ? Math.ceil(selectionPanel.offsetHeight + 18) : 0;
       root.style.setProperty("--comparison-sticky-top", `${offset}px`);
       offsetFrame = 0;
     });
   };
 
+  const help = document.createElement("p");
+  help.className = "comparison-group-help";
+  help.textContent = "Kliknij nazwę grupy w tabeli, aby ją zwinąć lub rozwinąć. Ustawienie jest pamiętane do końca bieżącej sesji przeglądarki.";
   const controls = document.createElement("div");
   controls.className = "comparison-group-controls";
   controls.setAttribute("aria-label", "Sterowanie grupami parametrów");
   const collapseAll = document.createElement("button");
   collapseAll.type = "button";
-  collapseAll.textContent = "Zwiń wszystkie grupy";
+  collapseAll.textContent = "Ukryj wszystkie grupy";
   const expandAll = document.createElement("button");
   expandAll.type = "button";
-  expandAll.textContent = "Rozwiń wszystkie grupy";
+  expandAll.textContent = "Pokaż wszystkie grupy";
   controls.append(collapseAll, expandAll);
   const scroll = comparisonPanel.querySelector(".comparison-scroll");
-  if (scroll) comparisonPanel.insertBefore(controls, scroll);
+  if (scroll) {
+    comparisonPanel.insertBefore(help, scroll);
+    comparisonPanel.insertBefore(controls, scroll);
+  }
 
   const categoryRows = () => [...table.querySelectorAll("tr.comparison-category-row")];
   const dataRows = () => [...table.querySelectorAll("tr.comparison-data-row")];
@@ -160,6 +193,7 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
     if (!category) return;
     if (collapsedCategories.has(category)) collapsedCategories.delete(category);
     else collapsedCategories.add(category);
+    persistCollapsedState();
     applyCollapsedState(category);
     updateControlState();
   });
@@ -168,11 +202,13 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
     for (const row of categoryRows()) {
       if (row.dataset.category) collapsedCategories.add(row.dataset.category);
     }
+    persistCollapsedState();
     decorateCategoryRows();
   });
 
   expandAll.addEventListener("click", () => {
     collapsedCategories.clear();
+    persistCollapsedState();
     decorateCategoryRows();
   });
 
@@ -188,6 +224,10 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
       subtree: true,
       characterData: true
     });
+    new MutationObserver(updateStickyOffset).observe(comparisonPanel, {
+      attributes: true,
+      attributeFilter: ["hidden"]
+    });
     new MutationObserver(scheduleDecoration).observe(table, {
       childList: true,
       subtree: true
@@ -195,6 +235,56 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
   }
 })();
 </script>'''
+
+
+def _apply_supplemental_model_media(
+    catalog: dict[str, Any],
+    repository: Path,
+) -> None:
+    path = repository / _SPRING_MEDIA_SOURCE
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ShortlistError(f"cannot read supplemental model media: {exc}") from exc
+    models = payload.get("models", {})
+    if not isinstance(models, dict):
+        raise ShortlistError("invalid supplemental model media: expected models object")
+    captured_on = str(payload.get("captured_on", ""))
+    facets = catalog.get("facets", {})
+    model_facets = facets.get("models", []) if isinstance(facets, dict) else []
+    configurations = catalog.get("configurations", [])
+    for model_code, source in models.items():
+        if not isinstance(model_code, str) or not isinstance(source, dict):
+            continue
+        image_url = str(source.get("image_url", ""))
+        page_url = str(source.get("source_page_url", ""))
+        if not image_url.startswith(_OFFICIAL_MEDIA_PREFIXES):
+            raise ShortlistError(
+                f"non-official supplemental image URL for {model_code}"
+            )
+        if not page_url.startswith("https://www.dacia.pl/"):
+            raise ShortlistError(
+                f"non-official supplemental source page for {model_code}"
+            )
+        media = {
+            "image_url": image_url,
+            "source_page_url": page_url,
+            "source_name": str(source.get("source_name", "Dacia Polska")),
+            "captured_on": captured_on,
+        }
+        if isinstance(configurations, list):
+            for configuration in configurations:
+                if (
+                    isinstance(configuration, dict)
+                    and configuration.get("model_code") == model_code
+                ):
+                    configuration["model_media"] = dict(media)
+        if isinstance(model_facets, list):
+            for facet in model_facets:
+                if isinstance(facet, dict) and facet.get("code") == model_code:
+                    facet["media"] = dict(media)
 
 
 def render_html(catalog: Mapping[str, Any]) -> str:
@@ -409,6 +499,7 @@ def main(
                 selected_repository,
                 criteria,
             )
+            _apply_supplemental_model_media(catalog, selected_repository)
             write_atomic(arguments.html, render_html(catalog))
             print(
                 "Interactive HTML configuration shortlist written to "

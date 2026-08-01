@@ -117,20 +117,20 @@
 
   function equipmentComparisonStatus(configuration, code) {
     const state = configuration && configuration.equipment && configuration.equipment[code];
-    if (!state) return "brak danych";
+    if (!state) return "brak wpisu w bazie";
     const status = state.availability_status;
     if (status === "standard") return "seryjne";
     if (status === "not_available") return "niedostępne";
     if (status === "unknown") return "status nieustalony";
-    if (status !== "optional") return "brak danych";
+    if (status !== "optional") return "brak wpisu w bazie";
     if (!pricing) return "opcjonalne";
     const breakdown = pricing.buildPriceBreakdown(configuration, [code], []);
     const selected = breakdown.selected_equipment && breakdown.selected_equipment[0];
-    if (!selected || !selected.components.length) return "opcjonalne — cena nieustalona";
+    if (!selected || !selected.components.length) return "opcjonalne — brak powiązania z cennikiem";
     return selected.components.map((component) => {
       const kind = component.kind === "package" ? "pakiet" : "opcja";
       const price = component.amount === null
-        ? "cena nieustalona"
+        ? "cena niepodana w źródle"
         : `+ ${pricing.formatMoney(component.amount, breakdown.currency_code)}`;
       return `${kind}: ${component.name} (${price})`;
     }).join("; ");
@@ -170,7 +170,33 @@
 
   function comparisonValueText(configuration, key) {
     const state = configuration && configuration.comparison_values && configuration.comparison_values[key];
-    return state && state.display_value ? state.display_value : "brak danych";
+    return state && state.display_value ? state.display_value : "brak wpisu w bazie";
+  }
+
+  function sourceTitle(state, missingLabel) {
+    if (!state) return missingLabel;
+    const source = String(state.source_code || "").trim();
+    const date = String(state.observation_date || "").trim();
+    const parts = [];
+    if (source) parts.push(`Źródło: ${source}`);
+    if (date) parts.push(`obserwacja: ${date}`);
+    return parts.join("; ");
+  }
+
+  function comparisonValueTitle(configuration, key) {
+    const state = configuration && configuration.comparison_values && configuration.comparison_values[key];
+    return sourceTitle(
+      state,
+      "Brak rekordu w bazie nie oznacza, że parametr nie występuje w dokumencie źródłowym."
+    );
+  }
+
+  function equipmentComparisonTitle(configuration, code) {
+    const state = configuration && configuration.equipment && configuration.equipment[code];
+    return sourceTitle(
+      state,
+      "Brak rekordu dostępności wyposażenia w bazie."
+    );
   }
 
   function comparisonRows(catalog, selectedCodes, equipmentCodes) {
@@ -203,6 +229,7 @@
         category: categoryLabel(facet.category),
         label: comparisonValueLabel(facet),
         values: configurations.map((item) => comparisonValueText(item, facet.key)),
+        titles: configurations.map((item) => comparisonValueTitle(item, facet.key)),
         comparison_value_key: facet.key
       });
     }
@@ -213,6 +240,7 @@
         category: categoryLabel(facet.category),
         label: pricing ? pricing.equipmentLabel(facet.code, facet.name) : String(facet.name || facet.code),
         values: configurations.map((item) => equipmentComparisonStatus(item, facet.code)),
+        titles: configurations.map((item) => equipmentComparisonTitle(item, facet.code)),
         equipment_code: facet.code
       });
     }
@@ -269,7 +297,13 @@
         body.push(`<tr class="comparison-category-row" data-category="${escapeHtml(currentCategory)}"><th scope="rowgroup">${escapeHtml(currentCategory)}</th><td colspan="${comparison.configurations.length}" aria-hidden="true"></td></tr>`);
       }
       const distinct = rowIsDifferent(row.values);
-      const values = row.values.map((value) => `<td${distinct ? ' class="is-different"' : ""}>${escapeHtml(value)}</td>`).join("");
+      const values = row.values.map((value, index) => {
+        const title = row.titles && row.titles[index] ? String(row.titles[index]) : "";
+        const note = title
+          ? `<span class="comparison-source-note" tabindex="0" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}">i</span>`
+          : "";
+        return `<td${distinct ? ' class="is-different"' : ""}>${escapeHtml(value)}${note}</td>`;
+      }).join("");
       body.push(`<tr class="comparison-data-row" data-category="${escapeHtml(currentCategory)}" data-different="${distinct ? "true" : "false"}"><th scope="row">${escapeHtml(row.label)}</th>${values}</tr>`);
     }
     table.innerHTML = `<thead><tr><th scope="col">Parametr</th>${header}</tr></thead><tbody>${body.join("")}</tbody>`;
@@ -438,7 +472,7 @@
   return {
     normalizeSelection, unionSelection, removeSelection, selectedConfigurations,
     buildSelectionPayload, renderSelectionJson, renderCodeList, exportFilename,
-    comparisonRows, comparisonValueFacets, comparisonValueLabel, comparisonValueText, comparisonEquipmentFacets, equipmentComparisonStatus,
+    comparisonRows, comparisonValueFacets, comparisonValueLabel, comparisonValueText, comparisonValueTitle, comparisonEquipmentFacets, equipmentComparisonStatus, equipmentComparisonTitle,
     renderComparison, comparisonThumbnail, applyDifferenceFilter, rowIsDifferent, categoryLabel
   };
 });

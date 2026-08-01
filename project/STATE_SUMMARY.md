@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Sandero Residual Source Closure**
+**Interface Source Coverage Repair**
 
 ## Reference delivery
 
-- Package: Sandero Official-Web Source Gap Review
-- Pull Request: #435
-- Verified head: `d327995e0a6b5f9d3b43279081d33d0cc5959cae`
-- Quality run: #2922
+- Package: Sandero Residual Source Closure
+- Pull Request: #446
+- Verified head: `ea69fa8e4d50700549d999bda167cab7802acb2e`
+- Quality run: #30718637131
 
 ## Verified baseline
 
-- Tests: 1774
+- Tests: 1778
 - Master CSV files: 46
-- Master rows: 11694
+- Master rows: 11713
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Residual Source Closure** — `complete`
+**Interface Source Coverage Repair** — `complete`
 
-Close all three remaining eligible Sandero source candidates with exact imports or formal source-exhaustion receipts and no cross-configuration inference.
+Resolve the reported comparison usability defects, register Spring model media, repair exact Sandero price coverage, clarify missing-data semantics and preserve the source-backed Sandero TCe 100 injection value without inference.
 
 ## Next package
 
-**Data Scope Milestone Closure Review** — `planned`
+**Registered Source Completeness Reconciliation** — `planned`
 
-Confirm that the current model and data-product milestone has no eligible source-backed completeness work remaining, reconcile final documentation, and decide between a final release or maintenance mode without adding models or domains.
+Audit every remaining active comparison and optional-price gap against registered exact sources, then classify it as importable, source-not-stated, source-conflict or context-unmodeled without adding models or domains.
 
 ## Autonomy
 
