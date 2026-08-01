@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Brochure Technical Observations",
+  "phase": "Existing Configuration Completeness Reanalysis",
   "reference_delivery": {
     "name": "Brochure Equipment Inheritance and Colour Review",
     "pull_request": 428,
@@ -15,7 +15,7 @@
     "quality_run": 2805
   },
   "baseline": {
-    "tests": 1715,
+    "tests": 1719,
     "csv_files": 46,
     "rows": 11660,
     "configuration_values": 3552,
@@ -27,39 +27,11 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_brochure_technical_observations_20260219_001",
-    "kind": "configuration_technical_import",
-    "name": "Spring Brochure Technical Observations",
-    "status": "complete",
-    "goal": "Import 54 exact scalar observations, three maximum-power RPM ranges and three ISO 3832 cargo-context rows for the three existing passenger Spring configurations from the registered 2026-02-19 brochure without adding or inferring entities.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/spring_technical_20260219.csv",
-      "data/master/configuration_attribute_value_ranges.csv",
-      "data/master/configuration_attribute_values.csv",
-      "data/master/configuration_cargo_volume_contexts.csv",
-      "data/reporting/spring_electric70_automatic_completeness.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/spring-brochure-technical-observations-20260219.md",
-      "project/state.json",
-      "tests/test_configuration_value_ranges.py",
-      "tests/test_cross_model_comparison_view.py",
-      "tests/test_jogger_payload_performance_ranges.py",
-      "tests/test_sandero_maximum_payload_model.py",
-      "tests/test_spring_technical_20260219.py",
-      "tools/import_spring_technical_20260219.py"
-    ]
-  },
-  "next_package": {
     "package_id": "existing_configuration_completeness_reanalysis_001",
     "kind": "data_quality_review",
     "name": "Existing Configuration Completeness Reanalysis",
-    "status": "planned",
-    "goal": "Recompute configuration- and attribute-level missing-data impact after the Spring import, classify non-applicable fields, and select the next small source-backed package that most reduces visible missing data without adding entities.",
+    "status": "complete",
+    "goal": "Recompute configuration- and attribute-level missing-data impact after the Spring import and select the next bounded source-backed package.",
     "manifest_paths": [
       "data/reporting/existing_configuration_missing_data_analysis.json",
       "data/reporting/existing_configuration_missing_data_analysis.md",
@@ -69,6 +41,14 @@
       "tests/test_existing_configuration_missing_data_analysis.py",
       "tools/existing_configuration_missing_data_analysis.py"
     ]
+  },
+  "next_package": {
+    "package_id": "sandero_highest_impact_source_gap_001",
+    "kind": "source_backed_completeness_import",
+    "name": "sandero Highest-Impact Source Gap",
+    "status": "planned",
+    "goal": "Inspect exact missing slots for sandero against source src_pl_sandero_official_web_configurations_20260723 and import only directly stated values or explicit non-applicable classifications.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
