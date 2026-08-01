@@ -312,7 +312,7 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("Cena katalogowa", labels)
         self.assertIn("Moc silnika — benzyna", labels)
         power_row = next(row for row in comparison["rows"] if row["label"] == "Moc silnika — benzyna")
-        self.assertEqual(power_row["values"], ["90 kW", "brak danych", "brak danych"])
+        self.assertEqual(power_row["values"], ["90 kW", "brak wpisu w bazie", "brak wpisu w bazie"])
         self.assertIn("Cena z wybranym wyposażeniem", labels)
         for label in (
             "Heated steering wheel",
