@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/temp-reviewed-gap-materialization.yml
       - tools/temp_patch_reviewed_gap_ui.py
+      - tools/temp_correct_reviewed_gap_materialization.py
 
 permissions:
   contents: write
@@ -33,6 +34,7 @@ jobs:
         run: |
           python tools/apply_reviewed_gap_state_materialization_20260802.py
           python tools/temp_patch_reviewed_gap_ui.py
+          python tools/temp_correct_reviewed_gap_materialization.py
           python tools/dkb.py documentation-baseline --apply
           python - <<'PY'
           import sys
