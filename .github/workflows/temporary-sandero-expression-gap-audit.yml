@@ -34,7 +34,7 @@ jobs:
           fi
       - name: Check canonical state
         run: python tools/dkb.py project-state --check
-      - name: Inspect exact source and gaps
+      - name: Export exact source and current contracts
         run: |
           python - <<'PY'
           from __future__ import annotations
@@ -44,66 +44,92 @@ jobs:
 
           root = Path('.')
           source_code = 'src_pl_sandero_stepway_expression_ecog120_mt_20260626'
+          configuration = 'sandero_stepway_iii_expression_ecog120_manual'
 
-          def rows(path: Path):
+          def csv_rows(path: Path):
               with path.open(encoding='utf-8-sig', newline='') as handle:
                   return list(csv.DictReader(handle))
 
-          sources = rows(root / 'data/master/sources.csv')
-          source = next(row for row in sources if row.get('code') == source_code)
-          print('=== SOURCE ROW ===')
-          print(json.dumps(source, ensure_ascii=False, indent=2))
+          def json_object(path: Path):
+              return json.loads(path.read_text(encoding='utf-8'))
 
-          pairs = [
-              row for row in rows(root / 'data/master/source_configurations.csv')
+          source = next(
+              row for row in csv_rows(root / 'data/master/sources.csv')
+              if row.get('code') == source_code
+          )
+          evidence = [
+              row for row in json_object(root / 'data/reporting/configuration_gap_evidence.json')['decisions']
               if row.get('source_code') == source_code
+              and row.get('configuration_code') == configuration
           ]
-          print('=== SOURCE CONFIGURATIONS ===')
-          print(json.dumps(pairs, ensure_ascii=False, indent=2))
-          configurations = sorted({row['configuration_code'] for row in pairs})
-
-          matches = {}
-          for path in sorted((root / 'data/reporting').glob('*.json')):
-              try:
-                  payload = json.loads(path.read_text(encoding='utf-8'))
-              except Exception:
-                  continue
-              text = json.dumps(payload, ensure_ascii=False)
-              if source_code in text or any(code in text for code in configurations):
-                  selected = []
-                  def walk(value):
-                      if isinstance(value, dict):
-                          rendered = json.dumps(value, ensure_ascii=False)
-                          if source_code in rendered and any(code in rendered for code in configurations):
-                              selected.append(value)
-                          else:
-                              for item in value.values():
-                                  walk(item)
-                      elif isinstance(value, list):
-                          for item in value:
-                              walk(item)
-                  walk(payload)
-                  matches[str(path)] = selected[:200]
-          print('=== REPORTING MATCHES ===')
-          print(json.dumps(matches, ensure_ascii=False, indent=2))
-
-          source_path = root / source['file_path']
-          print('=== SOURCE PATH ===')
-          print(source_path)
-          print('exists=', source_path.is_file(), 'bytes=', source_path.stat().st_size if source_path.is_file() else None)
-          Path('/tmp/source-path.txt').write_text(str(source_path), encoding='utf-8')
-          Path('/tmp/audit.json').write_text(
-              json.dumps({'source': source, 'configurations': configurations, 'matches': matches}, ensure_ascii=False, indent=2),
+          plan = [
+              row for row in json_object(root / 'data/reporting/configuration_gap_resolution_plan.json')['decisions']
+              if row.get('source_code') == source_code
+              and row.get('configuration_code') == configuration
+          ]
+          source_review = json_object(root / 'data/reporting/configuration_gap_source_review.json')
+          review_keys = [
+              key for key in source_review.get('review_triage_keys', [])
+              if source_code in key and configuration in key
+          ]
+          values = [
+              row for row in csv_rows(root / 'data/master/configuration_attribute_values.csv')
+              if row.get('configuration_code') == configuration
+          ]
+          ranges = [
+              row for row in csv_rows(root / 'data/master/configuration_attribute_value_ranges.csv')
+              if row.get('configuration_code') == configuration
+          ]
+          availability = [
+              row for row in csv_rows(root / 'data/master/equipment_availability.csv')
+              if row.get('configuration_code') == configuration
+          ]
+          payload = {
+              'source': source,
+              'configuration': configuration,
+              'evidence_decisions': evidence,
+              'resolution_decisions': plan,
+              'source_review_keys': review_keys,
+              'existing_values': values,
+              'existing_ranges': ranges,
+              'equipment_availability': availability,
+          }
+          Path('/tmp/relevant.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2),
               encoding='utf-8',
           )
+          Path('/tmp/source-path.txt').write_text(source['file_path'], encoding='utf-8')
+          print('Evidence decisions:', len(evidence))
+          print('Resolution decisions:', len(plan))
+          print('Existing scalar values:', len(values))
+          print('Existing ranges:', len(ranges))
+          print('Equipment rows:', len(availability))
           PY
           source_path="$(cat /tmp/source-path.txt)"
-          pdfinfo "$source_path"
-          echo '=== PDF TEXT BEGIN ==='
-          pdftotext -layout "$source_path" -
-          echo '=== PDF TEXT END ==='
+          pdfinfo "$source_path" > /tmp/pdfinfo.txt
+          pdftotext -layout "$source_path" /tmp/source.txt
+          cat /tmp/pdfinfo.txt
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          payload=json.loads(Path('/tmp/relevant.json').read_text(encoding='utf-8'))
+          print('Evidence by domain/classification:')
+          print(Counter((row['domain'], row['classification']) for row in payload['evidence_decisions']))
+          print('Technical evidence:')
+          for row in payload['evidence_decisions']:
+              if row['domain']=='technical':
+                  print(row['attribute_code'], row.get('fuel_type_code',''), row['classification'])
+          print('Equipment evidence:')
+          for row in payload['evidence_decisions']:
+              if row['domain']=='equipment':
+                  print(row['attribute_code'], row['classification'], row.get('reason_code',''))
+          PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: sandero-expression-source-gap-audit
-          path: /tmp/audit.json
+          name: sandero-expression-source-gap-audit-concise
+          path: |
+            /tmp/relevant.json
+            /tmp/source.txt
+            /tmp/pdfinfo.txt
           retention-days: 3
