@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Stepway Extreme Automatic Source Gap",
+  "phase": "Data Products v1.10.0 Accelerated Release Preparation",
   "reference_delivery": {
     "name": "Sandero Official-Web Source Gap Review",
     "pull_request": 435,
@@ -15,7 +15,7 @@
     "quality_run": 2922
   },
   "baseline": {
-    "tests": 1763,
+    "tests": 1766,
     "csv_files": 46,
     "rows": 11691,
     "configuration_values": 3565,
@@ -27,64 +27,45 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_extreme_auto_source_gap_005",
-    "kind": "source_backed_completeness_import",
-    "name": "Sandero Stepway Extreme Automatic Source Gap",
+    "package_id": "data_products_v1_10_0_accelerated_release_preparation_001",
+    "kind": "data_product_release_preparation",
+    "name": "Data Products v1.10.0 Accelerated Release Preparation",
     "status": "complete",
-    "goal": "Resolve every safely representable missing slot from the exact Stepway Extreme Eco-G 120 automatic source and preserve not-stated and automatic-transmission boundaries.",
+    "goal": "Document the accelerated closure policy and prepare exact post-merge publication of the current data products and interactive shortlist repairs.",
     "manifest_paths": [
-      "data/imports/sandero_stepway_extreme_auto_source_gap_20260626.csv",
-      "data/master/configuration_attribute_availability.csv",
-      "data/master/configuration_attribute_value_ranges.csv",
-      "data/master/configuration_attribute_values.csv",
-      "data/reporting/configuration_gap_evidence.json",
-      "data/reporting/configuration_gap_resolution_plan.json",
-      "data/reporting/configuration_gap_source_review.json",
-      "data/reporting/existing_configuration_missing_data_analysis.json",
-      "data/reporting/existing_configuration_missing_data_analysis.md",
-      "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
-      "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",
-      "data/reporting/sandero_stepway_extreme_auto_source_gap_review.json",
-      "data/reporting/sandero_stepway_extreme_auto_source_gap_review.md",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      ".github/workflows/temporary-publish-data-products-v1.10.0.yml",
+      "project/ACCELERATED_MILESTONE_CLOSURE.md",
+      "project/AUTONOMOUS_MAINTAINER.md",
+      "project/DECISIONS.md",
+      "project/START_HERE.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/sandero-stepway-extreme-auto-source-gap-20260801.md",
+      "project/packages/data-products-v1.10.0-accelerated-release-preparation-20260801.md",
       "project/state.json",
-      "tests/configuration_comparison_context_filter_contract.py",
-      "tests/configuration_comparison_pair_summary_contract.py",
-      "tests/test_configuration_comparison_workbook.py",
-      "tests/test_configuration_value_ranges.py",
-      "tests/test_duster_ecog120_reporting_scope.py",
-      "tests/test_jogger_payload_performance_ranges.py",
-      "tests/test_official_brochure_residual_evidence_review.py",
-      "tests/test_sandero_equipment_availability.py",
-      "tests/test_sandero_passive_safety_availability.py",
-      "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py",
-      "tests/test_sandero_stepway_essential_source_gap_20260626.py",
-      "tests/test_sandero_stepway_expression_source_gap_20260626.py",
-      "tests/test_sandero_stepway_extreme_auto_source_gap_20260626.py",
-      "tests/test_sandero_stepway_extreme_source_gap_20260626.py",
-      "tests/test_spring_technical_20260219.py",
-      "tools/align_sandero_stepway_expression_auto_snapshot_contracts_20260801.py",
-      "tools/align_sandero_stepway_extreme_auto_snapshot_contracts_20260801.py",
-      "tools/close_stepway_expression_auto_reporting_dependencies_20260801.py",
-      "tools/close_stepway_extreme_auto_reporting_dependencies_20260801.py",
+      "tests/test_data_products_v1_10_0_release_contract.py",
       "tools/import_sandero_stepway_essential_source_gap_20260626.py",
       "tools/import_sandero_stepway_expression_auto_source_gap_20260626.py",
       "tools/import_sandero_stepway_expression_source_gap_20260626.py",
       "tools/import_sandero_stepway_extreme_auto_source_gap_20260626.py",
       "tools/import_sandero_stepway_extreme_source_gap_20260626.py",
-      "tools/review_official_brochure_residual_evidence_20260726.py"
+      "tools/record_data_products_v1_10_0_publication_20260801.py",
+      "tools/reporting/data_product_release.py"
     ]
   },
   "next_package": {
-    "package_id": "sandero_highest_impact_eligible_gap_006",
-    "kind": "source_backed_completeness_import",
-    "name": "sandero Highest-Impact Eligible Source Gap",
+    "package_id": "data_products_v1_10_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.10.0 Publication",
     "status": "planned",
-    "goal": "Inspect exact missing slots for sandero against source src_pl_sandero_stepway_catalog_tce_slice_20260703 and import only directly stated values or explicit non-applicable classifications.",
-    "manifest_paths": []
+    "goal": "Build the assets twice from the exact squash-merged preparation commit, verify byte identity and the offline workspace, publish immutable assets and record the result.",
+    "manifest_paths": [],
+    "resume_after_publication": {
+      "package_id": "sandero_highest_impact_eligible_gap_006",
+      "kind": "source_backed_completeness_import",
+      "name": "sandero Highest-Impact Eligible Source Gap",
+      "status": "planned",
+      "goal": "Inspect exact missing slots for sandero against source src_pl_sandero_stepway_catalog_tce_slice_20260703 and import only directly stated values or explicit non-applicable classifications.",
+      "manifest_paths": []
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -121,5 +102,15 @@
     "milestone_review_interval_packages": 5,
     "one_logical_package_per_pull_request": true,
     "delete_remote_branches_automatically": false
+  },
+  "execution_policy": {
+    "mode": "accelerated_milestone_closure",
+    "focused_tests_during_development": true,
+    "full_quality_on_final_head": true,
+    "batch_mechanical_repairs": true,
+    "open_pr_after_package_stabilization": true,
+    "allow_multi_source_package": "only_for_one_logical_closure_scope",
+    "release_double_build_required": true,
+    "release_exact_source_sha_required": true
   }
 }

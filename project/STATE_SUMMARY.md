@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Extreme Automatic Source Gap**
+**Data Products v1.10.0 Accelerated Release Preparation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1763
+- Tests: 1766
 - Master CSV files: 46
 - Master rows: 11691
 - Configuration values: 3565
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Extreme Automatic Source Gap** — `complete`
+**Data Products v1.10.0 Accelerated Release Preparation** — `complete`
 
-Resolve every safely representable missing slot from the exact Stepway Extreme Eco-G 120 automatic source and preserve not-stated and automatic-transmission boundaries.
+Document the accelerated closure policy and prepare exact post-merge publication of the current data products and interactive shortlist repairs.
 
 ## Next package
 
-**sandero Highest-Impact Eligible Source Gap** — `planned`
+**Data Products v1.10.0 Publication** — `planned`
 
-Inspect exact missing slots for sandero against source src_pl_sandero_stepway_catalog_tce_slice_20260703 and import only directly stated values or explicit non-applicable classifications.
+Build the assets twice from the exact squash-merged preparation commit, verify byte identity and the offline workspace, publish immutable assets and record the result.
 
 ## Autonomy
 
