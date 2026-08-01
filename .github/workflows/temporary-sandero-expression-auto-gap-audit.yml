@@ -30,7 +30,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-      - name: Repair generator delimiters
+      - name: Repair generator delimiters and substitutions
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -59,12 +59,16 @@ jobs:
                   '        raise ContractError("project state baseline predates the completed package")\n\'\'\'\n    if old in text:',
                   '        raise ContractError("project state baseline predates the completed package")\n"""\n    if old in text:',
               ),
+              (
+                  'updated, count = re.subn(pattern, replacement, text, count=1, flags=re.DOTALL)',
+                  'updated, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.DOTALL)',
+              ),
           ]
           for old, new in replacements:
               if old not in text:
                   if new in text:
                       continue
-                  raise SystemExit(f'generator delimiter anchor not found: {old[:80]!r}')
+                  raise SystemExit(f'generator repair anchor not found: {old[:80]!r}')
               text = text.replace(old, new, 1)
 
           path.write_text(text, encoding='utf-8')
@@ -73,6 +77,11 @@ jobs:
       - name: Generate and apply package
         run: |
           python -m tools.build_sandero_stepway_expression_auto_source_gap_20260801
+          python -m compileall -q \
+            tools/import_sandero_stepway_expression_auto_source_gap_20260626.py \
+            tools/close_stepway_expression_auto_reporting_dependencies_20260801.py \
+            tools/align_sandero_stepway_expression_auto_snapshot_contracts_20260801.py \
+            tests/test_sandero_stepway_expression_auto_source_gap_20260626.py
           python -m tools.import_sandero_stepway_expression_auto_source_gap_20260626
           python -m tools.close_stepway_expression_auto_reporting_dependencies_20260801
           python tools/dkb.py configuration-gap-resolution-plan \
