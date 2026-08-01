@@ -28,6 +28,16 @@ MANIFEST = [
     "tests/test_spring_technical_20260219.py",
     "tools/import_spring_technical_20260219.py",
 ]
+TEMPORARY_PATHS = [
+    "tools/materialize_spring_technical_package_20260219.py",
+    ".github/workflows/temporary-spring-technical-materializer.yml",
+    ".github/workflows/temporary-spring-technical-materializer-v2.yml",
+    ".github/workflows/temporary-spring-technical-dispatcher.yml",
+    ".github/spring-package-fixed.b64",
+    ".github/materializer-trigger-spring.txt",
+    ".github/placeholder.txt",
+    ".github/placeholder2.txt",
+]
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -105,14 +115,14 @@ def update_reconciliation() -> None:
         "configuration_attribute_value_ranges": 298,
         "configuration_attribute_availability": 5902,
     }
-    if counts not in (expected, {
+    updated = {
         "configuration_attribute_values": 3475,
         "configuration_attribute_value_ranges": 301,
         "configuration_attribute_availability": 5902,
-    }):
+    }
+    if counts not in (expected, updated):
         raise RuntimeError(f"unexpected reconciliation baseline: {counts}")
-    counts["configuration_attribute_values"] = 3475
-    counts["configuration_attribute_value_ranges"] = 301
+    counts.update(updated)
     write_json(path, payload)
 
 
@@ -178,6 +188,11 @@ def update_documents() -> None:
     insert_once(ROOT / "project/ROADMAP.md", "## Verified tooling baseline", roadmap_text, before=True)
 
 
+def remove_temporary_paths() -> None:
+    for relative in TEMPORARY_PATHS:
+        (ROOT / relative).unlink(missing_ok=True)
+
+
 def run(*args: str) -> None:
     subprocess.run([sys.executable, *args], cwd=ROOT, check=True)
 
@@ -187,6 +202,7 @@ def main() -> int:
     update_reconciliation()
     update_state()
     update_documents()
+    remove_temporary_paths()
     run("tools/dkb.py", "project-state", "--apply")
     run("tools/dkb.py", "documentation-baseline", "--apply")
     return 0
