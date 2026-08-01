@@ -23,5 +23,15 @@ if aligner.exists():
     elif new not in text:
         raise RuntimeError("Extreme automatic availability-count anchor not found")
 
-if importer.exists() and aligner.exists():
+workbook = package_dir.parent / "tests/test_configuration_comparison_workbook.py"
+if workbook.exists():
+    text = workbook.read_text(encoding="utf-8")
+    old = '            "A1:M337",'
+    new = '            "A1:M338",'
+    if old in text:
+        workbook.write_text(text.replace(old, new, 1), encoding="utf-8")
+    elif new not in text:
+        raise RuntimeError("Extreme automatic workbook dimension anchor not found")
+
+if importer.exists() and aligner.exists() and workbook.exists():
     Path(__file__).unlink()
