@@ -192,7 +192,7 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     if receipt is None:
         ensure(len(selected["sandero_iii"]) == 10, "Sandero exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["sandero_iii"]}) == 2, "Sandero exact dimension configuration count differs")
-        ensure(len(selected["sandero_stepway_iii"]) == 54, "Stepway exact dimension coverage differs")
+        ensure(len(selected["sandero_stepway_iii"]) == 56, "Stepway exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 8, "Stepway exact dimension configuration count differs")
         ensure(selected["jogger"] == [], "Jogger dimensions unexpectedly already imported")
         ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
@@ -201,7 +201,7 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     else:
         ensure(len(selected["sandero_iii"]) == 80, "post-import Sandero dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["sandero_iii"]}) == 7, "post-import Sandero configuration count differs")
-        ensure(len(selected["sandero_stepway_iii"]) == 54, "Stepway exact dimension coverage differs")
+        ensure(len(selected["sandero_stepway_iii"]) == 56, "Stepway exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 8, "Stepway exact dimension configuration count differs")
         ensure(len(selected["jogger"]) == 242, "post-import Jogger dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["jogger"]}) == 22, "post-import Jogger configuration count differs")

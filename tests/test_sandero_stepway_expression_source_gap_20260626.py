@@ -4,12 +4,12 @@ import json
 import unittest
 from pathlib import Path
 
-from tools import import_sandero_stepway_essential_source_gap_20260626 as package
+from tools import import_sandero_stepway_expression_source_gap_20260626 as package
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class SanderoStepwayEssentialSourceGapTests(unittest.TestCase):
+class SanderoStepwayExpressionSourceGapTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.spec = package.load_spec()
@@ -79,8 +79,8 @@ class SanderoStepwayEssentialSourceGapTests(unittest.TestCase):
             package.read_rows(package.RANGE_OUTPUT),
             {row["code"] for row in self.ranges},
         )
-        self.assertEqual(sorted(int(row["id"]) for row in values), [3553, 3554, 3555])
-        self.assertEqual(sorted(int(row["id"]) for row in ranges), [302, 303, 304])
+        self.assertEqual(sorted(int(row["id"]) for row in values), [3556, 3557, 3558])
+        self.assertEqual(sorted(int(row["id"]) for row in ranges), [305, 306, 307])
 
     def test_both_completeness_scopes_use_fourth_gear(self) -> None:
         values = package.read_rows(package.VALUE_OUTPUT)
@@ -101,7 +101,7 @@ class SanderoStepwayEssentialSourceGapTests(unittest.TestCase):
             review["reconciliation"]["classification"],
             package.EXHAUSTED_CLASSIFICATION,
         )
-        self.assertEqual(review["reconciliation"]["resolved_unique_slots"], 8)
+        self.assertEqual(review["reconciliation"]["resolved_unique_slots"], 6)
         self.assertEqual(review["reconciliation"]["remaining_unique_slots"], 4)
         self.assertEqual(
             {item["attribute_code"] for item in review["reconciliation"]["remaining_slots"]},
