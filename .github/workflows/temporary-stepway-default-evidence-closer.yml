@@ -41,24 +41,30 @@ jobs:
           additions = [
               '    "data/reporting/configuration_gap_evidence.json",',
               '    "tests/configuration_comparison_context_filter_contract.py",',
+              '    "tests/configuration_comparison_pair_summary_contract.py",',
           ]
           missing = [line for line in additions if line not in text]
           if missing:
               text = text.replace(marker, marker + '\n'.join(missing) + '\n', 1)
               importer.write_text(text, encoding='utf-8')
 
-          path = Path('tests/configuration_comparison_context_filter_contract.py')
-          text = path.read_text(encoding='utf-8')
-          replacements = {
-              'len(core.difference_csv_rows(report)), 365': 'len(core.difference_csv_rows(report)), 371',
-              '"fuel_type_code=": 160': '"fuel_type_code=": 164',
+          replacements_by_path = {
+              Path('tests/configuration_comparison_context_filter_contract.py'): {
+                  'len(core.difference_csv_rows(report)), 365': 'len(core.difference_csv_rows(report)), 371',
+                  '"fuel_type_code=": 160': '"fuel_type_code=": 164',
+              },
+              Path('tests/configuration_comparison_pair_summary_contract.py'): {
+                  '        365,': '        371,',
+              },
           }
-          for old, new in replacements.items():
-              if old in text:
-                  text = text.replace(old, new, 1)
-              elif new not in text:
-                  raise SystemExit(f'Missing context-filter contract: {old}')
-          path.write_text(text, encoding='utf-8')
+          for path, replacements in replacements_by_path.items():
+              text = path.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  if old in text:
+                      text = text.replace(old, new, 1)
+                  elif new not in text:
+                      raise SystemExit(f'Missing contract in {path}: {old}')
+              path.write_text(text, encoding='utf-8')
           PY
       - name: Materialize dependencies
         run: |
