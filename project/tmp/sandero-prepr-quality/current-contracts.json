@@ -1,0 +1,74 @@
+{
+  "technical": {
+    "applicable": 300,
+    "coverage_percent": "96.00",
+    "denominator": 300,
+    "missing": 12,
+    "not_applicable": 0,
+    "present": 288
+  },
+  "equipment": {
+    "applicable": 345,
+    "coverage_percent": "86.96",
+    "denominator": 345,
+    "missing": 45,
+    "not_applicable": 0,
+    "not_available": 23,
+    "optional": 0,
+    "recorded": 300,
+    "standard": 277,
+    "unknown": 0
+  },
+  "technical_gap_count": 12,
+  "equipment_gap_count": 45,
+  "areas": {
+    "covered": 12,
+    "denominator": 20,
+    "missing": 0,
+    "partial": 8,
+    "source_missing": 0
+  },
+  "sections": {
+    "covered": 138,
+    "denominator": 175,
+    "missing": 7,
+    "not_applicable": 0,
+    "partial": 30,
+    "source_missing": 0
+  },
+  "coverage_gap_count": 57,
+  "comparison_summary": {
+    "prices": {
+      "comparisons": 10,
+      "equal": 0,
+      "different": 10,
+      "not_comparable": 0
+    },
+    "technical": {
+      "comparisons": 688,
+      "equal": 469,
+      "different": 171,
+      "not_comparable": 48
+    },
+    "equipment": {
+      "comparisons": 690,
+      "equal": 529,
+      "different": 20,
+      "not_comparable": 141
+    },
+    "total_differences": 201
+  },
+  "evidence_summary": {
+    "total": 57,
+    "ambiguous": 0,
+    "found": 0,
+    "not_stated": 40,
+    "out_of_scope": 17
+  },
+  "not_comparable": {
+    "technical": 48,
+    "equipment": 141,
+    "prices": 0
+  },
+  "ranged": 43
+}
