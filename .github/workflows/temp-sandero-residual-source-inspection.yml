@@ -1,0 +1,42 @@
+name: Temporary Sandero Residual Source Inspection
+
+on:
+  push:
+    branches:
+      - data/sandero-residual-source-closure-006
+    paths:
+      - .github/workflows/temp-sandero-residual-source-inspection.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data/sandero-residual-source-closure-006
+          fetch-depth: 0
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Extract exact source text
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p project/tmp/sandero-residual-source-inspection
+          pdftotext -layout "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf" project/tmp/sandero-residual-source-inspection/tce-catalog.txt
+          pdftotext -layout "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf" project/tmp/sandero-residual-source-inspection/expression.txt
+          pdftotext -layout "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf" project/tmp/sandero-residual-source-inspection/journey.txt
+          grep -inE "elastycz|wysoko|felgi|parkow|wspomagania parkowania" project/tmp/sandero-residual-source-inspection/tce-catalog.txt > project/tmp/sandero-residual-source-inspection/tce-relevant.txt || true
+          grep -inE "felgi|parkow|wspomagania parkowania" project/tmp/sandero-residual-source-inspection/expression.txt > project/tmp/sandero-residual-source-inspection/expression-relevant.txt || true
+          grep -inE "felgi|parkow|wspomagania parkowania" project/tmp/sandero-residual-source-inspection/journey.txt > project/tmp/sandero-residual-source-inspection/journey-relevant.txt || true
+      - name: Commit inspection receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/tmp/sandero-residual-source-inspection
+          git commit -m "audit: capture Sandero residual source text"
+          git push origin HEAD:data/sandero-residual-source-closure-006
