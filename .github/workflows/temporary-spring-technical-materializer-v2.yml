@@ -47,13 +47,16 @@ jobs:
           rm .github/workflows/temporary-spring-technical-materializer.yml
           rm .github/workflows/temporary-spring-technical-dispatcher.yml
           rm .github/workflows/temporary-spring-technical-materializer-v2.yml
-      - name: Verify package
-        run: |
-          python tools/import_spring_technical_20260219.py --check
-          python -m unittest -v tests.test_spring_technical_20260219
-          python tools/dkb.py project-state --check
-          python tools/dkb.py documentation-baseline --check
-          python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
+      - name: Verify importer idempotence
+        run: python tools/import_spring_technical_20260219.py --check
+      - name: Run Spring package tests
+        run: python -m unittest -v tests.test_spring_technical_20260219
+      - name: Check canonical project state
+        run: python tools/dkb.py project-state --check
+      - name: Check documentation baseline
+        run: python tools/dkb.py documentation-baseline --check
+      - name: Run full quality gate
+        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
       - name: Verify manifest and commit
         run: |
           cat > "$RUNNER_TEMP/expected.txt" <<'EOF'
