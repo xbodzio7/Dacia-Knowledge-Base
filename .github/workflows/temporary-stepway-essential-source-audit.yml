@@ -30,23 +30,96 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-      - name: Align importer with configuration schema
+      - name: Align durable package contracts
         run: |
+          rm -f stepway-essential-quality-diagnostic.txt
           python - <<'PY'
           from pathlib import Path
-          path = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
-          text = path.read_text(encoding='utf-8')
+
+          def replace(path_name: str, old: str, new: str, expected: int | None = None) -> None:
+              path = Path(path_name)
+              text = path.read_text(encoding='utf-8')
+              count = text.count(old)
+              if expected is not None and count != expected:
+                  raise SystemExit(f'{path}: expected {expected} occurrences of {old!r}, found {count}')
+              if count:
+                  path.write_text(text.replace(old, new), encoding='utf-8')
+
+          importer = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
+          text = importer.read_text(encoding='utf-8')
           obsolete = '''    if configuration.get("model_code") != MODEL_CODE:\n        raise ContractError(f"unexpected model identity for {CONFIGURATION}")\n'''
-          if obsolete in text:
-              path.write_text(text.replace(obsolete, ''), encoding='utf-8')
+          text = text.replace(obsolete, '')
+          additions = [
+              '    "data/reporting/sandero_ecog120_manual_gap_evidence.json",',
+              '    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",',
+              '    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",',
+              '    "tests/test_configuration_value_ranges.py",',
+              '    "tests/test_jogger_payload_performance_ranges.py",',
+              '    "tests/test_official_brochure_residual_evidence_review.py",',
+              '    "tests/test_spring_technical_20260219.py",',
+              '    "tools/close_stepway_essential_reporting_dependencies_20260801.py",',
+              '    "tools/review_official_brochure_residual_evidence_20260726.py",',
+          ]
+          marker = 'MANIFEST_PATHS = [\n'
+          missing = [line for line in additions if line not in text]
+          if missing:
+              text = text.replace(marker, marker + '\n'.join(missing) + '\n', 1)
+          importer.write_text(text, encoding='utf-8')
+
+          replace(
+              'tools/review_official_brochure_residual_evidence_20260726.py',
+              'len(selected["sandero_stepway_iii"]) == 52',
+              'len(selected["sandero_stepway_iii"]) == 54',
+              2,
+          )
+          replace(
+              'tests/test_official_brochure_residual_evidence_review.py',
+              'len(selected["sandero_stepway_iii"]), 52',
+              'len(selected["sandero_stepway_iii"]), 54',
+              1,
+          )
+          replace('tests/test_configuration_value_ranges.py', '301', '304', 3)
+          replace(
+              'tests/test_jogger_payload_performance_ranges.py',
+              'self.assertEqual(len(self.ranges), 301)',
+              'self.assertEqual(len(self.ranges), 304)',
+              1,
+          )
+          replace(
+              'tests/test_spring_technical_20260219.py',
+              'state["baseline"]["configuration_values"], 3552',
+              'state["baseline"]["configuration_values"], 3555',
+              1,
+          )
+          replace(
+              'tests/test_spring_technical_20260219.py',
+              'state["baseline"]["configuration_value_ranges"], 301',
+              'state["baseline"]["configuration_value_ranges"], 304',
+              1,
+          )
+          replace(
+              'tests/test_spring_technical_20260219.py',
+              'counts["configuration_attribute_values"], 3475',
+              'counts["configuration_attribute_values"], 3478',
+              1,
+          )
+          replace(
+              'tests/test_spring_technical_20260219.py',
+              'counts["configuration_attribute_value_ranges"], 301',
+              'counts["configuration_attribute_value_ranges"], 304',
+              1,
+          )
           PY
       - name: Materialize package
         run: |
           python -m tools.import_sandero_stepway_essential_source_gap_20260626
+          python -m tools.close_stepway_essential_reporting_dependencies_20260801
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
       - name: Check deterministic outputs
-        run: python -m tools.import_sandero_stepway_essential_source_gap_20260626 --check
+        run: |
+          python -m tools.import_sandero_stepway_essential_source_gap_20260626 --check
+          python -m tools.close_stepway_essential_reporting_dependencies_20260801 --check
       - name: Run package tests
         run: |
           python -m unittest -v tests.test_sandero_stepway_essential_source_gap_20260626
@@ -62,7 +135,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add stepway-essential-quality-diagnostic.txt
+          git add --all
           git commit -m 'chore(ci): capture Stepway Essential quality failure'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Fail after diagnostics
@@ -71,6 +144,7 @@ jobs:
       - name: Commit package
         if: steps.quality.outcome == 'success'
         run: |
+          rm -f stepway-essential-quality-diagnostic.txt
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
