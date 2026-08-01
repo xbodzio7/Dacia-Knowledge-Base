@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preserve the exact automatic Stepway Expression source audit used by the materializer."""
+"""Preserve the reviewed automatic Stepway Expression source audit for package generation."""
 from __future__ import annotations
 
 import hashlib
