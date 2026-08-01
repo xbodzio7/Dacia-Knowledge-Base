@@ -40,8 +40,10 @@ jobs:
           marker = 'MANIFEST_PATHS = [\n'
           additions = [
               '    "data/reporting/configuration_gap_evidence.json",',
+              '    "data/reporting/configuration_gap_resolution_plan.json",',
               '    "tests/configuration_comparison_context_filter_contract.py",',
               '    "tests/configuration_comparison_pair_summary_contract.py",',
+              '    "tests/test_duster_ecog120_reporting_scope.py",',
           ]
           missing = [line for line in additions if line not in text]
           if missing:
@@ -55,6 +57,9 @@ jobs:
               },
               Path('tests/configuration_comparison_pair_summary_contract.py'): {
                   '        365,': '        371,',
+              },
+              Path('tests/test_duster_ecog120_reporting_scope.py'): {
+                  'default["summary"]["total_differences"], 365': 'default["summary"]["total_differences"], 371',
               },
           }
           for path, replacements in replacements_by_path.items():
@@ -70,6 +75,10 @@ jobs:
         run: |
           rm -f stepway-current-report.json stepway-essential-quality-diagnostic.txt
           python -m tools.close_stepway_essential_reporting_dependencies_20260801
+          python tools/dkb.py configuration-gap-resolution-plan \
+            --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
+            --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
+            --markdown "$RUNNER_TEMP/configuration-gap-resolution-plan.md"
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
           python tools/dkb.py project-state --check
@@ -79,6 +88,12 @@ jobs:
           python -m unittest -v tests.test_sandero_stepway_essential_source_gap_20260626
           python -m unittest -v tests.configuration_comparison_context_filter_contract
           python -m unittest -v tests.configuration_comparison_pair_summary_contract
+          python -m unittest -v tests.test_duster_ecog120_reporting_scope
+          python -m unittest -v \
+            tests.test_bigster_brochure_cargo_20260726.BigsterBrochureCargoTests.test_gap_resolution_plan_accepts_contextual_bigster_history \
+            tests.test_duster_brochure_cargo_20260726.DusterBrochureCargoTests.test_gap_resolution_plan_accepts_contextual_duster_history \
+            tests.test_jogger_brochure_cargo_20260726.JoggerBrochureCargoTests.test_gap_resolution_plan_accepts_contextual_jogger_history \
+            tests.test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_import_contract_check_passes
       - name: Run full quality gate
         run: |
           cp .github/workflows/temporary-stepway-default-evidence-closer.yml "$RUNNER_TEMP/workflow.yml"
