@@ -6,7 +6,6 @@
   "review_triage_keys": [
     "technical|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Wheels|wheel_finish|none",
     "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none",
-    "technical|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Wheels|wheel_finish|none",
     "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Brakes|electronic_parking_brake|none",
     "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Capacities|adjustable_boot_floor|none",
     "equipment|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Drivetrain|extended_grip|none",
@@ -31,7 +30,6 @@
     "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Capacities|adjustable_boot_floor|none",
     "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Drivetrain|extended_grip|none",
     "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Driving Systems|blind_spot_monitoring|none",
-    "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Driving Systems|parking_assist_system|none",
     "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Infotainment|bluetooth_connectivity|none",
     "equipment|src_pl_sandero_stepway_expression_ecog120_at_20260626|sandero_stepway_iii_expression_ecog120_automatic|Mirrors|front_parking_sensors|none",
     "equipment|src_pl_sandero_stepway_expression_ecog120_mt_20260626|sandero_stepway_iii_expression_ecog120_manual|Brakes|electronic_parking_brake|none",

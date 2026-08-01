@@ -144,7 +144,7 @@ class Sandero50KmhNoiseLevelValueTests(unittest.TestCase):
                 if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
                 and row["observation_date"] == "2026-06-26"
             ]),
-            420,
+            421,
         )
         self.assertEqual(
             len([

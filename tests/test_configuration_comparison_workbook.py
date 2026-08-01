@@ -126,7 +126,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "A1:K6",
             "A1:M337",
             "A1:L11",
-            "A1:AS239",
+            "A1:AS243",
             "A1:K12",
             "A1:E9",
         )

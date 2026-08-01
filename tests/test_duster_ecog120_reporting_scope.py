@@ -300,7 +300,7 @@ class DusterReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(default["scope"]["reporting_configurations"], 7)
         self.assertEqual(len(default["pairs"]), 21)
-        self.assertEqual(default["summary"]["total_differences"], 384)
+        self.assertEqual(default["summary"]["total_differences"], 393)
         scope_sets = [scope["configurations"] for scope in SCOPES.values()]
         for index, current in enumerate(scope_sets):
             for other in scope_sets[index + 1:]:
