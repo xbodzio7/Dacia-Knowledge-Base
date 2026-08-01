@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-08-02",
+  "updated_on": "2026-08-01",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -44,6 +44,7 @@
       "project/packages/reviewed-gap-state-materialization-20260802.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_configuration_comparison_workbook.py",
       "tests/test_reviewed_gap_state_materialization_20260802.py",
       "tools/apply_reviewed_gap_state_materialization_20260802.py",
       "tools/configuration_shortlist.py",
