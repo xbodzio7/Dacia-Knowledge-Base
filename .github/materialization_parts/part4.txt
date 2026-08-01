@@ -1,0 +1,190 @@
+                    "review_classification": str(
+                        state.get("classification", "")
+                    ),
+                    "review_reason_code": str(state.get("reason_code", "")),
+                    "review_message": str(state.get("review_message", "")),
+                    "review_candidate_amount_pln": state.get(
+                        "candidate_amount_pln"
+                    ),
+                    "review_candidate_source_code": str(
+                        state.get("candidate_source_code", "")
+                    ),
+                    "reviewed_on": str(state.get("reviewed_on", "")),
+                }
+            )
+"""
+    text = path.read_text(encoding="utf-8")
+    if "_apply_reviewed_gap_states(" not in text:
+        if marker not in text:
+            raise RuntimeError("configuration shortlist render marker missing")
+        path.write_text(text.replace(marker, function + marker, 1), encoding="utf-8")
+    replace_once(
+        path,
+        "            _apply_supplemental_model_media(catalog, selected_repository)\n"
+        "            write_atomic(arguments.html, render_html(catalog))\n",
+        "            _apply_supplemental_model_media(catalog, selected_repository)\n"
+        "            _apply_reviewed_gap_states(catalog, selected_repository)\n"
+        "            write_atomic(arguments.html, render_html(catalog))\n",
+    )
+
+
+def patch_selection_js() -> None:
+    path = ROOT / "tools/reporting/configuration_shortlist_selection.js"
+    replace_once(
+        path,
+        '    if (status === "not_available") return "niedostępne";\n'
+        '    if (status === "unknown") return "status nieustalony";\n',
+        '    if (status === "not_available") return "niedostępne";\n'
+        '    if (status === "not_applicable") return "nie dotyczy";\n'
+        '    if (status === "unknown") return "status nieustalony";\n',
+    )
+    replace_once(
+        path,
+        '    if (date) parts.push(`obserwacja: ${date}`);\n'
+        '    return parts.join("; ");\n',
+        '    if (date) parts.push(`obserwacja: ${date}`);\n'
+        '    const review = String(state.review_message || "").trim();\n'
+        '    if (review) parts.push(review);\n'
+        '    return parts.join("; ");\n',
+    )
+
+
+def patch_pricing_js() -> None:
+    path = ROOT / "tools/reporting/configuration_shortlist_v12_pricing.js"
+    replace_once(
+        path,
+        '      source_code: String(component.source_code || ""),\n'
+        '      equipment_codes: unique(component.equipment_codes || [])\n',
+        '      source_code: String(component.source_code || ""),\n'
+        '      review_classification: String(component.review_classification || ""),\n'
+        '      review_reason_code: String(component.review_reason_code || ""),\n'
+        '      review_message: String(component.review_message || ""),\n'
+        '      review_candidate_amount_pln: component.review_candidate_amount_pln ?? null,\n'
+        '      review_candidate_source_code: String(component.review_candidate_source_code || ""),\n'
+        '      equipment_codes: unique(component.equipment_codes || [])\n',
+    )
+    replace_once(
+        path,
+        '          amount: null, currency_code: currencyCode, price_date: "", source_code: "",\n'
+        '          equipment_codes: [code]\n',
+        '          amount: null, currency_code: currencyCode, price_date: "", source_code: "",\n'
+        '          review_classification: "", review_reason_code: "", review_message: "",\n'
+        '          review_candidate_amount_pln: null, review_candidate_source_code: "",\n'
+        '          equipment_codes: [code]\n',
+    )
+    replace_once(
+        path,
+        '          kind: component.kind,\n'
+        '          amount: component.amount\n',
+        '          kind: component.kind,\n'
+        '          amount: component.amount,\n'
+        '          review_classification: component.review_classification,\n'
+        '          review_message: component.review_message\n',
+    )
+    helper_marker = "\n  function selectedEquipmentStatus(item) {\n"
+    helper = r"""
+
+  function unknownComponentStatus(component) {
+    const reviewed = String(component.review_message || "").trim();
+    if (reviewed) return reviewed;
+    return component.source_code
+      ? "cena niepodana w źródle"
+      : "brak powiązania z cennikiem";
+  }
+"""
+    text = path.read_text(encoding="utf-8")
+    if "function unknownComponentStatus(" not in text:
+        if helper_marker not in text:
+            raise RuntimeError("pricing helper marker missing")
+        path.write_text(text.replace(helper_marker, helper + helper_marker, 1), encoding="utf-8")
+    replace_once(
+        path,
+        '        const price = component.amount === null ? "cena niepodana w źródle" : "dopłata ujęta powyżej";\n',
+        '        const price = component.amount === null ? unknownComponentStatus(component) : "dopłata ujęta powyżej";\n',
+    )
+    replace_once(
+        path,
+        '        const status = component.source_code\n'
+        '          ? "cena niepodana w źródle"\n'
+        '          : "brak powiązania z cennikiem";\n',
+        '        const status = unknownComponentStatus(component);\n',
+    )
+    replace_once(
+        path,
+        '    selectedEquipmentStatus, selectedEquipmentMarkup\n',
+        '    selectedEquipmentStatus, selectedEquipmentMarkup,\n'
+        '    unknownComponentStatus\n',
+    )
+
+
+def write_tests() -> None:
+    path = ROOT / "tests/test_reviewed_gap_state_materialization_20260802.py"
+    path.write_text(
+        r"""from __future__ import annotations
+
+import csv
+import json
+import unittest
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def rows(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def payload(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+class ReviewedGapStateMaterializationTests(unittest.TestCase):
+    def test_two_exact_spring_prices_are_materialized(self) -> None:
+        selected = {
+            (row["commercial_item_code"], row["configuration_code"]): row
+            for row in rows(ROOT / "data/master/commercial_item_configurations.csv")
+            if row["commercial_item_code"] in {
+                "spring_city_package",
+                "spring_power_package",
+            }
+            and row["configuration_code"] == "spring_extreme_electric100_automatic"
+        }
+        self.assertEqual(
+            {key: row["amount"] for key, row in selected.items()},
+            {
+                ("spring_city_package", "spring_extreme_electric100_automatic"): "1800",
+                ("spring_power_package", "spring_extreme_electric100_automatic"): "3000",
+            },
+        )
+        self.assertEqual(
+            {row["source_code"] for row in selected.values()},
+            {"src_pl_spring_official_configurator_20260731"},
+        )
+        self.assertEqual({row["price_date"] for row in selected.values()}, {"2026-07-31"})
+
+    def test_materialization_closes_all_reviewed_presentation_states(self) -> None:
+        report = payload(
+            ROOT / "data/reporting/reviewed_gap_state_materialization.json"
+        )
+        self.assertEqual(report["summary"]["imported_price_rows"], 2)
+        self.assertEqual(report["summary"]["comparison_terminal_states"], 22)
+        self.assertEqual(report["summary"]["price_terminal_states"], 27)
+        classifications = Counter(
+            item["classification"]
+            for item in [*report["comparison_states"], *report["price_states"]]
+        )
+        self.assertEqual(
+            classifications,
+            Counter(
+                {
+                    "source-not-stated": 27,
+                    "context-unmodeled": 20,
+                    "source-conflict": 2,
+                }
+            ),
+        )
+
+    def test_browser_catalog_receives_reviewed_terminal_states(self) -> None:
+        import sys
