@@ -32,7 +32,6 @@ HISTORICAL_SOURCE_TESTS = (
     "tests/test_sandero_stepway_essential_source_gap_20260626.py",
     "tests/test_sandero_stepway_expression_auto_source_gap_20260626.py",
     "tests/test_sandero_stepway_expression_source_gap_20260626.py",
-    "tests/test_sandero_stepway_extreme_auto_source_gap_20260626.py",
     "tests/test_sandero_stepway_extreme_source_gap_20260626.py",
 )
 
