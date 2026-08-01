@@ -232,6 +232,25 @@ def _release_notes(
                 "",
             ]
         )
+    elif version == "1.10.0":
+        lines.extend(
+            [
+                "This minor release publishes the current source-backed portfolio, "
+                "including the Spring catalogue foundation and all later exact "
+                "technical and equipment observations.",
+                "",
+                "The interactive shortlist includes the repaired user interface: "
+                "one forced dark theme, grouped commercial grade choices with exact "
+                "version codes retained, and a two-axis sticky comparison grid with "
+                "deterministic parameter and configuration column widths.",
+                "",
+                "The release preserves the existing pair-type filter and multi-"
+                "configuration comparison behavior. No cross-scope pairs, ranking, "
+                "recommendations or inferred values are introduced, and the public "
+                "v1.9.0 remains immutable.",
+                "",
+            ]
+        )
     lines.extend(
         [
             "No ranking, recommendations or inferred values are generated.",

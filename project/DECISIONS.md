@@ -1087,3 +1087,32 @@ require broad changes to validators, reporting, exports and comparisons.
 - The Jogger mass-table label conflict remains blocked until corrected official
   evidence is available.
 
+## D-ACC-001 — Accelerated milestone closure mode
+
+Status: Accepted
+
+Date: 2026-08-01
+
+### Decision
+
+The project may use `accelerated_milestone_closure` for a bounded milestone or release when the remaining backlog is known and logically related.
+
+The mode uses focused tests during implementation, batches mechanical snapshot and counter repairs, opens the Pull Request after branch stabilization when practical, and runs the complete required quality matrix once on the final Pull Request head.
+
+Closely related sources may be combined only into one explicit closure package. Exact evidence boundaries remain unchanged.
+
+For releases, publication may be completed by one post-merge workflow that builds twice from the exact merge SHA, verifies byte identity and the offline workspace, publishes immutable assets, records the result and removes itself.
+
+### Rationale
+
+Repeated full-matrix runs and repeated Pull Request setup after every small deterministic correction consumed substantial time without adding proportional safety. The repository already provides focused contracts, deterministic generators, a final cross-platform matrix and exact release verification.
+
+### Consequences
+
+- one logical package still maps to one Pull Request;
+- final complete quality is mandatory;
+- stale or unverified SHAs cannot be merged or published;
+- evidence may not be inferred or transferred across scope boundaries;
+- public releases remain immutable;
+- the canonical execution policy is stored in `project/state.json`;
+- detailed rules are stored in `project/ACCELERATED_MILESTONE_CLOSURE.md`.

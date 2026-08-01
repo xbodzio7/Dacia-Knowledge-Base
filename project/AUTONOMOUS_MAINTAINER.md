@@ -43,6 +43,21 @@ For every package the maintainer should:
 13. Update canonical state and generated documentation.
 14. Continue with the next package.
 
+## Accelerated milestone closure mode
+
+When `project/state.json` selects `accelerated_milestone_closure`, the maintainer follows `project/ACCELERATED_MILESTONE_CLOSURE.md`.
+
+The mode changes execution cadence, not correctness:
+
+- focused tests are used during branch stabilization;
+- deterministic snapshot and counter repairs are batched;
+- the Pull Request is opened after stabilization when practical;
+- the complete required quality matrix runs on the final head SHA;
+- closely related sources may be combined only into one explicit closure scope;
+- releases are built twice from the exact source commit and remain immutable.
+
+The mode never permits evidence inference, stale-SHA publication, skipped final quality, unrelated scope mixing or bypassing an `ACTION_REQUIRED` boundary.
+
 ## Standing authorization
 
 Within the package declared by `project/state.json`, the maintainer has standing authorization to:

@@ -15,14 +15,15 @@ Read the following documents and state resources in exactly this order:
 1. `state.json`
 2. `STATE_SUMMARY.md`
 3. `AUTONOMOUS_MAINTAINER.md`
-4. `AI_WORKING_AGREEMENT.md`
-5. `AI_CONTEXT.md`
-6. `DOCUMENTATION_STANDARD.md`
-7. `DOCUMENT_TYPES.md`
-8. `GLOSSARY.md`
-9. `DECISIONS.md`
-10. `SESSION_STATE.md`
-11. `ROADMAP.md`
+4. `ACCELERATED_MILESTONE_CLOSURE.md`
+5. `AI_WORKING_AGREEMENT.md`
+6. `AI_CONTEXT.md`
+7. `DOCUMENTATION_STANDARD.md`
+8. `DOCUMENT_TYPES.md`
+9. `GLOSSARY.md`
+10. `DECISIONS.md`
+11. `SESSION_STATE.md`
+12. `ROADMAP.md`
 
 `README.md` may be consulted if additional project context is required.
 
