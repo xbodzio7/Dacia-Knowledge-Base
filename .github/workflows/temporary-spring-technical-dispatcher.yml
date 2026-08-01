@@ -57,7 +57,7 @@ jobs:
           payload = text.split(marker, 1)[1].split('\nPAYLOAD\n', 1)[0].strip()
           archive = base64.b64decode(payload, validate=True)
           digest = hashlib.sha256(archive).hexdigest()
-          expected = 'fa8d31e56e73caea58fdf9e99a2db45c926c680b3714c4f117e8b1b30e793d5b'
+          expected = '1e23c864b1fae17547d5a4ae2bebb2f40cd98deaf6bc53eb585ab251451e020d'
           if digest != expected:
               raise SystemExit(f'payload SHA-256 differs: {digest}')
           archive_path = Path('/tmp/spring-package.tar.gz')
