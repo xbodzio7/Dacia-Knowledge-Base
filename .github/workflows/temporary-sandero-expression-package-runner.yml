@@ -57,8 +57,10 @@ jobs:
               text = text.replace(previous, current, 1)
           ranges.write_text(text, encoding='utf-8')
           PY
+          python tools/temporary_patch_sandero_expression_dependencies_20260801.py
           rm -f \
             tools/temporary_materialize_sandero_expression_20260801.py \
+            tools/temporary_patch_sandero_expression_dependencies_20260801.py \
             .github/workflows/temporary-sandero-expression-gap-audit.yml \
             .github/workflows/temporary-sandero-expression-package-materializer.yml
       - name: Materialize package and dependencies
@@ -73,11 +75,23 @@ jobs:
           python tools/dkb.py documentation-baseline --apply
           python tools/dkb.py project-state --check
           python -m tools.close_stepway_expression_reporting_dependencies_20260801 --check
-      - name: Run package tests
+      - name: Run package and dependency tests
         run: |
-          python -m unittest -v tests.test_sandero_stepway_expression_source_gap_20260626
-          python -m unittest -v tests.test_existing_configuration_missing_data_analysis
-          python -m unittest -v tests.test_configuration_value_ranges
+          python -m unittest -v \
+            tests.test_sandero_stepway_expression_source_gap_20260626 \
+            tests.test_sandero_stepway_essential_source_gap_20260626 \
+            tests.test_existing_configuration_missing_data_analysis \
+            tests.test_configuration_value_ranges \
+            tests.test_jogger_payload_performance_ranges \
+            tests.test_official_brochure_residual_evidence_review \
+            tests.test_brochure_generic_dimensions_import_20260726 \
+            tests.test_brochure_generic_dimensions_import_closure_review \
+            tests.test_brochure_generic_dimensions_semantic_mapping_review \
+            tests.test_sandero_ecog120_manual_reporting_scope \
+            tests.test_duster_ecog120_reporting_scope \
+            tests.test_spring_technical_20260219 \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
       - name: Run full quality gate
         run: |
           cp .github/workflows/temporary-sandero-expression-package-runner.yml "$RUNNER_TEMP/runner.yml"
@@ -88,11 +102,11 @@ jobs:
           set -e
           if [ "$code" -ne 0 ]; then
             echo '--- concise quality failure ---'
-            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual' "$RUNNER_TEMP/quality.log" | tail -n 180 || true
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual' "$RUNNER_TEMP/quality.log" | tail -n 200 || true
             echo '--- final quality log ---'
-            tail -n 320 "$RUNNER_TEMP/quality.log"
+            tail -n 360 "$RUNNER_TEMP/quality.log"
           else
-            tail -n 100 "$RUNNER_TEMP/quality.log"
+            tail -n 120 "$RUNNER_TEMP/quality.log"
           fi
           cp "$RUNNER_TEMP/runner.yml" .github/workflows/temporary-sandero-expression-package-runner.yml
           exit "$code"
