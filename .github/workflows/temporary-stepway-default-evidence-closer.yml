@@ -52,8 +52,6 @@ jobs:
           replacements = {
               'len(core.difference_csv_rows(report)), 365': 'len(core.difference_csv_rows(report)), 371',
               '"fuel_type_code=": 160': '"fuel_type_code=": 164',
-              '"fuel_type_code=lpg": 83': '"fuel_type_code=lpg": 84',
-              '"fuel_type_code=petrol": 77': '"fuel_type_code=petrol": 78',
           }
           for old, new in replacements.items():
               if old in text:
