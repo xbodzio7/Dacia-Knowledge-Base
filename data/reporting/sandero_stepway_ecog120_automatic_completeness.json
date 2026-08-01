@@ -117,6 +117,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "ground_clearance",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "kerb_weight",
       "fuel_type_code": ""
     },
@@ -131,6 +135,10 @@
     {
       "attribute_code": "max_torque_rpm",
       "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "maximum_kerb_weight",
@@ -153,11 +161,19 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "overall_length",
       "fuel_type_code": ""
     },
     {
       "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
       "fuel_type_code": ""
     },
     {

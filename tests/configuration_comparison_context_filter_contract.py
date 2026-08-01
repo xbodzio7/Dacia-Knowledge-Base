@@ -323,10 +323,10 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             context_filter.render_difference_csv(report),
             core.render_difference_csv(report),
         )
-        self.assertEqual(len(core.difference_csv_rows(report)), 384)
+        self.assertEqual(len(core.difference_csv_rows(report)), 393)
 
-        expected_counts = {'': 27,
- 'fuel_type_code=': 170,
+        expected_counts = {'': 30,
+ 'fuel_type_code=': 174,
  'fuel_type_code=lpg': 83,
  'fuel_type_code=petrol': 77,
  'market=PL;currency_code=PLN': 21}

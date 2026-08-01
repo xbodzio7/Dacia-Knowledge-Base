@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Sandero Stepway Extreme Source Gap**
+**Sandero Stepway Expression Automatic Source Gap**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1747
+- Tests: 1755
 - Master CSV files: 46
-- Master rows: 11678
-- Configuration values: 3560
+- Master rows: 11685
+- Configuration values: 3563
 - Configuration import specifications: 138
-- Configuration value ranges: 310
+- Configuration value ranges: 313
 - Configuration range import specifications: 24
-- Availability records: 5903
+- Availability records: 5904
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Sandero Stepway Extreme Source Gap** — `complete`
+**Sandero Stepway Expression Automatic Source Gap** — `complete`
 
-Resolve every safely representable missing slot from the exact Stepway Extreme Eco-G 120 manual source and preserve explicit alternative and not-stated boundaries.
+Resolve every safely representable missing slot from the exact Stepway Expression Eco-G 120 automatic source and preserve not-stated and automatic-transmission boundaries.
 
 ## Next package
 
 **sandero Highest-Impact Eligible Source Gap** — `planned`
 
-Inspect exact missing slots for sandero against source src_pl_sandero_stepway_expression_ecog120_at_20260626 and import only directly stated values or explicit non-applicable classifications.
+Inspect exact missing slots for sandero against source src_pl_sandero_stepway_extreme_ecog120_at_20260626 and import only directly stated values or explicit non-applicable classifications.
 
 ## Autonomy
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import exact Stepway Extreme source-gap observations dated 2026-06-26."""
+"""Import exact Stepway Expression automatic source-gap observations dated 2026-06-26."""
 from __future__ import annotations
 
 import argparse
@@ -15,19 +15,19 @@ from tools import existing_configuration_missing_data_analysis as analysis
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
-SPEC = ROOT / "data" / "imports" / "sandero_stepway_extreme_source_gap_20260626.csv"
+SPEC = ROOT / "data" / "imports" / "sandero_stepway_expression_auto_source_gap_20260626.csv"
 VALUE_OUTPUT = MASTER / "configuration_attribute_values.csv"
 RANGE_OUTPUT = MASTER / "configuration_attribute_value_ranges.csv"
 AVAILABILITY_OUTPUT = MASTER / "configuration_attribute_availability.csv"
-REVIEW_JSON = REPORTING / "sandero_stepway_extreme_source_gap_review.json"
-REVIEW_MD = REPORTING / "sandero_stepway_extreme_source_gap_review.md"
-PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-extreme-source-gap-20260801.md"
+REVIEW_JSON = REPORTING / "sandero_stepway_expression_auto_source_gap_review.json"
+REVIEW_MD = REPORTING / "sandero_stepway_expression_auto_source_gap_review.md"
+PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-expression-auto-source-gap-20260801.md"
 STATE = ROOT / "project" / "state.json"
-SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf"
-SOURCE_CODE = "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
-SOURCE_SHA256 = "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115"
+SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.pdf"
+SOURCE_CODE = "src_pl_sandero_stepway_expression_ecog120_at_20260626"
+SOURCE_SHA256 = "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667"
 OBSERVATION_DATE = "2026-06-26"
-CONFIGURATION = "sandero_stepway_iii_extreme_ecog120_manual"
+CONFIGURATION = "sandero_stepway_iii_expression_ecog120_automatic"
 MODEL_CODE = "sandero"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
 SPEC_FIELDS = (
@@ -79,15 +79,16 @@ AVAILABILITY_FIELDS = (
     "source_code",
     "notes",
 )
-EXPECTED_VALUE_FIRST_ID = 3559
-EXPECTED_VALUE_LAST_ID = 3560
-EXPECTED_RANGE_FIRST_ID = 308
-EXPECTED_RANGE_LAST_ID = 310
-EXPECTED_AVAILABILITY_FIRST_ID = 5903
-EXPECTED_AVAILABILITY_LAST_ID = 5903
+EXPECTED_VALUE_FIRST_ID = 3561
+EXPECTED_VALUE_LAST_ID = 3563
+EXPECTED_RANGE_FIRST_ID = 311
+EXPECTED_RANGE_LAST_ID = 313
+EXPECTED_AVAILABILITY_FIRST_ID = 5904
+EXPECTED_AVAILABILITY_LAST_ID = 5904
 EXPECTED_SPEC = {
     ("value", "overall_height", "", "1586", "", "", ""),
     ("value", "overall_width_with_mirrors", "", "2012", "", "", ""),
+    ("value", "wheel_finish", "", "stalowe", "", "", ""),
     ("range", "ground_clearance", "", "", "170", "200", ""),
     ("range", "max_torque_rpm", "lpg", "", "1750", "3750", ""),
     ("range", "max_torque_rpm", "petrol", "", "2000", "4000", ""),
@@ -95,50 +96,39 @@ EXPECTED_SPEC = {
 }
 REMAINING_TECHNICAL = (
     {"attribute_code": "front_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
+    {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
     {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg", "reason": "not_stated_in_source"},
     {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol", "reason": "not_stated_in_source"},
-    {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
+    {"attribute_code": "elasticity_80_120", "fuel_type_code": "lpg", "reason": "not_stated_in_source"},
+    {"attribute_code": "elasticity_80_120", "fuel_type_code": "petrol", "reason": "not_stated_in_source"},
 )
 REMAINING_EQUIPMENT = (
-    {"attribute_code": "hill_start_assist", "reason": "not_stated_in_source"},
-    {"attribute_code": "bluetooth_connectivity", "reason": "not_stated_in_source"},
+    {"attribute_code": "gear_shift_indicator", "reason": "out_of_scope_for_automatic_transmission"},
 )
 MANIFEST_PATHS = [
-    "data/reporting/configuration_gap_evidence.json",
-    "data/reporting/configuration_gap_resolution_plan.json",
-    "tests/configuration_comparison_context_filter_contract.py",
-    "tests/configuration_comparison_pair_summary_contract.py",
-    "tests/test_duster_ecog120_reporting_scope.py",
-    "data/reporting/configuration_gap_source_review.json",
-    "tests/test_sandero_ecog120_manual_reporting_scope.py",
-    "data/reporting/sandero_ecog120_manual_gap_evidence.json",
-    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
-    "tests/test_configuration_value_ranges.py",
-    "tests/test_existing_configuration_missing_data_analysis.py",
-    "tests/test_jogger_payload_performance_ranges.py",
-    "tests/test_official_brochure_residual_evidence_review.py",
-    "tests/test_spring_equipment_availability.py",
-    "tests/test_spring_technical_20260219.py",
-    "tests/test_sandero_stepway_essential_source_gap_20260626.py",
-    "tests/test_sandero_stepway_expression_source_gap_20260626.py",
-    "tools/import_sandero_stepway_essential_source_gap_20260626.py",
-    "tools/import_sandero_stepway_expression_source_gap_20260626.py",
-    "tools/close_stepway_extreme_reporting_dependencies_20260801.py",
-    "tools/review_official_brochure_residual_evidence_20260726.py",
-    "data/imports/sandero_stepway_extreme_source_gap_20260626.csv",
+    "data/imports/sandero_stepway_expression_auto_source_gap_20260626.csv",
     "data/master/configuration_attribute_availability.csv",
     "data/master/configuration_attribute_value_ranges.csv",
     "data/master/configuration_attribute_values.csv",
+    "data/reporting/configuration_gap_evidence.json",
+    "data/reporting/configuration_gap_resolution_plan.json",
+    "data/reporting/configuration_gap_source_review.json",
     "data/reporting/existing_configuration_missing_data_analysis.json",
     "data/reporting/existing_configuration_missing_data_analysis.md",
-    "data/reporting/sandero_stepway_extreme_source_gap_review.json",
-    "data/reporting/sandero_stepway_extreme_source_gap_review.md",
+    "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
+    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",
+    "data/reporting/sandero_stepway_expression_auto_source_gap_review.json",
+    "data/reporting/sandero_stepway_expression_auto_source_gap_review.md",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
     "project/STATE_SUMMARY.md",
-    "project/packages/sandero-stepway-extreme-source-gap-20260801.md",
+    "project/packages/sandero-stepway-expression-auto-source-gap-20260801.md",
     "project/state.json",
-    "tests/test_sandero_stepway_extreme_source_gap_20260626.py",
-    "tools/import_sandero_stepway_extreme_source_gap_20260626.py",
+    "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py",
+    "tests/test_sandero_stepway_expression_auto_source_gap_20260626.py",
+    "tools/align_sandero_stepway_expression_auto_snapshot_contracts_20260801.py",
+    "tools/close_stepway_expression_auto_reporting_dependencies_20260801.py",
+    "tools/import_sandero_stepway_expression_auto_source_gap_20260626.py",
 ]
 
 
@@ -201,8 +191,8 @@ def sha256(path: Path) -> str:
 def load_spec(*, validate_repository: bool = True) -> list[dict[str, str]]:
     require_header(SPEC, SPEC_FIELDS)
     rows = read_rows(SPEC)
-    if len(rows) != 6:
-        raise ContractError(f"expected 6 specification rows, found {len(rows)}")
+    if len(rows) != 7:
+        raise ContractError(f"expected 7 specification rows, found {len(rows)}")
     actual = {
         (
             row["record_type"],
@@ -430,95 +420,45 @@ def review_payload() -> dict[str, object]:
         "source_sha256": SOURCE_SHA256,
         "source_observation_date": OBSERVATION_DATE,
         "initial_gap": {
-            "reviewed_unique_slots": 15,
-            "technical_slots": 9,
-            "equipment_slots": 6,
+            "reviewed_unique_slots": 14,
+            "technical_slots": 12,
+            "equipment_slots": 2,
         },
         "resolution": {
             "scalar_values": [
-                {
-                    "attribute_code": "overall_height",
-                    "value": "1586",
-                    "source_page": 6,
-                },
-                {
-                    "attribute_code": "overall_width_with_mirrors",
-                    "value": "2012",
-                    "source_page": 6,
-                },
+                {"attribute_code": "overall_height", "value": "1586", "source_page": 6},
+                {"attribute_code": "overall_width_with_mirrors", "value": "2012", "source_page": 6},
+                {"attribute_code": "wheel_finish", "value": "stalowe", "source_page": 2},
             ],
             "ranges": [
-                {
-                    "attribute_code": "ground_clearance",
-                    "fuel_type_code": "",
-                    "minimum_value": "170",
-                    "maximum_value": "200",
-                    "source_page": 6,
-                },
-                {
-                    "attribute_code": "max_torque_rpm",
-                    "fuel_type_code": "lpg",
-                    "minimum_value": "1750",
-                    "maximum_value": "3750",
-                    "source_page": 6,
-                },
-                {
-                    "attribute_code": "max_torque_rpm",
-                    "fuel_type_code": "petrol",
-                    "minimum_value": "2000",
-                    "maximum_value": "4000",
-                    "source_page": 6,
-                },
+                {"attribute_code": "ground_clearance", "fuel_type_code": "", "minimum_value": "170", "maximum_value": "200", "source_page": 6},
+                {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg", "minimum_value": "1750", "maximum_value": "3750", "source_page": 6},
+                {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol", "minimum_value": "2000", "maximum_value": "4000", "source_page": 6},
             ],
             "availability": [
-                {
-                    "attribute_code": "parking_assist_system",
-                    "availability_status": "standard",
-                    "source_page": 4,
-                }
+                {"attribute_code": "parking_assist_system", "availability_status": "standard", "source_page": 3}
             ],
         },
-        "preserved_explicit_alternatives": [
+        "preserved_out_of_scope": [
             {
-                "attribute_code": "manual_air_conditioning",
-                "stated_alternative": "automatic_air_conditioning",
-                "reason": "The source states automatic climate control, not manual air conditioning.",
-            },
-            {
-                "attribute_code": "instrument_cluster_tft_3_5",
-                "stated_alternative": "instrument_cluster_color_7",
-                "reason": "The source states a 7-inch colour instrument cluster.",
-            },
-            {
-                "attribute_code": "media_control_system",
-                "stated_alternative": "media_display_system",
-                "reason": "The source states the 10-inch Media Display system.",
-            },
+                "attribute_code": "gear_shift_indicator",
+                "reason": "The canonical decision already classifies the manual gear-shift indicator outside the automatic-transmission scope.",
+            }
         ],
         "excluded_alternatives": [
-            {
-                "attribute_code": "overall_height",
-                "value": "1535",
-                "reason": "Stepway height without roof rails does not describe the exact standard configuration",
-            },
-            {
-                "attribute_code": "overall_width_with_mirrors",
-                "value": "1853",
-                "reason": "folded-mirror width is outside the repository comparison convention",
-            },
+            {"attribute_code": "overall_height", "value": "1535", "reason": "Stepway height without roof rails does not describe the exact standard configuration"},
+            {"attribute_code": "overall_width_with_mirrors", "value": "1853", "reason": "folded-mirror width is outside the repository comparison convention"},
         ],
         "reconciliation": {
             "classification": EXHAUSTED_CLASSIFICATION,
-            "resolved_unique_slots": 6,
-            "preserved_out_of_scope_slots": 3,
+            "resolved_unique_slots": 7,
+            "preserved_out_of_scope_slots": 1,
             "remaining_unique_slots": 6,
             "remaining_technical_slots": list(REMAINING_TECHNICAL),
             "remaining_equipment_slots": list(REMAINING_EQUIPMENT),
             "boundary": (
-                "The source does not state front/rear track widths, maximum-power "
-                "engine speeds, hill-start assist or Bluetooth connectivity. "
-                "Explicit alternative equipment does not support inferred negative "
-                "availability."
+                "The source does not state front/rear track widths, maximum-power engine speeds or 80-120 km/h elasticity. "
+                "The manual gear-shift indicator remains outside the automatic-transmission scope."
             ),
         },
     }
@@ -526,35 +466,29 @@ def review_payload() -> dict[str, object]:
 
 def render_review_markdown(payload: dict[str, object]) -> str:
     return (
-        "# Sandero Stepway Extreme Source-Gap Review\n\n"
+        "# Sandero Stepway Expression Automatic Source-Gap Review\n\n"
         "Status: complete\n\n"
-        f"Source `{SOURCE_CODE}` was inspected page by page against 15 unique gap "
-        "decisions for `sandero_stepway_iii_extreme_ecog120_manual`.\n\n"
+        f"Source `{SOURCE_CODE}` was inspected page by page against 14 unique gap decisions for `{CONFIGURATION}`.\n\n"
         "## Imported observations\n\n"
         "- `overall_height = 1586 mm` for the exact standard configuration with roof rails.\n"
         "- `overall_width_with_mirrors = 2012 mm` with mirrors unfolded.\n"
+        "- `wheel_finish = stalowe` from the selected 16-inch ATARA steel wheels.\n"
         "- `ground_clearance = 170-200 mm`.\n"
         "- `max_torque_rpm = 1750-3750` for LPG and `2000-4000` for petrol.\n"
-        "- `parking_assist_system = standard`, based on the direct front/rear parking-assistance statement.\n\n"
+        "- `parking_assist_system = standard`, based on the direct rear parking-assistance statement.\n\n"
         "## Preserved boundaries\n\n"
-        "Manual air conditioning, the 3.5-inch cluster and Media Control remain "
-        "explicit alternative states because the PDF states automatic climate control, "
-        "a 7-inch colour cluster and Media Display. `front_track`, `rear_track`, both "
-        "`max_power_rpm` contexts, `hill_start_assist` and `bluetooth_connectivity` "
-        "are not stated. No negative state or sibling-trim value is inferred.\n"
+        "`front_track`, `rear_track`, both `max_power_rpm` contexts and both `elasticity_80_120` contexts are not stated. "
+        "`gear_shift_indicator` remains explicitly outside the automatic-transmission scope. No value is projected from a manual sibling configuration.\n"
     )
 
 
 def package_text() -> str:
     return (
-        "# Sandero Stepway Extreme Source Gap\n\n"
+        "# Sandero Stepway Expression Automatic Source Gap\n\n"
         "Status: complete\n\n"
-        "Imported two exact scalar observations, three inclusive ranges and one "
-        "standard equipment observation from the configuration-specific Polish PDF "
-        "dated 2026-06-26. The source is formally exhausted for the six remaining "
-        "unstated slots.\n\n"
-        "No value or availability state was projected from another trim, fuel context "
-        "or document. Explicit alternative equipment classifications remain preserved.\n"
+        "Imported three exact scalar observations, three inclusive ranges and one standard equipment observation from the configuration-specific Polish PDF dated 2026-06-26. "
+        "The source is formally exhausted for six unstated technical slots; the gear-shift indicator remains outside the automatic-transmission scope.\n\n"
+        "No value or availability state was projected from another trim or transmission.\n"
     )
 
 
@@ -569,16 +503,14 @@ def update_analysis_outputs() -> dict[str, object]:
 
 def update_state(analysis_payload: dict[str, object]) -> None:
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    state["phase"] = "Sandero Stepway Extreme Source Gap"
+    state["phase"] = "Sandero Stepway Expression Automatic Source Gap"
     state["current_package"] = {
-        "package_id": "sandero_stepway_extreme_source_gap_003",
+        "package_id": "sandero_stepway_expression_auto_source_gap_004",
         "kind": "source_backed_completeness_import",
-        "name": "Sandero Stepway Extreme Source Gap",
+        "name": "Sandero Stepway Expression Automatic Source Gap",
         "status": "complete",
         "goal": (
-            "Resolve every safely representable missing slot from the exact Stepway "
-            "Extreme Eco-G 120 manual source and preserve explicit alternative and "
-            "not-stated boundaries."
+            "Resolve every safely representable missing slot from the exact Stepway Expression Eco-G 120 automatic source and preserve not-stated and automatic-transmission boundaries."
         ),
         "manifest_paths": MANIFEST_PATHS,
     }
@@ -587,27 +519,22 @@ def update_state(analysis_payload: dict[str, object]) -> None:
         model = str(selected["model_code"])
         source = str(selected["source_code"])
         state["next_package"] = {
-            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_004",
+            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_005",
             "kind": "source_backed_completeness_import",
             "name": f"{model} Highest-Impact Eligible Source Gap",
             "status": "planned",
             "goal": (
-                f"Inspect exact missing slots for {model} against source "
-                f"{source or 'mapping to be resolved'} and import only directly "
-                "stated values or explicit non-applicable classifications."
+                f"Inspect exact missing slots for {model} against source {source or 'mapping to be resolved'} and import only directly stated values or explicit non-applicable classifications."
             ),
             "manifest_paths": [],
         }
     else:
         state["next_package"] = {
-            "package_id": "data_products_v1_10_0_release_preparation_001",
-            "kind": "release_preparation",
-            "name": "Data Products v1.10.0 Release Preparation",
+            "package_id": "configuration_gap_closure_documentation_milestone_001",
+            "kind": "documentation_milestone",
+            "name": "Configuration Gap Closure Documentation Milestone",
             "status": "planned",
-            "goal": (
-                "Prepare the next immutable release candidate from the completed "
-                "source-backed data series."
-            ),
+            "goal": "Record the completed source-backed configuration-gap closure series.",
             "manifest_paths": [],
         }
     write_json(STATE, state)
@@ -708,6 +635,7 @@ def verify_materialized() -> None:
         "overall_height",
         "overall_width_with_mirrors",
         "max_torque_rpm",
+        "wheel_finish",
     }
     scoped = [
         item
@@ -734,13 +662,16 @@ def verify_materialized() -> None:
             f"analysis did not advance to an eligible source: {selected}"
         )
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
-        raise ContractError("project state baseline predates the completed package")
+    if (
+        state["current_package"]["package_id"]
+        != "sandero_stepway_expression_auto_source_gap_004"
+    ):
+        raise ContractError("project state does not identify the completed package")
     if str(selected["source_code"]) not in state["next_package"]["goal"]:
         raise ContractError("project state does not reference the selected next source")
     print(
-        "Stepway Extreme source-gap observations: PASS "
-        "(2 values + 3 ranges + 1 availability)"
+        "Stepway Expression automatic source-gap observations: PASS "
+        "(3 values + 3 ranges + 1 availability)"
     )
 
 
