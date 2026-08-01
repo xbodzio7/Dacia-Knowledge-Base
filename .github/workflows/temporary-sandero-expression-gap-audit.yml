@@ -4,19 +4,25 @@ on:
   push:
     branches:
       - agent/sandero-expression-source-gap-20260801
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
 
 permissions:
   contents: read
 
 concurrency:
-  group: temporary-sandero-expression-source-gap-audit
+  group: temporary-sandero-expression-source-gap-audit-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   audit:
+    if: github.event_name == 'push' || github.event.pull_request.head.ref == 'agent/sandero-expression-source-gap-20260801'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.14'
