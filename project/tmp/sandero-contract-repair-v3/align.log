@@ -1,0 +1,3 @@
+usage: python -m tools.align_sandero_residual_source_closure_contracts_20260801
+       [-h] [--check]
+python -m tools.align_sandero_residual_source_closure_contracts_20260801: error: selection test block not found: tests/test_sandero_stepway_extreme_auto_source_gap_20260626.py
