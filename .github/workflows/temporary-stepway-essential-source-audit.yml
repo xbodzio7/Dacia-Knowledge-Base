@@ -37,9 +37,8 @@ jobs:
           path = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
           text = path.read_text(encoding='utf-8')
           obsolete = '''    if configuration.get("model_code") != MODEL_CODE:\n        raise ContractError(f"unexpected model identity for {CONFIGURATION}")\n'''
-          if obsolete not in text:
-              raise SystemExit('Expected obsolete model-column check was not found')
-          path.write_text(text.replace(obsolete, ''), encoding='utf-8')
+          if obsolete in text:
+              path.write_text(text.replace(obsolete, ''), encoding='utf-8')
           PY
       - name: Materialize package
         run: |
@@ -53,8 +52,24 @@ jobs:
           python -m unittest -v tests.test_sandero_stepway_essential_source_gap_20260626
           python -m unittest -v tests.test_existing_configuration_missing_data_analysis
       - name: Run full quality gate
-        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+        id: quality
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" 2>&1 | tee stepway-essential-quality-diagnostic.txt
+      - name: Commit quality diagnostics
+        if: steps.quality.outcome == 'failure'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add stepway-essential-quality-diagnostic.txt
+          git commit -m 'chore(ci): capture Stepway Essential quality failure'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - name: Fail after diagnostics
+        if: steps.quality.outcome == 'failure'
+        run: exit 1
       - name: Commit package
+        if: steps.quality.outcome == 'success'
         run: |
           git diff --check
           git config user.name 'github-actions[bot]'
