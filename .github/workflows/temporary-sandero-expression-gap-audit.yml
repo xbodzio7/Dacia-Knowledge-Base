@@ -1,0 +1,103 @@
+name: Temporary Sandero Expression Source Gap Audit
+
+on:
+  push:
+    branches:
+      - agent/sandero-expression-source-gap-20260801
+
+permissions:
+  contents: read
+
+concurrency:
+  group: temporary-sandero-expression-source-gap-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Check canonical state
+        run: python tools/dkb.py project-state --check
+      - name: Inspect exact source and gaps
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          source_code = 'src_pl_sandero_stepway_expression_ecog120_mt_20260626'
+
+          def rows(path: Path):
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          sources = rows(root / 'data/master/sources.csv')
+          source = next(row for row in sources if row.get('code') == source_code)
+          print('=== SOURCE ROW ===')
+          print(json.dumps(source, ensure_ascii=False, indent=2))
+
+          pairs = [
+              row for row in rows(root / 'data/master/source_configurations.csv')
+              if row.get('source_code') == source_code
+          ]
+          print('=== SOURCE CONFIGURATIONS ===')
+          print(json.dumps(pairs, ensure_ascii=False, indent=2))
+          configurations = sorted({row['configuration_code'] for row in pairs})
+
+          matches = {}
+          for path in sorted((root / 'data/reporting').glob('*.json')):
+              try:
+                  payload = json.loads(path.read_text(encoding='utf-8'))
+              except Exception:
+                  continue
+              text = json.dumps(payload, ensure_ascii=False)
+              if source_code in text or any(code in text for code in configurations):
+                  selected = []
+                  def walk(value):
+                      if isinstance(value, dict):
+                          rendered = json.dumps(value, ensure_ascii=False)
+                          if source_code in rendered and any(code in rendered for code in configurations):
+                              selected.append(value)
+                          else:
+                              for item in value.values():
+                                  walk(item)
+                      elif isinstance(value, list):
+                          for item in value:
+                              walk(item)
+                  walk(payload)
+                  matches[str(path)] = selected[:200]
+          print('=== REPORTING MATCHES ===')
+          print(json.dumps(matches, ensure_ascii=False, indent=2))
+
+          source_path = root / source['file_path']
+          print('=== SOURCE PATH ===')
+          print(source_path)
+          print('exists=', source_path.is_file(), 'bytes=', source_path.stat().st_size if source_path.is_file() else None)
+          Path('/tmp/source-path.txt').write_text(str(source_path), encoding='utf-8')
+          Path('/tmp/audit.json').write_text(
+              json.dumps({'source': source, 'configurations': configurations, 'matches': matches}, ensure_ascii=False, indent=2),
+              encoding='utf-8',
+          )
+          PY
+          source_path="$(cat /tmp/source-path.txt)"
+          pdfinfo "$source_path"
+          echo '=== PDF TEXT BEGIN ==='
+          pdftotext -layout "$source_path" -
+          echo '=== PDF TEXT END ==='
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sandero-expression-source-gap-audit
+          path: /tmp/audit.json
+          retention-days: 3
