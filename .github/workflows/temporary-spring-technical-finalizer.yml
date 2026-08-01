@@ -32,13 +32,10 @@ jobs:
           fi
       - name: Materialize canonical package
         run: |
-          python tools/import_spring_technical_20260219.py --apply
-          python tools/materialize_spring_technical_package_20260219.py
-          python tools/dkb.py project-state --apply
-          python tools/dkb.py documentation-baseline --apply
-          rm -f tools/materialize_spring_technical_package_20260219.py
           rm -f .github/workflows/temporary-spring-technical-dispatcher.yml
           rm -f .github/workflows/temporary-spring-technical-finalizer.yml
+          python tools/import_spring_technical_20260219.py --apply
+          python tools/materialize_spring_technical_package_20260219.py
       - name: Verify package and full quality
         run: |
           python tools/import_spring_technical_20260219.py --check
