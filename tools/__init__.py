@@ -33,8 +33,8 @@ if workbook.exists():
     elif new_dimension not in text:
         raise RuntimeError("Extreme automatic workbook dimension anchor not found")
 
-    old_difference_count = 'self.assertEqual(overview["total_difference_count"], 20)'
-    new_difference_count = 'self.assertEqual(overview["total_difference_count"], 22)'
+    old_difference_count = 'self.assertEqual(overview["total_difference_count"], 22)'
+    new_difference_count = 'self.assertEqual(overview["total_difference_count"], 20)'
     if old_difference_count in text:
         text = text.replace(old_difference_count, new_difference_count, 1)
     elif new_difference_count not in text:
