@@ -44,14 +44,16 @@ jobs:
 
           expression = Path('tools/import_sandero_stepway_expression_source_gap_20260626.py')
           text = expression.read_text(encoding='utf-8')
-          old = '''    state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":
-        raise ContractError("project state does not identify the completed package")
-'''
-          new = '''    state = json.loads(STATE.read_text(encoding="utf-8"))
-    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
-        raise ContractError("project state baseline predates the completed package")
-'''
+          old = (
+              '    state = json.loads(STATE.read_text(encoding="utf-8"))\n'
+              '    if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":\n'
+              '        raise ContractError("project state does not identify the completed package")\n'
+          )
+          new = (
+              '    state = json.loads(STATE.read_text(encoding="utf-8"))\n'
+              '    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:\n'
+              '        raise ContractError("project state baseline predates the completed package")\n'
+          )
           if old in text:
               text = text.replace(old, new, 1)
           elif new not in text:
