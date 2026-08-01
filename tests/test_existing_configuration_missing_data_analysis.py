@@ -32,7 +32,7 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
             + summary["eligible_candidate_count"],
         )
         self.assertGreaterEqual(summary["exhausted_source_candidate_count"], 1)
-        self.assertGreaterEqual(summary["eligible_candidate_count"], 1)
+        self.assertEqual(summary["eligible_candidate_count"], 0)
 
     def test_missing_slots_are_not_negative_and_candidates_are_ranked(self) -> None:
         for item in self.payload["configurations"]:

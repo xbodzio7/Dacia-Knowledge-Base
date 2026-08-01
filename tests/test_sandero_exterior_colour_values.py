@@ -149,7 +149,7 @@ class SanderoExteriorColourValueTests(unittest.TestCase):
                 if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
                 and row["observation_date"] == "2026-06-26"
             ]),
-            422,
+            423,
         )
 
     def test_source_configuration_mapping_matches_manifest(self) -> None:

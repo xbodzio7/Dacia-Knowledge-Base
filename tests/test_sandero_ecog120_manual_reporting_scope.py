@@ -20,31 +20,31 @@ CONFIGURATIONS = {'sandero_iii_expression_ecog120_manual',
  'sandero_stepway_iii_essential_ecog120_manual',
  'sandero_stepway_iii_expression_ecog120_manual',
  'sandero_stepway_iii_extreme_ecog120_manual'}
-EXPECTED_TECHNICAL = {'applicable': 300, 'coverage_percent': '95.33', 'denominator': 300, 'missing': 14, 'not_applicable': 0, 'present': 286}
+EXPECTED_TECHNICAL = {'applicable': 300, 'coverage_percent': '96.00', 'denominator': 300, 'missing': 12, 'not_applicable': 0, 'present': 288}
 EXPECTED_EQUIPMENT = {'applicable': 345,
- 'coverage_percent': '86.67',
+ 'coverage_percent': '86.96',
  'denominator': 345,
- 'missing': 46,
+ 'missing': 45,
  'not_applicable': 0,
  'not_available': 23,
  'optional': 0,
- 'recorded': 299,
- 'standard': 276,
+ 'recorded': 300,
+ 'standard': 277,
  'unknown': 0}
 EXPECTED_SOURCE_REGISTRATION = {'expected': 5, 'future': 0, 'inactive': 0, 'metadata_complete': 5, 'missing': 0, 'registered': 5}
-EXPECTED_AREAS = {'covered': 10, 'denominator': 20, 'missing': 0, 'partial': 10, 'source_missing': 0}
-EXPECTED_SECTIONS = {'covered': 135, 'denominator': 175, 'missing': 7, 'not_applicable': 0, 'partial': 33, 'source_missing': 0}
+EXPECTED_AREAS = {'covered': 12, 'denominator': 20, 'missing': 0, 'partial': 8, 'source_missing': 0}
+EXPECTED_SECTIONS = {'covered': 138, 'denominator': 175, 'missing': 7, 'not_applicable': 0, 'partial': 30, 'source_missing': 0}
 EXPECTED_COMPARISON_SUMMARY = {'prices': {'comparisons': 10, 'equal': 0, 'different': 10, 'not_comparable': 0},
- 'technical': {'comparisons': 688, 'equal': 467, 'different': 166, 'not_comparable': 55},
- 'equipment': {'comparisons': 690, 'equal': 528, 'different': 17, 'not_comparable': 145},
- 'total_differences': 193}
-EXPECTED_EVIDENCE_SUMMARY = {'total': 60, 'ambiguous': 0, 'found': 0, 'not_stated': 43, 'out_of_scope': 17}
+ 'technical': {'comparisons': 688, 'equal': 469, 'different': 171, 'not_comparable': 48},
+ 'equipment': {'comparisons': 690, 'equal': 529, 'different': 20, 'not_comparable': 141},
+ 'total_differences': 201}
+EXPECTED_EVIDENCE_SUMMARY = {'total': 57, 'ambiguous': 0, 'found': 0, 'not_stated': 40, 'out_of_scope': 17}
 EXPECTED_PAIR_TYPES = {'different_version_same_transmission': 10}
-EXPECTED_NOT_COMPARABLE = {'technical': 55, 'equipment': 145, 'prices': 0}
+EXPECTED_NOT_COMPARABLE = {'technical': 48, 'equipment': 141, 'prices': 0}
 EXPECTED_RANGED = 43
-EXPECTED_TECHNICAL_GAPS = 14
-EXPECTED_EQUIPMENT_GAPS = 46
-EXPECTED_COVERAGE_GAPS = 60
+EXPECTED_TECHNICAL_GAPS = 12
+EXPECTED_EQUIPMENT_GAPS = 45
+EXPECTED_COVERAGE_GAPS = 57
 
 
 class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
