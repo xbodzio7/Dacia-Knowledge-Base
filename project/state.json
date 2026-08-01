@@ -39,6 +39,7 @@
       "project/sources/dacia-pl-spring-current-grade-snapshots-20260802.json",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
       "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tools/capture_spring_current_grade_snapshots_20260802.py"
     ]
