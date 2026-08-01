@@ -1,0 +1,150 @@
+name: Temporary Spring Context State Contract Fix
+
+on:
+  push:
+    branches:
+      - agent/spring-commercial-context-resolution-20260802
+    paths:
+      - .github/workflows/temporary-spring-context-state-contract-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/spring-commercial-context-resolution-20260802
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13'
+      - name: Advance preserved-state contracts
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          replacements = {
+              Path('tests/test_registered_source_completeness_reconciliation_20260802.py'): (
+                  '''        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Registered Source Completeness Reconciliation",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "spring_commercial_context_resolution_001",
+        )
+''',
+                  '''        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Reviewed Gap State Materialization",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 449)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "spring_commercial_context_resolution_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "spring_current_grade_snapshot_capture_001",
+        )
+''',
+              ),
+              Path('tests/test_reviewed_gap_state_materialization_20260802.py'): (
+                  '''        self.assertEqual(state["current_package"]["package_id"], "reviewed_gap_state_materialization_001")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["package_id"], "spring_commercial_context_resolution_001")
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
+''',
+                  '''        self.assertEqual(state["current_package"]["package_id"], "spring_commercial_context_resolution_001")
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(state["next_package"]["package_id"], "spring_current_grade_snapshot_capture_001")
+        self.assertEqual(state["reference_delivery"]["pull_request"], 449)
+''',
+              ),
+              Path('tests/test_sandero_residual_source_closure_20260801.py'): (
+                  '''        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Registered Source Completeness Reconciliation",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "spring_commercial_context_resolution_001",
+        )
+''',
+                  '''        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Reviewed Gap State Materialization",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 449)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "spring_commercial_context_resolution_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "spring_current_grade_snapshot_capture_001",
+        )
+''',
+              ),
+          }
+          for path, (old, new) in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              if text.count(old) != 1:
+                  raise SystemExit(f'state contract marker mismatch: {path}')
+              path.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          manifest = state['current_package']['manifest_paths']
+          additions = [
+              'tests/test_registered_source_completeness_reconciliation_20260802.py',
+              'tests/test_reviewed_gap_state_materialization_20260802.py',
+              'tests/test_sandero_residual_source_closure_20260801.py',
+          ]
+          anchor = manifest.index('tests/test_spring_commercial_context_resolution_20260802.py')
+          for entry in reversed(additions):
+              if entry not in manifest:
+                  manifest.insert(anchor, entry)
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          python -m unittest -q \
+            tests.test_registered_source_completeness_reconciliation_20260802 \
+            tests.test_reviewed_gap_state_materialization_20260802 \
+            tests.test_sandero_residual_source_closure_20260801
+          python tools/review_spring_commercial_context_20260802.py --verify
+      - name: Commit state contract repair
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            project/state.json \
+            project/STATE_SUMMARY.md \
+            tests/test_registered_source_completeness_reconciliation_20260802.py \
+            tests/test_reviewed_gap_state_materialization_20260802.py \
+            tests/test_sandero_residual_source_closure_20260801.py
+          git diff --cached --check
+          git commit -m 'test: advance Spring context state contracts'
+          git push origin HEAD:agent/spring-commercial-context-resolution-20260802
