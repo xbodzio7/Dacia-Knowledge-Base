@@ -1,0 +1,146 @@
+name: Temporary Execute Data Products v1.10.0 Publication
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: execute-data-products-v1-10-0-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.head_ref == 'agent/execute-data-products-v1.10.0-publication-20260801'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: acd58c883b8e1ebb2d06f17dec703990bdb1d9a3
+      RELEASE_TAG: data-products-v1.10.0
+    steps:
+      - name: Check out exact verified source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: acd58c883b8e1ebb2d06f17dec703990bdb1d9a3
+          path: source
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+
+      - name: Verify exact source and focused contracts
+        run: |
+          test "$(git -C source rev-parse HEAD)" = "${SOURCE_SHA}"
+          cd source
+          python -m unittest -q \
+            tests.test_data_products_v1_10_0_release_contract \
+            tests.test_configuration_comparison_sticky_offset \
+            tests.test_configuration_selection_export \
+            tests.test_configuration_shortlist_html \
+            tests.test_data_product_release
+          python tools/dkb.py project-state --check
+
+      - name: Build exact assets twice
+        run: |
+          cd source
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --version 1.10.0 \
+            --commit-sha "${SOURCE_SHA}"
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-b" \
+            --version 1.10.0 \
+            --commit-sha "${SOURCE_SHA}"
+          diff -qr "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b"
+
+      - name: Verify assets and offline workspace
+        run: |
+          cd source
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --verify
+          mkdir "${RUNNER_TEMP}/workspace"
+          unzip -q \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
+            -d "${RUNNER_TEMP}/workspace"
+          python tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "${RUNNER_TEMP}/workspace" \
+            --json
+          unzip -p \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
+            RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"
+
+      - name: Publish or verify immutable public release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${RELEASE_TAG}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            git -C source fetch --tags --force origin
+            test "$(git -C source rev-list -n 1 "${RELEASE_TAG}")" = "${SOURCE_SHA}"
+          else
+            gh release create "${RELEASE_TAG}" \
+              "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
+              "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
+              "${RUNNER_TEMP}/release-a/SHA256SUMS" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --target "${SOURCE_SHA}" \
+              --title "Dacia Knowledge Base Data Products v1.10.0" \
+              --notes-file "${RUNNER_TEMP}/release-notes.md"
+          fi
+          rm -rf "${RUNNER_TEMP}/public"
+          mkdir "${RUNNER_TEMP}/public"
+          gh release download "${RELEASE_TAG}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --dir "${RUNNER_TEMP}/public"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
+            "${RUNNER_TEMP}/public/dacia-knowledge-base-data-products-v1.10.0.zip"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
+            "${RUNNER_TEMP}/public/data-product-release-manifest.json"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/SHA256SUMS" \
+            "${RUNNER_TEMP}/public/SHA256SUMS"
+          gh release view "${RELEASE_TAG}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --json databaseId \
+            -q '.databaseId' > "${RUNNER_TEMP}/release-id.txt"
+
+      - name: Check out publication-record branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/execute-data-products-v1.10.0-publication-20260801
+          path: record
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Record verified publication on the branch
+        env:
+          RELEASE_DIR: ${{ runner.temp }}/release-a
+          RELEASE_ID_FILE: ${{ runner.temp }}/release-id.txt
+        run: |
+          export RELEASE_ID="$(cat "${RELEASE_ID_FILE}")"
+          cd record
+          python tools/record_data_products_v1_10_0_publication_20260801.py
+          python tools/dkb.py project-state --apply
+          rm tools/record_data_products_v1_10_0_publication_20260801.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/reporting/data_products_v1_10_0_publication.json \
+            project/STATE_SUMMARY.md \
+            project/packages/data-products-v1.10.0-publication-20260801.md \
+            project/state.json \
+            README.md \
+            CHANGELOG.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            tools/record_data_products_v1_10_0_publication_20260801.py
+          git commit -m "release(data-products): record v1.10.0 publication"
+          git push origin HEAD:agent/execute-data-products-v1.10.0-publication-20260801
