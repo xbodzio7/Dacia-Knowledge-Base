@@ -2,13 +2,26 @@
 from pathlib import Path
 
 package_dir = Path(__file__).resolve().parent
-target = package_dir / "import_sandero_stepway_extreme_auto_source_gap_20260626.py"
-if target.exists():
-    text = target.read_text(encoding="utf-8")
+
+importer = package_dir / "import_sandero_stepway_extreme_auto_source_gap_20260626.py"
+if importer.exists():
+    text = importer.read_text(encoding="utf-8")
     old = "sandero_stepway_expression_auto_source_gap_review"
     new = "sandero_stepway_extreme_auto_source_gap_review"
     if old in text:
-        target.write_text(text.replace(old, new), encoding="utf-8")
+        importer.write_text(text.replace(old, new), encoding="utf-8")
     elif new not in text:
         raise RuntimeError("Extreme automatic review-path anchor not found")
+
+aligner = package_dir / "align_sandero_stepway_extreme_auto_snapshot_contracts_20260801.py"
+if aligner.exists():
+    text = aligner.read_text(encoding="utf-8")
+    old = '''    text = re.sub(r'("sandero_stepway_iii_expression_ecog120_automatic":)\\s*\\d+', rf'\\g<1> {configuration_counts["sandero_stepway_iii_expression_ecog120_automatic"]}', text)'''
+    new = '''    text = re.sub(r'("sandero_stepway_iii_extreme_ecog120_automatic":)\\s*\\d+', rf'\\g<1> {configuration_counts["sandero_stepway_iii_extreme_ecog120_automatic"]}', text)'''
+    if old in text:
+        aligner.write_text(text.replace(old, new, 1), encoding="utf-8")
+    elif new not in text:
+        raise RuntimeError("Extreme automatic availability-count anchor not found")
+
+if importer.exists() and aligner.exists():
     Path(__file__).unlink()
