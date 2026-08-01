@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "as_of": "2026-08-01",
   "kind": "existing_configuration_missing_data_analysis",
   "summary": {
@@ -9,7 +9,9 @@
     "missing_technical_count": 173,
     "missing_equipment_count": 44,
     "classified_not_applicable_count": 0,
-    "candidate_count": 9
+    "candidate_count": 9,
+    "exhausted_source_candidate_count": 1,
+    "eligible_candidate_count": 8
   },
   "configurations": [
     {
@@ -2105,7 +2107,9 @@
       "configuration_count": 2,
       "missing_technical": 48,
       "missing_equipment": 32,
-      "weighted_impact": 176
+      "weighted_impact": 176,
+      "selection_status": "source_exhausted_not_stated",
+      "source_review_path": "sandero_official_web_source_gap_review.json"
     },
     {
       "model_code": "sandero",
@@ -2113,7 +2117,9 @@
       "configuration_count": 2,
       "missing_technical": 24,
       "missing_equipment": 0,
-      "weighted_impact": 72
+      "weighted_impact": 72,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2121,7 +2127,9 @@
       "configuration_count": 2,
       "missing_technical": 24,
       "missing_equipment": 0,
-      "weighted_impact": 72
+      "weighted_impact": 72,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2129,7 +2137,9 @@
       "configuration_count": 2,
       "missing_technical": 22,
       "missing_equipment": 2,
-      "weighted_impact": 68
+      "weighted_impact": 68,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2137,7 +2147,9 @@
       "configuration_count": 2,
       "missing_technical": 18,
       "missing_equipment": 4,
-      "weighted_impact": 58
+      "weighted_impact": 58,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2145,7 +2157,9 @@
       "configuration_count": 2,
       "missing_technical": 16,
       "missing_equipment": 4,
-      "weighted_impact": 52
+      "weighted_impact": 52,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2153,7 +2167,9 @@
       "configuration_count": 6,
       "missing_technical": 9,
       "missing_equipment": 0,
-      "weighted_impact": 27
+      "weighted_impact": 27,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2161,7 +2177,9 @@
       "configuration_count": 2,
       "missing_technical": 6,
       "missing_equipment": 2,
-      "weighted_impact": 20
+      "weighted_impact": 20,
+      "selection_status": "eligible",
+      "source_review_path": ""
     },
     {
       "model_code": "sandero",
@@ -2169,15 +2187,19 @@
       "configuration_count": 2,
       "missing_technical": 6,
       "missing_equipment": 0,
-      "weighted_impact": 18
+      "weighted_impact": 18,
+      "selection_status": "eligible",
+      "source_review_path": ""
     }
   ],
   "selected_next_package": {
     "model_code": "sandero",
-    "source_code": "src_pl_sandero_official_web_configurations_20260723",
+    "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
     "configuration_count": 2,
-    "missing_technical": 48,
-    "missing_equipment": 32,
-    "weighted_impact": 176
+    "missing_technical": 24,
+    "missing_equipment": 0,
+    "weighted_impact": 72,
+    "selection_status": "eligible",
+    "source_review_path": ""
   }
 }
