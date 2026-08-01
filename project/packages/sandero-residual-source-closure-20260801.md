@@ -26,6 +26,8 @@ The TCe catalogue candidate retains nine missing slots as source-exhausted: six 
 
 Current-repository snapshots and historical completed-package checks were advanced to the post-closure state. They now accept zero eligible source candidates, preserve all seven exhausted candidates, and include the one new availability record and two new scalar values without altering historical package evidence.
 
+The aggregate configuration-comparison snapshot now contains 411 differences. Both the context-filter export and pair-summary orchestration contracts use that exact post-closure total.
+
 ## Result
 
 - eligible source candidates: 0;
