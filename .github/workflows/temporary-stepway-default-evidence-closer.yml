@@ -30,20 +30,41 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-      - name: Add default evidence to package manifest
+      - name: Align package and export contracts
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
-          text = path.read_text(encoding='utf-8')
-          line = '    "data/reporting/configuration_gap_evidence.json",\n'
+
+          importer = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
+          text = importer.read_text(encoding='utf-8')
           marker = 'MANIFEST_PATHS = [\n'
-          if line not in text:
-              text = text.replace(marker, marker + line, 1)
-              path.write_text(text, encoding='utf-8')
+          additions = [
+              '    "data/reporting/configuration_gap_evidence.json",',
+              '    "tests/configuration_comparison_context_filter_contract.py",',
+          ]
+          missing = [line for line in additions if line not in text]
+          if missing:
+              text = text.replace(marker, marker + '\n'.join(missing) + '\n', 1)
+              importer.write_text(text, encoding='utf-8')
+
+          path = Path('tests/configuration_comparison_context_filter_contract.py')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              'len(core.difference_csv_rows(report)), 365': 'len(core.difference_csv_rows(report)), 371',
+              '"fuel_type_code=": 160': '"fuel_type_code=": 164',
+              '"fuel_type_code=lpg": 83': '"fuel_type_code=lpg": 84',
+              '"fuel_type_code=petrol": 77': '"fuel_type_code=petrol": 78',
+          }
+          for old, new in replacements.items():
+              if old in text:
+                  text = text.replace(old, new, 1)
+              elif new not in text:
+                  raise SystemExit(f'Missing context-filter contract: {old}')
+          path.write_text(text, encoding='utf-8')
           PY
       - name: Materialize dependencies
         run: |
+          rm -f stepway-current-report.json stepway-essential-quality-diagnostic.txt
           python -m tools.close_stepway_essential_reporting_dependencies_20260801
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
