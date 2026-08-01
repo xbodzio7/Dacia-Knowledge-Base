@@ -30,6 +30,34 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
+      - name: Preserve historical package contracts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          aligner = Path('tools/align_sandero_stepway_extreme_snapshot_contracts_20260801.py')
+          text = aligner.read_text(encoding='utf-8')
+          passive = '    "tests/test_sandero_passive_safety_availability.py",\n'
+          if passive in text:
+              text = text.replace(passive, '')
+          aligner.write_text(text, encoding='utf-8')
+
+          expression = Path('tools/import_sandero_stepway_expression_source_gap_20260626.py')
+          text = expression.read_text(encoding='utf-8')
+          old = '''    state = json.loads(STATE.read_text(encoding="utf-8"))
+    if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":
+        raise ContractError("project state does not identify the completed package")
+'''
+          new = '''    state = json.loads(STATE.read_text(encoding="utf-8"))
+    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
+        raise ContractError("project state baseline predates the completed package")
+'''
+          if old in text:
+              text = text.replace(old, new, 1)
+          elif new not in text:
+              raise SystemExit('Expression historical state contract not found')
+          expression.write_text(text, encoding='utf-8')
+          PY
       - name: Apply package
         run: |
           python -m tools.import_sandero_stepway_extreme_source_gap_20260626
@@ -48,6 +76,8 @@ jobs:
       - name: Run focused tests
         run: |
           python -m unittest -v tests.test_sandero_stepway_extreme_source_gap_20260626
+          python -m unittest -v tests.test_sandero_stepway_expression_source_gap_20260626
+          python -m unittest -v tests.test_sandero_passive_safety_availability
           python -m unittest -v tests.test_sandero_ecog120_manual_reporting_scope
           python -m unittest -v tests.configuration_comparison_context_filter_contract
           python -m unittest -v tests.configuration_comparison_pair_summary_contract
