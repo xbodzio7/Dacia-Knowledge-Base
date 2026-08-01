@@ -1,0 +1,83 @@
+name: Temporary Spring Technical Materializer V2
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-spring-technical-materializer-v2-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.ref == 'agent/spring-brochure-technical-observations-20260219'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Verify and extract package
+        run: |
+          base64 -d .github/spring-package-fixed.b64 > "$RUNNER_TEMP/spring-package.tar.gz"
+          echo '26a109a874132c4639f9b30c5f3ff146afadb073c3f72c3687a403a320fc2b11  '"$RUNNER_TEMP/spring-package.tar.gz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/spring-package.tar.gz" -C .
+      - name: Materialize package
+        run: |
+          python tools/import_spring_technical_20260219.py --apply
+          python tools/materialize_spring_technical_package_20260219.py
+          python tools/dkb.py project-state --write
+          python tools/dkb.py documentation-baseline --write
+          rm tools/materialize_spring_technical_package_20260219.py
+          rm .github/spring-package-fixed.b64
+          rm .github/materializer-trigger-spring.txt .github/placeholder.txt .github/placeholder2.txt
+          rm .github/workflows/temporary-spring-technical-materializer.yml
+          rm .github/workflows/temporary-spring-technical-dispatcher.yml
+          rm .github/workflows/temporary-spring-technical-materializer-v2.yml
+      - name: Verify package
+        run: |
+          python tools/import_spring_technical_20260219.py --check
+          python -m unittest -v tests.test_spring_technical_20260219
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+          python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
+      - name: Verify manifest and commit
+        run: |
+          cat > "$RUNNER_TEMP/expected.txt" <<'EOF'
+          CHANGELOG.md
+          README.md
+          data/imports/spring_technical_20260219.csv
+          data/master/configuration_attribute_value_ranges.csv
+          data/master/configuration_attribute_values.csv
+          data/reporting/spring_electric70_automatic_completeness.json
+          data/reporting/verified_pdf_candidate_coverage_reconciliation.json
+          project/ROADMAP.md
+          project/SESSION_STATE.md
+          project/STATE_SUMMARY.md
+          project/packages/spring-brochure-technical-observations-20260219.md
+          project/state.json
+          tests/test_spring_technical_20260219.py
+          tools/import_spring_technical_20260219.py
+          EOF
+          sed -i 's/^          //' "$RUNNER_TEMP/expected.txt"
+          git diff --name-only origin/main | LC_ALL=C sort > "$RUNNER_TEMP/actual.txt"
+          diff -u "$RUNNER_TEMP/expected.txt" "$RUNNER_TEMP/actual.txt"
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          git commit -m 'feat(data): add Spring brochure technical observations'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
