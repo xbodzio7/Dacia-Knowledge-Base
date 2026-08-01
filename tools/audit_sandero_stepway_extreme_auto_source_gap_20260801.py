@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inspect the exact Stepway Extreme automatic source and canonical missing slots."""
+"""Preserve the reviewed Stepway Extreme automatic source audit for package materialization."""
 from __future__ import annotations
 
 import hashlib
