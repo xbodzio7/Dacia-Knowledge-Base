@@ -98,9 +98,9 @@ def apply() -> None:
         raise DependencyError(
             f"expected zero or six resolved evidence decisions, found {evidence_removed}"
         )
-    if review_removed not in {0, 6}:
+    if review_removed not in {0, 1}:
         raise DependencyError(
-            f"expected zero or six resolved source-review keys, found {review_removed}"
+            f"expected zero or one resolved source-review key, found {review_removed}"
         )
     EVIDENCE.write_text(canonical(evidence), encoding="utf-8")
     SOURCE_REVIEW.write_text(canonical(source_review), encoding="utf-8")
