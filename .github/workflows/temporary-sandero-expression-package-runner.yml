@@ -33,6 +33,17 @@ jobs:
       - name: Build package files
         run: |
           python tools/temporary_materialize_sandero_expression_20260801.py
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('tools/import_sandero_stepway_expression_source_gap_20260626.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_001"'
+          new = 'state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002"'
+          if old not in text:
+              raise SystemExit('missing Expression package identity assertion')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
           rm -f \
             tools/temporary_materialize_sandero_expression_20260801.py \
             .github/workflows/temporary-sandero-expression-gap-audit.yml \
