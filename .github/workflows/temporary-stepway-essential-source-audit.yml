@@ -16,38 +16,30 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Install PDF backend
+      - name: Inspect dimension conventions and gear coverage
         run: |
-          sudo apt-get update
-          sudo apt-get install --yes --no-install-recommends poppler-utils
-      - name: Inspect exact source usage and contexts
-        run: |
-          CONFIG='sandero_stepway_iii_essential_ecog120_manual'
-          SOURCE='src_pl_sandero_stepway_essential_ecog120_mt_20260626'
-          echo '===== MASTER FILES ====='
-          find data/master -maxdepth 1 -type f -printf '%f\n' | sort
-          echo '===== CONFIGURATION SCALAR VALUES ====='
-          head -n 1 data/master/configuration_attribute_values.csv
-          grep -F "$CONFIG" data/master/configuration_attribute_values.csv || true
-          echo '===== CONFIGURATION VALUE RANGES ====='
-          head -n 1 data/master/configuration_attribute_value_ranges.csv
-          grep -F "$CONFIG" data/master/configuration_attribute_value_ranges.csv || true
-          echo '===== SOURCE USAGE ====='
-          grep -R -n -F "$SOURCE" data project tests tools --exclude='*.pdf' || true
-          echo '===== CONTEXT-RELATED HEADERS AND ROWS ====='
-          for file in data/master/*context*.csv data/master/*basis*.csv; do
-            [ -f "$file" ] || continue
-            echo "--- $file"
-            head -n 1 "$file"
-            grep -F "$CONFIG" "$file" || true
-          done
-          echo '===== EXACT MISSING ENTRY ====='
           python - <<'PY'
-          import json
+          import csv, json
           from pathlib import Path
-          code = 'sandero_stepway_iii_essential_ecog120_manual'
-          payload = json.loads(Path('data/reporting/existing_configuration_missing_data_analysis.json').read_text(encoding='utf-8'))
-          for item in payload['configurations']:
-              if item['configuration_code'] == code:
-                  print(json.dumps(item, ensure_ascii=False, indent=2))
+
+          values = list(csv.DictReader(Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='')))
+          print('===== DIMENSION CONVENTIONS =====')
+          for row in values:
+              if row['attribute_code'] in {'overall_height', 'overall_width_with_mirrors'}:
+                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+
+          print('===== SANDERO GEAR-4 COVERAGE =====')
+          for scope_name in ('configuration_completeness.json', 'sandero_ecog120_manual_completeness.json'):
+              payload = json.loads(Path('data/reporting', scope_name).read_text(encoding='utf-8'))
+              codes = [item['configuration_code'] if isinstance(item, dict) else item for item in payload['configurations']]
+              print(scope_name, len(codes))
+              for code in codes:
+                  found = sorted(
+                      (row['fuel_type_code'], row['gear_number'], row['value'], row['source_code'])
+                      for row in values
+                      if row['configuration_code'] == code
+                      and row['attribute_code'] == 'elasticity_80_120'
+                      and row['gear_number'] == '4'
+                  )
+                  print(code, found)
           PY
