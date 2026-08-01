@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import json
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -13,7 +12,8 @@ sys.path.insert(0, str(TOOLS))
 
 import configuration_shortlist  # noqa: E402
 
-SOURCE = "src_pl_sandero_stepway_price_my26_20260703"
+PRICE_SOURCE = "src_pl_sandero_stepway_price_my26_20260703"
+TECHNICAL_SOURCE = "src_pl_sandero_stepway_catalog_tce_slice_20260703"
 EXPECTED_MAPPINGS = {
     ("sandero_rear_view_camera_option", "sandero_iii_expression_tce100_manual", "700"),
     ("sandero_rear_view_camera_option", "sandero_iii_expression_ecog120_automatic", "700"),
@@ -84,7 +84,7 @@ class InterfaceSourceCoverageRepairTests(unittest.TestCase):
                 row["amount"],
             )
             for row in rows
-            if row["source_code"] == SOURCE
+            if row["source_code"] == PRICE_SOURCE
             and row["price_date"] == "2026-07-03"
         }
         self.assertTrue(EXPECTED_MAPPINGS.issubset(actual))
@@ -95,7 +95,7 @@ class InterfaceSourceCoverageRepairTests(unittest.TestCase):
                 if row["commercial_item_code"] == item_code
                 and row["configuration_code"] == configuration_code
                 and row["amount"] == amount
-                and row["source_code"] == SOURCE
+                and row["source_code"] == PRICE_SOURCE
             ]
             self.assertEqual(len(matches), 1, (item_code, configuration_code))
             self.assertEqual(matches[0]["availability_status"], "optional")
@@ -117,10 +117,19 @@ class InterfaceSourceCoverageRepairTests(unittest.TestCase):
         }
         self.assertEqual(set(matches), expected)
         self.assertTrue(
-            all(row["source_code"] == SOURCE for row in matches.values())
+            all(
+                row["source_code"] == TECHNICAL_SOURCE
+                for row in matches.values()
+            )
         )
         self.assertTrue(
-            all(row["observation_date"] == "2026-07-03" for row in matches.values())
+            all(
+                row["observation_date"] == "2026-07-03"
+                for row in matches.values()
+            )
+        )
+        self.assertTrue(
+            all("Rodzaj wtrysku: bezpośredni" in row["notes"] for row in matches.values())
         )
 
     def test_interface_distinguishes_missing_states_and_provenance(self) -> None:
