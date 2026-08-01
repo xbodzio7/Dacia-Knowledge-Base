@@ -1,6 +1,0 @@
-154:Wspomaganie parkowania tyłem                                                 ●                  ●                  ●                  ●                  ●                   ●
-155:Wspomaganie parkowania przodem                                               -                  -                  ●                  -                  -                   ●
-193:Kierownica z regulacją wysokości / głębokości                                                 ●/-                    ●/●                    ●/●        ●/-         ●/●            ●/●
-195:Fotel kierowcy z regulacją wysokości / i wbudowanym podłokietnikiem                           ●/-                    ●/●                    ●/●        ●/-         ●/●            ●/●
-218:głośniki wysokotonowe), ekran dotykowy 10”, (kompatybilny z Apple
-370:w przepisach podatkowych mogących mieć wpływ na wysokość ceny pojazdu lub innych oferowanych towarów i usług. W
