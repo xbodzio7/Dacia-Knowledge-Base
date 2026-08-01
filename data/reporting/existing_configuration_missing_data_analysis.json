@@ -6,12 +6,12 @@
     "active_configuration_count": 81,
     "completeness_scope_count": 23,
     "scoped_configuration_count": 88,
-    "missing_technical_count": 111,
-    "missing_equipment_count": 40,
+    "missing_technical_count": 101,
+    "missing_equipment_count": 38,
     "classified_not_applicable_count": 0,
     "candidate_count": 9,
-    "exhausted_source_candidate_count": 5,
-    "eligible_candidate_count": 4
+    "exhausted_source_candidate_count": 6,
+    "eligible_candidate_count": 3
   },
   "configurations": [
     {
@@ -346,7 +346,7 @@
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "scope_file": "configuration_completeness.json",
       "expected_technical": 60,
-      "missing_technical": 9,
+      "missing_technical": 4,
       "missing_technical_slots": [
         {
           "attribute_code": "front_track",
@@ -354,11 +354,6 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "ground_clearance",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "max_power_rpm",
           "fuel_type_code": "lpg",
           "gear_number": ""
@@ -366,26 +361,6 @@
         {
           "attribute_code": "max_power_rpm",
           "fuel_type_code": "petrol",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "max_torque_rpm",
-          "fuel_type_code": "lpg",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "max_torque_rpm",
-          "fuel_type_code": "petrol",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "overall_height",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "overall_width_with_mirrors",
-          "fuel_type_code": "",
           "gear_number": ""
         },
         {
@@ -395,10 +370,9 @@
         }
       ],
       "expected_equipment": 69,
-      "missing_equipment": 2,
+      "missing_equipment": 1,
       "missing_equipment_attributes": [
-        "gear_shift_indicator",
-        "parking_assist_system"
+        "gear_shift_indicator"
       ],
       "classified_not_applicable": 0
     },
@@ -1559,7 +1533,7 @@
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "scope_file": "sandero_stepway_ecog120_automatic_completeness.json",
       "expected_technical": 58,
-      "missing_technical": 9,
+      "missing_technical": 4,
       "missing_technical_slots": [
         {
           "attribute_code": "elasticity_80_120",
@@ -1572,11 +1546,6 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "ground_clearance",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "max_power_rpm",
           "fuel_type_code": "lpg",
           "gear_number": ""
@@ -1584,34 +1553,13 @@
         {
           "attribute_code": "max_power_rpm",
           "fuel_type_code": "petrol",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "max_torque_rpm",
-          "fuel_type_code": "lpg",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "max_torque_rpm",
-          "fuel_type_code": "petrol",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "overall_height",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "overall_width_with_mirrors",
-          "fuel_type_code": "",
           "gear_number": ""
         }
       ],
       "expected_equipment": 69,
-      "missing_equipment": 2,
+      "missing_equipment": 1,
       "missing_equipment_attributes": [
-        "gear_shift_indicator",
-        "parking_assist_system"
+        "gear_shift_indicator"
       ],
       "classified_not_applicable": 0
     },
@@ -1797,16 +1745,6 @@
     },
     {
       "model_code": "sandero",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
-      "configuration_count": 2,
-      "missing_technical": 18,
-      "missing_equipment": 4,
-      "weighted_impact": 58,
-      "selection_status": "eligible",
-      "source_review_path": ""
-    },
-    {
-      "model_code": "sandero",
       "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
       "configuration_count": 6,
       "missing_technical": 9,
@@ -1824,6 +1762,16 @@
       "weighted_impact": 26,
       "selection_status": "source_exhausted_not_stated",
       "source_review_path": "sandero_stepway_expression_auto_source_gap_review.json"
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_count": 2,
+      "missing_technical": 8,
+      "missing_equipment": 2,
+      "weighted_impact": 26,
+      "selection_status": "source_exhausted_not_stated",
+      "source_review_path": "sandero_stepway_extreme_auto_source_gap_review.json"
     },
     {
       "model_code": "sandero",
@@ -1878,11 +1826,11 @@
   ],
   "selected_next_package": {
     "model_code": "sandero",
-    "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
-    "configuration_count": 2,
-    "missing_technical": 18,
-    "missing_equipment": 4,
-    "weighted_impact": 58,
+    "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+    "configuration_count": 6,
+    "missing_technical": 9,
+    "missing_equipment": 0,
+    "weighted_impact": 27,
     "selection_status": "eligible",
     "source_review_path": ""
   }

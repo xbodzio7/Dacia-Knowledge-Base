@@ -662,11 +662,8 @@ def verify_materialized() -> None:
             f"analysis did not advance to an eligible source: {selected}"
         )
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if (
-        state["current_package"]["package_id"]
-        != "sandero_stepway_expression_auto_source_gap_004"
-    ):
-        raise ContractError("project state does not identify the completed package")
+    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
+        raise ContractError("project state baseline predates the completed package")
     if str(selected["source_code"]) not in state["next_package"]["goal"]:
         raise ContractError("project state does not reference the selected next source")
     print(
