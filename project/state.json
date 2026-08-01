@@ -33,8 +33,12 @@
     "status": "complete",
     "goal": "Audit every remaining active comparison and blank optional-price row against registered exact sources and assign one of four bounded evidence classifications without adding models, domains or inferred values.",
     "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
       "data/reporting/registered_source_completeness_reconciliation.json",
       "data/reporting/registered_source_completeness_reconciliation.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
       "project/reviews/registered-source-completeness-reconciliation-2026-08-02.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
