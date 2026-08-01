@@ -551,6 +551,16 @@ def close_reporting_dependencies() -> None:
     if not isinstance(triage, list):
         raise ClosureError("unexpected configuration source-review payload")
     source_review["review_triage_keys"] = [item for item in triage if not targeted_triage_key(item)]
+    rules = source_review.get("rules")
+    if not isinstance(rules, list):
+        raise ClosureError("unexpected configuration source-review rules payload")
+    resolved_rule_attributes = {attribute for _domain, _source, _configuration, attribute in TARGET_DECISIONS}
+    source_review["rules"] = [
+        rule
+        for rule in rules
+        if not isinstance(rule, Mapping)
+        or str(rule.get("attribute_code", "")) not in resolved_rule_attributes
+    ]
     write_json(SOURCE_REVIEW_INDEX, source_review)
 
     evidence = gap_plan.read_json(
@@ -689,6 +699,19 @@ def check() -> None:
         actual = read_json(SOURCE_METADATA[source]["review"])
         if actual != expected:
             raise ClosureError(f"stale source review: {source}")
+    source_review = read_json(SOURCE_REVIEW_INDEX)
+    rules = source_review.get("rules")
+    if not isinstance(rules, list):
+        raise ClosureError("unexpected configuration source-review rules payload")
+    resolved_rule_attributes = {attribute for _domain, _source, _configuration, attribute in TARGET_DECISIONS}
+    stale_rules = [
+        rule
+        for rule in rules
+        if isinstance(rule, Mapping)
+        and str(rule.get("attribute_code", "")) in resolved_rule_attributes
+    ]
+    if stale_rules:
+        raise ClosureError(f"resolved source-review rules remain: {stale_rules}")
     analysis_payload = missing_analysis.collect(ROOT)
     stored_analysis = read_json(REPORTING / "existing_configuration_missing_data_analysis.json")
     if stored_analysis != analysis_payload:

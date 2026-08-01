@@ -332,35 +332,6 @@
       "source_section": "Wyposażenie"
     },
     {
-      "attribute_code": "parking_assist_system",
-      "matches": [
-        {
-          "candidate_value": "not_available",
-          "exclude_needles": [],
-          "needle": "bez automatycznego parkowania"
-        },
-        {
-          "candidate_value": "standard",
-          "exclude_needles": [
-            "bez automatycznego parkowania"
-          ],
-          "needle": "system automatycznego parkowania"
-        },
-        {
-          "candidate_value": "standard",
-          "exclude_needles": [
-            "bez automatycznego parkowania"
-          ],
-          "needle": "automatyczne parkowanie"
-        }
-      ],
-      "review_pages": [
-        3,
-        4
-      ],
-      "source_section": "Wyposażenie"
-    },
-    {
       "attribute_code": "rear_view_camera",
       "matches": [
         {
@@ -446,30 +417,6 @@
         4
       ],
       "source_section": "Wyposażenie"
-    },
-    {
-      "attribute_code": "wheel_finish",
-      "matches": [
-        {
-          "candidate_value": "black",
-          "exclude_needles": [],
-          "needle": "TAMIA BLACK"
-        },
-        {
-          "candidate_value": "bi-tone",
-          "exclude_needles": [],
-          "needle": "TAMIA BI-TON"
-        },
-        {
-          "candidate_value": "bi-tone",
-          "exclude_needles": [],
-          "needle": "ERALIA BI-TON"
-        }
-      ],
-      "review_pages": [
-        2
-      ],
-      "source_section": "Felgi"
     }
   ],
   "version": 1
