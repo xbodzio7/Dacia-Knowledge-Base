@@ -58,3 +58,7 @@ This package activates `accelerated_milestone_closure`:
 ## Historical contract repair
 
 Five completed Sandero Stepway source-gap verifiers now validate their durable data, generated analysis and minimum canonical baseline without requiring `project/state.json` to remain frozen on their former current or next package. This keeps completed package contracts valid while the canonical state advances to release preparation and later milestones.
+
+## Publication trigger
+
+The publisher workflow is already installed on `main`. This follow-up changes the release package record so GitHub processes the exact-commit publication workflow from an existing default-branch definition rather than from the commit that introduced the workflow itself.
