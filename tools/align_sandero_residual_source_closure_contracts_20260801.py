@@ -155,7 +155,7 @@ def replace_test_selection_block(path: str, end_method: str) -> None:
         start = next(
             index
             for index, line in enumerate(lines)
-            if 'selected = payload["selected_next_package"]' in line
+            if "selected = " in line and '["selected_next_package"]' in line
         )
         end = next(
             index
@@ -163,14 +163,15 @@ def replace_test_selection_block(path: str, end_method: str) -> None:
             if lines[index].startswith(f"    def {end_method}")
         )
     except StopIteration:
-        desired = '        self.assertEqual(payload["summary"]["eligible_candidate_count"], 0)\n'
-        if desired in content:
+        if 'self.assertIsNone(selected)' in content and '["eligible_candidate_count"], 0' in content:
             return
         raise AlignmentError(f"selection test block not found: {path}")
+    selected_expression = lines[start].strip().split(" = ", 1)[1]
+    payload_expression = selected_expression.rsplit("[", 1)[0]
     replacement = [
-        '        selected = payload["selected_next_package"]\n',
+        f"        selected = {selected_expression}\n",
         '        self.assertIsNone(selected)\n',
-        '        self.assertEqual(payload["summary"]["eligible_candidate_count"], 0)\n',
+        f'        self.assertEqual({payload_expression}["summary"]["eligible_candidate_count"], 0)\n',
         "\n",
     ]
     lines[start:end] = replacement
@@ -314,8 +315,21 @@ def apply() -> None:
         "tests/test_sandero_stepway_essential_source_gap_20260626.py",
         "tests/test_sandero_stepway_expression_source_gap_20260626.py",
     ):
-        replace_number(path, 101, 97)
-        replace_number(path, 6, 7)
+        replace_exact(
+            path,
+            '        self.assertEqual(payload["summary"]["missing_technical_count"], 101)',
+            '        self.assertEqual(payload["summary"]["missing_technical_count"], 97)',
+        )
+        replace_exact(
+            path,
+            '        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 6)',
+            '        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 7)',
+        )
+    replace_exact(
+        "tests/test_sandero_stepway_expression_source_gap_20260626.py",
+        '        self.assertEqual(review["reconciliation"]["resolved_unique_slots"], 7)',
+        '        self.assertEqual(review["reconciliation"]["resolved_unique_slots"], 6)',
+    )
     for path in HISTORICAL_SOURCE_TESTS:
         replace_test_selection_block(path, "test_full_materialized_contract_passes")
 

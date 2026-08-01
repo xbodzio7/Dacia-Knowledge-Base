@@ -557,10 +557,10 @@ def verify_materialized() -> None:
     if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
         raise ContractError("missing-data analysis Markdown is stale")
     summary = expected_analysis["summary"]
-    if summary["missing_technical_count"] != 101:
-        raise ContractError(f"expected 115 remaining technical records, found {summary['missing_technical_count']}")
-    if summary["exhausted_source_candidate_count"] != 6:
-        raise ContractError("expected exactly 6 exhausted-source candidates")
+    if summary["missing_technical_count"] != 97:
+        raise ContractError(f"expected 97 remaining technical records, found {summary['missing_technical_count']}")
+    if summary["exhausted_source_candidate_count"] != 7:
+        raise ContractError("expected exactly 7 exhausted-source candidates")
     current = next(
         item for item in expected_analysis["ranked_candidates"]
         if item["source_code"] == SOURCE_CODE
@@ -568,8 +568,13 @@ def verify_materialized() -> None:
     if current["missing_technical"] != 8 or current["selection_status"] != EXHAUSTED_CLASSIFICATION:
         raise ContractError(f"unexpected post-review source candidate: {current}")
     selected = expected_analysis.get("selected_next_package")
-    if not selected or selected["source_code"] == SOURCE_CODE or selected["selection_status"] != "eligible":
-        raise ContractError(f"analysis did not advance to an eligible source: {selected}")
+    if (
+        selected is not None
+        or expected_analysis["summary"]["eligible_candidate_count"] != 0
+    ):
+        raise ContractError(
+            f"analysis should have no eligible source after residual closure: {selected}"
+        )
     state = json.loads(STATE.read_text(encoding="utf-8"))
     if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
         raise ContractError("project state baseline predates the completed package")

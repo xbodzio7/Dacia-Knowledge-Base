@@ -22,6 +22,10 @@ The package closes the final three eligible Sandero source candidates as one evi
 
 The TCe catalogue candidate retains nine missing slots as source-exhausted: six unqualified `elasticity_80_120` slots and three Stepway `overall_height` slots. The source states neither value family. Gear-specific brochure observations, Eco-G configuration PDFs and sibling trims are not projected into the TCe configurations.
 
+## Quality-contract alignment
+
+Current-repository snapshots and historical completed-package checks were advanced to the post-closure state. They now accept zero eligible source candidates, preserve all seven exhausted candidates, and include the one new availability record and two new scalar values without altering historical package evidence.
+
 ## Result
 
 - eligible source candidates: 0;

@@ -70,15 +70,8 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
             "sandero_official_web_source_gap_review.json",
         )
         selected = self.payload["selected_next_package"]
-        self.assertIsNotNone(selected)
-        self.assertEqual(selected["selection_status"], "eligible")
-        first_eligible = next(
-            item
-            for item in self.payload["ranked_candidates"]
-            if item["selection_status"] == "eligible"
-        )
-        self.assertEqual(selected, first_eligible)
-        self.assertNotIn(selected["source_code"], {item["source_code"] for item in exhausted})
+        self.assertIsNone(selected)
+        self.assertEqual(self.payload["summary"]["eligible_candidate_count"], 0)
 
     def test_not_applicable_slots_are_not_reported_missing(self) -> None:
         for item in self.payload["configurations"]:
