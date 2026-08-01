@@ -1,0 +1,103 @@
+name: Temporary Interface Feedback Audit
+
+on:
+  push:
+    branches:
+      - agent/interface-source-coverage-repair-20260801
+    paths:
+      - .github/workflows/temporary-interface-feedback-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/interface-source-coverage-repair-20260801
+          fetch-depth: 0
+      - name: Inspect source and coverage
+        run: |
+          mkdir -p project/tmp
+          pdftotext -layout "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf" project/tmp/sandero-stepway-price-20260703.txt
+          python - <<'PY'
+          import csv, hashlib, json, mimetypes, urllib.request
+          from collections import defaultdict
+          from pathlib import Path
+
+          root = Path('.')
+          master = root / 'data/master'
+          def rows(name):
+              with (master/name).open(encoding='utf-8', newline='') as f:
+                  return list(csv.DictReader(f))
+
+          configs = {r['code']: r for r in rows('configurations.csv') if r.get('status') == 'active'}
+          versions = {r['code']: r for r in rows('versions.csv')}
+          models = {r['code']: r for r in rows('models.csv')}
+          availability = [r for r in rows('configuration_attribute_availability.csv') if r.get('configuration_code') in configs and r.get('availability_status') == 'optional']
+          item_attrs = defaultdict(set)
+          for r in rows('commercial_item_attributes.csv'):
+              item_attrs[r['commercial_item_code']].add(r['attribute_code'])
+          mappings = defaultdict(list)
+          for r in rows('commercial_item_configurations.csv'):
+              if r.get('configuration_code') in configs and r.get('availability_status') == 'optional':
+                  mappings[r['configuration_code']].append(r)
+          gaps = []
+          for r in availability:
+              code = r['configuration_code']; attr = r['attribute_code']
+              covering = [m for m in mappings.get(code, []) if attr in item_attrs.get(m['commercial_item_code'], set())]
+              if covering:
+                  continue
+              version = versions[configs[code]['version_code']]
+              model = models[version['model_code']]
+              gaps.append({
+                  'configuration_code': code,
+                  'model_code': version['model_code'],
+                  'model_name': model['name'],
+                  'version_code': version['code'],
+                  'version_name': version['name'],
+                  'attribute_code': attr,
+                  'availability_source_code': r.get('source_code',''),
+                  'availability_observation_date': r.get('observation_date',''),
+              })
+          by_model = defaultdict(int)
+          by_source = defaultdict(int)
+          for g in gaps:
+              by_model[g['model_code']] += 1
+              by_source[g['availability_source_code']] += 1
+          audit = {
+              'active_configurations': len(configs),
+              'optional_availability_rows': len(availability),
+              'unpriced_optional_links': len(gaps),
+              'by_model': dict(sorted(by_model.items())),
+              'by_source': dict(sorted(by_source.items())),
+              'gaps': gaps,
+          }
+          (root/'project/tmp/interface-feedback-price-coverage.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+          url = 'https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-spring-bbg24-ph2'
+          probe = {'url': url}
+          try:
+              req = urllib.request.Request(url, headers={'User-Agent':'Dacia-Knowledge-Base/1.0','Accept':'image/*'})
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  data = response.read()
+                  probe.update({
+                      'ok': True,
+                      'status': getattr(response, 'status', 200),
+                      'content_type': response.headers.get_content_type(),
+                      'bytes': len(data),
+                      'sha256': hashlib.sha256(data).hexdigest(),
+                  })
+          except Exception as exc:
+              probe.update({'ok': False, 'error': f'{type(exc).__name__}: {exc}'})
+          (root/'project/tmp/spring-media-probe.json').write_text(json.dumps(probe, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          PY
+      - name: Commit diagnostic output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/tmp/interface-feedback-price-coverage.json project/tmp/spring-media-probe.json project/tmp/sandero-stepway-price-20260703.txt
+          git commit -m "chore: record interface feedback audit"
+          git push origin HEAD:agent/interface-source-coverage-repair-20260801
