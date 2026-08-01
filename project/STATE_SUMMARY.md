@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.10.0 Accelerated Release Preparation**
+**Data Products v1.10.0 Publication**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.10.0 Accelerated Release Preparation** — `complete`
+**Data Products v1.10.0 Publication** — `complete`
 
-Document the accelerated closure policy and prepare exact post-merge publication of the current data products and interactive shortlist repairs.
+Publish the current source-backed data products and the interactive shortlist interface repairs from the exact verified merge commit.
 
 ## Next package
 
-**Data Products v1.10.0 Publication** — `planned`
+**Sandero Residual Source Closure** — `planned`
 
-Build the assets twice from the exact squash-merged preparation commit, verify byte identity and the offline workspace, publish immutable assets and record the result.
+Close the three remaining eligible Sandero source candidates as one logical evidence-bounded package, without cross-configuration or cross-powertrain inference.
 
 ## Autonomy
 
