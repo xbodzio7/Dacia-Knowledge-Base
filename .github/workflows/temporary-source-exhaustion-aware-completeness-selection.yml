@@ -1,0 +1,30 @@
+name: Temporary Source-Exhaustion-Aware Completeness Selection
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event.pull_request.head.ref == 'agent/source-exhaustion-aware-completeness-selection-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Materialize and verify
+        run: |
+          python tools/existing_configuration_missing_data_analysis.py
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/existing_configuration_missing_data_analysis.py --check
+          python -m unittest -v tests.test_existing_configuration_missing_data_analysis
+          python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+          git diff --check
