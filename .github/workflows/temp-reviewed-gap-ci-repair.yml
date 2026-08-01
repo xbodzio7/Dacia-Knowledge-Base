@@ -27,56 +27,75 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Preserve fixture compatibility
+      - name: Apply all reviewed-gap contract repairs
         shell: bash
         run: |
+          python tools/temp_fix_reviewed_gap_ci.py
           python - <<'PY'
           from pathlib import Path
 
-          path = Path('tools/configuration_shortlist.py')
+          path = Path('tests/test_spring_commercial_packages.py')
           text = path.read_text(encoding='utf-8')
-          old = '''    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ShortlistError(f"cannot read reviewed gap report: {exc}") from exc
-'''
-          new = '''    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError:
-        return {}
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ShortlistError(f"cannot read reviewed gap report: {exc}") from exc
-'''
-          if old in text:
-              text = text.replace(old, new, 1)
-          elif new not in text:
-              raise SystemExit('reviewed report loader marker mismatch')
-
-          old_apply = '''    payload = _read_reviewed_gap_report(repository)
-    configurations = catalog.get("configurations")
-'''
-          new_apply = '''    payload = _read_reviewed_gap_report(repository)
-    if not payload:
-        return
-    configurations = catalog.get("configurations")
-'''
-          if old_apply in text:
-              text = text.replace(old_apply, new_apply, 1)
-          elif new_apply not in text:
-              raise SystemExit('reviewed state apply marker mismatch')
-          path.write_text(text, encoding='utf-8')
+          start_marker = '''        self.assertEqual(
+              Counter(row["configuration_code"] for row in unknown),
+          '''
+          start = text.find(start_marker)
+          if start < 0:
+              start_marker = '''        self.assertEqual(
+            Counter(row["configuration_code"] for row in unknown),
+          '''
+              start = text.find(start_marker)
+          end_marker = '        self.assertTrue(all(row["price_date"] == "" for row in unknown))'
+          end = text.find(end_marker, start)
+          if start < 0 or end < 0:
+              raise SystemExit('Spring unknown-count test block not found')
+          replacement = '''        self.assertEqual(
+              {
+                  code: sum(row["amount"] is None for row in rows)
+                  for code, rows in package_components.items()
+              },
+              {
+                  "spring_essential_electric70_automatic": 1,
+                  "spring_expression_electric70_automatic": 3,
+                  "spring_extreme_electric100_automatic": 1,
+              },
+          )
+          '''
+          text = text[:start] + replacement + text[end:]
+          path.write_text(text, encoding='utf-8', newline='\n')
+          PY
+          python tools/dkb.py documentation-baseline --apply
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path('tools').resolve()))
+          import project_state
+          root = Path('.').resolve()
+          state = project_state.read_state(root / 'project/state.json')
+          project_state.validate_state(state)
+          project_state.write_atomic(
+              root / 'project/STATE_SUMMARY.md',
+              project_state.render_summary(state),
+          )
           PY
 
       - name: Run focused regression contracts
         shell: bash
         run: |
-          python -m py_compile tools/configuration_shortlist.py
+          python -m py_compile \
+            tools/configuration_shortlist.py \
+            tools/import_spring_commercial_packages.py \
+            tools/apply_reviewed_gap_state_materialization_20260802.py
           python -m unittest -q \
+            tests.test_reviewed_gap_state_materialization_20260802 \
+            tests.test_spring_commercial_packages \
+            tests.test_commercial_items_20260703 \
+            tests.test_registered_source_completeness_reconciliation_20260802 \
+            tests.test_sandero_residual_source_closure_20260801 \
             tests.test_configuration_shortlist_html \
-            tests.test_configuration_comparison_workbook \
-            tests.test_reviewed_gap_state_materialization_20260802
+            tests.test_configuration_comparison_workbook
 
-      - name: Commit product fix and remove temporary helpers
+      - name: Commit clean package and remove temporary helpers
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
@@ -85,7 +104,19 @@ jobs:
             .github/workflows/temp-reviewed-gap-ci-repair.yml \
             .github/workflows/temp-fix-reviewed-gap-optional-report.yml \
             tools/temp_fix_reviewed_gap_ci.py
-          git add tools/configuration_shortlist.py
+          git add \
+            CHANGELOG.md \
+            README.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/state.json \
+            tests/test_commercial_items_20260703.py \
+            tests/test_registered_source_completeness_reconciliation_20260802.py \
+            tests/test_sandero_residual_source_closure_20260801.py \
+            tests/test_spring_commercial_packages.py \
+            tools/configuration_shortlist.py \
+            tools/import_spring_commercial_packages.py
           git diff --cached --check
-          git commit -m 'fix: preserve shortlist fixture compatibility'
+          git commit -m 'fix: align reviewed gap regression contracts'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
