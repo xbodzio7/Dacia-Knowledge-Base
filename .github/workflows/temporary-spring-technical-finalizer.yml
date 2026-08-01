@@ -47,18 +47,20 @@ jobs:
       - name: Capture quality diagnostics
         if: failure()
         run: |
-          if [ ! -f .tmp/spring-quality-captured ]; then
-            mkdir -p .tmp
-            cp "$RUNNER_TEMP/quality.log" .tmp/spring-quality.log 2>/dev/null || true
-            cp "$RUNNER_TEMP/quality-summary.json" .tmp/spring-quality-summary.json 2>/dev/null || true
-            touch .tmp/spring-quality-captured
+          if [ ! -f spring-quality-diagnostic.txt ]; then
+            {
+              echo '=== QUALITY LOG ==='
+              cat "$RUNNER_TEMP/quality.log" 2>/dev/null || true
+              echo '=== QUALITY SUMMARY ==='
+              cat "$RUNNER_TEMP/quality-summary.json" 2>/dev/null || true
+            } > spring-quality-diagnostic.txt
           fi
       - name: Commit quality diagnostics
         if: failure()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .tmp/spring-quality-captured .tmp/spring-quality.log .tmp/spring-quality-summary.json 2>/dev/null || true
+          git add -f spring-quality-diagnostic.txt
           if git diff --cached --quiet; then
             echo 'Quality diagnostics already captured.'
             exit 0
