@@ -1,61 +1,137 @@
 {
   "version": 1,
-  "configuration_scope": "explicit_subset",
   "configuration_status": "active",
   "configurations": [
     {
       "configuration_code": "spring_essential_electric70_automatic",
-      "source_code": "src_pl_spring_official_configurator_20260731"
+      "source_code": "src_pl_spring_brochure_20260219"
     },
     {
       "configuration_code": "spring_expression_electric70_automatic",
-      "source_code": "src_pl_spring_official_configurator_20260731"
+      "source_code": "src_pl_spring_brochure_20260219"
     }
   ],
-  "technical_slots": [],
+  "technical_slots": [
+    {
+      "attribute_code": "electric_motor_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "combined_range",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standard_tyre_specification",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheel_size",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "number_of_seats",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "acceleration_0_50",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle_wheel_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_brake_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_brake_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": ""
+    }
+  ],
   "equipment_attributes": [
-    "led_daytime_running_lights",
-    "traffic_sign_recognition",
-    "emergency_call_ecall",
     "anti_lock_braking_system",
     "automatic_emergency_braking",
+    "central_locking",
+    "connected_services",
+    "cruise_control",
+    "curtain_airbags",
+    "dc_charging_supported",
+    "driver_attention_monitoring",
+    "driver_front_airbag",
+    "eco_mode",
+    "electronic_stability_control",
+    "emergency_call_ecall",
+    "front_parking_sensors",
+    "front_seat_belt_pretensioners",
+    "front_side_airbags",
+    "front_windows_power",
+    "heated_rear_window",
+    "instrument_cluster_colour_7",
+    "isofix_rear",
     "lane_departure_warning",
     "lane_keep_assist",
-    "driver_attention_monitoring",
-    "my_safety_button",
-    "rescue_code",
-    "electronic_stability_control",
-    "driver_front_airbag",
-    "passenger_front_airbag",
-    "front_side_airbags",
-    "curtain_airbags",
-    "front_seat_belt_pretensioners",
-    "rear_seat_belt_pretensioners",
-    "tyre_pressure_monitoring_system",
-    "tyre_repair_kit",
-    "isofix_rear",
-    "instrument_cluster_colour_7",
-    "seat_belt_reminder",
-    "eco_mode",
-    "cruise_control",
-    "speed_limiter",
-    "rear_parking_sensors",
-    "front_parking_sensors",
-    "rear_view_camera",
-    "heated_rear_window",
-    "side_mirrors_electric_adjustment",
+    "led_daytime_running_lights",
     "manual_air_conditioning",
-    "regenerative_braking",
-    "central_locking",
-    "front_windows_power",
-    "rear_windows_power",
-    "steering_wheel_height_adjustment",
-    "rear_seat_folding",
     "media_control_system",
     "media_display_system",
-    "dc_charging_supported",
-    "connected_services",
-    "remote_firmware_updates"
+    "my_safety_button",
+    "passenger_front_airbag",
+    "rear_parking_sensors",
+    "rear_seat_belt_pretensioners",
+    "rear_seat_folding",
+    "rear_view_camera",
+    "rear_windows_power",
+    "regenerative_braking",
+    "remote_firmware_updates",
+    "rescue_code",
+    "seat_belt_reminder",
+    "side_mirrors_electric_adjustment",
+    "speed_limiter",
+    "steering_wheel_height_adjustment",
+    "traffic_sign_recognition",
+    "tyre_pressure_monitoring_system",
+    "tyre_repair_kit"
   ],
   "not_applicable": {
     "technical": [],

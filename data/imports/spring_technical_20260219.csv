@@ -1,0 +1,58 @@
+record_type,configuration_code,attribute_code,value,minimum_value,maximum_value,source_page,source_label,normalization_notes
+value,spring_essential_electric70_automatic,electric_motor_power,52,,,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Exact powertrain-column value.
+value,spring_essential_electric70_automatic,acceleration_0_100,12.3,,,18,0-100 km/h (s),Exact powertrain-column value.
+value,spring_essential_electric70_automatic,combined_range,222,,,18,Homologowany zasięg w cyklu mieszanym WLTP (km),Exact grade/powertrain footnote applicability preserved.
+value,spring_essential_electric70_automatic,kerb_weight,995,,,18,Maksymalna masa własna samochodu gotowego do jazdy,Exact grade-footnote value.
+value,spring_essential_electric70_automatic,maximum_payload,349,,,18,Ładowność,Exact grade-footnote value.
+value,spring_essential_electric70_automatic,standard_tyre_specification,165/70 R14,,,18,Rozmiary opon,Exact grade/powertrain applicability preserved.
+value,spring_essential_electric70_automatic,wheel_size,"14""",,,18,Obręcze kół,Exact grade-footnote value; Cargo-only applicability is excluded.
+value,spring_essential_electric70_automatic,number_of_seats,4,,,8,4 komfortowe miejsca,Direct passenger-cabin statement; Cargo is not in configuration scope.
+value,spring_essential_electric70_automatic,top_speed,125,,,18,Prędkość maksymalna (km/h),Direct powertrain-table value.
+value,spring_essential_electric70_automatic,acceleration_0_50,4,,,18,0-50 km/h (s),Direct powertrain-table value.
+value,spring_essential_electric70_automatic,turning_circle_wheel_track,9.63,,,18,Średnica zawracania kół (m) (zgodna z oficjalnym pomiarem),Direct common table value.
+value,spring_essential_electric70_automatic,gross_vehicle_weight,1344,,,18,Dopuszczalna masa całkowita (DMC),Direct common table value.
+value,spring_essential_electric70_automatic,boot_capacity,308,,,21,Minimalna pojemność bagażnika (norma ISO 3832) (litry),Passenger Spring only; Cargo-specific 1085 L remains excluded.
+value,spring_essential_electric70_automatic,maximum_cargo_volume_iso3832,1004,,,21,Maksymalna pojemność bagażnika za 1. rzędem siedzeń przy złożonych tylnych siedzeniach (norma ISO 3832) (litry),Direct passenger-Spring dimension-table value.
+value,spring_essential_electric70_automatic,front_suspension,Typu pseudo-MacPherson z wahaczem poprzecznym,,,18,Przednie zawieszenie,Source wording preserved.
+value,spring_essential_electric70_automatic,rear_suspension,Sprężysta oś H o programowanej charakterystyce pracy ze sprężynami śrubowymi,,,18,Tylne zawieszenie,Source wording preserved.
+value,spring_essential_electric70_automatic,front_brake_type,Tarcze wentylowane Ø238,,,18,"Przód: tarcze wentylowane, Ø (mm)",Source brake type and diameter combined without adding thickness.
+value,spring_essential_electric70_automatic,rear_brake_type,Bębny Ø170,,,18,"Tył: bębny, Ø (mm)",Source brake type and diameter combined.
+range,spring_essential_electric70_automatic,max_power_rpm,,3625,12000,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Source-stated inclusive endpoints preserved; no single RPM fabricated.
+value,spring_expression_electric70_automatic,electric_motor_power,52,,,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Exact powertrain-column value.
+value,spring_expression_electric70_automatic,acceleration_0_100,12.3,,,18,0-100 km/h (s),Exact powertrain-column value.
+value,spring_expression_electric70_automatic,combined_range,225,,,18,Homologowany zasięg w cyklu mieszanym WLTP (km),Exact grade/powertrain footnote applicability preserved.
+value,spring_expression_electric70_automatic,kerb_weight,1006,,,18,Maksymalna masa własna samochodu gotowego do jazdy,Exact grade-footnote value.
+value,spring_expression_electric70_automatic,maximum_payload,338,,,18,Ładowność,Exact grade-footnote value.
+value,spring_expression_electric70_automatic,standard_tyre_specification,165/65 R15,,,18,Rozmiary opon,Exact grade/powertrain applicability preserved.
+value,spring_expression_electric70_automatic,wheel_size,"15""",,,18,Obręcze kół,Exact grade-footnote value; Cargo-only applicability is excluded.
+value,spring_expression_electric70_automatic,number_of_seats,4,,,8,4 komfortowe miejsca,Direct passenger-cabin statement; Cargo is not in configuration scope.
+value,spring_expression_electric70_automatic,top_speed,125,,,18,Prędkość maksymalna (km/h),Direct powertrain-table value.
+value,spring_expression_electric70_automatic,acceleration_0_50,4,,,18,0-50 km/h (s),Direct powertrain-table value.
+value,spring_expression_electric70_automatic,turning_circle_wheel_track,9.63,,,18,Średnica zawracania kół (m) (zgodna z oficjalnym pomiarem),Direct common table value.
+value,spring_expression_electric70_automatic,gross_vehicle_weight,1344,,,18,Dopuszczalna masa całkowita (DMC),Direct common table value.
+value,spring_expression_electric70_automatic,boot_capacity,308,,,21,Minimalna pojemność bagażnika (norma ISO 3832) (litry),Passenger Spring only; Cargo-specific 1085 L remains excluded.
+value,spring_expression_electric70_automatic,maximum_cargo_volume_iso3832,1004,,,21,Maksymalna pojemność bagażnika za 1. rzędem siedzeń przy złożonych tylnych siedzeniach (norma ISO 3832) (litry),Direct passenger-Spring dimension-table value.
+value,spring_expression_electric70_automatic,front_suspension,Typu pseudo-MacPherson z wahaczem poprzecznym,,,18,Przednie zawieszenie,Source wording preserved.
+value,spring_expression_electric70_automatic,rear_suspension,Sprężysta oś H o programowanej charakterystyce pracy ze sprężynami śrubowymi,,,18,Tylne zawieszenie,Source wording preserved.
+value,spring_expression_electric70_automatic,front_brake_type,Tarcze wentylowane Ø238,,,18,"Przód: tarcze wentylowane, Ø (mm)",Source brake type and diameter combined without adding thickness.
+value,spring_expression_electric70_automatic,rear_brake_type,Bębny Ø170,,,18,"Tył: bębny, Ø (mm)",Source brake type and diameter combined.
+range,spring_expression_electric70_automatic,max_power_rpm,,3625,12000,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Source-stated inclusive endpoints preserved; no single RPM fabricated.
+value,spring_extreme_electric100_automatic,electric_motor_power,75,,,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Exact powertrain-column value.
+value,spring_extreme_electric100_automatic,acceleration_0_100,9.6,,,18,0-100 km/h (s),Exact powertrain-column value.
+value,spring_extreme_electric100_automatic,combined_range,225,,,18,Homologowany zasięg w cyklu mieszanym WLTP (km),Exact grade/powertrain footnote applicability preserved.
+value,spring_extreme_electric100_automatic,kerb_weight,1013,,,18,Maksymalna masa własna samochodu gotowego do jazdy,Exact grade-footnote value.
+value,spring_extreme_electric100_automatic,maximum_payload,331,,,18,Ładowność,Exact grade-footnote value.
+value,spring_extreme_electric100_automatic,standard_tyre_specification,165/65 R15,,,18,Rozmiary opon,Exact grade/powertrain applicability preserved.
+value,spring_extreme_electric100_automatic,wheel_size,"15""",,,18,Obręcze kół,Exact grade-footnote value; Cargo-only applicability is excluded.
+value,spring_extreme_electric100_automatic,number_of_seats,4,,,8,4 komfortowe miejsca,Direct passenger-cabin statement; Cargo is not in configuration scope.
+value,spring_extreme_electric100_automatic,top_speed,125,,,18,Prędkość maksymalna (km/h),Direct powertrain-table value.
+value,spring_extreme_electric100_automatic,acceleration_0_50,4,,,18,0-50 km/h (s),Direct powertrain-table value.
+value,spring_extreme_electric100_automatic,turning_circle_wheel_track,9.63,,,18,Średnica zawracania kół (m) (zgodna z oficjalnym pomiarem),Direct common table value.
+value,spring_extreme_electric100_automatic,gross_vehicle_weight,1344,,,18,Dopuszczalna masa całkowita (DMC),Direct common table value.
+value,spring_extreme_electric100_automatic,boot_capacity,308,,,21,Minimalna pojemność bagażnika (norma ISO 3832) (litry),Passenger Spring only; Cargo-specific 1085 L remains excluded.
+value,spring_extreme_electric100_automatic,maximum_cargo_volume_iso3832,1004,,,21,Maksymalna pojemność bagażnika za 1. rzędem siedzeń przy złożonych tylnych siedzeniach (norma ISO 3832) (litry),Direct passenger-Spring dimension-table value.
+value,spring_extreme_electric100_automatic,front_suspension,Typu pseudo-MacPherson z wahaczem poprzecznym,,,18,Przednie zawieszenie,Source wording preserved.
+value,spring_extreme_electric100_automatic,rear_suspension,Sprężysta oś H o programowanej charakterystyce pracy ze sprężynami śrubowymi,,,18,Tylne zawieszenie,Source wording preserved.
+value,spring_extreme_electric100_automatic,front_brake_type,Tarcze wentylowane Ø238,,,18,"Przód: tarcze wentylowane, Ø (mm)",Source brake type and diameter combined without adding thickness.
+value,spring_extreme_electric100_automatic,rear_brake_type,Bębny Ø170,,,18,"Tył: bębny, Ø (mm)",Source brake type and diameter combined.
+range,spring_extreme_electric100_automatic,max_power_rpm,,5228,12000,18,Moc maksymalna w kW EWG / przy obrotach (obr./min),Source-stated inclusive endpoints preserved; no single RPM fabricated.
