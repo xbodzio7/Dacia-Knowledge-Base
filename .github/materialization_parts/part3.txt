@@ -1,0 +1,190 @@
+  - 18 `context-unmodeled`.
+
+## Presentation rules
+
+- `source-not-stated` remains an unknown price or value rather than zero.
+- `source-conflict` is shown as a source conflict and is excluded from totals.
+- `context-unmodeled` can show the related candidate amount and its restricted context, but the amount is not added to the configuration total.
+- Duster exact-stock selection rows remain blank in master data.
+- Spring MY25 stock and paint-class prices remain contextual and are not promoted to unrestricted current prices.
+
+## Data impact
+
+- Master rows added: 0.
+- Master rows updated: 2.
+- Models, domains and configurations added: 0.
+
+## Next package
+
+`{NEXT_PACKAGE['package_id']}` will validate the generated interactive artifact across representative Sandero Stepway, Spring and Duster selections.
+""",
+        encoding="utf-8",
+    )
+    PACKAGE_MD.parent.mkdir(parents=True, exist_ok=True)
+    PACKAGE_MD.write_text(
+        f"""# Reviewed Gap State Materialization
+
+Status: complete
+
+Package ID: `{CURRENT_PACKAGE['package_id']}`
+
+## Scope
+
+This bounded package converts the completed registered-source review into user-visible terminal states and imports only the two exact current prices authorized by that review.
+
+## Imported prices
+
+- `spring_city_package` × `spring_extreme_electric100_automatic`: 1800 PLN.
+- `spring_power_package` × `spring_extreme_electric100_automatic`: 3000 PLN.
+
+Both mappings retain their existing IDs and applicability. Their price date is 2026-07-31 and their source is `{SOURCE}`.
+
+## Interface behavior
+
+- Exact-source omissions display `źródło nie podaje`.
+- Automatic-only non-applicability displays `nie dotyczy`.
+- Conflicting sources display `sprzeczność źródeł — cena nieustalona`.
+- Contextual candidate prices identify the restricted MY25, paint-class or exact-stock context and remain excluded from totals.
+
+## Evidence boundary
+
+No sibling technical value is copied, no contextual candidate price is promoted to a current unrestricted amount, no blank Duster selection row is filled and no conflict is silently resolved.
+
+## Result
+
+- 2 existing master mappings updated;
+- {summary['comparison_terminal_states']} comparison terminal states materialized;
+- {summary['price_terminal_states']} price terminal states materialized;
+- generic missing labels replaced only where the registered review provides a terminal classification.
+""",
+        encoding="utf-8",
+    )
+
+
+def patch_configuration_shortlist() -> None:
+    path = ROOT / "tools/configuration_shortlist.py"
+    replace_once(
+        path,
+        """_SPRING_MEDIA_SOURCE = Path(
+    "project/sources/dacia-pl-spring-model-media-20260801.json"
+)
+""",
+        """_SPRING_MEDIA_SOURCE = Path(
+    "project/sources/dacia-pl-spring-model-media-20260801.json"
+)
+_REVIEWED_GAP_STATES_SOURCE = Path(
+    "data/reporting/reviewed_gap_state_materialization.json"
+)
+""",
+    )
+    marker = "\n\ndef render_html(catalog: Mapping[str, Any]) -> str:\n"
+    function = r"""
+
+def _apply_reviewed_gap_states(
+    catalog: dict[str, Any],
+    repository: Path,
+) -> None:
+    # Attach reviewed terminal states without mutating source master data.
+    path = repository / _REVIEWED_GAP_STATES_SOURCE
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ShortlistError(f"cannot read reviewed gap states: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise ShortlistError("invalid reviewed gap states: expected object")
+
+    configurations = catalog.get("configurations", [])
+    if not isinstance(configurations, list):
+        raise ShortlistError("invalid browser catalog configurations")
+    by_code = {
+        str(item.get("configuration_code", "")): item
+        for item in configurations
+        if isinstance(item, dict)
+    }
+    facets = catalog.get("facets", {})
+    comparison_facets = (
+        facets.get("comparison_values", [])
+        if isinstance(facets, dict)
+        else []
+    )
+    facet_by_key = {
+        str(item.get("key", "")): item
+        for item in comparison_facets
+        if isinstance(item, dict)
+    }
+
+    for reviewed in payload.get("comparison_states", []):
+        if not isinstance(reviewed, dict):
+            continue
+        configuration = by_code.get(str(reviewed.get("configuration_code", "")))
+        if not isinstance(configuration, dict):
+            continue
+        if reviewed.get("kind") == "equipment":
+            equipment = configuration.setdefault("equipment", {})
+            if not isinstance(equipment, dict):
+                raise ShortlistError("invalid equipment state in browser catalog")
+            equipment[str(reviewed.get("attribute_code", ""))] = {
+                "availability_status": "not_applicable",
+                "observation_date": str(reviewed.get("reviewed_on", "")),
+                "source_code": str(reviewed.get("source_code", "")),
+                "review_classification": str(reviewed.get("classification", "")),
+                "review_reason_code": str(reviewed.get("reason_code", "")),
+                "review_message": str(reviewed.get("review_message", "")),
+            }
+            continue
+
+        key = str(reviewed.get("comparison_key", ""))
+        facet = facet_by_key.get(key)
+        if not isinstance(facet, dict):
+            facet = {
+                "key": key,
+                "attribute_code": str(reviewed.get("attribute_code", "")),
+                "label": str(reviewed.get("attribute_code", "")),
+                "category": "Pozostałe",
+                "data_type": "",
+                "unit": "",
+                "fuel_type_code": str(reviewed.get("fuel_type_code", "")),
+                "fuel_type_label": "",
+            }
+            comparison_facets.append(facet)
+            facet_by_key[key] = facet
+        comparison_values = configuration.setdefault("comparison_values", {})
+        if not isinstance(comparison_values, dict):
+            raise ShortlistError("invalid comparison state in browser catalog")
+        if key in comparison_values:
+            continue
+        comparison_values[key] = {
+            **facet,
+            "kind": "reviewed-gap",
+            "display_value": str(reviewed.get("display_value", "")),
+            "observation_date": str(reviewed.get("reviewed_on", "")),
+            "source_code": str(reviewed.get("source_code", "")),
+            "review_classification": str(reviewed.get("classification", "")),
+            "review_reason_code": str(reviewed.get("reason_code", "")),
+            "review_message": str(reviewed.get("review_message", "")),
+        }
+
+    price_state_index = {
+        (
+            str(item.get("configuration_code", "")),
+            str(item.get("commercial_item_code", "")),
+        ): item
+        for item in payload.get("price_states", [])
+        if isinstance(item, dict)
+    }
+    for configuration_code, configuration in by_code.items():
+        components = configuration.get("price_components", [])
+        if not isinstance(components, list):
+            continue
+        for component in components:
+            if not isinstance(component, dict):
+                continue
+            state = price_state_index.get(
+                (configuration_code, str(component.get("code", "")))
+            )
+            if not isinstance(state, dict):
+                continue
+            component.update(
+                {
