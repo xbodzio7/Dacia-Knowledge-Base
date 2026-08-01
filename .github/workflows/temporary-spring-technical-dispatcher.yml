@@ -40,9 +40,12 @@ jobs:
         run: |
           python tools/import_spring_technical_20260219.py --apply
           python tools/materialize_spring_technical_package_20260219.py
-          rm tools/materialize_spring_technical_package_20260219.py
-          rm .github/workflows/temporary-spring-technical-materializer.yml
-          rm .github/workflows/temporary-spring-technical-dispatcher.yml
+          rm -f tools/materialize_spring_technical_package_20260219.py
+          rm -f .github/workflows/temporary-spring-technical-materializer.yml
+          rm -f .github/workflows/temporary-spring-technical-materializer-v2.yml
+          rm -f .github/workflows/temporary-spring-technical-dispatcher.yml
+          rm -f .github/spring-package-fixed.b64
+          rm -f .github/materializer-trigger-spring.txt .github/placeholder.txt .github/placeholder2.txt
 
       - name: Verify package contract and full quality
         run: |
