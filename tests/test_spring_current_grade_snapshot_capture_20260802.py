@@ -93,20 +93,20 @@ def verify_contract() -> None:
         raise AssertionError("capture-only package mutated master scope")
 
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != (
-        "spring_current_grade_snapshot_capture_001"
-    ):
-        raise AssertionError("canonical state did not advance to snapshot capture")
-    if state["next_package"]["package_id"] != (
-        "spring_exact_current_semantic_migration_review_001"
-    ):
-        raise AssertionError("next package is not the bounded migration review")
-    if state["reference_delivery"]["pull_request"] != 450:
-        raise AssertionError("reference delivery must point to PR #450")
+    if state["current_package"]["status"] != "complete":
+        raise AssertionError("canonical current package must remain complete")
+    if not state["current_package"]["package_id"]:
+        raise AssertionError("canonical current package is missing")
+    if not state["next_package"]["package_id"]:
+        raise AssertionError("canonical next package is missing")
+    if state["reference_delivery"]["pull_request"] < 451:
+        raise AssertionError("reference delivery predates Spring snapshot capture")
     if state["baseline"]["tests"] != 1788:
-        raise AssertionError("import-time contract must preserve test baseline")
+        raise AssertionError("import-time contracts must preserve test baseline")
+    if state["baseline"]["rows"] != 11713:
+        raise AssertionError("capture-only follow-up must preserve master row count")
 
 
-# Import-time verification preserves the canonical unittest count while making
-# every quality run fail if the source, generated reports or state boundary drift.
+# The contract protects the completed exact-current snapshot while allowing
+# canonical state to advance through later bounded review and apply packages.
 verify_contract()
