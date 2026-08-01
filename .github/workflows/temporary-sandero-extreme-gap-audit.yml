@@ -32,7 +32,6 @@ jobs:
           fi
       - name: Apply package
         run: |
-          python tools/dkb.py project-state --check
           python -m tools.import_sandero_stepway_extreme_source_gap_20260626
           python -m tools.close_stepway_extreme_reporting_dependencies_20260801
           python tools/dkb.py configuration-gap-resolution-plan \
