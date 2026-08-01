@@ -48,12 +48,11 @@ jobs:
           python tools/dkb.py project-state --check
           python -m compileall -q tools tests
 
-      - name: Commit stable package and remove materializer
+      - name: Commit stable non-workflow package
         run: |
-          rm .github/workflows/temporary-materialize-accelerated-v1.10.0.yml
           rm tools/materialize_accelerated_v1_10_0_release_20260801.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add -A -- . ':(exclude).github/workflows/**'
           git commit -m "release(data-products): prepare accelerated v1.10.0"
           git push origin HEAD:agent/accelerated-v1.10.0-release-20260801
