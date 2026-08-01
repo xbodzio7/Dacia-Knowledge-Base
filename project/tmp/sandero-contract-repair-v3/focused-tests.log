@@ -1,0 +1,21 @@
+----------------------------------------------------------------------
+Ran 333 tests in 3.933s
+
+OK
+Stepway Essential source-gap observations: PASS (3 values + 3 ranges + 2 scope corrections)
+Stepway Expression automatic source-gap observations: PASS (3 values + 3 ranges + 1 availability)
+Stepway Expression source-gap observations: PASS (3 values + 3 ranges)
+Stepway Extreme automatic source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+Stepway Extreme source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+----------------------------------------------------------------------
+Ran 8 tests in 1.365s
+
+OK
+----------------------------------------------------------------------
+Ran 5 tests in 0.126s
+
+OK
+----------------------------------------------------------------------
+Ran 9 tests in 0.152s
+
+OK
