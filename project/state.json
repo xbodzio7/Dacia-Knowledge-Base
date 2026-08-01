@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.10.0 Accelerated Release Preparation",
+  "phase": "Data Products v1.10.0 Publication",
   "reference_delivery": {
     "name": "Sandero Official-Web Source Gap Review",
     "pull_request": 435,
@@ -27,45 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_10_0_accelerated_release_preparation_001",
-    "kind": "data_product_release_preparation",
-    "name": "Data Products v1.10.0 Accelerated Release Preparation",
+    "package_id": "data_products_v1_10_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.10.0 Publication",
     "status": "complete",
-    "goal": "Document the accelerated closure policy and prepare exact post-merge publication of the current data products and interactive shortlist repairs.",
+    "goal": "Publish the current source-backed data products and the interactive shortlist interface repairs from the exact verified merge commit.",
     "manifest_paths": [
-      ".github/workflows/temporary-publish-data-products-v1.10.0.yml",
-      "project/ACCELERATED_MILESTONE_CLOSURE.md",
-      "project/AUTONOMOUS_MAINTAINER.md",
-      "project/DECISIONS.md",
-      "project/START_HERE.md",
+      "data/reporting/data_products_v1_10_0_publication.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.10.0-accelerated-release-preparation-20260801.md",
+      "project/packages/data-products-v1.10.0-publication-20260801.md",
       "project/state.json",
-      "tests/test_data_products_v1_10_0_release_contract.py",
-      "tools/import_sandero_stepway_essential_source_gap_20260626.py",
-      "tools/import_sandero_stepway_expression_auto_source_gap_20260626.py",
-      "tools/import_sandero_stepway_expression_source_gap_20260626.py",
-      "tools/import_sandero_stepway_extreme_auto_source_gap_20260626.py",
-      "tools/import_sandero_stepway_extreme_source_gap_20260626.py",
-      "tools/record_data_products_v1_10_0_publication_20260801.py",
       "tools/reporting/data_product_release.py"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_10_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.10.0 Publication",
+    "package_id": "sandero_residual_source_closure_006",
+    "kind": "source_backed_completeness_import",
+    "name": "Sandero Residual Source Closure",
     "status": "planned",
-    "goal": "Build the assets twice from the exact squash-merged preparation commit, verify byte identity and the offline workspace, publish immutable assets and record the result.",
-    "manifest_paths": [],
-    "resume_after_publication": {
-      "package_id": "sandero_highest_impact_eligible_gap_006",
-      "kind": "source_backed_completeness_import",
-      "name": "sandero Highest-Impact Eligible Source Gap",
-      "status": "planned",
-      "goal": "Inspect exact missing slots for sandero against source src_pl_sandero_stepway_catalog_tce_slice_20260703 and import only directly stated values or explicit non-applicable classifications.",
-      "manifest_paths": []
-    }
+    "goal": "Close the three remaining eligible Sandero source candidates as one logical evidence-bounded package, without cross-configuration or cross-powertrain inference.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
