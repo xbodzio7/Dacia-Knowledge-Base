@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Brochure Technical Observations**
+**Existing Configuration Completeness Reanalysis**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1715
+- Tests: 1719
 - Master CSV files: 46
 - Master rows: 11660
 - Configuration values: 3552
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Brochure Technical Observations** — `complete`
+**Existing Configuration Completeness Reanalysis** — `complete`
 
-Import 54 exact scalar observations, three maximum-power RPM ranges and three ISO 3832 cargo-context rows for the three existing passenger Spring configurations from the registered 2026-02-19 brochure without adding or inferring entities.
+Recompute configuration- and attribute-level missing-data impact after the Spring import and select the next bounded source-backed package.
 
 ## Next package
 
-**Existing Configuration Completeness Reanalysis** — `planned`
+**sandero Highest-Impact Source Gap** — `planned`
 
-Recompute configuration- and attribute-level missing-data impact after the Spring import, classify non-applicable fields, and select the next small source-backed package that most reduces visible missing data without adding entities.
+Inspect exact missing slots for sandero against source src_pl_sandero_official_web_configurations_20260723 and import only directly stated values or explicit non-applicable classifications.
 
 ## Autonomy
 

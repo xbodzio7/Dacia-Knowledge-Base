@@ -1,0 +1,2373 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "existing_configuration_missing_data_analysis",
+  "summary": {
+    "active_configuration_count": 81,
+    "completeness_scope_count": 23,
+    "scoped_configuration_count": 88,
+    "missing_technical_count": 205,
+    "missing_equipment_count": 44,
+    "classified_not_applicable_count": 0,
+    "candidate_count": 10
+  },
+  "configurations": [
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybrid155_4x2_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybrid155_4x2_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybrid155_4x2_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybridg150_4x4_automatic_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybridg150_4x4_automatic_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_hybridg150_4x4_automatic_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybrid140_4x2_manual_completeness.json",
+      "expected_technical": 49,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybrid140_4x2_manual_completeness.json",
+      "expected_technical": 49,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybrid140_4x2_manual_completeness.json",
+      "expected_technical": 49,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybrid140_4x2_manual_completeness.json",
+      "expected_technical": 49,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybridg140_4x2_manual_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybridg140_4x2_manual_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybridg140_4x2_manual_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "model_code": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "scope_file": "bigster_mildhybridg140_4x2_manual_completeness.json",
+      "expected_technical": 53,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 94,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 3,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 3,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 1,
+      "missing_equipment_attributes": [
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 12,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 12,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 2,
+      "missing_equipment_attributes": [
+        "gear_shift_indicator",
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 12,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 11,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 2,
+      "missing_equipment_attributes": [
+        "gear_shift_indicator",
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "scope_file": "configuration_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 11,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 1,
+      "missing_equipment_attributes": [
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog100_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog100_completeness.json",
+      "expected_technical": 21,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog100_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog100_completeness.json",
+      "expected_technical": 21,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog100_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog100_completeness.json",
+      "expected_technical": 21,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog100_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog100_completeness.json",
+      "expected_technical": 21,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724",
+      "scope_file": "duster_ecog120_automatic_completeness.json",
+      "expected_technical": 31,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 0,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724",
+      "scope_file": "duster_ecog120_automatic_completeness.json",
+      "expected_technical": 31,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 0,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724",
+      "scope_file": "duster_ecog120_automatic_completeness.json",
+      "expected_technical": 31,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 0,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog120_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog120_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog120_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_ecog120_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid140_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid140_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid140_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid140_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid140_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid140_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_plus_hybrid140_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid140_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid155_completeness.json",
+      "expected_technical": 36,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid155_completeness.json",
+      "expected_technical": 36,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_hybrid155_completeness.json",
+      "expected_technical": 36,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x2_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x2_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x2_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x4_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x4_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x4_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x4_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x4_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid130_4x4_completeness.json",
+      "expected_technical": 15,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid140_4x2_completeness.json",
+      "expected_technical": 39,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid140_4x2_completeness.json",
+      "expected_technical": 39,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+      "model_code": "duster",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "scope_file": "duster_mildhybrid140_4x2_completeness.json",
+      "expected_technical": 39,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 58,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_automatic_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_ecog120_manual_completeness.json",
+      "expected_technical": 52,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_hybrid155_automatic_completeness.json",
+      "expected_technical": 46,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "scope_file": "jogger_tce110_manual_completeness.json",
+      "expected_technical": 42,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 53,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723",
+      "scope_file": "sandero_ecog120_automatic_completeness.json",
+      "expected_technical": 61,
+      "missing_technical": 24,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "cargo_volume_vda",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "drive_type",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "exterior_color",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "kerb_weight",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "maximum_payload",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "noise_level_at_50_kmh",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "number_of_doors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "number_of_seats",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "spare_wheel_type",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "turning_circle",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "unbraked_trailer_weight",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "upholstery_variant",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_design",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_material",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_size",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 16,
+      "missing_equipment_attributes": [
+        "connected_services",
+        "driver_seat_belt_height_adjustment",
+        "emergency_stop_signal",
+        "front_seat_belt_pretensioners",
+        "gear_shift_indicator",
+        "heated_windscreen",
+        "high_filtering_glass",
+        "isofix_rear",
+        "manual_day_night_rearview_mirror",
+        "one_touch_turn_signals",
+        "parking_assist_system",
+        "rear_seat_belt_pretensioners",
+        "rear_three_point_seat_belts",
+        "safe_distance_warning",
+        "seat_belt_reminder",
+        "third_brake_light"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723",
+      "scope_file": "sandero_ecog120_automatic_completeness.json",
+      "expected_technical": 61,
+      "missing_technical": 24,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "cargo_volume_vda",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "drive_type",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "exterior_color",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "kerb_weight",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "maximum_payload",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "noise_level_at_50_kmh",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "number_of_doors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "number_of_seats",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "spare_wheel_type",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "turning_circle",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "unbraked_trailer_weight",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "upholstery_variant",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_design",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_material",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_size",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 16,
+      "missing_equipment_attributes": [
+        "connected_services",
+        "driver_seat_belt_height_adjustment",
+        "emergency_stop_signal",
+        "front_seat_belt_pretensioners",
+        "gear_shift_indicator",
+        "heated_windscreen",
+        "high_filtering_glass",
+        "isofix_rear",
+        "manual_day_night_rearview_mirror",
+        "one_touch_turn_signals",
+        "parking_assist_system",
+        "rear_seat_belt_pretensioners",
+        "rear_three_point_seat_belts",
+        "safe_distance_warning",
+        "seat_belt_reminder",
+        "third_brake_light"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "scope_file": "sandero_ecog120_manual_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 3,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "scope_file": "sandero_ecog120_manual_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 3,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 1,
+      "missing_equipment_attributes": [
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "scope_file": "sandero_ecog120_manual_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 12,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "scope_file": "sandero_ecog120_manual_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 12,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "scope_file": "sandero_ecog120_manual_completeness.json",
+      "expected_technical": 60,
+      "missing_technical": 11,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "front_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "ground_clearance",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "fuel_type_code": "",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "rear_track",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 1,
+      "missing_equipment_attributes": [
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "scope_file": "sandero_stepway_ecog120_automatic_completeness.json",
+      "expected_technical": 54,
+      "missing_technical": 6,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "wheel_finish",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 2,
+      "missing_equipment_attributes": [
+        "gear_shift_indicator",
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "scope_file": "sandero_stepway_ecog120_automatic_completeness.json",
+      "expected_technical": 54,
+      "missing_technical": 5,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 69,
+      "missing_equipment": 2,
+      "missing_equipment_attributes": [
+        "gear_shift_indicator",
+        "parking_assist_system"
+      ],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_expression_tce100_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 1,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "scope_file": "sandero_tce100_stepway_tce110_manual_completeness.json",
+      "expected_technical": 48,
+      "missing_technical": 2,
+      "missing_technical_slots": [
+        {
+          "attribute_code": "elasticity_80_120",
+          "fuel_type_code": "petrol",
+          "gear_number": ""
+        },
+        {
+          "attribute_code": "overall_height",
+          "fuel_type_code": "",
+          "gear_number": ""
+        }
+      ],
+      "expected_equipment": 70,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "model_code": "spring",
+      "source_code": "src_pl_spring_official_configurator_20260731",
+      "scope_file": "spring_electric100_automatic_completeness.json",
+      "expected_technical": 0,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 42,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "model_code": "spring",
+      "source_code": "src_pl_spring_brochure_20260219",
+      "scope_file": "spring_electric70_automatic_completeness.json",
+      "expected_technical": 19,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 42,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "model_code": "spring",
+      "source_code": "src_pl_spring_brochure_20260219",
+      "scope_file": "spring_electric70_automatic_completeness.json",
+      "expected_technical": 19,
+      "missing_technical": 0,
+      "missing_technical_slots": [],
+      "expected_equipment": 42,
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
+      "classified_not_applicable": 0
+    }
+  ],
+  "ranked_candidates": [
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_official_web_configurations_20260723",
+      "configuration_count": 2,
+      "missing_technical": 48,
+      "missing_equipment": 32,
+      "weighted_impact": 176
+    },
+    {
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "configuration_count": 22,
+      "missing_technical": 32,
+      "missing_equipment": 0,
+      "weighted_impact": 96
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "configuration_count": 2,
+      "missing_technical": 24,
+      "missing_equipment": 0,
+      "weighted_impact": 72
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "configuration_count": 2,
+      "missing_technical": 24,
+      "missing_equipment": 0,
+      "weighted_impact": 72
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "configuration_count": 2,
+      "missing_technical": 22,
+      "missing_equipment": 2,
+      "weighted_impact": 68
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "configuration_count": 2,
+      "missing_technical": 18,
+      "missing_equipment": 4,
+      "weighted_impact": 58
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "configuration_count": 2,
+      "missing_technical": 16,
+      "missing_equipment": 4,
+      "weighted_impact": 52
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+      "configuration_count": 6,
+      "missing_technical": 9,
+      "missing_equipment": 0,
+      "weighted_impact": 27
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "configuration_count": 2,
+      "missing_technical": 6,
+      "missing_equipment": 2,
+      "weighted_impact": 20
+    },
+    {
+      "model_code": "sandero",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "configuration_count": 2,
+      "missing_technical": 6,
+      "missing_equipment": 0,
+      "weighted_impact": 18
+    }
+  ],
+  "selected_next_package": {
+    "model_code": "sandero",
+    "source_code": "src_pl_sandero_official_web_configurations_20260723",
+    "configuration_count": 2,
+    "missing_technical": 48,
+    "missing_equipment": 32,
+    "weighted_impact": 176
+  }
+}
