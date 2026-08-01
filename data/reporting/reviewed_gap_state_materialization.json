@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "source_review": "data/reporting/registered_source_completeness_reconciliation.json",
+  "master_data": {
+    "updated_mapping_count": 2,
+    "added_row_count": 0,
+    "removed_row_count": 0,
+    "configuration_code": "spring_extreme_electric100_automatic",
+    "source_code": "src_pl_spring_official_configurator_20260731",
+    "price_date": "2026-07-31",
+    "prices_pln": {
+      "spring_city_package": 1800,
+      "spring_power_package": 3000
+    }
+  },
+  "interface_materialization": {
+    "technical_review_states": 22,
+    "commercial_review_states": 29,
+    "labels": {
+      "source-not-stated": "niepodane w dokładnym źródle",
+      "source-conflict": "sprzeczne dane źródłowe — cena nie została doliczona",
+      "context-unmodeled": "wartość lub cena zależy od nieodwzorowanego kontekstu",
+      "not-applicable-automatic": "nie dotyczy — skrzynia automatyczna"
+    },
+    "inferred_values": 0,
+    "contextual_prices_added_to_total": 0
+  },
+  "next_package": {
+    "package_id": "spring_commercial_context_resolution_001",
+    "goal": "Resolve the Spring Type 2 cable conflict and current paint/stock price contexts using exact current official states before any further commercial import."
+  }
+}
