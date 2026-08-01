@@ -26,77 +26,7 @@ jobs:
         run: |
           set -euo pipefail
           export PYTHONPATH="$PWD:$PWD/tools"
-          python - <<'PY'
-          from pathlib import Path
-
-          def replace(path: str, old: str, new: str) -> None:
-              target = Path(path)
-              text = target.read_text(encoding="utf-8")
-              if old in text:
-                  text = text.replace(old, new, 1)
-              elif new not in text:
-                  raise SystemExit(f"contract not found: {path}")
-              target.write_text(text, encoding="utf-8", newline="\n")
-
-          replace(
-              "tests/configuration_comparison_context_filter_contract.py",
-              "        self.assertEqual(len(core.difference_csv_rows(report)), 400)",
-              "        self.assertEqual(len(core.difference_csv_rows(report)), 411)",
-          )
-          replace(
-              "tests/configuration_comparison_pair_summary_contract.py",
-              '''        self.assertEqual(
-              sum(int(row["total_different"]) for row in rows),
-              400,
-          )''',
-              '''        self.assertEqual(
-              sum(int(row["total_different"]) for row in rows),
-              411,
-          )''',
-          )
-
-          aligner = Path("tools/align_sandero_residual_source_closure_contracts_20260801.py")
-          text = aligner.read_text(encoding="utf-8")
-          manifest_anchor = '            "tests/test_duster_ecog120_reporting_scope.py",\n'
-          manifest_addition = (
-              '            "tests/configuration_comparison_context_filter_contract.py",\n'
-              '            "tests/configuration_comparison_pair_summary_contract.py",\n'
-          )
-          if manifest_addition not in text:
-              if manifest_anchor not in text:
-                  raise SystemExit("aligner manifest anchor not found")
-              text = text.replace(manifest_anchor, manifest_addition + manifest_anchor, 1)
-
-          apply_anchor = '''    replace_exact(
-              "tests/test_duster_ecog120_reporting_scope.py",
-              '        self.assertEqual(default["summary"]["total_differences"], 400)',
-              '        self.assertEqual(default["summary"]["total_differences"], 411)',
-          )
-'''
-          apply_addition = '''    replace_exact(
-              "tests/configuration_comparison_context_filter_contract.py",
-              "        self.assertEqual(len(core.difference_csv_rows(report)), 400)",
-              "        self.assertEqual(len(core.difference_csv_rows(report)), 411)",
-          )
-          replace_exact(
-              "tests/configuration_comparison_pair_summary_contract.py",
-              '''        self.assertEqual(
-              sum(int(row["total_different"]) for row in rows),
-              400,
-          )''',
-              '''        self.assertEqual(
-              sum(int(row["total_different"]) for row in rows),
-              411,
-          )''',
-          )
-'''
-          if apply_addition not in text:
-              if apply_anchor not in text:
-                  raise SystemExit("aligner apply anchor not found")
-              text = text.replace(apply_anchor, apply_anchor + apply_addition, 1)
-
-          aligner.write_text(text, encoding="utf-8", newline="\n")
-          PY
+          python tools/patch_sandero_orchestration_contracts.py
           python -m tools.align_sandero_residual_source_closure_contracts_20260801
           python tools/dkb.py project-state --apply
           python -m tools.align_sandero_residual_source_closure_contracts_20260801 --check
@@ -108,6 +38,7 @@ jobs:
           python tools/dkb.py validate
           python tools/dkb.py project-state --check
           rm -f .github/workflows/temp-sandero-orchestration-fix.yml
+          rm -f tools/patch_sandero_orchestration_contracts.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
