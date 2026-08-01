@@ -536,10 +536,10 @@ def verify_materialized() -> None:
     if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
         raise ContractError("missing-data analysis Markdown is stale")
     summary = expected_analysis["summary"]
-    if summary["missing_technical_count"] != 125:
-        raise ContractError(f"expected 125 remaining technical records, found {summary['missing_technical_count']}")
-    if summary["exhausted_source_candidate_count"] != 3:
-        raise ContractError("expected exactly three exhausted-source candidates")
+    if summary["missing_technical_count"] != 115:
+        raise ContractError(f"expected 115 remaining technical records, found {summary['missing_technical_count']}")
+    if summary["exhausted_source_candidate_count"] != 4:
+        raise ContractError("expected exactly 4 exhausted-source candidates")
     current = next(
         item for item in expected_analysis["ranked_candidates"]
         if item["source_code"] == SOURCE_CODE
@@ -550,8 +550,8 @@ def verify_materialized() -> None:
     if not selected or selected["source_code"] == SOURCE_CODE or selected["selection_status"] != "eligible":
         raise ContractError(f"analysis did not advance to an eligible source: {selected}")
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":
-        raise ContractError("project state does not identify the completed package")
+    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
+        raise ContractError("project state baseline predates the completed package")
     if state["next_package"]["goal"].find(str(selected["source_code"])) < 0:
         raise ContractError("project state does not reference the selected next source")
     print("Stepway Expression source-gap observations: PASS (3 values + 3 ranges)")

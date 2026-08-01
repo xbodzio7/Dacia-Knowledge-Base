@@ -1700,32 +1700,6 @@
       "triage_key": "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Driving Systems|hill_start_assist|none"
     },
     {
-      "attribute_code": "parking_assist_system",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Driving Systems",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "equipment",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Driving Systems|parking_assist_system|none"
-    },
-    {
       "attribute_code": "manual_air_conditioning",
       "auto_import": false,
       "basis": {
@@ -2605,84 +2579,6 @@
       "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Dimensions|front_track|none"
     },
     {
-      "attribute_code": "ground_clearance",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Dimensions",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Dimensions|ground_clearance|none"
-    },
-    {
-      "attribute_code": "overall_height",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Dimensions",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Dimensions|overall_height|none"
-    },
-    {
-      "attribute_code": "overall_width_with_mirrors",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Dimensions",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Dimensions|overall_width_with_mirrors|none"
-    },
-    {
       "attribute_code": "rear_track",
       "auto_import": false,
       "basis": null,
@@ -2759,58 +2655,6 @@
       "source_section": "",
       "source_text": "",
       "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Engine|max_power_rpm|petrol"
-    },
-    {
-      "attribute_code": "max_torque_rpm",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Engine",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "lpg",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found for this engine-speed range in the registered configuration source.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Engine|max_torque_rpm|lpg"
-    },
-    {
-      "attribute_code": "max_torque_rpm",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Engine",
-      "classification": "not_stated",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
-      "fuel_type_code": "petrol",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found for this engine-speed range in the registered configuration source.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
-      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Engine|max_torque_rpm|petrol"
     }
   ],
   "review_policy": {

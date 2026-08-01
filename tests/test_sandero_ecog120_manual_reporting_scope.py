@@ -15,13 +15,36 @@ import source_coverage  # noqa: E402
 AS_OF = "2026-06-26"
 SPEC = REPOSITORY / "data/reporting/sandero_ecog120_manual_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/sandero_ecog120_manual_gap_evidence.json"
-CONFIGURATIONS = {
-    "sandero_iii_expression_ecog120_manual",
-    "sandero_iii_journey_ecog120_manual",
-    "sandero_stepway_iii_essential_ecog120_manual",
-    "sandero_stepway_iii_expression_ecog120_manual",
-    "sandero_stepway_iii_extreme_ecog120_manual",
-}
+CONFIGURATIONS = {'sandero_iii_expression_ecog120_manual',
+ 'sandero_iii_journey_ecog120_manual',
+ 'sandero_stepway_iii_essential_ecog120_manual',
+ 'sandero_stepway_iii_expression_ecog120_manual',
+ 'sandero_stepway_iii_extreme_ecog120_manual'}
+EXPECTED_TECHNICAL = {'applicable': 300, 'coverage_percent': '95.33', 'denominator': 300, 'missing': 14, 'not_applicable': 0, 'present': 286}
+EXPECTED_EQUIPMENT = {'applicable': 345,
+ 'coverage_percent': '86.67',
+ 'denominator': 345,
+ 'missing': 46,
+ 'not_applicable': 0,
+ 'not_available': 23,
+ 'optional': 0,
+ 'recorded': 299,
+ 'standard': 276,
+ 'unknown': 0}
+EXPECTED_SOURCE_REGISTRATION = {'expected': 5, 'future': 0, 'inactive': 0, 'metadata_complete': 5, 'missing': 0, 'registered': 5}
+EXPECTED_AREAS = {'covered': 10, 'denominator': 20, 'missing': 0, 'partial': 10, 'source_missing': 0}
+EXPECTED_SECTIONS = {'covered': 135, 'denominator': 175, 'missing': 7, 'not_applicable': 0, 'partial': 33, 'source_missing': 0}
+EXPECTED_COMPARISON_SUMMARY = {'prices': {'comparisons': 10, 'equal': 0, 'different': 10, 'not_comparable': 0},
+ 'technical': {'comparisons': 688, 'equal': 467, 'different': 166, 'not_comparable': 55},
+ 'equipment': {'comparisons': 690, 'equal': 528, 'different': 17, 'not_comparable': 145},
+ 'total_differences': 193}
+EXPECTED_EVIDENCE_SUMMARY = {'total': 60, 'ambiguous': 0, 'found': 0, 'not_stated': 43, 'out_of_scope': 17}
+EXPECTED_PAIR_TYPES = {'different_version_same_transmission': 10}
+EXPECTED_NOT_COMPARABLE = {'technical': 55, 'equipment': 145, 'prices': 0}
+EXPECTED_RANGED = 43
+EXPECTED_TECHNICAL_GAPS = 14
+EXPECTED_EQUIPMENT_GAPS = 46
+EXPECTED_COVERAGE_GAPS = 60
 
 
 class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
@@ -40,105 +63,59 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(scope["sources"], 5)
 
     def test_completeness_preserves_full_denominators_and_explicit_gaps(self) -> None:
-        self.assertEqual(
-            self.completeness["technical"],
-            {
-                "applicable": 300,
-                "coverage_percent": "93.67",
-                "denominator": 300,
-                "missing": 19,
-                "not_applicable": 0,
-                "present": 281,
-            },
-        )
-        self.assertEqual(
-            self.completeness["equipment"],
-            {
-                "applicable": 345,
-                "coverage_percent": "86.38",
-                "denominator": 345,
-                "missing": 47,
-                "not_applicable": 0,
-                "not_available": 23,
-                "optional": 0,
-                "recorded": 298,
-                "standard": 275,
-                "unknown": 0,
-            },
-        )
-        self.assertEqual(len(self.completeness["gaps"]["technical"]), 19)
-        self.assertEqual(len(self.completeness["gaps"]["equipment"]), 47)
+        self.assertEqual(self.completeness["technical"], EXPECTED_TECHNICAL)
+        self.assertEqual(self.completeness["equipment"], EXPECTED_EQUIPMENT)
+        self.assertEqual(len(self.completeness["gaps"]["technical"]), EXPECTED_TECHNICAL_GAPS)
+        self.assertEqual(len(self.completeness["gaps"]["equipment"]), EXPECTED_EQUIPMENT_GAPS)
 
     def test_source_coverage_preserves_partial_and_missing_sections(self) -> None:
+        self.assertEqual(self.coverage["source_registration"], EXPECTED_SOURCE_REGISTRATION)
+        self.assertEqual(self.coverage["areas"], EXPECTED_AREAS)
+        self.assertEqual(self.coverage["sections"], EXPECTED_SECTIONS)
         self.assertEqual(
-            self.coverage["source_registration"],
-            {
-                "expected": 5,
-                "future": 0,
-                "inactive": 0,
-                "metadata_complete": 5,
-                "missing": 0,
-                "registered": 5,
-            },
+            self.coverage["records"]["technical"]["present"],
+            EXPECTED_TECHNICAL["present"],
         )
         self.assertEqual(
-            self.coverage["areas"],
-            {"covered": 10, "denominator": 20, "missing": 0, "partial": 10, "source_missing": 0},
+            self.coverage["records"]["equipment"]["present"],
+            EXPECTED_EQUIPMENT["recorded"],
         )
-        self.assertEqual(
-            self.coverage["sections"],
-            {
-                "covered": 135,
-                "denominator": 175,
-                "missing": 7,
-                "not_applicable": 0,
-                "partial": 33,
-                "source_missing": 0,
-            },
-        )
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 281)
-        self.assertEqual(self.coverage["records"]["equipment"]["present"], 298)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 5)
-        self.assertEqual(len(self.coverage["gaps"]), 66)
+        self.assertEqual(len(self.coverage["gaps"]), EXPECTED_COVERAGE_GAPS)
 
     def test_ten_pairs_are_same_transmission_and_evidence_aware(self) -> None:
         pairs = self.comparison["pairs"]
         self.assertEqual(len(pairs), 10)
         self.assertEqual(
             Counter(pair["pair_type"] for pair in pairs),
-            Counter({"different_version_same_transmission": 10}),
+            Counter(EXPECTED_PAIR_TYPES),
         )
-        self.assertEqual(sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 75)
-        self.assertEqual(sum(pair["summary"]["equipment"]["not_comparable"] for pair in pairs), 148)
-        self.assertEqual(sum(pair["summary"]["prices"]["not_comparable"] for pair in pairs), 0)
+        for domain, expected in EXPECTED_NOT_COMPARABLE.items():
+            with self.subTest(domain=domain):
+                self.assertEqual(
+                    sum(pair["summary"][domain]["not_comparable"] for pair in pairs),
+                    expected,
+                )
 
     def test_comparison_summary_is_stable(self) -> None:
-        self.assertEqual(
-            self.comparison["summary"],
-            {
-                "equipment": {"comparisons": 690, "different": 14, "equal": 528, "not_comparable": 148},
-                "prices": {"comparisons": 10, "different": 10, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 688, "different": 162, "equal": 451, "not_comparable": 75},
-                "total_differences": 186,
-            },
-        )
+        self.assertEqual(self.comparison["summary"], EXPECTED_COMPARISON_SUMMARY)
 
     def test_evidence_decisions_are_preserved_without_inference(self) -> None:
-        self.assertEqual(
-            self.comparison["evidence_summary"],
-            {"ambiguous": 0, "found": 0, "not_stated": 49, "out_of_scope": 17, "total": 66},
-        )
+        self.assertEqual(self.comparison["evidence_summary"], EXPECTED_EVIDENCE_SUMMARY)
         ranged = [
             item
             for pair in self.comparison["pairs"]
             for item in pair["technical"]
             if "minimum_value" in item["left"] or "minimum_value" in item["right"]
         ]
-        self.assertEqual(len(ranged), 41)
+        self.assertEqual(len(ranged), EXPECTED_RANGED)
 
     def test_all_five_prices_are_present_and_all_ten_pair_prices_differ(self) -> None:
         self.assertEqual(self.coverage["records"]["prices"]["records"], 5)
-        self.assertEqual(sum(pair["summary"]["prices"]["different"] for pair in self.comparison["pairs"]), 10)
+        self.assertEqual(
+            sum(pair["summary"]["prices"]["different"] for pair in self.comparison["pairs"]),
+            10,
+        )
 
 
 if __name__ == "__main__":

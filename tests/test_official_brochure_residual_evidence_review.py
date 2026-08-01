@@ -111,7 +111,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
         }
         self.assertEqual(len(selected["sandero_iii"]), 80)
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_iii"]}), 7)
-        self.assertEqual(len(selected["sandero_stepway_iii"]), 56)
+        self.assertEqual(len(selected["sandero_stepway_iii"]), 58)
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 8)
         self.assertEqual(len(selected["jogger"]), 242)
         self.assertEqual(len({row["configuration_code"] for row in selected["jogger"]}), 22)

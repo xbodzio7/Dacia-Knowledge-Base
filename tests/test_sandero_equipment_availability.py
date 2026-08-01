@@ -46,7 +46,7 @@ EXPECTED_CONFIGURATION_COUNTS = {
     "sandero_stepway_iii_expression_ecog120_automatic": 59,
     "sandero_stepway_iii_expression_ecog120_manual": 60,
     "sandero_stepway_iii_extreme_ecog120_automatic": 62,
-    "sandero_stepway_iii_extreme_ecog120_manual": 63,
+    "sandero_stepway_iii_extreme_ecog120_manual": 64,
 }
 
 
@@ -84,7 +84,7 @@ class SanderoCoreEquipmentAvailabilityTests(unittest.TestCase):
         self.assertTrue(all(not row["unit"] for row in imported.values()))
 
     def test_availability_dataset_has_expected_shape_and_count(self) -> None:
-        self.assertEqual(len(self.rows), 419)
+        self.assertEqual(len(self.rows), 420)
         self.assertEqual(
             list(self.rows[0]),
             [
@@ -134,7 +134,7 @@ class SanderoCoreEquipmentAvailabilityTests(unittest.TestCase):
     def test_status_counts_match_source_import(self) -> None:
         self.assertEqual(
             Counter(row["availability_status"] for row in self.rows),
-            Counter({"standard": 389, "not_available": 30}),
+            Counter({"standard": 390, "not_available": 30}),
         )
 
     def test_configuration_counts_match_source_import(self) -> None:

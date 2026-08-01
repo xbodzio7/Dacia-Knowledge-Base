@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "configuration_source_gap_review",
+  "model_code": "sandero",
+  "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+  "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+  "source_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f.pdf",
+  "source_sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
+  "source_observation_date": "2026-06-26",
+  "initial_gap": {
+    "reviewed_unique_slots": 15,
+    "technical_slots": 9,
+    "equipment_slots": 6
+  },
+  "resolution": {
+    "scalar_values": [
+      {
+        "attribute_code": "overall_height",
+        "value": "1586",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "2012",
+        "source_page": 6
+      }
+    ],
+    "ranges": [
+      {
+        "attribute_code": "ground_clearance",
+        "fuel_type_code": "",
+        "minimum_value": "170",
+        "maximum_value": "200",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "lpg",
+        "minimum_value": "1750",
+        "maximum_value": "3750",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "minimum_value": "2000",
+        "maximum_value": "4000",
+        "source_page": 6
+      }
+    ],
+    "availability": [
+      {
+        "attribute_code": "parking_assist_system",
+        "availability_status": "standard",
+        "source_page": 4
+      }
+    ]
+  },
+  "preserved_explicit_alternatives": [
+    {
+      "attribute_code": "manual_air_conditioning",
+      "stated_alternative": "automatic_air_conditioning",
+      "reason": "The source states automatic climate control, not manual air conditioning."
+    },
+    {
+      "attribute_code": "instrument_cluster_tft_3_5",
+      "stated_alternative": "instrument_cluster_color_7",
+      "reason": "The source states a 7-inch colour instrument cluster."
+    },
+    {
+      "attribute_code": "media_control_system",
+      "stated_alternative": "media_display_system",
+      "reason": "The source states the 10-inch Media Display system."
+    }
+  ],
+  "excluded_alternatives": [
+    {
+      "attribute_code": "overall_height",
+      "value": "1535",
+      "reason": "Stepway height without roof rails does not describe the exact standard configuration"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "value": "1853",
+      "reason": "folded-mirror width is outside the repository comparison convention"
+    }
+  ],
+  "reconciliation": {
+    "classification": "source_exhausted_not_stated",
+    "resolved_unique_slots": 6,
+    "preserved_out_of_scope_slots": 3,
+    "remaining_unique_slots": 6,
+    "remaining_technical_slots": [
+      {
+        "attribute_code": "front_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "lpg",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "rear_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      }
+    ],
+    "remaining_equipment_slots": [
+      {
+        "attribute_code": "hill_start_assist",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "bluetooth_connectivity",
+        "reason": "not_stated_in_source"
+      }
+    ],
+    "boundary": "The source does not state front/rear track widths, maximum-power engine speeds, hill-start assist or Bluetooth connectivity. Explicit alternative equipment does not support inferred negative availability."
+  }
+}

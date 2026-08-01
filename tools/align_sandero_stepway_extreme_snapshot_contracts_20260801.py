@@ -327,8 +327,7 @@ def align_availability_contracts() -> None:
         "tests/test_sandero_front_wheel_drive_values.py",
         "tests/test_sandero_maximum_payload_model.py",
         "tests/test_sandero_number_of_doors_values.py",
-        "tests/test_sandero_passive_safety_availability.py",
-        "tests/test_sandero_standard_tyre_specification.py",
+            "tests/test_sandero_standard_tyre_specification.py",
         "tests/test_sandero_total_valve_count_model.py",
     )
     for path in paths:
