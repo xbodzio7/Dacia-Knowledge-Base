@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preserve the reviewed automatic Stepway Expression source audit for package generation."""
+"""Preserve the reviewed automatic Stepway Expression source audit for the verified package."""
 from __future__ import annotations
 
 import hashlib
