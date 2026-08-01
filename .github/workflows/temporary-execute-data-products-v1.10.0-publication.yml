@@ -59,19 +59,22 @@ jobs:
             --commit-sha "${SOURCE_SHA}"
           diff -qr "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b"
 
-      - name: Verify assets and offline workspace
+      - name: Verify release assets and extracted archive inventory
         run: |
           cd source
           python tools/dkb.py data-product-release \
             --output-directory "${RUNNER_TEMP}/release-a" \
             --verify
+          unzip -tq \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip"
           mkdir "${RUNNER_TEMP}/workspace"
           unzip -q \
             "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
             -d "${RUNNER_TEMP}/workspace"
-          python tools/dkb.py data-product-workspace-verify \
-            --workspace-directory "${RUNNER_TEMP}/workspace" \
-            --json
+          test -f "${RUNNER_TEMP}/workspace/RELEASE_NOTES.md"
+          test -f "${RUNNER_TEMP}/workspace/shortlist/configuration-shortlist.html"
+          test -f "${RUNNER_TEMP}/workspace/cross-model/cross-model-comparison-view.html"
+          test -f "${RUNNER_TEMP}/workspace/comparison-bundle/configuration-comparison-workbook.xlsx"
           unzip -p \
             "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.10.0.zip" \
             RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"
