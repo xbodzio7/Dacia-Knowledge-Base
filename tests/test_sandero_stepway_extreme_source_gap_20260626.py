@@ -1,3 +1,4 @@
+"""Contract tests for the exact Sandero Stepway Extreme source-gap package."""
 from __future__ import annotations
 
 import json
