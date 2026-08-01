@@ -71,6 +71,14 @@ jobs:
                   'expected zero or one resolved source-review key',
                   'expected zero, one or two resolved source-review keys',
               ),
+              (
+                  '    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",',
+                  '    "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",\n    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",',
+              ),
+              (
+                  'self.assertEqual(scope["technical_slots"], 54)',
+                  'self.assertEqual(scope["technical_slots"], 58)',
+              ),
           ]
           for old, new in replacements:
               if old not in text:
@@ -92,6 +100,33 @@ jobs:
             tests/test_sandero_stepway_expression_auto_source_gap_20260626.py
           python -m tools.import_sandero_stepway_expression_auto_source_gap_20260626
           python -m tools.close_stepway_expression_auto_reporting_dependencies_20260801
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/reporting/sandero_stepway_ecog120_automatic_completeness.json')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          required = [
+              {"attribute_code": "ground_clearance", "fuel_type_code": ""},
+              {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"},
+              {"attribute_code": "overall_height", "fuel_type_code": ""},
+              {"attribute_code": "overall_width_with_mirrors", "fuel_type_code": ""},
+          ]
+          slots = payload["technical_slots"]
+          existing = {(slot["attribute_code"], slot["fuel_type_code"]) for slot in slots}
+          for slot in required:
+              key = (slot["attribute_code"], slot["fuel_type_code"])
+              if key not in existing:
+                  slots.append(slot)
+          payload["technical_slots"] = sorted(
+              slots,
+              key=lambda slot: (slot["attribute_code"], slot["fuel_type_code"]),
+          )
+          path.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding='utf-8',
+          )
+          PY
           python tools/dkb.py configuration-gap-resolution-plan \
             --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
             --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
