@@ -139,7 +139,7 @@ class SanderoEuro6eBisValueTests(unittest.TestCase):
                 if not row["configuration_code"].startswith(("duster_iii_", "jogger_"))
                 and row["observation_date"] == "2026-06-26"
             ]),
-            419,
+            420,
         )
         self.assertEqual(
             len([

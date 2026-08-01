@@ -110,8 +110,8 @@ class SanderoStepwayEssentialSourceGapTests(unittest.TestCase):
 
     def test_reanalysis_removes_false_and_resolved_gaps(self) -> None:
         payload = package.analysis.collect(ROOT)
-        self.assertEqual(payload["summary"]["missing_technical_count"], 125)
-        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 3)
+        self.assertEqual(payload["summary"]["missing_technical_count"], 115)
+        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 4)
         current = next(
             item
             for item in payload["ranked_candidates"]
