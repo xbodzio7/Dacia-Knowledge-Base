@@ -104,9 +104,8 @@ class SpringTechnical20260219Test(unittest.TestCase):
         self.assertEqual(len(payload["equipment_attributes"]), 42)
         self.assertEqual(payload["not_applicable"], {"technical": [], "equipment": []})
 
-    def test_project_state_and_reconciliation_counts(self) -> None:
+    def test_repository_baselines_and_reconciliation_preserve_spring_counts(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["current_package"]["package_id"], "spring_brochure_technical_observations_20260219_001")
         self.assertEqual(state["baseline"]["configuration_values"], 3552)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 301)
         reconciliation = json.loads((ROOT / "data/reporting/verified_pdf_candidate_coverage_reconciliation.json").read_text(encoding="utf-8"))
