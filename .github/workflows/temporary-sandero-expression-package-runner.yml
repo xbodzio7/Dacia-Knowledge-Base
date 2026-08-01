@@ -1,0 +1,87 @@
+name: Temporary Sandero Expression Package Runner
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-sandero-expression-package-runner-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.ref == 'agent/sandero-expression-source-gap-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Build package files
+        run: |
+          cp tools/temporary_materialize_sandero_expression_20260801.py "$RUNNER_TEMP/materialize.py"
+          python "$RUNNER_TEMP/materialize.py"
+          rm -f \
+            tools/temporary_materialize_sandero_expression_20260801.py \
+            .github/workflows/temporary-sandero-expression-gap-audit.yml \
+            .github/workflows/temporary-sandero-expression-package-materializer.yml
+      - name: Materialize package and dependencies
+        run: |
+          python -m tools.import_sandero_stepway_expression_source_gap_20260626
+          python -m tools.close_stepway_expression_reporting_dependencies_20260801
+          python tools/dkb.py configuration-gap-resolution-plan \
+            --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
+            --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
+            --markdown "$RUNNER_TEMP/configuration-gap-resolution-plan.md"
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --check
+          python -m tools.close_stepway_expression_reporting_dependencies_20260801 --check
+      - name: Run package tests
+        run: |
+          python -m unittest -v tests.test_sandero_stepway_expression_source_gap_20260626
+          python -m unittest -v tests.test_existing_configuration_missing_data_analysis
+          python -m unittest -v tests.test_configuration_value_ranges
+      - name: Run full quality gate
+        run: |
+          cp .github/workflows/temporary-sandero-expression-package-runner.yml "$RUNNER_TEMP/runner.yml"
+          rm .github/workflows/temporary-sandero-expression-package-runner.yml
+          set +e
+          python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" > "$RUNNER_TEMP/quality.log" 2>&1
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            echo '--- concise quality failure ---'
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual' "$RUNNER_TEMP/quality.log" | tail -n 180 || true
+            echo '--- final quality log ---'
+            tail -n 320 "$RUNNER_TEMP/quality.log"
+          else
+            tail -n 100 "$RUNNER_TEMP/quality.log"
+          fi
+          cp "$RUNNER_TEMP/runner.yml" .github/workflows/temporary-sandero-expression-package-runner.yml
+          exit "$code"
+      - name: Commit package
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all -- ':!.github/workflows/temporary-sandero-expression-package-runner.yml'
+          if git diff --cached --quiet; then
+            echo 'No package changes.'
+            exit 0
+          fi
+          git commit -m 'data: close Stepway Expression source gap'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
