@@ -1,4 +1,4 @@
-name: Temporary Sandero Pre-PR Quality
+name: Temporary Sandero Failure Index
 
 on:
   push:
@@ -11,35 +11,21 @@ permissions:
   contents: write
 
 jobs:
-  quality:
+  index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: data/sandero-residual-source-closure-006
           fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.14"
-      - name: Install PDF tools
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Run full quality gate
+      - name: Index current quality failures
         shell: bash
         run: |
-          set +e
-          export PYTHONPATH="$PWD:$PWD/tools"
-          mkdir -p project/tmp/sandero-prepr-quality
-          python tools/dkb.py quality \
-            --concise \
-            --database "$RUNNER_TEMP/dacia_knowledge_base.sqlite" \
-            --log-file project/tmp/sandero-prepr-quality/quality.log \
-            --summary-json project/tmp/sandero-prepr-quality/quality-summary.json \
-            > project/tmp/sandero-prepr-quality/console.log 2>&1
-          status=$?
-          echo "$status" > project/tmp/sandero-prepr-quality/status.txt
+          set -euo pipefail
+          grep -E '^(FAIL|ERROR):' project/tmp/sandero-prepr-quality/console.log \
+            > project/tmp/sandero-prepr-quality/failure-index.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add project/tmp/sandero-prepr-quality
-          git commit -m "test: record Sandero pre-PR quality" || true
+          git add project/tmp/sandero-prepr-quality/failure-index.txt
+          git commit -m "test: index Sandero quality failures"
           git push origin HEAD:data/sandero-residual-source-closure-006
-          exit "$status"
