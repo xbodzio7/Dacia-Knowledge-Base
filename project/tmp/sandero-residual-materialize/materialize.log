@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_sandero_residual_source_closure_20260801.py", line 15, in <module>
+    from tools import configuration_gap_resolution_plan as gap_plan
+ModuleNotFoundError: No module named 'tools'
