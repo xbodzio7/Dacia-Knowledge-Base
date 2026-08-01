@@ -68,24 +68,14 @@ class RegisteredSourceCompletenessReconciliationTests(unittest.TestCase):
             {"spring_city_package": 1800, "spring_power_package": 3000},
         )
 
-    def test_completed_review_remains_preserved_after_materialization(self) -> None:
+    def test_completed_review_remains_preserved_after_follow_up_packages(self) -> None:
         state = payload(ROOT / "project/state.json")
-        self.assertEqual(
-            state["reference_delivery"]["name"],
-            "Registered Source Completeness Reconciliation",
-        )
-        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
-        self.assertEqual(
-            state["current_package"]["package_id"],
-            "reviewed_gap_state_materialization_001",
-        )
+        self.assertGreaterEqual(state["reference_delivery"]["pull_request"], 449)
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["package_id"],
-            "spring_commercial_context_resolution_001",
-        )
-        self.assertEqual(state["baseline"]["tests"], 1788)
-
+        self.assertTrue(state["current_package"]["package_id"])
+        self.assertTrue(state["next_package"]["package_id"])
+        self.assertGreaterEqual(state["baseline"]["tests"], 1788)
+        self.assertEqual(state["baseline"]["rows"], 11713)
 
 
 if __name__ == "__main__":

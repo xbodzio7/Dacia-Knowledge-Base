@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "source_code": "src_pl_spring_commercial_context_20260802",
+  "source_type": "official_web_and_price_list_review",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-02",
+  "model_code": "spring",
+  "status": "complete",
+  "scope": {
+    "questions": [
+      "Is the Type 2 charging cable optional or standard in current Spring configurations?",
+      "Which paint prices are exact current MY26 observations?",
+      "Can MY2025 stock-list or dealer-stock prices be transferred to current MY26 commercial mappings?"
+    ],
+    "master_data_mutation_authorized": false
+  },
+  "official_sources": [
+    {
+      "source_id": "current_essential_configurator_my26b",
+      "source_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+      "observed_on": "2026-08-02",
+      "context": {
+        "model_year": "MY26.b",
+        "grade": "essential",
+        "powertrain": "electric 70",
+        "configuration_code": "spring_essential_electric70_automatic"
+      },
+      "observations": {
+        "catalog_price_pln": 73500,
+        "type2_charging_cable": {
+          "availability_status": "standard",
+          "price_pln": 0,
+          "evidence_scope": "exact_current_configuration_standard_equipment"
+        },
+        "home_charging_cable": {
+          "availability_status": "optional",
+          "price_pln": 1500,
+          "evidence_scope": "exact_current_configuration_option"
+        },
+        "paints": [
+          {
+            "commercial_item_code": "spring_colour_biel_alpejska",
+            "source_label": "Biel alpejska",
+            "availability_status": "standard",
+            "price_pln": 0,
+            "evidence_scope": "exact_current_configuration"
+          },
+          {
+            "commercial_item_code": "spring_colour_lichen_khaki",
+            "source_label": "Khaki lichen",
+            "availability_status": "optional",
+            "price_pln": 2300,
+            "evidence_scope": "exact_current_configuration"
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "current_extreme_comparison_my26",
+      "source_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/porownaj.html",
+      "observed_on": "2026-08-02",
+      "context": {
+        "model_year": "MY26",
+        "grade": "extreme",
+        "powertrain": "electric 100",
+        "configuration_code": "spring_extreme_electric100_automatic"
+      },
+      "observations": {
+        "catalog_price_pln": 85900,
+        "type2_charging_cable": {
+          "availability_status": "standard",
+          "price_pln": 0,
+          "evidence_scope": "exact_current_grade_comparison"
+        },
+        "home_charging_cable": {
+          "availability_status": "optional",
+          "price_pln": 1500,
+          "evidence_scope": "exact_current_grade_comparison"
+        },
+        "packages": [
+          {
+            "commercial_item_code": "spring_city_package",
+            "availability_status": "optional",
+            "price_pln": 1800
+          },
+          {
+            "commercial_item_code": "spring_power_package",
+            "availability_status": "optional",
+            "price_pln": 3000
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "spring_my2025_stock_price_list",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+      "effective_on": "2026-07-08",
+      "context": {
+        "model_year": "MY2025",
+        "sales_scope": "dealer_stock_only",
+        "grades": [
+          "expression electric 70",
+          "extreme electric 100"
+        ]
+      },
+      "observations": {
+        "type2_charging_cable": {
+          "expression": "standard",
+          "extreme": "standard"
+        },
+        "paint_price_class": {
+          "source_label": "Lakier metalizowany lub niemetalizowany Khaki Lichen",
+          "price_pln": 2300,
+          "expression": "optional",
+          "extreme": "optional"
+        },
+        "home_charging_cable_price_pln": 1500,
+        "expression_dc40_price_pln": 2750,
+        "expression_techno_package_price_pln": 3500,
+        "extreme_city_package_price_pln": 1800,
+        "extreme_power_package_price_pln": 3000
+      },
+      "transfer_boundary": "No MY2025 stock-only price or availability state is reassigned to an MY26 mapping without an exact current grade state."
+    },
+    {
+      "source_id": "current_spring_stock_catalog",
+      "source_url": "https://www.dacia.pl/samochody-nowe/spring.html",
+      "observed_on": "2026-08-02",
+      "context": {
+        "inventory": "volatile",
+        "vehicle_prices": "whole_vehicle_stock_offers"
+      },
+      "observation": "Stock pages prove the equipment and total price of a selected vehicle, but do not decompose the total into reusable standalone paint or option prices unless an itemized amount is stated."
+    }
+  ],
+  "decisions": {
+    "type2_charging_cable": [
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "previous_mapping_state": "optional",
+        "review_resolution": "exact_current_standard",
+        "master_action": "defer_semantic_migration",
+        "reason": "The current exact MY26.b configurator states the Type 2 cable as standard, but the existing commercial item is modeled as an option and requires a bounded availability-semantic migration rather than a price import."
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "previous_mapping_state": "optional",
+        "review_resolution": "historical_standard_current_grade_unresolved",
+        "master_action": "no_change",
+        "reason": "The official MY2025 stock matrix states standard, but an exact current MY26 Expression grade state was not captured."
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "previous_mapping_state": "optional",
+        "review_resolution": "exact_current_standard",
+        "master_action": "defer_semantic_migration",
+        "reason": "The current exact MY26 comparison state states the Type 2 cable as standard; the option-named commercial item must not receive a fabricated zero-price option record."
+      }
+    ],
+    "paint_context": {
+      "exact_current_my26": [
+        {
+          "configuration_code": "spring_essential_electric70_automatic",
+          "commercial_item_code": "spring_colour_biel_alpejska",
+          "availability_status": "standard",
+          "price_pln": 0
+        },
+        {
+          "configuration_code": "spring_essential_electric70_automatic",
+          "commercial_item_code": "spring_colour_lichen_khaki",
+          "availability_status": "optional",
+          "price_pln": 2300
+        }
+      ],
+      "historical_or_contextual_only": [
+        {
+          "model_year": "MY2025",
+          "grades": [
+            "expression",
+            "extreme"
+          ],
+          "price_pln": 2300,
+          "reason": "The official price list is explicitly limited to MY2025 dealer stock."
+        },
+        {
+          "commercial_item_codes": [
+            "spring_colour_czerwony_brick",
+            "spring_colour_seafoam",
+            "spring_colour_szary_diamond",
+            "spring_colour_niebieski_stonewash"
+          ],
+          "reason": "Absence from the captured Essential MY26 palette is not proof of global unavailability across uncaptured current grades."
+        }
+      ],
+      "master_action": "no_change"
+    },
+    "stock_context": {
+      "review_resolution": "whole_vehicle_context_only",
+      "master_action": "no_change",
+      "reason": "Dealer-stock totals and selected equipment are not reusable standalone option or paint prices unless separately itemized."
+    }
+  },
+  "package_conclusion": {
+    "master_rows_changed": 0,
+    "exact_current_type2_standard_states": 2,
+    "current_expression_type2_state": "unresolved",
+    "exact_current_paint_price_rows": 2,
+    "my2025_prices_promoted_to_my26": 0,
+    "stock_totals_decomposed": 0,
+    "next_package": "spring_current_grade_snapshot_capture_001"
+  }
+}
