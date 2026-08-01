@@ -40,7 +40,30 @@ jobs:
       - name: Run package tests
         run: python -m unittest -v tests.test_existing_configuration_missing_data_analysis
       - name: Run full quality gate
-        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
+      - name: Capture quality diagnostics
+        if: failure()
+        run: |
+          if [ ! -f completeness-quality-diagnostic.txt ]; then
+            {
+              echo '=== QUALITY LOG ==='
+              cat "$RUNNER_TEMP/quality.log" 2>/dev/null || true
+              echo '=== QUALITY SUMMARY ==='
+              cat "$RUNNER_TEMP/quality-summary.json" 2>/dev/null || true
+            } > completeness-quality-diagnostic.txt
+          fi
+      - name: Commit quality diagnostics
+        if: failure()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f completeness-quality-diagnostic.txt
+          if git diff --cached --quiet; then
+            echo 'Quality diagnostics already captured.'
+            exit 0
+          fi
+          git commit -m 'chore(ci): capture completeness quality diagnostics'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Commit package
         run: |
           git diff --check
