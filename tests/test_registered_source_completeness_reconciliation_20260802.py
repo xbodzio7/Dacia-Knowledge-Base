@@ -16,10 +16,11 @@ def payload(path: Path) -> dict:
 class RegisteredSourceCompletenessReconciliationTests(unittest.TestCase):
     def test_every_reviewed_gap_has_one_terminal_classification(self) -> None:
         report = payload(REPORT)
-        decisions = report["decisions"]
-        self.assertEqual(len(decisions), 51)
+        counts = Counter()
+        for group in report["review_groups"]:
+            counts[group["classification"]] += group["row_count"]
         self.assertEqual(
-            Counter(item["classification"] for item in decisions),
+            counts,
             Counter(
                 {
                     "importable": 2,
@@ -29,53 +30,43 @@ class RegisteredSourceCompletenessReconciliationTests(unittest.TestCase):
                 }
             ),
         )
+        self.assertEqual(sum(counts.values()), report["scope"]["reviewed_gap_rows"])
         self.assertEqual(report["scope"]["data_mutations_applied"], 0)
         self.assertEqual(report["scope"]["models_or_domains_added"], 0)
 
     def test_active_comparison_review_closes_all_22_rows(self) -> None:
-        report = payload(REPORT)
-        decisions = [
-            item for item in report["decisions"]
-            if item["gap_type"] == "active-comparison"
+        groups = [
+            group for group in payload(REPORT)["review_groups"]
+            if group["area"] == "active-comparison"
         ]
-        self.assertEqual(len(decisions), 22)
+        counts = Counter()
+        for group in groups:
+            counts[group["classification"]] += group["row_count"]
         self.assertEqual(
-            Counter(item["classification"] for item in decisions),
+            counts,
             Counter({"source-not-stated": 20, "context-unmodeled": 2}),
         )
         contextual = [
-            item for item in decisions
-            if item["classification"] == "context-unmodeled"
+            group for group in groups
+            if group["classification"] == "context-unmodeled"
         ]
-        self.assertEqual(
-            {item["attribute_code"] for item in contextual},
-            {"gear_shift_indicator"},
-        )
+        self.assertEqual(len(contextual), 1)
+        self.assertEqual(contextual[0]["item"], "gear_shift_indicator")
+        self.assertEqual(contextual[0]["row_count"], 2)
 
     def test_only_two_current_spring_prices_are_importable(self) -> None:
-        report = payload(REPORT)
-        importable = {
-            (item["commercial_item_code"], item["configuration_code"]): item
-            for item in report["decisions"]
-            if item["classification"] == "importable"
-        }
-        expected = {
-            (
-                "spring_city_package",
-                "spring_extreme_electric100_automatic",
-            ): 1800,
-            (
-                "spring_power_package",
-                "spring_extreme_electric100_automatic",
-            ): 3000,
-        }
-        self.assertEqual(set(importable), set(expected))
-        for key, amount in expected.items():
-            self.assertEqual(importable[key]["candidate_amount_pln"], amount)
-            self.assertEqual(
-                importable[key]["candidate_source_code"],
-                "src_pl_spring_official_configurator_20260731",
-            )
+        groups = [
+            group for group in payload(REPORT)["review_groups"]
+            if group["classification"] == "importable"
+        ]
+        self.assertEqual(len(groups), 1)
+        group = groups[0]
+        self.assertEqual(group["configuration_code"], "spring_extreme_electric100_automatic")
+        self.assertEqual(group["candidate_source_code"], "src_pl_spring_official_configurator_20260731")
+        self.assertEqual(
+            {item: amount for item, amount in group["rows"]},
+            {"spring_city_package": 1800, "spring_power_package": 3000},
+        )
 
     def test_project_state_advances_to_materialization_package(self) -> None:
         state = payload(ROOT / "project/state.json")
