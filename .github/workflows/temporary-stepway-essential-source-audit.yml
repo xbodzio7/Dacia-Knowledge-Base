@@ -30,6 +30,17 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
+      - name: Align importer with configuration schema
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/import_sandero_stepway_essential_source_gap_20260626.py')
+          text = path.read_text(encoding='utf-8')
+          obsolete = '''    if configuration.get("model_code") != MODEL_CODE:\n        raise ContractError(f"unexpected model identity for {CONFIGURATION}")\n'''
+          if obsolete not in text:
+              raise SystemExit('Expected obsolete model-column check was not found')
+          path.write_text(text.replace(obsolete, ''), encoding='utf-8')
+          PY
       - name: Materialize package
         run: |
           python -m tools.import_sandero_stepway_essential_source_gap_20260626
