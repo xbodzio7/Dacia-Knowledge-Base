@@ -36,18 +36,12 @@ jobs:
 
           path = Path('tests/test_spring_commercial_packages.py')
           text = path.read_text(encoding='utf-8')
-          start_marker = '''        self.assertEqual(
-              Counter(row["configuration_code"] for row in unknown),
-          '''
-          start = text.find(start_marker)
-          if start < 0:
-              start_marker = '''        self.assertEqual(
-            Counter(row["configuration_code"] for row in unknown),
-          '''
-              start = text.find(start_marker)
+          needle = 'Counter(row["configuration_code"] for row in unknown)'
+          position = text.find(needle)
+          start = text.rfind('        self.assertEqual(', 0, position)
           end_marker = '        self.assertTrue(all(row["price_date"] == "" for row in unknown))'
-          end = text.find(end_marker, start)
-          if start < 0 or end < 0:
+          end = text.find(end_marker, position)
+          if position < 0 or start < 0 or end < 0:
               raise SystemExit('Spring unknown-count test block not found')
           replacement = '''        self.assertEqual(
               {
