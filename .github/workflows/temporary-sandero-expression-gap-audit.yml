@@ -43,6 +43,7 @@ jobs:
           from pathlib import Path
 
           root = Path('.')
+          master = root / 'data/master'
           source_code = 'src_pl_sandero_stepway_expression_ecog120_mt_20260626'
           configuration = 'sandero_stepway_iii_expression_ecog120_manual'
 
@@ -54,7 +55,7 @@ jobs:
               return json.loads(path.read_text(encoding='utf-8'))
 
           source = next(
-              row for row in csv_rows(root / 'data/master/sources.csv')
+              row for row in csv_rows(master / 'sources.csv')
               if row.get('code') == source_code
           )
           evidence = [
@@ -73,17 +74,23 @@ jobs:
               if source_code in key and configuration in key
           ]
           values = [
-              row for row in csv_rows(root / 'data/master/configuration_attribute_values.csv')
+              row for row in csv_rows(master / 'configuration_attribute_values.csv')
               if row.get('configuration_code') == configuration
           ]
           ranges = [
-              row for row in csv_rows(root / 'data/master/configuration_attribute_value_ranges.csv')
+              row for row in csv_rows(master / 'configuration_attribute_value_ranges.csv')
               if row.get('configuration_code') == configuration
           ]
-          availability = [
-              row for row in csv_rows(root / 'data/master/equipment_availability.csv')
-              if row.get('configuration_code') == configuration
-          ]
+          availability = []
+          availability_files = sorted(set(master.glob('*availability*.csv')) | set(master.glob('*equipment*.csv')))
+          for path in availability_files:
+              try:
+                  rows = csv_rows(path)
+              except Exception:
+                  continue
+              for row in rows:
+                  if row.get('configuration_code') == configuration:
+                      availability.append({'_path': str(path), **row})
           payload = {
               'source': source,
               'configuration': configuration,
@@ -93,6 +100,7 @@ jobs:
               'existing_values': values,
               'existing_ranges': ranges,
               'equipment_availability': availability,
+              'equipment_candidate_files': [str(path) for path in availability_files],
           }
           Path('/tmp/relevant.json').write_text(
               json.dumps(payload, ensure_ascii=False, indent=2),
@@ -104,6 +112,7 @@ jobs:
           print('Existing scalar values:', len(values))
           print('Existing ranges:', len(ranges))
           print('Equipment rows:', len(availability))
+          print('Equipment candidate files:', [str(path) for path in availability_files])
           PY
           source_path="$(cat /tmp/source-path.txt)"
           pdfinfo "$source_path" > /tmp/pdfinfo.txt
