@@ -124,7 +124,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "A1:B16",
             "A1:AH4",
             "A1:K6",
-            "A1:M336",
+            "A1:M337",
             "A1:L11",
             "A1:AS239",
             "A1:K12",
@@ -159,7 +159,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertEqual(overview["singleton_scope_count"], 1)
         self.assertFalse(overview["cross_scope_pairs_generated"])
         self.assertEqual(overview["total_pair_count"], 2)
-        self.assertEqual(overview["total_difference_count"], 19)
+        self.assertEqual(overview["total_difference_count"], 20)
         self.assertFalse(overview["ranking_generated"])
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
