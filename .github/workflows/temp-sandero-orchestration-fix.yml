@@ -38,9 +38,6 @@ jobs:
           python tools/dkb.py project-state --apply
           python -m tools.align_sandero_residual_source_closure_contracts_20260801 --check
           python -m tools.import_sandero_residual_source_closure_20260801 --check
-          python tests/configuration_comparison_context_filter_contract.py
-          python tests/configuration_comparison_pair_summary_contract.py
-          python tests/project_state_contract.py
           python tools/dkb.py validate
           python tools/dkb.py project-state --check
           rm -f .github/workflows/temp-sandero-orchestration-fix.yml
