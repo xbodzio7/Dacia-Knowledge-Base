@@ -39,6 +39,9 @@
       "project/sources/dacia-pl-spring-commercial-context-20260802.json",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tests/test_sandero_residual_source_closure_20260801.py",
       "tests/test_spring_commercial_context_resolution_20260802.py",
       "tools/review_spring_commercial_context_20260802.py"
     ]
