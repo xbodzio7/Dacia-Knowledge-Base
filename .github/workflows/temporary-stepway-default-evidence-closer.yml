@@ -87,7 +87,14 @@ jobs:
           python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" > "$RUNNER_TEMP/quality.log" 2>&1
           code=$?
           set -e
-          cat "$RUNNER_TEMP/quality.log"
+          if [ "$code" -ne 0 ]; then
+            echo '--- concise quality failure ---'
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual' "$RUNNER_TEMP/quality.log" | tail -n 120 || true
+            echo '--- final quality log ---'
+            tail -n 240 "$RUNNER_TEMP/quality.log"
+          else
+            tail -n 80 "$RUNNER_TEMP/quality.log"
+          fi
           cp "$RUNNER_TEMP/workflow.yml" .github/workflows/temporary-stepway-default-evidence-closer.yml
           exit "$code"
       - name: Commit package
