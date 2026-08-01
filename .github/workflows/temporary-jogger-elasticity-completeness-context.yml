@@ -1,0 +1,55 @@
+name: Temporary Jogger Elasticity Completeness Context
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-jogger-elasticity-completeness-context-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.ref == 'agent/jogger-elasticity-completeness-context-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Materialize scope correction
+        run: |
+          python tools/align_jogger_elasticity_completeness_context.py
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+      - name: Check deterministic outputs
+        run: python tools/align_jogger_elasticity_completeness_context.py --check
+      - name: Run package tests
+        run: python -m unittest -v tests.test_jogger_elasticity_completeness_context
+      - name: Run full quality gate
+        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+      - name: Commit package
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'fix(reporting): align Jogger elasticity completeness context'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
