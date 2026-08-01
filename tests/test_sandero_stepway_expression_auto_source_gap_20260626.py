@@ -87,9 +87,8 @@ class SanderoStepwayExpressionAutomaticSourceGapTests(unittest.TestCase):
         current = next(item for item in payload["ranked_candidates"] if item["source_code"] == package.SOURCE_CODE)
         self.assertEqual(current["selection_status"], package.EXHAUSTED_CLASSIFICATION)
         selected = payload["selected_next_package"]
-        self.assertIsNotNone(selected)
-        self.assertEqual(selected["selection_status"], "eligible")
-        self.assertNotEqual(selected["source_code"], package.SOURCE_CODE)
+        self.assertIsNone(selected)
+        self.assertEqual(payload["summary"]["eligible_candidate_count"], 0)
 
     def test_full_materialized_contract_passes(self) -> None:
         package.verify_materialized()

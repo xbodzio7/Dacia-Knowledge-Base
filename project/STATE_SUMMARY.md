@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.10.0 Publication**
+**Sandero Residual Source Closure**
 
 ## Reference delivery
 
@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1766
+- Tests: 1774
 - Master CSV files: 46
-- Master rows: 11691
-- Configuration values: 3565
+- Master rows: 11694
+- Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
-- Availability records: 5905
+- Availability records: 5906
 - Canonical attributes: 385
 - Attribute categories: 30
 
 ## Current package
 
-**Data Products v1.10.0 Publication** — `complete`
+**Sandero Residual Source Closure** — `complete`
 
-Publish the current source-backed data products and the interactive shortlist interface repairs from the exact verified merge commit.
+Close all three remaining eligible Sandero source candidates with exact imports or formal source-exhaustion receipts and no cross-configuration inference.
 
 ## Next package
 
-**Sandero Residual Source Closure** — `planned`
+**Data Scope Milestone Closure Review** — `planned`
 
-Close the three remaining eligible Sandero source candidates as one logical evidence-bounded package, without cross-configuration or cross-powertrain inference.
+Confirm that the current model and data-product milestone has no eligible source-backed completeness work remaining, reconcile final documentation, and decide between a final release or maintenance mode without adding models or domains.
 
 ## Autonomy
 

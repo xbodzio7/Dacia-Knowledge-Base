@@ -110,8 +110,8 @@ class SanderoStepwayExpressionSourceGapTests(unittest.TestCase):
 
     def test_reanalysis_removes_false_and_resolved_gaps(self) -> None:
         payload = package.analysis.collect(ROOT)
-        self.assertEqual(payload["summary"]["missing_technical_count"], 101)
-        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 6)
+        self.assertEqual(payload["summary"]["missing_technical_count"], 97)
+        self.assertEqual(payload["summary"]["exhausted_source_candidate_count"], 7)
         current = next(
             item
             for item in payload["ranked_candidates"]
@@ -120,9 +120,8 @@ class SanderoStepwayExpressionSourceGapTests(unittest.TestCase):
         self.assertEqual(current["missing_technical"], 8)
         self.assertEqual(current["selection_status"], package.EXHAUSTED_CLASSIFICATION)
         selected = payload["selected_next_package"]
-        self.assertIsNotNone(selected)
-        self.assertEqual(selected["selection_status"], "eligible")
-        self.assertNotEqual(selected["source_code"], package.SOURCE_CODE)
+        self.assertIsNone(selected)
+        self.assertEqual(payload["summary"]["eligible_candidate_count"], 0)
 
     def test_full_materialized_contract_passes(self) -> None:
         package.verify_materialized()

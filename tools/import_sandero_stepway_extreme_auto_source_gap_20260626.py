@@ -650,12 +650,11 @@ def verify_materialized() -> None:
             raise ContractError(f"resolved parking assistance remains missing: {item}")
     selected = expected_analysis.get("selected_next_package")
     if (
-        not selected
-        or selected["source_code"] == SOURCE_CODE
-        or selected["selection_status"] != "eligible"
+        selected is not None
+        or expected_analysis["summary"]["eligible_candidate_count"] != 0
     ):
         raise ContractError(
-            f"analysis did not advance to an eligible source: {selected}"
+            f"analysis should have no eligible source after residual closure: {selected}"
         )
     state = json.loads(STATE.read_text(encoding="utf-8"))
     if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
