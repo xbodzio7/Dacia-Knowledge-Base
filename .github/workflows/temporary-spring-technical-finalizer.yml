@@ -44,11 +44,27 @@ jobs:
         run: python tools/dkb.py documentation-baseline --check
       - name: Run full quality gate
         run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite" --log-file "$RUNNER_TEMP/quality.log" --summary-json "$RUNNER_TEMP/quality-summary.json"
-      - name: Show quality diagnostics
+      - name: Capture quality diagnostics
         if: failure()
         run: |
-          test -f "$RUNNER_TEMP/quality.log" && cat "$RUNNER_TEMP/quality.log" || true
-          test -f "$RUNNER_TEMP/quality-summary.json" && cat "$RUNNER_TEMP/quality-summary.json" || true
+          if [ ! -f .tmp/spring-quality-captured ]; then
+            mkdir -p .tmp
+            cp "$RUNNER_TEMP/quality.log" .tmp/spring-quality.log 2>/dev/null || true
+            cp "$RUNNER_TEMP/quality-summary.json" .tmp/spring-quality-summary.json 2>/dev/null || true
+            touch .tmp/spring-quality-captured
+          fi
+      - name: Commit quality diagnostics
+        if: failure()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .tmp/spring-quality-captured .tmp/spring-quality.log .tmp/spring-quality-summary.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'Quality diagnostics already captured.'
+            exit 0
+          fi
+          git commit -m 'chore(ci): capture Spring quality diagnostics'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Commit package data
         run: |
           git diff --check
