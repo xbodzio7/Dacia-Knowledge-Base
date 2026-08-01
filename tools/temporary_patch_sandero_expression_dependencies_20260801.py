@@ -26,6 +26,13 @@ def main() -> int:
             "expected 137 remaining technical records": "expected 125 remaining technical records",
             'summary["exhausted_source_candidate_count"] != 2': 'summary["exhausted_source_candidate_count"] != 3',
             "expected exactly two exhausted-source candidates": "expected exactly three exhausted-source candidates",
+            'if state["current_package"]["package_id"] != "sandero_stepway_essential_source_gap_001":\n        raise ContractError("project state does not identify the completed package")': 'if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:\n        raise ContractError("project state baseline predates the completed package")',
+        },
+    )
+    patch(
+        "tools/import_sandero_stepway_expression_source_gap_20260626.py",
+        {
+            'if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":\n        raise ContractError("project state does not identify the completed package")': 'if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:\n        raise ContractError("project state baseline predates the completed package")',
         },
     )
     patch(
@@ -66,7 +73,7 @@ def main() -> int:
             '"technical": {"comparisons": 688, "different": 157, "equal": 439, "not_comparable": 92}': '"technical": {"comparisons": 688, "different": 162, "equal": 451, "not_comparable": 75}',
             '"total_differences": 181': '"total_differences": 186',
             '{"ambiguous": 0, "found": 0, "not_stated": 55, "out_of_scope": 17, "total": 72}': '{"ambiguous": 0, "found": 0, "not_stated": 49, "out_of_scope": 17, "total": 66}',
-            "self.assertEqual(len(ranged), 36)": "self.assertEqual(len(ranged), 45)",
+            "self.assertEqual(len(ranged), 36)": "self.assertEqual(len(ranged), 41)",
         },
     )
     patch(
@@ -83,8 +90,6 @@ def main() -> int:
         {
             "len(core.difference_csv_rows(report)), 371": "len(core.difference_csv_rows(report)), 377",
             '"fuel_type_code=": 164': '"fuel_type_code=": 168',
-            '"fuel_type_code=lpg": 83': '"fuel_type_code=lpg": 84',
-            '"fuel_type_code=petrol": 77': '"fuel_type_code=petrol": 78',
         },
     )
     patch(
