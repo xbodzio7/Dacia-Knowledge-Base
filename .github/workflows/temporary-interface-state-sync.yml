@@ -1,0 +1,37 @@
+name: Temporary Interface Repair State Sync
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize:
+    if: github.head_ref == 'agent/interface-source-coverage-repair-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/interface-source-coverage-repair-20260801
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Synchronize generated documentation
+        run: |
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+      - name: Commit synchronized state and remove temporary workflow
+        run: |
+          rm -f .github/workflows/temporary-interface-state-sync.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'docs: synchronize interface repair state'
+          git push origin HEAD:agent/interface-source-coverage-repair-20260801
