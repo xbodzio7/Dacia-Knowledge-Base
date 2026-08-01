@@ -1,0 +1,87 @@
+name: Temporary Reviewed Gap CI Repair
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - .github/workflows/temp-reviewed-gap-ci-repair.yml
+      - tools/temp_fix_reviewed_gap_ci.py
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'agent/reviewed-gap-state-materialization-20260802'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13'
+
+      - name: Apply contract repairs
+        shell: bash
+        run: |
+          python tools/temp_fix_reviewed_gap_ci.py
+          python tools/dkb.py documentation-baseline --apply
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path('tools').resolve()))
+          import project_state
+          root = Path('.').resolve()
+          state = project_state.read_state(root / 'project/state.json')
+          project_state.validate_state(state)
+          project_state.write_atomic(
+              root / 'project/STATE_SUMMARY.md',
+              project_state.render_summary(state),
+          )
+          PY
+
+      - name: Run focused regression contracts
+        shell: bash
+        run: |
+          python -m py_compile tools/configuration_shortlist.py tools/import_spring_commercial_packages.py
+          python -m unittest -q \
+            tests.test_reviewed_gap_state_materialization_20260802 \
+            tests.test_spring_commercial_packages \
+            tests.test_commercial_items_20260703 \
+            tests.test_registered_source_completeness_reconciliation_20260802 \
+            tests.test_sandero_residual_source_closure_20260801 \
+            tests.test_configuration_shortlist_html \
+            tests.test_configuration_comparison_workbook
+
+      - name: Commit repaired contracts
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            CHANGELOG.md \
+            README.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/state.json \
+            tests/test_commercial_items_20260703.py \
+            tests/test_registered_source_completeness_reconciliation_20260802.py \
+            tests/test_sandero_residual_source_closure_20260801.py \
+            tests/test_spring_commercial_packages.py \
+            tools/configuration_shortlist.py \
+            tools/import_spring_commercial_packages.py
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'CI contracts are already repaired.'
+            exit 0
+          fi
+          git commit -m 'fix: align reviewed gap regression contracts'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
