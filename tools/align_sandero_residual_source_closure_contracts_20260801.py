@@ -49,6 +49,8 @@ MANIFEST_ADDITIONS = tuple(
             *AVAILABILITY_COUNT_TESTS,
             *HISTORICAL_SOURCE_TESTS,
             *HISTORICAL_SOURCE_TOOLS,
+            "tests/configuration_comparison_context_filter_contract.py",
+            "tests/configuration_comparison_pair_summary_contract.py",
             "tests/test_duster_ecog120_reporting_scope.py",
             "tests/test_existing_configuration_missing_data_analysis.py",
             "tests/test_sandero_ecog120_manual_reporting_scope.py",
@@ -300,6 +302,16 @@ def apply() -> None:
         "tests/test_duster_ecog120_reporting_scope.py",
         '        self.assertEqual(default["summary"]["total_differences"], 400)',
         '        self.assertEqual(default["summary"]["total_differences"], 411)',
+    )
+    replace_exact(
+        "tests/configuration_comparison_context_filter_contract.py",
+        "        self.assertEqual(len(core.difference_csv_rows(report)), 400)",
+        "        self.assertEqual(len(core.difference_csv_rows(report)), 411)",
+    )
+    replace_exact(
+        "tests/configuration_comparison_pair_summary_contract.py",
+        "            400,\n        )",
+        "            411,\n        )",
     )
     replace_exact(
         "tests/test_existing_configuration_missing_data_analysis.py",

@@ -82,7 +82,9 @@
       "tools/import_sandero_stepway_expression_auto_source_gap_20260626.py",
       "tools/import_sandero_stepway_expression_source_gap_20260626.py",
       "tools/import_sandero_stepway_extreme_auto_source_gap_20260626.py",
-      "tools/import_sandero_stepway_extreme_source_gap_20260626.py"
+      "tools/import_sandero_stepway_extreme_source_gap_20260626.py",
+      "tests/configuration_comparison_context_filter_contract.py",
+      "tests/configuration_comparison_pair_summary_contract.py"
     ]
   },
   "next_package": {
