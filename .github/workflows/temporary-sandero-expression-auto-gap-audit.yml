@@ -37,21 +37,38 @@ jobs:
 
           path = Path('tools/build_sandero_stepway_expression_auto_source_gap_20260801.py')
           text = path.read_text(encoding='utf-8')
-          opening = "    return f'''from __future__ import annotations"
-          closing = "\n'''\n\n\ndef regex_update"
-          if opening not in text or closing not in text:
-              raise SystemExit('generator delimiter anchors not found')
-          text = text.replace(
-              opening,
-              '    return f"""from __future__ import annotations',
-              1,
-          )
-          text = text.replace(
-              closing,
-              '\n"""\n\n\ndef regex_update',
-              1,
-          )
+
+          replacements = [
+              (
+                  "    return f'''from __future__ import annotations",
+                  '    return f"""from __future__ import annotations',
+              ),
+              (
+                  "\n'''\n\n\ndef regex_update",
+                  '\n"""\n\n\ndef regex_update',
+              ),
+              (
+                  "    old = '''    state = json.loads(STATE.read_text(encoding=\"utf-8\"))",
+                  '    old = """    state = json.loads(STATE.read_text(encoding="utf-8"))',
+              ),
+              (
+                  '        raise ContractError("project state does not identify the completed package")\n\'\'\'\n    new = \'\'\'    state = json.loads(STATE.read_text(encoding="utf-8"))',
+                  '        raise ContractError("project state does not identify the completed package")\n"""\n    new = """    state = json.loads(STATE.read_text(encoding="utf-8"))',
+              ),
+              (
+                  '        raise ContractError("project state baseline predates the completed package")\n\'\'\'\n    if old in text:',
+                  '        raise ContractError("project state baseline predates the completed package")\n"""\n    if old in text:',
+              ),
+          ]
+          for old, new in replacements:
+              if old not in text:
+                  if new in text:
+                      continue
+                  raise SystemExit(f'generator delimiter anchor not found: {old[:80]!r}')
+              text = text.replace(old, new, 1)
+
           path.write_text(text, encoding='utf-8')
+          compile(text, str(path), 'exec')
           PY
       - name: Generate and apply package
         run: |
