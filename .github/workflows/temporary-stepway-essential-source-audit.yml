@@ -1,4 +1,4 @@
-name: Temporary Stepway Essential Source Audit
+name: Temporary Stepway Essential Source-Gap Materializer
 
 on:
   pull_request:
@@ -6,38 +6,52 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: temporary-stepway-essential-source-gap-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
 
 jobs:
-  audit:
+  materialize:
     if: github.event.pull_request.head.ref == 'agent/stepway-essential-source-gap-20260801'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Inspect wheel-finish domain and source peers
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
         run: |
-          python - <<'PY'
-          import csv, json
-          from pathlib import Path
-
-          values = list(csv.DictReader(Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='')))
-          attrs = list(csv.DictReader(Path('data/master/attributes.csv').open(encoding='utf-8-sig', newline='')))
-          print('===== ATTRIBUTE =====')
-          for row in attrs:
-              if row['code'] == 'wheel_finish':
-                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
-          print('===== EXISTING VALUES =====')
-          for row in values:
-              if row['attribute_code'] == 'wheel_finish':
-                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
-          print('===== PEER SOURCE TEXT =====')
-          for path in Path('data').rglob('*.json'):
-              text = path.read_text(encoding='utf-8', errors='replace')
-              if 'ERALIA' in text or 'stalowe obręcze kół 16' in text:
-                  print(path)
-                  for line in text.splitlines():
-                      if 'ERALIA' in line or 'stalowe obręcze kół 16' in line:
-                          print(line)
-          PY
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Materialize package
+        run: |
+          python -m tools.import_sandero_stepway_essential_source_gap_20260626
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+      - name: Check deterministic outputs
+        run: python -m tools.import_sandero_stepway_essential_source_gap_20260626 --check
+      - name: Run package tests
+        run: |
+          python -m unittest -v tests.test_sandero_stepway_essential_source_gap_20260626
+          python -m unittest -v tests.test_existing_configuration_missing_data_analysis
+      - name: Run full quality gate
+        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+      - name: Commit package
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'data(sandero): resolve Stepway Essential source gaps'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
