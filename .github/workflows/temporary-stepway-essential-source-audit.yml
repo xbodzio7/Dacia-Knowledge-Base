@@ -16,30 +16,28 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Inspect dimension conventions and gear coverage
+      - name: Inspect wheel-finish domain and source peers
         run: |
           python - <<'PY'
           import csv, json
           from pathlib import Path
 
           values = list(csv.DictReader(Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='')))
-          print('===== DIMENSION CONVENTIONS =====')
-          for row in values:
-              if row['attribute_code'] in {'overall_height', 'overall_width_with_mirrors'}:
+          attrs = list(csv.DictReader(Path('data/master/attributes.csv').open(encoding='utf-8-sig', newline='')))
+          print('===== ATTRIBUTE =====')
+          for row in attrs:
+              if row['code'] == 'wheel_finish':
                   print(json.dumps(row, ensure_ascii=False, sort_keys=True))
-
-          print('===== SANDERO GEAR-4 COVERAGE =====')
-          for scope_name in ('configuration_completeness.json', 'sandero_ecog120_manual_completeness.json'):
-              payload = json.loads(Path('data/reporting', scope_name).read_text(encoding='utf-8'))
-              codes = [item['configuration_code'] if isinstance(item, dict) else item for item in payload['configurations']]
-              print(scope_name, len(codes))
-              for code in codes:
-                  found = sorted(
-                      (row['fuel_type_code'], row['gear_number'], row['value'], row['source_code'])
-                      for row in values
-                      if row['configuration_code'] == code
-                      and row['attribute_code'] == 'elasticity_80_120'
-                      and row['gear_number'] == '4'
-                  )
-                  print(code, found)
+          print('===== EXISTING VALUES =====')
+          for row in values:
+              if row['attribute_code'] == 'wheel_finish':
+                  print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+          print('===== PEER SOURCE TEXT =====')
+          for path in Path('data').rglob('*.json'):
+              text = path.read_text(encoding='utf-8', errors='replace')
+              if 'ERALIA' in text or 'stalowe obręcze kół 16' in text:
+                  print(path)
+                  for line in text.splitlines():
+                      if 'ERALIA' in line or 'stalowe obręcze kół 16' in line:
+                          print(line)
           PY
