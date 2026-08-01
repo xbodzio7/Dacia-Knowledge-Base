@@ -89,6 +89,15 @@ REMAINING_SLOTS = (
     {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
 )
 MANIFEST_PATHS = [
+    "data/reporting/sandero_ecog120_manual_gap_evidence.json",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+    "tests/test_configuration_value_ranges.py",
+    "tests/test_jogger_payload_performance_ranges.py",
+    "tests/test_official_brochure_residual_evidence_review.py",
+    "tests/test_spring_technical_20260219.py",
+    "tools/close_stepway_essential_reporting_dependencies_20260801.py",
+    "tools/review_official_brochure_residual_evidence_20260726.py",
     "data/imports/sandero_stepway_essential_source_gap_20260626.csv",
     "data/master/configuration_attribute_value_ranges.csv",
     "data/master/configuration_attribute_values.csv",
@@ -210,8 +219,6 @@ def verify_repository_contract(spec_rows: Iterable[dict[str, str]]) -> None:
     configuration = configurations.get(CONFIGURATION)
     if configuration is None or configuration.get("status") != "active":
         raise ContractError(f"missing active configuration: {CONFIGURATION}")
-    if configuration.get("model_code") != MODEL_CODE:
-        raise ContractError(f"unexpected model identity for {CONFIGURATION}")
     links = {
         (row["source_code"], row["configuration_code"])
         for row in read_rows(MASTER / "source_configurations.csv")

@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-Jogger Context Completeness Reanalysis**
+**Sandero Stepway Essential Source Gap**
 
 ## Reference delivery
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 1723
+- Tests: 1731
 - Master CSV files: 46
-- Master rows: 11660
-- Configuration values: 3552
+- Master rows: 11666
+- Configuration values: 3555
 - Configuration import specifications: 138
-- Configuration value ranges: 301
+- Configuration value ranges: 304
 - Configuration range import specifications: 24
 - Availability records: 5902
 - Canonical attributes: 385
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Jogger Context Completeness Reanalysis** — `complete`
+**Sandero Stepway Essential Source Gap** — `complete`
 
-Recompute genuine remaining gaps after the Jogger slot-identity correction and prevent exhausted sources from being selected again.
+Resolve every safely representable missing slot from the exact Stepway Essential Eco-G 120 manual source and formally preserve the remaining not-stated boundary.
 
 ## Next package
 
 **sandero Highest-Impact Eligible Source Gap** — `planned`
 
-Inspect exact missing slots for sandero against source src_pl_sandero_stepway_essential_ecog120_mt_20260626 and import only directly stated values or explicit non-applicable classifications.
+Inspect exact missing slots for sandero against source src_pl_sandero_stepway_expression_ecog120_mt_20260626 and import only directly stated values or explicit non-applicable classifications.
 
 ## Autonomy
 
