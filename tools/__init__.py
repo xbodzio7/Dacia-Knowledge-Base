@@ -48,5 +48,12 @@ if old_range_patterns in text:
 elif new_range_patterns not in text:
     raise RuntimeError("range snapshot pattern list not found")
 
+manifest_anchor = '    "tests/test_duster_ecog120_reporting_scope.py",\n'
+manifest_entry = '    "tests/test_configuration_comparison_workbook.py",\n'
+if manifest_entry not in text:
+    if manifest_anchor not in text:
+        raise RuntimeError("workbook manifest anchor not found")
+    text = text.replace(manifest_anchor, manifest_entry + manifest_anchor, 1)
+
 builder.write_text(text, encoding="utf-8")
 Path(__file__).unlink()
