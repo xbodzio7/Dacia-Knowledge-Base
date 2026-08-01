@@ -54,3 +54,7 @@ This package activates `accelerated_milestone_closure`:
 - post-merge publication builds twice from the exact merge SHA and proves byte identity;
 - the offline workspace verifies successfully;
 - the public release is created only once and is then recorded in canonical state.
+
+## Historical contract repair
+
+Five completed Sandero Stepway source-gap verifiers now validate their durable data, generated analysis and minimum canonical baseline without requiring `project/state.json` to remain frozen on their former current or next package. This keeps completed package contracts valid while the canonical state advances to release preparation and later milestones.

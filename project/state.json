@@ -42,6 +42,11 @@
       "project/packages/data-products-v1.10.0-accelerated-release-preparation-20260801.md",
       "project/state.json",
       "tests/test_data_products_v1_10_0_release_contract.py",
+      "tools/import_sandero_stepway_essential_source_gap_20260626.py",
+      "tools/import_sandero_stepway_expression_auto_source_gap_20260626.py",
+      "tools/import_sandero_stepway_expression_source_gap_20260626.py",
+      "tools/import_sandero_stepway_extreme_auto_source_gap_20260626.py",
+      "tools/import_sandero_stepway_extreme_source_gap_20260626.py",
       "tools/record_data_products_v1_10_0_publication_20260801.py",
       "tools/reporting/data_product_release.py"
     ]

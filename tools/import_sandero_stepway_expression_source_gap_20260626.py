@@ -552,8 +552,6 @@ def verify_materialized() -> None:
     state = json.loads(STATE.read_text(encoding="utf-8"))
     if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
         raise ContractError("project state baseline predates the completed package")
-    if state["next_package"]["goal"].find(str(selected["source_code"])) < 0:
-        raise ContractError("project state does not reference the selected next source")
     print("Stepway Expression source-gap observations: PASS (3 values + 3 ranges)")
 
 
