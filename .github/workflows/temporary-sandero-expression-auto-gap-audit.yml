@@ -37,48 +37,17 @@ jobs:
 
           path = Path('tools/build_sandero_stepway_expression_auto_source_gap_20260801.py')
           text = path.read_text(encoding='utf-8')
-
           replacements = [
-              (
-                  "    return f'''from __future__ import annotations",
-                  '    return f"""from __future__ import annotations',
-              ),
-              (
-                  "\n'''\n\n\ndef regex_update",
-                  '\n"""\n\n\ndef regex_update',
-              ),
-              (
-                  "    old = '''    state = json.loads(STATE.read_text(encoding=\"utf-8\"))",
-                  '    old = """    state = json.loads(STATE.read_text(encoding="utf-8"))',
-              ),
-              (
-                  '        raise ContractError("project state does not identify the completed package")\n\'\'\'\n    new = \'\'\'    state = json.loads(STATE.read_text(encoding="utf-8"))',
-                  '        raise ContractError("project state does not identify the completed package")\n"""\n    new = """    state = json.loads(STATE.read_text(encoding="utf-8"))',
-              ),
-              (
-                  '        raise ContractError("project state baseline predates the completed package")\n\'\'\'\n    if old in text:',
-                  '        raise ContractError("project state baseline predates the completed package")\n"""\n    if old in text:',
-              ),
-              (
-                  'updated, count = re.subn(pattern, replacement, text, count=1, flags=re.DOTALL)',
-                  'updated, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.DOTALL)',
-              ),
-              (
-                  'if review_removed not in {0, 1}:',
-                  'if review_removed not in {0, 1, 2}:',
-              ),
-              (
-                  'expected zero or one resolved source-review key',
-                  'expected zero, one or two resolved source-review keys',
-              ),
-              (
-                  '    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",',
-                  '    "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",\n    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",',
-              ),
-              (
-                  'self.assertEqual(scope["technical_slots"], 54)',
-                  'self.assertEqual(scope["technical_slots"], 58)',
-              ),
+              ("    return f'''from __future__ import annotations", '    return f"""from __future__ import annotations'),
+              ("\n'''\n\n\ndef regex_update", '\n"""\n\n\ndef regex_update'),
+              ("    old = '''    state = json.loads(STATE.read_text(encoding=\"utf-8\"))", '    old = """    state = json.loads(STATE.read_text(encoding="utf-8"))'),
+              ('        raise ContractError("project state does not identify the completed package")\n\'\'\'\n    new = \'\'\'    state = json.loads(STATE.read_text(encoding="utf-8"))', '        raise ContractError("project state does not identify the completed package")\n"""\n    new = """    state = json.loads(STATE.read_text(encoding="utf-8"))'),
+              ('        raise ContractError("project state baseline predates the completed package")\n\'\'\'\n    if old in text:', '        raise ContractError("project state baseline predates the completed package")\n"""\n    if old in text:'),
+              ('updated, count = re.subn(pattern, replacement, text, count=1, flags=re.DOTALL)', 'updated, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.DOTALL)'),
+              ('if review_removed not in {0, 1}:', 'if review_removed not in {0, 1, 2}:'),
+              ('expected zero or one resolved source-review key', 'expected zero, one or two resolved source-review keys'),
+              ('    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",', '    "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",\n    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",'),
+              ('self.assertEqual(scope["technical_slots"], 54)', 'self.assertEqual(scope["technical_slots"], 58)'),
           ]
           for old, new in replacements:
               if old not in text:
@@ -86,7 +55,6 @@ jobs:
                       continue
                   raise SystemExit(f'generator repair anchor not found: {old[:80]!r}')
               text = text.replace(old, new, 1)
-
           path.write_text(text, encoding='utf-8')
           compile(text, str(path), 'exec')
           PY
@@ -104,28 +72,69 @@ jobs:
           import json
           from pathlib import Path
 
-          path = Path('data/reporting/sandero_stepway_ecog120_automatic_completeness.json')
-          payload = json.loads(path.read_text(encoding='utf-8'))
-          required = [
+          spec_path = Path('data/reporting/sandero_stepway_ecog120_automatic_completeness.json')
+          spec = json.loads(spec_path.read_text(encoding='utf-8'))
+          required_slots = [
               {"attribute_code": "ground_clearance", "fuel_type_code": ""},
               {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"},
               {"attribute_code": "overall_height", "fuel_type_code": ""},
               {"attribute_code": "overall_width_with_mirrors", "fuel_type_code": ""},
           ]
-          slots = payload["technical_slots"]
-          existing = {(slot["attribute_code"], slot["fuel_type_code"]) for slot in slots}
-          for slot in required:
-              key = (slot["attribute_code"], slot["fuel_type_code"])
-              if key not in existing:
+          slots = spec["technical_slots"]
+          existing_slots = {(slot["attribute_code"], slot["fuel_type_code"]) for slot in slots}
+          for slot in required_slots:
+              if (slot["attribute_code"], slot["fuel_type_code"]) not in existing_slots:
                   slots.append(slot)
-          payload["technical_slots"] = sorted(
-              slots,
-              key=lambda slot: (slot["attribute_code"], slot["fuel_type_code"]),
-          )
-          path.write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-              encoding='utf-8',
-          )
+          spec["technical_slots"] = sorted(slots, key=lambda slot: (slot["attribute_code"], slot["fuel_type_code"]))
+          spec_path.write_text(json.dumps(spec, ensure_ascii=False, indent=2) + "\n", encoding='utf-8')
+
+          evidence_path = Path('data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json')
+          evidence = json.loads(evidence_path.read_text(encoding='utf-8'))
+          source = 'src_pl_sandero_stepway_extreme_ecog120_at_20260626'
+          configuration = 'sandero_stepway_iii_extreme_ecog120_automatic'
+          file_path = 'PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf'
+          source_sha = 'a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff'
+          pending = [
+              ('Dimensions', 'ground_clearance', ''),
+              ('Dimensions', 'overall_height', ''),
+              ('Dimensions', 'overall_width_with_mirrors', ''),
+              ('Engine', 'max_torque_rpm', 'petrol'),
+          ]
+          decisions = evidence["decisions"]
+          existing = {
+              (item["configuration_code"], item["domain"], item["attribute_code"], item["fuel_type_code"])
+              for item in decisions
+          }
+          for category, attribute, fuel in pending:
+              key = (configuration, 'technical', attribute, fuel)
+              if key in existing:
+                  continue
+              fuel_key = fuel or 'none'
+              decisions.append({
+                  "attribute_code": attribute,
+                  "auto_import": False,
+                  "basis": None,
+                  "candidate_value": "",
+                  "category": category,
+                  "classification": "ambiguous",
+                  "configuration_code": configuration,
+                  "document_date": "2026-06-26",
+                  "domain": "technical",
+                  "file_path": file_path,
+                  "fuel_type_code": fuel,
+                  "manual_source_review_required": True,
+                  "reason_code": "new_scope_requires_manual_source_review",
+                  "review_note": "The expanded automatic reporting scope exposes this slot, but the exact Extreme automatic source has not yet been reviewed for it.",
+                  "reviewed_pages": [],
+                  "sha256": source_sha,
+                  "source_code": source,
+                  "source_page": None,
+                  "source_section": "",
+                  "source_text": "",
+                  "triage_key": f"technical|{source}|{configuration}|{category}|{attribute}|{fuel_key}",
+              })
+          evidence["decisions"] = sorted(decisions, key=lambda item: item["triage_key"])
+          evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding='utf-8')
           PY
           python tools/dkb.py configuration-gap-resolution-plan \
             --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
