@@ -38,7 +38,7 @@
 
 **Registered Source Completeness Reconciliation** — `complete`
 
-Audited 22 remaining active-comparison gaps and all 29 active blank optional-price mappings. The 51 rows are classified as 2 importable, 27 source-not-stated, 2 source-conflict and 20 context-unmodeled, with no model/domain additions or inferred values.
+Audit every remaining active comparison and blank optional-price row against registered exact sources and assign one of four bounded evidence classifications without adding models, domains or inferred values.
 
 ## Next package
 
