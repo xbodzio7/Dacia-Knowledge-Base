@@ -30,12 +30,6 @@ def main() -> int:
         },
     )
     patch(
-        "tools/import_sandero_stepway_expression_source_gap_20260626.py",
-        {
-            'if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":\n        raise ContractError("project state does not identify the completed package")': 'if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:\n        raise ContractError("project state baseline predates the completed package")',
-        },
-    )
-    patch(
         "tests/test_sandero_stepway_essential_source_gap_20260626.py",
         {
             'payload["summary"]["missing_technical_count"], 137': 'payload["summary"]["missing_technical_count"], 125',
