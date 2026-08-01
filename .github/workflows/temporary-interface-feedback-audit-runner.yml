@@ -1,0 +1,68 @@
+name: Temporary Interface Feedback Repair Materializer
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.head_ref == 'agent/interface-source-coverage-repair-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/interface-source-coverage-repair-20260801
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+
+      - name: Decode and apply repair package
+        run: |
+          base64 --decode tools/apply_interface_feedback_repair_20260801.py.gz.b64 \
+            | gzip --decompress \
+            > tools/apply_interface_feedback_repair_20260801.py
+          chmod +x tools/apply_interface_feedback_repair_20260801.py
+          python tools/apply_interface_feedback_repair_20260801.py --apply
+
+      - name: Refresh official model media
+        run: |
+          python tools/cache_model_media.py --refresh --force
+          python tools/apply_interface_feedback_repair_20260801.py --finalize
+
+      - name: Verify focused contracts
+        run: |
+          python -m py_compile \
+            tools/apply_interface_feedback_repair_20260801.py \
+            tools/configuration_shortlist.py
+          python -m unittest -q \
+            tests.test_configuration_comparison_sticky_offset \
+            tests.test_configuration_selection_export \
+            tests.test_configuration_shortlist_html
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+
+      - name: Remove temporary materializers and commit
+        run: |
+          rm -f \
+            .github/workflows/temporary-interface-feedback-audit.yml \
+            .github/workflows/temporary-interface-feedback-audit-runner.yml \
+            project/tmp/interface-feedback-audit-trigger.txt \
+            project/tmp/interface-feedback-price-coverage.json \
+            project/tmp/spring-media-probe.json \
+            project/tmp/sandero-stepway-price-20260703.txt \
+            tools/temporary_interface_feedback_audit.py \
+            tools/apply_interface_feedback_repair_20260801.py.gz.b64
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: apply interface feedback and price coverage repairs"
+          git push origin HEAD:agent/interface-source-coverage-repair-20260801
