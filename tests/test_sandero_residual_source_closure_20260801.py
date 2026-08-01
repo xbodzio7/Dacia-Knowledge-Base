@@ -76,19 +76,23 @@ class SanderoResidualSourceClosureTests(unittest.TestCase):
 
     def test_completed_closure_remains_preserved_after_follow_up_packages(self):
         state = payload(ROOT / "project/state.json")
-        self.assertEqual(state["reference_delivery"]["name"], "Interface Source Coverage Repair")
-        self.assertEqual(state["reference_delivery"]["pull_request"], 447)
+        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Registered Source Completeness Reconciliation",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
         self.assertEqual(
             state["current_package"]["package_id"],
-            "registered_source_completeness_reconciliation_001",
+            "reviewed_gap_state_materialization_001",
         )
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertEqual(
             state["next_package"]["package_id"],
-            "reviewed_gap_state_materialization_001",
+            "spring_commercial_context_resolution_001",
         )
         self.assertEqual(state["baseline"]["configuration_values"], 3567)
         self.assertEqual(state["baseline"]["availability_records"], 5906)
+
 
 if __name__ == "__main__":
     unittest.main()

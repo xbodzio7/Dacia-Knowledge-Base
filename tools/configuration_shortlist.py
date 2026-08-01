@@ -290,10 +290,12 @@ def _apply_supplemental_model_media(
                     facet["media"] = dict(media)
 
 
-def _read_reviewed_gap_report(repository: Path) -> dict[str, Any]:
+def _read_reviewed_gap_report(repository: Path) -> dict[str, Any] | None:
     path = repository / _REVIEWED_GAP_REPORT
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return None
     except (OSError, json.JSONDecodeError) as exc:
         raise ShortlistError(f"cannot read reviewed gap report: {exc}") from exc
     if not isinstance(payload, dict) or payload.get("status") != "complete":
@@ -415,6 +417,8 @@ def _apply_reviewed_gap_states(
     repository: Path,
 ) -> None:
     payload = _read_reviewed_gap_report(repository)
+    if payload is None:
+        return
     configurations = catalog.get("configurations")
     facets = catalog.get("facets")
     if not isinstance(configurations, list) or not isinstance(facets, dict):
