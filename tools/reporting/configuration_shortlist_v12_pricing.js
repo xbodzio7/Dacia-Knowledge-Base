@@ -51,7 +51,17 @@
       currency_code: String(component.currency_code || defaultCurrency || "PLN"),
       price_date: String(component.price_date || ""),
       source_code: String(component.source_code || ""),
-      equipment_codes: unique(component.equipment_codes || [])
+      equipment_codes: unique(component.equipment_codes || []),
+      review_state: String(component.review_state || ""),
+      review_reason_code: String(component.review_reason_code || ""),
+      reviewed_on: String(component.reviewed_on || ""),
+      candidate_amount_pln: component.candidate_amount_pln === null
+        || component.candidate_amount_pln === undefined
+        || component.candidate_amount_pln === ""
+        ? null
+        : (Number.isFinite(Number(component.candidate_amount_pln))
+          ? Number(component.candidate_amount_pln) : null),
+      candidate_source_code: String(component.candidate_source_code || "")
     };
   }
 
@@ -156,7 +166,13 @@
           code: component.code,
           name: component.name,
           kind: component.kind,
-          amount: component.amount
+          amount: component.amount,
+          review_state: component.review_state,
+          review_reason_code: component.review_reason_code,
+          reviewed_on: component.reviewed_on,
+          candidate_amount_pln: component.candidate_amount_pln,
+          candidate_source_code: component.candidate_source_code,
+          source_code: component.source_code
         }))
       };
     });
@@ -175,12 +191,50 @@
     };
   }
 
+  function reviewedUnknownPriceStatus(component) {
+    const state = String(component && component.review_state || "");
+    const reason = String(component && component.review_reason_code || "");
+    const rawCandidate = component && component.candidate_amount_pln;
+    const candidate = rawCandidate === null || rawCandidate === undefined || rawCandidate === ""
+      ? null : Number(rawCandidate);
+    const hasCandidate = candidate !== null && Number.isFinite(candidate);
+    const candidateText = hasCandidate ? formatMoney(candidate, component.currency_code || "PLN") : "";
+    if (state === "source-conflict") {
+      return "sprzeczne dane źródłowe — cena nie została doliczona";
+    }
+    if (state === "context-unmodeled") {
+      if (reason === "stock-selection-and-standalone-price-are-separate-record-contexts") {
+        return hasCandidate
+          ? `wybrane w egzemplarzu; odrębna cena cennikowa ${candidateText} — nie doliczono`
+          : "wybrane w egzemplarzu; odrębna cena nie została doliczona";
+      }
+      if (reason === "model-year-and-paint-price-class-not-modeled") {
+        return hasCandidate
+          ? `cena ${candidateText} dotyczy innego rocznika lub klasy lakieru — nie doliczono`
+          : "cena zależy od rocznika lub klasy lakieru — nie doliczono";
+      }
+      if (reason === "model-year-stock-context-not-modeled") {
+        return hasCandidate
+          ? `cena ${candidateText} dotyczy zapasu MY25 — nie doliczono`
+          : "cena dotyczy nieodwzorowanego zapasu modelowego — nie doliczono";
+      }
+      return "cena zależy od nieodwzorowanego kontekstu — nie doliczono";
+    }
+    if (state === "source-not-stated") return "cena niepodana w dokładnym źródle";
+    return component && component.source_code
+      ? "cena niepodana w źródle"
+      : "brak powiązania z cennikiem";
+  }
+
+
   function selectedEquipmentStatus(item) {
     if (item.availability_status === "standard") return "w standardzie — bez dopłaty";
     if (item.availability_status === "optional" && item.components.length) {
       const labels = item.components.map((component) => {
         const kind = component.kind === "package" ? "pakiet" : "opcja";
-        const price = component.amount === null ? "cena niepodana w źródle" : "dopłata ujęta powyżej";
+        const price = component.amount === null
+          ? reviewedUnknownPriceStatus(component)
+          : "dopłata ujęta powyżej";
         return `${kind}: ${component.name} (${price})`;
       });
       return labels.join("; ");
@@ -209,9 +263,7 @@
       ...breakdown.known_components.map((component) =>
         `<li><span>${escapeHtml(component.name)}</span><strong>+ ${escapeHtml(formatMoney(component.amount, component.currency_code))}</strong></li>`),
       ...breakdown.unknown_components.map((component) => {
-        const status = component.source_code
-          ? "cena niepodana w źródle"
-          : "brak powiązania z cennikiem";
+        const status = reviewedUnknownPriceStatus(component);
         return `<li class="price-component-unknown"><span>${escapeHtml(component.name)}</span><strong>${escapeHtml(status)}</strong></li>`;
       })
     ].join("");
@@ -228,6 +280,7 @@
   return {
     setEquipmentLabels, equipmentLabel, formatMoney,
     chooseComponents, buildPriceBreakdown, priceBreakdownMarkup,
-    selectedEquipmentStatus, selectedEquipmentMarkup
+    selectedEquipmentStatus, selectedEquipmentMarkup,
+    reviewedUnknownPriceStatus
   };
 });

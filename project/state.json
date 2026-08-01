@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Registered Source Completeness Reconciliation",
+  "phase": "Reviewed Gap State Materialization",
   "reference_delivery": {
-    "name": "Interface Source Coverage Repair",
-    "pull_request": 447,
-    "head_sha": "9dce389ac3e82f9b01f6446bce58aee075155ffe",
-    "quality_run": 30720575708
+    "name": "Registered Source Completeness Reconciliation",
+    "pull_request": 448,
+    "head_sha": "7abf536dd07e3417a8604196ecb469a9d2d9b70a",
+    "quality_run": 30721504297
   },
   "baseline": {
-    "tests": 1782,
+    "tests": 1788,
     "csv_files": 46,
     "rows": 11713,
     "configuration_values": 3567,
@@ -27,36 +27,20 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "registered_source_completeness_reconciliation_001",
-    "kind": "source_coverage_review",
-    "name": "Registered Source Completeness Reconciliation",
-    "status": "complete",
-    "goal": "Audit every remaining active comparison and blank optional-price row against registered exact sources and assign one of four bounded evidence classifications without adding models, domains or inferred values.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/reporting/registered_source_completeness_reconciliation.json",
-      "data/reporting/registered_source_completeness_reconciliation.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/reviews/registered-source-completeness-reconciliation-2026-08-02.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "tests/test_registered_source_completeness_reconciliation_20260802.py",
-      "tests/test_sandero_residual_source_closure_20260801.py"
-    ]
-  },
-  "next_package": {
     "package_id": "reviewed_gap_state_materialization_001",
     "kind": "comparison_and_price_state_materialization",
     "name": "Reviewed Gap State Materialization",
-    "status": "planned",
+    "status": "complete",
     "goal": "Import the two exact current Spring Extreme package prices and materialize reviewed source-not-stated, source-conflict and context-unmodeled states in comparison and price presentation without filling contextual blank rows or inferring sibling values.",
     "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
       "data/imports/reviewed_gap_state_materialization_20260802.csv",
       "data/master/commercial_item_configurations.csv",
       "data/reporting/reviewed_gap_state_materialization.json",
       "data/reporting/reviewed_gap_state_materialization.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
       "project/packages/reviewed-gap-state-materialization-20260802.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
@@ -64,6 +48,23 @@
       "tools/apply_reviewed_gap_state_materialization_20260802.py",
       "tools/configuration_shortlist.py",
       "tools/reporting/configuration_shortlist_v12_pricing.js"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_commercial_context_resolution_001",
+    "kind": "source_conflict_and_context_resolution",
+    "name": "Spring Commercial Context Resolution",
+    "status": "planned",
+    "goal": "Resolve the Spring Type 2 cable conflict and current paint, stock and model-year price contexts from exact official states before any further commercial import.",
+    "manifest_paths": [
+      "data/reporting/spring_commercial_context_resolution.json",
+      "data/reporting/spring_commercial_context_resolution.md",
+      "project/packages/spring-commercial-context-resolution-20260802.md",
+      "project/sources/dacia-pl-spring-commercial-context-20260802.json",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tools/review_spring_commercial_context_20260802.py"
     ]
   },
   "autonomy": {
