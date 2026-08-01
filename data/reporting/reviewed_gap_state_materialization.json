@@ -27,6 +27,11 @@
     "inferred_values": 0,
     "contextual_prices_added_to_total": 0
   },
+  "validation": {
+    "focused_regression_tests": 58,
+    "focused_regression_status": "passed",
+    "full_quality_required_on_final_head": true
+  },
   "next_package": {
     "package_id": "spring_commercial_context_resolution_001",
     "goal": "Resolve the Spring Type 2 cable conflict and current paint/stock price contexts using exact current official states before any further commercial import."
