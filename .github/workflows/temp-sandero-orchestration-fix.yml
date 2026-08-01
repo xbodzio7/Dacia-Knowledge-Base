@@ -6,6 +6,11 @@ on:
       - data/sandero-residual-source-closure-006
     paths:
       - .github/workflows/temp-sandero-orchestration-fix.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-sandero-orchestration-fix.yml
 
 permissions:
   contents: write
