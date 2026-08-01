@@ -33,6 +33,8 @@
     "status": "complete",
     "goal": "Resolve every safely representable missing slot from the exact Stepway Essential Eco-G 120 manual source and formally preserve the remaining not-stated boundary.",
     "manifest_paths": [
+      "data/reporting/configuration_gap_source_review.json",
+      "tests/test_sandero_ecog120_manual_reporting_scope.py",
       "data/reporting/sandero_ecog120_manual_gap_evidence.json",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",

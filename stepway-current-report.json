@@ -1,0 +1,105 @@
+{
+  "technical": {
+    "applicable": 300,
+    "coverage_percent": "91.67",
+    "denominator": 300,
+    "missing": 25,
+    "not_applicable": 0,
+    "present": 275
+  },
+  "equipment": {
+    "applicable": 345,
+    "coverage_percent": "86.38",
+    "denominator": 345,
+    "missing": 47,
+    "not_applicable": 0,
+    "not_available": 23,
+    "optional": 0,
+    "recorded": 298,
+    "standard": 275,
+    "unknown": 0
+  },
+  "technical_gap_count": 25,
+  "equipment_gap_count": 47,
+  "coverage_areas": {
+    "covered": 10,
+    "denominator": 20,
+    "missing": 0,
+    "partial": 10,
+    "source_missing": 0
+  },
+  "coverage_sections": {
+    "covered": 134,
+    "denominator": 175,
+    "missing": 7,
+    "not_applicable": 0,
+    "partial": 34,
+    "source_missing": 0
+  },
+  "coverage_records": {
+    "equipment": {
+      "coverage_percent": "86.38",
+      "expected": 345,
+      "missing": 47,
+      "not_applicable": 0,
+      "present": 298,
+      "source_missing": 0
+    },
+    "identity_links": {
+      "expected": 15,
+      "missing": 0,
+      "present": 15,
+      "source_missing": 0
+    },
+    "prices": {
+      "expected": 5,
+      "missing": 0,
+      "present": 5,
+      "records": 5,
+      "source_missing": 0
+    },
+    "technical": {
+      "coverage_percent": "91.67",
+      "expected": 300,
+      "missing": 25,
+      "not_applicable": 0,
+      "present": 275,
+      "source_missing": 0
+    }
+  },
+  "coverage_gap_count": 72,
+  "comparison_summary": {
+    "prices": {
+      "comparisons": 10,
+      "equal": 0,
+      "different": 10,
+      "not_comparable": 0
+    },
+    "technical": {
+      "comparisons": 688,
+      "equal": 439,
+      "different": 157,
+      "not_comparable": 92
+    },
+    "equipment": {
+      "comparisons": 690,
+      "equal": 528,
+      "different": 14,
+      "not_comparable": 148
+    },
+    "total_differences": 181
+  },
+  "evidence_summary": {
+    "total": 72,
+    "ambiguous": 0,
+    "found": 0,
+    "not_stated": 55,
+    "out_of_scope": 17
+  },
+  "pair_not_comparable": {
+    "technical": 92,
+    "equipment": 148,
+    "prices": 0
+  },
+  "ranged_item_count": 36
+}
