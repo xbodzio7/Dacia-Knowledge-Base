@@ -309,6 +309,11 @@ def apply() -> None:
         "        self.assertEqual(len(core.difference_csv_rows(report)), 411)",
     )
     replace_exact(
+        "tests/configuration_comparison_context_filter_contract.py",
+        "        expected_counts = {'': 33,\n 'fuel_type_code=': 176,",
+        "        expected_counts = {'': 36,\n 'fuel_type_code=': 184,",
+    )
+    replace_exact(
         "tests/configuration_comparison_pair_summary_contract.py",
         "            400,\n        )",
         "            411,\n        )",
@@ -379,6 +384,9 @@ def check() -> None:
     manual = read("tests/test_sandero_ecog120_manual_reporting_scope.py")
     if NEW_REPORTING_CONTRACTS not in manual or OLD_REPORTING_CONTRACTS in manual:
         raise AlignmentError("Sandero manual reporting contracts are stale")
+    context_contract = read("tests/configuration_comparison_context_filter_contract.py")
+    if "        expected_counts = {'': 36,\n 'fuel_type_code=': 184," not in context_contract:
+        raise AlignmentError("comparison context snapshot counts are stale")
     for path in HISTORICAL_SOURCE_TESTS:
         content = read(path)
         if 'self.assertIsNotNone(selected)' in content:
