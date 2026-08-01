@@ -33,5 +33,18 @@ if old_apply in text:
 elif new_apply not in text:
     raise RuntimeError("analysis refresh apply anchor not found")
 
+old_range_patterns = (
+    '        "tests/test_configuration_value_ranges.py": '
+    "[r'(len\\(rows\\[1:\\]\\), )\\d+', r'(checked, )\\d+', r'(count, )\\d+'],"
+)
+new_range_patterns = (
+    '        "tests/test_configuration_value_ranges.py": '
+    "[r'(len\\(rows\\[1:\\]\\), )\\d+', r'(count, )\\d+'],"
+)
+if old_range_patterns in text:
+    text = text.replace(old_range_patterns, new_range_patterns, 1)
+elif new_range_patterns not in text:
+    raise RuntimeError("range snapshot pattern list not found")
+
 builder.write_text(text, encoding="utf-8")
 Path(__file__).unlink()
