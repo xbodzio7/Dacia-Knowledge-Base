@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print the exact Stepway Extreme automatic source and canonical missing slots."""
+"""Inspect the exact Stepway Extreme automatic source and canonical missing slots."""
 from __future__ import annotations
 
 import hashlib
