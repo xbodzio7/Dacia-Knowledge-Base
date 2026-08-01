@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print the exact automatic Stepway Expression source and canonical missing slots."""
+"""Print the exact automatic Stepway Expression source and canonical missing slots for review."""
 from __future__ import annotations
 
 import hashlib
