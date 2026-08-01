@@ -39,8 +39,8 @@ jobs:
         run: |
           python tools/import_spring_technical_20260219.py --apply
           python tools/materialize_spring_technical_package_20260219.py
-          python tools/dkb.py project-state --write
-          python tools/dkb.py documentation-baseline --write
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
           rm tools/materialize_spring_technical_package_20260219.py
           rm .github/spring-package-fixed.b64
           rm .github/materializer-trigger-spring.txt .github/placeholder.txt .github/placeholder2.txt
