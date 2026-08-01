@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero Official-Web Source Gap Review",
+  "phase": "Jogger Elasticity Completeness Context",
   "reference_delivery": {
-    "name": "Existing Configuration Completeness Reanalysis",
-    "pull_request": 434,
-    "head_sha": "cb18900e4e2f0a6d040094ea5cf2660acce5d0fa",
-    "quality_run": 2918
+    "name": "Sandero Official-Web Source Gap Review",
+    "pull_request": 435,
+    "head_sha": "d327995e0a6b5f9d3b43279081d33d0cc5959cae",
+    "quality_run": 2922
   },
   "baseline": {
-    "tests": 1719,
+    "tests": 1722,
     "csv_files": 46,
     "rows": 11660,
     "configuration_values": 3552,
@@ -27,25 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_official_web_source_gap_review_001",
-    "kind": "source_gap_review",
-    "name": "Sandero Official-Web Source Gap Review",
+    "package_id": "jogger_elasticity_completeness_context_001",
+    "kind": "reporting_slot_identity_correction",
+    "name": "Jogger Elasticity Completeness Context",
     "status": "complete",
-    "goal": "Reconcile the highest-impact Sandero completeness gap against the exact registered official-web snapshot and import only unused directly stated facts.",
+    "goal": "Restore exact fourth-gear identity between 32 existing Jogger elasticity observations and four reporting completeness scopes.",
     "manifest_paths": [
-      "data/reporting/sandero_official_web_source_gap_review.json",
-      "data/reporting/sandero_official_web_source_gap_review.md",
+      "data/reporting/jogger_ecog120_manual_completeness.json",
+      "data/reporting/jogger_ecog120_automatic_completeness.json",
+      "data/reporting/jogger_hybrid155_automatic_completeness.json",
+      "data/reporting/jogger_tce110_manual_completeness.json",
+      "data/reporting/jogger_elasticity_completeness_context_review.json",
+      "data/reporting/jogger_elasticity_completeness_context_review.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/sandero-official-web-source-gap-review-20260801.md",
-      "project/state.json"
+      "project/packages/jogger-elasticity-completeness-context-20260801.md",
+      "project/state.json",
+      "tests/test_jogger_elasticity_completeness_context.py",
+      "tools/align_jogger_elasticity_completeness_context.py"
     ]
   },
   "next_package": {
-    "package_id": "jogger_highest_impact_source_gap_001",
-    "kind": "source_backed_completeness_import",
-    "name": "Jogger Highest-Impact Source Gap",
+    "package_id": "post_jogger_context_completeness_reanalysis_001",
+    "kind": "existing_configuration_completeness_reanalysis",
+    "name": "Post-Jogger Context Completeness Reanalysis",
     "status": "planned",
-    "goal": "Inspect the 32 exact missing technical slots for Jogger against source src_pl_jogger_price_my26_20260401 and import only directly stated values or explicit non-applicable classifications.",
+    "goal": "Recompute remaining genuine technical and equipment gaps after restoring Jogger selected-gear slot identity and select the next bounded source-backed package.",
     "manifest_paths": []
   },
   "autonomy": {
