@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "updated_on": "2026-08-01",
+  "updated_on": "2026-08-02",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Reviewed Gap State Materialization",
+  "phase": "Spring Commercial Context Resolution",
   "reference_delivery": {
-    "name": "Registered Source Completeness Reconciliation",
-    "pull_request": 448,
-    "head_sha": "7abf536dd07e3417a8604196ecb469a9d2d9b70a",
-    "quality_run": 30721504297
+    "name": "Reviewed Gap State Materialization",
+    "pull_request": 449,
+    "head_sha": "348d73358c696a58153f723672bba8bd95df3ded",
+    "quality_run": 30722437518
   },
   "baseline": {
     "tests": 1788,
@@ -27,40 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "reviewed_gap_state_materialization_001",
-    "kind": "comparison_and_price_state_materialization",
-    "name": "Reviewed Gap State Materialization",
-    "status": "complete",
-    "goal": "Import the two exact current Spring Extreme package prices and materialize reviewed source-not-stated, source-conflict and context-unmodeled states in comparison and price presentation without filling contextual blank rows or inferring sibling values.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/reviewed_gap_state_materialization_20260802.csv",
-      "data/master/commercial_item_configurations.csv",
-      "data/reporting/reviewed_gap_state_materialization.json",
-      "data/reporting/reviewed_gap_state_materialization.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/reviewed-gap-state-materialization-20260802.md",
-      "project/state.json",
-      "tests/test_commercial_items_20260703.py",
-      "tests/test_configuration_comparison_workbook.py",
-      "tests/test_registered_source_completeness_reconciliation_20260802.py",
-      "tests/test_reviewed_gap_state_materialization_20260802.py",
-      "tests/test_sandero_residual_source_closure_20260801.py",
-      "tests/test_spring_commercial_packages.py",
-      "tools/apply_reviewed_gap_state_materialization_20260802.py",
-      "tools/configuration_shortlist.py",
-      "tools/import_spring_commercial_packages.py",
-      "tools/reporting/configuration_shortlist_v12_pricing.js"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_commercial_context_resolution_001",
     "kind": "source_conflict_and_context_resolution",
     "name": "Spring Commercial Context Resolution",
-    "status": "planned",
+    "status": "complete",
     "goal": "Resolve the Spring Type 2 cable conflict and current paint, stock and model-year price contexts from exact official states before any further commercial import.",
     "manifest_paths": [
       "data/reporting/spring_commercial_context_resolution.json",
@@ -71,6 +41,23 @@
       "project/STATE_SUMMARY.md",
       "tests/test_spring_commercial_context_resolution_20260802.py",
       "tools/review_spring_commercial_context_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_current_grade_snapshot_capture_001",
+    "kind": "exact_current_source_capture",
+    "name": "Spring Current Grade Snapshot Capture",
+    "status": "planned",
+    "goal": "Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.",
+    "manifest_paths": [
+      "data/reporting/spring_current_grade_snapshot_capture.json",
+      "data/reporting/spring_current_grade_snapshot_capture.md",
+      "project/packages/spring-current-grade-snapshot-capture-20260802.md",
+      "project/sources/dacia-pl-spring-current-grade-snapshots-20260802.json",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
+      "tools/capture_spring_current_grade_snapshots_20260802.py"
     ]
   },
   "autonomy": {
