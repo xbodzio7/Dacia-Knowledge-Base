@@ -180,6 +180,10 @@ Zachowano pięć lakierów niemetalizowanych i jeden metalizowany. Źródło nie
 podaje ceny, koloru standardowego ani ograniczeń wersji, więc kwoty i daty
 cen są puste, a pojedyncza wartość koloru konfiguracji nie jest wymyślana.
 
+Broszura Spring z 19 lutego 2026 r. dostarcza również bezpośrednie dane techniczne dla trzech istniejących konfiguracji pasażerskich. Import obejmuje 54 wartości skalarnych i trzy domknięte zakresy obrotów mocy: po 18 wartości oraz jednym zakresie dla Essential Electric 70, Expression Electric 70 i Extreme Electric 100. Trzy minimalne pojemności bagażnika mają osobne konteksty ISO 3832 z kanapą w pozycji normalnej i główną komorą bagażową. Nie przeniesiono wartości między napędami ani wersjami.
+
+Pakiet został wykonany przed wcześniej planowanymi lakierami Bigstera, ponieważ bezpośrednio zmniejsza liczbę pól „brak danych” w porównaniach Springa. Poza zakresem pozostały niejednoznaczne jednostki momentu i zużycia energii, ładowanie zależne od opcji, wymiary rozpoznawalne tylko z układu rysunku oraz dane Cargo.
+
 Dwa cenniki Joggera MY26 zachowują jawną zmianę wyposażenia wersji
 Expression: na stronie 5 źródła z 1 kwietnia 2026 r. światła
 przeciwmgłowe są seryjne, a na stronie 4 źródła z 3 lipca 2026 r.
@@ -1291,11 +1295,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1706 testów, 46 pliki CSV, 11600 rekordów
-danych, 51 relacje między tabelami, 3498 wartości konfiguracji, 138 skalarnych specyfikacji importu, 298 zakresów konfiguracji i 24
+Zweryfikowany model obejmuje 1715 testów, 46 pliki CSV, 11660 rekordów
+danych, 51 relacje między tabelami, 3552 wartości konfiguracji, 138 skalarnych specyfikacji importu, 301 zakresów konfiguracji i 24
 specyfikacji zakresów oraz 5902 rekordów dostępności wyposażenia.
 Katalog zawiera 385 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 46 tabele i 11600 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 46 tabele i 11660 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 

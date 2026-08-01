@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-07-31",
+  "updated_on": "2026-08-01",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Jogger MY26 Fog-Light Superseding Observations",
+  "phase": "Spring Brochure Technical Observations",
   "reference_delivery": {
     "name": "Brochure Equipment Inheritance and Colour Review",
     "pull_request": 428,
@@ -15,57 +15,59 @@
     "quality_run": 2805
   },
   "baseline": {
-    "tests": 1706,
+    "tests": 1715,
     "csv_files": 46,
-    "rows": 11600,
-    "configuration_values": 3498,
+    "rows": 11660,
+    "configuration_values": 3552,
     "configuration_import_specs": 138,
-    "configuration_value_ranges": 298,
+    "configuration_value_ranges": 301,
     "configuration_range_import_specs": 24,
     "availability_records": 5902,
     "attributes": 385,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_my26_fog_light_superseding_observations_001",
-    "kind": "equipment_availability_import",
-    "name": "Jogger MY26 Fog-Light Superseding Observations",
+    "package_id": "spring_brochure_technical_observations_20260219_001",
+    "kind": "configuration_technical_import",
+    "name": "Spring Brochure Technical Observations",
     "status": "complete",
-    "goal": "Append six direct July 2026 not-available fog-light observations for the six existing Jogger Expression configurations while preserving the six April 2026 standard observations and using the source-faithful generic fog_lights attribute.",
+    "goal": "Import 54 exact scalar observations, three maximum-power RPM ranges and three ISO 3832 cargo-context rows for the three existing passenger Spring configurations from the registered 2026-02-19 brochure without adding or inferring entities.",
     "manifest_paths": [
       "CHANGELOG.md",
       "README.md",
-      "data/imports/jogger_fog_lights_20260703.csv",
-      "data/master/configuration_attribute_availability.csv",
+      "data/imports/spring_technical_20260219.csv",
+      "data/master/configuration_attribute_value_ranges.csv",
+      "data/master/configuration_attribute_values.csv",
+      "data/master/configuration_cargo_volume_contexts.csv",
+      "data/reporting/spring_electric70_automatic_completeness.json",
       "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
       "project/ROADMAP.md",
       "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/jogger-my26-fog-light-superseding-observations-20260731.md",
+      "project/packages/spring-brochure-technical-observations-20260219.md",
       "project/state.json",
-      "tests/test_jogger_fog_light_superseding_observations.py",
-      "tests/test_spring_equipment_availability.py",
-      "tools/import_jogger_fog_light_superseding_observations.py"
+      "tests/test_configuration_value_ranges.py",
+      "tests/test_cross_model_comparison_view.py",
+      "tests/test_jogger_payload_performance_ranges.py",
+      "tests/test_sandero_maximum_payload_model.py",
+      "tests/test_spring_technical_20260219.py",
+      "tools/import_spring_technical_20260219.py"
     ]
   },
   "next_package": {
-    "package_id": "bigster_my26_exact_paint_options_001",
-    "kind": "commercial_catalog_import",
-    "name": "Bigster MY26 Exact Paint Options",
+    "package_id": "existing_configuration_completeness_reanalysis_001",
+    "kind": "data_quality_review",
+    "name": "Existing Configuration Completeness Reanalysis",
     "status": "planned",
-    "goal": "Import only exact fixed-price Bigster MY26 paint and two-tone commercial options for existing configurations, preserving grade applicability and avoiding named-colour or price-range inference.",
+    "goal": "Recompute configuration- and attribute-level missing-data impact after the Spring import, classify non-applicable fields, and select the next small source-backed package that most reduces visible missing data without adding entities.",
     "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/bigster_exact_paint_options_20260703.csv",
-      "data/master/commercial_items.csv",
-      "data/master/commercial_item_attributes.csv",
-      "data/master/commercial_item_configurations.csv",
+      "data/reporting/existing_configuration_missing_data_analysis.json",
+      "data/reporting/existing_configuration_missing_data_analysis.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/bigster-my26-exact-paint-options-20260731.md",
+      "project/packages/existing-configuration-completeness-reanalysis-20260801.md",
       "project/state.json",
-      "tests/test_bigster_exact_paint_options.py",
-      "tools/import_bigster_exact_paint_options.py"
+      "tests/test_existing_configuration_missing_data_analysis.py",
+      "tools/existing_configuration_missing_data_analysis.py"
     ]
   },
   "autonomy": {

@@ -140,6 +140,7 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
             row
             for row in self.values
             if row["attribute_code"] == "maximum_payload"
+            and row["configuration_code"] in EXPECTED_MAPPING
         ]
         self.assertEqual(len(payload_values), 7)
         self.assertEqual(

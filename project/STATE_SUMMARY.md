@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-07-31
+- State updated: 2026-08-01
 
 ## Phase
 
-**Jogger MY26 Fog-Light Superseding Observations**
+**Spring Brochure Technical Observations**
 
 ## Reference delivery
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 1706
+- Tests: 1715
 - Master CSV files: 46
-- Master rows: 11600
-- Configuration values: 3498
+- Master rows: 11660
+- Configuration values: 3552
 - Configuration import specifications: 138
-- Configuration value ranges: 298
+- Configuration value ranges: 301
 - Configuration range import specifications: 24
 - Availability records: 5902
 - Canonical attributes: 385
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 Fog-Light Superseding Observations** — `complete`
+**Spring Brochure Technical Observations** — `complete`
 
-Append six direct July 2026 not-available fog-light observations for the six existing Jogger Expression configurations while preserving the six April 2026 standard observations and using the source-faithful generic fog_lights attribute.
+Import 54 exact scalar observations, three maximum-power RPM ranges and three ISO 3832 cargo-context rows for the three existing passenger Spring configurations from the registered 2026-02-19 brochure without adding or inferring entities.
 
 ## Next package
 
-**Bigster MY26 Exact Paint Options** — `planned`
+**Existing Configuration Completeness Reanalysis** — `planned`
 
-Import only exact fixed-price Bigster MY26 paint and two-tone commercial options for existing configurations, preserving grade applicability and avoiding named-colour or price-range inference.
+Recompute configuration- and attribute-level missing-data impact after the Spring import, classify non-applicable fields, and select the next small source-backed package that most reduces visible missing data without adding entities.
 
 ## Autonomy
 

@@ -137,10 +137,14 @@ Po zamknięciu bieżących luk i wyborze źródeł rozwijać kolejno:
 - autorski przegląd pierwszych 40 nierozstrzygniętych kandydatów tabel technicznych Bigstera ze strony 20, z 16 błędami niedopasowania sygnatury, 24 fragmentami kontekstowymi, 18 wizualnymi grupami wierszy, zerem przypiętych dowodów oraz odwołaniem do wcześniejszej decyzji dotyczącej tylnych hamulców,
 - autorski przegląd pozostałych 29 nierozstrzygniętych kandydatów tabel technicznych Bigstera ze strony 20, z 8 błędami niedopasowania sygnatury, 21 fragmentami, etykietami, przypisami i notami kontekstowymi, 16 wizualnymi obszarami, zerem przypiętych dowodów oraz literalnym zachowaniem sekwencji `1960**` i `2002 / 1981`,
 
+## Completeness-first package ordering
+
+Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakierów Bigstera: trzy istniejące konfiguracje Springa nie miały wartości technicznych, a oficjalna broszura pozwalała bezpiecznie uzupełnić 54 wartości, trzy zakresy i trzy konteksty bagażnika. Kolejność dalszych pakietów ma być ponownie wyznaczana z aktualnej analizy wpływu na pola „brak danych”, a nie z historycznego `next_package`.
+
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1706 testów automatycznych,
+- 1715 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
