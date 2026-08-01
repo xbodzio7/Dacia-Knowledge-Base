@@ -353,38 +353,6 @@
       "triage_key": "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Drivetrain|extended_grip|none"
     },
     {
-      "attribute_code": "parking_assist_system",
-      "attribute_contract": null,
-      "auto_import": false,
-      "candidate_value": "",
-      "category": "Driving Systems",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "equipment",
-      "file_path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "package_id": "",
-      "requires_data_change": false,
-      "requires_model_change": false,
-      "requires_source_review": false,
-      "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
-      "resolution_route": "none",
-      "resolution_state": "closed_not_stated",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sequence": 12,
-      "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
-      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "suggested_spec_path": "",
-      "triage_key": "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Driving Systems|parking_assist_system|none"
-    },
-    {
       "attribute_code": "manual_air_conditioning",
       "attribute_contract": null,
       "auto_import": false,
@@ -406,7 +374,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 13,
+      "sequence": 12,
       "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "source_page": 4,
@@ -438,7 +406,7 @@
         3,
         4
       ],
-      "sequence": 14,
+      "sequence": 13,
       "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "source_page": null,
@@ -469,7 +437,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 15,
+      "sequence": 14,
       "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "source_page": 3,
@@ -500,7 +468,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 16,
+      "sequence": 15,
       "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "source_page": 3,
@@ -532,7 +500,7 @@
         3,
         4
       ],
-      "sequence": 17,
+      "sequence": 16,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -564,7 +532,7 @@
         3,
         4
       ],
-      "sequence": 18,
+      "sequence": 17,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -596,7 +564,7 @@
         3,
         4
       ],
-      "sequence": 19,
+      "sequence": 18,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -628,7 +596,7 @@
         3,
         4
       ],
-      "sequence": 20,
+      "sequence": 19,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -660,7 +628,7 @@
         3,
         4
       ],
-      "sequence": 21,
+      "sequence": 20,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -691,7 +659,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 22,
+      "sequence": 21,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": 4,
@@ -722,7 +690,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 23,
+      "sequence": 22,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": 3,
@@ -753,7 +721,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 24,
+      "sequence": 23,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": 3,
@@ -784,7 +752,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 25,
+      "sequence": 24,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": 3,
@@ -815,7 +783,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 26,
+      "sequence": 25,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": 3,
@@ -847,7 +815,7 @@
         3,
         4
       ],
-      "sequence": 27,
+      "sequence": 26,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -879,7 +847,7 @@
         3,
         4
       ],
-      "sequence": 28,
+      "sequence": 27,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -911,7 +879,7 @@
         3,
         4
       ],
-      "sequence": 29,
+      "sequence": 28,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -943,7 +911,7 @@
         3,
         4
       ],
-      "sequence": 30,
+      "sequence": 29,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -975,7 +943,7 @@
         3,
         4
       ],
-      "sequence": 31,
+      "sequence": 30,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -1007,7 +975,7 @@
         3,
         4
       ],
-      "sequence": 32,
+      "sequence": 31,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -1039,7 +1007,7 @@
         3,
         4
       ],
-      "sequence": 33,
+      "sequence": 32,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1071,7 +1039,7 @@
         3,
         4
       ],
-      "sequence": 34,
+      "sequence": 33,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1103,7 +1071,7 @@
         3,
         4
       ],
-      "sequence": 35,
+      "sequence": 34,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1132,7 +1100,7 @@
       "resolution_route": "none",
       "resolution_state": "closed_out_of_scope",
       "reviewed_pages": [],
-      "sequence": 36,
+      "sequence": 35,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1163,7 +1131,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 37,
+      "sequence": 36,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": 4,
@@ -1195,7 +1163,7 @@
         3,
         4
       ],
-      "sequence": 38,
+      "sequence": 37,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1226,7 +1194,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 39,
+      "sequence": 38,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": 3,
@@ -1257,7 +1225,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 40,
+      "sequence": 39,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": 3,
@@ -1289,7 +1257,7 @@
         3,
         4
       ],
-      "sequence": 41,
+      "sequence": 40,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -1321,7 +1289,7 @@
         3,
         4
       ],
-      "sequence": 42,
+      "sequence": 41,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1353,7 +1321,7 @@
         3,
         4
       ],
-      "sequence": 43,
+      "sequence": 42,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1385,7 +1353,7 @@
         3,
         4
       ],
-      "sequence": 44,
+      "sequence": 43,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1417,7 +1385,7 @@
         3,
         4
       ],
-      "sequence": 45,
+      "sequence": 44,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1448,7 +1416,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 46,
+      "sequence": 45,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": 4,
@@ -1480,7 +1448,7 @@
         3,
         4
       ],
-      "sequence": 47,
+      "sequence": 46,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1511,7 +1479,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 48,
+      "sequence": 47,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": 3,
@@ -1542,7 +1510,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 49,
+      "sequence": 48,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": 3,
@@ -1574,7 +1542,7 @@
         3,
         4
       ],
-      "sequence": 50,
+      "sequence": 49,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -1603,7 +1571,7 @@
       "resolution_route": "none",
       "resolution_state": "closed_out_of_scope",
       "reviewed_pages": [],
-      "sequence": 51,
+      "sequence": 50,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -1635,7 +1603,7 @@
         3,
         4
       ],
-      "sequence": 52,
+      "sequence": 51,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -1666,7 +1634,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 53,
+      "sequence": 52,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": 4,
@@ -1698,7 +1666,7 @@
         3,
         4
       ],
-      "sequence": 54,
+      "sequence": 53,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -1729,7 +1697,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 55,
+      "sequence": 54,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": 3,
@@ -1760,7 +1728,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 56,
+      "sequence": 55,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": 3,
@@ -1792,7 +1760,7 @@
         3,
         4
       ],
-      "sequence": 57,
+      "sequence": 56,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,
@@ -1823,7 +1791,7 @@
       "reviewed_pages": [
         4
       ],
-      "sequence": 58,
+      "sequence": 57,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": 4,
@@ -1855,7 +1823,7 @@
         3,
         4
       ],
-      "sequence": 59,
+      "sequence": 58,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,
@@ -1886,7 +1854,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 60,
+      "sequence": 59,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": 3,
@@ -1917,7 +1885,7 @@
       "reviewed_pages": [
         3
       ],
-      "sequence": 61,
+      "sequence": 60,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": 3,
@@ -1925,68 +1893,6 @@
       "source_text": "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
       "suggested_spec_path": "",
       "triage_key": "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Infotainment|media_control_system|none"
-    },
-    {
-      "attribute_code": "wheel_finish",
-      "attribute_contract": null,
-      "auto_import": false,
-      "candidate_value": "",
-      "category": "Wheels",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_expression_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "package_id": "",
-      "requires_data_change": false,
-      "requires_model_change": false,
-      "requires_source_review": false,
-      "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
-      "resolution_route": "none",
-      "resolution_state": "closed_not_stated",
-      "reviewed_pages": [
-        2
-      ],
-      "sequence": 62,
-      "sha256": "82a8853d90b492e48595ff33db73632dc309b8a12d08d11dd3c259fca4eaff68",
-      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "suggested_spec_path": "",
-      "triage_key": "technical|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Wheels|wheel_finish|none"
-    },
-    {
-      "attribute_code": "wheel_finish",
-      "attribute_contract": null,
-      "auto_import": false,
-      "candidate_value": "",
-      "category": "Wheels",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "package_id": "",
-      "requires_data_change": false,
-      "requires_model_change": false,
-      "requires_source_review": false,
-      "resolution_note": "No source-backed data change is planned because the reviewed relevant pages do not state the value.",
-      "resolution_route": "none",
-      "resolution_state": "closed_not_stated",
-      "reviewed_pages": [
-        2
-      ],
-      "sequence": 63,
-      "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
-      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "suggested_spec_path": "",
-      "triage_key": "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none"
     },
     {
       "attribute_code": "front_track",
@@ -2010,7 +1916,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 64,
+      "sequence": 61,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -2041,7 +1947,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 65,
+      "sequence": 62,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -2072,7 +1978,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 66,
+      "sequence": 63,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -2103,7 +2009,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 67,
+      "sequence": 64,
       "sha256": "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1",
       "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
       "source_page": null,
@@ -2134,7 +2040,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 68,
+      "sequence": 65,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -2165,7 +2071,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 69,
+      "sequence": 66,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -2196,7 +2102,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 70,
+      "sequence": 67,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -2227,7 +2133,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 71,
+      "sequence": 68,
       "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
       "source_page": null,
@@ -2258,7 +2164,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 72,
+      "sequence": 69,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -2289,7 +2195,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 73,
+      "sequence": 70,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -2320,7 +2226,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 74,
+      "sequence": 71,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -2351,7 +2257,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 75,
+      "sequence": 72,
       "sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
       "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
       "source_page": null,
@@ -2382,7 +2288,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 76,
+      "sequence": 73,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2413,7 +2319,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 77,
+      "sequence": 74,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2444,7 +2350,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 78,
+      "sequence": 75,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2475,7 +2381,7 @@
       "reviewed_pages": [
         2
       ],
-      "sequence": 79,
+      "sequence": 76,
       "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
       "source_page": null,
@@ -2507,7 +2413,7 @@
         3,
         4
       ],
-      "sequence": 80,
+      "sequence": 77,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,
@@ -2539,7 +2445,7 @@
         3,
         4
       ],
-      "sequence": 81,
+      "sequence": 78,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,
@@ -2571,7 +2477,7 @@
         3,
         4
       ],
-      "sequence": 82,
+      "sequence": 79,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,
@@ -2603,7 +2509,7 @@
         3,
         4
       ],
-      "sequence": 83,
+      "sequence": 80,
       "sha256": "fe7e4012bce170eceecb993af473e6eebb8c1d5c10b33f3edfc222e59c80a115",
       "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
       "source_page": null,

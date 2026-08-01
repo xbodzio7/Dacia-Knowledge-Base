@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "multi_configuration_source_gap_review",
+  "model_code": "sandero",
+  "configuration_codes": [
+    "sandero_iii_essential_tce100_manual",
+    "sandero_iii_expression_tce100_manual",
+    "sandero_iii_journey_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "sandero_stepway_iii_expression_tce110_manual",
+    "sandero_stepway_iii_extreme_tce110_manual"
+  ],
+  "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
+  "source_path": "PDF/Cenniki/DACIA SANDERO I SANDERO STEPWAY cennik MY26 20260703.pdf",
+  "source_sha256": "5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783",
+  "source_observation_date": "2026-07-03",
+  "initial_gap": {
+    "configuration_count": 6,
+    "technical_slots": 9,
+    "unique_slots": 9
+  },
+  "resolution": {
+    "scalar_values": [],
+    "availability": []
+  },
+  "preserved_context": [
+    {
+      "attribute_code": "elasticity_80_120",
+      "reason": "The repository contains gear-specific brochure observations, but the completeness slot is unqualified and this catalogue source states no 80-120 km/h value."
+    }
+  ],
+  "reconciliation": {
+    "classification": "source_exhausted_not_stated",
+    "resolved_unique_slots": 0,
+    "remaining_unique_slots": 9,
+    "remaining_slots": [
+      {
+        "configuration_code": "sandero_iii_essential_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_iii_expression_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_iii_journey_tce100_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "gear_number": "",
+        "reason": "not_stated_in_source_without_gear_context"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+        "attribute_code": "overall_height",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
+        "attribute_code": "overall_height",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
+        "attribute_code": "overall_height",
+        "fuel_type_code": "",
+        "gear_number": "",
+        "reason": "not_stated_in_source"
+      }
+    ],
+    "boundary": "The six-page exact catalogue states neither unqualified 80-120 km/h elasticity nor Stepway overall height. Gear-specific brochure values and exact Eco-G configuration values are not projected into these TCe catalogue slots."
+  }
+}

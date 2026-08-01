@@ -312,32 +312,6 @@
       "triage_key": "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Drivetrain|extended_grip|none"
     },
     {
-      "attribute_code": "parking_assist_system",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Driving Systems",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "equipment",
-      "file_path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        3,
-        4
-      ],
-      "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
-      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "equipment|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Driving Systems|parking_assist_system|none"
-    },
-    {
       "attribute_code": "manual_air_conditioning",
       "auto_import": false,
       "basis": {
@@ -1774,56 +1748,6 @@
       "source_section": "",
       "source_text": "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
       "triage_key": "equipment|src_pl_sandero_stepway_extreme_ecog120_mt_20260626|sandero_stepway_iii_extreme_ecog120_manual|Infotainment|media_control_system|none"
-    },
-    {
-      "attribute_code": "wheel_finish",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Wheels",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_expression_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        2
-      ],
-      "sha256": "82a8853d90b492e48595ff33db73632dc309b8a12d08d11dd3c259fca4eaff68",
-      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_expression_ecog120_mt_20260626|sandero_iii_expression_ecog120_manual|Wheels|wheel_finish|none"
-    },
-    {
-      "attribute_code": "wheel_finish",
-      "auto_import": false,
-      "basis": null,
-      "candidate_value": "",
-      "category": "Wheels",
-      "classification": "not_stated",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "document_date": "2026-06-26",
-      "domain": "technical",
-      "file_path": "PDF/Cenniki/NOWE SANDERO journey Eco-G 120 f.pdf",
-      "fuel_type_code": "",
-      "manual_source_review_required": false,
-      "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
-      "reviewed_pages": [
-        2
-      ],
-      "sha256": "7ab1526e7bc2a72ff2b179f30cd0c8c223633f1100d31aa7dd80594325b302a3",
-      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
-      "source_page": null,
-      "source_section": "",
-      "source_text": "",
-      "triage_key": "technical|src_pl_sandero_journey_ecog120_mt_20260626|sandero_iii_journey_ecog120_manual|Wheels|wheel_finish|none"
     },
     {
       "attribute_code": "front_track",

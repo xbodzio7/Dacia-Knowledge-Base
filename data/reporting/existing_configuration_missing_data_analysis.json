@@ -6,12 +6,12 @@
     "active_configuration_count": 81,
     "completeness_scope_count": 23,
     "scoped_configuration_count": 88,
-    "missing_technical_count": 101,
-    "missing_equipment_count": 38,
+    "missing_technical_count": 97,
+    "missing_equipment_count": 36,
     "classified_not_applicable_count": 0,
-    "candidate_count": 9,
-    "exhausted_source_candidate_count": 6,
-    "eligible_candidate_count": 3
+    "candidate_count": 7,
+    "exhausted_source_candidate_count": 7,
+    "eligible_candidate_count": 0
   },
   "configurations": [
     {
@@ -202,14 +202,8 @@
       "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
       "scope_file": "configuration_completeness.json",
       "expected_technical": 60,
-      "missing_technical": 1,
-      "missing_technical_slots": [
-        {
-          "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        }
-      ],
+      "missing_technical": 0,
+      "missing_technical_slots": [],
       "expected_equipment": 69,
       "missing_equipment": 0,
       "missing_equipment_attributes": [],
@@ -221,19 +215,11 @@
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "scope_file": "configuration_completeness.json",
       "expected_technical": 60,
-      "missing_technical": 1,
-      "missing_technical_slots": [
-        {
-          "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        }
-      ],
+      "missing_technical": 0,
+      "missing_technical_slots": [],
       "expected_equipment": 69,
-      "missing_equipment": 1,
-      "missing_equipment_attributes": [
-        "parking_assist_system"
-      ],
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
       "classified_not_applicable": 0
     },
     {
@@ -1355,14 +1341,8 @@
       "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
       "scope_file": "sandero_ecog120_manual_completeness.json",
       "expected_technical": 60,
-      "missing_technical": 1,
-      "missing_technical_slots": [
-        {
-          "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        }
-      ],
+      "missing_technical": 0,
+      "missing_technical_slots": [],
       "expected_equipment": 69,
       "missing_equipment": 0,
       "missing_equipment_attributes": [],
@@ -1374,19 +1354,11 @@
       "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
       "scope_file": "sandero_ecog120_manual_completeness.json",
       "expected_technical": 60,
-      "missing_technical": 1,
-      "missing_technical_slots": [
-        {
-          "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        }
-      ],
+      "missing_technical": 0,
+      "missing_technical_slots": [],
       "expected_equipment": 69,
-      "missing_equipment": 1,
-      "missing_equipment_attributes": [
-        "parking_assist_system"
-      ],
+      "missing_equipment": 0,
+      "missing_equipment_attributes": [],
       "classified_not_applicable": 0
     },
     {
@@ -1750,8 +1722,8 @@
       "missing_technical": 9,
       "missing_equipment": 0,
       "weighted_impact": 27,
-      "selection_status": "eligible",
-      "source_review_path": ""
+      "selection_status": "source_exhausted_not_stated",
+      "source_review_path": "sandero_tce_catalog_source_gap_review.json"
     },
     {
       "model_code": "sandero",
@@ -1802,36 +1774,7 @@
       "weighted_impact": 24,
       "selection_status": "source_exhausted_not_stated",
       "source_review_path": "sandero_stepway_extreme_source_gap_review.json"
-    },
-    {
-      "model_code": "sandero",
-      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
-      "configuration_count": 2,
-      "missing_technical": 2,
-      "missing_equipment": 2,
-      "weighted_impact": 8,
-      "selection_status": "eligible",
-      "source_review_path": ""
-    },
-    {
-      "model_code": "sandero",
-      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
-      "configuration_count": 2,
-      "missing_technical": 2,
-      "missing_equipment": 0,
-      "weighted_impact": 6,
-      "selection_status": "eligible",
-      "source_review_path": ""
     }
   ],
-  "selected_next_package": {
-    "model_code": "sandero",
-    "source_code": "src_pl_sandero_stepway_catalog_tce_slice_20260703",
-    "configuration_count": 6,
-    "missing_technical": 9,
-    "missing_equipment": 0,
-    "weighted_impact": 27,
-    "selection_status": "eligible",
-    "source_review_path": ""
-  }
+  "selected_next_package": null
 }
