@@ -39,12 +39,21 @@ jobs:
             --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
             --markdown "$RUNNER_TEMP/configuration-gap-resolution-plan.md"
           python tools/dkb.py project-state --apply
+          python -m tools.align_sandero_stepway_extreme_snapshot_contracts_20260801
+          python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
           python -m tools.import_sandero_stepway_extreme_source_gap_20260626 --check
           python -m tools.close_stepway_extreme_reporting_dependencies_20260801 --check
           python tools/dkb.py project-state --check
       - name: Run focused tests
-        run: python -m unittest -v tests.test_sandero_stepway_extreme_source_gap_20260626
+        run: |
+          python -m unittest -v tests.test_sandero_stepway_extreme_source_gap_20260626
+          python -m unittest -v tests.test_sandero_ecog120_manual_reporting_scope
+          python -m unittest -v tests.configuration_comparison_context_filter_contract
+          python -m unittest -v tests.configuration_comparison_pair_summary_contract
+          python -m unittest -v tests.test_configuration_value_ranges
+          python -m unittest -v tests.test_sandero_equipment_availability
+          python -m unittest -v tests.test_official_brochure_residual_evidence_review
       - name: Run full quality gate
         run: |
           set +e
@@ -52,8 +61,8 @@ jobs:
           code=$?
           set -e
           if [ "$code" -ne 0 ]; then
-            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual|ContractError' "$RUNNER_TEMP/quality.log" | tail -n 160 || true
-            tail -n 260 "$RUNNER_TEMP/quality.log"
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual|ContractError|AlignmentError' "$RUNNER_TEMP/quality.log" | tail -n 180 || true
+            tail -n 300 "$RUNNER_TEMP/quality.log"
           else
             tail -n 100 "$RUNNER_TEMP/quality.log"
           fi
