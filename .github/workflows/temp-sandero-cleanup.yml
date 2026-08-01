@@ -1,0 +1,42 @@
+name: Temporary Sandero Cleanup
+
+on:
+  push:
+    branches:
+      - data/sandero-residual-source-closure-006
+    paths:
+      - .github/workflows/temp-sandero-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data/sandero-residual-source-closure-006
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Verify and remove temporary artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONPATH="$PWD:$PWD/tools"
+          python -m tools.import_sandero_residual_source_closure_20260801 --check
+          python -m tools.align_sandero_residual_source_closure_contracts_20260801 --check
+          python tools/dkb.py validate
+          python tools/dkb.py project-state --check
+          rm -f .github/workflows/temp-sandero-*.yml
+          rm -rf project/tmp/sandero-*
+          rm -f tools/patch_sandero_aligner_v2.py tools/patch_sandero_source_review_rules.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: remove temporary Sandero workflows"
+          git push origin HEAD:data/sandero-residual-source-closure-006
