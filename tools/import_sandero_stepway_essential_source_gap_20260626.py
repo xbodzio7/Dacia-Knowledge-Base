@@ -89,6 +89,11 @@ REMAINING_SLOTS = (
     {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
 )
 MANIFEST_PATHS = [
+    "data/reporting/configuration_gap_evidence.json",
+    "data/reporting/configuration_gap_resolution_plan.json",
+    "tests/configuration_comparison_context_filter_contract.py",
+    "tests/configuration_comparison_pair_summary_contract.py",
+    "tests/test_duster_ecog120_reporting_scope.py",
     "data/reporting/configuration_gap_source_review.json",
     "tests/test_sandero_ecog120_manual_reporting_scope.py",
     "data/reporting/sandero_ecog120_manual_gap_evidence.json",
