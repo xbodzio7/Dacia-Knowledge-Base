@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import exact Stepway Expression source-gap observations dated 2026-06-26."""
+"""Import exact Stepway Extreme automatic source-gap observations dated 2026-06-26."""
 from __future__ import annotations
 
 import argparse
@@ -15,23 +15,21 @@ from tools import existing_configuration_missing_data_analysis as analysis
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
-SPEC = ROOT / "data" / "imports" / "sandero_stepway_expression_source_gap_20260626.csv"
+SPEC = ROOT / "data" / "imports" / "sandero_stepway_extreme_auto_source_gap_20260626.csv"
 VALUE_OUTPUT = MASTER / "configuration_attribute_values.csv"
 RANGE_OUTPUT = MASTER / "configuration_attribute_value_ranges.csv"
-GENERAL_SCOPE = REPORTING / "configuration_completeness.json"
-MANUAL_SCOPE = REPORTING / "sandero_ecog120_manual_completeness.json"
-REVIEW_JSON = REPORTING / "sandero_stepway_expression_source_gap_review.json"
-REVIEW_MD = REPORTING / "sandero_stepway_expression_source_gap_review.md"
-PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-expression-source-gap-20260801.md"
+AVAILABILITY_OUTPUT = MASTER / "configuration_attribute_availability.csv"
+REVIEW_JSON = REPORTING / "sandero_stepway_extreme_auto_source_gap_review.json"
+REVIEW_MD = REPORTING / "sandero_stepway_extreme_auto_source_gap_review.md"
+PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-extreme-auto-source-gap-20260801.md"
 STATE = ROOT / "project" / "state.json"
-SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.pdf"
-SOURCE_CODE = "src_pl_sandero_stepway_expression_ecog120_mt_20260626"
-SOURCE_SHA256 = "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130"
+SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf"
+SOURCE_CODE = "src_pl_sandero_stepway_extreme_ecog120_at_20260626"
+SOURCE_SHA256 = "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff"
 OBSERVATION_DATE = "2026-06-26"
-CONFIGURATION = "sandero_stepway_iii_expression_ecog120_manual"
+CONFIGURATION = "sandero_stepway_iii_extreme_ecog120_automatic"
 MODEL_CODE = "sandero"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
-SCOPES = (GENERAL_SCOPE, MANUAL_SCOPE)
 SPEC_FIELDS = (
     "record_type",
     "configuration_code",
@@ -40,6 +38,7 @@ SPEC_FIELDS = (
     "value",
     "minimum_value",
     "maximum_value",
+    "availability_status",
     "source_page",
     "source_label",
     "normalization_notes",
@@ -70,61 +69,70 @@ RANGE_FIELDS = (
     "source_code",
     "notes",
 )
-EXPECTED_VALUE_FIRST_ID = 3556
-EXPECTED_VALUE_LAST_ID = 3558
-EXPECTED_RANGE_FIRST_ID = 305
-EXPECTED_RANGE_LAST_ID = 307
+AVAILABILITY_FIELDS = (
+    "id",
+    "code",
+    "configuration_code",
+    "attribute_code",
+    "availability_status",
+    "observation_date",
+    "source_code",
+    "notes",
+)
+EXPECTED_VALUE_FIRST_ID = 3564
+EXPECTED_VALUE_LAST_ID = 3565
+EXPECTED_RANGE_FIRST_ID = 314
+EXPECTED_RANGE_LAST_ID = 316
+EXPECTED_AVAILABILITY_FIRST_ID = 5905
+EXPECTED_AVAILABILITY_LAST_ID = 5905
 EXPECTED_SPEC = {
-    ("value", "overall_height", "", "1586", "", ""),
-    ("value", "overall_width_with_mirrors", "", "2012", "", ""),
-    ("value", "wheel_finish", "", "stalowe", "", ""),
-    ("range", "ground_clearance", "", "", "170", "200"),
-    ("range", "max_torque_rpm", "lpg", "", "1750", "3750"),
-    ("range", "max_torque_rpm", "petrol", "", "2000", "4000"),
+    ("value", "overall_height", "", "1586", "", "", ""),
+    ("value", "overall_width_with_mirrors", "", "2012", "", "", ""),
+    ("range", "ground_clearance", "", "", "170", "200", ""),
+    ("range", "max_torque_rpm", "lpg", "", "1750", "3750", ""),
+    ("range", "max_torque_rpm", "petrol", "", "2000", "4000", ""),
+    ("availability", "parking_assist_system", "", "", "", "", "standard"),
 }
-REMAINING_SLOTS = (
+REMAINING_TECHNICAL = (
     {"attribute_code": "front_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
+    {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
     {"attribute_code": "max_power_rpm", "fuel_type_code": "lpg", "reason": "not_stated_in_source"},
     {"attribute_code": "max_power_rpm", "fuel_type_code": "petrol", "reason": "not_stated_in_source"},
-    {"attribute_code": "rear_track", "fuel_type_code": "", "reason": "not_stated_in_source"},
+    {"attribute_code": "elasticity_80_120", "fuel_type_code": "lpg", "reason": "not_stated_in_source"},
+    {"attribute_code": "elasticity_80_120", "fuel_type_code": "petrol", "reason": "not_stated_in_source"},
+)
+REMAINING_EQUIPMENT = (
+    {"attribute_code": "gear_shift_indicator", "reason": "out_of_scope_for_automatic_transmission"},
 )
 MANIFEST_PATHS = [
-    "data/reporting/configuration_gap_evidence.json",
-    "data/reporting/configuration_gap_resolution_plan.json",
-    "tests/configuration_comparison_context_filter_contract.py",
-    "tests/configuration_comparison_pair_summary_contract.py",
-    "tests/test_duster_ecog120_reporting_scope.py",
-    "data/reporting/configuration_gap_source_review.json",
-    "tests/test_sandero_ecog120_manual_reporting_scope.py",
-    "data/reporting/sandero_ecog120_manual_gap_evidence.json",
-    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
-    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
-    "tests/test_configuration_value_ranges.py",
-    "tests/test_jogger_payload_performance_ranges.py",
-    "tests/test_official_brochure_residual_evidence_review.py",
-    "tests/test_spring_technical_20260219.py",
-    "tools/close_stepway_expression_reporting_dependencies_20260801.py",
-    "tools/review_official_brochure_residual_evidence_20260726.py",
-    "data/imports/sandero_stepway_expression_source_gap_20260626.csv",
+    "data/imports/sandero_stepway_extreme_auto_source_gap_20260626.csv",
+    "data/master/configuration_attribute_availability.csv",
     "data/master/configuration_attribute_value_ranges.csv",
     "data/master/configuration_attribute_values.csv",
-    "data/reporting/configuration_completeness.json",
+    "data/reporting/configuration_gap_evidence.json",
+    "data/reporting/configuration_gap_resolution_plan.json",
+    "data/reporting/configuration_gap_source_review.json",
     "data/reporting/existing_configuration_missing_data_analysis.json",
     "data/reporting/existing_configuration_missing_data_analysis.md",
-    "data/reporting/sandero_ecog120_manual_completeness.json",
-    "data/reporting/sandero_stepway_expression_source_gap_review.json",
-    "data/reporting/sandero_stepway_expression_source_gap_review.md",
+    "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
+    "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json",
+    "data/reporting/sandero_stepway_extreme_auto_source_gap_review.json",
+    "data/reporting/sandero_stepway_extreme_auto_source_gap_review.md",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
     "project/STATE_SUMMARY.md",
-    "project/packages/sandero-stepway-expression-source-gap-20260801.md",
+    "project/packages/sandero-stepway-extreme-auto-source-gap-20260801.md",
     "project/state.json",
-    "tests/test_existing_configuration_missing_data_analysis.py",
-    "tests/test_sandero_stepway_expression_source_gap_20260626.py",
-    "tools/import_sandero_stepway_expression_source_gap_20260626.py",
+    "tests/test_sandero_stepway_ecog120_automatic_reporting_scope.py",
+    "tests/test_sandero_stepway_extreme_auto_source_gap_20260626.py",
+    "tools/align_sandero_stepway_expression_auto_snapshot_contracts_20260801.py",
+    "tools/close_stepway_expression_auto_reporting_dependencies_20260801.py",
+    "tools/import_sandero_stepway_extreme_auto_source_gap_20260626.py",
 ]
 
 
 class ContractError(RuntimeError):
-    """Raised when the exact source-gap import contract cannot be reproduced."""
+    """Raised when the exact source-gap package cannot be reproduced."""
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -162,7 +170,10 @@ def write_csv(path: Path, rows: list[dict[str, str]], fields: Sequence[str]) -> 
 
 def write_json(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def sha256(path: Path) -> str:
@@ -189,31 +200,55 @@ def load_spec(*, validate_repository: bool = True) -> list[dict[str, str]]:
             row["value"],
             row["minimum_value"],
             row["maximum_value"],
+            row["availability_status"],
         )
         for row in rows
     }
     if actual != EXPECTED_SPEC:
-        raise ContractError(f"source-gap specification differs from exact contract: {actual!r}")
+        raise ContractError(
+            f"source-gap specification differs from exact contract: {actual!r}"
+        )
     identities: set[tuple[str, str, str]] = set()
     for row in rows:
         if row["configuration_code"] != CONFIGURATION:
             raise ContractError(f"out-of-scope configuration: {row['configuration_code']}")
-        identity = (row["attribute_code"], row["fuel_type_code"], row["record_type"])
+        identity = (
+            row["attribute_code"],
+            row["fuel_type_code"],
+            row["record_type"],
+        )
         if identity in identities:
             raise ContractError(f"duplicate specification identity: {identity}")
         identities.add(identity)
-        if row["record_type"] not in {"value", "range"}:
+        if row["record_type"] not in {"value", "range", "availability"}:
             raise ContractError(f"unsupported record type: {row['record_type']}")
         if not row["source_page"].isdigit() or not row["source_label"].strip():
             raise ContractError(f"missing exact page or label: {identity}")
         if row["record_type"] == "value":
-            if not row["value"] or row["minimum_value"] or row["maximum_value"]:
+            if (
+                not row["value"]
+                or row["minimum_value"]
+                or row["maximum_value"]
+                or row["availability_status"]
+            ):
                 raise ContractError(f"invalid scalar row: {identity}")
-        else:
-            if row["value"] or not row["minimum_value"] or not row["maximum_value"]:
+        elif row["record_type"] == "range":
+            if (
+                row["value"]
+                or not row["minimum_value"]
+                or not row["maximum_value"]
+                or row["availability_status"]
+            ):
                 raise ContractError(f"invalid range row: {identity}")
             if float(row["minimum_value"]) > float(row["maximum_value"]):
                 raise ContractError(f"reversed range: {identity}")
+        elif (
+            row["value"]
+            or row["minimum_value"]
+            or row["maximum_value"]
+            or row["availability_status"] != "standard"
+        ):
+            raise ContractError(f"invalid availability row: {identity}")
     if validate_repository:
         verify_repository_contract(rows)
     return rows
@@ -222,7 +257,9 @@ def load_spec(*, validate_repository: bool = True) -> list[dict[str, str]]:
 def verify_repository_contract(spec_rows: Iterable[dict[str, str]]) -> None:
     if sha256(SOURCE) != SOURCE_SHA256:
         raise ContractError(f"source PDF SHA-256 mismatch: {SOURCE}")
-    configurations = {row["code"]: row for row in read_rows(MASTER / "configurations.csv")}
+    configurations = {
+        row["code"]: row for row in read_rows(MASTER / "configurations.csv")
+    }
     configuration = configurations.get(CONFIGURATION)
     if configuration is None or configuration.get("status") != "active":
         raise ContractError(f"missing active configuration: {CONFIGURATION}")
@@ -232,11 +269,17 @@ def verify_repository_contract(spec_rows: Iterable[dict[str, str]]) -> None:
     }
     if (SOURCE_CODE, CONFIGURATION) not in links:
         raise ContractError(f"source does not document configuration: {CONFIGURATION}")
-    attributes = {row["code"]: row for row in read_rows(MASTER / "attributes.csv")}
+    attributes = {
+        row["code"]: row for row in read_rows(MASTER / "attributes.csv")
+    }
     for row in spec_rows:
         attribute = attributes.get(row["attribute_code"])
         if attribute is None or attribute.get("status") != "active":
             raise ContractError(f"missing active attribute: {row['attribute_code']}")
+        if row["record_type"] == "availability" and attribute.get("data_type") != "boolean":
+            raise ContractError(
+                f"availability requires boolean attribute: {row['attribute_code']}"
+            )
 
 
 def note(row: dict[str, str]) -> str:
@@ -247,8 +290,16 @@ def note(row: dict[str, str]) -> str:
 
 def row_code(row: dict[str, str]) -> str:
     fuel = f"_{row['fuel_type_code']}" if row["fuel_type_code"] else ""
-    suffix = "_range" if row["record_type"] == "range" else ""
-    return f"{CONFIGURATION}_{row['attribute_code']}{fuel}{suffix}_source_gap_20260626"
+    if row["record_type"] == "range":
+        suffix = "_range"
+    elif row["record_type"] == "availability":
+        suffix = "_availability"
+    else:
+        suffix = ""
+    return (
+        f"{CONFIGURATION}_{row['attribute_code']}{fuel}{suffix}"
+        "_source_gap_20260626"
+    )
 
 
 def generated_value_rows(spec_rows: Iterable[dict[str, str]]) -> list[dict[str, str]]:
@@ -289,11 +340,35 @@ def generated_range_rows(spec_rows: Iterable[dict[str, str]]) -> list[dict[str, 
     ]
 
 
-def semantic(rows: Iterable[dict[str, str]], fields: Sequence[str]) -> list[tuple[str, ...]]:
-    return sorted(tuple(row.get(field, "") for field in fields) for row in rows)
+def generated_availability_rows(
+    spec_rows: Iterable[dict[str, str]],
+) -> list[dict[str, str]]:
+    return [
+        {
+            "code": row_code(row),
+            "configuration_code": CONFIGURATION,
+            "attribute_code": row["attribute_code"],
+            "availability_status": row["availability_status"],
+            "observation_date": OBSERVATION_DATE,
+            "source_code": SOURCE_CODE,
+            "notes": note(row),
+        }
+        for row in spec_rows
+        if row["record_type"] == "availability"
+    ]
 
 
-def selected_by_codes(rows: Iterable[dict[str, str]], codes: set[str]) -> list[dict[str, str]]:
+def semantic(
+    rows: Iterable[dict[str, str]], fields: Sequence[str]
+) -> list[tuple[str, ...]]:
+    return sorted(
+        tuple(row.get(field, "") for field in fields) for row in rows
+    )
+
+
+def selected_by_codes(
+    rows: Iterable[dict[str, str]], codes: set[str]
+) -> list[dict[str, str]]:
     return [row for row in rows if row.get("code") in codes]
 
 
@@ -308,10 +383,13 @@ def append_exact(
     codes = {row["code"] for row in generated}
     actual = selected_by_codes(current, codes)
     if actual:
-        if len(actual) != len(generated):
-            raise ContractError(f"partial source-gap observations already exist in {path}")
-        if semantic(actual, fields[1:]) != semantic(generated, fields[1:]):
-            raise ContractError(f"conflicting source-gap observations already exist in {path}")
+        if (
+            len(actual) != len(generated)
+            or semantic(actual, fields[1:]) != semantic(generated, fields[1:])
+        ):
+            raise ContractError(
+                f"partial or conflicting source-gap observations already exist in {path}"
+            )
         return
     try:
         maximum_id = max(int(row["id"]) for row in current)
@@ -319,49 +397,14 @@ def append_exact(
         raise ContractError(f"non-integer IDs in {path}") from exc
     if maximum_id != expected_first_id - 1:
         raise ContractError(
-            f"expected suffix after {expected_first_id - 1} in {path}, found {maximum_id}"
+            f"expected suffix after {expected_first_id - 1} in {path}, "
+            f"found {maximum_id}"
         )
     output = current + [
         {"id": str(maximum_id + offset), **row}
         for offset, row in enumerate(generated, start=1)
     ]
     write_csv(path, output, fields)
-
-
-def scope_payload(path: Path, values: list[dict[str, str]]) -> dict[str, object]:
-    payload = json.loads(path.read_text(encoding="utf-8"))
-    matched: dict[str, int] = {"lpg": 0, "petrol": 0}
-    for slot in payload.get("technical_slots", []):
-        if not isinstance(slot, dict):
-            continue
-        if slot.get("attribute_code") != "elasticity_80_120":
-            continue
-        fuel = str(slot.get("fuel_type_code", ""))
-        if fuel not in matched:
-            continue
-        gear = str(slot.get("gear_number", ""))
-        if gear not in {"", "4"}:
-            raise ContractError(f"unexpected elasticity gear in {path}: {fuel}/{gear}")
-        slot["gear_number"] = "4"
-        matched[fuel] += 1
-    if matched != {"lpg": 1, "petrol": 1}:
-        raise ContractError(f"unexpected elasticity slot distribution in {path}: {matched}")
-    available = {
-        (
-            row["configuration_code"],
-            row["attribute_code"],
-            row["fuel_type_code"],
-            row["gear_number"],
-        )
-        for row in values
-    }
-    for ref in payload.get("configurations", []):
-        code = ref if isinstance(ref, str) else str(ref.get("configuration_code", ""))
-        for fuel in ("lpg", "petrol"):
-            key = (code, "elasticity_80_120", fuel, "4")
-            if key not in available:
-                raise ContractError(f"missing exact fourth-gear observation required by {path}: {key}")
-    return payload
 
 
 def review_payload() -> dict[str, object]:
@@ -376,85 +419,96 @@ def review_payload() -> dict[str, object]:
         "source_sha256": SOURCE_SHA256,
         "source_observation_date": OBSERVATION_DATE,
         "initial_gap": {
-            "reported_records": 20,
-            "unique_slots": 10,
-            "scope_files": [path.name for path in SCOPES],
+            "reviewed_unique_slots": 13,
+            "technical_slots": 11,
+            "equipment_slots": 2,
         },
         "resolution": {
             "scalar_values": [
                 {"attribute_code": "overall_height", "value": "1586", "source_page": 6},
                 {"attribute_code": "overall_width_with_mirrors", "value": "2012", "source_page": 6},
-                {"attribute_code": "wheel_finish", "value": "stalowe", "source_page": 2},
             ],
             "ranges": [
                 {"attribute_code": "ground_clearance", "fuel_type_code": "", "minimum_value": "170", "maximum_value": "200", "source_page": 6},
                 {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg", "minimum_value": "1750", "maximum_value": "3750", "source_page": 6},
                 {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol", "minimum_value": "2000", "maximum_value": "4000", "source_page": 6},
             ],
-            "reporting_context_corrections": [],
+            "availability": [
+                {"attribute_code": "parking_assist_system", "availability_status": "standard", "source_page": 4}
+            ],
         },
+        "preserved_out_of_scope": [
+            {
+                "attribute_code": "gear_shift_indicator",
+                "reason": "The canonical decision already classifies the manual gear-shift indicator outside the automatic-transmission scope.",
+            }
+        ],
         "excluded_alternatives": [
             {"attribute_code": "overall_height", "value": "1535", "reason": "Stepway height without roof rails does not describe the exact standard configuration"},
             {"attribute_code": "overall_width_with_mirrors", "value": "1853", "reason": "folded-mirror width is outside the repository comparison convention"},
-            {"attribute_code": "wheel_design", "value": "ERALIA", "reason": "already represented by an existing exact observation"},
         ],
         "reconciliation": {
             "classification": EXHAUSTED_CLASSIFICATION,
             "resolved_unique_slots": 6,
-            "remaining_unique_slots": 4,
-            "remaining_slots": list(REMAINING_SLOTS),
-            "boundary": "No track widths or maximum-power engine speeds are printed in the source; no values are inferred from sibling trims, diagrams or other documents.",
+            "preserved_out_of_scope_slots": 1,
+            "remaining_unique_slots": 6,
+            "remaining_technical_slots": list(REMAINING_TECHNICAL),
+            "remaining_equipment_slots": list(REMAINING_EQUIPMENT),
+            "boundary": (
+                "The source does not state front/rear track widths, maximum-power engine speeds or 80-120 km/h elasticity. "
+                "The manual gear-shift indicator remains outside the automatic-transmission scope."
+            ),
         },
     }
 
 
 def render_review_markdown(payload: dict[str, object]) -> str:
     return (
-        "# Sandero Stepway Expression Source-Gap Review\n\n"
+        "# Sandero Stepway Extreme Automatic Source-Gap Review\n\n"
         "Status: complete\n\n"
-        f"Source `{SOURCE_CODE}` was inspected page by page against the 20 reported "
-        "scope records for `sandero_stepway_iii_expression_ecog120_manual`. The two "
-        "scope records describe 10 unique technical slots.\n\n"
+        f"Source `{SOURCE_CODE}` was inspected page by page against 13 unique gap decisions for `{CONFIGURATION}`.\n\n"
         "## Imported observations\n\n"
         "- `overall_height = 1586 mm` for the exact standard configuration with roof rails.\n"
-        "- `overall_width_with_mirrors = 2012 mm` with mirrors unfolded, matching the repository convention.\n"
-        "- `wheel_finish = stalowe`; ATARA remains the separate existing wheel-design observation.\n"
+        "- `overall_width_with_mirrors = 2012 mm` with mirrors unfolded.\n"
         "- `ground_clearance = 170-200 mm`.\n"
-        "- `max_torque_rpm = 1750-3750` for LPG and `2000-4000` for petrol.\n\n"
-        "## Remaining boundary\n\n"
-        "`front_track`, `rear_track`, and `max_power_rpm` for LPG and petrol are not "
-        "stated in this PDF. The source is therefore classified "
-        "`source_exhausted_not_stated` after the six exact imports. Equipment decisions "
-        "remain governed by their existing direct-evidence or explicit-alternative reviews.\n"
+        "- `max_torque_rpm = 1750-3750` for LPG and `2000-4000` for petrol.\n"
+        "- `parking_assist_system = standard`, based on the direct front/rear parking-assistance statement.\n\n"
+        "## Preserved boundaries\n\n"
+        "`front_track`, `rear_track`, both `max_power_rpm` contexts and both `elasticity_80_120` contexts are not stated. "
+        "`gear_shift_indicator` remains explicitly outside the automatic-transmission scope. No value is projected from a manual sibling configuration.\n"
     )
+
+
 def package_text() -> str:
     return (
-        "# Sandero Stepway Expression Source Gap\n\n"
+        "# Sandero Stepway Extreme Automatic Source Gap\n\n"
         "Status: complete\n\n"
-        "Imported three exact scalar observations and three inclusive ranges from "
-        "the configuration-specific Polish PDF dated 2026-06-26, regenerated the "
-        "missing-data analysis and formally exhausted the source for the four technical "
-        "slots it does not state.\n\n"
-        "No value was projected from another trim, fuel, diagram or document. Alternative "
-        "no-rails and folded-mirror dimensions remain excluded, and existing ATARA "
-        "wheel-design evidence is not duplicated. Equipment evidence boundaries remain unchanged.\n"
+        "Imported two exact scalar observations, three inclusive ranges and one standard equipment observation from the configuration-specific Polish PDF dated 2026-06-26. "
+        "The source is formally exhausted for six unstated technical slots; the gear-shift indicator remains outside the automatic-transmission scope.\n\n"
+        "No value or availability state was projected from another trim or transmission.\n"
     )
+
+
 def update_analysis_outputs() -> dict[str, object]:
     payload = analysis.collect(ROOT)
     write_json(analysis.OUT_JSON, payload)
-    analysis.OUT_MD.write_text(analysis.render_markdown(payload), encoding="utf-8")
+    analysis.OUT_MD.write_text(
+        analysis.render_markdown(payload), encoding="utf-8"
+    )
     return payload
 
 
 def update_state(analysis_payload: dict[str, object]) -> None:
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    state["phase"] = "Sandero Stepway Expression Source Gap"
+    state["phase"] = "Sandero Stepway Extreme Automatic Source Gap"
     state["current_package"] = {
-        "package_id": "sandero_stepway_expression_source_gap_002",
+        "package_id": "sandero_stepway_extreme_auto_source_gap_005",
         "kind": "source_backed_completeness_import",
-        "name": "Sandero Stepway Expression Source Gap",
+        "name": "Sandero Stepway Extreme Automatic Source Gap",
         "status": "complete",
-        "goal": "Resolve every safely representable missing slot from the exact Stepway Expression Eco-G 120 manual source and formally preserve the remaining not-stated boundary.",
+        "goal": (
+            "Resolve every safely representable missing slot from the exact Stepway Extreme Eco-G 120 automatic source and preserve not-stated and automatic-transmission boundaries."
+        ),
         "manifest_paths": MANIFEST_PATHS,
     }
     selected = analysis_payload.get("selected_next_package")
@@ -462,20 +516,22 @@ def update_state(analysis_payload: dict[str, object]) -> None:
         model = str(selected["model_code"])
         source = str(selected["source_code"])
         state["next_package"] = {
-            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_003",
+            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_006",
             "kind": "source_backed_completeness_import",
             "name": f"{model} Highest-Impact Eligible Source Gap",
             "status": "planned",
-            "goal": f"Inspect exact missing slots for {model} against source {source or 'mapping to be resolved'} and import only directly stated values or explicit non-applicable classifications.",
+            "goal": (
+                f"Inspect exact missing slots for {model} against source {source or 'mapping to be resolved'} and import only directly stated values or explicit non-applicable classifications."
+            ),
             "manifest_paths": [],
         }
     else:
         state["next_package"] = {
-            "package_id": "data_products_v1_10_0_release_preparation_001",
-            "kind": "release_preparation",
-            "name": "Data Products v1.10.0 Release Preparation",
+            "package_id": "configuration_gap_closure_documentation_milestone_001",
+            "kind": "documentation_milestone",
+            "name": "Configuration Gap Closure Documentation Milestone",
             "status": "planned",
-            "goal": "Prepare the next immutable release candidate from the completed source-backed data series.",
+            "goal": "Record the completed source-backed configuration-gap closure series.",
             "manifest_paths": [],
         }
     write_json(STATE, state)
@@ -483,78 +539,136 @@ def update_state(analysis_payload: dict[str, object]) -> None:
 
 def apply() -> None:
     spec = load_spec()
-    values = generated_value_rows(spec)
-    ranges = generated_range_rows(spec)
-    append_exact(VALUE_OUTPUT, VALUE_FIELDS, values, EXPECTED_VALUE_FIRST_ID)
-    append_exact(RANGE_OUTPUT, RANGE_FIELDS, ranges, EXPECTED_RANGE_FIRST_ID)
-    all_values = read_rows(VALUE_OUTPUT)
-    for path in SCOPES:
-        write_json(path, scope_payload(path, all_values))
+    append_exact(
+        VALUE_OUTPUT,
+        VALUE_FIELDS,
+        generated_value_rows(spec),
+        EXPECTED_VALUE_FIRST_ID,
+    )
+    append_exact(
+        RANGE_OUTPUT,
+        RANGE_FIELDS,
+        generated_range_rows(spec),
+        EXPECTED_RANGE_FIRST_ID,
+    )
+    append_exact(
+        AVAILABILITY_OUTPUT,
+        AVAILABILITY_FIELDS,
+        generated_availability_rows(spec),
+        EXPECTED_AVAILABILITY_FIRST_ID,
+    )
     review = review_payload()
     write_json(REVIEW_JSON, review)
     REVIEW_MD.write_text(render_review_markdown(review), encoding="utf-8")
     PACKAGE.parent.mkdir(parents=True, exist_ok=True)
     PACKAGE.write_text(package_text(), encoding="utf-8")
-    analysis_payload = update_analysis_outputs()
-    update_state(analysis_payload)
+    update_state(update_analysis_outputs())
 
 
 def verify_materialized() -> None:
     spec = load_spec()
-    expected_values = generated_value_rows(spec)
-    expected_ranges = generated_range_rows(spec)
-    require_header(VALUE_OUTPUT, VALUE_FIELDS)
-    require_header(RANGE_OUTPUT, RANGE_FIELDS)
-    values = selected_by_codes(read_rows(VALUE_OUTPUT), {row["code"] for row in expected_values})
-    ranges = selected_by_codes(read_rows(RANGE_OUTPUT), {row["code"] for row in expected_ranges})
-    if semantic(values, VALUE_FIELDS[1:]) != semantic(expected_values, VALUE_FIELDS[1:]):
-        raise ContractError("stored scalar observations differ from generated contract")
-    if semantic(ranges, RANGE_FIELDS[1:]) != semantic(expected_ranges, RANGE_FIELDS[1:]):
-        raise ContractError("stored range observations differ from generated contract")
-    value_ids = sorted(int(row["id"]) for row in values)
-    range_ids = sorted(int(row["id"]) for row in ranges)
-    if value_ids != list(range(EXPECTED_VALUE_FIRST_ID, EXPECTED_VALUE_LAST_ID + 1)):
-        raise ContractError("scalar IDs are not the exact contiguous suffix 3556-3558")
-    if range_ids != list(range(EXPECTED_RANGE_FIRST_ID, EXPECTED_RANGE_LAST_ID + 1)):
-        raise ContractError("range IDs are not the exact contiguous suffix 305-307")
-    all_values = read_rows(VALUE_OUTPUT)
-    for path in SCOPES:
-        expected_scope = scope_payload(path, all_values)
-        actual_scope = json.loads(path.read_text(encoding="utf-8"))
-        if actual_scope != expected_scope:
-            raise ContractError(f"scope output differs from exact context contract: {path}")
+    groups = (
+        (
+            VALUE_OUTPUT,
+            VALUE_FIELDS,
+            generated_value_rows(spec),
+            EXPECTED_VALUE_FIRST_ID,
+            EXPECTED_VALUE_LAST_ID,
+        ),
+        (
+            RANGE_OUTPUT,
+            RANGE_FIELDS,
+            generated_range_rows(spec),
+            EXPECTED_RANGE_FIRST_ID,
+            EXPECTED_RANGE_LAST_ID,
+        ),
+        (
+            AVAILABILITY_OUTPUT,
+            AVAILABILITY_FIELDS,
+            generated_availability_rows(spec),
+            EXPECTED_AVAILABILITY_FIRST_ID,
+            EXPECTED_AVAILABILITY_LAST_ID,
+        ),
+    )
+    for path, fields, expected, first_id, last_id in groups:
+        require_header(path, fields)
+        actual = selected_by_codes(
+            read_rows(path), {row["code"] for row in expected}
+        )
+        if semantic(actual, fields[1:]) != semantic(expected, fields[1:]):
+            raise ContractError(
+                f"stored observations differ from generated contract: {path}"
+            )
+        ids = sorted(int(row["id"]) for row in actual)
+        if ids != list(range(first_id, last_id + 1)):
+            raise ContractError(
+                f"observation IDs differ from exact suffix {first_id}-{last_id}: {path}"
+            )
     expected_review = review_payload()
     if json.loads(REVIEW_JSON.read_text(encoding="utf-8")) != expected_review:
         raise ContractError("source-gap review JSON differs from generated contract")
-    if REVIEW_MD.read_text(encoding="utf-8") != render_review_markdown(expected_review):
+    if REVIEW_MD.read_text(encoding="utf-8") != render_review_markdown(
+        expected_review
+    ):
         raise ContractError("source-gap review Markdown differs from generated contract")
     if PACKAGE.read_text(encoding="utf-8") != package_text():
         raise ContractError("package record differs from generated contract")
     expected_analysis = analysis.collect(ROOT)
     if json.loads(analysis.OUT_JSON.read_text(encoding="utf-8")) != expected_analysis:
         raise ContractError("missing-data analysis JSON is stale")
-    if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
+    if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(
+        expected_analysis
+    ):
         raise ContractError("missing-data analysis Markdown is stale")
-    summary = expected_analysis["summary"]
-    if summary["missing_technical_count"] != 101:
-        raise ContractError(f"expected 115 remaining technical records, found {summary['missing_technical_count']}")
-    if summary["exhausted_source_candidate_count"] != 6:
-        raise ContractError("expected exactly 6 exhausted-source candidates")
     current = next(
-        item for item in expected_analysis["ranked_candidates"]
+        item
+        for item in expected_analysis["ranked_candidates"]
         if item["source_code"] == SOURCE_CODE
     )
-    if current["missing_technical"] != 8 or current["selection_status"] != EXHAUSTED_CLASSIFICATION:
-        raise ContractError(f"unexpected post-review source candidate: {current}")
+    if current["selection_status"] != EXHAUSTED_CLASSIFICATION:
+        raise ContractError(f"source was not exhausted: {current}")
+    resolved_technical = {
+        "ground_clearance",
+        "overall_height",
+        "overall_width_with_mirrors",
+        "max_torque_rpm",
+    }
+    scoped = [
+        item
+        for item in expected_analysis["configurations"]
+        if item["configuration_code"] == CONFIGURATION
+    ]
+    if not scoped:
+        raise ContractError("exact configuration is absent from completeness analysis")
+    for item in scoped:
+        missing_technical = {
+            slot["attribute_code"] for slot in item["missing_technical_slots"]
+        }
+        if missing_technical & resolved_technical:
+            raise ContractError(f"resolved technical slots remain missing: {item}")
+        if "parking_assist_system" in item["missing_equipment_attributes"]:
+            raise ContractError(f"resolved parking assistance remains missing: {item}")
     selected = expected_analysis.get("selected_next_package")
-    if not selected or selected["source_code"] == SOURCE_CODE or selected["selection_status"] != "eligible":
-        raise ContractError(f"analysis did not advance to an eligible source: {selected}")
+    if (
+        not selected
+        or selected["source_code"] == SOURCE_CODE
+        or selected["selection_status"] != "eligible"
+    ):
+        raise ContractError(
+            f"analysis did not advance to an eligible source: {selected}"
+        )
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
-        raise ContractError("project state baseline predates the completed package")
-    if state["next_package"]["goal"].find(str(selected["source_code"])) < 0:
+    if (
+        state["current_package"]["package_id"]
+        != "sandero_stepway_extreme_auto_source_gap_005"
+    ):
+        raise ContractError("project state does not identify the completed package")
+    if str(selected["source_code"]) not in state["next_package"]["goal"]:
         raise ContractError("project state does not reference the selected next source")
-    print("Stepway Expression source-gap observations: PASS (3 values + 3 ranges)")
+    print(
+        "Stepway Extreme automatic source-gap observations: PASS "
+        "(2 values + 3 ranges + 1 availability)"
+    )
 
 
 def main() -> int:

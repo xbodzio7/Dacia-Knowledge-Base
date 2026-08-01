@@ -16,31 +16,31 @@ AS_OF = "2026-06-26"
 SPEC = REPOSITORY / "data/reporting/sandero_stepway_ecog120_automatic_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json"
 CONFIGURATIONS = {"sandero_stepway_iii_expression_ecog120_automatic", "sandero_stepway_iii_extreme_ecog120_automatic"}
-EXPECTED_TECHNICAL = {'applicable': 116, 'coverage_percent': '92.24', 'denominator': 116, 'missing': 9, 'not_applicable': 0, 'present': 107}
+EXPECTED_TECHNICAL = {'applicable': 116, 'coverage_percent': '96.55', 'denominator': 116, 'missing': 4, 'not_applicable': 0, 'present': 112}
 EXPECTED_EQUIPMENT = {'applicable': 138,
- 'coverage_percent': '88.41',
+ 'coverage_percent': '89.13',
  'denominator': 138,
- 'missing': 16,
+ 'missing': 15,
  'not_applicable': 0,
  'not_available': 7,
  'optional': 0,
- 'recorded': 122,
- 'standard': 115,
+ 'recorded': 123,
+ 'standard': 116,
  'unknown': 0}
 EXPECTED_SOURCE_REGISTRATION = {'expected': 2, 'future': 0, 'inactive': 0, 'metadata_complete': 2, 'missing': 0, 'registered': 2}
 EXPECTED_AREAS = {'covered': 4, 'denominator': 8, 'missing': 0, 'partial': 4, 'source_missing': 0}
-EXPECTED_SECTIONS = {'covered': 58, 'denominator': 70, 'missing': 2, 'not_applicable': 0, 'partial': 10, 'source_missing': 0}
+EXPECTED_SECTIONS = {'covered': 59, 'denominator': 70, 'missing': 2, 'not_applicable': 0, 'partial': 9, 'source_missing': 0}
 EXPECTED_COMPARISON_SUMMARY = {'prices': {'comparisons': 1, 'equal': 0, 'different': 1, 'not_comparable': 0},
- 'technical': {'comparisons': 63, 'equal': 48, 'different': 8, 'not_comparable': 7},
- 'equipment': {'comparisons': 69, 'equal': 55, 'different': 1, 'not_comparable': 13},
+ 'technical': {'comparisons': 63, 'equal': 53, 'different': 8, 'not_comparable': 2},
+ 'equipment': {'comparisons': 69, 'equal': 56, 'different': 1, 'not_comparable': 12},
  'total_differences': 10}
-EXPECTED_EVIDENCE_SUMMARY = {'total': 25, 'ambiguous': 4, 'found': 0, 'not_stated': 13, 'out_of_scope': 8}
+EXPECTED_EVIDENCE_SUMMARY = {'total': 19, 'ambiguous': 0, 'found': 0, 'not_stated': 11, 'out_of_scope': 8}
 EXPECTED_PAIR_TYPES = {'different_version_same_transmission': 1}
-EXPECTED_NOT_COMPARABLE = {'technical': 7, 'equipment': 13, 'prices': 0}
+EXPECTED_NOT_COMPARABLE = {'technical': 2, 'equipment': 12, 'prices': 0}
 EXPECTED_RANGED = 3
-EXPECTED_TECHNICAL_GAPS = 9
-EXPECTED_EQUIPMENT_GAPS = 16
-EXPECTED_COVERAGE_GAPS = 25
+EXPECTED_TECHNICAL_GAPS = 4
+EXPECTED_EQUIPMENT_GAPS = 15
+EXPECTED_COVERAGE_GAPS = 19
 
 
 class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
