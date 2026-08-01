@@ -1,0 +1,258 @@
+name: Temporary Sandero Expression Package Materializer
+
+on:
+  push:
+    branches:
+      - agent/sandero-expression-source-gap-20260801
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-sandero-expression-package-materializer
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/sandero-expression-source-gap-20260801
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Build package files
+        run: |
+          rm -f .github/workflows/temporary-sandero-expression-gap-audit.yml
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import re
+          import shutil
+          from pathlib import Path
+
+          root = Path('.')
+
+          def require_replace(text: str, old: str, new: str, *, count: int | None = None) -> str:
+              found = text.count(old)
+              if found == 0:
+                  raise SystemExit(f'missing replacement contract: {old!r}')
+              if count is not None and found != count:
+                  raise SystemExit(f'unexpected replacement count for {old!r}: {found}')
+              return text.replace(old, new)
+
+          importer_source = root / 'tools/import_sandero_stepway_essential_source_gap_20260626.py'
+          importer_target = root / 'tools/import_sandero_stepway_expression_source_gap_20260626.py'
+          text = importer_source.read_text(encoding='utf-8')
+          text = text.replace('Essential', 'Expression').replace('essential', 'expression')
+          replacements = {
+              'SOURCE_SHA256 = "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1"': 'SOURCE_SHA256 = "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130"',
+              'EXPECTED_VALUE_FIRST_ID = 3553': 'EXPECTED_VALUE_FIRST_ID = 3556',
+              'EXPECTED_VALUE_LAST_ID = 3555': 'EXPECTED_VALUE_LAST_ID = 3558',
+              'EXPECTED_RANGE_FIRST_ID = 302': 'EXPECTED_RANGE_FIRST_ID = 305',
+              'EXPECTED_RANGE_LAST_ID = 304': 'EXPECTED_RANGE_LAST_ID = 307',
+              '"reported_records": 24': '"reported_records": 20',
+              '"unique_slots": 12': '"unique_slots": 10',
+              '"resolved_unique_slots": 8': '"resolved_unique_slots": 6',
+              '"source_page": 5},\n                {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"': '"source_page": 6},\n                {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol"',
+              '"maximum_value": "4000", "source_page": 5}': '"maximum_value": "4000", "source_page": 6}',
+              '"package_id": "sandero_stepway_expression_source_gap_001"': '"package_id": "sandero_stepway_expression_source_gap_002"',
+              'f"{analysis.slug(model)}_highest_impact_eligible_gap_002"': 'f"{analysis.slug(model)}_highest_impact_eligible_gap_003"',
+              'summary["missing_technical_count"] != 137': 'summary["missing_technical_count"] != 125',
+              'expected 137 remaining technical records': 'expected 125 remaining technical records',
+              'summary["exhausted_source_candidate_count"] != 2': 'summary["exhausted_source_candidate_count"] != 3',
+              'expected exactly two exhausted-source candidates': 'expected exactly three exhausted-source candidates',
+              'scalar IDs are not the exact contiguous suffix 3553-3555': 'scalar IDs are not the exact contiguous suffix 3556-3558',
+              'range IDs are not the exact contiguous suffix 302-304': 'range IDs are not the exact contiguous suffix 305-307',
+              'Stepway Expression source-gap observations: PASS (3 values + 3 ranges + 2 scope corrections)': 'Stepway Expression source-gap observations: PASS (3 values + 3 ranges)',
+          }
+          for old, new in replacements.items():
+              text = require_replace(text, old, new)
+
+          pattern = re.compile(
+              r'            "reporting_context_corrections": \[.*?            \],\n        },\n        "excluded_alternatives"',
+              re.S,
+          )
+          text, replaced = pattern.subn(
+              '            "reporting_context_corrections": [],\n        },\n        "excluded_alternatives"',
+              text,
+              count=1,
+          )
+          if replaced != 1:
+              raise SystemExit('could not replace reporting-context correction block')
+
+          review_function = '''def render_review_markdown(payload: dict[str, object]) -> str:
+              return (
+                  "# Sandero Stepway Expression Source-Gap Review\\n\\n"
+                  "Status: complete\\n\\n"
+                  f"Source `{SOURCE_CODE}` was inspected page by page against the 20 reported "
+                  "scope records for `sandero_stepway_iii_expression_ecog120_manual`. The two "
+                  "scope records describe 10 unique technical slots.\\n\\n"
+                  "## Imported observations\\n\\n"
+                  "- `overall_height = 1586 mm` for the exact standard configuration with roof rails.\\n"
+                  "- `overall_width_with_mirrors = 2012 mm` with mirrors unfolded, matching the repository convention.\\n"
+                  "- `wheel_finish = stalowe`; ATARA remains the separate existing wheel-design observation.\\n"
+                  "- `ground_clearance = 170-200 mm`.\\n"
+                  "- `max_torque_rpm = 1750-3750` for LPG and `2000-4000` for petrol.\\n\\n"
+                  "## Remaining boundary\\n\\n"
+                  "`front_track`, `rear_track`, and `max_power_rpm` for LPG and petrol are not "
+                  "stated in this PDF. The source is therefore classified "
+                  "`source_exhausted_not_stated` after the six exact imports. Equipment decisions "
+                  "remain governed by their existing direct-evidence or explicit-alternative reviews.\\n"
+              )
+          '''
+          start = text.index('def render_review_markdown(')
+          end = text.index('\ndef package_text()', start)
+          text = text[:start] + review_function + text[end + 1:]
+
+          package_function = '''def package_text() -> str:
+              return (
+                  "# Sandero Stepway Expression Source Gap\\n\\n"
+                  "Status: complete\\n\\n"
+                  "Imported three exact scalar observations and three inclusive ranges from "
+                  "the configuration-specific Polish PDF dated 2026-06-26, regenerated the "
+                  "missing-data analysis and formally exhausted the source for the four technical "
+                  "slots it does not state.\\n\\n"
+                  "No value was projected from another trim, fuel, diagram or document. Alternative "
+                  "no-rails and folded-mirror dimensions remain excluded, and existing ATARA "
+                  "wheel-design evidence is not duplicated. Equipment evidence boundaries remain unchanged.\\n"
+              )
+          '''
+          start = text.index('def package_text()')
+          end = text.index('\ndef update_analysis_outputs()', start)
+          text = text[:start] + package_function + text[end + 1:]
+          importer_target.write_text(text, encoding='utf-8')
+
+          test_source = root / 'tests/test_sandero_stepway_essential_source_gap_20260626.py'
+          test_target = root / 'tests/test_sandero_stepway_expression_source_gap_20260626.py'
+          test = test_source.read_text(encoding='utf-8')
+          test = test.replace('Essential', 'Expression').replace('essential', 'expression')
+          for old, new in {
+              '[3553, 3554, 3555]': '[3556, 3557, 3558]',
+              '[302, 303, 304]': '[305, 306, 307]',
+              '"resolved_unique_slots"], 8': '"resolved_unique_slots"], 6',
+              '"missing_technical_count"], 137': '"missing_technical_count"], 125',
+              '"exhausted_source_candidate_count"], 2': '"exhausted_source_candidate_count"], 3',
+          }.items():
+              test = require_replace(test, old, new)
+          test_target.write_text(test, encoding='utf-8')
+
+          closer_source = root / 'tools/close_stepway_essential_reporting_dependencies_20260801.py'
+          closer_target = root / 'tools/close_stepway_expression_reporting_dependencies_20260801.py'
+          closer = closer_source.read_text(encoding='utf-8')
+          closer = closer.replace('Essential', 'Expression').replace('essential', 'expression')
+          closer_target.write_text(closer, encoding='utf-8')
+
+          spec_path = root / 'data/imports/sandero_stepway_expression_source_gap_20260626.csv'
+          fields = (
+              'record_type', 'configuration_code', 'attribute_code', 'fuel_type_code',
+              'value', 'minimum_value', 'maximum_value', 'source_page', 'source_label',
+              'normalization_notes',
+          )
+          configuration = 'sandero_stepway_iii_expression_ecog120_manual'
+          rows = [
+              {
+                  'record_type': 'value', 'configuration_code': configuration,
+                  'attribute_code': 'overall_height', 'fuel_type_code': '', 'value': '1586',
+                  'minimum_value': '', 'maximum_value': '', 'source_page': '6',
+                  'source_label': 'Wysokość Pojazdu Nieobciążonego Z Relingami (Mm): 1586 (Stepway)',
+                  'normalization_notes': 'Exact Expression Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.',
+              },
+              {
+                  'record_type': 'value', 'configuration_code': configuration,
+                  'attribute_code': 'overall_width_with_mirrors', 'fuel_type_code': '', 'value': '2012',
+                  'minimum_value': '', 'maximum_value': '', 'source_page': '6',
+                  'source_label': 'Szerokość Całkowita Z Lusterkami Zewnętrznymi: 1853/2012 (złożone/rozłożone)',
+                  'normalization_notes': 'Store the unfolded-mirror width used by the repository comparison convention; the folded-mirror width 1853 mm is excluded.',
+              },
+              {
+                  'record_type': 'value', 'configuration_code': configuration,
+                  'attribute_code': 'wheel_finish', 'fuel_type_code': '', 'value': 'stalowe',
+                  'minimum_value': '', 'maximum_value': '', 'source_page': '2',
+                  'source_label': '16" felgi stalowe ATARA',
+                  'normalization_notes': 'Normalize only the wheel finish; the ATARA design is already represented by the separate wheel_design observation.',
+              },
+              {
+                  'record_type': 'range', 'configuration_code': configuration,
+                  'attribute_code': 'ground_clearance', 'fuel_type_code': '', 'value': '',
+                  'minimum_value': '170', 'maximum_value': '200', 'source_page': '6',
+                  'source_label': 'Prześwit Pojazdu: 130-160 (Sandero) / 170-200 (Stepway)',
+                  'normalization_notes': 'Preserve the printed Stepway interval without selecting either endpoint as a scalar value.',
+              },
+              {
+                  'record_type': 'range', 'configuration_code': configuration,
+                  'attribute_code': 'max_torque_rpm', 'fuel_type_code': 'lpg', 'value': '',
+                  'minimum_value': '1750', 'maximum_value': '3750', 'source_page': '6',
+                  'source_label': 'Maksymalny Moment Obrotowy W Nm: 197 przy 1750-3750 (LPG)',
+                  'normalization_notes': 'Preserve the exact LPG engine-speed interval.',
+              },
+              {
+                  'record_type': 'range', 'configuration_code': configuration,
+                  'attribute_code': 'max_torque_rpm', 'fuel_type_code': 'petrol', 'value': '',
+                  'minimum_value': '2000', 'maximum_value': '4000', 'source_page': '6',
+                  'source_label': 'Maksymalny Moment Obrotowy W Nm: 190 przy 2000-4000',
+                  'normalization_notes': 'Preserve the exact petrol engine-speed interval.',
+              },
+          ]
+          spec_path.parent.mkdir(parents=True, exist_ok=True)
+          with spec_path.open('w', encoding='utf-8', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields, lineterminator='\n')
+              writer.writeheader()
+              writer.writerows(rows)
+          PY
+      - name: Materialize package and reporting dependencies
+        run: |
+          python -m tools.import_sandero_stepway_expression_source_gap_20260626
+          python -m tools.close_stepway_expression_reporting_dependencies_20260801
+          python tools/dkb.py configuration-gap-resolution-plan \
+            --write-plan-spec data/reporting/configuration_gap_resolution_plan.json \
+            --json "$RUNNER_TEMP/configuration-gap-resolution-plan.json" \
+            --markdown "$RUNNER_TEMP/configuration-gap-resolution-plan.md"
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --check
+          python -m tools.close_stepway_expression_reporting_dependencies_20260801 --check
+      - name: Run package tests
+        run: |
+          python -m unittest -v tests.test_sandero_stepway_expression_source_gap_20260626
+          python -m unittest -v tests.test_existing_configuration_missing_data_analysis
+          python -m unittest -v tests.test_configuration_value_ranges
+      - name: Run full quality gate
+        run: |
+          cp .github/workflows/temporary-sandero-expression-package-materializer.yml "$RUNNER_TEMP/materializer.yml"
+          rm .github/workflows/temporary-sandero-expression-package-materializer.yml
+          set +e
+          python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" > "$RUNNER_TEMP/quality.log" 2>&1
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            echo '--- concise quality failure ---'
+            grep -nE 'FAIL|ERROR|AssertionError|Traceback|FAILED|expected|actual' "$RUNNER_TEMP/quality.log" | tail -n 160 || true
+            echo '--- final quality log ---'
+            tail -n 280 "$RUNNER_TEMP/quality.log"
+          else
+            tail -n 100 "$RUNNER_TEMP/quality.log"
+          fi
+          cp "$RUNNER_TEMP/materializer.yml" .github/workflows/temporary-sandero-expression-package-materializer.yml
+          exit "$code"
+      - name: Commit package
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all -- ':!.github/workflows/temporary-sandero-expression-package-materializer.yml'
+          if git diff --cached --quiet; then
+            echo 'No package changes.'
+            exit 0
+          fi
+          git commit -m 'data: close Stepway Expression source gap'
+          git push origin HEAD:agent/sandero-expression-source-gap-20260801
