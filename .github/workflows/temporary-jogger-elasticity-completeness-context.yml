@@ -40,8 +40,24 @@ jobs:
       - name: Run package tests
         run: python -m unittest -v tests.test_jogger_elasticity_completeness_context
       - name: Run full quality gate
-        run: python tools/dkb.py quality --concise --database "$RUNNER_TEMP/dkb.sqlite"
+        id: quality
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python tools/dkb.py quality --database "$RUNNER_TEMP/dkb.sqlite" 2>&1 | tee jogger-quality-diagnostic.txt
+      - name: Commit quality diagnostics
+        if: steps.quality.outcome == 'failure'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add jogger-quality-diagnostic.txt
+          git commit -m 'chore(ci): capture Jogger context quality failure'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - name: Fail after diagnostics
+        if: steps.quality.outcome == 'failure'
+        run: exit 1
       - name: Commit package
+        if: steps.quality.outcome == 'success'
         run: |
           git diff --check
           git config user.name 'github-actions[bot]'
