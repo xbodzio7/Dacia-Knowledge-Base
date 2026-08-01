@@ -1,0 +1,179 @@
+        sys.path.insert(0, str(ROOT / "tools"))
+        import configuration_shortlist
+        from reporting.configuration_shortlist import ShortlistCriteria
+        from reporting.configuration_shortlist_html import collect_browser_catalog
+
+        catalog = collect_browser_catalog(
+            ROOT,
+            ShortlistCriteria(as_of="2026-08-02"),
+        )
+        configuration_shortlist._apply_reviewed_gap_states(catalog, ROOT)
+        configurations = {
+            item["configuration_code"]: item
+            for item in catalog["configurations"]
+        }
+        stepway = configurations[
+            "sandero_stepway_iii_expression_ecog120_automatic"
+        ]
+        self.assertEqual(
+            stepway["comparison_values"]["front_track::all"]["display_value"],
+            "źródło nie podaje",
+        )
+        self.assertEqual(
+            stepway["equipment"]["gear_shift_indicator"]["availability_status"],
+            "not_applicable",
+        )
+        spring = configurations["spring_extreme_electric100_automatic"]
+        components = {item["code"]: item for item in spring["price_components"]}
+        self.assertEqual(components["spring_city_package"]["amount"], 1800.0)
+        self.assertEqual(components["spring_power_package"]["amount"], 3000.0)
+        self.assertEqual(
+            components["spring_type2_charging_cable_option"][
+                "review_classification"
+            ],
+            "source-conflict",
+        )
+
+    def test_interface_uses_reviewed_labels_without_counting_context_prices(self) -> None:
+        selection = (
+            ROOT / "tools/reporting/configuration_shortlist_selection.js"
+        ).read_text(encoding="utf-8")
+        pricing = (
+            ROOT / "tools/reporting/configuration_shortlist_v12_pricing.js"
+        ).read_text(encoding="utf-8")
+        self.assertIn('status === "not_applicable"', selection)
+        self.assertIn('"nie dotyczy"', selection)
+        self.assertIn("state.review_message", selection)
+        self.assertIn("unknownComponentStatus", pricing)
+        self.assertIn("component.review_message", pricing)
+        self.assertIn("review_candidate_amount_pln", pricing)
+
+        report = payload(
+            ROOT / "data/reporting/reviewed_gap_state_materialization.json"
+        )
+        contextual = [
+            item for item in report["price_states"]
+            if item["classification"] == "context-unmodeled"
+        ]
+        self.assertTrue(all(item["candidate_amount_pln"] for item in contextual))
+        master = rows(ROOT / "data/master/commercial_item_configurations.csv")
+        contextual_keys = {
+            (item["commercial_item_code"], item["configuration_code"])
+            for item in contextual
+        }
+        mapped = {
+            (row["commercial_item_code"], row["configuration_code"]): row
+            for row in master
+        }
+        self.assertTrue(
+            all(mapped[key]["amount"] == "" for key in contextual_keys)
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
+""",
+        encoding="utf-8",
+    )
+
+
+def patch_state_tests() -> None:
+    registered = ROOT / "tests/test_registered_source_completeness_reconciliation_20260802.py"
+    text = registered.read_text(encoding="utf-8")
+    start = text.index("    def test_project_state_advances_to_materialization_package")
+    end = text.index("\n\n\nif __name__", start)
+    replacement = """    def test_completed_review_remains_preserved_after_materialization(self) -> None:
+        state = payload(ROOT / "project/state.json")
+        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Registered Source Completeness Reconciliation",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "reviewed_gap_interface_validation_001",
+        )
+        self.assertEqual(state["baseline"]["tests"], 1786)
+"""
+    registered.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
+
+    sandero = ROOT / "tests/test_sandero_residual_source_closure_20260801.py"
+    text = sandero.read_text(encoding="utf-8")
+    old = """        self.assertEqual(state["reference_delivery"]["name"], "Interface Source Coverage Repair")
+        self.assertEqual(state["reference_delivery"]["pull_request"], 447)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "registered_source_completeness_reconciliation_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
+"""
+    new = """        self.assertEqual(
+            state["reference_delivery"]["name"],
+            "Registered Source Completeness Reconciliation",
+        )
+        self.assertEqual(state["reference_delivery"]["pull_request"], 448)
+        self.assertEqual(
+            state["current_package"]["package_id"],
+            "reviewed_gap_state_materialization_001",
+        )
+        self.assertEqual(state["current_package"]["status"], "complete")
+        self.assertEqual(
+            state["next_package"]["package_id"],
+            "reviewed_gap_interface_validation_001",
+        )
+"""
+    if old not in text:
+        raise RuntimeError("sandero state contract marker missing")
+    sandero.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+
+def update_state() -> None:
+    state = json.loads(STATE.read_text(encoding="utf-8"))
+    state["updated_on"] = "2026-08-02"
+    state["phase"] = CURRENT_PACKAGE["name"]
+    state["reference_delivery"] = {
+        "name": "Registered Source Completeness Reconciliation",
+        "pull_request": 448,
+        "head_sha": "7abf536dd07e3417a8604196ecb469a9d2d9b70a",
+        "quality_run": 30721504297,
+    }
+    state["baseline"]["tests"] = 1786
+    state["current_package"] = CURRENT_PACKAGE
+    state["next_package"] = NEXT_PACKAGE
+    STATE.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def main() -> int:
+    changed = update_master_prices()
+    import_rows(changed)
+    payload = materialization_payload(changed)
+    write_reports(payload)
+    patch_configuration_shortlist()
+    patch_selection_js()
+    patch_pricing_js()
+    write_tests()
+    patch_state_tests()
+    update_state()
+    print(
+        "Reviewed gap materialization applied: "
+        f"{len(changed)} price rows, "
+        f"{len(payload['comparison_states'])} comparison states, "
+        f"{len(payload['price_states'])} price states."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
