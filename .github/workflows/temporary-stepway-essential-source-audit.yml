@@ -1,0 +1,29 @@
+name: Temporary Stepway Essential Source Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event.pull_request.head.ref == 'agent/stepway-essential-source-gap-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Install PDF backend
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Extract exact source text
+        run: |
+          PDF='PDF/Cenniki/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf'
+          pdfinfo "$PDF"
+          echo '===== BEGIN SOURCE TEXT ====='
+          pdftotext -layout "$PDF" -
+          echo '===== END SOURCE TEXT ====='
