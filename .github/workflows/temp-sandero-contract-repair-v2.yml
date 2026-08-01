@@ -1,0 +1,81 @@
+name: Temporary Sandero Contract Repair v2 Runner
+
+on:
+  push:
+    branches:
+      - data/sandero-residual-source-closure-006
+    paths:
+      - .github/workflows/temp-sandero-contract-repair-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data/sandero-residual-source-closure-006
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Repair contracts and run full quality
+        shell: bash
+        run: |
+          set +e
+          export PYTHONPATH="$PWD:$PWD/tools"
+          mkdir -p project/tmp/sandero-contract-repair-v2
+          status=0
+          python tools/patch_sandero_aligner_v2.py \
+            > project/tmp/sandero-contract-repair-v2/patch.log 2>&1 || status=$?
+          rm -f tools/patch_sandero_aligner_v2.py
+          if [ "$status" -eq 0 ]; then
+            python -m tools.align_sandero_residual_source_closure_contracts_20260801 \
+              > project/tmp/sandero-contract-repair-v2/align.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py project-state --apply \
+              > project/tmp/sandero-contract-repair-v2/project-state-apply.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m tools.align_sandero_residual_source_closure_contracts_20260801 --check \
+              > project/tmp/sandero-contract-repair-v2/align-check.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m tools.import_sandero_residual_source_closure_20260801 --check \
+              > project/tmp/sandero-contract-repair-v2/package-check.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python -m unittest -q \
+              tests.test_duster_ecog120_reporting_scope \
+              tests.test_existing_configuration_missing_data_analysis \
+              tests.test_sandero_ecog120_manual_reporting_scope \
+              tests.test_sandero_equipment_availability \
+              tests.test_sandero_residual_source_closure_20260801 \
+              tests.test_sandero_stepway_essential_source_gap_20260626 \
+              tests.test_sandero_stepway_expression_auto_source_gap_20260626 \
+              tests.test_sandero_stepway_expression_source_gap_20260626 \
+              tests.test_sandero_stepway_extreme_auto_source_gap_20260626 \
+              tests.test_sandero_stepway_extreme_source_gap_20260626 \
+              tests.test_spring_technical_20260219 \
+              > project/tmp/sandero-contract-repair-v2/focused-tests.log 2>&1 || status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python tools/dkb.py quality \
+              --concise \
+              --database "$RUNNER_TEMP/dacia_knowledge_base.sqlite" \
+              --log-file project/tmp/sandero-contract-repair-v2/quality.log \
+              --summary-json project/tmp/sandero-contract-repair-v2/quality-summary.json \
+              > project/tmp/sandero-contract-repair-v2/quality-console.log 2>&1 || status=$?
+          fi
+          echo "$status" > project/tmp/sandero-contract-repair-v2/status.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: complete Sandero closure contract alignment" || true
+          git push origin HEAD:data/sandero-residual-source-closure-006
+          exit "$status"
