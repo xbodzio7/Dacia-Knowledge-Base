@@ -1,4 +1,4 @@
-name: Temporary Sandero Failure Index
+name: Temporary Sandero Snapshot Diagnostics
 
 on:
   push:
@@ -11,21 +11,64 @@ permissions:
   contents: write
 
 jobs:
-  index:
+  diagnose:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: data/sandero-residual-source-closure-006
           fetch-depth: 0
-      - name: Index current quality failures
+      - name: Capture current report contracts
         shell: bash
         run: |
           set -euo pipefail
-          grep -E '^(FAIL|ERROR):' project/tmp/sandero-prepr-quality/console.log \
-            > project/tmp/sandero-prepr-quality/failure-index.txt
+          export PYTHONPATH="$PWD:$PWD/tools"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import configuration_completeness as completeness
+          import configuration_comparison as comparison
+          import source_coverage
+
+          root = Path.cwd()
+          spec = root / "data/reporting/sandero_ecog120_manual_completeness.json"
+          evidence = root / "data/reporting/sandero_ecog120_manual_gap_evidence.json"
+          complete = completeness.collect_report(root, spec, "2026-06-26")
+          coverage = source_coverage.collect_report(root, spec, "2026-06-26")
+          compared = comparison.collect_report(root, spec, evidence, "2026-06-26")
+          report = {
+              "technical": complete["technical"],
+              "equipment": complete["equipment"],
+              "technical_gap_count": len(complete["gaps"]["technical"]),
+              "equipment_gap_count": len(complete["gaps"]["equipment"]),
+              "areas": coverage["areas"],
+              "sections": coverage["sections"],
+              "coverage_gap_count": len(coverage["gaps"]),
+              "comparison_summary": compared["summary"],
+              "evidence_summary": compared["evidence_summary"],
+              "not_comparable": {
+                  domain: sum(pair["summary"][domain]["not_comparable"] for pair in compared["pairs"])
+                  for domain in ("technical", "equipment", "prices")
+              },
+              "ranged": sum(
+                  1
+                  for pair in compared["pairs"]
+                  for item in pair["technical"]
+                  if "minimum_value" in item["left"] or "minimum_value" in item["right"]
+              ),
+          }
+          target = root / "project/tmp/sandero-prepr-quality/current-contracts.json"
+          target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+          {
+            echo 'Files containing legacy Sandero availability count 422:'
+            grep -RIl --include='*.py' '422' tests tools | sort || true
+            echo
+            echo 'Files containing legacy missing-count or selection contracts:'
+            grep -RIl --include='*.py' -E 'expected 115 remaining technical|analysis did not advance to an eligible source|eligible_candidate_count.*1|3565' tests tools | sort || true
+          } > project/tmp/sandero-prepr-quality/legacy-contract-files.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add project/tmp/sandero-prepr-quality/failure-index.txt
-          git commit -m "test: index Sandero quality failures"
+          git add project/tmp/sandero-prepr-quality/current-contracts.json project/tmp/sandero-prepr-quality/legacy-contract-files.txt
+          git commit -m "test: capture Sandero current contracts"
           git push origin HEAD:data/sandero-residual-source-closure-006
