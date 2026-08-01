@@ -63,6 +63,14 @@ jobs:
                   'updated, count = re.subn(pattern, replacement, text, count=1, flags=re.DOTALL)',
                   'updated, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.DOTALL)',
               ),
+              (
+                  'if review_removed not in {0, 1}:',
+                  'if review_removed not in {0, 1, 2}:',
+              ),
+              (
+                  'expected zero or one resolved source-review key',
+                  'expected zero, one or two resolved source-review keys',
+              ),
           ]
           for old, new in replacements:
               if old not in text:
