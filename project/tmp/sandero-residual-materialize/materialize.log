@@ -1,4 +1,8 @@
 Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
   File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/import_sandero_residual_source_closure_20260801.py", line 15, in <module>
     from tools import configuration_gap_resolution_plan as gap_plan
-ModuleNotFoundError: No module named 'tools'
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/configuration_gap_resolution_plan.py", line 17, in <module>
+    from reporting.cargo_context import context_index, semantic_signature
+ModuleNotFoundError: No module named 'reporting'
