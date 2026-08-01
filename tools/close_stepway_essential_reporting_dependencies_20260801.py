@@ -9,7 +9,10 @@ from pathlib import Path
 from tools import verified_pdf_candidate_coverage_reconciliation as reconciliation
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "data/reporting/sandero_ecog120_manual_gap_evidence.json"
+EVIDENCE_PATHS = (
+    ROOT / "data/reporting/configuration_gap_evidence.json",
+    ROOT / "data/reporting/sandero_ecog120_manual_gap_evidence.json",
+)
 SOURCE_REVIEW = ROOT / "data/reporting/configuration_gap_source_review.json"
 TARGET_CONFIGURATION = "sandero_stepway_iii_essential_ecog120_manual"
 TARGET_SOURCE = "src_pl_sandero_stepway_essential_ecog120_mt_20260626"
@@ -67,7 +70,7 @@ def targeted_key(key: object) -> bool:
 def filtered_evidence(payload: dict[str, object]) -> tuple[dict[str, object], int]:
     decisions = payload.get("decisions")
     if not isinstance(decisions, list):
-        raise DependencyError("unexpected Sandero evidence payload")
+        raise DependencyError("unexpected evidence payload")
     removed = sum(targeted_decision(item) for item in decisions)
     output = dict(payload)
     output["decisions"] = [item for item in decisions if not targeted_decision(item)]
@@ -92,17 +95,19 @@ def reconciliation_outputs() -> tuple[str, str]:
 
 
 def apply() -> None:
-    evidence, evidence_removed = filtered_evidence(load_object(EVIDENCE))
+    for path in EVIDENCE_PATHS:
+        evidence, removed = filtered_evidence(load_object(path))
+        if removed not in {0, 6}:
+            raise DependencyError(
+                f"expected zero or six resolved evidence decisions in {path}, found {removed}"
+            )
+        path.write_text(canonical(evidence), encoding="utf-8")
+
     source_review, review_removed = filtered_source_review(load_object(SOURCE_REVIEW))
-    if evidence_removed not in {0, 6}:
-        raise DependencyError(
-            f"expected zero or six resolved evidence decisions, found {evidence_removed}"
-        )
     if review_removed not in {0, 1}:
         raise DependencyError(
             f"expected zero or one resolved source-review key, found {review_removed}"
         )
-    EVIDENCE.write_text(canonical(evidence), encoding="utf-8")
     SOURCE_REVIEW.write_text(canonical(source_review), encoding="utf-8")
     json_text, markdown = reconciliation_outputs()
     (ROOT / reconciliation.DEFAULT_JSON).write_text(json_text, encoding="utf-8")
@@ -110,10 +115,11 @@ def apply() -> None:
 
 
 def check() -> None:
-    _, evidence_remaining = filtered_evidence(load_object(EVIDENCE))
+    for path in EVIDENCE_PATHS:
+        _, remaining = filtered_evidence(load_object(path))
+        if remaining:
+            raise DependencyError(f"{remaining} resolved evidence decisions remain in {path}")
     _, review_remaining = filtered_source_review(load_object(SOURCE_REVIEW))
-    if evidence_remaining:
-        raise DependencyError(f"{evidence_remaining} resolved evidence decisions remain")
     if review_remaining:
         raise DependencyError(f"{review_remaining} resolved source-review keys remain")
     json_text, markdown = reconciliation_outputs()
