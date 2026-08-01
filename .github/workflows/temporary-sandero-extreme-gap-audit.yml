@@ -1,0 +1,68 @@
+name: Temporary Sandero Extreme Source Gap Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event.pull_request.head.ref == 'agent/sandero-extreme-source-gap-20260801'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Install PDF backend
+        run: |
+          if ! command -v pdftotext >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+      - name: Check state and inspect exact source
+        run: |
+          python tools/dkb.py project-state --check
+          python - <<'PY'
+          from __future__ import annotations
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          source_code = 'src_pl_sandero_stepway_extreme_ecog120_mt_20260626'
+          configuration = 'sandero_stepway_iii_extreme_ecog120_manual'
+
+          def rows(path: Path):
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          source = next(row for row in rows(root / 'data/master/sources.csv') if row.get('code') == source_code)
+          evidence = json.loads((root / 'data/reporting/configuration_gap_evidence.json').read_text(encoding='utf-8'))['decisions']
+          selected = [row for row in evidence if row.get('source_code') == source_code and row.get('configuration_code') == configuration]
+          values = [row for row in rows(root / 'data/master/configuration_attribute_values.csv') if row.get('configuration_code') == configuration]
+          ranges = [row for row in rows(root / 'data/master/configuration_attribute_value_ranges.csv') if row.get('configuration_code') == configuration]
+          payload = {'source': source, 'configuration': configuration, 'evidence': selected, 'values': values, 'ranges': ranges}
+          Path('/tmp/extreme-audit.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+          Path('/tmp/source-path.txt').write_text(source['file_path'], encoding='utf-8')
+          print(json.dumps(source, ensure_ascii=False, indent=2))
+          print('configuration=', configuration)
+          print('evidence=', len(selected), 'technical=', sum(row.get('domain') == 'technical' for row in selected), 'equipment=', sum(row.get('domain') == 'equipment' for row in selected))
+          for row in selected:
+              print(row.get('domain'), row.get('attribute_code'), row.get('fuel_type_code', ''), row.get('classification'), row.get('reason_code', ''))
+          print('existing scalar values=', len(values), 'ranges=', len(ranges))
+          PY
+          source_path="$(cat /tmp/source-path.txt)"
+          pdfinfo "$source_path"
+          echo '=== PDF TEXT ==='
+          pdftotext -layout "$source_path" -
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sandero-extreme-source-gap-audit
+          path: /tmp/extreme-audit.json
+          retention-days: 3
