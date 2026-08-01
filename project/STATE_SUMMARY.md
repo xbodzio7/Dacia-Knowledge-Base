@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Existing Configuration Completeness Reanalysis**
+**Sandero Official-Web Source Gap Review**
 
 ## Reference delivery
 
-- Package: Brochure Equipment Inheritance and Colour Review
-- Pull Request: #428
-- Verified head: `da8b7e085c248b21cd59ed8e1cd5673821e33366`
-- Quality run: #2805
+- Package: Existing Configuration Completeness Reanalysis
+- Pull Request: #434
+- Verified head: `cb18900e4e2f0a6d040094ea5cf2660acce5d0fa`
+- Quality run: #2918
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Existing Configuration Completeness Reanalysis** — `complete`
+**Sandero Official-Web Source Gap Review** — `complete`
 
-Recompute configuration- and attribute-level missing-data impact after the Spring import and select the next bounded source-backed package.
+Reconcile the highest-impact Sandero completeness gap against the exact registered official-web snapshot and import only unused directly stated facts.
 
 ## Next package
 
-**sandero Highest-Impact Source Gap** — `planned`
+**Jogger Highest-Impact Source Gap** — `planned`
 
-Inspect exact missing slots for sandero against source src_pl_sandero_official_web_configurations_20260723 and import only directly stated values or explicit non-applicable classifications.
+Inspect the 32 exact missing technical slots for Jogger against source src_pl_jogger_price_my26_20260401 and import only directly stated values or explicit non-applicable classifications.
 
 ## Autonomy
 
