@@ -56,4 +56,15 @@ if manifest_entry not in text:
     text = text.replace(manifest_anchor, manifest_entry + manifest_anchor, 1)
 
 builder.write_text(text, encoding="utf-8")
+
+workbook_test = package_dir.parent / "tests/test_configuration_comparison_workbook.py"
+workbook_text = workbook_test.read_text(encoding="utf-8")
+old_dimension = '            "A1:AS239",'
+new_dimension = '            "A1:AS243",'
+if old_dimension in workbook_text:
+    workbook_text = workbook_text.replace(old_dimension, new_dimension, 1)
+elif new_dimension not in workbook_text:
+    raise RuntimeError("workbook comparison dimension anchor not found")
+workbook_test.write_text(workbook_text, encoding="utf-8")
+
 Path(__file__).unlink()
