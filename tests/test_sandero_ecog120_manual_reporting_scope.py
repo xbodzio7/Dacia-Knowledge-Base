@@ -44,11 +44,11 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             self.completeness["technical"],
             {
                 "applicable": 300,
-                "coverage_percent": "89.67",
+                "coverage_percent": "91.67",
                 "denominator": 300,
-                "missing": 31,
+                "missing": 25,
                 "not_applicable": 0,
-                "present": 269,
+                "present": 275,
             },
         )
         self.assertEqual(
@@ -66,7 +66,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
                 "unknown": 0,
             },
         )
-        self.assertEqual(len(self.completeness["gaps"]["technical"]), 31)
+        self.assertEqual(len(self.completeness["gaps"]["technical"]), 25)
         self.assertEqual(len(self.completeness["gaps"]["equipment"]), 47)
 
     def test_source_coverage_preserves_partial_and_missing_sections(self) -> None:
@@ -88,18 +88,18 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.coverage["sections"],
             {
-                "covered": 133,
+                "covered": 134,
                 "denominator": 175,
                 "missing": 7,
                 "not_applicable": 0,
-                "partial": 35,
+                "partial": 34,
                 "source_missing": 0,
             },
         )
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 269)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 275)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 298)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 5)
-        self.assertEqual(len(self.coverage["gaps"]), 78)
+        self.assertEqual(len(self.coverage["gaps"]), 72)
 
     def test_ten_pairs_are_same_transmission_and_evidence_aware(self) -> None:
         pairs = self.comparison["pairs"]
@@ -108,7 +108,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             Counter(pair["pair_type"] for pair in pairs),
             Counter({"different_version_same_transmission": 10}),
         )
-        self.assertEqual(sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 103)
+        self.assertEqual(sum(pair["summary"]["technical"]["not_comparable"] for pair in pairs), 92)
         self.assertEqual(sum(pair["summary"]["equipment"]["not_comparable"] for pair in pairs), 148)
         self.assertEqual(sum(pair["summary"]["prices"]["not_comparable"] for pair in pairs), 0)
 
@@ -118,15 +118,15 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             {
                 "equipment": {"comparisons": 690, "different": 14, "equal": 528, "not_comparable": 148},
                 "prices": {"comparisons": 10, "different": 10, "equal": 0, "not_comparable": 0},
-                "technical": {"comparisons": 688, "different": 152, "equal": 433, "not_comparable": 103},
-                "total_differences": 176,
+                "technical": {"comparisons": 688, "different": 157, "equal": 439, "not_comparable": 92},
+                "total_differences": 181,
             },
         )
 
     def test_evidence_decisions_are_preserved_without_inference(self) -> None:
         self.assertEqual(
             self.comparison["evidence_summary"],
-            {"ambiguous": 0, "found": 0, "not_stated": 61, "out_of_scope": 17, "total": 78},
+            {"ambiguous": 0, "found": 0, "not_stated": 55, "out_of_scope": 17, "total": 72},
         )
         ranged = [
             item
@@ -134,7 +134,7 @@ class SanderoEcoG120ManualReportingScopeTests(unittest.TestCase):
             for item in pair["technical"]
             if "minimum_value" in item["left"] or "minimum_value" in item["right"]
         ]
-        self.assertEqual(len(ranged), 28)
+        self.assertEqual(len(ranged), 36)
 
     def test_all_five_prices_are_present_and_all_ten_pair_prices_differ(self) -> None:
         self.assertEqual(self.coverage["records"]["prices"]["records"], 5)

@@ -106,12 +106,12 @@ class SpringTechnical20260219Test(unittest.TestCase):
 
     def test_repository_baselines_and_reconciliation_preserve_spring_counts(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["baseline"]["configuration_values"], 3552)
-        self.assertEqual(state["baseline"]["configuration_value_ranges"], 301)
+        self.assertEqual(state["baseline"]["configuration_values"], 3555)
+        self.assertEqual(state["baseline"]["configuration_value_ranges"], 304)
         reconciliation = json.loads((ROOT / "data/reporting/verified_pdf_candidate_coverage_reconciliation.json").read_text(encoding="utf-8"))
         counts = reconciliation["summary"]["active_evidence_record_counts"]
-        self.assertEqual(counts["configuration_attribute_values"], 3475)
-        self.assertEqual(counts["configuration_attribute_value_ranges"], 301)
+        self.assertEqual(counts["configuration_attribute_values"], 3478)
+        self.assertEqual(counts["configuration_attribute_value_ranges"], 304)
 
 
 if __name__ == "__main__":

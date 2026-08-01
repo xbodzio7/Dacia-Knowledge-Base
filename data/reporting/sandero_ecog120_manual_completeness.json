@@ -62,11 +62,13 @@
     },
     {
       "attribute_code": "elasticity_80_120",
-      "fuel_type_code": "lpg"
+      "fuel_type_code": "lpg",
+      "gear_number": "4"
     },
     {
       "attribute_code": "elasticity_80_120",
-      "fuel_type_code": "petrol"
+      "fuel_type_code": "petrol",
+      "gear_number": "4"
     },
     {
       "attribute_code": "emission_standard",

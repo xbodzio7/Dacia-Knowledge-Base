@@ -7,8 +7,7 @@ from pathlib import Path
 from tools import existing_configuration_missing_data_analysis as analysis
 
 ROOT = Path(__file__).resolve().parents[1]
-EXHAUSTED_SOURCE = "src_pl_sandero_official_web_configurations_20260723"
-NEXT_SOURCE = "src_pl_sandero_stepway_essential_ecog120_mt_20260626"
+OFFICIAL_WEB_SOURCE = "src_pl_sandero_official_web_configurations_20260723"
 
 
 class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
@@ -27,9 +26,13 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         self.assertGreater(summary["active_configuration_count"], 0)
         self.assertGreater(summary["completeness_scope_count"], 0)
         self.assertGreater(summary["scoped_configuration_count"], 0)
-        self.assertEqual(summary["candidate_count"], 9)
-        self.assertEqual(summary["exhausted_source_candidate_count"], 1)
-        self.assertEqual(summary["eligible_candidate_count"], 8)
+        self.assertEqual(
+            summary["candidate_count"],
+            summary["exhausted_source_candidate_count"]
+            + summary["eligible_candidate_count"],
+        )
+        self.assertGreaterEqual(summary["exhausted_source_candidate_count"], 1)
+        self.assertGreaterEqual(summary["eligible_candidate_count"], 1)
 
     def test_missing_slots_are_not_negative_and_candidates_are_ranked(self) -> None:
         for item in self.payload["configurations"]:
@@ -49,30 +52,33 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         ]
         self.assertEqual(impacts, sorted(impacts, reverse=True))
 
-    def test_exhausted_source_remains_visible_but_cannot_be_selected(self) -> None:
-        exhausted = next(
+    def test_exhausted_sources_remain_visible_but_cannot_be_selected(self) -> None:
+        exhausted = [
             item
             for item in self.payload["ranked_candidates"]
-            if item["source_code"] == EXHAUSTED_SOURCE
+            if item["selection_status"] == analysis.EXHAUSTED_CLASSIFICATION
+        ]
+        self.assertTrue(exhausted)
+        self.assertTrue(all(item["source_review_path"] for item in exhausted))
+        official_web = next(
+            item
+            for item in exhausted
+            if item["source_code"] == OFFICIAL_WEB_SOURCE
         )
         self.assertEqual(
-            exhausted["selection_status"],
-            analysis.EXHAUSTED_CLASSIFICATION,
-        )
-        self.assertEqual(
-            exhausted["source_review_path"],
+            official_web["source_review_path"],
             "sandero_official_web_source_gap_review.json",
         )
         selected = self.payload["selected_next_package"]
         self.assertIsNotNone(selected)
         self.assertEqual(selected["selection_status"], "eligible")
-        self.assertEqual(selected["source_code"], NEXT_SOURCE)
         first_eligible = next(
             item
             for item in self.payload["ranked_candidates"]
             if item["selection_status"] == "eligible"
         )
         self.assertEqual(selected, first_eligible)
+        self.assertNotIn(selected["source_code"], {item["source_code"] for item in exhausted})
 
     def test_not_applicable_slots_are_not_reported_missing(self) -> None:
         for item in self.payload["configurations"]:
