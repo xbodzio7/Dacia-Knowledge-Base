@@ -20,10 +20,34 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends poppler-utils
-      - name: Extract exact source text
+      - name: Inspect exact source usage and contexts
         run: |
-          PDF='PDF/Cenniki/NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf'
-          pdfinfo "$PDF"
-          echo '===== BEGIN SOURCE TEXT ====='
-          pdftotext -layout "$PDF" -
-          echo '===== END SOURCE TEXT ====='
+          CONFIG='sandero_stepway_iii_essential_ecog120_manual'
+          SOURCE='src_pl_sandero_stepway_essential_ecog120_mt_20260626'
+          echo '===== MASTER FILES ====='
+          find data/master -maxdepth 1 -type f -printf '%f\n' | sort
+          echo '===== CONFIGURATION SCALAR VALUES ====='
+          head -n 1 data/master/configuration_attribute_values.csv
+          grep -F "$CONFIG" data/master/configuration_attribute_values.csv || true
+          echo '===== CONFIGURATION VALUE RANGES ====='
+          head -n 1 data/master/configuration_attribute_value_ranges.csv
+          grep -F "$CONFIG" data/master/configuration_attribute_value_ranges.csv || true
+          echo '===== SOURCE USAGE ====='
+          grep -R -n -F "$SOURCE" data project tests tools --exclude='*.pdf' || true
+          echo '===== CONTEXT-RELATED HEADERS AND ROWS ====='
+          for file in data/master/*context*.csv data/master/*basis*.csv; do
+            [ -f "$file" ] || continue
+            echo "--- $file"
+            head -n 1 "$file"
+            grep -F "$CONFIG" "$file" || true
+          done
+          echo '===== EXACT MISSING ENTRY ====='
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          code = 'sandero_stepway_iii_essential_ecog120_manual'
+          payload = json.loads(Path('data/reporting/existing_configuration_missing_data_analysis.json').read_text(encoding='utf-8'))
+          for item in payload['configurations']:
+              if item['configuration_code'] == code:
+                  print(json.dumps(item, ensure_ascii=False, indent=2))
+          PY
