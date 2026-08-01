@@ -1,0 +1,58 @@
+name: Temporary Materialize Accelerated v1.10.0
+
+on:
+  push:
+    branches:
+      - agent/accelerated-v1.10.0-release-20260801
+    paths:
+      - tools/materialize_accelerated_v1_10_0_release_20260801.py
+      - .github/workflows/temporary-materialize-accelerated-v1.10.0.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-accelerated-v1-10-0
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/accelerated-v1.10.0-release-20260801
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+
+      - name: Materialize package
+        run: |
+          python tools/materialize_accelerated_v1_10_0_release_20260801.py
+          python tools/dkb.py project-state --apply
+
+      - name: Run focused contracts
+        run: |
+          python -m unittest -q \
+            tests.test_data_products_v1_10_0_release_contract \
+            tests.test_configuration_comparison_sticky_offset \
+            tests.test_configuration_selection_export \
+            tests.test_configuration_shortlist_html \
+            tests.test_data_product_release
+          python tools/dkb.py project-state --check
+          python -m compileall -q tools tests
+
+      - name: Commit stable package and remove materializer
+        run: |
+          rm .github/workflows/temporary-materialize-accelerated-v1.10.0.yml
+          rm tools/materialize_accelerated_v1_10_0_release_20260801.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "release(data-products): prepare accelerated v1.10.0"
+          git push origin HEAD:agent/accelerated-v1.10.0-release-20260801
