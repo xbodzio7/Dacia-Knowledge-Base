@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import exact Stepway Essential source-gap observations dated 2026-06-26."""
+"""Import exact Stepway Expression source-gap observations dated 2026-06-26."""
 from __future__ import annotations
 
 import argparse
@@ -15,20 +15,20 @@ from tools import existing_configuration_missing_data_analysis as analysis
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
-SPEC = ROOT / "data" / "imports" / "sandero_stepway_essential_source_gap_20260626.csv"
+SPEC = ROOT / "data" / "imports" / "sandero_stepway_expression_source_gap_20260626.csv"
 VALUE_OUTPUT = MASTER / "configuration_attribute_values.csv"
 RANGE_OUTPUT = MASTER / "configuration_attribute_value_ranges.csv"
 GENERAL_SCOPE = REPORTING / "configuration_completeness.json"
 MANUAL_SCOPE = REPORTING / "sandero_ecog120_manual_completeness.json"
-REVIEW_JSON = REPORTING / "sandero_stepway_essential_source_gap_review.json"
-REVIEW_MD = REPORTING / "sandero_stepway_essential_source_gap_review.md"
-PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-essential-source-gap-20260801.md"
+REVIEW_JSON = REPORTING / "sandero_stepway_expression_source_gap_review.json"
+REVIEW_MD = REPORTING / "sandero_stepway_expression_source_gap_review.md"
+PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-expression-source-gap-20260801.md"
 STATE = ROOT / "project" / "state.json"
-SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf"
-SOURCE_CODE = "src_pl_sandero_stepway_essential_ecog120_mt_20260626"
-SOURCE_SHA256 = "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1"
+SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.pdf"
+SOURCE_CODE = "src_pl_sandero_stepway_expression_ecog120_mt_20260626"
+SOURCE_SHA256 = "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130"
 OBSERVATION_DATE = "2026-06-26"
-CONFIGURATION = "sandero_stepway_iii_essential_ecog120_manual"
+CONFIGURATION = "sandero_stepway_iii_expression_ecog120_manual"
 MODEL_CODE = "sandero"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
 SCOPES = (GENERAL_SCOPE, MANUAL_SCOPE)
@@ -70,10 +70,10 @@ RANGE_FIELDS = (
     "source_code",
     "notes",
 )
-EXPECTED_VALUE_FIRST_ID = 3553
-EXPECTED_VALUE_LAST_ID = 3555
-EXPECTED_RANGE_FIRST_ID = 302
-EXPECTED_RANGE_LAST_ID = 304
+EXPECTED_VALUE_FIRST_ID = 3556
+EXPECTED_VALUE_LAST_ID = 3558
+EXPECTED_RANGE_FIRST_ID = 305
+EXPECTED_RANGE_LAST_ID = 307
 EXPECTED_SPEC = {
     ("value", "overall_height", "", "1586", "", ""),
     ("value", "overall_width_with_mirrors", "", "2012", "", ""),
@@ -103,23 +103,23 @@ MANIFEST_PATHS = [
     "tests/test_jogger_payload_performance_ranges.py",
     "tests/test_official_brochure_residual_evidence_review.py",
     "tests/test_spring_technical_20260219.py",
-    "tools/close_stepway_essential_reporting_dependencies_20260801.py",
+    "tools/close_stepway_expression_reporting_dependencies_20260801.py",
     "tools/review_official_brochure_residual_evidence_20260726.py",
-    "data/imports/sandero_stepway_essential_source_gap_20260626.csv",
+    "data/imports/sandero_stepway_expression_source_gap_20260626.csv",
     "data/master/configuration_attribute_value_ranges.csv",
     "data/master/configuration_attribute_values.csv",
     "data/reporting/configuration_completeness.json",
     "data/reporting/existing_configuration_missing_data_analysis.json",
     "data/reporting/existing_configuration_missing_data_analysis.md",
     "data/reporting/sandero_ecog120_manual_completeness.json",
-    "data/reporting/sandero_stepway_essential_source_gap_review.json",
-    "data/reporting/sandero_stepway_essential_source_gap_review.md",
+    "data/reporting/sandero_stepway_expression_source_gap_review.json",
+    "data/reporting/sandero_stepway_expression_source_gap_review.md",
     "project/STATE_SUMMARY.md",
-    "project/packages/sandero-stepway-essential-source-gap-20260801.md",
+    "project/packages/sandero-stepway-expression-source-gap-20260801.md",
     "project/state.json",
     "tests/test_existing_configuration_missing_data_analysis.py",
-    "tests/test_sandero_stepway_essential_source_gap_20260626.py",
-    "tools/import_sandero_stepway_essential_source_gap_20260626.py",
+    "tests/test_sandero_stepway_expression_source_gap_20260626.py",
+    "tools/import_sandero_stepway_expression_source_gap_20260626.py",
 ]
 
 
@@ -376,8 +376,8 @@ def review_payload() -> dict[str, object]:
         "source_sha256": SOURCE_SHA256,
         "source_observation_date": OBSERVATION_DATE,
         "initial_gap": {
-            "reported_records": 24,
-            "unique_slots": 12,
+            "reported_records": 20,
+            "unique_slots": 10,
             "scope_files": [path.name for path in SCOPES],
         },
         "resolution": {
@@ -388,23 +388,10 @@ def review_payload() -> dict[str, object]:
             ],
             "ranges": [
                 {"attribute_code": "ground_clearance", "fuel_type_code": "", "minimum_value": "170", "maximum_value": "200", "source_page": 6},
-                {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg", "minimum_value": "1750", "maximum_value": "3750", "source_page": 5},
-                {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol", "minimum_value": "2000", "maximum_value": "4000", "source_page": 5},
+                {"attribute_code": "max_torque_rpm", "fuel_type_code": "lpg", "minimum_value": "1750", "maximum_value": "3750", "source_page": 6},
+                {"attribute_code": "max_torque_rpm", "fuel_type_code": "petrol", "minimum_value": "2000", "maximum_value": "4000", "source_page": 6},
             ],
-            "reporting_context_corrections": [
-                {
-                    "attribute_code": "elasticity_80_120",
-                    "fuel_type_code": "lpg",
-                    "gear_number": "4",
-                    "evidence_source_code": "src_pl_sandero_stepway_brochure_20260202",
-                },
-                {
-                    "attribute_code": "elasticity_80_120",
-                    "fuel_type_code": "petrol",
-                    "gear_number": "4",
-                    "evidence_source_code": "src_pl_sandero_stepway_brochure_20260202",
-                },
-            ],
+            "reporting_context_corrections": [],
         },
         "excluded_alternatives": [
             {"attribute_code": "overall_height", "value": "1535", "reason": "Stepway height without roof rails does not describe the exact standard configuration"},
@@ -413,7 +400,7 @@ def review_payload() -> dict[str, object]:
         ],
         "reconciliation": {
             "classification": EXHAUSTED_CLASSIFICATION,
-            "resolved_unique_slots": 8,
+            "resolved_unique_slots": 6,
             "remaining_unique_slots": 4,
             "remaining_slots": list(REMAINING_SLOTS),
             "boundary": "No track widths or maximum-power engine speeds are printed in the source; no values are inferred from sibling trims, diagrams or other documents.",
@@ -423,43 +410,35 @@ def review_payload() -> dict[str, object]:
 
 def render_review_markdown(payload: dict[str, object]) -> str:
     return (
-        "# Sandero Stepway Essential Source-Gap Review\n\n"
+        "# Sandero Stepway Expression Source-Gap Review\n\n"
         "Status: complete\n\n"
-        f"Source `{SOURCE_CODE}` was inspected page by page against the 24 reported "
-        "scope records for `sandero_stepway_iii_essential_ecog120_manual`. The two "
-        "scope records describe 12 unique slots.\n\n"
+        f"Source `{SOURCE_CODE}` was inspected page by page against the 20 reported "
+        "scope records for `sandero_stepway_iii_expression_ecog120_manual`. The two "
+        "scope records describe 10 unique technical slots.\n\n"
         "## Imported observations\n\n"
         "- `overall_height = 1586 mm` for the exact standard configuration with roof rails.\n"
         "- `overall_width_with_mirrors = 2012 mm` with mirrors unfolded, matching the repository convention.\n"
-        "- `wheel_finish = stalowe`; ERALIA remains the separate existing wheel-design observation.\n"
+        "- `wheel_finish = stalowe`; ATARA remains the separate existing wheel-design observation.\n"
         "- `ground_clearance = 170-200 mm`.\n"
         "- `max_torque_rpm = 1750-3750` for LPG and `2000-4000` for petrol.\n\n"
-        "## Reporting correction\n\n"
-        "Both Sandero completeness scopes now identify `elasticity_80_120` as a "
-        "fourth-gear measurement. Existing values retain their original February "
-        "2026 brochure evidence; the June price PDF is not credited with elasticity data.\n\n"
         "## Remaining boundary\n\n"
         "`front_track`, `rear_track`, and `max_power_rpm` for LPG and petrol are not "
         "stated in this PDF. The source is therefore classified "
-        "`source_exhausted_not_stated` after the six exact imports and the slot-context correction.\n"
+        "`source_exhausted_not_stated` after the six exact imports. Equipment decisions "
+        "remain governed by their existing direct-evidence or explicit-alternative reviews.\n"
     )
-
-
 def package_text() -> str:
     return (
-        "# Sandero Stepway Essential Source Gap\n\n"
+        "# Sandero Stepway Expression Source Gap\n\n"
         "Status: complete\n\n"
         "Imported three exact scalar observations and three inclusive ranges from "
-        "the configuration-specific Polish PDF dated 2026-06-26. Restored fourth-gear "
-        "identity for elasticity slots in two completeness scopes, regenerated the "
-        "missing-data analysis and formally exhausted the source for the four slots "
-        "it does not state.\n\n"
+        "the configuration-specific Polish PDF dated 2026-06-26, regenerated the "
+        "missing-data analysis and formally exhausted the source for the four technical "
+        "slots it does not state.\n\n"
         "No value was projected from another trim, fuel, diagram or document. Alternative "
-        "no-rails and folded-mirror dimensions remain excluded, and existing ERALIA "
-        "wheel-design evidence is not duplicated.\n"
+        "no-rails and folded-mirror dimensions remain excluded, and existing ATARA "
+        "wheel-design evidence is not duplicated. Equipment evidence boundaries remain unchanged.\n"
     )
-
-
 def update_analysis_outputs() -> dict[str, object]:
     payload = analysis.collect(ROOT)
     write_json(analysis.OUT_JSON, payload)
@@ -469,13 +448,13 @@ def update_analysis_outputs() -> dict[str, object]:
 
 def update_state(analysis_payload: dict[str, object]) -> None:
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    state["phase"] = "Sandero Stepway Essential Source Gap"
+    state["phase"] = "Sandero Stepway Expression Source Gap"
     state["current_package"] = {
-        "package_id": "sandero_stepway_essential_source_gap_001",
+        "package_id": "sandero_stepway_expression_source_gap_002",
         "kind": "source_backed_completeness_import",
-        "name": "Sandero Stepway Essential Source Gap",
+        "name": "Sandero Stepway Expression Source Gap",
         "status": "complete",
-        "goal": "Resolve every safely representable missing slot from the exact Stepway Essential Eco-G 120 manual source and formally preserve the remaining not-stated boundary.",
+        "goal": "Resolve every safely representable missing slot from the exact Stepway Expression Eco-G 120 manual source and formally preserve the remaining not-stated boundary.",
         "manifest_paths": MANIFEST_PATHS,
     }
     selected = analysis_payload.get("selected_next_package")
@@ -483,7 +462,7 @@ def update_state(analysis_payload: dict[str, object]) -> None:
         model = str(selected["model_code"])
         source = str(selected["source_code"])
         state["next_package"] = {
-            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_002",
+            "package_id": f"{analysis.slug(model)}_highest_impact_eligible_gap_003",
             "kind": "source_backed_completeness_import",
             "name": f"{model} Highest-Impact Eligible Source Gap",
             "status": "planned",
@@ -535,9 +514,9 @@ def verify_materialized() -> None:
     value_ids = sorted(int(row["id"]) for row in values)
     range_ids = sorted(int(row["id"]) for row in ranges)
     if value_ids != list(range(EXPECTED_VALUE_FIRST_ID, EXPECTED_VALUE_LAST_ID + 1)):
-        raise ContractError("scalar IDs are not the exact contiguous suffix 3553-3555")
+        raise ContractError("scalar IDs are not the exact contiguous suffix 3556-3558")
     if range_ids != list(range(EXPECTED_RANGE_FIRST_ID, EXPECTED_RANGE_LAST_ID + 1)):
-        raise ContractError("range IDs are not the exact contiguous suffix 302-304")
+        raise ContractError("range IDs are not the exact contiguous suffix 305-307")
     all_values = read_rows(VALUE_OUTPUT)
     for path in SCOPES:
         expected_scope = scope_payload(path, all_values)
@@ -571,11 +550,11 @@ def verify_materialized() -> None:
     if not selected or selected["source_code"] == SOURCE_CODE or selected["selection_status"] != "eligible":
         raise ContractError(f"analysis did not advance to an eligible source: {selected}")
     state = json.loads(STATE.read_text(encoding="utf-8"))
-    if int(state["baseline"]["configuration_values"]) < EXPECTED_VALUE_LAST_ID:
-        raise ContractError("project state baseline predates the completed package")
+    if state["current_package"]["package_id"] != "sandero_stepway_expression_source_gap_002":
+        raise ContractError("project state does not identify the completed package")
     if state["next_package"]["goal"].find(str(selected["source_code"])) < 0:
         raise ContractError("project state does not reference the selected next source")
-    print("Stepway Essential source-gap observations: PASS (3 values + 3 ranges + 2 scope corrections)")
+    print("Stepway Expression source-gap observations: PASS (3 values + 3 ranges)")
 
 
 def main() -> int:
