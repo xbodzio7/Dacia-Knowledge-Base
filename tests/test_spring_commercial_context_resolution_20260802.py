@@ -91,22 +91,21 @@ def verify_contract() -> None:
         raise AssertionError("review package must not invent a Type 2 price")
 
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != (
-        "spring_commercial_context_resolution_001"
-    ):
-        raise AssertionError("canonical state did not advance to this package")
-    if state["next_package"]["package_id"] != (
-        "spring_current_grade_snapshot_capture_001"
-    ):
-        raise AssertionError("canonical next package is not the bounded capture step")
-    if state["reference_delivery"]["pull_request"] != 449:
-        raise AssertionError("reference delivery must point to PR #449")
+    if state["current_package"]["status"] != "complete":
+        raise AssertionError("canonical current package must remain complete")
+    if not state["current_package"]["package_id"]:
+        raise AssertionError("canonical current package is missing")
+    if not state["next_package"]["package_id"]:
+        raise AssertionError("canonical next package is missing")
+    if state["reference_delivery"]["pull_request"] < 450:
+        raise AssertionError("reference delivery predates Spring context resolution")
     if state["baseline"]["tests"] != 1788:
-        raise AssertionError("zero-count import contract must preserve test baseline")
+        raise AssertionError("import-time contracts must preserve test baseline")
+    if state["baseline"]["rows"] != 11713:
+        raise AssertionError("review-only follow-up must preserve master row count")
 
 
-# unittest discovery imports this module. Keeping the contract as an import-time
-# verifier preserves the canonical 1788-test baseline while still failing the
-# suite if any reviewed evidence, generated report, master boundary or state
-# transition drifts.
+# unittest discovery imports this module. The contract protects the completed
+# Spring context evidence while allowing canonical state to advance through
+# later bounded packages.
 verify_contract()

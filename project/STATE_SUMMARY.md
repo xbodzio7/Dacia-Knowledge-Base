@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Commercial Context Resolution**
+**Spring Current Grade Snapshot Capture**
 
 ## Reference delivery
 
-- Package: Reviewed Gap State Materialization
-- Pull Request: #449
-- Verified head: `348d73358c696a58153f723672bba8bd95df3ded`
-- Quality run: #30722437518
+- Package: Spring Commercial Context Resolution
+- Pull Request: #450
+- Verified head: `fe3d5c6bf34968c1196caceee79a1f6f8ed92658`
+- Quality run: #30722905905
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Commercial Context Resolution** — `complete`
+**Spring Current Grade Snapshot Capture** — `complete`
 
-Resolve the Spring Type 2 cable conflict and current paint, stock and model-year price contexts from exact official states before any further commercial import.
+Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.
 
 ## Next package
 
-**Spring Current Grade Snapshot Capture** — `planned`
+**Spring Exact Current Semantic Migration Review** — `planned`
 
-Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.
+Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve Expression and paint-palette gaps as unresolved.
 
 ## Autonomy
 

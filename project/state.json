@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Commercial Context Resolution",
+  "phase": "Spring Current Grade Snapshot Capture",
   "reference_delivery": {
-    "name": "Reviewed Gap State Materialization",
-    "pull_request": 449,
-    "head_sha": "348d73358c696a58153f723672bba8bd95df3ded",
-    "quality_run": 30722437518
+    "name": "Spring Commercial Context Resolution",
+    "pull_request": 450,
+    "head_sha": "fe3d5c6bf34968c1196caceee79a1f6f8ed92658",
+    "quality_run": 30722905905
   },
   "baseline": {
     "tests": 1788,
@@ -27,30 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_commercial_context_resolution_001",
-    "kind": "source_conflict_and_context_resolution",
-    "name": "Spring Commercial Context Resolution",
-    "status": "complete",
-    "goal": "Resolve the Spring Type 2 cable conflict and current paint, stock and model-year price contexts from exact official states before any further commercial import.",
-    "manifest_paths": [
-      "data/reporting/spring_commercial_context_resolution.json",
-      "data/reporting/spring_commercial_context_resolution.md",
-      "project/packages/spring-commercial-context-resolution-20260802.md",
-      "project/sources/dacia-pl-spring-commercial-context-20260802.json",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "tests/test_registered_source_completeness_reconciliation_20260802.py",
-      "tests/test_reviewed_gap_state_materialization_20260802.py",
-      "tests/test_sandero_residual_source_closure_20260801.py",
-      "tests/test_spring_commercial_context_resolution_20260802.py",
-      "tools/review_spring_commercial_context_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_current_grade_snapshot_capture_001",
     "kind": "exact_current_source_capture",
     "name": "Spring Current Grade Snapshot Capture",
-    "status": "planned",
+    "status": "complete",
     "goal": "Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.",
     "manifest_paths": [
       "data/reporting/spring_current_grade_snapshot_capture.json",
@@ -59,8 +39,25 @@
       "project/sources/dacia-pl-spring-current-grade-snapshots-20260802.json",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
       "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tools/capture_spring_current_grade_snapshots_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_exact_current_semantic_migration_review_001",
+    "kind": "bounded_semantic_migration_review",
+    "name": "Spring Exact Current Semantic Migration Review",
+    "status": "planned",
+    "goal": "Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve Expression and paint-palette gaps as unresolved.",
+    "manifest_paths": [
+      "data/reporting/spring_exact_current_semantic_migration_review.json",
+      "data/reporting/spring_exact_current_semantic_migration_review.md",
+      "project/packages/spring-exact-current-semantic-migration-review-20260802.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
+      "tools/review_spring_exact_current_semantic_migration_20260802.py"
     ]
   },
   "autonomy": {

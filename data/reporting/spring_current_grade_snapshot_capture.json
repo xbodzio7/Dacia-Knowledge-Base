@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "source_code": "src_pl_spring_current_grade_snapshots_20260802",
+  "scope": {
+    "market": "PL",
+    "model_code": "spring",
+    "grades": [
+      "expression",
+      "extreme"
+    ],
+    "master_data_mutation_authorized": false
+  },
+  "capture_summary": {
+    "grade_count": 2,
+    "complete_exact_current_snapshots": 0,
+    "partial_exact_current_snapshots": 2,
+    "expression_unresolved_fields": 5,
+    "extreme_unresolved_fields": 1,
+    "my2025_values_promoted": 0,
+    "stock_cards_generalized": 0,
+    "master_rows_changed": 0
+  },
+  "expression": {
+    "configuration_code": "spring_expression_electric70_automatic",
+    "snapshot_status": "partial_exact_current",
+    "powertrain": "electric 70",
+    "equipment_item_count": 46,
+    "standard_highlights": [
+      "Media Control",
+      "klimatyzacja manualna",
+      "wspomaganie parkowania tyłem",
+      "system utrzymania pasa ruchu (LKA)",
+      "oklejenie boczne dolnej części drzwi",
+      "lusterka zewnętrzne w kolorze czarnym"
+    ],
+    "optional_items": [
+      {
+        "name": "pakiet TECHNO",
+        "components": [
+          "Media Display",
+          "wyjście USB-C",
+          "kamera cofania"
+        ],
+        "price_state": "not_stated_on_exact_grade_page"
+      },
+      {
+        "name": "komunikaty w języku polskim",
+        "price_state": "not_stated_on_exact_grade_page"
+      }
+    ],
+    "unresolved_fields": {
+      "catalog_price": {
+        "state": "not_stated_on_exact_current_grade_page",
+        "reason": "The exact Expression versions page exposes the grade but no reliable grade-specific price."
+      },
+      "paint_palette": {
+        "state": "not_exposed_by_exact_current_grade_pages",
+        "reason": "The accessible exact Expression pages contain no complete grade-specific colour list or prices."
+      },
+      "type2_charging_cable": {
+        "state": "not_exposed_by_exact_current_grade_pages",
+        "reason": "The exact Expression equipment page has no battery-and-charging section. Absence is not interpreted as unavailability."
+      },
+      "home_charging_cable": {
+        "state": "not_exposed_by_exact_current_grade_pages"
+      },
+      "dc40_option_price": {
+        "state": "not_exposed_by_exact_current_grade_pages"
+      }
+    },
+    "master_migration_authorized": false
+  },
+  "extreme": {
+    "configuration_code": "spring_extreme_electric100_automatic",
+    "snapshot_status": "partial_exact_current",
+    "powertrain": "electric 100",
+    "catalog_price_pln": 85900,
+    "equipment_item_count": 48,
+    "technical": {
+      "power_kw": 75,
+      "power_hp": 100,
+      "battery_capacity_kwh": 24.3,
+      "wltp_range_km": 225,
+      "zero_to_100_seconds": 9.6,
+      "ac_charging_kw": 7,
+      "dc_charging_kw": 40
+    },
+    "standard_highlights": [
+      "Media Display",
+      "wyjście USB-C",
+      "kamera cofania",
+      "elektrycznie sterowane lusterka",
+      "szyby tylne regulowane elektrycznie",
+      "elementy zewnętrzne w kolorze miedzi"
+    ],
+    "charging_equipment": [
+      {
+        "name": "kabel do ładowania z końcówką typu 2 (do Wallbox-a i terminali publicznych)",
+        "availability_status": "standard"
+      },
+      {
+        "name": "kabel do ładowania z gniazda domowego",
+        "availability_status": "optional",
+        "price_pln": 1500
+      }
+    ],
+    "optional_packages": [
+      {
+        "name": "pakiet CITY",
+        "components": [
+          "Media Nav Live",
+          "czujniki parkowania z przodu i z tyłu"
+        ],
+        "price_pln": 1800
+      },
+      {
+        "name": "pakiet POWER",
+        "price_pln": 3000
+      }
+    ],
+    "unresolved_fields": {
+      "paint_palette": {
+        "state": "not_exposed_by_exact_current_grade_pages",
+        "reason": "The accessible exact Extreme grade and comparison pages do not state a complete current grade-specific colour list with prices."
+      }
+    },
+    "master_migration_authorized": false
+  },
+  "evidence_boundaries": [
+    "The current Expression grade page confirms 46 equipment items but exposes neither a complete paint palette nor battery-and-charging semantics.",
+    "The default Essential configurator state is not reassigned to Expression.",
+    "The current Extreme comparison state confirms price, technical data, Type 2 standard equipment and current charging/package prices, but not a complete paint palette.",
+    "No MY2025 stock-only value is promoted to a current grade snapshot.",
+    "No dealer-stock card is generalized into a complete grade palette or reusable standalone price."
+  ],
+  "mutation_summary": {
+    "master_rows_changed": 0,
+    "prices_imported": 0,
+    "availability_states_changed": 0,
+    "models_or_domains_added": 0
+  },
+  "next_package": {
+    "package_id": "spring_exact_current_semantic_migration_review_001",
+    "goal": "Compare the exact current snapshot evidence with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve Expression and paint-palette gaps as unresolved."
+  }
+}
