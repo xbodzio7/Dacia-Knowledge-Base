@@ -1,21 +1,21 @@
 {
   "version": 1,
-  "updated_on": "2026-08-01",
+  "updated_on": "2026-08-02",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Interface Source Coverage Repair",
+  "phase": "Registered Source Completeness Reconciliation",
   "reference_delivery": {
-    "name": "Sandero Residual Source Closure",
-    "pull_request": 446,
-    "head_sha": "ea69fa8e4d50700549d999bda167cab7802acb2e",
-    "quality_run": 30718637131
+    "name": "Interface Source Coverage Repair",
+    "pull_request": 447,
+    "head_sha": "9dce389ac3e82f9b01f6446bce58aee075155ffe",
+    "quality_run": 30720575708
   },
   "baseline": {
-    "tests": 1778,
+    "tests": 1782,
     "csv_files": 46,
     "rows": 11713,
     "configuration_values": 3567,
@@ -27,49 +27,39 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "interface_source_coverage_repair_001",
-    "kind": "user_interface_and_source_coverage_repair",
-    "name": "Interface Source Coverage Repair",
-    "status": "complete",
-    "goal": "Resolve the reported comparison usability defects, register Spring model media, repair exact Sandero price coverage, clarify missing-data semantics and preserve the source-backed Sandero TCe 100 injection value without inference.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/imports/interface_source_coverage_repair_20260801.csv",
-      "data/master/commercial_item_configurations.csv",
-      "data/reporting/interface_source_coverage_repair.json",
-      "data/reporting/interface_source_coverage_repair.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/interface-source-coverage-repair-20260801.md",
-      "project/sources/dacia-pl-spring-model-media-20260801.json",
-      "project/state.json",
-      "tests/contracts/configuration_shortlist_v12_contract.js",
-      "tests/test_commercial_items_20260703.py",
-      "tests/test_configuration_comparison_sticky_offset.py",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_interface_source_coverage_repair_20260801.py",
-      "tests/test_official_cross_model_option_coverage_20260724.py",
-      "tests/test_sandero_residual_source_closure_20260801.py",
-      "tools/apply_interface_source_coverage_repair_20260801.py",
-      "tools/configuration_shortlist.py",
-      "tools/reporting/configuration_shortlist_selection.js",
-      "tools/reporting/configuration_shortlist_v12_pricing.js"
-    ]
-  },
-  "next_package": {
     "package_id": "registered_source_completeness_reconciliation_001",
     "kind": "source_coverage_review",
     "name": "Registered Source Completeness Reconciliation",
-    "status": "planned",
-    "goal": "Audit every remaining active comparison and optional-price gap against registered exact sources, then classify it as importable, source-not-stated, source-conflict or context-unmodeled without adding models or domains.",
+    "status": "complete",
+    "goal": "Audit every remaining active comparison and blank optional-price row against registered exact sources and assign one of four bounded evidence classifications without adding models, domains or inferred values.",
     "manifest_paths": [
       "data/reporting/registered_source_completeness_reconciliation.json",
       "data/reporting/registered_source_completeness_reconciliation.md",
-      "project/reviews/registered-source-completeness-reconciliation-2026-08-01.md",
+      "project/reviews/registered-source-completeness-reconciliation-2026-08-02.md",
       "project/state.json",
-      "project/STATE_SUMMARY.md"
+      "project/STATE_SUMMARY.md",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_sandero_residual_source_closure_20260801.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "reviewed_gap_state_materialization_001",
+    "kind": "comparison_and_price_state_materialization",
+    "name": "Reviewed Gap State Materialization",
+    "status": "planned",
+    "goal": "Import the two exact current Spring Extreme package prices and materialize reviewed source-not-stated, source-conflict and context-unmodeled states in comparison and price presentation without filling contextual blank rows or inferring sibling values.",
+    "manifest_paths": [
+      "data/imports/reviewed_gap_state_materialization_20260802.csv",
+      "data/master/commercial_item_configurations.csv",
+      "data/reporting/reviewed_gap_state_materialization.json",
+      "data/reporting/reviewed_gap_state_materialization.md",
+      "project/packages/reviewed-gap-state-materialization-20260802.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tools/apply_reviewed_gap_state_materialization_20260802.py",
+      "tools/configuration_shortlist.py",
+      "tools/reporting/configuration_shortlist_v12_pricing.js"
     ]
   },
   "autonomy": {
