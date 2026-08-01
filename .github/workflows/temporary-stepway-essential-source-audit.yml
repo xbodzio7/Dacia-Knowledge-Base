@@ -32,7 +32,7 @@ jobs:
           fi
       - name: Align durable package contracts
         run: |
-          rm -f stepway-essential-quality-diagnostic.txt
+          rm -f stepway-essential-quality-diagnostic.txt stepway-current-report.json
           python - <<'PY'
           from pathlib import Path
 
@@ -53,12 +53,14 @@ jobs:
           obsolete = '''    if configuration.get("model_code") != MODEL_CODE:\n        raise ContractError(f"unexpected model identity for {CONFIGURATION}")\n'''
           text = text.replace(obsolete, '')
           additions = [
+              '    "data/reporting/configuration_gap_source_review.json",',
               '    "data/reporting/sandero_ecog120_manual_gap_evidence.json",',
               '    "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",',
               '    "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",',
               '    "tests/test_configuration_value_ranges.py",',
               '    "tests/test_jogger_payload_performance_ranges.py",',
               '    "tests/test_official_brochure_residual_evidence_review.py",',
+              '    "tests/test_sandero_ecog120_manual_reporting_scope.py",',
               '    "tests/test_spring_technical_20260219.py",',
               '    "tools/close_stepway_essential_reporting_dependencies_20260801.py",',
               '    "tools/review_official_brochure_residual_evidence_20260726.py",',
@@ -69,49 +71,14 @@ jobs:
               text = text.replace(marker, marker + '\n'.join(missing) + '\n', 1)
           importer.write_text(text, encoding='utf-8')
 
-          replace(
-              'tools/review_official_brochure_residual_evidence_20260726.py',
-              'len(selected["sandero_stepway_iii"]) == 52',
-              'len(selected["sandero_stepway_iii"]) == 54',
-              2,
-          )
-          replace(
-              'tests/test_official_brochure_residual_evidence_review.py',
-              'len(selected["sandero_stepway_iii"]), 52',
-              'len(selected["sandero_stepway_iii"]), 54',
-              1,
-          )
+          replace('tools/review_official_brochure_residual_evidence_20260726.py', 'len(selected["sandero_stepway_iii"]) == 52', 'len(selected["sandero_stepway_iii"]) == 54', 2)
+          replace('tests/test_official_brochure_residual_evidence_review.py', 'len(selected["sandero_stepway_iii"]), 52', 'len(selected["sandero_stepway_iii"]), 54', 1)
           replace('tests/test_configuration_value_ranges.py', '301', '304', 3)
-          replace(
-              'tests/test_jogger_payload_performance_ranges.py',
-              'self.assertEqual(len(self.ranges), 301)',
-              'self.assertEqual(len(self.ranges), 304)',
-              1,
-          )
-          replace(
-              'tests/test_spring_technical_20260219.py',
-              'state["baseline"]["configuration_values"], 3552',
-              'state["baseline"]["configuration_values"], 3555',
-              1,
-          )
-          replace(
-              'tests/test_spring_technical_20260219.py',
-              'state["baseline"]["configuration_value_ranges"], 301',
-              'state["baseline"]["configuration_value_ranges"], 304',
-              1,
-          )
-          replace(
-              'tests/test_spring_technical_20260219.py',
-              'counts["configuration_attribute_values"], 3475',
-              'counts["configuration_attribute_values"], 3478',
-              1,
-          )
-          replace(
-              'tests/test_spring_technical_20260219.py',
-              'counts["configuration_attribute_value_ranges"], 301',
-              'counts["configuration_attribute_value_ranges"], 304',
-              1,
-          )
+          replace('tests/test_jogger_payload_performance_ranges.py', 'self.assertEqual(len(self.ranges), 301)', 'self.assertEqual(len(self.ranges), 304)', 1)
+          replace('tests/test_spring_technical_20260219.py', 'state["baseline"]["configuration_values"], 3552', 'state["baseline"]["configuration_values"], 3555', 1)
+          replace('tests/test_spring_technical_20260219.py', 'state["baseline"]["configuration_value_ranges"], 301', 'state["baseline"]["configuration_value_ranges"], 304', 1)
+          replace('tests/test_spring_technical_20260219.py', 'counts["configuration_attribute_values"], 3475', 'counts["configuration_attribute_values"], 3478', 1)
+          replace('tests/test_spring_technical_20260219.py', 'counts["configuration_attribute_value_ranges"], 301', 'counts["configuration_attribute_value_ranges"], 304', 1)
           PY
       - name: Materialize package
         run: |
@@ -123,6 +90,46 @@ jobs:
         run: |
           python -m tools.import_sandero_stepway_essential_source_gap_20260626 --check
           python -m tools.close_stepway_essential_reporting_dependencies_20260801 --check
+      - name: Capture current reporting summary
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          import configuration_completeness as completeness
+          import configuration_comparison as comparison
+          import source_coverage
+          root = Path('.')
+          spec = root / 'data/reporting/sandero_ecog120_manual_completeness.json'
+          evidence = root / 'data/reporting/sandero_ecog120_manual_gap_evidence.json'
+          as_of = '2026-06-26'
+          complete = completeness.collect_report(root, spec, as_of)
+          covered = source_coverage.collect_report(root, spec, as_of)
+          compared = comparison.collect_report(root, spec, evidence, as_of)
+          payload = {
+              'technical': complete['technical'],
+              'equipment': complete['equipment'],
+              'technical_gap_count': len(complete['gaps']['technical']),
+              'equipment_gap_count': len(complete['gaps']['equipment']),
+              'coverage_areas': covered['areas'],
+              'coverage_sections': covered['sections'],
+              'coverage_records': covered['records'],
+              'coverage_gap_count': len(covered['gaps']),
+              'comparison_summary': compared['summary'],
+              'evidence_summary': compared['evidence_summary'],
+              'pair_not_comparable': {
+                  'technical': sum(pair['summary']['technical']['not_comparable'] for pair in compared['pairs']),
+                  'equipment': sum(pair['summary']['equipment']['not_comparable'] for pair in compared['pairs']),
+                  'prices': sum(pair['summary']['prices']['not_comparable'] for pair in compared['pairs']),
+              },
+              'ranged_item_count': sum(
+                  1 for pair in compared['pairs'] for item in pair['technical']
+                  if 'minimum_value' in item['left'] or 'minimum_value' in item['right']
+              ),
+          }
+          Path('stepway-current-report.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(payload, ensure_ascii=False, indent=2))
+          PY
       - name: Run package tests
         run: |
           python -m unittest -v tests.test_sandero_stepway_essential_source_gap_20260626
@@ -147,7 +154,7 @@ jobs:
       - name: Commit package
         if: steps.quality.outcome == 'success'
         run: |
-          rm -f stepway-essential-quality-diagnostic.txt
+          rm -f stepway-essential-quality-diagnostic.txt stepway-current-report.json
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
