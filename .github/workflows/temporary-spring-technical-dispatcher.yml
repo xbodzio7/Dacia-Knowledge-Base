@@ -1,99 +1,13 @@
 name: Temporary Spring Technical Dispatcher
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: temporary-spring-technical-dispatcher-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
-
 jobs:
-  materialize:
-    if: github.event.pull_request.head.ref == 'agent/spring-brochure-technical-observations-20260219'
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out package branch
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
-        with:
-          python-version: "3.14"
-
-      - name: Install PDF text extraction backend
-        run: |
-          if ! command -v pdftotext >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install --yes --no-install-recommends poppler-utils
-          fi
-          pdftotext -v
-
-      - name: Materialize exact Spring package
-        run: |
-          python tools/import_spring_technical_20260219.py --apply
-          python tools/materialize_spring_technical_package_20260219.py
-          rm -f tools/materialize_spring_technical_package_20260219.py
-          rm -f .github/workflows/temporary-spring-technical-materializer.yml
-          rm -f .github/workflows/temporary-spring-technical-materializer-v2.yml
-          rm -f .github/workflows/temporary-spring-technical-dispatcher.yml
-          rm -f .github/spring-package-fixed.b64
-          rm -f .github/materializer-trigger-spring.txt .github/placeholder.txt .github/placeholder2.txt
-
-      - name: Verify package contract and full quality
-        run: |
-          python tools/import_spring_technical_20260219.py --check
-          python -m unittest -v tests.test_spring_technical_20260219
-          python tools/dkb.py project-state --check
-          python tools/dkb.py documentation-baseline --check
-          python tools/dkb.py configuration-completeness \
-            --spec data/reporting/spring_electric70_automatic_completeness.json \
-            --as-of 2026-02-19 \
-            --json "$RUNNER_TEMP/spring-electric70-completeness.json" \
-            --markdown "$RUNNER_TEMP/spring-electric70-completeness.md"
-          python tools/dkb.py quality \
-            --concise \
-            --database "$RUNNER_TEMP/dacia_knowledge_base.sqlite" \
-            --log-file "$RUNNER_TEMP/quality.log" \
-            --summary-json "$RUNNER_TEMP/quality-summary.json"
-
-      - name: Verify exact final manifest
-        shell: bash
-        run: |
-          cat > "$RUNNER_TEMP/expected-manifest.txt" <<'EOF'
-          CHANGELOG.md
-          README.md
-          data/imports/spring_technical_20260219.csv
-          data/master/configuration_attribute_value_ranges.csv
-          data/master/configuration_attribute_values.csv
-          data/master/configuration_cargo_volume_contexts.csv
-          data/reporting/spring_electric70_automatic_completeness.json
-          data/reporting/verified_pdf_candidate_coverage_reconciliation.json
-          project/ROADMAP.md
-          project/SESSION_STATE.md
-          project/STATE_SUMMARY.md
-          project/packages/spring-brochure-technical-observations-20260219.md
-          project/state.json
-          tests/test_spring_technical_20260219.py
-          tools/import_spring_technical_20260219.py
-          EOF
-          sed -i 's/^          //' "$RUNNER_TEMP/expected-manifest.txt"
-          git diff --name-only origin/main | LC_ALL=C sort > "$RUNNER_TEMP/actual-manifest.txt"
-          diff -u "$RUNNER_TEMP/expected-manifest.txt" "$RUNNER_TEMP/actual-manifest.txt"
-          git diff --check
-
-      - name: Commit materialized package
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add --all
-          git commit -m "feat(data): add Spring brochure technical observations"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - run: echo 'Superseded by V2 materializer.'
