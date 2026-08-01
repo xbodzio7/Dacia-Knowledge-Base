@@ -1,0 +1,190 @@
+def materialization_payload(changed: list[dict[str, str]]) -> dict:
+    audit = json.loads(AUDIT.read_text(encoding="utf-8"))
+    comparison_states: list[dict] = []
+    price_states: list[dict] = []
+    imported_prices = [
+        {
+            "commercial_item_code": row["commercial_item_code"],
+            "configuration_code": row["configuration_code"],
+            "amount_pln": int(row["amount"]),
+            "price_date": row["price_date"],
+            "source_code": row["source_code"],
+        }
+        for row in changed
+    ]
+
+    for group in audit["review_groups"]:
+        area = group["area"]
+        classification = group["classification"]
+        reason = group["reason_code"]
+        if classification == "importable":
+            continue
+        if area == "active-comparison":
+            if "items" in group:
+                for item in group["items"]:
+                    key, attribute, fuel = comparison_key(item)
+                    comparison_states.append(
+                        {
+                            "kind": "technical",
+                            "configuration_code": group["configuration_code"],
+                            "comparison_key": key,
+                            "attribute_code": attribute,
+                            "fuel_type_code": fuel,
+                            "classification": classification,
+                            "reason_code": reason,
+                            "display_value": "źródło nie podaje",
+                            "review_message": (
+                                "Dokładne przypisane źródło nie podaje tego parametru; "
+                                "wartość nie została skopiowana z innej konfiguracji."
+                            ),
+                            "source_code": group.get("source_code", ""),
+                            "reviewed_on": "2026-08-02",
+                        }
+                    )
+            else:
+                for configuration_code in group["configurations"]:
+                    comparison_states.append(
+                        {
+                            "kind": "equipment",
+                            "configuration_code": configuration_code,
+                            "attribute_code": group["item"],
+                            "classification": classification,
+                            "reason_code": reason,
+                            "availability_status": "not_applicable",
+                            "display_value": "nie dotyczy",
+                            "review_message": (
+                                "Wskaźnik zmiany biegu nie ma zastosowania do tej "
+                                "konfiguracji z automatyczną skrzynią biegów."
+                            ),
+                            "source_code": (
+                                "review_registered_source_completeness_20260802"
+                            ),
+                            "reviewed_on": "2026-08-02",
+                        }
+                    )
+            continue
+
+        candidate_source = group.get("candidate_source_code", "")
+        if "commercial_item_codes" in group:
+            for item in group["commercial_item_codes"]:
+                amount = group.get("candidate_amount_pln")
+                price_states.append(
+                    {
+                        "configuration_code": group["configuration_code"],
+                        "commercial_item_code": item,
+                        "classification": classification,
+                        "reason_code": reason,
+                        "review_message": price_message(classification, reason, amount),
+                        "candidate_amount_pln": amount,
+                        "candidate_source_code": candidate_source,
+                        "reviewed_on": "2026-08-02",
+                    }
+                )
+        elif "configurations" in group:
+            for configuration_code in group["configurations"]:
+                price_states.append(
+                    {
+                        "configuration_code": configuration_code,
+                        "commercial_item_code": group["commercial_item_code"],
+                        "classification": classification,
+                        "reason_code": reason,
+                        "review_message": price_message(classification, reason, None),
+                        "candidate_amount_pln": None,
+                        "candidate_source_code": candidate_source,
+                        "reviewed_on": "2026-08-02",
+                    }
+                )
+        else:
+            for raw in group["rows"]:
+                item, amount = raw[0], raw[-1]
+                configuration_code = (
+                    raw[1] if len(raw) == 3 else group["configuration_code"]
+                )
+                price_states.append(
+                    {
+                        "configuration_code": configuration_code,
+                        "commercial_item_code": item,
+                        "classification": classification,
+                        "reason_code": reason,
+                        "review_message": price_message(classification, reason, amount),
+                        "candidate_amount_pln": amount,
+                        "candidate_source_code": candidate_source,
+                        "reviewed_on": "2026-08-02",
+                    }
+                )
+
+    comparison_states.sort(
+        key=lambda item: (
+            item["configuration_code"],
+            item["kind"],
+            item["attribute_code"],
+            item.get("fuel_type_code", ""),
+        )
+    )
+    price_states.sort(
+        key=lambda item: (
+            item["configuration_code"],
+            item["commercial_item_code"],
+        )
+    )
+    return {
+        "version": 1,
+        "generated_on": "2026-08-02",
+        "status": "complete",
+        "source_review": "data/reporting/registered_source_completeness_reconciliation.json",
+        "summary": {
+            "imported_price_rows": len(imported_prices),
+            "comparison_terminal_states": len(comparison_states),
+            "price_terminal_states": len(price_states),
+            "source_not_stated_states": sum(
+                item["classification"] == "source-not-stated"
+                for item in [*comparison_states, *price_states]
+            ),
+            "source_conflict_states": sum(
+                item["classification"] == "source-conflict"
+                for item in [*comparison_states, *price_states]
+            ),
+            "context_unmodeled_states": sum(
+                item["classification"] == "context-unmodeled"
+                for item in [*comparison_states, *price_states]
+            ),
+            "master_rows_added": 0,
+            "master_rows_updated": len(imported_prices),
+        },
+        "imported_prices": imported_prices,
+        "comparison_states": comparison_states,
+        "price_states": price_states,
+        "non_inference": [
+            "No technical value is copied from a sibling configuration.",
+            "No contextual or conflicting candidate price is included in totals.",
+            "No blank contextual master row is filled.",
+            "Only the two exact current Spring Extreme package prices are imported.",
+        ],
+        "next_package": NEXT_PACKAGE["package_id"],
+    }
+
+
+def write_reports(payload: dict) -> None:
+    REPORT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    REPORT_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    summary = payload["summary"]
+    REPORT_MD.write_text(
+        f"""# Reviewed Gap State Materialization
+
+**Status:** complete  
+**Date:** 2026-08-02
+
+## Delivered
+
+- Updated the two existing Spring Extreme mappings from the exact current official snapshot:
+  - City package: **1800 PLN**;
+  - Power package: **3000 PLN**.
+- Materialized **{summary['comparison_terminal_states']}** reviewed comparison states:
+  - 20 exact-source `source-not-stated` technical cells display `źródło nie podaje`;
+  - 2 automatic-transmission gear-shift-indicator cells display `nie dotyczy`.
+- Materialized **{summary['price_terminal_states']}** reviewed blank-price states:
+  - 7 `source-not-stated`;
+  - 2 `source-conflict`;
