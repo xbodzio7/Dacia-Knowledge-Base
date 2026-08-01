@@ -32,8 +32,7 @@ jobs:
           fi
       - name: Build package files
         run: |
-          cp tools/temporary_materialize_sandero_expression_20260801.py "$RUNNER_TEMP/materialize.py"
-          python "$RUNNER_TEMP/materialize.py"
+          python tools/temporary_materialize_sandero_expression_20260801.py
           rm -f \
             tools/temporary_materialize_sandero_expression_20260801.py \
             .github/workflows/temporary-sandero-expression-gap-audit.yml \
