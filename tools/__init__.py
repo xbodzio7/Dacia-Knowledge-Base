@@ -39,7 +39,9 @@ old_range_patterns = (
 )
 new_range_patterns = (
     '        "tests/test_configuration_value_ranges.py": '
-    "[r'(len\\(rows\\[1:\\]\\), )\\d+', r'(count, )\\d+'],"
+    "[r'(len\\(rows\\[1:\\]\\), )\\d+', "
+    "r'(validate_configuration_value_ranges\\(ROOT\\)\\n        self\\.assertEqual\\(checked, )\\d+', "
+    "r'(count, )\\d+'],"
 )
 if old_range_patterns in text:
     text = text.replace(old_range_patterns, new_range_patterns, 1)
