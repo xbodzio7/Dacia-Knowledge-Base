@@ -56,14 +56,15 @@
     "commercial_mapping_rows_updated": 1,
     "commercial_mapping_rows_added": 0,
     "source_rows_added": 0,
+    "source_configuration_rows_added": 1,
     "attributes_added": 0,
     "commercial_items_added": 0,
-    "net_master_row_increase": 1
+    "net_master_row_increase": 2
   },
   "verified_after_counts": {
     "configuration_values": 3568,
     "configuration_import_specs": 139,
-    "master_rows": 11728
+    "master_rows": 11729
   },
   "next_package": {
     "package_id": "post_spring_biel_alpejska_priority_selection_review_001",
