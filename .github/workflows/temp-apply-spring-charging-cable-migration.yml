@@ -1,0 +1,61 @@
+name: Temporary Apply Spring Charging Cable Migration
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/spring-charging-cable-representation-migration-20260802'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: agent/spring-charging-cable-representation-migration-20260802
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.14'
+
+      - name: Apply bounded migration
+        run: |
+          python tools/migrate_spring_charging_cable_representation_20260802.py --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+          python tools/migrate_spring_charging_cable_representation_20260802.py --verify
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('project/packages/spring-charging-cable-representation-migration-20260802.md')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'Status: in progress until generated migration output and full Quality are verified',
+              'Status: complete',
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit migration and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            CHANGELOG.md \
+            README.md \
+            data/master/attributes.csv \
+            data/master/configuration_attribute_availability.csv \
+            data/reporting/spring_charging_cable_representation_migration.json \
+            data/reporting/spring_charging_cable_representation_migration.md \
+            project/SESSION_STATE.md \
+            project/STATE_SUMMARY.md \
+            project/packages/spring-charging-cable-representation-migration-20260802.md \
+            project/state.json
+          git rm .github/workflows/temp-apply-spring-charging-cable-migration.yml
+          git commit -m "data: apply Spring charging cable representation"
+          git push origin HEAD:agent/spring-charging-cable-representation-migration-20260802
