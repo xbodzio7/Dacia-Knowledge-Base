@@ -20,6 +20,7 @@ WHITE_MAPPING = "spring_colour_biel_alpejska__spring_essential_electric70_automa
 TYPE2_ITEM = "spring_type2_charging_cable_option"
 HOME_CABLE_ITEM = "spring_home_charging_cable_option"
 HISTORICAL_PACKAGE_ID = "spring_standard_equipment_representation_review_001"
+WHITE_MIGRATION_ID = "spring_biel_alpejska_default_colour_migration_001"
 
 
 def read_json(path: Path) -> dict:
@@ -46,11 +47,11 @@ def load_tool():
 def verify_contract() -> None:
     report = read_json(REPORT)
     state = read_json(STATE)
+    current_package = state["current_package"]["package_id"]
 
-    # Full reconstruction is meaningful only while this review is the current
-    # package. Later accepted migrations are verified by their own contracts
-    # and must not rewrite the historical report's observed repository state.
-    if state["current_package"]["package_id"] == HISTORICAL_PACKAGE_ID:
+    # Full reconstruction is meaningful only while this review is current.
+    # Later accepted migrations preserve the committed report as a dated snapshot.
+    if current_package == HISTORICAL_PACKAGE_ID:
         tool = load_tool()
         if report != tool.build(ROOT):
             raise AssertionError("Spring representation review is not deterministic")
@@ -114,12 +115,30 @@ def verify_contract() -> None:
         if row["configuration_code"].startswith("spring_")
         and row["attribute_code"] == "exterior_color"
     ]
-    if spring_colours:
+    if current_package == WHITE_MIGRATION_ID:
+        if len(spring_colours) != 1:
+            raise AssertionError("exactly one Spring default colour should be materialized")
+        colour_row = spring_colours[0]
+        if (
+            colour_row["configuration_code"] != ESSENTIAL
+            or colour_row["value"] != "biel alpejska"
+            or colour_row["observation_date"] != "2026-08-02"
+        ):
+            raise AssertionError("materialized Essential white value drifted")
+    elif spring_colours:
         raise AssertionError("review boundary for the deferred Essential white value drifted")
 
     mapping_index = {row["code"]: row for row in read_rows(MAPPINGS)}
     white = mapping_index[WHITE_MAPPING]
-    if white["availability_status"] != "optional" or white["amount"]:
+    if current_package == WHITE_MIGRATION_ID:
+        if (
+            white["availability_status"] != "standard"
+            or white["amount"] != "0"
+            or white["currency_code"] != "PLN"
+            or white["price_date"] != "2026-08-02"
+        ):
+            raise AssertionError("materialized Essential white mapping drifted")
+    elif white["availability_status"] != "optional" or white["amount"]:
         raise AssertionError("review boundary for Essential white drifted")
 
     memberships = [
@@ -134,7 +153,7 @@ def verify_contract() -> None:
 
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")
-    if not state["current_package"]["package_id"] or not state["next_package"]["package_id"]:
+    if not current_package or not state["next_package"]["package_id"]:
         raise AssertionError("canonical package queue is incomplete")
     if state["reference_delivery"]["pull_request"] < 454:
         raise AssertionError("canonical history predates the representation review")

@@ -12,22 +12,22 @@
 
 ## Phase
 
-**Post-Spring Charging Cable Priority Selection Review**
+**Spring Essential Biel Alpejska Default Colour Migration**
 
 ## Reference delivery
 
-- Package: Spring Charging Cable Commercial Semantics Migration
-- Pull Request: #463
-- Verified head: `03689bc254b43fce8013239dbb6a375cb5f40972`
-- Quality run: #30754723443
+- Package: Post-Spring Charging Cable Priority Selection Review
+- Pull Request: #464
+- Verified head: `8027dadecb320c2c70a8e373ed6eebf77526409b`
+- Quality run: #30755752601
 
 ## Verified baseline
 
 - Tests: 1793
 - Master CSV files: 46
-- Master rows: 11727
-- Configuration values: 3567
-- Configuration import specifications: 138
+- Master rows: 11729
+- Configuration values: 3568
+- Configuration import specifications: 139
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
 - Availability records: 5911
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Spring Charging Cable Priority Selection Review** — `complete`
+**Spring Essential Biel Alpejska Default Colour Migration** — `complete`
 
-Select the next bounded repository package from current evidence and unresolved queues without changing master data.
+Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.
 
 ## Next package
 
-**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
+**Post-Spring Biel Alpejska Priority Selection Review** — `planned`
 
-Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.
+Select the next bounded repository package after completing the accepted Spring default-colour migration without changing master data.
 
 ## Autonomy
 

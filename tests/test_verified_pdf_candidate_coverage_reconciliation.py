@@ -33,26 +33,16 @@ def json_differences(
             if key not in left or key not in right:
                 differences.append((path + (str(key),), left.get(key), right.get(key)))
                 continue
-            differences.extend(
-                json_differences(left[key], right[key], path + (str(key),))
-            )
+            differences.extend(json_differences(left[key], right[key], path + (str(key),)))
         return differences
     if isinstance(left, list):
         if len(left) != len(right):
             return [(path + ("length",), len(left), len(right))]
-        differences = []
+        differences: list[tuple[tuple[str, ...], Any, Any]] = []
         for index, (left_item, right_item) in enumerate(zip(left, right)):
-            differences.extend(
-                json_differences(
-                    left_item,
-                    right_item,
-                    path + (str(index),),
-                )
-            )
+            differences.extend(json_differences(left_item, right_item, path + (str(index),)))
         return differences
-    if left != right:
-        return [(path, left, right)]
-    return []
+    return [] if left == right else [(path, left, right)]
 
 
 class CoverageReconciliationUnitTests(unittest.TestCase):
@@ -127,40 +117,49 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
         )
 
     def test_heading_is_explicit_non_import(self) -> None:
-        candidate = self.candidate(candidate_kind="heading", exact_text="OSIĄGI")
-        result = reconciliation.reconcile_candidate(candidate, self.group(), [])
+        result = reconciliation.reconcile_candidate(
+            self.candidate(candidate_kind="heading", exact_text="OSIĄGI"), self.group(), []
+        )
         self.assertEqual(result["coverage_status"], "explicit_non_import")
 
     def test_numbered_footnote_is_explicit_non_import(self) -> None:
-        candidate = self.candidate(exact_text="(1) Oficjalne wartości homologacyjne")
-        result = reconciliation.reconcile_candidate(candidate, self.group(), [])
+        result = reconciliation.reconcile_candidate(
+            self.candidate(exact_text="(1) Oficjalne wartości homologacyjne"), self.group(), []
+        )
         self.assertEqual(result["coverage_status"], "explicit_non_import")
 
     def test_technical_match_requires_same_source_and_page(self) -> None:
-        candidate = self.candidate()
-        group = self.group()
-        good = self.evidence()
-        wrong_source = self.evidence(record_code="wrong_source", source_code="source_b")
-        wrong_page = self.evidence(record_code="wrong_page", source_page=8)
-        matches = reconciliation.evidence_matches(candidate, group, [good, wrong_source, wrong_page])
+        matches = reconciliation.evidence_matches(
+            self.candidate(),
+            self.group(),
+            [
+                self.evidence(),
+                self.evidence(record_code="wrong_source", source_code="source_b"),
+                self.evidence(record_code="wrong_page", source_page=8),
+            ],
+        )
         self.assertEqual([match["record_code"] for match in matches], ["record_a"])
 
     def test_equipment_match_requires_same_model_and_availability_table(self) -> None:
-        candidate = self.candidate()
-        group = self.group(domain="equipment_matrix")
-        availability_signature = {
+        signature = {
             "attribute_code": "led_daytime_running_lights",
             "availability_status": "standard",
         }
         good = self.evidence(
             table="configuration_attribute_availability",
             source_code="catalogue_source",
-            signature=availability_signature,
-            signature_key=reconciliation.signature_key(availability_signature),
+            signature=signature,
+            signature_key=reconciliation.signature_key(signature),
         )
-        wrong_model = dict(good, record_code="wrong_model", model_code="model_b")
-        wrong_table = self.evidence(record_code="wrong_table")
-        matches = reconciliation.evidence_matches(candidate, group, [good, wrong_model, wrong_table])
+        matches = reconciliation.evidence_matches(
+            self.candidate(),
+            self.group(domain="equipment_matrix"),
+            [
+                good,
+                dict(good, record_code="wrong_model", model_code="model_b"),
+                self.evidence(record_code="wrong_table"),
+            ],
+        )
         self.assertEqual([match["record_code"] for match in matches], ["record_a"])
 
     def test_single_signature_is_already_covered(self) -> None:
@@ -173,11 +172,11 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
         self.assertEqual(result["evidence_signatures"][0]["record_count"], 2)
 
     def test_multiple_signatures_are_ambiguous(self) -> None:
-        second_signature = {"attribute_code": "daytime_lights", "value": "halogen"}
+        signature = {"attribute_code": "daytime_lights", "value": "halogen"}
         second = self.evidence(
             record_code="record_b",
-            signature=second_signature,
-            signature_key=reconciliation.signature_key(second_signature),
+            signature=signature,
+            signature_key=reconciliation.signature_key(signature),
         )
         result = reconciliation.reconcile_candidate(
             self.candidate(), self.group(), [self.evidence(), second]
@@ -191,16 +190,14 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
         self.assertNotIn("not_stated", json.dumps(result))
 
     def test_target_groups_require_exact_review_boundary(self) -> None:
-        groups = []
-        for index in range(10):
-            groups.append(
-                self.group(
-                    group_id=f"group_{index}",
-                    domain="technical_tables" if index < 5 else "equipment_matrix",
-                )
+        groups = [
+            self.group(
+                group_id=f"group_{index}",
+                domain="technical_tables" if index < 5 else "equipment_matrix",
             )
-        selected = reconciliation.target_groups({"groups": groups})
-        self.assertEqual(len(selected), 10)
+            for index in range(10)
+        ]
+        self.assertEqual(len(reconciliation.target_groups({"groups": groups})), 10)
         with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "exactly 10"):
             reconciliation.target_groups({"groups": groups[:-1]})
 
@@ -209,16 +206,17 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
         groups = []
         for index in range(10):
             candidate_id = f"{index:064x}"
-            candidate = self.candidate(
-                candidate_id=candidate_id,
-                source_code=f"source_{index}",
-                model_code=f"model_{index}",
-                page=index + 1,
-                exact_text="OSIĄGI",
-                normalized_text="OSIĄGI",
-                candidate_kind="heading",
+            candidates.append(
+                self.candidate(
+                    candidate_id=candidate_id,
+                    source_code=f"source_{index}",
+                    model_code=f"model_{index}",
+                    page=index + 1,
+                    exact_text="OSIĄGI",
+                    normalized_text="OSIĄGI",
+                    candidate_kind="heading",
+                )
             )
-            candidates.append(candidate)
             groups.append(
                 self.group(
                     group_id=f"group_{index}",
@@ -230,23 +228,23 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
                     candidate_ids=[candidate_id],
                 )
             )
-        ledger = {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates}
-        review = {
-            "version": 1,
-            "kind": "verified_pdf_candidate_ledger_review",
-            "status": "complete",
-            "policy": {
-                "every_candidate_assigned_exactly_once": True,
-                "master_data_changes": False,
-                "approved_import_spec_generation": False,
+        payload = reconciliation.build_reconciliation(
+            {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates},
+            {
+                "version": 1,
+                "kind": "verified_pdf_candidate_ledger_review",
+                "status": "complete",
+                "policy": {
+                    "every_candidate_assigned_exactly_once": True,
+                    "master_data_changes": False,
+                    "approved_import_spec_generation": False,
+                },
+                "groups": groups,
             },
-            "groups": groups,
-        }
-        payload = reconciliation.build_reconciliation(ledger, review, [])
-        self.assertEqual(payload["summary"]["candidate_count"], 10)
-        self.assertEqual(
-            payload["summary"]["coverage_status_counts"]["explicit_non_import"], 10
+            [],
         )
+        self.assertEqual(payload["summary"]["candidate_count"], 10)
+        self.assertEqual(payload["summary"]["coverage_status_counts"]["explicit_non_import"], 10)
 
     def test_duplicate_selected_candidate_is_rejected(self) -> None:
         candidates = []
@@ -266,31 +264,34 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
                         candidate_kind="heading",
                     )
                 )
+            source_index = index if index != 1 else 0
             groups.append(
                 self.group(
                     group_id=f"group_{index}",
-                    source_code=f"source_{index if index != 1 else 0}",
-                    model_code=f"model_{index if index != 1 else 0}",
+                    source_code=f"source_{source_index}",
+                    model_code=f"model_{source_index}",
                     domain="technical_tables" if index < 5 else "equipment_matrix",
                     page_start=index + 1,
                     page_end=index + 1,
                     candidate_ids=[candidate_id],
                 )
             )
-        ledger = {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates}
-        review = {
-            "version": 1,
-            "kind": "verified_pdf_candidate_ledger_review",
-            "status": "complete",
-            "policy": {
-                "every_candidate_assigned_exactly_once": True,
-                "master_data_changes": False,
-                "approved_import_spec_generation": False,
-            },
-            "groups": groups,
-        }
         with self.assertRaisesRegex(reconciliation.CoverageReconciliationError, "assigned twice"):
-            reconciliation.build_reconciliation(ledger, review, [])
+            reconciliation.build_reconciliation(
+                {"version": 1, "kind": "verified_pdf_candidate_ledger", "candidates": candidates},
+                {
+                    "version": 1,
+                    "kind": "verified_pdf_candidate_ledger_review",
+                    "status": "complete",
+                    "policy": {
+                        "every_candidate_assigned_exactly_once": True,
+                        "master_data_changes": False,
+                        "approved_import_spec_generation": False,
+                    },
+                    "groups": groups,
+                },
+                [],
+            )
 
     def test_render_and_json_are_deterministic(self) -> None:
         payload = {
@@ -330,8 +331,14 @@ class CoverageReconciliationUnitTests(unittest.TestCase):
             ],
             "next_package": {"name": reconciliation.NEXT_PACKAGE},
         }
-        self.assertEqual(reconciliation.canonical_json(payload), reconciliation.canonical_json(copy.deepcopy(payload)))
-        self.assertEqual(reconciliation.render_markdown(payload), reconciliation.render_markdown(copy.deepcopy(payload)))
+        self.assertEqual(
+            reconciliation.canonical_json(payload),
+            reconciliation.canonical_json(copy.deepcopy(payload)),
+        )
+        self.assertEqual(
+            reconciliation.render_markdown(payload),
+            reconciliation.render_markdown(copy.deepcopy(payload)),
+        )
 
     def test_restricted_output_paths_are_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -355,7 +362,12 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
         self.assertEqual(self.payload["summary"]["candidate_count"], 1583)
         self.assertEqual(
             self.payload["summary"]["coverage_status_counts"],
-            {'already_covered': 129, 'ambiguous': 116, 'explicit_non_import': 195, 'unresolved': 1143},
+            {
+                "already_covered": 129,
+                "ambiguous": 116,
+                "explicit_non_import": 195,
+                "unresolved": 1143,
+            },
         )
         candidate_ids = [item["candidate_id"] for item in self.payload["candidates"]]
         self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
@@ -363,31 +375,33 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
     def test_committed_artifacts_preserve_the_dated_review_boundary(self) -> None:
         committed_payload = json.loads(ARTIFACT_JSON.read_text(encoding="utf-8"))
         committed_markdown = ARTIFACT_MARKDOWN.read_text(encoding="utf-8")
-        self.assertEqual(
-            committed_markdown,
-            reconciliation.render_markdown(committed_payload),
-        )
+        self.assertEqual(committed_markdown, reconciliation.render_markdown(committed_payload))
 
         differences = json_differences(committed_payload, self.payload)
-        self.assertEqual(len(differences), 1)
-        path, committed_value, current_value = differences[0]
-        self.assertIn("configuration_attribute_availability", ".".join(path))
-        self.assertEqual(committed_value, 5906)
-        self.assertEqual(current_value, 5911)
-
-        # Five later exact-current Spring cable observations may grow the
-        # live evidence inventory. They must not rewrite the 2026-07-28
-        # candidate partition, policy or committed historical artifact.
-        current_with_historical_count = copy.deepcopy(self.payload)
-        target: Any = current_with_historical_count
-        for key in path[:-1]:
-            target = target[int(key)] if isinstance(target, list) else target[key]
-        final_key = path[-1]
-        if isinstance(target, list):
-            target[int(final_key)] = committed_value
-        else:
-            target[final_key] = committed_value
-        self.assertEqual(current_with_historical_count, committed_payload)
+        self.assertEqual(len(differences), 2)
+        recognized = {
+            "configuration_attribute_availability": (5906, 5911),
+            "configuration_attribute_values": (3490, 3491),
+        }
+        current_with_historical_counts = copy.deepcopy(self.payload)
+        seen: set[str] = set()
+        for path, committed_value, current_value in differences:
+            joined = ".".join(path)
+            matched = next((name for name in recognized if name in joined), None)
+            self.assertIsNotNone(matched, joined)
+            assert matched is not None
+            self.assertEqual((committed_value, current_value), recognized[matched])
+            seen.add(matched)
+            target: Any = current_with_historical_counts
+            for key in path[:-1]:
+                target = target[int(key)] if isinstance(target, list) else target[key]
+            final_key = path[-1]
+            if isinstance(target, list):
+                target[int(final_key)] = committed_value
+            else:
+                target[final_key] = committed_value
+        self.assertEqual(seen, set(recognized))
+        self.assertEqual(current_with_historical_counts, committed_payload)
         self.assertEqual(self.markdown, reconciliation.render_markdown(self.payload))
 
         encoded = reconciliation.canonical_json(self.payload)
