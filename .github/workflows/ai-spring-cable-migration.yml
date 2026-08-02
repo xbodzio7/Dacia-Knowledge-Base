@@ -38,7 +38,12 @@ jobs:
                   "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",'''.replace('              ', '    ')
           if old not in text:
               raise SystemExit('expected state advancement block not found')
-          migration.write_text(text.replace(old, new), encoding='utf-8')
+          text = text.replace(old, new)
+          text = text.replace(
+              'subprocess.run(["python3", str(ROOT / "tools/project_state.py")], cwd=ROOT, check=True)',
+              'subprocess.run(["python3", "tools/dkb.py", "project-state", "--apply"], cwd=ROOT, check=True)',
+          )
+          migration.write_text(text, encoding='utf-8')
 
           legacy_test = Path('tests/test_spring_standard_equipment_representation_review_20260802.py')
           text = legacy_test.read_text(encoding='utf-8')
