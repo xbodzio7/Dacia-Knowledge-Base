@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "package_id": "spring_charging_cable_representation_migration_001",
+  "observed_on": "2026-08-02",
+  "decision_code": "spring_independent_charging_cable_concepts",
+  "attributes": [
+    {
+      "code": "type2_charging_cable_supplied",
+      "category": "Electric System",
+      "name": "Type 2 charging cable supplied",
+      "data_type": "boolean",
+      "unit": "",
+      "description": "Physical Type 2 charging cable supplied with the vehicle for wallbox and public-terminal charging; distinct from the vehicle charging-connector standard.",
+      "status": "active"
+    },
+    {
+      "code": "domestic_socket_charging_cable",
+      "category": "Electric System",
+      "name": "Domestic-socket charging cable",
+      "data_type": "boolean",
+      "unit": "",
+      "description": "Charging cable enabling vehicle charging from a domestic mains socket; represented independently from the supplied Type 2 cable.",
+      "status": "active"
+    }
+  ],
+  "availability": [
+    {
+      "code": "spring_essential_electric70_automatic_type2_charging_cable_supplied_20260731",
+      "configuration_code": "spring_essential_electric70_automatic",
+      "attribute_code": "type2_charging_cable_supplied",
+      "availability_status": "standard",
+      "observation_date": "2026-07-31",
+      "source_code": "src_pl_spring_official_configurator_20260731",
+      "notes": "Exact-current official Spring Essential configurator state lists the Type 2 cable for wallbox and public terminals as standard equipment."
+    },
+    {
+      "code": "spring_expression_electric70_automatic_type2_charging_cable_supplied_20260802",
+      "configuration_code": "spring_expression_electric70_automatic",
+      "attribute_code": "type2_charging_cable_supplied",
+      "availability_status": "standard",
+      "observation_date": "2026-08-02",
+      "source_code": "src_pl_spring_saved_configurations_20260802",
+      "notes": "Exact saved-configuration PDF 7OO7LQ lists the Type 2 cable for wallbox and public terminals under standard battery and charging equipment."
+    },
+    {
+      "code": "spring_extreme_electric100_automatic_type2_charging_cable_supplied_20260802",
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "attribute_code": "type2_charging_cable_supplied",
+      "availability_status": "standard",
+      "observation_date": "2026-08-02",
+      "source_code": "src_pl_spring_saved_configurations_20260802",
+      "notes": "Exact saved-configuration PDF WKAWYV independently lists the Type 2 cable for wallbox and public terminals as standard equipment."
+    },
+    {
+      "code": "spring_essential_electric70_automatic_domestic_socket_charging_cable_20260731",
+      "configuration_code": "spring_essential_electric70_automatic",
+      "attribute_code": "domestic_socket_charging_cable",
+      "availability_status": "optional",
+      "observation_date": "2026-07-31",
+      "source_code": "src_pl_spring_official_configurator_20260731",
+      "notes": "Exact-current official configurator observation lists the domestic-socket charging cable as an optional item at 1500 PLN; this relation records availability only."
+    },
+    {
+      "code": "spring_extreme_electric100_automatic_domestic_socket_charging_cable_20260731",
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "attribute_code": "domestic_socket_charging_cable",
+      "availability_status": "optional",
+      "observation_date": "2026-07-31",
+      "source_code": "src_pl_spring_official_configurator_20260731",
+      "notes": "Exact-current official configurator observation lists the domestic-socket charging cable as an optional item at 1500 PLN; this relation records availability only."
+    }
+  ],
+  "explicit_non_imports": [
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "attribute_code": "domestic_socket_charging_cable",
+      "status": "unresolved",
+      "reason": "The selected-configuration PDF omits unselected options and therefore proves neither optional availability nor unavailability of the domestic-socket cable."
+    }
+  ],
+  "historical_policy": {
+    "commercial_item_code": "spring_type2_charging_cable_option",
+    "action": "preserve_unchanged",
+    "reason": "Historical brochure-backed commercial records remain source-bounded and are reconciled separately after canonical cable concepts exist."
+  }
+}
