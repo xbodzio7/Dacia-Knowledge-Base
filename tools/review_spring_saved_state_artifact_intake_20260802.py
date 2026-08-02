@@ -16,6 +16,8 @@ STATE = ROOT / "project/state.json"
 COMMERCIAL_ITEMS = ROOT / "data/master/commercial_items.csv"
 COMMERCIAL_MAPPINGS = ROOT / "data/master/commercial_item_configurations.csv"
 SOURCE_CODE = "src_pl_spring_saved_configurations_20260802"
+PACKAGE_ID = "spring_expression_saved_state_artifact_intake_001"
+FOLLOW_UP_ID = "spring_charging_cable_representation_migration_001"
 
 EXPECTED_ARTIFACTS = {
     "spring_expression_electric70_automatic": {
@@ -128,15 +130,13 @@ def verify(root: Path = ROOT) -> None:
     if any(row["availability_status"] != "optional" for row in mappings):
         raise AssertionError("historical Spring cable mapping status was rewritten")
 
-    baseline = state["baseline"]
-    if baseline["rows"] != 11716 or baseline["configuration_values"] != 3567:
-        raise AssertionError("canonical baseline counts drifted")
-    if baseline["availability_records"] != 5906 or baseline["attributes"] != 385:
-        raise AssertionError("intake package mutated equipment data")
-    if state["current_package"]["package_id"] != "spring_expression_saved_state_artifact_intake_001":
-        raise AssertionError("canonical package did not advance to saved-state intake")
-    if state["next_package"]["package_id"] != "spring_charging_cable_representation_migration_001":
-        raise AssertionError("unexpected charging-cable follow-up package")
+    # Preserve the package's evidence and data delta without freezing the
+    # repository at this historical package forever.
+    if state["baseline"]["configuration_values"] != 3567:
+        raise AssertionError("configuration-value baseline drifted")
+    if state["current_package"]["package_id"] == PACKAGE_ID:
+        if state["next_package"]["package_id"] != FOLLOW_UP_ID:
+            raise AssertionError("unexpected charging-cable follow-up package")
 
 
 if __name__ == "__main__":
