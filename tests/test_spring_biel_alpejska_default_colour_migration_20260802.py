@@ -57,7 +57,7 @@ def verify_contract() -> None:
         raise AssertionError("canonical package must remain complete after Spring white migration")
     if state["baseline"]["rows"] < 11729:
         raise AssertionError("canonical master-row baseline regressed behind Spring white migration")
-    if state["baseline"]["configuration_values"] != 3568:
+    if state["baseline"]["configuration_values"] < 3568:
         raise AssertionError("canonical configuration-value baseline drifted")
     if state["baseline"]["configuration_import_specs"] != 139:
         raise AssertionError("canonical import-spec baseline drifted")

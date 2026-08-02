@@ -1,2 +1,3 @@
 code,name,description,status
 lithium_ion,Lithium-ion,Lithium-ion rechargeable battery chemistry,active
+lithium_iron_phosphate,Lithium iron phosphate (LFP),Lithium iron phosphate traction-battery chemistry,active

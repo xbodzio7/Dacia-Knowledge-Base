@@ -8,7 +8,56 @@
       "source_code": "src_pl_spring_official_configurator_20260731"
     }
   ],
-  "technical_slots": [],
+  "technical_slots": [
+    {
+      "attribute_code": "electric_motor_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "traction_battery_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "steering_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    }
+  ],
   "equipment_attributes": [
     "led_daytime_running_lights",
     "traffic_sign_recognition",

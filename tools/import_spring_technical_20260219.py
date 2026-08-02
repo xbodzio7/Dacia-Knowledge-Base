@@ -225,13 +225,20 @@ def generated_context_rows(value_rows: Iterable[dict[str, str]]) -> list[dict[st
 
 def selected(rows: Iterable[dict[str, str]], *, ranges: bool) -> list[dict[str, str]]:
     codes = set(CONFIGURATIONS)
-    allowed = {"max_power_rpm"} if ranges else None
-    return [
+    selected_rows = [
         row for row in rows
         if row.get("source_code") == SOURCE_CODE
         and row.get("observation_date") == OBSERVATION_DATE
         and row.get("configuration_code") in codes
-        and (allowed is None or row.get("attribute_code") in allowed)
+    ]
+    if ranges:
+        return [row for row in selected_rows if row.get("attribute_code") == "max_power_rpm"]
+    # This importer owns only its original contiguous value suffix. Later bounded
+    # packages may legitimately add further observations from the same brochure.
+    return [
+        row for row in selected_rows
+        if row.get("id", "").isdigit()
+        and EXPECTED_VALUE_FIRST_ID <= int(row["id"]) <= EXPECTED_VALUE_LAST_ID
     ]
 
 
