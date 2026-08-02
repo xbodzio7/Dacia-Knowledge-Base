@@ -58,17 +58,17 @@ def verify(root: Path = ROOT) -> None:
     if report["manual_artifacts_required_now"] != 1:
         raise AssertionError("unexpected immediate manual count")
     if report["architecture_decision"] != "deferred":
-        raise AssertionError("cable architecture must remain deferred")
+        raise AssertionError("historical capture report must preserve its deferred decision")
     if any(report["master_data_delta"].values()):
         raise AssertionError("capture package must not mutate master data")
 
-    current = state["current_package"]
-    if current["package_id"] != "official_configurator_exact_state_capture_001":
-        raise AssertionError("canonical package did not advance to exact-state capture")
-    if current["status"] != "complete":
-        raise AssertionError("exact-state capture package must be complete")
-    if state["next_package"]["package_id"] != "spring_expression_saved_state_artifact_intake_001":
-        raise AssertionError("unexpected next package")
+    # The completed package remains protected after canonical state advances.
+    baseline = state["baseline"]
+    if baseline["rows"] < 11715 or baseline["configuration_values"] < 3567:
+        raise AssertionError("canonical baseline regressed below exact-state capture")
+    if state["current_package"]["package_id"] == "official_configurator_exact_state_capture_001":
+        if state["next_package"]["package_id"] != "spring_expression_saved_state_artifact_intake_001":
+            raise AssertionError("unexpected next package")
 
 
 if __name__ == "__main__":
