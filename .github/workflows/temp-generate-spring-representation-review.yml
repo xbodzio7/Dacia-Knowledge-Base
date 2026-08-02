@@ -40,3 +40,5 @@ jobs:
             data/reporting/spring_standard_equipment_representation_review.md
           git commit -m "report: review Spring equipment representations"
           git push origin HEAD:agent/spring-standard-equipment-representation-review-20260802
+
+# Trigger regeneration after workflow registration.
