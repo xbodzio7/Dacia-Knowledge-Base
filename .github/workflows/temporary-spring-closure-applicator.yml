@@ -21,6 +21,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          sha256sum project/spring-closure.chunk.*
+          echo '6bcf2a4d887599d9c6372c95bd41b5ca5b5d056a767739e0f0eb81471d1abae6  project/spring-closure.chunk.00' | sha256sum --check
+          echo 'f164c7e71a74ae8bdd957490b17412e3e3fec51bc336ffa8d3ea4056cc2ab7f6  project/spring-closure.chunk.01' | sha256sum --check
+          echo 'a22ae4ba2c6b36c4a9589f44fe8c35f346c8f1f4453703237944104bf16dd6d4  project/spring-closure.chunk.02' | sha256sum --check
+          echo '684ca40f2c57faee9c4320c88591449171f3b1f6930cd8e07df5f02ad3fa9fa3  project/spring-closure.chunk.03' | sha256sum --check
+          echo '6483ac1ac473ab55229600d33c0319b9d6a3b24ac3926a3fb4fb5a14ac0aafec  project/spring-closure.chunk.04' | sha256sum --check
           cat project/spring-closure.chunk.* > /tmp/spring-closure.patch.gz.b64
           echo '03affd3aae0eea3191163d375403f95463ecf1a12bed1b8ecba1053dbc224920  /tmp/spring-closure.patch.gz.b64' | sha256sum --check
           base64 -d /tmp/spring-closure.patch.gz.b64 | gzip -d > /tmp/spring-closure.patch
