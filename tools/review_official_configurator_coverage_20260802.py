@@ -61,13 +61,16 @@ def verify(root: Path = ROOT) -> None:
     if report["master_data_delta"] != expected_delta:
         raise RuntimeError("coverage package data boundary drifted")
 
+    # The completed package remains protected after canonical state advances.
+    # State counters may grow in later packages, but they may not regress below
+    # the verified coverage baseline.
     state = read_json(root / STATE.relative_to(ROOT))
-    if state["current_package"]["package_id"] != "official_configurator_coverage_reconciliation_001":
-        raise RuntimeError("canonical state did not advance to configurator coverage")
-    if state["next_package"]["package_id"] != "official_configurator_exact_state_capture_001":
-        raise RuntimeError("unexpected next configurator package")
-    if state["baseline"]["rows"] != 11715 or state["baseline"]["configuration_values"] != 3567:
-        raise RuntimeError("canonical baseline counts drifted")
+    baseline = state["baseline"]
+    if baseline["rows"] < 11715 or baseline["configuration_values"] < 3567:
+        raise RuntimeError("canonical baseline regressed below configurator coverage")
+    if state["current_package"]["package_id"] == "official_configurator_coverage_reconciliation_001":
+        if state["next_package"]["package_id"] != "official_configurator_exact_state_capture_001":
+            raise RuntimeError("unexpected next configurator package")
 
 
 def main() -> int:
