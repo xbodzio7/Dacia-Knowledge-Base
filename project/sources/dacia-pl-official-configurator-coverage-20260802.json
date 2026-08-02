@@ -23,7 +23,11 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme"],
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme"
+      ],
       "existing_exact_state_source": "src_pl_spring_official_configurator_20260731",
       "user_provided_deep_links": [
         {
@@ -48,7 +52,11 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "journey"],
+      "visible_grades": [
+        "essential",
+        "expression",
+        "journey"
+      ],
       "existing_exact_state_source": "src_pl_sandero_official_web_configurations_20260723"
     },
     {
@@ -64,7 +72,11 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme"],
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme"
+      ],
       "existing_exact_state_source": "src_pl_sandero_stepway_official_web_configurations_20260723"
     },
     {
@@ -82,7 +94,12 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme", "journey"]
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
     },
     {
       "model_code": "jogger",
@@ -99,7 +116,12 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme", "journey"],
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ],
       "known_alias_url": "https://www.dacia.pl/samochody/jogger-7/konfigurator.html"
     },
     {
@@ -116,7 +138,12 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme", "journey"]
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
     },
     {
       "model_code": "bigster",
@@ -132,7 +159,12 @@
         "default_colour": "biel alpejska",
         "default_colour_price_pln": 0
       },
-      "visible_grades": ["essential", "expression", "extreme", "journey"]
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
     }
   ],
   "excluded_catalog_entries": [
@@ -143,10 +175,29 @@
   ],
   "coverage_reconciliation": {
     "previous_catalog_snapshot": "src_pl_dacia_official_configurators_20260723",
-    "previously_omitted_active_model_families": ["spring"],
-    "newly_normalized_split_surfaces": ["jogger_5_seat", "jogger_7_seat"],
-    "canonical_url_updates": ["sandero_iii", "jogger", "duster_iii", "bigster"],
-    "exact_state_dimensions": ["model_code", "grade", "powertrain", "transmission", "drive_type", "seat_count", "model_year_or_phase", "conf_url"],
+    "previously_omitted_active_model_families": [
+      "spring"
+    ],
+    "newly_normalized_split_surfaces": [
+      "jogger_5_seat",
+      "jogger_7_seat"
+    ],
+    "canonical_url_updates": [
+      "sandero_iii",
+      "jogger",
+      "duster_iii",
+      "bigster"
+    ],
+    "exact_state_dimensions": [
+      "model_code",
+      "grade",
+      "powertrain",
+      "transmission",
+      "drive_type",
+      "seat_count",
+      "model_year_or_phase",
+      "conf_url"
+    ],
     "applicability_rule": "No option, package, equipment, price or technical value is propagated across a missing exact-state dimension.",
     "master_data_mutation_authorized": false
   },
