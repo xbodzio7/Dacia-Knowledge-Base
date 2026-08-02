@@ -1,15 +1,15 @@
 name: Residual Review Bundle
 
 on:
-  pull_request_target:
-    types: [edited]
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   residual-review-bundle:
-    if: github.event.pull_request.number == 466
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
