@@ -10,7 +10,7 @@ Apply the exact-current Spring Essential Biel Alpejska default-colour state usin
 
 ## Delivered
 
-- added one import specification row for the exact-current Essential default colour;
+- added the canonical scalar import specification `data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json`;
 - added `spring_essential_electric70_automatic_exterior_color_20260802` as a direct `exterior_color = biel alpejska` value;
 - converted only `spring_colour_biel_alpejska__spring_essential_electric70_automatic` from an unresolved optional relationship to `standard` at 0 PLN;
 - set the observation and price date to 2026-08-02 and the provenance to `src_pl_spring_commercial_context_20260802`;
@@ -36,7 +36,7 @@ Apply the exact-current Spring Essential Biel Alpejska default-colour state usin
 
 - master rows: 11715;
 - configuration values: 3568;
-- configuration import specifications: 139;
+- canonical configuration import specifications: 139;
 - tests: 1788.
 
 ## Architecture boundary
