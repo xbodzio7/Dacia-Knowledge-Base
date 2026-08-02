@@ -27,67 +27,87 @@ jobs:
 
           tool = Path('tools/review_post_v1_11_0_release_priority_selection_20260803.py')
           text = tool.read_text(encoding='utf-8')
-          start = text.index('    state = read_json(STATE_PATH)\n    expected = expected_state(report)\n', text.index('def verify()'))
-          end = text.index('    if CHANGELOG_ENTRY not in CHANGELOG_PATH.read_text', start)
-          replacement = '''    state = read_json(STATE_PATH)
-              expected = expected_state(report)
-              if state["current_package"]["package_id"] == PACKAGE_ID:
-                  if state["phase"] != expected["phase"]:
-                      raise RuntimeError("canonical project phase differs")
-                  if state["baseline"]["tests"] != expected["baseline"]["tests"]:
-                      raise RuntimeError("canonical test baseline differs")
-                  for section in ("current_package", "next_package"):
-                      for key in ("package_id", "kind", "name", "status", "goal"):
-                          if state[section][key] != expected[section][key]:
-                              raise RuntimeError(
-                                  f"canonical project state differs for {section}.{key}"
-                              )
-                  required_manifest = set(
-                      expected["current_package"]["manifest_paths"]
-                  )
-                  actual_manifest = set(
-                      state["current_package"]["manifest_paths"]
-                  )
-                  if not required_manifest.issubset(actual_manifest):
-                      raise RuntimeError("canonical package manifest is incomplete")
-              else:
-                  if state["baseline"]["tests"] < 1842:
-                      raise RuntimeError("canonical test baseline regressed")
-                  if report["selection"]["package_id"] != NEXT_PACKAGE_ID:
-                      raise RuntimeError("durable selected package differs")
-                  if not PACKAGE_DOC.exists():
-                      raise RuntimeError("durable package receipt is missing")
-          '''
+          start = text.index(
+              '    state = read_json(STATE_PATH)\n    expected = expected_state(report)\n',
+              text.index('def verify()'),
+          )
+          end = text.index(
+              '    if CHANGELOG_ENTRY not in CHANGELOG_PATH.read_text',
+              start,
+          )
+          tool_lines = [
+              '    state = read_json(STATE_PATH)',
+              '    expected = expected_state(report)',
+              '    if state["current_package"]["package_id"] == PACKAGE_ID:',
+              '        if state["phase"] != expected["phase"]:',
+              '            raise RuntimeError("canonical project phase differs")',
+              '        if state["baseline"]["tests"] != expected["baseline"]["tests"]:',
+              '            raise RuntimeError("canonical test baseline differs")',
+              '        for section in ("current_package", "next_package"):',
+              '            for key in ("package_id", "kind", "name", "status", "goal"):',
+              '                if state[section][key] != expected[section][key]:',
+              '                    raise RuntimeError(',
+              '                        f"canonical project state differs for {section}.{key}"',
+              '                    )',
+              '        required_manifest = set(',
+              '            expected["current_package"]["manifest_paths"]',
+              '        )',
+              '        actual_manifest = set(',
+              '            state["current_package"]["manifest_paths"]',
+              '        )',
+              '        if not required_manifest.issubset(actual_manifest):',
+              '            raise RuntimeError("canonical package manifest is incomplete")',
+              '    else:',
+              '        if state["baseline"]["tests"] < 1842:',
+              '            raise RuntimeError("canonical test baseline regressed")',
+              '        if report["selection"]["package_id"] != NEXT_PACKAGE_ID:',
+              '            raise RuntimeError("durable selected package differs")',
+              '        if not PACKAGE_DOC.exists():',
+              '            raise RuntimeError("durable package receipt is missing")',
+          ]
+          replacement = '\n'.join(tool_lines) + '\n'
           tool.write_text(text[:start] + replacement + text[end:], encoding='utf-8')
 
           test = Path('tests/test_post_v1_11_0_release_priority_selection_20260803.py')
           text = test.read_text(encoding='utf-8')
-          start = text.index('    def test_canonical_state_advances_to_selected_reporting_package')
+          start = text.index(
+              '    def test_canonical_state_advances_to_selected_reporting_package'
+          )
           end = text.index('\n\n\nif __name__ == "__main__":', start)
-          replacement = '''    def test_canonical_state_advances_to_selected_reporting_package(self) -> None:
-              state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-              self.assertGreaterEqual(state["baseline"]["tests"], 1842)
-              self.assertEqual(self.report["selection"]["package_id"], NEXT_PACKAGE_ID)
-              package_doc = (
-                  ROOT
-                  / "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md"
-              )
-              self.assertTrue(package_doc.exists())
-              if state["current_package"]["package_id"] == PACKAGE_ID:
-                  self.assertEqual(state["current_package"]["status"], "complete")
-                  self.assertEqual(state["next_package"]["package_id"], NEXT_PACKAGE_ID)
-                  manifest = set(state["current_package"]["manifest_paths"])
-                  required = {
-                      "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
-                      "data/reporting/post_v1_11_0_release_priority_selection_review.json",
-                      "data/reporting/post_v1_11_0_release_priority_selection_review.md",
-                      "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
-                      "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
-                      "project/state.json",
-                      "project/STATE_SUMMARY.md",
-                  }
-                  self.assertTrue(required.issubset(manifest))
-          '''
+          test_lines = [
+              '    def test_canonical_state_advances_to_selected_reporting_package(self) -> None:',
+              '        state = json.loads(',
+              '            (ROOT / "project/state.json").read_text(encoding="utf-8")',
+              '        )',
+              '        self.assertGreaterEqual(state["baseline"]["tests"], 1842)',
+              '        self.assertEqual(',
+              '            self.report["selection"]["package_id"], NEXT_PACKAGE_ID',
+              '        )',
+              '        package_doc = (',
+              '            ROOT',
+              '            / "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md"',
+              '        )',
+              '        self.assertTrue(package_doc.exists())',
+              '        if state["current_package"]["package_id"] == PACKAGE_ID:',
+              '            self.assertEqual(',
+              '                state["current_package"]["status"], "complete"',
+              '            )',
+              '            self.assertEqual(',
+              '                state["next_package"]["package_id"], NEXT_PACKAGE_ID',
+              '            )',
+              '            manifest = set(state["current_package"]["manifest_paths"])',
+              '            required = {',
+              '                "tools/review_post_v1_11_0_release_priority_selection_20260803.py",',
+              '                "data/reporting/post_v1_11_0_release_priority_selection_review.json",',
+              '                "data/reporting/post_v1_11_0_release_priority_selection_review.md",',
+              '                "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",',
+              '                "tests/test_post_v1_11_0_release_priority_selection_20260803.py",',
+              '                "project/state.json",',
+              '                "project/STATE_SUMMARY.md",',
+              '            }',
+              '            self.assertTrue(required.issubset(manifest))',
+          ]
+          replacement = '\n'.join(test_lines) + '\n'
           test.write_text(text[:start] + replacement + text[end:], encoding='utf-8')
 
           generator = Path('tools/generate_portfolio_model_family_summary_package_20260803.py')
@@ -103,6 +123,9 @@ jobs:
               text = text.replace(needle, insertion, 1)
           generator.write_text(text, encoding='utf-8')
           PY
+          python -m compileall -q \
+            tools/review_post_v1_11_0_release_priority_selection_20260803.py \
+            tests/test_post_v1_11_0_release_priority_selection_20260803.py
           python tools/generate_portfolio_model_family_summary_package_20260803.py --apply
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
