@@ -1,0 +1,44 @@
+name: AI trace post-Spring priority review
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Capture review traceback
+        shell: bash
+        run: |
+          set -u
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .github/workflows/ai-trace-post-spring-priority-review.yml
+          git add -A
+          git commit -m 'ci: remove post-Spring priority tracer'
+          git push origin HEAD:main
+          git fetch origin agent/post-spring-charging-cable-priority-selection-review-20260802
+          git checkout -B agent/post-spring-charging-cable-priority-selection-review-20260802 origin/agent/post-spring-charging-cable-priority-selection-review-20260802
+          git merge origin/main --no-edit > /tmp/merge.log 2>&1
+          merge_status=$?
+          python3 tools/review_post_spring_charging_cable_priority_selection_20260802.py --apply > /tmp/review.log 2>&1
+          review_status=$?
+          git reset --hard HEAD
+          {
+            echo "merge_status=$merge_status"
+            cat /tmp/merge.log
+            echo
+            echo "review_status=$review_status"
+            cat /tmp/review.log
+          } > project/post-spring-priority-review-trace.txt
+          git add project/post-spring-priority-review-trace.txt
+          git commit -m 'diagnostic: capture post-Spring priority review traceback'
+          git push origin HEAD:agent/post-spring-charging-cable-priority-selection-review-20260802
+          exit 0
