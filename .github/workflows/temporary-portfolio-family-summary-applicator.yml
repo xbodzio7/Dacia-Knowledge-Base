@@ -1,0 +1,70 @@
+name: Temporary Portfolio Family Summary Applicator
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/portfolio-model-family-summary-001'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Apply and verify portfolio family summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '5e87e37c266ee261793b79f099e9b026a6a2864efb4e59b337cfce4b0c696318  project/portfolio-family-payload.chunk.00' | sha256sum --check
+          echo 'e2bde421d0dae0a452296d05182530ec0d80e7bc085fce71a7e50fd7375f47bf  project/portfolio-family-payload.chunk.01' | sha256sum --check
+          cat project/portfolio-family-payload.chunk.* > /tmp/portfolio-payload.tar.gz.b64
+          echo '3e44d231993fb0d93ed5164565b03958f9fb92613bd276922c583747c81e3839  /tmp/portfolio-payload.tar.gz.b64' | sha256sum --check
+          base64 -d /tmp/portfolio-payload.tar.gz.b64 > /tmp/portfolio-payload.tar.gz
+          echo 'a1019a214246f033270b2e846c1d3483c560176f6eb2135efdeb19f1d19dfae9  /tmp/portfolio-payload.tar.gz' | sha256sum --check
+          tar -xzf /tmp/portfolio-payload.tar.gz
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('tools/dkb.py')
+          text = path.read_text(encoding='utf-8')
+          needle = '''    "cross-model-comparison-view": (
+                  "cross_model_comparison_view.py",
+                  "Generate scope-preserving model and reporting-scope navigation.",
+                  "[--json FILE] [--html FILE]",
+              ),
+          '''
+          insertion = needle + '''    "portfolio-model-family-summary": (
+                  "portfolio_model_family_summary.py",
+                  "Generate source-preserving JSON, Markdown and HTML model-family summaries.",
+                  "[--json FILE] [--markdown FILE] [--html FILE]",
+              ),
+          '''
+          if '"portfolio-model-family-summary"' not in text:
+              if needle not in text:
+                  raise SystemExit('cross-model command insertion point not found')
+              path.write_text(text.replace(needle, insertion, 1), encoding='utf-8')
+          PY
+          python tools/generate_portfolio_model_family_summary_package_20260803.py --apply
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/generate_portfolio_model_family_summary_package_20260803.py --verify
+          python -m unittest -q \
+            tests.test_portfolio_model_family_summary \
+            tests.test_cross_model_comparison_view
+          python tools/dkb.py project-state --check
+          python tools/dkb.py portfolio-model-family-summary \
+            --json /tmp/portfolio-summary.json \
+            --markdown /tmp/portfolio-summary.md \
+            --html /tmp/portfolio-summary.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'reporting: add portfolio model-family summary'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
