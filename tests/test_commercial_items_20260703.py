@@ -17,6 +17,7 @@ DATE = "2026-07-03"
 SPRING_DATE = "2026-02-19"
 STOCK_DATE = "2026-07-24"
 SPRING_CONFIGURATOR_DATE = "2026-07-31"
+SPRING_CURRENT_CONTEXT_DATE = "2026-08-02"
 LATEST_STEPWAY_PRICE_DATE = "2026-07-23"
 
 
@@ -41,7 +42,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
-            {"", DATE, STOCK_DATE, SPRING_CONFIGURATOR_DATE},
+            {"", DATE, STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
