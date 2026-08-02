@@ -30,9 +30,9 @@ def test_spring_cable_availability_respects_evidence_boundary():
     }
 
     for configuration in {
-        "cfg_spring_essential_electric_70",
-        "cfg_spring_expression_electric_70",
-        "cfg_spring_extreme_electric_100",
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic",
+        "spring_extreme_electric100_automatic",
     }:
         assert (
             selected[(configuration, "type2_charging_cable_supplied")][
@@ -42,15 +42,15 @@ def test_spring_cable_availability_respects_evidence_boundary():
         )
 
     for configuration in {
-        "cfg_spring_essential_electric_70",
-        "cfg_spring_extreme_electric_100",
+        "spring_essential_electric70_automatic",
+        "spring_extreme_electric100_automatic",
     }:
         row = selected[(configuration, "domestic_socket_charging_cable")]
         assert row["availability_status"] == "optional"
         assert "1500 PLN" in row["notes"]
 
     assert (
-        "cfg_spring_expression_electric_70",
+        "spring_expression_electric70_automatic",
         "domestic_socket_charging_cable",
     ) not in selected
 
@@ -79,4 +79,4 @@ def test_every_new_availability_record_has_artifact_provenance():
         link = links[row["code"]]
         assert sources[link["availability_source_code"]][
             "source_artifact_id"
-        ].startswith("src_spring_")
+        ].startswith("src_pl_spring_")

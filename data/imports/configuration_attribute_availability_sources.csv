@@ -1,4 +1,4 @@
 id,code,source_artifact_id,source_type,observation_date,notes
-1,spring_essential_charging_cable_evidence_20260802,src_spring_essential_pricing_pdf_2026-08-02,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable and domestic-socket cable optional at 1500 PLN.
-2,spring_expression_charging_cable_evidence_20260802,src_spring_expression_pricing_pdf_2026-08-02,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable only; no negative inference for the unselected domestic cable.
-3,spring_extreme_charging_cable_evidence_20260802,src_spring_extreme_pricing_pdf_2026-08-02,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable and domestic-socket cable optional at 1500 PLN.
+1,spring_essential_charging_cable_evidence_20260802,src_pl_spring_official_configurator_20260731,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable and domestic-socket cable optional at 1500 PLN.
+2,spring_expression_charging_cable_evidence_20260802,src_pl_spring_saved_configurations_20260802,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable only; no negative inference for the unselected domestic cable.
+3,spring_extreme_charging_cable_evidence_20260802,src_pl_spring_saved_configurations_20260802,official_saved_configuration_pdf,2026-08-02,Type 2 standard cable and domestic-socket cable optional at 1500 PLN.

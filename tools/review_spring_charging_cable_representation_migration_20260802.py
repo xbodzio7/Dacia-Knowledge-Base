@@ -47,7 +47,7 @@ def migrate_attributes() -> None:
             {
                 "id": str(next_id),
                 "code": code,
-                "category": "Charging",
+                "category": "Electric System",
                 "name": name,
                 "data_type": "boolean",
                 "unit": "",
@@ -62,38 +62,38 @@ def migrate_attributes() -> None:
 def availability_specs() -> list[tuple[str, str, str, str, str]]:
     return [
         (
-            "cfg_spring_essential_electric_70",
+            "spring_essential_electric70_automatic",
             "type2_charging_cable_supplied",
             "standard",
-            "src_spring_essential_pricing_pdf_2026-08-02",
+            "src_pl_spring_official_configurator_20260731",
             "Official saved-configuration PDF confirms a Type 2 cable supplied as standard.",
         ),
         (
-            "cfg_spring_expression_electric_70",
+            "spring_expression_electric70_automatic",
             "type2_charging_cable_supplied",
             "standard",
-            "src_spring_expression_pricing_pdf_2026-08-02",
+            "src_pl_spring_saved_configurations_20260802",
             "Official saved-configuration PDF confirms a Type 2 cable supplied as standard.",
         ),
         (
-            "cfg_spring_extreme_electric_100",
+            "spring_extreme_electric100_automatic",
             "type2_charging_cable_supplied",
             "standard",
-            "src_spring_extreme_pricing_pdf_2026-08-02",
+            "src_pl_spring_saved_configurations_20260802",
             "Official saved-configuration PDF confirms a Type 2 cable supplied as standard.",
         ),
         (
-            "cfg_spring_essential_electric_70",
+            "spring_essential_electric70_automatic",
             "domestic_socket_charging_cable",
             "optional",
-            "src_spring_essential_pricing_pdf_2026-08-02",
+            "src_pl_spring_official_configurator_20260731",
             "Official saved-configuration PDF confirms the domestic-socket charging cable as an optional item priced at 1500 PLN.",
         ),
         (
-            "cfg_spring_extreme_electric_100",
+            "spring_extreme_electric100_automatic",
             "domestic_socket_charging_cable",
             "optional",
-            "src_spring_extreme_pricing_pdf_2026-08-02",
+            "src_pl_spring_saved_configurations_20260802",
             "Official saved-configuration PDF confirms the domestic-socket charging cable as an optional item priced at 1500 PLN.",
         ),
     ]
@@ -134,7 +134,7 @@ def migrate_provenance() -> None:
             {
                 "id": "1",
                 "code": "spring_essential_charging_cable_evidence_20260802",
-                "source_artifact_id": "src_spring_essential_pricing_pdf_2026-08-02",
+                "source_artifact_id": "src_pl_spring_official_configurator_20260731",
                 "source_type": "official_saved_configuration_pdf",
                 "observation_date": "2026-08-02",
                 "notes": "Type 2 standard cable and domestic-socket cable optional at 1500 PLN.",
@@ -142,7 +142,7 @@ def migrate_provenance() -> None:
             {
                 "id": "2",
                 "code": "spring_expression_charging_cable_evidence_20260802",
-                "source_artifact_id": "src_spring_expression_pricing_pdf_2026-08-02",
+                "source_artifact_id": "src_pl_spring_saved_configurations_20260802",
                 "source_type": "official_saved_configuration_pdf",
                 "observation_date": "2026-08-02",
                 "notes": "Type 2 standard cable only; no negative inference for the unselected domestic cable.",
@@ -150,7 +150,7 @@ def migrate_provenance() -> None:
             {
                 "id": "3",
                 "code": "spring_extreme_charging_cable_evidence_20260802",
-                "source_artifact_id": "src_spring_extreme_pricing_pdf_2026-08-02",
+                "source_artifact_id": "src_pl_spring_saved_configurations_20260802",
                 "source_type": "official_saved_configuration_pdf",
                 "observation_date": "2026-08-02",
                 "notes": "Type 2 standard cable and domestic-socket cable optional at 1500 PLN.",
@@ -158,9 +158,9 @@ def migrate_provenance() -> None:
         ],
     )
     source_for_configuration = {
-        "cfg_spring_essential_electric_70": "spring_essential_charging_cable_evidence_20260802",
-        "cfg_spring_expression_electric_70": "spring_expression_charging_cable_evidence_20260802",
-        "cfg_spring_extreme_electric_100": "spring_extreme_charging_cable_evidence_20260802",
+        "spring_essential_electric70_automatic": "spring_essential_charging_cable_evidence_20260802",
+        "spring_expression_electric70_automatic": "spring_expression_charging_cable_evidence_20260802",
+        "spring_extreme_electric100_automatic": "spring_extreme_charging_cable_evidence_20260802",
     }
     links = []
     for index, (configuration, attribute, _status, _source, _notes) in enumerate(
@@ -184,7 +184,7 @@ def migrate_provenance() -> None:
 def write_regression_test() -> None:
     path = ROOT / "tests/test_spring_charging_cable_representation_migration_20260802.py"
     path.write_text(
-        '''import csv\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[1]\n\ndef rows(path):\n    with (ROOT / path).open(encoding="utf-8", newline="") as handle:\n        return list(csv.DictReader(handle))\n\ndef test_charging_cable_attributes_are_semantically_separate_booleans():\n    attributes = {row["code"]: row for row in rows("data/master/attributes.csv")}\n    assert attributes["type2_charging_cable_supplied"]["data_type"] == "boolean"\n    assert attributes["domestic_socket_charging_cable"]["data_type"] == "boolean"\n    assert "connector" not in attributes["type2_charging_cable_supplied"]["code"]\n\ndef test_spring_cable_availability_respects_evidence_boundary():\n    availability = rows("data/master/configuration_attribute_availability.csv")\n    selected = {(r["configuration_code"], r["attribute_code"]): r for r in availability if r["attribute_code"] in {"type2_charging_cable_supplied", "domestic_socket_charging_cable"}}\n    for cfg in {"cfg_spring_essential_electric_70", "cfg_spring_expression_electric_70", "cfg_spring_extreme_electric_100"}:\n        assert selected[(cfg, "type2_charging_cable_supplied")]["availability_status"] == "standard"\n    for cfg in {"cfg_spring_essential_electric_70", "cfg_spring_extreme_electric_100"}:\n        row = selected[(cfg, "domestic_socket_charging_cable")]\n        assert row["availability_status"] == "optional"\n        assert "1500 PLN" in row["notes"]\n    assert ("cfg_spring_expression_electric_70", "domestic_socket_charging_cable") not in selected\n\ndef test_every_new_availability_record_has_artifact_provenance():\n    availability = [r for r in rows("data/master/configuration_attribute_availability.csv") if r["attribute_code"] in {"type2_charging_cable_supplied", "domestic_socket_charging_cable"}]\n    sources = {r["code"]: r for r in rows("data/imports/configuration_attribute_availability_sources.csv")}\n    links = {r["availability_code"]: r for r in rows("data/imports/configuration_attribute_availability_source_links.csv")}\n    assert len(availability) == 5\n    for row in availability:\n        link = links[row["code"]]\n        assert sources[link["availability_source_code"]]["source_artifact_id"].startswith("src_spring_")\n''',
+        '''import csv\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[1]\n\ndef rows(path):\n    with (ROOT / path).open(encoding="utf-8", newline="") as handle:\n        return list(csv.DictReader(handle))\n\ndef test_charging_cable_attributes_are_semantically_separate_booleans():\n    attributes = {row["code"]: row for row in rows("data/master/attributes.csv")}\n    assert attributes["type2_charging_cable_supplied"]["data_type"] == "boolean"\n    assert attributes["domestic_socket_charging_cable"]["data_type"] == "boolean"\n    assert "connector" not in attributes["type2_charging_cable_supplied"]["code"]\n\ndef test_spring_cable_availability_respects_evidence_boundary():\n    availability = rows("data/master/configuration_attribute_availability.csv")\n    selected = {(r["configuration_code"], r["attribute_code"]): r for r in availability if r["attribute_code"] in {"type2_charging_cable_supplied", "domestic_socket_charging_cable"}}\n    for cfg in {"spring_essential_electric70_automatic", "spring_expression_electric70_automatic", "spring_extreme_electric100_automatic"}:\n        assert selected[(cfg, "type2_charging_cable_supplied")]["availability_status"] == "standard"\n    for cfg in {"spring_essential_electric70_automatic", "spring_extreme_electric100_automatic"}:\n        row = selected[(cfg, "domestic_socket_charging_cable")]\n        assert row["availability_status"] == "optional"\n        assert "1500 PLN" in row["notes"]\n    assert ("spring_expression_electric70_automatic", "domestic_socket_charging_cable") not in selected\n\ndef test_every_new_availability_record_has_artifact_provenance():\n    availability = [r for r in rows("data/master/configuration_attribute_availability.csv") if r["attribute_code"] in {"type2_charging_cable_supplied", "domestic_socket_charging_cable"}]\n    sources = {r["code"]: r for r in rows("data/imports/configuration_attribute_availability_sources.csv")}\n    links = {r["availability_code"]: r for r in rows("data/imports/configuration_attribute_availability_source_links.csv")}\n    assert len(availability) == 5\n    for row in availability:\n        link = links[row["code"]]\n        assert sources[link["availability_source_code"]]["source_artifact_id"].startswith("src_pl_spring_")\n''',
         encoding="utf-8",
     )
 
