@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Official Configurator Coverage Reconciliation**
+**Official Configurator Exact State Capture**
 
 ## Reference delivery
 
-- Package: Spring Standard Equipment Representation Review
-- Pull Request: #454
-- Verified head: `697adb01776b41ad3742b7380fd14613d3d5300c`
-- Quality run: #30740819610
+- Package: Official Configurator Coverage Reconciliation
+- Pull Request: #457
+- Verified head: `14c910acdb45d78d42e9c77478cdb365b730337a`
+- Quality run: #30745746891
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Configurator Coverage Reconciliation** — `complete`
+**Official Configurator Exact State Capture** — `complete`
 
-Register every active Dacia Polska configurator surface and define exact-state evidence boundaries before filling gaps or making a supplied-cable architecture decision.
+Capture every exact official Dacia configurator state available through static retrieval and reduce unresolved saved-state evidence to a minimal user-export queue before any architecture or master-data decision.
 
 ## Next package
 
-**Official Configurator Exact State Capture** — `planned`
+**Spring Expression Saved State Artifact Intake** — `planned`
 
-Capture and normalize exact saved configurator states for every active model, grade, powertrain and transmission surface, beginning with the user-provided Spring link, before any architecture or master-data decision.
+Ingest the PDF exported from the supplied Spring Expression Electric 70 saved configuration, resolve its charging-cable and option state, and only then reconsider the supplied-cable representation.
 
 ## Autonomy
 
