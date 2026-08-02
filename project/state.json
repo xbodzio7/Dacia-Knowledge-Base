@@ -43,6 +43,13 @@
       "project/sources/dacia-pl-official-configurator-coverage-20260802.json",
       "project/state.json",
       "tests/test_official_configurator_coverage_reconciliation_20260802.py",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
+      "tests/test_spring_essential_khaki_price_apply_20260802.py",
+      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
+      "tests/test_spring_standard_equipment_representation_review_20260802.py",
       "tools/review_official_configurator_coverage_20260802.py"
     ]
   },
