@@ -20,6 +20,29 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python3 - <<'PY'
+          import csv
+          from pathlib import Path
+
+          path = Path('data/master/source_configurations.csv')
+          with path.open(encoding='utf-8-sig', newline='') as handle:
+              reader = csv.DictReader(handle)
+              fields = list(reader.fieldnames or [])
+              rows = list(reader)
+          key = ('src_pl_spring_commercial_context_20260802', 'spring_essential_electric70_automatic')
+          if not any((r['source_code'], r['configuration_code']) == key for r in rows):
+              rows.append({
+                  'id': str(max(int(r['id']) for r in rows) + 1),
+                  'source_code': key[0],
+                  'configuration_code': key[1],
+                  'relationship': 'documents',
+                  'notes': 'Exact-current official commercial context documents the Spring Essential default exterior colour and zero-surcharge relationship.',
+              })
+              with path.open('w', encoding='utf-8', newline='') as handle:
+                  writer = csv.DictWriter(handle, fieldnames=fields, lineterminator='\n')
+                  writer.writeheader()
+                  writer.writerows(rows)
+          PY
           python3 tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
           python3 tools/dkb.py project-state --apply || true
           git config user.name 'github-actions[bot]'
