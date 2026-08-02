@@ -1,0 +1,41 @@
+name: Spring Source Assimilation Bundle
+
+on:
+  push:
+    paths:
+      - '.github/workflows/source-assimilation-spring-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-audit-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build page text and rendered page bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p source-assimilation-bundle
+          while IFS= read -r pdf; do
+            [ -f "$pdf" ] || continue
+            base=$(basename "$pdf" .pdf | tr ' /' '__')
+            out="source-assimilation-bundle/$base"
+            mkdir -p "$out/pages"
+            sha256sum "$pdf" > "$out/sha256.txt"
+            pdfinfo "$pdf" > "$out/pdfinfo.txt"
+            pdftotext -layout "$pdf" "$out/document.txt"
+            pdftoppm -png -r 120 "$pdf" "$out/pages/page" >/dev/null 2>&1
+          done <<'PDFS'
+          PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf
+          PDF/Broszury/DACIA SPRING broszura 20260219.pdf
+          PDFS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spring-source-assimilation-bundle
+          path: source-assimilation-bundle
+          retention-days: 7
