@@ -63,6 +63,13 @@ class DataProductsV111AcceleratedReleaseContractTest(unittest.TestCase):
         ):
             self.assertIn(expected, package)
 
+        workflow = (
+            ROOT
+            / ".github/workflows/temporary-publish-data-products-v1.11.0.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("PYTHONPATH=tools python - <<'PY'", workflow)
+        self.assertIn("_extract_verified_contents", workflow)
+
     def test_v1_10_0_publication_receipt_remains_immutable(self) -> None:
         receipt = json.loads(
             (
