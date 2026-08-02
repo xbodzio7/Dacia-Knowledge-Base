@@ -1,14 +1,14 @@
-name: AI repair PR 465 contracts
+name: AI validate PR 465
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  repair:
+  validate:
     if: github.event.pull_request.number == 465
     runs-on: ubuntu-latest
     steps:
@@ -16,39 +16,10 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - name: Regenerate canonical migration outputs
+      - name: Validate migration and repository state
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          import csv
-          from pathlib import Path
-
-          path = Path('data/master/source_configurations.csv')
-          with path.open(encoding='utf-8-sig', newline='') as handle:
-              reader = csv.DictReader(handle)
-              fields = list(reader.fieldnames or [])
-              rows = list(reader)
-          key = ('src_pl_spring_commercial_context_20260802', 'spring_essential_electric70_automatic')
-          if not any((r['source_code'], r['configuration_code']) == key for r in rows):
-              rows.append({
-                  'id': str(max(int(r['id']) for r in rows) + 1),
-                  'source_code': key[0],
-                  'configuration_code': key[1],
-                  'relationship': 'documents',
-                  'notes': 'Exact-current official commercial context documents the Spring Essential default exterior colour and zero-surcharge relationship.',
-              })
-              with path.open('w', encoding='utf-8', newline='') as handle:
-                  writer = csv.DictWriter(handle, fieldnames=fields, lineterminator='\n')
-                  writer.writeheader()
-                  writer.writerows(rows)
-          PY
-          python3 tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
-          python3 tools/dkb.py project-state --apply || true
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m 'fix: regenerate Spring white migration outputs'
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
+          python3 -m compileall -q tools scripts tests
+          python3 -m unittest discover -s tests -p 'test_*.py' -q
+          python3 tools/dkb.py project-state --check
