@@ -20,7 +20,7 @@ jobs:
           ref: agent/spring-biel-alpejska-default-colour-migration-20260802
           fetch-depth: 0
 
-      - name: Capture exterior-colour import examples
+      - name: Capture no-page import examples
         run: |
           python - <<'PY'
           import json
@@ -30,9 +30,10 @@ jobs:
           matches = []
           for path in sorted(root.glob("*.json")):
               content = json.loads(path.read_text(encoding="utf-8"))
-              if content.get("attribute_code") == "exterior_color":
+              page = content.get("source_page", "__missing__")
+              if page in (None, "", 0, "__missing__"):
                   matches.append({"path": path.as_posix(), "content": content})
-          payload = {"count": len(matches), "examples": matches}
+          payload = {"count": len(matches), "examples": matches[-5:]}
           Path("project/tmp_configuration_value_spec_probe.json").write_text(
               json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",
@@ -44,5 +45,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add project/tmp_configuration_value_spec_probe.json
-          git commit -m "chore: capture exterior colour import schema"
+          git commit -m "chore: capture no-page import schema"
           git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
