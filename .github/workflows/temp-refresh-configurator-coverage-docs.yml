@@ -1,0 +1,41 @@
+name: Temporary Refresh Configurator Coverage Docs
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-refresh-configurator-coverage-docs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/official-configurator-coverage-reconciliation-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Refresh and verify managed documentation
+        run: |
+          python tools/documentation_baseline.py --apply
+          python tools/documentation_baseline.py --check
+          python tools/dkb.py project-state --check
+
+      - name: Commit generated documentation and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/temp-refresh-configurator-coverage-docs.yml
+          git add CHANGELOG.md README.md project/SESSION_STATE.md
+          git commit -m "docs: refresh configurator coverage baseline"
+          git push origin HEAD:agent/official-configurator-coverage-reconciliation-20260802
