@@ -121,11 +121,11 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             }
         )
         if self.catalog["as_of"] >= "2026-08-02":
-            # The exact-current Essential Lichen Khaki mapping dated
-            # 2026-08-02 becomes visible once the catalog advances to that
-            # date. This is a legal new reviewed component, not a rewrite of
-            # the earlier materialization package.
-            expected["importable"] += 1
+            # Advancing the live catalog boundary exposes one additional
+            # reviewed commercial component. The existing review ledger
+            # classifies it as source-not-stated; a later date alone is not
+            # permission to promote it to importable.
+            expected["source-not-stated"] += 1
         self.assertEqual(len(reviewed), sum(expected.values()))
         self.assertEqual(
             Counter(item["review_state"] for item in reviewed),
