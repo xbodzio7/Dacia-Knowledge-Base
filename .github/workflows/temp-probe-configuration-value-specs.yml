@@ -1,4 +1,4 @@
-name: Temporary Probe Configuration Value Specs
+name: Temporary Apply Spring Biel Alpejska Migration
 
 on:
   pull_request:
@@ -6,41 +6,44 @@ on:
       - main
     paths:
       - .github/workflows/temp-probe-configuration-value-specs.yml
+      - tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py
+      - data/imports/spring_biel_alpejska_default_colour_20260802.csv
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  probe:
+  apply:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out branch
+      - name: Check out package branch
         uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
 
-      - name: Inspect configuration-value import contracts
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Apply and verify bounded migration
         run: |
-          python - <<'PY'
-          import csv
-          from pathlib import Path
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --verify
 
-          root = Path('data/imports')
-          files = sorted(root.rglob('*.csv'))
-          print(f'IMPORT_FILE_COUNT={len(files)}')
-          candidates = []
-          for path in files:
-              with path.open(encoding='utf-8-sig', newline='') as handle:
-                  reader = csv.DictReader(handle)
-                  fields = reader.fieldnames or []
-                  first = next(reader, None)
-              field_set = set(fields)
-              if {'configuration_code', 'attribute_code', 'value'} <= field_set:
-                  candidates.append((path, fields, first))
-          print(f'CONFIG_VALUE_CANDIDATES={len(candidates)}')
-          for path, fields, first in candidates[-20:]:
-              print(f'FILE={path.as_posix()}')
-              print(f'HEADER={fields}')
-              print(f'FIRST={first}')
-          print('TOP_LEVEL_IMPORTS=')
-          for path in sorted(root.glob('*.csv'))[-30:]:
-              print(path.as_posix())
-          PY
+      - name: Commit generated data and reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/master/configuration_attribute_values.csv \
+            data/master/commercial_item_configurations.csv \
+            data/reporting/spring_biel_alpejska_default_colour_migration.json \
+            data/reporting/spring_biel_alpejska_default_colour_migration.md
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "data: migrate Spring Essential default colour"
+            git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          fi
