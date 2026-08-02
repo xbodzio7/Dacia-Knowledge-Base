@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - agent/spring-nonconflicting-common-technical-observations-migration-001
+  pull_request:
+    types: [reopened]
 
 permissions:
   contents: write
 
 jobs:
   apply:
+    if: github.event_name == 'push' || github.head_ref == 'agent/spring-nonconflicting-common-technical-observations-migration-001'
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
