@@ -23,6 +23,8 @@ COMPLETENESS_FILES = {
     "spring_electric70_automatic": ROOT / "data" / "reporting" / "spring_electric70_automatic_completeness.json",
     "spring_electric100_automatic": ROOT / "data" / "reporting" / "spring_electric100_automatic_completeness.json",
 }
+DEPENDENT_ANALYSIS_JSON = ROOT / "data" / "reporting" / "existing_configuration_missing_data_analysis.json"
+DEPENDENT_ANALYSIS_MD = ROOT / "data" / "reporting" / "existing_configuration_missing_data_analysis.md"
 SOURCE_CODE = "src_pl_spring_brochure_20260219"
 SOURCE_FILE = ROOT / "PDF" / "Broszury" / "DACIA SPRING broszura 20260219.pdf"
 SOURCE_SHA256 = "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d"
@@ -330,6 +332,36 @@ def verify_completeness_specs() -> None:
         )
 
 
+def build_dependent_analysis_outputs() -> tuple[str, str]:
+    try:
+        from tools import existing_configuration_missing_data_analysis as analysis
+    except ImportError:
+        import existing_configuration_missing_data_analysis as analysis
+
+    payload = analysis.collect(ROOT)
+    expected_json = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    expected_md = analysis.render_markdown(payload)
+    return expected_json, expected_md
+
+
+def write_dependent_analysis_outputs() -> None:
+    expected_json, expected_md = build_dependent_analysis_outputs()
+    DEPENDENT_ANALYSIS_JSON.write_text(expected_json, encoding="utf-8")
+    DEPENDENT_ANALYSIS_MD.write_text(expected_md, encoding="utf-8")
+
+
+def verify_dependent_analysis_outputs() -> None:
+    expected_json, expected_md = build_dependent_analysis_outputs()
+    ensure(
+        DEPENDENT_ANALYSIS_JSON.read_text(encoding="utf-8") == expected_json,
+        "existing-configuration missing-data analysis JSON is stale",
+    )
+    ensure(
+        DEPENDENT_ANALYSIS_MD.read_text(encoding="utf-8") == expected_md,
+        "existing-configuration missing-data analysis Markdown is stale",
+    )
+
+
 def build_report() -> dict[str, object]:
     return {
         "version": 1,
@@ -353,6 +385,10 @@ def build_report() -> dict[str, object]:
             scope: EXPECTED_SCOPE_SLOT_COUNTS[scope]
             for scope in sorted(EXPECTED_SCOPE_SLOT_COUNTS)
         },
+        "dependent_reports_updated": [
+            "data/reporting/existing_configuration_missing_data_analysis.json",
+            "data/reporting/existing_configuration_missing_data_analysis.md",
+        ],
         "preserved_deferrals": [
             "battery_mass_204_kg_my2025_stock_only",
             "battery_voltage_354_v_my2025_stock_only",
@@ -377,7 +413,8 @@ def write_reports() -> None:
         "- LFP traction-battery chemistry;\n"
         "- electric power steering;\n"
         "- overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length;\n"
-        "- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots.\n\n"
+        "- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots;\n"
+        "- the repository-wide existing-configuration missing-data analysis regenerated without changing package state.\n\n"
         "## Preserved boundaries\n\n"
         "Battery mass 204 kg and voltage 354 V remain MY2025-stock-only evidence. The unqualified 24.3 kWh capacity, charging times, range, maximum speed and 15-inch-wheel ground clearance are not promoted by this package.\n\n"
         "## Verification\n\n"
@@ -395,6 +432,7 @@ def verify_materialized() -> None:
         values = {row["code"]: row for row in read_rows(MASTER / "enums" / domain_file)}
         ensure(values.get(enum_code) == ENUM_ROWS[domain_file], f"enum value missing: {enum_code}")
     verify_completeness_specs()
+    verify_dependent_analysis_outputs()
     expected = generated_rows(spec_rows)
     expected_codes = {row["code"] for row in expected}
     actual = [row for row in read_rows(MASTER / "configuration_attribute_values.csv") if row["code"] in expected_codes]
@@ -411,6 +449,7 @@ def apply() -> None:
     apply_enum_support()
     apply_values(spec_rows)
     apply_completeness_specs()
+    write_dependent_analysis_outputs()
     write_reports()
     verify_materialized()
 

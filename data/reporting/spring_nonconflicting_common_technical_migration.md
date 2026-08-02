@@ -10,7 +10,8 @@ The package materializes 36 exact brochure observations: 12 common attributes fo
 - LFP traction-battery chemistry;
 - electric power steering;
 - overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length;
-- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots.
+- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots;
+- the repository-wide existing-configuration missing-data analysis regenerated without changing package state.
 
 ## Preserved boundaries
 

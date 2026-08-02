@@ -50,6 +50,8 @@
       "tests/test_sandero_residual_source_closure_20260801.py",
       "data/reporting/spring_electric70_automatic_completeness.json",
       "data/reporting/spring_electric100_automatic_completeness.json",
+      "data/reporting/existing_configuration_missing_data_analysis.json",
+      "data/reporting/existing_configuration_missing_data_analysis.md",
       "tests/test_attribute_enum_domains.py",
       "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
       "project/state.json",

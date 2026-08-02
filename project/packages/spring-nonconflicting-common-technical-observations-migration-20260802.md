@@ -16,6 +16,7 @@ Materialize only the 36 observations approved by the preceding source-to-master 
 - nine common page-21 dimensions;
 - 36 source-dated configuration values using contiguous IDs 3569-3604;
 - Spring Electric 70 and Electric 100 reporting completeness specifications extended by the same twelve common technical slots;
+- repository-wide existing-configuration missing-data analysis regenerated after the scope expansion;
 - one declarative 36-row specification, deterministic importer, migration report and regression contract.
 
 ## Evidence boundary
