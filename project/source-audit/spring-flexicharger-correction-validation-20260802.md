@@ -21,7 +21,7 @@ A saved configuration PDF documents the equipment selected in that configuration
 
 - commercial item configuration mappings: 189;
 - total master rows: 11730;
-- discovered tests: 1797;
+- discovered tests: 1795;
 - configuration values: 3568.
 
 ## Continuity rule
