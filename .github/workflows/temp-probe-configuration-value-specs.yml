@@ -1,0 +1,65 @@
+name: Temporary Apply Spring White Historical Repairs
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-probe-configuration-value-specs.yml
+      - tools/temp_repair_spring_white_history.py
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Repair historical contracts
+        run: python tools/temp_repair_spring_white_history.py
+
+      - name: Refresh managed documentation
+        run: |
+          python tools/documentation_baseline.py --apply
+          python tools/documentation_baseline.py --check
+
+      - name: Run focused Spring contracts
+        run: |
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --verify
+          python tools/review_spring_standard_equipment_representation_20260802.py --verify
+          python tools/import_spring_exterior_colour_options.py --check
+          python -m unittest -v \
+            tests.test_spring_biel_alpejska_default_colour_migration_20260802 \
+            tests.test_spring_exterior_colour_options \
+            tests.test_reviewed_gap_state_materialization_20260802
+
+      - name: Commit repaired contracts and documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            CHANGELOG.md \
+            README.md \
+            project/SESSION_STATE.md \
+            tools/review_spring_standard_equipment_representation_20260802.py \
+            tools/import_spring_exterior_colour_options.py \
+            tests/test_spring_standard_equipment_representation_review_20260802.py \
+            tests/test_spring_exterior_colour_options.py \
+            tests/test_spring_essential_khaki_price_apply_20260802.py \
+            tests/test_spring_commercial_context_resolution_20260802.py \
+            tests/test_spring_current_grade_snapshot_capture_20260802.py \
+            tests/test_registered_source_completeness_reconciliation_20260802.py \
+            tests/test_reviewed_gap_state_materialization_20260802.py
+          git commit -m "test: preserve Spring history after white migration"
+          git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
