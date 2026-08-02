@@ -1,0 +1,25 @@
+name: Temporary Spring Repository Snapshot
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    if: github.head_ref == 'agent/spring-nonconflicting-technical-observations-review-001'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Upload repository snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporary-spring-repository-snapshot
+          path: .
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
