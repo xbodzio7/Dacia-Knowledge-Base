@@ -24,7 +24,7 @@ SPRING_CONFIGURATIONS = {
     "spring_extreme_electric100_automatic",
 }
 TYPE2_ITEM = "spring_type2_charging_cable_option"
-HOME_CABLE_ITEM = "spring_home_charging_cable_option"
+HOME_CABLE_ITEM = "spring_domestic_socket_charging_cable_option"
 KHaki_MAPPING = "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
 WHITE_MAPPING = "spring_colour_biel_alpejska__spring_essential_electric70_automatic"
 CITY_MAPPING = "spring_city_package__spring_extreme_electric100_automatic"
@@ -61,14 +61,15 @@ def build_report(
 ) -> dict[str, Any]:
     selected = selected_mappings(mappings)
     item_index = {row["code"]: row for row in items}
+    migration_complete = HOME_CABLE_ITEM in item_index
     membership_index = {
         row["commercial_item_code"]: row
         for row in memberships
         if row["commercial_item_code"] == TYPE2_ITEM
     }
 
-    if len(selected) != 25:
-        raise RuntimeError(f"expected 25 Spring commercial mappings, found {len(selected)}")
+    if len(selected) not in {25, 27}:
+        raise RuntimeError(f"expected 25 pre-migration or 27 post-migration Spring commercial mappings, found {len(selected)}")
     khaki = selected[KHaki_MAPPING]
     white = selected[WHITE_MAPPING]
     city = selected[CITY_MAPPING]
@@ -110,10 +111,15 @@ def build_report(
         raise RuntimeError("reviewed Extreme package prices drifted")
     if item_index[TYPE2_ITEM]["item_type"] != "option":
         raise RuntimeError("Type 2 item no longer has option semantics")
-    if membership_index[TYPE2_ITEM]["attribute_code"] != "charging_connector_type":
-        raise RuntimeError("Type 2 membership boundary drifted")
-    if HOME_CABLE_ITEM in item_index:
-        raise RuntimeError("home charging cable unexpectedly already exists")
+    expected_type2_attribute = "type2_charging_cable_supplied" if migration_complete else "charging_connector_type"
+    if membership_index[TYPE2_ITEM]["attribute_code"] != expected_type2_attribute:
+        raise RuntimeError("Type 2 membership transition drifted")
+    home_rows = [row for row in selected.values() if row["commercial_item_code"] == HOME_CABLE_ITEM]
+    if migration_complete:
+        if len(home_rows) != 2 or any(row["amount"] != "1500" for row in home_rows):
+            raise RuntimeError("domestic charging-cable mappings drifted")
+    elif home_rows:
+        raise RuntimeError("home charging cable mappings unexpectedly exist")
 
     expression_unresolved = set(snapshot["expression"]["unresolved_fields"])
     if expression_unresolved != {

@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Charging Cable Commercial Semantics Review**
+**Spring Charging Cable Commercial Semantics Migration**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1788
+- Tests: 1790
 - Master CSV files: 46
-- Master rows: 11723
+- Master rows: 11727
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Charging Cable Commercial Semantics Review** — `complete`
+**Spring Charging Cable Commercial Semantics Migration** — `complete`
 
-Resolve the source meaning of the historical Type 2 commercial item and define an exact-current domestic-socket commercial representation without changing master data.
+Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.
 
 ## Next package
 
-**Spring Charging Cable Commercial Semantics Migration** — `planned`
+**Post-Spring Charging Cable Priority Selection Review** — `planned`
 
-Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.
+Select the next bounded repository package from current evidence and unresolved queues without changing master data.
 
 ## Autonomy
 

@@ -126,11 +126,11 @@ def verify_contract() -> None:
         row for row in read_rows(MEMBERSHIPS)
         if row["commercial_item_code"] == TYPE2_ITEM
     ]
-    if len(memberships) != 1 or memberships[0]["attribute_code"] != "charging_connector_type":
-        raise AssertionError("historical blocked Type 2 membership drifted")
     item_codes = {row["code"] for row in read_rows(ITEMS)}
-    if HOME_CABLE_ITEM in item_codes:
-        raise AssertionError("commercial home-cable review has advanced unexpectedly")
+    migration_complete = "spring_domestic_socket_charging_cable_option" in item_codes
+    expected_attribute = "type2_charging_cable_supplied" if migration_complete else "charging_connector_type"
+    if len(memberships) != 1 or memberships[0]["attribute_code"] != expected_attribute:
+        raise AssertionError("historical Type 2 membership transition drifted")
 
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")

@@ -285,7 +285,13 @@ def generated_items() -> list[dict[str, str]]:
 
 def generated_attributes() -> list[dict[str, str]]:
     verify_source_contract()
-    return [dict(row) for row in load_attributes_spec()]
+    generated = [dict(row) for row in load_attributes_spec()]
+    for row in generated:
+        if row["commercial_item_code"] == "spring_type2_charging_cable_option":
+            row["code"] = "spring_type2_charging_cable_option__type2_charging_cable_supplied"
+            row["attribute_code"] = "type2_charging_cable_supplied"
+            row["notes"] = "Corrected membership: the brochure item describes a physical Type 2 cable, not the vehicle charging connector."
+    return generated
 
 
 def generated_configurations() -> list[dict[str, str]]:

@@ -4,7 +4,7 @@
   "status": "complete",
   "scope": {
     "spring_configuration_count": 3,
-    "existing_spring_mapping_count": 25,
+    "existing_spring_mapping_count": 27,
     "master_data_mutation_authorized": false,
     "source_reports": [
       "data/reporting/spring_commercial_context_resolution.json",

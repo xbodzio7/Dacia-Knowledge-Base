@@ -36,10 +36,10 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 39)
-        self.assertEqual(len(self.members), 93)
-        self.assertEqual(len(self.mappings), 186)
-        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE})
+        self.assertEqual(len(self.items), 40)
+        self.assertEqual(len(self.members), 94)
+        self.assertEqual(len(self.mappings), 188)
+        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
             {"", DATE, STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE},
@@ -59,6 +59,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "src_pl_jogger_price_my26_20260703",
                 "src_pl_bigster_price_my26_20260703",
                 "src_pl_spring_brochure_20260219",
+                "src_pl_spring_commercial_context_20260802",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
