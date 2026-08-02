@@ -78,7 +78,7 @@ jobs:
             --verify
           export RELEASE_ASSETS="${RUNNER_TEMP}/release-a"
           export OFFLINE_WORKSPACE="${RUNNER_TEMP}/workspace"
-          python - <<'PY'
+          PYTHONPATH=tools python - <<'PY'
           import os
           import shutil
           from pathlib import Path
