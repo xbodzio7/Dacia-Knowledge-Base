@@ -1,0 +1,38 @@
+name: Temporary Probe Configuration Value Specs
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-probe-configuration-value-specs.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Inspect configuration-value import contracts
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          root = Path('data/imports/configuration_values')
+          files = sorted(root.glob('*.csv'))
+          print(f'FILE_COUNT={len(files)}')
+          for path in files[-10:]:
+              with path.open(encoding='utf-8-sig', newline='') as handle:
+                  reader = csv.DictReader(handle)
+                  rows = list(reader)
+              print(f'FILE={path.as_posix()}')
+              print(f'HEADER={reader.fieldnames}')
+              print(f'ROWS={len(rows)}')
+              if rows:
+                  print(f'FIRST={rows[0]}')
+          PY
