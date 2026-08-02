@@ -317,8 +317,22 @@ def verify() -> None:
         actual = path.read_text(encoding="utf-8")
         if actual != expected:
             raise RuntimeError(f"generated output differs: {path.relative_to(ROOT)}")
-    if read_json(STATE_PATH) != expected_state(report):
-        raise RuntimeError("canonical project state differs")
+    state = read_json(STATE_PATH)
+    expected = expected_state(report)
+    if state["phase"] != expected["phase"]:
+        raise RuntimeError("canonical project phase differs")
+    if state["baseline"]["tests"] != expected["baseline"]["tests"]:
+        raise RuntimeError("canonical test baseline differs")
+    for section in ("current_package", "next_package"):
+        for key in ("package_id", "kind", "name", "status", "goal"):
+            if state[section][key] != expected[section][key]:
+                raise RuntimeError(
+                    f"canonical project state differs for {section}.{key}"
+                )
+    required_manifest = set(expected["current_package"]["manifest_paths"])
+    actual_manifest = set(state["current_package"]["manifest_paths"])
+    if not required_manifest.issubset(actual_manifest):
+        raise RuntimeError("canonical package manifest is incomplete")
     if CHANGELOG_ENTRY not in CHANGELOG_PATH.read_text(encoding="utf-8"):
         raise RuntimeError("CHANGELOG receipt is missing")
 

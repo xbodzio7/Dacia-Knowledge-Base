@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.11.0 Publication**
+**Post-v1.11.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1835
+- Tests: 1842
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.11.0 Publication** — `complete`
+**Post-v1.11.0 Release Priority Selection Review** — `complete`
 
-Publish the verified post-Spring-milestone data products from the exact publication merge commit without changing product semantics.
+Inspect canonical release, source, completeness and roadmap evidence and select one bounded next package without reopening closed evidence.
 
 ## Next package
 
-**Post-v1.11.0 Release Priority Selection Review** — `planned`
+**Portfolio Model Family Summary** — `planned`
 
-Inspect the canonical source registry, completeness reports and roadmap after the immutable v1.11.0 publication and select one bounded next package without reopening closed evidence or inferring a source candidate.
+Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.
 
 ## Autonomy
 

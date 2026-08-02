@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added a deterministic post-v1.11.0 priority review that confirms zero eligible source-backed completeness candidates, preserves all exhausted source boundaries and selects a scope-preserving portfolio model-family summary as the next reporting package without ranking or inferred values.
+
 * Added 54 exact Spring brochure technical observations, three closed maximum-power RPM ranges and three one-to-one ISO 3832 cargo contexts across the existing Essential Electric 70, Expression Electric 70 and Extreme Electric 100 configurations, prioritizing core comparison completeness over the previously planned Bigster paint package and importing no new entities or inferred values.
 * Added six direct July 2026 Jogger Expression `fog_lights=not_available` observations from the exact page-4 matrix, preserving the six existing April 2026 standard observations, both source hashes, all exact seat-count and powertrain relationships, and no new model, version, configuration or front/rear reinterpretation.
 * Added six source-bounded Spring exterior-colour options from brochure page 12, with five non-metallic and one metallic finish, eighteen exact optional mappings to the three existing Spring configurations, blank amounts and price dates, no fabricated standard colour and no new model, version or configuration.
@@ -304,7 +306,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1835 tests.
+* The automated test suite now contains 1842 tests.
 * The verified master-data baseline now contains 47 CSV files and 11770 rows.
 * SQLite verification now covers 47 tables and 11770 rows.
 * Configuration attribute values now contain 3604 dated records.

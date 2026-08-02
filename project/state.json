@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.11.0 Publication",
+  "phase": "Post-v1.11.0 Release Priority Selection Review",
   "reference_delivery": {
     "name": "Data Products v1.11.0 Publication",
     "pull_request": 474,
@@ -15,7 +15,7 @@
     "quality_run": 30771725527
   },
   "baseline": {
-    "tests": 1835,
+    "tests": 1842,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,26 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_11_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.11.0 Publication",
-    "status": "complete",
-    "goal": "Publish the verified post-Spring-milestone data products from the exact publication merge commit without changing product semantics.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_11_0_publication.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.11.0-publication-20260802.md",
-      "project/state.json",
-      "tests/test_data_products_v1_11_0_release_contract.py",
-      "tools/reporting/data_product_release.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_11_0_release_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.11.0 Release Priority Selection Review",
+    "status": "complete",
+    "goal": "Inspect canonical release, source, completeness and roadmap evidence and select one bounded next package without reopening closed evidence.",
+    "manifest_paths": [
+      "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
+      "data/reporting/post_v1_11_0_release_priority_selection_review.json",
+      "data/reporting/post_v1_11_0_release_priority_selection_review.md",
+      "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
+      "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_model_family_summary_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Model Family Summary",
     "status": "planned",
-    "goal": "Inspect the canonical source registry, completeness reports and roadmap after the immutable v1.11.0 publication and select one bounded next package without reopening closed evidence or inferring a source candidate.",
+    "goal": "Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.",
     "manifest_paths": []
   },
   "autonomy": {
