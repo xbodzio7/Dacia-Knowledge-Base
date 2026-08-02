@@ -137,19 +137,27 @@ def verify_contract() -> None:
             raise AssertionError(f"unapproved Khaki mapping changed: {code}")
 
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != "spring_essential_khaki_price_apply_001":
-        raise AssertionError("canonical current package did not advance to Khaki apply")
+    current_id = state["current_package"]["package_id"]
     if state["current_package"]["status"] != "complete":
-        raise AssertionError("Khaki apply package must be complete")
-    if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
-        raise AssertionError("unexpected next Spring package")
-    if state["reference_delivery"]["pull_request"] != 452:
-        raise AssertionError("Khaki apply must reference semantic review PR 452")
+        raise AssertionError("canonical current package must remain complete")
+    if current_id == "spring_essential_khaki_price_apply_001":
+        if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
+            raise AssertionError("unexpected Khaki apply follow-up")
+        if state["reference_delivery"]["pull_request"] != 452:
+            raise AssertionError("Khaki apply must reference semantic review PR 452")
+    else:
+        if current_id != "spring_standard_equipment_representation_review_001":
+            raise AssertionError("unexpected package after Spring Khaki apply")
+        if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
+            raise AssertionError("unexpected representation-review follow-up")
+        if state["reference_delivery"]["pull_request"] != 453:
+            raise AssertionError("representation review must reference Khaki apply PR 453")
     if state["baseline"]["tests"] != 1788:
         raise AssertionError("import-time contract must preserve test baseline")
     if state["baseline"]["rows"] != 11714:
-        raise AssertionError("source registration must add exactly one master row")
+        raise AssertionError("later review package must preserve the Khaki baseline")
 
 
-# Import-time verification preserves the established test-count baseline.
+# The completed Khaki apply remains protected while canonical state advances
+# to the representation review.
 verify_contract()

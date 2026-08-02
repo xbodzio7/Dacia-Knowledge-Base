@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "scope": {
+    "reviewed_concepts": [
+      "Essential default exterior colour",
+      "Type 2 supplied charging cable",
+      "Home charging cable"
+    ],
+    "master_data_mutation_authorized": false,
+    "source_reports": [
+      "data/reporting/spring_exact_current_semantic_migration_review.json",
+      "data/reporting/spring_essential_khaki_price_apply.json"
+    ]
+  },
+  "repository_patterns": {
+    "direct_scalar_default_colour": {
+      "attribute_code": "exterior_color",
+      "data_type": "string",
+      "existing_value_rows": 7,
+      "spring_value_rows": 0,
+      "pattern_status": "available",
+      "meaning": "A source-stated default exterior colour is stored as a direct configuration value, independently of commercial palette options."
+    },
+    "boolean_equipment_availability": {
+      "standard_rows": 4592,
+      "pattern_status": "available_when_a_compatible_boolean_attribute_exists",
+      "meaning": "Standard equipment is represented directly in configuration_attribute_availability for a compatible canonical equipment attribute."
+    },
+    "commercial_standard_relationship": {
+      "standard_mapping_rows": 4,
+      "non_stock_grade_standard_rows": 0,
+      "pattern_status": "not_a_grade_standard_precedent",
+      "meaning": "Existing standard commercial mappings preserve selected equipment in exact stock vehicles; they do not establish a trim-level factory-standard representation."
+    },
+    "charging_connector_scalar": {
+      "attribute_code": "charging_connector_type",
+      "existing_value_rows": 0,
+      "pattern_status": "not_compatible_with_supplied_cable",
+      "meaning": "The attribute describes the vehicle charging connector standard, not a cable supplied with the vehicle."
+    },
+    "supplied_charging_cable_attribute": {
+      "compatible_attribute_codes": [],
+      "pattern_status": "missing"
+    }
+  },
+  "decisions": [
+    {
+      "concept": "Essential Biel Alpejska default colour",
+      "classification": "existing_pattern_available",
+      "approved_representation": {
+        "direct_value_attribute": "exterior_color",
+        "configuration_code": "spring_essential_electric70_automatic",
+        "value": "biel alpejska",
+        "observation_date": "2026-08-02",
+        "source_code": "src_pl_spring_commercial_context_20260802",
+        "commercial_mapping": {
+          "mapping_code": "spring_colour_biel_alpejska__spring_essential_electric70_automatic",
+          "target_availability_status": "standard",
+          "target_amount_pln": 0,
+          "reason": "Preserve the current commercial relationship while the direct scalar records the grade default."
+        }
+      },
+      "new_attribute_required": false
+    },
+    {
+      "concept": "Type 2 supplied charging cable",
+      "classification": "new_representation_decision_required",
+      "current_problem": {
+        "commercial_item_code": "spring_type2_charging_cable_option",
+        "linked_attribute": "charging_connector_type",
+        "exact_current_state": {
+          "spring_essential_electric70_automatic": "standard",
+          "spring_expression_electric70_automatic": "unresolved",
+          "spring_extreme_electric100_automatic": "standard"
+        }
+      },
+      "rejected_shortcut": "Changing only the commercial mapping to standard would retain an attribute membership that describes the vehicle connector rather than the supplied cable.",
+      "minimum_model_requirement": "A dedicated independently available supplied-cable concept that can be standard for Essential and Extreme without asserting an Expression state.",
+      "new_attribute_required": true
+    },
+    {
+      "concept": "Home charging cable",
+      "classification": "new_representation_decision_required",
+      "current_problem": {
+        "commercial_item_code": null,
+        "compatible_attribute_code": null,
+        "exact_current_state": {
+          "spring_essential_electric70_automatic": "optional_1500_pln",
+          "spring_expression_electric70_automatic": "unresolved",
+          "spring_extreme_electric100_automatic": "optional_1500_pln"
+        }
+      },
+      "rejected_shortcut": "Reusing charging_connector_type would conflate vehicle connector standard with a separately supplied cable and would not allow Type 2 and home cables to coexist.",
+      "minimum_model_requirement": "A second independently available supplied-cable concept because the home cable can coexist with the Type 2 cable and has its own commercial status and price.",
+      "new_attribute_required": true
+    }
+  ],
+  "summary": {
+    "existing_pattern_migrations": 1,
+    "new_representation_decisions": 2,
+    "master_rows_changed": 0,
+    "attributes_added": 0,
+    "commercial_items_added": 0
+  },
+  "next_package": {
+    "package_id": "spring_biel_alpejska_default_colour_migration_001",
+    "goal": "Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched."
+  },
+  "architecture_boundary": {
+    "status": "decision_required_before_cable_mutation",
+    "decision_question": "Choose the canonical representation for independently supplied charging cables before adding Type 2 or home-cable attributes and mappings.",
+    "review_recommendation": "Use separate boolean equipment concepts for the Type 2 cable and home charging cable because both can coexist and have independent standard/optional states."
+  }
+}
