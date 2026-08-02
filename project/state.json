@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Legacy PDF Source Audit",
+  "phase": "Data Product Release",
   "reference_delivery": {
-    "name": "Spring Non-conflicting Technical Observations Review",
-    "pull_request": 468,
-    "head_sha": "3154f44d7e61539b5a03f28255f9c58213811e72",
-    "quality_run": 30768210323
+    "name": "Spring Non-conflicting Common Technical Observations Migration",
+    "pull_request": 469,
+    "head_sha": "aab35b53b593c68d89eedaf1bbf6ea5373d1d830",
+    "quality_run": 30769219320
   },
   "baseline": {
-    "tests": 1819,
+    "tests": 1829,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,49 +27,36 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_nonconflicting_common_technical_observations_migration_001",
-    "kind": "bounded_configuration_value_migration",
-    "name": "Spring Non-conflicting Common Technical Observations Migration",
-    "status": "complete",
-    "goal": "Materialize the 36 approved brochure observations for battery chemistry, motor technology, steering type and nine common body dimensions, adding only the minimum controlled enum-domain support and preserving all deferred boundaries.",
-    "manifest_paths": [
-      "data/master/attribute_enum_domains.csv",
-      "data/master/enums/battery_chemistries.csv",
-      "data/master/enums/electric_motor_types.csv",
-      "data/imports/spring_nonconflicting_common_technical_20260219.csv",
-      "data/master/configuration_attribute_values.csv",
-      "tools/import_spring_nonconflicting_common_technical_20260219.py",
-      "data/reporting/spring_nonconflicting_common_technical_migration.json",
-      "data/reporting/spring_nonconflicting_common_technical_migration.md",
-      "project/packages/spring-nonconflicting-common-technical-observations-migration-20260802.md",
-      "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
-      "tools/import_spring_technical_20260219.py",
-      "tests/test_spring_technical_20260219.py",
-      "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py",
-      "tests/test_post_spring_charging_cable_priority_selection_review_20260802.py",
-      "tests/test_sandero_residual_source_closure_20260801.py",
-      "data/reporting/spring_electric70_automatic_completeness.json",
-      "data/reporting/spring_electric100_automatic_completeness.json",
-      "data/reporting/existing_configuration_missing_data_analysis.json",
-      "data/reporting/existing_configuration_missing_data_analysis.md",
-      "tests/test_attribute_enum_domains.py",
-      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_legacy_pdf_assimilation_closure_001",
     "kind": "milestone_closure_audit",
     "name": "Spring Legacy PDF Assimilation Closure",
-    "status": "planned",
-    "goal": "Close the Spring legacy-PDF milestone by proving that both registered PDFs are fully assimilated, all 36 approved observations are materialized, represented observations remain covered and every ineligible or ambiguous candidate is preserved as an explicit deferral.",
+    "status": "complete",
+    "goal": "Close the Spring legacy-PDF milestone by proving complete review of both registered PDFs, materialization of every approved observation, complete represented-data accounting and explicit preservation of every conflict or deferral.",
     "manifest_paths": [
       "tools/review_spring_legacy_pdf_assimilation_closure_20260802.py",
       "data/reporting/spring_legacy_pdf_assimilation_closure.json",
       "data/reporting/spring_legacy_pdf_assimilation_closure.md",
       "project/packages/spring-legacy-pdf-assimilation-closure-20260802.md",
       "tests/test_spring_legacy_pdf_assimilation_closure_20260802.py",
+      "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_11_0_accelerated_release_preparation_001",
+    "kind": "accelerated_release_preparation",
+    "name": "Data Products v1.11.0 Accelerated Release Preparation",
+    "status": "planned",
+    "goal": "Prepare an immutable v1.11.0 data-product release from the closed legacy-PDF milestone, prove the exact source SHA through double-build byte identity, preserve current product semantics, and publish only after complete Quality and post-merge verification.",
+    "manifest_paths": [
+      "project/packages/data-products-v1.11.0-accelerated-release-preparation-20260802.md",
+      "tests/test_data_products_v1_11_0_release_contract.py",
+      "tools/reporting/data_product_release.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

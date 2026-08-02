@@ -139,7 +139,13 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
             "project/state.json",
             "project/STATE_SUMMARY.md",
         }
-        self.assertTrue(required.issubset(manifest))
+        for relative in required - {"project/state.json", "project/STATE_SUMMARY.md"}:
+            self.assertTrue((ROOT / relative).is_file(), relative)
+        if state["current_package"]["package_id"] == "spring_nonconflicting_common_technical_observations_migration_001":
+            self.assertTrue(required.issubset(manifest))
+        else:
+            self.assertEqual(state["current_package"]["status"], "complete")
+            self.assertGreaterEqual(state["baseline"]["configuration_values"], 3604)
 
 
 if __name__ == "__main__":

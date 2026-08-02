@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Legacy PDF Source Audit**
+**Data Product Release**
 
 ## Reference delivery
 
-- Package: Spring Non-conflicting Technical Observations Review
-- Pull Request: #468
-- Verified head: `3154f44d7e61539b5a03f28255f9c58213811e72`
-- Quality run: #30768210323
+- Package: Spring Non-conflicting Common Technical Observations Migration
+- Pull Request: #469
+- Verified head: `aab35b53b593c68d89eedaf1bbf6ea5373d1d830`
+- Quality run: #30769219320
 
 ## Verified baseline
 
-- Tests: 1819
+- Tests: 1829
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Non-conflicting Common Technical Observations Migration** — `complete`
+**Spring Legacy PDF Assimilation Closure** — `complete`
 
-Materialize the 36 approved brochure observations for battery chemistry, motor technology, steering type and nine common body dimensions, adding only the minimum controlled enum-domain support and preserving all deferred boundaries.
+Close the Spring legacy-PDF milestone by proving complete review of both registered PDFs, materialization of every approved observation, complete represented-data accounting and explicit preservation of every conflict or deferral.
 
 ## Next package
 
-**Spring Legacy PDF Assimilation Closure** — `planned`
+**Data Products v1.11.0 Accelerated Release Preparation** — `planned`
 
-Close the Spring legacy-PDF milestone by proving that both registered PDFs are fully assimilated, all 36 approved observations are materialized, represented observations remain covered and every ineligible or ambiguous candidate is preserved as an explicit deferral.
+Prepare an immutable v1.11.0 data-product release from the closed legacy-PDF milestone, prove the exact source SHA through double-build byte identity, preserve current product semantics, and publish only after complete Quality and post-merge verification.
 
 ## Autonomy
 
