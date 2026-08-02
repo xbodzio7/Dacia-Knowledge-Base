@@ -15,7 +15,7 @@
     "quality_run": 30746777038
   },
   "baseline": {
-    "tests": 1788,
+    "tests": 1789,
     "csv_files": 46,
     "rows": 11716,
     "configuration_values": 3567,
@@ -46,6 +46,7 @@
       "project/state.json",
       "tests/test_spring_saved_state_artifact_intake_20260802.py",
       "tools/review_official_configurator_exact_state_capture_20260802.py",
+      "tools/review_pdf_candidate_extraction_automation_20260727.py",
       "tools/review_spring_saved_state_artifact_intake_20260802.py"
     ]
   },
