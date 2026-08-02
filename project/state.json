@@ -44,7 +44,12 @@
       "project/STATE_SUMMARY.md",
       "project/packages/spring-charging-cable-representation-migration-20260802.md",
       "project/state.json",
+      "tests/test_cross_model_comparison_view.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tests/test_sandero_residual_source_closure_20260801.py",
       "tests/test_spring_charging_cable_representation_migration_20260802.py",
+      "tests/test_spring_standard_equipment_representation_review_20260802.py",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
       "tools/migrate_spring_charging_cable_representation_20260802.py",
       "tools/review_spring_saved_state_artifact_intake_20260802.py"
     ]
