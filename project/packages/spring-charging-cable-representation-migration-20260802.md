@@ -24,6 +24,17 @@ Implement the accepted independent representation of the Type 2 cable supplied w
 - Extreme exact saved-configuration PDF `WKAWYV` dated 2026-08-02;
 - accepted decision `spring_independent_charging_cable_concepts`.
 
+## Dependent contract refresh
+
+The migration legally advances the catalog observation date to 2026-08-02,
+increases exact equipment availability and exposes the dated Essential Lichen
+Khaki reviewed component. Historical package tests now protect their own
+source-bounded decisions without freezing global repository counters.
+
+The committed PDF-candidate reconciliation remains a dated historical
+artifact. Its candidate partition and policy stay byte-preserved, while its
+test permits only the explicit live evidence-count increase from 5906 to 5911.
+
 ## Validation
 
 The migration is declarative, idempotent and guarded against semantic collisions. Full repository Quality is required on the final PR head before merge.
