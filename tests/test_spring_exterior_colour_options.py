@@ -66,18 +66,21 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         components = collect_commercial_components(ROOT, list(importer.CONFIGURATIONS), "2026-08-02")
         colour_codes = set(importer.EXPECTED_COLOURS)
         selected = [
-            row for rows in components.values() for row in rows
+            (configuration_code, row)
+            for configuration_code, component_rows in components.items()
+            for row in component_rows
             if row["code"] in colour_codes
         ]
         self.assertEqual(len(selected), 18)
-        priced = [row for row in selected if row["amount"] is not None]
+        priced = [entry for entry in selected if entry[1]["amount"] is not None]
         self.assertEqual(len(priced), 1)
-        self.assertEqual(priced[0]["code"], "spring_colour_lichen_khaki")
-        self.assertEqual(priced[0]["configuration_code"], "spring_essential_electric70_automatic")
-        self.assertEqual(priced[0]["amount"], 2300.0)
-        self.assertEqual(priced[0]["currency_code"], "PLN")
-        self.assertEqual(priced[0]["price_date"], "2026-08-02")
-        unpriced = [row for row in selected if row["amount"] is None]
+        configuration_code, component = priced[0]
+        self.assertEqual(component["code"], "spring_colour_lichen_khaki")
+        self.assertEqual(configuration_code, "spring_essential_electric70_automatic")
+        self.assertEqual(component["amount"], 2300.0)
+        self.assertEqual(component["currency_code"], "PLN")
+        self.assertEqual(component["price_date"], "2026-08-02")
+        unpriced = [row for _, row in selected if row["amount"] is None]
         self.assertEqual(len(unpriced), 17)
         self.assertTrue(
             all(row["currency_code"] == "PLN" and row["price_date"] == "" for row in unpriced)
