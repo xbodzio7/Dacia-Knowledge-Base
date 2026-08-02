@@ -1,0 +1,69 @@
+publish	Verify assets and offline workspace	﻿2026-08-02T22:55:55.1583453Z ##[group]Run python tools/dkb.py data-product-release \
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1583967Z ^[[36;1mpython tools/dkb.py data-product-release \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1584345Z ^[[36;1m  --output-directory "${RUNNER_TEMP}/release-a" \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1584698Z ^[[36;1m  --verify^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1585023Z ^[[36;1mexport RELEASE_ASSETS="${RUNNER_TEMP}/release-a"^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1585463Z ^[[36;1mexport OFFLINE_WORKSPACE="${RUNNER_TEMP}/workspace"^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1585809Z ^[[36;1mpython - <<'PY'^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1586081Z ^[[36;1mimport os^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1586346Z ^[[36;1mimport shutil^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1586638Z ^[[36;1mfrom pathlib import Path^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1586936Z ^[[36;1m^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1587230Z ^[[36;1mfrom reporting.data_product_release_download import (^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1587571Z ^[[36;1m    ASSETS_DIRECTORY_NAME,^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1587890Z ^[[36;1m    CONTENTS_DIRECTORY_NAME,^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1588225Z ^[[36;1m    _extract_verified_contents,^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1588615Z ^[[36;1m)^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1588952Z ^[[36;1mfrom reporting.data_product_release_model import verify_release_assets^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1589675Z ^[[36;1mfrom reporting.data_product_workspace_index import write_workspace_index^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1590084Z ^[[36;1m^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1590395Z ^[[36;1mrelease_assets = Path(os.environ["RELEASE_ASSETS"])^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1590792Z ^[[36;1mworkspace = Path(os.environ["OFFLINE_WORKSPACE"])^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1591151Z ^[[36;1massets = workspace / ASSETS_DIRECTORY_NAME^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1591497Z ^[[36;1mcontents = workspace / CONTENTS_DIRECTORY_NAME^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1591881Z ^[[36;1mshutil.copytree(release_assets, assets)^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1592239Z ^[[36;1mmanifest = verify_release_assets(assets)^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1592610Z ^[[36;1m_extract_verified_contents(assets, contents, manifest)^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1592987Z ^[[36;1mwrite_workspace_index(^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1593272Z ^[[36;1m    workspace,^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1593555Z ^[[36;1m    manifest,^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1593829Z ^[[36;1m    {^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1594105Z ^[[36;1m        "release_version": manifest["release_version"],^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1594488Z ^[[36;1m        "release_tag": manifest["release_tag"],^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1594852Z ^[[36;1m        "repository_commit": manifest["repository_commit"],^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1595197Z ^[[36;1m        "release_url": (^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1595589Z ^[[36;1m            "https://github.com/xbodzio7/Dacia-Knowledge-Base/"^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1595975Z ^[[36;1m            f"releases/tag/{manifest['release_tag']}"^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1596302Z ^[[36;1m        ),^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1596549Z ^[[36;1m    },^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1596772Z ^[[36;1m)^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1597051Z ^[[36;1mPY^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1597352Z ^[[36;1mpython tools/dkb.py data-product-workspace-verify \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1597899Z ^[[36;1m  --workspace-directory "${RUNNER_TEMP}/workspace" \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1598255Z ^[[36;1m  --json^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1598518Z ^[[36;1munzip -p \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1598947Z ^[[36;1m  "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.11.0.zip" \^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1599559Z ^[[36;1m  RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"^[[0m
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1624391Z shell: /usr/bin/bash -e {0}
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1624717Z env:
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1625143Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1625585Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1626021Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1626406Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1626785Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1627206Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.1627562Z ##[endgroup]
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4737115Z Versioned data product release
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4738211Z ------------------------------
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4738513Z Version                 : 1.11.0
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4738815Z Tag                     : data-products-v1.11.0
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4739434Z Repository commit       : a5eb43465e969838c16af78b4b04c6de514cd875
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4739877Z Selected configurations : 81
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4740179Z Independent scopes      : 22
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4740624Z Archive                 : /home/runner/work/_temp/release-a/dacia-knowledge-base-data-products-v1.11.0.zip
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4741183Z Manifest                : /home/runner/work/_temp/release-a/data-product-release-manifest.json
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.4741722Z Checksums               : /home/runner/work/_temp/release-a/SHA256SUMS
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.5271775Z Traceback (most recent call last):
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.5278827Z   File "<stdin>", line 5, in <module>
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.5279855Z ModuleNotFoundError: No module named 'reporting'
+publish	Verify assets and offline workspace	2026-08-02T22:55:55.5336465Z ##[error]Process completed with exit code 1.
