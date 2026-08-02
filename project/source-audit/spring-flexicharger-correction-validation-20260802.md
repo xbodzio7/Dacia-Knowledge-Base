@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-08-02  
 **Package:** `legacy_pdf_source_audit_governance_001`  
-**Status:** correction materialized; final Quality required before merge
+**Status:** correction materialized; independent final Quality running before merge
 
 ## Confirmed evidence boundary
 
