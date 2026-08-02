@@ -35,6 +35,14 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
+          path = Path('tests/test_portfolio_model_family_summary.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'self.assertEqual(rendered.count("SHA-256 "), 33)',
+              'self.assertEqual(rendered.count("SHA-256 "), 37)',
+          )
+          path.write_text(text, encoding='utf-8')
+
           path = Path('tools/dkb.py')
           text = path.read_text(encoding='utf-8')
           needle = '''    "cross-model-comparison-view": (
