@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Charging Cable Commercial Semantics Migration",
+  "phase": "Post-Spring Charging Cable Priority Selection Review",
   "reference_delivery": {
-    "name": "Spring Charging Cable Representation Migration",
-    "pull_request": 461,
-    "head_sha": "4d7bc3c1a92b851b7e72eab4f9c6b72b27d8b241",
-    "quality_run": 30752269446
+    "name": "Spring Charging Cable Commercial Semantics Migration",
+    "pull_request": 463,
+    "head_sha": "03689bc254b43fce8013239dbb6a375cb5f40972",
+    "quality_run": 30754723443
   },
   "baseline": {
-    "tests": 1790,
+    "tests": 1793,
     "csv_files": 46,
     "rows": 11727,
     "configuration_values": 3567,
@@ -27,33 +27,36 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_charging_cable_commercial_semantics_migration_001",
-    "kind": "bounded_commercial_data_migration",
-    "name": "Spring Charging Cable Commercial Semantics Migration",
-    "status": "complete",
-    "goal": "Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.",
-    "manifest_paths": [
-      "data/master/commercial_items.csv",
-      "data/master/commercial_item_attributes.csv",
-      "data/master/commercial_item_configurations.csv",
-      "data/reporting/spring_charging_cable_commercial_semantics_migration.json",
-      "data/reporting/spring_charging_cable_commercial_semantics_migration.md",
-      "project/STATE_SUMMARY.md",
-      "project/state.json",
-      "tests/test_spring_charging_cable_commercial_semantics_migration_20260802.py",
-      "tools/apply_spring_charging_cable_commercial_semantics_migration_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_spring_charging_cable_priority_selection_review_001",
     "kind": "bounded_priority_selection_review",
     "name": "Post-Spring Charging Cable Priority Selection Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Select the next bounded repository package from current evidence and unresolved queues without changing master data.",
     "manifest_paths": [
+      "data/reporting/post_spring_charging_cable_priority_selection_review.json",
+      "data/reporting/post_spring_charging_cable_priority_selection_review.md",
+      "project/packages/post-spring-charging-cable-priority-selection-review-20260802.md",
+      "project/STATE_SUMMARY.md",
+      "project/state.json",
+      "tests/test_post_spring_charging_cable_priority_selection_review_20260802.py",
+      "tools/review_post_spring_charging_cable_priority_selection_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_biel_alpejska_default_colour_migration_001",
+    "kind": "bounded_configuration_value_and_commercial_mapping_migration",
+    "name": "Spring Essential Biel Alpejska Default Colour Migration",
+    "status": "planned",
+    "goal": "Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.",
+    "manifest_paths": [
+      "data/imports/configuration_attribute_value_imports.csv",
+      "data/master/configuration_attribute_values.csv",
+      "data/master/commercial_item_configurations.csv",
+      "data/reporting/",
       "project/state.json",
       "project/STATE_SUMMARY.md",
-      "data/reporting/"
+      "tests/",
+      "tools/"
     ]
   },
   "autonomy": {

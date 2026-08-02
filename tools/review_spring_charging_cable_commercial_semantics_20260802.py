@@ -56,7 +56,7 @@ def verify(root: Path = ROOT) -> None:
     membership = type2_memberships[0]
     if membership["id"] != "70":
         raise AssertionError("historical Type 2 membership id drifted")
-    migration_complete = state["current_package"]["package_id"] == "spring_charging_cable_commercial_semantics_migration_001"
+    migration_complete = DOMESTIC_ITEM in items
     expected_membership = "type2_charging_cable_supplied" if migration_complete else "charging_connector_type"
     if membership["attribute_code"] != expected_membership:
         raise AssertionError("historical Type 2 membership is outside the accepted transition")
@@ -82,7 +82,7 @@ def verify(root: Path = ROOT) -> None:
     domestic_memberships = [row for row in memberships if row["commercial_item_code"] == DOMESTIC_ITEM]
     domestic_mappings = [row for row in mappings if row["commercial_item_code"] == DOMESTIC_ITEM]
     if migration_complete:
-        if DOMESTIC_ITEM not in items or len(domestic_memberships) != 1 or len(domestic_mappings) != 2:
+        if len(domestic_memberships) != 1 or len(domestic_mappings) != 2:
             raise AssertionError("materialized domestic-cable representation is incomplete")
         if domestic_memberships[0]["attribute_code"] != "domestic_socket_charging_cable":
             raise AssertionError("materialized domestic membership drifted")
@@ -91,7 +91,7 @@ def verify(root: Path = ROOT) -> None:
             "spring_extreme_electric100_automatic",
         }:
             raise AssertionError("materialized domestic mapping scope drifted")
-    elif DOMESTIC_ITEM in items or domestic_memberships or domestic_mappings:
+    elif domestic_memberships or domestic_mappings:
         raise AssertionError("review package unexpectedly materialized domestic representation")
 
     if report["historical_type2_item"]["source_meaning"] != "physical_type2_charging_cable":
