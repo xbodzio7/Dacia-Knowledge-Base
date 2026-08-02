@@ -1,3 +1,4 @@
+# Trigger the trusted main-branch source-audit synchronizer.
 name: Finalize PR 466 Source Audit
 
 on:
