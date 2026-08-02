@@ -1,0 +1,39 @@
+name: Temporary Refresh Spring White Baseline
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-probe-configuration-value-specs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Refresh and verify managed documentation
+        run: |
+          python tools/documentation_baseline.py --apply
+          python tools/documentation_baseline.py --check
+
+      - name: Commit refreshed documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md README.md project/SESSION_STATE.md
+          git commit -m "docs: refresh Spring white migration baseline"
+          git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
