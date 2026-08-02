@@ -1,0 +1,54 @@
+name: AI diagnose Spring commercial migration
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Diagnose package application
+        shell: bash
+        run: |
+          set -u
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .github/workflows/ai-diagnose-spring-commercial-migration.yml
+          git add -A
+          git commit -m 'ci: remove Spring commercial migration diagnostic'
+          git push origin HEAD:main
+
+          git fetch origin agent/spring-charging-cable-commercial-semantics-migration-20260802
+          git checkout -B agent/spring-charging-cable-commercial-semantics-migration-20260802 origin/agent/spring-charging-cable-commercial-semantics-migration-20260802
+          {
+            echo '# Diagnostic'
+            echo
+            echo '## Merge main'
+            git merge origin/main --no-edit
+            echo
+            echo '## State check'
+            python3 tools/dkb.py project-state --check
+            echo
+            echo '## Current counts'
+            python3 - <<'PY'
+          import csv
+          from pathlib import Path
+          for name in ['commercial_items.csv','commercial_item_attributes.csv','commercial_item_configurations.csv']:
+              path=Path('data/master')/name
+              with path.open(encoding='utf-8', newline='') as handle:
+                  print(name, sum(1 for _ in csv.DictReader(handle)))
+          PY
+          } > project/spring-commercial-migration-diagnostic.txt 2>&1
+          status=$?
+          echo "exit_status=$status" >> project/spring-commercial-migration-diagnostic.txt
+          git add project/spring-commercial-migration-diagnostic.txt
+          git commit -m 'diagnostic: capture Spring commercial migration state'
+          git push origin HEAD:agent/spring-charging-cable-commercial-semantics-migration-20260802
+          exit 0
