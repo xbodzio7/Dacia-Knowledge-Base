@@ -1,0 +1,58 @@
+name: PR 466 Final Quality
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    if: github.event.pull_request.number == 466
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install PDF backend
+        if: matrix.python-version == '3.14'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Compile and test
+        if: matrix.python-version != '3.14'
+        run: |
+          python -m compileall -q tools scripts tests
+          python -m unittest discover -s tests -p 'test_*.py' -q
+          python -m unittest -q tests.project_state_contract tests.autonomy_policy_contract tests.quality_artifact_manifest_contract tests.configuration_comparison_context_filter_contract tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+      - name: Full quality
+        if: matrix.python-version == '3.14'
+        run: python tools/dkb.py quality --concise --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" --log-file "${RUNNER_TEMP}/quality.log" --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+  windows:
+    if: github.event.pull_request.number == 466
+    name: Package workflow / Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.13"
+      - name: Package tests and project state
+        shell: pwsh
+        run: |
+          python -m unittest -q tests.package_workflow_contract tests.package_publish_contract tests.package_finish_contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/dkb.py project-state --check
