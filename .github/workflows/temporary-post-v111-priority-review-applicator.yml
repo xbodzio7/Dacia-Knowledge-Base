@@ -1,0 +1,34 @@
+name: Temporary Post-v1.11 Priority Review Applicator
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/post-v1-11-0-release-priority-selection-review-001'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Apply and verify priority review
+        run: |
+          set -euo pipefail
+          python tools/review_post_v1_11_0_release_priority_selection_20260803.py --apply
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/review_post_v1_11_0_release_priority_selection_20260803.py --verify
+          python -m unittest -q tests.test_post_v1_11_0_release_priority_selection_20260803
+          python tools/dkb.py project-state --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'review: select post-v1.11.0 reporting priority'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
