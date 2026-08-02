@@ -196,10 +196,9 @@ def advance_state() -> None:
     state["summary"] = "Pakiet `spring_charging_cable_representation_migration_001` został przygotowany w PR #460: rozdzielono przewód Type 2 od przewodu do gniazdka domowego, wpisano wyłącznie potwierdzoną dostępność Spring i dodano provenance na poziomie rekordów."
     candidates = [candidate for candidate in state.get("candidate_next_work_packages", []) if candidate.get("id") != "spring_charging_cable_representation_migration_001"]
     state["candidate_next_work_packages"] = candidates
-    next_candidate = sorted(candidates, key=lambda candidate: candidate.get("priority", 999))[0]
     state["next_work_package"] = {
-        "id": next_candidate["id"],
-        "objective": next_candidate["objective"],
+        "id": "source_credibility_scoring_and_lifecycle_001",
+        "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",
         "acceptance_criteria": [
             "Zdefiniować jawny scoring wiarygodności źródeł zgodny z governance i lifecycle obserwacji.",
             "Wdrożyć model danych i walidację bez zmiany znaczenia istniejących obserwacji.",
@@ -216,7 +215,7 @@ def advance_state() -> None:
     if "PR #460" not in recent:
         recent.append("PR #460")
     path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    subprocess.run(["python3", str(ROOT / "tools/project_state.py")], cwd=ROOT, check=True)
+    subprocess.run(["python3", "tools/dkb.py", "project-state", "--apply"], cwd=ROOT, check=True)
 
 
 def main() -> None:

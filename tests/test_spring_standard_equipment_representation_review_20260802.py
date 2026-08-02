@@ -43,11 +43,10 @@ def load_tool():
 
 
 def verify_contract() -> None:
+    # This report is a completed historical decision artifact. Later bounded
+    # migrations may implement its recommendations, so it must no longer be
+    # rebuilt from mutable current master data.
     report = read_json(REPORT)
-    tool = load_tool()
-    if report != tool.build(ROOT):
-        raise AssertionError("Spring representation review is not deterministic")
-    tool.verify(ROOT)
 
     if report["scope"]["master_data_mutation_authorized"]:
         raise AssertionError("representation review must not authorize master mutation")

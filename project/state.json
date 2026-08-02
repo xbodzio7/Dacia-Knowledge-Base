@@ -17,13 +17,13 @@
   "baseline": {
     "tests": 1788,
     "csv_files": 46,
-    "rows": 11716,
+    "rows": 11723,
     "configuration_values": 3567,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 316,
     "configuration_range_import_specs": 24,
-    "availability_records": 5906,
-    "attributes": 385,
+    "availability_records": 5911,
+    "attributes": 387,
     "attribute_categories": 30
   },
   "current_package": {
@@ -109,5 +109,28 @@
     "allow_multi_source_package": "only_for_one_logical_closure_scope",
     "release_double_build_required": true,
     "release_exact_source_sha_required": true
+  },
+  "updated_at": "2026-08-02T14:11:35Z",
+  "summary": "Pakiet `spring_charging_cable_representation_migration_001` został przygotowany w PR #460: rozdzielono przewód Type 2 od przewodu do gniazdka domowego, wpisano wyłącznie potwierdzoną dostępność Spring i dodano provenance na poziomie rekordów.",
+  "candidate_next_work_packages": [],
+  "next_work_package": {
+    "id": "source_credibility_scoring_and_lifecycle_001",
+    "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",
+    "acceptance_criteria": [
+      "Zdefiniować jawny scoring wiarygodności źródeł zgodny z governance i lifecycle obserwacji.",
+      "Wdrożyć model danych i walidację bez zmiany znaczenia istniejących obserwacji.",
+      "Dodać testy regresji, uruchomić `make check` oraz `python3 tools/project_state.py --check`."
+    ],
+    "recommended_context": [
+      "project/SCHEMA_GOVERNANCE.md",
+      "project/DATA_ARCHITECTURE.md",
+      "project/SOURCE_INTAKE_CHECKLIST.md",
+      "data/master/sources.csv"
+    ]
+  },
+  "context": {
+    "recently_merged": [
+      "PR #460"
+    ]
   }
 }
