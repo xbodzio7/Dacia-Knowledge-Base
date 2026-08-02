@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Spring Charging Cable Commercial Semantics Migration**
+**Post-Spring Charging Cable Priority Selection Review**
 
 ## Reference delivery
 
-- Package: Spring Charging Cable Representation Migration
-- Pull Request: #461
-- Verified head: `4d7bc3c1a92b851b7e72eab4f9c6b72b27d8b241`
-- Quality run: #30752269446
+- Package: Spring Charging Cable Commercial Semantics Migration
+- Pull Request: #463
+- Verified head: `03689bc254b43fce8013239dbb6a375cb5f40972`
+- Quality run: #30754723443
 
 ## Verified baseline
 
-- Tests: 1790
+- Tests: 1791
 - Master CSV files: 46
 - Master rows: 11727
 - Configuration values: 3567
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Charging Cable Commercial Semantics Migration** — `complete`
+**Post-Spring Charging Cable Priority Selection Review** — `complete`
 
-Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.
+Select the next bounded repository package from current evidence and unresolved queues without changing master data.
 
 ## Next package
 
-**Post-Spring Charging Cable Priority Selection Review** — `planned`
+**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
 
-Select the next bounded repository package from current evidence and unresolved queues without changing master data.
+Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.
 
 ## Autonomy
 
