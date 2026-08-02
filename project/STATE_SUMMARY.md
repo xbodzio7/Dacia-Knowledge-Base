@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.11.0 Accelerated Release Preparation**
+**Data Products v1.11.0 Publication**
 
 ## Reference delivery
 
-- Package: Spring Legacy PDF Assimilation Closure
-- Pull Request: #470
-- Verified head: `74265e84714197931355feba9e64c7631cb4c803`
-- Quality run: #30770184005
+- Package: Data Products v1.11.0 Publication
+- Pull Request: #474
+- Verified head: `0f9a76228ef374d7982421c5a246f00fe7378a94`
+- Quality run: #30771725527
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.11.0 Accelerated Release Preparation** — `complete`
+**Data Products v1.11.0 Publication** — `complete`
 
-Prepare immutable v1.11.0 publication from the closed Spring legacy-PDF milestone using a separate exact-SHA publication trigger, double-build byte identity and complete post-upload verification.
+Publish the verified post-Spring-milestone data products from the exact publication merge commit without changing product semantics.
 
 ## Next package
 
-**Data Products v1.11.0 Publication** — `planned`
+**Post-v1.11.0 Release Priority Selection Review** — `planned`
 
-Merge a dedicated publication trigger, build the assets twice from that exact merge SHA, verify byte identity and the offline workspace, publish immutable assets, verify the public download and record the result.
+Inspect the canonical source registry, completeness reports and roadmap after the immutable v1.11.0 publication and select one bounded next package without reopening closed evidence or inferring a source candidate.
 
 ## Autonomy
 

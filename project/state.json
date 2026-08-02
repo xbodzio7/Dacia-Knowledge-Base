@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.11.0 Accelerated Release Preparation",
+  "phase": "Data Products v1.11.0 Publication",
   "reference_delivery": {
-    "name": "Spring Legacy PDF Assimilation Closure",
-    "pull_request": 470,
-    "head_sha": "74265e84714197931355feba9e64c7631cb4c803",
-    "quality_run": 30770184005
+    "name": "Data Products v1.11.0 Publication",
+    "pull_request": 474,
+    "head_sha": "0f9a76228ef374d7982421c5a246f00fe7378a94",
+    "quality_run": 30771725527
   },
   "baseline": {
     "tests": 1835,
@@ -27,39 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_11_0_accelerated_release_preparation_001",
-    "kind": "accelerated_release_preparation",
-    "name": "Data Products v1.11.0 Accelerated Release Preparation",
+    "package_id": "data_products_v1_11_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.11.0 Publication",
     "status": "complete",
-    "goal": "Prepare immutable v1.11.0 publication from the closed Spring legacy-PDF milestone using a separate exact-SHA publication trigger, double-build byte identity and complete post-upload verification.",
+    "goal": "Publish the verified post-Spring-milestone data products from the exact publication merge commit without changing product semantics.",
     "manifest_paths": [
-      ".github/workflows/temporary-publish-data-products-v1.11.0.yml",
+      "data/reporting/data_products_v1_11_0_publication.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.11.0-accelerated-release-preparation-20260802.md",
+      "project/packages/data-products-v1.11.0-publication-20260802.md",
       "project/state.json",
       "tests/test_data_products_v1_11_0_release_contract.py",
-      "tests/test_spring_legacy_pdf_assimilation_closure_20260802.py",
-      "tools/record_data_products_v1_11_0_publication_20260802.py",
       "tools/reporting/data_product_release.py"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_11_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.11.0 Publication",
+    "package_id": "post_v1_11_0_release_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.11.0 Release Priority Selection Review",
     "status": "planned",
-    "goal": "Merge a dedicated publication trigger, build the assets twice from that exact merge SHA, verify byte identity and the offline workspace, publish immutable assets, verify the public download and record the result.",
-    "manifest_paths": [
-      "project/packages/data-products-v1.11.0-publication-trigger-20260802.md"
-    ],
-    "resume_after_publication": {
-      "package_id": "post_v1_11_0_release_priority_selection_review_001",
-      "kind": "priority_selection_review",
-      "name": "Post-v1.11.0 Release Priority Selection Review",
-      "status": "planned",
-      "goal": "Inspect canonical source, completeness and roadmap evidence after publication and select one bounded next package without reopening closed evidence or inferring a source candidate.",
-      "manifest_paths": []
-    }
+    "goal": "Inspect the canonical source registry, completeness reports and roadmap after the immutable v1.11.0 publication and select one bounded next package without reopening closed evidence or inferring a source candidate.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
