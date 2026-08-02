@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1789
+- Tests: 1788
 - Master CSV files: 46
 - Master rows: 11716
 - Configuration values: 3567
