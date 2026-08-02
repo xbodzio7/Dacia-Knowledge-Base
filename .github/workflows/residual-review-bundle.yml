@@ -1,74 +1,127 @@
 name: Residual Review Bundle
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    paths:
+      - .github/workflows/residual-review-bundle.yml
+      - tools/residual_review_bundle.py
+      - tests/residual_review_bundle_contract.py
+      - project/state.json
+      - project/sources/official-dacia-brochures-20260725.json
+      - data/reporting/verified_pdf_candidate_residual_gap_prioritization.json
+      - data/reporting/verified_pdf_candidate_residual_review_closure.json
+  workflow_dispatch:
+    inputs:
+      package_id:
+        description: Canonical residual package ID; empty uses project/state.json
+        required: false
+        type: string
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   residual-review-bundle:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: agent/legacy-pdf-source-audit-governance-20260802
-          fetch-depth: 0
-          persist-credentials: true
-      - name: Synchronize canonical audit state
-        shell: bash
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Install PDF rendering backend
         run: |
-          set -euo pipefail
-          python3 - <<'PY'
+          if ! command -v pdftotext >/dev/null 2>&1 || ! command -v pdftoppm >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends poppler-utils
+          fi
+          pdftotext -v
+          pdftoppm -v
+
+      - name: Run residual review bundle tests
+        run: python -m unittest -v tests.residual_review_bundle_contract
+
+      - name: Resolve residual package
+        id: package
+        env:
+          REQUESTED_PACKAGE_ID: ${{ inputs.package_id }}
+        run: |
+          python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
-          path = Path('project/state.json')
-          state = json.loads(path.read_text(encoding='utf-8'))
-          state['phase'] = 'Legacy PDF Source Audit'
-          state['baseline']['tests'] = 1795
-          state['baseline']['rows'] = 11730
-          state['current_package'] = {
-              'package_id': 'legacy_pdf_source_audit_governance_001',
-              'kind': 'bounded_source_audit_governance',
-              'name': 'Legacy PDF Source Audit Governance and Spring FlexiCharger Correction',
-              'status': 'complete',
-              'goal': 'Require complete documentary-source assimilation, register legacy PDF coverage and correct the confirmed Spring Expression FlexiCharger omission.',
-              'manifest_paths': [
-                  'project/SOURCE_ASSIMILATION_STANDARD.md',
-                  'project/START_HERE.md',
-                  'project/source-audit/',
-                  'data/master/commercial_items.csv',
-                  'data/master/commercial_item_configurations.csv',
-                  'tools/apply_spring_expression_flexicharger_correction_20260802.py',
-                  'tools/repair_spring_flexicharger_historical_contracts_20260802.py',
-                  'tests/test_spring_expression_flexicharger_correction_20260802.py',
-                  'project/state.json',
-                  'project/STATE_SUMMARY.md'
-              ]
-          }
-          state['next_package'] = {
-              'package_id': 'legacy_pdf_full_assimilation_spring_sources_001',
-              'kind': 'bounded_full_document_source_assimilation',
-              'name': 'Spring Brochure and Price List Full Assimilation Audit',
-              'status': 'planned',
-              'goal': 'Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.',
-              'manifest_paths': [
-                  'project/source-audit/',
-                  'data/reporting/',
-                  'project/state.json',
-                  'project/STATE_SUMMARY.md'
-              ]
-          }
-          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          from tools import residual_review_bundle
+
+          state = json.loads(Path("project/state.json").read_text(encoding="utf-8"))
+          requested = os.environ.get("REQUESTED_PACKAGE_ID", "").strip()
+          queue_complete = False
+          if requested:
+              package_id = requested
+          else:
+              try:
+                  package_id = residual_review_bundle.default_package_id(state)
+              except residual_review_bundle.ResidualReviewBundleError:
+                  packages = json.loads(
+                      Path(
+                          "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json"
+                      ).read_text(encoding="utf-8")
+                  )["packages"]
+                  current = state.get("current_package")
+                  final_package_id = packages[-1].get("package_id") if packages else None
+                  current_is_final = (
+                      isinstance(current, dict)
+                      and current.get("kind") == "residual_review"
+                      and current.get("status") == "complete"
+                      and current.get("package_id") == final_package_id
+                  )
+                  closure_path = Path(
+                      "data/reporting/verified_pdf_candidate_residual_review_closure.json"
+                  )
+                  closure_is_verified = False
+                  if closure_path.is_file() and final_package_id:
+                      closure = json.loads(closure_path.read_text(encoding="utf-8"))
+                      verification = closure.get("verification", {})
+                      closure_is_verified = (
+                          closure.get("status") == "complete"
+                          and closure.get("scope", {}).get("package_count") == len(packages)
+                          and closure.get("scope", {}).get("last_package_id")
+                          == final_package_id
+                          and verification.get("package_ids_sequential_and_unique") is True
+                          and verification.get("one_complete_review_report_per_package") is True
+                          and verification.get("candidate_ids_assigned_exactly_once") is True
+                          and verification.get(
+                              "candidate_ids_and_exact_text_match_prioritization"
+                          )
+                          is True
+                      )
+                  if not (current_is_final or closure_is_verified):
+                      raise
+                  package_id = final_package_id
+                  queue_complete = True
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write(f"package_id={package_id}\n")
+              output.write(f"queue_complete={str(queue_complete).lower()}\n")
           PY
-          python3 tools/dkb.py project-state --apply
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add project/state.json project/STATE_SUMMARY.md README.md CHANGELOG.md project/SESSION_STATE.md project/ROADMAP.md
-          if ! git diff --cached --quiet; then
-            git commit -m 'docs: synchronize legacy PDF audit state'
-            git push origin HEAD:agent/legacy-pdf-source-audit-governance-20260802
+
+      - name: Generate source-verified review bundle
+        run: |
+          python tools/residual_review_bundle.py \
+            --package-id "${{ steps.package.outputs.package_id }}" \
+            --output-directory "${RUNNER_TEMP}/residual-review-bundle"
+          if [ "${{ steps.package.outputs.queue_complete }}" = "true" ]; then
+            echo "Canonical residual review queue is complete at ${{ steps.package.outputs.package_id }}."
           fi
+
+      - name: Upload residual review bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: residual-review-bundle
+          path: ${{ runner.temp }}/residual-review-bundle
+          if-no-files-found: error
+          retention-days: 14
