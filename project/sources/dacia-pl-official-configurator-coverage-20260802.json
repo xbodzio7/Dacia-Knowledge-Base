@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "source_code": "src_pl_dacia_official_configurator_coverage_20260802",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-02",
+  "catalog_url": "https://www.dacia.pl/konfiguruj.html",
+  "volatility": "dynamic_official_web",
+  "active_model_families": 6,
+  "primary_configurator_surfaces": 7,
+  "model_surfaces": [
+    {
+      "model_code": "spring",
+      "model_name": "SPRING",
+      "configurator_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+      "default_state": {
+        "state_label": "SPRING essential 70 MY26.b",
+        "grade": "essential",
+        "powertrain": "electric 70",
+        "transmission": "automatic",
+        "catalog_price_pln": 73500,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme"
+      ],
+      "existing_exact_state_source": "src_pl_spring_official_configurator_20260731",
+      "user_provided_deep_links": [
+        {
+          "url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEYl%2FAyq",
+          "payload_url": "https://pl.co.rplug.renault.com/c/BAEYl/Ayq",
+          "static_resolution": "not_resolved",
+          "observed_fallback": "The static fetch returned the default Essential state rather than proving the saved-state grade.",
+          "normalization_boundary": "Do not infer Expression, cable or option states from the opaque conf payload."
+        }
+      ]
+    },
+    {
+      "model_code": "sandero_iii",
+      "model_name": "NOWE SANDERO",
+      "configurator_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+      "default_state": {
+        "state_label": "NOWE SANDERO essential TCe 100 F.2",
+        "grade": "essential",
+        "powertrain": "TCe 100",
+        "transmission": "manual",
+        "catalog_price_pln": 63900,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "journey"
+      ],
+      "existing_exact_state_source": "src_pl_sandero_official_web_configurations_20260723"
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "model_name": "NOWE SANDERO STEPWAY",
+      "configurator_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+      "default_state": {
+        "state_label": "NOWE SANDERO STEPWAY essential stepway TCe 110 f.2",
+        "grade": "essential",
+        "powertrain": "TCe 110",
+        "transmission": "manual",
+        "catalog_price_pln": 71700,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme"
+      ],
+      "existing_exact_state_source": "src_pl_sandero_stepway_official_web_configurations_20260723"
+    },
+    {
+      "model_code": "jogger",
+      "surface_code": "jogger_5_seat",
+      "model_name": "NOWY JOGGER",
+      "configurator_url": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+      "default_state": {
+        "state_label": "NOWY JOGGER essential Eco-G 120 5-miejsc",
+        "grade": "essential",
+        "powertrain": "Eco-G 120",
+        "transmission": "manual",
+        "seat_count": 5,
+        "catalog_price_pln": 77900,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "surface_code": "jogger_7_seat",
+      "model_name": "NOWY JOGGER (7 MIEJSC)",
+      "configurator_url": "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html",
+      "default_state": {
+        "state_label": "NOWY JOGGER (7 MIEJSC) essential Eco-G 120 7-miejsc",
+        "grade": "essential",
+        "powertrain": "Eco-G 120",
+        "transmission": "manual",
+        "seat_count": 7,
+        "catalog_price_pln": 82400,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ],
+      "known_alias_url": "https://www.dacia.pl/samochody/jogger-7/konfigurator.html"
+    },
+    {
+      "model_code": "duster_iii",
+      "model_name": "DUSTER",
+      "configurator_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+      "default_state": {
+        "state_label": "DUSTER essential Eco-G 120",
+        "grade": "essential",
+        "powertrain": "Eco-G 120",
+        "transmission": "manual",
+        "drive_type": "4x2",
+        "catalog_price_pln": 82000,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
+    },
+    {
+      "model_code": "bigster",
+      "model_name": "BIGSTER",
+      "configurator_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html",
+      "default_state": {
+        "state_label": "BIGSTER essential mild hybrid-G 140",
+        "grade": "essential",
+        "powertrain": "mild hybrid-G 140",
+        "transmission": "manual 6",
+        "drive_type": "4x2",
+        "catalog_price_pln": 101400,
+        "default_colour": "biel alpejska",
+        "default_colour_price_pln": 0
+      },
+      "visible_grades": [
+        "essential",
+        "expression",
+        "extreme",
+        "journey"
+      ]
+    }
+  ],
+  "excluded_catalog_entries": [
+    {
+      "model_name": "STRIKER",
+      "reason": "The Dacia configurator catalogue exposes a model discovery link but no configurator action on 2026-08-02."
+    }
+  ],
+  "coverage_reconciliation": {
+    "previous_catalog_snapshot": "src_pl_dacia_official_configurators_20260723",
+    "previously_omitted_active_model_families": [
+      "spring"
+    ],
+    "newly_normalized_split_surfaces": [
+      "jogger_5_seat",
+      "jogger_7_seat"
+    ],
+    "canonical_url_updates": [
+      "sandero_iii",
+      "jogger",
+      "duster_iii",
+      "bigster"
+    ],
+    "exact_state_dimensions": [
+      "model_code",
+      "grade",
+      "powertrain",
+      "transmission",
+      "drive_type",
+      "seat_count",
+      "model_year_or_phase",
+      "conf_url"
+    ],
+    "applicability_rule": "No option, package, equipment, price or technical value is propagated across a missing exact-state dimension.",
+    "master_data_mutation_authorized": false
+  },
+  "spring_reconciliation": {
+    "essential_default_state_confirmed": true,
+    "essential_type2_cable_standard_confirmed": true,
+    "essential_home_cable_optional_price_pln": 1500,
+    "expression_saved_state_registered": true,
+    "expression_saved_state_statically_resolved": false,
+    "expression_cable_state": "unresolved_pending_exact_saved_state_capture",
+    "supplied_cable_architecture_decision": "deferred_until_exact_state_capture"
+  },
+  "next_capture_requirements": [
+    "Open or export each saved conf state and retain its exact state label.",
+    "Capture grade, powertrain, transmission, drive and seat count before equipment.",
+    "Record standard equipment separately from zero-price technical criteria and accessories.",
+    "Retain option/package dependencies, exclusions and prices for the exact state only.",
+    "Prefer the configurator PDF or shareable saved-state payload when static HTML falls back to a default state."
+  ],
+  "registration_only": true
+}

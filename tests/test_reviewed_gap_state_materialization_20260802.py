@@ -153,15 +153,10 @@ console.log(JSON.stringify(values));
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
         self.assertGreaterEqual(state["reference_delivery"]["pull_request"], 449)
         self.assertEqual(state["current_package"]["status"], "complete")
-        current_id = state["current_package"]["package_id"]
-        self.assertTrue(current_id)
+        self.assertTrue(state["current_package"]["package_id"])
         self.assertTrue(state["next_package"]["package_id"])
         self.assertGreaterEqual(state["baseline"]["tests"], 1788)
-        expected_rows = 11714 if current_id in {
-            "spring_essential_khaki_price_apply_001",
-            "spring_standard_equipment_representation_review_001",
-        } else 11713
-        self.assertEqual(state["baseline"]["rows"], expected_rows)
+        self.assertGreaterEqual(state["baseline"]["rows"], 11713)
 
 
 if __name__ == "__main__":

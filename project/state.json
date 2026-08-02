@@ -7,17 +7,17 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Standard Equipment Representation Review",
+  "phase": "Official Configurator Coverage Reconciliation",
   "reference_delivery": {
-    "name": "Spring Essential Lichen Khaki Price Apply",
-    "pull_request": 453,
-    "head_sha": "4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8",
-    "quality_run": 30740364894
+    "name": "Spring Standard Equipment Representation Review",
+    "pull_request": 454,
+    "head_sha": "697adb01776b41ad3742b7380fd14613d3d5300c",
+    "quality_run": 30740819610
   },
   "baseline": {
     "tests": 1788,
     "csv_files": 46,
-    "rows": 11714,
+    "rows": 11715,
     "configuration_values": 3567,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 316,
@@ -27,40 +27,43 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_standard_equipment_representation_review_001",
-    "kind": "bounded_representation_review",
-    "name": "Spring Standard Equipment Representation Review",
+    "package_id": "official_configurator_coverage_reconciliation_001",
+    "kind": "bounded_source_reconciliation",
+    "name": "Official Configurator Coverage Reconciliation",
     "status": "complete",
-    "goal": "Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.",
+    "goal": "Register every active Dacia Polska configurator surface and define exact-state evidence boundaries before filling gaps or making a supplied-cable architecture decision.",
     "manifest_paths": [
-      "data/reporting/spring_standard_equipment_representation_review.json",
-      "data/reporting/spring_standard_equipment_representation_review.md",
+      "README.md",
+      "data/master/sources.csv",
+      "data/reporting/official_configurator_coverage_reconciliation.json",
+      "data/reporting/official_configurator_coverage_reconciliation.md",
+      "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-standard-equipment-representation-review-20260802.md",
+      "project/packages/official-configurator-coverage-reconciliation-20260802.md",
+      "project/sources/dacia-pl-official-configurator-coverage-20260802.json",
       "project/state.json",
+      "tests/test_official_configurator_coverage_reconciliation_20260802.py",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tests/test_spring_essential_khaki_price_apply_20260802.py",
       "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
       "tests/test_spring_standard_equipment_representation_review_20260802.py",
-      "tools/review_spring_standard_equipment_representation_20260802.py"
+      "tools/review_official_configurator_coverage_20260802.py"
     ]
   },
   "next_package": {
-    "package_id": "spring_biel_alpejska_default_colour_migration_001",
-    "kind": "bounded_master_data_update",
-    "name": "Spring Essential Biel Alpejska Default Colour Migration",
+    "package_id": "official_configurator_exact_state_capture_001",
+    "kind": "bounded_source_capture",
+    "name": "Official Configurator Exact State Capture",
     "status": "planned",
-    "goal": "Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.",
+    "goal": "Capture and normalize exact saved configurator states for every active model, grade, powertrain and transmission surface, beginning with the user-provided Spring link, before any architecture or master-data decision.",
     "manifest_paths": [
-      "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.csv",
-      "data/master/commercial_item_configurations.csv",
-      "data/master/configuration_attribute_values.csv",
-      "data/reporting/spring_biel_alpejska_default_colour_migration.json",
-      "data/reporting/spring_biel_alpejska_default_colour_migration.md",
+      "project/sources/",
+      "data/reporting/",
       "project/STATE_SUMMARY.md",
-      "project/packages/spring-biel-alpejska-default-colour-migration-20260802.md",
-      "project/state.json",
-      "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py",
-      "tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py"
+      "project/state.json"
     ]
   },
   "autonomy": {

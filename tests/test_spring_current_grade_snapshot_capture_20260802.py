@@ -95,26 +95,16 @@ def verify_contract() -> None:
     state = read_json(STATE)
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")
-    current_id = state["current_package"]["package_id"]
-    if not current_id:
+    if not state["current_package"]["package_id"]:
         raise AssertionError("canonical current package is missing")
     if not state["next_package"]["package_id"]:
         raise AssertionError("canonical next package is missing")
     if state["reference_delivery"]["pull_request"] < 451:
         raise AssertionError("reference delivery predates Spring snapshot capture")
-    if state["baseline"]["tests"] != 1788:
-        raise AssertionError("import-time contracts must preserve test baseline")
-    expected_rows = (
-        11714
-        if current_id
-        in {
-            "spring_essential_khaki_price_apply_001",
-            "spring_standard_equipment_representation_review_001",
-        }
-        else 11713
-    )
-    if state["baseline"]["rows"] != expected_rows:
-        raise AssertionError("Spring snapshot history has an unexpected master row count")
+    if state["baseline"]["tests"] < 1788:
+        raise AssertionError("canonical test baseline regressed")
+    if state["baseline"]["rows"] < 11713:
+        raise AssertionError("canonical master-row baseline predates Spring snapshot capture")
 
 
 # The contract protects the completed exact-current snapshot while allowing

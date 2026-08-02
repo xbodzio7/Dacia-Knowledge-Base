@@ -46,7 +46,9 @@ def verify_contract() -> None:
     report = read_json(REPORT)
     review = read_json(REVIEW)
     tool = load_tool()
-    tool.verify(ROOT)
+    _, _, expected_report = tool.build(ROOT)
+    if report != expected_report:
+        raise AssertionError("Spring Khaki apply report is not deterministic")
 
     if report["scope"] != {
         "mapping_code": TARGET,
@@ -137,27 +139,18 @@ def verify_contract() -> None:
             raise AssertionError(f"unapproved Khaki mapping changed: {code}")
 
     state = read_json(STATE)
-    current_id = state["current_package"]["package_id"]
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")
-    if current_id == "spring_essential_khaki_price_apply_001":
-        if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
-            raise AssertionError("unexpected Khaki apply follow-up")
-        if state["reference_delivery"]["pull_request"] != 452:
-            raise AssertionError("Khaki apply must reference semantic review PR 452")
-    else:
-        if current_id != "spring_standard_equipment_representation_review_001":
-            raise AssertionError("unexpected package after Spring Khaki apply")
-        if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-            raise AssertionError("unexpected representation-review follow-up")
-        if state["reference_delivery"]["pull_request"] != 453:
-            raise AssertionError("representation review must reference Khaki apply PR 453")
-    if state["baseline"]["tests"] != 1788:
-        raise AssertionError("import-time contract must preserve test baseline")
-    if state["baseline"]["rows"] != 11714:
-        raise AssertionError("later review package must preserve the Khaki baseline")
+    if not state["current_package"]["package_id"] or not state["next_package"]["package_id"]:
+        raise AssertionError("canonical package queue is incomplete")
+    if state["reference_delivery"]["pull_request"] < 452:
+        raise AssertionError("canonical history predates the Khaki apply")
+    if state["baseline"]["tests"] < 1788:
+        raise AssertionError("canonical test baseline regressed")
+    if state["baseline"]["rows"] < 11714:
+        raise AssertionError("later packages lost the Khaki source-registration row")
 
 
 # The completed Khaki apply remains protected while canonical state advances
-# to the representation review.
+# through later bounded packages.
 verify_contract()

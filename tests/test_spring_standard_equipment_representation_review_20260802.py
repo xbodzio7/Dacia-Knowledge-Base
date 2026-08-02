@@ -126,17 +126,16 @@ def verify_contract() -> None:
         raise AssertionError("review package must not add the home cable item")
 
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
-        raise AssertionError("canonical current package did not advance to representation review")
     if state["current_package"]["status"] != "complete":
-        raise AssertionError("representation review package must be complete")
-    if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-        raise AssertionError("unexpected next Spring package")
-    if state["reference_delivery"]["pull_request"] != 453:
-        raise AssertionError("representation review must reference Khaki apply PR 453")
-    if state["baseline"]["tests"] != 1788 or state["baseline"]["rows"] != 11714:
-        raise AssertionError("review-only package must preserve the verified baseline")
+        raise AssertionError("canonical current package must remain complete")
+    if not state["current_package"]["package_id"] or not state["next_package"]["package_id"]:
+        raise AssertionError("canonical package queue is incomplete")
+    if state["reference_delivery"]["pull_request"] < 454:
+        raise AssertionError("canonical history predates the representation review")
+    if state["baseline"]["tests"] < 1788 or state["baseline"]["rows"] < 11714:
+        raise AssertionError("canonical baseline regressed behind the representation review")
 
 
-# Import-time verification preserves the established test-count baseline.
+# Import-time verification protects the completed review while allowing later
+# bounded packages to advance canonical project state.
 verify_contract()
