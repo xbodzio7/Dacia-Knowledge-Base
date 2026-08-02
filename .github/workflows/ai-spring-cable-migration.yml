@@ -17,7 +17,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 scripts/project_state.py --check
+          echo '--- project-state command candidates ---'
+          find . -maxdepth 3 -type f \( -iname '*project*state*.py' -o -iname 'Makefile' \) -print
+          make project-state
           echo '--- attributes tail ---'
           tail -n 8 data/master/attributes.csv
           echo '--- availability header and Spring rows ---'
