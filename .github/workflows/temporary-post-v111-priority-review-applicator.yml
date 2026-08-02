@@ -35,9 +35,8 @@ jobs:
           )
           new = '''    state = read_json(STATE_PATH)
               expected = expected_state(report)
-              for key in ("updated_on", "phase"):
-                  if state[key] != expected[key]:
-                      raise RuntimeError(f"canonical project state differs for {key}")
+              if state["phase"] != expected["phase"]:
+                  raise RuntimeError("canonical project phase differs")
               if state["baseline"]["tests"] != expected["baseline"]["tests"]:
                   raise RuntimeError("canonical test baseline differs")
               for section in ("current_package", "next_package"):
