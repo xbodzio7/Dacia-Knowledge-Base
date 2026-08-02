@@ -22,10 +22,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo '7b6defd629bc83fed7ef2393731066843b41d3be7f93498aa186f6710f0b746d  project/portfolio-family-payload.part00' | sha256sum --check
-          echo '82eae111723d2be0f73760c2ad1624697e30167733612a2e6b23249455f5a599  project/portfolio-family-payload.part01' | sha256sum --check
-          echo 'f1b391517a306fece0eb46fe739346add6617aece028ed5d75a420e556e7aab2  project/portfolio-family-payload.part02' | sha256sum --check
-          cat project/portfolio-family-payload.part* > /tmp/portfolio-payload.tar.gz
+          echo 'caa8d3a8885f6dfe51a69e13588e4d6b005e1da606a9324d67a228f9899430de  project/portfolio-family-payload.seg00' | sha256sum --check
+          echo '550d955ffcffcfdab921b7dad1525a55b848fc9355973fb8f5812c4829391976  project/portfolio-family-payload.seg01' | sha256sum --check
+          echo '86a221d7c706d889561fbe4ee1642d0232643ae34e498215df4c085e06418d14  project/portfolio-family-payload.seg02' | sha256sum --check
+          echo '82eae111723d2be0f73760c2ad1624697e30167733612a2e6b23249455f5a599  project/portfolio-family-payload.seg03' | sha256sum --check
+          echo '84ca49d0ff2e25170428539f6adc93945a37fb88bf77114eab672e4bd68471b4  project/portfolio-family-payload.seg04' | sha256sum --check
+          echo '359e880b2d81e00690aa837c592d92d526ed7aab098c4345454f579900c94e9f  project/portfolio-family-payload.seg05' | sha256sum --check
+          echo 'e4d0471ffcff32b7b0190e2169f907d3d85a36e121a11f5f4f5ff2d0b48c4a21  project/portfolio-family-payload.seg06' | sha256sum --check
+          cat project/portfolio-family-payload.seg* > /tmp/portfolio-payload.tar.gz
           echo 'a1019a214246f033270b2e846c1d3483c560176f6eb2135efdeb19f1d19dfae9  /tmp/portfolio-payload.tar.gz' | sha256sum --check
           tar -xzf /tmp/portfolio-payload.tar.gz
           python - <<'PY'
