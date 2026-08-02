@@ -1,0 +1,292 @@
+{
+  "count": 138,
+  "examples": [
+    {
+      "path": "data/imports/configuration_values/sandero-stepway-brochure-elasticity-80-120-20260202.json",
+      "content": {
+        "version": 1,
+        "kind": "configuration_attribute_values",
+        "id_start": 2135,
+        "attribute_code": "elasticity_80_120",
+        "attribute_contract": {
+          "data_type": "decimal",
+          "unit": "s",
+          "status": "active"
+        },
+        "observation_date": "2026-02-02",
+        "fuel_type_code": "",
+        "source_page": 17,
+        "source_section": "06. SILNIKI — OSIĄGI",
+        "notes_template": "Source page {page}, section {section}, selected gear {gear_number}, fuel {fuel_type_code}: {source_text}",
+        "rows": [
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "4",
+            "value": "8",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "4",
+            "value": "9",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 9 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "5",
+            "value": "12",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "5",
+            "value": "12.6",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12,6 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "6",
+            "value": "18",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 18 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "6",
+            "value": "19",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 19 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "4",
+            "value": "8",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "4",
+            "value": "9",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 9 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "5",
+            "value": "12",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "5",
+            "value": "12.6",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12,6 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "6",
+            "value": "18",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 18 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "6",
+            "value": "19",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 19 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "4",
+            "value": "8",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "4",
+            "value": "9",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 9 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "5",
+            "value": "12",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "5",
+            "value": "12.6",
+            "source_text": "Elastyczność 80–120 km/h na 5. biegu: 12,6 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "6",
+            "value": "18",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 18 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "6",
+            "value": "19",
+            "source_text": "Elastyczność 80–120 km/h na 6. biegu: 19 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "4",
+            "value": "8.3",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,3 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "4",
+            "value": "9.1",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 9,1 s (benzyna)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "lpg",
+            "gear_number": "4",
+            "value": "8.3",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,3 s (LPG)"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_brochure_20260202",
+            "fuel_type_code": "petrol",
+            "gear_number": "4",
+            "value": "9.1",
+            "source_text": "Elastyczność 80–120 km/h na 4. biegu: 9,1 s (benzyna)"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data/imports/configuration_values/sandero-stepway-essential-wheel-design-20260626.json",
+      "content": {
+        "attribute_code": "wheel_design",
+        "attribute_contract": {
+          "data_type": "string",
+          "status": "active",
+          "unit": ""
+        },
+        "fuel_type_code": "",
+        "id_start": 310,
+        "kind": "configuration_attribute_values",
+        "notes_template": "Source page {page}, section {section}: {source_text}",
+        "observation_date": "2026-06-26",
+        "rows": [
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+            "source_text": "ERALIA",
+            "value": "ERALIA"
+          }
+        ],
+        "source_page": 2,
+        "source_section": "Felgi",
+        "version": 1
+      }
+    },
+    {
+      "path": "data/imports/configuration_values/sandero-total-valve-count-20260626.json",
+      "content": {
+        "version": 1,
+        "kind": "configuration_attribute_values",
+        "id_start": 275,
+        "attribute_code": "total_valve_count",
+        "attribute_contract": {
+          "data_type": "integer",
+          "unit": "",
+          "status": "active"
+        },
+        "observation_date": "2026-06-26",
+        "fuel_type_code": "",
+        "source_page": 6,
+        "source_section": "Silnik",
+        "notes_template": "Source page {page}, section {section}: {source_text}",
+        "rows": [
+          {
+            "configuration_code": "sandero_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_iii_journey_ecog120_manual",
+            "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+            "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          },
+          {
+            "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+            "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+            "value": "12",
+            "source_text": "Liczba Zaworów 12"
+          }
+        ]
+      }
+    }
+  ]
+}
