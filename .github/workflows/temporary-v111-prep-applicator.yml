@@ -2,7 +2,7 @@ name: Temporary v1.11 Preparation Applicator
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [reopened]
 
 permissions:
   contents: write
@@ -17,7 +17,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 1
-      - name: Apply verified package payload
+      - name: Apply verified non-workflow payload
         shell: bash
         run: |
           set -euo pipefail
@@ -30,8 +30,9 @@ jobs:
           base64 -d /tmp/v111-prep.patch.gz.b64 | gzip -d > /tmp/v111-prep.patch
           echo 'acbd9c24a44fe95daf50d6bbe57a218010d1c2d7e08abe16ecc0d375ac5418b4  /tmp/v111-prep.patch' | sha256sum --check
           git apply --index /tmp/v111-prep.patch
+          git reset HEAD -- .github/workflows/temporary-publish-data-products-v1.11.0.yml
+          rm -f .github/workflows/temporary-publish-data-products-v1.11.0.yml
           rm -f project/v111-prep.chunk.*
-          rm -f .github/workflows/temporary-v111-prep-applicator.yml
           git add -A
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
