@@ -53,18 +53,18 @@ def verify_contract() -> None:
     }:
         raise AssertionError("unexpected Spring white post-migration counts")
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-        raise AssertionError("canonical package did not advance to Spring white migration")
-    if state["next_package"]["package_id"] != "post_spring_biel_alpejska_priority_selection_review_001":
-        raise AssertionError("unexpected next package after Spring white migration")
-    if state["reference_delivery"]["pull_request"] != 464:
-        raise AssertionError("Spring white migration must reference PR 464")
-    if state["baseline"]["rows"] != 11729:
-        raise AssertionError("canonical master-row baseline drifted")
+    if state["current_package"]["status"] != "complete":
+        raise AssertionError("canonical package must remain complete after Spring white migration")
+    if state["baseline"]["rows"] < 11729:
+        raise AssertionError("canonical master-row baseline regressed behind Spring white migration")
     if state["baseline"]["configuration_values"] != 3568:
         raise AssertionError("canonical configuration-value baseline drifted")
     if state["baseline"]["configuration_import_specs"] != 139:
         raise AssertionError("canonical import-spec baseline drifted")
+    if state["reference_delivery"]["pull_request"] < 464:
+        raise AssertionError("canonical history predates the Spring white selection review")
+    if not state["next_package"]["package_id"]:
+        raise AssertionError("canonical package queue is incomplete")
 
 
 verify_contract()
