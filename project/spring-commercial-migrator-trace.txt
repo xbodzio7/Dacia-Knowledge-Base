@@ -1,4 +1,0 @@
-merge_status=0
-Merge made by the 'ort' strategy.
-
-migrate_status=0
