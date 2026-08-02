@@ -129,8 +129,14 @@ def build(root: Path = ROOT) -> dict[str, Any]:
             raise AssertionError(f"unapproved white mapping changed: {code}")
     type2 = [row for row in mappings if row["commercial_item_code"] == TYPE2_ITEM]
     domestic = [row for row in mappings if row["commercial_item_code"] == DOMESTIC_ITEM]
-    if len(type2) != 3 or len(domestic) != 2:
+    if len(type2) != 3 or len(domestic) not in {2, 3}:
         raise AssertionError("completed charging-cable mappings were not preserved")
+    if len(domestic) == 3 and {row["configuration_code"] for row in domestic} != {
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic",
+        "spring_extreme_electric100_automatic",
+    }:
+        raise AssertionError("corrected domestic-cable mapping scope drifted")
 
     return {
         "version": 1,
