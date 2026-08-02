@@ -82,14 +82,22 @@ def verify(root: Path = ROOT) -> None:
     domestic_memberships = [row for row in memberships if row["commercial_item_code"] == DOMESTIC_ITEM]
     domestic_mappings = [row for row in mappings if row["commercial_item_code"] == DOMESTIC_ITEM]
     if migration_complete:
-        if len(domestic_memberships) != 1 or len(domestic_mappings) != 2:
+        if len(domestic_memberships) != 1 or len(domestic_mappings) not in {2, 3}:
             raise AssertionError("materialized domestic-cable representation is incomplete")
         if domestic_memberships[0]["attribute_code"] != "domestic_socket_charging_cable":
             raise AssertionError("materialized domestic membership drifted")
-        if {row["configuration_code"] for row in domestic_mappings} != {
-            "spring_essential_electric70_automatic",
-            "spring_extreme_electric100_automatic",
-        }:
+        accepted_scopes = {
+            frozenset({
+                "spring_essential_electric70_automatic",
+                "spring_extreme_electric100_automatic",
+            }),
+            frozenset({
+                "spring_essential_electric70_automatic",
+                "spring_expression_electric70_automatic",
+                "spring_extreme_electric100_automatic",
+            }),
+        }
+        if frozenset(row["configuration_code"] for row in domestic_mappings) not in accepted_scopes:
             raise AssertionError("materialized domestic mapping scope drifted")
     elif domestic_memberships or domestic_mappings:
         raise AssertionError("review package unexpectedly materialized domestic representation")

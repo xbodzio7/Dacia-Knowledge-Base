@@ -62,15 +62,13 @@ class PostSpringChargingCablePrioritySelectionReviewTests(unittest.TestCase):
         )
         self.assertEqual(evidence["commercial_mapping"]["target_amount_pln"], 0)
 
-    def test_canonical_state_points_to_selected_package(self):
+    def test_canonical_state_has_advanced_beyond_selected_package(self):
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["current_package"]["package_id"], SELECTED_PACKAGE)
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(
-            state["next_package"]["package_id"],
-            "post_spring_biel_alpejska_priority_selection_review_001",
-        )
-        self.assertEqual(state["baseline"]["rows"], 11729)
+        self.assertGreaterEqual(state["baseline"]["rows"], 11729)
+        self.assertEqual(state["baseline"]["configuration_values"], 3568)
+        self.assertTrue(state["next_package"]["package_id"])
+        self.assertGreaterEqual(state["reference_delivery"]["pull_request"], 464)
 
 
 if __name__ == "__main__":

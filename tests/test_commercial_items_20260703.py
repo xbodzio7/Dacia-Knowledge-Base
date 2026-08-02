@@ -38,11 +38,11 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_complete_source_backed_registration_counts(self) -> None:
         self.assertEqual(len(self.items), 40)
         self.assertEqual(len(self.members), 94)
-        self.assertEqual(len(self.mappings), 188)
+        self.assertEqual(len(self.mappings), 189)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
-            {"", DATE, STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE},
+            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})

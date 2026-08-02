@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Essential Biel Alpejska Default Colour Migration**
+**Legacy PDF Source Audit**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1793
+- Tests: 1797
 - Master CSV files: 46
-- Master rows: 11729
+- Master rows: 11730
 - Configuration values: 3568
 - Configuration import specifications: 139
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Essential Biel Alpejska Default Colour Migration** — `complete`
+**Legacy PDF Source Audit Governance and Spring FlexiCharger Correction** — `complete`
 
-Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.
+Require complete documentary-source assimilation, register legacy PDF coverage and correct the confirmed Spring Expression FlexiCharger omission.
 
 ## Next package
 
-**Post-Spring Biel Alpejska Priority Selection Review** — `planned`
+**Spring Brochure and Price List Full Assimilation Audit** — `planned`
 
-Select the next bounded repository package after completing the accepted Spring default-colour migration without changing master data.
+Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.
 
 ## Autonomy
 
