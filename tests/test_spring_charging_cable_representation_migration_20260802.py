@@ -55,12 +55,15 @@ def test_spring_cable_availability_respects_evidence_boundary():
     ) not in selected
 
 
-def test_every_new_availability_record_has_artifact_provenance():
+def test_every_new_availability_record_has_canonical_provenance():
     availability = [
         row
         for row in rows("data/master/configuration_attribute_availability.csv")
         if row["attribute_code"] in CABLE_ATTRIBUTES
     ]
+    canonical_sources = {
+        row["code"] for row in rows("data/master/sources.csv")
+    }
     sources = {
         row["code"]: row
         for row in rows(
@@ -76,7 +79,10 @@ def test_every_new_availability_record_has_artifact_provenance():
 
     assert len(availability) == 5
     for row in availability:
+        assert row["source_code"] in canonical_sources
         link = links[row["code"]]
-        assert sources[link["availability_source_code"]][
+        source_artifact_id = sources[link["availability_source_code"]][
             "source_artifact_id"
-        ].startswith("src_pl_spring_")
+        ]
+        assert source_artifact_id in canonical_sources
+        assert source_artifact_id.startswith("src_pl_spring_")
