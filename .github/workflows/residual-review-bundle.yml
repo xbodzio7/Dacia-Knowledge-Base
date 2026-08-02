@@ -28,7 +28,7 @@ jobs:
           path = Path('project/state.json')
           state = json.loads(path.read_text(encoding='utf-8'))
           state['phase'] = 'Legacy PDF Source Audit'
-          state['baseline']['tests'] = 1797
+          state['baseline']['tests'] = 1795
           state['baseline']['rows'] = 11730
           state['current_package'] = {
               'package_id': 'legacy_pdf_source_audit_governance_001',
