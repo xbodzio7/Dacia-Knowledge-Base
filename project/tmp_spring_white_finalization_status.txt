@@ -1,0 +1,211 @@
+===== apply =====
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 481, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 474, in main
+    apply()
+    ~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 444, in apply
+    values_content, mappings_content, report = build(root)
+                                               ~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ~~~~~~~~~~~~~~^
+        spec,
+        ^^^^^
+    ...<8 lines>...
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
+EXIT=1
+
+===== verify =====
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 481, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 476, in main
+    verify()
+    ~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 452, in verify
+    values_content, mappings_content, report = build(root)
+                                               ~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ~~~~~~~~~~~~~~^
+        spec,
+        ^^^^^
+    ...<8 lines>...
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
+EXIT=1
+
+===== package_test =====
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+    ~~~~^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/main.py", line 103, in __init__
+    self.parseArgs(argv)
+    ~~~~~~~~~~~~~~^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/main.py", line 142, in parseArgs
+    self.createTests()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/main.py", line 153, in createTests
+    self.test = self.testLoader.loadTestsFromNames(self.testNames,
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                                                   self.module)
+                                                   ^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 207, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 188, in <module>
+    verify_contract()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 50, in verify_contract
+    tool.verify(ROOT)
+    ~~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 452, in verify
+    values_content, mappings_content, report = build(root)
+                                               ~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ~~~~~~~~~~~~~~^
+        spec,
+        ^^^^^
+    ...<8 lines>...
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
+EXIT=1
+
+===== docs_apply =====
+ERROR: test discovery failed:
+Failed to import test module: test_spring_biel_alpejska_default_colour_migration_20260802
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 188, in <module>
+    verify_contract()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 50, in verify_contract
+    tool.verify(ROOT)
+    ~~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 452, in verify
+    values_content, mappings_content, report = build(root)
+                                               ~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ~~~~~~~~~~~~~~^
+        spec,
+        ^^^^^
+    ...<8 lines>...
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
+
+Failed to import test module: test_spring_exact_current_semantic_migration_review_20260802
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_exact_current_semantic_migration_review_20260802.py", line 178, in <module>
+    verify_contract()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_exact_current_semantic_migration_review_20260802.py", line 44, in verify_contract
+    if report != tool.build(ROOT):
+                 ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_spring_exact_current_semantic_migration_20260802.py", line 313, in build
+    return build_report(
+        read_object(root / CONTEXT_PATH.relative_to(ROOT)),
+    ...<3 lines>...
+        read_rows(root / MAPPINGS_PATH.relative_to(ROOT)),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_spring_exact_current_semantic_migration_20260802.py", line 108, in build_report
+    raise RuntimeError("Essential white mapping is not the expected blank option")
+RuntimeError: Essential white mapping is not the expected blank option
+EXIT=1
+
+===== docs_check =====
+ERROR: test discovery failed:
+Failed to import test module: test_spring_biel_alpejska_default_colour_migration_20260802
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 188, in <module>
+    verify_contract()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_biel_alpejska_default_colour_migration_20260802.py", line 50, in verify_contract
+    tool.verify(ROOT)
+    ~~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 452, in verify
+    values_content, mappings_content, report = build(root)
+                                               ~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ~~~~~~~~~~~~~~^
+        spec,
+        ^^^^^
+    ...<8 lines>...
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
+
+Failed to import test module: test_spring_exact_current_semantic_migration_review_20260802
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_exact_current_semantic_migration_review_20260802.py", line 178, in <module>
+    verify_contract()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_spring_exact_current_semantic_migration_review_20260802.py", line 44, in verify_contract
+    if report != tool.build(ROOT):
+                 ~~~~~~~~~~^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_spring_exact_current_semantic_migration_20260802.py", line 313, in build
+    return build_report(
+        read_object(root / CONTEXT_PATH.relative_to(ROOT)),
+    ...<3 lines>...
+        read_rows(root / MAPPINGS_PATH.relative_to(ROOT)),
+    )
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_spring_exact_current_semantic_migration_20260802.py", line 108, in build_report
+    raise RuntimeError("Essential white mapping is not the expected blank option")
+RuntimeError: Essential white mapping is not the expected blank option
+EXIT=1
+
