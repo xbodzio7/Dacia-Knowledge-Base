@@ -71,6 +71,22 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
         data = [r for r in rows(VALUES) if r["configuration_code"] in CONFIGURATIONS and r["source_code"] == "src_pl_spring_brochure_20260219" and r["observation_date"] == "2026-02-19"]
         self.assertFalse(forbidden.intersection({r["attribute_code"] for r in data}))
 
+
+    def test_reporting_scopes_include_all_common_technical_slots(self) -> None:
+        expected_counts = {
+            "spring_electric70_automatic_completeness.json": 31,
+            "spring_electric100_automatic_completeness.json": 12,
+        }
+        expected = {(attribute, "") for attribute in ATTRIBUTES}
+        for filename, count in expected_counts.items():
+            payload = json.loads((ROOT / "data/reporting" / filename).read_text(encoding="utf-8"))
+            slots = {
+                (row["attribute_code"], row.get("fuel_type_code", ""))
+                for row in payload["technical_slots"]
+            }
+            self.assertEqual(len(payload["technical_slots"]), count, filename)
+            self.assertTrue(expected.issubset(slots), filename)
+
     def test_report_records_exact_scope_and_deferrals(self) -> None:
         report = json.loads(REPORT.read_text(encoding="utf-8"))
         self.assertEqual(report["observation_count"], 36)
@@ -97,11 +113,15 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
             "data/master/enums/electric_motor_types.csv",
             "data/imports/spring_nonconflicting_common_technical_20260219.csv",
             "data/master/configuration_attribute_values.csv",
+            "data/reporting/spring_electric70_automatic_completeness.json",
+            "data/reporting/spring_electric100_automatic_completeness.json",
             "tools/import_spring_nonconflicting_common_technical_20260219.py",
             "data/reporting/spring_nonconflicting_common_technical_migration.json",
             "data/reporting/spring_nonconflicting_common_technical_migration.md",
             "project/packages/spring-nonconflicting-common-technical-observations-migration-20260802.md",
             "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
+            "tests/test_attribute_enum_domains.py",
+            "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
             "project/state.json",
             "project/STATE_SUMMARY.md",
         }

@@ -101,7 +101,7 @@ class SpringTechnical20260219Test(unittest.TestCase):
             "spring_essential_electric70_automatic",
             "spring_expression_electric70_automatic",
         ])
-        self.assertEqual(len(payload["technical_slots"]), 19)
+        self.assertEqual(len(payload["technical_slots"]), 31)
         self.assertEqual(len(payload["equipment_attributes"]), 42)
         self.assertEqual(payload["not_applicable"], {"technical": [], "equipment": []})
 

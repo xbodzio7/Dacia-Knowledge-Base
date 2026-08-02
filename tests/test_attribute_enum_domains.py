@@ -47,12 +47,14 @@ class AttributeEnumDomainTests(unittest.TestCase):
                 "aspiration_type": "aspiration_types.csv",
                 "cylinder_configuration": "cylinder_configurations.csv",
                 "drive_type": "drive_types.csv",
+                "electric_motor_type": "electric_motor_types.csv",
                 "emission_standard": "emission_standards.csv",
                 "engine_type": "engine_types.csv",
                 "fuel_type": "fuel_types.csv",
                 "gearbox_type": "transmission_type.csv",
                 "hybrid_battery_type": "battery_chemistries.csv",
                 "injection_type": "injection_types.csv",
+                "traction_battery_type": "battery_chemistries.csv",
                 "recommended_fuel": "recommended_fuels.csv",
             },
         )
@@ -68,7 +70,13 @@ class AttributeEnumDomainTests(unittest.TestCase):
                     "name": "Lithium-ion",
                     "description": "Lithium-ion rechargeable battery chemistry",
                     "status": "active",
-                }
+                },
+                {
+                    "code": "lithium_iron_phosphate",
+                    "name": "Lithium iron phosphate (LFP)",
+                    "description": "Lithium iron phosphate traction-battery chemistry",
+                    "status": "active",
+                },
             ],
         )
 
@@ -88,7 +96,7 @@ class AttributeEnumDomainTests(unittest.TestCase):
             for row in csv_rows(MASTER / "configuration_attribute_values.csv")
             if attribute_types[row["attribute_code"]] == "enum"
         ]
-        self.assertEqual(len(enum_rows), 239)
+        self.assertEqual(len(enum_rows), 245)
         for row in enum_rows:
             self.assertIn(row["attribute_code"], domains)
             self.assertIn(row["value"], domains[row["attribute_code"]])

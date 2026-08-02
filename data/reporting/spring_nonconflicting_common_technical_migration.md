@@ -9,7 +9,8 @@ The package materializes 36 exact brochure observations: 12 common attributes fo
 - permanent-magnet synchronous electric motor;
 - LFP traction-battery chemistry;
 - electric power steering;
-- overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length.
+- overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length;
+- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots.
 
 ## Preserved boundaries
 

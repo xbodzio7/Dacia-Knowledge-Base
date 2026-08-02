@@ -15,6 +15,7 @@ Materialize only the 36 observations approved by the preceding source-to-master 
 - electric power steering;
 - nine common page-21 dimensions;
 - 36 source-dated configuration values using contiguous IDs 3569-3604;
+- Spring Electric 70 and Electric 100 reporting completeness specifications extended by the same twelve common technical slots;
 - one declarative 36-row specification, deterministic importer, migration report and regression contract.
 
 ## Evidence boundary
@@ -31,7 +32,7 @@ All imported values come from the exact SHA-256-pinned 2026-02-19 Polish Spring 
 
 ```bash
 python tools/import_spring_nonconflicting_common_technical_20260219.py --verify
-python -m unittest tests.test_spring_nonconflicting_common_technical_observations_migration_20260802
+python -m unittest tests.test_spring_nonconflicting_common_technical_observations_migration_20260802 tests.test_attribute_enum_domains tests.test_verified_pdf_candidate_coverage_reconciliation
 python tools/dkb.py project-state --check
 python tools/dkb.py quality --concise
 ```

@@ -19,6 +19,10 @@
     "electric_motor_type": "permanent_magnet_synchronous",
     "traction_battery_type": "lithium_iron_phosphate"
   },
+  "completeness_specs_updated": {
+    "spring_electric100_automatic": 12,
+    "spring_electric70_automatic": 31
+  },
   "preserved_deferrals": [
     "battery_mass_204_kg_my2025_stock_only",
     "battery_voltage_354_v_my2025_stock_only",

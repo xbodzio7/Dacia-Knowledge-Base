@@ -19,6 +19,10 @@ SPEC = ROOT / "data" / "imports" / "spring_nonconflicting_common_technical_20260
 REVIEW = ROOT / "data" / "reporting" / "spring_nonconflicting_technical_observations_review.json"
 REPORT_JSON = ROOT / "data" / "reporting" / "spring_nonconflicting_common_technical_migration.json"
 REPORT_MD = ROOT / "data" / "reporting" / "spring_nonconflicting_common_technical_migration.md"
+COMPLETENESS_FILES = {
+    "spring_electric70_automatic": ROOT / "data" / "reporting" / "spring_electric70_automatic_completeness.json",
+    "spring_electric100_automatic": ROOT / "data" / "reporting" / "spring_electric100_automatic_completeness.json",
+}
 SOURCE_CODE = "src_pl_spring_brochure_20260219"
 SOURCE_FILE = ROOT / "PDF" / "Broszury" / "DACIA SPRING broszura 20260219.pdf"
 SOURCE_SHA256 = "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d"
@@ -61,6 +65,31 @@ ATTRIBUTE_CONTRACTS = {
 ENUM_RULES = {
     "electric_motor_type": ("electric_motor_types.csv", "permanent_magnet_synchronous"),
     "traction_battery_type": ("battery_chemistries.csv", "lithium_iron_phosphate"),
+}
+COMMON_TECHNICAL_SLOTS = (
+    "electric_motor_type",
+    "traction_battery_type",
+    "steering_type",
+    "overall_height",
+    "front_track",
+    "overall_width",
+    "overall_width_with_mirrors",
+    "rear_track",
+    "front_overhang",
+    "wheelbase",
+    "rear_overhang",
+    "overall_length",
+)
+EXPECTED_SCOPE_SLOT_COUNTS = {
+    "spring_electric70_automatic": 31,
+    "spring_electric100_automatic": 12,
+}
+EXPECTED_SCOPE_CONFIGURATIONS = {
+    "spring_electric70_automatic": {
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic",
+    },
+    "spring_electric100_automatic": {"spring_extreme_electric100_automatic"},
 }
 EXPECTED_VALUES = {
     "electric_motor_type": "permanent_magnet_synchronous",
@@ -245,6 +274,62 @@ def apply_values(spec_rows: list[dict[str, str]]) -> None:
     write_rows_atomic(path, VALUE_FIELDS, [*current, *generated])
 
 
+def apply_completeness_specs() -> None:
+    for scope, path in COMPLETENESS_FILES.items():
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        configurations = {
+            row["configuration_code"] for row in payload.get("configurations", [])
+        }
+        ensure(
+            configurations == EXPECTED_SCOPE_CONFIGURATIONS[scope],
+            f"completeness configuration scope differs: {scope}",
+        )
+        slots = payload.get("technical_slots")
+        ensure(isinstance(slots, list), f"technical slots missing: {scope}")
+        identities = [
+            (row.get("attribute_code", ""), row.get("fuel_type_code", ""))
+            for row in slots
+        ]
+        ensure(len(identities) == len(set(identities)), f"duplicate technical slot: {scope}")
+        existing = set(identities)
+        for attribute in COMMON_TECHNICAL_SLOTS:
+            identity = (attribute, "")
+            if identity not in existing:
+                slots.append({"attribute_code": attribute, "fuel_type_code": ""})
+                existing.add(identity)
+        ensure(
+            len(slots) == EXPECTED_SCOPE_SLOT_COUNTS[scope],
+            f"unexpected technical-slot count after migration: {scope}",
+        )
+        path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+
+def verify_completeness_specs() -> None:
+    required = {(attribute, "") for attribute in COMMON_TECHNICAL_SLOTS}
+    for scope, path in COMPLETENESS_FILES.items():
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        configurations = {
+            row["configuration_code"] for row in payload.get("configurations", [])
+        }
+        ensure(
+            configurations == EXPECTED_SCOPE_CONFIGURATIONS[scope],
+            f"completeness configuration scope differs: {scope}",
+        )
+        identities = [
+            (row.get("attribute_code", ""), row.get("fuel_type_code", ""))
+            for row in payload.get("technical_slots", [])
+        ]
+        ensure(len(identities) == len(set(identities)), f"duplicate technical slot: {scope}")
+        ensure(required.issubset(set(identities)), f"common technical slots missing: {scope}")
+        ensure(
+            len(identities) == EXPECTED_SCOPE_SLOT_COUNTS[scope],
+            f"unexpected technical-slot count: {scope}",
+        )
+
+
 def build_report() -> dict[str, object]:
     return {
         "version": 1,
@@ -263,6 +348,10 @@ def build_report() -> dict[str, object]:
         "enum_values_added": {
             "electric_motor_type": "permanent_magnet_synchronous",
             "traction_battery_type": "lithium_iron_phosphate",
+        },
+        "completeness_specs_updated": {
+            scope: EXPECTED_SCOPE_SLOT_COUNTS[scope]
+            for scope in sorted(EXPECTED_SCOPE_SLOT_COUNTS)
         },
         "preserved_deferrals": [
             "battery_mass_204_kg_my2025_stock_only",
@@ -287,7 +376,8 @@ def write_reports() -> None:
         "- permanent-magnet synchronous electric motor;\n"
         "- LFP traction-battery chemistry;\n"
         "- electric power steering;\n"
-        "- overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length.\n\n"
+        "- overall height, front and rear track, body width, width with mirrors, front and rear overhang, wheelbase and overall length;\n"
+        "- Spring Electric 70 and Electric 100 completeness specifications extended by the same twelve common technical slots.\n\n"
         "## Preserved boundaries\n\n"
         "Battery mass 204 kg and voltage 354 V remain MY2025-stock-only evidence. The unqualified 24.3 kWh capacity, charging times, range, maximum speed and 15-inch-wheel ground clearance are not promoted by this package.\n\n"
         "## Verification\n\n"
@@ -304,6 +394,7 @@ def verify_materialized() -> None:
         ensure(registry.get(attribute) == {"attribute_code": attribute, "domain_file": domain_file, "status": "active"}, f"enum registry missing: {attribute}")
         values = {row["code"]: row for row in read_rows(MASTER / "enums" / domain_file)}
         ensure(values.get(enum_code) == ENUM_ROWS[domain_file], f"enum value missing: {enum_code}")
+    verify_completeness_specs()
     expected = generated_rows(spec_rows)
     expected_codes = {row["code"] for row in expected}
     actual = [row for row in read_rows(MASTER / "configuration_attribute_values.csv") if row["code"] in expected_codes]
@@ -319,6 +410,7 @@ def apply() -> None:
     verify_contracts(spec_rows)
     apply_enum_support()
     apply_values(spec_rows)
+    apply_completeness_specs()
     write_reports()
     verify_materialized()
 

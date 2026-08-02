@@ -15,7 +15,7 @@
     "quality_run": 30768210323
   },
   "baseline": {
-    "tests": 1818,
+    "tests": 1819,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -48,6 +48,10 @@
       "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py",
       "tests/test_post_spring_charging_cable_priority_selection_review_20260802.py",
       "tests/test_sandero_residual_source_closure_20260801.py",
+      "data/reporting/spring_electric70_automatic_completeness.json",
+      "data/reporting/spring_electric100_automatic_completeness.json",
+      "tests/test_attribute_enum_domains.py",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
