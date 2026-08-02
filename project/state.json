@@ -38,6 +38,7 @@
       "data/reporting/post_v1_11_0_release_priority_selection_review.md",
       "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
       "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
+      "tests/test_data_products_v1_11_0_release_contract.py",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
