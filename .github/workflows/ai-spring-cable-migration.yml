@@ -1,21 +1,18 @@
 name: AI Spring cable migration
 
 on:
-  push:
-    branches:
-      - ai/spring-charging-cable-representation-migration-001
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Inspect migration inputs
         shell: bash
         run: |
@@ -27,8 +24,8 @@ jobs:
           head -n 2 data/master/configuration_attribute_availability.csv
           grep -n 'cfg_spring_\(essential\|expression\|extreme\)_electric_\(70\|100\)' data/master/configuration_attribute_availability.csv | tail -n 30 || true
           echo '--- availability provenance files ---'
-          find data -maxdepth 3 -type f -iname '*configuration*availability*source*' -print
-          for f in $(find data -maxdepth 3 -type f -iname '*configuration*availability*source*'); do
+          find data -maxdepth 4 -type f -iname '*configuration*availability*source*' -print
+          for f in $(find data -maxdepth 4 -type f -iname '*configuration*availability*source*'); do
             echo "--- $f ---"
             head -n 3 "$f"
             tail -n 5 "$f"
