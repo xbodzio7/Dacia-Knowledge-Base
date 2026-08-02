@@ -1,15 +1,15 @@
 name: Finalize PR 466 Source Audit
 
 on:
-  push:
-    paths:
-      - '.github/workflows/ai-finalize-pr466-source-audit.yml'
+  pull_request_target:
+    types: [edited]
 
 permissions:
   contents: write
 
 jobs:
   finalize:
+    if: github.event.pull_request.number == 466
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
