@@ -15,9 +15,9 @@
     "quality_run": 30755752601
   },
   "baseline": {
-    "tests": 1793,
+    "tests": 1795,
     "csv_files": 46,
-    "rows": 11728,
+    "rows": 11729,
     "configuration_values": 3568,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 316,
@@ -36,6 +36,7 @@
       "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json",
       "data/master/configuration_attribute_values.csv",
       "data/master/commercial_item_configurations.csv",
+      "data/master/source_configurations.csv",
       "data/reporting/spring_biel_alpejska_default_colour_migration.json",
       "data/reporting/spring_biel_alpejska_default_colour_migration.md",
       "project/packages/spring-biel-alpejska-default-colour-migration-20260802.md",
