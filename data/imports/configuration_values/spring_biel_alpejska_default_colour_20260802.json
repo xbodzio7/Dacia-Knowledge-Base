@@ -5,7 +5,7 @@
   "source_section": "official_sources[0].evidence.exterior_colours",
   "observation_date": "2026-08-02",
   "id_start": 3568,
-  "notes_template": "Exact-current Spring Essential default exterior colour from source page {page}, section {section}: {source_text}. The direct scalar records the grade default independently from the zero-surcharge commercial palette relationship.",
+  "notes_template": "Exact-current Spring Essential default exterior colour. The direct scalar records the grade default independently from the zero-surcharge commercial palette relationship.",
   "attribute_contracts": [
     {
       "code": "exterior_color",
