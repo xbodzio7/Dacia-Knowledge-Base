@@ -66,7 +66,7 @@ class PostSpringChargingCablePrioritySelectionReviewTests(unittest.TestCase):
         state = json.loads(STATE.read_text(encoding="utf-8"))
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertGreaterEqual(state["baseline"]["rows"], 11729)
-        self.assertEqual(state["baseline"]["configuration_values"], 3568)
+        self.assertGreaterEqual(state["baseline"]["configuration_values"], 3568)
         self.assertTrue(state["next_package"]["package_id"])
         self.assertGreaterEqual(state["reference_delivery"]["pull_request"], 464)
 

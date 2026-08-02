@@ -1,0 +1,37 @@
+configuration_code,attribute_code,value,source_page,source_label,normalization_notes
+spring_essential_electric70_automatic,electric_motor_type,permanent_magnet_synchronous,18,Typ silnika elektrycznego: synchroniczny z magnesami trwałymi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_essential_electric70_automatic,traction_battery_type,lithium_iron_phosphate,18,Rodzaj akumulatora trakcyjnego: LFP,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_essential_electric70_automatic,steering_type,Elektryczne wspomaganie układu kierowniczego,18,Układ kierowniczy: elektryczne wspomaganie,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,overall_height,1489,21,Wysokość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,front_track,1385,21,Rozstaw kół przednich,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,overall_width,1583,21,Szerokość całkowita bez lusterek,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,overall_width_with_mirrors,1767,21,Szerokość całkowita z lusterkami,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,rear_track,1365,21,Rozstaw kół tylnych,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,front_overhang,683,21,Zwis przedni,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,wheelbase,2423,21,Rozstaw osi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,rear_overhang,595,21,Zwis tylny,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_essential_electric70_automatic,overall_length,3701,21,Długość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,electric_motor_type,permanent_magnet_synchronous,18,Typ silnika elektrycznego: synchroniczny z magnesami trwałymi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_expression_electric70_automatic,traction_battery_type,lithium_iron_phosphate,18,Rodzaj akumulatora trakcyjnego: LFP,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_expression_electric70_automatic,steering_type,Elektryczne wspomaganie układu kierowniczego,18,Układ kierowniczy: elektryczne wspomaganie,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,overall_height,1489,21,Wysokość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,front_track,1385,21,Rozstaw kół przednich,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,overall_width,1583,21,Szerokość całkowita bez lusterek,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,overall_width_with_mirrors,1767,21,Szerokość całkowita z lusterkami,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,rear_track,1365,21,Rozstaw kół tylnych,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,front_overhang,683,21,Zwis przedni,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,wheelbase,2423,21,Rozstaw osi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,rear_overhang,595,21,Zwis tylny,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_expression_electric70_automatic,overall_length,3701,21,Długość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,electric_motor_type,permanent_magnet_synchronous,18,Typ silnika elektrycznego: synchroniczny z magnesami trwałymi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_extreme_electric100_automatic,traction_battery_type,lithium_iron_phosphate,18,Rodzaj akumulatora trakcyjnego: LFP,Common brochure value applies identically to all three exact Spring grade/powertrain configurations. Normalized to a controlled enum code.
+spring_extreme_electric100_automatic,steering_type,Elektryczne wspomaganie układu kierowniczego,18,Układ kierowniczy: elektryczne wspomaganie,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,overall_height,1489,21,Wysokość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,front_track,1385,21,Rozstaw kół przednich,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,overall_width,1583,21,Szerokość całkowita bez lusterek,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,overall_width_with_mirrors,1767,21,Szerokość całkowita z lusterkami,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,rear_track,1365,21,Rozstaw kół tylnych,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,front_overhang,683,21,Zwis przedni,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,wheelbase,2423,21,Rozstaw osi,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,rear_overhang,595,21,Zwis tylny,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.
+spring_extreme_electric100_automatic,overall_length,3701,21,Długość całkowita,Common brochure value applies identically to all three exact Spring grade/powertrain configurations.

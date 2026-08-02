@@ -9,16 +9,16 @@
   },
   "phase": "Legacy PDF Source Audit",
   "reference_delivery": {
-    "name": "Spring Brochure and Price List Full Assimilation Audit",
-    "pull_request": 467,
-    "head_sha": "35e6244a8564be61af29c52bc710b50e19e46254",
-    "quality_run": 30766992086
+    "name": "Spring Non-conflicting Technical Observations Review",
+    "pull_request": 468,
+    "head_sha": "3154f44d7e61539b5a03f28255f9c58213811e72",
+    "quality_run": 30768210323
   },
   "baseline": {
-    "tests": 1809,
-    "csv_files": 46,
-    "rows": 11730,
-    "configuration_values": 3568,
+    "tests": 1818,
+    "csv_files": 47,
+    "rows": 11770,
+    "configuration_values": 3604,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 316,
     "configuration_range_import_specs": 24,
@@ -27,26 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_nonconflicting_technical_observations_review_001",
-    "kind": "bounded_source_to_master_comparison",
-    "name": "Spring Non-conflicting Technical Observations Review",
-    "status": "complete",
-    "goal": "Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and approve only demonstrably missing context-safe migrations.",
-    "manifest_paths": [
-      "tools/review_spring_nonconflicting_technical_observations_20260802.py",
-      "data/reporting/spring_nonconflicting_technical_observations_review.json",
-      "data/reporting/spring_nonconflicting_technical_observations_review.md",
-      "project/packages/spring-nonconflicting-technical-observations-review-20260802.md",
-      "tests/test_spring_nonconflicting_technical_observations_review_20260802.py",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_nonconflicting_common_technical_observations_migration_001",
     "kind": "bounded_configuration_value_migration",
     "name": "Spring Non-conflicting Common Technical Observations Migration",
-    "status": "planned",
+    "status": "complete",
     "goal": "Materialize the 36 approved brochure observations for battery chemistry, motor technology, steering type and nine common body dimensions, adding only the minimum controlled enum-domain support and preserving all deferred boundaries.",
     "manifest_paths": [
       "data/master/attribute_enum_domains.csv",
@@ -59,6 +43,27 @@
       "data/reporting/spring_nonconflicting_common_technical_migration.md",
       "project/packages/spring-nonconflicting-common-technical-observations-migration-20260802.md",
       "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
+      "tools/import_spring_technical_20260219.py",
+      "tests/test_spring_technical_20260219.py",
+      "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py",
+      "tests/test_post_spring_charging_cable_priority_selection_review_20260802.py",
+      "tests/test_sandero_residual_source_closure_20260801.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_legacy_pdf_assimilation_closure_001",
+    "kind": "milestone_closure_audit",
+    "name": "Spring Legacy PDF Assimilation Closure",
+    "status": "planned",
+    "goal": "Close the Spring legacy-PDF milestone by proving that both registered PDFs are fully assimilated, all 36 approved observations are materialized, represented observations remain covered and every ineligible or ambiguous candidate is preserved as an explicit deferral.",
+    "manifest_paths": [
+      "tools/review_spring_legacy_pdf_assimilation_closure_20260802.py",
+      "data/reporting/spring_legacy_pdf_assimilation_closure.json",
+      "data/reporting/spring_legacy_pdf_assimilation_closure.md",
+      "project/packages/spring-legacy-pdf-assimilation-closure-20260802.md",
+      "tests/test_spring_legacy_pdf_assimilation_closure_20260802.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

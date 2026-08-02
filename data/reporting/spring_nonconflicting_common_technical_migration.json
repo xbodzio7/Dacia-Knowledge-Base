@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "source_code": "src_pl_spring_brochure_20260219",
+  "observation_date": "2026-02-19",
+  "configuration_count": 3,
+  "attribute_count": 12,
+  "observation_count": 36,
+  "value_id_range": [
+    3569,
+    3604
+  ],
+  "enum_domains_added": {
+    "electric_motor_type": "electric_motor_types.csv",
+    "traction_battery_type": "battery_chemistries.csv"
+  },
+  "enum_values_added": {
+    "electric_motor_type": "permanent_magnet_synchronous",
+    "traction_battery_type": "lithium_iron_phosphate"
+  },
+  "preserved_deferrals": [
+    "battery_mass_204_kg_my2025_stock_only",
+    "battery_voltage_354_v_my2025_stock_only",
+    "battery_capacity_24_3_kwh_measurement_basis_unqualified",
+    "charging_times_context_dependent",
+    "ground_clearance_15_inch_wheel_only",
+    "range_and_maximum_speed_not_reimported"
+  ],
+  "next_package": "spring_legacy_pdf_assimilation_closure_001"
+}
