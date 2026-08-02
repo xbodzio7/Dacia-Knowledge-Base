@@ -1,0 +1,174 @@
+name: Temporary Publish Data Products v1.11.0
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "project/packages/data-products-v1.11.0-publication-trigger-20260802.md"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data-products-v1-11-0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact publication commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+
+      - name: Verify publication state and release absence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          state = json.loads(Path("project/state.json").read_text(encoding="utf-8"))
+          assert state["next_package"]["package_id"] == "data_products_v1_11_0_publication_001"
+          assert state["execution_policy"]["release_double_build_required"] is True
+          assert state["execution_policy"]["release_exact_source_sha_required"] is True
+          PY
+          if gh release view data-products-v1.11.0 >/dev/null 2>&1; then
+            echo "Release already exists; refusing to rewrite it."
+            exit 1
+          fi
+          if git rev-parse data-products-v1.11.0 >/dev/null 2>&1; then
+            echo "Tag already exists; refusing to rewrite it."
+            exit 1
+          fi
+
+      - name: Run focused release contracts
+        run: |
+          python -m unittest -q \
+            tests.test_data_products_v1_11_0_release_contract \
+            tests.test_data_product_release \
+            tests.test_data_product_release_download
+          python tools/dkb.py project-state --check
+
+      - name: Build exact assets twice
+        run: |
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --version 1.11.0 \
+            --commit-sha "${GITHUB_SHA}"
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-b" \
+            --version 1.11.0 \
+            --commit-sha "${GITHUB_SHA}"
+          diff -qr "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b"
+
+      - name: Verify assets and offline workspace
+        run: |
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --verify
+          export RELEASE_ASSETS="${RUNNER_TEMP}/release-a"
+          export OFFLINE_WORKSPACE="${RUNNER_TEMP}/workspace"
+          python - <<'PY'
+          import os
+          import shutil
+          from pathlib import Path
+
+          from reporting.data_product_release_download import (
+              ASSETS_DIRECTORY_NAME,
+              CONTENTS_DIRECTORY_NAME,
+              _extract_verified_contents,
+          )
+          from reporting.data_product_release_model import verify_release_assets
+          from reporting.data_product_workspace_index import write_workspace_index
+
+          release_assets = Path(os.environ["RELEASE_ASSETS"])
+          workspace = Path(os.environ["OFFLINE_WORKSPACE"])
+          assets = workspace / ASSETS_DIRECTORY_NAME
+          contents = workspace / CONTENTS_DIRECTORY_NAME
+          shutil.copytree(release_assets, assets)
+          manifest = verify_release_assets(assets)
+          _extract_verified_contents(assets, contents, manifest)
+          write_workspace_index(
+              workspace,
+              manifest,
+              {
+                  "release_version": manifest["release_version"],
+                  "release_tag": manifest["release_tag"],
+                  "repository_commit": manifest["repository_commit"],
+                  "release_url": (
+                      "https://github.com/xbodzio7/Dacia-Knowledge-Base/"
+                      f"releases/tag/{manifest['release_tag']}"
+                  ),
+              },
+          )
+          PY
+          python tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "${RUNNER_TEMP}/workspace" \
+            --json
+          unzip -p \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.11.0.zip" \
+            RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"
+
+      - name: Publish immutable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create data-products-v1.11.0 \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.11.0.zip" \
+            "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
+            "${RUNNER_TEMP}/release-a/SHA256SUMS" \
+            --target "${GITHUB_SHA}" \
+            --title "Dacia Knowledge Base Data Products v1.11.0" \
+            --notes-file "${RUNNER_TEMP}/release-notes.md"
+          gh release view data-products-v1.11.0 --json databaseId -q '.databaseId' \
+            > "${RUNNER_TEMP}/release-id.txt"
+
+      - name: Verify public assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir "${RUNNER_TEMP}/public"
+          gh release download data-products-v1.11.0 \
+            --dir "${RUNNER_TEMP}/public"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.11.0.zip" \
+            "${RUNNER_TEMP}/public/dacia-knowledge-base-data-products-v1.11.0.zip"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
+            "${RUNNER_TEMP}/public/data-product-release-manifest.json"
+          diff -q \
+            "${RUNNER_TEMP}/release-a/SHA256SUMS" \
+            "${RUNNER_TEMP}/public/SHA256SUMS"
+
+      - name: Record publication and remove temporary automation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DIR: ${{ runner.temp }}/release-a
+          RELEASE_ID_FILE: ${{ runner.temp }}/release-id.txt
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          export RELEASE_ID="$(cat "${RELEASE_ID_FILE}")"
+          export PUBLICATION_PR="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls" \
+            --jq '.[0].number')"
+          export PUBLICATION_RUN_ID="${GITHUB_RUN_ID}"
+          python tools/record_data_products_v1_11_0_publication_20260802.py
+          python tools/dkb.py project-state --apply
+          rm tools/record_data_products_v1_11_0_publication_20260802.py
+          rm .github/workflows/temporary-publish-data-products-v1.11.0.yml
+          rm project/packages/data-products-v1.11.0-publication-trigger-20260802.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "release(data-products): record v1.11.0 publication"
+          git push origin HEAD:main
