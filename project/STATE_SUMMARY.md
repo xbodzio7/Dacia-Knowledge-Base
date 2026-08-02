@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Spring Essential Biel Alpejska Default Colour Migration**
+**Official Configurator Coverage Reconciliation**
 
 ## Reference delivery
 
@@ -21,9 +21,9 @@
 - Verified head: `697adb01776b41ad3742b7380fd14613d3d5300c`
 - Quality run: #30740819610
 
-## Verified baseline
+## Recorded baseline
 
-- Tests: 1788
+- Tests in recorded baseline: 1788
 - Master CSV files: 46
 - Master rows: 11715
 - Configuration values: 3568
@@ -34,17 +34,23 @@
 - Canonical attributes: 385
 - Attribute categories: 30
 
+The post-merge state of PR #455 requires a fresh full-quality run. Temporary diagnostics captured a failed package verification and must not be treated as proof of a green baseline.
+
 ## Current package
 
-**Spring Essential Biel Alpejska Default Colour Migration** — `complete`
+**Spring White Post-Merge Cleanup** — `complete`
 
-Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
+Remove temporary Spring finalization workflows and diagnostics, repair stale canonical import paths, and explicitly defer supplied-cable architecture until official configurator coverage is reconciled.
 
 ## Next package
 
-**Spring Supplied Charging Cable Model Decision** — `planned`
+**Official Configurator Coverage Reconciliation** — `planned`
 
-Choose and record the canonical representation for independently supplied Type 2 and home charging cables before creating attributes, commercial items or mappings.
+Register and snapshot every active Dacia Polska model configurator, enumerate all source-visible grades, powertrains and gearboxes, then reconcile unresolved or missing current data before any new supplied-cable architecture decision.
+
+## Architecture hold
+
+The Spring supplied-cable representation decision is deferred. It may be reconsidered only after the official configurator coverage report distinguishes missing evidence from genuinely missing domain representation.
 
 ## Autonomy
 
