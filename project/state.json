@@ -41,6 +41,8 @@
       "data/reporting/portfolio_model_family_summary.md",
       "data/reporting/portfolio_model_family_summary.html",
       "tests/test_portfolio_model_family_summary.py",
+      "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
+      "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
       "project/packages/portfolio-model-family-summary-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",

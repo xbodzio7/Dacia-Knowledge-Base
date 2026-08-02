@@ -80,22 +80,37 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
 
     def test_canonical_state_advances_to_selected_reporting_package(self) -> None:
-        state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["baseline"]["tests"], 1842)
-        self.assertEqual(state["current_package"]["package_id"], PACKAGE_ID)
-        self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["next_package"]["package_id"], NEXT_PACKAGE_ID)
-        manifest = set(state["current_package"]["manifest_paths"])
-        required = {
-            "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
-            "data/reporting/post_v1_11_0_release_priority_selection_review.json",
-            "data/reporting/post_v1_11_0_release_priority_selection_review.md",
-            "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
-            "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
-            "project/state.json",
-            "project/STATE_SUMMARY.md",
-        }
-        self.assertTrue(required.issubset(manifest))
+        state = json.loads(
+            (ROOT / "project/state.json").read_text(encoding="utf-8")
+        )
+        self.assertGreaterEqual(state["baseline"]["tests"], 1842)
+        self.assertEqual(
+            self.report["selection"]["package_id"], NEXT_PACKAGE_ID
+        )
+        package_doc = (
+            ROOT
+            / "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md"
+        )
+        self.assertTrue(package_doc.exists())
+        if state["current_package"]["package_id"] == PACKAGE_ID:
+            self.assertEqual(
+                state["current_package"]["status"], "complete"
+            )
+            self.assertEqual(
+                state["next_package"]["package_id"], NEXT_PACKAGE_ID
+            )
+            manifest = set(state["current_package"]["manifest_paths"])
+            required = {
+                "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
+                "data/reporting/post_v1_11_0_release_priority_selection_review.json",
+                "data/reporting/post_v1_11_0_release_priority_selection_review.md",
+                "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
+                "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
+                "project/state.json",
+                "project/STATE_SUMMARY.md",
+            }
+            self.assertTrue(required.issubset(manifest))
+
 
 
 if __name__ == "__main__":

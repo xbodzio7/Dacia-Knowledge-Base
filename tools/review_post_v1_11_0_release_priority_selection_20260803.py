@@ -319,20 +319,32 @@ def verify() -> None:
             raise RuntimeError(f"generated output differs: {path.relative_to(ROOT)}")
     state = read_json(STATE_PATH)
     expected = expected_state(report)
-    if state["phase"] != expected["phase"]:
-        raise RuntimeError("canonical project phase differs")
-    if state["baseline"]["tests"] != expected["baseline"]["tests"]:
-        raise RuntimeError("canonical test baseline differs")
-    for section in ("current_package", "next_package"):
-        for key in ("package_id", "kind", "name", "status", "goal"):
-            if state[section][key] != expected[section][key]:
-                raise RuntimeError(
-                    f"canonical project state differs for {section}.{key}"
-                )
-    required_manifest = set(expected["current_package"]["manifest_paths"])
-    actual_manifest = set(state["current_package"]["manifest_paths"])
-    if not required_manifest.issubset(actual_manifest):
-        raise RuntimeError("canonical package manifest is incomplete")
+    if state["current_package"]["package_id"] == PACKAGE_ID:
+        if state["phase"] != expected["phase"]:
+            raise RuntimeError("canonical project phase differs")
+        if state["baseline"]["tests"] != expected["baseline"]["tests"]:
+            raise RuntimeError("canonical test baseline differs")
+        for section in ("current_package", "next_package"):
+            for key in ("package_id", "kind", "name", "status", "goal"):
+                if state[section][key] != expected[section][key]:
+                    raise RuntimeError(
+                        f"canonical project state differs for {section}.{key}"
+                    )
+        required_manifest = set(
+            expected["current_package"]["manifest_paths"]
+        )
+        actual_manifest = set(
+            state["current_package"]["manifest_paths"]
+        )
+        if not required_manifest.issubset(actual_manifest):
+            raise RuntimeError("canonical package manifest is incomplete")
+    else:
+        if state["baseline"]["tests"] < 1842:
+            raise RuntimeError("canonical test baseline regressed")
+        if report["selection"]["package_id"] != NEXT_PACKAGE_ID:
+            raise RuntimeError("durable selected package differs")
+        if not PACKAGE_DOC.exists():
+            raise RuntimeError("durable package receipt is missing")
     if CHANGELOG_ENTRY not in CHANGELOG_PATH.read_text(encoding="utf-8"):
         raise RuntimeError("CHANGELOG receipt is missing")
 
