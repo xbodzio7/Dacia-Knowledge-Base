@@ -2,7 +2,7 @@ name: Temporary Portfolio Family Summary Applicator
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
@@ -22,8 +22,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo '5e87e37c266ee261793b79f099e9b026a6a2864efb4e59b337cfce4b0c696318  project/portfolio-family-payload.chunk.00' | sha256sum --check
-          echo 'e2bde421d0dae0a452296d05182530ec0d80e7bc085fce71a7e50fd7375f47bf  project/portfolio-family-payload.chunk.01' | sha256sum --check
           cat project/portfolio-family-payload.chunk.* > /tmp/portfolio-payload.tar.gz.b64
           echo '3e44d231993fb0d93ed5164565b03958f9fb92613bd276922c583747c81e3839  /tmp/portfolio-payload.tar.gz.b64' | sha256sum --check
           base64 -d /tmp/portfolio-payload.tar.gz.b64 > /tmp/portfolio-payload.tar.gz
