@@ -1,0 +1,34 @@
+name: AI repair Spring commercial contracts
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Repair, regenerate and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/repair_spring_charging_cable_commercial_semantics_contracts_20260802.py
+          python3 tools/review_spring_exact_current_semantic_migration_20260802.py --apply
+          python3 tools/dkb.py project-state --apply
+          python3 -m compileall -q tools tests
+          python3 -m unittest discover -s tests -p 'test_*.py' -q
+          python3 tools/dkb.py project-state --check
+          rm .github/workflows/ai-repair-spring-commercial-contracts.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'test: align Spring post-migration contracts'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
