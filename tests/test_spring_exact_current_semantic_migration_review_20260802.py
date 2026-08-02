@@ -14,7 +14,7 @@ ITEMS = ROOT / "data/master/commercial_items.csv"
 
 KHaki_MAPPING = "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
 TYPE2_ITEM = "spring_type2_charging_cable_option"
-HOME_CABLE_ITEM = "spring_home_charging_cable_option"
+HOME_CABLE_ITEM = "spring_domestic_socket_charging_cable_option"
 
 
 def read_json(path: Path) -> dict:
@@ -47,7 +47,7 @@ def verify_contract() -> None:
 
     if report["scope"] != {
         "spring_configuration_count": 3,
-        "existing_spring_mapping_count": 25,
+        "existing_spring_mapping_count": 27,
         "master_data_mutation_authorized": False,
         "source_reports": [
             "data/reporting/spring_commercial_context_resolution.json",
@@ -117,8 +117,8 @@ def verify_contract() -> None:
         raise AssertionError("later packages must preserve Type 2 review semantics")
 
     item_codes = {row["code"] for row in read_rows(ITEMS)}
-    if HOME_CABLE_ITEM in item_codes:
-        raise AssertionError("later packages must not bypass the home-cable model review")
+    if HOME_CABLE_ITEM not in item_codes:
+        raise AssertionError("accepted home-cable representation was not materialized")
 
     state = read_json(STATE)
     current_id = state["current_package"]["package_id"]
