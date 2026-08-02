@@ -76,10 +76,11 @@ class RegisteredSourceCompletenessReconciliationTests(unittest.TestCase):
         self.assertTrue(current_id)
         self.assertTrue(state["next_package"]["package_id"])
         self.assertGreaterEqual(state["baseline"]["tests"], 1788)
-        expected_rows = 11714 if current_id in {
-            "spring_essential_khaki_price_apply_001",
-            "spring_standard_equipment_representation_review_001",
-        } else 11713
+        expected_rows = {
+            "spring_essential_khaki_price_apply_001": 11714,
+            "spring_standard_equipment_representation_review_001": 11714,
+            "spring_biel_alpejska_default_colour_migration_001": 11715,
+        }.get(current_id, 11713)
         self.assertEqual(state["baseline"]["rows"], expected_rows)
 
 

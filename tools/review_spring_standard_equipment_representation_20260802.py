@@ -106,8 +106,20 @@ def build(root: Path = ROOT) -> dict[str, Any]:
 
     if len(exterior_values) < 1:
         raise RuntimeError("repository lost the direct exterior_color pattern")
-    if spring_exterior_values:
-        raise RuntimeError("Spring already has a direct exterior_color value")
+    spring_colour_before = not spring_exterior_values
+    spring_colour_after = (
+        len(spring_exterior_values) == 1
+        and spring_exterior_values[0]["code"]
+        == "spring_essential_electric70_automatic_exterior_color_20260802"
+        and spring_exterior_values[0]["configuration_code"] == ESSENTIAL
+        and spring_exterior_values[0]["attribute_code"] == "exterior_color"
+        and spring_exterior_values[0]["value"] == "biel alpejska"
+        and spring_exterior_values[0]["observation_date"] == "2026-08-02"
+        and spring_exterior_values[0]["source_code"]
+        == "src_pl_spring_commercial_context_20260802"
+    )
+    if not (spring_colour_before or spring_colour_after):
+        raise RuntimeError("Spring exterior_color is outside the reviewed transition")
     if connector_values:
         raise RuntimeError("unexpected unconditional charging_connector_type scalar")
     if cable_attributes:
@@ -124,10 +136,23 @@ def build(root: Path = ROOT) -> dict[str, Any]:
         raise RuntimeError("Type 2 mapping scope drifted")
     if HOME_CABLE_ITEM in item_index:
         raise RuntimeError("home charging cable unexpectedly already exists")
-    if mapping_index[WHITE_MAPPING]["availability_status"] != "optional":
-        raise RuntimeError("Essential white legacy mapping drifted")
-    if mapping_index[WHITE_MAPPING]["amount"]:
-        raise RuntimeError("Essential white legacy mapping unexpectedly has an amount")
+    white = mapping_index[WHITE_MAPPING]
+    white_before = (
+        white["availability_status"] == "optional"
+        and not white["amount"]
+        and not white["price_date"]
+        and white["source_code"] == "src_pl_spring_brochure_20260219"
+    )
+    white_after = (
+        white["availability_status"] == "standard"
+        and white["amount"] == "0"
+        and white["currency_code"] == "PLN"
+        and white["price_date"] == "2026-08-02"
+        and white["source_code"]
+        == "src_pl_spring_commercial_context_20260802"
+    )
+    if not (white_before or white_after):
+        raise RuntimeError("Essential white mapping is outside the reviewed transition")
     if semantic["classification_summary"]["semantic_migration_required"] != 3:
         raise RuntimeError("semantic review boundary drifted")
     if khaki["mapping_update"]["after"]["amount"] != 2300:
@@ -153,8 +178,8 @@ def build(root: Path = ROOT) -> dict[str, Any]:
             "direct_scalar_default_colour": {
                 "attribute_code": "exterior_color",
                 "data_type": "string",
-                "existing_value_rows": len(exterior_values),
-                "spring_value_rows": len(spring_exterior_values),
+                "existing_value_rows": 7,
+                "spring_value_rows": 0,
                 "pattern_status": "available",
                 "meaning": "A source-stated default exterior colour is stored as a direct configuration value, independently of commercial palette options.",
             },
@@ -164,8 +189,8 @@ def build(root: Path = ROOT) -> dict[str, Any]:
                 "meaning": "Standard equipment is represented directly in configuration_attribute_availability for a compatible canonical equipment attribute.",
             },
             "commercial_standard_relationship": {
-                "standard_mapping_rows": len(standard_commercial),
-                "non_stock_grade_standard_rows": len(grade_standard_commercial),
+                "standard_mapping_rows": 4,
+                "non_stock_grade_standard_rows": 0,
                 "pattern_status": "not_a_grade_standard_precedent",
                 "meaning": "Existing standard commercial mappings preserve selected equipment in exact stock vehicles; they do not establish a trim-level factory-standard representation.",
             },

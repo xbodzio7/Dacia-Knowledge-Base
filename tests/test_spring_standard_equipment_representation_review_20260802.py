@@ -107,13 +107,37 @@ def verify_contract() -> None:
         if row["configuration_code"].startswith("spring_")
         and row["attribute_code"] == "exterior_color"
     ]
-    if spring_colours:
-        raise AssertionError("review package must not apply the Essential white value")
-
+    state = read_json(STATE)
+    current_id = state["current_package"]["package_id"]
     mapping_index = {row["code"]: row for row in read_rows(MAPPINGS)}
     white = mapping_index[WHITE_MAPPING]
-    if white["availability_status"] != "optional" or white["amount"]:
-        raise AssertionError("review package must not migrate Essential white")
+    if current_id == "spring_standard_equipment_representation_review_001":
+        if spring_colours:
+            raise AssertionError("review package must not apply the Essential white value")
+        if white["availability_status"] != "optional" or white["amount"]:
+            raise AssertionError("review package must not migrate Essential white")
+    elif current_id == "spring_biel_alpejska_default_colour_migration_001":
+        if len(spring_colours) != 1:
+            raise AssertionError("white migration must add one Spring exterior colour")
+        colour_value = spring_colours[0]
+        if (
+            colour_value["configuration_code"] != ESSENTIAL
+            or colour_value["value"] != "biel alpejska"
+            or colour_value["observation_date"] != "2026-08-02"
+            or colour_value["source_code"]
+            != "src_pl_spring_commercial_context_20260802"
+        ):
+            raise AssertionError("applied Spring exterior colour drifted")
+        if (
+            white["availability_status"] != "standard"
+            or white["amount"] != "0"
+            or white["price_date"] != "2026-08-02"
+            or white["source_code"]
+            != "src_pl_spring_commercial_context_20260802"
+        ):
+            raise AssertionError("applied Essential white mapping drifted")
+    else:
+        raise AssertionError("unexpected package after representation review")
 
     memberships = [
         row for row in read_rows(MEMBERSHIPS)
@@ -125,17 +149,29 @@ def verify_contract() -> None:
     if HOME_CABLE_ITEM in item_codes:
         raise AssertionError("review package must not add the home cable item")
 
-    state = read_json(STATE)
-    if state["current_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
-        raise AssertionError("canonical current package did not advance to representation review")
     if state["current_package"]["status"] != "complete":
-        raise AssertionError("representation review package must be complete")
-    if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-        raise AssertionError("unexpected next Spring package")
-    if state["reference_delivery"]["pull_request"] != 453:
-        raise AssertionError("representation review must reference Khaki apply PR 453")
-    if state["baseline"]["tests"] != 1788 or state["baseline"]["rows"] != 11714:
-        raise AssertionError("review-only package must preserve the verified baseline")
+        raise AssertionError("canonical current package must remain complete")
+    if current_id == "spring_standard_equipment_representation_review_001":
+        if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
+            raise AssertionError("unexpected representation-review follow-up")
+        if state["reference_delivery"]["pull_request"] != 453:
+            raise AssertionError("representation review must reference Khaki apply PR 453")
+        expected = (11714, 3567, 138)
+    else:
+        if state["next_package"]["package_id"] != "spring_supplied_charging_cable_model_decision_001":
+            raise AssertionError("unexpected white-migration follow-up")
+        if state["reference_delivery"]["pull_request"] != 454:
+            raise AssertionError("white migration must reference representation review PR 454")
+        expected = (11715, 3568, 139)
+    if state["baseline"]["tests"] != 1788:
+        raise AssertionError("import-time contracts must preserve the test baseline")
+    actual = (
+        state["baseline"]["rows"],
+        state["baseline"]["configuration_values"],
+        state["baseline"]["configuration_import_specs"],
+    )
+    if actual != expected:
+        raise AssertionError("representation-review transition baseline drifted")
 
 
 # Import-time verification preserves the established test-count baseline.
