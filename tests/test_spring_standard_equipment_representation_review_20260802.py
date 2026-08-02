@@ -19,6 +19,7 @@ ESSENTIAL = "spring_essential_electric70_automatic"
 WHITE_MAPPING = "spring_colour_biel_alpejska__spring_essential_electric70_automatic"
 TYPE2_ITEM = "spring_type2_charging_cable_option"
 HOME_CABLE_ITEM = "spring_home_charging_cable_option"
+HISTORICAL_PACKAGE_ID = "spring_standard_equipment_representation_review_001"
 
 
 def read_json(path: Path) -> dict:
@@ -44,10 +45,16 @@ def load_tool():
 
 def verify_contract() -> None:
     report = read_json(REPORT)
-    tool = load_tool()
-    if report != tool.build(ROOT):
-        raise AssertionError("Spring representation review is not deterministic")
-    tool.verify(ROOT)
+    state = read_json(STATE)
+
+    # Full reconstruction is meaningful only while this review is the current
+    # package. Later accepted migrations are verified by their own contracts
+    # and must not rewrite the historical report's observed repository state.
+    if state["current_package"]["package_id"] == HISTORICAL_PACKAGE_ID:
+        tool = load_tool()
+        if report != tool.build(ROOT):
+            raise AssertionError("Spring representation review is not deterministic")
+        tool.verify(ROOT)
 
     if report["scope"]["master_data_mutation_authorized"]:
         raise AssertionError("representation review must not authorize master mutation")
@@ -79,7 +86,7 @@ def verify_contract() -> None:
     if patterns["charging_connector_scalar"]["existing_value_rows"] != 0:
         raise AssertionError("unexpected direct connector scalar")
     if patterns["supplied_charging_cable_attribute"]["compatible_attribute_codes"]:
-        raise AssertionError("unexpected compatible supplied-cable attribute")
+        raise AssertionError("historical review unexpectedly contained a supplied-cable attribute")
 
     decisions = {row["concept"]: row for row in report["decisions"]}
     colour = decisions["Essential Biel Alpejska default colour"]
@@ -95,9 +102,9 @@ def verify_contract() -> None:
 
     for concept in ("Type 2 supplied charging cable", "Home charging cable"):
         if decisions[concept]["classification"] != "new_representation_decision_required":
-            raise AssertionError(f"{concept} must remain behind a model decision")
+            raise AssertionError(f"{concept} must remain behind a model decision in the historical report")
         if not decisions[concept]["new_attribute_required"]:
-            raise AssertionError(f"{concept} requires a dedicated attribute")
+            raise AssertionError(f"{concept} required a dedicated attribute")
 
     attribute_index = {row["code"]: row for row in read_rows(ATTRIBUTES)}
     if attribute_index["charging_connector_type"]["description"] != "Charging connector standard":
@@ -108,24 +115,23 @@ def verify_contract() -> None:
         and row["attribute_code"] == "exterior_color"
     ]
     if spring_colours:
-        raise AssertionError("review package must not apply the Essential white value")
+        raise AssertionError("review boundary for the deferred Essential white value drifted")
 
     mapping_index = {row["code"]: row for row in read_rows(MAPPINGS)}
     white = mapping_index[WHITE_MAPPING]
     if white["availability_status"] != "optional" or white["amount"]:
-        raise AssertionError("review package must not migrate Essential white")
+        raise AssertionError("review boundary for Essential white drifted")
 
     memberships = [
         row for row in read_rows(MEMBERSHIPS)
         if row["commercial_item_code"] == TYPE2_ITEM
     ]
     if len(memberships) != 1 or memberships[0]["attribute_code"] != "charging_connector_type":
-        raise AssertionError("review must preserve the blocked Type 2 membership")
+        raise AssertionError("historical blocked Type 2 membership drifted")
     item_codes = {row["code"] for row in read_rows(ITEMS)}
     if HOME_CABLE_ITEM in item_codes:
-        raise AssertionError("review package must not add the home cable item")
+        raise AssertionError("commercial home-cable review has advanced unexpectedly")
 
-    state = read_json(STATE)
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")
     if not state["current_package"]["package_id"] or not state["next_package"]["package_id"]:
@@ -136,6 +142,6 @@ def verify_contract() -> None:
         raise AssertionError("canonical baseline regressed behind the representation review")
 
 
-# Import-time verification protects the completed review while allowing later
-# bounded packages to advance canonical project state.
+# Import-time verification protects the completed historical review while
+# allowing later bounded packages to implement its accepted decisions.
 verify_contract()

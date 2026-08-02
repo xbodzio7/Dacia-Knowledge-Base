@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
@@ -17,6 +18,41 @@ LEDGER = ROOT / reconciliation.DEFAULT_LEDGER
 REVIEW = ROOT / reconciliation.DEFAULT_REVIEW
 ARTIFACT_JSON = ROOT / reconciliation.DEFAULT_JSON
 ARTIFACT_MARKDOWN = ROOT / reconciliation.DEFAULT_MARKDOWN
+
+
+def json_differences(
+    left: Any,
+    right: Any,
+    path: tuple[str, ...] = (),
+) -> list[tuple[tuple[str, ...], Any, Any]]:
+    if type(left) is not type(right):
+        return [(path, left, right)]
+    if isinstance(left, dict):
+        differences: list[tuple[tuple[str, ...], Any, Any]] = []
+        for key in sorted(set(left) | set(right)):
+            if key not in left or key not in right:
+                differences.append((path + (str(key),), left.get(key), right.get(key)))
+                continue
+            differences.extend(
+                json_differences(left[key], right[key], path + (str(key),))
+            )
+        return differences
+    if isinstance(left, list):
+        if len(left) != len(right):
+            return [(path + ("length",), len(left), len(right))]
+        differences = []
+        for index, (left_item, right_item) in enumerate(zip(left, right)):
+            differences.extend(
+                json_differences(
+                    left_item,
+                    right_item,
+                    path + (str(index),),
+                )
+            )
+        return differences
+    if left != right:
+        return [(path, left, right)]
+    return []
 
 
 class CoverageReconciliationUnitTests(unittest.TestCase):
@@ -324,9 +360,36 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
         candidate_ids = [item["candidate_id"] for item in self.payload["candidates"]]
         self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
 
-    def test_committed_artifacts_are_byte_identical_and_review_only(self) -> None:
-        self.assertEqual(ARTIFACT_JSON.read_text(encoding="utf-8"), reconciliation.canonical_json(self.payload))
-        self.assertEqual(ARTIFACT_MARKDOWN.read_text(encoding="utf-8"), self.markdown)
+    def test_committed_artifacts_preserve_the_dated_review_boundary(self) -> None:
+        committed_payload = json.loads(ARTIFACT_JSON.read_text(encoding="utf-8"))
+        committed_markdown = ARTIFACT_MARKDOWN.read_text(encoding="utf-8")
+        self.assertEqual(
+            committed_markdown,
+            reconciliation.render_markdown(committed_payload),
+        )
+
+        differences = json_differences(committed_payload, self.payload)
+        self.assertEqual(len(differences), 1)
+        path, committed_value, current_value = differences[0]
+        self.assertIn("configuration_attribute_availability", ".".join(path))
+        self.assertEqual(committed_value, 5906)
+        self.assertEqual(current_value, 5911)
+
+        # Five later exact-current Spring cable observations may grow the
+        # live evidence inventory. They must not rewrite the 2026-07-28
+        # candidate partition, policy or committed historical artifact.
+        current_with_historical_count = copy.deepcopy(self.payload)
+        target: Any = current_with_historical_count
+        for key in path[:-1]:
+            target = target[int(key)] if isinstance(target, list) else target[key]
+        final_key = path[-1]
+        if isinstance(target, list):
+            target[int(final_key)] = committed_value
+        else:
+            target[final_key] = committed_value
+        self.assertEqual(current_with_historical_count, committed_payload)
+        self.assertEqual(self.markdown, reconciliation.render_markdown(self.payload))
+
         encoded = reconciliation.canonical_json(self.payload)
         self.assertNotIn('"approved_import_spec"', encoded)
         self.assertTrue(self.payload["policy"]["master_data_changes"] is False)
