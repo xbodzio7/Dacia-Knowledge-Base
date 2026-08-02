@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Post-Spring Charging Cable Priority Selection Review
-- Pull Request: #464
-- Verified head: `8027dadecb320c2c70a8e373ed6eebf77526409b`
-- Quality run: #30755752601
+- Package: Legacy PDF Source Audit Governance and Spring FlexiCharger Correction
+- Pull Request: #466
+- Verified head: `dd3cbed2a9a45542fb7d13d92dcc571263655832`
+- Quality run: #30765813057
 
 ## Verified baseline
 
-- Tests: 1797
+- Tests: 1801
 - Master CSV files: 46
 - Master rows: 11730
 - Configuration values: 3568
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Legacy PDF Source Audit Governance and Spring FlexiCharger Correction** — `complete`
+**Spring Brochure and Price List Full Assimilation Audit** — `complete`
 
-Require complete documentary-source assimilation, register legacy PDF coverage and correct the confirmed Spring Expression FlexiCharger omission.
+Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.
 
 ## Next package
 
-**Spring Brochure and Price List Full Assimilation Audit** — `planned`
+**Spring Non-conflicting Technical Observations Review** — `planned`
 
-Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.
+Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and queue only demonstrably missing context-safe migrations.
 
 ## Autonomy
 
