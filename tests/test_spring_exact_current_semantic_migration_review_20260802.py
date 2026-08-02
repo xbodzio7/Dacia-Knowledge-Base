@@ -106,8 +106,6 @@ def verify_contract() -> None:
 
     mapping_index = {row["code"]: row for row in read_rows(MAPPINGS)}
     khaki = mapping_index[KHaki_MAPPING]
-    if khaki["availability_status"] != "optional" or khaki["amount"]:
-        raise AssertionError("review package must not apply the Khaki price")
 
     type2_rows = [
         row for row in mapping_index.values()
@@ -116,26 +114,47 @@ def verify_contract() -> None:
     if len(type2_rows) != 3 or any(
         row["availability_status"] != "optional" for row in type2_rows
     ):
-        raise AssertionError("review package must not migrate Type 2 semantics")
+        raise AssertionError("later packages must preserve Type 2 review semantics")
 
     item_codes = {row["code"] for row in read_rows(ITEMS)}
     if HOME_CABLE_ITEM in item_codes:
-        raise AssertionError("review package must not add a home-cable item")
+        raise AssertionError("later packages must not bypass the home-cable model review")
 
     state = read_json(STATE)
-    if state["current_package"]["package_id"] != "spring_exact_current_semantic_migration_review_001":
-        raise AssertionError("canonical current package did not advance to semantic review")
+    current_id = state["current_package"]["package_id"]
     if state["current_package"]["status"] != "complete":
-        raise AssertionError("semantic review package must be complete")
-    if state["next_package"]["package_id"] != "spring_essential_khaki_price_apply_001":
-        raise AssertionError("unexpected next Spring package")
-    if state["reference_delivery"]["pull_request"] != 451:
-        raise AssertionError("semantic review must reference Spring snapshot PR 451")
+        raise AssertionError("canonical current package must remain complete")
+
+    if current_id == "spring_exact_current_semantic_migration_review_001":
+        if khaki["availability_status"] != "optional" or khaki["amount"]:
+            raise AssertionError("review package must not apply the Khaki price")
+        if state["next_package"]["package_id"] != "spring_essential_khaki_price_apply_001":
+            raise AssertionError("unexpected review follow-up package")
+        if state["reference_delivery"]["pull_request"] != 451:
+            raise AssertionError("semantic review must reference Spring snapshot PR 451")
+        if state["baseline"]["rows"] != 11713:
+            raise AssertionError("review-only package must preserve master row count")
+    else:
+        if current_id != "spring_essential_khaki_price_apply_001":
+            raise AssertionError("unexpected package after Spring semantic review")
+        if (
+            khaki["availability_status"] != "optional"
+            or khaki["amount"] != "2300"
+            or khaki["price_date"] != "2026-08-02"
+            or khaki["source_code"] != "src_pl_spring_commercial_context_20260802"
+        ):
+            raise AssertionError("approved Essential Khaki update was not preserved")
+        if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
+            raise AssertionError("unexpected apply follow-up package")
+        if state["reference_delivery"]["pull_request"] != 452:
+            raise AssertionError("Khaki apply must reference semantic review PR 452")
+        if state["baseline"]["rows"] != 11714:
+            raise AssertionError("source registration must increase master row count by one")
+
     if state["baseline"]["tests"] != 1788:
         raise AssertionError("import-time contracts must preserve test baseline")
-    if state["baseline"]["rows"] != 11713:
-        raise AssertionError("review-only package must preserve master row count")
 
 
-# Import-time verification preserves the repository's established test baseline.
+# The completed review remains protected while canonical state advances to its
+# single approved apply package.
 verify_contract()
