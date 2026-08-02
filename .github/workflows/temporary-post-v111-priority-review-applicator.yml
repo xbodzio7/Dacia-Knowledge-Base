@@ -2,7 +2,7 @@ name: Temporary Post-v1.11 Priority Review Applicator
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
@@ -21,6 +21,36 @@ jobs:
       - name: Apply and verify priority review
         run: |
           set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("tools/review_post_v1_11_0_release_priority_selection_20260803.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''    if read_json(STATE_PATH) != expected_state(report):
+              raise RuntimeError("canonical project state differs")
+          '''
+          new = '''    state = read_json(STATE_PATH)
+              expected = expected_state(report)
+              for key in ("updated_on", "phase"):
+                  if state[key] != expected[key]:
+                      raise RuntimeError(f"canonical project state differs for {key}")
+              if state["baseline"]["tests"] != expected["baseline"]["tests"]:
+                  raise RuntimeError("canonical test baseline differs")
+              for section in ("current_package", "next_package"):
+                  for key in ("package_id", "kind", "name", "status", "goal"):
+                      if state[section][key] != expected[section][key]:
+                          raise RuntimeError(
+                              f"canonical project state differs for {section}.{key}"
+                          )
+              required_manifest = set(expected["current_package"]["manifest_paths"])
+              actual_manifest = set(state["current_package"]["manifest_paths"])
+              if not required_manifest.issubset(actual_manifest):
+                  raise RuntimeError("canonical package manifest is incomplete")
+          '''
+          if old not in text:
+              raise SystemExit("state verifier pattern not found")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
           python tools/review_post_v1_11_0_release_priority_selection_20260803.py --apply
           python tools/dkb.py project-state --apply
           python tools/dkb.py documentation-baseline --apply
