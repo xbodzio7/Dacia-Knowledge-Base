@@ -1,0 +1,69 @@
+name: AI run Spring commercial migrator
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .github/workflows/ai-run-spring-commercial-migrator.yml
+          git add -A
+          git commit -m 'ci: remove Spring commercial migrator runner'
+          git push origin HEAD:main
+          git fetch origin agent/spring-charging-cable-commercial-semantics-migration-20260802
+          git checkout -B agent/spring-charging-cable-commercial-semantics-migration-20260802 origin/agent/spring-charging-cable-commercial-semantics-migration-20260802
+          git merge origin/main --no-edit
+          rm -f project/spring-commercial-migration-diagnostic.txt
+          python3 tools/apply_spring_charging_cable_commercial_semantics_migration_20260802.py
+          cat > tests/test_spring_charging_cable_commercial_semantics_migration_20260802.py <<'PYTEST'
+          import csv
+          import unittest
+          from pathlib import Path
+
+          ROOT = Path(__file__).resolve().parents[1]
+
+          def rows(path):
+              with (ROOT / path).open(encoding="utf-8", newline="") as handle:
+                  return list(csv.DictReader(handle))
+
+          class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
+              def test_type2_membership_and_history(self):
+                  memberships = rows("data/master/commercial_item_attributes.csv")
+                  row = next(r for r in memberships if r["commercial_item_code"] == "spring_type2_charging_cable_option")
+                  self.assertEqual(row["attribute_code"], "type2_charging_cable_supplied")
+                  mappings = [r for r in rows("data/master/commercial_item_configurations.csv") if r["commercial_item_code"] == "spring_type2_charging_cable_option"]
+                  self.assertEqual(len(mappings), 3)
+                  self.assertTrue(all(r["availability_status"] == "optional" and r["source_code"] == "src_pl_spring_brochure_20260219" for r in mappings))
+
+              def test_domestic_socket_exact_boundary(self):
+                  items = {r["code"]: r for r in rows("data/master/commercial_items.csv")}
+                  self.assertIn("spring_domestic_socket_charging_cable_option", items)
+                  memberships = {r["commercial_item_code"]: r for r in rows("data/master/commercial_item_attributes.csv")}
+                  self.assertEqual(memberships["spring_domestic_socket_charging_cable_option"]["attribute_code"], "domestic_socket_charging_cable")
+                  mappings = [r for r in rows("data/master/commercial_item_configurations.csv") if r["commercial_item_code"] == "spring_domestic_socket_charging_cable_option"]
+                  self.assertEqual({r["configuration_code"] for r in mappings}, {"spring_essential_electric70_automatic", "spring_extreme_electric100_automatic"})
+                  self.assertTrue(all(r["availability_status"] == "optional" and r["amount"] == "1500" and r["currency_code"] == "PLN" and r["price_date"] == "2026-08-02" and r["source_code"] == "src_pl_spring_commercial_context_20260802" for r in mappings))
+
+          if __name__ == "__main__":
+              unittest.main()
+          PYTEST
+          python3 tools/dkb.py project-state --apply
+          python3 -m compileall -q tools tests
+          python3 -m unittest discover -s tests -p 'test_spring_charging_cable_commercial_semantics_migration_20260802.py' -q
+          git add -A
+          git commit -m 'data: migrate Spring charging cable commercial semantics'
+          git push origin HEAD:agent/spring-charging-cable-commercial-semantics-migration-20260802
