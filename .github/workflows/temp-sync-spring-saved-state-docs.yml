@@ -2,7 +2,7 @@ name: Temporary Spring Saved-State Documentation Sync
 
 on:
   pull_request:
-    types: [reopened]
+    types: [synchronize]
 
 permissions:
   contents: write
