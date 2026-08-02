@@ -1,4 +1,4 @@
-name: Temporary Refresh Spring White Baseline
+name: Temporary Inspect Configuration Value Specs
 
 on:
   pull_request:
@@ -8,10 +8,10 @@ on:
       - .github/workflows/temp-probe-configuration-value-specs.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  refresh:
+  inspect:
     runs-on: ubuntu-latest
     steps:
       - name: Check out package branch
@@ -20,20 +20,17 @@ jobs:
           ref: agent/spring-biel-alpejska-default-colour-migration-20260802
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Refresh and verify managed documentation
+      - name: Inspect canonical scalar import specifications
         run: |
-          python tools/documentation_baseline.py --apply
-          python tools/documentation_baseline.py --check
+          python - <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Commit refreshed documentation
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CHANGELOG.md README.md project/SESSION_STATE.md
-          git commit -m "docs: refresh Spring white migration baseline"
-          git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          root = Path("data/imports/configuration_values")
+          files = sorted(root.glob("*.json"))
+          print(f"COUNT={len(files)}")
+          for path in files[-5:]:
+              print(f"FILE={path.as_posix()}")
+              payload = json.loads(path.read_text(encoding="utf-8"))
+              print(json.dumps(payload, ensure_ascii=False, indent=2))
+          PY
