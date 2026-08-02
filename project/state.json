@@ -27,39 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_expression_saved_state_artifact_intake_001",
-    "kind": "bounded_source_and_architecture_decision",
-    "name": "Spring Expression Saved State Artifact Intake",
-    "status": "complete",
-    "goal": "Register the supplied exact Spring Expression and Extreme saved states, resolve the Type 2 cable evidence boundary and accept an independent two-cable representation without mutating equipment data.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/master/sources.csv",
-      "data/reporting/spring_saved_state_artifact_intake.json",
-      "data/reporting/spring_saved_state_artifact_intake.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/decisions/spring-charging-cable-representation-20260802.md",
-      "project/packages/spring-expression-saved-state-artifact-intake-20260802.md",
-      "project/sources/dacia-pl-spring-saved-configurations-20260802.json",
-      "project/state.json",
-      "tests/test_spring_saved_state_artifact_intake_20260802.py",
-      "tools/review_official_configurator_exact_state_capture_20260802.py",
-      "tools/review_pdf_candidate_extraction_automation_20260727.py",
-      "tools/review_spring_saved_state_artifact_intake_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_charging_cable_representation_migration_001",
     "kind": "bounded_schema_and_data_migration",
     "name": "Spring Charging Cable Representation Migration",
-    "status": "planned",
+    "status": "complete",
     "goal": "Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.",
     "manifest_paths": [
       "data/master/attributes.csv",
       "data/master/configuration_attribute_availability.csv",
-      "data/imports/",
+      "data/imports/configuration_attribute_availability_sources.csv",
+      "data/imports/configuration_attribute_availability_source_links.csv",
+      "project/STATE_SUMMARY.md",
+      "project/state.json",
+      "tests/test_spring_charging_cable_representation_migration_20260802.py",
+      "tests/test_spring_standard_equipment_representation_review_20260802.py",
+      "tools/review_spring_charging_cable_representation_migration_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_spring_charging_cable_priority_selection_001",
+    "kind": "bounded_priority_selection_review",
+    "name": "Post-Spring Charging Cable Priority Selection Review",
+    "status": "planned",
+    "goal": "Select the next evidence-backed bounded package from the repository roadmap after closing the Spring charging-cable migration, without inventing unsupported data work.",
+    "manifest_paths": [
+      "project/ROADMAP.md",
       "project/STATE_SUMMARY.md",
       "project/state.json"
     ]
@@ -109,28 +101,5 @@
     "allow_multi_source_package": "only_for_one_logical_closure_scope",
     "release_double_build_required": true,
     "release_exact_source_sha_required": true
-  },
-  "updated_at": "2026-08-02T14:11:35Z",
-  "summary": "Pakiet `spring_charging_cable_representation_migration_001` został przygotowany w PR #460: rozdzielono przewód Type 2 od przewodu do gniazdka domowego, wpisano wyłącznie potwierdzoną dostępność Spring i dodano provenance na poziomie rekordów.",
-  "candidate_next_work_packages": [],
-  "next_work_package": {
-    "id": "source_credibility_scoring_and_lifecycle_001",
-    "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",
-    "acceptance_criteria": [
-      "Zdefiniować jawny scoring wiarygodności źródeł zgodny z governance i lifecycle obserwacji.",
-      "Wdrożyć model danych i walidację bez zmiany znaczenia istniejących obserwacji.",
-      "Dodać testy regresji, uruchomić `make check` oraz `python3 tools/project_state.py --check`."
-    ],
-    "recommended_context": [
-      "project/SCHEMA_GOVERNANCE.md",
-      "project/DATA_ARCHITECTURE.md",
-      "project/SOURCE_INTAKE_CHECKLIST.md",
-      "data/master/sources.csv"
-    ]
-  },
-  "context": {
-    "recently_merged": [
-      "PR #460"
-    ]
   }
 }

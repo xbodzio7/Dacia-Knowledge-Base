@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Expression Saved State Artifact Intake** — `complete`
+**Spring Charging Cable Representation Migration** — `complete`
 
-Register the supplied exact Spring Expression and Extreme saved states, resolve the Type 2 cable evidence boundary and accept an independent two-cable representation without mutating equipment data.
+Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
 
 ## Next package
 
-**Spring Charging Cable Representation Migration** — `planned`
+**Post-Spring Charging Cable Priority Selection Review** — `planned`
 
-Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
+Select the next evidence-backed bounded package from the repository roadmap after closing the Spring charging-cable migration, without inventing unsupported data work.
 
 ## Autonomy
 
