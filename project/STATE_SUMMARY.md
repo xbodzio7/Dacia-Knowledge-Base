@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Spring Standard Equipment Representation Review**
+**Official Configurator Coverage Reconciliation**
 
 ## Reference delivery
 
-- Package: Spring Essential Lichen Khaki Price Apply
-- Pull Request: #453
-- Verified head: `4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8`
-- Quality run: #30740364894
+- Package: Spring Standard Equipment Representation Review
+- Pull Request: #454
+- Verified head: `697adb01776b41ad3742b7380fd14613d3d5300c`
+- Quality run: #30740819610
 
 ## Verified baseline
 
 - Tests: 1788
 - Master CSV files: 46
-- Master rows: 11714
+- Master rows: 11715
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Standard Equipment Representation Review** — `complete`
+**Official Configurator Coverage Reconciliation** — `complete`
 
-Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
+Register every active Dacia Polska configurator surface and define exact-state evidence boundaries before filling gaps or making a supplied-cable architecture decision.
 
 ## Next package
 
-**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
+**Official Configurator Exact State Capture** — `planned`
 
-Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
+Capture and normalize exact saved configurator states for every active model, grade, powertrain and transmission surface, beginning with the user-provided Spring link, before any architecture or master-data decision.
 
 ## Autonomy
 
