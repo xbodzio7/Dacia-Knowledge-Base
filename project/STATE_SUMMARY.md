@@ -12,45 +12,39 @@
 
 ## Phase
 
-**Official Configurator Coverage Reconciliation**
+**Spring Standard Equipment Representation Review**
 
 ## Reference delivery
 
-- Package: Spring Standard Equipment Representation Review
-- Pull Request: #454
-- Verified head: `697adb01776b41ad3742b7380fd14613d3d5300c`
-- Quality run: #30740819610
+- Package: Spring Essential Lichen Khaki Price Apply
+- Pull Request: #453
+- Verified head: `4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8`
+- Quality run: #30740364894
 
-## Recorded baseline
+## Verified baseline
 
-- Tests in recorded baseline: 1788
+- Tests: 1788
 - Master CSV files: 46
-- Master rows: 11715
-- Configuration values: 3568
-- Configuration import specifications: 139
+- Master rows: 11714
+- Configuration values: 3567
+- Configuration import specifications: 138
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
 - Availability records: 5906
 - Canonical attributes: 385
 - Attribute categories: 30
 
-The post-merge state of PR #455 requires a fresh full-quality run. Temporary diagnostics captured a failed package verification and must not be treated as proof of a green baseline.
-
 ## Current package
 
-**Spring White Post-Merge Cleanup** — `complete`
+**Spring Standard Equipment Representation Review** — `complete`
 
-Remove temporary Spring finalization workflows and diagnostics, repair stale canonical import paths, and explicitly defer supplied-cable architecture until official configurator coverage is reconciled.
+Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
 
 ## Next package
 
-**Official Configurator Coverage Reconciliation** — `planned`
+**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
 
-Register and snapshot every active Dacia Polska model configurator, enumerate all source-visible grades, powertrains and gearboxes, then reconcile unresolved or missing current data before any new supplied-cable architecture decision.
-
-## Architecture hold
-
-The Spring supplied-cable representation decision is deferred. It may be reconsidered only after the official configurator coverage report distinguishes missing evidence from genuinely missing domain representation.
+Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
 
 ## Autonomy
 

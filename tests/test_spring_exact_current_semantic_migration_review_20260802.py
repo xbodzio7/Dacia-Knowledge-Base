@@ -135,24 +135,10 @@ def verify_contract() -> None:
         if state["baseline"]["rows"] != 11713:
             raise AssertionError("review-only package must preserve master row count")
     else:
-        transitions = {
-            "spring_essential_khaki_price_apply_001": (
-                "spring_standard_equipment_representation_review_001",
-                452,
-                11714,
-            ),
-            "spring_standard_equipment_representation_review_001": (
-                "spring_biel_alpejska_default_colour_migration_001",
-                453,
-                11714,
-            ),
-            "spring_biel_alpejska_default_colour_migration_001": (
-                "spring_supplied_charging_cable_model_decision_001",
-                454,
-                11715,
-            ),
-        }
-        if current_id not in transitions:
+        if current_id not in {
+            "spring_essential_khaki_price_apply_001",
+            "spring_standard_equipment_representation_review_001",
+        }:
             raise AssertionError("unexpected package after Spring semantic review")
         if (
             khaki["availability_status"] != "optional"
@@ -161,18 +147,23 @@ def verify_contract() -> None:
             or khaki["source_code"] != "src_pl_spring_commercial_context_20260802"
         ):
             raise AssertionError("approved Essential Khaki update was not preserved")
-        expected_next, expected_pr, expected_rows = transitions[current_id]
-        if state["next_package"]["package_id"] != expected_next:
-            raise AssertionError("unexpected Spring semantic-review successor")
-        if state["reference_delivery"]["pull_request"] != expected_pr:
-            raise AssertionError("Spring semantic-review history references an unexpected delivery")
-        if state["baseline"]["rows"] != expected_rows:
-            raise AssertionError("later Spring package has an unexpected master row count")
+        if current_id == "spring_essential_khaki_price_apply_001":
+            if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
+                raise AssertionError("unexpected apply follow-up package")
+            if state["reference_delivery"]["pull_request"] != 452:
+                raise AssertionError("Khaki apply must reference semantic review PR 452")
+        else:
+            if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
+                raise AssertionError("unexpected representation-review follow-up")
+            if state["reference_delivery"]["pull_request"] != 453:
+                raise AssertionError("representation review must reference Khaki apply PR 453")
+        if state["baseline"]["rows"] != 11714:
+            raise AssertionError("later Spring packages must preserve the source-registration row")
 
     if state["baseline"]["tests"] != 1788:
         raise AssertionError("import-time contracts must preserve test baseline")
 
 
 # The completed review remains protected while canonical state advances through
-# its approved price, representation and default-colour packages.
+# its approved apply and representation-review packages.
 verify_contract()

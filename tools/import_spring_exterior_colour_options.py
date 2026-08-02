@@ -50,21 +50,15 @@ EXPECTED_COLOURS = {
 EXPECTED_ITEM_IDS = (34, 39)
 EXPECTED_ATTRIBUTE_IDS = (88, 93)
 EXPECTED_CONFIGURATION_IDS = (150, 167)
-APPROVED_CURRENT_MAPPING_STATES = {
-    "spring_colour_lichen_khaki__spring_essential_electric70_automatic": {
-        "availability_status": "optional",
-        "amount": "2300",
-        "currency_code": "PLN",
-        "price_date": "2026-08-02",
-        "source_code": "src_pl_spring_commercial_context_20260802",
-    },
-    "spring_colour_biel_alpejska__spring_essential_electric70_automatic": {
-        "availability_status": "standard",
-        "amount": "0",
-        "currency_code": "PLN",
-        "price_date": "2026-08-02",
-        "source_code": "src_pl_spring_commercial_context_20260802",
-    },
+APPROVED_CURRENT_MAPPING_CODE = (
+    "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
+)
+APPROVED_CURRENT_MAPPING_STATE = {
+    "availability_status": "optional",
+    "amount": "2300",
+    "currency_code": "PLN",
+    "price_date": "2026-08-02",
+    "source_code": "src_pl_spring_commercial_context_20260802",
 }
 
 
@@ -217,19 +211,18 @@ def normalize_reviewed_configuration_rows(
     expected = {row["code"]: row for row in generated_configurations()}
     normalized: list[dict[str, str]] = []
     for row in rows:
-        approved_state = APPROVED_CURRENT_MAPPING_STATES.get(row["code"])
-        if approved_state is None:
+        if row["code"] != APPROVED_CURRENT_MAPPING_CODE:
             normalized.append(row)
             continue
-        historical = expected[row["code"]]
+        historical = expected[APPROVED_CURRENT_MAPPING_CODE]
         if all(row.get(field, "") == historical[field] for field in CONFIGURATION_FIELDS[1:]):
             normalized.append(row)
             continue
         if any(
             row.get(field, "") != value
-            for field, value in approved_state.items()
+            for field, value in APPROVED_CURRENT_MAPPING_STATE.items()
         ):
-            raise ContractError(f"Spring colour mapping is outside the approved transition: {row['code']}")
+            raise ContractError("Essential Lichen Khaki mapping is outside the approved transition")
         restored = dict(row)
         for field in CONFIGURATION_FIELDS[1:]:
             restored[field] = historical[field]
