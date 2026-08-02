@@ -49,10 +49,20 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
-          python-version: "3.13"
+          python-version: "3.14"
       - name: Package tests and project state
         shell: pwsh
         run: |
-          python -m unittest -q tests.package_workflow_contract tests.package_publish_contract tests.package_finish_contract
+          python -m unittest -q `
+            tests.test_package_workflow `
+            tests.test_package_receipt `
+            tests.test_package_publish `
+            tests.test_dkb_cli `
+            tests.test_quality `
+            tests.project_state_contract `
+            tests.autonomy_policy_contract `
+            tests.quality_artifact_manifest_contract `
+            tests.configuration_comparison_context_filter_contract `
+            tests.configuration_comparison_pair_summary_contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python tools/dkb.py project-state --check
