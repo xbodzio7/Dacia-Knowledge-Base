@@ -21,6 +21,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 tools/repair_spring_charging_cable_commercial_semantics_contracts_20260802.py
+          python3 tools/repair_spring_exact_review_test_contract_20260802.py
           python3 tools/review_spring_exact_current_semantic_migration_20260802.py --apply
           python3 tools/dkb.py project-state --apply
           python3 -m compileall -q tools tests
