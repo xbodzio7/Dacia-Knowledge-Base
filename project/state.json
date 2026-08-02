@@ -38,6 +38,7 @@
       "project/packages/data-products-v1.11.0-accelerated-release-preparation-20260802.md",
       "project/state.json",
       "tests/test_data_products_v1_11_0_release_contract.py",
+      "tests/test_spring_legacy_pdf_assimilation_closure_20260802.py",
       "tools/record_data_products_v1_11_0_publication_20260802.py",
       "tools/reporting/data_product_release.py"
     ]
