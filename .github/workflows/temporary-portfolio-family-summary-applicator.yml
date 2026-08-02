@@ -22,9 +22,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat project/portfolio-family-payload.chunk.* > /tmp/portfolio-payload.tar.gz.b64
-          echo '3e44d231993fb0d93ed5164565b03958f9fb92613bd276922c583747c81e3839  /tmp/portfolio-payload.tar.gz.b64' | sha256sum --check
-          base64 -d /tmp/portfolio-payload.tar.gz.b64 > /tmp/portfolio-payload.tar.gz
+          echo '7b6defd629bc83fed7ef2393731066843b41d3be7f93498aa186f6710f0b746d  project/portfolio-family-payload.part00' | sha256sum --check
+          echo '82eae111723d2be0f73760c2ad1624697e30167733612a2e6b23249455f5a599  project/portfolio-family-payload.part01' | sha256sum --check
+          echo 'f1b391517a306fece0eb46fe739346add6617aece028ed5d75a420e556e7aab2  project/portfolio-family-payload.part02' | sha256sum --check
+          cat project/portfolio-family-payload.part* > /tmp/portfolio-payload.tar.gz
           echo 'a1019a214246f033270b2e846c1d3483c560176f6eb2135efdeb19f1d19dfae9  /tmp/portfolio-payload.tar.gz' | sha256sum --check
           tar -xzf /tmp/portfolio-payload.tar.gz
           python - <<'PY'
