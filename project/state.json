@@ -9,13 +9,13 @@
   },
   "phase": "Legacy PDF Source Audit",
   "reference_delivery": {
-    "name": "Legacy PDF Source Audit Governance and Spring FlexiCharger Correction",
-    "pull_request": 466,
-    "head_sha": "dd3cbed2a9a45542fb7d13d92dcc571263655832",
-    "quality_run": 30765813057
+    "name": "Spring Brochure and Price List Full Assimilation Audit",
+    "pull_request": 467,
+    "head_sha": "35e6244a8564be61af29c52bc710b50e19e46254",
+    "quality_run": 30766992086
   },
   "baseline": {
-    "tests": 1801,
+    "tests": 1809,
     "csv_files": 46,
     "rows": 11730,
     "configuration_values": 3568,
@@ -27,32 +27,38 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "legacy_pdf_full_assimilation_spring_sources_001",
-    "kind": "bounded_full_document_source_assimilation",
-    "name": "Spring Brochure and Price List Full Assimilation Audit",
+    "package_id": "spring_nonconflicting_technical_observations_review_001",
+    "kind": "bounded_source_to_master_comparison",
+    "name": "Spring Non-conflicting Technical Observations Review",
     "status": "complete",
-    "goal": "Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.",
+    "goal": "Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and approve only demonstrably missing context-safe migrations.",
     "manifest_paths": [
-      "project/source-audit/spring-full-assimilation-intake-20260802.md",
-      "project/source-audit/spring-brochure-20260219-page-inventory.md",
-      "project/source-audit/spring-price-my25-stock-20260708-page-inventory.md",
-      "project/source-audit/spring-evidence-ledger-20260802.md",
-      "project/source-audit/spring-source-conflicts-20260802.md",
-      "project/packages/legacy_pdf_full_assimilation_spring_sources_001.md",
-      "tests/test_spring_full_source_assimilation_20260802.py",
+      "tools/review_spring_nonconflicting_technical_observations_20260802.py",
+      "data/reporting/spring_nonconflicting_technical_observations_review.json",
+      "data/reporting/spring_nonconflicting_technical_observations_review.md",
+      "project/packages/spring-nonconflicting-technical-observations-review-20260802.md",
+      "tests/test_spring_nonconflicting_technical_observations_review_20260802.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "spring_nonconflicting_technical_observations_review_001",
-    "kind": "bounded_source_to_master_comparison",
-    "name": "Spring Non-conflicting Technical Observations Review",
+    "package_id": "spring_nonconflicting_common_technical_observations_migration_001",
+    "kind": "bounded_configuration_value_migration",
+    "name": "Spring Non-conflicting Common Technical Observations Migration",
     "status": "planned",
-    "goal": "Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and queue only demonstrably missing context-safe migrations.",
+    "goal": "Materialize the 36 approved brochure observations for battery chemistry, motor technology, steering type and nine common body dimensions, adding only the minimum controlled enum-domain support and preserving all deferred boundaries.",
     "manifest_paths": [
-      "project/source-audit/",
-      "data/reporting/",
+      "data/master/attribute_enum_domains.csv",
+      "data/master/enums/battery_chemistries.csv",
+      "data/master/enums/electric_motor_types.csv",
+      "data/imports/spring_nonconflicting_common_technical_20260219.csv",
+      "data/master/configuration_attribute_values.csv",
+      "tools/import_spring_nonconflicting_common_technical_20260219.py",
+      "data/reporting/spring_nonconflicting_common_technical_migration.json",
+      "data/reporting/spring_nonconflicting_common_technical_migration.md",
+      "project/packages/spring-nonconflicting-common-technical-observations-migration-20260802.md",
+      "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
