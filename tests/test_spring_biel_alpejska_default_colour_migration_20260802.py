@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "data/reporting/spring_biel_alpejska_default_colour_migration.json"
 TOOL = ROOT / "tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py"
-SPEC = ROOT / "data/imports/spring_biel_alpejska_default_colour_20260802.csv"
+SPEC = ROOT / "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json"
 VALUES = ROOT / "data/master/configuration_attribute_values.csv"
 MAPPINGS = ROOT / "data/master/commercial_item_configurations.csv"
 ITEMS = ROOT / "data/master/commercial_items.csv"
@@ -49,6 +49,8 @@ def verify_contract() -> None:
     tool = load_tool()
     tool.verify(ROOT)
 
+    if read_json(SPEC) != tool.EXPECTED_SPEC:
+        raise AssertionError("canonical Spring default-colour specification drifted")
     if report["scope"] != {
         "configuration_code": "spring_essential_electric70_automatic",
         "attribute_code": "exterior_color",
@@ -57,13 +59,12 @@ def verify_contract() -> None:
     }:
         raise AssertionError("unexpected Spring default-colour migration scope")
     if report["import_specification"] != {
-        "path": "data/imports/spring_biel_alpejska_default_colour_20260802.csv",
+        "path": "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json",
+        "kind": "configuration_attribute_values",
         "row_count": 1,
-        "record_type": "value",
+        "id_start": 3568,
     }:
         raise AssertionError("unexpected Spring default-colour import specification")
-    if len(read_rows(SPEC)) != 1:
-        raise AssertionError("default-colour import specification must contain one row")
 
     direct = report["direct_value_migration"]
     if direct["rows_added"] != 1 or direct["before"] is not None:
@@ -161,8 +162,7 @@ def verify_contract() -> None:
     ]
     if len(type2) != 3 or any(row["availability_status"] != "optional" for row in type2):
         raise AssertionError("default-colour migration changed the Type 2 boundary")
-    item_codes = {row["code"] for row in read_rows(ITEMS)}
-    if HOME_CABLE_ITEM in item_codes:
+    if HOME_CABLE_ITEM in {row["code"] for row in read_rows(ITEMS)}:
         raise AssertionError("default-colour migration added a home-cable item")
 
     state = read_json(STATE)
