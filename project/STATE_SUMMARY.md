@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Official Configurator Exact State Capture**
+**Spring Charging Cable Representation**
 
 ## Reference delivery
 
-- Package: Official Configurator Coverage Reconciliation
-- Pull Request: #457
-- Verified head: `14c910acdb45d78d42e9c77478cdb365b730337a`
-- Quality run: #30745746891
+- Package: Official Configurator Exact State Capture
+- Pull Request: #458
+- Verified head: `c9270c26e69699b2c2a55381d9d6b4bc7329ba4e`
+- Quality run: #30746777038
 
 ## Verified baseline
 
 - Tests: 1788
 - Master CSV files: 46
-- Master rows: 11715
+- Master rows: 11716
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Configurator Exact State Capture** — `complete`
+**Spring Expression Saved State Artifact Intake** — `complete`
 
-Capture every exact official Dacia configurator state available through static retrieval and reduce unresolved saved-state evidence to a minimal user-export queue before any architecture or master-data decision.
+Register the supplied exact Spring Expression and Extreme saved states, resolve the Type 2 cable evidence boundary and accept an independent two-cable representation without mutating equipment data.
 
 ## Next package
 
-**Spring Expression Saved State Artifact Intake** — `planned`
+**Spring Charging Cable Representation Migration** — `planned`
 
-Ingest the PDF exported from the supplied Spring Expression Electric 70 saved configuration, resolve its charging-cable and option state, and only then reconsider the supplied-cable representation.
+Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
 
 ## Autonomy
 
