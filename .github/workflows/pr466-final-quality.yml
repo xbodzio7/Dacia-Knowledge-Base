@@ -1,34 +1,68 @@
-name: PR 466 Documentation Sync
+name: PR 466 Final Quality
 
 on:
   pull_request:
     types: [opened, reopened, synchronize]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  sync:
+  linux:
     if: github.event.pull_request.number == 466
+    name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.13", "3.14"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install PDF backend
+        if: matrix.python-version == '3.14'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+      - name: Compile and test
+        if: matrix.python-version != '3.14'
+        run: |
+          python -m compileall -q tools scripts tests
+          python -m unittest discover -s tests -p 'test_*.py' -q
+          python -m unittest -q tests.project_state_contract tests.autonomy_policy_contract tests.quality_artifact_manifest_contract tests.configuration_comparison_context_filter_contract tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+      - name: Full quality
+        if: matrix.python-version == '3.14'
+        run: python tools/dkb.py quality --concise --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" --log-file "${RUNNER_TEMP}/quality.log" --summary-json "${RUNNER_TEMP}/quality-summary.json"
+
+  windows:
+    if: github.event.pull_request.number == 466
+    name: Package workflow / Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: "3.14"
-      - name: Regenerate managed documentation baseline blocks
-        run: python tools/dkb.py documentation-baseline --apply
-      - name: Commit synchronized documentation
+      - name: Package tests and project state
+        shell: pwsh
         run: |
-          if git diff --quiet -- CHANGELOG.md README.md project/ROADMAP.md project/SESSION_STATE.md; then
-            echo "Documentation is already synchronized."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CHANGELOG.md README.md project/ROADMAP.md project/SESSION_STATE.md
-          git commit -m "docs(state): synchronize verified documentation baseline"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          python -m unittest -q `
+            tests.test_package_workflow `
+            tests.test_package_receipt `
+            tests.test_package_publish `
+            tests.test_dkb_cli `
+            tests.test_quality `
+            tests.project_state_contract `
+            tests.autonomy_policy_contract `
+            tests.quality_artifact_manifest_contract `
+            tests.configuration_comparison_context_filter_contract `
+            tests.configuration_comparison_pair_summary_contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python tools/dkb.py project-state --check
