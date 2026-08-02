@@ -1,0 +1,76 @@
+name: Temporary Stage Spring White Finalization
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-stage-spring-white-finalization.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Align canonical manifest path
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("project/state.json")
+          text = path.read_text(encoding="utf-8")
+          old = "data/imports/spring_biel_alpejska_default_colour_20260802.csv"
+          new = "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json"
+          if old in text:
+              text = text.replace(old, new)
+          elif new not in text:
+              raise SystemExit("Spring canonical import path is missing")
+          path.write_text(text, encoding="utf-8", newline="\n")
+          PY
+
+      - name: Regenerate migration reports
+        run: |
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --verify
+
+      - name: Commit manifest and reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            project/state.json \
+            data/reporting/spring_biel_alpejska_default_colour_migration.json \
+            data/reporting/spring_biel_alpejska_default_colour_migration.md
+          if ! git diff --cached --quiet; then
+            git commit -m "state: align canonical Spring white import"
+            git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          fi
+
+      - name: Refresh managed documentation
+        run: python tools/documentation_baseline.py --apply
+
+      - name: Commit managed documentation
+        run: |
+          git add CHANGELOG.md README.md project/SESSION_STATE.md
+          if ! git diff --cached --quiet; then
+            git commit -m "docs: refresh Spring white migration baseline"
+            git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          fi
+
+      - name: Verify finalized package
+        run: |
+          python tools/documentation_baseline.py --check
+          python -m unittest -v tests.test_spring_biel_alpejska_default_colour_migration_20260802
