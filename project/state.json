@@ -37,13 +37,12 @@
       ".github/workflows/temp-finalize-and-clean-spring-white.yml",
       ".github/workflows/temp-probe-configuration-value-specs.yml",
       ".github/workflows/temp-stage-spring-white-finalization.yml",
-      "data/reporting/spring_biel_alpejska_default_colour_migration.json",
-      "data/reporting/spring_biel_alpejska_default_colour_migration.md",
       "project/STATE_SUMMARY.md",
       "project/packages/spring-white-post-merge-cleanup-20260802.md",
       "project/state.json",
       "project/tmp_configuration_value_spec_probe.json",
-      "project/tmp_spring_white_finalization_status.txt"
+      "project/tmp_spring_white_finalization_status.txt",
+      "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py"
     ]
   },
   "next_package": {
