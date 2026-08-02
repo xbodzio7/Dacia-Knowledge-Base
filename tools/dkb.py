@@ -154,6 +154,11 @@ SCRIPT_COMMANDS = {
         "Generate scope-preserving model and reporting-scope navigation.",
         "[--json FILE] [--html FILE]",
     ),
+    "portfolio-model-family-summary": (
+        "portfolio_model_family_summary.py",
+        "Generate source-preserving JSON, Markdown and HTML model-family summaries.",
+        "[--json FILE] [--markdown FILE] [--html FILE]",
+    ),
     "data-product-release": (
         "data_product_release.py",
         "Build or verify deterministic versioned data-product release assets.",

@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Post-v1.11.0 Release Priority Selection Review**
+**Portfolio Model Family Summary**
 
 ## Reference delivery
 
-- Package: Data Products v1.11.0 Publication
-- Pull Request: #474
-- Verified head: `0f9a76228ef374d7982421c5a246f00fe7378a94`
-- Quality run: #30771725527
+- Package: Post-v1.11.0 Release Priority Selection Review
+- Pull Request: #475
+- Verified head: `96f30c70dbfb7d1da967e6275526735fef5c9602`
+- Quality run: #30772159207
 
 ## Verified baseline
 
-- Tests: 1842
+- Tests: 1852
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.11.0 Release Priority Selection Review** — `complete`
+**Portfolio Model Family Summary** — `complete`
 
-Inspect canonical release, source, completeness and roadmap evidence and select one bounded next package without reopening closed evidence.
+Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.
 
 ## Next package
 
-**Portfolio Model Family Summary** — `planned`
+**Portfolio Model Family Summary Release Integration** — `planned`
 
-Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.
+Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.
 
 ## Autonomy
 
