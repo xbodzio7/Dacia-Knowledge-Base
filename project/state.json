@@ -40,8 +40,12 @@
       "project/packages/spring-essential-khaki-price-apply-20260802.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_configuration_comparison_workbook.py",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
       "tests/test_spring_essential_khaki_price_apply_20260802.py",
+      "tools/review_spring_exact_current_semantic_migration_20260802.py",
       "tools/apply_spring_essential_khaki_price_20260802.py"
     ]
   },
