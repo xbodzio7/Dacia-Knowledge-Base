@@ -17,59 +17,16 @@ jobs:
           ref: agent/legacy-pdf-source-audit-governance-20260802
           fetch-depth: 0
           persist-credentials: true
-      - name: Apply correction and synchronize canonical state
+      - name: Materialize confirmed correction
         shell: bash
         run: |
           set -euo pipefail
           python3 tools/apply_spring_expression_flexicharger_correction_20260802.py
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-
-          path = Path('project/state.json')
-          state = json.loads(path.read_text(encoding='utf-8'))
-          state['phase'] = 'Legacy PDF Source Audit'
-          state['baseline']['tests'] = 1795
-          state['baseline']['rows'] = 11730
-          state['current_package'] = {
-              'package_id': 'legacy_pdf_source_audit_governance_001',
-              'kind': 'source_audit_governance_and_corrective_migration',
-              'name': 'Legacy PDF Source Audit Governance and Spring FlexiCharger Correction',
-              'status': 'complete',
-              'goal': 'Require complete documentary-source assimilation, register legacy PDF coverage and correct the confirmed Spring Expression FlexiCharger omission.',
-              'manifest_paths': [
-                  'project/SOURCE_ASSIMILATION_STANDARD.md',
-                  'project/START_HERE.md',
-                  'project/source-audit/',
-                  'data/master/commercial_items.csv',
-                  'data/master/commercial_item_configurations.csv',
-                  'tools/apply_spring_expression_flexicharger_correction_20260802.py',
-                  'tests/test_spring_expression_flexicharger_correction_20260802.py',
-                  'project/state.json',
-                  'project/STATE_SUMMARY.md',
-              ],
-          }
-          state['next_package'] = {
-              'package_id': 'legacy_pdf_full_assimilation_spring_sources_001',
-              'kind': 'full_document_source_assimilation',
-              'name': 'Spring Brochure and Price List Full Assimilation Audit',
-              'status': 'planned',
-              'goal': 'Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.',
-              'manifest_paths': [
-                  'project/source-audit/',
-                  'data/reporting/',
-                  'project/state.json',
-                  'project/STATE_SUMMARY.md',
-              ],
-          }
-          path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          PY
-          python3 tools/dkb.py project-state --apply
           rm -f project/source-audit/.audit-branch-anchor project/source-audit/pr466-status.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add data/master/commercial_items.csv data/master/commercial_item_configurations.csv project/source-audit
           if ! git diff --cached --quiet; then
-            git commit -m 'audit: apply Spring FlexiCharger correction and source audit state'
+            git commit -m 'fix(data): add Spring Expression FlexiCharger mapping'
             git push origin HEAD:agent/legacy-pdf-source-audit-governance-20260802
           fi
