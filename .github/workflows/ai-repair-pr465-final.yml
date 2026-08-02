@@ -1,4 +1,4 @@
-name: AI final repair PR 465
+name: AI sync PR 465 generated documentation
 
 on:
   pull_request_target:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  repair:
+  sync:
     if: github.event.pull_request.number == 465
     runs-on: ubuntu-latest
     steps:
@@ -17,100 +17,16 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
-      - name: Persist final migration repairs
+      - name: Synchronize canonical generated documentation
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          from pathlib import Path
-
-          def transition(path: str, old: str, new: str) -> None:
-              p = Path(path)
-              text = p.read_text(encoding='utf-8')
-              if new in text:
-                  return
-              if old not in text:
-                  raise SystemExit(f'missing transition anchor in {path}')
-              p.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          transition(
-              'tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py',
-              '"source_rows_added": 0,\n            "attributes_added": 0,',
-              '"source_rows_added": 0,\n            "source_configuration_rows_added": 1,\n            "attributes_added": 0,',
-          )
-          transition(
-              'tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py',
-              '"net_master_row_increase": 1,',
-              '"net_master_row_increase": 2,',
-          )
-          transition(
-              'tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py',
-              '"master_rows": 11728,',
-              '"master_rows": 11729,',
-          )
-
-          old_pdf = '''        differences = json_differences(committed_payload, self.payload)
-        self.assertEqual(len(differences), 1)
-        path, committed_value, current_value = differences[0]
-        self.assertIn("configuration_attribute_availability", ".".join(path))
-        self.assertEqual(committed_value, 5906)
-        self.assertEqual(current_value, 5911)
-
-        # Five later exact-current Spring cable observations may grow the
-        # live evidence inventory. They must not rewrite the 2026-07-28
-        # candidate partition, policy or committed historical artifact.
-        current_with_historical_count = copy.deepcopy(self.payload)
-        target: Any = current_with_historical_count
-        for key in path[:-1]:
-            target = target[int(key)] if isinstance(target, list) else target[key]
-        final_key = path[-1]
-        if isinstance(target, list):
-            target[int(final_key)] = committed_value
-        else:
-            target[final_key] = committed_value
-        self.assertEqual(current_with_historical_count, committed_payload)'''
-          new_pdf = '''        differences = json_differences(committed_payload, self.payload)
-        self.assertEqual(len(differences), 2)
-        recognized = {
-            "configuration_attribute_availability": (5906, 5911),
-            "configuration_attribute_values": (3490, 3491),
-        }
-        current_with_historical_counts = copy.deepcopy(self.payload)
-        seen: set[str] = set()
-        for path, committed_value, current_value in differences:
-            joined = ".".join(path)
-            matched = next((name for name in recognized if name in joined), None)
-            self.assertIsNotNone(matched, joined)
-            assert matched is not None
-            self.assertEqual((committed_value, current_value), recognized[matched])
-            seen.add(matched)
-            target: Any = current_with_historical_counts
-            for key in path[:-1]:
-                target = target[int(key)] if isinstance(target, list) else target[key]
-            final_key = path[-1]
-            if isinstance(target, list):
-                target[int(final_key)] = committed_value
-            else:
-                target[final_key] = committed_value
-        self.assertEqual(seen, set(recognized))
-        self.assertEqual(current_with_historical_counts, committed_payload)'''
-          transition(
-              'tests/test_verified_pdf_candidate_coverage_reconciliation.py',
-              old_pdf,
-              new_pdf,
-          )
-          PY
-
-          python3 tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
           python3 tools/dkb.py project-state --apply
-          python3 -m compileall -q tools scripts tests
-          python3 -m unittest discover -s tests -p 'test_*.py' -q
           python3 tools/dkb.py project-state --check
-
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add CHANGELOG.md README.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json
           if ! git diff --cached --quiet; then
-            git commit -m 'fix: finalize Spring white migration contracts'
+            git commit -m 'docs: synchronize project state after Spring white migration'
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
           fi
