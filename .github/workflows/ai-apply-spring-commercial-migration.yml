@@ -1,0 +1,235 @@
+name: AI apply Spring commercial migration
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply bounded migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          rm .github/workflows/ai-apply-spring-commercial-migration.yml
+          git add -A
+          git commit -m 'ci: remove Spring commercial migration workflow'
+          git push origin HEAD:main
+
+          git fetch origin agent/spring-charging-cable-commercial-semantics-migration-20260802
+          git checkout -B agent/spring-charging-cable-commercial-semantics-migration-20260802 origin/agent/spring-charging-cable-commercial-semantics-migration-20260802
+          git merge origin/main --no-edit
+
+          python3 - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+
+          def read_rows(path):
+              with path.open(encoding='utf-8', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          def write_rows(path, rows, fieldnames):
+              with path.open('w', encoding='utf-8', newline='') as handle:
+                  writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator='\n')
+                  writer.writeheader()
+                  writer.writerows(rows)
+
+          items_path = root / 'data/master/commercial_items.csv'
+          items = read_rows(items_path)
+          if not any(row['code'] == 'spring_domestic_socket_charging_cable_option' for row in items):
+              items.append({
+                  'id': str(max(int(row['id']) for row in items) + 1),
+                  'code': 'spring_domestic_socket_charging_cable_option',
+                  'name': 'Przewód do ładowania z gniazdka domowego',
+                  'item_type': 'option',
+                  'observation_date': '2026-08-02',
+                  'source_code': 'src_pl_spring_commercial_context_20260802',
+                  'status': 'active',
+                  'notes': 'Exact-current separate domestic-socket charging cable option; Expression applicability remains unresolved.',
+              })
+          write_rows(items_path, items, ['id','code','name','item_type','observation_date','source_code','status','notes'])
+
+          attrs_path = root / 'data/master/commercial_item_attributes.csv'
+          attrs = read_rows(attrs_path)
+          for row in attrs:
+              if row['commercial_item_code'] == 'spring_type2_charging_cable_option':
+                  row['code'] = 'spring_type2_charging_cable_option__type2_charging_cable_supplied'
+                  row['attribute_code'] = 'type2_charging_cable_supplied'
+                  row['notes'] = 'Corrected membership: the brochure item describes a physical Type 2 cable, not the vehicle charging connector.'
+          if not any(row['commercial_item_code'] == 'spring_domestic_socket_charging_cable_option' for row in attrs):
+              attrs.append({
+                  'id': str(max(int(row['id']) for row in attrs) + 1),
+                  'code': 'spring_domestic_socket_charging_cable_option__domestic_socket_charging_cable',
+                  'commercial_item_code': 'spring_domestic_socket_charging_cable_option',
+                  'attribute_code': 'domestic_socket_charging_cable',
+                  'source_text': 'Przewód do ładowania z gniazdka domowego',
+                  'notes': 'Separate from the supplied Type 2 cable and from the vehicle connector standard.',
+              })
+          write_rows(attrs_path, attrs, ['id','code','commercial_item_code','attribute_code','source_text','notes'])
+
+          mappings_path = root / 'data/master/commercial_item_configurations.csv'
+          mappings = read_rows(mappings_path)
+          specs = [
+              ('spring_essential_electric70_automatic', 'Essential 70'),
+              ('spring_extreme_electric100_automatic', 'Extreme 100'),
+          ]
+          next_id = max(int(row['id']) for row in mappings) + 1
+          for configuration, label in specs:
+              code = f'spring_domestic_socket_charging_cable_option__{configuration}'
+              if any(row['code'] == code for row in mappings):
+                  continue
+              mappings.append({
+                  'id': str(next_id),
+                  'code': code,
+                  'commercial_item_code': 'spring_domestic_socket_charging_cable_option',
+                  'configuration_code': configuration,
+                  'availability_status': 'optional',
+                  'amount': '1500',
+                  'currency_code': 'PLN',
+                  'price_date': '2026-08-02',
+                  'source_code': 'src_pl_spring_commercial_context_20260802',
+                  'notes': f'Exact-current {label} option state. No mapping is inferred for Spring Expression.',
+              })
+              next_id += 1
+          write_rows(mappings_path, mappings, ['id','code','commercial_item_code','configuration_code','availability_status','amount','currency_code','price_date','source_code','notes'])
+
+          report = {
+              'version': 1,
+              'generated_on': '2026-08-02',
+              'status': 'complete',
+              'package_id': 'spring_charging_cable_commercial_semantics_migration_001',
+              'type2_membership': {
+                  'commercial_item_code': 'spring_type2_charging_cable_option',
+                  'attribute_code': 'type2_charging_cable_supplied',
+                  'historical_mapping_count_preserved': 3,
+              },
+              'domestic_socket_item': {
+                  'commercial_item_code': 'spring_domestic_socket_charging_cable_option',
+                  'attribute_code': 'domestic_socket_charging_cable',
+                  'mapping_count': 2,
+                  'amount_pln': 1500,
+                  'mapped_configurations': [s[0] for s in specs],
+                  'unresolved_configurations': ['spring_expression_electric70_automatic'],
+              },
+              'master_data_delta': {
+                  'commercial_items': 1,
+                  'commercial_item_attributes': 1,
+                  'commercial_item_configurations': 2,
+                  'net_master_rows': 3,
+                  'historical_type2_mappings_changed': 0,
+              },
+          }
+          report_path = root / 'data/reporting/spring_charging_cable_commercial_semantics_migration.json'
+          report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          (root / 'data/reporting/spring_charging_cable_commercial_semantics_migration.md').write_text(
+              '# Spring Charging-Cable Commercial Semantics Migration\n\n'
+              '- corrected the historical Type 2 item membership to `type2_charging_cable_supplied`;\n'
+              '- preserved all three brochure-backed historical option mappings;\n'
+              '- added a separate domestic-socket cable option;\n'
+              '- added exact 1500 PLN optional mappings for Essential 70 and Extreme 100;\n'
+              '- created no Expression mapping.\n',
+              encoding='utf-8',
+          )
+
+          state_path = root / 'project/state.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['phase'] = 'Spring Charging Cable Commercial Semantics Migration'
+          state['baseline']['rows'] = 11726
+          state['current_package'] = {
+              'package_id': 'spring_charging_cable_commercial_semantics_migration_001',
+              'kind': 'bounded_commercial_data_migration',
+              'name': 'Spring Charging Cable Commercial Semantics Migration',
+              'status': 'complete',
+              'goal': 'Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.',
+              'manifest_paths': [
+                  'data/master/commercial_items.csv',
+                  'data/master/commercial_item_attributes.csv',
+                  'data/master/commercial_item_configurations.csv',
+                  'data/reporting/spring_charging_cable_commercial_semantics_migration.json',
+                  'data/reporting/spring_charging_cable_commercial_semantics_migration.md',
+                  'project/STATE_SUMMARY.md',
+                  'project/state.json',
+                  'tests/test_spring_charging_cable_commercial_semantics_migration_20260802.py',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'post_spring_charging_cable_priority_selection_review_001',
+              'kind': 'bounded_priority_selection_review',
+              'name': 'Post-Spring Charging Cable Priority Selection Review',
+              'status': 'planned',
+              'goal': 'Select the next bounded repository package from current evidence and unresolved queues without changing master data.',
+              'manifest_paths': ['project/state.json','project/STATE_SUMMARY.md','data/reporting/'],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          package_path = root / 'project/packages/spring-charging-cable-commercial-semantics-migration-20260802.md'
+          package_path.write_text(
+              '# Spring Charging-Cable Commercial Semantics Migration\n\n'
+              'Package: `spring_charging_cable_commercial_semantics_migration_001`\n\n'
+              'Status: complete\n\n'
+              'The package applies the accepted commercial semantics decision with a net three-row master-data increase and preserves historical Type 2 configuration mappings.\n',
+              encoding='utf-8',
+          )
+          PY
+
+          cat > tests/test_spring_charging_cable_commercial_semantics_migration_20260802.py <<'PYTEST'
+          import csv
+          import unittest
+          from pathlib import Path
+
+
+          ROOT = Path(__file__).resolve().parents[1]
+
+
+          def rows(path):
+              with (ROOT / path).open(encoding='utf-8', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+
+          class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
+              def test_type2_membership_is_corrected_without_mapping_rewrite(self):
+                  memberships = rows('data/master/commercial_item_attributes.csv')
+                  row = next(r for r in memberships if r['commercial_item_code'] == 'spring_type2_charging_cable_option')
+                  self.assertEqual(row['attribute_code'], 'type2_charging_cable_supplied')
+                  mappings = [r for r in rows('data/master/commercial_item_configurations.csv') if r['commercial_item_code'] == 'spring_type2_charging_cable_option']
+                  self.assertEqual(len(mappings), 3)
+                  self.assertTrue(all(r['availability_status'] == 'optional' for r in mappings))
+                  self.assertTrue(all(r['source_code'] == 'src_pl_spring_brochure_20260219' for r in mappings))
+
+              def test_domestic_socket_option_has_only_exact_mappings(self):
+                  items = {r['code']: r for r in rows('data/master/commercial_items.csv')}
+                  self.assertIn('spring_domestic_socket_charging_cable_option', items)
+                  memberships = {r['commercial_item_code']: r for r in rows('data/master/commercial_item_attributes.csv')}
+                  self.assertEqual(memberships['spring_domestic_socket_charging_cable_option']['attribute_code'], 'domestic_socket_charging_cable')
+                  mappings = [r for r in rows('data/master/commercial_item_configurations.csv') if r['commercial_item_code'] == 'spring_domestic_socket_charging_cable_option']
+                  self.assertEqual({r['configuration_code'] for r in mappings}, {'spring_essential_electric70_automatic','spring_extreme_electric100_automatic'})
+                  self.assertTrue(all(r['availability_status'] == 'optional' for r in mappings))
+                  self.assertTrue(all(r['amount'] == '1500' and r['currency_code'] == 'PLN' for r in mappings))
+                  self.assertTrue(all(r['price_date'] == '2026-08-02' for r in mappings))
+                  self.assertTrue(all(r['source_code'] == 'src_pl_spring_commercial_context_20260802' for r in mappings))
+
+
+          if __name__ == '__main__':
+              unittest.main()
+          PYTEST
+
+          python3 tools/dkb.py project-state --apply
+          python3 -m compileall -q tools tests
+          python3 -m unittest discover -s tests -p 'test_*.py' -q
+          python3 tools/dkb.py project-state --check
+          git add -A
+          git commit -m 'data: migrate Spring charging cable commercial semantics'
+          git push origin HEAD:agent/spring-charging-cable-commercial-semantics-migration-20260802
