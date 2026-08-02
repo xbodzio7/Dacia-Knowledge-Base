@@ -1,32 +1,36 @@
-name: AI sync PR 465 generated documentation
+name: AI validate final PR 465 head
 
 on:
   pull_request_target:
     types: [reopened]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  sync:
+  validate:
     if: github.event.pull_request.number == 465
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
-      - name: Synchronize canonical generated documentation
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate exact final head
         shell: bash
         run: |
           set -euo pipefail
-          python3 tools/dkb.py project-state --apply
-          python3 tools/dkb.py project-state --check
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add CHANGELOG.md README.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'docs: synchronize project state after Spring white migration'
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
+          python -m compileall -q tools scripts tests
+          python -m unittest discover -s tests -p 'test_*.py' -q
+          python -m unittest -q \
+            tests.project_state_contract \
+            tests.autonomy_policy_contract \
+            tests.quality_artifact_manifest_contract \
+            tests.configuration_comparison_context_filter_contract \
+            tests.configuration_comparison_pair_summary_contract
+          python tools/dkb.py project-state --check
+          python tools/run_quality_checks.py
