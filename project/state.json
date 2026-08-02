@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Product Release",
+  "phase": "Data Products v1.11.0 Accelerated Release Preparation",
   "reference_delivery": {
-    "name": "Spring Non-conflicting Common Technical Observations Migration",
-    "pull_request": 469,
-    "head_sha": "aab35b53b593c68d89eedaf1bbf6ea5373d1d830",
-    "quality_run": 30769219320
+    "name": "Spring Legacy PDF Assimilation Closure",
+    "pull_request": 470,
+    "head_sha": "74265e84714197931355feba9e64c7631cb4c803",
+    "quality_run": 30770184005
   },
   "baseline": {
-    "tests": 1829,
+    "tests": 1835,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,39 +27,38 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_legacy_pdf_assimilation_closure_001",
-    "kind": "milestone_closure_audit",
-    "name": "Spring Legacy PDF Assimilation Closure",
-    "status": "complete",
-    "goal": "Close the Spring legacy-PDF milestone by proving complete review of both registered PDFs, materialization of every approved observation, complete represented-data accounting and explicit preservation of every conflict or deferral.",
-    "manifest_paths": [
-      "tools/review_spring_legacy_pdf_assimilation_closure_20260802.py",
-      "data/reporting/spring_legacy_pdf_assimilation_closure.json",
-      "data/reporting/spring_legacy_pdf_assimilation_closure.md",
-      "project/packages/spring-legacy-pdf-assimilation-closure-20260802.md",
-      "tests/test_spring_legacy_pdf_assimilation_closure_20260802.py",
-      "tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_11_0_accelerated_release_preparation_001",
     "kind": "accelerated_release_preparation",
     "name": "Data Products v1.11.0 Accelerated Release Preparation",
-    "status": "planned",
-    "goal": "Prepare an immutable v1.11.0 data-product release from the closed legacy-PDF milestone, prove the exact source SHA through double-build byte identity, preserve current product semantics, and publish only after complete Quality and post-merge verification.",
+    "status": "complete",
+    "goal": "Prepare immutable v1.11.0 publication from the closed Spring legacy-PDF milestone using a separate exact-SHA publication trigger, double-build byte identity and complete post-upload verification.",
     "manifest_paths": [
+      ".github/workflows/temporary-publish-data-products-v1.11.0.yml",
+      "project/STATE_SUMMARY.md",
       "project/packages/data-products-v1.11.0-accelerated-release-preparation-20260802.md",
-      "tests/test_data_products_v1_11_0_release_contract.py",
-      "tools/reporting/data_product_release.py",
       "project/state.json",
-      "project/STATE_SUMMARY.md"
+      "tests/test_data_products_v1_11_0_release_contract.py",
+      "tools/record_data_products_v1_11_0_publication_20260802.py",
+      "tools/reporting/data_product_release.py"
     ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_11_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.11.0 Publication",
+    "status": "planned",
+    "goal": "Merge a dedicated publication trigger, build the assets twice from that exact merge SHA, verify byte identity and the offline workspace, publish immutable assets, verify the public download and record the result.",
+    "manifest_paths": [
+      "project/packages/data-products-v1.11.0-publication-trigger-20260802.md"
+    ],
+    "resume_after_publication": {
+      "package_id": "post_v1_11_0_release_priority_selection_review_001",
+      "kind": "priority_selection_review",
+      "name": "Post-v1.11.0 Release Priority Selection Review",
+      "status": "planned",
+      "goal": "Inspect canonical source, completeness and roadmap evidence after publication and select one bounded next package without reopening closed evidence or inferring a source candidate.",
+      "manifest_paths": []
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

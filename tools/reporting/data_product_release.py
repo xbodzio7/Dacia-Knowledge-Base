@@ -251,6 +251,27 @@ def _release_notes(
                 "",
             ]
         )
+    elif version == "1.11.0":
+        lines.extend(
+            [
+                "This minor release publishes the repository state after closure of "
+                "the Spring legacy-PDF assimilation milestone. It adds 36 source-"
+                "bounded common technical observations for the three existing "
+                "passenger Spring configurations.",
+                "",
+                "The added observations cover permanent-magnet synchronous motor "
+                "type, LFP traction-battery chemistry, electric steering and nine "
+                "common body dimensions. Exact source dates, configuration identity "
+                "and passenger-vehicle scope remain attached to every observation.",
+                "",
+                "The release does not generalize the MY2025-only 204 kg battery mass "
+                "or 354 V value, the unqualified 24.3 kWh capacity, charging times, "
+                "range, maximum speed or wheel-qualified ground clearance. No cross-"
+                "scope pairs, ranking, recommendations or inferred values are "
+                "introduced, and the public v1.10.0 remains immutable.",
+                "",
+            ]
+        )
     lines.extend(
         [
             "No ranking, recommendations or inferred values are generated.",
