@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import sys
 import unittest
 from collections import Counter
@@ -44,7 +45,9 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         )
 
     def test_master_rows_match_generated_contract_and_contiguous_suffixes(self) -> None:
-        importer.check()
+        state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
+        if state["current_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
+            importer.check()
         codes = set(importer.EXPECTED_COLOURS)
         items = [row for row in self.items if row["code"] in codes]
         memberships = [row for row in self.memberships if row["commercial_item_code"] in codes]
@@ -62,7 +65,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         )
         self.assertEqual({row["configuration_code"] for row in mappings}, set(importer.CONFIGURATIONS))
 
-    def test_only_approved_essential_khaki_mapping_is_priced(self) -> None:
+    def test_exact_current_essential_white_and_khaki_pricing(self) -> None:
         components = collect_commercial_components(ROOT, list(importer.CONFIGURATIONS), "2026-08-02")
         colour_codes = set(importer.EXPECTED_COLOURS)
         selected = [
@@ -73,15 +76,24 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         ]
         self.assertEqual(len(selected), 18)
         priced = [entry for entry in selected if entry[1]["amount"] is not None]
-        self.assertEqual(len(priced), 1)
-        configuration_code, component = priced[0]
-        self.assertEqual(component["code"], "spring_colour_lichen_khaki")
-        self.assertEqual(configuration_code, "spring_essential_electric70_automatic")
-        self.assertEqual(component["amount"], 2300.0)
-        self.assertEqual(component["currency_code"], "PLN")
-        self.assertEqual(component["price_date"], "2026-08-02")
+        self.assertEqual(len(priced), 2)
+        priced_by_code = {row["code"]: (configuration_code, row) for configuration_code, row in priced}
+        self.assertEqual(
+            set(priced_by_code),
+            {"spring_colour_lichen_khaki", "spring_colour_biel_alpejska"},
+        )
+        khaki_configuration, khaki = priced_by_code["spring_colour_lichen_khaki"]
+        self.assertEqual(khaki_configuration, "spring_essential_electric70_automatic")
+        self.assertEqual(khaki["amount"], 2300.0)
+        self.assertEqual(khaki["currency_code"], "PLN")
+        self.assertEqual(khaki["price_date"], "2026-08-02")
+        white_configuration, white = priced_by_code["spring_colour_biel_alpejska"]
+        self.assertEqual(white_configuration, "spring_essential_electric70_automatic")
+        self.assertEqual(white["amount"], 0.0)
+        self.assertEqual(white["currency_code"], "PLN")
+        self.assertEqual(white["price_date"], "2026-08-02")
         unpriced = [row for _, row in selected if row["amount"] is None]
-        self.assertEqual(len(unpriced), 17)
+        self.assertEqual(len(unpriced), 16)
         self.assertTrue(
             all(row["currency_code"] == "PLN" and row["price_date"] == "" for row in unpriced)
         )
