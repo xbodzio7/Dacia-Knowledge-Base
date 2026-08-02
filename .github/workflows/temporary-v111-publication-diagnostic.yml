@@ -1,0 +1,57 @@
+name: Temporary v1.11 Publication Diagnostic
+
+on:
+  push:
+    branches:
+      - agent/data-products-v1-11-0-publication-001
+    paths:
+      - ".github/workflows/temporary-v111-publication-diagnostic.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/data-products-v1-11-0-publication-001
+          persist-credentials: true
+      - name: Capture publication workflow status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p project/diagnostics
+          gh run list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --workflow "temporary-publish-data-products-v1.11.0.yml" \
+            --limit 5 \
+            --json databaseId,status,conclusion,headSha,event,createdAt,updatedAt,name,displayTitle,url \
+            > project/diagnostics/v111-publication-runs.json
+          RUN_ID="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          runs = json.loads(Path('project/diagnostics/v111-publication-runs.json').read_text())
+          print(runs[0]['databaseId'] if runs else '')
+          PY
+          )"
+          if [ -n "${RUN_ID}" ]; then
+            gh run view "${RUN_ID}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json databaseId,status,conclusion,headSha,event,createdAt,updatedAt,jobs,url \
+              > project/diagnostics/v111-publication-run-detail.json
+            gh run view "${RUN_ID}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --log-failed \
+              > project/diagnostics/v111-publication-failed.log 2>&1 || true
+          fi
+          rm .github/workflows/temporary-v111-publication-diagnostic.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: record v1.11.0 publication diagnostic"
+          git push origin HEAD:agent/data-products-v1-11-0-publication-001
