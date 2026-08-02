@@ -22,6 +22,10 @@ Ingest the exact saved Spring Expression state required by the previous package,
 
 The available GitHub connector does not accept local binary files. The original PDFs are therefore represented by exact names, SHA-256 digests, sizes, page counts and configuration references in the normalized source. No claim is made that the binary PDFs were committed to the repository.
 
+## Validation boundary
+
+Generated documentation was synchronized with the repository's canonical documentation and project-state tools before final CI.
+
 ## Follow-up
 
 Proceed with `spring_charging_cable_representation_migration_001` to implement the accepted model in a separate bounded schema-and-data package.
