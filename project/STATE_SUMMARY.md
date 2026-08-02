@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Charging Cable Representation Migration**
+**Spring Charging Cable Commercial Semantics Review**
 
 ## Reference delivery
 
-- Package: Spring Expression Saved State Artifact Intake
-- Pull Request: #459
-- Verified head: `4d4f6c4585976419f7c8a0de1aab7a8720f1aabd`
-- Quality run: #30748935727
+- Package: Spring Charging Cable Representation Migration
+- Pull Request: #461
+- Verified head: `4d7bc3c1a92b851b7e72eab4f9c6b72b27d8b241`
+- Quality run: #30752269446
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Charging Cable Representation Migration** — `complete`
+**Spring Charging Cable Commercial Semantics Review** — `complete`
 
-Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
+Resolve the source meaning of the historical Type 2 commercial item and define an exact-current domestic-socket commercial representation without changing master data.
 
 ## Next package
 
-**Spring Charging Cable Commercial Semantics Review** — `planned`
+**Spring Charging Cable Commercial Semantics Migration** — `planned`
 
-Review the historical Spring charging-cable commercial item against its source wording and introduce a superseding current commercial representation only if the evidence requires it, without rewriting history.
+Materialize the accepted Type 2 membership correction and exact-current domestic-socket commercial item without rewriting historical mappings.
 
 ## Autonomy
 
