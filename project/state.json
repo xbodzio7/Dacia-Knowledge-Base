@@ -7,19 +7,19 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Standard Equipment Representation Review",
+  "phase": "Spring Essential Biel Alpejska Default Colour Migration",
   "reference_delivery": {
-    "name": "Spring Essential Lichen Khaki Price Apply",
-    "pull_request": 453,
-    "head_sha": "4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8",
-    "quality_run": 30740364894
+    "name": "Spring Standard Equipment Representation Review",
+    "pull_request": 454,
+    "head_sha": "697adb01776b41ad3742b7380fd14613d3d5300c",
+    "quality_run": 30740819610
   },
   "baseline": {
     "tests": 1788,
     "csv_files": 46,
-    "rows": 11714,
-    "configuration_values": 3567,
-    "configuration_import_specs": 138,
+    "rows": 11715,
+    "configuration_values": 3568,
+    "configuration_import_specs": 139,
     "configuration_value_ranges": 316,
     "configuration_range_import_specs": 24,
     "availability_records": 5906,
@@ -27,40 +27,48 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_standard_equipment_representation_review_001",
-    "kind": "bounded_representation_review",
-    "name": "Spring Standard Equipment Representation Review",
-    "status": "complete",
-    "goal": "Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.",
-    "manifest_paths": [
-      "data/reporting/spring_standard_equipment_representation_review.json",
-      "data/reporting/spring_standard_equipment_representation_review.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/spring-standard-equipment-representation-review-20260802.md",
-      "project/state.json",
-      "tests/test_spring_essential_khaki_price_apply_20260802.py",
-      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
-      "tests/test_spring_standard_equipment_representation_review_20260802.py",
-      "tools/review_spring_standard_equipment_representation_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_biel_alpejska_default_colour_migration_001",
     "kind": "bounded_master_data_update",
     "name": "Spring Essential Biel Alpejska Default Colour Migration",
-    "status": "planned",
+    "status": "complete",
     "goal": "Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.",
     "manifest_paths": [
-      "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.csv",
+      "CHANGELOG.md",
+      "README.md",
+      "data/imports/spring_biel_alpejska_default_colour_20260802.csv",
       "data/master/commercial_item_configurations.csv",
       "data/master/configuration_attribute_values.csv",
       "data/reporting/spring_biel_alpejska_default_colour_migration.json",
       "data/reporting/spring_biel_alpejska_default_colour_migration.md",
+      "project/SESSION_STATE.md",
       "project/STATE_SUMMARY.md",
       "project/packages/spring-biel-alpejska-default-colour-migration-20260802.md",
       "project/state.json",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
       "tests/test_spring_biel_alpejska_default_colour_migration_20260802.py",
-      "tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py"
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
+      "tests/test_spring_essential_khaki_price_apply_20260802.py",
+      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
+      "tests/test_spring_exterior_colour_options.py",
+      "tests/test_spring_standard_equipment_representation_review_20260802.py",
+      "tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py",
+      "tools/import_spring_exterior_colour_options.py",
+      "tools/review_spring_standard_equipment_representation_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_supplied_charging_cable_model_decision_001",
+    "kind": "architecture_decision",
+    "name": "Spring Supplied Charging Cable Model Decision",
+    "status": "planned",
+    "goal": "Choose and record the canonical representation for independently supplied Type 2 and home charging cables before creating attributes, commercial items or mappings.",
+    "manifest_paths": [
+      "project/DECISIONS.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-supplied-charging-cable-model-decision.md",
+      "project/state.json"
     ]
   },
   "autonomy": {
