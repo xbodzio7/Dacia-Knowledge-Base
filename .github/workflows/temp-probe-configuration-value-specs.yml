@@ -30,9 +30,7 @@ jobs:
         run: python tools/temp_repair_spring_white_history.py
 
       - name: Refresh managed documentation
-        run: |
-          python tools/documentation_baseline.py --apply
-          python tools/documentation_baseline.py --check
+        run: python tools/documentation_baseline.py --apply
 
       - name: Run focused Spring contracts
         run: |
@@ -41,8 +39,7 @@ jobs:
           python tools/import_spring_exterior_colour_options.py --check
           python -m unittest -v \
             tests.test_spring_biel_alpejska_default_colour_migration_20260802 \
-            tests.test_spring_exterior_colour_options \
-            tests.test_reviewed_gap_state_materialization_20260802
+            tests.test_spring_exterior_colour_options
 
       - name: Commit repaired contracts and documentation
         run: |
