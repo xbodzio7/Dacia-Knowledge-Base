@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Current Grade Snapshot Capture**
+**Spring Exact Current Semantic Migration Review**
 
 ## Reference delivery
 
-- Package: Spring Commercial Context Resolution
-- Pull Request: #450
-- Verified head: `fe3d5c6bf34968c1196caceee79a1f6f8ed92658`
-- Quality run: #30722905905
+- Package: Spring Current Grade Snapshot Capture
+- Pull Request: #451
+- Verified head: `9cfc3b5a20ffe2f4ad5c18f16d6d93e6b889618b`
+- Quality run: #30723222653
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Current Grade Snapshot Capture** — `complete`
+**Spring Exact Current Semantic Migration Review** — `complete`
 
-Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.
+Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve semantic conflicts and incomplete commercial context as unresolved.
 
 ## Next package
 
-**Spring Exact Current Semantic Migration Review** — `planned`
+**Spring Essential Lichen Khaki Price Apply** — `planned`
 
-Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve Expression and paint-palette gaps as unresolved.
+Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance if required, and leave every semantic or unresolved case untouched.
 
 ## Autonomy
 

@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "scope": {
+    "spring_configuration_count": 3,
+    "existing_spring_mapping_count": 25,
+    "master_data_mutation_authorized": false,
+    "source_reports": [
+      "data/reporting/spring_commercial_context_resolution.json",
+      "data/reporting/spring_current_grade_snapshot_capture.json"
+    ]
+  },
+  "classification_summary": {
+    "safe_in_place_update": 1,
+    "verified_current_no_change": 2,
+    "semantic_migration_required": 3,
+    "unresolved_no_change": 19,
+    "new_representation_required": 2
+  },
+  "safe_in_place_updates": [
+    {
+      "mapping_code": "spring_colour_lichen_khaki__spring_essential_electric70_automatic",
+      "commercial_item_code": "spring_colour_lichen_khaki",
+      "configuration_code": "spring_essential_electric70_automatic",
+      "current_state": {
+        "availability_status": "optional",
+        "amount": null,
+        "source_code": "src_pl_spring_brochure_20260219"
+      },
+      "approved_state": {
+        "availability_status": "optional",
+        "amount_pln": 2300,
+        "price_date": "2026-08-02",
+        "source_code": "src_pl_spring_commercial_context_20260802"
+      },
+      "reason": "The existing option semantics and exact current Essential configuration match; only the missing price and provenance require updating."
+    }
+  ],
+  "verified_current_no_change": [
+    {
+      "mapping_code": "spring_city_package__spring_extreme_electric100_automatic",
+      "amount_pln": 1800,
+      "price_date": "2026-07-31"
+    },
+    {
+      "mapping_code": "spring_power_package__spring_extreme_electric100_automatic",
+      "amount_pln": 3000,
+      "price_date": "2026-07-31"
+    }
+  ],
+  "semantic_migrations": [
+    {
+      "mapping_code": "spring_type2_charging_cable_option__spring_essential_electric70_automatic",
+      "exact_current_state": "standard_equipment",
+      "current_model_state": "commercial_option",
+      "required_action": "create or confirm a direct standard-equipment representation before retiring the option mapping"
+    },
+    {
+      "mapping_code": "spring_type2_charging_cable_option__spring_extreme_electric100_automatic",
+      "exact_current_state": "standard_equipment",
+      "current_model_state": "commercial_option",
+      "required_action": "create or confirm a direct standard-equipment representation before retiring the option mapping"
+    },
+    {
+      "mapping_code": "spring_colour_biel_alpejska__spring_essential_electric70_automatic",
+      "exact_current_state": "standard_paint_at_zero_surcharge",
+      "current_model_state": "commercial_option_with_unknown_price",
+      "required_action": "model the grade default or standard paint explicitly before retiring or converting the option mapping"
+    }
+  ],
+  "new_representation_required": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "source_item": "kabel do ładowania z gniazda domowego",
+      "exact_current_state": "optional_1500_pln",
+      "blocking_reason": "No compatible commercial item and no dedicated charging-cable attribute exist; charging_connector_type describes the vehicle connector standard, not the supplied cable."
+    },
+    {
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "source_item": "kabel do ładowania z gniazda domowego",
+      "exact_current_state": "optional_1500_pln",
+      "blocking_reason": "No compatible commercial item and no dedicated charging-cable attribute exist; charging_connector_type describes the vehicle connector standard, not the supplied cable."
+    }
+  ],
+  "unresolved_no_change": {
+    "mapping_count": 19,
+    "groups": [
+      {
+        "name": "Expression current commercial state",
+        "mapping_count": 9,
+        "reason": "The current exact Expression pages do not expose a price, Type 2 state, charging-option prices or a complete paint palette."
+      },
+      {
+        "name": "Extreme paint palette",
+        "mapping_count": 6,
+        "reason": "No complete exact current Extreme paint palette with prices was captured."
+      },
+      {
+        "name": "Essential residual paint palette",
+        "mapping_count": 4,
+        "reason": "Only Biel Alpejska and Lichen Khaki have exact current Essential states; absence of four legacy colours is not converted into unavailability."
+      }
+    ]
+  },
+  "mutation_summary": {
+    "master_rows_changed": 0,
+    "prices_imported": 0,
+    "availability_states_changed": 0,
+    "items_added": 0,
+    "attributes_added": 0
+  },
+  "next_package": {
+    "package_id": "spring_essential_khaki_price_apply_001",
+    "goal": "Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance if required, and leave all semantic or unresolved cases untouched."
+  }
+}
