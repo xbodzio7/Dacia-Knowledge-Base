@@ -1,0 +1,33 @@
+name: Temporary Restore Pre-455 Tree
+
+on:
+  push:
+    branches:
+      - agent/spring-white-post-merge-cleanup-20260802
+    paths:
+      - .github/workflows/temp-restore-pre455-tree.yml
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-white-post-merge-cleanup-20260802
+          fetch-depth: 0
+
+      - name: Restore exact last-green tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --ignore-unmatch .
+          git checkout 141ce1c82bf9b24feeb7b63797d835f182f5e83e -- .
+          git status --short
+          git commit -m "revert: restore last green state before PR 455"
+          git push origin HEAD:agent/spring-white-post-merge-cleanup-20260802
