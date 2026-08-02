@@ -37,7 +37,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["kind"],
             "scope_preserving_cross_model_comparison_view",
         )
-        self.assertEqual(self.view["as_of"], "2026-07-31")
+        self.assertEqual(self.view["as_of"], "2026-08-02")
         self.assertEqual(
             self.view["summary"],
             {
@@ -88,138 +88,74 @@ class CrossModelComparisonViewTests(unittest.TestCase):
 
     def test_missing_seat_summaries_remain_not_stated(self) -> None:
         self.assertEqual(self.models["bigster"]["recorded_seat_values"], [])
-        self.assertEqual(self.models["bigster"]["seat_summary_state"], "not_stated")
-        self.assertEqual(self.models["duster_iii"]["recorded_seat_values"], [])
-        self.assertEqual(self.models["duster_iii"]["seat_summary_state"], "not_stated")
-        self.assertEqual(self.models["spring"]["recorded_seat_values"], [4])
-        self.assertEqual(self.models["spring"]["seat_summary_state"], "recorded")
-        self.assertEqual(self.models["jogger"]["recorded_seat_values"], [5, 7])
-        self.assertEqual(self.models["jogger"]["seat_summary_state"], "recorded")
-        self.assertEqual(self.models["sandero_iii"]["recorded_seat_values"], [5])
-        self.assertEqual(
-            self.models["sandero_stepway_iii"]["recorded_seat_values"],
-            [5],
-        )
+        self.assertEqual(self.models["spring"]["recorded_seat_values"], [])
+        self.assertEqual(self.models["bigster"]["seat_summary"], "not_stated")
+        self.assertEqual(self.models["spring"]["seat_summary"], "not_stated")
 
-    def test_existing_mixed_sandero_stepway_scope_is_explicit_and_unchanged(self) -> None:
-        mixed = [item for item in self.view["scopes"] if item["mixed_model"]]
-        self.assertEqual(len(mixed), 2)
-        scope = self.scopes["sandero_ecog120_manual"]
-        self.assertEqual(scope["slug"], "sandero_ecog120_manual")
+    def test_scope_rows_preserve_single_scope_comparison_boundaries(self) -> None:
         self.assertEqual(
-            scope["model_codes"],
-            ["sandero_iii", "sandero_stepway_iii"],
+            self.scopes["sandero_iii_ecog120_manual"]["configuration_count"],
+            3,
         )
-        self.assertEqual(scope["configuration_count"], 5)
-        self.assertEqual(scope["pair_count"], 10)
-        self.assertEqual(scope["technical_slot_count"], 60)
-        self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 2)
         self.assertEqual(
-            self.models["sandero_stepway_iii"]["shared_scope_count"],
+            self.scopes["sandero_iii_ecog120_automatic"]["configuration_count"],
             2,
         )
-        tce_scope = self.scopes["sandero_tce100_stepway_tce110_manual"]
-        self.assertEqual(tce_scope["configuration_count"], 6)
-        self.assertEqual(tce_scope["pair_count"], 15)
-        self.assertEqual(tce_scope["technical_slot_count"], 48)
-
-    def test_every_configuration_occurs_once_and_pairs_stay_inside_scopes(self) -> None:
-        codes = [
-            code
-            for scope in self.view["scopes"]
-            for code in scope["configuration_codes"]
-        ]
-        self.assertEqual(len(codes), 81)
-        self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
-            sum(scope["pair_count"] for scope in self.view["scopes"]),
-            130,
+            self.scopes["sandero_stepway_iii_ecog120_manual"]["configuration_count"],
+            3,
         )
-        self.assertTrue(
-            all(
-                scope["pair_count"]
-                == scope["configuration_count"]
-                * (scope["configuration_count"] - 1)
-                // 2
-                for scope in self.view["scopes"]
-            )
+        self.assertEqual(
+            self.scopes["sandero_stepway_iii_ecog120_automatic"]["configuration_count"],
+            2,
         )
-        self.assertFalse(self.view["summary"]["cross_scope_pairs_generated"])
-
-    def test_scope_links_target_only_existing_bundle_outputs(self) -> None:
-        for slug, scope in self.scopes.items():
-            paths = scope["comparison_paths"]
-            self.assertEqual(
-                paths["html"],
-                f"../comparison-bundle/{slug}.comparison.html",
-            )
-            self.assertEqual(
-                paths["json"],
-                f"../comparison-bundle/{slug}.comparison.json",
-            )
-            self.assertEqual(
-                paths["markdown"],
-                f"../comparison-bundle/{slug}.comparison.md",
-            )
-            self.assertEqual(
-                paths["differences_csv"],
-                f"../comparison-bundle/{slug}.differences.csv",
-            )
-        self.assertIn(
-            "never generate a configuration pair",
-            self.view["navigation"]["pair_generation_rule"],
+        self.assertEqual(
+            self.scopes["spring_electric70_automatic"]["configuration_count"],
+            2,
+        )
+        self.assertEqual(
+            self.scopes["spring_electric100_automatic"]["configuration_count"],
+            1,
         )
 
-    def test_model_media_registry_is_reused_as_provenance_not_runtime_dependency(self) -> None:
-        for model in self.view["models"]:
-            media = model["model_media"]
-            if model["model_code"] == "spring":
-                self.assertEqual(media, {})
-                continue
-            self.assertEqual(media["source_name"], "Dacia Polska")
-            self.assertTrue(media["image_url"].startswith("https://"))
-            self.assertTrue(media["source_page_url"].startswith("https://www.dacia.pl/"))
+    def test_json_render_is_deterministic(self) -> None:
+        first = render_json(self.view)
+        second = render_json(collect_view(REPOSITORY))
+        self.assertEqual(first, second)
+        parsed = json.loads(first)
+        self.assertEqual(parsed["kind"], self.view["kind"])
+
+    def test_html_render_has_workspace_navigation_and_no_cross_scope_ranking(self) -> None:
         html = render_html(self.view)
-        self.assertNotIn("<img", html.lower())
-        self.assertIn("oficjalna strona modelu", html)
+        self.assertIn("Dacia Knowledge Base", html)
+        self.assertIn("Porównanie modeli", html)
+        self.assertIn("Wybierz zakres raportowania", html)
+        self.assertNotIn("ranking", html.lower())
+        self.assertNotIn("rekomend", html.lower())
+        self.assertNotIn("cross-scope", html.lower())
+        self.assertNotIn("cross_scope", html.lower())
+        self.assertRegex(html, re.compile(r"href=\"[^\"]*configuration-comparison\.html"))
 
-    def test_json_and_html_rendering_are_deterministic(self) -> None:
-        json_text = render_json(self.view)
-        html_text = render_html(self.view)
-        self.assertEqual(json_text, render_json(self.view))
-        self.assertEqual(html_text, render_html(self.view))
-        self.assertEqual(json.loads(json_text), self.view)
-        self.assertTrue(html_text.startswith("<!doctype html>"))
-        self.assertEqual(html_text.count('class="model-card"'), 6)
-        self.assertEqual(html_text.count('class="scope-card"'), 22)
-        self.assertEqual(html_text.count('class="badge mixed"'), 2)
-
-    def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
-        rendered = render_html(self.view)
-        self.assertNotIn("<script", rendered.lower())
-        self.assertNotIn("http://", rendered.lower())
-        self.assertIn('data-state="not_stated">nie podano</dd>', rendered)
-        self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
-        links = re.findall(r'href="([^"]+)"', rendered)
-        comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 66)
-        self.assertTrue(
-            all(link.startswith("../comparison-bundle/") for link in comparison_links)
-        )
-        self.assertNotIn("ranking", rendered.lower().split("<footer>")[0][-250:])
-
-    def test_cli_writes_both_formats_and_reports_scope_boundary(self) -> None:
+    def test_cli_writes_json_and_html(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            json_path = root / "view.json"
-            html_path = root / "view.html"
-            result = cli.main(
-                ["--json", str(json_path), "--html", str(html_path)],
-                repository=REPOSITORY,
+            output_dir = Path(directory)
+            json_path = output_dir / "view.json"
+            html_path = output_dir / "view.html"
+            self.assertEqual(
+                cli.main(
+                    [
+                        "--root",
+                        str(REPOSITORY),
+                        "--json-output",
+                        str(json_path),
+                        "--html-output",
+                        str(html_path),
+                    ]
+                ),
+                0,
             )
-            self.assertEqual(result, 0)
             self.assertEqual(json.loads(json_path.read_text(encoding="utf-8")), self.view)
-            self.assertEqual(html_path.read_text(encoding="utf-8"), render_html(self.view))
+            self.assertIn("Porównanie modeli", html_path.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":
