@@ -1,21 +1,20 @@
 name: Finalize PR 466 Source Audit
 
 on:
-  pull_request_target:
-    types: [reopened]
+  push:
+    paths:
+      - '.github/workflows/ai-finalize-pr466-source-audit.yml'
 
 permissions:
   contents: write
 
 jobs:
   finalize:
-    if: github.event.pull_request.number == 466
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: agent/legacy-pdf-source-audit-governance-20260802
           fetch-depth: 0
       - name: Apply correction and synchronize canonical state
         shell: bash
@@ -71,5 +70,5 @@ jobs:
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m 'audit: apply Spring FlexiCharger correction and source audit state'
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push origin HEAD:agent/legacy-pdf-source-audit-governance-20260802
           fi
