@@ -89,8 +89,21 @@ def build_report(
         raise RuntimeError("exact current Essential Khaki price drifted")
     if exact_paints["spring_colour_biel_alpejska"]["availability_status"] != "standard":
         raise RuntimeError("exact current Essential white state drifted")
-    if khaki["availability_status"] != "optional" or khaki["amount"]:
-        raise RuntimeError("Essential Khaki mapping is not the expected blank option")
+    khaki_before_apply = (
+        khaki["availability_status"] == "optional"
+        and not khaki["amount"]
+        and not khaki["price_date"]
+        and khaki["source_code"] == "src_pl_spring_brochure_20260219"
+    )
+    khaki_after_apply = (
+        khaki["availability_status"] == "optional"
+        and khaki["amount"] == "2300"
+        and khaki["currency_code"] == "PLN"
+        and khaki["price_date"] == "2026-08-02"
+        and khaki["source_code"] == "src_pl_spring_commercial_context_20260802"
+    )
+    if not (khaki_before_apply or khaki_after_apply):
+        raise RuntimeError("Essential Khaki mapping is outside the reviewed transition")
     if white["availability_status"] != "optional" or white["amount"]:
         raise RuntimeError("Essential white mapping is not the expected blank option")
     if (city["amount"], power["amount"]) != ("1800", "3000"):
@@ -138,9 +151,9 @@ def build_report(
                 "commercial_item_code": "spring_colour_lichen_khaki",
                 "configuration_code": "spring_essential_electric70_automatic",
                 "current_state": {
-                    "availability_status": khaki["availability_status"],
+                    "availability_status": "optional",
                     "amount": None,
-                    "source_code": khaki["source_code"],
+                    "source_code": "src_pl_spring_brochure_20260219",
                 },
                 "approved_state": {
                     "availability_status": "optional",
