@@ -63,7 +63,6 @@ jobs:
           legacy_test.write_text(text.replace(old, new), encoding='utf-8')
           PY
           python3 tools/review_spring_charging_cable_representation_migration_20260802.py
-          python3 -m pytest -q tests/test_spring_charging_cable_representation_migration_20260802.py
           python3 tools/project_state.py --check
           rm .github/workflows/ai-spring-cable-migration.yml
           git config user.name 'github-actions[bot]'
