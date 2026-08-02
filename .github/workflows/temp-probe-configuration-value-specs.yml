@@ -1,0 +1,71 @@
+name: Temporary Finalize Spring White Package
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-probe-configuration-value-specs.yml
+      - data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json
+      - tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Align manifest with canonical JSON specification
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("project/state.json")
+          text = path.read_text(encoding="utf-8")
+          old = "data/imports/spring_biel_alpejska_default_colour_20260802.csv"
+          new = "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json"
+          if text.count(old) != 1:
+              raise SystemExit("expected one stale Spring import-spec path")
+          path.write_text(text.replace(old, new), encoding="utf-8", newline="\n")
+          PY
+
+      - name: Regenerate and verify migration artifacts
+        run: |
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
+          python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --verify
+          python -m unittest -v tests.test_spring_biel_alpejska_default_colour_migration_20260802
+
+      - name: Refresh and verify managed documentation
+        run: |
+          python tools/documentation_baseline.py --apply
+          python tools/documentation_baseline.py --check
+
+      - name: Commit finalized package artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/spring_biel_alpejska_default_colour_migration.json \
+            data/reporting/spring_biel_alpejska_default_colour_migration.md \
+            project/SESSION_STATE.md \
+            project/state.json
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "docs: finalize Spring white migration baseline"
+            git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          fi

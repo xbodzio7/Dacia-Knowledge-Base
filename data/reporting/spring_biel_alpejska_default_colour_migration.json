@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "scope": {
+    "configuration_code": "spring_essential_electric70_automatic",
+    "attribute_code": "exterior_color",
+    "commercial_mapping_code": "spring_colour_biel_alpejska__spring_essential_electric70_automatic",
+    "source_code": "src_pl_spring_commercial_context_20260802"
+  },
+  "import_specification": {
+    "path": "data/imports/spring_biel_alpejska_default_colour_20260802.csv",
+    "row_count": 1,
+    "record_type": "value"
+  },
+  "direct_value_migration": {
+    "rows_added": 1,
+    "before": null,
+    "after": {
+      "id": 3568,
+      "code": "spring_essential_electric70_automatic_exterior_color_20260802",
+      "configuration_code": "spring_essential_electric70_automatic",
+      "attribute_code": "exterior_color",
+      "value": "biel alpejska",
+      "observation_date": "2026-08-02",
+      "source_code": "src_pl_spring_commercial_context_20260802"
+    }
+  },
+  "commercial_mapping_migration": {
+    "rows_updated": 1,
+    "before": {
+      "availability_status": "optional",
+      "amount": "",
+      "currency_code": "PLN",
+      "price_date": "",
+      "source_code": "src_pl_spring_brochure_20260219"
+    },
+    "after": {
+      "availability_status": "standard",
+      "amount_pln": 0,
+      "currency_code": "PLN",
+      "price_date": "2026-08-02",
+      "source_code": "src_pl_spring_commercial_context_20260802"
+    }
+  },
+  "preserved_boundaries": {
+    "expression_white_mapping_unchanged": true,
+    "extreme_white_mapping_unchanged": true,
+    "type2_mapping_count_unchanged": 3,
+    "home_cable_items_added": 0,
+    "charging_attributes_added": 0
+  },
+  "master_data_delta": {
+    "configuration_value_rows_added": 1,
+    "commercial_mapping_rows_updated": 1,
+    "commercial_mapping_rows_added": 0,
+    "source_rows_added": 0,
+    "attributes_added": 0,
+    "commercial_items_added": 0,
+    "net_master_row_increase": 1
+  },
+  "verified_after_counts": {
+    "configuration_values": 3568,
+    "configuration_import_specs": 139,
+    "master_rows": 11715
+  },
+  "next_package": {
+    "package_id": "spring_supplied_charging_cable_model_decision_001",
+    "goal": "Record an explicit architecture decision for independently supplied Type 2 and home charging cables before creating attributes or commercial mappings."
+  }
+}

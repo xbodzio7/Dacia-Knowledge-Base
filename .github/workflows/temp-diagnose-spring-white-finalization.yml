@@ -1,0 +1,65 @@
+name: Temporary Diagnose Spring White Finalization
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/temp-diagnose-spring-white-finalization.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/spring-biel-alpejska-default-colour-migration-20260802
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Capture finalization status
+        shell: bash
+        run: |
+          set +e
+          : > project/tmp_spring_white_finalization_status.txt
+          run_check() {
+            label="$1"
+            shift
+            echo "===== ${label} =====" >> project/tmp_spring_white_finalization_status.txt
+            "$@" >> project/tmp_spring_white_finalization_status.txt 2>&1
+            code=$?
+            echo "EXIT=${code}" >> project/tmp_spring_white_finalization_status.txt
+            echo >> project/tmp_spring_white_finalization_status.txt
+          }
+          run_check apply python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --apply
+          run_check verify python tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py --verify
+          run_check package_test python -m unittest -v tests.test_spring_biel_alpejska_default_colour_migration_20260802
+          run_check docs_apply python tools/documentation_baseline.py --apply
+          run_check docs_check python tools/documentation_baseline.py --check
+
+      - name: Commit status and generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            project/tmp_spring_white_finalization_status.txt \
+            CHANGELOG.md \
+            README.md \
+            data/reporting/spring_biel_alpejska_default_colour_migration.json \
+            data/reporting/spring_biel_alpejska_default_colour_migration.md \
+            project/SESSION_STATE.md \
+            project/state.json
+          if git diff --cached --quiet; then
+            echo "No status or generated changes"
+          else
+            git commit -m "chore: capture Spring white finalization status"
+            git push origin HEAD:agent/spring-biel-alpejska-default-colour-migration-20260802
+          fi

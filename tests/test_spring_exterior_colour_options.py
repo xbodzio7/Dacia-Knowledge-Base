@@ -62,7 +62,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         )
         self.assertEqual({row["configuration_code"] for row in mappings}, set(importer.CONFIGURATIONS))
 
-    def test_only_approved_essential_khaki_mapping_is_priced(self) -> None:
+    def test_only_approved_essential_current_colour_states_are_priced(self) -> None:
         components = collect_commercial_components(ROOT, list(importer.CONFIGURATIONS), "2026-08-02")
         colour_codes = set(importer.EXPECTED_COLOURS)
         selected = [
@@ -72,16 +72,29 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
             if row["code"] in colour_codes
         ]
         self.assertEqual(len(selected), 18)
-        priced = [entry for entry in selected if entry[1]["amount"] is not None]
-        self.assertEqual(len(priced), 1)
-        configuration_code, component = priced[0]
-        self.assertEqual(component["code"], "spring_colour_lichen_khaki")
-        self.assertEqual(configuration_code, "spring_essential_electric70_automatic")
-        self.assertEqual(component["amount"], 2300.0)
-        self.assertEqual(component["currency_code"], "PLN")
-        self.assertEqual(component["price_date"], "2026-08-02")
+        priced = {
+            (configuration_code, row["code"]): row
+            for configuration_code, row in selected
+            if row["amount"] is not None
+        }
+        self.assertEqual(
+            set(priced),
+            {
+                ("spring_essential_electric70_automatic", "spring_colour_lichen_khaki"),
+                ("spring_essential_electric70_automatic", "spring_colour_biel_alpejska"),
+            },
+        )
+        self.assertEqual(
+            priced[("spring_essential_electric70_automatic", "spring_colour_lichen_khaki")]["amount"],
+            2300.0,
+        )
+        white = priced[("spring_essential_electric70_automatic", "spring_colour_biel_alpejska")]
+        self.assertEqual(white["amount"], 0.0)
+        self.assertEqual(white["availability_status"], "standard")
+        self.assertEqual(white["currency_code"], "PLN")
+        self.assertEqual(white["price_date"], "2026-08-02")
         unpriced = [row for _, row in selected if row["amount"] is None]
-        self.assertEqual(len(unpriced), 17)
+        self.assertEqual(len(unpriced), 16)
         self.assertTrue(
             all(row["currency_code"] == "PLN" and row["price_date"] == "" for row in unpriced)
         )
