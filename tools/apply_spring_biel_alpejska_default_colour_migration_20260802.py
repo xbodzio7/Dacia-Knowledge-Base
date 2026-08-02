@@ -7,6 +7,7 @@ import argparse
 import csv
 import importlib.util
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -75,10 +76,12 @@ def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None
 
 
 def load_importer():
-    spec = importlib.util.spec_from_file_location("configuration_value_importer", IMPORTER)
+    module_name = "configuration_value_importer"
+    spec = importlib.util.spec_from_file_location(module_name, IMPORTER)
     if spec is None or spec.loader is None:
         raise AssertionError("cannot load canonical configuration-value importer")
     module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
 
