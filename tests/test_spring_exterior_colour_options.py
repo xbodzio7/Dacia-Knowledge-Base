@@ -62,16 +62,29 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         )
         self.assertEqual({row["configuration_code"] for row in mappings}, set(importer.CONFIGURATIONS))
 
-    def test_colour_options_remain_unpriced(self) -> None:
-        components = collect_commercial_components(ROOT, list(importer.CONFIGURATIONS), importer.DATE)
+    def test_only_approved_essential_khaki_mapping_is_priced(self) -> None:
+        components = collect_commercial_components(ROOT, list(importer.CONFIGURATIONS), "2026-08-02")
         colour_codes = set(importer.EXPECTED_COLOURS)
         selected = [
-            row for rows in components.values() for row in rows
+            (configuration_code, row)
+            for configuration_code, component_rows in components.items()
+            for row in component_rows
             if row["code"] in colour_codes
         ]
         self.assertEqual(len(selected), 18)
-        self.assertTrue(all(row["amount"] is None for row in selected))
-        self.assertTrue(all(row["currency_code"] == "PLN" and row["price_date"] == "" for row in selected))
+        priced = [entry for entry in selected if entry[1]["amount"] is not None]
+        self.assertEqual(len(priced), 1)
+        configuration_code, component = priced[0]
+        self.assertEqual(component["code"], "spring_colour_lichen_khaki")
+        self.assertEqual(configuration_code, "spring_essential_electric70_automatic")
+        self.assertEqual(component["amount"], 2300.0)
+        self.assertEqual(component["currency_code"], "PLN")
+        self.assertEqual(component["price_date"], "2026-08-02")
+        unpriced = [row for _, row in selected if row["amount"] is None]
+        self.assertEqual(len(unpriced), 17)
+        self.assertTrue(
+            all(row["currency_code"] == "PLN" and row["price_date"] == "" for row in unpriced)
+        )
 
     def test_each_colour_membership_uses_only_exterior_color(self) -> None:
         codes = set(importer.EXPECTED_COLOURS)

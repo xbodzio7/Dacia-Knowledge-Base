@@ -7,17 +7,17 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Exact Current Semantic Migration Review",
+  "phase": "Spring Essential Lichen Khaki Price Apply",
   "reference_delivery": {
-    "name": "Spring Current Grade Snapshot Capture",
-    "pull_request": 451,
-    "head_sha": "9cfc3b5a20ffe2f4ad5c18f16d6d93e6b889618b",
-    "quality_run": 30723222653
+    "name": "Spring Exact Current Semantic Migration Review",
+    "pull_request": 452,
+    "head_sha": "82b421d09fb6c7bf97645e25623da9da9694fbed",
+    "quality_run": 30739208757
   },
   "baseline": {
     "tests": 1788,
     "csv_files": 46,
-    "rows": 11713,
+    "rows": 11714,
     "configuration_values": 3567,
     "configuration_import_specs": 138,
     "configuration_value_ranges": 316,
@@ -27,38 +27,50 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_exact_current_semantic_migration_review_001",
-    "kind": "bounded_semantic_migration_review",
-    "name": "Spring Exact Current Semantic Migration Review",
-    "status": "complete",
-    "goal": "Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve semantic conflicts and incomplete commercial context as unresolved.",
-    "manifest_paths": [
-      "data/reporting/spring_exact_current_semantic_migration_review.json",
-      "data/reporting/spring_exact_current_semantic_migration_review.md",
-      "project/packages/spring-exact-current-semantic-migration-review-20260802.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
-      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
-      "tools/review_spring_exact_current_semantic_migration_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_essential_khaki_price_apply_001",
     "kind": "bounded_master_data_update",
     "name": "Spring Essential Lichen Khaki Price Apply",
-    "status": "planned",
-    "goal": "Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance if required, and leave every semantic or unresolved case untouched.",
+    "status": "complete",
+    "goal": "Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance, and leave every semantic or unresolved case untouched.",
     "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
       "data/master/commercial_item_configurations.csv",
       "data/master/sources.csv",
       "data/reporting/spring_essential_khaki_price_apply.json",
       "data/reporting/spring_essential_khaki_price_apply.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
       "project/packages/spring-essential-khaki-price-apply-20260802.md",
       "project/state.json",
-      "project/STATE_SUMMARY.md",
+      "tests/test_commercial_items_20260703.py",
+      "tests/test_configuration_comparison_workbook.py",
+      "tests/test_registered_source_completeness_reconciliation_20260802.py",
+      "tests/test_reviewed_gap_state_materialization_20260802.py",
+      "tests/test_spring_commercial_context_resolution_20260802.py",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tests/test_spring_essential_khaki_price_apply_20260802.py",
-      "tools/apply_spring_essential_khaki_price_20260802.py"
+      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
+      "tests/test_spring_exterior_colour_options.py",
+      "tools/apply_spring_essential_khaki_price_20260802.py",
+      "tools/import_spring_exterior_colour_options.py",
+      "tools/review_spring_exact_current_semantic_migration_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_standard_equipment_representation_review_001",
+    "kind": "bounded_representation_review",
+    "name": "Spring Standard Equipment Representation Review",
+    "status": "planned",
+    "goal": "Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.",
+    "manifest_paths": [
+      "data/reporting/spring_standard_equipment_representation_review.json",
+      "data/reporting/spring_standard_equipment_representation_review.md",
+      "project/packages/spring-standard-equipment-representation-review-20260802.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_spring_standard_equipment_representation_review_20260802.py",
+      "tools/review_spring_standard_equipment_representation_20260802.py"
     ]
   },
   "autonomy": {
