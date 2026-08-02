@@ -50,6 +50,16 @@ EXPECTED_COLOURS = {
 EXPECTED_ITEM_IDS = (34, 39)
 EXPECTED_ATTRIBUTE_IDS = (88, 93)
 EXPECTED_CONFIGURATION_IDS = (150, 167)
+APPROVED_CURRENT_MAPPING_CODE = (
+    "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
+)
+APPROVED_CURRENT_MAPPING_STATE = {
+    "availability_status": "optional",
+    "amount": "2300",
+    "currency_code": "PLN",
+    "price_date": "2026-08-02",
+    "source_code": "src_pl_spring_commercial_context_20260802",
+}
 
 
 class ContractError(RuntimeError):
@@ -195,6 +205,31 @@ def selected(rows: list[dict[str, str]], predicate) -> list[dict[str, str]]:
     return [row for row in rows if predicate(row)]
 
 
+def normalize_reviewed_configuration_rows(
+    rows: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    expected = {row["code"]: row for row in generated_configurations()}
+    normalized: list[dict[str, str]] = []
+    for row in rows:
+        if row["code"] != APPROVED_CURRENT_MAPPING_CODE:
+            normalized.append(row)
+            continue
+        historical = expected[APPROVED_CURRENT_MAPPING_CODE]
+        if all(row.get(field, "") == historical[field] for field in CONFIGURATION_FIELDS[1:]):
+            normalized.append(row)
+            continue
+        if any(
+            row.get(field, "") != value
+            for field, value in APPROVED_CURRENT_MAPPING_STATE.items()
+        ):
+            raise ContractError("Essential Lichen Khaki mapping is outside the approved transition")
+        restored = dict(row)
+        for field in CONFIGURATION_FIELDS[1:]:
+            restored[field] = historical[field]
+        normalized.append(restored)
+    return normalized
+
+
 def assert_payload(
     actual: list[dict[str, str]], expected: list[dict[str, str]], fields: Sequence[str], label: str
 ) -> None:
@@ -227,11 +262,16 @@ def check() -> None:
     )
     mappings = selected(
         read_rows(CONFIGURATIONS_OUTPUT),
-        lambda row: row.get("source_code") == SOURCE_CODE and row.get("commercial_item_code") in colour_codes,
+        lambda row: row.get("commercial_item_code") in colour_codes,
     )
     assert_payload(items, generated_items(), ITEM_FIELDS[1:], "Spring colour items")
     assert_payload(attributes, generated_attributes(), ATTRIBUTE_FIELDS[1:], "Spring colour memberships")
-    assert_payload(mappings, generated_configurations(), CONFIGURATION_FIELDS[1:], "Spring colour mappings")
+    assert_payload(
+        normalize_reviewed_configuration_rows(mappings),
+        generated_configurations(),
+        CONFIGURATION_FIELDS[1:],
+        "Spring colour mappings",
+    )
     assert_ids(items, EXPECTED_ITEM_IDS, "Spring colour item")
     assert_ids(attributes, EXPECTED_ATTRIBUTE_IDS, "Spring colour membership")
     assert_ids(mappings, EXPECTED_CONFIGURATION_IDS, "Spring colour mapping")
@@ -240,11 +280,12 @@ def check() -> None:
 
 def append_contract(
     current: list[dict[str, str]], expected: list[dict[str, str]], fields: Sequence[str],
-    predicate, first_id: int, label: str
+    predicate, first_id: int, label: str, normalizer=None
 ) -> list[dict[str, str]]:
     actual = selected(current, predicate)
     if actual:
-        assert_payload(actual, expected, fields, label)
+        checked = normalizer(actual) if normalizer else actual
+        assert_payload(checked, expected, fields, label)
         return current
     try:
         maximum_id = max(int(row["id"]) for row in current)
@@ -290,8 +331,9 @@ def apply() -> None:
     )
     mappings = append_contract(
         read_rows(CONFIGURATIONS_OUTPUT), generated_configurations(), CONFIGURATION_FIELDS[1:],
-        lambda row: row.get("source_code") == SOURCE_CODE and row.get("commercial_item_code") in colour_codes,
+        lambda row: row.get("commercial_item_code") in colour_codes,
         EXPECTED_CONFIGURATION_IDS[0], "Spring colour mapping",
+        normalize_reviewed_configuration_rows,
     )
 
     outputs = (
