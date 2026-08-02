@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "spring_expression_saved_state_artifact_intake_001",
+  "source_registration": {
+    "source_rows_added": 1,
+    "source_id": 36,
+    "source_code": "src_pl_spring_saved_configurations_20260802",
+    "snapshot_path": "project/sources/dacia-pl-spring-saved-configurations-20260802.json",
+    "snapshot_sha256": "f000739a2e19476ac8f45679fdc6f09e55a17018771fbe8764f4c45e9bbf40c6",
+    "original_pdf_artifacts": 2,
+    "original_binary_archive_status": "not_archived_by_connector"
+  },
+  "exact_states": {
+    "expression_configuration_reference": "7OO7LQ",
+    "expression_catalog_price_pln": 81500,
+    "extreme_configuration_reference": "WKAWYV",
+    "extreme_catalog_price_pln": 85900,
+    "type2_standard_confirmed_for": [
+      "spring_expression_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ]
+  },
+  "architecture_decision": {
+    "status": "accepted",
+    "model": "two_independent_boolean_equipment_concepts",
+    "planned_attributes": [
+      "type2_charging_cable_supplied",
+      "domestic_socket_charging_cable"
+    ],
+    "expression_domestic_socket_cable": "unresolved",
+    "historical_commercial_records_rewritten": false
+  },
+  "master_data_delta": {
+    "source_rows_added": 1,
+    "other_master_rows_added": 0,
+    "configuration_values_changed": 0,
+    "availability_rows_changed": 0,
+    "commercial_records_changed": 0,
+    "attributes_added": 0,
+    "net_master_row_increase": 1
+  },
+  "verified_after_counts": {
+    "sources": 36,
+    "master_rows": 11716,
+    "configuration_values": 3567,
+    "configuration_import_specs": 138,
+    "availability_records": 5906,
+    "attributes": 385
+  },
+  "next_package": {
+    "package_id": "spring_charging_cable_representation_migration_001",
+    "goal": "Implement the two independent canonical charging-cable concepts and import only exact-current availability supported by the registered evidence matrix."
+  }
+}

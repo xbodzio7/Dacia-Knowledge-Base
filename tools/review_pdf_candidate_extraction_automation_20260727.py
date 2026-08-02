@@ -281,8 +281,9 @@ def verify_repository() -> None:
     state = load_json(STATE)
     current = state.get("current_package", {})
     current_name = current.get("name")
+    phase = state.get("phase")
     ensure(isinstance(current_name, str) and bool(current_name), "current package is missing")
-    ensure(state.get("phase") == current_name, "project phase/current package differ")
+    ensure(isinstance(phase, str) and bool(phase), "project phase is missing")
     ensure(current.get("status") == "complete", "current package is not complete")
 
     completion = (
@@ -331,6 +332,7 @@ def verify_repository() -> None:
             else "PDF Candidate Extraction Automation Review"
         )
         ensure(current_name == expected_current, "historical current package differs")
+        ensure(phase == current_name, "historical project phase/current package differ")
         ensure(
             state.get("next_package", {}).get("name")
             == "Verified PDF Candidate Ledger Foundation",
