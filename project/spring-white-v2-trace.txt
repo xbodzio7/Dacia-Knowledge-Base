@@ -1,0 +1,33 @@
+fetch=0
+From https://github.com/xbodzio7/Dacia-Knowledge-Base
+ * branch              agent/spring-biel-alpejska-default-colour-migration-v2-20260802 -> FETCH_HEAD
+checkout=0
+Switched to a new branch 'agent/spring-biel-alpejska-default-colour-migration-v2-20260802'
+branch 'agent/spring-biel-alpejska-default-colour-migration-v2-20260802' set up to track 'origin/agent/spring-biel-alpejska-default-colour-migration-v2-20260802'.
+merge=0
+Updating 45e52e94..71e87d98
+Fast-forward
+ .github/ai-trigger-spring-white-v2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .github/ai-trigger-spring-white-v2.txt
+show_spec=0
+show_tool=0
+show_test=0
+show_package=0
+patch=0
+apply=1
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 481, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 474, in main
+    apply()
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 444, in apply
+    values_content, mappings_content, report = build(root)
+                                               ^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 424, in build
+    next_values, next_mappings, report = build_expected(
+                                         ^^^^^^^^^^^^^^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/apply_spring_biel_alpejska_default_colour_migration_20260802.py", line 350, in build_expected
+    raise RuntimeError("unexpected verified counts after migration")
+RuntimeError: unexpected verified counts after migration
