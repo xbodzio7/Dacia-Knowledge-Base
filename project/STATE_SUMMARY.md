@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Spring Essential Lichen Khaki Price Apply**
+**Spring Standard Equipment Representation Review**
 
 ## Reference delivery
 
-- Package: Spring Exact Current Semantic Migration Review
-- Pull Request: #452
-- Verified head: `82b421d09fb6c7bf97645e25623da9da9694fbed`
-- Quality run: #30739208757
+- Package: Spring Essential Lichen Khaki Price Apply
+- Pull Request: #453
+- Verified head: `4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8`
+- Quality run: #30740364894
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Essential Lichen Khaki Price Apply** — `complete`
+**Spring Standard Equipment Representation Review** — `complete`
 
-Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance, and leave every semantic or unresolved case untouched.
+Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
 
 ## Next package
 
-**Spring Standard Equipment Representation Review** — `planned`
+**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
 
-Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
+Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
 
 ## Autonomy
 
