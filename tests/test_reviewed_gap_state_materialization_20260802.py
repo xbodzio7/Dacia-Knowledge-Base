@@ -111,15 +111,22 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             for component in configuration.get("price_components", [])
             if component.get("review_state")
         ]
-        self.assertEqual(len(reviewed), 29)
+        self.assertEqual(len(reviewed), 28)
         self.assertEqual(
             Counter(item["review_state"] for item in reviewed),
-            Counter({"importable": 2, "source-not-stated": 7, "source-conflict": 2, "context-unmodeled": 18}),
+            Counter({"importable": 2, "source-not-stated": 6, "source-conflict": 2, "context-unmodeled": 18}),
         )
         extreme = self.by_code["spring_extreme_electric100_automatic"]
         amounts = {item["code"]: item["amount"] for item in extreme["price_components"]}
         self.assertEqual(amounts["spring_city_package"], 1800.0)
         self.assertEqual(amounts["spring_power_package"], 3000.0)
+        essential = self.by_code["spring_essential_electric70_automatic"]
+        khaki = next(
+            item for item in essential["price_components"]
+            if item["code"] == "spring_colour_lichen_khaki"
+        )
+        self.assertEqual(khaki["amount"], 2300.0)
+        self.assertFalse(khaki.get("review_state"))
 
     def test_pricing_script_explains_terminal_review_states(self) -> None:
         program = f"""
@@ -146,10 +153,15 @@ console.log(JSON.stringify(values));
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
         self.assertGreaterEqual(state["reference_delivery"]["pull_request"], 449)
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertTrue(state["current_package"]["package_id"])
+        current_id = state["current_package"]["package_id"]
+        self.assertTrue(current_id)
         self.assertTrue(state["next_package"]["package_id"])
         self.assertGreaterEqual(state["baseline"]["tests"], 1788)
-        self.assertEqual(state["baseline"]["rows"], 11713)
+        expected_rows = 11714 if current_id in {
+            "spring_essential_khaki_price_apply_001",
+            "spring_standard_equipment_representation_review_001",
+        } else 11713
+        self.assertEqual(state["baseline"]["rows"], expected_rows)
 
 
 if __name__ == "__main__":
