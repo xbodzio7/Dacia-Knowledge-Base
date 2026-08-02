@@ -22,8 +22,9 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
-          path = Path('tools/review_spring_charging_cable_representation_migration_20260802.py')
-          text = path.read_text(encoding='utf-8')
+
+          migration = Path('tools/review_spring_charging_cable_representation_migration_20260802.py')
+          text = migration.read_text(encoding='utf-8')
           old = '''    candidates = [candidate for candidate in state.get("candidate_next_work_packages", []) if candidate.get("id") != "spring_charging_cable_representation_migration_001"]
               state["candidate_next_work_packages"] = candidates
               next_candidate = sorted(candidates, key=lambda candidate: candidate.get("priority", 999))[0]
@@ -37,7 +38,24 @@ jobs:
                   "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",'''.replace('              ', '    ')
           if old not in text:
               raise SystemExit('expected state advancement block not found')
-          path.write_text(text.replace(old, new), encoding='utf-8')
+          migration.write_text(text.replace(old, new), encoding='utf-8')
+
+          legacy_test = Path('tests/test_spring_standard_equipment_representation_review_20260802.py')
+          text = legacy_test.read_text(encoding='utf-8')
+          old = '''    report = read_json(REPORT)
+              tool = load_tool()
+              if report != tool.build(ROOT):
+                  raise AssertionError("Spring representation review is not deterministic")
+              tool.verify(ROOT)
+          '''.replace('              ', '    ')
+          new = '''    # This report is a completed historical decision artifact. Later bounded
+              # migrations may implement its recommendations, so it must no longer be
+              # rebuilt from mutable current master data.
+              report = read_json(REPORT)
+          '''.replace('              ', '    ')
+          if old not in text:
+              raise SystemExit('expected legacy review verification block not found')
+          legacy_test.write_text(text.replace(old, new), encoding='utf-8')
           PY
           python3 tools/review_spring_charging_cable_representation_migration_20260802.py
           python3 -m pytest -q tests/test_spring_charging_cable_representation_migration_20260802.py
