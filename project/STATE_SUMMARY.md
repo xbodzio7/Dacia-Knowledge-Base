@@ -16,14 +16,14 @@
 
 ## Reference delivery
 
-- Package: Legacy PDF Source Audit Governance and Spring FlexiCharger Correction
-- Pull Request: #466
-- Verified head: `dd3cbed2a9a45542fb7d13d92dcc571263655832`
-- Quality run: #30765813057
+- Package: Spring Brochure and Price List Full Assimilation Audit
+- Pull Request: #467
+- Verified head: `35e6244a8564be61af29c52bc710b50e19e46254`
+- Quality run: #30766992086
 
 ## Verified baseline
 
-- Tests: 1801
+- Tests: 1809
 - Master CSV files: 46
 - Master rows: 11730
 - Configuration values: 3568
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Brochure and Price List Full Assimilation Audit** — `complete`
+**Spring Non-conflicting Technical Observations Review** — `complete`
 
-Review every page, table, footnote, symbol and rendered visual in the registered Spring brochure and price list; classify every relevant fact and queue bounded corrective migrations.
+Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and approve only demonstrably missing context-safe migrations.
 
 ## Next package
 
-**Spring Non-conflicting Technical Observations Review** — `planned`
+**Spring Non-conflicting Common Technical Observations Migration** — `planned`
 
-Compare battery, charging-time, performance, dimensions and luggage observations from the fully reviewed Spring sources against current master records and queue only demonstrably missing context-safe migrations.
+Materialize the 36 approved brochure observations for battery chemistry, motor technology, steering type and nine common body dimensions, adding only the minimum controlled enum-domain support and preserving all deferred boundaries.
 
 ## Autonomy
 
