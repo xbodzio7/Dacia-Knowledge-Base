@@ -1,0 +1,41 @@
+name: Temporary Exact State Capture Documentation Sync
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'agent/official-configurator-exact-state-capture-20260802'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Synchronize generated documentation
+        run: |
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Commit synchronized documentation and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/temp-sync-exact-state-capture-docs.yml
+          git add README.md CHANGELOG.md project/SESSION_STATE.md project/STATE_SUMMARY.md project/state.json
+          if git diff --cached --quiet; then
+            echo "No documentation changes to commit"
+          else
+            git commit -m "docs: synchronize exact state capture baseline"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
