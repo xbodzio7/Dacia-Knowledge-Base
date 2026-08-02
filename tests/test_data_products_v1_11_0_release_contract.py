@@ -63,12 +63,26 @@ class DataProductsV111AcceleratedReleaseContractTest(unittest.TestCase):
         ):
             self.assertIn(expected, package)
 
-        workflow = (
+        workflow_path = (
             ROOT
             / ".github/workflows/temporary-publish-data-products-v1.11.0.yml"
-        ).read_text(encoding="utf-8")
-        self.assertIn("PYTHONPATH=tools python - <<'PY'", workflow)
-        self.assertIn("_extract_verified_contents", workflow)
+        )
+        receipt_path = ROOT / "data/reporting/data_products_v1_11_0_publication.json"
+        if workflow_path.exists():
+            workflow = workflow_path.read_text(encoding="utf-8")
+            self.assertIn("PYTHONPATH=tools python - <<'PY'", workflow)
+            self.assertIn("_extract_verified_contents", workflow)
+        else:
+            self.assertTrue(receipt_path.exists())
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            self.assertEqual(receipt["status"], "complete")
+            self.assertEqual(receipt["tag"], "data-products-v1.11.0")
+            self.assertEqual(
+                receipt["source_commit"],
+                "0f9a76228ef374d7982421c5a246f00fe7378a94",
+            )
+            self.assertTrue(receipt["double_build_byte_identity"])
+            self.assertEqual(receipt["offline_workspace_verification"], "PASS")
 
     def test_v1_10_0_publication_receipt_remains_immutable(self) -> None:
         receipt = json.loads(
