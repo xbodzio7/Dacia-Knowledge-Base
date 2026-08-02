@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Official Configurator Coverage Reconciliation",
+  "phase": "Official Configurator Exact State Capture",
   "reference_delivery": {
-    "name": "Spring Standard Equipment Representation Review",
-    "pull_request": 454,
-    "head_sha": "697adb01776b41ad3742b7380fd14613d3d5300c",
-    "quality_run": 30740819610
+    "name": "Official Configurator Coverage Reconciliation",
+    "pull_request": 457,
+    "head_sha": "14c910acdb45d78d42e9c77478cdb365b730337a",
+    "quality_run": 30745746891
   },
   "baseline": {
-    "tests": 1788,
+    "tests": 1789,
     "csv_files": 46,
     "rows": 11715,
     "configuration_values": 3567,
@@ -27,38 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "official_configurator_coverage_reconciliation_001",
-    "kind": "bounded_source_reconciliation",
-    "name": "Official Configurator Coverage Reconciliation",
-    "status": "complete",
-    "goal": "Register every active Dacia Polska configurator surface and define exact-state evidence boundaries before filling gaps or making a supplied-cable architecture decision.",
-    "manifest_paths": [
-      "README.md",
-      "data/master/sources.csv",
-      "data/reporting/official_configurator_coverage_reconciliation.json",
-      "data/reporting/official_configurator_coverage_reconciliation.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/official-configurator-coverage-reconciliation-20260802.md",
-      "project/sources/dacia-pl-official-configurator-coverage-20260802.json",
-      "project/state.json",
-      "tests/test_official_configurator_coverage_reconciliation_20260802.py",
-      "tests/test_registered_source_completeness_reconciliation_20260802.py",
-      "tests/test_reviewed_gap_state_materialization_20260802.py",
-      "tests/test_spring_commercial_context_resolution_20260802.py",
-      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
-      "tests/test_spring_essential_khaki_price_apply_20260802.py",
-      "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
-      "tests/test_spring_standard_equipment_representation_review_20260802.py",
-      "tools/review_official_configurator_coverage_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "official_configurator_exact_state_capture_001",
     "kind": "bounded_source_capture",
     "name": "Official Configurator Exact State Capture",
+    "status": "complete",
+    "goal": "Capture every exact official Dacia configurator state available through static retrieval and reduce unresolved saved-state evidence to a minimal user-export queue before any architecture or master-data decision.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/reporting/official_configurator_exact_state_capture.json",
+      "data/reporting/official_configurator_exact_state_capture.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/official-configurator-exact-state-capture-20260802.md",
+      "project/sources/dacia-pl-official-configurator-exact-state-capture-20260802.json",
+      "project/state.json",
+      "tests/test_official_configurator_exact_state_capture_20260802.py",
+      "tools/review_official_configurator_exact_state_capture_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_expression_saved_state_artifact_intake_001",
+    "kind": "bounded_source_capture",
+    "name": "Spring Expression Saved State Artifact Intake",
     "status": "planned",
-    "goal": "Capture and normalize exact saved configurator states for every active model, grade, powertrain and transmission surface, beginning with the user-provided Spring link, before any architecture or master-data decision.",
+    "goal": "Ingest the PDF exported from the supplied Spring Expression Electric 70 saved configuration, resolve its charging-cable and option state, and only then reconsider the supplied-cable representation.",
     "manifest_paths": [
       "project/sources/",
       "data/reporting/",
