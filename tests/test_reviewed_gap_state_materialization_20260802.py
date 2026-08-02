@@ -27,6 +27,7 @@ TARGETS = {
     "spring_city_package__spring_extreme_electric100_automatic": "1800",
     "spring_power_package__spring_extreme_electric100_automatic": "3000",
 }
+KHaki_TARGET = "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -120,13 +121,12 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
         amounts = {item["code"]: item["amount"] for item in extreme["price_components"]}
         self.assertEqual(amounts["spring_city_package"], 1800.0)
         self.assertEqual(amounts["spring_power_package"], 3000.0)
-        essential = self.by_code["spring_essential_electric70_automatic"]
-        khaki = next(
-            item for item in essential["price_components"]
-            if item["code"] == "spring_colour_lichen_khaki"
-        )
-        self.assertEqual(khaki["amount"], 2300.0)
-        self.assertFalse(khaki.get("review_state"))
+        khaki = next(row for row in rows(MAPPINGS) if row["code"] == KHaki_TARGET)
+        self.assertEqual(khaki["availability_status"], "optional")
+        self.assertEqual(khaki["amount"], "2300")
+        self.assertEqual(khaki["currency_code"], "PLN")
+        self.assertEqual(khaki["price_date"], "2026-08-02")
+        self.assertEqual(khaki["source_code"], "src_pl_spring_commercial_context_20260802")
 
     def test_pricing_script_explains_terminal_review_states(self) -> None:
         program = f"""
