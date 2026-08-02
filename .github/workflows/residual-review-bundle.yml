@@ -2,7 +2,7 @@ name: Residual Review Bundle
 
 on:
   pull_request_target:
-    types: [reopened]
+    types: [edited]
 
 permissions:
   contents: write
