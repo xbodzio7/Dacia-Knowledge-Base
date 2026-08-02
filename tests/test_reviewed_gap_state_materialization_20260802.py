@@ -112,10 +112,24 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             for component in configuration.get("price_components", [])
             if component.get("review_state")
         ]
-        self.assertEqual(len(reviewed), 28)
+        expected = Counter(
+            {
+                "importable": 2,
+                "source-not-stated": 6,
+                "source-conflict": 2,
+                "context-unmodeled": 18,
+            }
+        )
+        if self.catalog["as_of"] >= "2026-08-02":
+            # The exact-current Essential Lichen Khaki mapping dated
+            # 2026-08-02 becomes visible once the catalog advances to that
+            # date. This is a legal new reviewed component, not a rewrite of
+            # the earlier materialization package.
+            expected["importable"] += 1
+        self.assertEqual(len(reviewed), sum(expected.values()))
         self.assertEqual(
             Counter(item["review_state"] for item in reviewed),
-            Counter({"importable": 2, "source-not-stated": 6, "source-conflict": 2, "context-unmodeled": 18}),
+            expected,
         )
         extreme = self.by_code["spring_extreme_electric100_automatic"]
         amounts = {item["code"]: item["amount"] for item in extreme["price_components"]}
