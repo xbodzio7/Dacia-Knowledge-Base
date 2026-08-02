@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "scope": {
+    "mapping_code": "spring_colour_lichen_khaki__spring_essential_electric70_automatic",
+    "configuration_code": "spring_essential_electric70_automatic",
+    "commercial_item_code": "spring_colour_lichen_khaki",
+    "source_code": "src_pl_spring_commercial_context_20260802"
+  },
+  "source_registration": {
+    "rows_added": 1,
+    "registered_source_count": 1,
+    "source_sha256": "2ce609341d6e80bd16c670000e8571a4e114adbdcfea270164de8a6a2b60ed8f",
+    "file_path": "project/sources/dacia-pl-spring-commercial-context-20260802.json"
+  },
+  "mapping_update": {
+    "rows_changed": 1,
+    "before": {
+      "availability_status": "optional",
+      "amount": null,
+      "currency_code": "PLN",
+      "price_date": null,
+      "source_code": "src_pl_spring_brochure_20260219"
+    },
+    "after": {
+      "availability_status": "optional",
+      "amount": 2300,
+      "currency_code": "PLN",
+      "price_date": "2026-08-02",
+      "source_code": "src_pl_spring_commercial_context_20260802"
+    }
+  },
+  "preserved_boundaries": {
+    "semantic_migrations_unchanged": 3,
+    "unresolved_mappings_unchanged": 19,
+    "new_representation_cases_unchanged": 2,
+    "other_mapping_rows_changed": 0
+  },
+  "master_data_delta": {
+    "source_rows_added": 1,
+    "commercial_mapping_rows_added": 0,
+    "commercial_mapping_rows_updated": 1,
+    "commercial_items_added": 0,
+    "attributes_added": 0
+  },
+  "next_package": {
+    "package_id": "spring_standard_equipment_representation_review_001",
+    "goal": "Review existing repository representation patterns for exact-current standard equipment and default paint before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change."
+  }
+}

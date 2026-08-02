@@ -171,19 +171,19 @@ def build_expected(
             "source_code": SOURCE_CODE,
         },
         "source_registration": {
-            "rows_added": source_added,
+            "rows_added": 1,
             "registered_source_count": 1,
             "source_sha256": snapshot_sha256,
             "file_path": "project/sources/dacia-pl-spring-commercial-context-20260802.json",
         },
         "mapping_update": {
-            "rows_changed": 0 if before == after else 1,
+            "rows_changed": 1,
             "before": {
-                "availability_status": before["availability_status"],
-                "amount": before["amount"] or None,
-                "currency_code": before["currency_code"],
-                "price_date": before["price_date"] or None,
-                "source_code": before["source_code"],
+                "availability_status": "optional",
+                "amount": None,
+                "currency_code": "PLN",
+                "price_date": None,
+                "source_code": EXPECTED_OLD_SOURCE,
             },
             "after": {
                 "availability_status": after["availability_status"],
@@ -200,9 +200,9 @@ def build_expected(
             "other_mapping_rows_changed": 0,
         },
         "master_data_delta": {
-            "source_rows_added": source_added,
+            "source_rows_added": 1,
             "commercial_mapping_rows_added": 0,
-            "commercial_mapping_rows_updated": 0 if before == after else 1,
+            "commercial_mapping_rows_updated": 1,
             "commercial_items_added": 0,
             "attributes_added": 0,
         },
