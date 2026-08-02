@@ -12,20 +12,20 @@
 
 ## Phase
 
-**Spring Exact Current Semantic Migration Review**
+**Spring Essential Lichen Khaki Price Apply**
 
 ## Reference delivery
 
-- Package: Spring Current Grade Snapshot Capture
-- Pull Request: #451
-- Verified head: `9cfc3b5a20ffe2f4ad5c18f16d6d93e6b889618b`
-- Quality run: #30723222653
+- Package: Spring Exact Current Semantic Migration Review
+- Pull Request: #452
+- Verified head: `82b421d09fb6c7bf97645e25623da9da9694fbed`
+- Quality run: #30739208757
 
 ## Verified baseline
 
 - Tests: 1788
 - Master CSV files: 46
-- Master rows: 11713
+- Master rows: 11714
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Exact Current Semantic Migration Review** — `complete`
+**Spring Essential Lichen Khaki Price Apply** — `complete`
 
-Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve semantic conflicts and incomplete commercial context as unresolved.
+Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance, and leave every semantic or unresolved case untouched.
 
 ## Next package
 
-**Spring Essential Lichen Khaki Price Apply** — `planned`
+**Spring Standard Equipment Representation Review** — `planned`
 
-Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance if required, and leave every semantic or unresolved case untouched.
+Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
 
 ## Autonomy
 
