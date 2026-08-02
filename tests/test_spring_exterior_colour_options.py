@@ -2,14 +2,13 @@ from __future__ import annotations
 
 import csv
 import hashlib
-import json
-import sys
 import unittest
 from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
+import sys
 sys.path.insert(0, str(ROOT / "tools"))
 
 import import_spring_exterior_colour_options as importer  # noqa: E402
@@ -45,9 +44,6 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         )
 
     def test_master_rows_match_generated_contract_and_contiguous_suffixes(self) -> None:
-        state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        if state["current_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-            importer.check()
         codes = set(importer.EXPECTED_COLOURS)
         items = [row for row in self.items if row["code"] in codes]
         memberships = [row for row in self.memberships if row["commercial_item_code"] in codes]
@@ -55,6 +51,9 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         self.assertEqual([int(row["id"]) for row in items], list(range(34, 40)))
         self.assertEqual([int(row["id"]) for row in memberships], list(range(88, 94)))
         self.assertEqual([int(row["id"]) for row in mappings], list(range(150, 168)))
+        self.assertEqual(len(items), 6)
+        self.assertEqual(len(memberships), 6)
+        self.assertEqual(len(mappings), 18)
 
     def test_every_colour_maps_to_all_three_existing_configurations(self) -> None:
         codes = set(importer.EXPECTED_COLOURS)
