@@ -29,3 +29,9 @@ The publisher must:
 The release contains the 36 source-bounded common Spring technical observations materialized as configuration-value IDs 3569–3604. The documented MY2025-only and semantically ambiguous Spring values remain deferred.
 
 No data, release metadata, state transition or tag is created on this branch. Publication starts only after this package passes full Quality and its merge commit lands on `main`.
+
+## Verified retry after workflow repair
+
+The first exact-SHA publication run `30771150367` completed the focused contracts and two byte-identical builds, then stopped before publication because the inline offline-workspace materializer did not expose the repository `tools` directory to Python. It created no tag, release or receipt.
+
+PR #473 repaired that bounded workflow defect by invoking the materializer with `PYTHONPATH=tools` and adding a persistent regression assertion. This retry keeps every original immutability and evidence boundary. Its own green merge commit, not the failed earlier trigger commit, becomes the exact source SHA for `data-products-v1.11.0`.
