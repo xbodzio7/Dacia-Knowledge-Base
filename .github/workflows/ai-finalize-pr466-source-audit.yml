@@ -17,10 +17,11 @@ jobs:
           ref: agent/legacy-pdf-source-audit-governance-20260802
           fetch-depth: 0
           persist-credentials: true
-      - name: Synchronize audit state
+      - name: Repair historical contracts and synchronize audit state
         shell: bash
         run: |
           set -euo pipefail
+          python3 tools/repair_spring_flexicharger_historical_contracts_20260802.py
           python3 - <<'PY'
           import json
           from pathlib import Path
@@ -28,7 +29,7 @@ jobs:
           path = Path('project/state.json')
           state = json.loads(path.read_text(encoding='utf-8'))
           state['phase'] = 'Legacy PDF Source Audit'
-          state['baseline']['tests'] = 1795
+          state['baseline']['tests'] = 1797
           state['baseline']['rows'] = 11730
           state['current_package'] = {
               'package_id': 'legacy_pdf_source_audit_governance_001',
@@ -43,6 +44,7 @@ jobs:
                   'data/master/commercial_items.csv',
                   'data/master/commercial_item_configurations.csv',
                   'tools/apply_spring_expression_flexicharger_correction_20260802.py',
+                  'tools/repair_spring_flexicharger_historical_contracts_20260802.py',
                   'tests/test_spring_expression_flexicharger_correction_20260802.py',
                   'project/state.json',
                   'project/STATE_SUMMARY.md',
@@ -66,8 +68,8 @@ jobs:
           python3 tools/dkb.py project-state --apply
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add project/state.json project/STATE_SUMMARY.md README.md CHANGELOG.md project/SESSION_STATE.md project/ROADMAP.md
+          git add tools tests project/state.json project/STATE_SUMMARY.md README.md CHANGELOG.md project/SESSION_STATE.md project/ROADMAP.md
           if ! git diff --cached --quiet; then
-            git commit -m 'docs: synchronize legacy PDF audit state'
+            git commit -m 'fix: align Spring FlexiCharger contracts and audit state'
             git push origin HEAD:agent/legacy-pdf-source-audit-governance-20260802
           fi
