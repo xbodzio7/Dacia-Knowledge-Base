@@ -23,7 +23,12 @@ jobs:
           set -euo pipefail
           echo '94af7209deaada93cd609e6ad4bfdfb7c5574a22c35b075d02537fa57018db53  project/spring-closure.sub.0' | sha256sum --check
           echo '4fe0c4f39013df312a75d1faa50b1c764cc50710862a6fd3c834a254bc131698  project/spring-closure.sub.1' | sha256sum --check
-          echo '2a55f5c9f71e2be37b6e743bf4ede6028cdae91f8b6468c13681f94e429fa781  project/spring-closure.sub.2' | sha256sum --check
+          echo 'b170e66c8173ffbc592066a6b5c2d0d737c911b59548350145b224a21fbbb8e1  project/spring-closure.line.0' | sha256sum --check
+          echo 'd0e96b3d164ca5101b9b11d798bdc9f57b9dd663cb739fe831cc4a516e5a0866  project/spring-closure.line.1' | sha256sum --check
+          echo 'ba4e80b6e2de6288c9b9d0e229d4176a2b147b5ce82a6c46c80d8ef2014dbd6c  project/spring-closure.line.2' | sha256sum --check
+          echo 'eb05e49fbbf1dfe1f103cbcf1bfebcc30c7dc46fcb709915d940d850db223aff  project/spring-closure.line.3' | sha256sum --check
+          echo '7ebe92fd462c116d303ecac61310840498a48c1e0e2d32e09f6a9912fbd7d1cf  project/spring-closure.line.4' | sha256sum --check
+          echo '32ab300319096d9a7218da56108fb92f6988f7a1e5d37001d1370d9e647f19f9  project/spring-closure.line.5' | sha256sum --check
           echo 'cd8f3a329c4c54f25437aadc4067972eac8aaeb9413b84e3cd9fff2e88fe781b  project/spring-closure.sub.3' | sha256sum --check
           echo 'f856d5aada78a5cf986968c93c9deca498240239c97dc884fa539c88eb9fcd32  project/spring-closure.sub.4' | sha256sum --check
           echo '8f8e8a3ac866549ba9b7cccfec6d74d3db7b5e757351215ec675e2cff6c2d1cc  project/spring-closure.sub.5' | sha256sum --check
@@ -31,7 +36,7 @@ jobs:
           echo 'a22ae4ba2c6b36c4a9589f44fe8c35f346c8f1f4453703237944104bf16dd6d4  project/spring-closure.chunk.02' | sha256sum --check
           echo '684ca40f2c57faee9c4320c88591449171f3b1f6930cd8e07df5f02ad3fa9fa3  project/spring-closure.chunk.03' | sha256sum --check
           echo '6483ac1ac473ab55229600d33c0319b9d6a3b24ac3926a3fb4fb5a14ac0aafec  project/spring-closure.chunk.04' | sha256sum --check
-          cat project/spring-closure.sub.* project/spring-closure.chunk.01 project/spring-closure.chunk.02 project/spring-closure.chunk.03 project/spring-closure.chunk.04 > /tmp/spring-closure.patch.gz.b64
+          cat project/spring-closure.sub.0 project/spring-closure.sub.1 project/spring-closure.line.* project/spring-closure.sub.3 project/spring-closure.sub.4 project/spring-closure.sub.5 project/spring-closure.chunk.01 project/spring-closure.chunk.02 project/spring-closure.chunk.03 project/spring-closure.chunk.04 > /tmp/spring-closure.patch.gz.b64
           echo '03affd3aae0eea3191163d375403f95463ecf1a12bed1b8ecba1053dbc224920  /tmp/spring-closure.patch.gz.b64' | sha256sum --check
           base64 -d /tmp/spring-closure.patch.gz.b64 | gzip -d > /tmp/spring-closure.patch
           echo '193d4057f7a5067f729a9345f65a7c04218cd1b7936e4483059a1c78d1a82459  /tmp/spring-closure.patch' | sha256sum --check
@@ -39,6 +44,7 @@ jobs:
           rm -f project/spring-closure.patch.gz.b64
           rm -f project/spring-closure.chunk.*
           rm -f project/spring-closure.sub.*
+          rm -f project/spring-closure.line.*
           rm -f .github/workflows/temporary-spring-closure-applicator.yml
           git add -A
           git config user.name 'github-actions[bot]'
