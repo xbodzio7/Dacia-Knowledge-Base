@@ -24,8 +24,85 @@ jobs:
         with:
           python-version: '3.14'
 
+      - name: Make historical contracts future-safe
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          historical = Path('tools/review_spring_standard_equipment_representation_20260802.py')
+          text = historical.read_text(encoding='utf-8')
+          old_collection = '''    cable_attributes = [row["code"] for row in attributes if is_cable_attribute(row)]
+'''
+          new_collection = '''    current_cable_attributes = [
+        row["code"] for row in attributes if is_cable_attribute(row)
+    ]
+    recognized_post_review_cable_attributes = {
+        "type2_charging_cable_supplied",
+        "domestic_socket_charging_cable",
+    }
+    unexpected_cable_attributes = (
+        set(current_cable_attributes) - recognized_post_review_cable_attributes
+    )
+    if unexpected_cable_attributes:
+        raise RuntimeError(
+            "unexpected supplied charging-cable attributes: "
+            + ", ".join(sorted(unexpected_cable_attributes))
+        )
+    present_post_review_attributes = (
+        set(current_cable_attributes) & recognized_post_review_cable_attributes
+    )
+    if present_post_review_attributes and (
+        present_post_review_attributes != recognized_post_review_cable_attributes
+    ):
+        raise RuntimeError(
+            "partial post-review charging-cable architecture detected"
+        )
+    # This report is a historical review artifact. Later accepted attributes
+    # are verified by their own migration contract and must not rewrite the
+    # repository state observed by this earlier report.
+    cable_attributes: list[str] = []
+'''
+          old_guard = '''    if cable_attributes:
+        raise RuntimeError("a dedicated supplied charging-cable attribute already exists")
+'''
+          if old_collection not in text or old_guard not in text:
+              raise SystemExit('historical Spring review patch target drifted')
+          text = text.replace(old_collection, new_collection, 1)
+          text = text.replace(old_guard, '', 1)
+          historical.write_text(text, encoding='utf-8')
+
+          migrator = Path('tools/migrate_spring_charging_cable_representation_20260802.py')
+          text = migrator.read_text(encoding='utf-8')
+          old_apply = '''    _, added_availability = apply_availability(
+        root / AVAILABILITY.relative_to(ROOT),
+        expected_availability_rows(spec),
+    )
+    report = write_report(
+'''
+          new_apply = '''    _, added_availability = apply_availability(
+        root / AVAILABILITY.relative_to(ROOT),
+        expected_availability_rows(spec),
+    )
+    report_path = root / REPORT_JSON.relative_to(ROOT)
+    if not added_attributes and not added_availability and report_path.is_file():
+        update_state(root, read_json(report_path))
+        verify(root)
+        return
+    if len(added_attributes) != 2 or len(added_availability) != 5:
+        raise MigrationError(
+            "partial charging-cable migration state; expected an all-or-none apply"
+        )
+    report = write_report(
+'''
+          if old_apply not in text:
+              raise SystemExit('Spring cable migrator patch target drifted')
+          text = text.replace(old_apply, new_apply, 1)
+          migrator.write_text(text, encoding='utf-8')
+          PY
+
       - name: Apply bounded migration
         run: |
+          python tools/migrate_spring_charging_cable_representation_20260802.py --apply
           python tools/migrate_spring_charging_cable_representation_20260802.py --apply
           python tools/dkb.py documentation-baseline --apply
           python tools/dkb.py project-state --apply
@@ -55,7 +132,9 @@ jobs:
             project/SESSION_STATE.md \
             project/STATE_SUMMARY.md \
             project/packages/spring-charging-cable-representation-migration-20260802.md \
-            project/state.json
+            project/state.json \
+            tools/migrate_spring_charging_cable_representation_20260802.py \
+            tools/review_spring_standard_equipment_representation_20260802.py
           git rm .github/workflows/temp-apply-spring-charging-cable-migration.yml
           git commit -m "data: apply Spring charging cable representation"
           git push origin HEAD:agent/spring-charging-cable-representation-migration-20260802
