@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC_PATH = ROOT / "data/imports/spring_biel_alpejska_default_colour_20260802.csv"
+SPEC_PATH = ROOT / "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json"
 VALUES_PATH = ROOT / "data/master/configuration_attribute_values.csv"
 MAPPINGS_PATH = ROOT / "data/master/commercial_item_configurations.csv"
 ITEMS_PATH = ROOT / "data/master/commercial_items.csv"
@@ -33,18 +33,6 @@ TYPE2_ITEM = "spring_type2_charging_cable_option"
 HOME_CABLE_ITEM = "spring_home_charging_cable_option"
 OLD_SOURCE_CODE = "src_pl_spring_brochure_20260219"
 
-SPEC_FIELDS = [
-    "record_type",
-    "configuration_code",
-    "attribute_code",
-    "value",
-    "availability_status",
-    "source_code",
-    "source_page",
-    "source_section",
-    "source_text",
-    "normalization_notes",
-]
 VALUE_FIELDS = [
     "id",
     "code",
@@ -69,20 +57,35 @@ MAPPING_FIELDS = [
     "source_code",
     "notes",
 ]
+VALUE_NOTES = (
+    "Exact-current Spring Essential default exterior colour. The direct scalar "
+    "records the grade default independently from the zero-surcharge commercial "
+    "palette relationship."
+)
 EXPECTED_SPEC = {
-    "record_type": "value",
-    "configuration_code": CONFIGURATION_CODE,
-    "attribute_code": ATTRIBUTE_CODE,
-    "value": VALUE,
-    "availability_status": "",
+    "kind": "configuration_attribute_values",
     "source_code": SOURCE_CODE,
-    "source_page": "",
-    "source_section": "Kolor",
-    "source_text": "Biel Alpejska 0 zł",
-    "normalization_notes": (
-        "Exact-current Essential default paint at zero surcharge; stores the normalized "
-        "direct scalar independently from the commercial palette relationship."
-    ),
+    "source_page": 1,
+    "source_section": "official_sources[0].evidence.exterior_colours",
+    "observation_date": DATE,
+    "id_start": 3568,
+    "notes_template": VALUE_NOTES,
+    "attribute_contracts": [
+        {
+            "code": ATTRIBUTE_CODE,
+            "data_type": "string",
+            "unit_code": "",
+            "status": "active",
+        }
+    ],
+    "rows": [
+        {
+            "configuration_code": CONFIGURATION_CODE,
+            "attribute_code": ATTRIBUTE_CODE,
+            "value": VALUE,
+            "source_text": "Biel Alpejska — standard — 0 PLN",
+        }
+    ],
 }
 EXPECTED_VALUE = {
     "code": VALUE_CODE,
@@ -93,11 +96,7 @@ EXPECTED_VALUE = {
     "value": VALUE,
     "observation_date": DATE,
     "source_code": SOURCE_CODE,
-    "notes": (
-        "Exact-current Spring Essential default exterior colour. The direct scalar "
-        "records the grade default independently from the zero-surcharge commercial "
-        "palette relationship."
-    ),
+    "notes": VALUE_NOTES,
 }
 EXPECTED_MAPPING_BEFORE = {
     "availability_status": "optional",
@@ -159,9 +158,15 @@ def mapping_after(row: Mapping[str, str]) -> dict[str, str]:
     return updated
 
 
+def master_row_count(root: Path) -> int:
+    return sum(
+        len(read_table(path)[1])
+        for path in sorted((root / "data/master").glob("*.csv"))
+    )
+
+
 def build_expected(
-    spec_fields: list[str],
-    spec_rows: list[dict[str, str]],
+    spec: Mapping[str, Any],
     value_fields: list[str],
     value_rows: list[dict[str, str]],
     mapping_fields: list[str],
@@ -169,9 +174,11 @@ def build_expected(
     item_rows: list[dict[str, str]],
     source_rows: list[dict[str, str]],
     representation_review: Mapping[str, Any],
+    current_master_rows: int,
+    configuration_import_specs: int,
 ) -> tuple[list[dict[str, str]], list[dict[str, str]], dict[str, Any]]:
-    if spec_fields != SPEC_FIELDS or spec_rows != [EXPECTED_SPEC]:
-        raise RuntimeError("Biel Alpejska import specification drifted")
+    if dict(spec) != EXPECTED_SPEC:
+        raise RuntimeError("Biel Alpejska canonical import specification drifted")
     if value_fields != VALUE_FIELDS:
         raise RuntimeError("configuration value schema drifted")
     if mapping_fields != MAPPING_FIELDS:
@@ -184,9 +191,9 @@ def build_expected(
     if not colour_decision or colour_decision.get("classification") != "existing_pattern_available":
         raise RuntimeError("representation review no longer approves the colour pattern")
     approved = colour_decision["approved_representation"]
+    commercial = approved.get("commercial_mapping", {})
     if approved.get("direct_value_attribute") != ATTRIBUTE_CODE:
         raise RuntimeError("approved direct colour attribute drifted")
-    commercial = approved.get("commercial_mapping", {})
     if commercial.get("mapping_code") != MAPPING_CODE:
         raise RuntimeError("approved commercial mapping drifted")
     if commercial.get("target_availability_status") != "standard":
@@ -205,6 +212,7 @@ def build_expected(
         if row["configuration_code"].startswith("spring_")
         and row["attribute_code"] == ATTRIBUTE_CODE
     ]
+    value_rows_added = 0
     if target_values:
         if len(target_values) != 1:
             raise RuntimeError("duplicate Spring Essential colour value")
@@ -215,9 +223,10 @@ def build_expected(
         if spring_colour_values:
             raise RuntimeError("unexpected pre-existing Spring exterior colour value")
         next_id = max(int(row["id"]) for row in next_values) + 1
-        if next_id != 3568:
+        if next_id != EXPECTED_SPEC["id_start"]:
             raise RuntimeError(f"unexpected next configuration value id: {next_id}")
         next_values.append(value_row(next_id))
+        value_rows_added = 1
 
     mapping_index = {row["code"]: row for row in mapping_rows}
     if MAPPING_CODE not in mapping_index:
@@ -233,8 +242,7 @@ def build_expected(
         ]
     elif after == EXPECTED_MAPPING_AFTER:
         next_mappings = [dict(row) for row in mapping_rows]
-        expected_notes = mapping_after(target_mapping)["notes"]
-        if target_mapping["notes"] != expected_notes:
+        if target_mapping["notes"] != mapping_after(target_mapping)["notes"]:
             raise RuntimeError("Essential Biel Alpejska mapping notes drifted")
     else:
         raise RuntimeError("Essential Biel Alpejska mapping is outside the approved transition")
@@ -259,12 +267,12 @@ def build_expected(
     ]
     if len(type2) != 3 or any(row["availability_status"] != "optional" for row in type2):
         raise RuntimeError("charging-cable boundary changed")
-    item_codes = {row["code"] for row in item_rows}
-    if HOME_CABLE_ITEM in item_codes:
+    if HOME_CABLE_ITEM in {row["code"] for row in item_rows}:
         raise RuntimeError("home charging cable must remain unmodelled")
 
     final_value = next(row for row in next_values if row["code"] == VALUE_CODE)
     final_mapping = next(row for row in next_mappings if row["code"] == MAPPING_CODE)
+    after_master_rows = current_master_rows + value_rows_added
     report = {
         "version": 1,
         "generated_on": DATE,
@@ -276,9 +284,10 @@ def build_expected(
             "source_code": SOURCE_CODE,
         },
         "import_specification": {
-            "path": "data/imports/spring_biel_alpejska_default_colour_20260802.csv",
+            "path": "data/imports/configuration_values/spring_biel_alpejska_default_colour_20260802.json",
+            "kind": "configuration_attribute_values",
             "row_count": 1,
-            "record_type": "value",
+            "id_start": 3568,
         },
         "direct_value_migration": {
             "rows_added": 1,
@@ -322,8 +331,8 @@ def build_expected(
         },
         "verified_after_counts": {
             "configuration_values": len(next_values),
-            "configuration_import_specs": 139,
-            "master_rows": 11715,
+            "configuration_import_specs": configuration_import_specs,
+            "master_rows": after_master_rows,
         },
         "next_package": {
             "package_id": "spring_supplied_charging_cable_model_decision_001",
@@ -333,8 +342,12 @@ def build_expected(
             ),
         },
     }
-    if report["verified_after_counts"]["configuration_values"] != 3568:
-        raise RuntimeError("unexpected configuration-value count after migration")
+    if report["verified_after_counts"] != {
+        "configuration_values": 3568,
+        "configuration_import_specs": 139,
+        "master_rows": 11715,
+    }:
+        raise RuntimeError("unexpected verified counts after migration")
     return next_values, next_mappings, report
 
 
@@ -369,6 +382,11 @@ The direct scalar records the exact-current grade default independently from the
 - price date: `{mapping['price_date']}`
 - source: `{mapping['source_code']}`
 
+## Import specification
+
+The scalar is registered through the canonical JSON contract:
+`{report['import_specification']['path']}`.
+
 ## Preserved boundaries
 
 - Expression Biel Alpejska remains an unresolved optional palette relationship;
@@ -397,15 +415,14 @@ def write_atomic(path: Path, content: str) -> None:
 
 
 def build(root: Path = ROOT) -> tuple[str, str, dict[str, Any]]:
-    spec_fields, spec_rows = read_table(root / SPEC_PATH.relative_to(ROOT))
+    spec = read_object(root / SPEC_PATH.relative_to(ROOT))
     value_fields, value_rows = read_table(root / VALUES_PATH.relative_to(ROOT))
     mapping_fields, mapping_rows = read_table(root / MAPPINGS_PATH.relative_to(ROOT))
     _, item_rows = read_table(root / ITEMS_PATH.relative_to(ROOT))
     _, source_rows = read_table(root / SOURCES_PATH.relative_to(ROOT))
     review = read_object(root / REPRESENTATION_REVIEW_PATH.relative_to(ROOT))
     next_values, next_mappings, report = build_expected(
-        spec_fields,
-        spec_rows,
+        spec,
         value_fields,
         value_rows,
         mapping_fields,
@@ -413,6 +430,8 @@ def build(root: Path = ROOT) -> tuple[str, str, dict[str, Any]]:
         item_rows,
         source_rows,
         review,
+        master_row_count(root),
+        len(list((root / "data/imports/configuration_values").glob("*.json"))),
     )
     return (
         render_table(value_fields, next_values),
