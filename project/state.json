@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.11.0 Release Priority Selection Review",
+  "phase": "Portfolio Model Family Summary",
   "reference_delivery": {
-    "name": "Data Products v1.11.0 Publication",
-    "pull_request": 474,
-    "head_sha": "0f9a76228ef374d7982421c5a246f00fe7378a94",
-    "quality_run": 30771725527
+    "name": "Post-v1.11.0 Release Priority Selection Review",
+    "pull_request": 475,
+    "head_sha": "96f30c70dbfb7d1da967e6275526735fef5c9602",
+    "quality_run": 30772159207
   },
   "baseline": {
-    "tests": 1842,
+    "tests": 1852,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,18 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_11_0_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.11.0 Release Priority Selection Review",
+    "package_id": "portfolio_model_family_summary_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Model Family Summary",
     "status": "complete",
-    "goal": "Inspect canonical release, source, completeness and roadmap evidence and select one bounded next package without reopening closed evidence.",
+    "goal": "Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.",
     "manifest_paths": [
+      "tools/reporting/portfolio_model_family_summary.py",
+      "tools/portfolio_model_family_summary.py",
+      "tools/generate_portfolio_model_family_summary_package_20260803.py",
+      "tools/dkb.py",
+      "data/reporting/portfolio_model_family_summary.json",
+      "data/reporting/portfolio_model_family_summary.md",
+      "data/reporting/portfolio_model_family_summary.html",
+      "tests/test_portfolio_model_family_summary.py",
       "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
-      "data/reporting/post_v1_11_0_release_priority_selection_review.json",
-      "data/reporting/post_v1_11_0_release_priority_selection_review.md",
-      "project/packages/post-v1.11.0-release-priority-selection-review-20260803.md",
       "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
-      "tests/test_data_products_v1_11_0_release_contract.py",
+      "project/packages/portfolio-model-family-summary-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
@@ -48,11 +53,11 @@
     ]
   },
   "next_package": {
-    "package_id": "portfolio_model_family_summary_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Model Family Summary",
+    "package_id": "portfolio_model_family_summary_release_integration_001",
+    "kind": "reporting_release_integration",
+    "name": "Portfolio Model Family Summary Release Integration",
     "status": "planned",
-    "goal": "Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.",
+    "goal": "Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.",
     "manifest_paths": []
   },
   "autonomy": {
