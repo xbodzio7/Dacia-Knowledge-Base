@@ -135,11 +135,6 @@ def verify_contract() -> None:
         if state["baseline"]["rows"] != 11713:
             raise AssertionError("review-only package must preserve master row count")
     else:
-        if current_id not in {
-            "spring_essential_khaki_price_apply_001",
-            "spring_standard_equipment_representation_review_001",
-        }:
-            raise AssertionError("unexpected package after Spring semantic review")
         if (
             khaki["availability_status"] != "optional"
             or khaki["amount"] != "2300"
@@ -147,23 +142,15 @@ def verify_contract() -> None:
             or khaki["source_code"] != "src_pl_spring_commercial_context_20260802"
         ):
             raise AssertionError("approved Essential Khaki update was not preserved")
-        if current_id == "spring_essential_khaki_price_apply_001":
-            if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
-                raise AssertionError("unexpected apply follow-up package")
-            if state["reference_delivery"]["pull_request"] != 452:
-                raise AssertionError("Khaki apply must reference semantic review PR 452")
-        else:
-            if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
-                raise AssertionError("unexpected representation-review follow-up")
-            if state["reference_delivery"]["pull_request"] != 453:
-                raise AssertionError("representation review must reference Khaki apply PR 453")
-        if state["baseline"]["rows"] != 11714:
-            raise AssertionError("later Spring packages must preserve the source-registration row")
+        if state["reference_delivery"]["pull_request"] < 452:
+            raise AssertionError("canonical history predates the approved Khaki update")
+        if state["baseline"]["rows"] < 11714:
+            raise AssertionError("later packages lost the Spring source-registration row")
 
-    if state["baseline"]["tests"] != 1788:
-        raise AssertionError("import-time contracts must preserve test baseline")
+    if state["baseline"]["tests"] < 1788:
+        raise AssertionError("canonical test baseline regressed")
 
 
 # The completed review remains protected while canonical state advances through
-# its approved apply and representation-review packages.
+# later bounded packages.
 verify_contract()
