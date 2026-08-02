@@ -20,6 +20,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('tools/review_spring_charging_cable_representation_migration_20260802.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''    candidates = [candidate for candidate in state.get("candidate_next_work_packages", []) if candidate.get("id") != "spring_charging_cable_representation_migration_001"]
+              state["candidate_next_work_packages"] = candidates
+              next_candidate = sorted(candidates, key=lambda candidate: candidate.get("priority", 999))[0]
+              state["next_work_package"] = {
+                  "id": next_candidate["id"],
+                  "objective": next_candidate["objective"],'''.replace('              ', '    ')
+          new = '''    candidates = [candidate for candidate in state.get("candidate_next_work_packages", []) if candidate.get("id") != "spring_charging_cable_representation_migration_001"]
+              state["candidate_next_work_packages"] = candidates
+              state["next_work_package"] = {
+                  "id": "source_credibility_scoring_and_lifecycle_001",
+                  "objective": "Wdrożyć scoring wiarygodności źródeł i jawny lifecycle obserwacji.",'''.replace('              ', '    ')
+          if old not in text:
+              raise SystemExit('expected state advancement block not found')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
           python3 tools/review_spring_charging_cable_representation_migration_20260802.py
           python3 -m pytest -q tests/test_spring_charging_cable_representation_migration_20260802.py
           python3 tools/project_state.py --check
