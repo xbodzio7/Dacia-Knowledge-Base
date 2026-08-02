@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "as_of": "2026-08-03",
+  "kind": "post_v1_11_0_release_priority_selection_review",
+  "status": "complete",
+  "publication": {
+    "tag": "data-products-v1.11.0",
+    "source_commit": "0f9a76228ef374d7982421c5a246f00fe7378a94",
+    "double_build_byte_identity": true,
+    "offline_workspace_verification": "PASS"
+  },
+  "source_registry": {
+    "source_count": 36,
+    "source_type_counts": {
+      "brochure_pdf": 6,
+      "configuration_pdf": 14,
+      "normalized_snapshot": 5,
+      "web_snapshot": 11
+    },
+    "source_status_counts": {
+      "active": 36
+    }
+  },
+  "completeness": {
+    "active_configuration_count": 81,
+    "completeness_scope_count": 23,
+    "missing_technical_count": 97,
+    "missing_equipment_count": 36,
+    "candidate_count": 7,
+    "exhausted_source_candidate_count": 7,
+    "eligible_candidate_count": 0
+  },
+  "roadmap_reporting_contract": [
+    "wybór najwyżej wartościowego kolejnego pakietu raportowego",
+    "porównania modeli i wersji wykraczające poza bieżące konfiguracje",
+    "dalsze stabilne formaty raportów dla użytkowników zewnętrznych"
+  ],
+  "selection": {
+    "package_id": "portfolio_model_family_summary_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Model Family Summary",
+    "status": "planned",
+    "goal": "Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.",
+    "rationale": [
+      "the immutable v1.11.0 release is complete and verified",
+      "all seven source-backed completeness candidates are exhausted",
+      "the roadmap explicitly prioritizes the next high-value reporting package",
+      "the existing 81-configuration portfolio supports a bounded family-level view",
+      "the package extends stable external reporting without changing master data"
+    ]
+  },
+  "preserved_boundaries": [
+    "no exhausted source candidate is reopened",
+    "no missing value is converted to zero or not_available",
+    "no cross-scope configuration pair is generated",
+    "no ranking or recommendation is generated",
+    "no source-backed value is inferred or transferred between configurations",
+    "no new source, model or architecture scope is introduced"
+  ],
+  "rejected_alternatives": [
+    {
+      "kind": "source_backed_import",
+      "reason": "eligible_candidate_count is zero"
+    },
+    {
+      "kind": "new_source_or_model_expansion",
+      "reason": "would require a new scope decision or external source intake"
+    },
+    {
+      "kind": "cross_scope_ranking",
+      "reason": "would violate current comparison and non-inference semantics"
+    }
+  ]
+}
