@@ -102,11 +102,15 @@ def verify_contract() -> None:
         raise AssertionError("reference delivery predates Spring context resolution")
     if state["baseline"]["tests"] != 1788:
         raise AssertionError("import-time contracts must preserve test baseline")
-    expected_rows = {
-        "spring_essential_khaki_price_apply_001": 11714,
-        "spring_standard_equipment_representation_review_001": 11714,
-        "spring_biel_alpejska_default_colour_migration_001": 11715,
-    }.get(current_id, 11713)
+    expected_rows = (
+        11714
+        if current_id
+        in {
+            "spring_essential_khaki_price_apply_001",
+            "spring_standard_equipment_representation_review_001",
+        }
+        else 11713
+    )
     if state["baseline"]["rows"] != expected_rows:
         raise AssertionError("Spring context history has an unexpected master row count")
 

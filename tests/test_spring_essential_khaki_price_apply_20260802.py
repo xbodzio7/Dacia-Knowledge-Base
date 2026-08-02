@@ -140,28 +140,22 @@ def verify_contract() -> None:
     current_id = state["current_package"]["package_id"]
     if state["current_package"]["status"] != "complete":
         raise AssertionError("canonical current package must remain complete")
-    transitions = {
-        "spring_essential_khaki_price_apply_001": (
-            "spring_standard_equipment_representation_review_001", 452, 11714
-        ),
-        "spring_standard_equipment_representation_review_001": (
-            "spring_biel_alpejska_default_colour_migration_001", 453, 11714
-        ),
-        "spring_biel_alpejska_default_colour_migration_001": (
-            "spring_supplied_charging_cable_model_decision_001", 454, 11715
-        ),
-    }
-    if current_id not in transitions:
-        raise AssertionError("unexpected package after Spring Khaki apply")
-    expected_next, expected_pr, expected_rows = transitions[current_id]
-    if state["next_package"]["package_id"] != expected_next:
-        raise AssertionError("unexpected package after Spring Khaki apply")
-    if state["reference_delivery"]["pull_request"] != expected_pr:
-        raise AssertionError("Spring Khaki history references an unexpected delivery")
+    if current_id == "spring_essential_khaki_price_apply_001":
+        if state["next_package"]["package_id"] != "spring_standard_equipment_representation_review_001":
+            raise AssertionError("unexpected Khaki apply follow-up")
+        if state["reference_delivery"]["pull_request"] != 452:
+            raise AssertionError("Khaki apply must reference semantic review PR 452")
+    else:
+        if current_id != "spring_standard_equipment_representation_review_001":
+            raise AssertionError("unexpected package after Spring Khaki apply")
+        if state["next_package"]["package_id"] != "spring_biel_alpejska_default_colour_migration_001":
+            raise AssertionError("unexpected representation-review follow-up")
+        if state["reference_delivery"]["pull_request"] != 453:
+            raise AssertionError("representation review must reference Khaki apply PR 453")
     if state["baseline"]["tests"] != 1788:
         raise AssertionError("import-time contract must preserve test baseline")
-    if state["baseline"]["rows"] != expected_rows:
-        raise AssertionError("Spring Khaki history has an unexpected master row count")
+    if state["baseline"]["rows"] != 11714:
+        raise AssertionError("later review package must preserve the Khaki baseline")
 
 
 # The completed Khaki apply remains protected while canonical state advances

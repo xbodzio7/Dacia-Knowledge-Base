@@ -12,22 +12,22 @@
 
 ## Phase
 
-**Spring Essential Biel Alpejska Default Colour Migration**
+**Spring Standard Equipment Representation Review**
 
 ## Reference delivery
 
-- Package: Spring Standard Equipment Representation Review
-- Pull Request: #454
-- Verified head: `697adb01776b41ad3742b7380fd14613d3d5300c`
-- Quality run: #30740819610
+- Package: Spring Essential Lichen Khaki Price Apply
+- Pull Request: #453
+- Verified head: `4ca1f7e70e043f22f70d04e9c70f152cbbdd26b8`
+- Quality run: #30740364894
 
 ## Verified baseline
 
 - Tests: 1788
 - Master CSV files: 46
-- Master rows: 11715
-- Configuration values: 3568
-- Configuration import specifications: 139
+- Master rows: 11714
+- Configuration values: 3567
+- Configuration import specifications: 138
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
 - Availability records: 5906
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Essential Biel Alpejska Default Colour Migration** — `complete`
+**Spring Standard Equipment Representation Review** — `complete`
 
-Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
+Review existing repository representation patterns for exact-current standard equipment, default paint and supplied charging cables before proposing any Spring Type 2, Biel Alpejska or home-charging-cable model change.
 
 ## Next package
 
-**Spring Supplied Charging Cable Model Decision** — `planned`
+**Spring Essential Biel Alpejska Default Colour Migration** — `planned`
 
-Choose and record the canonical representation for independently supplied Type 2 and home charging cables before creating attributes, commercial items or mappings.
+Add the exact-current Essential Biel Alpejska direct exterior_color value and convert only its existing commercial mapping to standard at zero surcharge, leaving all charging-cable decisions untouched.
 
 ## Autonomy
 
