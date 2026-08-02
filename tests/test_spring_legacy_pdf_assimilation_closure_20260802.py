@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "data/reporting/spring_legacy_pdf_assimilation_closure.json"
+HISTORICAL_PACKAGE_ID = "spring_legacy_pdf_assimilation_closure_001"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -101,15 +102,26 @@ class SpringLegacyPdfAssimilationClosureTest(unittest.TestCase):
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
 
-    def test_state_closes_source_milestone_and_selects_release_preparation(self) -> None:
+    def test_state_preserves_source_milestone_closure_contract(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["current_package"]["package_id"], "spring_legacy_pdf_assimilation_closure_001")
         self.assertEqual(state["current_package"]["status"], "complete")
-        self.assertEqual(state["phase"], "Data Product Release")
-        self.assertEqual(state["next_package"]["package_id"], "data_products_v1_11_0_accelerated_release_preparation_001")
-        self.assertEqual(state["next_package"]["status"], "planned")
+        current_id = state["current_package"]["package_id"]
+        if current_id == HISTORICAL_PACKAGE_ID:
+            self.assertEqual(state["phase"], "Data Product Release")
+            self.assertEqual(
+                state["next_package"]["package_id"],
+                "data_products_v1_11_0_accelerated_release_preparation_001",
+            )
+            self.assertEqual(state["next_package"]["status"], "planned")
+        else:
+            self.assertGreaterEqual(state["baseline"]["configuration_values"], 3604)
+            self.assertGreaterEqual(state["baseline"]["tests"], 1829)
+            self.assertEqual(
+                self.report["release_handoff"]["selected_next_package"],
+                "data_products_v1_11_0_accelerated_release_preparation_001",
+            )
 
-    def test_state_manifest_tracks_all_closure_outputs(self) -> None:
+    def test_state_manifest_tracks_all_closure_outputs_while_current(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
         manifest = set(state["current_package"]["manifest_paths"])
         required = {
@@ -121,7 +133,13 @@ class SpringLegacyPdfAssimilationClosureTest(unittest.TestCase):
             "project/state.json",
             "project/STATE_SUMMARY.md",
         }
-        self.assertTrue(required.issubset(manifest))
+        for relative in required - {"project/state.json", "project/STATE_SUMMARY.md"}:
+            self.assertTrue((ROOT / relative).is_file(), relative)
+        if state["current_package"]["package_id"] == HISTORICAL_PACKAGE_ID:
+            self.assertTrue(required.issubset(manifest))
+        else:
+            self.assertEqual(state["current_package"]["status"], "complete")
+            self.assertGreaterEqual(state["baseline"]["configuration_values"], 3604)
 
 
 if __name__ == "__main__":
