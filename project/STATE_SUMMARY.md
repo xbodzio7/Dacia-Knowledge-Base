@@ -12,39 +12,39 @@
 
 ## Phase
 
-**Spring Charging Cable Representation**
+**Spring Charging Cable Representation Migration**
 
 ## Reference delivery
 
-- Package: Official Configurator Exact State Capture
-- Pull Request: #458
-- Verified head: `c9270c26e69699b2c2a55381d9d6b4bc7329ba4e`
-- Quality run: #30746777038
+- Package: Spring Expression Saved State Artifact Intake
+- Pull Request: #459
+- Verified head: `4d4f6c4585976419f7c8a0de1aab7a8720f1aabd`
+- Quality run: #30748935727
 
 ## Verified baseline
 
 - Tests: 1788
 - Master CSV files: 46
-- Master rows: 11716
+- Master rows: 11723
 - Configuration values: 3567
 - Configuration import specifications: 138
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
-- Availability records: 5906
-- Canonical attributes: 385
+- Availability records: 5911
+- Canonical attributes: 387
 - Attribute categories: 30
 
 ## Current package
 
-**Spring Expression Saved State Artifact Intake** — `complete`
+**Spring Charging Cable Representation Migration** — `complete`
 
-Register the supplied exact Spring Expression and Extreme saved states, resolve the Type 2 cable evidence boundary and accept an independent two-cable representation without mutating equipment data.
+Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
 
 ## Next package
 
-**Spring Charging Cable Representation Migration** — `planned`
+**Spring Charging Cable Commercial Semantics Review** — `planned`
 
-Add two independent boolean charging-cable attributes and import only exact-current configuration-level availability supported by the accepted evidence matrix, while preserving historical commercial records.
+Review the historical Spring charging-cable commercial item against its source wording and introduce a superseding current commercial representation only if the evidence requires it, without rewriting history.
 
 ## Autonomy
 

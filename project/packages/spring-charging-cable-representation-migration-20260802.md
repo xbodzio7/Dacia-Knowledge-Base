@@ -2,7 +2,7 @@
 
 Package ID: `spring_charging_cable_representation_migration_001`
 
-Status: in progress until generated migration output and full Quality are verified
+Status: complete
 
 ## Goal
 
