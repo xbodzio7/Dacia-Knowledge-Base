@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Spring Current Grade Snapshot Capture",
+  "phase": "Spring Exact Current Semantic Migration Review",
   "reference_delivery": {
-    "name": "Spring Commercial Context Resolution",
-    "pull_request": 450,
-    "head_sha": "fe3d5c6bf34968c1196caceee79a1f6f8ed92658",
-    "quality_run": 30722905905
+    "name": "Spring Current Grade Snapshot Capture",
+    "pull_request": 451,
+    "head_sha": "9cfc3b5a20ffe2f4ad5c18f16d6d93e6b889618b",
+    "quality_run": 30723222653
   },
   "baseline": {
     "tests": 1788,
@@ -27,37 +27,38 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_current_grade_snapshot_capture_001",
-    "kind": "exact_current_source_capture",
-    "name": "Spring Current Grade Snapshot Capture",
-    "status": "complete",
-    "goal": "Capture exact current official Expression and Extreme grade states, including paint palettes and charging-equipment semantics, before any bounded master-data migration.",
-    "manifest_paths": [
-      "data/reporting/spring_current_grade_snapshot_capture.json",
-      "data/reporting/spring_current_grade_snapshot_capture.md",
-      "project/packages/spring-current-grade-snapshot-capture-20260802.md",
-      "project/sources/dacia-pl-spring-current-grade-snapshots-20260802.json",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "tests/test_spring_commercial_context_resolution_20260802.py",
-      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
-      "tools/capture_spring_current_grade_snapshots_20260802.py"
-    ]
-  },
-  "next_package": {
     "package_id": "spring_exact_current_semantic_migration_review_001",
     "kind": "bounded_semantic_migration_review",
     "name": "Spring Exact Current Semantic Migration Review",
-    "status": "planned",
-    "goal": "Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve Expression and paint-palette gaps as unresolved.",
+    "status": "complete",
+    "goal": "Compare exact current Spring snapshots with existing availability and commercial mappings, identify only safely migratable Essential and Extreme states, and preserve semantic conflicts and incomplete commercial context as unresolved.",
     "manifest_paths": [
       "data/reporting/spring_exact_current_semantic_migration_review.json",
       "data/reporting/spring_exact_current_semantic_migration_review.md",
       "project/packages/spring-exact-current-semantic-migration-review-20260802.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "tests/test_spring_current_grade_snapshot_capture_20260802.py",
       "tests/test_spring_exact_current_semantic_migration_review_20260802.py",
       "tools/review_spring_exact_current_semantic_migration_20260802.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_essential_khaki_price_apply_001",
+    "kind": "bounded_master_data_update",
+    "name": "Spring Essential Lichen Khaki Price Apply",
+    "status": "planned",
+    "goal": "Apply only the exact current 2300 PLN Essential Lichen Khaki price to the existing optional mapping, register bounded provenance if required, and leave every semantic or unresolved case untouched.",
+    "manifest_paths": [
+      "data/master/commercial_item_configurations.csv",
+      "data/master/sources.csv",
+      "data/reporting/spring_essential_khaki_price_apply.json",
+      "data/reporting/spring_essential_khaki_price_apply.md",
+      "project/packages/spring-essential-khaki-price-apply-20260802.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "tests/test_spring_essential_khaki_price_apply_20260802.py",
+      "tools/apply_spring_essential_khaki_price_20260802.py"
     ]
   },
   "autonomy": {
