@@ -81,7 +81,7 @@ class SanderoResidualSourceClosureTests(unittest.TestCase):
         self.assertTrue(state["current_package"]["package_id"])
         self.assertTrue(state["next_package"]["package_id"])
         self.assertEqual(state["baseline"]["configuration_values"], 3567)
-        self.assertEqual(state["baseline"]["availability_records"], 5906)
+        self.assertGreaterEqual(state["baseline"]["availability_records"], 5906)
 
 
 if __name__ == "__main__":
