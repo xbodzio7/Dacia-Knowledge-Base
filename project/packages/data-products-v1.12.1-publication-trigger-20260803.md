@@ -6,7 +6,7 @@ Package ID: `data_products_v1_12_1_publication_001`
 
 This single-purpose file triggers the installed one-time publisher after this Pull Request is merged to `main`.
 
-Retrigger: `001` — the first merge did not create a publication run or receipt. This update changes only the trigger document and preserves the exact-SHA publication contract.
+Final trigger: `002` — publisher activation now uses the verified `pull_request_target: closed` event and runs only for a merged same-repository PR.
 
 The exact merge SHA must be used as `repository_commit` and release target. Publication is allowed only after byte-identical independent double builds, canonical asset verification, complete offline workspace verification including the direct `model_family_summary_html` entry point and dedicated **Model family summary** card, and public-download byte identity.
 
