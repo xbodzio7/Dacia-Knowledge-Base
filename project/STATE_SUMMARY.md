@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.13.0 Release Priority Selection Review**
+**Portfolio Model Version Comparison Matrix**
 
 ## Reference delivery
 
-- Package: Data Products v1.13.0 Publication
-- Pull Request: #512
-- Verified head: `0e7a8b4106bc830d39a257e5ef18fb2adcd44d0d`
-- Quality run: #30851857544
+- Package: Post-v1.13.0 Release Priority Selection Review
+- Pull Request: #513
+- Verified head: `b7e48433f3d373a7c20ce26c0bfc80e38142c20b`
+- Quality run: #30852248658
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.13.0 Release Priority Selection Review** — `complete`
+**Portfolio Model Version Comparison Matrix** — `complete`
 
-Inspect canonical product, source and roadmap evidence after v1.13.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Create deterministic JSON, CSV and standalone HTML comparison outputs for all 22 active canonical versions by projecting only recorded version-bounded configuration, price, seat, transmission, powertrain, scope and provenance fields without new pairs, ranking, recommendations or inferred values.
 
 ## Next package
 
-**Portfolio Model Version Comparison Matrix** — `planned`
+**Portfolio Model Version Comparison Matrix Release Integration** — `planned`
 
-Create deterministic JSON, CSV and standalone HTML comparison outputs for all 22 active canonical versions by projecting only recorded version-bounded configuration, price, seat, transmission, powertrain, scope and provenance fields without new pairs, ranking, recommendations or inferred values.
+Integrate the verified version comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
 
 ## Autonomy
 
