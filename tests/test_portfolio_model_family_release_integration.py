@@ -27,10 +27,14 @@ from reporting.data_product_workspace_index import (  # noqa: E402
     write_workspace_index,
 )
 from reporting.data_product_workspace_verify import verify_workspace  # noqa: E402
+from reporting.portfolio_model_family_comparison_release_integration import (  # noqa: E402
+    MATRIX_FILES,
+    MATRIX_HTML,
+    create_release_assets,
+)
 from reporting.portfolio_model_family_release_integration import (  # noqa: E402
     FAMILY_FILES,
     FAMILY_HTML_HREF,
-    create_release_assets,
 )
 
 
@@ -73,41 +77,88 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.manifest["portfolio_model_family_summary_directory"],
             "model-families",
         )
+        self.assertIs(
+            self.manifest[
+                "portfolio_model_family_comparison_matrix_generated"
+            ],
+            True,
+        )
+        self.assertEqual(
+            self.manifest[
+                "portfolio_model_family_comparison_matrix_formats"
+            ],
+            ["JSON", "CSV", "HTML"],
+        )
+        self.assertEqual(
+            self.manifest[
+                "portfolio_model_family_comparison_matrix_directory"
+            ],
+            "model-families",
+        )
 
     def test_archive_contains_all_three_verified_family_outputs(self) -> None:
+        expected_names = FAMILY_FILES + MATRIX_FILES
         expected = {
             f"model-families/{name}"
-            for name in FAMILY_FILES
+            for name in expected_names
         }
         self.assertTrue(expected.issubset(set(self.names)))
-        for name in FAMILY_FILES:
+        for name in expected_names:
             archived = self.contents[f"model-families/{name}"]
             committed = (REPOSITORY / "data" / "reporting" / name).read_bytes()
             self.assertEqual(archived, committed)
 
     def test_family_json_preserves_scope_and_provenance_boundaries(self) -> None:
-        payload = json.loads(
+        family_payload = json.loads(
             self.contents[
                 "model-families/portfolio_model_family_summary.json"
             ]
         )
-        summary = payload["summary"]
-        self.assertEqual(summary["model_family_count"], 6)
-        self.assertEqual(summary["active_configuration_count"], 81)
-        self.assertEqual(summary["reporting_scope_count"], 22)
-        self.assertEqual(summary["source_configuration_relationship_count"], 251)
-        self.assertEqual(summary["configurations_without_provenance_count"], 0)
-        self.assertFalse(summary["cross_scope_pairs_generated"])
-        self.assertFalse(summary["ranking_generated"])
-        self.assertFalse(summary["recommendations_generated"])
-        self.assertFalse(summary["inferred_values_generated"])
+        family_summary = family_payload["summary"]
+        matrix_payload = json.loads(
+            self.contents[
+                "model-families/portfolio_model_family_comparison_matrix.json"
+            ]
+        )
+        matrix_summary = matrix_payload["summary"]
+        self.assertEqual(
+            matrix_payload["source_product"],
+            {
+                "kind": "portfolio_model_family_summary",
+                "version": 1,
+                "path": "data/reporting/portfolio_model_family_summary.json",
+            },
+        )
+        for summary in (family_summary, matrix_summary):
+            self.assertEqual(summary["model_family_count"], 6)
+            self.assertEqual(summary["active_configuration_count"], 81)
+            self.assertEqual(summary["reporting_scope_count"], 22)
+            self.assertEqual(
+                summary["source_configuration_relationship_count"], 251
+            )
+            self.assertEqual(
+                summary["configurations_without_provenance_count"], 0
+            )
+            self.assertFalse(summary["cross_scope_pairs_generated"])
+            self.assertFalse(summary["ranking_generated"])
+            self.assertFalse(summary["recommendations_generated"])
+            self.assertFalse(summary["inferred_values_generated"])
+        self.assertEqual(matrix_summary["provenance_source_count"], 33)
+        self.assertEqual(len(matrix_payload["families"]), 6)
 
     def test_cross_model_html_links_to_offline_family_summary(self) -> None:
-        html = self.contents[
+        cross_model = self.contents[
             "cross-model/cross-model-comparison-view.html"
         ].decode("utf-8")
-        self.assertEqual(html.count(FAMILY_HTML_HREF), 1)
-        self.assertIn("exact source provenance", html)
+        matrix_html = self.contents[MATRIX_HTML].decode("utf-8")
+        self.assertEqual(cross_model.count(FAMILY_HTML_HREF), 1)
+        self.assertIn("exact source provenance", cross_model)
+        self.assertTrue(matrix_html.startswith("<!doctype html>"))
+        self.assertNotIn("<script", matrix_html.lower())
+        self.assertNotIn("http://", matrix_html.lower())
+        self.assertNotIn("https://", matrix_html.lower())
+        self.assertEqual(matrix_html.count('data-state="not_stated"'), 2)
+        self.assertIn("creates no configuration pair", matrix_html)
 
     def test_integrated_assets_pass_canonical_release_verification(self) -> None:
         self.assertEqual(verify_release_assets(self.output), self.manifest)
@@ -145,8 +196,20 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             entry_points["model_family_summary_html"],
             "contents/model-families/portfolio_model_family_summary.html",
         )
+        self.assertEqual(
+            entry_points["model_family_comparison_matrix_html"],
+            "contents/model-families/portfolio_model_family_comparison_matrix.html",
+        )
         self.assertIn("Model family summary", rendered)
+        self.assertIn("Model family comparison matrix", rendered)
         self.assertIn(entry_points["model_family_summary_html"], rendered)
+        self.assertIn(
+            entry_points["model_family_comparison_matrix_html"], rendered
+        )
+        self.assertTrue(
+            (workspace / entry_points["model_family_comparison_matrix_html"])
+            .is_file()
+        )
         self.assertEqual(index_path.read_bytes(), rendered.encode("utf-8"))
         self.assertEqual(verify_workspace(workspace)["status"], "verified")
 
@@ -185,6 +248,10 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
         self.assertEqual(result, 0)
         manifest = verify_release_assets(output)
         self.assertIs(manifest["portfolio_model_family_summary_generated"], True)
+        self.assertIs(
+            manifest["portfolio_model_family_comparison_matrix_generated"],
+            True,
+        )
 
 
 if __name__ == "__main__":
