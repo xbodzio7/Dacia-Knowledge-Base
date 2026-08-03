@@ -1,0 +1,290 @@
+name: Publish Data Products v1.14.1
+
+on:
+  push:
+    branches:
+      - agent/data-products-v1-14-1-publication-001
+
+permissions:
+  contents: write
+
+env:
+  PUBLICATION_SOURCE_SHA: c01315369a9676ceaa0cdf584ef9f03ea0cddc6d
+  RELEASE_VERSION: 1.14.1
+  RELEASE_TAG: data-products-v1.14.1
+  RELEASE_ARCHIVE: dacia-knowledge-base-data-products-v1.14.1.zip
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact verified source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: c01315369a9676ceaa0cdf584ef9f03ea0cddc6d
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Require exact immutable source and absent release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(git rev-parse HEAD)" = "${PUBLICATION_SOURCE_SHA}"
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            echo "Release ${RELEASE_TAG} already exists; refusing to rewrite it." >&2
+            exit 1
+          fi
+          if git show-ref --tags --verify --quiet "refs/tags/${RELEASE_TAG}"; then
+            echo "Tag ${RELEASE_TAG} already exists; refusing to rewrite it." >&2
+            exit 1
+          fi
+      - name: Run correction and release tests
+        run: |
+          python -m unittest -q \
+            tests.test_configuration_shortlist_html \
+            tests.test_configuration_comparison_sticky_offset \
+            tests.test_data_product_release \
+            tests.test_portfolio_model_family_release_integration \
+            tests.test_data_product_release_download
+          python tools/dkb.py project-state --check
+      - name: Build twice and verify byte identity
+        run: |
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${PUBLICATION_SOURCE_SHA}"
+          python tools/dkb.py data-product-release \
+            --output-directory "${RUNNER_TEMP}/release-b" \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${PUBLICATION_SOURCE_SHA}"
+          diff -qr "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --output-directory "${RUNNER_TEMP}/release-a" \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${PUBLICATION_SOURCE_SHA}"
+      - name: Verify the complete corrected shortlist inside the ZIP
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          archive_path = Path(os.environ['RUNNER_TEMP']) / 'release-a' / os.environ['RELEASE_ARCHIVE']
+          with ZipFile(archive_path) as archive:
+              html = archive.read('shortlist/configuration-shortlist.html').decode('utf-8')
+              notes = archive.read('RELEASE_NOTES.md').decode('utf-8')
+          required = (
+              ':root{color-scheme:dark;',
+              'versionGroupsForModels',
+              '--parameter-column:280px',
+              'dkb-comparison-collapsed-groups-v1',
+              'Ukryj wszystkie grupy',
+              'Pokaż wszystkie grupy',
+              '.selection-panel.comparison-is-open',
+              'reviewed_gap_materialization',
+              'candidate_amount_pln',
+              'niepodane w dokładnym źródle',
+              'grade_carrousel_1.png',
+          )
+          missing = [marker for marker in required if marker not in html]
+          assert not missing, missing
+          assert notes.count('## v1.14.1 corrected interactive shortlist package') == 1
+          assert 'Public\n`data-products-v1.14.0` remains immutable.' in notes
+          PY
+      - name: Verify complete offline workspace
+        run: |
+          export RELEASE_ASSETS="${RUNNER_TEMP}/release-a"
+          export OFFLINE_WORKSPACE="${RUNNER_TEMP}/workspace"
+          PYTHONPATH=tools python - <<'PY'
+          import os
+          import shutil
+          from pathlib import Path
+          from reporting.data_product_release_download import (
+              ASSETS_DIRECTORY_NAME,
+              CONTENTS_DIRECTORY_NAME,
+              _extract_verified_contents,
+          )
+          from reporting.data_product_release_model import verify_release_assets
+          from reporting.data_product_workspace_index import write_workspace_index
+
+          release_assets = Path(os.environ['RELEASE_ASSETS'])
+          workspace = Path(os.environ['OFFLINE_WORKSPACE'])
+          assets = workspace / ASSETS_DIRECTORY_NAME
+          contents = workspace / CONTENTS_DIRECTORY_NAME
+          shutil.copytree(release_assets, assets)
+          manifest = verify_release_assets(assets)
+          entry_points = _extract_verified_contents(assets, contents, manifest)
+          metadata = {
+              'release_version': manifest['release_version'],
+              'release_tag': manifest['release_tag'],
+              'repository_commit': manifest['repository_commit'],
+              'release_url': 'https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/' + manifest['release_tag'],
+          }
+          write_workspace_index(workspace, manifest, metadata)
+          for key in (
+              'model_family_summary_html',
+              'model_family_comparison_matrix_html',
+              'model_version_comparison_matrix_html',
+          ):
+              assert key in entry_points
+              assert (workspace / entry_points[key]).is_file()
+          shortlist = contents / 'shortlist' / 'configuration-shortlist.html'
+          assert shortlist.is_file()
+          rendered = shortlist.read_text(encoding='utf-8')
+          assert 'dkb-comparison-collapsed-groups-v1' in rendered
+          assert 'grade_carrousel_1.png' in rendered
+          PY
+          python tools/dkb.py data-product-workspace-verify \
+            --workspace-directory "${RUNNER_TEMP}/workspace" \
+            --json
+      - name: Publish immutable release and verify public bytes
+        id: publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          unzip -p "${RUNNER_TEMP}/release-a/${RELEASE_ARCHIVE}" RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"
+          gh release create "${RELEASE_TAG}" \
+            "${RUNNER_TEMP}/release-a/${RELEASE_ARCHIVE}" \
+            "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
+            "${RUNNER_TEMP}/release-a/SHA256SUMS" \
+            --target "${PUBLICATION_SOURCE_SHA}" \
+            --title "Dacia Knowledge Base Data Products v${RELEASE_VERSION}" \
+            --notes-file "${RUNNER_TEMP}/release-notes.md"
+          mkdir "${RUNNER_TEMP}/public"
+          gh release download "${RELEASE_TAG}" --dir "${RUNNER_TEMP}/public"
+          diff -q "${RUNNER_TEMP}/release-a/${RELEASE_ARCHIVE}" "${RUNNER_TEMP}/public/${RELEASE_ARCHIVE}"
+          diff -q "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" "${RUNNER_TEMP}/public/data-product-release-manifest.json"
+          diff -q "${RUNNER_TEMP}/release-a/SHA256SUMS" "${RUNNER_TEMP}/public/SHA256SUMS"
+          python tools/dkb.py data-product-release \
+            --verify \
+            --output-directory "${RUNNER_TEMP}/public" \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${PUBLICATION_SOURCE_SHA}"
+          echo "release_id=$(gh release view "${RELEASE_TAG}" --json databaseId -q '.databaseId')" >> "${GITHUB_OUTPUT}"
+      - name: Record publication on main
+        env:
+          RELEASE_ID: ${{ steps.publication.outputs.release_id }}
+          PUBLICATION_RUN_ID: ${{ github.run_id }}
+        run: |
+          export RELEASE_A="${RUNNER_TEMP}/release-a"
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ['RELEASE_A'])
+          def record(name: str) -> dict[str, object]:
+              path = root / name
+              return {
+                  'size_bytes': path.stat().st_size,
+                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+              }
+          receipt = {
+              'version': 1,
+              'kind': 'data_products_v1_14_1_publication',
+              'published_on': '2026-08-03',
+              'status': 'complete',
+              'tag': os.environ['RELEASE_TAG'],
+              'release_id': int(os.environ['RELEASE_ID']),
+              'publication_run_id': int(os.environ['PUBLICATION_RUN_ID']),
+              'source_commit': os.environ['PUBLICATION_SOURCE_SHA'],
+              'double_build_byte_identity': True,
+              'offline_workspace_verification': 'PASS',
+              'public_download_byte_identity': True,
+              'corrected_interactive_shortlist': {
+                  'canonical_release_pipeline': True,
+                  'official_spring_media_with_fallback': True,
+                  'reviewed_commercial_price_states': True,
+                  'reviewed_technical_gap_states': True,
+                  'comparison_navigation_non_overlapping': True,
+                  'collapsible_parameter_groups': True,
+                  'global_group_controls': True,
+                  'session_state_persistence': True,
+                  'forced_dark_theme': True,
+                  'grouped_commercial_versions': True,
+                  'two_axis_sticky_comparison': True,
+              },
+              'semantic_boundaries': {
+                  'source_data_changed': False,
+                  'configuration_pairs_generated': False,
+                  'cross_scope_pairs_generated': False,
+                  'ranking_generated': False,
+                  'recommendations_generated': False,
+                  'inferred_values_generated': False,
+              },
+              'assets': {
+                  os.environ['RELEASE_ARCHIVE']: record(os.environ['RELEASE_ARCHIVE']),
+                  'data-product-release-manifest.json': record('data-product-release-manifest.json'),
+                  'SHA256SUMS': record('SHA256SUMS'),
+              },
+              'public_v1_14_0_immutable': True,
+          }
+          Path(os.environ['RUNNER_TEMP'], 'publication-receipt.json').write_text(
+              json.dumps(receipt, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          git fetch origin main
+          git checkout -B main origin/main
+          test "$(git rev-parse HEAD)" = "${PUBLICATION_SOURCE_SHA}"
+          cp "${RUNNER_TEMP}/publication-receipt.json" data/reporting/data_products_v1_14_1_publication.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          state_path = Path('project/state.json')
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-08-03'
+          state['phase'] = 'Data Products v1.14.1 Publication'
+          state['reference_delivery'] = {
+              'name': 'Data Products v1.14.1 Interface Correction',
+              'pull_request': 520,
+              'head_sha': '1e87eb9b1f8dd7eed7981a6b60a347f0e3309761',
+              'quality_run': 30856797089,
+          }
+          state['current_package'] = {
+              'package_id': 'data_products_v1_14_1_publication_001',
+              'kind': 'release_publication',
+              'name': 'Data Products v1.14.1 Publication',
+              'status': 'complete',
+              'goal': 'Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.',
+              'manifest_paths': [
+                  'CHANGELOG.md',
+                  'data/reporting/data_products_v1_14_1_publication.json',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'portfolio_source_coverage_matrix_001',
+              'kind': 'reporting_product',
+              'name': 'Portfolio Source Coverage Matrix',
+              'status': 'planned',
+              'goal': 'Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.',
+              'manifest_paths': [],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          changelog = Path('CHANGELOG.md')
+          text = changelog.read_text(encoding='utf-8')
+          bullet = ('* Published and independently re-verified immutable `data-products-v1.14.1` '
+                    'from exact main commit `c01315369a9676ceaa0cdf584ef9f03ea0cddc6d`, '
+                    'correcting the archived interactive shortlist pipeline while preserving '
+                    'source data and comparison semantics.\n\n')
+          anchor = '### Added\n\n'
+          if bullet.strip() not in text:
+              text = text.replace(anchor, anchor + bullet, 1)
+              changelog.write_text(text, encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py project-state --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add CHANGELOG.md data/reporting/data_products_v1_14_1_publication.json project/state.json project/STATE_SUMMARY.md
+          git commit -m 'release(data-products): record v1.14.1 publication'
+          git push origin HEAD:main
