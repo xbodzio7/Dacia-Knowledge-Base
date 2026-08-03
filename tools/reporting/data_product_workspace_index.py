@@ -12,6 +12,9 @@ CROSS_MODEL_HTML_MEMBER = "cross-model/cross-model-comparison-view.html"
 MODEL_FAMILY_HTML_MEMBER = (
     "model-families/portfolio_model_family_summary.html"
 )
+MODEL_FAMILY_MATRIX_HTML_MEMBER = (
+    "model-families/portfolio_model_family_comparison_matrix.html"
+)
 
 # Historical source-level compatibility contract retained for deterministic
 # review verifiers and for readers of the public workspace implementation.
@@ -53,36 +56,81 @@ def _release_members(manifest: dict[str, Any] | Any) -> set[str]:
     }
 
 
-def _with_model_family_card(
+def _with_optional_card(
     content: str,
     workspace_root: Path,
     release_manifest: Any,
+    *,
+    member: str,
+    heading_id: str,
+    title: str,
+    description: str,
+    missing_label: str,
 ) -> str:
-    if MODEL_FAMILY_HTML_MEMBER not in _release_members(release_manifest):
+    if member not in _release_members(release_manifest):
         return content
 
-    family_path = workspace_root / "contents" / MODEL_FAMILY_HTML_MEMBER
-    if not family_path.is_file():
+    product_path = workspace_root / "contents" / member
+    if not product_path.is_file():
         raise WorkspaceIndexError(
-            "portfolio model-family summary HTML is missing from verified contents"
+            f"{missing_label} is missing from verified contents"
         )
 
     marker = "</main>"
     if marker not in content:
         raise WorkspaceIndexError("workspace index has no main closing marker")
-    href = "contents/model-families/portfolio_model_family_summary.html"
+    href = "contents/" + member
     if href in content:
         return content
     card = (
-        '<section aria-labelledby="model-family-summary-heading">'
-        '<h2 id="model-family-summary-heading">Model family summary</h2>'
+        f'<section aria-labelledby="{escape(heading_id, quote=True)}">'
+        f'<h2 id="{escape(heading_id, quote=True)}">{escape(title)}</h2>'
         '<div class="product-grid">'
         f'<a class="product-card" href="{escape(href, quote=True)}">'
-        '<strong>Model family summary</strong>'
-        '<span>Review each model family with exact scopes, configurations and '
-        'source provenance.</span></a></div></section>'
+        f'<strong>{escape(title)}</strong>'
+        f'<span>{escape(description)}</span></a></div></section>'
     )
     return content.replace(marker, card + marker, 1)
+
+
+def _with_model_family_card(
+    content: str,
+    workspace_root: Path,
+    release_manifest: Any,
+) -> str:
+    return _with_optional_card(
+        content,
+        workspace_root,
+        release_manifest,
+        member=MODEL_FAMILY_HTML_MEMBER,
+        heading_id="model-family-summary-heading",
+        title="Model family summary",
+        description=(
+            "Review each model family with exact scopes, configurations and "
+            "source provenance."
+        ),
+        missing_label="portfolio model-family summary HTML",
+    )
+
+
+def _with_model_family_matrix_card(
+    content: str,
+    workspace_root: Path,
+    release_manifest: Any,
+) -> str:
+    return _with_optional_card(
+        content,
+        workspace_root,
+        release_manifest,
+        member=MODEL_FAMILY_MATRIX_HTML_MEMBER,
+        heading_id="model-family-comparison-matrix-heading",
+        title="Model family comparison matrix",
+        description=(
+            "Compare recorded family-level prices, seats, transmissions, "
+            "powertrains, scopes and provenance side by side."
+        ),
+        missing_label="portfolio model-family comparison matrix HTML",
+    )
 
 
 def render_workspace_index(
@@ -95,7 +143,12 @@ def render_workspace_index(
         release_manifest,
         release_metadata,
     )
-    return _with_model_family_card(
+    content = _with_model_family_card(
+        content,
+        workspace_root,
+        release_manifest,
+    )
+    return _with_model_family_matrix_card(
         content,
         workspace_root,
         release_manifest,
