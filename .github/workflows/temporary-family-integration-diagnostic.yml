@@ -1,0 +1,57 @@
+name: Temporary Family Integration Diagnostic
+
+on:
+  push:
+    branches:
+      - agent/portfolio-model-family-summary-release-integration-001
+    paths:
+      - ".github/workflows/temporary-family-integration-diagnostic.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/portfolio-model-family-summary-release-integration-001
+          persist-credentials: true
+      - name: Capture applicator status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p project/diagnostics
+          gh run list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --workflow "temporary-portfolio-family-release-integration-applicator.yml" \
+            --limit 5 \
+            --json databaseId,status,conclusion,headSha,event,createdAt,updatedAt,name,displayTitle,url \
+            > project/diagnostics/family-integration-applicator-runs.json
+          RUN_ID="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          runs = json.loads(Path('project/diagnostics/family-integration-applicator-runs.json').read_text())
+          print(runs[0]['databaseId'] if runs else '')
+          PY
+          )"
+          if [ -n "${RUN_ID}" ]; then
+            gh run view "${RUN_ID}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json databaseId,status,conclusion,headSha,event,createdAt,updatedAt,jobs,url \
+              > project/diagnostics/family-integration-applicator-detail.json
+            gh run view "${RUN_ID}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --log-failed \
+              > project/diagnostics/family-integration-applicator-failed.log 2>&1 || true
+          fi
+          rm .github/workflows/temporary-family-integration-diagnostic.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: record family integration applicator diagnostic"
+          git push origin HEAD:agent/portfolio-model-family-summary-release-integration-001
