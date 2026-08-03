@@ -31,7 +31,6 @@ MATRIX_HTML = (
     f"{family_release.FAMILY_DIRECTORY}/"
     "portfolio_model_family_comparison_matrix.html"
 )
-MATRIX_HTML_HREF = "portfolio_model_family_comparison_matrix.html"
 
 
 def repository_root() -> Path:
@@ -122,24 +121,6 @@ def _copy_verified_matrix_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError("portfolio family matrix must contain six family rows")
 
 
-def _add_matrix_navigation(payload: Path) -> None:
-    path = payload / family_release.FAMILY_HTML
-    if not path.is_file():
-        raise ReleaseError("portfolio family summary HTML is missing from payload")
-    text = path.read_text(encoding="utf-8")
-    marker = "</main>"
-    if marker not in text:
-        raise ReleaseError("portfolio family summary HTML has no navigation marker")
-    link = (
-        '<nav class="family-matrix-link" aria-label="Model family comparison">'
-        f'<a href="{MATRIX_HTML_HREF}">'
-        "Open the standalone model-family comparison matrix"
-        "</a></nav>"
-    )
-    if MATRIX_HTML_HREF not in text:
-        write_text(path, text.replace(marker, link + marker, 1))
-
-
 def create_release_assets(
     repository: Path,
     output_directory: Path,
@@ -158,7 +139,6 @@ def create_release_assets(
     try:
         manifest = _extract_verified_archive(output_directory, payload)
         _copy_verified_matrix_outputs(repository, payload)
-        _add_matrix_navigation(payload)
 
         archive = manifest["archive"]
         assert isinstance(archive, dict)
