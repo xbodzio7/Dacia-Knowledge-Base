@@ -15,6 +15,9 @@ MODEL_FAMILY_HTML_MEMBER = (
 MODEL_FAMILY_MATRIX_HTML_MEMBER = (
     "model-families/portfolio_model_family_comparison_matrix.html"
 )
+MODEL_VERSION_MATRIX_HTML_MEMBER = (
+    "model-versions/portfolio_model_version_comparison_matrix.html"
+)
 
 # Historical source-level compatibility contract retained for deterministic
 # review verifiers and for readers of the public workspace implementation.
@@ -133,6 +136,26 @@ def _with_model_family_matrix_card(
     )
 
 
+def _with_model_version_matrix_card(
+    content: str,
+    workspace_root: Path,
+    release_manifest: Any,
+) -> str:
+    return _with_optional_card(
+        content,
+        workspace_root,
+        release_manifest,
+        member=MODEL_VERSION_MATRIX_HTML_MEMBER,
+        heading_id="model-version-comparison-matrix-heading",
+        title="Model version comparison matrix",
+        description=(
+            "Compare recorded version-level prices, seats, transmissions, "
+            "powertrains, scopes and provenance side by side."
+        ),
+        missing_label="portfolio model-version comparison matrix HTML",
+    )
+
+
 def render_workspace_index(
     workspace_root: Path,
     release_manifest: Any,
@@ -148,7 +171,12 @@ def render_workspace_index(
         workspace_root,
         release_manifest,
     )
-    return _with_model_family_matrix_card(
+    content = _with_model_family_matrix_card(
+        content,
+        workspace_root,
+        release_manifest,
+    )
+    return _with_model_version_matrix_card(
         content,
         workspace_root,
         release_manifest,
