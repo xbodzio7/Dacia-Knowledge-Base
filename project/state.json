@@ -1,21 +1,21 @@
 {
   "version": 1,
-  "updated_on": "2026-08-02",
+  "updated_on": "2026-08-03",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Portfolio Model Family Summary",
+  "phase": "Portfolio Model Family Summary Release Integration",
   "reference_delivery": {
-    "name": "Post-v1.11.0 Release Priority Selection Review",
-    "pull_request": 475,
-    "head_sha": "96f30c70dbfb7d1da967e6275526735fef5c9602",
-    "quality_run": 30772159207
+    "name": "Portfolio Model Family Summary",
+    "pull_request": 477,
+    "head_sha": "cbcbb352b3387a01c74994697dd27d0b46e4fc8c",
+    "quality_run": 30773174873
   },
   "baseline": {
-    "tests": 1852,
+    "tests": 1859,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,23 +27,17 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "portfolio_model_family_summary_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Model Family Summary",
+    "package_id": "portfolio_model_family_summary_release_integration_001",
+    "kind": "reporting_release_integration",
+    "name": "Portfolio Model Family Summary Release Integration",
     "status": "complete",
-    "goal": "Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.",
+    "goal": "Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.",
     "manifest_paths": [
-      "tools/reporting/portfolio_model_family_summary.py",
-      "tools/portfolio_model_family_summary.py",
-      "tools/generate_portfolio_model_family_summary_package_20260803.py",
-      "tools/dkb.py",
-      "data/reporting/portfolio_model_family_summary.json",
-      "data/reporting/portfolio_model_family_summary.md",
-      "data/reporting/portfolio_model_family_summary.html",
-      "tests/test_portfolio_model_family_summary.py",
-      "tools/review_post_v1_11_0_release_priority_selection_20260803.py",
-      "tests/test_post_v1_11_0_release_priority_selection_20260803.py",
-      "project/packages/portfolio-model-family-summary-20260803.md",
+      "tools/reporting/portfolio_model_family_release_integration.py",
+      "tools/data_product_release.py",
+      "tests/test_portfolio_model_family_release_integration.py",
+      "tools/generate_portfolio_model_family_summary_release_integration_20260803.py",
+      "project/packages/portfolio-model-family-summary-release-integration-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md",
       "README.md",
@@ -53,11 +47,11 @@
     ]
   },
   "next_package": {
-    "package_id": "portfolio_model_family_summary_release_integration_001",
-    "kind": "reporting_release_integration",
-    "name": "Portfolio Model Family Summary Release Integration",
+    "package_id": "data_products_v1_12_0_accelerated_release_preparation_001",
+    "kind": "accelerated_release_preparation",
+    "name": "Data Products v1.12.0 Accelerated Release Preparation",
     "status": "planned",
-    "goal": "Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.",
+    "goal": "Prepare immutable data-products-v1.12.0 assets containing the verified portfolio model-family summary, prove exact-source double-build byte identity and publish only after complete Quality and post-merge verification.",
     "manifest_paths": []
   },
   "autonomy": {

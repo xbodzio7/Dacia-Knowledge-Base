@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Integrated the verified portfolio model-family JSON, Markdown and HTML summary into deterministic versioned data-product archives and offline navigation without changing source data or comparison semantics.
+
 * Added deterministic JSON, Markdown and standalone HTML portfolio model-family summaries for all 81 active configurations across six canonical families, preserving 22 independent reporting scopes, 251 explicit source relationships and exact source hashes without cross-scope pairs, rankings, recommendations or inferred values.
 
 * Added a deterministic post-v1.11.0 priority review that confirms zero eligible source-backed completeness candidates, preserves all exhausted source boundaries and selects a scope-preserving portfolio model-family summary as the next reporting package without ranking or inferred values.
@@ -308,7 +310,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1852 tests.
+* The automated test suite now contains 1859 tests.
 * The verified master-data baseline now contains 47 CSV files and 11770 rows.
 * SQLite verification now covers 47 tables and 11770 rows.
 * Configuration attribute values now contain 3604 dated records.

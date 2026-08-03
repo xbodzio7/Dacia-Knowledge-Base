@@ -8,22 +8,22 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-02
+- State updated: 2026-08-03
 
 ## Phase
 
-**Portfolio Model Family Summary**
+**Portfolio Model Family Summary Release Integration**
 
 ## Reference delivery
 
-- Package: Post-v1.11.0 Release Priority Selection Review
-- Pull Request: #475
-- Verified head: `96f30c70dbfb7d1da967e6275526735fef5c9602`
-- Quality run: #30772159207
+- Package: Portfolio Model Family Summary
+- Pull Request: #477
+- Verified head: `cbcbb352b3387a01c74994697dd27d0b46e4fc8c`
+- Quality run: #30773174873
 
 ## Verified baseline
 
-- Tests: 1852
+- Tests: 1859
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Model Family Summary** — `complete`
+**Portfolio Model Family Summary Release Integration** — `complete`
 
-Create deterministic JSON, Markdown and HTML summaries for each model family from current source-backed active configurations, preserving independent reporting scopes and exact provenance without cross-scope pairs, ranking, recommendations or inferred values.
+Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.
 
 ## Next package
 
-**Portfolio Model Family Summary Release Integration** — `planned`
+**Data Products v1.12.0 Accelerated Release Preparation** — `planned`
 
-Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.
+Prepare immutable data-products-v1.12.0 assets containing the verified portfolio model-family summary, prove exact-source double-build byte identity and publish only after complete Quality and post-merge verification.
 
 ## Autonomy
 
