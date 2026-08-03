@@ -20,7 +20,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1852 testów automatycznych zakończonych powodzeniem,
+- 1859 testów automatycznych zakończonych powodzeniem,
 - 47 pliki CSV w `data/master`,
 - 11770 rekordów danych,
 - 51 relacje między tabelami,
@@ -123,3 +123,6 @@ Granica migracji i lokalizacja pozostałych zapisów historycznych są opisane w
 - `project/reviews/`,
 - `CHANGELOG.md`,
 - historii commitów i scalonych Pull Requestów.
+## Current continuation point
+
+`data_products_v1_12_0_accelerated_release_preparation_001` — prepare and verify immutable v1.12.0 assets containing the integrated portfolio model-family summary.

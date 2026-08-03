@@ -144,7 +144,7 @@ Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakie
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1852 testów automatycznych,
+- 1859 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
@@ -202,3 +202,6 @@ Szczegółowe dawne sekcje sprintów pozostają dostępne w historii Git oraz w 
 Granica migracji została opisana w:
 
 - `project/history/legacy-narrative-migration-2026-07-17.md`.
+## Portfolio model-family release integration
+
+The verified family-summary JSON, Markdown and HTML are integrated into new deterministic release archives. The next package prepares immutable Data Products v1.12.0 assets.
