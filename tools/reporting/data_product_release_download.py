@@ -12,10 +12,14 @@ FAMILY_HTML_MEMBER = "model-families/portfolio_model_family_summary.html"
 FAMILY_MATRIX_HTML_MEMBER = (
     "model-families/portfolio_model_family_comparison_matrix.html"
 )
+VERSION_MATRIX_HTML_MEMBER = (
+    "model-versions/portfolio_model_version_comparison_matrix.html"
+)
 OPTIONAL_ENTRY_POINTS = {
     **_base.OPTIONAL_ENTRY_POINTS,
     "model_family_summary_html": FAMILY_HTML_MEMBER,
     "model_family_comparison_matrix_html": FAMILY_MATRIX_HTML_MEMBER,
+    "model_version_comparison_matrix_html": VERSION_MATRIX_HTML_MEMBER,
 }
 
 REPOSITORY_FULL_NAME = _base.REPOSITORY_FULL_NAME
