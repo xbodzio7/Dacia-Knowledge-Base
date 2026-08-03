@@ -4,9 +4,7 @@ Date: 2026-08-03
 
 Package ID: `data_products_v1_12_1_publication_001`
 
-This single-purpose file triggers the installed one-time publisher after this Pull Request is merged to `main`.
-
-Final trigger: `002` — publisher activation now uses the verified `pull_request_target: closed` event and runs only for a merged same-repository PR.
+Activation: `003` — this dedicated branch is the sole accepted activation source for the installed merged-PR publisher.
 
 The exact merge SHA must be used as `repository_commit` and release target. Publication is allowed only after byte-identical independent double builds, canonical asset verification, complete offline workspace verification including the direct `model_family_summary_html` entry point and dedicated **Model family summary** card, and public-download byte identity.
 
