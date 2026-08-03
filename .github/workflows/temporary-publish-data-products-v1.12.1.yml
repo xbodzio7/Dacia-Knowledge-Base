@@ -6,8 +6,6 @@ on:
       - closed
     branches:
       - main
-    paths:
-      - "project/packages/data-products-v1.12.1-publication-trigger-20260803.md"
 
 permissions:
   contents: write
@@ -18,7 +16,7 @@ concurrency:
 
 jobs:
   publish:
-    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'agent/data-products-v1-12-1-activation-001'
     runs-on: ubuntu-latest
     steps:
       - name: Check out exact publication commit
