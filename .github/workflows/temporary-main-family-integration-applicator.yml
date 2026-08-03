@@ -1,0 +1,50 @@
+name: Temporary Main Family Integration Applicator
+
+on:
+  pull_request:
+    types: [reopened, synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/portfolio-model-family-summary-release-integration-001'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out target package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/portfolio-model-family-summary-release-integration-001
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Synchronize main and execute branch applicator
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git merge origin/main --no-edit
+          python - <<'PY'
+          from pathlib import Path
+
+          workflow = Path(
+              '.github/workflows/temporary-portfolio-family-release-integration-applicator.yml'
+          ).read_text(encoding='utf-8')
+          marker = '        run: |\n'
+          if marker not in workflow:
+              raise SystemExit('branch applicator run block not found')
+          raw = workflow.split(marker, 1)[1]
+          lines = []
+          for line in raw.splitlines():
+              if line.startswith('          '):
+                  lines.append(line[10:])
+              else:
+                  lines.append(line)
+          Path('/tmp/apply-family-integration.sh').write_text(
+              '\n'.join(lines) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          bash /tmp/apply-family-integration.sh
