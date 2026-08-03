@@ -80,4 +80,4 @@ class PortfolioModelFamilyWorkspaceEntryPointTest(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-# Synchronize trigger for the temporary canonical applicator.
+# Synchronize trigger for the registered canonical applicator.
