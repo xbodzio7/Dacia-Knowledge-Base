@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Post-Workspace Entry Point Priority Selection Review**
+**Data Products v1.12.1 Corrective Release Preparation**
 
 ## Reference delivery
 
-- Package: Portfolio Model Family Workspace Entry Point
-- Pull Request: #486
-- Verified head: `891be9ed87ee55da33ee8d5cff3be39070289181`
-- Quality run: #30792474802
+- Package: Post-Workspace Entry Point Priority Selection Review
+- Pull Request: #487
+- Verified head: `98a0c16b5298595e1c6015198bb6958b0618cc87`
+- Quality run: #30793004400
 
 ## Verified baseline
 
-- Tests: 1859
+- Tests: 1862
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Workspace Entry Point Priority Selection Review** — `complete`
+**Data Products v1.12.1 Corrective Release Preparation** — `complete`
 
-Review canonical evidence after direct family workspace integration and select one bounded next package.
+Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.
 
 ## Next package
 
-**Data Products v1.12.1 Corrective Release Preparation** — `planned`
+**Data Products v1.12.1 Publication** — `planned`
 
-Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.
+Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
 
 ## Autonomy
 
