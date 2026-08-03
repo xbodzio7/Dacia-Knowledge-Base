@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.12.1 Corrective Release Preparation",
+  "phase": "Data Products v1.12.1 Publication",
   "reference_delivery": {
-    "name": "Post-Workspace Entry Point Priority Selection Review",
-    "pull_request": 487,
-    "head_sha": "98a0c16b5298595e1c6015198bb6958b0618cc87",
-    "quality_run": 30793004400
+    "name": "Data Products v1.12.1 Publication",
+    "pull_request": 506,
+    "head_sha": "6f208ecef49304c2f4bd9c6d46d93074b33aff6f",
+    "quality_run": 30847913458
   },
   "baseline": {
     "tests": 1862,
@@ -27,25 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_12_1_corrective_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.12.1 Corrective Release Preparation",
+    "package_id": "data_products_v1_12_1_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.12.1 Publication",
     "status": "complete",
-    "goal": "Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.",
+    "goal": "Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.",
     "manifest_paths": [
-      "tools/reporting/portfolio_model_family_release_integration.py",
-      "tests/test_data_products_v1_12_1_corrective_release.py",
-      "project/packages/data-products-v1.12.1-corrective-release-preparation-20260803.md",
+      "data/reporting/data_products_v1_12_1_publication.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.12.1-publication-20260803.md",
       "project/state.json",
-      "project/STATE_SUMMARY.md"
+      "tools/reporting/portfolio_model_family_release_integration.py",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_workspace_index.py"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_12_1_publication_001",
-    "kind": "release_publication",
-    "name": "Data Products v1.12.1 Publication",
+    "package_id": "post_v1_12_1_release_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.12.1 Release Priority Selection Review",
     "status": "planned",
-    "goal": "Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.",
+    "goal": "Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
     "manifest_paths": []
   },
   "autonomy": {

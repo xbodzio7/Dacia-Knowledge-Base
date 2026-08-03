@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.12.1 Corrective Release Preparation**
+**Data Products v1.12.1 Publication**
 
 ## Reference delivery
 
-- Package: Post-Workspace Entry Point Priority Selection Review
-- Pull Request: #487
-- Verified head: `98a0c16b5298595e1c6015198bb6958b0618cc87`
-- Quality run: #30793004400
+- Package: Data Products v1.12.1 Publication
+- Pull Request: #506
+- Verified head: `6f208ecef49304c2f4bd9c6d46d93074b33aff6f`
+- Quality run: #30847913458
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.12.1 Corrective Release Preparation** — `complete`
+**Data Products v1.12.1 Publication** — `complete`
 
-Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.
+Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
 
 ## Next package
 
-**Data Products v1.12.1 Publication** — `planned`
+**Post-v1.12.1 Release Priority Selection Review** — `planned`
 
-Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
+Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Autonomy
 
