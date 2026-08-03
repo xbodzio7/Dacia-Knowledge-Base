@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.14.0 Release Preparation**
+**Data Products v1.14.0 Publication**
 
 ## Reference delivery
 
-- Package: Portfolio Model Version Comparison Matrix Release Integration
-- Pull Request: #515
-- Verified head: `41fa140659e19631b01f20a4bf96d94472f59503`
-- Quality run: #30853902423
+- Package: Data Products v1.14.0 Publication
+- Pull Request: #518
+- Verified head: `6b02c97344050eab0900a48570a7239c1ce98d52`
+- Quality run: #30855060629
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.14.0 Release Preparation** — `complete`
+**Data Products v1.14.0 Publication** — `complete`
 
-Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.14.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
 
 ## Next package
 
-**Data Products v1.14.0 Publication** — `planned`
+**Post-v1.14.0 Release Priority Selection Review** — `planned`
 
-Publish immutable data-products-v1.14.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
+Inspect canonical product, source and roadmap evidence after v1.14.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Autonomy
 

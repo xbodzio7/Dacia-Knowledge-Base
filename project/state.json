@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.14.0 Release Preparation",
+  "phase": "Data Products v1.14.0 Publication",
   "reference_delivery": {
-    "name": "Portfolio Model Version Comparison Matrix Release Integration",
-    "pull_request": 515,
-    "head_sha": "41fa140659e19631b01f20a4bf96d94472f59503",
-    "quality_run": 30853902423
+    "name": "Data Products v1.14.0 Publication",
+    "pull_request": 518,
+    "head_sha": "6b02c97344050eab0900a48570a7239c1ce98d52",
+    "quality_run": 30855060629
   },
   "baseline": {
     "tests": 1862,
@@ -27,25 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_14_0_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.14.0 Release Preparation",
+    "package_id": "data_products_v1_14_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.14.0 Publication",
     "status": "complete",
-    "goal": "Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.",
+    "goal": "Publish immutable data-products-v1.14.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.",
     "manifest_paths": [
-      "tools/reporting/portfolio_model_version_comparison_release_integration.py",
-      "tests/test_portfolio_model_family_release_integration.py",
-      "project/packages/data-products-v1.14.0-release-preparation-20260803.md",
+      "data/reporting/data_products_v1_14_0_publication.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.14.0-publication-20260803.md",
       "project/state.json",
-      "project/STATE_SUMMARY.md"
+      "tools/reporting/portfolio_model_version_comparison_release_integration.py",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_workspace_index.py"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_14_0_publication_001",
-    "kind": "release_publication",
-    "name": "Data Products v1.14.0 Publication",
+    "package_id": "post_v1_14_0_release_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.14.0 Release Priority Selection Review",
     "status": "planned",
-    "goal": "Publish immutable data-products-v1.14.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.",
+    "goal": "Inspect canonical product, source and roadmap evidence after v1.14.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
     "manifest_paths": []
   },
   "autonomy": {
