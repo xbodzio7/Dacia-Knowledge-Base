@@ -1,0 +1,1237 @@
+{
+  "version": 1,
+  "kind": "portfolio_model_version_comparison_matrix",
+  "as_of": "2026-08-02",
+  "summary": {
+    "model_family_count": 6,
+    "active_version_count": 22,
+    "active_configuration_count": 81,
+    "reporting_scope_count": 22,
+    "provenance_source_count": 33,
+    "source_configuration_relationship_count": 251,
+    "configurations_without_provenance_count": 0,
+    "configuration_pairs_generated": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "methodology": {
+    "version_boundary": "Each row is one active canonical version_code and includes only active configurations assigned to that version.",
+    "scope_boundary": "Every configuration keeps its single existing reporting scope; scope memberships are aggregated but never expanded into pairs.",
+    "provenance_boundary": "Only explicit source_configurations relationships are counted.",
+    "unknown_handling": "Unstated values remain not_stated and are never replaced with zero, false, unavailable or an inferred value."
+  },
+  "versions": [
+    {
+      "version_code": "sandero_iii_expression",
+      "version_name": "Expression",
+      "model_code": "sandero_iii",
+      "model_name": "Sandero",
+      "configuration_count": 3,
+      "configuration_codes": [
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_expression_tce100_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 68000,
+        "maximum": 74900,
+        "recorded_count": 3,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 100"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 2,
+      "scope_slugs": [
+        "sandero_ecog120_automatic",
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "sandero_ecog120_automatic"
+      ],
+      "mixed_model_scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 7,
+        "relationship_count": 13,
+        "configuration_coverage_count": 3,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "sandero_iii_journey",
+      "version_name": "Journey",
+      "model_code": "sandero_iii",
+      "model_name": "Sandero",
+      "configuration_count": 3,
+      "configuration_codes": [
+        "sandero_iii_journey_ecog120_automatic",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_iii_journey_tce100_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 73600,
+        "maximum": 80500,
+        "recorded_count": 3,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 100"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 2,
+      "scope_slugs": [
+        "sandero_ecog120_automatic",
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "sandero_ecog120_automatic"
+      ],
+      "mixed_model_scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 7,
+        "relationship_count": 13,
+        "configuration_coverage_count": 3,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "sandero_iii_essential",
+      "version_name": "Essential",
+      "model_code": "sandero_iii",
+      "model_name": "Sandero",
+      "configuration_count": 1,
+      "configuration_codes": [
+        "sandero_iii_essential_tce100_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 63900,
+        "maximum": 63900,
+        "recorded_count": 1,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "manual"
+      ],
+      "powertrain_labels": [
+        "TCe 100"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 0,
+      "mixed_model_scope_count": 1,
+      "scope_slugs": [
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [],
+      "mixed_model_scope_slugs": [
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 3,
+        "relationship_count": 3,
+        "configuration_coverage_count": 1,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "sandero_stepway_iii_essential",
+      "version_name": "Essential",
+      "model_code": "sandero_stepway_iii",
+      "model_name": "Sandero Stepway",
+      "configuration_count": 2,
+      "configuration_codes": [
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_essential_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 71700,
+        "maximum": 71700,
+        "recorded_count": 2,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110"
+      ],
+      "reporting_scope_count": 2,
+      "single_model_scope_count": 0,
+      "mixed_model_scope_count": 2,
+      "scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [],
+      "mixed_model_scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 7,
+        "relationship_count": 8,
+        "configuration_coverage_count": 2,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "sandero_stepway_iii_expression",
+      "version_name": "Expression",
+      "model_code": "sandero_stepway_iii",
+      "model_name": "Sandero Stepway",
+      "configuration_count": 3,
+      "configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_expression_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 76400,
+        "maximum": 83300,
+        "recorded_count": 3,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 2,
+      "scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_stepway_ecog120_automatic",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "sandero_stepway_ecog120_automatic"
+      ],
+      "mixed_model_scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 8,
+        "relationship_count": 14,
+        "configuration_coverage_count": 3,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "sandero_stepway_iii_extreme",
+      "version_name": "Extreme",
+      "model_code": "sandero_stepway_iii",
+      "model_name": "Sandero Stepway",
+      "configuration_count": 3,
+      "configuration_codes": [
+        "sandero_stepway_iii_extreme_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_manual",
+        "sandero_stepway_iii_extreme_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 82500,
+        "maximum": 89400,
+        "recorded_count": 3,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 2,
+      "scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_stepway_ecog120_automatic",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "sandero_stepway_ecog120_automatic"
+      ],
+      "mixed_model_scope_slugs": [
+        "sandero_ecog120_manual",
+        "sandero_tce100_stepway_tce110_manual"
+      ],
+      "provenance": {
+        "source_count": 8,
+        "relationship_count": 14,
+        "configuration_coverage_count": 3,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-02",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "jogger_essential",
+      "version_name": "Essential",
+      "model_code": "jogger",
+      "model_name": "Jogger",
+      "configuration_count": 2,
+      "configuration_codes": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 77900,
+        "maximum": 82400,
+        "recorded_count": 2,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5,
+        7
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "jogger_ecog120_manual"
+      ],
+      "single_model_scope_slugs": [
+        "jogger_ecog120_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 4,
+        "relationship_count": 8,
+        "configuration_coverage_count": 2,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-17",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "jogger_expression",
+      "version_name": "Expression",
+      "model_code": "jogger",
+      "model_name": "Jogger",
+      "configuration_count": 6,
+      "configuration_codes": [
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_expression_7seat_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 82050,
+        "maximum": 108050,
+        "recorded_count": 6,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5,
+        7
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110",
+        "hybrid 155"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 3,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "jogger_ecog120_manual",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "jogger_ecog120_manual",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 4,
+        "relationship_count": 24,
+        "configuration_coverage_count": 6,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-17",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "jogger_extreme",
+      "version_name": "Extreme",
+      "model_code": "jogger",
+      "model_name": "Jogger",
+      "configuration_count": 8,
+      "configuration_codes": [
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 89900,
+        "maximum": 115900,
+        "recorded_count": 8,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5,
+        7
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110",
+        "hybrid 155"
+      ],
+      "reporting_scope_count": 4,
+      "single_model_scope_count": 4,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "jogger_ecog120_automatic",
+        "jogger_ecog120_manual",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "jogger_ecog120_automatic",
+        "jogger_ecog120_manual",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 4,
+        "relationship_count": 32,
+        "configuration_coverage_count": 8,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-17",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "jogger_journey",
+      "version_name": "Journey",
+      "model_code": "jogger",
+      "model_name": "Jogger",
+      "configuration_count": 6,
+      "configuration_codes": [
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_journey_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_tce110_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 94050,
+        "maximum": 118050,
+        "recorded_count": 6,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        5,
+        7
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 120",
+        "TCe 110",
+        "hybrid 155"
+      ],
+      "reporting_scope_count": 3,
+      "single_model_scope_count": 3,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "jogger_ecog120_automatic",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "single_model_scope_slugs": [
+        "jogger_ecog120_automatic",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 4,
+        "relationship_count": 24,
+        "configuration_coverage_count": 6,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-17",
+        "latest_document_date": "2026-07-24"
+      }
+    },
+    {
+      "version_code": "duster_iii_essential",
+      "version_name": "Essential",
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "configuration_count": 2,
+      "configuration_codes": [
+        "duster_iii_essential_ecog100_4x2_manual",
+        "duster_iii_essential_ecog120_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 82000,
+        "maximum": 82000,
+        "recorded_count": 2,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 100 4x2",
+        "Eco-G 120 4x2"
+      ],
+      "reporting_scope_count": 2,
+      "single_model_scope_count": 2,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120"
+      ],
+      "single_model_scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 3,
+        "relationship_count": 4,
+        "configuration_coverage_count": 2,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-10-20",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "duster_iii_expression",
+      "version_name": "Expression",
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "configuration_count": 8,
+      "configuration_codes": [
+        "duster_iii_expression_ecog100_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_automatic",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_expression_hybrid140_4x2_automatic",
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_expression_mildhybrid130_4x2_manual",
+        "duster_iii_expression_mildhybrid130_4x4_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 90000,
+        "maximum": 112100,
+        "recorded_count": 8,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 100 4x2",
+        "Eco-G 120 4x2",
+        "hybrid 140 4x2",
+        "hybrid 155 4x2",
+        "mild hybrid 130 4x2",
+        "mild hybrid 130 4x4",
+        "mild hybrid 140 4x2"
+      ],
+      "reporting_scope_count": 8,
+      "single_model_scope_count": 8,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "single_model_scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 8,
+        "relationship_count": 19,
+        "configuration_coverage_count": 8,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-10-20",
+        "latest_document_date": "2026-07-25"
+      }
+    },
+    {
+      "version_code": "duster_iii_extreme",
+      "version_name": "Extreme",
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "configuration_count": 8,
+      "configuration_codes": [
+        "duster_iii_extreme_ecog100_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_automatic",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_extreme_hybrid140_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_extreme_mildhybrid130_4x2_manual",
+        "duster_iii_extreme_mildhybrid130_4x4_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 96000,
+        "maximum": 118100,
+        "recorded_count": 8,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 100 4x2",
+        "Eco-G 120 4x2",
+        "hybrid 140 4x2",
+        "hybrid 155 4x2",
+        "mild hybrid 130 4x2",
+        "mild hybrid 130 4x4",
+        "mild hybrid 140 4x2"
+      ],
+      "reporting_scope_count": 8,
+      "single_model_scope_count": 8,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "single_model_scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 8,
+        "relationship_count": 19,
+        "configuration_coverage_count": 8,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-10-20",
+        "latest_document_date": "2026-07-25"
+      }
+    },
+    {
+      "version_code": "duster_iii_journey",
+      "version_name": "Journey",
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "configuration_count": 8,
+      "configuration_codes": [
+        "duster_iii_journey_ecog100_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_automatic",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_journey_hybrid140_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic",
+        "duster_iii_journey_mildhybrid130_4x2_manual",
+        "duster_iii_journey_mildhybrid130_4x4_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 96000,
+        "maximum": 118300,
+        "recorded_count": 8,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "Eco-G 100 4x2",
+        "Eco-G 120 4x2",
+        "hybrid 140 4x2",
+        "hybrid 155 4x2",
+        "mild hybrid 130 4x2",
+        "mild hybrid 130 4x4",
+        "mild hybrid 140 4x2"
+      ],
+      "reporting_scope_count": 8,
+      "single_model_scope_count": 8,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "single_model_scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120",
+        "duster_ecog120_automatic",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 8,
+        "relationship_count": 19,
+        "configuration_coverage_count": 8,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-10-20",
+        "latest_document_date": "2026-07-25"
+      }
+    },
+    {
+      "version_code": "duster_iii_journey_plus",
+      "version_name": "Journey+",
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "configuration_count": 1,
+      "configuration_codes": [
+        "duster_iii_journey_plus_hybrid140_4x2_automatic"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 123600,
+        "maximum": 123600,
+        "recorded_count": 1,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic"
+      ],
+      "powertrain_labels": [
+        "hybrid 140 4x2"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "duster_hybrid140"
+      ],
+      "single_model_scope_slugs": [
+        "duster_hybrid140"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 1,
+        "relationship_count": 1,
+        "configuration_coverage_count": 1,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-06",
+        "latest_document_date": "2026-02-06"
+      }
+    },
+    {
+      "version_code": "bigster_essential",
+      "version_name": "Essential",
+      "model_code": "bigster",
+      "model_name": "Bigster",
+      "configuration_count": 2,
+      "configuration_codes": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_essential_mildhybridg140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 101400,
+        "maximum": 101400,
+        "recorded_count": 2,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "manual"
+      ],
+      "powertrain_labels": [
+        "mild hybrid 140 4x2",
+        "mild hybrid-G 140 4x2"
+      ],
+      "reporting_scope_count": 2,
+      "single_model_scope_count": 2,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "single_model_scope_slugs": [
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 2,
+        "relationship_count": 4,
+        "configuration_coverage_count": 2,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-10",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "bigster_expression",
+      "version_name": "Expression",
+      "model_code": "bigster",
+      "model_name": "Bigster",
+      "configuration_count": 4,
+      "configuration_codes": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 110400,
+        "maximum": 128900,
+        "recorded_count": 4,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
+        "mild hybrid 140 4x2",
+        "mild hybrid-G 140 4x2"
+      ],
+      "reporting_scope_count": 4,
+      "single_model_scope_count": 4,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "single_model_scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 2,
+        "relationship_count": 8,
+        "configuration_coverage_count": 4,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-10",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "bigster_extreme",
+      "version_name": "Extreme",
+      "model_code": "bigster",
+      "model_name": "Bigster",
+      "configuration_count": 4,
+      "configuration_codes": [
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 118900,
+        "maximum": 137600,
+        "recorded_count": 4,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
+        "mild hybrid 140 4x2",
+        "mild hybrid-G 140 4x2"
+      ],
+      "reporting_scope_count": 4,
+      "single_model_scope_count": 4,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "single_model_scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 2,
+        "relationship_count": 8,
+        "configuration_coverage_count": 4,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-10",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "bigster_journey",
+      "version_name": "Journey",
+      "model_code": "bigster",
+      "model_name": "Bigster",
+      "configuration_count": 4,
+      "configuration_codes": [
+        "bigster_journey_hybrid155_4x2_automatic",
+        "bigster_journey_hybridg150_4x4_automatic",
+        "bigster_journey_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 118500,
+        "maximum": 137200,
+        "recorded_count": 4,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [],
+      "seat_summary_state": "not_stated",
+      "transmission_values": [
+        "automatic",
+        "manual"
+      ],
+      "powertrain_labels": [
+        "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
+        "mild hybrid 140 4x2",
+        "mild hybrid-G 140 4x2"
+      ],
+      "reporting_scope_count": 4,
+      "single_model_scope_count": 4,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "single_model_scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 2,
+        "relationship_count": 8,
+        "configuration_coverage_count": 4,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2025-12-10",
+        "latest_document_date": "2026-07-03"
+      }
+    },
+    {
+      "version_code": "spring_essential",
+      "version_name": "Essential",
+      "model_code": "spring",
+      "model_name": "Spring",
+      "configuration_count": 1,
+      "configuration_codes": [
+        "spring_essential_electric70_automatic"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 73500,
+        "maximum": 73500,
+        "recorded_count": 1,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        4
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic"
+      ],
+      "powertrain_labels": [
+        "electric 70"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "spring_electric70_automatic"
+      ],
+      "single_model_scope_slugs": [
+        "spring_electric70_automatic"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 3,
+        "relationship_count": 3,
+        "configuration_coverage_count": 1,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-19",
+        "latest_document_date": "2026-08-02"
+      }
+    },
+    {
+      "version_code": "spring_expression",
+      "version_name": "Expression",
+      "model_code": "spring",
+      "model_name": "Spring",
+      "configuration_count": 1,
+      "configuration_codes": [
+        "spring_expression_electric70_automatic"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 81500,
+        "maximum": 81500,
+        "recorded_count": 1,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        4
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic"
+      ],
+      "powertrain_labels": [
+        "electric 70"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "spring_electric70_automatic"
+      ],
+      "single_model_scope_slugs": [
+        "spring_electric70_automatic"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 3,
+        "relationship_count": 3,
+        "configuration_coverage_count": 1,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-19",
+        "latest_document_date": "2026-07-31"
+      }
+    },
+    {
+      "version_code": "spring_extreme",
+      "version_name": "Extreme",
+      "model_code": "spring",
+      "model_name": "Spring",
+      "configuration_count": 1,
+      "configuration_codes": [
+        "spring_extreme_electric100_automatic"
+      ],
+      "catalog_price": {
+        "state": "recorded",
+        "currency": "PLN",
+        "minimum": 85900,
+        "maximum": 85900,
+        "recorded_count": 1,
+        "missing_count": 0
+      },
+      "recorded_seat_values": [
+        4
+      ],
+      "seat_summary_state": "recorded",
+      "transmission_values": [
+        "automatic"
+      ],
+      "powertrain_labels": [
+        "electric 100"
+      ],
+      "reporting_scope_count": 1,
+      "single_model_scope_count": 1,
+      "mixed_model_scope_count": 0,
+      "scope_slugs": [
+        "spring_electric100_automatic"
+      ],
+      "single_model_scope_slugs": [
+        "spring_electric100_automatic"
+      ],
+      "mixed_model_scope_slugs": [],
+      "provenance": {
+        "source_count": 2,
+        "relationship_count": 2,
+        "configuration_coverage_count": 1,
+        "missing_configuration_count": 0,
+        "earliest_document_date": "2026-02-19",
+        "latest_document_date": "2026-07-31"
+      }
+    }
+  ]
+}

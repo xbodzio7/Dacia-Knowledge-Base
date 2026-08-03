@@ -12,9 +12,11 @@ from pathlib import Path
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY / "tools"))
+sys.path.insert(0, str(REPOSITORY / "tests"))
 
 import portfolio_model_family_comparison_matrix as matrix_cli  # noqa: E402
 import portfolio_model_family_summary as summary_cli  # noqa: E402
+from version_matrix_checks import run_version_matrix_checks  # noqa: E402
 from reporting.portfolio_model_family_comparison_matrix import (  # noqa: E402
     CSV_COLUMNS,
     collect_matrix,
@@ -94,6 +96,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "inferred_values_generated": False,
             },
         )
+
+        run_version_matrix_checks(self, REPOSITORY)
 
     def test_family_order_and_commercial_counts_are_exact(self) -> None:
         expected_order = [
