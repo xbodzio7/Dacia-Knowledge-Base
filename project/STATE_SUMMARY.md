@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.12.0 Accelerated Release Preparation**
+**Data Products v1.12.0 Publication**
 
 ## Reference delivery
 
-- Package: Portfolio Model Family Summary Release Integration
-- Pull Request: #481
-- Verified head: `ce99ae039f746c06854fe3aca6bb6995d10bfe27`
-- Quality run: #30790266581
+- Package: Data Products v1.12.0 Publication
+- Pull Request: #483
+- Verified head: `0e8901fdb42d4bc3e415ce3347117040205fa652`
+- Quality run: #30791076488
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.12.0 Accelerated Release Preparation** — `complete`
+**Data Products v1.12.0 Publication** — `complete`
 
-Prepare immutable data-products-v1.12.0 assets containing the verified portfolio model-family summary, prove exact-source double-build byte identity and publish only after complete Quality and post-merge verification.
+Publish immutable data-products-v1.12.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline verification.
 
 ## Next package
 
-**Data Products v1.12.0 Publication** — `planned`
+**Post-v1.12.0 Release Priority Selection Review** — `planned`
 
-Publish immutable data-products-v1.12.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline verification.
+Inspect canonical product, source and roadmap evidence after immutable v1.12.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Autonomy
 
