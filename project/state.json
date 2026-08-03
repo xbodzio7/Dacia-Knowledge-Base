@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Portfolio Model Version Comparison Matrix Release Integration",
+  "phase": "Data Products v1.14.0 Release Preparation",
   "reference_delivery": {
-    "name": "Portfolio Model Version Comparison Matrix",
-    "pull_request": 514,
-    "head_sha": "7ade764be765921c40f70a3e8ba31960f351a028",
-    "quality_run": 30853269148
+    "name": "Portfolio Model Version Comparison Matrix Release Integration",
+    "pull_request": 515,
+    "head_sha": "41fa140659e19631b01f20a4bf96d94472f59503",
+    "quality_run": 30853902423
   },
   "baseline": {
     "tests": 1862,
@@ -27,29 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "portfolio_model_version_comparison_matrix_release_integration_001",
-    "kind": "data_product_release_integration",
-    "name": "Portfolio Model Version Comparison Matrix Release Integration",
+    "package_id": "data_products_v1_14_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.14.0 Release Preparation",
     "status": "complete",
-    "goal": "Integrate the verified version comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.",
+    "goal": "Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.",
     "manifest_paths": [
       "tools/reporting/portfolio_model_version_comparison_release_integration.py",
-      "tools/data_product_release.py",
-      "tools/reporting/data_product_release_download.py",
-      "tools/reporting/data_product_workspace_index.py",
-      "tools/data_product_release_download.py",
       "tests/test_portfolio_model_family_release_integration.py",
-      "project/packages/portfolio-model-version-comparison-matrix-release-integration-20260803.md",
+      "project/packages/data-products-v1.14.0-release-preparation-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_14_0_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.14.0 Release Preparation",
+    "package_id": "data_products_v1_14_0_publication_001",
+    "kind": "release_publication",
+    "name": "Data Products v1.14.0 Publication",
     "status": "planned",
-    "goal": "Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.",
+    "goal": "Publish immutable data-products-v1.14.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.",
     "manifest_paths": []
   },
   "autonomy": {

@@ -33,6 +33,7 @@ VERSION_MATRIX_FILES = (
 VERSION_MATRIX_HTML = (
     f"{VERSION_DIRECTORY}/portfolio_model_version_comparison_matrix.html"
 )
+RELEASE_NOTES = family_matrix_release.RELEASE_NOTES
 
 
 def repository_root() -> Path:
@@ -176,6 +177,44 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
         )
 
 
+def _write_v1_14_0_release_notes(payload: Path, version: str) -> None:
+    if version != "1.14.0":
+        return
+    path = payload / RELEASE_NOTES
+    if not path.is_file():
+        raise ReleaseError("release notes are missing from the release payload")
+    text = path.read_text(encoding="utf-8").rstrip()
+    addition = """
+
+## v1.14.0 portfolio model-version comparison matrix
+
+This minor release adds the verified portfolio model-version comparison matrix
+in JSON, CSV and standalone HTML. It presents all 22 active canonical versions
+and all 81 active configurations side by side using only recorded version-bounded
+fields: prices, seat states, transmissions, powertrains, existing reporting-scope
+memberships and explicit source provenance.
+
+The three model-version matrix files, the three family-comparison files and the
+three family-summary files are copied byte for byte from committed verified
+outputs. The downloaded offline workspace adds the optional
+`model_version_comparison_matrix_html` entry point and a separate **Model version
+comparison matrix** card. Older immutable releases remain valid when the optional
+model-version member is absent.
+
+No source data, master data, reporting scope or comparison semantics change. No
+new configuration pair, cross-scope pair, ranking, recommendation or inferred
+value is introduced. Public `data-products-v1.13.0` remains immutable.
+
+Version 1.14.0 is built twice from the exact publication merge SHA, compared byte
+for byte and verified as a complete offline workspace before publication. The
+three public assets are downloaded and verified again before the publication
+receipt and canonical state transition are accepted.
+"""
+    heading = "## v1.14.0 portfolio model-version comparison matrix"
+    if heading not in text:
+        write_text(path, text + addition + "\n")
+
+
 def create_release_assets(
     repository: Path,
     output_directory: Path,
@@ -194,6 +233,7 @@ def create_release_assets(
     try:
         manifest = _extract_verified_archive(output_directory, payload)
         _copy_verified_version_outputs(repository, payload)
+        _write_v1_14_0_release_notes(payload, version)
 
         archive = manifest["archive"]
         assert isinstance(archive, dict)
