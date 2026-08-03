@@ -5,6 +5,11 @@ import tempfile
 from pathlib import Path
 from typing import Any, Mapping
 
+from configuration_shortlist import (
+    collect_enhanced_browser_catalog,
+    render_html,
+)
+
 from reporting.configuration_comparison_bundle import (
     BundleError,
     create_bundle,
@@ -18,8 +23,6 @@ from reporting.configuration_shortlist import (
     render_json,
     render_markdown,
 )
-from reporting.configuration_shortlist_html import collect_browser_catalog
-from reporting.configuration_shortlist_selection_html import render_html
 from reporting.cross_model_comparison_view import (
     CrossModelViewError,
     collect_view as collect_cross_model_view,
@@ -100,7 +103,7 @@ def _write_shortlist(repository: Path, payload: Path) -> dict[str, Any]:
         render_markdown(report),
     )
     write_text(shortlist / "configuration-shortlist.csv", render_csv(report))
-    catalog = collect_browser_catalog(repository, criteria)
+    catalog = collect_enhanced_browser_catalog(repository, criteria)
     write_text(
         shortlist / "configuration-shortlist.html",
         render_html(catalog),

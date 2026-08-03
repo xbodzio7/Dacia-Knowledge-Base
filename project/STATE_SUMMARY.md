@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-v1.14.0 Release Priority Selection Review**
+**Data Products v1.14.1 Interface Correction**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.14.0 Release Priority Selection Review** — `complete`
+**Data Products v1.14.1 Interface Correction** — `complete`
 
-Inspect canonical product, source and roadmap evidence after v1.14.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Make the versioned release builder use the canonical enhanced shortlist pipeline so every agreed interface repair is present in the published archive without changing source-backed data or comparison semantics.
 
 ## Next package
 
-**Portfolio Source Coverage Matrix** — `planned`
+**Data Products v1.14.1 Publication** — `planned`
 
-Create deterministic JSON, CSV and standalone HTML outputs for all 33 provenance sources by projecting only exact registered source metadata and the 251 explicit source-to-configuration relationships, without quality scoring, ranking, recommendations or inferred values.
+Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.
 
 ## Autonomy
 

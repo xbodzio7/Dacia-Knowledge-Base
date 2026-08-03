@@ -139,6 +139,21 @@ class DataProductReleaseTests(unittest.TestCase):
             external_urls,
         )
         self.assertIn("vehicle-photo-fallback", html)
+        for marker in (
+            ":root{color-scheme:dark;",
+            "versionGroupsForModels",
+            "--parameter-column:280px",
+            "dkb-comparison-collapsed-groups-v1",
+            "Ukryj wszystkie grupy",
+            "Pokaż wszystkie grupy",
+            ".selection-panel.comparison-is-open",
+            "reviewed_gap_materialization",
+            "candidate_amount_pln",
+            "niepodane w dokładnym źródle",
+            "grade_carrousel_1.png",
+        ):
+            with self.subTest(marker=marker):
+                self.assertIn(marker, html)
 
     def test_full_bundle_contains_all_scopes_and_workbook(self) -> None:
         with ZipFile(self.archive_path) as archive:
