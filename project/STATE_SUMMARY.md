@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Portfolio Model Version Comparison Matrix Release Integration**
+**Data Products v1.14.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Portfolio Model Version Comparison Matrix
-- Pull Request: #514
-- Verified head: `7ade764be765921c40f70a3e8ba31960f351a028`
-- Quality run: #30853269148
+- Package: Portfolio Model Version Comparison Matrix Release Integration
+- Pull Request: #515
+- Verified head: `41fa140659e19631b01f20a4bf96d94472f59503`
+- Quality run: #30853902423
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Model Version Comparison Matrix Release Integration** — `complete`
+**Data Products v1.14.0 Release Preparation** — `complete`
 
-Integrate the verified version comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
+Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
 
 ## Next package
 
-**Data Products v1.14.0 Release Preparation** — `planned`
+**Data Products v1.14.0 Publication** — `planned`
 
-Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.14.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
 
 ## Autonomy
 
