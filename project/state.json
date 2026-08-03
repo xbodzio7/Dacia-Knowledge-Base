@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-Workspace Entry Point Priority Selection Review",
+  "phase": "Data Products v1.12.1 Corrective Release Preparation",
   "reference_delivery": {
-    "name": "Portfolio Model Family Workspace Entry Point",
-    "pull_request": 486,
-    "head_sha": "891be9ed87ee55da33ee8d5cff3be39070289181",
-    "quality_run": 30792474802
+    "name": "Post-Workspace Entry Point Priority Selection Review",
+    "pull_request": 487,
+    "head_sha": "98a0c16b5298595e1c6015198bb6958b0618cc87",
+    "quality_run": 30793004400
   },
   "baseline": {
-    "tests": 1859,
+    "tests": 1862,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,23 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_workspace_entry_point_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-Workspace Entry Point Priority Selection Review",
+    "package_id": "data_products_v1_12_1_corrective_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.12.1 Corrective Release Preparation",
     "status": "complete",
-    "goal": "Review canonical evidence after direct family workspace integration and select one bounded next package.",
+    "goal": "Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.",
     "manifest_paths": [
-      "project/packages/post-workspace-entry-point-priority-selection-review-20260803.md",
+      "tools/reporting/portfolio_model_family_release_integration.py",
+      "tests/test_data_products_v1_12_1_corrective_release.py",
+      "project/packages/data-products-v1.12.1-corrective-release-preparation-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_12_1_corrective_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.12.1 Corrective Release Preparation",
+    "package_id": "data_products_v1_12_1_publication_001",
+    "kind": "release_publication",
+    "name": "Data Products v1.12.1 Publication",
     "status": "planned",
-    "goal": "Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.",
+    "goal": "Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.",
     "manifest_paths": []
   },
   "autonomy": {

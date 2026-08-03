@@ -104,14 +104,9 @@ def _add_offline_navigation(payload: Path) -> None:
         write_text(path, text)
 
 
-def _write_v1_12_0_release_notes(payload: Path, version: str) -> None:
-    if version != "1.12.0":
-        return
-    path = payload / RELEASE_NOTES
-    if not path.is_file():
-        raise ReleaseError("release notes are missing from the release payload")
-    text = path.read_text(encoding="utf-8").rstrip()
-    addition = """
+def _write_release_notes(payload: Path, version: str) -> None:
+    additions = {
+        "1.12.0": """
 
 ## v1.12.0 portfolio model-family product
 
@@ -128,8 +123,35 @@ pairs, ranking, recommendations or inferred values are introduced.
 The public `data-products-v1.11.0` release remains immutable. Version 1.12.0 is
 built twice from the exact publication merge SHA, compared byte for byte and
 verified again after public download before its publication receipt is accepted.
-"""
-    if "## v1.12.0 portfolio model-family product" not in text:
+""",
+        "1.12.1": """
+
+## v1.12.1 corrective workspace interface
+
+This patch release republishes the verified model-family data product from the
+current exact source SHA so the downloaded consumer workspace includes the
+previously agreed direct `model_family_summary_html` entry point and dedicated
+**Model family summary** card.
+
+The patch does not rewrite `data-products-v1.12.0` and does not change source
+data, reporting scopes, comparison pairs, rankings, recommendations or inferred
+values. Older immutable releases remain valid when the optional family member is
+absent.
+
+Version 1.12.1 is built twice in independent empty directories, compared byte
+for byte, verified before publication and verified again after public download,
+including the complete offline workspace navigation contract.
+""",
+    }
+    addition = additions.get(version)
+    if addition is None:
+        return
+    path = payload / RELEASE_NOTES
+    if not path.is_file():
+        raise ReleaseError("release notes are missing from the release payload")
+    text = path.read_text(encoding="utf-8").rstrip()
+    heading = f"## v{version}"
+    if heading not in text:
         write_text(path, text + addition + "\n")
 
 
@@ -169,7 +191,7 @@ def create_release_assets(
         manifest = _extract_verified_archive(output_directory, payload)
         _copy_verified_family_outputs(repository, payload)
         _add_offline_navigation(payload)
-        _write_v1_12_0_release_notes(payload, version)
+        _write_release_notes(payload, version)
 
         archive = manifest["archive"]
         assert isinstance(archive, dict)
