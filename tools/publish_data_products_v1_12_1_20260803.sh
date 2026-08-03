@@ -89,7 +89,7 @@ diff -q "${RUNNER_TEMP}/release-a/SHA256SUMS" "${RUNNER_TEMP}/public/SHA256SUMS"
 python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/public" --verify
 
 export RELEASE_ID
-export PUBLICATION_PR="${PUBLICATION_PR:-499}"
+export PUBLICATION_PR="${PUBLICATION_PR:-500}"
 export PUBLICATION_RUN_ID="${GITHUB_RUN_ID}"
 python tools/record_data_products_v1_12_1_publication_20260803.py
 python tools/dkb.py project-state --apply
@@ -140,6 +140,7 @@ rm -f project/packages/data-products-v1.12.1-publication-trigger-20260803.md
 rm -f project/packages/data-products-v1.12.1-quality-publisher-bridge-20260803.md
 rm -f project/packages/data-products-v1.12.1-quality-retrigger-20260803.md
 rm -f project/packages/data-products-v1.12.1-push-bridge-20260803.md
+rm -f project/packages/data-products-v1.12.1-push-trigger-20260803.md
 
 git config user.name 'github-actions[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
