@@ -50,7 +50,7 @@ jobs:
               'import portfolio_model_family_summary as summary_cli  # noqa: E402\n'
           )
           import_line = (
-              'from version_matrix_checks import '
+              'from tests.version_matrix_checks import '
               'run_version_matrix_checks  # noqa: E402\n'
           )
           if import_line not in text:
