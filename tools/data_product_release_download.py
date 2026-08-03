@@ -58,6 +58,7 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         "comparison_bundle_manifest": "Bundle manifest",
         "cross_model_html": "Cross-model navigation",
         "model_family_summary_html": "Model family summary",
+        "model_family_comparison_matrix_html": "Family comparison matrix",
         "release_notes": "Release notes",
     }
     keys = [
@@ -70,6 +71,8 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         keys.append("cross_model_html")
     if "model_family_summary_html" in raw_entry_points:
         keys.append("model_family_summary_html")
+    if "model_family_comparison_matrix_html" in raw_entry_points:
+        keys.append("model_family_comparison_matrix_html")
     keys.append("release_notes")
     for key in keys:
         print(
