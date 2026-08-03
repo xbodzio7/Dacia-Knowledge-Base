@@ -46,11 +46,18 @@ jobs:
 
           path = Path('tests/test_portfolio_model_family_summary.py')
           text = path.read_text(encoding='utf-8')
+          path_marker = 'sys.path.insert(0, str(REPOSITORY / "tools"))\n'
+          tests_path = 'sys.path.insert(0, str(REPOSITORY / "tests"))\n'
+          if tests_path not in text:
+              if path_marker not in text:
+                  raise SystemExit('family-product sys.path marker not found')
+              text = text.replace(path_marker, path_marker + tests_path, 1)
+
           import_marker = (
               'import portfolio_model_family_summary as summary_cli  # noqa: E402\n'
           )
           import_line = (
-              'from tests.version_matrix_checks import '
+              'from version_matrix_checks import '
               'run_version_matrix_checks  # noqa: E402\n'
           )
           if import_line not in text:
