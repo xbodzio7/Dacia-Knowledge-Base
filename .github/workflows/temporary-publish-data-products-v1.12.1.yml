@@ -1,7 +1,9 @@
 name: Temporary Publish Data Products v1.12.1
 
 on:
-  push:
+  pull_request_target:
+    types:
+      - closed
     branches:
       - main
     paths:
@@ -16,6 +18,7 @@ concurrency:
 
 jobs:
   publish:
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Check out exact publication commit
@@ -152,7 +155,7 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
         run: |
           export RELEASE_ID="$(cat "${RELEASE_ID_FILE}")"
-          export PUBLICATION_PR="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls" --jq '.[0].number')"
+          export PUBLICATION_PR="${{ github.event.pull_request.number }}"
           export PUBLICATION_RUN_ID="${GITHUB_RUN_ID}"
           python tools/record_data_products_v1_12_1_publication_20260803.py
           python tools/dkb.py project-state --apply
