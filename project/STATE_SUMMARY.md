@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.12.1 Publication**
+**Post-v1.12.1 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.12.1 Publication** — `complete`
+**Post-v1.12.1 Release Priority Selection Review** — `complete`
 
-Publish immutable data-products-v1.12.1 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
+Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Next package
 
-**Post-v1.12.1 Release Priority Selection Review** — `planned`
+**Portfolio Model Family Comparison Matrix** — `planned`
 
-Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Create deterministic JSON, CSV and standalone HTML comparison outputs for the six current model families by projecting only verified family-summary fields, without new configuration pairs, ranking, recommendations or inferred values.
 
 ## Autonomy
 
