@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.14.0 Release Priority Selection Review",
+  "phase": "Data Products v1.14.1 Interface Correction",
   "reference_delivery": {
     "name": "Data Products v1.14.0 Publication",
     "pull_request": 518,
@@ -27,23 +27,28 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_14_0_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.14.0 Release Priority Selection Review",
+    "package_id": "data_products_v1_14_1_interface_correction_001",
+    "kind": "corrective_release_preparation",
+    "name": "Data Products v1.14.1 Interface Correction",
     "status": "complete",
-    "goal": "Inspect canonical product, source and roadmap evidence after v1.14.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "goal": "Make the versioned release builder use the canonical enhanced shortlist pipeline so every agreed interface repair is present in the published archive without changing source-backed data or comparison semantics.",
     "manifest_paths": [
-      "project/packages/post-v1.14.0-release-priority-selection-review-20260803.md",
+      "CHANGELOG.md",
+      "tools/configuration_shortlist.py",
+      "tools/reporting/data_product_release.py",
+      "tools/reporting/portfolio_model_version_comparison_release_integration.py",
+      "tests/test_data_product_release.py",
+      "project/packages/data-products-v1.14.1-interface-correction-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_source_coverage_matrix_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Source Coverage Matrix",
+    "package_id": "data_products_v1_14_1_publication_001",
+    "kind": "release_publication",
+    "name": "Data Products v1.14.1 Publication",
     "status": "planned",
-    "goal": "Create deterministic JSON, CSV and standalone HTML outputs for all 33 provenance sources by projecting only exact registered source metadata and the 251 explicit source-to-configuration relationships, without quality scoring, ranking, recommendations or inferred values.",
+    "goal": "Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.",
     "manifest_paths": []
   },
   "autonomy": {

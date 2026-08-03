@@ -509,6 +509,17 @@ def _apply_reviewed_gap_states(
     }
 
 
+def collect_enhanced_browser_catalog(
+    repository: Path,
+    criteria: ShortlistCriteria,
+) -> dict[str, Any]:
+    """Build the canonical interactive catalog used by CLI and releases."""
+    catalog = collect_browser_catalog(repository, criteria)
+    _apply_supplemental_model_media(catalog, repository)
+    _apply_reviewed_gap_states(catalog, repository)
+    return catalog
+
+
 def render_html(catalog: Mapping[str, Any]) -> str:
     """Render the shortlist with usable sticky comparison navigation."""
     rendered = render_selection_html(catalog)
@@ -717,12 +728,10 @@ def main(
             write_atomic(arguments.csv, render_csv(report))
             print(f"CSV configuration shortlist written to {arguments.csv}")
         if arguments.html is not None:
-            catalog = collect_browser_catalog(
+            catalog = collect_enhanced_browser_catalog(
                 selected_repository,
                 criteria,
             )
-            _apply_supplemental_model_media(catalog, selected_repository)
-            _apply_reviewed_gap_states(catalog, selected_repository)
             write_atomic(arguments.html, render_html(catalog))
             print(
                 "Interactive HTML configuration shortlist written to "

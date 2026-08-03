@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Corrected the versioned release builder to use the same enhanced interactive-shortlist pipeline as the CLI, restoring the Spring image, reviewed commercial and technical states, non-overlapping comparison navigation, collapsible parameter groups and session persistence while retaining the dark theme, grouped versions and two-axis sticky grid.
+
 * Integrated the verified portfolio model-family JSON, Markdown and HTML summary into deterministic versioned data-product archives and offline navigation without changing source data or comparison semantics.
 
 * Added deterministic JSON, Markdown and standalone HTML portfolio model-family summaries for all 81 active configurations across six canonical families, preserving 22 independent reporting scopes, 251 explicit source relationships and exact source hashes without cross-scope pairs, rankings, recommendations or inferred values.
