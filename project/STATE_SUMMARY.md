@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.12.0 Publication**
+**Post-v1.12.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.12.0 Publication** — `complete`
+**Post-v1.12.0 Release Priority Selection Review** — `complete`
 
-Publish immutable data-products-v1.12.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline verification.
+Inspect the immutable v1.12.0 publication and current consumer path and select one bounded next package without reopening closed evidence or changing product semantics.
 
 ## Next package
 
-**Post-v1.12.0 Release Priority Selection Review** — `planned`
+**Portfolio Model Family Workspace Entry Point** — `planned`
 
-Inspect canonical product, source and roadmap evidence after immutable v1.12.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.
 
 ## Autonomy
 

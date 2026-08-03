@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.12.0 Publication",
+  "phase": "Post-v1.12.0 Release Priority Selection Review",
   "reference_delivery": {
     "name": "Data Products v1.12.0 Publication",
     "pull_request": 483,
@@ -27,25 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_12_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.12.0 Publication",
-    "status": "complete",
-    "goal": "Publish immutable data-products-v1.12.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline verification.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_12_0_publication.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.12.0-publication-20260803.md",
-      "project/state.json",
-      "tools/reporting/portfolio_model_family_release_integration.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_12_0_release_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.12.0 Release Priority Selection Review",
+    "status": "complete",
+    "goal": "Inspect the immutable v1.12.0 publication and current consumer path and select one bounded next package without reopening closed evidence or changing product semantics.",
+    "manifest_paths": [
+      "data/reporting/post_v1_12_0_release_priority_selection_review.json",
+      "data/reporting/post_v1_12_0_release_priority_selection_review.md",
+      "project/packages/post-v1.12.0-release-priority-selection-review-20260803.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_model_family_workspace_entry_point_001",
+    "kind": "reporting_consumer_integration",
+    "name": "Portfolio Model Family Workspace Entry Point",
     "status": "planned",
-    "goal": "Inspect canonical product, source and roadmap evidence after immutable v1.12.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "goal": "Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.",
     "manifest_paths": []
   },
   "autonomy": {
