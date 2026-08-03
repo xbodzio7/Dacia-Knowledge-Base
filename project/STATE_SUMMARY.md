@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.13.0 Release Preparation**
+**Data Products v1.13.0 Publication**
 
 ## Reference delivery
 
-- Package: Portfolio Model Family Comparison Matrix Release Integration
-- Pull Request: #509
-- Verified head: `c96529dd546d82f06d800e44946abc21b6160488`
-- Quality run: #30850521900
+- Package: Data Products v1.13.0 Publication
+- Pull Request: #512
+- Verified head: `0e7a8b4106bc830d39a257e5ef18fb2adcd44d0d`
+- Quality run: #30851857544
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.13.0 Release Preparation** — `complete`
+**Data Products v1.13.0 Publication** — `complete`
 
-Prepare an immutable minor release from the verified family-matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.13.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
 
 ## Next package
 
-**Data Products v1.13.0 Publication** — `planned`
+**Post-v1.13.0 Release Priority Selection Review** — `planned`
 
-Publish immutable data-products-v1.13.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
+Inspect canonical product, source and roadmap evidence after v1.13.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Autonomy
 
