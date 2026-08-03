@@ -1,6 +1,9 @@
 name: Versioned Data Product Release
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths-ignore:
       - project/state.json
@@ -12,20 +15,13 @@ on:
         description: Semantic data-product version MAJOR.MINOR.PATCH
         required: true
         type: string
-  workflow_run:
-    workflows:
-      - Quality
-    types:
-      - completed
-    branches:
-      - main
 
 permissions:
   contents: read
 
 jobs:
   build-and-verify:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     env:
       RELEASE_VERSION: ${{ github.event.inputs.version || '0.0.0' }}
@@ -178,15 +174,18 @@ jobs:
 
   # BEGIN TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER
   publish-data-products-v1-12-1:
-    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, 'release: publish Data Products v1.12.1 via registered push bridge')
+    concurrency:
+      group: publish-data-products-v1-12-1
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Check out exact Quality head commit
+      - name: Check out exact publication commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: true
       - name: Set up Python
@@ -196,6 +195,6 @@ jobs:
       - name: Publish and record Data Products v1.12.1
         env:
           GH_TOKEN: ${{ github.token }}
-          PUBLICATION_SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          PUBLICATION_SOURCE_SHA: ${{ github.sha }}
         run: bash tools/publish_data_products_v1_12_1_20260803.sh
   # END TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER
