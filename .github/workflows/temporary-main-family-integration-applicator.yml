@@ -40,10 +40,8 @@ jobs:
           for line in raw.splitlines():
               if line.startswith('          '):
                   lines.append(line[10:])
-              elif not line:
-                  lines.append('')
               else:
-                  raise SystemExit(f'unexpected applicator indentation: {line!r}')
+                  lines.append(line)
           Path('/tmp/apply-family-integration.sh').write_text(
               '\n'.join(lines) + '\n',
               encoding='utf-8',
