@@ -1,0 +1,42 @@
+name: Data Products v1.13.0 Visible PR Publisher
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+
+jobs:
+  publish-data-products-v1-13-0:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'agent/data-products-v1-13-0-visible-trigger-001' &&
+      github.event.pull_request.base.sha == '0e7a8b4106bc830d39a257e5ef18fb2adcd44d0d'
+    concurrency:
+      group: publish-data-products-v1-13-0
+      cancel-in-progress: false
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out exact publication source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+      - name: Publish and record Data Products v1.13.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLICATION_SOURCE_SHA: ${{ github.event.pull_request.base.sha }}
+          PUBLICATION_PR: ${{ github.event.pull_request.number }}
+        run: bash tools/publish_data_products_v1_13_0_20260803.sh
