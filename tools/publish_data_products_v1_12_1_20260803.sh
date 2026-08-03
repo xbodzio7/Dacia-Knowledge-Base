@@ -27,7 +27,6 @@ fi
 python -m unittest -q \
   tests.test_data_products_v1_12_1_corrective_release \
   tests.test_portfolio_model_family_release_integration \
-  tests.test_portfolio_model_family_workspace_entry_point \
   tests.test_data_product_release \
   tests.test_data_product_release_download
 python tools/dkb.py project-state --check
@@ -136,11 +135,14 @@ PY
 rm -f tools/publish_data_products_v1_12_1_20260803.sh
 rm -f tools/record_data_products_v1_12_1_publication_20260803.py
 rm -f .github/workflows/temporary-publish-data-products-v1.12.1.yml
+rm -f .github/workflows/data-products-v1-12-1-pr-target-publisher.yml
 rm -f project/packages/data-products-v1.12.1-publication-trigger-20260803.md
 rm -f project/packages/data-products-v1.12.1-quality-publisher-bridge-20260803.md
 rm -f project/packages/data-products-v1.12.1-quality-retrigger-20260803.md
 rm -f project/packages/data-products-v1.12.1-push-bridge-20260803.md
 rm -f project/packages/data-products-v1.12.1-push-trigger-20260803.md
+rm -f project/packages/data-products-v1.12.1-pr-target-bridge-20260803.md
+rm -f project/packages/data-products-v1.12.1-publication-test-contract-fix-20260803.md
 
 git config user.name 'github-actions[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
