@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Portfolio Model Family Workspace Entry Point",
+  "phase": "Post-Workspace Entry Point Priority Selection Review",
   "reference_delivery": {
-    "name": "Post-v1.12.0 Release Priority Selection Review",
-    "pull_request": 485,
-    "head_sha": "d46b3289f989f036408d1935e22df7e4db396d65",
-    "quality_run": 30791378261
+    "name": "Portfolio Model Family Workspace Entry Point",
+    "pull_request": 486,
+    "head_sha": "891be9ed87ee55da33ee8d5cff3be39070289181",
+    "quality_run": 30792474802
   },
   "baseline": {
     "tests": 1859,
@@ -27,28 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "portfolio_model_family_workspace_entry_point_001",
-    "kind": "reporting_consumer_integration",
-    "name": "Portfolio Model Family Workspace Entry Point",
+    "package_id": "post_workspace_entry_point_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-Workspace Entry Point Priority Selection Review",
     "status": "complete",
-    "goal": "Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.",
+    "goal": "Review canonical evidence after direct family workspace integration and select one bounded next package.",
     "manifest_paths": [
-      "tools/reporting/data_product_release_download.py",
-      "tools/reporting/data_product_release_download_base.py",
-      "tools/reporting/data_product_workspace_index.py",
-      "tools/reporting/data_product_workspace_index_base.py",
-      "tools/data_product_release_download.py",
-      "project/packages/portfolio-model-family-workspace-entry-point-20260803.md",
+      "project/packages/post-workspace-entry-point-priority-selection-review-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_workspace_entry_point_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-Workspace Entry Point Priority Selection Review",
+    "package_id": "data_products_v1_12_1_corrective_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.12.1 Corrective Release Preparation",
     "status": "planned",
-    "goal": "Review canonical source, product and roadmap evidence after direct family workspace integration and select one bounded next package without inferring unsupported work.",
+    "goal": "Prepare an immutable patch release from the verified main state so the published workspace includes the previously agreed direct model-family entry point and dedicated card, without changing source data or report semantics.",
     "manifest_paths": []
   },
   "autonomy": {
