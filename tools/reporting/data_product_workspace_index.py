@@ -53,18 +53,13 @@ def _release_members(manifest: dict[str, Any] | Any) -> set[str]:
     }
 
 
-def write_workspace_index(
+def _with_model_family_card(
+    content: str,
     workspace_root: Path,
     release_manifest: Any,
-    release_metadata: Any,
-) -> Path:
-    index_path = _base.write_workspace_index(
-        workspace_root,
-        release_manifest,
-        release_metadata,
-    )
+) -> str:
     if MODEL_FAMILY_HTML_MEMBER not in _release_members(release_manifest):
-        return index_path
+        return content
 
     family_path = workspace_root / "contents" / MODEL_FAMILY_HTML_MEMBER
     if not family_path.is_file():
@@ -72,13 +67,12 @@ def write_workspace_index(
             "portfolio model-family summary HTML is missing from verified contents"
         )
 
-    text = index_path.read_text(encoding="utf-8")
     marker = "</main>"
-    if marker not in text:
+    if marker not in content:
         raise WorkspaceIndexError("workspace index has no main closing marker")
     href = "contents/model-families/portfolio_model_family_summary.html"
-    if href in text:
-        return index_path
+    if href in content:
+        return content
     card = (
         '<section aria-labelledby="model-family-summary-heading">'
         '<h2 id="model-family-summary-heading">Model family summary</h2>'
@@ -88,5 +82,36 @@ def write_workspace_index(
         '<span>Review each model family with exact scopes, configurations and '
         'source provenance.</span></a></div></section>'
     )
-    index_path.write_text(text.replace(marker, card + marker, 1), encoding="utf-8")
+    return content.replace(marker, card + marker, 1)
+
+
+def render_workspace_index(
+    workspace_root: Path,
+    release_manifest: Any,
+    release_metadata: Any,
+) -> str:
+    content = _base.render_workspace_index(
+        workspace_root,
+        release_manifest,
+        release_metadata,
+    )
+    return _with_model_family_card(
+        content,
+        workspace_root,
+        release_manifest,
+    )
+
+
+def write_workspace_index(
+    workspace_root: Path,
+    release_manifest: Any,
+    release_metadata: Any,
+) -> Path:
+    content = render_workspace_index(
+        workspace_root,
+        release_manifest,
+        release_metadata,
+    )
+    index_path = workspace_root / INDEX_NAME
+    index_path.write_text(content, encoding="utf-8", newline="")
     return index_path
