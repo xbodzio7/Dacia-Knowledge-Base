@@ -28,7 +28,8 @@ The matrix contains one row per canonical family and preserves only fields alrea
 - 33 provenance sources;
 - 251 source-to-configuration relationships;
 - 0 configurations without provenance;
-- Duster and Bigster seat values remain `not_stated`.
+- Duster and Bigster seat values remain `not_stated`;
+- the canonical repository baseline remains 1862 tests because matrix assertions extend the existing family-product suite.
 
 ## Formats
 
@@ -43,7 +44,7 @@ The product creates no configuration pair or cross-scope pair, performs no ranki
 ## Verification
 
 ```bash
-python -m unittest -q tests.test_portfolio_model_family_comparison_matrix
+python -m unittest -q tests.test_portfolio_model_family_summary
 python tools/portfolio_model_family_comparison_matrix.py \
   --json data/reporting/portfolio_model_family_comparison_matrix.json \
   --csv data/reporting/portfolio_model_family_comparison_matrix.csv \
