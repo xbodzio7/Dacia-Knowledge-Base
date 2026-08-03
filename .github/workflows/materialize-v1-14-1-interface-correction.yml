@@ -1,0 +1,175 @@
+name: Materialize v1.14.1 interface correction
+
+on:
+  push:
+    branches:
+      - agent/data-products-v1-14-1-interface-correction-001
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: agent/data-products-v1-14-1-interface-correction-001
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Apply bounded interface correction
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              file = root / path
+              text = file.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one replacement target, found {count}')
+              file.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          shortlist = root / 'tools/configuration_shortlist.py'
+          shortlist_text = shortlist.read_text(encoding='utf-8')
+          helper_marker = '\n\ndef render_html(catalog: Mapping[str, Any]) -> str:\n'
+          helper = '''\n\ndef collect_enhanced_browser_catalog(\n    repository: Path,\n    criteria: ShortlistCriteria,\n) -> dict[str, Any]:\n    \"\"\"Build the canonical interactive catalog used by CLI and releases.\"\"\"\n    catalog = collect_browser_catalog(repository, criteria)\n    _apply_supplemental_model_media(catalog, repository)\n    _apply_reviewed_gap_states(catalog, repository)\n    return catalog\n\n\ndef render_html(catalog: Mapping[str, Any]) -> str:\n'''
+          if 'def collect_enhanced_browser_catalog(' not in shortlist_text:
+              if shortlist_text.count(helper_marker) != 1:
+                  raise SystemExit('configuration_shortlist.py: render marker differs')
+              shortlist_text = shortlist_text.replace(helper_marker, helper, 1)
+          old_main = '''            catalog = collect_browser_catalog(\n                selected_repository,\n                criteria,\n            )\n            _apply_supplemental_model_media(catalog, selected_repository)\n            _apply_reviewed_gap_states(catalog, selected_repository)\n'''
+          new_main = '''            catalog = collect_enhanced_browser_catalog(\n                selected_repository,\n                criteria,\n            )\n'''
+          if old_main in shortlist_text:
+              shortlist_text = shortlist_text.replace(old_main, new_main, 1)
+          elif new_main not in shortlist_text:
+              raise SystemExit('configuration_shortlist.py: HTML catalog block differs')
+          shortlist.write_text(shortlist_text, encoding='utf-8')
+
+          release_path = root / 'tools/reporting/data_product_release.py'
+          release_text = release_path.read_text(encoding='utf-8')
+          import_anchor = 'from typing import Any, Mapping\n\n'
+          enhanced_import = '''from typing import Any, Mapping\n\nfrom configuration_shortlist import (\n    collect_enhanced_browser_catalog,\n    render_html,\n)\n\n'''
+          if 'from configuration_shortlist import (' not in release_text:
+              if release_text.count(import_anchor) != 1:
+                  raise SystemExit('data_product_release.py: import anchor differs')
+              release_text = release_text.replace(import_anchor, enhanced_import, 1)
+          release_text = release_text.replace(
+              'from reporting.configuration_shortlist_html import collect_browser_catalog\n',
+              '',
+          )
+          release_text = release_text.replace(
+              'from reporting.configuration_shortlist_selection_html import render_html\n',
+              '',
+          )
+          old_collect = '    catalog = collect_browser_catalog(repository, criteria)\n'
+          new_collect = '    catalog = collect_enhanced_browser_catalog(repository, criteria)\n'
+          if old_collect in release_text:
+              release_text = release_text.replace(old_collect, new_collect, 1)
+          elif new_collect not in release_text:
+              raise SystemExit('data_product_release.py: catalog call differs')
+          release_path.write_text(release_text, encoding='utf-8')
+
+          test_path = root / 'tests/test_data_product_release.py'
+          test_text = test_path.read_text(encoding='utf-8')
+          assertion_anchor = '        self.assertIn("vehicle-photo-fallback", html)\n'
+          assertions = '''        self.assertIn("vehicle-photo-fallback", html)\n        for marker in (\n            ":root{color-scheme:dark;",\n            "versionGroupsForModels",\n            "--parameter-column:280px",\n            "dkb-comparison-collapsed-groups-v1",\n            "Ukryj wszystkie grupy",\n            "Pokaż wszystkie grupy",\n            ".selection-panel.comparison-is-open",\n            "reviewed_gap_materialization",\n            "candidate_amount_pln",\n            "niepodane w dokładnym źródle",\n            "grade_carrousel_1.png",\n        ):\n            with self.subTest(marker=marker):\n                self.assertIn(marker, html)\n'''
+          if 'dkb-comparison-collapsed-groups-v1' not in test_text:
+              if test_text.count(assertion_anchor) != 1:
+                  raise SystemExit('test_data_product_release.py: assertion anchor differs')
+              test_text = test_text.replace(assertion_anchor, assertions, 1)
+          test_path.write_text(test_text, encoding='utf-8')
+
+          integration_path = root / 'tools/reporting/portfolio_model_version_comparison_release_integration.py'
+          integration_text = integration_path.read_text(encoding='utf-8')
+          notes_marker = '\n\ndef create_release_assets(\n'
+          notes_function = '''\n\ndef _write_v1_14_1_release_notes(payload: Path, version: str) -> None:\n    if version != "1.14.1":\n        return\n    path = payload / RELEASE_NOTES\n    if not path.is_file():\n        raise ReleaseError("release notes are missing from the release payload")\n    text = path.read_text(encoding="utf-8").rstrip()\n    addition = """\n\n## v1.14.1 corrected interactive shortlist package\n\nThis patch release corrects the release assembly path so the archived interactive\nshortlist is generated by the same canonical interface pipeline as the direct\n`configuration-shortlist --html` command.\n\nThe package now includes the official Spring model image with the verified local\nfallback, reviewed commercial-price and technical-gap states, non-overlapping\ncomparison navigation, per-group and global parameter-group controls, and\nsession-scoped collapse persistence. The already present forced dark theme,\ngrouped commercial grade choices with exact version codes, deterministic column\nwidths and two-axis sticky comparison grid remain unchanged.\n\nNo source data, master data, configuration identity, reporting scope, comparison\npair, ranking, recommendation or inferred value changes. Public\n`data-products-v1.14.0` remains immutable.\n"""\n    heading = "## v1.14.1 corrected interactive shortlist package"\n    if heading not in text:\n        write_text(path, text + addition + "\\n")\n\n\ndef create_release_assets(\n'''
+          if 'def _write_v1_14_1_release_notes(' not in integration_text:
+              if integration_text.count(notes_marker) != 1:
+                  raise SystemExit('version integration: create marker differs')
+              integration_text = integration_text.replace(notes_marker, notes_function, 1)
+          call_anchor = '        _write_v1_14_0_release_notes(payload, version)\n'
+          call_replacement = '''        _write_v1_14_0_release_notes(payload, version)\n        _write_v1_14_1_release_notes(payload, version)\n'''
+          if '_write_v1_14_1_release_notes(payload, version)' not in integration_text:
+              if integration_text.count(call_anchor) != 1:
+                  raise SystemExit('version integration: notes call differs')
+              integration_text = integration_text.replace(call_anchor, call_replacement, 1)
+          integration_path.write_text(integration_text, encoding='utf-8')
+
+          changelog_path = root / 'CHANGELOG.md'
+          changelog = changelog_path.read_text(encoding='utf-8')
+          bullet = ('* Corrected the versioned release builder to use the same enhanced '
+                    'interactive-shortlist pipeline as the CLI, restoring the Spring image, '
+                    'reviewed commercial and technical states, non-overlapping comparison '
+                    'navigation, collapsible parameter groups and session persistence while '
+                    'retaining the dark theme, grouped versions and two-axis sticky grid.\n\n')
+          if bullet.strip() not in changelog:
+              anchor = '### Added\n\n'
+              if changelog.count(anchor) != 1:
+                  raise SystemExit('CHANGELOG.md: Added anchor differs')
+              changelog = changelog.replace(anchor, anchor + bullet, 1)
+          changelog_path.write_text(changelog, encoding='utf-8')
+
+          package_path = root / 'project/packages/data-products-v1.14.1-interface-correction-20260803.md'
+          package_path.write_text('''# Data Products v1.14.1 Interface Correction\n\nDate: 2026-08-03\n\nPackage ID: `data_products_v1_14_1_interface_correction_001`\n\nStatus: **complete**\n\n## Audit of v1.14.0\n\nThe v1.14.0 source tree contained the forced dark theme, grouped commercial grade choices with exact version codes, deterministic comparison-column widths and the two-axis sticky comparison grid.\n\nThe versioned release builder nevertheless bypassed the enhanced shortlist pipeline and called the lower-level selection renderer directly. Therefore the published ZIP omitted:\n\n- the official Spring model-image supplement;\n- reviewed commercial-price and technical-gap materialization;\n- the comparison-open rule that prevents the sticky selection panel from covering table headers;\n- per-group collapse controls;\n- global **Ukryj wszystkie grupy** and **Pokaż wszystkie grupy** controls;\n- session-scoped persistence of collapsed groups.\n\n## Correction\n\nThe CLI and versioned release builder now call one canonical `collect_enhanced_browser_catalog` function and the same enhanced HTML renderer. This removes the divergent build path rather than duplicating the missing features.\n\nThe release regression test opens the generated ZIP and requires all agreed interface markers, the Spring media URL and reviewed gap/price state payload.\n\n## Release\n\nPublish the correction as immutable patch release `data-products-v1.14.1`; do not rewrite `data-products-v1.14.0`. The release must retain exact-source double-build identity, offline workspace verification and public-download byte identity.\n\n## Boundaries\n\nNo source data, master data, configuration identity, reporting scope, comparison pair, ranking, recommendation or inferred value changes.\n''', encoding='utf-8')
+
+          state_path = root / 'project/state.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-08-03'
+          state['phase'] = 'Data Products v1.14.1 Interface Correction'
+          state['current_package'] = {
+              'package_id': 'data_products_v1_14_1_interface_correction_001',
+              'kind': 'corrective_release_preparation',
+              'name': 'Data Products v1.14.1 Interface Correction',
+              'status': 'complete',
+              'goal': 'Make the versioned release builder use the canonical enhanced shortlist pipeline so every agreed interface repair is present in the published archive without changing source-backed data or comparison semantics.',
+              'manifest_paths': [
+                  'CHANGELOG.md',
+                  'tools/configuration_shortlist.py',
+                  'tools/reporting/data_product_release.py',
+                  'tools/reporting/portfolio_model_version_comparison_release_integration.py',
+                  'tests/test_data_product_release.py',
+                  'project/packages/data-products-v1.14.1-interface-correction-20260803.md',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'data_products_v1_14_1_publication_001',
+              'kind': 'release_publication',
+              'name': 'Data Products v1.14.1 Publication',
+              'status': 'planned',
+              'goal': 'Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.',
+              'manifest_paths': [],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --check
+      - name: Run focused release and interface tests
+        run: |
+          python -m unittest -v \
+            tests.test_configuration_shortlist_html \
+            tests.test_configuration_comparison_sticky_offset \
+            tests.test_data_product_release \
+            tests.test_portfolio_model_family_release_integration
+      - name: Remove materializer and commit package
+        run: |
+          rm -f .github/workflows/materialize-v1-14-1-interface-correction.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix(release): include complete shortlist interface in v1.14.1'
+          git push origin HEAD:agent/data-products-v1-14-1-interface-correction-001
