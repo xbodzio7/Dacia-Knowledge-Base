@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.12.0 Release Priority Selection Review",
+  "phase": "Portfolio Model Family Workspace Entry Point",
   "reference_delivery": {
-    "name": "Data Products v1.12.0 Publication",
-    "pull_request": 483,
-    "head_sha": "0e8901fdb42d4bc3e415ce3347117040205fa652",
-    "quality_run": 30791076488
+    "name": "Post-v1.12.0 Release Priority Selection Review",
+    "pull_request": 485,
+    "head_sha": "d46b3289f989f036408d1935e22df7e4db396d65",
+    "quality_run": 30791378261
   },
   "baseline": {
     "tests": 1859,
@@ -27,25 +27,28 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_12_0_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.12.0 Release Priority Selection Review",
+    "package_id": "portfolio_model_family_workspace_entry_point_001",
+    "kind": "reporting_consumer_integration",
+    "name": "Portfolio Model Family Workspace Entry Point",
     "status": "complete",
-    "goal": "Inspect the immutable v1.12.0 publication and current consumer path and select one bounded next package without reopening closed evidence or changing product semantics.",
+    "goal": "Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.",
     "manifest_paths": [
-      "data/reporting/post_v1_12_0_release_priority_selection_review.json",
-      "data/reporting/post_v1_12_0_release_priority_selection_review.md",
-      "project/packages/post-v1.12.0-release-priority-selection-review-20260803.md",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_release_download_base.py",
+      "tools/reporting/data_product_workspace_index.py",
+      "tools/reporting/data_product_workspace_index_base.py",
+      "tools/data_product_release_download.py",
+      "project/packages/portfolio-model-family-workspace-entry-point-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_model_family_workspace_entry_point_001",
-    "kind": "reporting_consumer_integration",
-    "name": "Portfolio Model Family Workspace Entry Point",
+    "package_id": "post_workspace_entry_point_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-Workspace Entry Point Priority Selection Review",
     "status": "planned",
-    "goal": "Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.",
+    "goal": "Review canonical source, product and roadmap evidence after direct family workspace integration and select one bounded next package without inferring unsupported work.",
     "manifest_paths": []
   },
   "autonomy": {
