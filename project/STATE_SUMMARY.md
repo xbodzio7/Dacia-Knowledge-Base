@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Portfolio Model Version Comparison Matrix**
+**Portfolio Model Version Comparison Matrix Release Integration**
 
 ## Reference delivery
 
-- Package: Post-v1.13.0 Release Priority Selection Review
-- Pull Request: #513
-- Verified head: `b7e48433f3d373a7c20ce26c0bfc80e38142c20b`
-- Quality run: #30852248658
+- Package: Portfolio Model Version Comparison Matrix
+- Pull Request: #514
+- Verified head: `7ade764be765921c40f70a3e8ba31960f351a028`
+- Quality run: #30853269148
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Model Version Comparison Matrix** — `complete`
+**Portfolio Model Version Comparison Matrix Release Integration** — `complete`
 
-Create deterministic JSON, CSV and standalone HTML comparison outputs for all 22 active canonical versions by projecting only recorded version-bounded configuration, price, seat, transmission, powertrain, scope and provenance fields without new pairs, ranking, recommendations or inferred values.
+Integrate the verified version comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
 
 ## Next package
 
-**Portfolio Model Version Comparison Matrix Release Integration** — `planned`
+**Data Products v1.14.0 Release Preparation** — `planned`
 
-Integrate the verified version comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
+Prepare an immutable minor release from the verified model-version matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
 
 ## Autonomy
 
