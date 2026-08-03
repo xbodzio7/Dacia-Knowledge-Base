@@ -30,6 +30,7 @@ from reporting.data_product_workspace_verify import verify_workspace  # noqa: E4
 from reporting.portfolio_model_family_comparison_release_integration import (  # noqa: E402
     MATRIX_FILES,
     MATRIX_HTML,
+    RELEASE_NOTES,
     create_release_assets,
 )
 from reporting.portfolio_model_family_release_integration import (  # noqa: E402
@@ -40,7 +41,7 @@ from reporting.portfolio_model_family_release_integration import (  # noqa: E402
 
 class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
     COMMIT = "1" * 40
-    VERSION = "9.9.9"
+    VERSION = "1.13.0"
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -61,6 +62,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
                 for name in cls.names
                 if name.startswith("model-families/")
                 or name == "cross-model/cross-model-comparison-view.html"
+                or name == RELEASE_NOTES
             }
 
     @classmethod
@@ -107,6 +109,14 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             archived = self.contents[f"model-families/{name}"]
             committed = (REPOSITORY / "data" / "reporting" / name).read_bytes()
             self.assertEqual(archived, committed)
+        notes = self.contents[RELEASE_NOTES].decode("utf-8")
+        self.assertEqual(
+            notes.count("## v1.13.0 portfolio model-family comparison matrix"),
+            1,
+        )
+        self.assertIn("model_family_comparison_matrix_html", notes)
+        self.assertIn("Public `data-products-v1.12.1` remains immutable", notes)
+        self.assertIn("built twice from the exact publication merge SHA", notes)
 
     def test_family_json_preserves_scope_and_provenance_boundaries(self) -> None:
         family_payload = json.loads(

@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Portfolio Model Family Comparison Matrix Release Integration**
+**Data Products v1.13.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Portfolio Model Family Comparison Matrix
-- Pull Request: #508
-- Verified head: `620a02fc0b04162b36bc25453c60fdb2fc9da5b7`
-- Quality run: #30849830284
+- Package: Portfolio Model Family Comparison Matrix Release Integration
+- Pull Request: #509
+- Verified head: `c96529dd546d82f06d800e44946abc21b6160488`
+- Quality run: #30850521900
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Model Family Comparison Matrix Release Integration** — `complete`
+**Data Products v1.13.0 Release Preparation** — `complete`
 
-Integrate the verified family comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
+Prepare an immutable minor release from the verified family-matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
 
 ## Next package
 
-**Data Products v1.13.0 Release Preparation** — `planned`
+**Data Products v1.13.0 Publication** — `planned`
 
-Prepare an immutable minor release from the verified family-matrix integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.13.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
 
 ## Autonomy
 
