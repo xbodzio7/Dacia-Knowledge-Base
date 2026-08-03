@@ -31,6 +31,7 @@ MATRIX_HTML = (
     f"{family_release.FAMILY_DIRECTORY}/"
     "portfolio_model_family_comparison_matrix.html"
 )
+RELEASE_NOTES = "RELEASE_NOTES.md"
 
 
 def repository_root() -> Path:
@@ -121,6 +122,43 @@ def _copy_verified_matrix_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError("portfolio family matrix must contain six family rows")
 
 
+def _write_v1_13_0_release_notes(payload: Path, version: str) -> None:
+    if version != "1.13.0":
+        return
+    path = payload / RELEASE_NOTES
+    if not path.is_file():
+        raise ReleaseError("release notes are missing from the release payload")
+    text = path.read_text(encoding="utf-8").rstrip()
+    addition = """
+
+## v1.13.0 portfolio model-family comparison matrix
+
+This minor release adds the verified portfolio model-family comparison matrix in
+JSON, CSV and standalone HTML. It presents all six canonical families and 81
+active configurations side by side using only recorded family-summary fields:
+price ranges, seat states, transmissions, powertrains, reporting-scope coverage
+and explicit source provenance.
+
+The three matrix files and the existing three family-summary files are copied
+byte for byte from committed verified outputs. The downloaded offline workspace
+adds the optional `model_family_comparison_matrix_html` entry point and a
+separate **Model family comparison matrix** card. Older immutable releases remain
+valid when the optional matrix member is absent.
+
+No source data, reporting scopes or comparison semantics change. No new
+configuration pair, cross-scope pair, ranking, recommendation or inferred value
+is introduced. Public `data-products-v1.12.1` remains immutable.
+
+Version 1.13.0 is built twice from the exact publication merge SHA, compared byte
+for byte and verified as a complete offline workspace before publication. The
+three public assets are downloaded and verified again before the publication
+receipt and canonical state transition are accepted.
+"""
+    heading = "## v1.13.0 portfolio model-family comparison matrix"
+    if heading not in text:
+        write_text(path, text + addition + "\n")
+
+
 def create_release_assets(
     repository: Path,
     output_directory: Path,
@@ -139,6 +177,7 @@ def create_release_assets(
     try:
         manifest = _extract_verified_archive(output_directory, payload)
         _copy_verified_matrix_outputs(repository, payload)
+        _write_v1_13_0_release_notes(payload, version)
 
         archive = manifest["archive"]
         assert isinstance(archive, dict)
