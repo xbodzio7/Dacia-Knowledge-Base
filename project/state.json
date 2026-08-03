@@ -15,7 +15,7 @@
     "quality_run": 30848601459
   },
   "baseline": {
-    "tests": 1870,
+    "tests": 1862,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -38,7 +38,7 @@
       "data/reporting/portfolio_model_family_comparison_matrix.json",
       "data/reporting/portfolio_model_family_comparison_matrix.csv",
       "data/reporting/portfolio_model_family_comparison_matrix.html",
-      "tests/test_portfolio_model_family_comparison_matrix.py",
+      "tests/test_portfolio_model_family_summary.py",
       "project/packages/portfolio-model-family-comparison-matrix-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
