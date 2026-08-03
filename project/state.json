@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.14.1 Interface Correction",
+  "phase": "Data Products v1.14.1 Publication",
   "reference_delivery": {
-    "name": "Data Products v1.14.0 Publication",
-    "pull_request": 518,
-    "head_sha": "6b02c97344050eab0900a48570a7239c1ce98d52",
-    "quality_run": 30855060629
+    "name": "Data Products v1.14.1 Interface Correction",
+    "pull_request": 520,
+    "head_sha": "1e87eb9b1f8dd7eed7981a6b60a347f0e3309761",
+    "quality_run": 30856797089
   },
   "baseline": {
     "tests": 1862,
@@ -27,28 +27,24 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_14_1_interface_correction_001",
-    "kind": "corrective_release_preparation",
-    "name": "Data Products v1.14.1 Interface Correction",
+    "package_id": "data_products_v1_14_1_publication_001",
+    "kind": "release_publication",
+    "name": "Data Products v1.14.1 Publication",
     "status": "complete",
-    "goal": "Make the versioned release builder use the canonical enhanced shortlist pipeline so every agreed interface repair is present in the published archive without changing source-backed data or comparison semantics.",
+    "goal": "Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.",
     "manifest_paths": [
       "CHANGELOG.md",
-      "tools/configuration_shortlist.py",
-      "tools/reporting/data_product_release.py",
-      "tools/reporting/portfolio_model_version_comparison_release_integration.py",
-      "tests/test_data_product_release.py",
-      "project/packages/data-products-v1.14.1-interface-correction-20260803.md",
+      "data/reporting/data_products_v1_14_1_publication.json",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_14_1_publication_001",
-    "kind": "release_publication",
-    "name": "Data Products v1.14.1 Publication",
+    "package_id": "portfolio_source_coverage_matrix_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Source Coverage Matrix",
     "status": "planned",
-    "goal": "Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.",
+    "goal": "Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.",
     "manifest_paths": []
   },
   "autonomy": {

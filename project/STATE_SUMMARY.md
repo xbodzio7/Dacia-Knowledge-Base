@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.14.1 Interface Correction**
+**Data Products v1.14.1 Publication**
 
 ## Reference delivery
 
-- Package: Data Products v1.14.0 Publication
-- Pull Request: #518
-- Verified head: `6b02c97344050eab0900a48570a7239c1ce98d52`
-- Quality run: #30855060629
+- Package: Data Products v1.14.1 Interface Correction
+- Pull Request: #520
+- Verified head: `1e87eb9b1f8dd7eed7981a6b60a347f0e3309761`
+- Quality run: #30856797089
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.14.1 Interface Correction** — `complete`
+**Data Products v1.14.1 Publication** — `complete`
 
-Make the versioned release builder use the canonical enhanced shortlist pipeline so every agreed interface repair is present in the published archive without changing source-backed data or comparison semantics.
+Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.
 
 ## Next package
 
-**Data Products v1.14.1 Publication** — `planned`
+**Portfolio Source Coverage Matrix** — `planned`
 
-Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.
+Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.
 
 ## Autonomy
 

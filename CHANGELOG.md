@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Published and independently re-verified immutable `data-products-v1.14.1` from exact main commit `c01315369a9676ceaa0cdf584ef9f03ea0cddc6d`, correcting the archived interactive shortlist pipeline while preserving source data and comparison semantics.
+
 * Corrected the versioned release builder to use the same enhanced interactive-shortlist pipeline as the CLI, restoring the Spring image, reviewed commercial and technical states, non-overlapping comparison navigation, collapsible parameter groups and session persistence while retaining the dark theme, grouped versions and two-axis sticky grid.
 
 * Integrated the verified portfolio model-family JSON, Markdown and HTML summary into deterministic versioned data-product archives and offline navigation without changing source data or comparison semantics.
