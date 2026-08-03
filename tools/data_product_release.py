@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 from typing import Sequence
 
-from reporting.data_product_release import (
+from reporting.portfolio_model_family_release_integration import (
     create_release_assets,
     repository_root,
 )
