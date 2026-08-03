@@ -1,0 +1,108 @@
+name: Temporary Family Workspace Entry Point Applicator
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/portfolio-model-family-workspace-entry-point-001'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: agent/portfolio-model-family-workspace-entry-point-001
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Apply, synchronize and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/apply_portfolio_model_family_workspace_entry_point_20260803.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          state_path = root / 'project/state.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          state['updated_on'] = '2026-08-03'
+          state['phase'] = 'Portfolio Model Family Workspace Entry Point'
+          state['reference_delivery'] = {
+              'name': 'Post-v1.12.0 Release Priority Selection Review',
+              'pull_request': 485,
+              'head_sha': 'd46b3289f989f036408d1935e22df7e4db396d65',
+              'quality_run': 30791378261,
+          }
+          state['baseline']['tests'] = 1863
+          state['current_package'] = {
+              'package_id': 'portfolio_model_family_workspace_entry_point_001',
+              'kind': 'reporting_consumer_integration',
+              'name': 'Portfolio Model Family Workspace Entry Point',
+              'status': 'complete',
+              'goal': 'Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.',
+              'manifest_paths': [
+                  'tools/reporting/data_product_release_download.py',
+                  'tools/reporting/data_product_workspace_index.py',
+                  'tools/data_product_release_download.py',
+                  'tests/test_portfolio_model_family_workspace_entry_point.py',
+                  'project/packages/portfolio-model-family-workspace-entry-point-20260803.md',
+                  'project/state.json',
+                  'project/STATE_SUMMARY.md',
+                  'README.md',
+                  'CHANGELOG.md',
+                  'project/ROADMAP.md',
+                  'project/SESSION_STATE.md',
+              ],
+          }
+          state['next_package'] = {
+              'package_id': 'post_workspace_entry_point_priority_selection_review_001',
+              'kind': 'priority_selection_review',
+              'name': 'Post-Workspace Entry Point Priority Selection Review',
+              'status': 'planned',
+              'goal': 'Review canonical source, product and roadmap evidence after direct family workspace integration and select one bounded next package without inferring unsupported work.',
+              'manifest_paths': [],
+          }
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          package = root / 'project/packages/portfolio-model-family-workspace-entry-point-20260803.md'
+          package.write_text('''# Portfolio Model Family Workspace Entry Point
+
+Date: 2026-08-03
+
+Package ID: `portfolio_model_family_workspace_entry_point_001`
+
+Status: **complete**
+
+## Result
+
+Verified downloads now expose `model_family_summary_html` when the immutable release contains `model-families/portfolio_model_family_summary.html`. The offline workspace renders a dedicated **Model family summary** card linked only after manifest membership and extracted-file verification.
+
+Older immutable releases without the optional family member remain valid and unchanged. The CLI prints the direct family entry point only when present.
+
+## Boundaries
+
+No release archive, source data, reporting scope, comparison pair, ranking, recommendation or inferred value is changed.
+''', encoding='utf-8')
+          changelog = root / 'CHANGELOG.md'
+          text = changelog.read_text(encoding='utf-8')
+          entry = '* Added a direct backward-compatible model-family summary entry point and dedicated verified offline workspace card without changing immutable release contents or comparison semantics.'
+          if entry not in text:
+              text = text.replace('### Added\n', '### Added\n\n' + entry + '\n', 1)
+              changelog.write_text(text, encoding='utf-8')
+          PY
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python -m unittest -q \
+            tests.test_portfolio_model_family_workspace_entry_point \
+            tests.test_data_product_release_download
+          python tools/dkb.py project-state --check
+          rm tools/apply_portfolio_model_family_workspace_entry_point_20260803.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'reporting: add direct model-family workspace entry point'
+          git push origin HEAD:agent/portfolio-model-family-workspace-entry-point-001
