@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.13.0 Publication",
+  "phase": "Post-v1.13.0 Release Priority Selection Review",
   "reference_delivery": {
     "name": "Data Products v1.13.0 Publication",
     "pull_request": 512,
@@ -27,27 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_13_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.13.0 Publication",
-    "status": "complete",
-    "goal": "Publish immutable data-products-v1.13.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_13_0_publication.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.13.0-publication-20260803.md",
-      "project/state.json",
-      "tools/reporting/portfolio_model_family_comparison_release_integration.py",
-      "tools/reporting/data_product_release_download.py",
-      "tools/reporting/data_product_workspace_index.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_13_0_release_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.13.0 Release Priority Selection Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Inspect canonical product, source and roadmap evidence after v1.13.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "manifest_paths": [
+      "project/packages/post-v1.13.0-release-priority-selection-review-20260803.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_model_version_comparison_matrix_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Model Version Comparison Matrix",
+    "status": "planned",
+    "goal": "Create deterministic JSON, CSV and standalone HTML comparison outputs for all 22 active canonical versions by projecting only recorded version-bounded configuration, price, seat, transmission, powertrain, scope and provenance fields without new pairs, ranking, recommendations or inferred values.",
     "manifest_paths": []
   },
   "autonomy": {

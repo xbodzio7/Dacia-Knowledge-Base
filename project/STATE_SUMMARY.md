@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.13.0 Publication**
+**Post-v1.13.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.13.0 Publication** — `complete`
+**Post-v1.13.0 Release Priority Selection Review** — `complete`
 
-Publish immutable data-products-v1.13.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
+Inspect canonical product, source and roadmap evidence after v1.13.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Next package
 
-**Post-v1.13.0 Release Priority Selection Review** — `planned`
+**Portfolio Model Version Comparison Matrix** — `planned`
 
-Inspect canonical product, source and roadmap evidence after v1.13.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Create deterministic JSON, CSV and standalone HTML comparison outputs for all 22 active canonical versions by projecting only recorded version-bounded configuration, price, seat, transmission, powertrain, scope and provenance fields without new pairs, ranking, recommendations or inferred values.
 
 ## Autonomy
 
