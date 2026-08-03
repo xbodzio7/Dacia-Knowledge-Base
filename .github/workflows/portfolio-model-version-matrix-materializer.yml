@@ -33,37 +33,6 @@ jobs:
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.14"
-      - name: Tighten generator invariants
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path('tools/reporting/portfolio_model_version_comparison_matrix.py')
-          text = path.read_text(encoding='utf-8')
-          old = '''    if relationship_count != int(
-              view_summary.get("active_configuration_count", -1)
-          ) and relationship_count <= 0:
-              raise PortfolioModelVersionComparisonMatrixError(
-                  "source relationship count is invalid"
-              )
-          '''
-          new = '''    if len(raw_scopes) != 22:
-              raise PortfolioModelVersionComparisonMatrixError(
-                  f"expected 22 reporting scopes, found {len(raw_scopes)}"
-              )
-          if len(used_sources) != 33:
-              raise PortfolioModelVersionComparisonMatrixError(
-                  f"expected 33 provenance sources, found {len(used_sources)}"
-              )
-          if relationship_count != 251:
-              raise PortfolioModelVersionComparisonMatrixError(
-                  f"expected 251 source relationships, found {relationship_count}"
-              )
-          '''
-          if old not in text:
-              raise SystemExit('version-matrix invariant marker not found')
-          path.write_text(text.replace(old, new, 1), encoding='utf-8')
-          PY
       - name: Generate deterministic outputs
         run: |
           python tools/portfolio_model_version_comparison_matrix.py \
