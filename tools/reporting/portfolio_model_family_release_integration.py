@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import shutil
 import tempfile
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 from zipfile import ZipFile
 
@@ -30,6 +30,7 @@ FAMILY_FILES = (
 )
 CROSS_MODEL_HTML = "cross-model/cross-model-comparison-view.html"
 FAMILY_HTML = f"{FAMILY_DIRECTORY}/portfolio_model_family_summary.html"
+FAMILY_HTML_HREF = "../model-families/portfolio_model_family_summary.html"
 
 
 def repository_root() -> Path:
@@ -69,8 +70,8 @@ def _copy_verified_family_outputs(repository: Path, payload: Path) -> None:
         "model_family_count": 6,
         "active_configuration_count": 81,
         "reporting_scope_count": 22,
-        "source_relationship_count": 251,
-        "configurations_without_source": 0,
+        "source_configuration_relationship_count": 251,
+        "configurations_without_provenance_count": 0,
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
         "recommendations_generated": False,
@@ -93,11 +94,11 @@ def _add_offline_navigation(payload: Path) -> None:
         raise ReleaseError("cross-model HTML has no deterministic navigation marker")
     link = (
         '<nav class="family-summary-link" aria-label="Portfolio model families">'
-        '<a href="../model-families/portfolio_model_family_summary.html">'
+        f'<a href="{FAMILY_HTML_HREF}">'
         "Open the complete model-family summary with exact source provenance"
         "</a></nav>"
     )
-    if FAMILY_HTML not in text:
+    if FAMILY_HTML_HREF not in text:
         text = text.replace(marker, link + marker, 1)
         write_text(path, text)
 
@@ -113,7 +114,7 @@ def _extract_verified_archive(output_directory: Path, payload: Path) -> dict[str
     with ZipFile(archive_path) as source:
         for info in source.infolist():
             name = safe_member_name(info.filename)
-            target = payload.joinpath(*Path(name).parts)
+            target = payload.joinpath(*PurePosixPath(name).parts)
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(source.read(info.filename))
     return manifest
