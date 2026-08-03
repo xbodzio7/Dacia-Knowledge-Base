@@ -52,12 +52,12 @@ class DataProductReleaseContractTests(unittest.TestCase):
         self.assertIn("SHA256SUMS", text)
 
         publisher_path = (
-            REPOSITORY / "tools" / "publish_data_products_v1_13_0_20260803.sh"
+            REPOSITORY / "tools" / "publish_data_products_v1_14_0_20260803.sh"
         )
         recorder_path = (
             REPOSITORY
             / "tools"
-            / "record_data_products_v1_13_0_publication_20260803.py"
+            / "record_data_products_v1_14_0_publication_20260803.py"
         )
         if publisher_path.exists() or recorder_path.exists():
             self.assertTrue(publisher_path.is_file())
@@ -66,9 +66,9 @@ class DataProductReleaseContractTests(unittest.TestCase):
             recorder = recorder_path.read_text(encoding="utf-8")
 
             self.assertIn(
-                "data_products_v1_13_0_publication_001", publisher
+                "data_products_v1_14_0_publication_001", publisher
             )
-            self.assertIn("data-products-v1.13.0", publisher)
+            self.assertIn("data-products-v1.14.0", publisher)
             self.assertIn('actual_sha="$(git rev-parse HEAD)"', publisher)
             self.assertIn("release-a", publisher)
             self.assertIn("release-b", publisher)
@@ -78,24 +78,27 @@ class DataProductReleaseContractTests(unittest.TestCase):
             self.assertIn(
                 "model_family_comparison_matrix_html", publisher
             )
-            self.assertIn("Model family comparison matrix", publisher)
-            self.assertIn("gh release create data-products-v1.13.0", publisher)
-            self.assertIn("gh release download data-products-v1.13.0", publisher)
             self.assertIn(
-                "record_data_products_v1_13_0_publication_20260803.py",
+                "model_version_comparison_matrix_html", publisher
+            )
+            self.assertIn("Model version comparison matrix", publisher)
+            self.assertIn("gh release create data-products-v1.14.0", publisher)
+            self.assertIn("gh release download data-products-v1.14.0", publisher)
+            self.assertIn(
+                "record_data_products_v1_14_0_publication_20260803.py",
                 publisher,
             )
             self.assertIn(
-                "release(data-products): record v1.13.0 publication",
+                "release(data-products): record v1.14.0 publication",
                 publisher,
             )
-            self.assertIn("data_products_v1_13_0_publication", recorder)
+            self.assertIn("data_products_v1_14_0_publication", recorder)
             self.assertIn(
-                "data_products_v1_13_0_publication.json", recorder
+                "data_products_v1_14_0_publication.json", recorder
             )
-            self.assertIn("public_v1_12_1_immutable", recorder)
+            self.assertIn("public_v1_13_0_immutable", recorder)
             self.assertIn(
-                "post_v1_13_0_release_priority_selection_review_001",
+                "post_v1_14_0_release_priority_selection_review_001",
                 recorder,
             )
 
