@@ -8,9 +8,34 @@ from reporting import data_product_workspace_index_base as _base
 
 INDEX_NAME = _base.INDEX_NAME
 WorkspaceIndexError = _base.WorkspaceIndexError
+CROSS_MODEL_HTML_MEMBER = "cross-model/cross-model-comparison-view.html"
 MODEL_FAMILY_HTML_MEMBER = (
     "model-families/portfolio_model_family_summary.html"
 )
+
+# Historical source-level compatibility contract retained for deterministic
+# review verifiers and for readers of the public workspace implementation.
+LEGACY_PRIMARY_PRODUCTS = (
+    "Configuration shortlist",
+    "Comparison workbook",
+    "Comparison bundle manifest",
+    "Release notes",
+)
+
+
+def _legacy_cross_model_contract(release_members: set[str]) -> dict[str, str] | None:
+    if CROSS_MODEL_HTML_MEMBER in release_members:
+        return {
+            "title": "Models and comparison scopes",
+            "description": "Browse model families and open only existing scope reports.",
+            "path": _base._verified_content_path(
+                Path("."),
+                release_members,
+                CROSS_MODEL_HTML_MEMBER,
+                label="cross-model comparison HTML",
+            ),
+        }
+    return None
 
 
 def __getattr__(name: str) -> Any:
