@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.12.1 Release Priority Selection Review",
+  "phase": "Portfolio Model Family Comparison Matrix",
   "reference_delivery": {
-    "name": "Data Products v1.12.1 Publication",
-    "pull_request": 506,
-    "head_sha": "6f208ecef49304c2f4bd9c6d46d93074b33aff6f",
-    "quality_run": 30847913458
+    "name": "Post-v1.12.1 Release Priority Selection Review",
+    "pull_request": 507,
+    "head_sha": "eec013194f6f4cc18655cd99176a9b352dd12c3e",
+    "quality_run": 30848601459
   },
   "baseline": {
-    "tests": 1862,
+    "tests": 1870,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,23 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_12_1_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.12.1 Release Priority Selection Review",
+    "package_id": "portfolio_model_family_comparison_matrix_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Model Family Comparison Matrix",
     "status": "complete",
-    "goal": "Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "goal": "Create deterministic JSON, CSV and standalone HTML comparison outputs for the six current model families by projecting only verified family-summary fields, without new configuration pairs, ranking, recommendations or inferred values.",
     "manifest_paths": [
-      "project/packages/post-v1.12.1-release-priority-selection-review-20260803.md",
+      "tools/reporting/portfolio_model_family_comparison_matrix.py",
+      "tools/portfolio_model_family_comparison_matrix.py",
+      "data/reporting/portfolio_model_family_comparison_matrix.json",
+      "data/reporting/portfolio_model_family_comparison_matrix.csv",
+      "data/reporting/portfolio_model_family_comparison_matrix.html",
+      "tests/test_portfolio_model_family_comparison_matrix.py",
+      "project/packages/portfolio-model-family-comparison-matrix-20260803.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_model_family_comparison_matrix_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Model Family Comparison Matrix",
+    "package_id": "portfolio_model_family_comparison_matrix_release_integration_001",
+    "kind": "data_product_release_integration",
+    "name": "Portfolio Model Family Comparison Matrix Release Integration",
     "status": "planned",
-    "goal": "Create deterministic JSON, CSV and standalone HTML comparison outputs for the six current model families by projecting only verified family-summary fields, without new configuration pairs, ranking, recommendations or inferred values.",
+    "goal": "Integrate the verified family comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.",
     "manifest_paths": []
   },
   "autonomy": {
