@@ -1,103 +1,32 @@
 {
   "version": 1,
   "updated_on": "2026-08-03",
-  "repository": {
-    "full_name": "xbodzio7/Dacia-Knowledge-Base",
-    "default_branch": "main",
-    "source_of_truth": "repository",
-    "main_sha_tracking": "dynamic"
-  },
-  "phase": "Portfolio Model Family Summary Release Integration",
-  "reference_delivery": {
-    "name": "Portfolio Model Family Summary",
-    "pull_request": 477,
-    "head_sha": "cbcbb352b3387a01c74994697dd27d0b46e4fc8c",
-    "quality_run": 30773174873
-  },
-  "baseline": {
-    "tests": 1859,
-    "csv_files": 47,
-    "rows": 11770,
-    "configuration_values": 3604,
-    "configuration_import_specs": 139,
-    "configuration_value_ranges": 316,
-    "configuration_range_import_specs": 24,
-    "availability_records": 5911,
-    "attributes": 387,
-    "attribute_categories": 30
-  },
+  "repository": {"full_name": "xbodzio7/Dacia-Knowledge-Base", "default_branch": "main", "source_of_truth": "repository", "main_sha_tracking": "dynamic"},
+  "phase": "Data Products v1.12.0 Accelerated Release Preparation",
+  "reference_delivery": {"name": "Portfolio Model Family Summary Release Integration", "pull_request": 481, "head_sha": "ce99ae039f746c06854fe3aca6bb6995d10bfe27", "quality_run": 30790266581},
+  "baseline": {"tests": 1864, "csv_files": 47, "rows": 11770, "configuration_values": 3604, "configuration_import_specs": 139, "configuration_value_ranges": 316, "configuration_range_import_specs": 24, "availability_records": 5911, "attributes": 387, "attribute_categories": 30},
   "current_package": {
-    "package_id": "portfolio_model_family_summary_release_integration_001",
-    "kind": "reporting_release_integration",
-    "name": "Portfolio Model Family Summary Release Integration",
-    "status": "complete",
-    "goal": "Add the verified model-family JSON, Markdown and HTML summary to the versioned data-product archive, download verification and offline workspace navigation without changing source data or comparison semantics.",
-    "manifest_paths": [
-      "tools/reporting/portfolio_model_family_release_integration.py",
-      "tools/data_product_release.py",
-      "tests/test_portfolio_model_family_release_integration.py",
-      "tools/generate_portfolio_model_family_summary_release_integration_20260803.py",
-      "project/packages/portfolio-model-family-summary-release-integration-20260803.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "README.md",
-      "CHANGELOG.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_12_0_accelerated_release_preparation_001",
     "kind": "accelerated_release_preparation",
     "name": "Data Products v1.12.0 Accelerated Release Preparation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Prepare immutable data-products-v1.12.0 assets containing the verified portfolio model-family summary, prove exact-source double-build byte identity and publish only after complete Quality and post-merge verification.",
+    "manifest_paths": ["tools/reporting/portfolio_model_family_release_integration.py", "tests/test_data_products_v1_12_0_release_contract.py", "project/packages/data-products-v1.12.0-accelerated-release-preparation-20260803.md", "project/state.json", "project/STATE_SUMMARY.md", "README.md", "CHANGELOG.md", "project/ROADMAP.md", "project/SESSION_STATE.md"]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_12_0_publication_001",
+    "kind": "release_publication",
+    "name": "Data Products v1.12.0 Publication",
+    "status": "planned",
+    "goal": "Publish immutable data-products-v1.12.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline verification.",
     "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
-    "allowed_operations": [
-      "create_package_branch",
-      "modify_manifest_paths",
-      "run_tests_and_quality",
-      "create_package_commit",
-      "push_package_branch",
-      "create_and_update_pull_request",
-      "repair_in_scope_ci_failures",
-      "merge_green_pull_request",
-      "update_project_state_and_generated_documentation"
-    ],
-    "stop_conditions": [
-      "missing_source_file_or_local_access",
-      "authentication_mfa_secret_or_new_permission",
-      "ambiguous_source_evidence",
-      "new_domain_or_architecture_decision",
-      "scope_expansion_beyond_current_milestone",
-      "destructive_costly_or_irreversible_operation",
-      "manual_github_policy_block",
-      "conflict_not_resolvable_from_repository_evidence"
-    ],
-    "action_required_fields": [
-      "reason",
-      "required_action",
-      "options_and_consequences",
-      "resume_stage"
-    ]
+    "allowed_operations": ["create_package_branch", "modify_manifest_paths", "run_tests_and_quality", "create_package_commit", "push_package_branch", "create_and_update_pull_request", "repair_in_scope_ci_failures", "merge_green_pull_request", "update_project_state_and_generated_documentation"],
+    "stop_conditions": ["missing_source_file_or_local_access", "authentication_mfa_secret_or_new_permission", "ambiguous_source_evidence", "new_domain_or_architecture_decision", "scope_expansion_beyond_current_milestone", "destructive_costly_or_irreversible_operation", "manual_github_policy_block", "conflict_not_resolvable_from_repository_evidence"],
+    "action_required_fields": ["reason", "required_action", "options_and_consequences", "resume_stage"]
   },
-  "review_policy": {
-    "review_only_pull_requests": "exception_only",
-    "milestone_review_interval_packages": 5,
-    "one_logical_package_per_pull_request": true,
-    "delete_remote_branches_automatically": false
-  },
-  "execution_policy": {
-    "mode": "accelerated_milestone_closure",
-    "focused_tests_during_development": true,
-    "full_quality_on_final_head": true,
-    "batch_mechanical_repairs": true,
-    "open_pr_after_package_stabilization": true,
-    "allow_multi_source_package": "only_for_one_logical_closure_scope",
-    "release_double_build_required": true,
-    "release_exact_source_sha_required": true
-  }
+  "review_policy": {"review_only_pull_requests": "exception_only", "milestone_review_interval_packages": 5, "one_logical_package_per_pull_request": true, "delete_remote_branches_automatically": false},
+  "execution_policy": {"mode": "accelerated_milestone_closure", "focused_tests_during_development": true, "full_quality_on_final_head": true, "batch_mechanical_repairs": true, "open_pr_after_package_stabilization": true, "allow_multi_source_package": "only_for_one_logical_closure_scope", "release_double_build_required": true, "release_exact_source_sha_required": true}
 }
