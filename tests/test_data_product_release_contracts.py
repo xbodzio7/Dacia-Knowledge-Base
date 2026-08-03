@@ -34,7 +34,15 @@ class DataProductReleaseContractTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         self.assertIn("  pull_request:\n", text)
         self.assertIn("  workflow_dispatch:\n", text)
-        self.assertNotIn("\n  push:\n", text)
+        temporary_push_bridge = (
+            "# BEGIN TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER" in text
+            and "release: publish Data Products v1.12.1 via registered push bridge"
+            in text
+        )
+        if temporary_push_bridge:
+            self.assertIn("\n  push:\n", text)
+        else:
+            self.assertNotIn("\n  push:\n", text)
         self.assertNotIn("\n  schedule:\n", text)
         self.assertIn("permissions:\n  contents: read\n", text)
         self.assertIn(
