@@ -12,12 +12,20 @@ on:
         description: Semantic data-product version MAJOR.MINOR.PATCH
         required: true
         type: string
+  workflow_run:
+    workflows:
+      - Quality
+    types:
+      - completed
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
   build-and-verify:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     env:
       RELEASE_VERSION: ${{ github.event.inputs.version || '0.0.0' }}
@@ -167,3 +175,27 @@ jobs:
             --target "${GITHUB_SHA}" \
             --title "Dacia Knowledge Base Data Products v${RELEASE_VERSION}" \
             --notes-file "${RELEASE_DIR}/RELEASE_NOTES.md"
+
+  # BEGIN TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER
+  publish-data-products-v1-12-1:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out exact Quality head commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+      - name: Publish and record Data Products v1.12.1
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLICATION_SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: bash tools/publish_data_products_v1_12_1_20260803.sh
+  # END TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER
