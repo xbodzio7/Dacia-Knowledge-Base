@@ -3,7 +3,8 @@ set -euo pipefail
 
 export GH_TOKEN="${GH_TOKEN:?}"
 export RELEASE_DIR="${RUNNER_TEMP}/release-a"
-export SOURCE_SHA="${GITHUB_SHA}"
+export PUBLICATION_SOURCE_SHA="${PUBLICATION_SOURCE_SHA:-${GITHUB_SHA}}"
+export SOURCE_SHA="${PUBLICATION_SOURCE_SHA}"
 
 python - <<'PY'
 import json
@@ -31,8 +32,8 @@ python -m unittest -q \
   tests.test_data_product_release_download
 python tools/dkb.py project-state --check
 
-python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/release-a" --version 1.12.1 --commit-sha "${GITHUB_SHA}"
-python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/release-b" --version 1.12.1 --commit-sha "${GITHUB_SHA}"
+python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/release-a" --version 1.12.1 --commit-sha "${PUBLICATION_SOURCE_SHA}"
+python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/release-b" --version 1.12.1 --commit-sha "${PUBLICATION_SOURCE_SHA}"
 diff -qr "${RUNNER_TEMP}/release-a" "${RUNNER_TEMP}/release-b"
 python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/release-a" --verify
 
@@ -75,7 +76,7 @@ gh release create data-products-v1.12.1 \
   "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.12.1.zip" \
   "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" \
   "${RUNNER_TEMP}/release-a/SHA256SUMS" \
-  --target "${GITHUB_SHA}" \
+  --target "${PUBLICATION_SOURCE_SHA}" \
   --title 'Dacia Knowledge Base Data Products v1.12.1' \
   --notes-file "${RUNNER_TEMP}/release-notes.md"
 RELEASE_ID="$(gh release view data-products-v1.12.1 --json databaseId -q '.databaseId')"
