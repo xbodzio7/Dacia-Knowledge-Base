@@ -6,79 +6,16 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = ROOT / "project/state.json"
-PACKAGE_PATH = (
-    ROOT
-    / "project/packages/portfolio-model-family-summary-release-integration-20260803.md"
-)
-CHANGELOG_PATH = ROOT / "CHANGELOG.md"
+PACKAGE_PATH = ROOT / "project/packages/portfolio-model-family-summary-release-integration-20260803.md"
 PACKAGE_ID = "portfolio_model_family_summary_release_integration_001"
 NEXT_PACKAGE_ID = "data_products_v1_12_0_accelerated_release_preparation_001"
-CHANGELOG_ENTRY = (
-    "* Integrated the source-preserving portfolio model-family JSON, Markdown and "
-    "standalone HTML summary into every newly built versioned data-product archive, "
-    "verified download entry points and offline workspace navigation while preserving "
-    "all existing scope, ranking and non-inference boundaries."
-)
+BASELINE_TESTS = 1859
 
 
 def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def expected_state() -> dict[str, Any]:
-    state = read_json(STATE_PATH)
-    state["updated_on"] = "2026-08-03"
-    state["phase"] = "Portfolio Model Family Summary Release Integration"
-    state["reference_delivery"] = {
-        "name": "Portfolio Model Family Summary",
-        "pull_request": 477,
-        "head_sha": "cbcbb352b3387a01c74994697dd27d0b46e4fc8c",
-        "quality_run": 30773174873,
-    }
-    state["baseline"]["tests"] = 1860
-    state["current_package"] = {
-        "package_id": PACKAGE_ID,
-        "kind": "reporting_release_integration",
-        "name": "Portfolio Model Family Summary Release Integration",
-        "status": "complete",
-        "goal": (
-            "Add the verified model-family JSON, Markdown and HTML summary to the "
-            "versioned data-product archive, download verification and offline "
-            "workspace navigation without changing source data or comparison semantics."
-        ),
-        "manifest_paths": [
-            "tools/reporting/data_product_release.py",
-            "tools/reporting/data_product_release_download.py",
-            "tools/reporting/data_product_workspace_index.py",
-            "tools/data_product_release_download.py",
-            "tests/test_data_product_release.py",
-            "tests/test_portfolio_model_family_summary_release_integration.py",
-            "tools/generate_portfolio_model_family_summary_release_integration_20260803.py",
-            "project/packages/portfolio-model-family-summary-release-integration-20260803.md",
-            "project/state.json",
-            "project/STATE_SUMMARY.md",
-            "README.md",
-            "CHANGELOG.md",
-            "project/ROADMAP.md",
-            "project/SESSION_STATE.md",
-        ],
-    }
-    state["next_package"] = {
-        "package_id": NEXT_PACKAGE_ID,
-        "kind": "accelerated_release_preparation",
-        "name": "Data Products v1.12.0 Accelerated Release Preparation",
-        "status": "planned",
-        "goal": (
-            "Prepare immutable data-products-v1.12.0 assets containing the verified "
-            "portfolio model-family summary, prove exact-source double-build byte "
-            "identity and publish only after complete Quality and post-merge verification."
-        ),
-        "manifest_paths": [],
-    }
-    return state
 
 
 def package_text() -> str:
@@ -96,144 +33,95 @@ Integrate the verified portfolio model-family summary into every newly generated
 
 ## Integrated release members
 
-- `model-families/portfolio-model-family-summary.json`;
-- `model-families/portfolio-model-family-summary.md`;
-- `model-families/portfolio-model-family-summary.html`.
+- `model-families/portfolio_model_family_summary.json`;
+- `model-families/portfolio_model_family_summary.md`;
+- `model-families/portfolio_model_family_summary.html`.
 
 ## Release contract
 
-A newly built release declares the model-family summary in its manifest, contains all three deterministic members and preserves the existing 81 configurations, 22 reporting scopes and 130 within-scope pairs. The family summary retains 33 unique provenance sources, 251 source-to-configuration relationships and zero configurations without provenance.
+The release CLI first performs the canonical data-product build, verifies it, copies the three committed family-summary outputs byte-for-byte, adds one relative offline link from the existing cross-model page, deterministically rebuilds the archive and rewrites the external manifest and checksums.
+
+The integrated manifest records the product directory and formats. The family JSON contract preserves 81 configurations, six families, 22 reporting scopes, 251 explicit source relationships and zero configurations without provenance.
 
 ## Consumer contract
 
-Verified release download exposes the family HTML as an optional backward-compatible entry point. New workspaces show a dedicated **Model family summary** card. Older immutable releases without this member remain valid and continue to download normally.
+Verified download extracts every manifest member, including all family-summary files. The existing offline workspace links to the cross-model page, which now contains a relative link to the family-summary HTML. Older immutable releases remain valid because verification does not require the new optional manifest fields.
 
 ## Non-inference boundary
 
-The integration does not create cross-scope pairs, rankings, recommendations or inferred values. It does not change master data, source relationships or an already published release.
+The integration creates no cross-scope pairs, rankings, recommendations or inferred values and changes no source or master data.
 
 ## Next package
 
 `data_products_v1_12_0_accelerated_release_preparation_001` prepares the first immutable release containing the integrated family summary.
-
-## Verification
-
-```bash
-python tools/generate_portfolio_model_family_summary_release_integration_20260803.py --verify
-python -m unittest tests.test_portfolio_model_family_summary_release_integration
-python -m unittest tests.test_data_product_release tests.test_data_product_release_download
-python tools/dkb.py project-state --check
-```
 """
 
 
-def update_changelog() -> None:
-    text = CHANGELOG_PATH.read_text(encoding="utf-8")
-    if CHANGELOG_ENTRY in text:
-        return
-    marker = "### Added\n"
-    if marker not in text:
-        raise RuntimeError("CHANGELOG Added section not found")
-    CHANGELOG_PATH.write_text(
-        text.replace(marker, marker + "\n" + CHANGELOG_ENTRY + "\n", 1),
-        encoding="utf-8",
-    )
-
-
 def verify_code_contract() -> None:
-    release = (ROOT / "tools/reporting/data_product_release.py").read_text(
-        encoding="utf-8"
+    module = (ROOT / "tools/reporting/portfolio_model_family_release_integration.py").read_text(encoding="utf-8")
+    cli = (ROOT / "tools/data_product_release.py").read_text(encoding="utf-8")
+    test = (ROOT / "tests/test_portfolio_model_family_release_integration.py").read_text(encoding="utf-8")
+    required_module = (
+        "base_release.create_release_assets",
+        "portfolio_model_family_summary_generated",
+        "write_deterministic_zip",
+        "FAMILY_HTML_HREF",
+        "source_configuration_relationship_count",
+        "configurations_without_provenance_count",
     )
-    download = (
-        ROOT / "tools/reporting/data_product_release_download.py"
-    ).read_text(encoding="utf-8")
-    workspace = (
-        ROOT / "tools/reporting/data_product_workspace_index.py"
-    ).read_text(encoding="utf-8")
-    cli = (ROOT / "tools/data_product_release_download.py").read_text(
-        encoding="utf-8"
-    )
-    release_test = (ROOT / "tests/test_data_product_release.py").read_text(
-        encoding="utf-8"
-    )
-    required_release = (
-        "collect_portfolio_model_family_summary",
-        "render_portfolio_model_family_json",
-        "render_portfolio_model_family_markdown",
-        "render_portfolio_model_family_html",
-        "model-families/portfolio-model-family-summary",
-        '"model_family_summary_generated": True',
-        '"model_family_summary_source_count"',
-        '"model_family_summary_relationship_count"',
-    )
-    for marker in required_release:
-        if marker not in release:
-            raise RuntimeError(f"release integration marker missing: {marker}")
-    if (
-        '"model_family_summary_html": '
-        '"model-families/portfolio-model-family-summary.html"'
-    ) not in download:
-        raise RuntimeError("download entry point is missing")
-    for marker in (
-        "MODEL_FAMILY_HTML_MEMBER",
-        '"title": "Model family summary"',
-    ):
-        if marker not in workspace:
-            raise RuntimeError(f"workspace integration marker missing: {marker}")
-    for marker in (
-        '"model_family_summary_html": "Model family summary"',
-        'keys.append("model_family_summary_html")',
-    ):
-        if marker not in cli:
-            raise RuntimeError(f"download CLI integration marker missing: {marker}")
-    if "self.assertEqual(len(names), 96)" not in release_test:
-        raise RuntimeError("release archive inventory baseline was not updated")
+    for marker in required_module:
+        if marker not in module:
+            raise RuntimeError(f"integration marker missing: {marker}")
+    if "reporting.portfolio_model_family_release_integration" not in cli:
+        raise RuntimeError("release CLI does not use the integration layer")
+    if test.count("    def test_") != 7:
+        raise RuntimeError("release integration test count differs")
 
 
-def apply() -> None:
-    verify_code_contract()
-    PACKAGE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    PACKAGE_PATH.write_text(package_text(), encoding="utf-8")
-    STATE_PATH.write_text(
-        json.dumps(expected_state(), ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    update_changelog()
+def verify_state() -> None:
+    state = read_json(STATE_PATH)
+    if state["phase"] != "Portfolio Model Family Summary Release Integration":
+        raise RuntimeError("project phase differs")
+    if state["baseline"]["tests"] != BASELINE_TESTS:
+        raise RuntimeError("test baseline differs")
+    if state["current_package"]["package_id"] != PACKAGE_ID:
+        raise RuntimeError("current package differs")
+    if state["current_package"]["status"] != "complete":
+        raise RuntimeError("current package is not complete")
+    if state["next_package"]["package_id"] != NEXT_PACKAGE_ID:
+        raise RuntimeError("next package differs")
+    required = {
+        "tools/reporting/portfolio_model_family_release_integration.py",
+        "tools/data_product_release.py",
+        "tests/test_portfolio_model_family_release_integration.py",
+        "tools/generate_portfolio_model_family_summary_release_integration_20260803.py",
+        "project/packages/portfolio-model-family-summary-release-integration-20260803.md",
+        "project/state.json",
+        "project/STATE_SUMMARY.md",
+        "README.md",
+        "CHANGELOG.md",
+        "project/ROADMAP.md",
+        "project/SESSION_STATE.md",
+    }
+    if not required.issubset(set(state["current_package"]["manifest_paths"])):
+        raise RuntimeError("package manifest is incomplete")
 
 
 def verify() -> None:
     verify_code_contract()
-    if not PACKAGE_PATH.exists():
+    verify_state()
+    if not PACKAGE_PATH.is_file():
         raise RuntimeError("package receipt is missing")
     if PACKAGE_PATH.read_text(encoding="utf-8") != package_text():
         raise RuntimeError("package receipt differs")
-    state = read_json(STATE_PATH)
-    expected = expected_state()
-    if state["phase"] != expected["phase"]:
-        raise RuntimeError("project phase differs")
-    if state["baseline"]["tests"] != 1860:
-        raise RuntimeError("test baseline differs")
-    for section in ("current_package", "next_package"):
-        for key in ("package_id", "kind", "name", "status", "goal"):
-            if state[section][key] != expected[section][key]:
-                raise RuntimeError(f"project state differs for {section}.{key}")
-    required_manifest = set(expected["current_package"]["manifest_paths"])
-    if not required_manifest.issubset(
-        set(state["current_package"]["manifest_paths"])
-    ):
-        raise RuntimeError("package manifest is incomplete")
-    if CHANGELOG_ENTRY not in CHANGELOG_PATH.read_text(encoding="utf-8"):
-        raise RuntimeError("CHANGELOG receipt is missing")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    mode = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--apply", action="store_true")
-    mode.add_argument("--verify", action="store_true")
+    parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-    if args.apply:
-        apply()
+    if not args.verify:
+        parser.error("--verify is required")
     verify()
     print("Portfolio model-family release integration: PASS")
     return 0
