@@ -88,7 +88,9 @@ diff -q "${RUNNER_TEMP}/release-a/data-product-release-manifest.json" "${RUNNER_
 diff -q "${RUNNER_TEMP}/release-a/SHA256SUMS" "${RUNNER_TEMP}/public/SHA256SUMS"
 python tools/dkb.py data-product-release --output-directory "${RUNNER_TEMP}/public" --verify
 
-export RELEASE_ID PUBLICATION_PR=497 PUBLICATION_RUN_ID="${GITHUB_RUN_ID}"
+export RELEASE_ID
+export PUBLICATION_PR="${PUBLICATION_PR:-499}"
+export PUBLICATION_RUN_ID="${GITHUB_RUN_ID}"
 python tools/record_data_products_v1_12_1_publication_20260803.py
 python tools/dkb.py project-state --apply
 python tools/dkb.py documentation-baseline --apply
@@ -96,16 +98,48 @@ python tools/dkb.py project-state --check
 
 python - <<'PY'
 from pathlib import Path
-path = Path('.github/workflows/data-product-release.yml')
+
+workflow_path = Path('.github/workflows/data-product-release.yml')
+workflow = workflow_path.read_text(encoding='utf-8')
 marker = '  # BEGIN TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER\n'
-text = path.read_text(encoding='utf-8')
-path.write_text(text.split(marker, 1)[0].rstrip() + '\n', encoding='utf-8')
+workflow = workflow.split(marker, 1)[0].rstrip() + '\n'
+workflow = workflow.replace(
+    'on:\n  push:\n    branches:\n      - main\n  pull_request:\n',
+    'on:\n  pull_request:\n',
+    1,
+)
+workflow = workflow.replace(
+    "  build-and-verify:\n    if: github.event_name != 'push'\n",
+    "  build-and-verify:\n",
+    1,
+)
+workflow_path.write_text(workflow, encoding='utf-8')
+
+test_path = Path('tests/test_data_product_release_contracts.py')
+test = test_path.read_text(encoding='utf-8')
+temporary = '''        temporary_push_bridge = (
+            "# BEGIN TEMPORARY DATA PRODUCTS V1.12.1 PUBLISHER" in text
+            and "release: publish Data Products v1.12.1 via registered push bridge"
+            in text
+        )
+        if temporary_push_bridge:
+            self.assertIn("\\n  push:\\n", text)
+        else:
+            self.assertNotIn("\\n  push:\\n", text)
+'''
+canonical = '        self.assertNotIn("\\n  push:\\n", text)\n'
+if temporary not in test:
+    raise SystemExit('temporary release contract block not found')
+test_path.write_text(test.replace(temporary, canonical, 1), encoding='utf-8')
 PY
-rm tools/publish_data_products_v1_12_1_20260803.sh
-rm tools/record_data_products_v1_12_1_publication_20260803.py
-rm .github/workflows/temporary-publish-data-products-v1.12.1.yml
-rm project/packages/data-products-v1.12.1-publication-trigger-20260803.md
-rm project/packages/data-products-v1.12.1-quality-publisher-bridge-20260803.md
+
+rm -f tools/publish_data_products_v1_12_1_20260803.sh
+rm -f tools/record_data_products_v1_12_1_publication_20260803.py
+rm -f .github/workflows/temporary-publish-data-products-v1.12.1.yml
+rm -f project/packages/data-products-v1.12.1-publication-trigger-20260803.md
+rm -f project/packages/data-products-v1.12.1-quality-publisher-bridge-20260803.md
+rm -f project/packages/data-products-v1.12.1-quality-retrigger-20260803.md
+rm -f project/packages/data-products-v1.12.1-push-bridge-20260803.md
 
 git config user.name 'github-actions[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
