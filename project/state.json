@@ -4,14 +4,14 @@
   "repository": {"full_name": "xbodzio7/Dacia-Knowledge-Base", "default_branch": "main", "source_of_truth": "repository", "main_sha_tracking": "dynamic"},
   "phase": "Data Products v1.12.0 Accelerated Release Preparation",
   "reference_delivery": {"name": "Portfolio Model Family Summary Release Integration", "pull_request": 481, "head_sha": "ce99ae039f746c06854fe3aca6bb6995d10bfe27", "quality_run": 30790266581},
-  "baseline": {"tests": 1864, "csv_files": 47, "rows": 11770, "configuration_values": 3604, "configuration_import_specs": 139, "configuration_value_ranges": 316, "configuration_range_import_specs": 24, "availability_records": 5911, "attributes": 387, "attribute_categories": 30},
+  "baseline": {"tests": 1859, "csv_files": 47, "rows": 11770, "configuration_values": 3604, "configuration_import_specs": 139, "configuration_value_ranges": 316, "configuration_range_import_specs": 24, "availability_records": 5911, "attributes": 387, "attribute_categories": 30},
   "current_package": {
     "package_id": "data_products_v1_12_0_accelerated_release_preparation_001",
     "kind": "accelerated_release_preparation",
     "name": "Data Products v1.12.0 Accelerated Release Preparation",
     "status": "complete",
     "goal": "Prepare immutable data-products-v1.12.0 assets containing the verified portfolio model-family summary, prove exact-source double-build byte identity and publish only after complete Quality and post-merge verification.",
-    "manifest_paths": ["tools/reporting/portfolio_model_family_release_integration.py", "tests/test_data_products_v1_12_0_release_contract.py", "project/packages/data-products-v1.12.0-accelerated-release-preparation-20260803.md", "project/state.json", "project/STATE_SUMMARY.md", "README.md", "CHANGELOG.md", "project/ROADMAP.md", "project/SESSION_STATE.md"]
+    "manifest_paths": ["tools/reporting/portfolio_model_family_release_integration.py", "project/packages/data-products-v1.12.0-accelerated-release-preparation-20260803.md", "project/state.json", "project/STATE_SUMMARY.md"]
   },
   "next_package": {
     "package_id": "data_products_v1_12_0_publication_001",
