@@ -308,7 +308,10 @@ def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
             --verify \
             --version 1.2.3 \
             --commit-sha 1111111111111111111111111111111111111111
-          rm .github/workflows/temporary-portfolio-family-release-integration-applicator.yml
+          rm -f .github/workflows/temporary-portfolio-family-release-integration-applicator.yml
+          rm -f .github/workflows/temporary-family-integration-diagnostic.yml
+          rm -f .github/workflows/temporary-main-family-integration-applicator.yml
+          rm -rf project/diagnostics
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
