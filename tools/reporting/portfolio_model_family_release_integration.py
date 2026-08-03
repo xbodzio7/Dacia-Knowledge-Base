@@ -31,6 +31,7 @@ FAMILY_FILES = (
 CROSS_MODEL_HTML = "cross-model/cross-model-comparison-view.html"
 FAMILY_HTML = f"{FAMILY_DIRECTORY}/portfolio_model_family_summary.html"
 FAMILY_HTML_HREF = "../model-families/portfolio_model_family_summary.html"
+RELEASE_NOTES = "RELEASE_NOTES.md"
 
 
 def repository_root() -> Path:
@@ -103,6 +104,35 @@ def _add_offline_navigation(payload: Path) -> None:
         write_text(path, text)
 
 
+def _write_v1_12_0_release_notes(payload: Path, version: str) -> None:
+    if version != "1.12.0":
+        return
+    path = payload / RELEASE_NOTES
+    if not path.is_file():
+        raise ReleaseError("release notes are missing from the release payload")
+    text = path.read_text(encoding="utf-8").rstrip()
+    addition = """
+
+## v1.12.0 portfolio model-family product
+
+This minor release adds the verified portfolio model-family summary in JSON,
+Markdown and standalone HTML. It covers all six canonical families, 81 active
+configurations and 22 existing reporting scopes, with 33 source records and
+251 explicit source-to-configuration relationships.
+
+The family product is copied byte-for-byte from the committed verified outputs,
+and the existing cross-model offline page links to it using a relative path.
+No source data, reporting scopes or comparison semantics change. No cross-scope
+pairs, ranking, recommendations or inferred values are introduced.
+
+The public `data-products-v1.11.0` release remains immutable. Version 1.12.0 is
+built twice from the exact publication merge SHA, compared byte for byte and
+verified again after public download before its publication receipt is accepted.
+"""
+    if "## v1.12.0 portfolio model-family product" not in text:
+        write_text(path, text + addition + "\n")
+
+
 def _extract_verified_archive(output_directory: Path, payload: Path) -> dict[str, Any]:
     manifest = verify_release_assets(output_directory)
     archive = manifest.get("archive")
@@ -139,6 +169,7 @@ def create_release_assets(
         manifest = _extract_verified_archive(output_directory, payload)
         _copy_verified_family_outputs(repository, payload)
         _add_offline_navigation(payload)
+        _write_v1_12_0_release_notes(payload, version)
 
         archive = manifest["archive"]
         assert isinstance(archive, dict)
