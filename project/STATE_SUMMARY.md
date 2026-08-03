@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.12.1 Release Priority Selection Review**
+**Portfolio Model Family Comparison Matrix**
 
 ## Reference delivery
 
-- Package: Data Products v1.12.1 Publication
-- Pull Request: #506
-- Verified head: `6f208ecef49304c2f4bd9c6d46d93074b33aff6f`
-- Quality run: #30847913458
+- Package: Post-v1.12.1 Release Priority Selection Review
+- Pull Request: #507
+- Verified head: `eec013194f6f4cc18655cd99176a9b352dd12c3e`
+- Quality run: #30848601459
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.12.1 Release Priority Selection Review** — `complete`
+**Portfolio Model Family Comparison Matrix** — `complete`
 
-Inspect canonical product, source and roadmap evidence after corrective v1.12.1 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Create deterministic JSON, CSV and standalone HTML comparison outputs for the six current model families by projecting only verified family-summary fields, without new configuration pairs, ranking, recommendations or inferred values.
 
 ## Next package
 
-**Portfolio Model Family Comparison Matrix** — `planned`
+**Portfolio Model Family Comparison Matrix Release Integration** — `planned`
 
-Create deterministic JSON, CSV and standalone HTML comparison outputs for the six current model families by projecting only verified family-summary fields, without new configuration pairs, ranking, recommendations or inferred values.
+Integrate the verified family comparison JSON, CSV and HTML outputs into the deterministic versioned data-product archive and offline workspace without changing source data or comparison semantics.
 
 ## Autonomy
 
