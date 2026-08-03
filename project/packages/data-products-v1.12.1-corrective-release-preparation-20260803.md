@@ -29,6 +29,10 @@ The patch release makes the previously agreed model-family interface available i
 
 `data-products-v1.12.0` remains immutable. No source data, reporting scope, comparison pair, ranking, recommendation or inferred value changes are introduced.
 
+## Validation
+
+Canonical project-state and documentation-baseline generators must be clean before publication preparation is merged.
+
 ## Next package
 
 `data_products_v1_12_1_publication_001` performs the exact-SHA publication and post-download verification.
