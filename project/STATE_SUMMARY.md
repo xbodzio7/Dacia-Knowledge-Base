@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.12.0 Release Priority Selection Review**
+**Portfolio Model Family Workspace Entry Point**
 
 ## Reference delivery
 
-- Package: Data Products v1.12.0 Publication
-- Pull Request: #483
-- Verified head: `0e8901fdb42d4bc3e415ce3347117040205fa652`
-- Quality run: #30791076488
+- Package: Post-v1.12.0 Release Priority Selection Review
+- Pull Request: #485
+- Verified head: `d46b3289f989f036408d1935e22df7e4db396d65`
+- Quality run: #30791378261
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.12.0 Release Priority Selection Review** — `complete`
+**Portfolio Model Family Workspace Entry Point** — `complete`
 
-Inspect the immutable v1.12.0 publication and current consumer path and select one bounded next package without reopening closed evidence or changing product semantics.
+Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.
 
 ## Next package
 
-**Portfolio Model Family Workspace Entry Point** — `planned`
+**Post-Workspace Entry Point Priority Selection Review** — `planned`
 
-Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics.
+Review canonical source, product and roadmap evidence after direct family workspace integration and select one bounded next package without inferring unsupported work.
 
 ## Autonomy
 
