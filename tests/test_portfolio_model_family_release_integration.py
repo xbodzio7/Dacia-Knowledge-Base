@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,10 +13,20 @@ import sys
 sys.path.insert(0, str(REPOSITORY / "tools"))
 
 import data_product_release as release_cli  # noqa: E402
+from reporting.data_product_release_download import (  # noqa: E402
+    ASSETS_DIRECTORY_NAME,
+    CONTENTS_DIRECTORY_NAME,
+    _extract_verified_contents,
+)
 from reporting.data_product_release_model import (  # noqa: E402
     archive_name,
     verify_release_assets,
 )
+from reporting.data_product_workspace_index import (  # noqa: E402
+    render_workspace_index,
+    write_workspace_index,
+)
+from reporting.data_product_workspace_verify import verify_workspace  # noqa: E402
 from reporting.portfolio_model_family_release_integration import (  # noqa: E402
     FAMILY_FILES,
     FAMILY_HTML_HREF,
@@ -100,6 +111,44 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
 
     def test_integrated_assets_pass_canonical_release_verification(self) -> None:
         self.assertEqual(verify_release_assets(self.output), self.manifest)
+
+        workspace = self.root / "verified-workspace"
+        assets = workspace / ASSETS_DIRECTORY_NAME
+        contents = workspace / CONTENTS_DIRECTORY_NAME
+        shutil.copytree(self.output, assets)
+        entry_points = _extract_verified_contents(
+            assets,
+            contents,
+            self.manifest,
+        )
+        metadata = {
+            "release_version": self.VERSION,
+            "release_tag": f"data-products-v{self.VERSION}",
+            "repository_commit": self.COMMIT,
+            "release_url": (
+                "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/"
+                f"data-products-v{self.VERSION}"
+            ),
+        }
+        rendered = render_workspace_index(
+            workspace,
+            self.manifest,
+            metadata,
+        )
+        index_path = write_workspace_index(
+            workspace,
+            self.manifest,
+            metadata,
+        )
+
+        self.assertEqual(
+            entry_points["model_family_summary_html"],
+            "contents/model-families/portfolio_model_family_summary.html",
+        )
+        self.assertIn("Model family summary", rendered)
+        self.assertIn(entry_points["model_family_summary_html"], rendered)
+        self.assertEqual(index_path.read_bytes(), rendered.encode("utf-8"))
+        self.assertEqual(verify_workspace(workspace)["status"], "verified")
 
     def test_double_build_is_byte_identical(self) -> None:
         second = self.root / "second"
