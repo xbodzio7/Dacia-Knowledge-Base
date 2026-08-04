@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.15.0 Release Preparation**
+**Data Products v1.15.0 Publication**
 
 ## Reference delivery
 
-- Package: Portfolio Source Coverage Matrix Release Integration
-- Pull Request: #523
-- Verified head: `4efa1de557018c3b945bf0df4d07bd974d9e9377`
-- Quality run: #30948182292
+- Package: Data Products v1.15.0 Publication
+- Pull Request: #526
+- Verified head: `5a824010921ef305b481f8284ae45bdfd8801780`
+- Quality run: #30950022319
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.15.0 Release Preparation** — `complete`
+**Data Products v1.15.0 Publication** — `complete`
 
-Prepare an immutable minor release from the verified source-coverage integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.15.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
 
 ## Next package
 
-**Data Products v1.15.0 Publication** — `planned`
+**Post-v1.15.0 Release Priority Selection Review** — `planned`
 
-Publish immutable data-products-v1.15.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
+Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Autonomy
 
