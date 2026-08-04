@@ -39,11 +39,11 @@
     ]
   },
   "next_package": {
-    "package_id": "residual_gap_017",
-    "kind": "residual_review",
-    "name": "Duster Page 21 Technical Residual Review",
+    "package_id": "portfolio_powertrain_transmission_matrix_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Powertrain and Transmission Matrix",
     "status": "planned",
-    "goal": "Review the next canonical bundle of unresolved technical candidates from the archived Duster mini-brochure page 21, preserving source, page, signature and non-inference boundaries.",
+    "goal": "Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.",
     "manifest_paths": []
   },
   "autonomy": {
