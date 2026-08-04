@@ -47,9 +47,7 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
 def collect_matrix(repository: Path) -> dict[str, Any]:
     master = repository / "data" / "master"
     models = {
-        row["code"]: row
-        for row in _read_csv(master / "models.csv")
-        if row.get("status") == "active"
+        row["code"]: row for row in _read_csv(master / "models.csv")
     }
     versions = {
         row["code"]: row
@@ -84,7 +82,7 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
         model_code = version.get("model_code", "")
         if model_code not in models:
             raise PortfolioPowertrainTransmissionMatrixError(
-                f"version references unknown active model: {version_code} -> {model_code}"
+                f"version references unknown model: {version_code} -> {model_code}"
             )
         powertrain = configuration.get("powertrain_label", "").strip()
         transmission = configuration.get("transmission_type", "").strip()
