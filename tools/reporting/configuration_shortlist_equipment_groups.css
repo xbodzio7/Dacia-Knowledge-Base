@@ -1,6 +1,6 @@
 
 /* Interface v1.7: collapsed-by-default equipment groups and normalized Spring media. */
-.equipment-picker-group[data-collapsible-equipment-group]{display:block;overflow:hidden;border:1px solid var(--config-line);border-radius:8px;background:#282e2b}
+.equipment-picker-group[data-collapsible-equipment-group]{display:block;overflow:clip;border:1px solid var(--config-line);border-radius:8px;background:#282e2b}
 .equipment-picker-group[data-collapsible-equipment-group]>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:42px;padding:9px 11px;cursor:pointer;list-style:none;color:var(--config-text);font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.045em}
 .equipment-picker-group[data-collapsible-equipment-group]>summary::-webkit-details-marker{display:none}
 .equipment-picker-group[data-collapsible-equipment-group]>summary::after{content:"＋";flex:0 0 auto;color:#cbd2cc;font-size:1rem;line-height:1}
