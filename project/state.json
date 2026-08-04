@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-08-04",
+  "updated_on": "2026-08-05",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1872,
+    "tests": 1876,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,26 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "cross_model_configurator_conflict_closure_001",
-    "kind": "source_backed_conflict_closure",
-    "name": "Cross-model Configurator Conflict Closure",
-    "status": "complete",
-    "goal": "Compare all persisted configurator observations with canonical configuration identities, preserve phase-qualified boundaries and close the assimilation milestone without destructive replacement or history deletion.",
-    "manifest_paths": [
-      "data/reporting/cross_model_configurator_conflict_closure.json",
-      "data/reporting/cross_model_configurator_conflict_closure.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/cross-model-configurator-conflict-closure-20260805.md",
-      "project/state.json",
-      "tests/test_cross_model_configurator_conflict_closure_20260805.py"
-    ]
-  },
-  "next_package": {
     "package_id": "portfolio_powertrain_transmission_matrix_001",
     "kind": "deterministic_portfolio_reporting",
     "name": "Portfolio Powertrain and Transmission Matrix",
-    "status": "planned",
+    "status": "complete",
     "goal": "Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/portfolio-powertrain-transmission-matrix-20260805.md",
+      "project/state.json",
+      "tests/test_portfolio_powertrain_transmission_matrix.py",
+      "tools/reporting/portfolio_powertrain_transmission_matrix.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_matrix_priority_selection_001",
+    "kind": "bounded_priority_review",
+    "name": "Post-matrix Priority Selection",
+    "status": "planned",
+    "goal": "Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.",
     "manifest_paths": []
   },
   "autonomy": {
