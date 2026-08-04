@@ -42,9 +42,9 @@ Inspect canonical product, source and roadmap evidence after v1.15.0 publication
 
 ## Next package
 
-**Duster Page 21 Technical Residual Review** — `planned`
+**Portfolio Powertrain and Transmission Matrix** — `planned`
 
-Review the next canonical bundle of unresolved technical candidates from the archived Duster mini-brochure page 21, preserving source, page, signature and non-inference boundaries.
+Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.
 
 ## Autonomy
 
