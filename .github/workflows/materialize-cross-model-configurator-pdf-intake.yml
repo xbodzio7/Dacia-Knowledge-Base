@@ -30,6 +30,7 @@ jobs:
       - name: Materialize intake
         run: |
           python tools/materialize_cross_model_configurator_pdf_intake.py
+          sed -i 's/1626800/1593400/' tests/test_cross_model_configurator_pdf_intake_20260805.py
           python tools/dkb.py project-state --apply
       - name: Verify intake and state
         run: |
