@@ -6,10 +6,10 @@
   "models": {
     "spring": {
       "model_name": "Spring",
-      "image_url": "https://www.dacia.pl/agg/vn/unique/grade_carrousel_thumb_1_small/grade_carrousel_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FS2E%2Fspring-my26%2Fc%2FA-ENS_0MDL2P1SERIELIM3_-TEKQZ",
+      "image_url": "https://3dv2.renault.com/Image?databaseId=c4d69864-ca6c-4372-9267-8ce4a21dce04&snapshotId=81821214-93d2-627a-9116-3de2cb698dc2",
       "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
       "source_name": "Dacia Polska",
-      "notes": "Official current Spring grade image exposed by the Polish Dacia model page; used as a remote media supplement without weakening the verified local cache contract."
+      "notes": "Official current Spring configurator image at a materially higher useful resolution than the former small carousel thumbnail. The interface applies Spring-only cover framing while retaining the generated offline fallback."
     }
   }
 }

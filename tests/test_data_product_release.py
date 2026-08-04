@@ -135,7 +135,13 @@ class DataProductReleaseTests(unittest.TestCase):
         external_urls = set(re.findall(r"https://[^\"'<>\s]+", html))
         self.assertTrue(external_urls)
         self.assertTrue(
-            all(url.startswith("https://www.dacia.pl/") for url in external_urls),
+            all(
+                url.startswith((
+                    "https://www.dacia.pl/",
+                    "https://3dv2.renault.com/",
+                ))
+                for url in external_urls
+            ),
             external_urls,
         )
         self.assertIn("vehicle-photo-fallback", html)
@@ -150,7 +156,10 @@ class DataProductReleaseTests(unittest.TestCase):
             "reviewed_gap_materialization",
             "candidate_amount_pln",
             "niepodane w dokładnym źródle",
-            "grade_carrousel_1.png",
+            "https://3dv2.renault.com/Image?databaseId=",
+            "configuration_shortlist_equipment_groups_v1_7",
+            "data-collapsible-equipment-group",
+            "vehicle-photo-frame-spring",
         ):
             with self.subTest(marker=marker):
                 self.assertIn(marker, html)

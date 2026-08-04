@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-v1.15.0 Release Priority Selection Review**
+**Interactive Media and Equipment Groups Correction**
 
 ## Reference delivery
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Post-v1.15.0 Release Priority Selection Review** — `complete`
+**Interactive Media and Equipment Groups Correction** — `complete`
 
-Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Complete the remaining agreed interface work by using a clearer official Spring image with Spring-only framing and converting thematic equipment sections into collapsed-by-default groups with visible names and counts.
 
 ## Next package
 
