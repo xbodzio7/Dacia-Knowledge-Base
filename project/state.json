@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-08-04",
+  "updated_on": "2026-08-05",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Cross-model Configurator Data Assimilation",
+  "phase": "Post-configurator Portfolio Reporting",
   "reference_delivery": {
     "name": "Data Products v1.15.0 Publication",
     "pull_request": 526,
@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1868,
+    "tests": 1869,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,26 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "cross_model_configurator_options_packages_accessories_migration_001",
-    "kind": "source_coverage_boundary_audit",
-    "name": "Cross-model Configurator Options, Packages and Accessories Coverage",
-    "status": "complete",
-    "goal": "Audit all 18 saved configurator PDFs for exact option, package and accessory entries and persist the verified zero-entry source boundary without inference.",
-    "manifest_paths": [
-      "data/reporting/cross_model_configurator_options_packages_accessories_coverage.json",
-      "data/reporting/cross_model_configurator_options_packages_accessories_coverage.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/cross-model-configurator-options-packages-accessories-coverage-20260805.md",
-      "project/state.json",
-      "tests/test_cross_model_configurator_options_packages_accessories_coverage_20260805.py"
-    ]
-  },
-  "next_package": {
     "package_id": "cross_model_configurator_conflict_closure_001",
     "kind": "source_backed_conflict_closure",
     "name": "Cross-model Configurator Conflict Closure",
+    "status": "complete",
+    "goal": "Compare all persisted configurator observations with canonical configuration identities, preserve phase-qualified boundaries and close the assimilation milestone without destructive replacement or history deletion.",
+    "manifest_paths": [
+      "data/reporting/cross_model_configurator_conflict_closure.json",
+      "data/reporting/cross_model_configurator_conflict_closure.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/cross-model-configurator-conflict-closure-20260805.md",
+      "project/state.json",
+      "tests/test_cross_model_configurator_conflict_closure_20260805.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_powertrain_transmission_matrix_001",
+    "kind": "deterministic_portfolio_reporting",
+    "name": "Portfolio Powertrain and Transmission Matrix",
     "status": "planned",
-    "goal": "Compare the commercial, standard-equipment and technical observations against current canonical data, classify exact matches and identity-safe conflicts, and close the configurator assimilation milestone without cross-phase promotion.",
+    "goal": "Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.",
     "manifest_paths": []
   },
   "autonomy": {
