@@ -1,0 +1,39 @@
+name: Materialize Configurator Options Coverage
+
+on:
+  pull_request:
+    branches: [main]
+    types: [synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.head_ref == 'agent/cross-model-configurator-options-coverage-001'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Apply canonical state documentation
+        run: |
+          python tools/dkb.py project-state --apply
+          python -m unittest -q tests.test_cross_model_configurator_options_packages_accessories_coverage_20260805 tests.project_state_contract
+          python tools/dkb.py project-state --check
+      - name: Commit generated documentation
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          rm .github/workflows/materialize-configurator-options-coverage.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "docs: apply configurator options coverage state"
+          git push origin "HEAD:${HEAD_BRANCH}"
