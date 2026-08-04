@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.15.0 Release Priority Selection Review",
+  "phase": "Interactive Media and Equipment Groups Correction",
   "reference_delivery": {
     "name": "Data Products v1.15.0 Publication",
     "pull_request": 526,
@@ -27,15 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_15_0_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.15.0 Release Priority Selection Review",
+    "package_id": "interactive_media_equipment_groups_correction_001",
+    "kind": "user_interface_repair",
+    "name": "Interactive Media and Equipment Groups Correction",
     "status": "complete",
-    "goal": "Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "goal": "Complete the remaining agreed interface work by using a clearer official Spring image with Spring-only framing and converting thematic equipment sections into collapsed-by-default groups with visible names and counts.",
     "manifest_paths": [
       "project/STATE_SUMMARY.md",
-      "project/packages/post-v1.15.0-release-priority-selection-review-20260804.md",
-      "project/state.json"
+      "project/packages/interactive-media-equipment-groups-correction-20260804.md",
+      "project/sources/dacia-pl-spring-model-media-20260801.json",
+      "project/state.json",
+      "tests/test_configuration_selection_export.py",
+      "tests/test_data_product_release.py",
+      "tests/test_interface_source_coverage_repair_20260801.py",
+      "tools/configuration_shortlist.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_selection_html.py"
     ]
   },
   "next_package": {

@@ -35,6 +35,7 @@ _REVIEWED_GAP_REPORT = Path(
 _OFFICIAL_MEDIA_PREFIXES = (
     "https://www.dacia.pl/",
     "https://cdn.group.renault.com/",
+    "https://3dv2.renault.com/",
 )
 
 _COMPARISON_ENHANCEMENT_STYLE = r'''<style>

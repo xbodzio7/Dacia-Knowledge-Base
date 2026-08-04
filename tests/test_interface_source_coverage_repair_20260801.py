@@ -51,7 +51,14 @@ class InterfaceSourceCoverageRepairTests(unittest.TestCase):
         )
         payload = json.loads(source_path.read_text(encoding="utf-8"))
         spring = payload["models"]["spring"]
-        self.assertTrue(spring["image_url"].startswith("https://www.dacia.pl/"))
+        self.assertTrue(
+            spring["image_url"].startswith(
+                configuration_shortlist._OFFICIAL_MEDIA_PREFIXES
+            )
+        )
+        self.assertTrue(
+            spring["image_url"].startswith("https://3dv2.renault.com/")
+        )
         self.assertEqual(
             spring["source_page_url"],
             "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",

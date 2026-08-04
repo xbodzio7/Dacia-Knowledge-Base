@@ -116,6 +116,14 @@ def render_html(catalog: Mapping[str, Any]) -> str:
     version_script = _read_script(
         "configuration_shortlist_v12.js", "version 1.2 enhancement"
     )
+    equipment_groups_script = _read_script(
+        "configuration_shortlist_equipment_groups.js",
+        "collapsible equipment groups",
+    )
+    equipment_groups_style = _read_script(
+        "configuration_shortlist_equipment_groups.css",
+        "collapsible equipment-group styles",
+    )
 
     style_marker = "</style>"
     results_marker = '  <section aria-labelledby="results-heading">'
@@ -130,14 +138,16 @@ def render_html(catalog: Mapping[str, Any]) -> str:
                 f"cannot inject selection controls: missing {label} marker"
             )
     rendered = rendered.replace(
-        style_marker, _SELECTION_CSS + "\n" + style_marker, 1
+        style_marker,
+        _SELECTION_CSS + "\n" + equipment_groups_style + "\n" + style_marker,
+        1,
     )
     rendered = rendered.replace(
         results_marker, _SELECTION_PANEL + results_marker, 1
     )
     rendered = rendered.replace(
         "Format interaktywnej shortlisty HTML v1.",
-        "Format interaktywnej shortlisty HTML v1.6.",
+        "Format interaktywnej shortlisty HTML v1.7.",
         1,
     )
     rendered = rendered.replace(
@@ -146,6 +156,7 @@ def render_html(catalog: Mapping[str, Any]) -> str:
             f"<script>{pricing_script}</script>\n"
             f"<script>{selection_script}</script>\n"
             f"<script>{version_script}</script>\n"
+            f"<script>{equipment_groups_script}</script>\n"
             f"{body_marker}"
         ),
         1,
