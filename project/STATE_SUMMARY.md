@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1872
+- Tests: 1876
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-model Configurator Conflict Closure** — `complete`
+**Portfolio Powertrain and Transmission Matrix** — `complete`
 
-Compare all persisted configurator observations with canonical configuration identities, preserve phase-qualified boundaries and close the assimilation milestone without destructive replacement or history deletion.
+Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.
 
 ## Next package
 
-**Portfolio Powertrain and Transmission Matrix** — `planned`
+**Post-matrix Priority Selection** — `planned`
 
-Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.
+Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.
 
 ## Autonomy
 
