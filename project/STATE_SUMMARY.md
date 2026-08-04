@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Interactive Media and Equipment Groups Correction**
+**Cross-model Configurator Data Assimilation**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1862
+- Tests: 1863
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Interactive Media and Equipment Groups Correction** — `complete`
+**Cross-model Configurator PDF Intake** — `complete`
 
-Complete the remaining agreed interface work by using a clearer official Spring image with Spring-only framing and converting thematic equipment sections into collapsed-by-default groups with visible names and counts.
+Register 18 exact saved official configurator PDF states with immutable document identity and strict configuration boundaries.
 
 ## Next package
 
-**Portfolio Powertrain and Transmission Matrix** — `planned`
+**Cross-model Configurator Data Reconciliation** — `planned`
 
-Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.
+Parse all 18 PDFs page by page, map exact states to canonical configurations, compare equipment, options, prices and technical values, and select only non-inferred migration candidates while preserving explicit conflicts and phase boundaries.
 
 ## Autonomy
 

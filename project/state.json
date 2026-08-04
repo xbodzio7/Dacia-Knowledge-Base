@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Interactive Media and Equipment Groups Correction",
+  "phase": "Cross-model Configurator Data Assimilation",
   "reference_delivery": {
     "name": "Data Products v1.15.0 Publication",
     "pull_request": 526,
@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1862,
+    "tests": 1863,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,31 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "interactive_media_equipment_groups_correction_001",
-    "kind": "user_interface_repair",
-    "name": "Interactive Media and Equipment Groups Correction",
+    "package_id": "cross_model_configurator_pdf_intake_001",
+    "kind": "source_intake",
+    "name": "Cross-model Configurator PDF Intake",
     "status": "complete",
-    "goal": "Complete the remaining agreed interface work by using a clearer official Spring image with Spring-only framing and converting thematic equipment sections into collapsed-by-default groups with visible names and counts.",
+    "goal": "Register 18 exact saved official configurator PDF states with immutable document identity and strict configuration boundaries.",
     "manifest_paths": [
+      "data/reporting/cross_model_configurator_pdf_intake.json",
+      "data/reporting/cross_model_configurator_pdf_intake.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/interactive-media-equipment-groups-correction-20260804.md",
-      "project/sources/dacia-pl-spring-model-media-20260801.json",
+      "project/packages/cross-model-configurator-pdf-intake-20260805.md",
+      "project/sources/dacia-pl-configurator-cross-model-pdf-bundle-20260804.json",
       "project/state.json",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_data_product_release.py",
-      "tests/test_interface_source_coverage_repair_20260801.py",
-      "tools/configuration_shortlist.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.css",
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_selection_html.py"
+      "tests/test_cross_model_configurator_pdf_intake_20260805.py"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_powertrain_transmission_matrix_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Powertrain and Transmission Matrix",
+    "package_id": "cross_model_configurator_data_reconciliation_001",
+    "kind": "source_reconciliation",
+    "name": "Cross-model Configurator Data Reconciliation",
     "status": "planned",
-    "goal": "Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.",
+    "goal": "Parse all 18 PDFs page by page, map exact states to canonical configurations, compare equipment, options, prices and technical values, and select only non-inferred migration candidates while preserving explicit conflicts and phase boundaries.",
     "manifest_paths": []
   },
   "autonomy": {
