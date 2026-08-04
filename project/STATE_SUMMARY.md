@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1866
+- Tests: 1867
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-model Configurator Standard Equipment Migration** — `complete`
+**Cross-model Configurator Technical Data Migration** — `complete`
 
-Persist exact standard-equipment source lines from pages 3-4 of all 18 saved configurator PDFs while preserving configuration boundaries.
+Persist exact page-5 technical-data source lines for all 18 saved configurator states without semantic coercion or cross-identity transfer.
 
 ## Next package
 
-**Cross-model Configurator Technical Data Migration** — `planned`
+**Cross-model Configurator Options, Packages and Accessories Migration** — `planned`
 
-Extract and persist exact technical-data observations from all 18 saved configurator PDFs without cross-identity propagation.
+Capture exact option, package and accessory source lines from the remaining pages of all 18 saved configurator PDFs while preserving exact saved-state boundaries.
 
 ## Autonomy
 
