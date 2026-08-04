@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.15.0 Publication**
+**Post-v1.15.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.15.0 Publication** — `complete`
+**Post-v1.15.0 Release Priority Selection Review** — `complete`
 
-Publish immutable data-products-v1.15.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
+Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Next package
 
-**Post-v1.15.0 Release Priority Selection Review** — `planned`
+**Duster Page 21 Technical Residual Review** — `planned`
 
-Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Review the next canonical bundle of unresolved technical candidates from the archived Duster mini-brochure page 21, preserving source, page, signature and non-inference boundaries.
 
 ## Autonomy
 
