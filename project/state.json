@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated_on": "2026-08-03",
+  "updated_on": "2026-08-04",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.14.1 Publication",
+  "phase": "Interactive Media and Equipment Groups",
   "reference_delivery": {
     "name": "Data Products v1.14.1 Interface Correction",
     "pull_request": 520,
@@ -27,24 +27,28 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_14_1_publication_001",
-    "kind": "release_publication",
-    "name": "Data Products v1.14.1 Publication",
+    "package_id": "interactive_media_and_equipment_groups_001",
+    "kind": "interface_correction",
+    "name": "Interactive Media and Equipment Groups",
     "status": "complete",
-    "goal": "Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.",
+    "goal": "Normalize Spring model media and make equipment groups collapsed, accessible and session-persistent without changing catalogue data.",
     "manifest_paths": [
       "CHANGELOG.md",
-      "data/reporting/data_products_v1_14_1_publication.json",
+      "data/reporting/interactive_media_and_equipment_groups.json",
+      "project/DECISIONS.md",
+      "project/STATE_SUMMARY.md",
+      "project/sources/dacia-pl-spring-model-media-20260801.json",
       "project/state.json",
-      "project/STATE_SUMMARY.md"
+      "tests/test_data_product_release.py",
+      "tools/configuration_shortlist.py"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_source_coverage_matrix_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Source Coverage Matrix",
+    "package_id": "official_configurator_full_state_capture_001",
+    "kind": "bounded_source_capture",
+    "name": "Official Configurator Full State Capture",
     "status": "planned",
-    "goal": "Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.",
+    "goal": "Capture and review all source-visible configurator data for every active model surface, including colours, wheels, upholstery, packages, options, accessories, prices, technical data and dependencies.",
     "manifest_paths": []
   },
   "autonomy": {
