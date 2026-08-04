@@ -1,0 +1,87 @@
+name: Publish Data Products v1.15.1
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-data-products-v1.15.1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: contains(github.event.head_commit.message, 'publish data products v1.15.1')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: 1.15.1
+      RELEASE_DIR: release-candidate
+    steps:
+      - name: Check out publication commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Run release regression tests
+        run: python -m unittest -q tests.test_data_product_release
+      - name: Build verified release candidate
+        run: |
+          python tools/data_product_release.py \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${GITHUB_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+          python tools/data_product_release.py \
+            --verify \
+            --version "${RELEASE_VERSION}" \
+            --commit-sha "${GITHUB_SHA}" \
+            --output-directory "${RELEASE_DIR}"
+      - name: Resolve release identity
+        id: identity
+        run: |
+          python - <<'PY' >> "${GITHUB_OUTPUT}"
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path.cwd() / "tools"))
+          from reporting.data_product_release_model import archive_name, release_tag
+          version = os.environ["RELEASE_VERSION"]
+          print(f"tag={release_tag(version)}")
+          print(f"archive={archive_name(version)}")
+          PY
+      - name: Reject existing tag or release
+        env:
+          RELEASE_TAG: ${{ steps.identity.outputs.tag }}
+        run: |
+          ! gh api --silent "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}"
+          ! gh api --silent "repos/${GITHUB_REPOSITORY}/git/ref/tags/${RELEASE_TAG}"
+      - name: Extract deterministic release notes
+        env:
+          ARCHIVE_NAME: ${{ steps.identity.outputs.archive }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+          root = Path(os.environ["RELEASE_DIR"])
+          with ZipFile(root / os.environ["ARCHIVE_NAME"]) as archive:
+              notes = archive.read("RELEASE_NOTES.md")
+          (root / "RELEASE_NOTES.md").write_bytes(notes)
+          PY
+      - name: Publish immutable GitHub Release
+        env:
+          RELEASE_TAG: ${{ steps.identity.outputs.tag }}
+          ARCHIVE_NAME: ${{ steps.identity.outputs.archive }}
+        run: |
+          gh release create "${RELEASE_TAG}" \
+            "${RELEASE_DIR}/${ARCHIVE_NAME}" \
+            "${RELEASE_DIR}/data-product-release-manifest.json" \
+            "${RELEASE_DIR}/SHA256SUMS" \
+            --target "${GITHUB_SHA}" \
+            --title "Dacia Knowledge Base Data Products v${RELEASE_VERSION}" \
+            --notes-file "${RELEASE_DIR}/RELEASE_NOTES.md"
