@@ -1,0 +1,67 @@
+name: PR 521 Materialized Package Import
+
+on:
+  push:
+    branches:
+      - agent/pr521-materialized-20260804
+    paths:
+      - .github/workflows/pr521-materialized-import.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out technical branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: agent/pr521-materialized-20260804
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Download verified materialized package
+        uses: actions/download-artifact@v4
+        with:
+          name: pr521-materialized-package
+          path: /tmp/pr521-materialized
+          github-token: ${{ github.token }}
+          repository: xbodzio7/Dacia-Knowledge-Base
+          run-id: 30917596815
+
+      - name: Import exact package files
+        run: |
+          set -euo pipefail
+          cp -f /tmp/pr521-materialized/CHANGELOG.md CHANGELOG.md
+          mkdir -p data/reporting project/sources
+          cp -f /tmp/pr521-materialized/data/reporting/interactive_media_and_equipment_groups.json data/reporting/interactive_media_and_equipment_groups.json
+          cp -f /tmp/pr521-materialized/project/DECISIONS.md project/DECISIONS.md
+          cp -f /tmp/pr521-materialized/project/STATE_SUMMARY.md project/STATE_SUMMARY.md
+          cp -f /tmp/pr521-materialized/project/sources/dacia-pl-spring-model-media-20260801.json project/sources/dacia-pl-spring-model-media-20260801.json
+          cp -f /tmp/pr521-materialized/project/state.json project/state.json
+          cp -f /tmp/pr521-materialized/tests/test_data_product_release.py tests/test_data_product_release.py
+          cp -f /tmp/pr521-materialized/tools/configuration_shortlist.py tools/configuration_shortlist.py
+          git diff --check
+
+      - name: Commit imported package
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            CHANGELOG.md \
+            data/reporting/interactive_media_and_equipment_groups.json \
+            project/DECISIONS.md \
+            project/STATE_SUMMARY.md \
+            project/sources/dacia-pl-spring-model-media-20260801.json \
+            project/state.json \
+            tests/test_data_product_release.py \
+            tools/configuration_shortlist.py
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "Verified package already imported."
+            exit 0
+          fi
+          git commit -m "fix(ui): normalize Spring media and collapse equipment groups"
+          git push origin HEAD:agent/pr521-materialized-20260804
