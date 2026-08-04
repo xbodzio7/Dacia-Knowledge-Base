@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1863,
+    "tests": 1864,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,27 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "cross_model_configurator_pdf_intake_001",
-    "kind": "source_intake",
-    "name": "Cross-model Configurator PDF Intake",
-    "status": "complete",
-    "goal": "Register 18 exact saved official configurator PDF states with immutable document identity and strict configuration boundaries.",
-    "manifest_paths": [
-      "data/reporting/cross_model_configurator_pdf_intake.json",
-      "data/reporting/cross_model_configurator_pdf_intake.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/cross-model-configurator-pdf-intake-20260805.md",
-      "project/sources/dacia-pl-configurator-cross-model-pdf-bundle-20260804.json",
-      "project/state.json",
-      "tests/test_cross_model_configurator_pdf_intake_20260805.py"
-    ]
-  },
-  "next_package": {
     "package_id": "cross_model_configurator_data_reconciliation_001",
     "kind": "source_reconciliation",
     "name": "Cross-model Configurator Data Reconciliation",
+    "status": "complete",
+    "goal": "Verify page-level evidence coverage for all 18 exact configurator states, map canonical identities and select bounded non-inferred domain migrations.",
+    "manifest_paths": [
+      "data/reporting/cross_model_configurator_data_reconciliation.json",
+      "data/reporting/cross_model_configurator_data_reconciliation.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/cross-model-configurator-data-reconciliation-20260805.md",
+      "project/state.json",
+      "tests/test_cross_model_configurator_data_reconciliation_20260805.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "cross_model_configurator_commercial_data_migration_001",
+    "kind": "data_migration",
+    "name": "Cross-model Configurator Commercial Data Migration",
     "status": "planned",
-    "goal": "Parse all 18 PDFs page by page, map exact states to canonical configurations, compare equipment, options, prices and technical values, and select only non-inferred migration candidates while preserving explicit conflicts and phase boundaries.",
+    "goal": "Import exact displayed configuration prices, colours, wheels and upholstery from all 18 saved states while preserving phase, grade, powertrain, transmission and seat-count boundaries.",
     "manifest_paths": []
   },
   "autonomy": {

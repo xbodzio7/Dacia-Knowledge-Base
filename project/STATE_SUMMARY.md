@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1863
+- Tests: 1864
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-model Configurator PDF Intake** — `complete`
+**Cross-model Configurator Data Reconciliation** — `complete`
 
-Register 18 exact saved official configurator PDF states with immutable document identity and strict configuration boundaries.
+Verify page-level evidence coverage for all 18 exact configurator states, map canonical identities and select bounded non-inferred domain migrations.
 
 ## Next package
 
-**Cross-model Configurator Data Reconciliation** — `planned`
+**Cross-model Configurator Commercial Data Migration** — `planned`
 
-Parse all 18 PDFs page by page, map exact states to canonical configurations, compare equipment, options, prices and technical values, and select only non-inferred migration candidates while preserving explicit conflicts and phase boundaries.
+Import exact displayed configuration prices, colours, wheels and upholstery from all 18 saved states while preserving phase, grade, powertrain, transmission and seat-count boundaries.
 
 ## Autonomy
 
