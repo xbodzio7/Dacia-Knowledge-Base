@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.15.0 Publication**
+**Post-v1.15.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.15.0 Publication** — `complete`
+**Post-v1.15.0 Release Priority Selection Review** — `complete`
 
-Publish immutable data-products-v1.15.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.
+Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
 
 ## Next package
 
-**Post-v1.15.0 Release Priority Selection Review** — `planned`
+**Portfolio Powertrain and Transmission Matrix** — `planned`
 
-Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.
+Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.
 
 ## Autonomy
 

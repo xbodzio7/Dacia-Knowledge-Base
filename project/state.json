@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.15.0 Publication",
+  "phase": "Post-v1.15.0 Release Priority Selection Review",
   "reference_delivery": {
     "name": "Data Products v1.15.0 Publication",
     "pull_request": 526,
@@ -27,27 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_15_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.15.0 Publication",
-    "status": "complete",
-    "goal": "Publish immutable data-products-v1.15.0 assets from the exact publication source SHA after double-build byte identity, full offline workspace verification and public-download verification.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_15_0_publication.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.15.0-publication-20260804.md",
-      "project/state.json",
-      "tools/reporting/portfolio_source_coverage_matrix_release_integration.py",
-      "tools/reporting/data_product_release_download.py",
-      "tools/reporting/data_product_workspace_index.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_15_0_release_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.15.0 Release Priority Selection Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Inspect canonical product, source and roadmap evidence after v1.15.0 publication and select one bounded next package without reopening closed evidence or inferring unsupported work.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/post-v1.15.0-release-priority-selection-review-20260804.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_powertrain_transmission_matrix_001",
+    "kind": "reporting_product",
+    "name": "Portfolio Powertrain and Transmission Matrix",
+    "status": "planned",
+    "goal": "Build deterministic JSON, CSV and standalone HTML views of active configurations grouped by exact recorded powertrain and transmission identities, with model-family, version, price and provenance coverage and without ranking, recommendation, pairing or inferred values.",
     "manifest_paths": []
   },
   "autonomy": {
