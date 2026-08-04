@@ -191,7 +191,7 @@ def render_html(matrix: dict[str, Any]) -> str:
     return """<!doctype html>
 <html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Macierz układów napędowych i skrzyń Dacia</title>
-<style>body{font-family:system-ui,sans-serif;margin:2rem;background:#161a18;color:#f2f4f2}h1{margin-bottom:.3rem}.summary{color:#bac1bc;margin-bottom:1.2rem}table{border-collapse:collapse;width:100%;background:#202522}th,td{border:1px solid #465049;padding:.55rem;text-align:left;vertical-align:top}th{position:sticky;top:0;background:#303732}tr:nth-child(even){background:#262c28}code{white-space:nowrap}</style>
+<style>body{font-family:system-ui,sans-serif;margin:2rem;background:#161a18;color:#f2f4f2}h1{margin-bottom:.3rem}.summary{color:#bac1bc;margin-bottom:1.2rem}table{border-collapse:collapse;width:100%%;background:#202522}th,td{border:1px solid #465049;padding:.55rem;text-align:left;vertical-align:top}th{position:sticky;top:0;background:#303732}tr:nth-child(even){background:#262c28}code{white-space:nowrap}</style>
 </head><body><h1>Macierz układów napędowych i skrzyń biegów</h1>
 <p class="summary">Aktywne konfiguracje: %s · grupy: %s · modele: %s · wersje: %s</p>
 <table><thead><tr><th>Układ napędowy</th><th>Skrzynia</th><th>Konfiguracje</th><th>Modele</th><th>Wersje</th><th>Kody konfiguracji</th></tr></thead><tbody>%s</tbody></table>
