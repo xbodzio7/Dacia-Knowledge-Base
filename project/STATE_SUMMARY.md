@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-03
+- State updated: 2026-08-04
 
 ## Phase
 
-**Data Products v1.14.1 Publication**
+**Interactive Media and Equipment Groups**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.14.1 Publication** — `complete`
+**Interactive Media and Equipment Groups** — `complete`
 
-Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.
+Normalize Spring model media and make equipment groups collapsed, accessible and session-persistent without changing catalogue data.
 
 ## Next package
 
-**Portfolio Source Coverage Matrix** — `planned`
+**Official Configurator Full State Capture** — `planned`
 
-Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.
+Capture and review all source-visible configurator data for every active model surface, including colours, wheels, upholstery, packages, options, accessories, prices, technical data and dependencies.
 
 ## Autonomy
 
