@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1867,
+    "tests": 1868,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,26 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "cross_model_configurator_technical_data_migration_001",
-    "kind": "source_backed_technical_observation_migration",
-    "name": "Cross-model Configurator Technical Data Migration",
+    "package_id": "cross_model_configurator_options_packages_accessories_migration_001",
+    "kind": "source_coverage_boundary_audit",
+    "name": "Cross-model Configurator Options, Packages and Accessories Coverage",
     "status": "complete",
-    "goal": "Persist exact page-5 technical-data source lines for all 18 saved configurator states without semantic coercion or cross-identity transfer.",
+    "goal": "Audit all 18 saved configurator PDFs for exact option, package and accessory entries and persist the verified zero-entry source boundary without inference.",
     "manifest_paths": [
-      "data/reporting/cross_model_configurator_technical_data.json",
-      "data/reporting/cross_model_configurator_technical_data.md",
+      "data/reporting/cross_model_configurator_options_packages_accessories_coverage.json",
+      "data/reporting/cross_model_configurator_options_packages_accessories_coverage.md",
       "project/STATE_SUMMARY.md",
-      "project/packages/cross-model-configurator-technical-data-migration-20260805.md",
+      "project/packages/cross-model-configurator-options-packages-accessories-coverage-20260805.md",
       "project/state.json",
-      "tests/test_cross_model_configurator_technical_data_20260805.py"
+      "tests/test_cross_model_configurator_options_packages_accessories_coverage_20260805.py"
     ]
   },
   "next_package": {
-    "package_id": "cross_model_configurator_options_packages_accessories_migration_001",
-    "kind": "source_backed_option_package_accessory_migration",
-    "name": "Cross-model Configurator Options, Packages and Accessories Migration",
+    "package_id": "cross_model_configurator_conflict_closure_001",
+    "kind": "source_backed_conflict_closure",
+    "name": "Cross-model Configurator Conflict Closure",
     "status": "planned",
-    "goal": "Capture exact option, package and accessory source lines from the remaining pages of all 18 saved configurator PDFs while preserving exact saved-state boundaries.",
+    "goal": "Compare the commercial, standard-equipment and technical observations against current canonical data, classify exact matches and identity-safe conflicts, and close the configurator assimilation milestone without cross-phase promotion.",
     "manifest_paths": []
   },
   "autonomy": {
