@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Cross-model Configurator Data Assimilation**
+**Post-configurator Portfolio Reporting**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1868
+- Tests: 1872
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-model Configurator Options, Packages and Accessories Coverage** — `complete`
+**Cross-model Configurator Conflict Closure** — `complete`
 
-Audit all 18 saved configurator PDFs for exact option, package and accessory entries and persist the verified zero-entry source boundary without inference.
+Compare all persisted configurator observations with canonical configuration identities, preserve phase-qualified boundaries and close the assimilation milestone without destructive replacement or history deletion.
 
 ## Next package
 
-**Cross-model Configurator Conflict Closure** — `planned`
+**Portfolio Powertrain and Transmission Matrix** — `planned`
 
-Compare the commercial, standard-equipment and technical observations against current canonical data, classify exact matches and identity-safe conflicts, and close the configurator assimilation milestone without cross-phase promotion.
+Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.
 
 ## Autonomy
 

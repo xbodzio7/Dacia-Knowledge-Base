@@ -1,0 +1,45 @@
+{
+  "product_code": "cross_model_configurator_conflict_closure_20260804",
+  "observed_on": "2026-08-04",
+  "source_code": "src_pl_dacia_configurator_cross_model_pdf_bundle_20260804",
+  "reviewed_saved_states": 18,
+  "canonical_identity_matches": 18,
+  "direct_current_identity_matches": 8,
+  "phase_qualified_identity_matches": 10,
+  "unresolved_identity_conflicts": 0,
+  "destructive_replacements": 0,
+  "historical_observations_removed": 0,
+  "classification_counts": {
+    "direct_current_identity_match": 8,
+    "phase_qualified_identity_match": 10
+  },
+  "rows": [
+    {"configuration_code":"GGQ0LU","canonical_configuration_code":"bigster_essential_mildhybridg140_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"EFVBCJ","canonical_configuration_code":"bigster_expression_mildhybridg140_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"XO3PYO","canonical_configuration_code":"bigster_extreme_mildhybridg140_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"OL7ODX","canonical_configuration_code":"bigster_journey_mildhybrid140_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"MEOHF3","canonical_configuration_code":"duster_iii_essential_ecog120_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"QWY7QR","canonical_configuration_code":"duster_iii_expression_ecog120_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"QVQDYV","canonical_configuration_code":"duster_iii_extreme_ecog120_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"OQNKFK","canonical_configuration_code":"duster_iii_journey_ecog120_4x2_manual","classification":"direct_current_identity_match"},
+    {"configuration_code":"I23FGG","canonical_configuration_code":"jogger_essential_5seat_ecog120_manual","classification":"phase_qualified_identity_match","source_phase":"new"},
+    {"configuration_code":"KJUY16","canonical_configuration_code":"jogger_expression_5seat_ecog120_manual","classification":"phase_qualified_identity_match","source_phase":"new"},
+    {"configuration_code":"YHGCUZ","canonical_configuration_code":"jogger_extreme_5seat_ecog120_manual","classification":"phase_qualified_identity_match","source_phase":"new"},
+    {"configuration_code":"ARKVJG","canonical_configuration_code":"jogger_journey_5seat_tce110_manual","classification":"phase_qualified_identity_match","source_phase":"new"},
+    {"configuration_code":"4TJTWN","canonical_configuration_code":"sandero_iii_essential_tce100_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"},
+    {"configuration_code":"FZXCXZ","canonical_configuration_code":"sandero_iii_expression_tce100_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"},
+    {"configuration_code":"HJISLB","canonical_configuration_code":"sandero_iii_journey_tce100_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"},
+    {"configuration_code":"9I1STI","canonical_configuration_code":"sandero_stepway_iii_essential_tce110_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"},
+    {"configuration_code":"U56SQT","canonical_configuration_code":"sandero_stepway_iii_expression_ecog120_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"},
+    {"configuration_code":"5WZLHM","canonical_configuration_code":"sandero_stepway_iii_extreme_ecog120_manual","classification":"phase_qualified_identity_match","source_phase":"F.2"}
+  ],
+  "closure_policy": {
+    "dated_observations_coexist": true,
+    "no_cross_phase_promotion": true,
+    "no_cross_grade_transfer": true,
+    "no_cross_powertrain_transfer": true,
+    "no_history_deletion": true,
+    "raw_source_lines_remain_reporting_evidence": true
+  },
+  "milestone_status": "complete"
+}
