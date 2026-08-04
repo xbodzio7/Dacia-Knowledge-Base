@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-04",
+  "status": "complete",
+  "package_id": "interactive_media_and_equipment_groups_001",
+  "spring_media": {
+    "previous_url": "https://www.dacia.pl/agg/vn/unique/grade_carrousel_thumb_1_small/grade_carrousel_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FS2E%2Fspring-my26%2Fc%2FA-ENS_0MDL2P1SERIELIM3_-TEKQZ",
+    "previous_dimensions": [
+      160,
+      120
+    ],
+    "selected_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FS2E%2Fspring-my26%2Fc%2FA-ENS_0MDL2P1SERIELIM3_-TEKQZ",
+    "selected_dimensions": [
+      489,
+      326
+    ],
+    "selected_bytes": 73281,
+    "official_domain": true,
+    "same_rendering_family_as_other_models": true,
+    "uniform_scale_only": true,
+    "horizontal_mirroring_applied": false
+  },
+  "equipment_groups": {
+    "default_state": "collapsed",
+    "group_names_visible": true,
+    "per_group_toggle": true,
+    "expand_all": true,
+    "collapse_all": true,
+    "search_temporarily_expands_matching_groups": true,
+    "selected_count_visible": true,
+    "session_state": "dkb-equipment-expanded-groups-v1"
+  },
+  "data_scope_policy": {
+    "decision": "D-CFG-001",
+    "future_configurator_refresh": "all_source_visible_data",
+    "field_only_refreshes": "rejected_unless_access_limited_and_recorded"
+  },
+  "next_package": "official_configurator_full_state_capture_001"
+}
