@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1865,
+    "tests": 1866,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,26 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "cross_model_configurator_commercial_data_migration_001",
-    "kind": "source_backed_commercial_observation_migration",
-    "name": "Cross-model Configurator Commercial Data Migration",
-    "status": "complete",
-    "goal": "Persist exact page-2 price, colour, wheel and upholstery observations for all 18 saved configurator states without cross-identity promotion.",
-    "manifest_paths": [
-      "data/reporting/cross_model_configurator_commercial_data.json",
-      "data/reporting/cross_model_configurator_commercial_data.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/cross-model-configurator-commercial-data-migration-20260805.md",
-      "project/state.json",
-      "tests/test_cross_model_configurator_commercial_data_20260805.py"
-    ]
-  },
-  "next_package": {
     "package_id": "cross_model_configurator_standard_equipment_migration_001",
     "kind": "source_backed_equipment_migration",
     "name": "Cross-model Configurator Standard Equipment Migration",
+    "status": "complete",
+    "goal": "Persist exact standard-equipment source lines from pages 3-4 of all 18 saved configurator PDFs while preserving configuration boundaries.",
+    "manifest_paths": [
+      "data/reporting/cross_model_configurator_standard_equipment.json",
+      "data/reporting/cross_model_configurator_standard_equipment.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/cross-model-configurator-standard-equipment-migration-20260805.md",
+      "project/state.json",
+      "tests/test_cross_model_configurator_standard_equipment_20260805.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "cross_model_configurator_technical_data_migration_001",
+    "kind": "source_backed_technical_observation_migration",
+    "name": "Cross-model Configurator Technical Data Migration",
     "status": "planned",
-    "goal": "Extract and persist exact standard-equipment lists from all 18 saved configurator PDFs while preserving configuration, phase, powertrain and seat-count boundaries.",
+    "goal": "Extract and persist exact technical-data observations from all 18 saved configurator PDFs without cross-identity propagation.",
     "manifest_paths": []
   },
   "autonomy": {
