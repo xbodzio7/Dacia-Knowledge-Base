@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Portfolio Source Coverage Matrix Release Integration**
+**Data Products v1.15.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Portfolio Source Coverage Matrix
-- Pull Request: #522
-- Verified head: `f287182c91fa93097635f2a74e03770df8155af3`
-- Quality run: #30945518356
+- Package: Portfolio Source Coverage Matrix Release Integration
+- Pull Request: #523
+- Verified head: `4efa1de557018c3b945bf0df4d07bd974d9e9377`
+- Quality run: #30948182292
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Source Coverage Matrix Release Integration** — `complete`
+**Data Products v1.15.0 Release Preparation** — `complete`
 
-Integrate the verified source coverage JSON, CSV and standalone HTML into the deterministic data-products archive and offline workspace without changing source or master data.
+Prepare an immutable minor release from the verified source-coverage integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
 
 ## Next package
 
-**Data Products v1.15.0 Release Preparation** — `planned`
+**Data Products v1.15.0 Publication** — `planned`
 
-Prepare an immutable minor release from the verified source-coverage integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.
+Publish immutable data-products-v1.15.0 assets from the exact publication merge SHA after double-build byte identity, full Quality and public-download offline workspace verification.
 
 ## Autonomy
 
