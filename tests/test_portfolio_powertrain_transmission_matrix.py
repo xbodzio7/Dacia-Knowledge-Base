@@ -3,18 +3,21 @@ from __future__ import annotations
 import csv
 import io
 import json
+import sys
 import unittest
 from pathlib import Path
 
-from tools.reporting.portfolio_powertrain_transmission_matrix import (
+REPOSITORY = Path(__file__).resolve().parents[1]
+TOOLS = REPOSITORY / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from reporting.portfolio_powertrain_transmission_matrix import (  # noqa: E402
     collect_matrix,
     render_csv,
     render_html,
     render_json,
 )
-
-
-REPOSITORY = Path(__file__).resolve().parents[1]
 
 
 class PortfolioPowertrainTransmissionMatrixTests(unittest.TestCase):
@@ -44,7 +47,13 @@ class PortfolioPowertrainTransmissionMatrixTests(unittest.TestCase):
             (record["powertrain_label"], record["transmission_type"])
             for record in self.matrix["records"]
         ]
-        self.assertEqual(identities, sorted(identities, key=lambda value: (value[0].casefold(), value[1].casefold())))
+        self.assertEqual(
+            identities,
+            sorted(
+                identities,
+                key=lambda value: (value[0].casefold(), value[1].casefold()),
+            ),
+        )
         self.assertEqual(len(identities), len(set(identities)))
 
     def test_no_inference_or_recommendation_flags(self) -> None:
