@@ -95,25 +95,68 @@ class InterfaceSourceCoverageRepairTests(unittest.TestCase):
             and row["price_date"] == "2026-07-03"
         }
         self.assertTrue(EXPECTED_MAPPINGS.issubset(actual))
+        for item_code, configuration_code, amount in EXPECTED_MAPPINGS:
+            matches = [
+                row
+                for row in rows
+                if row["commercial_item_code"] == item_code
+                and row["configuration_code"] == configuration_code
+                and row["amount"] == amount
+                and row["source_code"] == PRICE_SOURCE
+            ]
+            self.assertEqual(len(matches), 1, (item_code, configuration_code))
+            self.assertEqual(matches[0]["availability_status"], "optional")
+            self.assertEqual(matches[0]["currency_code"], "PLN")
 
-    def test_sandero_direct_injection_evidence_is_preserved(self) -> None:
-        values = read_csv("configuration_attribute_values.csv")
-        actual = {
-            row["configuration_code"]
-            for row in values
-            if row["attribute_code"] == "fuel_injection_type"
-            and row["value_enum"] == "direct_injection"
-            and row["source_code"] == TECHNICAL_SOURCE
-            and row["observation_date"] == "2026-07-03"
+    def test_sandero_tce100_direct_injection_remains_source_backed(self) -> None:
+        rows = read_csv("configuration_attribute_values.csv")
+        expected = {
+            "sandero_iii_essential_tce100_manual",
+            "sandero_iii_expression_tce100_manual",
+            "sandero_iii_journey_tce100_manual",
         }
-        self.assertEqual(
-            actual,
-            {
-                "sandero_iii_essential_tce100_manual",
-                "sandero_iii_expression_tce100_manual",
-                "sandero_iii_journey_tce100_manual",
-            },
+        matches = {
+            row["configuration_code"]: row
+            for row in rows
+            if row["configuration_code"] in expected
+            and row["attribute_code"] == "injection_type"
+            and row["value"] == "direct_injection"
+        }
+        self.assertEqual(set(matches), expected)
+        self.assertTrue(
+            all(
+                row["source_code"] == TECHNICAL_SOURCE
+                for row in matches.values()
+            )
         )
+        self.assertTrue(
+            all(
+                row["observation_date"] == "2026-07-03"
+                for row in matches.values()
+            )
+        )
+        self.assertTrue(
+            all("Rodzaj wtrysku: bezpośredni" in row["notes"] for row in matches.values())
+        )
+
+    def test_interface_distinguishes_missing_states_and_provenance(self) -> None:
+        selection = (
+            REPOSITORY
+            / "tools/reporting/configuration_shortlist_selection.js"
+        ).read_text(encoding="utf-8")
+        pricing = (
+            REPOSITORY
+            / "tools/reporting/configuration_shortlist_v12_pricing.js"
+        ).read_text(encoding="utf-8")
+        self.assertIn("brak wpisu w bazie", selection)
+        self.assertIn("brak powiązania z cennikiem", selection)
+        self.assertIn("cena niepodana w źródle", selection)
+        self.assertIn("comparisonValueTitle", selection)
+        self.assertIn("equipmentComparisonTitle", selection)
+        self.assertIn("comparison-source-note", selection)
+        self.assertIn("brak powiązania z cennikiem", pricing)
+        self.assertIn("cena niepodana w źródle", pricing)
+        self.assertNotIn("Nieznane dopłaty", pricing)
 
 
 if __name__ == "__main__":
