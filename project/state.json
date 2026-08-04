@@ -39,6 +39,7 @@
       "project/state.json",
       "tests/test_configuration_selection_export.py",
       "tests/test_data_product_release.py",
+      "tests/test_interface_source_coverage_repair_20260801.py",
       "tools/configuration_shortlist.py",
       "tools/reporting/configuration_shortlist_equipment_groups.css",
       "tools/reporting/configuration_shortlist_equipment_groups.js",
