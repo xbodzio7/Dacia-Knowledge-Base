@@ -60,6 +60,7 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         "model_family_summary_html": "Model family summary",
         "model_family_comparison_matrix_html": "Family comparison matrix",
         "model_version_comparison_matrix_html": "Version comparison matrix",
+        "source_coverage_matrix_html": "Source coverage matrix",
         "release_notes": "Release notes",
     }
     keys = [
@@ -76,6 +77,8 @@ def _print_summary(result: dict[str, object], output: Path) -> None:
         keys.append("model_family_comparison_matrix_html")
     if "model_version_comparison_matrix_html" in raw_entry_points:
         keys.append("model_version_comparison_matrix_html")
+    if "source_coverage_matrix_html" in raw_entry_points:
+        keys.append("source_coverage_matrix_html")
     keys.append("release_notes")
     for key in keys:
         print(
