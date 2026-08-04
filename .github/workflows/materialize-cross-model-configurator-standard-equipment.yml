@@ -1,0 +1,49 @@
+name: Materialize Cross-model Configurator Standard Equipment
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-cross-model-configurator-standard-equipment-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.head_ref == 'agent/cross-model-configurator-standard-equipment-001'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Materialize standard equipment
+        run: |
+          python tools/materialize_cross_model_configurator_standard_equipment.py
+          python tools/dkb.py project-state --apply
+      - name: Verify standard-equipment migration
+        run: |
+          python -m unittest -v tests.test_cross_model_configurator_standard_equipment_20260805
+          python tools/dkb.py project-state --check
+      - name: Commit bounded package
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          rm .github/workflows/materialize-cross-model-configurator-standard-equipment.yml
+          rm tools/materialize_cross_model_configurator_standard_equipment.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'data: migrate exact configurator standard equipment'
+          git push origin "HEAD:${HEAD_BRANCH}"
