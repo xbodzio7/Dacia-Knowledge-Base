@@ -1,0 +1,2500 @@
+{
+  "source_code": "src_pl_dacia_configurator_cross_model_pdf_bundle_20260804",
+  "observation_type": "exact_standard_equipment_source_lines",
+  "observed_on": "2026-08-04",
+  "document_count": 18,
+  "configuration_count": 18,
+  "source_pages": [
+    3,
+    4
+  ],
+  "total_category_count": 156,
+  "total_source_line_count": 1355,
+  "documents": [
+    {
+      "configuration_code": "4TJTWN",
+      "filename": "NOWE SANDERO essential TCe 100 F.pdf",
+      "model_family": "sandero",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "essential",
+      "powertrain": "TCe 100",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 75,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "15\" stalowe obręcze kół - wzór ELMA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 15\""
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "system multimedialny Media Control (radio DAB, 2 głośniki,",
+            "Bluetooth, 1xUSB, aplikacja DMC)",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wzdłużną bez regulacji wysokości",
+            "tylne oparcie kanapy nieskładane",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica z pianki",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "niska konsola środkowa z otwartym schowkiem",
+            "kierownica z regulacją wysokości",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą",
+            "pokrętła"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "system ogrzewania z cyrkulacją powietrza",
+            "filtr cząstek stałych"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "antena biczowa",
+            "tarcza koła ochronnego",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "5WZLHM",
+      "filename": "NOWE SANDERO STEPWAY extreme stepway Eco-G 120 f(2).pdf",
+      "model_family": "sandero_stepway",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "stepway extreme",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 82,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" felgi aluminiowe",
+            "tapicerka microclud extreme",
+            "16\" felgi aluminiowe TAMIA BLACK",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless",
+            "Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem",
+            "temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "bezkluczykowy dostęp Keyless Entry"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "ESP z Extened Grip",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "lusterka boczne w kolorze czarnym błyszczącym",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "9I1STI",
+      "filename": "NOWE SANDERO STEPWAY essential stepway TCe 110 f.pdf",
+      "model_family": "sandero_stepway",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "stepway essential",
+      "powertrain": "TCe 110",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 77,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" felgi aluminiowe TAMIA BI-TON",
+            "tapicerka materiałowa",
+            "relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "system multimedialny Media Control (radio DAB, 2 głośniki,",
+            "Bluetooth, 1xUSB, aplikacja DMC)",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica z pianki",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "niska konsola środkowa z otwartym schowkiem",
+            "kierownica z regulacją wysokości",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą",
+            "pokrętła"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "antena biczowa",
+            "tarcza koła ochronnego",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "ARKVJG",
+      "filename": "NOWY JOGGER journey TCe 110 5-miejsc.pdf",
+      "model_family": "jogger",
+      "phase": "nowy",
+      "seat_count": 5,
+      "grade": "journey",
+      "powertrain": "TCe 110",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 89,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" felgi aluminiowe TAMIA",
+            "obręcze kół ze stopu metali lekkich 16\"",
+            "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy zestaw wskaźników 7\"",
+            "system multimedialny Nowy Media Nav 10\" (nawigacja, radio",
+            "DAB, 6 głośników, Bluetooth, replikacja)",
+            "usługi online",
+            "ładowarka indukcyjna",
+            "komputer pokładowy"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "bezkluczykowy dostęp Keyless Entry",
+            "tapicerka materiałowa",
+            "centralny zamek",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "fotel kierowcy z regulacją wysokości bez podłokietnika, oparcia",
+            "przednich foteli ze stolikami lot.",
+            "tylna kanapa składana i podnoszona w układzie 1/3-2/3",
+            "przednie fotele podgrzewane",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless",
+            "Entry)",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światło w drugim rzędzie",
+            "dwa światła cofania",
+            "funkcja automatycznej zmiany świateł drogowych na mijania",
+            "(AHL)",
+            "Oświetlenie bagażnika",
+            "trzecie światło STOP",
+            "światła przeciwmgłowe",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "system wspomagania parkowania przód/tył",
+            "system Multiview kamera",
+            "tryb ECO",
+            "ograniczenie prędkości do 180 km/h",
+            "regulator i ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "automatyczny hamulec ręczny"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "2 nawiewy na tył pod przednimi fotelami",
+            "filtr cząstek stałych",
+            "elektryczne lusterko z czujnikiem, ogrzewaniem i elektrycznym",
+            "składaniem",
+            "klimatyzacja automatyczna",
+            "podgrzewana kierownica",
+            "szyba przednia nieogrzewana"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "automatyczne zamykanie drzwi po ruszeniu",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "zestaw ochronny ANTIGRAVIL",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "funkcja połączenia alarmowego e-Call",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "ostrzeżenie o bezpiecznej odległości",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "przygotowanie do montażu blokady alkoholowej",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "przyciemniane tylne szyby",
+            "antena w kształcie płetwy rekina",
+            "modułowe relingi dachowe",
+            "plastikowy próg ochronny przy otworze do bagażnika",
+            "opony letnie o niskim oporze toczenia",
+            "zestaw do naprawy uszkodzenia opony",
+            "zderzaki w kolorze nadwozia typu STEPWAY",
+            "normalny dach"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "EFVBCJ",
+      "filename": "BIGSTER expression mild hybrid-G 140.pdf",
+      "model_family": "bigster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "expression",
+      "powertrain": "mild hybrid-G 140",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 10,
+      "source_line_count": 70,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa \"Denim\" z odblaskowym logo"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "usługi online",
+            "kolorowy wyświetlacz komputera 7\"",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "5 miejsc",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "kamera cofania",
+            "lusterka boczne regulowane i składane elektrycznie, podgrzewane",
+            "z czujnikiem temperatury",
+            "tapicerka podłogi bagażnika",
+            "3 zagłówki w drugim rzędzie",
+            "2 kluczyki z 3 przyciskami (w tym 1 kluczyk składany)",
+            "fotel kierowcy z regulacją lędźwi + fotel pasażera z regulacją",
+            "wysokości",
+            "tylne oparcie kanapy składane 40/20/40 z systemem EASY FOLD",
+            "gniazdo 12V w bagażniku",
+            "centralny zamek",
+            "konsola środkowa ze schowkiem i podłokietnikiem",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "zwijana roleta bagażnika"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "jedno światło cofania"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "opony letnie",
+            "automatyczny hamulec postojowy",
+            "czujniki parkowania z tyłu",
+            "tryb ECO",
+            "fabryczna instalacja LPG"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "automatyczna dwustrefowa klimatyzacja"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "ESP + system wspomagający ruszanie pod górę (HSA)",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "funkcja połączenia alarmowego e-Call",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system utrzymania pasa ruchu (LKA)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system kontroli zmęczenia i uwagi kierowcy z kamerą",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne z tyłu",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "aluminiowe obręcze kół 17\"",
+            "aluminiowe obręcze kół 17\" TERGAN diamentowane",
+            "osłony",
+            "dach standardowy",
+            "zderzaki w kolorze nadwozia"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA DACHU",
+          "source_lines": [
+            "antena w kształcie płetwy rekina relingi dachowe"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze szary megalith"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "FZXCXZ",
+      "filename": "NOWE SANDERO expression TCe 100 f.pdf",
+      "model_family": "sandero",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "expression",
+      "powertrain": "TCe 100",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 78,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem",
+            "temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze nadwozia",
+            "zderzaki w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "GGQ0LU",
+      "filename": "BIGSTER essential mild hybrid-G 140.pdf",
+      "model_family": "bigster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "essential",
+      "powertrain": "mild hybrid-G 140",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 10,
+      "source_line_count": 68,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa essential"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "usługi online",
+            "kolorowy wyświetlacz komputera 7\"",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "5 miejsc",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "fotel kierowcy z regulacją wysokości",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "kamera cofania",
+            "lusterka boczne regulowane elektrycznie, podgrzewane z",
+            "czujnikiem temperatury",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "tapicerka podłogi bagażnika",
+            "3 zagłówki w drugim rzędzie",
+            "2 kluczyki z 3 przyciskami (w tym 1 kluczyk składany)",
+            "tylne oparcie kanapy składane 40/60",
+            "centralny zamek",
+            "niska konsola środkowa z otwartym schowkiem bez podłokietnika",
+            "zwijana roleta bagażnika"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki manualne",
+            "jedno światło cofania"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "opony letnie",
+            "czujniki parkowania z tyłu",
+            "tryb ECO",
+            "fabryczna instalacja LPG"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "ESP + system wspomagający ruszanie pod górę (HSA)",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "funkcja połączenia alarmowego e-Call",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system utrzymania pasa ruchu (LKA)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system kontroli zmęczenia i uwagi kierowcy z kamerą",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne z tyłu",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "aluminiowe obręcze kół 17\"",
+            "aluminiowe obręcze kół 17\" TERGAN",
+            "osłony",
+            "dach standardowy",
+            "zderzaki w kolorze nadwozia"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA DACHU",
+          "source_lines": [
+            "standardowa antena 300 mm relingi dachowe"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka czarne, nielakierowane"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "HJISLB",
+      "filename": "NOWE SANDERO journey TCe 100 f.pdf",
+      "model_family": "sandero",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "journey",
+      "powertrain": "TCe 100",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 80,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless",
+            "Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem",
+            "temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "bezkluczykowy dostęp Keyless Entry"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze nadwozia",
+            "zderzaki w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "I23FGG",
+      "filename": "NOWY JOGGER essential Eco-G 120 5-miejsc.pdf",
+      "model_family": "jogger",
+      "phase": "nowy",
+      "seat_count": 5,
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 80,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "16\" felgi stalowe ERELIA dwukolorowe",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "zestaw wskaźników TFT 3,5\"",
+            "system multimedialny Media Control (radio DAB, 2 głośniki,",
+            "Bluetooth, 1xUSB, aplikacja DMC)",
+            "usługi online",
+            "komputer pokładowy"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "kluczyk z 3 przyciskami",
+            "tapicerka materiałowa",
+            "centralny zamek",
+            "fotele kubełkowe",
+            "panel centralny z otwartym schowkiem bez podłokietnika",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "fotel kierowcy z regulacją wysokości",
+            "tylna kanapa składana i podnoszona w układzie 1/3-2/3",
+            "szyby o wysokiej zdolności filtrującej",
+            "korek wlewu paliwa (bez keyless entry)",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą",
+            "pokrętła",
+            "kierownica z pianki",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światło w drugim rzędzie",
+            "jedno światło cofania",
+            "Oświetlenie bagażnika",
+            "trzecie światło STOP",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "system wspomagania parkowania tyłem",
+            "tryb ECO",
+            "ograniczenie prędkości do 180 km/h",
+            "regulator i ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "2 nawiewy na tył pod przednimi fotelami",
+            "filtr cząstek stałych",
+            "kierownica nieogrzewana",
+            "wymóg termiczny wnętrza pojazdu",
+            "klimatyzacja manualna",
+            "szyba przednia nieogrzewana"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "automatyczne zamykanie drzwi po ruszeniu",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "zestaw ochronny ANTIGRAVIL",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "funkcja połączenia alarmowego e-Call",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "system utrzymania pasa ruchu (LKA)",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "ostrzeżenie o bezpiecznej odległości",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "przygotowanie do montażu blokady alkoholowej",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze czarnym",
+            "tarcza koła ochronnego",
+            "relingi dachowe",
+            "antena biczowa",
+            "plastikowy próg ochronny przy otworze do bagażnika",
+            "opony letnie o niskim oporze toczenia",
+            "zestaw do naprawy uszkodzenia opony",
+            "zderzaki w kolorze nadwozia typu STEPWAY",
+            "normalny dach"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "KJUY16",
+      "filename": "NOWY JOGGER expression Eco-G 120 5-miejsc.pdf",
+      "model_family": "jogger",
+      "phase": "nowy",
+      "seat_count": 5,
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 83,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "16\" felgi stalowe ERELIA dwukolorowe",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "zestaw wskaźników TFT 3,5\"",
+            "usługi online",
+            "komputer pokładowy",
+            "system multimedialny Nowy Media Display 10\" (radio DAB, 4",
+            "głośniki, Bluetooth, replikacja))"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "lusterka boczne regulowane elektrycznie, podgrzewane z",
+            "czujnikiem temperatury",
+            "kluczyk z 3 przyciskami",
+            "tapicerka materiałowa",
+            "centralny zamek",
+            "fotele kubełkowe",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "fotel kierowcy z regulacją wysokości",
+            "tylna kanapa składana i podnoszona w układzie 1/3-2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światło w drugim rzędzie",
+            "dwa światła cofania",
+            "Oświetlenie bagażnika",
+            "trzecie światło STOP",
+            "światła przeciwmgłowe",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "system wspomagania parkowania tyłem",
+            "tryb ECO",
+            "ograniczenie prędkości do 180 km/h",
+            "regulator i ogranicznik prędkości",
+            "kamera cofania",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "2 nawiewy na tył pod przednimi fotelami",
+            "filtr cząstek stałych",
+            "kierownica nieogrzewana",
+            "wymóg termiczny wnętrza pojazdu",
+            "klimatyzacja manualna",
+            "szyba przednia nieogrzewana"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "automatyczne zamykanie drzwi po ruszeniu",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "zestaw ochronny ANTIGRAVIL",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "funkcja połączenia alarmowego e-Call",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "system utrzymania pasa ruchu (LKA)",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "ostrzeżenie o bezpiecznej odległości",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "przygotowanie do montażu blokady alkoholowej",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "przyciemniane tylne szyby",
+            "antena w kształcie płetwy rekina",
+            "modułowe relingi dachowe",
+            "plastikowy próg ochronny przy otworze do bagażnika",
+            "opony letnie o niskim oporze toczenia",
+            "zestaw do naprawy uszkodzenia opony",
+            "zderzaki w kolorze nadwozia typu STEPWAY",
+            "normalny dach"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "MEOHF3",
+      "filename": "DUSTER essential Eco-G 120.pdf",
+      "model_family": "duster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 9,
+      "source_line_count": 59,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa essential"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "zestaw wskaźników TFT 3,5\"",
+            "usługi online",
+            "nowy system multimedialny Media Control (Bluetooth, 4 głośniki,",
+            "1x USB-C)",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "2 kluczyki z 3 przyciskami (w tym 1 kluczyk składany)",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "centralny zamek",
+            "niska konsola środkowa z otwartym schowkiem bez podłokietnika",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki manualne",
+            "lusterka boczne regulowane elektrycznie, podgrzewane z",
+            "czujnikiem temperatury",
+            "kierunkowskazy impulsowe",
+            "luterko wsteczne z ustawieniem dzień/noc"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "tryb ECO",
+            "czujniki parkowania z tyłu",
+            "regulator-ogranicznik prędkości",
+            "opony letnie"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "napinacze pirotechniczne z tyłu",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "ESP + system wspomagający ruszanie pod górę HSA",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system utrzymania pasa ruchu (LKA)",
+            "funkcja połączenia alarmowego e-Call"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "stalowe obręcze kół 16\" BANGKA 215",
+            "stalowe obręcze kół 16\"",
+            "relingi dachowe"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka czarne, nielakierowane"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "OL7ODX",
+      "filename": "BIGSTER journey mild hybrid 140.pdf",
+      "model_family": "bigster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "journey",
+      "powertrain": "mild hybrid 140",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 10,
+      "source_line_count": 75,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa journey łączona z MicroCloud"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "usługi online",
+            "wskaźnik zmiany biegów",
+            "kolorowy wyświetlacz komputera 10,1\"",
+            "ładowarka indukcyjna",
+            "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-",
+            "line, system 3D by Arkamys, 6 głośników)"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "5 miejsc",
+            "karta Keyless Entry",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "kamera cofania",
+            "lusterka boczne regulowane i składane elektrycznie, podgrzewane",
+            "z czujnikiem temperatury",
+            "tapicerka podłogi bagażnika",
+            "3 zagłówki w drugim rzędzie",
+            "fotel kierowcy regulowany elektrycznie na wysokość i kąt oparcia",
+            "+ fotel pasażera z regulacją lędźwi",
+            "tylne oparcie kanapy składane 40/20/40 z systemem EASY FOLD",
+            "gniazdo 12V w bagażniku",
+            "centralny zamek",
+            "konsola środkowa ze schowkiem i podłokietnikiem",
+            "pokrywa bagażnika sterowana elektrycznie",
+            "uszczelki przeciwpyłowe",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "zwijana roleta bagażnika"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "przyciemniane tylne szyby",
+            "funkcja automatycznej zmiany świateł drogowych na mijania",
+            "(AHL)",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "jedno światło cofania"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "opony letnie",
+            "automatyczny hamulec postojowy",
+            "czujniki parkowania z tyłu",
+            "tryb ECO"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "automatyczna dwustrefowa klimatyzacja"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "ESP + system wspomagający ruszanie pod górę (HSA)",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "funkcja połączenia alarmowego e-Call",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system utrzymania pasa ruchu (LKA)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system kontroli zmęczenia i uwagi kierowcy z kamerą",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne z tyłu",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "aluminiowe obręcze kół 18\"",
+            "aluminiowe obręcze kół 18\" TAGASAN diamentowane",
+            "osłony",
+            "dach standardowy",
+            "zderzaki w kolorze nadwozia"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA DACHU",
+          "source_lines": [
+            "antena w kształcie płetwy rekina relingi dachowe"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze szary megalith"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "OQNKFK",
+      "filename": "DUSTER journey Eco-G 120.pdf",
+      "model_family": "duster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "journey",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 9,
+      "source_line_count": 67,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa journey"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy wyświetlacz komputera 7\"",
+            "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-",
+            "line, system 3D by Arkamys, 6 głośników)",
+            "usługi online",
+            "ładowarka indukcyjna",
+            "gniazdo 12V w bagażniku",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "karta Keyless Entry",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "centralny zamek",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "kierownica z regulacją wysokości i głębokości",
+            "fotel kierowcy z regulacją lędźwi"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "przyciemniane tylne szyby",
+            "światła automatyczne, wycieraczki automatyczne",
+            "światła przeciwmgłowe",
+            "lusterka boczne regulowane i składane elektrycznie, podgrzewane",
+            "z czujnikiem temperatury",
+            "kierunkowskazy impulsowe",
+            "funkcja automatycznej zmiany świateł drogowych na mijania",
+            "(AHL)",
+            "luterko wsteczne z ustawieniem dzień/noc"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "tryb ECO",
+            "automatyczny hamulec ręczny",
+            "czujniki parkowania z tyłu",
+            "regulator-ogranicznik prędkości",
+            "kamera cofania",
+            "opony letnie"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "klimatyzacja automatyczna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "napinacze pirotechniczne z tyłu",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "ESP + system wspomagający ruszanie pod górę HSA",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system utrzymania pasa ruchu (LKA)",
+            "funkcja połączenia alarmowego e-Call"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "aluminiowe obręcze kół 18\"",
+            "aluminiowe obręcze kół 18\" TAGASAN 215 diamentowane",
+            "relingi dachowe"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze szary megalith"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "QVQDYV",
+      "filename": "DUSTER extreme Eco-G 120.pdf",
+      "model_family": "duster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 9,
+      "source_line_count": 67,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka \"MicroCloud\" z odblaskowym logo"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy wyświetlacz komputera 7\"",
+            "usługi online",
+            "gniazdo 12V w bagażniku",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją lędźwi + fotel pasażera z regulacją",
+            "wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "karta Keyless Entry",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "centralny zamek",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "przyciemniane tylne szyby",
+            "światła automatyczne, wycieraczki automatyczne",
+            "światła przeciwmgłowe",
+            "lusterka boczne regulowane i składane elektrycznie, podgrzewane",
+            "z czujnikiem temperatury",
+            "kierunkowskazy impulsowe",
+            "funkcja automatycznej zmiany świateł drogowych na mijania",
+            "(AHL)",
+            "luterko wsteczne z ustawieniem dzień/noc"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "tryb ECO",
+            "czujniki parkowania z tyłu",
+            "regulator-ogranicznik prędkości",
+            "kamera cofania",
+            "opony letnie"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "klimatyzacja automatyczna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "napinacze pirotechniczne z tyłu",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "ESP + system wspomagający ruszanie pod górę oraz kontroli",
+            "zjazdu ze wzniesienia HSA/HDC",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system utrzymania pasa ruchu (LKA)",
+            "funkcja połączenia alarmowego e-Call"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "aluminiowe obręcze kół 17\"",
+            "modułowe relingi dachowe",
+            "aluminiowe obręcze kół 17\" TERGAN BLACK 215"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze miedziano-brązowym"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "QWY7QR",
+      "filename": "DUSTER expression Eco-G 120.pdf",
+      "model_family": "duster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 9,
+      "source_line_count": 60,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka materiałowa \"Denim\" z odblaskowym logo"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy wyświetlacz komputera 7\"",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "wskaźnik zmiany biegów"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "2 kluczyki z 3 przyciskami (w tym 1 kluczyk składany)",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "centralny zamek",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "lusterka boczne regulowane elektrycznie, podgrzewane z",
+            "czujnikiem temperatury",
+            "kierunkowskazy impulsowe",
+            "luterko wsteczne z ustawieniem dzień/noc"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "tryb ECO",
+            "czujniki parkowania z tyłu",
+            "regulator-ogranicznik prędkości",
+            "kamera cofania",
+            "opony letnie"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "napinacze pirotechniczne z tyłu",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "ESP + system wspomagający ruszanie pod górę HSA",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system utrzymania pasa ruchu (LKA)",
+            "funkcja połączenia alarmowego e-Call"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "zderzaki w kolorze nadwozia",
+            "aluminiowe obręcze kół 17\"",
+            "relingi dachowe",
+            "aluminiowe obręcze kół 17\" TERGAN 215"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze szary megalith"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "U56SQT",
+      "filename": "NOWE SANDERO STEPWAY expression stepway Eco-G 120 f(2).pdf",
+      "model_family": "sandero_stepway",
+      "phase": "F.2",
+      "seat_count": null,
+      "grade": "stepway expression",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 81,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\",",
+            "bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem",
+            "temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i",
+            "dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne w kolorze nadwozia",
+            "zderzaki w kolorze nadwozia",
+            "tarcza koła ochronnego",
+            "opony letnie o niskim oporze toczenia"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "XO3PYO",
+      "filename": "BIGSTER extreme mild hybrid-G 140.pdf",
+      "model_family": "bigster",
+      "phase": null,
+      "seat_count": null,
+      "grade": "extreme",
+      "powertrain": "mild hybrid-G 140",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 10,
+      "source_line_count": 76,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka \"MicroCloud\" z odblaskowym logo"
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "usługi online",
+            "wskaźnik zmiany biegów",
+            "kolorowy wyświetlacz komputera 10,1\"",
+            "ładowarka indukcyjna",
+            "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-",
+            "line, system 3D by Arkamys, 6 głośników)"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "5 miejsc",
+            "karta Keyless Entry",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości",
+            "szyby tylne regulowane elektrycznie z włącznikiem impulsowym",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "kamera cofania",
+            "lusterka boczne regulowane i składane elektrycznie, podgrzewane",
+            "z czujnikiem temperatury",
+            "tapicerka podłogi bagażnika",
+            "3 zagłówki w drugim rzędzie",
+            "fotel kierowcy z regulacją lędźwi + fotel pasażera z regulacją",
+            "wysokości",
+            "tylne oparcie kanapy składane 40/20/40 z systemem EASY FOLD",
+            "gniazdo 12V w bagażniku",
+            "centralny zamek",
+            "konsola środkowa ze schowkiem i podłokietnikiem",
+            "uszczelki przeciwpyłowe",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "zwijana roleta bagażnika"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "przyciemniane tylne szyby",
+            "funkcja automatycznej zmiany świateł drogowych na mijania",
+            "(AHL)",
+            "dach panoramiczny otwierany elektrycznie",
+            "światła przednie ECO LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "jedno światło cofania"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "regulator-ogranicznik prędkości",
+            "opony letnie",
+            "automatyczny hamulec postojowy",
+            "czujniki parkowania z tyłu",
+            "tryb ECO",
+            "fabryczna instalacja LPG"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "automatyczna dwustrefowa klimatyzacja"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "funkcja połączenia alarmowego e-Call",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS)",
+            "system kontroli bezpiecznej odległości (DW)",
+            "system utrzymania pasa ruchu (LKA)",
+            "zestaw do naprawy uszkodzenia opony",
+            "system kontroli zmęczenia i uwagi kierowcy z kamerą",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "napinacze pirotechniczne z tyłu",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "ESP + system wspomagający ruszanie pod górę oraz kontroli",
+            "zjazdu ze wzniesienia HSA/HDC"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "aluminiowe obręcze kół 18\"",
+            "osłony",
+            "zderzaki w kolorze nadwozia",
+            "aluminiowe obręcze kół 18\" TAGASAN pół diamentowane"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA DACHU",
+          "source_lines": [
+            "modułowe relingi dachowe antena w kształcie płetwy rekina"
+          ]
+        },
+        {
+          "category": "PERSONALIZACJA LUSTEREK",
+          "source_lines": [
+            "lusterka w kolorze miedziano-brązowym"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    },
+    {
+      "configuration_code": "YHGCUZ",
+      "filename": "NOWY JOGGER extreme Eco-G 120 5-miejsc.pdf",
+      "model_family": "jogger",
+      "phase": "nowy",
+      "seat_count": 5,
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "observed_on": "2026-08-04",
+      "source_pages": [
+        3,
+        4
+      ],
+      "category_count": 8,
+      "source_line_count": 88,
+      "categories": [
+        {
+          "category": "WYGLĄD",
+          "source_lines": [
+            "tapicerka microclud extreme",
+            "16\" felgi aluminiowe TAMIA BLACK",
+            "obręcze kół ze stopu metali lekkich 16\""
+          ]
+        },
+        {
+          "category": "MULTIMEDIA",
+          "source_lines": [
+            "kolorowy zestaw wskaźników 7\"",
+            "usługi online",
+            "ładowarka indukcyjna",
+            "komputer pokładowy",
+            "system multimedialny Nowy Media Display 10\" (radio DAB, 4",
+            "głośniki, Bluetooth, replikacja))"
+          ]
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "source_lines": [
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "lusterka boczne regulowane elektrycznie, podgrzewane z",
+            "czujnikiem temperatury",
+            "bezkluczykowy dostęp Keyless Entry",
+            "tapicerka materiałowa",
+            "centralny zamek",
+            "fotele kubełkowe",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "fotel kierowcy z regulacją wysokości bez podłokietnika, oparcia",
+            "przednich foteli ze stolikami lot.",
+            "tylna kanapa składana i podnoszona w układzie 1/3-2/3",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless",
+            "Entry)",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem",
+            "impulsowym po stronie kierowcy",
+            "kierownica pokryta skórą ekologiczną",
+            "kierownica z regulacją wysokości i głębokości"
+          ]
+        },
+        {
+          "category": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "source_lines": [
+            "światła do jazdy dziennej LED",
+            "światło w drugim rzędzie",
+            "dwa światła cofania",
+            "Oświetlenie bagażnika",
+            "trzecie światło STOP",
+            "światła przeciwmgłowe",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne"
+          ]
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "source_lines": [
+            "komunikaty w języku polskim",
+            "system wspomagania parkowania przód/tył",
+            "tryb ECO",
+            "ograniczenie prędkości do 180 km/h",
+            "regulator i ogranicznik prędkości",
+            "kamera cofania",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "automatyczny hamulec ręczny"
+          ]
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "source_lines": [
+            "2 nawiewy na tył pod przednimi fotelami",
+            "filtr cząstek stałych",
+            "kierownica nieogrzewana",
+            "wymóg termiczny wnętrza pojazdu",
+            "klimatyzacja automatyczna",
+            "szyba przednia nieogrzewana"
+          ]
+        },
+        {
+          "category": "BEZPIECZEŃSTWO",
+          "source_lines": [
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "automatyczne zamykanie drzwi po ruszeniu",
+            "ABS",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera z możliwością",
+            "dezaktywacji",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "wspomaganie nagłego hamowania (AFU)",
+            "ostrzeżenie o niezapięciu pasów",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych",
+            "miejscach z tyłu",
+            "zestaw ochronny ANTIGRAVIL",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "funkcja połączenia alarmowego e-Call",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o",
+            "nadmiernej prędkości",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "ESP z systemem Extended Grip",
+            "ostrzeżenie o bezpiecznej odległości",
+            "system monitorowania ciśnienia w oponach (pośredni)",
+            "przygotowanie do montażu blokady alkoholowej",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem",
+            "pirotechnicznym na bocznych fotelach",
+            "aktywny system wspomagania nagłego hamowania z funkcją",
+            "wykrywania pieszych, rowerzystów (AEBS07)"
+          ]
+        },
+        {
+          "category": "ELEMENTY PERSONALIZACJI ZEWNĘTRZNEJ",
+          "source_lines": [
+            "lusterka boczne lakierowane w kolorystyce Extreme",
+            "tarcza koła ochronnego",
+            "przyciemniane tylne szyby",
+            "antena w kształcie płetwy rekina",
+            "modułowe relingi dachowe",
+            "plastikowy próg ochronny przy otworze do bagażnika",
+            "opony letnie o niskim oporze toczenia",
+            "zestaw do naprawy uszkodzenia opony",
+            "zderzaki w kolorze nadwozia typu STEPWAY",
+            "normalny dach"
+          ]
+        }
+      ],
+      "normalization_status": "source_lines_preserved; semantic line-joining deferred"
+    }
+  ],
+  "evidence_boundary": {
+    "exact_configuration_code_only": true,
+    "source_wording_preserved": true,
+    "no_cross_grade_transfer": true,
+    "no_cross_powertrain_transfer": true,
+    "no_cross_phase_transfer": true,
+    "no_semantic_line_joining_inferred": true
+  }
+}
