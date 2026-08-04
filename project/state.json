@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Portfolio Source Coverage Matrix",
+  "phase": "Portfolio Source Coverage Matrix Release Integration",
   "reference_delivery": {
-    "name": "Data Products v1.14.1 Interface Correction",
-    "pull_request": 520,
-    "head_sha": "1e87eb9b1f8dd7eed7981a6b60a347f0e3309761",
-    "quality_run": 30856797089
+    "name": "Portfolio Source Coverage Matrix",
+    "pull_request": 522,
+    "head_sha": "f287182c91fa93097635f2a74e03770df8155af3",
+    "quality_run": 30945518356
   },
   "baseline": {
     "tests": 1862,
@@ -27,30 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "portfolio_source_coverage_matrix_001",
-    "kind": "reporting_product",
-    "name": "Portfolio Source Coverage Matrix",
+    "package_id": "portfolio_source_coverage_matrix_release_integration_001",
+    "kind": "data_product_release_integration",
+    "name": "Portfolio Source Coverage Matrix Release Integration",
     "status": "complete",
-    "goal": "Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.",
+    "goal": "Integrate the verified source coverage JSON, CSV and standalone HTML into the deterministic data-products archive and offline workspace without changing source or master data.",
     "manifest_paths": [
-      "data/reporting/portfolio_source_coverage_matrix.csv",
-      "data/reporting/portfolio_source_coverage_matrix.html",
-      "data/reporting/portfolio_source_coverage_matrix.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/portfolio-source-coverage-matrix-20260804.md",
+      "project/packages/portfolio-source-coverage-matrix-release-integration-20260804.md",
       "project/state.json",
-      "tests/source_matrix_checks.py",
-      "tests/version_matrix_checks.py",
-      "tools/portfolio_source_coverage_matrix.py",
-      "tools/reporting/portfolio_source_coverage_matrix.py"
+      "tests/test_portfolio_model_family_release_integration.py",
+      "tools/data_product_release.py",
+      "tools/data_product_release_download.py",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_workspace_index.py",
+      "tools/reporting/portfolio_source_coverage_matrix_release_integration.py"
     ]
   },
   "next_package": {
-    "package_id": "portfolio_source_coverage_matrix_release_integration_001",
-    "kind": "release_integration",
-    "name": "Portfolio Source Coverage Matrix Release Integration",
+    "package_id": "data_products_v1_15_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.15.0 Release Preparation",
     "status": "planned",
-    "goal": "Integrate the verified source coverage JSON, CSV and standalone HTML into the versioned data-product archive and offline workspace without changing source or master data.",
+    "goal": "Prepare an immutable minor release from the verified source-coverage integration merge state, requiring exact-source double build, deterministic offline workspace verification and backward-compatible optional entry points before publication.",
     "manifest_paths": []
   },
   "autonomy": {

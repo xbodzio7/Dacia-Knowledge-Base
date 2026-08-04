@@ -18,6 +18,9 @@ MODEL_FAMILY_MATRIX_HTML_MEMBER = (
 MODEL_VERSION_MATRIX_HTML_MEMBER = (
     "model-versions/portfolio_model_version_comparison_matrix.html"
 )
+SOURCE_COVERAGE_MATRIX_HTML_MEMBER = (
+    "source-coverage/portfolio_source_coverage_matrix.html"
+)
 
 # Historical source-level compatibility contract retained for deterministic
 # review verifiers and for readers of the public workspace implementation.
@@ -156,6 +159,26 @@ def _with_model_version_matrix_card(
     )
 
 
+def _with_source_coverage_matrix_card(
+    content: str,
+    workspace_root: Path,
+    release_manifest: Any,
+) -> str:
+    return _with_optional_card(
+        content,
+        workspace_root,
+        release_manifest,
+        member=SOURCE_COVERAGE_MATRIX_HTML_MEMBER,
+        heading_id="source-coverage-matrix-heading",
+        title="Source coverage matrix",
+        description=(
+            "Review every used provenance source with its exact identity and "
+            "covered models, versions, configurations and relationships."
+        ),
+        missing_label="portfolio source coverage matrix HTML",
+    )
+
+
 def render_workspace_index(
     workspace_root: Path,
     release_manifest: Any,
@@ -176,7 +199,12 @@ def render_workspace_index(
         workspace_root,
         release_manifest,
     )
-    return _with_model_version_matrix_card(
+    content = _with_model_version_matrix_card(
+        content,
+        workspace_root,
+        release_manifest,
+    )
+    return _with_source_coverage_matrix_card(
         content,
         workspace_root,
         release_manifest,
