@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1864
+- Tests: 1865
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-model Configurator Data Reconciliation** — `complete`
+**Cross-model Configurator Commercial Data Migration** — `complete`
 
-Verify page-level evidence coverage for all 18 exact configurator states, map canonical identities and select bounded non-inferred domain migrations.
+Persist exact page-2 price, colour, wheel and upholstery observations for all 18 saved configurator states without cross-identity promotion.
 
 ## Next package
 
-**Cross-model Configurator Commercial Data Migration** — `planned`
+**Cross-model Configurator Standard Equipment Migration** — `planned`
 
-Import exact displayed configuration prices, colours, wheels and upholstery from all 18 saved states while preserving phase, grade, powertrain, transmission and seat-count boundaries.
+Extract and persist exact standard-equipment lists from all 18 saved configurator PDFs while preserving configuration, phase, powertrain and seat-count boundaries.
 
 ## Autonomy
 
