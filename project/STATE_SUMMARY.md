@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-03
+- State updated: 2026-08-04
 
 ## Phase
 
-**Data Products v1.14.1 Publication**
+**Portfolio Source Coverage Matrix**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.14.1 Publication** — `complete`
+**Portfolio Source Coverage Matrix** — `complete`
 
-Publish immutable data-products-v1.14.1 from the exact verified correction merge SHA with double-build, offline-workspace and public-download byte identity checks.
+Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.
 
 ## Next package
 
-**Portfolio Source Coverage Matrix** — `planned`
+**Portfolio Source Coverage Matrix Release Integration** — `planned`
 
-Create deterministic JSON, CSV and standalone HTML outputs with one row per used provenance source and exact covered model-family, version and configuration identities, without scoring, ranking, recommendations or inferred values.
+Integrate the verified source coverage JSON, CSV and standalone HTML into the versioned data-product archive and offline workspace without changing source or master data.
 
 ## Autonomy
 

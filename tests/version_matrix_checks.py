@@ -7,6 +7,8 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+from source_matrix_checks import run_source_matrix_checks
+
 import portfolio_model_version_comparison_matrix as version_cli
 from reporting.portfolio_model_version_comparison_matrix import (
     CSV_COLUMNS,
@@ -215,3 +217,5 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         testcase.assertEqual(json_path.read_text(encoding="utf-8"), json_text)
         testcase.assertEqual(csv_path.read_text(encoding="utf-8"), csv_text)
         testcase.assertEqual(html_path.read_text(encoding="utf-8"), html_text)
+
+    run_source_matrix_checks(testcase, repository)
