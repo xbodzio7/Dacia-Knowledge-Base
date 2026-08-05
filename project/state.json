@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-configurator Portfolio Reporting",
+  "phase": "Portfolio Powertrain and Transmission Matrix Release Integration",
   "reference_delivery": {
     "name": "Data Products v1.15.0 Publication",
     "pull_request": 526,
@@ -15,7 +15,7 @@
     "quality_run": 30950022319
   },
   "baseline": {
-    "tests": 1876,
+    "tests": 1878,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,23 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_matrix_priority_selection_001",
-    "kind": "bounded_priority_review",
-    "name": "Post-matrix Priority Selection",
-    "status": "complete",
-    "goal": "Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.",
-    "manifest_paths": [
-      "project/STATE_SUMMARY.md",
-      "project/packages/post-matrix-priority-selection-20260805.md",
-      "project/state.json"
-    ]
-  },
-  "next_package": {
     "package_id": "portfolio_powertrain_transmission_matrix_release_integration_001",
     "kind": "release_integration",
     "name": "Portfolio Powertrain and Transmission Matrix Release Integration",
+    "status": "complete",
+    "goal": "Integrate the verified matrix into the versioned archive, manifest, download surface and offline workspace without changing semantics or master data.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/portfolio-powertrain-transmission-matrix-release-integration-20260805.md",
+      "project/state.json",
+      "tests/test_portfolio_powertrain_transmission_matrix_release_integration.py",
+      "tools/data_product_release.py",
+      "tools/data_product_release_download.py",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_workspace_index.py",
+      "tools/reporting/portfolio_powertrain_transmission_matrix_release_integration.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_16_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.16.0 Release Preparation",
     "status": "planned",
-    "goal": "Integrate the verified portfolio powertrain and transmission JSON, CSV and standalone HTML into the versioned data-product build, manifest, download surface and offline workspace without changing report semantics or master data.",
+    "goal": "Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.",
     "manifest_paths": []
   },
   "autonomy": {

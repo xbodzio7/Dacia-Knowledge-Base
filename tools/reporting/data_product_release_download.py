@@ -18,12 +18,16 @@ VERSION_MATRIX_HTML_MEMBER = (
 SOURCE_COVERAGE_HTML_MEMBER = (
     "source-coverage/portfolio_source_coverage_matrix.html"
 )
+POWERTRAIN_MATRIX_HTML_MEMBER = (
+    "powertrains/portfolio-powertrain-transmission-matrix.html"
+)
 OPTIONAL_ENTRY_POINTS = {
     **_base.OPTIONAL_ENTRY_POINTS,
     "model_family_summary_html": FAMILY_HTML_MEMBER,
     "model_family_comparison_matrix_html": FAMILY_MATRIX_HTML_MEMBER,
     "model_version_comparison_matrix_html": VERSION_MATRIX_HTML_MEMBER,
     "source_coverage_matrix_html": SOURCE_COVERAGE_HTML_MEMBER,
+    "powertrain_transmission_matrix_html": POWERTRAIN_MATRIX_HTML_MEMBER,
 }
 
 REPOSITORY_FULL_NAME = _base.REPOSITORY_FULL_NAME

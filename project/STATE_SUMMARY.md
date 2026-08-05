@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-configurator Portfolio Reporting**
+**Portfolio Powertrain and Transmission Matrix Release Integration**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1876
+- Tests: 1878
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-matrix Priority Selection** — `complete`
+**Portfolio Powertrain and Transmission Matrix Release Integration** — `complete`
 
-Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.
+Integrate the verified matrix into the versioned archive, manifest, download surface and offline workspace without changing semantics or master data.
 
 ## Next package
 
-**Portfolio Powertrain and Transmission Matrix Release Integration** — `planned`
+**Data Products v1.16.0 Release Preparation** — `planned`
 
-Integrate the verified portfolio powertrain and transmission JSON, CSV and standalone HTML into the versioned data-product build, manifest, download surface and offline workspace without changing report semantics or master data.
+Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.
 
 ## Autonomy
 

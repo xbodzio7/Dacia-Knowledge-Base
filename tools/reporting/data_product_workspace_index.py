@@ -21,6 +21,9 @@ MODEL_VERSION_MATRIX_HTML_MEMBER = (
 SOURCE_COVERAGE_MATRIX_HTML_MEMBER = (
     "source-coverage/portfolio_source_coverage_matrix.html"
 )
+POWERTRAIN_MATRIX_HTML_MEMBER = (
+    "powertrains/portfolio-powertrain-transmission-matrix.html"
+)
 
 # Historical source-level compatibility contract retained for deterministic
 # review verifiers and for readers of the public workspace implementation.
@@ -179,6 +182,10 @@ def _with_source_coverage_matrix_card(
     )
 
 
+def _with_powertrain_matrix_card(content: str, workspace_root: Path, release_manifest: Any) -> str:
+    return _with_optional_card(content,workspace_root,release_manifest,member=POWERTRAIN_MATRIX_HTML_MEMBER,heading_id="powertrain-transmission-matrix-heading",title="Powertrain and transmission matrix",description="Browse exact recorded powertrain and transmission groups across all active configurations.",missing_label="portfolio powertrain and transmission matrix HTML")
+
+
 def render_workspace_index(
     workspace_root: Path,
     release_manifest: Any,
@@ -204,11 +211,8 @@ def render_workspace_index(
         workspace_root,
         release_manifest,
     )
-    return _with_source_coverage_matrix_card(
-        content,
-        workspace_root,
-        release_manifest,
-    )
+    content = _with_source_coverage_matrix_card(content, workspace_root, release_manifest)
+    return _with_powertrain_matrix_card(content, workspace_root, release_manifest)
 
 
 def write_workspace_index(
