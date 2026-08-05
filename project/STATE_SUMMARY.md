@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-04
+- State updated: 2026-08-05
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Powertrain and Transmission Matrix** — `complete`
+**Post-matrix Priority Selection** — `complete`
 
-Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.
+Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.
 
 ## Next package
 
-**Post-matrix Priority Selection** — `planned`
+**Portfolio Powertrain and Transmission Matrix Release Integration** — `planned`
 
-Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.
+Integrate the verified portfolio powertrain and transmission JSON, CSV and standalone HTML into the versioned data-product build, manifest, download surface and offline workspace without changing report semantics or master data.
 
 ## Autonomy
 
