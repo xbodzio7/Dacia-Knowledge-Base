@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Configuration Shortlist Spring Media Normalization**
+**Configuration Shortlist Configurator Observation Filters**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1878
+- Tests: 1881
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Shortlist Spring Media Normalization** — `complete`
+**Configuration Shortlist Configurator Observation Filters** — `complete`
 
-Use the current official Dacia Polska car-picker packshot for Spring through the shared model-media catalogue, remove the Spring-only supplemental override and framing, and preserve deterministic offline media.
+Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.
 
 ## Next package
 
-**Configuration Shortlist Configurator Observation Filters** — `planned`
+**Data Products v1.17.0 Release Preparation** — `planned`
 
-Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.
+Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.
 
 ## Autonomy
 
