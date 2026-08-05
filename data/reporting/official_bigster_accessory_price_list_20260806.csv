@@ -1,0 +1,95 @@
+category,subcategory,name,part_number,price_pln_vat_without_installation,installation_required
+bezpieczenstwo,Bezpieczeństwo i sygnalizacja,"Zestaw bezpieczeństwa (kamizelka, trójkąt, apteczka)",7711780759,87,false
+bezpieczenstwo,Bezpieczeństwo i sygnalizacja,Gaśnica 1 kg,7711943172,89,false
+bezpieczenstwo,Bezpieczeństwo i sygnalizacja,Uchwyt mocowania gaśnicy,8201749664,143,false
+bezpieczenstwo,Bezpieczeństwo i sygnalizacja,Autoalarm,8201752631,884,true
+bezpieczenstwo,Bezpieczeństwo i sygnalizacja,Autoalarm,8201752633,861,true
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe Standard - 9 mm - rozmiar 120 - R17,7711578473,451,false
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe standardowe - R19,7711578474,451,false
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe Premium Grip (R20),7711780260,2234,false
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe Premium Grip - rozmiar 120,7711780263,2034,false
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe Polaire Steel Grip - rozmiar 120,7711940854,2034,false
+bezpieczenstwo,Łańcuchy śniegowe,Łańcuchy śniegowe Polaire Steel Grip - rozmiar 130,7711940856,2034,false
+bezpieczenstwo,Wspomaganie parkowania,Wspomaganie parkowania przodem,8201749656,702,true
+design,Felgi i akcesoria do kół,Aluminiowe obręcze kół 17 cali niediamentowane Tergan,403000562R,969,false
+design,Felgi i akcesoria do kół,Aluminiowe obręcze kół 17 cali diamentowane Tergan,403000581R,900,false
+design,Felgi i akcesoria do kół,Aluminiowe obręcze kół 18 cali półdiamentowane Tagasan,403001134R,1056,false
+design,Felgi i akcesoria do kół,Aluminiowe obręcze kół 18 cali diamentowane Tagasan,403005630R,1029,false
+design,Felgi i akcesoria do kół,Aluminiowe obręcze kół 19 cali diamentowane Rasan,403007509R,1823,true
+design,Felgi i akcesoria do kół,Minikołpaczki Dacia Link w kolorze miedzianym z czarnymi błyszczącymi elementami,403153411R,49,false
+design,Felgi i akcesoria do kół,Minikołpaczki Dacia Link w kolorze czarnym z elementami w kolorze szczotkowanej stali,403156271R,65,false
+design,Felgi i akcesoria do kół,Zestaw narzędzi do koła zapasowego,572016346R,145,false
+design,Felgi i akcesoria do kół,Pokrowiec na koło zapasowe,7717274243,102,false
+design,Felgi i akcesoria do kół,Śruby antykradzieżowe do felg aluminiowych - 4 śruby,8201724187,145,false
+design,Wygląd wnętrza,YouClip - uchwyt do smartfona,283143468R,113,false
+design,Wygląd wnętrza,YouClip - indukcyjna ładowarka do smartfonów,283D84357R,283,false
+design,Wygląd wnętrza,YouClip - lampka,684342227R,145,false
+design,Wygląd wnętrza,YouClip - zaczep,684344266R,56,false
+design,Wygląd wnętrza,YouClip - wielofunkcyjny uchwyt na kubek,684349615R,95,false
+design,Wygląd wnętrza,YouClip - kieszonka,685605709R,259,false
+design,Wygląd wnętrza,YouClip - wieszak do mocowania na zagłówku,739480943R,259,false
+design,Wygląd wnętrza,YouClip - etui na okulary,739M00386R,149,false
+design,Wygląd wnętrza,Podświetlane nakładki na progi przednich drzwi Bigster,8201754065,818,false
+design,Wygląd wnętrza,Nakładki na progi przednich drzwi Bigster,8201754424,328,false
+design,Wygląd wnętrza,YouClip - uchwyt na zagłówku,864091793R,131,false
+design,Wygląd wnętrza,YouClip - 3 w 1 (uchwyt na kubki + lampka + zaczep),984392908R,259,false
+design,Wygląd wnętrza,YouClip - uchwyt na tablet multimedialny,984E29693R,131,false
+design,Wygląd zewnętrzny,Stopnie,764121417R,1379,false
+design,Wygląd zewnętrzny,Wsporniki do mocowania stopni,768479973R,471,false
+design,Wygląd zewnętrzny,Nakładki ochronne na krawędzie drzwi i boczne lusterka,8201743312,214,true
+design,Wygląd zewnętrzny,Antena w kształcie płetwy rekina,8201755191,194,false
+komfort_i_ochrona,Akcesoria do ładowania,Konwerter 220 V,7711944194,829,true
+komfort_i_ochrona,Dywaniki,Tekstylne dywaniki podłogowe Comfort TCe 130/140,749M60440R,176,false
+komfort_i_ochrona,Dywaniki,Tekstylne dywaniki podłogowe Premium TCe 130/140,749M62522R,291,false
+komfort_i_ochrona,Dywaniki,Tekstylne dywaniki podłogowe Comfort ECO-G 140 i Hybrid,749M63255R,176,false
+komfort_i_ochrona,Dywaniki,Gumowe dywaniki z podwyższonymi brzegami TCe 130/140,749M63506R,250,false
+komfort_i_ochrona,Dywaniki,Gumowe dywaniki z podwyższonymi brzegami ECO-G 140 i Hybrid,749M67742R,250,false
+komfort_i_ochrona,Dywaniki,Tekstylne dywaniki podłogowe Premium ECO-G 140 i Hybrid,749M69312R,291,false
+komfort_i_ochrona,Ochrona karoserii,Osłona podwozia w strefie podsilnikowej,758924497R,449,false
+komfort_i_ochrona,Ochrona karoserii,Pokrowiec na samochód Dacia w kolorze khaki - rozmiar XXL,7711948838,799,false
+komfort_i_ochrona,Ochrona karoserii,Przednie lub tylne chlapacze,7717301274,111,false
+komfort_i_ochrona,Wyposażenie wnętrza,Przenośny podłokietnik tylny Dacia,7717276917,445,false
+komfort_i_ochrona,Wyposażenie wnętrza,Wielofunkcyjny organizer mocowany do przedniego fotela,7717276918,239,false
+komfort_i_ochrona,Wyposażenie wnętrza,Krata oddzielająca strefę bagażową do bezpiecznego przewozu zwierząt,7717277492,738,false
+komfort_i_ochrona,Wyposażenie wnętrza,Lodówka przenośna,7717277903,415,false
+komfort_i_ochrona,Wyposażenie wnętrza,Handpresso - przenośna kawiarka,7717281161,1479,false
+komfort_i_ochrona,Wyposażenie wnętrza,Wielofunkcyjny pokrowiec ochronny bagażnika i siedzeń,7717301406,250,false
+komfort_i_ochrona,Wyposażenie wnętrza,Zestaw dla palących (popielniczka + zapalniczka),8201375535,225,true
+komfort_i_ochrona,Wyposażenie wnętrza,Pionowa siatka przytrzymująca bagaże w bagażniku,8201755911,99,false
+komfort_i_ochrona,Wyposażenie wnętrza,Pokrowce tekstylne na przednie siedzenia,8201755957,568,true
+komfort_i_ochrona,Wyposażenie wnętrza,Pokrowce tekstylne na tylne siedzenia,8201756317,539,true
+komfort_i_ochrona,Wyposażenie wnętrza,Pokrowce tekstylne na przednie i tylne siedzenia,8201756318,1029,true
+komfort_i_ochrona,Wyposażenie wnętrza,Dwustronna wykładzina bagażnika,849043187R,219,false
+komfort_i_ochrona,Wyposażenie wnętrza,Wkładka ochronna na podłogę bagażnika - do wersji bez podwójnej podłogi,849P70394R,236,false
+komfort_i_ochrona,Wyposażenie wnętrza,Wkładka ochronna na podłogę bagażnika - do wersji z podwójną podłogą,849P74223R,232,false
+multimedia,Telefon,Uchwyt na telefon - montowany na desce rozdzielczej,7711784775,111,false
+multimedia,Telefon,Indukcyjna magnetyczna ładowarka do smartfona mocowana na kratce nawiewu,7711949678,328,false
+multimedia,Wideo,Wideorejestrator Nextbase 322 GW i karta SD 32 GB,7711945184,1419,false
+outdoor,Inne,Komplet uchwytów do mocowania Pakietu Sleep,572015754R,75,false
+outdoor,Inne,Namiot InNature,7717300226,1629,false
+outdoor,Inne,Markiza dachowa Dacia InNature,8201756977,3119,false
+outdoor,Inne,Zasłony do Pakietu Sleep,975804583R,1078,false
+outdoor,Inne,Skrzynia do Pakietu Sleep - do wersji TCe 140 i Eco-G 140,984232417R,5695,false
+outdoor,Inne,Skrzynia do Pakietu Sleep - do wersji 4x4 i HEV,984239640R,5695,false
+outdoor,Inne,Materac do Pakietu Sleep,984240549R,1045,false
+transport,Haki holownicze,Wiązka przewodów do haka holowniczego z gniazdem 13-stykowym,241D87019R,1266,false
+transport,Haki holownicze,Jednoczęściowy hak holowniczy - belka poprzeczna,511D25563R,749,false
+transport,Haki holownicze,Jednoczęściowy hak holowniczy - komplet śrub,511D25661R,539,false
+transport,Haki holownicze,Hak holowniczy demontowany bez użycia narzędzi - belka poprzeczna,511D25666R,609,false
+transport,Haki holownicze,Hak holowniczy demontowany bez użycia narzędzi - zestaw śrub,511D27676R,1949,false
+transport,Haki holownicze,Adapter 13/7-stykowy,7711949772,191,false
+transport,Poprzeczki i bagażniki,Kufer dachowy Dacia 330 l,7711574056,1712,false
+transport,Poprzeczki i bagażniki,Kufer dachowy Dacia 390 l,7711574057,2100,false
+transport,Poprzeczki i bagażniki,Adapter do bagażnika na narty montowanego na poprzeczkach dachowych,7711949529,134,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Peruzzo - montowany na poprzeczki dachowe,7711949992,589,false
+transport,Poprzeczki i bagażniki,Adapter do bagażnika rowerowego montowanego na relingach dachowych,7711949993,126,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Peruzzo na 2 rowery mocowany na haku holowniczym (gniazdo 13-stykowe),7711949994,1979,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Peruzzo na 3 rowery mocowany na haku holowniczym (gniazdo 13-stykowe),7711949995,2639,false
+transport,Poprzeczki i bagażniki,Aero cargo box Dacia,7717275154,2549,false
+transport,Poprzeczki i bagażniki,Bagażnik dachowy,7717277154,2999,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Hang-on mocowany na haku holowniczym - 2 rowery,7717301286,521,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Hang-on mocowany na haku holowniczym - 3 rowery,7717301287,543,false
+transport,Poprzeczki i bagażniki,Bagażnik rowerowy Hang-on na 4 rowery mocowany na haku holowniczym,7717301288,575,false
+transport,Poprzeczki i bagażniki,Bagażnik na 4 pary nart,7717301298,799,false
+transport,Poprzeczki i bagażniki,Bagażnik na 6 par nart,7717301299,993,false
+transport,Poprzeczki i bagażniki,Poprzeczki dachowe QuickFix montowane na stałych relingach,8201749196,1159,false
