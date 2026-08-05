@@ -195,7 +195,10 @@
   }
 
   function availableEquipmentCodes(configurations) {
-    return differentiatingEquipmentCodes(configurations);
+    const items = configurations || [];
+    return equipmentCodes(items).filter((code) =>
+      equipmentCoverage(items, code).available > 0
+    );
   }
 
   function reconcileEquipmentSelection(catalog, rawCriteria) {
@@ -225,8 +228,9 @@
       };
     }
 
+    const available = availableEquipmentCodes(compatible);
     const differentiating = differentiatingEquipmentCodes(compatible);
-    const addable = differentiating.filter((code) => !requested.includes(code));
+    const addable = available.filter((code) => !requested.includes(code));
     const visible = new Set([...requested, ...addable]);
     const coverage = {};
     for (const code of visible) coverage[code] = equipmentCoverage(compatible, code);

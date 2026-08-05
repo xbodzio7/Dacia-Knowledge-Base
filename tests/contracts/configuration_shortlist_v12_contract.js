@@ -79,6 +79,54 @@ const selectedAlternative = api.chooseComponents(
 );
 assert.deepEqual(selectedAlternative.map((item) => item.code), ["alternative_34"]);
 
+const browser = require("../../tools/reporting/configuration_shortlist_browser.js");
+const equipmentVisibilityCatalog = { configurations: [
+  {
+    configuration_code: "visibility_a",
+    model_code: "model",
+    version_code: "version",
+    transmission_type: "manual",
+    powertrain_label: "powertrain",
+    catalog_price: { state: "missing" },
+    number_of_seats: { state: "missing" },
+    equipment: {
+      available_in_all: { availability_status: "standard" },
+      available_in_some: { availability_status: "standard" },
+      available_in_none: { availability_status: "not_available" }
+    }
+  },
+  {
+    configuration_code: "visibility_b",
+    model_code: "model",
+    version_code: "version",
+    transmission_type: "manual",
+    powertrain_label: "powertrain",
+    catalog_price: { state: "missing" },
+    number_of_seats: { state: "missing" },
+    equipment: {
+      available_in_all: { availability_status: "optional" },
+      available_in_some: { availability_status: "not_available" }
+    }
+  }
+] };
+const equipmentVisibility = browser.reconcileEquipmentSelection(
+  equipmentVisibilityCatalog,
+  { required_equipment: [], required_standard_equipment: [] }
+);
+assert.deepEqual(
+  equipmentVisibility.addable_equipment,
+  ["available_in_all", "available_in_some"]
+);
+assert.deepEqual(
+  equipmentVisibility.available_equipment,
+  ["available_in_all", "available_in_some"]
+);
+assert.equal(equipmentVisibility.available_equipment.includes("available_in_none"), false);
+assert.deepEqual(
+  equipmentVisibility.differentiating_equipment,
+  ["available_in_some"]
+);
+
 const ui = require("../../tools/reporting/configuration_shortlist_v12.js");
 
 global.Event = class Event {
