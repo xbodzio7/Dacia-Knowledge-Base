@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Portfolio Powertrain and Transmission Matrix Release Integration**
+**Data Products v1.16.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Data Products v1.15.0 Publication
-- Pull Request: #526
-- Verified head: `5a824010921ef305b481f8284ae45bdfd8801780`
-- Quality run: #30950022319
+- Package: Portfolio Powertrain and Transmission Matrix Release Integration
+- Pull Request: #539
+- Verified head: `e9adaff96c8db5ed2485ff33e50ac4d355749d25`
+- Quality run: #30980070849
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Portfolio Powertrain and Transmission Matrix Release Integration** — `complete`
+**Data Products v1.16.0 Release Preparation** — `complete`
 
-Integrate the verified matrix into the versioned archive, manifest, download surface and offline workspace without changing semantics or master data.
+Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.
 
 ## Next package
 
-**Data Products v1.16.0 Release Preparation** — `planned`
+**Data Products v1.16.0 Publication** — `planned`
 
-Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.
+Publish immutable Data Products v1.16.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
 
 ## Autonomy
 
