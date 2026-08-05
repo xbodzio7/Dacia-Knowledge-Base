@@ -154,7 +154,7 @@ class DataProductReleaseTests(unittest.TestCase):
             "candidate_amount_pln",
             "niepodane w dokładnym źródle",
             "spring-my26",
-            "configuration_shortlist_equipment_groups_v1_8",
+            "configuration_shortlist_equipment_groups_v1_9",
             "data-collapsible-equipment-group",
         ):
             with self.subTest(marker=marker):

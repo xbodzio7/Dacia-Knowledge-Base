@@ -1,9 +1,9 @@
 
 (function () {
   "use strict";
-  const MARKER = "configuration_shortlist_equipment_groups_v1_8";
+  const MARKER = "configuration_shortlist_equipment_groups_v1_9";
   const OBSERVATION_KIND = "configurator_observation";
-  const STORAGE_KEY = "dkb-configurator-observation-filters-v1";
+  const STORAGE_KEY = "dkb-configurator-observation-filters-v2";
 
   const escapeHtml = (value) => String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -97,13 +97,15 @@
     wheels: selectedValues("#configurator-selected-wheels"),
     upholsteries: selectedValues("#configurator-selected-upholsteries"),
     standard_equipment: selectedValues("#configurator-standard-equipment"),
+    technical_data: selectedValues("#configurator-technical-data"),
   });
 
   const activeCriteria = (criteria) => criteria.confirmed_only
     || criteria.colours.length > 0
     || criteria.wheels.length > 0
     || criteria.upholsteries.length > 0
-    || criteria.standard_equipment.length > 0;
+    || criteria.standard_equipment.length > 0
+    || (criteria.technical_data || []).length > 0;
 
   const observationMatches = (observation, criteria) => {
     if (!activeCriteria(criteria)) return true;
@@ -111,11 +113,13 @@
     const colour = observation.selected_colour?.value || "";
     const wheels = observation.selected_wheels?.value || "";
     const upholstery = observation.selected_upholstery?.value || "";
-    const sourceLines = new Set(observation.standard_equipment_source_lines || []);
+    const equipmentLines = new Set(observation.standard_equipment_source_lines || []);
+    const technicalLines = new Set(observation.technical_data_source_lines || []);
     return (!criteria.colours.length || criteria.colours.includes(colour))
       && (!criteria.wheels.length || criteria.wheels.includes(wheels))
       && (!criteria.upholsteries.length || criteria.upholsteries.includes(upholstery))
-      && criteria.standard_equipment.every((line) => sourceLines.has(line));
+      && criteria.standard_equipment.every((line) => equipmentLines.has(line))
+      && (criteria.technical_data || []).every((line) => technicalLines.has(line));
   };
 
   const restoreCriteria = () => {
@@ -132,6 +136,7 @@
       ["#configurator-selected-wheels", stored.wheels],
       ["#configurator-selected-upholsteries", stored.upholsteries],
       ["#configurator-standard-equipment", stored.standard_equipment],
+      ["#configurator-technical-data", stored.technical_data],
     ]) {
       const wanted = new Set(Array.isArray(values) ? values : []);
       const select = document.querySelector(selector);
@@ -156,13 +161,19 @@
       "#configurator-selected-wheels",
       "#configurator-selected-upholsteries",
       "#configurator-standard-equipment",
+      "#configurator-technical-data",
     ]) {
       const select = document.querySelector(selector);
       if (!select) continue;
       for (const option of select.options) option.selected = false;
     }
-    const search = document.querySelector("#configurator-standard-equipment-search");
-    if (search) search.value = "";
+    for (const selector of [
+      "#configurator-standard-equipment-search",
+      "#configurator-technical-data-search",
+    ]) {
+      const search = document.querySelector(selector);
+      if (search) search.value = "";
+    }
     try {
       sessionStorage.removeItem(STORAGE_KEY);
     } catch (_error) {
@@ -170,12 +181,15 @@
     }
   };
 
+  const categoryMarkup = (categories) => (categories || []).map((category) =>
+    `<section><h5>${escapeHtml(category.category || "Pozostałe")}</h5><ul>${
+      (category.source_lines || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")
+    }</ul></section>`
+  ).join("");
+
   const evidenceMarkup = (observation) => {
-    const categories = (observation.standard_equipment_categories || []).map((category) =>
-      `<section><h5>${escapeHtml(category.category || "Pozostałe")}</h5><ul>${
-        (category.source_lines || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")
-      }</ul></section>`
-    ).join("");
+    const equipmentCategories = categoryMarkup(observation.standard_equipment_categories);
+    const technicalCategories = categoryMarkup(observation.technical_data_categories);
     return `<details class="configurator-observation-evidence">
       <summary>Dane potwierdzone konfiguracją producenta</summary>
       <div class="configurator-observation-summary">
@@ -189,7 +203,12 @@
       </div>
       <details class="configurator-standard-equipment-evidence">
         <summary>Dokładne wiersze wyposażenia standardowego</summary>
-        ${categories}
+        ${equipmentCategories}
+      </details>
+      <details class="configurator-technical-data-evidence">
+        <summary>Dokładne wiersze danych technicznych</summary>
+        <p>Dane techniczne dotyczą wyłącznie dokładnie zapisanej konfiguracji i nie są przenoszone między wariantami.</p>
+        ${technicalCategories}
       </details>
     </details>`;
   };
@@ -294,7 +313,11 @@
           <input id="configurator-standard-equipment-search" type="search" placeholder="Szukaj w dokładnych wierszach źródłowych">
           <select id="configurator-standard-equipment" multiple size="10"></select>
         </label>
-        <p class="configurator-observation-note">Filtry odnoszą się wyłącznie do zapisanych konfiguracji z eksportów producenta. Nie oznaczają dostępności innych kolorów, kół, tapicerek ani elementów wyposażenia.</p>
+        <label class="configurator-standard-equipment-filter">Dokładne wiersze danych technicznych
+          <input id="configurator-technical-data-search" type="search" placeholder="Szukaj w dokładnych wierszach danych technicznych">
+          <select id="configurator-technical-data" multiple size="10"></select>
+        </label>
+        <p class="configurator-observation-note">Filtry odnoszą się wyłącznie do zapisanych konfiguracji z eksportów producenta. Nie oznaczają dostępności innych kolorów, kół, tapicerek ani elementów wyposażenia i nie tworzą katalogu innych parametrów technicznych.</p>
       </div>`;
     const actions = form.querySelector(".actions");
     if (actions) form.insertBefore(panel, actions);
@@ -316,6 +339,10 @@
       "#configurator-standard-equipment",
       uniqueSorted(observations.flatMap((item) => item.standard_equipment_source_lines || []))
     );
+    fillSelect(
+      "#configurator-technical-data",
+      uniqueSorted(observations.flatMap((item) => item.technical_data_source_lines || []))
+    );
     restoreCriteria();
 
     for (const control of panel.querySelectorAll("input:not([type=search]), select")) {
@@ -324,11 +351,15 @@
         requestBaseRender();
       });
     }
-    const search = panel.querySelector("#configurator-standard-equipment-search");
-    if (search) {
+    for (const [searchSelector, selectSelector] of [
+      ["#configurator-standard-equipment-search", "#configurator-standard-equipment"],
+      ["#configurator-technical-data-search", "#configurator-technical-data"],
+    ]) {
+      const search = panel.querySelector(searchSelector);
+      const select = panel.querySelector(selectSelector);
+      if (!search || !select) continue;
       search.addEventListener("input", () => {
         const query = search.value.trim().toLocaleLowerCase("pl");
-        const select = panel.querySelector("#configurator-standard-equipment");
         for (const option of select.options) {
           option.hidden = Boolean(query) && !option.textContent.toLocaleLowerCase("pl").includes(query);
         }

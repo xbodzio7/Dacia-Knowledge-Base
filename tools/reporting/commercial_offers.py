@@ -199,7 +199,9 @@ def _collect_configurator_observations(
             "observed_on": observed_on,
             "filename": standard_filename,
             "source_pages": list(standard_row.get("source_pages", [])),
-            "technical_data_source_pages": list(technical_row.get("source_pages", [])),
+            "technical_data_source_pages": list(
+                technical_row.get("source_pages", technical.get("source_pages", []))
+            ),
             "selected_colour": {
                 "value": str(commercial_row.get("colour", "")),
                 "price_pln": commercial_row.get("colour_price_pln"),
