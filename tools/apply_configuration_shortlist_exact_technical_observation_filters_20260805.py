@@ -2,7 +2,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-PATH = Path("tools/reporting/configuration_shortlist_equipment_groups.js")
+JS_PATH = Path("tools/reporting/configuration_shortlist_equipment_groups.js")
+COMMERCIAL_PATH = Path("tools/reporting/commercial_offers.py")
+MARKER_TEST_PATHS = (
+    Path("tests/test_configuration_selection_export.py"),
+    Path("tests/test_data_product_release.py"),
+)
 
 
 def replace_once(text: str, old: str, new: str, label: str) -> str:
@@ -13,7 +18,7 @@ def replace_once(text: str, old: str, new: str, label: str) -> str:
 
 
 def main() -> None:
-    text = PATH.read_text(encoding="utf-8")
+    text = JS_PATH.read_text(encoding="utf-8")
     text = replace_once(
         text,
         'const MARKER = "configuration_shortlist_equipment_groups_v1_8";\n  const OBSERVATION_KIND = "configurator_observation";\n  const STORAGE_KEY = "dkb-configurator-observation-filters-v1";',
@@ -159,7 +164,7 @@ def main() -> None:
           <input id="configurator-technical-data-search" type="search" placeholder="Szukaj w dokładnych wierszach danych technicznych">
           <select id="configurator-technical-data" multiple size="10"></select>
         </label>
-        <p class="configurator-observation-note">Filtry odnoszą się wyłącznie do zapisanych konfiguracji z eksportów producenta. Nie oznaczają katalogowej dostępności innych kolorów, kół, tapicerek, elementów wyposażenia ani parametrów technicznych.</p>''',
+        <p class="configurator-observation-note">Filtry odnoszą się wyłącznie do zapisanych konfiguracji z eksportów producenta. Nie oznaczają dostępności innych kolorów, kół, tapicerek ani elementów wyposażenia i nie tworzą katalogu innych parametrów technicznych.</p>''',
         "technical filter panel",
     )
     text = replace_once(
@@ -208,7 +213,28 @@ def main() -> None:
     }''',
         "source-line search handlers",
     )
-    PATH.write_text(text, encoding="utf-8")
+    JS_PATH.write_text(text, encoding="utf-8")
+
+    commercial = COMMERCIAL_PATH.read_text(encoding="utf-8")
+    commercial = replace_once(
+        commercial,
+        '''            "technical_data_source_pages": list(technical_row.get("source_pages", [])),''',
+        '''            "technical_data_source_pages": list(
+                technical_row.get("source_pages", technical.get("source_pages", []))
+            ),''',
+        "technical source-page fallback",
+    )
+    COMMERCIAL_PATH.write_text(commercial, encoding="utf-8")
+
+    for path in MARKER_TEST_PATHS:
+        test_text = path.read_text(encoding="utf-8")
+        test_text = replace_once(
+            test_text,
+            "configuration_shortlist_equipment_groups_v1_8",
+            "configuration_shortlist_equipment_groups_v1_9",
+            f"interface marker in {path}",
+        )
+        path.write_text(test_text, encoding="utf-8")
 
 
 if __name__ == "__main__":
