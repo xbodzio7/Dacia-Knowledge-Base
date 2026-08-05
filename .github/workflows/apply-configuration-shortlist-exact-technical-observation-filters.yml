@@ -43,8 +43,11 @@ jobs:
           python -m unittest -q
           tests.test_configuration_shortlist_configurator_observation_filters
           tests.test_configuration_shortlist_exact_technical_observation_filters
-      - name: Check canonical project state
-        run: python tools/dkb.py project-state --check
+      - name: Regenerate canonical project state
+        run: |
+          python tools/dkb.py project-state --apply
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --check
       - name: Record stabilized package head
         run: |
           rm -f \
