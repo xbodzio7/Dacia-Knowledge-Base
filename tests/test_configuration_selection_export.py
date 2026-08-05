@@ -292,7 +292,6 @@ process.stdout.write(JSON.stringify(output));
             "2026-01-01",
         )
 
-
     def test_comparison_supports_more_than_two_configurations(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.fixture(Path(directory))
@@ -311,8 +310,14 @@ process.stdout.write(JSON.stringify(output));
         labels = [row["label"] for row in comparison["rows"]]
         self.assertIn("Cena katalogowa", labels)
         self.assertIn("Moc silnika — benzyna", labels)
-        power_row = next(row for row in comparison["rows"] if row["label"] == "Moc silnika — benzyna")
-        self.assertEqual(power_row["values"], ["90 kW", "brak wpisu w bazie", "brak wpisu w bazie"])
+        power_row = next(
+            row for row in comparison["rows"]
+            if row["label"] == "Moc silnika — benzyna"
+        )
+        self.assertEqual(
+            power_row["values"],
+            ["90 kW", "brak wpisu w bazie", "brak wpisu w bazie"],
+        )
         self.assertIn("Cena z wybranym wyposażeniem", labels)
         for label in (
             "Heated steering wheel",
@@ -321,7 +326,8 @@ process.stdout.write(JSON.stringify(output));
         ):
             self.assertIn(label, labels)
         equipment_rows = [
-            row for row in comparison["rows"]
+            row
+            for row in comparison["rows"]
             if row["key"].startswith("equipment:")
         ]
         self.assertEqual(len(equipment_rows), 3)
@@ -329,7 +335,9 @@ process.stdout.write(JSON.stringify(output));
             {row["category"] for row in equipment_rows},
             {"Komfort i wnętrze", "Multimedia", "Parkowanie"},
         )
-        self.assertTrue(all(len(row["values"]) == 3 for row in comparison["rows"]))
+        self.assertTrue(
+            all(len(row["values"]) == 3 for row in comparison["rows"])
+        )
 
     def test_html_contains_selection_controls_and_offline_module(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -354,7 +362,7 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("configuration-select", rendered)
         self.assertIn("Format interaktywnej shortlisty HTML v1.7.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
-        self.assertIn("configuration_shortlist_equipment_groups_v1_7", rendered)
+        self.assertIn("configuration_shortlist_equipment_groups_v1_8", rendered)
         self.assertIn('document.createElement("details")', rendered)
         self.assertIn("data-collapsible-equipment-group", rendered)
         self.assertIn("equipment-picker-group-summary", rendered)
@@ -383,8 +391,14 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("Pokaż tylko wybrane", rendered)
         self.assertIn("configuration_shortlist_v12", rendered)
         self.assertIn("dkb:results-rendered", rendered)
-        self.assertIn('results.addEventListener("dkb:results-rendered", (event) => {', rendered)
-        self.assertIn('results.addEventListener("dkb:results-rendered", sync)', rendered)
+        self.assertIn(
+            'results.addEventListener("dkb:results-rendered", (event) => {',
+            rendered,
+        )
+        self.assertIn(
+            'results.addEventListener("dkb:results-rendered", sync)',
+            rendered,
+        )
         self.assertNotIn("new MutationObserver(refresh)", rendered)
         self.assertNotIn("new MutationObserver(sync)", rendered)
         self.assertNotIn("configuration_shortlist_v11", rendered)

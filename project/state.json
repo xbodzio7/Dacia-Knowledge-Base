@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Configuration Shortlist Spring Media Normalization",
+  "phase": "Configuration Shortlist Configurator Observation Filters",
   "reference_delivery": {
     "name": "Data Products v1.16.0 Publication",
     "pull_request": 542,
@@ -15,7 +15,7 @@
     "quality_run": 30981720014
   },
   "baseline": {
-    "tests": 1878,
+    "tests": 1881,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,34 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configuration_shortlist_spring_media_normalization_001",
-    "kind": "user_interface_repair",
-    "name": "Configuration Shortlist Spring Media Normalization",
-    "status": "complete",
-    "goal": "Use the current official Dacia Polska car-picker packshot for Spring through the shared model-media catalogue, remove the Spring-only supplemental override and framing, and preserve deterministic offline media.",
-    "manifest_paths": [
-      "assets/model-media/manifest.json",
-      "assets/model-media/spring-cc7712919408010a.png",
-      "project/STATE_SUMMARY.md",
-      "project/packages/configuration-shortlist-spring-media-normalization-20260805.md",
-      "project/sources/dacia-pl-model-media-20260724.json",
-      "project/state.json",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_data_product_release.py",
-      "tests/test_interface_source_coverage_repair_20260801.py",
-      "tools/cache_model_media.py",
-      "tools/configuration_shortlist.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.css",
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_html.py"
-    ]
-  },
-  "next_package": {
     "package_id": "configuration_shortlist_configurator_observation_filters_001",
     "kind": "user_interface_data_integration",
     "name": "Configuration Shortlist Configurator Observation Filters",
-    "status": "planned",
+    "status": "complete",
     "goal": "Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/configuration-shortlist-configurator-observation-filters-20260805.md",
+      "project/state.json",
+      "tests/test_configuration_selection_export.py",
+      "tests/test_configuration_shortlist_configurator_observation_filters.py",
+      "tests/test_data_product_release.py",
+      "tools/reporting/commercial_offers.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "tools/reporting/configuration_shortlist_equipment_groups.js"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_17_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.17.0 Release Preparation",
+    "status": "planned",
+    "goal": "Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.",
     "manifest_paths": []
   },
   "autonomy": {
