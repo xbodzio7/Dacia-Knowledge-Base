@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.17.0 Release Preparation**
+**Data Products v1.17.0 Publication**
 
 ## Reference delivery
 
-- Package: Configuration Shortlist Configurator Observation Filters
-- Pull Request: #545
-- Verified head: `6f5361b01f6065a5f8cf5453483fe0f54cc7e255`
-- Quality run: #31034676265
+- Package: Data Products v1.17.0 Publication
+- Pull Request: #550
+- Verified head: `ee7a55f3a01daafed7d13ac937eaa43af2c225ee`
+- Quality run: #31043649080
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.17.0 Release Preparation** — `complete`
+**Data Products v1.17.0 Publication** — `complete`
 
-Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.
+Publish immutable v1.17.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
 
 ## Next package
 
-**Data Products v1.17.0 Publication** — `planned`
+**Post-v1.17.0 Release Priority Selection Review** — `planned`
 
-Publish immutable Data Products v1.17.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
+Inspect canonical product, source and roadmap evidence after v1.17.0 publication and select one bounded next package.
 
 ## Autonomy
 

@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.17.0 Release Preparation",
+  "phase": "Data Products v1.17.0 Publication",
   "reference_delivery": {
-    "name": "Configuration Shortlist Configurator Observation Filters",
-    "pull_request": 545,
-    "head_sha": "6f5361b01f6065a5f8cf5453483fe0f54cc7e255",
-    "quality_run": 31034676265
+    "name": "Data Products v1.17.0 Publication",
+    "pull_request": 550,
+    "head_sha": "ee7a55f3a01daafed7d13ac937eaa43af2c225ee",
+    "quality_run": 31043649080
   },
   "baseline": {
     "tests": 1881,
@@ -27,23 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_17_0_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.17.0 Release Preparation",
+    "package_id": "data_products_v1_17_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.17.0 Publication",
     "status": "complete",
-    "goal": "Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.",
+    "goal": "Publish immutable v1.17.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.",
     "manifest_paths": [
+      "data/reporting/data_products_v1_17_0_publication.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.17.0-release-preparation-20260805.md",
-      "project/state.json"
+      "project/packages/data-products-v1.17.0-publication-20260805.md",
+      "project/state.json",
+      "tools/data_product_release.py",
+      "tools/reporting/configuration_shortlist_v1_17_release_integration.py",
+      "tools/reporting/commercial_offers.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "data/reporting/cross_model_configurator_commercial_data.json",
+      "data/reporting/cross_model_configurator_standard_equipment.json",
+      "data/reporting/cross_model_configurator_conflict_closure.json",
+      "project/sources/dacia-pl-model-media-20260724.json"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_17_0_publication_001",
-    "kind": "publication",
-    "name": "Data Products v1.17.0 Publication",
+    "package_id": "post_v1_17_0_release_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.17.0 Release Priority Selection Review",
     "status": "planned",
-    "goal": "Publish immutable Data Products v1.17.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.",
+    "goal": "Inspect canonical product, source and roadmap evidence after v1.17.0 publication and select one bounded next package.",
     "manifest_paths": []
   },
   "autonomy": {
