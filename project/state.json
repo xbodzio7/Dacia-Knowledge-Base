@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Configuration Shortlist Configurator Observation Filters",
+  "phase": "Data Products v1.17.0 Release Preparation",
   "reference_delivery": {
-    "name": "Data Products v1.16.0 Publication",
-    "pull_request": 542,
-    "head_sha": "bc6523ba3a37df40e879a8f8f5cf0fce8f0dcfd3",
-    "quality_run": 30981720014
+    "name": "Configuration Shortlist Configurator Observation Filters",
+    "pull_request": 545,
+    "head_sha": "6f5361b01f6065a5f8cf5453483fe0f54cc7e255",
+    "quality_run": 31034676265
   },
   "baseline": {
     "tests": 1881,
@@ -27,33 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configuration_shortlist_configurator_observation_filters_001",
-    "kind": "user_interface_data_integration",
-    "name": "Configuration Shortlist Configurator Observation Filters",
-    "status": "complete",
-    "goal": "Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/configuration-shortlist-configurator-observation-filters-20260805.md",
-      "project/state.json",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_configuration_shortlist_configurator_observation_filters.py",
-      "tests/test_data_product_release.py",
-      "tools/reporting/commercial_offers.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.css",
-      "tools/reporting/configuration_shortlist_equipment_groups.js"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_17_0_release_preparation_001",
     "kind": "release_preparation",
     "name": "Data Products v1.17.0 Release Preparation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.17.0-release-preparation-20260805.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_17_0_publication_001",
+    "kind": "publication",
+    "name": "Data Products v1.17.0 Publication",
+    "status": "planned",
+    "goal": "Publish immutable Data Products v1.17.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.",
     "manifest_paths": []
   },
   "autonomy": {

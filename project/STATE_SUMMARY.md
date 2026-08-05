@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Configuration Shortlist Configurator Observation Filters**
+**Data Products v1.17.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Data Products v1.16.0 Publication
-- Pull Request: #542
-- Verified head: `bc6523ba3a37df40e879a8f8f5cf0fce8f0dcfd3`
-- Quality run: #30981720014
+- Package: Configuration Shortlist Configurator Observation Filters
+- Pull Request: #545
+- Verified head: `6f5361b01f6065a5f8cf5453483fe0f54cc7e255`
+- Quality run: #31034676265
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Shortlist Configurator Observation Filters** — `complete`
+**Data Products v1.17.0 Release Preparation** — `complete`
 
-Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.
+Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.
 
 ## Next package
 
-**Data Products v1.17.0 Release Preparation** — `planned`
+**Data Products v1.17.0 Publication** — `planned`
 
-Integrate the completed post-v1.16.0 shortlist repairs and exact configurator-observation filters into a reproducible v1.17.0 release candidate, run the required double build and stop before public tag or release creation.
+Publish immutable Data Products v1.17.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
 
 ## Autonomy
 
