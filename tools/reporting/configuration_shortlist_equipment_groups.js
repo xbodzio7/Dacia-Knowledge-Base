@@ -36,17 +36,6 @@
     return details;
   };
 
-  const markSpringPhotos = (root) => {
-    const scope = root && root.querySelectorAll ? root : document;
-    for (const frame of scope.querySelectorAll("[data-model-photo]")) {
-      const image = frame.querySelector("img.vehicle-photo");
-      const host = frame.closest("[data-model-code], [data-value]");
-      const modelCode = host && (host.dataset.modelCode || host.dataset.value || "");
-      const isSpring = String(modelCode).toLocaleLowerCase("pl").includes("spring")
-        || Boolean(image && String(image.alt || "").toLocaleLowerCase("pl").includes("spring"));
-      frame.classList.toggle("vehicle-photo-frame-spring", isSpring);
-    }
-  };
 
   const initialize = () => {
     document.documentElement.dataset.equipmentGroupsEnhancement = MARKER;
@@ -96,14 +85,6 @@
       syncSummaries();
     }
 
-    markSpringPhotos(document);
-    new MutationObserver((records) => {
-      for (const record of records) {
-        for (const node of record.addedNodes) {
-          if (node.nodeType === Node.ELEMENT_NODE) markSpringPhotos(node);
-        }
-      }
-    }).observe(document.body, { childList: true, subtree: true });
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);

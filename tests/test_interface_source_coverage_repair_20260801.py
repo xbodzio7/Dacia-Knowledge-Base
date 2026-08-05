@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import sys
 import unittest
@@ -44,43 +45,63 @@ def read_csv(name: str) -> list[dict[str, str]]:
 
 
 class InterfaceSourceCoverageRepairTests(unittest.TestCase):
-    def test_spring_official_media_is_registered_and_applied(self) -> None:
+    def test_spring_official_media_is_shared_and_cached(self) -> None:
         source_path = (
             REPOSITORY
-            / "project/sources/dacia-pl-spring-model-media-20260801.json"
+            / "project/sources/dacia-pl-model-media-20260724.json"
         )
         payload = json.loads(source_path.read_text(encoding="utf-8"))
         spring = payload["models"]["spring"]
-        self.assertTrue(
-            spring["image_url"].startswith(
-                configuration_shortlist._OFFICIAL_MEDIA_PREFIXES
-            )
-        )
-        self.assertTrue(
-            spring["image_url"].startswith("https://3dv2.renault.com/")
-        )
+        self.assertEqual(spring["captured_on"], "2026-08-05")
         self.assertEqual(
             spring["source_page_url"],
             "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
         )
-        catalog = {
-            "facets": {"models": [{"code": "spring", "media": {}}]},
-            "configurations": [
-                {"configuration_code": "spring_test", "model_code": "spring"}
-            ],
-        }
-        configuration_shortlist._apply_supplemental_model_media(
-            catalog,
-            REPOSITORY,
+        self.assertTrue(spring["image_url"].startswith("https://www.dacia.pl/"))
+        self.assertIn("/d_brandSite_carPicker_1.png", spring["image_url"])
+        self.assertIn("spring-my26", spring["image_url"])
+        self.assertFalse(
+            (
+                REPOSITORY
+                / "project/sources/dacia-pl-spring-model-media-20260801.json"
+            ).exists()
+        )
+
+        manifest = json.loads(
+            (
+                REPOSITORY / "assets/model-media/manifest.json"
+            ).read_text(encoding="utf-8")
+        )
+        cached = manifest["models"]["spring"]
+        self.assertEqual(cached["image_url"], spring["image_url"])
+        self.assertEqual(
+            cached["path"],
+            "assets/model-media/spring-cc7712919408010a.png",
+        )
+        cached_path = REPOSITORY / cached["path"]
+        self.assertTrue(cached_path.is_file())
+        self.assertEqual(
+            hashlib.sha256(cached_path.read_bytes()).hexdigest(),
+            cached["sha256"],
         )
         self.assertEqual(
-            catalog["configurations"][0]["model_media"]["image_url"],
-            spring["image_url"],
+            cached["sha256"],
+            "cc7712919408010ac2cfcb5a33a358def1affef5e7e3b9476b059be9f7cfb2b7",
         )
-        self.assertEqual(
-            catalog["facets"]["models"][0]["media"]["source_name"],
-            "Dacia Polska",
-        )
+
+        shortlist_source = (
+            REPOSITORY / "tools/configuration_shortlist.py"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("_SPRING_MEDIA_SOURCE", shortlist_source)
+        self.assertNotIn("_apply_supplemental_model_media", shortlist_source)
+        for path in (
+            "tools/reporting/configuration_shortlist_equipment_groups.css",
+            "tools/reporting/configuration_shortlist_equipment_groups.js",
+        ):
+            self.assertNotIn(
+                "vehicle-photo-frame-spring",
+                (REPOSITORY / path).read_text(encoding="utf-8"),
+            )
 
     def test_all_exact_sandero_price_mappings_are_materialized(self) -> None:
         rows = read_csv("commercial_item_configurations.csv")

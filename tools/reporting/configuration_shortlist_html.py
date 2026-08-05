@@ -111,7 +111,7 @@ def _model_media(repository: Path) -> dict[str, dict[str, str]]:
             "image_url": image_url,
             "source_page_url": page_url,
             "source_name": str(source.get("source_name", "Dacia Polska")),
-            "captured_on": captured_on,
+            "captured_on": str(source.get("captured_on", captured_on)),
         }
         try:
             local_image = model_media_data_uri(repository, model_code)

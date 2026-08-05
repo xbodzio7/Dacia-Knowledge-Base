@@ -26,18 +26,9 @@ from reporting.configuration_shortlist_selection_html import (
 )
 
 
-_SPRING_MEDIA_SOURCE = Path(
-    "project/sources/dacia-pl-spring-model-media-20260801.json"
-)
 _REVIEWED_GAP_REPORT = Path(
     "data/reporting/registered_source_completeness_reconciliation.json"
 )
-_OFFICIAL_MEDIA_PREFIXES = (
-    "https://www.dacia.pl/",
-    "https://cdn.group.renault.com/",
-    "https://3dv2.renault.com/",
-)
-
 _COMPARISON_ENHANCEMENT_STYLE = r'''<style>
 :root{--comparison-sticky-top:0px}
 .comparison-panel{scroll-margin-top:8px}
@@ -240,55 +231,6 @@ _COMPARISON_ENHANCEMENT_SCRIPT = r'''<script>
 })();
 </script>'''
 
-
-def _apply_supplemental_model_media(
-    catalog: dict[str, Any],
-    repository: Path,
-) -> None:
-    path = repository / _SPRING_MEDIA_SOURCE
-    try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError:
-        return
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ShortlistError(f"cannot read supplemental model media: {exc}") from exc
-    models = payload.get("models", {})
-    if not isinstance(models, dict):
-        raise ShortlistError("invalid supplemental model media: expected models object")
-    captured_on = str(payload.get("captured_on", ""))
-    facets = catalog.get("facets", {})
-    model_facets = facets.get("models", []) if isinstance(facets, dict) else []
-    configurations = catalog.get("configurations", [])
-    for model_code, source in models.items():
-        if not isinstance(model_code, str) or not isinstance(source, dict):
-            continue
-        image_url = str(source.get("image_url", ""))
-        page_url = str(source.get("source_page_url", ""))
-        if not image_url.startswith(_OFFICIAL_MEDIA_PREFIXES):
-            raise ShortlistError(
-                f"non-official supplemental image URL for {model_code}"
-            )
-        if not page_url.startswith("https://www.dacia.pl/"):
-            raise ShortlistError(
-                f"non-official supplemental source page for {model_code}"
-            )
-        media = {
-            "image_url": image_url,
-            "source_page_url": page_url,
-            "source_name": str(source.get("source_name", "Dacia Polska")),
-            "captured_on": captured_on,
-        }
-        if isinstance(configurations, list):
-            for configuration in configurations:
-                if (
-                    isinstance(configuration, dict)
-                    and configuration.get("model_code") == model_code
-                ):
-                    configuration["model_media"] = dict(media)
-        if isinstance(model_facets, list):
-            for facet in model_facets:
-                if isinstance(facet, dict) and facet.get("code") == model_code:
-                    facet["media"] = dict(media)
 
 
 def _read_reviewed_gap_report(repository: Path) -> dict[str, Any] | None:
@@ -516,7 +458,6 @@ def collect_enhanced_browser_catalog(
 ) -> dict[str, Any]:
     """Build the canonical interactive catalog used by CLI and releases."""
     catalog = collect_browser_catalog(repository, criteria)
-    _apply_supplemental_model_media(catalog, repository)
     _apply_reviewed_gap_states(catalog, repository)
     return catalog
 

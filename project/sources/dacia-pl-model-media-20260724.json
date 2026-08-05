@@ -1,7 +1,7 @@
 {
   "captured_on": "2026-07-24",
   "source_type": "official_dacia_pl_model_packshot",
-  "usage": "Remote official model images for the interactive browser with a deterministic local SVG fallback.",
+  "usage": "Official model packshots for the interactive browser with a deterministic local cache and SVG fallback.",
   "models": {
     "sandero_iii": {
       "source_page_url": "https://www.dacia.pl/samochody/sandero-miejskie.html",
@@ -27,6 +27,12 @@
       "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv.html",
       "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_XLARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fcdn.group.renault.com%2Fpackshots%2Fdacia-bigster-db3l1",
       "source_name": "Dacia Polska"
+    },
+    "spring": {
+      "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
+      "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_LARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FS2E%2Fspring-my26%2Fc%2FA-ENS_0MDL2P1SERIELIM3_-TEKQZ",
+      "source_name": "Dacia Polska",
+      "captured_on": "2026-08-05"
     }
   }
 }
