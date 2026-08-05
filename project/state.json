@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Configuration Shortlist Exact Technical Observation Filters",
+  "phase": "Data Products v1.18.0 Release Preparation",
   "reference_delivery": {
-    "name": "Data Products v1.17.0 Publication",
-    "pull_request": 550,
-    "head_sha": "ee7a55f3a01daafed7d13ac937eaa43af2c225ee",
-    "quality_run": 31043649080
+    "name": "Configuration Shortlist Exact Technical Observation Filters",
+    "pull_request": 552,
+    "head_sha": "0a5d609e24f3adbe3b65dacfa91f6256d9bd45bc",
+    "quality_run": 31046342007
   },
   "baseline": {
     "tests": 1885,
@@ -27,31 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configuration_shortlist_exact_technical_observation_filters_001",
-    "kind": "user_interface_data_integration",
-    "name": "Configuration Shortlist Exact Technical Observation Filters",
-    "status": "complete",
-    "goal": "Join the exact technical-data report to the saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence without semantic coercion or cross-state inference.",
-    "manifest_paths": [
-      "data/reporting/cross_model_configurator_technical_data.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/configuration-shortlist-exact-technical-observation-filters-20260805.md",
-      "project/state.json",
-      "tests/test_configuration_selection_export.py",
-      "tests/test_configuration_shortlist_exact_technical_observation_filters.py",
-      "tests/test_data_product_release.py",
-      "tools/data_product_release.py",
-      "tools/reporting/commercial_offers.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_technical_observation_release_integration.py"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_18_0_release_preparation_001",
     "kind": "release_preparation",
     "name": "Data Products v1.18.0 Release Preparation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.18.0-release-preparation-20260805.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_18_0_publication_001",
+    "kind": "publication",
+    "name": "Data Products v1.18.0 Publication",
+    "status": "planned",
+    "goal": "Publish immutable Data Products v1.18.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.",
     "manifest_paths": []
   },
   "autonomy": {
