@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "kind": "official_brochure_exterior_catalog_extract",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "status": "partial_verified_extract",
+  "semantic_policy": {
+    "source_text_preserved": true,
+    "paint_codes_inferred": false,
+    "visual_colour_values_inferred": false,
+    "compatibility_inferred": false,
+    "configurator_used": false
+  },
+  "models": [
+    {
+      "model_id": "spring",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf",
+      "source_pages": [11, 12, 13, 14],
+      "colours": [
+        {"name": "Czerwony Brick", "finish": "niemetalizowany"},
+        {"name": "Szary Diamond", "finish": "metalizowany"},
+        {"name": "Niebieski Stonewash", "finish": "niemetalizowany"},
+        {"name": "Biel Alpejska", "finish": "niemetalizowany"},
+        {"name": "Seafoam", "finish": "niemetalizowany"},
+        {"name": "Lichen Khaki", "finish": "niemetalizowany"}
+      ],
+      "wheels": [
+        {"name": "Lea", "size_in": 14, "type": "kołpak", "availability_text": "essential"},
+        {"name": "Resia", "size_in": 15, "type": "kołpak", "availability_text": "expression; brochure text associates with 65 KM"},
+        {"name": "Danube", "size_in": 15, "type": "kołpak", "availability_text": "extreme; brązowo-miedziane znaki graficzne"}
+      ],
+      "upholstery": [
+        {"name": "Jean", "type": "tapicerka materiałowa", "availability_text": "essential"},
+        {"name": "Twilight", "type": "tapicerka materiałowa dwukolorowa", "availability_text": "expression"}
+      ]
+    },
+    {
+      "model_id": "sandero",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+      "source_pages": [11, 12, 17],
+      "colours": [
+        {"name": "Piaskowy Sandstone", "finish": "metalizowany"},
+        {"name": "Szary Schist", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Biały Glacier", "finish": "niemetalizowany"},
+        {"name": "Niebieski Iron", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Szary Urban", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Zielony Cedar", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Żółty Amber", "finish": "metalizowany", "availability_text": "niedostępny w essential"}
+      ],
+      "wheels": [
+        {"name": "Elma", "size_in": 15, "type": "stalowe obręcze / kołpaki", "availability_text": "essential"},
+        {"name": "Atara", "size_in": 16, "type": "Flexwheel", "availability_text": "expression"},
+        {"name": "Tamia", "size_in": 16, "type": "aluminiowe obręcze", "availability_text": "journey"}
+      ]
+    },
+    {
+      "model_id": "sandero_stepway",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+      "source_pages": [11, 12, 13, 14, 17],
+      "colours": [
+        {"name": "Biały Glacier", "finish": "niemetalizowany"},
+        {"name": "Szary Schist", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Beżowy Safari", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Czarny Pearl", "finish": "metalizowany"},
+        {"name": "Niebieski Iron", "finish": "metalizowany"},
+        {"name": "Zielony Cedar", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Żółty Amber", "finish": "metalizowany", "availability_text": "niedostępny w essential"}
+      ],
+      "wheels": [
+        {"name": "Erelia", "size_in": 16, "type": "dwukolorowe obręcze", "availability_text": "essential"},
+        {"name": "Atara", "size_in": 16, "type": "Flexwheel", "availability_text": "expression"},
+        {"name": "Tamia", "size_in": 16, "type": "czarne aluminiowe obręcze", "availability_text": "extreme"},
+        {"name": "Tamia", "size_in": 16, "type": "aluminiowe obręcze", "availability_text": "opcja w expression"}
+      ],
+      "upholstery": [
+        {"name": "MicroCloud", "type": "tapicerka łatwoczyszcząca", "availability_text": "extreme"}
+      ]
+    },
+    {
+      "model_id": "jogger",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf.asset.pdf/6b1235f90d.pdf",
+      "source_pages": [12, 13, 19],
+      "colours": [
+        {"name": "Brązowy Terracotta", "finish": "niemetalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Biały Glacier", "finish": "metalizowany"},
+        {"name": "Szary Schist", "finish": "niemetalizowany"},
+        {"name": "Zielony Cedar", "finish": "niemetalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Czarna Perła", "finish": "niemetalizowany"},
+        {"name": "Szary Urban", "finish": "metalizowany", "availability_text": "niedostępny w essential"},
+        {"name": "Piaskowy Sandstone", "finish": "metalizowany"}
+      ],
+      "wheels": [
+        {"name": "Erelia", "size_in": 16, "type": "dwukolorowe obręcze", "availability_text": "essential i expression"},
+        {"name": "Tamia", "size_in": 16, "type": "czarne aluminiowe obręcze", "availability_text": "extreme"},
+        {"name": "Tamia", "size_in": 16, "type": "aluminiowe obręcze", "availability_text": "journey"}
+      ]
+    },
+    {
+      "model_id": "duster",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf",
+      "source_pages": [13, 14, 15, 16, 17],
+      "colours": [
+        {"name": "Sandstone", "finish": "metalizowany"},
+        {"name": "Brązowy Terracotta", "finish": "metalizowany"},
+        {"name": "Szary Schiste", "finish": "metalizowany", "availability_text": "jeden z kolorów dostępnych dla Essential"},
+        {"name": "Czarna Perła", "finish": "metalizowany"},
+        {"name": "Zielony Cèdre", "finish": "metalizowany"},
+        {"name": "Lichen Khaki", "finish": "niemetalizowany", "availability_text": "jeden z kolorów dostępnych dla Essential"},
+        {"name": "Biel Alpejska", "finish": "niemetalizowany", "availability_text": "jeden z kolorów dostępnych dla Essential"}
+      ],
+      "wheels": [
+        {"name": null, "size_in": 16, "type": "stalowe obręcze", "availability_text": "essential"},
+        {"name": "Tergan", "size_in": 17, "type": "aluminiowe diamentowane obręcze", "availability_text": "expression"},
+        {"name": "Tagasan", "size_in": 18, "type": "aluminiowe obręcze", "availability_text": "journey"},
+        {"name": "Tergan", "size_in": 17, "type": "aluminiowe obręcze", "availability_text": "extreme"},
+        {"name": "Tergan", "size_in": 18, "type": "aluminiowe częściowo diamentowane obręcze", "availability_text": "opcja w extreme"}
+      ],
+      "upholstery": [
+        {"name": "MicroCloud", "type": "tapicerka materiałowa łączona z materiałem łatwoczyszczącym", "availability_text": "extreme"}
+      ]
+    },
+    {
+      "model_id": "bigster",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+      "source_pages": [13, 14, 16, 17],
+      "colours": [
+        {"name": "Brązowy Terracotta", "finish": "metalizowany", "availability_text": "dostępny także w wersji dwukolorowej"},
+        {"name": "Biel Alpejska", "finish": "niemetalizowany", "availability_text": "dostępny także w wersji dwukolorowej"},
+        {"name": "Czarna Perła", "finish": "metalizowany"},
+        {"name": "Szary Shiste", "finish": "metalizowany", "availability_text": "dostępny także w wersji dwukolorowej"},
+        {"name": "Niebieski Indigo", "finish": "metalizowany", "availability_text": "dostępny także w wersji dwukolorowej"},
+        {"name": "Zielony Cedar", "finish": "metalizowany", "availability_text": "dostępny także w wersji dwukolorowej"}
+      ],
+      "wheels": [
+        {"name": "Tergan", "size_in": 17, "type": "aluminiowe obręcze", "availability_text": "essential"},
+        {"name": "Tagasan", "size_in": 18, "type": "aluminiowe obręcze ze szlifem diamentowym", "availability_text": "journey"},
+        {"name": "Rasan", "size_in": 19, "type": "czarne aluminiowe obręcze ze szlifem diamentowym", "availability_text": "opcja w journey"},
+        {"name": null, "size_in": 18, "type": "czarne aluminiowe obręcze", "availability_text": "extreme; nazwa wymaga dalszej ekstrakcji"}
+      ],
+      "upholstery": [
+        {"name": "Journey", "type": "tapicerka tekstylna z powłoką MicroCloud", "availability_text": "journey"},
+        {"name": "Essential", "type": "specjalna tapicerka", "availability_text": "essential"}
+      ]
+    }
+  ],
+  "quality_notes": [
+    "The Jogger brochure's paint-finish footnotes appear internally inconsistent with common marketing expectations; values are preserved exactly as parsed and require price-list corroboration.",
+    "Bigster Extreme 18-inch wheel name is not present in the extracted passage and remains unresolved.",
+    "Brochure data does not establish prices; current model price lists are required before price publication.",
+    "This file intentionally excludes dynamic option dependencies until document and price-list reconciliation is complete."
+  ]
+}
