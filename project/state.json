@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-08-04",
+  "updated_on": "2026-08-05",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,25 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "portfolio_powertrain_transmission_matrix_001",
-    "kind": "deterministic_portfolio_reporting",
-    "name": "Portfolio Powertrain and Transmission Matrix",
-    "status": "complete",
-    "goal": "Generate deterministic JSON, CSV and standalone HTML views grouping active configurations by exact recorded powertrain and transmission without ranking, recommendation or inferred missing data.",
-    "manifest_paths": [
-      "project/STATE_SUMMARY.md",
-      "project/packages/portfolio-powertrain-transmission-matrix-20260805.md",
-      "project/state.json",
-      "tests/test_portfolio_powertrain_transmission_matrix.py",
-      "tools/reporting/portfolio_powertrain_transmission_matrix.py"
-    ]
-  },
-  "next_package": {
     "package_id": "post_matrix_priority_selection_001",
     "kind": "bounded_priority_review",
     "name": "Post-matrix Priority Selection",
-    "status": "planned",
+    "status": "complete",
     "goal": "Review the completed portfolio reporting products and select the next bounded package from repository evidence without introducing a new architecture direction.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/post-matrix-priority-selection-20260805.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "portfolio_powertrain_transmission_matrix_release_integration_001",
+    "kind": "release_integration",
+    "name": "Portfolio Powertrain and Transmission Matrix Release Integration",
+    "status": "planned",
+    "goal": "Integrate the verified portfolio powertrain and transmission JSON, CSV and standalone HTML into the versioned data-product build, manifest, download surface and offline workspace without changing report semantics or master data.",
     "manifest_paths": []
   },
   "autonomy": {
