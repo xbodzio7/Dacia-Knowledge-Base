@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Configuration Shortlist Exact Technical Observation Filters**
+**Data Products v1.18.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Data Products v1.17.0 Publication
-- Pull Request: #550
-- Verified head: `ee7a55f3a01daafed7d13ac937eaa43af2c225ee`
-- Quality run: #31043649080
+- Package: Configuration Shortlist Exact Technical Observation Filters
+- Pull Request: #552
+- Verified head: `0a5d609e24f3adbe3b65dacfa91f6256d9bd45bc`
+- Quality run: #31046342007
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Shortlist Exact Technical Observation Filters** — `complete`
+**Data Products v1.18.0 Release Preparation** — `complete`
 
-Join the exact technical-data report to the saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence without semantic coercion or cross-state inference.
+Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.
 
 ## Next package
 
-**Data Products v1.18.0 Release Preparation** — `planned`
+**Data Products v1.18.0 Publication** — `planned`
 
-Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.
+Publish immutable Data Products v1.18.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
 
 ## Autonomy
 
