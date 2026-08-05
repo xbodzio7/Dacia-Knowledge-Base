@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.16.0 Release Preparation**
+**Data Products v1.16.0 Publication**
 
 ## Reference delivery
 
-- Package: Portfolio Powertrain and Transmission Matrix Release Integration
-- Pull Request: #539
-- Verified head: `e9adaff96c8db5ed2485ff33e50ac4d355749d25`
-- Quality run: #30980070849
+- Package: Data Products v1.16.0 Publication
+- Pull Request: #542
+- Verified head: `bc6523ba3a37df40e879a8f8f5cf0fce8f0dcfd3`
+- Quality run: #30981720014
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.16.0 Release Preparation** — `complete`
+**Data Products v1.16.0 Publication** — `complete`
 
-Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.
+Publish immutable v1.16.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
 
 ## Next package
 
-**Data Products v1.16.0 Publication** — `planned`
+**Post-v1.16.0 Release Priority Selection Review** — `planned`
 
-Publish immutable Data Products v1.16.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
+Inspect canonical product, source and roadmap evidence after v1.16.0 publication and select one bounded next package.
 
 ## Autonomy
 

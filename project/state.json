@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.16.0 Release Preparation",
+  "phase": "Data Products v1.16.0 Publication",
   "reference_delivery": {
-    "name": "Portfolio Powertrain and Transmission Matrix Release Integration",
-    "pull_request": 539,
-    "head_sha": "e9adaff96c8db5ed2485ff33e50ac4d355749d25",
-    "quality_run": 30980070849
+    "name": "Data Products v1.16.0 Publication",
+    "pull_request": 542,
+    "head_sha": "bc6523ba3a37df40e879a8f8f5cf0fce8f0dcfd3",
+    "quality_run": 30981720014
   },
   "baseline": {
     "tests": 1878,
@@ -27,23 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_16_0_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.16.0 Release Preparation",
+    "package_id": "data_products_v1_16_0_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.16.0 Publication",
     "status": "complete",
-    "goal": "Prepare an immutable minor release from the verified powertrain-matrix integration state with exact-source double build and offline workspace verification.",
+    "goal": "Publish immutable v1.16.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.",
     "manifest_paths": [
+      "data/reporting/data_products_v1_16_0_publication.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.16.0-release-preparation-20260805.md",
-      "project/state.json"
+      "project/packages/data-products-v1.16.0-publication-20260805.md",
+      "project/state.json",
+      "tools/reporting/portfolio_powertrain_transmission_matrix_release_integration.py",
+      "tools/reporting/data_product_release_download.py",
+      "tools/reporting/data_product_workspace_index.py"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_16_0_publication_001",
-    "kind": "publication",
-    "name": "Data Products v1.16.0 Publication",
+    "package_id": "post_v1_16_0_release_priority_selection_review_001",
+    "kind": "priority_selection_review",
+    "name": "Post-v1.16.0 Release Priority Selection Review",
     "status": "planned",
-    "goal": "Publish immutable Data Products v1.16.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.",
+    "goal": "Inspect canonical product, source and roadmap evidence after v1.16.0 publication and select one bounded next package.",
     "manifest_paths": []
   },
   "autonomy": {
