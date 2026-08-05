@@ -50,7 +50,7 @@ closure = json.loads(
 )
 assert len(closure["rows"]) == 18
 assert len({row["canonical_configuration_code"] for row in closure["rows"]}) == 18
-assert len({row["exact_configuration_code"] for row in closure["rows"]}) == 18
+assert len({row["configuration_code"] for row in closure["rows"]}) == 18
 
 standard = json.loads(
     (root / "data/reporting/cross_model_configurator_standard_equipment.json").read_text(
