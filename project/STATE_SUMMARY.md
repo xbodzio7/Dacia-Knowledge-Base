@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-v1.17.0 Release Priority Selection Review**
+**Configuration Shortlist Exact Technical Observation Filters**
 
 ## Reference delivery
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1881
+- Tests: 1885
 - Master CSV files: 47
 - Master rows: 11770
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.17.0 Release Priority Selection Review** — `complete`
+**Configuration Shortlist Exact Technical Observation Filters** — `complete`
 
-Review the verified v1.17.0 publication and current source-backed evidence, then select exactly one bounded next package.
+Join the exact technical-data report to the saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence without semantic coercion or cross-state inference.
 
 ## Next package
 
-**Configuration Shortlist Exact Technical Observation Filters** — `planned`
+**Data Products v1.18.0 Release Preparation** — `planned`
 
-Join the exact technical-data report to the existing saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence to the shortlist without semantic coercion or cross-state inference.
+Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.
 
 ## Autonomy
 
