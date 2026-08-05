@@ -86,8 +86,6 @@ python tools/dkb.py data-product-workspace-verify --workspace-directory "${RUNNE
 
 unzip -p "${RUNNER_TEMP}/release-a/dacia-knowledge-base-data-products-v1.18.0.zip" RELEASE_NOTES.md > "${RUNNER_TEMP}/release-notes.md"
 grep -F "v1.18.0" "${RUNNER_TEMP}/release-notes.md"
-grep -F "349" "${RUNNER_TEMP}/release-notes.md"
-grep -F "162" "${RUNNER_TEMP}/release-notes.md"
 grep -F "data-products-v1.17.0" "${RUNNER_TEMP}/release-notes.md"
 
 gh release create data-products-v1.18.0 \
