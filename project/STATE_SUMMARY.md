@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.17.0 Publication**
+**Post-v1.17.0 Release Priority Selection Review**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.17.0 Publication** — `complete`
+**Post-v1.17.0 Release Priority Selection Review** — `complete`
 
-Publish immutable v1.17.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
+Review the verified v1.17.0 publication and current source-backed evidence, then select exactly one bounded next package.
 
 ## Next package
 
-**Post-v1.17.0 Release Priority Selection Review** — `planned`
+**Configuration Shortlist Exact Technical Observation Filters** — `planned`
 
-Inspect canonical product, source and roadmap evidence after v1.17.0 publication and select one bounded next package.
+Join the exact technical-data report to the existing saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence to the shortlist without semantic coercion or cross-state inference.
 
 ## Autonomy
 
