@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 from typing import Sequence
 
-from reporting.portfolio_powertrain_transmission_matrix_release_integration import (
+from reporting.configuration_shortlist_v1_17_release_integration import (
     create_release_assets,
     repository_root,
 )
