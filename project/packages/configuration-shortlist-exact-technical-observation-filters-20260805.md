@@ -51,7 +51,9 @@ The complete required CI matrix must pass on the final Pull Request head before 
 - `project/STATE_SUMMARY.md`
 - `project/packages/configuration-shortlist-exact-technical-observation-filters-20260805.md`
 - `project/state.json`
+- `tests/test_configuration_selection_export.py`
 - `tests/test_configuration_shortlist_exact_technical_observation_filters.py`
+- `tests/test_data_product_release.py`
 - `tools/data_product_release.py`
 - `tools/reporting/commercial_offers.py`
 - `tools/reporting/configuration_shortlist_equipment_groups.js`
