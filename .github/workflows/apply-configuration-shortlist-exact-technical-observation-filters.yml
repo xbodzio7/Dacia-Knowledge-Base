@@ -1,0 +1,58 @@
+name: Apply Exact Technical Observation Filters
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+
+jobs:
+  apply-exact-technical-observation-filters:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'feat/configuration-shortlist-exact-technical-observation-filters' &&
+      !contains(github.event.pull_request.head.sha, '0000000000000000000000000000000000000000')
+    concurrency:
+      group: apply-configuration-shortlist-exact-technical-observation-filters
+      cancel-in-progress: false
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out package branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Apply bounded JavaScript patch
+        run: python tools/apply_configuration_shortlist_exact_technical_observation_filters_20260805.py
+      - name: Check JavaScript syntax
+        run: node --check tools/reporting/configuration_shortlist_equipment_groups.js
+      - name: Run focused contracts
+        run: >-
+          python -m unittest -q
+          tests.test_configuration_shortlist_configurator_observation_filters
+          tests.test_configuration_shortlist_exact_technical_observation_filters
+      - name: Check canonical project state
+        run: python tools/dkb.py project-state --check
+      - name: Record stabilized package head
+        run: |
+          rm -f \
+            .github/workflows/apply-configuration-shortlist-exact-technical-observation-filters.yml \
+            tools/apply_configuration_shortlist_exact_technical_observation_filters_20260805.py
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(shortlist): expose exact technical observation filters"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
