@@ -71,6 +71,20 @@
       "source_name": "Dacia Polska",
       "source_page_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover.html",
       "status": "unchanged_content"
+    },
+    "spring": {
+      "captured_on": "2026-08-05",
+      "checked_at": "2026-08-05T09:20:00+00:00",
+      "content_type": "image/png",
+      "etag": "",
+      "image_url": "https://www.dacia.pl/agg/vn/unique/ONE_DACIA_PP_LARGE_DENSITY1/d_brandSite_carPicker_1.png?uri=https%3A%2F%2Fpl.co.rplug.renault.com%2Fproduct%2Fmodel%2FS2E%2Fspring-my26%2Fc%2FA-ENS_0MDL2P1SERIELIM3_-TEKQZ",
+      "last_modified": "",
+      "model_name": "spring",
+      "path": "assets/model-media/spring-cc7712919408010a.png",
+      "sha256": "cc7712919408010ac2cfcb5a33a358def1affef5e7e3b9476b059be9f7cfb2b7",
+      "source_name": "Dacia Polska",
+      "source_page_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski.html",
+      "status": "downloaded"
     }
   },
   "source_path": "project/sources/dacia-pl-model-media-20260724.json",

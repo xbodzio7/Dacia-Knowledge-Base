@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-v1.16.0 Release Priority Selection Review**
+**Configuration Shortlist Spring Media Normalization**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.16.0 Release Priority Selection Review** — `complete`
+**Configuration Shortlist Spring Media Normalization** — `complete`
 
-Review the verified v1.16.0 publication, canonical interface sources and current user-requested priorities, then select exactly one bounded next package.
+Use the current official Dacia Polska car-picker packshot for Spring through the shared model-media catalogue, remove the Spring-only supplemental override and framing, and preserve deterministic offline media.
 
 ## Next package
 
-**Configuration Shortlist Spring Media Normalization** — `planned`
+**Configuration Shortlist Configurator Observation Filters** — `planned`
 
-Replace the Spring-only supplemental parking image and framing with the current official Dacia Polska car-picker packshot in the shared model-media catalogue while preserving deterministic offline fallback and all other model media.
+Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.
 
 ## Autonomy
 

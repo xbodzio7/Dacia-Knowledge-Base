@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.16.0 Release Priority Selection Review",
+  "phase": "Configuration Shortlist Spring Media Normalization",
   "reference_delivery": {
     "name": "Data Products v1.16.0 Publication",
     "pull_request": 542,
@@ -27,23 +27,34 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_16_0_release_priority_selection_review_001",
-    "kind": "bounded_priority_review",
-    "name": "Post-v1.16.0 Release Priority Selection Review",
-    "status": "complete",
-    "goal": "Review the verified v1.16.0 publication, canonical interface sources and current user-requested priorities, then select exactly one bounded next package.",
-    "manifest_paths": [
-      "project/STATE_SUMMARY.md",
-      "project/packages/post-v1.16.0-release-priority-selection-review-20260805.md",
-      "project/state.json"
-    ]
-  },
-  "next_package": {
     "package_id": "configuration_shortlist_spring_media_normalization_001",
     "kind": "user_interface_repair",
     "name": "Configuration Shortlist Spring Media Normalization",
+    "status": "complete",
+    "goal": "Use the current official Dacia Polska car-picker packshot for Spring through the shared model-media catalogue, remove the Spring-only supplemental override and framing, and preserve deterministic offline media.",
+    "manifest_paths": [
+      "assets/model-media/manifest.json",
+      "assets/model-media/spring-cc7712919408010a.png",
+      "project/STATE_SUMMARY.md",
+      "project/packages/configuration-shortlist-spring-media-normalization-20260805.md",
+      "project/sources/dacia-pl-model-media-20260724.json",
+      "project/state.json",
+      "tests/test_configuration_selection_export.py",
+      "tests/test_data_product_release.py",
+      "tests/test_interface_source_coverage_repair_20260801.py",
+      "tools/cache_model_media.py",
+      "tools/configuration_shortlist.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_html.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "configuration_shortlist_configurator_observation_filters_001",
+    "kind": "user_interface_data_integration",
+    "name": "Configuration Shortlist Configurator Observation Filters",
     "status": "planned",
-    "goal": "Replace the Spring-only supplemental parking image and framing with the current official Dacia Polska car-picker packshot in the shared model-media catalogue while preserving deterministic offline fallback and all other model media.",
+    "goal": "Add a separate producer-confirmed configuration section with exact-export filters for configurator confirmation, selected colour, selected wheels, selected upholstery and exact standard-equipment observations without inferring alternative availability.",
     "manifest_paths": []
   },
   "autonomy": {

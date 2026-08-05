@@ -358,7 +358,7 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn('document.createElement("details")', rendered)
         self.assertIn("data-collapsible-equipment-group", rendered)
         self.assertIn("equipment-picker-group-summary", rendered)
-        self.assertIn("vehicle-photo-frame-spring", rendered)
+        self.assertNotIn("vehicle-photo-frame-spring", rendered)
         self.assertIn("equipment-availability-note", rendered)
         self.assertIn("model-picker", rendered)
         self.assertIn("model-thumbnail-host", rendered)

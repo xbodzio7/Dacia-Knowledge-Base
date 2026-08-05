@@ -173,9 +173,6 @@ class CrossModelComparisonViewTests(unittest.TestCase):
     def test_model_media_registry_is_reused_as_provenance_not_runtime_dependency(self) -> None:
         for model in self.view["models"]:
             media = model["model_media"]
-            if model["model_code"] == "spring":
-                self.assertEqual(media, {})
-                continue
             self.assertEqual(media["source_name"], "Dacia Polska")
             self.assertTrue(media["image_url"].startswith("https://"))
             self.assertTrue(media["source_page_url"].startswith("https://www.dacia.pl/"))

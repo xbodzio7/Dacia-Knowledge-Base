@@ -136,10 +136,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertTrue(external_urls)
         self.assertTrue(
             all(
-                url.startswith((
-                    "https://www.dacia.pl/",
-                    "https://3dv2.renault.com/",
-                ))
+                url.startswith(("https://www.dacia.pl/",))
                 for url in external_urls
             ),
             external_urls,
@@ -156,13 +153,14 @@ class DataProductReleaseTests(unittest.TestCase):
             "reviewed_gap_materialization",
             "candidate_amount_pln",
             "niepodane w dokładnym źródle",
-            "https://3dv2.renault.com/Image?databaseId=",
+            "spring-my26",
             "configuration_shortlist_equipment_groups_v1_7",
             "data-collapsible-equipment-group",
-            "vehicle-photo-frame-spring",
         ):
             with self.subTest(marker=marker):
                 self.assertIn(marker, html)
+        self.assertNotIn("https://3dv2.renault.com/", html)
+        self.assertNotIn("vehicle-photo-frame-spring", html)
 
     def test_full_bundle_contains_all_scopes_and_workbook(self) -> None:
         with ZipFile(self.archive_path) as archive:

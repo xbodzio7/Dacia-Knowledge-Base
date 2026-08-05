@@ -106,6 +106,9 @@ def _load_sources(repository: Path) -> tuple[str, dict[str, dict[str, str]]]:
             "image_url": image_url,
             "source_page_url": page_url,
             "source_name": str(item.get("source_name", "Dacia Polska")),
+            "captured_on": str(
+                item.get("captured_on", payload.get("captured_on", ""))
+            ),
         }
     if not result:
         raise MediaCacheError("media source contains no usable models")
@@ -245,7 +248,7 @@ def refresh(
         relative = path.relative_to(repository).as_posix()
         models[model_code] = {
             **source,
-            "captured_on": captured_on,
+            "captured_on": str(source.get("captured_on", captured_on)),
             "path": relative,
             "content_type": (
                 content_type
