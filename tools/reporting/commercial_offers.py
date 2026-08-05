@@ -9,10 +9,19 @@ from typing import Any, Iterable, Mapping
 
 
 CONFIGURATOR_OBSERVATION_KIND = "configurator_observation"
+_CONFIGURATOR_COMMERCIAL_REPORT = "cross_model_configurator_commercial_data.json"
+_CONFIGURATOR_STANDARD_EQUIPMENT_REPORT = (
+    "cross_model_configurator_standard_equipment.json"
+)
+_CONFIGURATOR_TECHNICAL_DATA_REPORT = "cross_model_configurator_technical_data.json"
+_CONFIGURATOR_CONFLICT_CLOSURE_REPORT = (
+    "cross_model_configurator_conflict_closure.json"
+)
 _CONFIGURATOR_REPORTS = (
-    "cross_model_configurator_commercial_data.json",
-    "cross_model_configurator_standard_equipment.json",
-    "cross_model_configurator_conflict_closure.json",
+    _CONFIGURATOR_COMMERCIAL_REPORT,
+    _CONFIGURATOR_STANDARD_EQUIPMENT_REPORT,
+    _CONFIGURATOR_TECHNICAL_DATA_REPORT,
+    _CONFIGURATOR_CONFLICT_CLOSURE_REPORT,
 )
 
 
@@ -51,6 +60,33 @@ def _unique_by_code(rows: object, *, label: str) -> dict[str, dict[str, Any]]:
     return result
 
 
+def _source_categories(
+    row: Mapping[str, Any],
+    *,
+    label: str,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    categories: list[dict[str, Any]] = []
+    source_lines: list[str] = []
+    raw_categories = row.get("categories", [])
+    if not isinstance(raw_categories, list):
+        raise ValueError(f"{label} categories must be a list")
+    for category in raw_categories:
+        if not isinstance(category, dict):
+            raise ValueError(f"{label} category must be an object")
+        lines = category.get("source_lines", [])
+        if not isinstance(lines, list) or not all(isinstance(line, str) for line in lines):
+            raise ValueError(f"{label} source lines must be strings")
+        normalized_lines = [line for line in lines if line]
+        categories.append(
+            {
+                "category": str(category.get("category", "")),
+                "source_lines": normalized_lines,
+            }
+        )
+        source_lines.extend(normalized_lines)
+    return categories, source_lines
+
+
 def _collect_configurator_observations(
     repository: Path,
     configuration_codes: set[str],
@@ -65,9 +101,10 @@ def _collect_configurator_observations(
         missing = ", ".join(sorted(set(paths) - present))
         raise ValueError(f"incomplete configurator observation bundle; missing: {missing}")
 
-    commercial = _read_json_object(paths[_CONFIGURATOR_REPORTS[0]])
-    standard = _read_json_object(paths[_CONFIGURATOR_REPORTS[1]])
-    closure = _read_json_object(paths[_CONFIGURATOR_REPORTS[2]])
+    commercial = _read_json_object(paths[_CONFIGURATOR_COMMERCIAL_REPORT])
+    standard = _read_json_object(paths[_CONFIGURATOR_STANDARD_EQUIPMENT_REPORT])
+    technical = _read_json_object(paths[_CONFIGURATOR_TECHNICAL_DATA_REPORT])
+    closure = _read_json_object(paths[_CONFIGURATOR_CONFLICT_CLOSURE_REPORT])
 
     if int(closure.get("unresolved_identity_conflicts", -1)) != 0:
         raise ValueError("configurator observation bundle has unresolved identity conflicts")
@@ -75,20 +112,33 @@ def _collect_configurator_observations(
         raise ValueError("configurator observation bundle does not preserve phase boundaries")
 
     commercial_rows = _unique_by_code(commercial.get("rows"), label="commercial rows")
-    standard_rows = _unique_by_code(standard.get("documents"), label="standard-equipment documents")
+    standard_rows = _unique_by_code(
+        standard.get("documents"),
+        label="standard-equipment documents",
+    )
+    technical_rows = _unique_by_code(
+        technical.get("documents"),
+        label="technical-data documents",
+    )
     closure_rows = _unique_by_code(closure.get("rows"), label="identity closure rows")
     expected_codes = set(closure_rows)
-    if set(commercial_rows) != expected_codes or set(standard_rows) != expected_codes:
+    if (
+        set(commercial_rows) != expected_codes
+        or set(standard_rows) != expected_codes
+        or set(technical_rows) != expected_codes
+    ):
         raise ValueError("configurator observation bundle configuration sets do not match")
 
     source_codes = {
         str(commercial.get("source_code", "")),
         str(standard.get("source_code", "")),
+        str(technical.get("source_code", "")),
         str(closure.get("source_code", "")),
     }
     observed_dates = {
         str(commercial.get("observed_on", "")),
         str(standard.get("observed_on", "")),
+        str(technical.get("observed_on", "")),
         str(closure.get("observed_on", "")),
     }
     if len(source_codes) != 1 or "" in source_codes:
@@ -112,27 +162,21 @@ def _collect_configurator_observations(
 
         commercial_row = commercial_rows[exact_code]
         standard_row = standard_rows[exact_code]
-        categories: list[dict[str, Any]] = []
-        source_lines: list[str] = []
-        raw_categories = standard_row.get("categories", [])
-        if not isinstance(raw_categories, list):
-            raise ValueError(f"standard-equipment categories for {exact_code} must be a list")
-        for category in raw_categories:
-            if not isinstance(category, dict):
-                raise ValueError(f"standard-equipment category for {exact_code} must be an object")
-            lines = category.get("source_lines", [])
-            if not isinstance(lines, list) or not all(isinstance(line, str) for line in lines):
-                raise ValueError(
-                    f"standard-equipment source lines for {exact_code} must be strings"
-                )
-            normalized_lines = [line for line in lines if line]
-            categories.append(
-                {
-                    "category": str(category.get("category", "")),
-                    "source_lines": normalized_lines,
-                }
+        technical_row = technical_rows[exact_code]
+        standard_categories, standard_source_lines = _source_categories(
+            standard_row,
+            label=f"standard-equipment data for {exact_code}",
+        )
+        technical_categories, technical_source_lines = _source_categories(
+            technical_row,
+            label=f"technical data for {exact_code}",
+        )
+        standard_filename = str(standard_row.get("filename", ""))
+        technical_filename = str(technical_row.get("filename", ""))
+        if standard_filename != technical_filename:
+            raise ValueError(
+                f"configurator observation filenames differ for {exact_code}"
             )
-            source_lines.extend(normalized_lines)
 
         result[canonical_code] = {
             "code": f"{CONFIGURATOR_OBSERVATION_KIND}::{exact_code}",
@@ -153,8 +197,11 @@ def _collect_configurator_observations(
             "grade": str(commercial_row.get("grade", "")),
             "powertrain": str(commercial_row.get("powertrain", "")),
             "observed_on": observed_on,
-            "filename": str(standard_row.get("filename", "")),
+            "filename": standard_filename,
             "source_pages": list(standard_row.get("source_pages", [])),
+            "technical_data_source_pages": list(
+                technical_row.get("source_pages", technical.get("source_pages", []))
+            ),
             "selected_colour": {
                 "value": str(commercial_row.get("colour", "")),
                 "price_pln": commercial_row.get("colour_price_pln"),
@@ -170,9 +217,12 @@ def _collect_configurator_observations(
                 "price_pln": commercial_row.get("upholstery_price_pln"),
                 "source_page": commercial_row.get("source_page"),
             },
-            "standard_equipment_categories": categories,
-            "standard_equipment_source_lines": source_lines,
+            "standard_equipment_categories": standard_categories,
+            "standard_equipment_source_lines": standard_source_lines,
+            "technical_data_categories": technical_categories,
+            "technical_data_source_lines": technical_source_lines,
             "exact_saved_configuration_only": True,
+            "semantic_technical_line_coercion_performed": False,
         }
     return result
 

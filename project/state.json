@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.17.0 Release Priority Selection Review",
+  "phase": "Configuration Shortlist Exact Technical Observation Filters",
   "reference_delivery": {
     "name": "Data Products v1.17.0 Publication",
     "pull_request": 550,
@@ -15,7 +15,7 @@
     "quality_run": 31043649080
   },
   "baseline": {
-    "tests": 1881,
+    "tests": 1885,
     "csv_files": 47,
     "rows": 11770,
     "configuration_values": 3604,
@@ -27,23 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_17_0_release_priority_selection_review_001",
-    "kind": "bounded_priority_review",
-    "name": "Post-v1.17.0 Release Priority Selection Review",
-    "status": "complete",
-    "goal": "Review the verified v1.17.0 publication and current source-backed evidence, then select exactly one bounded next package.",
-    "manifest_paths": [
-      "project/STATE_SUMMARY.md",
-      "project/packages/post-v1.17.0-release-priority-selection-review-20260805.md",
-      "project/state.json"
-    ]
-  },
-  "next_package": {
     "package_id": "configuration_shortlist_exact_technical_observation_filters_001",
     "kind": "user_interface_data_integration",
     "name": "Configuration Shortlist Exact Technical Observation Filters",
+    "status": "complete",
+    "goal": "Join the exact technical-data report to the saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence without semantic coercion or cross-state inference.",
+    "manifest_paths": [
+      "data/reporting/cross_model_configurator_technical_data.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/configuration-shortlist-exact-technical-observation-filters-20260805.md",
+      "project/state.json",
+      "tests/test_configuration_selection_export.py",
+      "tests/test_configuration_shortlist_exact_technical_observation_filters.py",
+      "tests/test_data_product_release.py",
+      "tools/data_product_release.py",
+      "tools/reporting/commercial_offers.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_technical_observation_release_integration.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_18_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.18.0 Release Preparation",
     "status": "planned",
-    "goal": "Join the exact technical-data report to the existing saved-configurator observation bundle and add searchable exact technical source-line filtering and grouped evidence to the shortlist without semantic coercion or cross-state inference.",
+    "goal": "Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.",
     "manifest_paths": []
   },
   "autonomy": {

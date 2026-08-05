@@ -362,7 +362,7 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("configuration-select", rendered)
         self.assertIn("Format interaktywnej shortlisty HTML v1.7.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
-        self.assertIn("configuration_shortlist_equipment_groups_v1_8", rendered)
+        self.assertIn("configuration_shortlist_equipment_groups_v1_9", rendered)
         self.assertIn('document.createElement("details")', rendered)
         self.assertIn("data-collapsible-equipment-group", rendered)
         self.assertIn("equipment-picker-group-summary", rendered)
