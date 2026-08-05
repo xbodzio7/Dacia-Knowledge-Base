@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.18.0 Release Preparation**
+**Data Products v1.18.0 Publication**
 
 ## Reference delivery
 
-- Package: Configuration Shortlist Exact Technical Observation Filters
-- Pull Request: #552
-- Verified head: `0a5d609e24f3adbe3b65dacfa91f6256d9bd45bc`
-- Quality run: #31046342007
+- Package: Data Products v1.18.0 Publication
+- Pull Request: #560
+- Verified head: `a13587ff0bf9d683d7a450f0fbb15aa610693f03`
+- Quality run: #31051935089
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.18.0 Release Preparation** — `complete`
+**Data Products v1.18.0 Publication** — `complete`
 
-Integrate the completed exact technical-observation filters into a reproducible v1.18.0 release candidate, run the required double build and stop before public tag or release creation.
+Publish immutable v1.18.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
 
 ## Next package
 
-**Data Products v1.18.0 Publication** — `planned`
+**Post-v1.18.0 Release Priority Selection Review** — `planned`
 
-Publish immutable Data Products v1.18.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
+Inspect canonical product, source and roadmap evidence after v1.18.0 publication and select one bounded next package.
 
 ## Autonomy
 

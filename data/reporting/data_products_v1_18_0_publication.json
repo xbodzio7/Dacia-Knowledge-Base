@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_18_0_publication",
+  "published_on": "2026-08-05",
+  "status": "complete",
+  "tag": "data-products-v1.18.0",
+  "release_id": 365855732,
+  "source_commit": "a13587ff0bf9d683d7a450f0fbb15aa610693f03",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "configuration_shortlist_v1_18": {
+    "exact_configurator_saved_states": 18,
+    "exact_standard_equipment_source_lines": 1355,
+    "exact_technical_categories": 162,
+    "exact_technical_source_lines": 349,
+    "technical_semantic_coercion_performed": false,
+    "equipment_visible_when_available_in_any_compatible_configuration": true,
+    "equipment_hidden_only_when_unavailable_in_all_compatible_configurations": true
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "master_data_changed": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "cross_phase_promotion": false,
+    "cross_grade_transfer": false,
+    "cross_powertrain_transfer": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.18.0.zip": {
+      "size_bytes": 83910891,
+      "sha256": "1963eeb1cf73577d229dfd9ff60ef81a567dae085dac5e490fbd53fab4bf58a0"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 27763,
+      "sha256": "25535797b3ea81a69de0d294ecb6f105a7afc78dd28c0023fdacf6a50935839b"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "ab95c265bd093154f93f3bca94023a3147aaadccd8fde6ebaa265513d8cf2272"
+    }
+  },
+  "public_v1_17_0_immutable": true
+}
