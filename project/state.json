@@ -27,25 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "new_spring_current_shop_retry_003",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Current Shop Retry 003",
-    "status": "complete",
-    "goal": "Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history, confirm two Polish Dacia Shop cards and complete the first deferred retry cycle.",
-    "manifest_paths": [
-      "data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.json",
-      "data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.csv",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/new-spring-current-shop-retry-003-20260807.md"
-    ]
-  },
-  "next_package": {
     "package_id": "new_spring_current_shop_retry_cycle_summary_001",
     "kind": "source_status_reconciliation",
     "name": "New Spring Current Shop Retry Cycle Summary 001",
+    "status": "complete",
+    "goal": "Consolidate all three deferred retry packages, update repository-wide New Spring shop coverage to 28 confirmed and 28 unresolved references, and materialize the remaining 28-item unresolved queue without changing master data.",
+    "manifest_paths": [
+      "data/reporting/official_new_spring_accessory_current_shop_retry_cycle_summary_001_20260807.json",
+      "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260807.csv",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/new-spring-current-shop-retry-cycle-summary-001-20260807.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "post_v1_18_residual_gap_closure_milestone_review_001",
+    "kind": "milestone_review",
+    "name": "Post-v1.18.0 Residual Gap Closure Milestone Review 001",
     "status": "planned",
-    "goal": "Consolidate all three deferred retry packages, update repository-wide New Spring shop coverage to 28 confirmed and 28 unresolved references, and materialize the remaining unresolved queue without changing master data.",
+    "goal": "Review the five-package closure interval ending with the New Spring retry-cycle summary, confirm the remaining 28-item unresolved queue and select the next source-backed bounded package without reopening closed PDF decisions or repeating same-day shop checks.",
     "manifest_paths": []
   },
   "autonomy": {
