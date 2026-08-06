@@ -27,25 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "new_spring_current_shop_retry_002",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Current Shop Retry 002",
-    "status": "complete",
-    "goal": "Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without cross-market, cross-brand or third-party evidence transfer.",
-    "manifest_paths": [
-      "data/reporting/official_new_spring_accessory_current_shop_retry_002_20260807.json",
-      "data/reporting/official_new_spring_accessory_current_shop_retry_002_20260807.csv",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/new-spring-current-shop-retry-002-20260807.md"
-    ]
-  },
-  "next_package": {
     "package_id": "new_spring_current_shop_retry_003",
     "kind": "source_status_reconciliation",
     "name": "New Spring Current Shop Retry 003",
+    "status": "complete",
+    "goal": "Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history, confirm two Polish Dacia Shop cards and complete the first deferred retry cycle.",
+    "manifest_paths": [
+      "data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.json",
+      "data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.csv",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/new-spring-current-shop-retry-003-20260807.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "new_spring_current_shop_retry_cycle_summary_001",
+    "kind": "source_status_reconciliation",
+    "name": "New Spring Current Shop Retry Cycle Summary 001",
     "status": "planned",
-    "goal": "Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and complete the first deferred retry cycle.",
+    "goal": "Consolidate all three deferred retry packages, update repository-wide New Spring shop coverage to 28 confirmed and 28 unresolved references, and materialize the remaining unresolved queue without changing master data.",
     "manifest_paths": []
   },
   "autonomy": {
