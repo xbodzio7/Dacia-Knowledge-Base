@@ -36,15 +36,15 @@
 
 ## Current package
 
-**New Spring Current Shop Retry 002** — `complete`
+**New Spring Current Shop Retry 003** — `complete`
 
-Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without cross-market, cross-brand or third-party evidence transfer.
+Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history, confirm two Polish Dacia Shop cards and complete the first deferred retry cycle.
 
 ## Next package
 
-**New Spring Current Shop Retry 003** — `planned`
+**New Spring Current Shop Retry Cycle Summary 001** — `planned`
 
-Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and complete the first deferred retry cycle.
+Consolidate all three deferred retry packages, update repository-wide New Spring shop coverage to 28 confirmed and 28 unresolved references, and materialize the remaining unresolved queue without changing master data.
 
 ## Autonomy
 

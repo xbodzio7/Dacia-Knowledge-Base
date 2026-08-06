@@ -1,0 +1,279 @@
+{
+  "package_id": "new_spring_current_shop_retry_003",
+  "package_name": "New Spring Current Shop Retry 003",
+  "checked_on": "2026-08-07",
+  "base_commit": "638b9203fd587b61e2a5bc52dc6b9527bfa6b940",
+  "source_queue": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+  "scope": {
+    "retry_positions": {
+      "from": 21,
+      "to": 30
+    },
+    "record_count": 10,
+    "identity_rule": "exact_part_number",
+    "accepted_confirmation_source": "official_polish_dacia_shop_card"
+  },
+  "result": {
+    "confirmed_polish_dacia_shop_cards": 2,
+    "cards_not_resolved": 8,
+    "confirmed_cards_without_captured_catalogue_price": 2,
+    "current_shop_catalogue_prices_captured": 0,
+    "price_matches": 0,
+    "price_mismatches": 0,
+    "literal_label_matches": 1,
+    "literal_label_drifts": 1,
+    "new_spring_compatibility_confirmations": 2,
+    "status_changes": 2
+  },
+  "retry_cycle_cumulative": {
+    "retry_positions_reviewed": 30,
+    "confirmed_polish_dacia_shop_cards": 2,
+    "cards_not_resolved": 28,
+    "status_changes": 2
+  },
+  "first_pass_plus_retry_cumulative": {
+    "price_list_references": 56,
+    "confirmed_polish_dacia_shop_cards": 28,
+    "exact_current_price_matches": 12,
+    "confirmed_cards_without_captured_catalogue_price": 16,
+    "cards_not_resolved": 28,
+    "price_mismatches": 0
+  },
+  "status_semantics": {
+    "confirmed_card_price_not_captured": "An official Polish Dacia Shop card was confirmed by exact part number, but the bounded retrieval did not expose a catalogue price. This is not a mismatch.",
+    "dacia_pl_card_not_resolved": "No official Polish Dacia Shop card was resolved in the bounded retry. This does not establish withdrawal, incompatibility or unavailability."
+  },
+  "semantic_guards": [
+    "Exact part number remains the primary identity.",
+    "An unresolved Polish shop card is not evidence of withdrawal, incompatibility or unavailability.",
+    "Foreign-market official Dacia records are not transferred to Polish New Spring evidence.",
+    "Renault Shop records are not substituted for Polish Dacia Shop records.",
+    "Third-party records are not substituted for official Polish Dacia Shop records.",
+    "A missing current shop price is not a mismatch.",
+    "No master-data mutation is permitted in this reporting package."
+  ],
+  "records": [
+    {
+      "retry_position": 21,
+      "price_list_ordinal": 38,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki gumowe",
+      "part_number": "8201756618",
+      "document_price_gross_pln": "250.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201756618",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 22,
+      "price_list_ordinal": 39,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki gumowe (tylny rząd)",
+      "part_number": "8201756621",
+      "document_price_gross_pln": "170.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201756621",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 23,
+      "price_list_ordinal": 40,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Ochrona karoserii",
+      "price_list_name": "Pokrowiec na samochód (rozmiar XS)",
+      "part_number": "7711949659",
+      "document_price_gross_pln": "378.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "confirmed_card_price_not_captured",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": true,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711949659",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry",
+        "shop_name": "Pokrowiec na samochód (rozmiar XS)",
+        "shop_catalogue_price_gross_pln": null,
+        "price_match": null,
+        "label_exact_match": true,
+        "declared_compatibility": "NOWY SPRING",
+        "availability_status": "listed_add_to_cart"
+      },
+      "notes": "Official Polish Dacia Shop card confirms the exact part number, literal label and New Spring compatibility. The retrieved card did not expose a catalogue price."
+    },
+    {
+      "retry_position": 24,
+      "price_list_ordinal": 44,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Wyposażenie bagażnika",
+      "price_list_name": "Dwustronna mata bagażnika do bagażnika Spring(2)",
+      "part_number": "8201742284",
+      "document_price_gross_pln": "311.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "confirmed_card_price_not_captured",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": true,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201742284",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry",
+        "shop_name": "Dwustronna mata bagażnika Dacia Spring",
+        "shop_catalogue_price_gross_pln": null,
+        "price_match": null,
+        "label_exact_match": false,
+        "declared_compatibility": "SPRING; NOWY SPRING",
+        "availability_status": "listed_add_to_cart"
+      },
+      "notes": "Official Polish Dacia Shop card confirms the exact part number and New Spring compatibility. The current shop label differs from the price-list label, and the retrieved card did not expose a catalogue price."
+    },
+    {
+      "retry_position": 25,
+      "price_list_ordinal": 46,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Wyposażenie wnętrza",
+      "price_list_name": "Pokrowiec na tylne siedzenia do przewozu psów",
+      "part_number": "7711945735",
+      "document_price_gross_pln": "419.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711945735",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 26,
+      "price_list_ordinal": 48,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Wyposażenie wnętrza",
+      "price_list_name": "Zestaw dla palących (popielniczka + zapalniczka)",
+      "part_number": "8201375535",
+      "document_price_gross_pln": "225.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201375535",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 27,
+      "price_list_ordinal": 49,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Wyposażenie wnętrza",
+      "price_list_name": "Organizer konsoli centralnej",
+      "part_number": "8201751965",
+      "document_price_gross_pln": "291.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201751965",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 28,
+      "price_list_ordinal": 50,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Wyposażenie wnętrza",
+      "price_list_name": "Schowek pod maską silnika",
+      "part_number": "8201751968",
+      "document_price_gross_pln": "969.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201751968",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 29,
+      "price_list_ordinal": 51,
+      "category": "MULTIMEDIA",
+      "subcategory": "Telefon",
+      "price_list_name": "Uchwyt na telefon - montowany na desce rozdzielczej",
+      "part_number": "7711784775",
+      "document_price_gross_pln": "111.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711784775",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 30,
+      "price_list_ordinal": 56,
+      "category": "TRANSPORT",
+      "subcategory": "Poprzeczki i bagażniki",
+      "price_list_name": "Bagażnik z podwójną podłogą do przechowywania kabli",
+      "part_number": "7717300012",
+      "document_price_gross_pln": "1169.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7717300012",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No official Polish Dacia Shop card was resolved in the bounded retry. Non-Polish, other-brand and third-party records were not transferred to Polish New Spring evidence."
+    }
+  ]
+}
