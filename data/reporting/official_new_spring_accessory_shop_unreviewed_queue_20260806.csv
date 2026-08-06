@@ -1,0 +1,45 @@
+ordinal,category,subcategory,price_list_name,part_number,installation_marker_present,document_price_gross_pln_excluding_installation,source_page,next_batch_position
+1,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,"Zestaw bezpieczeństwa (kamizelka, trójkąt, apteczka)",7711780759,false,87.00,2,1
+2,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,Gaśnica 1 kg,7711943172,false,87.00,2,2
+3,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,Wideo rejestrator Nextbase 222,7711945185,false,940.00,2,3
+4,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,Uchwyt do mocowania gaśnicy,966115844R,true,157.00,2,4
+5,BEZPIECZEŃSTWO,Łańcuchy śniegowe,"Łańcuchy śniegowe Standard 9mm, rozmiar 50",7711578466,false,387.10,2,5
+7,DESIGN,Felgi i akcesoria do kół,"Kołpak 14""",403152884R,false,169.00,3,6
+8,DESIGN,Felgi i akcesoria do kół,"Kołpak 15""",403154034R,false,173.00,3,7
+9,DESIGN,Felgi i akcesoria do kół,"Kołpak 14""",403154280R,false,155.00,3,8
+10,DESIGN,Felgi i akcesoria do kół,Śruby antykradzieżowe do felg aluminowych - 4 śruby,8201724187,false,145.00,3,9
+12,DESIGN,Wygląd wnętrza,YouClip – indukcyjna ładowarka do smartfonów,283D84357R,false,283.00,3,10
+17,DESIGN,Wygląd wnętrza,Uchwyt na kubek,685609899R,false,126.00,3,11
+18,DESIGN,Wygląd wnętrza,YouClip – etui na okulary,739M00386R,false,149.00,3,12
+19,DESIGN,Wygląd wnętrza,Nakładki na progi przednich drzwi Spring,7711945712,true,187.00,4,
+20,DESIGN,Wygląd wnętrza,Podłokietnik,8201751967,false,984.00,4,
+22,DESIGN,Wygląd zewnętrzny,Nakładki ochronne na krawędzie drzwi i boczne lusterka,8201743312,true,214.00,4,
+23,DESIGN,Wygląd zewnętrzny,Listwa bagażnika,8201751961,false,342.00,4,
+24,KOMFORT I OCHRONA,Akcesoria do ładowania,Przejściówka do zasilania zewnętrznego sprzętu,296976446R,false,949.00,5,
+25,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora z gniazda domowego T2-E/F jednofazowy 10 A - długość 6,5m",7711943515,false,1230.00,5,
+26,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 32 A - zasięg 6,5 m.",7711943517,false,3219.00,5,
+27,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 20 A - zasięg 6,5 m.",7711943518,false,2164.00,5,
+28,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora Typ 2, 6,5 m, ze wzmocnionego gniazda domowego prądu jednofazowego 16A Typ E/F, o mocy 3,7 kW",7717278287,false,1549.00,5,
+29,KOMFORT I OCHRONA,Akcesoria do ładowania,"Rękawice do ładowanie akumulatora, rozmiar S/M",7717301120,false,83.00,5,
+30,KOMFORT I OCHRONA,Akcesoria do ładowania,"Rękawice do ładowanie akumulatora, rozmiar L/XL",7717301121,false,97.00,5,
+31,KOMFORT I OCHRONA,Akcesoria do ładowania,Domowe gniazdo ładowania Green’Up Typ E,8201486883,false,1509.00,5,
+32,KOMFORT I OCHRONA,Akcesoria do ładowania,Domowe gniazdo ładowania Green’Up Typ F,8201486884,false,1548.00,5,
+33,KOMFORT I OCHRONA,Akcesoria do ładowania,Uchwyt do przenoszenia kabla,8201738553,false,303.00,5,
+34,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Comfort,8201751532,false,168.00,5,
+35,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Premium,8201751534,false,291.00,5,
+36,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Comfort,8201752597,false,187.00,5,
+37,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Premium,8201752599,false,264.00,6,
+38,KOMFORT I OCHRONA,Dywaniki,Dywaniki gumowe,8201756618,false,250.00,6,
+39,KOMFORT I OCHRONA,Dywaniki,Dywaniki gumowe (tylny rząd),8201756621,false,170.00,6,
+40,KOMFORT I OCHRONA,Ochrona karoserii,Pokrowiec na samochód (rozmiar XS),7711949659,false,378.00,6,
+44,KOMFORT I OCHRONA,Wyposażenie bagażnika,Dwustronna mata bagażnika do bagażnika Spring(2),8201742284,false,311.00,6,
+46,KOMFORT I OCHRONA,Wyposażenie wnętrza,Pokrowiec na tylne siedzenia do przewozu psów,7711945735,true,419.00,6,
+47,KOMFORT I OCHRONA,Wyposażenie wnętrza,Lodówka przenośna,7717277903,false,415.00,6,
+48,KOMFORT I OCHRONA,Wyposażenie wnętrza,Zestaw dla palących (popielniczka + zapalniczka),8201375535,true,225.00,6,
+49,KOMFORT I OCHRONA,Wyposażenie wnętrza,Organizer konsoli centralnej,8201751965,false,291.00,6,
+50,KOMFORT I OCHRONA,Wyposażenie wnętrza,Schowek pod maską silnika,8201751968,false,969.00,7,
+51,MULTIMEDIA,Telefon,Uchwyt na telefon - montowany na desce rozdzielczej,7711784775,false,111.00,8,
+52,MULTIMEDIA,Telefon,Indukcyjna magnetyczna ładowarka do smartfona mocowana na kratce nawiewu,7711949678,false,328.00,8,
+53,MULTIMEDIA,Telefon,Indukcyjna ładowarka do smartfonów,8201737398,false,277.00,8,
+54,MULTIMEDIA,Wideo,Wideorejestrator Nextbase 322 GW i karta SD 32 GB,7711945184,false,1419.00,8,
+56,TRANSPORT,Poprzeczki i bagażniki,Bagażnik z podwójną podłogą do przechowywania kabli,7717300012,false,1169.00,9,
