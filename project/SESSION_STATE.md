@@ -15,7 +15,7 @@ Przed rozpoczęciem pracy należy uruchomić:
 python tools/dkb.py project-state --check
 ```
 
-Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu.
+Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
 ## Verified Quality Baseline
 
@@ -42,13 +42,14 @@ Dodatkowe kontrakty stanu projektu i autonomii są uruchamiane jawnie w CI poza 
 
 ## Verified PDF Residual Review Boundary
 
-Bieżąca kolejka obejmuje dokładnie 1 266 kandydatów zachowanych przez
-`verified_pdf_candidate_coverage_reconciliation.json`: 108 `ambiguous` i
-1 158 `unresolved`. Są przypisane dokładnie raz do 52 paczek ograniczonych
-przez źródło, domenę, stronę i status, po najwyżej 40 kandydatów. Priorytet nie
-jest zgodą na import.
+Kanoniczna kolejka przeglądu PDF jest zamknięta: 52/52 paczki oraz 1 266/1 266 kandydatów zostały rozliczone. Decyzje pozostają w sześciu jawnych kategoriach: `context_only_non_import`, `covered`, `covered_by_selected_evidence`, `deferred_source_conflict`, `partially_covered` i `unresolved_signature_mismatch`. Nie należy zastępować ich zbiorczym statusem `ignore` ani traktować jako automatycznej zgody na import.
 
-Paczki `residual_gap_001`–`residual_gap_005` zostały przejrzane autorsko. Bigster ma 23 decyzje, 36 sygnatur i 143 rekordy. Jogger ma 16 decyzji, 3 sygnatury i 28 rekordów; sprzeczne etykiety mas, starsze wartości Hybrid 155 i dowody przypięte do innych atrybutów pozostają nieimportowalne. Duster ma 5 decyzji, 9 sygnatur i 34 rekordy; dowody ze strony 21 i sąsiednich kandydatów nie są podstawiane. Sandero ma 5 częściowo pokrytych decyzji, 8 sygnatur i 16 rekordów; wartości TCe/manual bez przypiętego dowodu oraz granice masy pojazdu i zespołu pozostają nieinferowane. Sandero Stepway ma 3 częściowo pokryte decyzje i 1 błąd sygnatury, z 5 wybranymi sygnaturami i 15 rekordami; zawieszenie, opony i masy nie są podstawiane do etykiety układu kierowniczego, a masy maksymalne do fragmentu masy minimalnej. Duster ze strony 21 ma 1 częściowo pokrytą decyzję, 1 sygnaturę i 3 rekordy Hybrid 155; dowody z wierszy średnicy zawracania, hamulców, opon, masy i ładowności nie są podstawiane do typu układu kierowniczego. Duster ze strony 23 ma 6 pokrytych i 20 częściowo pokrytych decyzji, 43 sygnatury oraz 518 rekordów; symbole standardu, opcji i niedostępności oraz granice wielowierszowych nazw i pakietów pozostają zachowane. Duster ze strony 22 ma 3 pokryte i 8 częściowo pokrytych decyzji, 23 sygnatury oraz 524 rekordy; światła i czujnik deszczu, ESC i HSA, napinacze i regulacja wysokości pasów oraz tylne i przednio-boczne czujniki parkowania pozostają odrębnymi atrybutami. Bigster ze strony 22 ma 3 pokryte i 4 częściowo pokryte decyzje, wszystkie 18 sygnatur oraz 126 rekordów; klimatyzacja, dwustrefowość i nawiewy, warianty konsoli oraz elementy pakietów zimowych pozostają rozdzielone. Jogger ze strony 20 ma 3 częściowo pokryte decyzje, 1 kontekst bez importu i 1 odroczony konflikt źródeł, 8 sygnatur oraz 154 rekordy; obecność poduszek nie zastępuje dowodu dezaktywacji, a stan kamery Journey z broszury 2025-12 i cennika 2026-04 pozostaje nierozstrzygnięty. Bigster ze strony 21 ma 1 pokrytą decyzję, wszystkie 3 sygnatury oraz 14 rekordów; Journey pozostaje opcjonalne, a Extreme standardowe. Jogger ze strony 21 ma 1 odroczony konflikt źródeł, obie sygnatury i 30 rekordów; broszurowy standard Journey nie jest zastępowany późniejszą niedostępnością. Sandero ze strony 18 ma 1 odroczony konflikt źródeł, obie sygnatury i 4 rekordy; opcja Expression z broszury i cennika nie jest zastępowana późniejszym stanem seryjnym ze strony oficjalnej, a standard Journey pozostaje odrębny. Sandero ze strony 19 ma 1 pokrytą decyzję, obie standardowe sygnatury i 4 rekordy; regulator oraz ogranicznik prędkości pozostają odrębnymi atrybutami, a trzy broszurowe stany seryjne nie są projekcją rekordów między wersjami. Sandero Stepway ze strony 18 ma 1 pokrytą decyzję, 1 wybraną sygnaturę i rekord zwykłych relingów oraz 1 zachowaną i jawnie odrzuconą sygnaturę relingów modułowych z 2 rekordami; dwa sąsiednie wiersze i ich przeciwne układy wersji pozostają rozdzielone. Pierwszy fragment nierozstrzygniętych tabel technicznych Bigstera ze strony 20 obejmuje 40 kandydatów pogrupowanych w 18 wizualnych wierszy: 16 kompletnych wierszy pozostaje błędami niedopasowania sygnatury, 24 nagłówki i fragmenty są kontekstem bez importu, a liczba przypiętych sygnatur i rekordów pozostaje zerowa. Fragmenty tylnych hamulców odsyłają do wcześniejszej decyzji `residual_gap_001`, a pięciopakietowy przegląd nie wymagał nowej decyzji architektonicznej ani osobnego PR-a audytowego. Drugi fragment obejmuje pozostałych 29 kandydatów pogrupowanych w 16 wizualnych obszarów: 8 kompletnych wierszy pozostaje błędami niedopasowania sygnatury, a 21 zawiniętych fragmentów, etykiet, przypisów i not jest kontekstem bez importu. Wydrukowana sekwencja `1960**` oraz `2002 / 1981` pozostaje literalna i bez wymyślonej interpretacji; liczba przypiętych sygnatur i rekordów nadal wynosi zero. Następna paczka rozpoczyna przegląd nierozstrzygniętych kandydatów technicznych minibroszury Dustera ze strony 21.
+Strona 21 minibroszury Dustera została rozliczona w dwóch paczkach:
+
+- `residual_gap_018`: 40 kandydatów — 14 `context_only_non_import` i 26 `unresolved_signature_mismatch`;
+- `residual_gap_019`: 21 kandydatów — 19 `context_only_non_import` i 2 `unresolved_signature_mismatch`.
+
+Łącznie są to 61 kandydatów, zero wybranych sygnatur dowodowych, zero wybranych rekordów, zero zatwierdzeń importu i brak zmian w `data/master`. Identyfikatory `000P-27614`, `000P-27615` i `000P-27616` nie są kanonicznymi identyfikatorami tej kolejki i nie mogą być używane do ponownego otwarcia strony bez nowego, bezpośredniego dowodu źródłowego.
 
 ## Working Mode
 
@@ -123,6 +124,3 @@ Granica migracji i lokalizacja pozostałych zapisów historycznych są opisane w
 - `project/reviews/`,
 - `CHANGELOG.md`,
 - historii commitów i scalonych Pull Requestów.
-## Current continuation point
-
-`data_products_v1_12_0_accelerated_release_preparation_001` — prepare and verify immutable v1.12.0 assets containing the integrated portfolio model-family summary.

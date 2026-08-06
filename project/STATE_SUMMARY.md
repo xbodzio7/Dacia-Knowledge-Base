@@ -38,7 +38,7 @@
 
 **Residual Gap Duster Page 21 Candidate Review** — `complete`
 
-Verify the three declared Duster page 21 candidate identifiers against canonical residual-review evidence and preserve an explicit no-import outcome when the continuation point is stale.
+Verify the three declared Duster page 21 identifiers against canonical residual-review evidence, record the already closed 61-candidate no-import boundary and remove stale continuation prose.
 
 ## Next package
 

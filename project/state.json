@@ -31,11 +31,12 @@
     "kind": "source_candidate_review",
     "name": "Residual Gap Duster Page 21 Candidate Review",
     "status": "complete",
-    "goal": "Verify the three declared Duster page 21 candidate identifiers against canonical residual-review evidence and preserve an explicit no-import outcome when the continuation point is stale.",
+    "goal": "Verify the three declared Duster page 21 identifiers against canonical residual-review evidence, record the already closed 61-candidate no-import boundary and remove stale continuation prose.",
     "manifest_paths": [
       "data/reporting/residual_gap_duster_page_21_candidate_review_001_20260806.json",
       "project/state.json",
       "project/STATE_SUMMARY.md",
+      "project/SESSION_STATE.md",
       "project/packages/residual-gap-duster-page-21-candidate-review-001-20260806.md"
     ]
   },
