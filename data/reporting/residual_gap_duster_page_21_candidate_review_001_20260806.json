@@ -1,0 +1,93 @@
+{
+  "package_id": "residual_gap_duster_page_21_candidate_review_001",
+  "reviewed_on": "2026-08-06",
+  "base_commit": "fa59b0ee3fc45bfae91fd56c03608781da38b08c",
+  "scope": {
+    "model": "Duster",
+    "source": "src_pl_duster_mini_brochure_20251020",
+    "page": 21,
+    "declared_candidate_ids": [
+      "000P-27614",
+      "000P-27615",
+      "000P-27616"
+    ]
+  },
+  "canonical_evidence": {
+    "candidate_queue": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+    "closure_report": "data/reporting/verified_pdf_candidate_residual_review_closure.json",
+    "canonical_packages": [
+      {
+        "package_id": "residual_gap_018",
+        "review_file": "data/imports/verified_pdf_candidate_residual_review_018.json",
+        "pull_request": 327,
+        "candidate_count": 30,
+        "decision": "ignore"
+      },
+      {
+        "package_id": "residual_gap_019",
+        "review_file": "data/imports/verified_pdf_candidate_residual_review_019.json",
+        "pull_request": 328,
+        "candidate_count": 30,
+        "decision": "ignore"
+      }
+    ],
+    "closure_counts": {
+      "packages_complete": 52,
+      "packages_expected": 52,
+      "candidates_reviewed": 1266,
+      "candidates_expected": 1266,
+      "ignore_decisions": 1266,
+      "import_decisions": 0
+    }
+  },
+  "findings": {
+    "declared_ids_found_in_canonical_queue": 0,
+    "declared_ids_mapped_to_source_records": 0,
+    "canonical_page_21_candidates": 60,
+    "canonical_page_21_ignore_decisions": 60,
+    "canonical_page_21_import_decisions": 0,
+    "selection_status": "stale_noncanonical_continuation_point",
+    "source_candidate_selected": null,
+    "master_data_mutations": 0
+  },
+  "decision": {
+    "outcome": "no_import",
+    "reason": "The three declared 000P identifiers are not canonical candidate identifiers and cannot be mapped to preserved source records. The actual Duster page 21 residual candidates were already reviewed in residual_gap_018 and residual_gap_019, with all 60 decisions recorded as ignore and no import.",
+    "semantic_guards": [
+      "Do not treat an unmapped identifier as a withdrawn or invalid source.",
+      "Do not reopen a canonically closed residual package without new source evidence.",
+      "Do not promote adjacent or historical Duster page 21 evidence into master data.",
+      "Treat the stale SESSION_STATE continuation sentence as superseded by the canonical closure report and this package."
+    ]
+  },
+  "next_package": {
+    "package_id": "new_spring_current_shop_retry_001",
+    "eligible_on_or_after": "2026-08-07",
+    "queue_path": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+    "retry_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "part_numbers": [
+      "7711943172",
+      "966115844R",
+      "403154280R",
+      "739M00386R",
+      "7711945712",
+      "8201743312",
+      "8201751961",
+      "296976446R",
+      "7711943517",
+      "7711943518"
+    ],
+    "boundary": "Preserve prior lookup history and do not infer withdrawal, incompatibility or unavailability from an unresolved card."
+  }
+}

@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.18.0 Release Priority Selection Review** — `complete`
+**Residual Gap Duster Page 21 Candidate Review** — `complete`
 
-Inspect canonical product, source and roadmap evidence after v1.18.0 publication and select one bounded next package.
+Verify the three declared Duster page 21 candidate identifiers against canonical residual-review evidence and preserve an explicit no-import outcome when the continuation point is stale.
 
 ## Next package
 
-**Residual Gap Duster Page 21 Candidate Review** — `planned`
+**New Spring Current Shop Retry 001** — `planned`
 
-Review official document candidates 000P-27614, 000P-27615 and 000P-27616 for the unresolved Duster technical minibrochure page 21, select one bounded source target and preserve a no-import boundary.
+On or after 2026-08-07, recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid inferring withdrawal, incompatibility or unavailability from unresolved cards.
 
 ## Autonomy
 
