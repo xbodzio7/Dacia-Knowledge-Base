@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-06
+- State updated: 2026-08-07
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Residual Gap Duster Page 21 Candidate Review** — `complete`
+**New Spring Current Shop Retry 001** — `complete`
 
-Verify the three declared Duster page 21 identifiers against canonical residual-review evidence, record the already closed 61-candidate no-import boundary and remove stale continuation prose.
+Recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without inferring withdrawal, incompatibility or unavailability.
 
 ## Next package
 
-**New Spring Current Shop Retry 001** — `planned`
+**New Spring Current Shop Retry 002** — `planned`
 
-On or after 2026-08-07, recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid inferring withdrawal, incompatibility or unavailability from unresolved cards.
+Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid cross-market, cross-brand or third-party evidence transfer.
 
 ## Autonomy
 

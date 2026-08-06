@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-08-06",
+  "updated_on": "2026-08-07",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,25 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "residual_gap_duster_page_21_candidate_review_001",
-    "kind": "source_candidate_review",
-    "name": "Residual Gap Duster Page 21 Candidate Review",
-    "status": "complete",
-    "goal": "Verify the three declared Duster page 21 identifiers against canonical residual-review evidence, record the already closed 61-candidate no-import boundary and remove stale continuation prose.",
-    "manifest_paths": [
-      "data/reporting/residual_gap_duster_page_21_candidate_review_001_20260806.json",
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "project/SESSION_STATE.md",
-      "project/packages/residual-gap-duster-page-21-candidate-review-001-20260806.md"
-    ]
-  },
-  "next_package": {
     "package_id": "new_spring_current_shop_retry_001",
     "kind": "source_status_reconciliation",
     "name": "New Spring Current Shop Retry 001",
+    "status": "complete",
+    "goal": "Recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without inferring withdrawal, incompatibility or unavailability.",
+    "manifest_paths": [
+      "data/reporting/official_new_spring_accessory_current_shop_retry_001_20260807.json",
+      "data/reporting/official_new_spring_accessory_current_shop_retry_001_20260807.csv",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "project/packages/new-spring-current-shop-retry-001-20260807.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "new_spring_current_shop_retry_002",
+    "kind": "source_status_reconciliation",
+    "name": "New Spring Current Shop Retry 002",
     "status": "planned",
-    "goal": "On or after 2026-08-07, recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid inferring withdrawal, incompatibility or unavailability from unresolved cards.",
+    "goal": "Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid cross-market, cross-brand or third-party evidence transfer.",
     "manifest_paths": []
   },
   "autonomy": {
