@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "kind": "official_duster_accessory_catalog_reconciliation_summary",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "configurator_used": false,
+  "sources": {
+    "price_list": {
+      "url": "https://akcesoria.dacia.pl/model/nowy_duster",
+      "valid_from": "2024-03-26",
+      "pages": 11,
+      "price_semantics": "Cena z VAT bez montażu; wydrukowane oznaczenie montażu zachowane osobno."
+    },
+    "catalogue": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-new-duster.pdf",
+      "publication_month": "2024-06",
+      "pages": 18,
+      "compatibility_pages": [16, 17]
+    },
+    "shop": {
+      "url": "https://sklep.dacia.pl/akcesoria",
+      "retrieved_on": "2026-08-06"
+    }
+  },
+  "summary": {
+    "price_list_rows": 95,
+    "catalogue_unique_rows": 103,
+    "shared_part_numbers": 82,
+    "price_list_only_part_numbers": 13,
+    "catalogue_only_part_numbers": 21,
+    "price_list_installation_required_rows": 7,
+    "price_category_counts": {
+      "bezpieczenstwo": 12,
+      "design": 25,
+      "komfort_i_ochrona": 25,
+      "multimedia": 4,
+      "outdoor": 7,
+      "transport": 22
+    },
+    "catalogue_category_counts": {
+      "design": 13,
+      "komfort_i_bezpieczenstwo": 34,
+      "transport": 34,
+      "multimedia": 4,
+      "bezpieczenstwo": 14,
+      "dla_klientow_biznesowych": 4
+    }
+  },
+  "price_list_only_part_numbers": [
+    "403000562R",
+    "739M00386R",
+    "758924497R",
+    "7711940743",
+    "7711940744",
+    "7711949678",
+    "7717275154",
+    "7717276917",
+    "7717276918",
+    "7717277903",
+    "7717281161",
+    "7717284689",
+    "8201756977"
+  ],
+  "catalogue_only_part_numbers": [
+    "749L04128R",
+    "7711431405",
+    "7711788640",
+    "7711940552",
+    "7717274277",
+    "7717274281",
+    "7717274282",
+    "7717274284",
+    "7717274286",
+    "7717301298",
+    "7717301407",
+    "7717301408",
+    "7717301410",
+    "7717301411",
+    "792C95245R",
+    "8201724188",
+    "8201749684",
+    "8201749685",
+    "8201749686",
+    "8201750874",
+    "8201752695"
+  ],
+  "cross_source_findings": [
+    {
+      "concept": "roof_box_capacity",
+      "part_numbers": ["7711574056", "7711574057"],
+      "finding": "Cennik podaje 330 l i 390 l, a katalog 400 l i 480 l dla tych samych referencji."
+    },
+    {
+      "concept": "standard_snow_chains",
+      "part_numbers": ["7711578473", "7711578474"],
+      "finding": "Cennik opisuje rozmiar 120/R17 i R19, a katalog rozmiar 104 dla kół 16-calowych i rozmiar 105."
+    },
+    {
+      "concept": "chain_7711940856",
+      "part_numbers": ["7711940856"],
+      "finding": "Cennik używa nazwy Polaire Steel Grip rozmiar 130, a katalog Premium Grip rozmiar 130."
+    },
+    {
+      "concept": "rubber_mats_extreme",
+      "part_numbers": ["749M62782R", "749M67996R"],
+      "finding": "Cennik mówi o niekompatybilności z Extreme, natomiast katalog oznacza pozycje warunkowo i przypisem jako należące do wyposażenia seryjnego Extreme."
+    },
+    {
+      "concept": "boot_floor_products",
+      "part_numbers": ["849P70348R", "849P77880R"],
+      "finding": "Cennik opisuje wykładziny dla 4x4 i 4x2, katalog opisuje wkładki zależne od podwójnej podłogi i poziomu wyposażenia."
+    },
+    {
+      "concept": "portable_fridge",
+      "price_list_references": ["7717277903"],
+      "catalogue_references": ["7711431405"],
+      "finding": "Oficjalne dokumenty stosują różne referencje dla przenośnej lodówki."
+    },
+    {
+      "concept": "handpresso",
+      "price_list_references": ["7717281161"],
+      "catalogue_references": ["7711940552"],
+      "finding": "Oficjalne dokumenty stosują różne referencje dla przenośnej kawiarki."
+    },
+    {
+      "concept": "side_steps_package",
+      "components": ["764129229R", "768479973R"],
+      "catalogue_package": ["7717301408"]
+    },
+    {
+      "concept": "spare_wheel_package",
+      "components": ["572016346R", "7717274243"],
+      "catalogue_package": ["7717274286"]
+    },
+    {
+      "concept": "towbar_packages",
+      "components": ["241D89571R", "511D25563R", "511D25661R", "511D25666R", "511D27676R"],
+      "catalogue_packages": ["7717301410", "7717301411"]
+    },
+    {
+      "concept": "roof_rack_package",
+      "components": ["7717301463", "7717274280"],
+      "catalogue_package": ["7717274281"]
+    },
+    {
+      "concept": "sleep_packages",
+      "components": ["749320660R", "975804778R", "984233490R", "984238863R", "984245182R"],
+      "catalogue_packages": ["7717274282", "7717274284", "7717274277"]
+    },
+    {
+      "concept": "aero_cargo_box",
+      "price_list_references": ["7717275154"],
+      "catalogue_references": [],
+      "finding": "Pozycja występuje w cenniku, ale nie w macierzy katalogu."
+    },
+    {
+      "concept": "electric_tailgate",
+      "price_list_references": ["7717284689"],
+      "catalogue_references": [],
+      "finding": "Elektryczne podnoszenie klapy występuje w cenniku, ale nie w macierzy katalogu."
+    }
+  ],
+  "current_shop_corroboration": [
+    {"part_number": "984245182R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 12},
+    {"part_number": "984238863R", "model": "NOWY DUSTER", "price_pln": 5790, "status": "chwilowo_niedostepny", "lead_days": 12},
+    {"part_number": "975804778R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 12},
+    {"part_number": "764129229R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 5},
+    {"part_number": "403000581R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 5},
+    {"part_number": "749M67996R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 5},
+    {"part_number": "403156271R", "model": "NOWY DUSTER", "status": "do_koszyka", "lead_days": 5}
+  ],
+  "semantic_policy": {
+    "source_differences_preserved": true,
+    "no_cross_reference_normalization": true,
+    "no_absence_as_withdrawal_inference": true,
+    "document_prices_not_asserted_current": true,
+    "configurator_fallback_only_after_document_gap_review": true
+  },
+  "data_files": {
+    "price_list": "data/reporting/official_duster_accessory_price_list_20260806.csv",
+    "catalogue_compatibility": "data/reporting/official_duster_accessory_catalog_compatibility_20260806.csv"
+  }
+}
