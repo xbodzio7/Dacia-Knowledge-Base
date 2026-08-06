@@ -36,15 +36,15 @@
 
 ## Current package
 
-**New Spring Current Shop Retry 001** — `complete`
+**New Spring Current Shop Retry 002** — `complete`
 
-Recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without inferring withdrawal, incompatibility or unavailability.
+Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and retain unresolved status without cross-market, cross-brand or third-party evidence transfer.
 
 ## Next package
 
-**New Spring Current Shop Retry 002** — `planned`
+**New Spring Current Shop Retry 003** — `planned`
 
-Recheck retry positions 11-20 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid cross-market, cross-brand or third-party evidence transfer.
+Recheck retry positions 21-30 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and complete the first deferred retry cycle.
 
 ## Autonomy
 
