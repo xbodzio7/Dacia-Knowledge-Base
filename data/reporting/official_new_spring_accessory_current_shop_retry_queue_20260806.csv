@@ -1,0 +1,31 @@
+retry_position,price_list_ordinal,category,subcategory,price_list_name,part_number,document_price_gross_pln,previous_status,last_checked_on,retry_policy
+1,2,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,Gaśnica 1 kg,7711943172,87.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+2,4,BEZPIECZEŃSTWO,Bezpieczeństwo i sygnalizacja,Uchwyt do mocowania gaśnicy,966115844R,157.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+3,9,DESIGN,Felgi i akcesoria do kół,"Kołpak 14""",403154280R,155.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+4,18,DESIGN,Wygląd wnętrza,YouClip – etui na okulary,739M00386R,149.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+5,19,DESIGN,Wygląd wnętrza,Nakładki na progi przednich drzwi Spring,7711945712,187.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+6,22,DESIGN,Wygląd zewnętrzny,Nakładki ochronne na krawędzie drzwi i boczne lusterka,8201743312,214.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+7,23,DESIGN,Wygląd zewnętrzny,Listwa bagażnika,8201751961,342.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+8,24,KOMFORT I OCHRONA,Akcesoria do ładowania,Przejściówka do zasilania zewnętrznego sprzętu,296976446R,949.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+9,26,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 32 A - zasięg 6,5 m.",7711943517,3219.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+10,27,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 20 A - zasięg 6,5 m.",7711943518,2164.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+11,28,KOMFORT I OCHRONA,Akcesoria do ładowania,"Przewód ładowania akumulatora Typ 2, 6,5 m, ze wzmocnionego gniazda domowego prądu jednofazowego 16A Typ E/F, o mocy 3,7 kW",7717278287,1549.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+12,29,KOMFORT I OCHRONA,Akcesoria do ładowania,"Rękawice do ładowanie akumulatora, rozmiar S/M",7717301120,83.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+13,30,KOMFORT I OCHRONA,Akcesoria do ładowania,"Rękawice do ładowanie akumulatora, rozmiar L/XL",7717301121,97.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+14,31,KOMFORT I OCHRONA,Akcesoria do ładowania,Domowe gniazdo ładowania Green’Up Typ E,8201486883,1509.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+15,32,KOMFORT I OCHRONA,Akcesoria do ładowania,Domowe gniazdo ładowania Green’Up Typ F,8201486884,1548.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+16,33,KOMFORT I OCHRONA,Akcesoria do ładowania,Uchwyt do przenoszenia kabla,8201738553,303.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+17,34,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Comfort,8201751532,168.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+18,35,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Premium,8201751534,291.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+19,36,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Comfort,8201752597,187.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+20,37,KOMFORT I OCHRONA,Dywaniki,Dywaniki tekstylne Premium,8201752599,264.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+21,38,KOMFORT I OCHRONA,Dywaniki,Dywaniki gumowe,8201756618,250.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+22,39,KOMFORT I OCHRONA,Dywaniki,Dywaniki gumowe (tylny rząd),8201756621,170.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+23,40,KOMFORT I OCHRONA,Ochrona karoserii,Pokrowiec na samochód (rozmiar XS),7711949659,378.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+24,44,KOMFORT I OCHRONA,Wyposażenie bagażnika,Dwustronna mata bagażnika do bagażnika Spring(2),8201742284,311.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+25,46,KOMFORT I OCHRONA,Wyposażenie wnętrza,Pokrowiec na tylne siedzenia do przewozu psów,7711945735,419.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+26,48,KOMFORT I OCHRONA,Wyposażenie wnętrza,Zestaw dla palących (popielniczka + zapalniczka),8201375535,225.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+27,49,KOMFORT I OCHRONA,Wyposażenie wnętrza,Organizer konsoli centralnej,8201751965,291.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+28,50,KOMFORT I OCHRONA,Wyposażenie wnętrza,Schowek pod maską silnika,8201751968,969.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+29,51,MULTIMEDIA,Telefon,Uchwyt na telefon - montowany na desce rozdzielczej,7711784775,111.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
+30,56,TRANSPORT,Poprzeczki i bagażniki,Bagażnik z podwójną podłogą do przechowywania kabli,7717300012,1169.00,dacia_pl_card_not_resolved,2026-08-06,deferred_no_same_day_retry
