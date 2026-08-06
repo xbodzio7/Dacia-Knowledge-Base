@@ -27,23 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_18_0_release_priority_selection_review_001",
-    "kind": "priority_selection_review",
-    "name": "Post-v1.18.0 Release Priority Selection Review",
-    "status": "complete",
-    "goal": "Inspect canonical product, source and roadmap evidence after v1.18.0 publication and select one bounded next package.",
-    "manifest_paths": [
-      "project/state.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/post-v1.18.0-release-priority-selection-review-20260806.md"
-    ]
-  },
-  "next_package": {
     "package_id": "residual_gap_duster_page_21_candidate_review_001",
     "kind": "source_candidate_review",
     "name": "Residual Gap Duster Page 21 Candidate Review",
+    "status": "complete",
+    "goal": "Verify the three declared Duster page 21 identifiers against canonical residual-review evidence, record the already closed 61-candidate no-import boundary and remove stale continuation prose.",
+    "manifest_paths": [
+      "data/reporting/residual_gap_duster_page_21_candidate_review_001_20260806.json",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "project/SESSION_STATE.md",
+      "project/packages/residual-gap-duster-page-21-candidate-review-001-20260806.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "new_spring_current_shop_retry_001",
+    "kind": "source_status_reconciliation",
+    "name": "New Spring Current Shop Retry 001",
     "status": "planned",
-    "goal": "Review official document candidates 000P-27614, 000P-27615 and 000P-27616 for the unresolved Duster technical minibrochure page 21, select one bounded source target and preserve a no-import boundary.",
+    "goal": "On or after 2026-08-07, recheck retry positions 1-10 from the materialized 30-item New Spring exact-part-number queue, preserve prior lookup history and avoid inferring withdrawal, incompatibility or unavailability from unresolved cards.",
     "manifest_paths": []
   },
   "autonomy": {
