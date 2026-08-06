@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-05
+- State updated: 2026-08-06
 
 ## Phase
 
-**Data Products v1.18.0 Publication**
+**Post-v1.18.0 Residual Gap Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.18.0 Publication** — `complete`
+**Post-v1.18.0 Release Priority Selection Review** — `complete`
 
-Publish immutable v1.18.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
+Inspect canonical product, source and roadmap evidence after v1.18.0 publication and select one bounded next package.
 
 ## Next package
 
-**Post-v1.18.0 Release Priority Selection Review** — `planned`
+**Residual Gap Duster Page 21 Candidate Review** — `planned`
 
-Inspect canonical product, source and roadmap evidence after v1.18.0 publication and select one bounded next package.
+Review official document candidates 000P-27614, 000P-27615 and 000P-27616 for the unresolved Duster technical minibrochure page 21, select one bounded source target and preserve a no-import boundary.
 
 ## Autonomy
 
