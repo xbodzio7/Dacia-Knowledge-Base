@@ -8,6 +8,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function (pricing) {
   "use strict";
 
+  const COMMERCIAL_SELECTION_STORAGE_KEY = "dkb-commercial-selections-v1";
 
   const CATEGORY_LABELS = Object.freeze({
     ADAS: "Systemy wspomagania kierowcy", Acoustics: "Akustyka",
@@ -31,6 +32,7 @@
     if (artworkApi && typeof artworkApi.categoryLabel === "function") return artworkApi.categoryLabel(category);
     return CATEGORY_LABELS[category] || String(category || "Pozostałe");
   }
+
   function catalogOrder(catalog) {
     return new Map(catalog.configurations.map((item, index) => [item.configuration_code, index]));
   }
@@ -74,6 +76,60 @@
     return pricing.commercialChoiceItems(configuration)
       .map((item) => item.code)
       .filter((code) => selected.has(code));
+  }
+
+  function normalizeCommercialSelectionState(catalog, candidate) {
+    const result = {};
+    for (const configuration of catalog.configurations || []) {
+      const code = configuration.configuration_code;
+      const normalized = commercialSelectionCodes(
+        configuration,
+        commercialSelectionInput(candidate, code)
+      );
+      if (normalized.length) result[code] = normalized;
+    }
+    return result;
+  }
+
+  function commercialSelectionStateMap(catalog, candidate) {
+    return new Map(
+      Object.entries(normalizeCommercialSelectionState(catalog, candidate))
+        .map(([code, values]) => [code, new Set(values)])
+    );
+  }
+
+  function commercialSelectionSnapshot(catalog, commercialSelections, selectedCodes) {
+    const normalized = normalizeCommercialSelectionState(catalog, commercialSelections);
+    const wanted = new Set(normalizeSelection(catalog, selectedCodes));
+    return Object.fromEntries(
+      Object.entries(normalized).filter(([code]) => wanted.has(code))
+    );
+  }
+
+  function readCommercialSelectionStorage(catalog, storage) {
+    if (!storage || typeof storage.getItem !== "function") return {};
+    try {
+      const parsed = JSON.parse(storage.getItem(COMMERCIAL_SELECTION_STORAGE_KEY) || "{}");
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+      return normalizeCommercialSelectionState(catalog, parsed);
+    } catch (_error) {
+      return {};
+    }
+  }
+
+  function writeCommercialSelectionStorage(catalog, commercialSelections, storage) {
+    if (!storage || typeof storage.setItem !== "function") return {};
+    const normalized = normalizeCommercialSelectionState(catalog, commercialSelections);
+    try {
+      if (Object.keys(normalized).length) {
+        storage.setItem(COMMERCIAL_SELECTION_STORAGE_KEY, JSON.stringify(normalized));
+      } else if (typeof storage.removeItem === "function") {
+        storage.removeItem(COMMERCIAL_SELECTION_STORAGE_KEY);
+      }
+    } catch (_error) {
+      // The report remains usable when browser storage is unavailable.
+    }
+    return normalized;
   }
 
   function commercialSelectionExport(configuration, selectedCodes) {
@@ -458,7 +514,16 @@
     const catalog = JSON.parse(catalogElement.textContent);
     if (pricing) pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
     const selected = new Set();
-    const commercialSelections = new Map();
+    let storage = null;
+    try {
+      storage = typeof sessionStorage !== "undefined" ? sessionStorage : null;
+    } catch (_error) {
+      storage = null;
+    }
+    const commercialSelections = commercialSelectionStateMap(
+      catalog,
+      readCommercialSelectionStorage(catalog, storage)
+    );
     const count = document.querySelector("#selected-count");
     const list = document.querySelector("#selected-list");
     const comparisonPanel = document.querySelector("#comparison-panel");
@@ -474,14 +539,8 @@
     };
 
     const orderedSelection = () => normalizeSelection(catalog, selected);
-    const commercialSelectionSnapshot = (codes) => {
-      const snapshot = {};
-      for (const code of normalizeSelection(catalog, codes)) {
-        const state = commercialSelections.get(code);
-        if (state && state.size) snapshot[code] = [...state];
-      }
-      return snapshot;
-    };
+    const persistCommercialSelections = () =>
+      writeCommercialSelectionStorage(catalog, commercialSelections, storage);
     const selectedEquipment = () => [...(document.querySelector("#required-equipment")?.selectedOptions || [])].map((option) => option.value);
     const refreshComparison = () => {
       if (!comparisonPanel || comparisonPanel.hidden) return;
@@ -493,8 +552,33 @@
       if (orderedSelection().length < 2 && comparisonPanel) comparisonPanel.hidden = true;
       refreshComparison();
     };
-    results.addEventListener("dkb:results-rendered", sync);
+
+    let commercialSyncScheduled = false;
+    const syncCommercialControls = () => {
+      if (commercialSyncScheduled) return;
+      commercialSyncScheduled = true;
+      setTimeout(() => {
+        commercialSyncScheduled = false;
+        for (const commercialPanel of results.querySelectorAll(".commercial-choice-panel")) {
+          const code = commercialPanel.dataset.configurationCode || "";
+          const desired = commercialSelections.get(code) || new Set();
+          const mismatch = [...commercialPanel.querySelectorAll("[data-commercial-choice]")]
+            .find((input) => input.checked !== desired.has(input.dataset.commercialChoice));
+          if (!mismatch) continue;
+          mismatch.checked = desired.has(mismatch.dataset.commercialChoice);
+          mismatch.dispatchEvent(new Event("change", { bubbles: true }));
+          syncCommercialControls();
+          break;
+        }
+      }, 0);
+    };
+
+    results.addEventListener("dkb:results-rendered", () => {
+      sync();
+      syncCommercialControls();
+    });
     sync();
+    syncCommercialControls();
 
     document.addEventListener("change", (event) => {
       const input = event.target.closest && event.target.closest("[data-commercial-choice]");
@@ -507,6 +591,7 @@
       else state.delete(input.dataset.commercialChoice);
       if (state.size) commercialSelections.set(code, state);
       else commercialSelections.delete(code);
+      persistCommercialSelections();
     }, true);
 
     results.addEventListener("change", (event) => {
@@ -543,10 +628,15 @@
     document.addEventListener("change", (event) => {
       if (event.target.matches("#required-equipment, #comparison-differences-only")) refreshComparison();
     });
+    document.querySelector("#reset")?.addEventListener("click", () => {
+      commercialSelections.clear();
+      persistCommercialSelections();
+      setTimeout(syncCommercialControls, 0);
+    });
 
     buttons.json.addEventListener("click", () => {
       const codes = orderedSelection();
-      const commercial = commercialSelectionSnapshot(codes);
+      const commercial = commercialSelectionSnapshot(catalog, commercialSelections, codes);
       downloadText(
         exportFilename(catalog, codes, "json"),
         renderSelectionJson(catalog, codes, commercial),
@@ -565,8 +655,12 @@
   }
 
   return {
+    COMMERCIAL_SELECTION_STORAGE_KEY,
     normalizeSelection, unionSelection, removeSelection, selectedConfigurations,
-    commercialSelectionCodes, commercialSelectionExport,
+    commercialSelectionCodes, normalizeCommercialSelectionState,
+    commercialSelectionStateMap, commercialSelectionSnapshot,
+    readCommercialSelectionStorage, writeCommercialSelectionStorage,
+    commercialSelectionExport,
     buildSelectionPayload, renderSelectionJson, renderCodeList, exportFilename,
     comparisonRows, comparisonValueFacets, comparisonValueLabel, comparisonValueText, comparisonValueTitle, comparisonEquipmentFacets, equipmentComparisonStatus, equipmentComparisonTitle,
     renderComparison, comparisonThumbnail, applyDifferenceFilter, rowIsDifferent, categoryLabel
