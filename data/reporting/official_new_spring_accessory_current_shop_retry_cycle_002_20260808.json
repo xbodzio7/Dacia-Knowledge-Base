@@ -1,0 +1,88 @@
+{
+  "package_id": "new_spring_current_shop_retry_cycle_002",
+  "package_name": "New Spring Current Shop Retry Cycle 002",
+  "checked_on": "2026-08-08",
+  "base_commit": "d749fb8665fcacf0cb68efb092d430e3e2718261",
+  "source_queue": "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260807.csv",
+  "scope": {
+    "retry_cycle": 2,
+    "records_reviewed": 28,
+    "identity_rule": "exact_part_number",
+    "accepted_confirmation_source": "official_polish_dacia_shop_card",
+    "retrieval_method": "bounded exact-part-number search restricted to sklep.dacia.pl product-card paths",
+    "master_data_mutation": false
+  },
+  "result": {
+    "confirmed_polish_dacia_shop_cards": 0,
+    "cards_not_resolved": 28,
+    "current_shop_catalogue_prices_captured": 0,
+    "price_matches": 0,
+    "price_mismatches": 0,
+    "status_changes": 0
+  },
+  "repository_wide_new_spring_shop_coverage": {
+    "price_list_references": 56,
+    "confirmed_polish_dacia_shop_cards": 28,
+    "exact_current_price_matches": 14,
+    "confirmed_cards_without_captured_catalogue_price": 14,
+    "cards_not_resolved": 28,
+    "price_mismatches": 0
+  },
+  "remaining_unresolved_queue": {
+    "path": "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260808.csv",
+    "record_count": 28,
+    "status": "dacia_pl_card_not_resolved",
+    "follow_up_policy": "retain_until_new_direct_evidence_or_future_bounded_retry"
+  },
+  "records": [
+    {"queue_position":1,"source_retry_position":1,"part_number":"7711943172","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711943172","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":2,"source_retry_position":2,"part_number":"966115844R","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/966115844R","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":3,"source_retry_position":3,"part_number":"403154280R","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/403154280R","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":4,"source_retry_position":4,"part_number":"739M00386R","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/739M00386R","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":5,"source_retry_position":5,"part_number":"7711945712","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711945712","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":6,"source_retry_position":6,"part_number":"8201743312","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201743312","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":7,"source_retry_position":7,"part_number":"8201751961","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201751961","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":8,"source_retry_position":8,"part_number":"296976446R","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/296976446R","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":9,"source_retry_position":9,"part_number":"7711943517","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711943517","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":10,"source_retry_position":10,"part_number":"7711943518","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711943518","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":11,"source_retry_position":11,"part_number":"7717278287","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7717278287","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":12,"source_retry_position":12,"part_number":"7717301120","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7717301120","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":13,"source_retry_position":13,"part_number":"7717301121","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7717301121","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":14,"source_retry_position":14,"part_number":"8201486883","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201486883","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":15,"source_retry_position":15,"part_number":"8201486884","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201486884","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":16,"source_retry_position":16,"part_number":"8201738553","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201738553","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":17,"source_retry_position":17,"part_number":"8201751532","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201751532","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":18,"source_retry_position":18,"part_number":"8201751534","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201751534","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":19,"source_retry_position":19,"part_number":"8201752597","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201752597","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":20,"source_retry_position":20,"part_number":"8201752599","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201752599","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":21,"source_retry_position":21,"part_number":"8201756618","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201756618","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":22,"source_retry_position":22,"part_number":"8201756621","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201756621","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":23,"source_retry_position":25,"part_number":"7711945735","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711945735","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":24,"source_retry_position":26,"part_number":"8201375535","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201375535","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":25,"source_retry_position":27,"part_number":"8201751965","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201751965","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":26,"source_retry_position":28,"part_number":"8201751968","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/8201751968","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":27,"source_retry_position":29,"part_number":"7711784775","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7711784775","status":"dacia_pl_card_not_resolved"},
+    {"queue_position":28,"source_retry_position":30,"part_number":"7717300012","source_url":"https://sklep.dacia.pl/akcesoria/szczegoly/7717300012","status":"dacia_pl_card_not_resolved"}
+  ],
+  "status_semantics": {
+    "dacia_pl_card_not_resolved": "No official Polish Dacia Shop card was resolved by exact part number in the bounded retry. This does not establish withdrawal, incompatibility or unavailability."
+  },
+  "semantic_guards": [
+    "Exact part number remains the primary identity.",
+    "Search results for other or similar part numbers are not confirmation.",
+    "An unresolved Polish shop card is not evidence of withdrawal, incompatibility or unavailability.",
+    "Foreign-market official Dacia records are not transferred to Polish New Spring evidence.",
+    "Renault Shop records are not substituted for Polish Dacia Shop records.",
+    "Third-party records are not substituted for official Polish Dacia Shop records.",
+    "A missing current shop price is not a mismatch.",
+    "No master-data mutation is permitted in this reporting package."
+  ],
+  "validation": {
+    "source_queue_records": 28,
+    "records_reviewed": 28,
+    "remaining_unresolved_records": 28,
+    "unique_part_numbers": 28,
+    "unique_source_retry_positions": 28,
+    "status_changes": 0
+  }
+}

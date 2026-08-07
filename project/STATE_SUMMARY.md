@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configurator Commercial Selection Bundle Metadata Repair 001** — `complete`
+**New Spring Current Shop Retry Cycle 002** — `complete`
 
-Restore traceability after PR #609 by adding the missing direct parser regression, correcting the historical package record to the actual PR diff and synchronizing canonical project state without changing production logic or master data.
+Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
 
 ## Next package
 
-**New Spring Current Shop Retry Cycle 002** — `planned`
+**Post-v1.18.0 Configurator and Shop Milestone Review 003** — `planned`
 
-Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
+Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.
 
 ## Autonomy
 
