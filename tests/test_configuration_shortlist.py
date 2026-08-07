@@ -242,6 +242,12 @@ class ConfigurationShortlistTests(unittest.TestCase):
             "najpierw 1 wariant",
             "#configurator-summary-panel, #results-heading",
             ".commercial-choice-panel, .commercial-offers",
+            "configurator_exact_appearance_status_v1",
+            "po wyborze 1 wariantu",
+            "brak dokładnego zapisu",
+            "#configurator-selected-colours",
+            "#configurator-selected-wheels",
+            "#configurator-selected-upholsteries",
         ):
             self.assertIn(marker, pricing_text)
         if shutil.which("node"):
@@ -281,6 +287,7 @@ process.stdout.write(api.configuratorSummaryMarkup(configuration, observation, [
             navigation_program = r'''
 require(process.argv[1]);
 const api = globalThis.DkbConfiguratorNavigationState;
+const appearance = globalThis.DkbConfiguratorExactAppearanceStatus;
 process.stdout.write(JSON.stringify({
   summary0: api.summaryStatus(0),
   summary1: api.summaryStatus(1),
@@ -288,7 +295,14 @@ process.stdout.write(JSON.stringify({
   commercialSelected: api.commercialStatus(2, 3, 1),
   commercialChoices: api.commercialStatus(0, 3, 1),
   commercialMany: api.commercialStatus(0, 6, 3),
-  commercialNone: api.commercialStatus(0, 0, 1)
+  commercialNone: api.commercialStatus(0, 0, 1),
+  appearanceNone: appearance.appearanceStatus([], 0, "biel alpejska"),
+  appearanceMany: appearance.appearanceStatus([], 3, "biel alpejska"),
+  appearanceExact: appearance.appearanceStatus([], 1, "biel alpejska"),
+  appearanceSelected: appearance.appearanceStatus(["zieleń cedrowa"], 2, "biel alpejska"),
+  appearanceMultiFilter: appearance.appearanceStatus(["biały", "zielony"], 2, ""),
+  appearanceMissing: appearance.appearanceStatus([], 1, ""),
+  compactLength: appearance.compactStatus("x".repeat(60)).length
 }));
 '''
             navigation = subprocess.run(
@@ -305,6 +319,13 @@ process.stdout.write(JSON.stringify({
             self.assertEqual(states["commercialChoices"], "oferty: 3")
             self.assertEqual(states["commercialMany"], "najpierw 1 wariant")
             self.assertEqual(states["commercialNone"], "brak potwierdzonych ofert")
+            self.assertEqual(states["appearanceNone"], "brak wyniku")
+            self.assertEqual(states["appearanceMany"], "po wyborze 1 wariantu")
+            self.assertEqual(states["appearanceExact"], "biel alpejska")
+            self.assertEqual(states["appearanceSelected"], "zieleń cedrowa")
+            self.assertEqual(states["appearanceMultiFilter"], "dokładne filtry: 2")
+            self.assertEqual(states["appearanceMissing"], "brak dokładnego zapisu")
+            self.assertLessEqual(states["compactLength"], 38)
 
     def test_metadata_powertrain_and_price_filters_compose(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

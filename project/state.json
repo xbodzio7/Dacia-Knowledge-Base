@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_navigation_state_001",
+    "package_id": "configurator_exact_appearance_status_001",
     "kind": "interface_increment",
-    "name": "Configurator Navigation State Integration 001",
+    "name": "Configurator Exact Appearance Status 001",
     "status": "complete",
-    "goal": "Connect configurator steps 7 and 8 to the live commercial selector and deterministic summary states, route them to their exact UI targets and avoid arbitrary result selection while preserving all existing evidence boundaries.",
+    "goal": "Surface exact saved colour, wheel and upholstery observations in configurator steps 4–6 when the live shortlist resolves to one canonical configuration, while preserving explicit exact filters and never promoting observations to availability catalogues.",
     "manifest_paths": [
       "tools/reporting/configuration_shortlist_v12_pricing.js",
       "tests/test_configuration_shortlist.py",
-      "project/packages/configurator-navigation-state-001-20260807.md",
+      "project/packages/configurator-exact-appearance-status-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

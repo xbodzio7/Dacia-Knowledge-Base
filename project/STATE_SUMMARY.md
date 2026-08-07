@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Navigation State Integration 001** — `complete`
+**Configurator Exact Appearance Status 001** — `complete`
 
-Connect configurator steps 7 and 8 to the live commercial selector and deterministic summary states, route them to their exact UI targets and avoid arbitrary result selection while preserving all existing evidence boundaries.
+Surface exact saved colour, wheel and upholstery observations in configurator steps 4–6 when the live shortlist resolves to one canonical configuration, while preserving explicit exact filters and never promoting observations to availability catalogues.
 
 ## Next package
 
