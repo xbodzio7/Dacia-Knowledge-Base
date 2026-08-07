@@ -8,6 +8,29 @@
 
   let equipmentLabels = Object.freeze({});
   const commercialSelections = new Map();
+  const summaryCatalogSnapshot = (() => {
+    if (typeof document === "undefined") return { configurations: [] };
+    const element = document.querySelector("#configuration-catalog");
+    if (!element) return { configurations: [] };
+    try {
+      const payload = JSON.parse(element.textContent);
+      return payload && typeof payload === "object" ? payload : { configurations: [] };
+    } catch (_error) {
+      return { configurations: [] };
+    }
+  })();
+  const summaryConfigurationByCode = new Map(
+    (summaryCatalogSnapshot.configurations || []).map((item) => [item.configuration_code, item])
+  );
+  const summaryObservationByCode = new Map();
+  for (const configuration of summaryCatalogSnapshot.configurations || []) {
+    const observations = (configuration.price_components || []).filter(
+      (component) => component && component.kind === "configurator_observation"
+    );
+    if (observations.length === 1) {
+      summaryObservationByCode.set(configuration.configuration_code, observations[0]);
+    }
+  }
 
   function setEquipmentLabels(labels) {
     equipmentLabels = Object.freeze({ ...(labels || {}) });
@@ -347,6 +370,110 @@
     return `<summary>Pakiety i opcje (${choices.length})</summary><ul>${rows}</ul><p><strong>Podgląd ceny po wyborze:</strong> ${escapeHtml(total)}</p>${unknownWarning}${compatibilityWarning}<p class="commercial-choice-source-note">Wybór dotyczy wyłącznie ofert przypisanych w bazie do tej dokładnej konfiguracji. System nie wnioskuje zależności ani konfliktów między opcjami.</p>`;
   }
 
+  function transmissionSummaryLabel(value) {
+    if (value === "automatic") return "automatyczna";
+    if (value === "manual") return "manualna";
+    return String(value || "brak danych");
+  }
+
+  function observationValue(observation, key) {
+    const value = observation && observation[key] && observation[key].value;
+    return value ? String(value) : "brak w dokładnym zapisie";
+  }
+
+  function configuratorSummaryMarkup(configuration, observation, selectedCodes) {
+    const preview = buildCommercialSelectionPreview(configuration, selectedCodes);
+    const total = preview.total_amount === null
+      ? "brak potwierdzonej ceny bazowej"
+      : `${preview.total_is_complete ? "" : "od "}${formatMoney(preview.total_amount, preview.currency_code)}`;
+    const selectedRows = preview.selected_items.length
+      ? preview.selected_items.map((component) => {
+        const price = component.amount === null
+          ? "cena niepotwierdzona"
+          : `+ ${formatMoney(component.amount, component.currency_code)}`;
+        return `<li><span>${escapeHtml(component.name)}</span><strong>${escapeHtml(price)}</strong></li>`;
+      }).join("")
+      : '<li><span>Brak dodatkowych pakietów lub opcji zaznaczonych w kroku 7.</span></li>';
+    const appearance = observation
+      ? `<p><strong>Kolor:</strong> ${escapeHtml(observationValue(observation, "selected_colour"))}</p>
+        <p><strong>Koła:</strong> ${escapeHtml(observationValue(observation, "selected_wheels"))}</p>
+        <p><strong>Tapicerka:</strong> ${escapeHtml(observationValue(observation, "selected_upholstery"))}</p>
+        <p class="commercial-choice-source-note">Wygląd pochodzi wyłącznie z dokładnej zapisanej obserwacji producenta${observation.observed_on ? ` z ${escapeHtml(observation.observed_on)}` : ""}. Nie jest to katalog innych dostępnych wyborów.</p>`
+      : '<p class="commercial-choice-source-note">Brak dokładnej zapisanej obserwacji wyglądu dla tej konfiguracji. Kolor, koła i tapicerka nie są uzupełniane przez wnioskowanie.</p>';
+    const unknownWarning = preview.unknown_items.length
+      ? '<p class="configuration-price-warning">Co najmniej jedna wybrana pozycja nie ma potwierdzonej ceny i nie została doliczona.</p>'
+      : "";
+    const compatibilityWarning = preview.multi_choice_compatibility_unverified
+      ? '<p class="configuration-price-warning">Łączna cena wielu pozycji jest tylko sumą arytmetyczną. Repozytorium nie potwierdza ich wzajemnej kompatybilności ani możliwości jednoczesnego zamówienia.</p>'
+      : "";
+    const basePrice = preview.base_amount === null
+      ? "brak danych"
+      : formatMoney(preview.base_amount, preview.currency_code);
+    return `<p class="eyebrow">Krok 8</p>
+      <h2 id="configurator-summary-heading">Podsumowanie konfiguracji</h2>
+      <p><strong>${escapeHtml(configuration.model_name || configuration.model_code || "Dacia")} · ${escapeHtml(configuration.version_name || configuration.version_code || "")}</strong></p>
+      <p>${escapeHtml(configuration.powertrain_label || "brak danych")} · skrzynia ${escapeHtml(transmissionSummaryLabel(configuration.transmission_type))}</p>
+      <p><strong>Kod konfiguracji:</strong> <code>${escapeHtml(configuration.configuration_code || "")}</code></p>
+      <div class="configuration-price-standard">Cena bazowa: <strong>${escapeHtml(basePrice)}</strong></div>
+      <div class="configuration-price-main"><span>Cena z jawnie wybranymi pakietami i opcjami</span><strong>${escapeHtml(total)}</strong></div>
+      <ul class="configuration-price-components">${selectedRows}</ul>
+      ${unknownWarning}${compatibilityWarning}
+      <h3>Wygląd — dokładna obserwacja</h3>
+      ${appearance}
+      <p class="commercial-choice-source-note">Podsumowanie handlowe obejmuje wyłącznie pozycje jawnie zaznaczone w kroku „Pakiety i opcje”. Filtry wyposażenia służą do zawężania shortlisty i nie są automatycznie traktowane jako dodatkowe zamówienie.</p>`;
+  }
+
+  function installConfiguratorSummary() {
+    const results = document.querySelector("#results");
+    if (!results) return;
+    let panel = document.querySelector("#configurator-summary-panel");
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.id = "configurator-summary-panel";
+      panel.className = "comparison-panel configurator-summary-panel";
+      panel.setAttribute("aria-live", "polite");
+      panel.setAttribute("aria-labelledby", "configurator-summary-heading");
+      results.parentNode.insertBefore(panel, results);
+    }
+    let scheduled = false;
+    const refresh = () => {
+      if (scheduled) return;
+      scheduled = true;
+      setTimeout(() => {
+        scheduled = false;
+        const cards = [...results.querySelectorAll(".result-card")];
+        if (!cards.length) {
+          panel.innerHTML = '<p class="eyebrow">Krok 8</p><h2 id="configurator-summary-heading">Podsumowanie konfiguracji</h2><p>Brak konfiguracji spełniającej aktualne kryteria. Podsumowanie nie wybiera wariantu zastępczego.</p>';
+          return;
+        }
+        if (cards.length !== 1) {
+          panel.innerHTML = `<p class="eyebrow">Krok 8</p><h2 id="configurator-summary-heading">Podsumowanie konfiguracji</h2><p>Zawęź wybór do jednej konfiguracji. Aktualnie zgodnych wariantów: <strong>${cards.length}</strong>. System nie wybiera samochodu arbitralnie.</p>`;
+          return;
+        }
+        const card = cards[0];
+        const code = card.dataset.configurationCode
+          || card.querySelector(".configuration-code")?.textContent.trim()
+          || "";
+        const configuration = summaryConfigurationByCode.get(code);
+        if (!configuration) {
+          panel.innerHTML = '<p class="eyebrow">Krok 8</p><h2 id="configurator-summary-heading">Podsumowanie konfiguracji</h2><p>Nie udało się powiązać widocznego wyniku z katalogiem. Dane nie są uzupełniane przez zgadywanie.</p>';
+          return;
+        }
+        const selected = commercialSelections.get(code) || new Set();
+        panel.innerHTML = configuratorSummaryMarkup(
+          configuration,
+          summaryObservationByCode.get(code) || null,
+          [...selected]
+        );
+      }, 0);
+    };
+    results.addEventListener("dkb:results-rendered", refresh);
+    document.addEventListener("change", (event) => {
+      if (event.target.matches("[data-commercial-choice]")) refresh();
+    });
+    refresh();
+  }
+
   function installCommercialChoiceSelector() {
     const catalogElement = document.querySelector("#configuration-catalog");
     const results = document.querySelector("#results");
@@ -397,10 +524,14 @@
   }
 
   if (typeof document !== "undefined") {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", installCommercialChoiceSelector);
-    } else {
+    const installPricingUi = () => {
       installCommercialChoiceSelector();
+      installConfiguratorSummary();
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", installPricingUi);
+    } else {
+      installPricingUi();
     }
   }
 
@@ -410,6 +541,7 @@
     selectedEquipmentStatus, selectedEquipmentMarkup,
     reviewedUnknownPriceStatus, normalizeComponent,
     commercialChoiceItems, buildCommercialSelectionPreview,
-    commercialChoiceMarkup, installCommercialChoiceSelector
+    commercialChoiceMarkup, installCommercialChoiceSelector,
+    configuratorSummaryMarkup, installConfiguratorSummary
   };
 });
