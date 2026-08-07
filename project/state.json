@@ -27,27 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_commercial_selection_bundle_metadata_repair_001",
-    "kind": "repository_consistency_repair",
-    "name": "Configurator Commercial Selection Bundle Metadata Repair 001",
+    "package_id": "new_spring_current_shop_retry_cycle_002",
+    "kind": "source_status_reconciliation",
+    "name": "New Spring Current Shop Retry Cycle 002",
     "status": "complete",
-    "goal": "Restore traceability after PR #609 by adding the missing direct parser regression, correcting the historical package record to the actual PR diff and synchronizing canonical project state without changing production logic or master data.",
+    "goal": "Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.",
     "manifest_paths": [
-      "tests/test_configuration_comparison_bundle.py",
-      "project/packages/configurator-commercial-selection-bundle-metadata-001-20260807.md",
-      "project/packages/configurator-commercial-selection-bundle-metadata-repair-001-20260808.md",
+      "data/reporting/official_new_spring_accessory_current_shop_retry_cycle_002_20260808.json",
+      "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260808.csv",
+      "project/packages/new-spring-current-shop-retry-cycle-002-20260808.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "new_spring_current_shop_retry_cycle_002",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Current Shop Retry Cycle 002",
+    "package_id": "post_v1_18_configurator_and_shop_milestone_review_003",
+    "kind": "milestone_review",
+    "name": "Post-v1.18.0 Configurator and Shop Milestone Review 003",
     "status": "planned",
-    "goal": "Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.",
-    "manifest_paths": [],
-    "eligible_on_or_after": "2026-08-08"
+    "goal": "Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
