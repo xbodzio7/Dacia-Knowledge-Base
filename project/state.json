@@ -27,13 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_18_ui_readiness_interval_milestone_review_002",
-    "kind": "milestone_review",
-    "name": "Post-v1.18.0 UI Readiness Interval Milestone Review 002",
+    "package_id": "configurator_ui_commercial_choice_readiness_001",
+    "kind": "reporting_data_integration",
+    "name": "Configurator UI Commercial Choice Readiness 001",
     "status": "complete",
-    "goal": "Review the five logical packages since milestone review PR #593, reconcile New Spring source boundaries and configurator UI readiness progress, record the concurrent commercial-choice PR without mixing it into the interval, and select the next bounded package without lowering evidence standards.",
+    "goal": "Define a source-bounded UI contract for all existing non-appearance commercial options and packages, separating selector offers from exact selected-state observations, exposing exact mapped prices and contents, and explicitly preventing unsupported inference of multi-option compatibility.",
     "manifest_paths": [
-      "project/reviews/post-v1.18.0-ui-readiness-interval-milestone-review-002-20260807.md",
+      "data/reporting/configurator_ui_commercial_choice_readiness_20260807.json",
+      "project/packages/configurator-ui-commercial-choice-readiness-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
