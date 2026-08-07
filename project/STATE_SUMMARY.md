@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Exact Appearance Status 001** — `complete`
+**Configurator Commercial Selection Export 001** — `complete`
 
-Surface exact saved colour, wheel and upholstery observations in configurator steps 4–6 when the live shortlist resolves to one canonical configuration, while preserving explicit exact filters and never promoting observations to availability catalogues.
+Preserve explicit configuration-scoped package and option choices in the existing JSON selection export with deterministic provenance and price-preview metadata while leaving configuration-code selection, TXT export and downstream comparison parsing backward compatible.
 
 ## Next package
 

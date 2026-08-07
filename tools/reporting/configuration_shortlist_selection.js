@@ -59,8 +59,68 @@
     return normalizeSelection(catalog, selectedCodes).map((code) => byCode.get(code));
   }
 
-  function exportResult(configuration) {
+  function commercialSelectionInput(commercialSelections, configurationCode) {
+    if (!commercialSelections) return [];
+    const value = commercialSelections instanceof Map
+      ? commercialSelections.get(configurationCode)
+      : commercialSelections[configurationCode];
+    if (value == null) return [];
+    return typeof value === "string" ? [value] : Array.from(value);
+  }
+
+  function commercialSelectionCodes(configuration, selectedCodes) {
+    if (!pricing || typeof pricing.commercialChoiceItems !== "function") return [];
+    const selected = new Set((selectedCodes || []).map(String));
+    return pricing.commercialChoiceItems(configuration)
+      .map((item) => item.code)
+      .filter((code) => selected.has(code));
+  }
+
+  function commercialSelectionExport(configuration, selectedCodes) {
+    if (!pricing
+      || typeof pricing.commercialChoiceItems !== "function"
+      || typeof pricing.buildCommercialSelectionPreview !== "function") return null;
+    const codes = commercialSelectionCodes(configuration, selectedCodes);
+    if (!codes.length) return null;
+    const choices = new Map(
+      pricing.commercialChoiceItems(configuration).map((item) => [item.code, item])
+    );
+    const items = codes.map((code) => choices.get(code)).filter(Boolean).map((component) => ({
+      code: component.code,
+      name: component.name,
+      kind: component.kind,
+      amount: component.amount,
+      currency_code: component.currency_code,
+      price_date: component.price_date,
+      source_code: component.source_code,
+      equipment_codes: component.equipment_codes || [],
+      selected_state_observed: Boolean(component.selected_state_observed),
+      selected_state_observation_date: component.selected_state_observation_date || "",
+      selected_state_source_code: component.selected_state_source_code || "",
+      review_state: component.review_state || "",
+      review_reason_code: component.review_reason_code || "",
+      reviewed_on: component.reviewed_on || "",
+      candidate_amount_pln: component.candidate_amount_pln,
+      candidate_source_code: component.candidate_source_code || ""
+    }));
+    const preview = pricing.buildCommercialSelectionPreview(configuration, codes);
     return {
+      selected_item_codes: codes,
+      items,
+      price_preview: {
+        base_amount: preview.base_amount,
+        known_surcharge: preview.known_surcharge,
+        total_amount: preview.total_amount,
+        total_is_complete: preview.total_is_complete,
+        unknown_item_codes: preview.unknown_items.map((item) => item.code),
+        multi_choice_compatibility_unverified: Boolean(preview.multi_choice_compatibility_unverified),
+        compatibility_inference_performed: false
+      }
+    };
+  }
+
+  function exportResult(configuration, selectedCommercialCodes) {
+    const result = {
       configuration_code: configuration.configuration_code,
       model_code: configuration.model_code,
       model_name: configuration.model_name,
@@ -72,10 +132,18 @@
       number_of_seats: configuration.number_of_seats,
       cargo_volumes: configuration.cargo_volumes || []
     };
+    const commercialSelection = commercialSelectionExport(configuration, selectedCommercialCodes);
+    if (commercialSelection) result.commercial_selection = commercialSelection;
+    return result;
   }
 
-  function buildSelectionPayload(catalog, selectedCodes) {
-    const results = selectedConfigurations(catalog, selectedCodes).map(exportResult);
+  function buildSelectionPayload(catalog, selectedCodes, commercialSelections) {
+    const results = selectedConfigurations(catalog, selectedCodes).map((configuration) =>
+      exportResult(
+        configuration,
+        commercialSelectionInput(commercialSelections, configuration.configuration_code)
+      )
+    );
     return {
       version: 1,
       export_type: "interactive_configuration_selection",
@@ -88,8 +156,8 @@
     };
   }
 
-  function renderSelectionJson(catalog, selectedCodes) {
-    return `${JSON.stringify(buildSelectionPayload(catalog, selectedCodes), null, 2)}\n`;
+  function renderSelectionJson(catalog, selectedCodes, commercialSelections) {
+    return `${JSON.stringify(buildSelectionPayload(catalog, selectedCodes, commercialSelections), null, 2)}\n`;
   }
 
   function renderCodeList(catalog, selectedCodes) {
@@ -390,6 +458,7 @@
     const catalog = JSON.parse(catalogElement.textContent);
     if (pricing) pricing.setEquipmentLabels(catalog.interface_labels?.equipment_pl || {});
     const selected = new Set();
+    const commercialSelections = new Map();
     const count = document.querySelector("#selected-count");
     const list = document.querySelector("#selected-list");
     const comparisonPanel = document.querySelector("#comparison-panel");
@@ -405,6 +474,14 @@
     };
 
     const orderedSelection = () => normalizeSelection(catalog, selected);
+    const commercialSelectionSnapshot = (codes) => {
+      const snapshot = {};
+      for (const code of normalizeSelection(catalog, codes)) {
+        const state = commercialSelections.get(code);
+        if (state && state.size) snapshot[code] = [...state];
+      }
+      return snapshot;
+    };
     const selectedEquipment = () => [...(document.querySelector("#required-equipment")?.selectedOptions || [])].map((option) => option.value);
     const refreshComparison = () => {
       if (!comparisonPanel || comparisonPanel.hidden) return;
@@ -418,6 +495,19 @@
     };
     results.addEventListener("dkb:results-rendered", sync);
     sync();
+
+    document.addEventListener("change", (event) => {
+      const input = event.target.closest && event.target.closest("[data-commercial-choice]");
+      if (!input) return;
+      const commercialPanel = input.closest(".commercial-choice-panel");
+      const code = commercialPanel && commercialPanel.dataset.configurationCode;
+      if (!code) return;
+      const state = commercialSelections.get(code) || new Set();
+      if (input.checked) state.add(input.dataset.commercialChoice);
+      else state.delete(input.dataset.commercialChoice);
+      if (state.size) commercialSelections.set(code, state);
+      else commercialSelections.delete(code);
+    }, true);
 
     results.addEventListener("change", (event) => {
       const toggle = event.target.closest(".configuration-select");
@@ -456,7 +546,12 @@
 
     buttons.json.addEventListener("click", () => {
       const codes = orderedSelection();
-      downloadText(exportFilename(catalog, codes, "json"), renderSelectionJson(catalog, codes), "application/json;charset=utf-8");
+      const commercial = commercialSelectionSnapshot(codes);
+      downloadText(
+        exportFilename(catalog, codes, "json"),
+        renderSelectionJson(catalog, codes, commercial),
+        "application/json;charset=utf-8"
+      );
     });
     buttons.codes.addEventListener("click", () => {
       const codes = orderedSelection();
@@ -471,6 +566,7 @@
 
   return {
     normalizeSelection, unionSelection, removeSelection, selectedConfigurations,
+    commercialSelectionCodes, commercialSelectionExport,
     buildSelectionPayload, renderSelectionJson, renderCodeList, exportFilename,
     comparisonRows, comparisonValueFacets, comparisonValueLabel, comparisonValueText, comparisonValueTitle, comparisonEquipmentFacets, equipmentComparisonStatus, equipmentComparisonTitle,
     renderComparison, comparisonThumbnail, applyDifferenceFilter, rowIsDifferent, categoryLabel

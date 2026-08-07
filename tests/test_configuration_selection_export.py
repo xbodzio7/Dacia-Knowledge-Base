@@ -80,11 +80,16 @@ switch (input.operation) {
   case "payload":
     output = api.buildSelectionPayload(
       input.catalog,
-      input.payload.codes
+      input.payload.codes,
+      input.payload.commercial || {}
     );
     break;
   case "json":
-    output = api.renderSelectionJson(input.catalog, input.payload.codes);
+    output = api.renderSelectionJson(
+      input.catalog,
+      input.payload.codes,
+      input.payload.commercial || {}
+    );
     break;
   case "codes":
     output = api.renderCodeList(input.catalog, input.payload.codes);
@@ -229,7 +234,39 @@ process.stdout.write(JSON.stringify(output));
             payload["results"][0]["catalog_price"]["source_code"],
             "src_a",
         )
+        self.assertNotIn("commercial_selection", payload["results"][0])
+        self.assertNotIn("commercial_selection", payload["results"][1])
         self.assertNotIn("generated_at", payload)
+
+        commercial_json = self.run_node(
+            catalog,
+            "json",
+            {
+                "codes": ["cfg_a"],
+                "commercial": {
+                    "cfg_a": ["unknown", "nav_package", "nav_package"],
+                },
+            },
+        )
+        commercial_payload = json.loads(commercial_json)
+        commercial = commercial_payload["results"][0]["commercial_selection"]
+        self.assertEqual(commercial["selected_item_codes"], ["nav_package"])
+        self.assertEqual(len(commercial["items"]), 1)
+        self.assertEqual(commercial["items"][0]["code"], "nav_package")
+        self.assertEqual(commercial["items"][0]["amount"], 1200)
+        self.assertTrue(commercial["items"][0]["selected_state_observed"])
+        self.assertEqual(
+            commercial["items"][0]["selected_state_source_code"],
+            "src_saved_configuration",
+        )
+        self.assertEqual(commercial["price_preview"]["base_amount"], 70000)
+        self.assertEqual(commercial["price_preview"]["known_surcharge"], 1200)
+        self.assertEqual(commercial["price_preview"]["total_amount"], 71200)
+        self.assertTrue(commercial["price_preview"]["total_is_complete"])
+        self.assertEqual(commercial["price_preview"]["unknown_item_codes"], [])
+        self.assertFalse(
+            commercial["price_preview"]["compatibility_inference_performed"]
+        )
 
     def test_plain_codes_and_filenames_are_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -277,7 +314,10 @@ process.stdout.write(JSON.stringify(output));
             rendered = self.run_node(
                 catalog,
                 "json",
-                {"codes": ["cfg_b", "cfg_a"]},
+                {
+                    "codes": ["cfg_b", "cfg_a"],
+                    "commercial": {"cfg_a": ["nav_package"]},
+                },
             )
             export_path = root / "selection.json"
             export_path.write_text(rendered, encoding="utf-8")
@@ -359,6 +399,8 @@ process.stdout.write(JSON.stringify(output));
         ):
             self.assertIn(f'id="{identifier}"', rendered)
         self.assertIn("interactive_configuration_selection", rendered)
+        self.assertIn("commercial_selection", rendered)
+        self.assertIn("compatibility_inference_performed", rendered)
         self.assertIn("configuration-select", rendered)
         self.assertIn("Format interaktywnej shortlisty HTML v1.7.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
