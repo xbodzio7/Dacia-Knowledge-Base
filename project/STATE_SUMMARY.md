@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Essential Grade Design Completion 001** — `complete`
+**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `complete`
 
-Capture the complete current Bigster Essential grade-level Design list of three colours, one wheel and one upholstery across the two engines explicitly visible on the same official grade page, while retaining individual Design prices as unknown at grade scope and never projecting exact LPG-state prices to mild hybrid 140.
+Review the five logical packages since milestone review PR #593, reconcile New Spring evidence status and configurator UI readiness, confirm that bounded UI implementation can begin before full CAT-GAP-002 closure, and select the commercial-choice readiness contract as the next package.
 
 ## Next package
 
-**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `planned`
+**Configurator UI Commercial Choice Readiness 001** — `planned`
 
-Review the five logical packages since milestone review PR #593: New Spring confirmed-card price capture, configurator UI exact appearance readiness, grade appearance coverage, Jogger seven-seat exact appearance capture and Bigster Essential grade Design completion; reconcile evidence boundaries, UI readiness progress and the still-gated New Spring retry before selecting the next package.
+Define a source-bounded UI contract for all existing non-appearance commercial options and packages, separating selector offers from exact selected-state observations, exposing exact mapped prices and contents, and explicitly preventing unsupported inference of multi-option compatibility.
 
 ## Autonomy
 
