@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Commercial Selector 001** — `complete`
+**Configurator Summary Step 001** — `complete`
 
-Expose exact configuration-mapped commercial packages and options as a source-bounded selector with preserved offer prices, separate selected-state evidence and explicitly provisional multi-choice arithmetic without compatibility inference.
+Turn the final configurator step into a deterministic source-bounded summary that renders only for one exact visible configuration, preserves exact-observation appearance semantics and prices only explicitly selected mapped commercial items without compatibility inference.
 
 ## Next package
 

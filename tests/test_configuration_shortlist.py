@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import csv
 import json
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -221,6 +223,56 @@ class ConfigurationShortlistTests(unittest.TestCase):
             offer["selected_state_source_code"],
             "src_saved_configuration",
         )
+
+        pricing_script = (
+            REPOSITORY
+            / "tools"
+            / "reporting"
+            / "configuration_shortlist_v12_pricing.js"
+        )
+        pricing_text = pricing_script.read_text(encoding="utf-8")
+        for marker in (
+            "configurator-summary-panel",
+            "cards.length !== 1",
+            "System nie wybiera samochodu arbitralnie",
+            "Nie jest to katalog innych dostępnych wyborów",
+            "Filtry wyposażenia służą do zawężania shortlisty",
+            "configuratorSummaryMarkup",
+        ):
+            self.assertIn(marker, pricing_text)
+        if shutil.which("node"):
+            program = r'''
+const api = require(process.argv[1]);
+const configuration = {
+  configuration_code: "cfg_a",
+  model_name: "Model A",
+  version_name: "Expression",
+  powertrain_label: "Eco-G 120",
+  transmission_type: "manual",
+  catalog_price: {state: "recorded", amount: "70000", currency_code: "PLN"},
+  price_components: [
+    {code: "one", name: "Opcja 1", kind: "option", availability_status: "optional", amount: 1000, currency_code: "PLN"},
+    {code: "two", name: "Opcja 2", kind: "option", availability_status: "optional", amount: 2000, currency_code: "PLN"}
+  ]
+};
+const observation = {
+  observed_on: "2026-08-07",
+  selected_colour: {value: "Zielony"},
+  selected_wheels: {value: "18 cali"},
+  selected_upholstery: {value: "Tapicerka testowa"}
+};
+process.stdout.write(api.configuratorSummaryMarkup(configuration, observation, ["one", "two"]));
+'''
+            completed = subprocess.run(
+                ["node", "-e", program, str(pricing_script)],
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            self.assertIn("Podsumowanie konfiguracji", completed.stdout)
+            self.assertIn("Opcja 1", completed.stdout)
+            self.assertIn("Zielony", completed.stdout)
+            self.assertIn("nie potwierdza ich wzajemnej kompatybilności", completed.stdout)
 
     def test_metadata_powertrain_and_price_filters_compose(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
