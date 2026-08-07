@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Commercial Selection Export 001** — `complete`
+**Configurator Commercial Selection State 001** — `complete`
 
-Preserve explicit configuration-scoped package and option choices in the existing JSON selection export with deterministic provenance and price-preview metadata while leaving configuration-code selection, TXT export and downstream comparison parsing backward compatible.
+Persist normalized configuration-scoped package and option selections for the browser session, restore them through existing UI events, clear the complete canonical state on Resetuj and keep JSON export sourced from the same canonical selection state.
 
 ## Next package
 

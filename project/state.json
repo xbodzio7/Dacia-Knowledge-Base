@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_commercial_selection_export_001",
+    "package_id": "configurator_commercial_selection_state_001",
     "kind": "interface_increment",
-    "name": "Configurator Commercial Selection Export 001",
+    "name": "Configurator Commercial Selection State 001",
     "status": "complete",
-    "goal": "Preserve explicit configuration-scoped package and option choices in the existing JSON selection export with deterministic provenance and price-preview metadata while leaving configuration-code selection, TXT export and downstream comparison parsing backward compatible.",
+    "goal": "Persist normalized configuration-scoped package and option selections for the browser session, restore them through existing UI events, clear the complete canonical state on Resetuj and keep JSON export sourced from the same canonical selection state.",
     "manifest_paths": [
       "tools/reporting/configuration_shortlist_selection.js",
       "tests/test_configuration_selection_export.py",
-      "project/packages/configurator-commercial-selection-export-001-20260807.md",
+      "project/packages/configurator-commercial-selection-state-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

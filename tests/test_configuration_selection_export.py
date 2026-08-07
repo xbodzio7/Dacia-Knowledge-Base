@@ -91,6 +91,40 @@ switch (input.operation) {
       input.payload.commercial || {}
     );
     break;
+  case "commercial_state": {
+    const values = {};
+    const storage = {
+      getItem(key) { return Object.prototype.hasOwnProperty.call(values, key) ? values[key] : null; },
+      setItem(key, value) { values[key] = String(value); },
+      removeItem(key) { delete values[key]; }
+    };
+    const normalized = api.normalizeCommercialSelectionState(
+      input.catalog,
+      input.payload.commercial || {}
+    );
+    const stateMap = api.commercialSelectionStateMap(
+      input.catalog,
+      input.payload.commercial || {}
+    );
+    const snapshot = api.commercialSelectionSnapshot(
+      input.catalog,
+      stateMap,
+      input.payload.codes || []
+    );
+    api.writeCommercialSelectionStorage(input.catalog, stateMap, storage);
+    const stored = values[api.COMMERCIAL_SELECTION_STORAGE_KEY] || null;
+    const restored = api.readCommercialSelectionStorage(input.catalog, storage);
+    api.writeCommercialSelectionStorage(input.catalog, {}, storage);
+    output = {
+      storage_key: api.COMMERCIAL_SELECTION_STORAGE_KEY,
+      normalized,
+      snapshot,
+      stored,
+      restored,
+      cleared: !Object.prototype.hasOwnProperty.call(values, api.COMMERCIAL_SELECTION_STORAGE_KEY)
+    };
+    break;
+  }
   case "codes":
     output = api.renderCodeList(input.catalog, input.payload.codes);
     break;
@@ -268,6 +302,26 @@ process.stdout.write(JSON.stringify(output));
             commercial["price_preview"]["compatibility_inference_performed"]
         )
 
+        state = self.run_node(
+            catalog,
+            "commercial_state",
+            {
+                "codes": ["cfg_a"],
+                "commercial": {
+                    "cfg_a": ["unknown", "nav_package", "nav_package"],
+                    "cfg_b": ["nav_package"],
+                    "unknown_configuration": ["nav_package"],
+                },
+            },
+        )
+        expected_state = {"cfg_a": ["nav_package"]}
+        self.assertEqual(state["storage_key"], "dkb-commercial-selections-v1")
+        self.assertEqual(state["normalized"], expected_state)
+        self.assertEqual(state["snapshot"], expected_state)
+        self.assertEqual(json.loads(state["stored"]), expected_state)
+        self.assertEqual(state["restored"], expected_state)
+        self.assertTrue(state["cleared"])
+
     def test_plain_codes_and_filenames_are_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             _, catalog = self.fixture(Path(directory))
@@ -401,6 +455,9 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("interactive_configuration_selection", rendered)
         self.assertIn("commercial_selection", rendered)
         self.assertIn("compatibility_inference_performed", rendered)
+        self.assertIn("dkb-commercial-selections-v1", rendered)
+        self.assertIn("syncCommercialControls", rendered)
+        self.assertIn('document.querySelector("#reset")?.addEventListener', rendered)
         self.assertIn("configuration-select", rendered)
         self.assertIn("Format interaktywnej shortlisty HTML v1.7.", rendered)
         self.assertIn("equipment-picker-scroll", rendered)
@@ -435,10 +492,6 @@ process.stdout.write(JSON.stringify(output));
         self.assertIn("dkb:results-rendered", rendered)
         self.assertIn(
             'results.addEventListener("dkb:results-rendered", (event) => {',
-            rendered,
-        )
-        self.assertIn(
-            'results.addEventListener("dkb:results-rendered", sync)',
             rendered,
         )
         self.assertNotIn("new MutationObserver(refresh)", rendered)
