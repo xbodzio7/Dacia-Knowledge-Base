@@ -446,3 +446,142 @@
     else initialize();
   }
 })();
+
+(function () {
+  "use strict";
+  const MARKER = "configurator_step_navigation_v1";
+  const STEPS = Object.freeze([
+    { id: "model", label: "Model", scope: "catalog_choice", target: "#models-picker, #models" },
+    { id: "version", label: "Wersja", scope: "catalog_choice", target: "#versions-choice-picker, #versions-field" },
+    { id: "powertrain", label: "Silnik i skrzynia", scope: "catalog_choice", target: "#powertrains-choice-picker, #transmissions-choice-picker, #powertrains" },
+    { id: "colour", label: "Kolor", scope: "exact_observation", target: "#configurator-selected-colours" },
+    { id: "wheels", label: "Koła", scope: "exact_observation", target: "#configurator-selected-wheels" },
+    { id: "upholstery", label: "Tapicerka", scope: "exact_observation", target: "#configurator-selected-upholsteries" },
+    { id: "commercial", label: "Pakiety i opcje", scope: "contextual_offer", target: ".commercial-offers, #results" },
+    { id: "summary", label: "Podsumowanie", scope: "summary", target: "#results-heading" },
+  ]);
+
+  const selectedCount = (selector) => {
+    if (typeof document === "undefined") return 0;
+    const control = document.querySelector(selector);
+    return control && control.selectedOptions ? control.selectedOptions.length : 0;
+  };
+
+  const stepAvailability = (step) => {
+    if (typeof document === "undefined") return false;
+    if (step.id === "version" && selectedCount("#models") === 0) return false;
+    if (step.scope === "exact_observation") return Boolean(document.querySelector(step.target));
+    return Boolean(document.querySelector(step.target));
+  };
+
+  const stepStatus = (step) => {
+    if (typeof document === "undefined") return "";
+    if (step.id === "model") return selectedCount("#models") ? "wybrano" : "wybierz model";
+    if (step.id === "version") {
+      if (!selectedCount("#models")) return "najpierw model";
+      return selectedCount("#versions") ? "wybrano" : "wybierz wersję";
+    }
+    if (step.id === "powertrain") {
+      return selectedCount("#powertrains") || document.querySelector("#transmissions")?.value
+        ? "wybrano" : "wybierz napęd";
+    }
+    if (step.scope === "exact_observation") {
+      const control = document.querySelector(step.target);
+      if (!control) return "brak potwierdzonego wyboru";
+      return control.selectedOptions?.length
+        ? "wybrano z dokładnego zapisu" : "tylko dokładne obserwacje";
+    }
+    if (step.id === "commercial") {
+      const offerCards = document.querySelectorAll(".result-card .commercial-offers").length;
+      return offerCards ? `oferty na ${offerCards} kartach` : "po dopasowaniu konfiguracji";
+    }
+    if (step.id === "summary") {
+      const matched = document.querySelector("#matched-count")?.textContent?.trim();
+      return matched ? `${matched} wyników` : "wyniki";
+    }
+    return "";
+  };
+
+  const focusTarget = (target) => {
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    const focusable = target.matches("button,input,select,a[href],summary")
+      ? target
+      : target.querySelector("button:not([disabled]),input:not([disabled]),select:not([disabled]),a[href],summary");
+    if (focusable) focusable.focus({ preventScroll: true });
+  };
+
+  const initialize = () => {
+    const filters = document.querySelector("#filters");
+    if (!filters || document.querySelector("#configurator-step-navigation")) return;
+    const shell = document.createElement("section");
+    shell.id = "configurator-step-navigation";
+    shell.className = "configurator-step-shell";
+    shell.dataset.configuratorStepNavigation = MARKER;
+    shell.setAttribute("aria-labelledby", "configurator-step-heading");
+    shell.innerHTML = `<div class="configurator-step-heading-row">
+      <div>
+        <p class="eyebrow">Konfigurator krok po kroku</p>
+        <h2 id="configurator-step-heading">Zbuduj konfigurację</h2>
+      </div>
+      <p class="configurator-step-scope-note">Kroki wyglądu korzystają wyłącznie z dokładnych zapisów producenta, dopóki repozytorium nie posiada potwierdzonej listy wyboru dla bieżącej konfiguracji.</p>
+    </div>
+    <nav aria-label="Kroki konfiguratora">
+      <ol class="configurator-step-list">${STEPS.map((step, index) => `<li>
+        <button type="button" class="configurator-step" data-configurator-step="${step.id}" data-evidence-scope="${step.scope}">
+          <span class="configurator-step-number">${index + 1}</span>
+          <span class="configurator-step-copy"><strong>${step.label}</strong><small data-configurator-step-status></small></span>
+        </button>
+      </li>`).join("")}</ol>
+    </nav>`;
+    filters.parentNode.insertBefore(shell, filters);
+
+    let currentStep = "model";
+    const buttons = new Map([...shell.querySelectorAll("[data-configurator-step]")]
+      .map((button) => [button.dataset.configuratorStep, button]));
+
+    const setCurrent = (stepId) => {
+      currentStep = stepId;
+      for (const [id, button] of buttons) {
+        if (id === stepId) button.setAttribute("aria-current", "step");
+        else button.removeAttribute("aria-current");
+      }
+    };
+
+    const refresh = () => {
+      for (const step of STEPS) {
+        const button = buttons.get(step.id);
+        if (!button) continue;
+        const available = stepAvailability(step);
+        button.disabled = !available;
+        button.classList.toggle("is-evidence-only", step.scope === "exact_observation");
+        const status = button.querySelector("[data-configurator-step-status]");
+        if (status) status.textContent = stepStatus(step);
+      }
+      setCurrent(currentStep);
+    };
+
+    shell.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-configurator-step]");
+      if (!button || button.disabled) return;
+      const step = STEPS.find((item) => item.id === button.dataset.configuratorStep);
+      if (!step) return;
+      setCurrent(step.id);
+      focusTarget(document.querySelector(step.target));
+    });
+
+    document.addEventListener("change", (event) => {
+      if (event.target.closest("#filters")) refresh();
+    });
+    document.querySelector("#reset")?.addEventListener("click", () => setTimeout(refresh, 0));
+    document.querySelector("#results")?.addEventListener("dkb:results-rendered", refresh);
+    refresh();
+  };
+
+  const api = { MARKER, STEPS, stepAvailability, stepStatus };
+  if (typeof globalThis !== "undefined") globalThis.DkbConfiguratorSteps = api;
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
+    else initialize();
+  }
+})();
