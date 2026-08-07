@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Essential Grade Design Completion 001** — `complete`
+**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `complete`
 
-Capture the complete current Bigster Essential grade-level Design list of three colours, one wheel and one upholstery across the two engines explicitly visible on the same official grade page, while retaining individual Design prices as unknown at grade scope and never projecting exact LPG-state prices to mild hybrid 140.
+Review the five logical packages since milestone review PR #593, reconcile New Spring source boundaries and configurator UI readiness progress, record the concurrent commercial-choice PR without mixing it into the interval, and select the next bounded package without lowering evidence standards.
 
 ## Next package
 
-**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `planned`
+**New Spring Current Shop Retry Cycle 002** — `planned`
 
-Review the five logical packages since milestone review PR #593: New Spring confirmed-card price capture, configurator UI exact appearance readiness, grade appearance coverage, Jogger seven-seat exact appearance capture and Bigster Essential grade Design completion; reconcile evidence boundaries, UI readiness progress and the still-gated New Spring retry before selecting the next package.
+Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
 
 ## Autonomy
 
