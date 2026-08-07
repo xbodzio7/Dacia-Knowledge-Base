@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.18.0 Residual Gap Closure Milestone Review 001** — `complete`
+**New Spring Confirmed Card Price Capture 001** — `complete`
 
-Review the five-package closure interval ending with the New Spring retry-cycle summary, confirm the remaining 28-item unresolved queue, identify safe workflow acceleration and select the next source-backed bounded package without reopening closed PDF decisions or repeating same-day shop checks.
+Revisit all 16 already-confirmed official Polish Dacia Shop cards that lacked a captured current catalogue price as one homogeneous package, capture two exact matching catalogue prices, retain 14 price-not-captured states, avoid retrying the separate 28 unresolved cards and leave master data unchanged.
 
 ## Next package
 
-**New Spring Confirmed Card Price Capture 001** — `planned`
+**New Spring Current Shop Retry Cycle 002** — `planned`
 
-Revisit the 16 already-confirmed official Polish Dacia Shop cards that still lack a captured current catalogue price, process the complete homogeneous set in one logical package with internal chunks, record exact price outcomes without retrying the 28 unresolved cards, and leave master data unchanged.
+Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
 
 ## Autonomy
 
