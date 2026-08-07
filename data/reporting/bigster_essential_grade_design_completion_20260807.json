@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "kind": "bigster_essential_grade_design_completion",
+  "captured_on": "2026-08-07",
+  "market": "PL",
+  "source": {
+    "publisher": "Dacia Polska",
+    "url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/wersje-i-ceny.html?gradeCode=ENS_MDL2P1SERIELIM1",
+    "model_id": "bigster",
+    "grade": "essential",
+    "grade_code": "ENS_MDL2P1SERIELIM1"
+  },
+  "grade_scope": {
+    "engines_visible_on_same_grade_page": [
+      {
+        "powertrain": "mild hybrid-G 140",
+        "fuel": "benzyna + LPG",
+        "transmission": "manualna 6 biegów"
+      },
+      {
+        "powertrain": "mild hybrid 140",
+        "fuel": "benzyna mild hybrid",
+        "transmission": "manualna 6 biegów"
+      }
+    ],
+    "design_panel_status": "complete_visible_current_grade_design"
+  },
+  "design": {
+    "colours": [
+      "biel alpejska",
+      "szary schiste",
+      "czarna perła"
+    ],
+    "wheels": [
+      "aluminiowe obręcze kół 17\" 215 TERGAN"
+    ],
+    "upholsteries": [
+      "tapicerka materiałowa essential"
+    ],
+    "individual_prices_at_grade_scope": "not_exposed"
+  },
+  "exact_default_overlay": {
+    "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+    "source": "current exact Bigster configurator",
+    "prices": {
+      "biel alpejska": 0,
+      "szary schiste": 3000,
+      "czarna perła": 3000,
+      "aluminiowe obręcze kół 17\" 215 TERGAN": 0,
+      "tapicerka materiałowa essential": 0
+    },
+    "scope": "exact mild hybrid-G 140 state only"
+  },
+  "coverage": {
+    "current_grade_surfaces": 21,
+    "complete_visible_grade_design_surfaces_before": 2,
+    "complete_visible_grade_design_surfaces_after": 3,
+    "remaining_grade_surfaces_without_complete_visible_grade_design": 18,
+    "complete_grade_design_surfaces": [
+      "sandero_journey",
+      "bigster_expression",
+      "bigster_essential"
+    ]
+  },
+  "ui_contract": {
+    "grade_selector": "The three colours, one wheel and one upholstery may be displayed as the complete current Bigster Essential grade design list.",
+    "pricing": "Do not project exact mild hybrid-G 140 colour prices to mild hybrid 140. At grade scope the individual prices remain unknown.",
+    "exact_configuration": "When the exact bigster_essential_mildhybridg140_4x2_manual state is selected, the separately captured exact prices may be overlaid.",
+    "absence": "No unavailable state is inferred beyond the complete visible grade design list itself."
+  },
+  "master_data_mutated": false
+}
