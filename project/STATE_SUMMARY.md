@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-08-07
+- State updated: 2026-08-08
 
 ## Phase
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Commercial Selection State 001** — `complete`
+**Configurator Commercial Selection Bundle Metadata Repair 001** — `complete`
 
-Persist normalized configuration-scoped package and option selections for the browser session, restore them through existing UI events, clear the complete canonical state on Resetuj and keep JSON export sourced from the same canonical selection state.
+Restore traceability after PR #609 by adding the missing direct parser regression, correcting the historical package record to the actual PR diff and synchronizing canonical project state without changing production logic or master data.
 
 ## Next package
 

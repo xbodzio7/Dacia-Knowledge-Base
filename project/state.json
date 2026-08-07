@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-08-07",
+  "updated_on": "2026-08-08",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_commercial_selection_state_001",
-    "kind": "interface_increment",
-    "name": "Configurator Commercial Selection State 001",
+    "package_id": "configurator_commercial_selection_bundle_metadata_repair_001",
+    "kind": "repository_consistency_repair",
+    "name": "Configurator Commercial Selection Bundle Metadata Repair 001",
     "status": "complete",
-    "goal": "Persist normalized configuration-scoped package and option selections for the browser session, restore them through existing UI events, clear the complete canonical state on Resetuj and keep JSON export sourced from the same canonical selection state.",
+    "goal": "Restore traceability after PR #609 by adding the missing direct parser regression, correcting the historical package record to the actual PR diff and synchronizing canonical project state without changing production logic or master data.",
     "manifest_paths": [
-      "tools/reporting/configuration_shortlist_selection.js",
-      "tests/test_configuration_selection_export.py",
-      "project/packages/configurator-commercial-selection-state-001-20260807.md",
+      "tests/test_configuration_comparison_bundle.py",
+      "project/packages/configurator-commercial-selection-bundle-metadata-001-20260807.md",
+      "project/packages/configurator-commercial-selection-bundle-metadata-repair-001-20260808.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

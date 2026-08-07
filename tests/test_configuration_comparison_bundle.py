@@ -92,7 +92,8 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
 
     def test_selection_combines_direct_and_shortlist_codes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            shortlist = Path(directory) / "shortlist.json"
+            root = Path(directory)
+            shortlist = root / "shortlist.json"
             self.write_shortlist(
                 shortlist,
                 (SANDERO_AUTOMATIC[0], SANDERO_AUTOMATIC[1]),
@@ -105,6 +106,62 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
                 ),
                 (shortlist,),
             )
+            commercial_selection = {
+                "selected_item_codes": ["nav_package"],
+                "items": [{"code": "nav_package"}],
+                "price_preview": {
+                    "compatibility_inference_performed": False,
+                },
+            }
+            commercial_shortlist = root / "commercial-shortlist.json"
+            commercial_shortlist.write_text(
+                json.dumps(
+                    {
+                        "version": 1,
+                        "as_of": "2026-08-07",
+                        "results": [
+                            {
+                                "configuration_code": SANDERO_AUTOMATIC[0],
+                                "commercial_selection": commercial_selection,
+                            }
+                        ],
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            commercial_selected, commercial_sources = collect_selection(
+                (),
+                (commercial_shortlist,),
+            )
+            unsafe_shortlist = root / "unsafe-commercial-shortlist.json"
+            unsafe_selection = json.loads(json.dumps(commercial_selection))
+            unsafe_selection["price_preview"][
+                "compatibility_inference_performed"
+            ] = True
+            unsafe_shortlist.write_text(
+                json.dumps(
+                    {
+                        "results": [
+                            {
+                                "configuration_code": SANDERO_AUTOMATIC[0],
+                                "commercial_selection": unsafe_selection,
+                            }
+                        ]
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                BundleError,
+                "compatibility_inference_performed=false",
+            ):
+                collect_selection((), (unsafe_shortlist,))
         self.assertEqual(
             selected,
             tuple(
@@ -121,6 +178,22 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
         self.assertEqual(
             sources["shortlist_reports"][0]["as_of"],
             "2026-06-26",
+        )
+        self.assertEqual(
+            commercial_selected,
+            (SANDERO_AUTOMATIC[0],),
+        )
+        commercial_source = commercial_sources["shortlist_reports"][0]
+        self.assertEqual(commercial_source["commercial_configuration_count"], 1)
+        self.assertEqual(commercial_source["commercial_selected_item_count"], 1)
+        self.assertEqual(
+            commercial_source["commercial_selections"],
+            [
+                {
+                    "configuration_code": SANDERO_AUTOMATIC[0],
+                    "commercial_selection": commercial_selection,
+                }
+            ],
         )
 
     def test_sandero_manual_subset_filters_extra_evidence(self) -> None:
