@@ -27,25 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "new_spring_current_shop_retry_cycle_002",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Current Shop Retry Cycle 002",
+    "package_id": "post_v1_18_configurator_and_shop_milestone_review_003",
+    "kind": "milestone_review",
+    "name": "Post-v1.18.0 Configurator and Shop Milestone Review 003",
     "status": "complete",
-    "goal": "Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.",
+    "goal": "Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.",
     "manifest_paths": [
-      "data/reporting/official_new_spring_accessory_current_shop_retry_cycle_002_20260808.json",
-      "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260808.csv",
-      "project/packages/new-spring-current-shop-retry-cycle-002-20260808.md",
+      "project/reviews/post-v1.18.0-configurator-and-shop-milestone-review-003-20260808.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "post_v1_18_configurator_and_shop_milestone_review_003",
-    "kind": "milestone_review",
-    "name": "Post-v1.18.0 Configurator and Shop Milestone Review 003",
+    "package_id": "data_products_v1_19_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.19.0 Release Preparation",
     "status": "planned",
-    "goal": "Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.",
+    "goal": "Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.",
     "manifest_paths": []
   },
   "autonomy": {
