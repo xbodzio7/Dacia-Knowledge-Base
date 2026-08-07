@@ -36,9 +36,9 @@
 
 ## Current package
 
-**New Spring Confirmed Card Price Capture 001** — `complete`
+**Configurator UI Appearance Data 001** — `complete`
 
-Revisit all 16 already-confirmed official Polish Dacia Shop cards that lacked a captured current catalogue price as one homogeneous package, capture two exact matching catalogue prices, retain 14 price-not-captured states, avoid retrying the separate 28 unresolved cards and leave master data unchanged.
+Create one source-bounded UI-facing appearance catalogue from existing exact saved-configuration observations plus current official Dacia default configurator and grade-page evidence, adding complete colour, wheel and upholstery choices for the six current default model surfaces without projecting choices across unproven configurations.
 
 ## Next package
 
