@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "new_spring_confirmed_card_price_capture_001",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Confirmed Card Price Capture 001",
+    "package_id": "configurator_ui_appearance_data_001",
+    "kind": "reporting_data_integration",
+    "name": "Configurator UI Appearance Data 001",
     "status": "complete",
-    "goal": "Revisit all 16 already-confirmed official Polish Dacia Shop cards that lacked a captured current catalogue price as one homogeneous package, capture two exact matching catalogue prices, retain 14 price-not-captured states, avoid retrying the separate 28 unresolved cards and leave master data unchanged.",
+    "goal": "Create one source-bounded UI-facing appearance catalogue from existing exact saved-configuration observations plus current official Dacia default configurator and grade-page evidence, adding complete colour, wheel and upholstery choices for the six current default model surfaces without projecting choices across unproven configurations.",
     "manifest_paths": [
-      "data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.json",
-      "data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.csv",
-      "project/packages/new-spring-confirmed-card-price-capture-001-20260807.md",
+      "data/reporting/configurator_ui_appearance_catalog_20260807.json",
+      "data/reporting/configurator_ui_current_exact_choices_20260807.csv",
+      "project/packages/configurator-ui-appearance-data-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
