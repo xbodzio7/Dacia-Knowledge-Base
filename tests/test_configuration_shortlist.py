@@ -238,6 +238,10 @@ class ConfigurationShortlistTests(unittest.TestCase):
             "Nie jest to katalog innych dostępnych wyborów",
             "Filtry wyposażenia służą do zawężania shortlisty",
             "configuratorSummaryMarkup",
+            "configurator_navigation_state_integration_v1",
+            "najpierw 1 wariant",
+            "#configurator-summary-panel, #results-heading",
+            ".commercial-choice-panel, .commercial-offers",
         ):
             self.assertIn(marker, pricing_text)
         if shutil.which("node"):
@@ -273,6 +277,34 @@ process.stdout.write(api.configuratorSummaryMarkup(configuration, observation, [
             self.assertIn("Opcja 1", completed.stdout)
             self.assertIn("Zielony", completed.stdout)
             self.assertIn("nie potwierdza ich wzajemnej kompatybilności", completed.stdout)
+
+            navigation_program = r'''
+require(process.argv[1]);
+const api = globalThis.DkbConfiguratorNavigationState;
+process.stdout.write(JSON.stringify({
+  summary0: api.summaryStatus(0),
+  summary1: api.summaryStatus(1),
+  summary3: api.summaryStatus(3),
+  commercialSelected: api.commercialStatus(2, 3, 1),
+  commercialChoices: api.commercialStatus(0, 3, 1),
+  commercialMany: api.commercialStatus(0, 6, 3),
+  commercialNone: api.commercialStatus(0, 0, 1)
+}));
+'''
+            navigation = subprocess.run(
+                ["node", "-e", navigation_program, str(pricing_script)],
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            states = json.loads(navigation.stdout)
+            self.assertEqual(states["summary0"], "brak wyników")
+            self.assertEqual(states["summary1"], "gotowe")
+            self.assertEqual(states["summary3"], "zawęź: 3 wariantów")
+            self.assertEqual(states["commercialSelected"], "wybrano: 2")
+            self.assertEqual(states["commercialChoices"], "oferty: 3")
+            self.assertEqual(states["commercialMany"], "najpierw 1 wariant")
+            self.assertEqual(states["commercialNone"], "brak potwierdzonych ofert")
 
     def test_metadata_powertrain_and_price_filters_compose(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
