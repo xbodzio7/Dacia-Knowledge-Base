@@ -27,27 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_essential_7seat_exact_appearance_capture_001",
+    "package_id": "bigster_essential_grade_design_completion_001",
     "kind": "reporting_data_integration",
-    "name": "Jogger Essential 7-seat Exact Appearance Capture 001",
+    "name": "Bigster Essential Grade Design Completion 001",
     "status": "complete",
-    "goal": "Capture the complete current colour, wheel and upholstery choice lists for the exact official JOGGER essential Eco-G 120 7-seat manual configurator state, increasing strict CAT-GAP-002 exact appearance coverage from 6 to 7 active surfaces without projecting from the five-seat configuration or mutating master data.",
+    "goal": "Capture the complete current Bigster Essential grade-level Design list of three colours, one wheel and one upholstery across the two engines explicitly visible on the same official grade page, while retaining individual Design prices as unknown at grade scope and never projecting exact LPG-state prices to mild hybrid 140.",
     "manifest_paths": [
-      "data/reporting/jogger_essential_7seat_exact_appearance_capture_20260807.json",
-      "data/reporting/configurator_ui_exact_appearance_progress_overlay_v2_20260807.json",
-      "project/packages/jogger-essential-7seat-exact-appearance-capture-001-20260807.md",
+      "data/reporting/bigster_essential_grade_design_completion_20260807.json",
+      "project/packages/bigster-essential-grade-design-completion-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "new_spring_current_shop_retry_cycle_002",
-    "kind": "source_status_reconciliation",
-    "name": "New Spring Current Shop Retry Cycle 002",
+    "package_id": "post_v1_18_ui_readiness_interval_milestone_review_002",
+    "kind": "milestone_review",
+    "name": "Post-v1.18.0 UI Readiness Interval Milestone Review 002",
     "status": "planned",
-    "goal": "Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.",
-    "manifest_paths": [],
-    "eligible_on_or_after": "2026-08-08"
+    "goal": "Review the five logical packages since milestone review PR #593: New Spring confirmed-card price capture, configurator UI exact appearance readiness, grade appearance coverage, Jogger seven-seat exact appearance capture and Bigster Essential grade Design completion; reconcile evidence boundaries, UI readiness progress and the still-gated New Spring retry before selecting the next package.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

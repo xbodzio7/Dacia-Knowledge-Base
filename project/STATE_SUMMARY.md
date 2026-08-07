@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Essential 7-seat Exact Appearance Capture 001** — `complete`
+**Bigster Essential Grade Design Completion 001** — `complete`
 
-Capture the complete current colour, wheel and upholstery choice lists for the exact official JOGGER essential Eco-G 120 7-seat manual configurator state, increasing strict CAT-GAP-002 exact appearance coverage from 6 to 7 active surfaces without projecting from the five-seat configuration or mutating master data.
+Capture the complete current Bigster Essential grade-level Design list of three colours, one wheel and one upholstery across the two engines explicitly visible on the same official grade page, while retaining individual Design prices as unknown at grade scope and never projecting exact LPG-state prices to mild hybrid 140.
 
 ## Next package
 
-**New Spring Current Shop Retry Cycle 002** — `planned`
+**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `planned`
 
-Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
+Review the five logical packages since milestone review PR #593: New Spring confirmed-card price capture, configurator UI exact appearance readiness, grade appearance coverage, Jogger seven-seat exact appearance capture and Bigster Essential grade Design completion; reconcile evidence boundaries, UI readiness progress and the still-gated New Spring retry before selecting the next package.
 
 ## Autonomy
 
