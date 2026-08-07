@@ -27,15 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_summary_step_001",
+    "package_id": "configurator_navigation_state_001",
     "kind": "interface_increment",
-    "name": "Configurator Summary Step 001",
+    "name": "Configurator Navigation State Integration 001",
     "status": "complete",
-    "goal": "Turn the final configurator step into a deterministic source-bounded summary that renders only for one exact visible configuration, preserves exact-observation appearance semantics and prices only explicitly selected mapped commercial items without compatibility inference.",
+    "goal": "Connect configurator steps 7 and 8 to the live commercial selector and deterministic summary states, route them to their exact UI targets and avoid arbitrary result selection while preserving all existing evidence boundaries.",
     "manifest_paths": [
       "tools/reporting/configuration_shortlist_v12_pricing.js",
       "tests/test_configuration_shortlist.py",
-      "project/packages/configurator-summary-step-001-20260807.md",
+      "project/packages/configurator-navigation-state-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Summary Step 001** — `complete`
+**Configurator Navigation State Integration 001** — `complete`
 
-Turn the final configurator step into a deterministic source-bounded summary that renders only for one exact visible configuration, preserves exact-observation appearance semantics and prices only explicitly selected mapped commercial items without compatibility inference.
+Connect configurator steps 7 and 8 to the live commercial selector and deterministic summary states, route them to their exact UI targets and avoid arbitrary result selection while preserving all existing evidence boundaries.
 
 ## Next package
 

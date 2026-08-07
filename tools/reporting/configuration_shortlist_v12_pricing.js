@@ -545,3 +545,118 @@
     configuratorSummaryMarkup, installConfiguratorSummary
   };
 });
+
+(function (root) {
+  "use strict";
+  const MARKER = "configurator_navigation_state_integration_v1";
+
+  function summaryStatus(matchCount) {
+    const count = Math.max(0, Number(matchCount) || 0);
+    if (count === 1) return "gotowe";
+    if (count > 1) return `zawęź: ${count} wariantów`;
+    return "brak wyników";
+  }
+
+  function commercialStatus(selectedCount, choiceCount, matchCount) {
+    const selected = Math.max(0, Number(selectedCount) || 0);
+    const choices = Math.max(0, Number(choiceCount) || 0);
+    const matches = Math.max(0, Number(matchCount) || 0);
+    if (selected) return `wybrano: ${selected}`;
+    if (matches > 1) return "najpierw 1 wariant";
+    if (matches === 0) return "brak wyniku";
+    if (choices) return `oferty: ${choices}`;
+    return "brak potwierdzonych ofert";
+  }
+
+  function markCurrent(shell, stepId) {
+    for (const button of shell.querySelectorAll("[data-configurator-step]")) {
+      if (button.dataset.configuratorStep === stepId) button.setAttribute("aria-current", "step");
+      else button.removeAttribute("aria-current");
+    }
+  }
+
+  function focusTarget(target) {
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    const focusable = target.matches("button,input,select,a[href],summary")
+      ? target
+      : target.querySelector("button:not([disabled]),input:not([disabled]),select:not([disabled]),a[href],summary");
+    if (focusable) focusable.focus({ preventScroll: true });
+  }
+
+  function flowTarget(stepId, results) {
+    if (stepId === "summary") {
+      return document.querySelector("#configurator-summary-panel, #results-heading");
+    }
+    if (stepId === "commercial") {
+      const cards = [...results.querySelectorAll(".result-card")];
+      if (cards.length === 1) {
+        return cards[0].querySelector(".commercial-choice-panel, .commercial-offers") || cards[0];
+      }
+      return results;
+    }
+    return null;
+  }
+
+  function install() {
+    let attempts = 0;
+    const bind = () => {
+      const shell = document.querySelector(".configurator-step-shell");
+      const results = document.querySelector("#results");
+      if (!shell || !results) {
+        attempts += 1;
+        if (attempts < 8) setTimeout(bind, 0);
+        return;
+      }
+      if (shell.dataset.navigationStateIntegrated === "true") return;
+      shell.dataset.navigationStateIntegrated = "true";
+
+      const statusElement = (stepId) => shell.querySelector(
+        `[data-configurator-step="${stepId}"] [data-configurator-step-status]`
+      );
+      let scheduled = false;
+      const refresh = () => {
+        if (scheduled) return;
+        scheduled = true;
+        setTimeout(() => {
+          scheduled = false;
+          const matches = results.querySelectorAll(".result-card").length;
+          const choices = results.querySelectorAll(
+            ".commercial-choice-panel [data-commercial-choice]"
+          ).length;
+          const selected = results.querySelectorAll(
+            ".commercial-choice-panel [data-commercial-choice]:checked"
+          ).length;
+          const commercial = statusElement("commercial");
+          const summary = statusElement("summary");
+          if (commercial) commercial.textContent = commercialStatus(selected, choices, matches);
+          if (summary) summary.textContent = summaryStatus(matches);
+        }, 0);
+      };
+
+      shell.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-configurator-step]");
+        if (!button || button.disabled) return;
+        const stepId = button.dataset.configuratorStep;
+        if (stepId !== "commercial" && stepId !== "summary") return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        markCurrent(shell, stepId);
+        focusTarget(flowTarget(stepId, results));
+      }, true);
+      results.addEventListener("dkb:results-rendered", refresh);
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-commercial-choice]")) refresh();
+      });
+      refresh();
+    };
+    setTimeout(bind, 0);
+  }
+
+  const api = { MARKER, summaryStatus, commercialStatus, install };
+  root.DkbConfiguratorNavigationState = api;
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", install);
+    else install();
+  }
+})(typeof globalThis !== "undefined" ? globalThis : this);
