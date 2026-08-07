@@ -27,14 +27,16 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_ui_commercial_choice_readiness_001",
-    "kind": "reporting_data_integration",
-    "name": "Configurator UI Commercial Choice Readiness 001",
+    "package_id": "configurator_step_navigation_001",
+    "kind": "interface_increment",
+    "name": "Configurator Step Navigation 001",
     "status": "complete",
-    "goal": "Define a source-bounded UI contract for all existing non-appearance commercial options and packages, separating selector offers from exact selected-state observations, exposing exact mapped prices and contents, and explicitly preventing unsupported inference of multi-option compatibility.",
+    "goal": "Add a source-bounded eight-step configurator navigation skeleton to the existing offline shortlist, connecting existing catalogue controls and exact configurator observations without replacing the current filtering, comparison or evidence contracts.",
     "manifest_paths": [
-      "data/reporting/configurator_ui_commercial_choice_readiness_20260807.json",
-      "project/packages/configurator-ui-commercial-choice-readiness-001-20260807.md",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "tests/test_configuration_selection_export.py",
+      "project/packages/configurator-step-navigation-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

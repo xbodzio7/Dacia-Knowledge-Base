@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator UI Commercial Choice Readiness 001** — `complete`
+**Configurator Step Navigation 001** — `complete`
 
-Define a source-bounded UI contract for all existing non-appearance commercial options and packages, separating selector offers from exact selected-state observations, exposing exact mapped prices and contents, and explicitly preventing unsupported inference of multi-option compatibility.
+Add a source-bounded eight-step configurator navigation skeleton to the existing offline shortlist, connecting existing catalogue controls and exact configurator observations without replacing the current filtering, comparison or evidence contracts.
 
 ## Next package
 

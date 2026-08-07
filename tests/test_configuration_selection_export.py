@@ -404,6 +404,114 @@ process.stdout.write(JSON.stringify(output));
         self.assertNotIn("configuration_shortlist_v11", rendered)
         self.assertNotIn("http://", rendered)
         self.assertIn("https://www.dacia.pl/media/model-a.png", rendered)
+
+        empty_rendered = render_html(
+            {
+                "as_of": "2026-08-07",
+                "facets": {},
+                "configurations": [],
+            }
+        )
+        self.assertIn("configurator_step_navigation_v1", empty_rendered)
+        self.assertIn("configurator-step-shell", empty_rendered)
+        self.assertIn("Konfigurator krok po kroku", empty_rendered)
+        self.assertIn(
+            "Kroki wyglądu korzystają wyłącznie z dokładnych zapisów producenta",
+            empty_rendered,
+        )
+        self.assertNotIn('<script src=', empty_rendered)
+
+        step_script = (
+            REPOSITORY
+            / "tools"
+            / "reporting"
+            / "configuration_shortlist_equipment_groups.js"
+        ).read_text(encoding="utf-8")
+        for step_id, label in (
+            ("model", "Model"),
+            ("version", "Wersja"),
+            ("powertrain", "Silnik i skrzynia"),
+            ("colour", "Kolor"),
+            ("wheels", "Koła"),
+            ("upholstery", "Tapicerka"),
+            ("commercial", "Pakiety i opcje"),
+            ("summary", "Podsumowanie"),
+        ):
+            self.assertIn(f'id: "{step_id}"', step_script)
+            self.assertIn(f'label: "{label}"', step_script)
+        self.assertEqual(step_script.count('scope: "exact_observation"'), 3)
+        self.assertIn("brak potwierdzonego wyboru", step_script)
+        self.assertIn("tylko dokładne obserwacje", step_script)
+        self.assertNotIn("exact_current_choice_list", step_script)
+
+        step_style = (
+            REPOSITORY
+            / "tools"
+            / "reporting"
+            / "configuration_shortlist_equipment_groups.css"
+        ).read_text(encoding="utf-8")
+        self.assertIn(".configurator-step-shell", step_style)
+        self.assertIn(".configurator-step-list", step_style)
+        self.assertIn('.configurator-step[aria-current="step"]', step_style)
+        self.assertIn("@media(max-width:1200px)", step_style)
+        self.assertIn("@media(max-width:760px)", step_style)
+
+        step_program = r"""
+require(process.argv[1]);
+const api = globalThis.DkbConfiguratorSteps;
+process.stdout.write(JSON.stringify({
+  marker: api.MARKER,
+  ids: api.STEPS.map((step) => step.id),
+  scopes: api.STEPS.map((step) => step.scope)
+}));
+"""
+        completed = subprocess.run(
+            [
+                "node",
+                "-e",
+                step_program,
+                str(
+                    REPOSITORY
+                    / "tools"
+                    / "reporting"
+                    / "configuration_shortlist_equipment_groups.js"
+                ),
+            ],
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        step_result = json.loads(completed.stdout)
+        self.assertEqual(
+            step_result["marker"],
+            "configurator_step_navigation_v1",
+        )
+        self.assertEqual(
+            step_result["ids"],
+            [
+                "model",
+                "version",
+                "powertrain",
+                "colour",
+                "wheels",
+                "upholstery",
+                "commercial",
+                "summary",
+            ],
+        )
+        self.assertEqual(
+            step_result["scopes"].count("exact_observation"),
+            3,
+        )
+        self.assertEqual(
+            step_result["scopes"][0:3],
+            ["catalog_choice"] * 3,
+        )
+        self.assertEqual(
+            step_result["scopes"][-2:],
+            ["contextual_offer", "summary"],
+        )
+
         self.assertEqual(rendered, render_html(catalog))
 
 
