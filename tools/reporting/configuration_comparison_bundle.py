@@ -177,6 +177,57 @@ def discover_scopes(repository: Path) -> tuple[ScopeDefinition, ...]:
     return tuple(definitions)
 
 
+def _shortlist_commercial_selection(
+    item: Mapping[str, Any],
+    path: Path,
+    index: int,
+) -> dict[str, Any] | None:
+    raw = item.get("commercial_selection")
+    if raw is None:
+        return None
+    if not isinstance(raw, dict):
+        raise BundleError(
+            "shortlist commercial_selection must be an object at index "
+            f"{index}: {path}"
+        )
+    selected_codes = raw.get("selected_item_codes")
+    if (
+        not isinstance(selected_codes, list)
+        or not selected_codes
+        or not all(isinstance(code, str) and code for code in selected_codes)
+        or len(selected_codes) != len(set(selected_codes))
+    ):
+        raise BundleError(
+            "shortlist commercial_selection selected_item_codes must be a "
+            f"non-empty unique string list at index {index}: {path}"
+        )
+    items = raw.get("items")
+    if not isinstance(items, list) or not all(isinstance(entry, dict) for entry in items):
+        raise BundleError(
+            "shortlist commercial_selection items must be an object list at "
+            f"index {index}: {path}"
+        )
+    item_codes = [entry.get("code") for entry in items]
+    if item_codes != selected_codes:
+        raise BundleError(
+            "shortlist commercial_selection items do not match "
+            f"selected_item_codes at index {index}: {path}"
+        )
+    preview = raw.get("price_preview")
+    if not isinstance(preview, dict):
+        raise BundleError(
+            "shortlist commercial_selection price_preview must be an object "
+            f"at index {index}: {path}"
+        )
+    if preview.get("compatibility_inference_performed") is not False:
+        raise BundleError(
+            "shortlist commercial_selection must preserve "
+            "compatibility_inference_performed=false at index "
+            f"{index}: {path}"
+        )
+    return json.loads(json.dumps(raw))
+
+
 def _shortlist_codes(path: Path) -> tuple[list[str], dict[str, Any]]:
     value = _read_json(path, "shortlist report")
     results = value.get("results")
@@ -185,6 +236,7 @@ def _shortlist_codes(path: Path) -> tuple[list[str], dict[str, Any]]:
             f"shortlist report results must be a list: {path}"
         )
     codes: list[str] = []
+    commercial_selections: list[dict[str, Any]] = []
     for index, item in enumerate(results):
         if not isinstance(item, dict):
             raise BundleError(
@@ -197,10 +249,28 @@ def _shortlist_codes(path: Path) -> tuple[list[str], dict[str, Any]]:
                 f"{index}: {path}"
             )
         codes.append(code)
+        commercial_selection = _shortlist_commercial_selection(
+            item,
+            path,
+            index,
+        )
+        if commercial_selection is not None:
+            commercial_selections.append(
+                {
+                    "configuration_code": code,
+                    "commercial_selection": commercial_selection,
+                }
+            )
     source = {
         "path": str(path),
         "as_of": value.get("as_of"),
         "configuration_count": len(codes),
+        "commercial_configuration_count": len(commercial_selections),
+        "commercial_selected_item_count": sum(
+            len(entry["commercial_selection"]["selected_item_codes"])
+            for entry in commercial_selections
+        ),
+        "commercial_selections": commercial_selections,
     }
     return codes, source
 
