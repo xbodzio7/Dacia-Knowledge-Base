@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator UI Grade Appearance Coverage 001** — `complete`
+**Jogger Essential 7-seat Exact Appearance Capture 001** — `complete`
 
-Consolidate source-bounded appearance evidence for all 21 current Dacia grade surfaces, attaching one representative exact selected appearance to every grade and current grade-page appearance facts where explicit, while keeping complete alternative-choice semantics limited to the six exact default states and two independently complete grade-design surfaces.
+Capture the complete current colour, wheel and upholstery choice lists for the exact official JOGGER essential Eco-G 120 7-seat manual configurator state, increasing strict CAT-GAP-002 exact appearance coverage from 6 to 7 active surfaces without projecting from the five-seat configuration or mutating master data.
 
 ## Next package
 

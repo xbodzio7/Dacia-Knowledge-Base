@@ -27,14 +27,15 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_ui_grade_appearance_coverage_001",
+    "package_id": "jogger_essential_7seat_exact_appearance_capture_001",
     "kind": "reporting_data_integration",
-    "name": "Configurator UI Grade Appearance Coverage 001",
+    "name": "Jogger Essential 7-seat Exact Appearance Capture 001",
     "status": "complete",
-    "goal": "Consolidate source-bounded appearance evidence for all 21 current Dacia grade surfaces, attaching one representative exact selected appearance to every grade and current grade-page appearance facts where explicit, while keeping complete alternative-choice semantics limited to the six exact default states and two independently complete grade-design surfaces.",
+    "goal": "Capture the complete current colour, wheel and upholstery choice lists for the exact official JOGGER essential Eco-G 120 7-seat manual configurator state, increasing strict CAT-GAP-002 exact appearance coverage from 6 to 7 active surfaces without projecting from the five-seat configuration or mutating master data.",
     "manifest_paths": [
-      "data/reporting/configurator_ui_grade_appearance_coverage_20260807.json",
-      "project/packages/configurator-ui-grade-appearance-coverage-001-20260807.md",
+      "data/reporting/jogger_essential_7seat_exact_appearance_capture_20260807.json",
+      "data/reporting/configurator_ui_exact_appearance_progress_overlay_v2_20260807.json",
+      "project/packages/jogger-essential-7seat-exact-appearance-capture-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

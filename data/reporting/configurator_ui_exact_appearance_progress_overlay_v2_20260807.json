@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "kind": "configurator_ui_exact_appearance_progress_overlay_v2",
+  "captured_on": "2026-08-07",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "gap_status": "open",
+  "source_commit": "1253aab742cac446f5779fefd4ba43965cbf5343",
+  "progress": {
+    "portfolio_active_surfaces": 81,
+    "portfolio_complete_exact_choice_list_surfaces_before": 6,
+    "portfolio_complete_exact_choice_list_surfaces_after": 7,
+    "portfolio_remaining_surfaces": 74,
+    "newly_completed_surface": "jogger_essential_7seat_ecog120_manual"
+  },
+  "completed_exact_surfaces": [
+    "sandero_iii_essential_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "duster_iii_essential_ecog120_4x2_manual",
+    "jogger_essential_5seat_ecog120_manual",
+    "jogger_essential_7seat_ecog120_manual",
+    "bigster_essential_mildhybridg140_4x2_manual",
+    "spring_essential_electric70_automatic"
+  ],
+  "new_evidence": {
+    "source_url": "https://www.dacia.pl/samochody/jogger-7/konfigurator.html",
+    "exact_state": "JOGGER essential Eco-G 120 7-miejsc",
+    "colour_choices": 3,
+    "wheel_choices": 1,
+    "upholstery_choices": 1,
+    "all_appearance_prices_resolved": true
+  },
+  "closure_rule": "CAT-GAP-002 remains open until every accepted active surface has a complete exact current colour choice list or an explicit current source rule proving equivalent compatibility and price state without cross-state projection.",
+  "master_data_mutated": false
+}
