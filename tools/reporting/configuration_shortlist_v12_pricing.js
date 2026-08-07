@@ -660,3 +660,124 @@
     else install();
   }
 })(typeof globalThis !== "undefined" ? globalThis : this);
+
+(function (root) {
+  "use strict";
+  const MARKER = "configurator_exact_appearance_status_v1";
+  const observationByConfiguration = new Map();
+  const APPEARANCE_STEPS = Object.freeze([
+    { id: "colour", selector: "#configurator-selected-colours", key: "selected_colour" },
+    { id: "wheels", selector: "#configurator-selected-wheels", key: "selected_wheels" },
+    { id: "upholstery", selector: "#configurator-selected-upholsteries", key: "selected_upholstery" }
+  ]);
+
+  if (typeof document !== "undefined") {
+    const catalogElement = document.querySelector("#configuration-catalog");
+    if (catalogElement) {
+      try {
+        const catalog = JSON.parse(catalogElement.textContent);
+        for (const configuration of catalog.configurations || []) {
+          const observations = (configuration.price_components || []).filter(
+            (component) => component && component.kind === "configurator_observation"
+          );
+          if (observations.length === 1) {
+            observationByConfiguration.set(configuration.configuration_code, observations[0]);
+          }
+        }
+      } catch (_error) {
+        // Exact appearance status remains unavailable when the embedded catalogue is invalid.
+      }
+    }
+  }
+
+  function uniqueValues(values) {
+    return [...new Set((values || []).map(String).map((value) => value.trim()).filter(Boolean))];
+  }
+
+  function appearanceStatus(selectedValues, matchCount, observedValue) {
+    const selected = uniqueValues(selectedValues);
+    const matches = Math.max(0, Number(matchCount) || 0);
+    if (selected.length === 1) return selected[0];
+    if (selected.length > 1) return `dokładne filtry: ${selected.length}`;
+    if (matches === 0) return "brak wyniku";
+    if (matches > 1) return "po wyborze 1 wariantu";
+    return String(observedValue || "").trim() || "brak dokładnego zapisu";
+  }
+
+  function compactStatus(value) {
+    const text = String(value || "");
+    return text.length > 38 ? `${text.slice(0, 37)}…` : text;
+  }
+
+  function cardConfigurationCode(results) {
+    const cards = [...results.querySelectorAll(".result-card")];
+    if (cards.length !== 1) return "";
+    return cards[0].dataset.configurationCode
+      || cards[0].querySelector(".configuration-code")?.textContent.trim()
+      || "";
+  }
+
+  function observedValue(configurationCode, key) {
+    const observation = observationByConfiguration.get(configurationCode);
+    const value = observation && observation[key] && observation[key].value;
+    return value ? String(value) : "";
+  }
+
+  function install() {
+    let attempts = 0;
+    const bind = () => {
+      const shell = document.querySelector(".configurator-step-shell");
+      const results = document.querySelector("#results");
+      if (!shell || !results) {
+        attempts += 1;
+        if (attempts < 8) setTimeout(bind, 0);
+        return;
+      }
+      if (shell.dataset.exactAppearanceStatusIntegrated === "true") return;
+      shell.dataset.exactAppearanceStatusIntegrated = "true";
+
+      let scheduled = false;
+      const refresh = () => {
+        if (scheduled) return;
+        scheduled = true;
+        setTimeout(() => {
+          scheduled = false;
+          const matches = results.querySelectorAll(".result-card").length;
+          const configurationCode = cardConfigurationCode(results);
+          for (const step of APPEARANCE_STEPS) {
+            const control = document.querySelector(step.selector);
+            const selected = control && control.selectedOptions
+              ? [...control.selectedOptions].map((option) => option.value)
+              : [];
+            const fullStatus = appearanceStatus(
+              selected,
+              matches,
+              configurationCode ? observedValue(configurationCode, step.key) : ""
+            );
+            const status = shell.querySelector(
+              `[data-configurator-step="${step.id}"] [data-configurator-step-status]`
+            );
+            if (!status) continue;
+            status.textContent = compactStatus(fullStatus);
+            status.title = fullStatus;
+          }
+        }, 0);
+      };
+
+      results.addEventListener("dkb:results-rendered", refresh);
+      document.addEventListener("change", (event) => {
+        if (APPEARANCE_STEPS.some((step) => event.target.matches(step.selector))) refresh();
+      });
+      document.querySelector("#reset")?.addEventListener("click", () => setTimeout(refresh, 0));
+      refresh();
+    };
+    setTimeout(bind, 0);
+  }
+
+  const api = { MARKER, APPEARANCE_STEPS, appearanceStatus, compactStatus, install };
+  root.DkbConfiguratorExactAppearanceStatus = api;
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", install);
+    else install();
+  }
+})(typeof globalThis !== "undefined" ? globalThis : this);
