@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator UI Appearance Data 001** — `complete`
+**Configurator UI Grade Appearance Coverage 001** — `complete`
 
-Create one source-bounded UI-facing appearance catalogue from existing exact saved-configuration observations plus current official Dacia default configurator and grade-page evidence, adding complete colour, wheel and upholstery choices for the six current default model surfaces without projecting choices across unproven configurations.
+Consolidate source-bounded appearance evidence for all 21 current Dacia grade surfaces, attaching one representative exact selected appearance to every grade and current grade-page appearance facts where explicit, while keeping complete alternative-choice semantics limited to the six exact default states and two independently complete grade-design surfaces.
 
 ## Next package
 
