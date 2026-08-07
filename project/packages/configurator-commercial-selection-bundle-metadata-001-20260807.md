@@ -1,7 +1,10 @@
 # Configurator Commercial Selection Bundle Metadata 001
 
 Date: 2026-08-07  
-Baseline main: `c6655cea65f9fbff60b2338bf1b64c98b7980f79`
+Baseline main: `c6655cea65f9fbff60b2338bf1b64c98b7980f79`  
+Pull Request: #609  
+Merged main: `2398893cf0dc123ec9d82766c70d4cfa7cb1db05`  
+Verified Quality run: #3980 (`31221967097`)
 
 ## Purpose
 
@@ -32,9 +35,11 @@ Each shortlist source record now preserves:
 
 This keeps source-specific commercial choices reproducible for later reporting without inventing a cross-export merged state.
 
-## Tests
+## Verification
 
-The existing `test_collect_selection_accepts_codes_and_shortlist` method is extended. It verifies preservation of one commercial selection and rejection of a payload claiming compatibility inference. No new discovered unittest method is added; the canonical baseline remains 1885.
+PR #609 changed only the implementation file and this package record. Its final head `60c03aa4d47509516e3bfa98c8b6d06ac346cf83` subsequently completed the full repository CI successfully, including `Quality` run #3980 and the configuration-comparison-bundle workflow.
+
+The originally planned direct parser assertions and canonical-state synchronization were not part of the #609 diff. They are completed separately by `Configurator Commercial Selection Bundle Metadata Repair 001` so the historical record matches the actual Pull Request contents.
 
 ## Repository impact
 
@@ -47,10 +52,7 @@ Reporting metadata only:
 - no compatibility inference;
 - no change to the deferred Spring retry package.
 
-## Files
+## Files changed by PR #609
 
 - `tools/reporting/configuration_comparison_bundle.py`
-- `tests/test_configuration_comparison_bundle.py`
 - `project/packages/configurator-commercial-selection-bundle-metadata-001-20260807.md`
-- `project/state.json`
-- `project/STATE_SUMMARY.md`
