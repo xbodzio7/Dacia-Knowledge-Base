@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Post-v1.18.0 UI Readiness Interval Milestone Review 002** — `complete`
+**Configurator UI Commercial Choice Readiness 001** — `complete`
 
-Review the five logical packages since milestone review PR #593, reconcile New Spring source boundaries and configurator UI readiness progress, record the concurrent commercial-choice PR without mixing it into the interval, and select the next bounded package without lowering evidence standards.
+Define a source-bounded UI contract for all existing non-appearance commercial options and packages, separating selector offers from exact selected-state observations, exposing exact mapped prices and contents, and explicitly preventing unsupported inference of multi-option compatibility.
 
 ## Next package
 
