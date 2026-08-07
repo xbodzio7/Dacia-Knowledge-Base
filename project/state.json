@@ -27,24 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_18_residual_gap_closure_milestone_review_001",
-    "kind": "milestone_review",
-    "name": "Post-v1.18.0 Residual Gap Closure Milestone Review 001",
+    "package_id": "new_spring_confirmed_card_price_capture_001",
+    "kind": "source_status_reconciliation",
+    "name": "New Spring Confirmed Card Price Capture 001",
     "status": "complete",
-    "goal": "Review the five-package closure interval ending with the New Spring retry-cycle summary, confirm the remaining 28-item unresolved queue, identify safe workflow acceleration and select the next source-backed bounded package without reopening closed PDF decisions or repeating same-day shop checks.",
+    "goal": "Revisit all 16 already-confirmed official Polish Dacia Shop cards that lacked a captured current catalogue price as one homogeneous package, capture two exact matching catalogue prices, retain 14 price-not-captured states, avoid retrying the separate 28 unresolved cards and leave master data unchanged.",
     "manifest_paths": [
-      "project/reviews/post-v1.18.0-residual-gap-closure-milestone-review-001-20260807.md",
+      "data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.json",
+      "data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.csv",
+      "project/packages/new-spring-confirmed-card-price-capture-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "new_spring_confirmed_card_price_capture_001",
+    "package_id": "new_spring_current_shop_retry_cycle_002",
     "kind": "source_status_reconciliation",
-    "name": "New Spring Confirmed Card Price Capture 001",
+    "name": "New Spring Current Shop Retry Cycle 002",
     "status": "planned",
-    "goal": "Revisit the 16 already-confirmed official Polish Dacia Shop cards that still lack a captured current catalogue price, process the complete homogeneous set in one logical package with internal chunks, record exact price outcomes without retrying the 28 unresolved cards, and leave master data unchanged.",
-    "manifest_paths": []
+    "goal": "Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.",
+    "manifest_paths": [],
+    "eligible_on_or_after": "2026-08-08"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
