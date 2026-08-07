@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Configurator Step Navigation 001** — `complete`
+**Configurator Commercial Selector 001** — `complete`
 
-Add a source-bounded eight-step configurator navigation skeleton to the existing offline shortlist, connecting existing catalogue controls and exact configurator observations without replacing the current filtering, comparison or evidence contracts.
+Expose exact configuration-mapped commercial packages and options as a source-bounded selector with preserved offer prices, separate selected-state evidence and explicitly provisional multi-choice arithmetic without compatibility inference.
 
 ## Next package
 

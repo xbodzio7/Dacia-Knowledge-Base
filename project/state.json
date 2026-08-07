@@ -27,16 +27,16 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_step_navigation_001",
+    "package_id": "configurator_commercial_selector_001",
     "kind": "interface_increment",
-    "name": "Configurator Step Navigation 001",
+    "name": "Configurator Commercial Selector 001",
     "status": "complete",
-    "goal": "Add a source-bounded eight-step configurator navigation skeleton to the existing offline shortlist, connecting existing catalogue controls and exact configurator observations without replacing the current filtering, comparison or evidence contracts.",
+    "goal": "Expose exact configuration-mapped commercial packages and options as a source-bounded selector with preserved offer prices, separate selected-state evidence and explicitly provisional multi-choice arithmetic without compatibility inference.",
     "manifest_paths": [
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_equipment_groups.css",
-      "tests/test_configuration_selection_export.py",
-      "project/packages/configurator-step-navigation-001-20260807.md",
+      "tools/reporting/commercial_offers.py",
+      "tools/reporting/configuration_shortlist_v12_pricing.js",
+      "tests/test_configuration_shortlist.py",
+      "project/packages/configurator-commercial-selector-001-20260807.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]

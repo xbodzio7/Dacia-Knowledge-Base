@@ -12,6 +12,7 @@ REPOSITORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY / "tools"))
 
 import configuration_shortlist as cli  # noqa: E402
+from reporting.commercial_offers import collect_commercial_components  # noqa: E402
 from reporting.configuration_shortlist import (  # noqa: E402
     ShortlistCriteria,
     ShortlistError,
@@ -152,12 +153,49 @@ class ConfigurationShortlistTests(unittest.TestCase):
                 (9, "d_camera", "cfg_d", "rear_view_camera", "standard", "2026-01-01", "src_d", ""),
             ],
         )
+        self.write_csv(
+            master / "commercial_items.csv",
+            (
+                "id", "code", "name", "item_type", "observation_date",
+                "source_code", "status", "notes",
+            ),
+            [
+                (1, "nav_package", "Pakiet nawigacji", "package", "2025-12-01", "src_offer", "active", ""),
+            ],
+        )
+        self.write_csv(
+            master / "commercial_item_attributes.csv",
+            (
+                "id", "code", "commercial_item_code", "attribute_code",
+                "source_text", "notes",
+            ),
+            [
+                (1, "nav_package__navigation", "nav_package", "navigation_system", "Nawigacja", ""),
+            ],
+        )
+        self.write_csv(
+            master / "commercial_item_configurations.csv",
+            (
+                "id", "code", "commercial_item_code", "configuration_code",
+                "availability_status", "amount", "currency_code", "price_date",
+                "source_code", "notes",
+            ),
+            [
+                (1, "nav_package__offer", "nav_package", "cfg_a", "optional", 1200, "PLN", "2025-12-01", "src_offer", ""),
+                (2, "nav_package__selected", "nav_package", "cfg_a", "standard", "", "PLN", "2026-01-01", "src_saved_configuration", ""),
+            ],
+        )
         return root
 
     def test_unfiltered_shortlist_is_price_sorted_and_reports_unknowns(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository = self.fixture(Path(directory))
             report = collect_report(repository, ShortlistCriteria())
+            commercial = collect_commercial_components(
+                repository,
+                {"cfg_a"},
+                "2026-01-01",
+            )
         self.assertEqual(report["as_of"], "2026-01-01")
         self.assertEqual(
             [item["configuration_code"] for item in report["results"]],
@@ -172,6 +210,16 @@ class ConfigurationShortlistTests(unittest.TestCase):
                 "number_of_seats_missing": 1,
                 "required_equipment_missing": {},
             },
+        )
+        self.assertEqual(len(commercial["cfg_a"]), 1)
+        offer = commercial["cfg_a"][0]
+        self.assertEqual(offer["code"], "nav_package")
+        self.assertEqual(offer["availability_status"], "optional")
+        self.assertEqual(offer["amount"], 1200.0)
+        self.assertTrue(offer["selected_state_observed"])
+        self.assertEqual(
+            offer["selected_state_source_code"],
+            "src_saved_configuration",
         )
 
     def test_metadata_powertrain_and_price_filters_compose(self) -> None:
