@@ -8,7 +8,10 @@ import sys
 import unittest
 from pathlib import Path
 
-from tools.catalog_completion_history import ADDED_CONFIGURATION_CODES
+from tools.catalog_completion_history import (
+    ADDED_CONFIGURATION_CODES,
+    LATER_CONFIGURATION_CODES,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
@@ -64,8 +67,7 @@ class DataProductsV170ReleasePreparationTests(unittest.TestCase):
             row
             for row in rows(MASTER / "configurations.csv")
             if row["status"] == "active"
-            and row["code"] not in ADDED_CONFIGURATION_CODES
-            and not row["code"].startswith("spring_")
+            and row["code"] not in ADDED_CONFIGURATION_CODES | LATER_CONFIGURATION_CODES
         ]
         self.assertEqual(len(active), 72)
 

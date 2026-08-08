@@ -6,6 +6,8 @@
   "source_code": "src_pl_duster_price_my26_20260703",
   "source_review_path": "data/reporting/duster_current_range_configuration_drift_review_20260806.json",
   "configurator_scope_path": "project/sources/dacia-pl-non-spring-current-configurator-scope-20260808.json",
+  "completeness_scope_path": "data/reporting/duster_hybridg150_4x4_completeness.json",
+  "gap_evidence_path": "data/reporting/duster_hybridg150_4x4_gap_evidence.spec",
   "before": {
     "configuration_rows": 81,
     "current_duster_surfaces_matched": 13,
@@ -18,6 +20,8 @@
       "duster_iii_extreme_hybridg150_4x4_automatic",
       "duster_iii_journey_hybridg150_4x4_automatic"
     ],
+    "source_configuration_relationships_added": 3,
+    "identity_only_reporting_scope_added": true,
     "existing_status_values_changed": false,
     "existing_configuration_rows_deleted": false,
     "existing_version_rows_changed": false,
@@ -27,7 +31,13 @@
     "configuration_rows": 84,
     "current_duster_surfaces_matched": 16,
     "current_duster_surfaces_missing": 0,
-    "historical_or_prior_phase_duster_rows_preserved": 14
+    "historical_or_prior_phase_duster_rows_preserved": 14,
+    "source_linked_new_configurations": 3,
+    "unpriced_new_configurations": 3,
+    "portfolio_reporting_scope_count": 23,
+    "portfolio_within_scope_pair_count": 133,
+    "portfolio_catalog_price_recorded_count": 81,
+    "source_configuration_relationship_count": 254
   },
   "current_matrix": [
     {"powertrain":"Eco-G 120","drive":"4x2","transmission":"manual","grades":["essential","expression","extreme","journey"]},

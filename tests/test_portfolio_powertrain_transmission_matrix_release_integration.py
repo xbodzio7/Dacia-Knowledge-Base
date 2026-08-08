@@ -12,7 +12,7 @@ class PowertrainMatrixReleaseIntegrationTests(unittest.TestCase):
    with ZipFile(out/str(m["archive"]["path"])) as z:
     for n in FILES:self.assertEqual(z.read(f"powertrains/{n}"),(ROOT/"output"/"portfolio-powertrain-transmission-matrix"/n).read_bytes())
     matrix=json.loads(z.read(f"powertrains/{FILES[0]}").decode())
-   self.assertEqual(matrix["summary"]["active_configuration_count"],81);self.assertEqual(verify_release_assets(out),m)
+   self.assertEqual(matrix["summary"]["active_configuration_count"],84);self.assertEqual(verify_release_assets(out),m)
  def test_entry_point_contract(self):
   from reporting.data_product_release_download import OPTIONAL_ENTRY_POINTS
   from reporting.data_product_workspace_index import POWERTRAIN_MATRIX_HTML_MEMBER

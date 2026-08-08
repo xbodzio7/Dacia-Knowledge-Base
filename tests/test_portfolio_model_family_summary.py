@@ -52,14 +52,14 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.summary["summary"],
             {
                 "model_family_count": 6,
-                "reporting_scope_count": 22,
-                "single_model_scope_count": 20,
+                "reporting_scope_count": 23,
+                "single_model_scope_count": 21,
                 "mixed_model_scope_count": 2,
-                "active_configuration_count": 81,
-                "within_scope_pair_count": 130,
+                "active_configuration_count": 84,
+                "within_scope_pair_count": 133,
                 "provenance_source_count": 33,
-                "source_configuration_relationship_count": 251,
-                "configurations_with_provenance_count": 81,
+                "source_configuration_relationship_count": 254,
+                "configurations_with_provenance_count": 84,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -85,10 +85,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["summary"],
             {
                 "model_family_count": 6,
-                "active_configuration_count": 81,
-                "reporting_scope_count": 22,
+                "active_configuration_count": 84,
+                "reporting_scope_count": 23,
                 "provenance_source_count": 33,
-                "source_configuration_relationship_count": 251,
+                "source_configuration_relationship_count": 254,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -117,12 +117,12 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             expected_order,
         )
         expected = {
-            "sandero_iii": (7, 3, 63900, 80500, "recorded", [5]),
-            "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5]),
-            "jogger": (22, 4, 77900, 118050, "recorded", [5, 7]),
-            "duster_iii": (27, 5, 82000, 123600, "not_stated", []),
-            "bigster": (14, 4, 101400, 137600, "not_stated", []),
-            "spring": (3, 3, 73500, 85900, "recorded", [4]),
+            "sandero_iii": (7, 3, 63900, 80500, "recorded", [5], 7, 0),
+            "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5], 8, 0),
+            "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
+            "duster_iii": (30, 5, 82000, 123600, "not_stated", [], 27, 3),
+            "bigster": (14, 4, 101400, 137600, "not_stated", [], 14, 0),
+            "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
         for code, values in expected.items():
             family = self.families[code]
@@ -131,8 +131,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(family["version_count"], values[1])
             self.assertEqual(price["minimum"], values[2])
             self.assertEqual(price["maximum"], values[3])
-            self.assertEqual(price["recorded_count"], values[0])
-            self.assertEqual(price["missing_count"], 0)
+            self.assertEqual(price["recorded_count"], values[6])
+            self.assertEqual(price["missing_count"], values[7])
 
             matrix_family = self.matrix_families[code]
             matrix_price = matrix_family["catalog_price"]
@@ -148,7 +148,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_iii": (8, 29, "2026-02-02", "2026-07-24"),
             "sandero_stepway_iii": (11, 36, "2026-02-02", "2026-07-24"),
             "jogger": (4, 88, "2025-12-17", "2026-07-24"),
-            "duster_iii": (8, 62, "2025-10-20", "2026-07-25"),
+            "duster_iii": (8, 65, "2025-10-20", "2026-07-25"),
             "bigster": (2, 28, "2025-12-10", "2026-07-03"),
             "spring": (4, 8, "2026-02-19", "2026-08-02"),
         }
@@ -182,7 +182,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 251)
+        self.assertEqual(matrix_relationship_total, 254)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -204,7 +204,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 251)
+        self.assertEqual(relation_total, 254)
         self.assertEqual(len(used_sources), 33)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
@@ -221,6 +221,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "Eco-G 120 4x2",
                 "hybrid 140 4x2",
                 "hybrid 155 4x2",
+                "hybrid-G 150 4x4",
                 "mild hybrid 130 4x2",
                 "mild hybrid 130 4x4",
                 "mild hybrid 140 4x2",

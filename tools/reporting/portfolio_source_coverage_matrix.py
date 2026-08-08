@@ -90,9 +90,9 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
     }
     sources = {row["code"]: row for row in source_rows}
 
-    if len(configurations) != 81:
+    if len(configurations) != 84:
         raise PortfolioSourceCoverageMatrixError(
-            f"expected 81 active configurations, found {len(configurations)}"
+            f"expected 84 active configurations, found {len(configurations)}"
         )
     if len(versions) != 22:
         raise PortfolioSourceCoverageMatrixError(
@@ -169,9 +169,9 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
         covered_configurations.add(configuration_code)
         active_relationship_count += 1
 
-    if active_relationship_count != 251:
+    if active_relationship_count != 254:
         raise PortfolioSourceCoverageMatrixError(
-            "expected 251 active source-to-configuration relationships, "
+            "expected 254 active source-to-configuration relationships, "
             f"found {active_relationship_count}"
         )
     if covered_configurations != set(configurations):
@@ -260,9 +260,9 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
             }
         )
 
-    if sum(record["relationship_count"] for record in records) != 251:
+    if sum(record["relationship_count"] for record in records) != 254:
         raise PortfolioSourceCoverageMatrixError(
-            "source rows do not preserve all 251 relationships exactly once"
+            "source rows do not preserve all 254 relationships exactly once"
         )
     if {
         code

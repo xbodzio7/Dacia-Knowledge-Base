@@ -5,10 +5,10 @@
   "summary": {
     "model_family_count": 6,
     "active_version_count": 22,
-    "active_configuration_count": 81,
-    "reporting_scope_count": 22,
+    "active_configuration_count": 84,
+    "reporting_scope_count": 23,
     "provenance_source_count": 33,
-    "source_configuration_relationship_count": 251,
+    "source_configuration_relationship_count": 254,
     "configurations_without_provenance_count": 0,
     "configuration_pairs_generated": false,
     "cross_scope_pairs_generated": false,
@@ -621,13 +621,14 @@
       "version_name": "Expression",
       "model_code": "duster_iii",
       "model_name": "Duster",
-      "configuration_count": 8,
+      "configuration_count": 9,
       "configuration_codes": [
         "duster_iii_expression_ecog100_4x2_manual",
         "duster_iii_expression_ecog120_4x2_automatic",
         "duster_iii_expression_ecog120_4x2_manual",
         "duster_iii_expression_hybrid140_4x2_automatic",
         "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_expression_hybridg150_4x4_automatic",
         "duster_iii_expression_mildhybrid130_4x2_manual",
         "duster_iii_expression_mildhybrid130_4x4_manual",
         "duster_iii_expression_mildhybrid140_4x2_manual"
@@ -638,7 +639,7 @@
         "minimum": 90000,
         "maximum": 112100,
         "recorded_count": 8,
-        "missing_count": 0
+        "missing_count": 1
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -651,12 +652,13 @@
         "Eco-G 120 4x2",
         "hybrid 140 4x2",
         "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
         "mild hybrid 130 4x2",
         "mild hybrid 130 4x4",
         "mild hybrid 140 4x2"
       ],
-      "reporting_scope_count": 8,
-      "single_model_scope_count": 8,
+      "reporting_scope_count": 9,
+      "single_model_scope_count": 9,
       "mixed_model_scope_count": 0,
       "scope_slugs": [
         "duster_ecog100",
@@ -664,6 +666,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -674,6 +677,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -681,8 +685,8 @@
       "mixed_model_scope_slugs": [],
       "provenance": {
         "source_count": 8,
-        "relationship_count": 19,
-        "configuration_coverage_count": 8,
+        "relationship_count": 20,
+        "configuration_coverage_count": 9,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-10-20",
         "latest_document_date": "2026-07-25"
@@ -693,13 +697,14 @@
       "version_name": "Extreme",
       "model_code": "duster_iii",
       "model_name": "Duster",
-      "configuration_count": 8,
+      "configuration_count": 9,
       "configuration_codes": [
         "duster_iii_extreme_ecog100_4x2_manual",
         "duster_iii_extreme_ecog120_4x2_automatic",
         "duster_iii_extreme_ecog120_4x2_manual",
         "duster_iii_extreme_hybrid140_4x2_automatic",
         "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_extreme_hybridg150_4x4_automatic",
         "duster_iii_extreme_mildhybrid130_4x2_manual",
         "duster_iii_extreme_mildhybrid130_4x4_manual",
         "duster_iii_extreme_mildhybrid140_4x2_manual"
@@ -710,7 +715,7 @@
         "minimum": 96000,
         "maximum": 118100,
         "recorded_count": 8,
-        "missing_count": 0
+        "missing_count": 1
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -723,12 +728,13 @@
         "Eco-G 120 4x2",
         "hybrid 140 4x2",
         "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
         "mild hybrid 130 4x2",
         "mild hybrid 130 4x4",
         "mild hybrid 140 4x2"
       ],
-      "reporting_scope_count": 8,
-      "single_model_scope_count": 8,
+      "reporting_scope_count": 9,
+      "single_model_scope_count": 9,
       "mixed_model_scope_count": 0,
       "scope_slugs": [
         "duster_ecog100",
@@ -736,6 +742,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -746,6 +753,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -753,8 +761,8 @@
       "mixed_model_scope_slugs": [],
       "provenance": {
         "source_count": 8,
-        "relationship_count": 19,
-        "configuration_coverage_count": 8,
+        "relationship_count": 20,
+        "configuration_coverage_count": 9,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-10-20",
         "latest_document_date": "2026-07-25"
@@ -765,13 +773,14 @@
       "version_name": "Journey",
       "model_code": "duster_iii",
       "model_name": "Duster",
-      "configuration_count": 8,
+      "configuration_count": 9,
       "configuration_codes": [
         "duster_iii_journey_ecog100_4x2_manual",
         "duster_iii_journey_ecog120_4x2_automatic",
         "duster_iii_journey_ecog120_4x2_manual",
         "duster_iii_journey_hybrid140_4x2_automatic",
         "duster_iii_journey_hybrid155_4x2_automatic",
+        "duster_iii_journey_hybridg150_4x4_automatic",
         "duster_iii_journey_mildhybrid130_4x2_manual",
         "duster_iii_journey_mildhybrid130_4x4_manual",
         "duster_iii_journey_mildhybrid140_4x2_manual"
@@ -782,7 +791,7 @@
         "minimum": 96000,
         "maximum": 118300,
         "recorded_count": 8,
-        "missing_count": 0
+        "missing_count": 1
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -795,12 +804,13 @@
         "Eco-G 120 4x2",
         "hybrid 140 4x2",
         "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
         "mild hybrid 130 4x2",
         "mild hybrid 130 4x4",
         "mild hybrid 140 4x2"
       ],
-      "reporting_scope_count": 8,
-      "single_model_scope_count": 8,
+      "reporting_scope_count": 9,
+      "single_model_scope_count": 9,
       "mixed_model_scope_count": 0,
       "scope_slugs": [
         "duster_ecog100",
@@ -808,6 +818,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -818,6 +829,7 @@
         "duster_ecog120_automatic",
         "duster_hybrid140",
         "duster_hybrid155",
+        "duster_hybridg150_4x4",
         "duster_mildhybrid130_4x2",
         "duster_mildhybrid130_4x4",
         "duster_mildhybrid140_4x2"
@@ -825,8 +837,8 @@
       "mixed_model_scope_slugs": [],
       "provenance": {
         "source_count": 8,
-        "relationship_count": 19,
-        "configuration_coverage_count": 8,
+        "relationship_count": 20,
+        "configuration_coverage_count": 9,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-10-20",
         "latest_document_date": "2026-07-25"

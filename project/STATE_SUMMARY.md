@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Non-Spring Current Configurator Data Completion**
+**Duster Current Range Configuration Catalog Reconciliation**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1885
+- Tests: 1889
 - Master CSV files: 47
-- Master rows: 11770
+- Master rows: 11776
 - Configuration values: 3604
 - Configuration import specifications: 139
 - Configuration value ranges: 316
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Non-Spring Current Configurator Data Completion** — `complete`
+**Duster Current Range Configuration Catalog Reconciliation** — `complete`
 
-Complete the source-backed current configurator evidence scope for every current Dacia family other than Spring, reusing completed Sandero/Stepway scope and adding Duster, Jogger and Bigster without cross-configuration projection.
+Reconcile canonical Duster configurations with the current official Polish MY26 range by adding the three source-backed hybrid-G 150 4x4 exact identities while preserving all historical rows and deferring their prices to a separate package.
 
 ## Next package
 
-**Duster Current Range Configuration Catalog Reconciliation** — `planned`
+**Duster hybrid-G 150 Current Price Import** — `planned`
 
-Reconcile canonical Duster configurations with the current official range by adding the three source-backed hybrid-G 150 4x4 surfaces and retiring prior-phase active surfaces without losing historical evidence.
+Attach the official 2026-07-03 catalogue gross prices of 119900, 125900 and 126100 PLN to the three new exact Duster hybrid-G 150 4x4 identities without changing historical price observations.
 
 ## Autonomy
 

@@ -42,11 +42,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["summary"],
             {
                 "model_family_count": 6,
-                "reporting_scope_count": 22,
-                "single_model_scope_count": 20,
+                "reporting_scope_count": 23,
+                "single_model_scope_count": 21,
                 "mixed_model_scope_count": 2,
-                "active_configuration_count": 81,
-                "within_scope_pair_count": 130,
+                "active_configuration_count": 84,
+                "within_scope_pair_count": 133,
                 "catalog_price_recorded_count": 81,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -68,12 +68,12 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             ],
         )
         expected = {
-            "sandero_iii": (7, 3, 63900, 80500, 7),
-            "sandero_stepway_iii": (8, 3, 71700, 89400, 8),
-            "jogger": (22, 4, 77900, 118050, 22),
-            "duster_iii": (27, 5, 82000, 123600, 27),
-            "bigster": (14, 4, 101400, 137600, 14),
-            "spring": (3, 3, 73500, 85900, 3),
+            "sandero_iii": (7, 3, 63900, 80500, 7, 0),
+            "sandero_stepway_iii": (8, 3, 71700, 89400, 8, 0),
+            "jogger": (22, 4, 77900, 118050, 22, 0),
+            "duster_iii": (30, 5, 82000, 123600, 27, 3),
+            "bigster": (14, 4, 101400, 137600, 14, 0),
+            "spring": (3, 3, 73500, 85900, 3, 0),
         }
         for code, values in expected.items():
             model = self.models[code]
@@ -83,7 +83,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.assertEqual(price["minimum"], values[2])
             self.assertEqual(price["maximum"], values[3])
             self.assertEqual(price["recorded_count"], values[4])
-            self.assertEqual(price["missing_count"], 0)
+            self.assertEqual(price["missing_count"], values[5])
             self.assertEqual(price["currency"], "PLN")
 
     def test_missing_seat_summaries_remain_not_stated(self) -> None:
@@ -129,11 +129,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             for scope in self.view["scopes"]
             for code in scope["configuration_codes"]
         ]
-        self.assertEqual(len(codes), 81)
+        self.assertEqual(len(codes), 84)
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            130,
+            133,
         )
         self.assertTrue(
             all(
@@ -188,7 +188,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(json.loads(json_text), self.view)
         self.assertTrue(html_text.startswith("<!doctype html>"))
         self.assertEqual(html_text.count('class="model-card"'), 6)
-        self.assertEqual(html_text.count('class="scope-card"'), 22)
+        self.assertEqual(html_text.count('class="scope-card"'), 23)
         self.assertEqual(html_text.count('class="badge mixed"'), 2)
 
     def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
@@ -199,7 +199,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 66)
+        self.assertEqual(len(comparison_links), 69)
         self.assertTrue(
             all(link.startswith("../comparison-bundle/") for link in comparison_links)
         )

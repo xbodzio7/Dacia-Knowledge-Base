@@ -15,6 +15,8 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 SPEC_PATH = ROOT / "data" / "imports" / "brochure_technical_values" / "duster-chassis-20251020.json"
@@ -244,14 +246,20 @@ def verify_references(spec: Mapping[str, Any]) -> None:
         and row.get("transmission_type") == "automatic"
     }
     ensure(len(automatic_ecog) == 3 and not (automatic_ecog & EXPECTED_CONFIGURATIONS), "automatic Eco-G boundary differs")
+    later_duster_configurations = {
+        code
+        for code, row in configurations.items()
+        if row.get("status") == "active"
+        and code.startswith("duster_iii_")
+        and row.get("powertrain_label") == "hybrid-G 150 4x4"
+    }
     ensure(
-        not any(
-            row.get("status") == "active"
-            and row.get("code", "").startswith("duster_")
-            and row.get("powertrain_label") == "hybrid-G 150 4x4"
-            for row in configurations.values()
-        ),
-        "unexpected active exact hybrid-G 150 configuration",
+        later_duster_configurations == DUSTER_HYBRIDG150_CONFIGURATION_CODES,
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
+    ensure(
+        EXPECTED_CONFIGURATIONS.isdisjoint(DUSTER_HYBRIDG150_CONFIGURATION_CODES),
+        "later Duster hybrid-G 150 catalogue identities entered the historical chassis package",
     )
 
 

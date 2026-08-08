@@ -362,9 +362,9 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
         raise PortfolioModelVersionComparisonMatrixError(
             f"expected 22 active versions, found {len(records)}"
         )
-    if sum(record["configuration_count"] for record in records) != 81:
+    if sum(record["configuration_count"] for record in records) != 84:
         raise PortfolioModelVersionComparisonMatrixError(
-            "version rows do not preserve all 81 active configurations"
+            "version rows do not preserve all 84 active configurations"
         )
     if relationship_count != int(
         view_summary.get("active_configuration_count", -1)

@@ -13,6 +13,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 SPEC_PATH = ROOT / "data" / "imports" / "configuration_cargo_values" / "duster-brochure-cargo-20251020.json"
@@ -181,7 +183,20 @@ def verify_configurations(spec: Mapping[str, Any]) -> None:
             expected_counts[str(code)] = 8 if code in group["spare_wheel_configurations"] else 4
     ensure(expected_counts == Counter(code for code, _ in entries(spec)), "configuration observation counts differ")
     ensure(FORBIDDEN_AUTOMATICS <= set(rows), "automatic deferral targets changed")
-    ensure(not any(code.startswith("duster_iii_") and row.get("powertrain_label") == "hybrid-G 150 4x4" for code, row in rows.items()), "unreviewed exact Duster 4x4 configuration now exists")
+    later_duster_configurations = {
+        code
+        for code, row in rows.items()
+        if code.startswith("duster_iii_")
+        and row.get("powertrain_label") == "hybrid-G 150 4x4"
+    }
+    ensure(
+        later_duster_configurations == DUSTER_HYBRIDG150_CONFIGURATION_CODES,
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
+    ensure(
+        set(configuration_codes(spec)).isdisjoint(DUSTER_HYBRIDG150_CONFIGURATION_CODES),
+        "later Duster hybrid-G 150 catalogue identities entered the historical cargo package",
+    )
 
 
 def expected_rows(spec: Mapping[str, Any]) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:

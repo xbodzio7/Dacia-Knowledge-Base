@@ -12,6 +12,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
@@ -176,7 +178,11 @@ def verify_active_scopes() -> None:
     ensure(counts["sandero_stepway_iii"] == 8, "active Stepway scope differs")
     ensure(counts["jogger"] == 22, "active Jogger scope differs")
     ensure(counts["bigster"] == 14, "active Bigster scope differs")
-    ensure(counts["duster_iii"] == 27, "active Duster scope differs")
+    ensure(counts["duster_iii"] == 30, "active Duster scope differs")
+    ensure(
+        DUSTER_HYBRIDG150_CONFIGURATION_CODES <= set(models),
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
 
 
 def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:

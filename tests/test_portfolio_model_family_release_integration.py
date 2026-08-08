@@ -170,11 +170,11 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             version_matrix["summary"],
         ):
             self.assertEqual(summary["model_family_count"], 6)
-            self.assertEqual(summary["active_configuration_count"], 81)
-            self.assertEqual(summary["reporting_scope_count"], 22)
+            self.assertEqual(summary["active_configuration_count"], 84)
+            self.assertEqual(summary["reporting_scope_count"], 23)
             self.assertEqual(
                 summary["source_configuration_relationship_count"],
-                251,
+                254,
             )
             self.assertEqual(
                 summary["configurations_without_provenance_count"],
@@ -195,14 +195,14 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             for row in version_matrix["versions"]
             for code in row["configuration_codes"]
         ]
-        self.assertEqual(len(version_configurations), 81)
-        self.assertEqual(len(set(version_configurations)), 81)
+        self.assertEqual(len(version_configurations), 84)
+        self.assertEqual(len(set(version_configurations)), 84)
         self.assertEqual(
             sum(
                 row["provenance"]["relationship_count"]
                 for row in version_matrix["versions"]
             ),
-            251,
+            254,
         )
 
         self.assertEqual(source_matrix["kind"], "portfolio_source_coverage_matrix")
@@ -210,8 +210,8 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
         source_summary = source_matrix["summary"]
         expected_summary = {
             "provenance_source_count": 33,
-            "source_configuration_relationship_count": 251,
-            "active_configuration_count": 81,
+            "source_configuration_relationship_count": 254,
+            "active_configuration_count": 84,
             "active_version_count": 22,
             "model_family_count": 6,
             "configurations_without_provenance_count": 0,
@@ -228,7 +228,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
         self.assertEqual(len({row["source_code"] for row in source_rows}), 33)
         self.assertEqual(
             sum(row["relationship_count"] for row in source_rows),
-            251,
+            254,
         )
         self.assertEqual(
             len(
@@ -238,7 +238,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
                     for code in row["configuration_codes"]
                 }
             ),
-            81,
+            84,
         )
         self.assertEqual(
             len(

@@ -105,10 +105,10 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
     expected = {
         "model_family_count": 6,
         "active_version_count": 22,
-        "active_configuration_count": 81,
-        "reporting_scope_count": 22,
+        "active_configuration_count": 84,
+        "reporting_scope_count": 23,
         "provenance_source_count": 33,
-        "source_configuration_relationship_count": 251,
+        "source_configuration_relationship_count": 254,
         "configurations_without_provenance_count": 0,
         "configuration_pairs_generated": False,
         "cross_scope_pairs_generated": False,
@@ -167,11 +167,11 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
             ) from exc
         configuration_codes.extend(raw_codes)
 
-    if len(configuration_codes) != 81 or len(set(configuration_codes)) != 81:
+    if len(configuration_codes) != 84 or len(set(configuration_codes)) != 84:
         raise ReleaseError(
-            "portfolio model-version matrix must cover 81 configurations once"
+            "portfolio model-version matrix must cover 84 configurations once"
         )
-    if relationship_count != 251:
+    if relationship_count != 254:
         raise ReleaseError(
             "portfolio model-version matrix relationship total differs"
         )
@@ -190,7 +190,7 @@ def _write_v1_14_0_release_notes(payload: Path, version: str) -> None:
 
 This minor release adds the verified portfolio model-version comparison matrix
 in JSON, CSV and standalone HTML. It presents all 22 active canonical versions
-and all 81 active configurations side by side using only recorded version-bounded
+and all 84 active configurations side by side using only recorded version-bounded
 fields: prices, seat states, transmissions, powertrains, existing reporting-scope
 memberships and explicit source provenance.
 

@@ -33,8 +33,8 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         summary,
         {
             "provenance_source_count": 33,
-            "source_configuration_relationship_count": 251,
-            "active_configuration_count": 81,
+            "source_configuration_relationship_count": 254,
+            "active_configuration_count": 84,
             "active_version_count": 22,
             "model_family_count": 6,
             "configurations_without_provenance_count": 0,
@@ -129,7 +129,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         covered_versions.update(expected_versions)
         covered_models.update(expected_models)
 
-    testcase.assertEqual(relationship_total, 251)
+    testcase.assertEqual(relationship_total, 254)
     testcase.assertEqual(covered_configurations, set(configurations))
     testcase.assertEqual(covered_versions, set(versions))
     testcase.assertEqual(
@@ -149,7 +149,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
     testcase.assertEqual(len(csv_rows), 33)
     testcase.assertEqual(
         sum(int(row["relationship_count"]) for row in csv_rows),
-        251,
+        254,
     )
     lowered = html_text.lower()
     testcase.assertTrue(html_text.startswith("<!doctype html>"))

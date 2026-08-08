@@ -38,10 +38,10 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         {
             "model_family_count": 6,
             "active_version_count": 22,
-            "active_configuration_count": 81,
-            "reporting_scope_count": 22,
+            "active_configuration_count": 84,
+            "reporting_scope_count": 23,
             "provenance_source_count": 33,
-            "source_configuration_relationship_count": 251,
+            "source_configuration_relationship_count": 254,
             "configurations_without_provenance_count": 0,
             "configuration_pairs_generated": False,
             "cross_scope_pairs_generated": False,
@@ -139,13 +139,13 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         "bigster",
         "spring",
     })
-    testcase.assertEqual(len(configuration_codes), 81)
-    testcase.assertEqual(len(set(configuration_codes)), 81)
+    testcase.assertEqual(len(configuration_codes), 84)
+    testcase.assertEqual(len(set(configuration_codes)), 84)
     testcase.assertEqual(
         set(configuration_codes),
         {row["code"] for row in active_configurations},
     )
-    testcase.assertEqual(relation_total, 251)
+    testcase.assertEqual(relation_total, 254)
 
     anchors = {record["version_code"]: record for record in records}
     testcase.assertEqual(

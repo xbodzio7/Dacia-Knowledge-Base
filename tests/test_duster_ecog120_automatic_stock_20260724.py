@@ -118,7 +118,7 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
 
     def test_browser_catalog_contains_new_configurations_and_current_mirror_states(self) -> None:
         catalog = collect_browser_catalog(REPOSITORY, ShortlistCriteria())
-        self.assertEqual(len(catalog["configurations"]), 81)
+        self.assertEqual(len(catalog["configurations"]), 84)
         selected = {
             item["configuration_code"]: item
             for item in catalog["configurations"]

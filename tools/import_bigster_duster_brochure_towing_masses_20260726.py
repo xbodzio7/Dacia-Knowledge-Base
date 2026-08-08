@@ -13,6 +13,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 SPEC = ROOT / "data" / "imports" / "brochure_technical_values" / "bigster-duster-towing-masses-20260726.json"
@@ -231,7 +233,15 @@ def verify_references(spec: Mapping[str, Any]) -> None:
             ensure(row.get("powertrain_label") == group["powertrain_label"], f"powertrain differs: {code}")
             ensure(row.get("transmission_type") == group["transmission_type"], f"transmission differs: {code}")
 
-    ensure(not any("hybridg150" in code for code in configurations if code.startswith("duster_iii_")), "exact Duster hybrid-G 150 configuration now exists")
+    later_duster_configurations = {
+        code
+        for code in configurations
+        if code.startswith("duster_iii_") and "hybridg150" in code
+    }
+    ensure(
+        later_duster_configurations == DUSTER_HYBRIDG150_CONFIGURATION_CODES,
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
 
 
 def expected_values(spec: Mapping[str, Any]) -> list[dict[str, str]]:
@@ -380,7 +390,10 @@ def check(spec: Mapping[str, Any]) -> None:
         "duster_iii_journey_ecog120_4x2_automatic",
     }
     ensure(not (package_configurations & excluded_configurations), "newer automatic homologation scope was imported")
-    ensure(not any("hybridg150" in code and code.startswith("duster_iii_") for code in package_configurations), "unmodeled Duster hybrid-G 150 was imported")
+    ensure(
+        package_configurations.isdisjoint(DUSTER_HYBRIDG150_CONFIGURATION_CODES),
+        "later Duster hybrid-G 150 catalogue identities were imported into the historical brochure package",
+    )
 
 
 def main(argv: Sequence[str] | None = None) -> int:

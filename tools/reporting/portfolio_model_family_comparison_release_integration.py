@@ -102,10 +102,10 @@ def _copy_verified_matrix_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError("portfolio family matrix summary is missing")
     expected = {
         "model_family_count": 6,
-        "active_configuration_count": 81,
-        "reporting_scope_count": 22,
+        "active_configuration_count": 84,
+        "reporting_scope_count": 23,
         "provenance_source_count": 33,
-        "source_configuration_relationship_count": 251,
+        "source_configuration_relationship_count": 254,
         "configurations_without_provenance_count": 0,
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
@@ -134,7 +134,7 @@ def _write_v1_13_0_release_notes(payload: Path, version: str) -> None:
 ## v1.13.0 portfolio model-family comparison matrix
 
 This minor release adds the verified portfolio model-family comparison matrix in
-JSON, CSV and standalone HTML. It presents all six canonical families and 81
+JSON, CSV and standalone HTML. It presents all six canonical families and 84
 active configurations side by side using only recorded family-summary fields:
 price ranges, seat states, transmissions, powertrains, reporting-scope coverage
 and explicit source provenance.
