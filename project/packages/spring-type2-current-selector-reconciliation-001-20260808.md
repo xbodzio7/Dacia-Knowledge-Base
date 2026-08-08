@@ -71,7 +71,9 @@ Direct regression coverage is embedded in the existing configuration-shortlist t
 5. the existing offer-plus-selected-state behavior remains intact;
 6. the deterministic reconciliation report records 164 current offers and 2 unpriced rows.
 
-The first full CI pass correctly identified two older assertions that still treated the preserved historical Type 2 mappings as current selector rows. Those existing tests were updated in the same package to preserve their historical-master assertions while aligning current UI expectations with the exact chronology: Essential is suppressed from 2026-07-31, and Expression/Extreme from 2026-08-02. No test method was added, so the discovery baseline remains unchanged.
+The first full CI pass correctly identified two older assertions that still treated the preserved historical Type 2 mappings as current selector rows. Those existing tests were updated in the same package to preserve their historical-master assertions while aligning current UI expectations with the exact chronology: Essential is suppressed from 2026-07-31, and Expression/Extreme from 2026-08-02.
+
+The next full pass reached all 1885 discovered tests and exposed only the aggregate reviewed-state expectation. Runtime already suppressed all three Type 2 selector rows: the review ledger still preserves 29 historical commercial decisions, but only 26 attach to current selector components after this reconciliation. The three non-attached decisions are exactly the historical Type 2 rows: one `source-not-stated` and two `source-conflict`. The test now records that distinction explicitly without mutating the review ledger. No test method was added, so the discovery baseline remains unchanged.
 
 ## Delivery
 
