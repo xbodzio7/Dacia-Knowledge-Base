@@ -36,15 +36,15 @@
 
 ## Current package
 
-**New Spring Current Shop Retry Cycle 002** — `complete`
+**Post-v1.18.0 Configurator and Shop Milestone Review 003** — `complete`
 
-Revisit all 28 remaining unresolved official Polish Dacia Shop references no earlier than 2026-08-08, process the complete homogeneous queue in one logical package with internal chunks and a same-package consolidated summary, and preserve unresolved semantics unless new exact-part-number evidence is found.
+Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.
 
 ## Next package
 
-**Post-v1.18.0 Configurator and Shop Milestone Review 003** — `planned`
+**Data Products v1.19.0 Release Preparation** — `planned`
 
-Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.
+Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.
 
 ## Autonomy
 
