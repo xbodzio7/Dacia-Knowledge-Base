@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.19.1 Publication**
+**Sandero and Sandero Stepway Configurator Data Completion**
 
 ## Reference delivery
 
-- Package: Data Products v1.19.1 Publication
-- Pull Request: #620
-- Verified head: `e3a43a999a40f920bceab655cdfdac5856119a07`
-- Quality run: #31248397833
+- Package: Sandero and Sandero Stepway Configurator Data Completion
+- Pull Request: #621
+- Verified head: `3e90eb541a3b8cf806813c680ea0c3b748e77193`
+- Quality run: #31249330669
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.19.1 Publication** — `complete`
+**Sandero and Sandero Stepway Configurator Data Completion** — `complete`
 
-Publish immutable v1.19.1 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
+Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.
 
 ## Next package
 
-**Sandero and Sandero Stepway Configurator Data Completion** — `planned`
+**Configuration Shortlist Task-First Explorer UI** — `planned`
 
-Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.
+Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.
 
 ## Autonomy
 
