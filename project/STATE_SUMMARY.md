@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Duster hybrid-G 150 Current Price Import**
+**Current Configurator Exact State Capture Reopening**
 
 ## Reference delivery
 
-- Package: Duster Current Range Configuration Catalog Reconciliation
-- Pull Request: #624
-- Verified head: `609c9369a3062de23419be11bf45d8b9c26ed160`
-- Quality run: #31280841214
+- Package: Duster hybrid-G 150 Current Price Import
+- Pull Request: #625
+- Verified head: `e6159f2574d69873d91e630268a07f0194576224`
+- Quality run: #31282452972
 
 ## Verified baseline
 
-- Tests: 1890
+- Tests: 1895
 - Master CSV files: 47
 - Master rows: 11779
 - Configuration values: 3604
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster hybrid-G 150 Current Price Import** — `complete`
+**Current Configurator Exact State Capture Reopening** — `complete`
 
-Attach the official 2026-07-03 catalogue gross prices of 119900, 125900 and 126100 PLN to the three exact Duster hybrid-G 150 4x4 identities without changing historical price observations.
+Capture stable exact-state URLs and visible technical, equipment, appearance and factory-option data for all 15 current Sandero and Stepway configurations, reopening the 13 surfaces previously classified as source-blocked without projecting observations across configurations.
 
 ## Next package
 
-**Current Configurator Exact State Capture Reopening** — `planned`
+**Sandero Stepway Exact Design and Factory Option Normalization** — `planned`
 
-Capture stable exact-state URLs and available technical, equipment, appearance and factory-option data for current configurations, prioritizing the 13 Sandero and Stepway surfaces previously classified as source-blocked, without projecting observations across configurations.
+Normalize the 15 exact captured colour, wheel, upholstery and factory-option surfaces into canonical source-linked master observations without projecting availability or prices across configurations.
 
 ## Autonomy
 
