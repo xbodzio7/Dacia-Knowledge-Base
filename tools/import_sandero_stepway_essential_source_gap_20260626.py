@@ -557,8 +557,8 @@ def verify_materialized() -> None:
     if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
         raise ContractError("missing-data analysis Markdown is stale")
     summary = expected_analysis["summary"]
-    if summary["missing_technical_count"] != 97:
-        raise ContractError(f"expected 97 remaining technical records, found {summary['missing_technical_count']}")
+    if summary["missing_technical_count"] != 89:
+        raise ContractError(f"expected 89 remaining technical records, found {summary['missing_technical_count']}")
     if summary["exhausted_source_candidate_count"] != 7:
         raise ContractError("expected exactly 7 exhausted-source candidates")
     current = next(

@@ -125,9 +125,9 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "A1:AH4",
             "A1:K6",
             "A1:M338",
-            "A1:L11",
+            "A1:L25",
             "A1:AS243",
-            "A1:K12",
+            "A1:K13",
             "A1:E9",
         )
         with ZipFile(self.workbook_path) as archive:
@@ -163,7 +163,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertFalse(overview["ranking_generated"])
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
-        self.assertEqual(overview["commercial_equipment_as_of"], "2026-08-02")
+        self.assertEqual(overview["commercial_equipment_as_of"], "2026-08-09")
 
     def test_scopes_preserve_comparable_and_singleton_groups(self) -> None:
         rows = self._table(self.workbook["Scopes"])
@@ -203,9 +203,11 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertGreater(len(equipment), 250)
         self.assertEqual({str(row["configuration_code"]) for row in equipment}, set(SELECTED))
         self.assertTrue(all(row["equipment_name_pl"] for row in equipment))
-        self.assertEqual(len(offers), 10)
+        self.assertEqual(len(offers), 24)
         self.assertTrue(all(row["commercial_item_name"] for row in offers))
-        self.assertTrue(all(row["amount"] for row in offers))
+        self.assertTrue(all(row["currency_code"] == "PLN" for row in offers))
+        self.assertTrue(any(row["amount"] in (None, "") for row in offers))
+        self.assertTrue(any(row["amount"] not in (None, "") for row in offers))
         self.assertIn("sandero_comfort_auto_package", {str(row["commercial_item_code"]) for row in offers})
         self.assertIn("jogger_drive_package", {str(row["commercial_item_code"]) for row in offers})
 

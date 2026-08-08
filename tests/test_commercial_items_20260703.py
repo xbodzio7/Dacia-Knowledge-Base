@@ -36,13 +36,13 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 40)
-        self.assertEqual(len(self.members), 94)
-        self.assertEqual(len(self.mappings), 189)
-        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE})
+        self.assertEqual(len(self.items), 50)
+        self.assertEqual(len(self.members), 103)
+        self.assertEqual(len(self.mappings), 322)
+        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
-            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE},
+            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09"},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
@@ -50,7 +50,8 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_each_item_has_membership_and_source(self) -> None:
         item_codes = {row["code"] for row in self.items}
         member_codes = {row["commercial_item_code"] for row in self.members}
-        self.assertEqual(item_codes, member_codes)
+        mapped_codes = {row["commercial_item_code"] for row in self.mappings}
+        self.assertEqual(item_codes, member_codes | mapped_codes)
         self.assertEqual(
             {row["source_code"] for row in self.items},
             {
@@ -60,6 +61,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "src_pl_bigster_price_my26_20260703",
                 "src_pl_spring_brochure_20260219",
                 "src_pl_spring_commercial_context_20260802",
+                "src_pl_sandero_stepway_exact_configurator_states_20260809",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))

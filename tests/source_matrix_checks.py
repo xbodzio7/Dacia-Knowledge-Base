@@ -28,12 +28,12 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
     summary = matrix["summary"]
     testcase.assertEqual(matrix["version"], 1)
     testcase.assertEqual(matrix["kind"], "portfolio_source_coverage_matrix")
-    testcase.assertEqual(matrix["as_of"], "2026-08-02")
+    testcase.assertEqual(matrix["as_of"], "2026-08-09")
     testcase.assertEqual(
         summary,
         {
-            "provenance_source_count": 33,
-            "source_configuration_relationship_count": 254,
+            "provenance_source_count": 34,
+            "source_configuration_relationship_count": 269,
             "active_configuration_count": 84,
             "active_version_count": 22,
             "model_family_count": 6,
@@ -68,7 +68,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         relations_by_source[relation["source_code"]].append(relation)
 
     records = matrix["sources"]
-    testcase.assertEqual(len(records), 33)
+    testcase.assertEqual(len(records), 34)
     testcase.assertEqual(
         {record["source_code"] for record in records},
         set(relations_by_source),
@@ -129,7 +129,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         covered_versions.update(expected_versions)
         covered_models.update(expected_models)
 
-    testcase.assertEqual(relationship_total, 254)
+    testcase.assertEqual(relationship_total, 269)
     testcase.assertEqual(covered_configurations, set(configurations))
     testcase.assertEqual(covered_versions, set(versions))
     testcase.assertEqual(
@@ -146,18 +146,18 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
     testcase.assertEqual(json.loads(json_text), matrix)
     csv_rows = list(csv.DictReader(io.StringIO(csv_text)))
     testcase.assertEqual(tuple(csv_rows[0]), CSV_COLUMNS)
-    testcase.assertEqual(len(csv_rows), 33)
+    testcase.assertEqual(len(csv_rows), 34)
     testcase.assertEqual(
         sum(int(row["relationship_count"]) for row in csv_rows),
-        254,
+        269,
     )
     lowered = html_text.lower()
     testcase.assertTrue(html_text.startswith("<!doctype html>"))
     testcase.assertNotIn("<script", lowered)
     testcase.assertNotIn("<img", lowered)
     testcase.assertNotIn("<link", lowered)
-    testcase.assertEqual(html_text.count("<tr>"), 34)
-    testcase.assertEqual(html_text.count("SHA-256 "), 33)
+    testcase.assertEqual(html_text.count("<tr>"), 35)
+    testcase.assertEqual(html_text.count("SHA-256 "), 34)
     testcase.assertIn("creates no source quality score", html_text)
     testcase.assertIn("No source is preferred or rejected", html_text)
 

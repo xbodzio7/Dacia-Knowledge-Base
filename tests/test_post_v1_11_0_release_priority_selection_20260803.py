@@ -40,7 +40,7 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
     def test_no_source_backed_candidate_is_eligible(self) -> None:
         completeness = self.report["completeness"]
         self.assertEqual(completeness["active_configuration_count"], 81)
-        self.assertEqual(completeness["missing_technical_count"], 97)
+        self.assertEqual(completeness["missing_technical_count"], 89)
         self.assertEqual(completeness["missing_equipment_count"], 36)
         self.assertEqual(completeness["candidate_count"], 7)
         self.assertEqual(completeness["exhausted_source_candidate_count"], 7)

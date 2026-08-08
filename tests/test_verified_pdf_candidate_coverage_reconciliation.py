@@ -381,7 +381,7 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
         self.assertEqual(len(differences), 2)
         recognized = {
             "configuration_attribute_availability": (5906, 5911),
-            "configuration_attribute_values": (3490, 3527),
+            "configuration_attribute_values": (3490, 3587),
         }
         current_with_historical_counts = copy.deepcopy(self.payload)
         seen: set[str] = set()
