@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Sandero and Sandero Stepway Configurator Data Completion**
+**Configuration Shortlist Task-First Explorer UI**
 
 ## Reference delivery
 
-- Package: Sandero and Sandero Stepway Configurator Data Completion
-- Pull Request: #621
-- Verified head: `3e90eb541a3b8cf806813c680ea0c3b748e77193`
-- Quality run: #31249330669
+- Package: Configuration Shortlist Task-First Explorer UI
+- Pull Request: #622
+- Verified head: `bdaed57b98295609fe43785afc78675d44cd59e7`
+- Quality run: #31249865486
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero and Sandero Stepway Configurator Data Completion** — `complete`
+**Configuration Shortlist Task-First Explorer UI** — `complete`
 
-Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.
+Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.
 
 ## Next package
 
-**Configuration Shortlist Task-First Explorer UI** — `planned`
+**Cross-Model Current Completeness Review** — `planned`
 
-Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.
+Audit every current Dacia model family side by side for configuration identity, prices, technical data, standard equipment, commercial packages/options, appearance and exact configurator evidence, distinguishing source-complete, partial, source-blocked and unresolved scope before selecting the next data-completion target.
 
 ## Autonomy
 
