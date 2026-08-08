@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "kind": "duster_current_range_configuration_catalog_reconciliation",
+  "captured_on": "2026-08-08",
+  "market": "PL",
+  "source_code": "src_pl_duster_price_my26_20260703",
+  "source_review_path": "data/reporting/duster_current_range_configuration_drift_review_20260806.json",
+  "configurator_scope_path": "project/sources/dacia-pl-non-spring-current-configurator-scope-20260808.json",
+  "before": {
+    "configuration_rows": 81,
+    "active_configuration_rows": 81,
+    "active_duster_surfaces": 27,
+    "active_duster_versions": 5,
+    "current_duster_surfaces_matched": 13,
+    "current_duster_surfaces_missing": 3,
+    "prior_phase_duster_surfaces_still_active": 14
+  },
+  "changes": {
+    "added_current_configurations": [
+      "duster_iii_expression_hybridg150_4x4_automatic",
+      "duster_iii_extreme_hybridg150_4x4_automatic",
+      "duster_iii_journey_hybridg150_4x4_automatic"
+    ],
+    "deprecated_prior_phase_configuration_ids": [8,9,10,11,12,13,14,15,16,17,18,19,20,21],
+    "deprecated_version": "duster_iii_journey_plus",
+    "history_deleted": false,
+    "price_rows_changed": false
+  },
+  "after": {
+    "configuration_rows": 84,
+    "active_configuration_rows": 70,
+    "active_duster_surfaces": 16,
+    "active_duster_versions": 4,
+    "current_duster_surfaces_matched": 16,
+    "current_duster_surfaces_missing": 0,
+    "prior_phase_duster_surfaces_still_active": 0
+  },
+  "current_matrix": [
+    {"powertrain":"Eco-G 120","drive":"4x2","transmission":"manual","grades":["essential","expression","extreme","journey"]},
+    {"powertrain":"Eco-G 120","drive":"4x2","transmission":"automatic","grades":["expression","extreme","journey"]},
+    {"powertrain":"mild hybrid 140","drive":"4x2","transmission":"manual","grades":["expression","extreme","journey"]},
+    {"powertrain":"hybrid 155","drive":"4x2","transmission":"automatic","grades":["expression","extreme","journey"]},
+    {"powertrain":"hybrid-G 150","drive":"4x4","transmission":"automatic","grades":["expression","extreme","journey"]}
+  ],
+  "semantic_boundaries": [
+    "Deprecated rows remain in canonical master history and retain their original source evidence.",
+    "Journey+ is deprecated only as a current version; its historical configuration and price evidence remain preserved.",
+    "The three new hybrid-G 150 4x4 rows encode only identity fields proven by the current official price list.",
+    "No technical, equipment, appearance or commercial choice is projected from Bigster or another Duster powertrain.",
+    "Catalogue-price import for the three new identities is a separate bounded package."
+  ],
+  "next_package": {
+    "package_id": "duster_hybridg150_current_price_import_001",
+    "goal": "Attach the three official 2026-07-03 catalogue gross prices to the newly canonical Duster hybrid-G 150 4x4 exact configuration identities without changing historical price observations."
+  },
+  "status": "complete"
+}
