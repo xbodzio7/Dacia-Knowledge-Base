@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Captured the complete official standard-equipment and technical-specification accordions for all 15 exact current Sandero and Sandero Stepway states, preserving 1,029 equipment rows and 679 technical rows without importing ambiguous or model-qualified values.
+
 * Normalized the exact current Design and paid factory-option surfaces for all 15 Sandero and Sandero Stepway configurations: 93 colour memberships, 60 selected wheel/upholstery values and 40 priced option mappings, preserving historical observations and exact configuration boundaries.
 
 * Published and independently re-verified immutable `data-products-v1.14.1` from exact main commit `c01315369a9676ceaa0cdf584ef9f03ea0cddc6d`, correcting the archived interactive shortlist pipeline while preserving source data and comparison semantics.
@@ -316,7 +318,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1902 tests.
+* The automated test suite now contains 1908 tests.
 * The verified master-data baseline now contains 47 CSV files and 12007 rows.
 * SQLite verification now covers 47 tables and 12007 rows.
 * Configuration attribute values now contain 3664 dated records.

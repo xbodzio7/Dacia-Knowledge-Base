@@ -12,18 +12,18 @@
 
 ## Phase
 
-**Sandero Stepway Exact Design and Factory Option Normalization**
+**Sandero Stepway Full Technical and Standard Equipment Capture**
 
 ## Reference delivery
 
-- Package: Current Configurator Exact State Capture Reopening
-- Pull Request: #626
-- Verified head: `72476b1260f46314a0b3fe2ba7b1972bafa1bcdf`
-- Quality run: #31283021821
+- Package: Sandero Stepway Exact Design and Factory Option Normalization
+- Pull Request: #627
+- Verified head: `19cf4271e4c6a94924e86ac068812cbfffa49d1e`
+- Quality run: #31283920649
 
 ## Verified baseline
 
-- Tests: 1902
+- Tests: 1908
 - Master CSV files: 47
 - Master rows: 12007
 - Configuration values: 3664
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Exact Design and Factory Option Normalization** — `complete`
+**Sandero Stepway Full Technical and Standard Equipment Capture** — `complete`
 
-Normalize exact captured colour, selected wheel and upholstery, and paid factory-option observations for all 15 current Sandero and Stepway configurations while preserving source dates, historical rows and configuration boundaries.
+Capture the complete standard-equipment and technical-specification accordions for all 15 exact current Sandero and Stepway configurator states while preserving literal configuration boundaries and authorizing no ambiguous canonical import.
 
 ## Next package
 
-**Sandero Stepway Full Technical and Standard Equipment Capture** — `planned`
+**Sandero Stepway Full Modal Canonical Reconciliation** — `planned`
 
-Capture the full technical and standard-equipment modals for all 15 exact configurator states, reconcile them against remaining canonical gaps, and normalize only exact missing or newer observations.
+Reconcile all 1,708 captured technical and standard-equipment rows against canonical observations, normalize only exact safe missing or newer matches, and preserve ambiguous or unmatched literal evidence without guessing.
 
 ## Autonomy
 
