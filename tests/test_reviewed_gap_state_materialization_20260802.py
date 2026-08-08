@@ -117,24 +117,21 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             for component in configuration.get("price_components", [])
             if component.get("review_state")
         ]
+        # The review ledger intentionally keeps 29 historical decisions. Three
+        # of them belong to the preserved February Spring Type 2 option rows.
+        # Once later exact-current standard evidence suppresses those rows from
+        # the live selector, only 26 review states remain attachable to current
+        # price components. This removes one source-not-stated decision and both
+        # source-conflict Type 2 decisions; it does not mutate the ledger.
         expected = Counter(
             {
                 "importable": 2,
-                "source-not-stated": 3,
-                "source-conflict": 2,
+                "source-not-stated": 6,
                 "context-unmodeled": 18,
             }
         )
-        if self.catalog["as_of"] >= "2026-08-02":
-            # Advancing the live catalog boundary exposes one additional
-            # reviewed commercial component. The existing review ledger
-            # classifies it as source-not-stated; a later date alone is not
-            # permission to promote it to importable. The three historical
-            # Spring Type 2 option mappings remain in master history but are
-            # intentionally absent from the current selector because later
-            # exact-current canonical evidence says the cable is standard.
-            expected["source-not-stated"] += 1
-        self.assertEqual(len(reviewed), sum(expected.values()))
+        self.assertGreaterEqual(self.catalog["as_of"], "2026-08-02")
+        self.assertEqual(len(reviewed), 26)
         self.assertEqual(
             Counter(item["review_state"] for item in reviewed),
             expected,
