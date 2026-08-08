@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.19.1 Release Preparation",
+  "phase": "Data Products v1.19.1 Publication",
   "reference_delivery": {
-    "name": "Spring Type 2 Current Selector Reconciliation",
-    "pull_request": 617,
-    "head_sha": "324221d889e22c8be43e131bd60f7ef14328df52",
-    "quality_run": 31246369245
+    "name": "Data Products v1.19.1 Publication",
+    "pull_request": 620,
+    "head_sha": "e3a43a999a40f920bceab655cdfdac5856119a07",
+    "quality_run": 31248397833
   },
   "baseline": {
     "tests": 1885,
@@ -27,23 +27,37 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_19_1_release_preparation_001",
-    "kind": "release_preparation",
-    "name": "Data Products v1.19.1 Release Preparation",
+    "package_id": "data_products_v1_19_1_publication_001",
+    "kind": "data_product_release",
+    "name": "Data Products v1.19.1 Publication",
     "status": "complete",
-    "goal": "Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.",
+    "goal": "Publish immutable v1.19.1 assets from the exact source SHA after double-build, offline-workspace and public-download verification.",
     "manifest_paths": [
+      "data/reporting/data_products_v1_19_1_publication.json",
+      "data/reporting/spring_type2_current_selector_reconciliation_20260808.json",
       "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.19.1-release-preparation-20260808.md",
-      "project/state.json"
+      "project/packages/data-products-v1.19.1-publication-20260808.md",
+      "project/state.json",
+      "tools/data_product_release.py",
+      "tools/reporting/commercial_offers.py",
+      "tools/reporting/configuration_shortlist_technical_observation_release_integration.py",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_v12_pricing.js",
+      "tools/reporting/configuration_shortlist_selection.js",
+      "tools/reporting/configuration_comparison_bundle.py",
+      "data/reporting/configurator_ui_grade_appearance_coverage_20260807.json",
+      "data/reporting/cross_model_configurator_commercial_data.json",
+      "data/reporting/cross_model_configurator_standard_equipment.json",
+      "data/reporting/cross_model_configurator_technical_data.json",
+      "data/reporting/cross_model_configurator_conflict_closure.json"
     ]
   },
   "next_package": {
-    "package_id": "data_products_v1_19_1_publication_001",
-    "kind": "publication",
-    "name": "Data Products v1.19.1 Publication",
+    "package_id": "sandero_stepway_configurator_data_completion_001",
+    "kind": "configurator_data_completion",
+    "name": "Sandero and Sandero Stepway Configurator Data Completion",
     "status": "planned",
-    "goal": "Publish immutable Data Products v1.19.1 from an exact verified source SHA with byte-identical double build, offline-workspace verification, public-download verification and a durable publication receipt while preserving v1.19.0 immutability.",
+    "goal": "Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.",
     "manifest_paths": []
   },
   "autonomy": {

@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.19.1 Release Preparation**
+**Data Products v1.19.1 Publication**
 
 ## Reference delivery
 
-- Package: Spring Type 2 Current Selector Reconciliation
-- Pull Request: #617
-- Verified head: `324221d889e22c8be43e131bd60f7ef14328df52`
-- Quality run: #31246369245
+- Package: Data Products v1.19.1 Publication
+- Pull Request: #620
+- Verified head: `e3a43a999a40f920bceab655cdfdac5856119a07`
+- Quality run: #31248397833
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.19.1 Release Preparation** — `complete`
+**Data Products v1.19.1 Publication** — `complete`
 
-Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.
+Publish immutable v1.19.1 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
 
 ## Next package
 
-**Data Products v1.19.1 Publication** — `planned`
+**Sandero and Sandero Stepway Configurator Data Completion** — `planned`
 
-Publish immutable Data Products v1.19.1 from an exact verified source SHA with byte-identical double build, offline-workspace verification, public-download verification and a durable publication receipt while preserving v1.19.0 immutability.
+Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.
 
 ## Autonomy
 
