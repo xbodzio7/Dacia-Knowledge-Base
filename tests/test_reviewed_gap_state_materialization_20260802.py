@@ -28,6 +28,11 @@ TARGETS = {
     "spring_power_package__spring_extreme_electric100_automatic": "3000",
 }
 KHaki_TARGET = "spring_colour_lichen_khaki__spring_essential_electric70_automatic"
+TYPE2_MAPPING_CODES = {
+    "spring_type2_charging_cable_option__spring_essential_electric70_automatic",
+    "spring_type2_charging_cable_option__spring_expression_electric70_automatic",
+    "spring_type2_charging_cable_option__spring_extreme_electric100_automatic",
+}
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -112,25 +117,41 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             for component in configuration.get("price_components", [])
             if component.get("review_state")
         ]
+        # The review ledger intentionally keeps 29 historical decisions. Three
+        # of them belong to the preserved February Spring Type 2 option rows.
+        # Once later exact-current standard evidence suppresses those rows from
+        # the live selector, only 26 review states remain attachable to current
+        # price components. This removes one source-not-stated decision and both
+        # source-conflict Type 2 decisions; it does not mutate the ledger.
         expected = Counter(
             {
                 "importable": 2,
                 "source-not-stated": 6,
-                "source-conflict": 2,
                 "context-unmodeled": 18,
             }
         )
-        if self.catalog["as_of"] >= "2026-08-02":
-            # Advancing the live catalog boundary exposes one additional
-            # reviewed commercial component. The existing review ledger
-            # classifies it as source-not-stated; a later date alone is not
-            # permission to promote it to importable.
-            expected["source-not-stated"] += 1
-        self.assertEqual(len(reviewed), sum(expected.values()))
+        self.assertGreaterEqual(self.catalog["as_of"], "2026-08-02")
+        self.assertEqual(len(reviewed), 26)
         self.assertEqual(
             Counter(item["review_state"] for item in reviewed),
             expected,
         )
+        preserved_type2 = {
+            row["code"]
+            for row in rows(MAPPINGS)
+            if row["code"] in TYPE2_MAPPING_CODES
+        }
+        self.assertEqual(preserved_type2, TYPE2_MAPPING_CODES)
+        for configuration_code in (
+            "spring_essential_electric70_automatic",
+            "spring_expression_electric70_automatic",
+            "spring_extreme_electric100_automatic",
+        ):
+            current_codes = {
+                item["code"]
+                for item in self.by_code[configuration_code].get("price_components", [])
+            }
+            self.assertNotIn("spring_type2_charging_cable_option", current_codes)
         extreme = self.by_code["spring_extreme_electric100_automatic"]
         amounts = {item["code"]: item["amount"] for item in extreme["price_components"]}
         self.assertEqual(amounts["spring_city_package"], 1800.0)

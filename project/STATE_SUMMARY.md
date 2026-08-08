@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Post-v1.19.0 Release Priority Selection**
+**Post-v1.19.0 Selector Correctness**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.19.0 Release Priority Selection Review** — `complete`
+**Spring Type 2 Current Selector Reconciliation** — `complete`
 
-Inspect canonical product, source, user-interface and roadmap evidence after v1.19.0 publication and select one bounded next package.
+Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.
 
 ## Next package
 
-**Spring Type 2 Current Selector Reconciliation** — `planned`
+**Data Products v1.19.1 Release Preparation** — `planned`
 
-Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.
+Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.
 
 ## Autonomy
 

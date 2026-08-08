@@ -9,6 +9,8 @@ from typing import Any, Iterable, Mapping
 
 
 CONFIGURATOR_OBSERVATION_KIND = "configurator_observation"
+SPRING_TYPE2_COMMERCIAL_ITEM_CODE = "spring_type2_charging_cable_option"
+SPRING_TYPE2_ATTRIBUTE_CODE = "type2_charging_cable_supplied"
 _CONFIGURATOR_COMMERCIAL_REPORT = "cross_model_configurator_commercial_data.json"
 _CONFIGURATOR_STANDARD_EQUIPMENT_REPORT = (
     "cross_model_configurator_standard_equipment.json"
@@ -85,6 +87,39 @@ def _source_categories(
         )
         source_lines.extend(normalized_lines)
     return categories, source_lines
+
+
+def _spring_type2_standard_dates(
+    master: Path,
+    configuration_codes: set[str],
+    as_of: str,
+) -> dict[str, str]:
+    """Return exact current Spring Type 2 standard observations by configuration.
+
+    This is deliberately item-specific. It reconciles the known Spring Type 2
+    history without creating a generic rule that package/component availability
+    overrides commercial offers.
+    """
+
+    path = master / "configuration_attribute_availability.csv"
+    if not path.is_file():
+        return {}
+
+    result: dict[str, str] = {}
+    for row in read_csv(path):
+        configuration_code = row.get("configuration_code", "")
+        if configuration_code not in configuration_codes:
+            continue
+        if row.get("attribute_code") != SPRING_TYPE2_ATTRIBUTE_CODE:
+            continue
+        if row.get("availability_status") != "standard":
+            continue
+        observed_on = row.get("observation_date", "")
+        if not observed_on or not _eligible(observed_on, as_of):
+            continue
+        if observed_on > result.get(configuration_code, ""):
+            result[configuration_code] = observed_on
+    return result
 
 
 def _collect_configurator_observations(
@@ -252,12 +287,17 @@ def collect_commercial_components(
         for row in read_csv(master / "commercial_item_attributes.csv"):
             if row.get("commercial_item_code") in items:
                 attributes[row["commercial_item_code"]].append(row)
+        spring_type2_standard_dates = _spring_type2_standard_dates(
+            master,
+            requested,
+            as_of,
+        )
 
         # Offer availability and an exact saved-configuration selected state are
         # distinct observations. Keep the latest row for each status first,
         # then merge both meanings into one logical UI component. This prevents
-        # a later `standard` observation from hiding an earlier valid `optional`
-        # offer and its exact price.
+        # a later commercial `standard` selected-state observation from hiding
+        # an earlier valid `optional` offer and its exact price.
         latest_by_status: dict[tuple[str, str, str], dict[str, str]] = {}
         for row in read_csv(master / "commercial_item_configurations.csv"):
             configuration_code = row.get("configuration_code", "")
@@ -289,6 +329,24 @@ def collect_commercial_components(
                     key=lambda row: (row.get("price_date", ""), row.get("code", "")),
                 )
             selected_mapping = states.get("standard")
+
+            # Spring Type 2 is a bounded source-history reconciliation, not a
+            # generic package/component precedence rule. The February brochure
+            # option remains in master history, but a later exact canonical
+            # factory-equipment observation means that historical option is no
+            # longer a current selector offer for that exact configuration.
+            if (
+                item_code == SPRING_TYPE2_COMMERCIAL_ITEM_CODE
+                and selector_mapping.get("availability_status") == "optional"
+            ):
+                offer_date = (
+                    selector_mapping.get("price_date", "")
+                    or item.get("observation_date", "")
+                )
+                standard_date = spring_type2_standard_dates.get(configuration_code, "")
+                if offer_date and standard_date and standard_date > offer_date:
+                    continue
+
             amount_text = selector_mapping.get("amount", "")
             result[configuration_code].append(
                 {

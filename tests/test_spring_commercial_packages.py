@@ -88,10 +88,14 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             code: [row for row in rows if row["code"] in importer.EXPECTED_ITEMS]
             for code, rows in components.items()
         }
+        # On 2026-07-31 the exact-current Essential observation already says
+        # the supplied Type 2 cable is standard, so its older brochure option
+        # is no longer a current selector offer. Expression and Extreme do not
+        # receive that exact-current standard evidence until 2026-08-02.
         self.assertEqual(
             {code: len(rows) for code, rows in package_components.items()},
             {
-                "spring_essential_electric70_automatic": 1,
+                "spring_essential_electric70_automatic": 0,
                 "spring_expression_electric70_automatic": 3,
                 "spring_extreme_electric100_automatic": 3,
             },
@@ -113,16 +117,16 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             if row["amount"] is None
         ]
         self.assertEqual(
-    {
-        code: sum(row["amount"] is None for row in rows)
-        for code, rows in package_components.items()
-    },
-    {
-        "spring_essential_electric70_automatic": 1,
-        "spring_expression_electric70_automatic": 3,
-        "spring_extreme_electric100_automatic": 1,
-    },
-)
+            {
+                code: sum(row["amount"] is None for row in rows)
+                for code, rows in package_components.items()
+            },
+            {
+                "spring_essential_electric70_automatic": 0,
+                "spring_expression_electric70_automatic": 3,
+                "spring_extreme_electric100_automatic": 1,
+            },
+        )
         self.assertTrue(all(row["price_date"] == "" for row in unknown))
         self.assertEqual(
             {extreme[code]["price_date"] for code in ("spring_city_package", "spring_power_package")},
