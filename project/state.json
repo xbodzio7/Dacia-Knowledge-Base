@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.19.0 Publication",
+  "phase": "Post-v1.19.0 Release Priority Selection",
   "reference_delivery": {
     "name": "Data Products v1.19.0 Publication",
     "pull_request": 615,
@@ -27,36 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_19_0_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.19.0 Publication",
-    "status": "complete",
-    "goal": "Publish immutable v1.19.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_19_0_publication.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.19.0-publication-20260808.md",
-      "project/state.json",
-      "tools/data_product_release.py",
-      "tools/reporting/configuration_shortlist_technical_observation_release_integration.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_v12_pricing.js",
-      "tools/reporting/configuration_shortlist_selection.js",
-      "tools/reporting/configuration_comparison_bundle.py",
-      "data/reporting/configurator_ui_commercial_choice_readiness_20260807.json",
-      "data/reporting/configurator_ui_grade_appearance_coverage_20260807.json",
-      "data/reporting/cross_model_configurator_commercial_data.json",
-      "data/reporting/cross_model_configurator_standard_equipment.json",
-      "data/reporting/cross_model_configurator_technical_data.json",
-      "data/reporting/cross_model_configurator_conflict_closure.json"
-    ]
-  },
-  "next_package": {
     "package_id": "post_v1_19_0_release_priority_selection_review_001",
     "kind": "priority_selection_review",
     "name": "Post-v1.19.0 Release Priority Selection Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Inspect canonical product, source, user-interface and roadmap evidence after v1.19.0 publication and select one bounded next package.",
+    "manifest_paths": [
+      "project/reviews/post-v1.19.0-release-priority-selection-review-001-20260808.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_type2_current_selector_reconciliation_001",
+    "kind": "interface_data_reconciliation",
+    "name": "Spring Type 2 Current Selector Reconciliation",
+    "status": "planned",
+    "goal": "Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.",
     "manifest_paths": []
   },
   "autonomy": {

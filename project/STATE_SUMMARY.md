@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Data Products v1.19.0 Publication**
+**Post-v1.19.0 Release Priority Selection**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.19.0 Publication** — `complete`
+**Post-v1.19.0 Release Priority Selection Review** — `complete`
 
-Publish immutable v1.19.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
+Inspect canonical product, source, user-interface and roadmap evidence after v1.19.0 publication and select one bounded next package.
 
 ## Next package
 
-**Post-v1.19.0 Release Priority Selection Review** — `planned`
+**Spring Type 2 Current Selector Reconciliation** — `planned`
 
-Inspect canonical product, source, user-interface and roadmap evidence after v1.19.0 publication and select one bounded next package.
+Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.
 
 ## Autonomy
 
