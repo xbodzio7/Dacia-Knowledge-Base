@@ -5,26 +5,28 @@ Package: `duster_current_range_configuration_catalog_reconciliation_001`
 
 ## Goal
 
-Align the canonical Duster configuration catalogue with the current official Polish MY26 range before any downstream exact-configurator completeness product treats the registry as current.
+Align the canonical Duster configuration catalogue with the current official Polish MY26 range before downstream exact-configurator completeness products treat the current Duster scope as complete.
 
 ## Source-backed current range
 
-The official Polish Duster price list effective 2026-07-03 defines 16 current grade/powertrain surfaces across Essential, Expression, Extreme and Journey. The previously registered catalogue contained 27 active Duster surfaces: 13 matched the current range, three current `hybrid-G 150 4x4` surfaces were absent, and fourteen prior-phase surfaces remained active.
+The official Polish Duster price list effective 2026-07-03 defines 16 current grade/powertrain surfaces across Essential, Expression, Extreme and Journey. Before this package, 13 of those current surfaces already had canonical exact configuration identities and three current `hybrid-G 150 4x4` surfaces were missing.
+
+The repository also preserves fourteen Duster rows from earlier source phases. They remain valid historical/source-bounded observations and are not deleted or assigned a new status value in this package.
 
 ## Master-data changes
 
 - add `duster_iii_expression_hybridg150_4x4_automatic`;
 - add `duster_iii_extreme_hybridg150_4x4_automatic`;
 - add `duster_iii_journey_hybridg150_4x4_automatic`;
-- mark configuration IDs 8–21 `deprecated` rather than deleting them;
-- mark `duster_iii_journey_plus` `deprecated` because it has no current configuration in the 2026-07-03 range;
-- preserve every historical configuration and price observation.
+- preserve all existing Duster configuration rows, versions and historical price evidence unchanged.
 
-After reconciliation the canonical registry contains 84 configuration rows, 70 active rows overall and exactly 16 active Duster surfaces. All 16 current Duster identities are represented and no prior-phase Duster identity remains active.
+After reconciliation the canonical registry contains 84 configuration rows and all 16 current Duster identities are represented. Current-range membership remains source/date scoped; it is not encoded by retroactively changing historical configuration status.
 
 ## Evidence boundary
 
-This package changes configuration identity/status only. It does not infer technical values, standard equipment, packages/options or appearance for `hybrid-G 150 4x4`. It also does not rewrite historical prices. The three current catalogue prices are imported separately so catalogue identity reconciliation and price provenance remain independently testable.
+This package adds configuration identity only. It does not infer technical values, standard equipment, packages/options or appearance for `hybrid-G 150 4x4`. It also does not rewrite historical prices. The current repository status vocabulary is preserved; no new `deprecated` state is introduced.
+
+The three current catalogue prices are imported separately so configuration identity and price provenance remain independently testable.
 
 ## Next package
 
