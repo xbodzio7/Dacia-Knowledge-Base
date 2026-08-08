@@ -10,21 +10,21 @@
     "offline_workspace_verification": "PASS"
   },
   "source_registry": {
-    "source_count": 36,
+    "source_count": 37,
     "source_type_counts": {
       "brochure_pdf": 6,
       "configuration_pdf": 14,
       "normalized_snapshot": 5,
-      "web_snapshot": 11
+      "web_snapshot": 12
     },
     "source_status_counts": {
-      "active": 36
+      "active": 37
     }
   },
   "completeness": {
     "active_configuration_count": 81,
     "completeness_scope_count": 23,
-    "missing_technical_count": 97,
+    "missing_technical_count": 89,
     "missing_equipment_count": 36,
     "candidate_count": 7,
     "exhausted_source_candidate_count": 7,

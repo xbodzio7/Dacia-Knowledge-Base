@@ -71,7 +71,7 @@ def _copy_verified_family_outputs(repository: Path, payload: Path) -> None:
         "model_family_count": 6,
         "active_configuration_count": 84,
         "reporting_scope_count": 23,
-        "source_configuration_relationship_count": 254,
+        "source_configuration_relationship_count": 269,
         "configurations_without_provenance_count": 0,
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
@@ -112,8 +112,8 @@ def _write_release_notes(payload: Path, version: str) -> None:
 
 This minor release adds the verified portfolio model-family summary in JSON,
 Markdown and standalone HTML. It covers all six canonical families, 84 active
-configurations and 23 existing reporting scopes, with 33 source records and
-254 explicit source-to-configuration relationships.
+configurations and 23 existing reporting scopes, with 34 source records and
+269 explicit source-to-configuration relationships.
 
 The family product is copied byte-for-byte from the committed verified outputs,
 and the existing cross-model offline page links to it using a relative path.

@@ -47,7 +47,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertEqual(self.summary["as_of"], "2026-08-02")
+        self.assertEqual(self.summary["as_of"], "2026-08-09")
         self.assertEqual(
             self.summary["summary"],
             {
@@ -57,8 +57,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "mixed_model_scope_count": 2,
                 "active_configuration_count": 84,
                 "within_scope_pair_count": 133,
-                "provenance_source_count": 33,
-                "source_configuration_relationship_count": 254,
+                "provenance_source_count": 34,
+                "source_configuration_relationship_count": 269,
                 "configurations_with_provenance_count": 84,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
@@ -72,7 +72,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["kind"],
             "portfolio_model_family_comparison_matrix",
         )
-        self.assertEqual(self.matrix["as_of"], "2026-08-02")
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
         self.assertEqual(
             self.matrix["source_product"],
             {
@@ -87,8 +87,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "model_family_count": 6,
                 "active_configuration_count": 84,
                 "reporting_scope_count": 23,
-                "provenance_source_count": 33,
-                "source_configuration_relationship_count": 254,
+                "provenance_source_count": 34,
+                "source_configuration_relationship_count": 269,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -145,8 +145,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_exact_provenance_counts_and_date_ranges_are_preserved(self) -> None:
         expected = {
-            "sandero_iii": (8, 29, "2026-02-02", "2026-07-24"),
-            "sandero_stepway_iii": (11, 36, "2026-02-02", "2026-07-24"),
+            "sandero_iii": (9, 36, "2026-02-02", "2026-08-09"),
+            "sandero_stepway_iii": (12, 44, "2026-02-02", "2026-08-09"),
             "jogger": (4, 88, "2025-12-17", "2026-07-24"),
             "duster_iii": (8, 65, "2025-10-20", "2026-07-25"),
             "bigster": (2, 28, "2025-12-10", "2026-07-03"),
@@ -182,7 +182,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 254)
+        self.assertEqual(matrix_relationship_total, 269)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -204,8 +204,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 254)
-        self.assertEqual(len(used_sources), 33)
+        self.assertEqual(relation_total, 269)
+        self.assertEqual(len(used_sources), 34)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -316,7 +316,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 37)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 39)
         self.assertIn(
             'data-state="not_stated">nie podano</dd>', summary_rendered
         )

@@ -32,7 +32,7 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         matrix["kind"],
         "portfolio_model_version_comparison_matrix",
     )
-    testcase.assertEqual(matrix["as_of"], "2026-08-02")
+    testcase.assertEqual(matrix["as_of"], "2026-08-09")
     testcase.assertEqual(
         summary,
         {
@@ -40,8 +40,8 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
             "active_version_count": 22,
             "active_configuration_count": 84,
             "reporting_scope_count": 23,
-            "provenance_source_count": 33,
-            "source_configuration_relationship_count": 254,
+            "provenance_source_count": 34,
+            "source_configuration_relationship_count": 269,
             "configurations_without_provenance_count": 0,
             "configuration_pairs_generated": False,
             "cross_scope_pairs_generated": False,
@@ -145,7 +145,7 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         set(configuration_codes),
         {row["code"] for row in active_configurations},
     )
-    testcase.assertEqual(relation_total, 254)
+    testcase.assertEqual(relation_total, 269)
 
     anchors = {record["version_code"]: record for record in records}
     testcase.assertEqual(

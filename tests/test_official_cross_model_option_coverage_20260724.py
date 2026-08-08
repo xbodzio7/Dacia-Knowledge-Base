@@ -132,7 +132,15 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
             row for row in mappings
             if row["commercial_item_code"] == "jogger_drive_package"
         ]
-        self.assertEqual(len(sandero_easy), 6)
+        self.assertEqual(len(sandero_easy), 12)
+        self.assertEqual(
+            {row["amount"] for row in sandero_easy if row["price_date"] == "2026-07-03"},
+            {"1600"},
+        )
+        self.assertEqual(
+            {row["amount"] for row in sandero_easy if row["price_date"] == "2026-08-09"},
+            {"1400"},
+        )
         self.assertEqual(
             {row["configuration_code"] for row in sandero_easy},
             {

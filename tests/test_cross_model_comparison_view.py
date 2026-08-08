@@ -37,7 +37,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["kind"],
             "scope_preserving_cross_model_comparison_view",
         )
-        self.assertEqual(self.view["as_of"], "2026-08-02")
+        self.assertEqual(self.view["as_of"], "2026-08-09")
         self.assertEqual(
             self.view["summary"],
             {

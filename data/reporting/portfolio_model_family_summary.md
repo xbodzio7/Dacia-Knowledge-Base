@@ -1,6 +1,6 @@
 # Portfolio Model Family Summary
 
-Snapshot: `2026-08-02`
+Snapshot: `2026-08-09`
 
 This report groups the current active configurations by canonical model family. It reuses existing reporting scopes and explicit source links; it does not create cross-scope pairs, rankings, recommendations or inferred values.
 
@@ -10,16 +10,16 @@ This report groups the current active configurations by canonical model family. 
 - active configurations: 84;
 - reporting scopes: 23;
 - within-scope pairs: 133;
-- provenance sources: 33;
-- source-to-configuration relationships: 254;
+- provenance sources: 34;
+- source-to-configuration relationships: 269;
 - configurations without provenance: 0.
 
 ## Family overview
 
 | Family | Configurations | Versions | Scopes | Price range | Sources | Source dates |
 |---|---:|---:|---:|---|---:|---|
-| Sandero | 7 | 3 | 3 | 63 900 PLN–80 500 PLN | 8 | 2026-02-02–2026-07-24 |
-| Sandero Stepway | 8 | 3 | 3 | 71 700 PLN–89 400 PLN | 11 | 2026-02-02–2026-07-24 |
+| Sandero | 7 | 3 | 3 | 63 900 PLN–80 500 PLN | 9 | 2026-02-02–2026-08-09 |
+| Sandero Stepway | 8 | 3 | 3 | 71 700 PLN–89 400 PLN | 12 | 2026-02-02–2026-08-09 |
 | Jogger | 22 | 4 | 4 | 77 900 PLN–118 050 PLN | 4 | 2025-12-17–2026-07-24 |
 | Duster | 30 | 5 | 9 | 82 000 PLN–126 100 PLN | 8 | 2025-10-20–2026-07-25 |
 | Bigster | 14 | 4 | 4 | 101 400 PLN–137 600 PLN | 2 | 2025-12-10–2026-07-03 |
@@ -34,7 +34,7 @@ This report groups the current active configurations by canonical model family. 
 - transmissions: automatic / manual;
 - recorded seat values: 5;
 - reporting scopes: 3 (1 exclusive, 2 shared);
-- explicit provenance: 8 sources and 29 source-configuration relationships.
+- explicit provenance: 9 sources and 36 source-configuration relationships.
 
 ### Sources
 
@@ -46,6 +46,7 @@ This report groups the current active configurations by canonical model family. 
 - `src_pl_sandero_stepway_price_my26_20260703` — 2026-07-03, `configuration_pdf`, 2 configurations, SHA-256 `5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783` — DACIA SANDERO I SANDERO STEPWAY cennik MY26.
 - `src_pl_sandero_official_web_configurations_20260723` — 2026-07-23, `web_snapshot`, 4 configurations, SHA-256 `e02eb11d31cf7dc00bc29eb112d3b59c33e0fb08cab31c375410add981599f68` — Dacia Polska Sandero official version/configurator observations.
 - `src_pl_cross_model_option_coverage_20260724` — 2026-07-24, `web_snapshot`, 4 configurations, SHA-256 `283dcb96119804f6f100ba3d7c93d968f862aa06667a681198cb7bb77e24cf63` — Dacia Polska cross-model factory option coverage observations.
+- `src_pl_sandero_stepway_exact_configurator_states_20260809` — 2026-08-09, `web_snapshot`, 7 configurations, SHA-256 `9f8779f5478fef02537e39793ac67a6ce07876d137b80f3cc77cf38293dd0991` — Dacia Polska exact Sandero and Sandero Stepway configurator states.
 
 ## Sandero Stepway
 
@@ -56,7 +57,7 @@ This report groups the current active configurations by canonical model family. 
 - transmissions: automatic / manual;
 - recorded seat values: 5;
 - reporting scopes: 3 (1 exclusive, 2 shared);
-- explicit provenance: 11 sources and 36 source-configuration relationships.
+- explicit provenance: 12 sources and 44 source-configuration relationships.
 
 ### Sources
 
@@ -71,6 +72,7 @@ This report groups the current active configurations by canonical model family. 
 - `src_pl_sandero_stepway_price_my26_20260703` — 2026-07-03, `configuration_pdf`, 5 configurations, SHA-256 `5af2dbaf268480ec1e7e6d6e35fd2037b6fba3fb79972026e4f68c08055ba783` — DACIA SANDERO I SANDERO STEPWAY cennik MY26.
 - `src_pl_sandero_stepway_official_web_configurations_20260723` — 2026-07-23, `web_snapshot`, 5 configurations, SHA-256 `dd236991cba2f14f2b49e43cddbcf643741e6609dd5c2f4dbb0bb6e9dbf98ed3` — Dacia Polska Sandero Stepway official version/configurator observations.
 - `src_pl_cross_model_option_coverage_20260724` — 2026-07-24, `web_snapshot`, 5 configurations, SHA-256 `283dcb96119804f6f100ba3d7c93d968f862aa06667a681198cb7bb77e24cf63` — Dacia Polska cross-model factory option coverage observations.
+- `src_pl_sandero_stepway_exact_configurator_states_20260809` — 2026-08-09, `web_snapshot`, 8 configurations, SHA-256 `9f8779f5478fef02537e39793ac67a6ce07876d137b80f3cc77cf38293dd0991` — Dacia Polska exact Sandero and Sandero Stepway configurator states.
 
 ## Jogger
 

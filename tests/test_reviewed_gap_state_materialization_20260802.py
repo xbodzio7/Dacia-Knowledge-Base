@@ -67,7 +67,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             self.assertEqual(row["price_date"], "2026-07-31")
             self.assertEqual(row["source_code"], "src_pl_spring_official_configurator_20260731")
             self.assertEqual(row["availability_status"], "optional")
-        self.assertEqual(len(rows(MAPPINGS)), 189)
+        self.assertEqual(len(rows(MAPPINGS)), 322)
 
     def test_importer_is_idempotent_and_updates_only_two_rows(self) -> None:
         module = load_apply_module()
@@ -91,7 +91,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
                 writer.writerows(current)
             self.assertEqual(module.materialize(root), 2)
             self.assertEqual(module.materialize(root), 0)
-            self.assertEqual(len(rows(path)), 189)
+            self.assertEqual(len(rows(path)), 322)
 
     def test_all_technical_review_states_are_visible(self) -> None:
         review_states = [

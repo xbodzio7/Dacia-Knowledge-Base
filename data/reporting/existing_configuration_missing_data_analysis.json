@@ -6,7 +6,7 @@
     "active_configuration_count": 84,
     "completeness_scope_count": 24,
     "scoped_configuration_count": 91,
-    "missing_technical_count": 97,
+    "missing_technical_count": 89,
     "missing_equipment_count": 36,
     "classified_not_applicable_count": 0,
     "candidate_count": 7,
@@ -1078,7 +1078,7 @@
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "scope_file": "sandero_ecog120_automatic_completeness.json",
       "expected_technical": 61,
-      "missing_technical": 24,
+      "missing_technical": 20,
       "missing_technical_slots": [
         {
           "attribute_code": "cargo_volume_vda",
@@ -1176,27 +1176,7 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "upholstery_variant",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_design",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_material",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_size",
           "fuel_type_code": "",
           "gear_number": ""
         }
@@ -1229,7 +1209,7 @@
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "scope_file": "sandero_ecog120_automatic_completeness.json",
       "expected_technical": 61,
-      "missing_technical": 24,
+      "missing_technical": 20,
       "missing_technical_slots": [
         {
           "attribute_code": "cargo_volume_vda",
@@ -1327,27 +1307,7 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "upholstery_variant",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_design",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "wheel_finish",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_material",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "wheel_size",
           "fuel_type_code": "",
           "gear_number": ""
         }
@@ -1748,9 +1708,9 @@
       "model_code": "sandero",
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "configuration_count": 2,
-      "missing_technical": 48,
+      "missing_technical": 40,
       "missing_equipment": 32,
-      "weighted_impact": 176,
+      "weighted_impact": 152,
       "selection_status": "source_exhausted_not_stated",
       "source_review_path": "sandero_official_web_source_gap_review.json"
     },

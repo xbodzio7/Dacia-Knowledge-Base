@@ -121,8 +121,8 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
     if not isinstance(summary, dict):
         raise ReleaseError("portfolio source coverage matrix summary is missing")
     expected = {
-        "provenance_source_count": 33,
-        "source_configuration_relationship_count": 254,
+        "provenance_source_count": 34,
+        "source_configuration_relationship_count": 269,
         "active_configuration_count": 84,
         "active_version_count": 22,
         "model_family_count": 6,
@@ -140,9 +140,9 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
             )
 
     sources = matrix.get("sources")
-    if not isinstance(sources, list) or len(sources) != 33:
+    if not isinstance(sources, list) or len(sources) != 34:
         raise ReleaseError(
-            "portfolio source coverage matrix must contain 33 source rows"
+            "portfolio source coverage matrix must contain 34 source rows"
         )
 
     source_codes: list[str] = []
@@ -241,7 +241,7 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
 
     if len(source_codes) != len(set(source_codes)):
         raise ReleaseError("portfolio source coverage matrix duplicates source codes")
-    if relationship_count != 254:
+    if relationship_count != 269:
         raise ReleaseError(
             "portfolio source coverage matrix relationship total differs"
         )
@@ -271,8 +271,8 @@ def _write_v1_15_0_release_notes(payload: Path, version: str) -> None:
 ## v1.15.0 portfolio source coverage matrix
 
 This minor release adds the verified portfolio source coverage matrix in JSON,
-CSV and standalone HTML. It exposes all 33 active provenance sources used by the
-current portfolio and preserves all 254 explicit source-to-configuration
+CSV and standalone HTML. It exposes all 34 active provenance sources used by the
+current portfolio and preserves all 269 explicit source-to-configuration
 relationships, together with exact registered external or local identities,
 SHA-256 values and covered model-family, version and configuration codes.
 

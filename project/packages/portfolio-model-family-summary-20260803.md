@@ -11,11 +11,11 @@ Status: **complete**
 The package adds deterministic JSON, Markdown and standalone HTML summaries for the current source-backed portfolio:
 
 - 6 canonical model families;
-- 81 active configurations;
-- 22 existing reporting scopes;
-- 130 existing within-scope pairs;
-- 33 distinct provenance sources;
-- 251 explicit source-to-configuration relationships;
+- 84 active configurations;
+- 23 existing reporting scopes;
+- 133 existing within-scope pairs;
+- 34 distinct provenance sources;
+- 269 explicit source-to-configuration relationships;
 - zero configurations without provenance.
 
 Each family preserves exact configuration codes, price coverage, recorded seat states, powertrain and transmission labels, exclusive/shared reporting scopes, source codes, source types, document dates, covered configurations and source SHA-256 values.

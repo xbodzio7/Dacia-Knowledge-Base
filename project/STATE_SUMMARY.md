@@ -12,21 +12,21 @@
 
 ## Phase
 
-**Current Configurator Exact State Capture Reopening**
+**Sandero Stepway Exact Design and Factory Option Normalization**
 
 ## Reference delivery
 
-- Package: Duster hybrid-G 150 Current Price Import
-- Pull Request: #625
-- Verified head: `e6159f2574d69873d91e630268a07f0194576224`
-- Quality run: #31282452972
+- Package: Current Configurator Exact State Capture Reopening
+- Pull Request: #626
+- Verified head: `72476b1260f46314a0b3fe2ba7b1972bafa1bcdf`
+- Quality run: #31283021821
 
 ## Verified baseline
 
-- Tests: 1895
+- Tests: 1902
 - Master CSV files: 47
-- Master rows: 11779
-- Configuration values: 3604
+- Master rows: 12007
+- Configuration values: 3664
 - Configuration import specifications: 139
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Current Configurator Exact State Capture Reopening** — `complete`
+**Sandero Stepway Exact Design and Factory Option Normalization** — `complete`
 
-Capture stable exact-state URLs and visible technical, equipment, appearance and factory-option data for all 15 current Sandero and Stepway configurations, reopening the 13 surfaces previously classified as source-blocked without projecting observations across configurations.
+Normalize exact captured colour, selected wheel and upholstery, and paid factory-option observations for all 15 current Sandero and Stepway configurations while preserving source dates, historical rows and configuration boundaries.
 
 ## Next package
 
-**Sandero Stepway Exact Design and Factory Option Normalization** — `planned`
+**Sandero Stepway Full Technical and Standard Equipment Capture** — `planned`
 
-Normalize the 15 exact captured colour, wheel, upholstery and factory-option surfaces into canonical source-linked master observations without projecting availability or prices across configurations.
+Capture the full technical and standard-equipment modals for all 15 exact configurator states, reconcile them against remaining canonical gaps, and normalize only exact missing or newer observations.
 
 ## Autonomy
 
