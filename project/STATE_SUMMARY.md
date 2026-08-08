@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Data Products v1.19.0 Release Preparation**
+**Data Products v1.19.0 Publication**
 
 ## Reference delivery
 
-- Package: Configurator Commercial Selection Bundle Metadata 001
-- Pull Request: #609
-- Verified head: `60c03aa4d47509516e3bfa98c8b6d06ac346cf83`
-- Quality run: #31221967097
+- Package: Data Products v1.19.0 Publication
+- Pull Request: #615
+- Verified head: `c121e600de48576f2da53cba2eb42075b6632504`
+- Quality run: #31245016492
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Data Products v1.19.0 Release Preparation** — `complete`
+**Data Products v1.19.0 Publication** — `complete`
 
-Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.
+Publish immutable v1.19.0 assets from the exact source SHA after double-build, offline-workspace and public-download verification.
 
 ## Next package
 
-**Data Products v1.19.0 Publication** — `planned`
+**Post-v1.19.0 Release Priority Selection Review** — `planned`
 
-Publish immutable Data Products v1.19.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
+Inspect canonical product, source, user-interface and roadmap evidence after v1.19.0 publication and select one bounded next package.
 
 ## Autonomy
 
