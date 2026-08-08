@@ -7,15 +7,15 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Duster hybrid-G 150 Current Price Import",
+  "phase": "Current Configurator Exact State Capture Reopening",
   "reference_delivery": {
-    "name": "Duster Current Range Configuration Catalog Reconciliation",
-    "pull_request": 624,
-    "head_sha": "609c9369a3062de23419be11bf45d8b9c26ed160",
-    "quality_run": 31280841214
+    "name": "Duster hybrid-G 150 Current Price Import",
+    "pull_request": 625,
+    "head_sha": "e6159f2574d69873d91e630268a07f0194576224",
+    "quality_run": 31282452972
   },
   "baseline": {
-    "tests": 1890,
+    "tests": 1895,
     "csv_files": 47,
     "rows": 11779,
     "configuration_values": 3604,
@@ -27,42 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_hybridg150_current_price_import_001",
-    "kind": "configuration_price_import",
-    "name": "Duster hybrid-G 150 Current Price Import",
-    "status": "complete",
-    "goal": "Attach the official 2026-07-03 catalogue gross prices of 119900, 125900 and 126100 PLN to the three exact Duster hybrid-G 150 4x4 identities without changing historical price observations.",
-    "manifest_paths": [
-      "CHANGELOG.md",
-      "README.md",
-      "data/master/configuration_prices.csv",
-      "data/reporting/duster_hybridg150_current_price_import_20260809.json",
-      "data/reporting/portfolio_model_family_comparison_matrix.csv",
-      "data/reporting/portfolio_model_family_comparison_matrix.html",
-      "data/reporting/portfolio_model_family_comparison_matrix.json",
-      "data/reporting/portfolio_model_family_summary.html",
-      "data/reporting/portfolio_model_family_summary.json",
-      "data/reporting/portfolio_model_family_summary.md",
-      "data/reporting/portfolio_model_version_comparison_matrix.csv",
-      "data/reporting/portfolio_model_version_comparison_matrix.html",
-      "data/reporting/portfolio_model_version_comparison_matrix.json",
-      "project/ROADMAP.md",
-      "project/SESSION_STATE.md",
-      "project/STATE_SUMMARY.md",
-      "project/packages/duster-hybridg150-current-price-import-001-20260809.md",
-      "project/state.json",
-      "tests/test_commercial_items_20260703.py",
-      "tests/test_cross_model_comparison_view.py",
-      "tests/test_duster_current_range_configuration_catalog_reconciliation_20260808.py",
-      "tests/test_portfolio_model_family_summary.py"
-    ]
-  },
-  "next_package": {
     "package_id": "current_configurator_exact_state_capture_reopening_001",
     "kind": "configurator_exact_state_capture",
     "name": "Current Configurator Exact State Capture Reopening",
+    "status": "complete",
+    "goal": "Capture stable exact-state URLs and visible technical, equipment, appearance and factory-option data for all 15 current Sandero and Stepway configurations, reopening the 13 surfaces previously classified as source-blocked without projecting observations across configurations.",
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/current-configurator-exact-state-capture-reopening-001-20260809.md",
+      "project/sources/dacia-pl-sandero-stepway-exact-configurator-states-20260809.json",
+      "project/state.json",
+      "tests/test_sandero_stepway_exact_configurator_states_20260809.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "sandero_stepway_exact_design_factory_option_normalization_001",
+    "kind": "configuration_observation_import",
+    "name": "Sandero Stepway Exact Design and Factory Option Normalization",
     "status": "planned",
-    "goal": "Capture stable exact-state URLs and available technical, equipment, appearance and factory-option data for current configurations, prioritizing the 13 Sandero and Stepway surfaces previously classified as source-blocked, without projecting observations across configurations.",
+    "goal": "Normalize the 15 exact captured colour, wheel, upholstery and factory-option surfaces into canonical source-linked master observations without projecting availability or prices across configurations.",
     "manifest_paths": []
   },
   "autonomy": {
