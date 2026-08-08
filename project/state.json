@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.19.0 Selector Correctness",
+  "phase": "Data Products v1.19.1 Release Preparation",
   "reference_delivery": {
-    "name": "Data Products v1.19.0 Publication",
-    "pull_request": 615,
-    "head_sha": "c121e600de48576f2da53cba2eb42075b6632504",
-    "quality_run": 31245016492
+    "name": "Spring Type 2 Current Selector Reconciliation",
+    "pull_request": 617,
+    "head_sha": "324221d889e22c8be43e131bd60f7ef14328df52",
+    "quality_run": 31246369245
   },
   "baseline": {
     "tests": 1885,
@@ -27,28 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_type2_current_selector_reconciliation_001",
-    "kind": "interface_data_reconciliation",
-    "name": "Spring Type 2 Current Selector Reconciliation",
-    "status": "complete",
-    "goal": "Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.",
-    "manifest_paths": [
-      "data/reporting/spring_type2_current_selector_reconciliation_20260808.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/spring-type2-current-selector-reconciliation-001-20260808.md",
-      "project/state.json",
-      "tests/test_configuration_shortlist.py",
-      "tests/test_reviewed_gap_state_materialization_20260802.py",
-      "tests/test_spring_commercial_packages.py",
-      "tools/reporting/commercial_offers.py"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_19_1_release_preparation_001",
     "kind": "release_preparation",
     "name": "Data Products v1.19.1 Release Preparation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.19.1-release-preparation-20260808.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_19_1_publication_001",
+    "kind": "publication",
+    "name": "Data Products v1.19.1 Publication",
+    "status": "planned",
+    "goal": "Publish immutable Data Products v1.19.1 from an exact verified source SHA with byte-identical double build, offline-workspace verification, public-download verification and a durable publication receipt while preserving v1.19.0 immutability.",
     "manifest_paths": []
   },
   "autonomy": {
