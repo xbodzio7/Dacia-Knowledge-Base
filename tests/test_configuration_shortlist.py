@@ -224,6 +224,125 @@ class ConfigurationShortlistTests(unittest.TestCase):
             "src_saved_configuration",
         )
 
+        spring_codes = {
+            "spring_essential_electric70_automatic",
+            "spring_expression_electric70_automatic",
+            "spring_extreme_electric100_automatic",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            spring_repository = Path(directory)
+            spring_master = spring_repository / "data" / "master"
+            self.write_csv(
+                spring_master / "commercial_items.csv",
+                (
+                    "id", "code", "name", "item_type", "observation_date",
+                    "source_code", "status", "notes",
+                ),
+                [
+                    (1, "spring_type2_charging_cable_option", "Przewód Type 2", "option", "2026-02-19", "src_brochure", "active", ""),
+                    (2, "spring_domestic_socket_charging_cable_option", "FlexiCharger", "option", "2026-07-08", "src_price", "active", ""),
+                    (3, "spring_techno_package", "Pakiet Techno", "package", "2026-02-19", "src_brochure", "active", ""),
+                    (4, "spring_dc40_charging_option", "DC 40 kW", "option", "2026-02-19", "src_brochure", "active", ""),
+                ],
+            )
+            self.write_csv(
+                spring_master / "commercial_item_attributes.csv",
+                (
+                    "id", "code", "commercial_item_code", "attribute_code",
+                    "source_text", "notes",
+                ),
+                [
+                    (1, "type2", "spring_type2_charging_cable_option", "type2_charging_cable_supplied", "Type 2", ""),
+                    (2, "domestic", "spring_domestic_socket_charging_cable_option", "domestic_socket_charging_cable", "FlexiCharger", ""),
+                    (3, "techno", "spring_techno_package", "navigation_system", "Techno", ""),
+                    (4, "dc40", "spring_dc40_charging_option", "dc_charging_supported", "DC 40 kW", ""),
+                ],
+            )
+            self.write_csv(
+                spring_master / "commercial_item_configurations.csv",
+                (
+                    "id", "code", "commercial_item_code", "configuration_code",
+                    "availability_status", "amount", "currency_code", "price_date",
+                    "source_code", "notes",
+                ),
+                [
+                    (1, "type2_e", "spring_type2_charging_cable_option", "spring_essential_electric70_automatic", "optional", "", "PLN", "", "src_brochure", ""),
+                    (2, "type2_x", "spring_type2_charging_cable_option", "spring_expression_electric70_automatic", "optional", "", "PLN", "", "src_brochure", ""),
+                    (3, "type2_r", "spring_type2_charging_cable_option", "spring_extreme_electric100_automatic", "optional", "", "PLN", "", "src_brochure", ""),
+                    (4, "domestic_e", "spring_domestic_socket_charging_cable_option", "spring_essential_electric70_automatic", "optional", 1500, "PLN", "2026-08-02", "src_current", ""),
+                    (5, "domestic_x", "spring_domestic_socket_charging_cable_option", "spring_expression_electric70_automatic", "optional", 1500, "PLN", "2026-07-08", "src_price", ""),
+                    (6, "domestic_r", "spring_domestic_socket_charging_cable_option", "spring_extreme_electric100_automatic", "optional", 1500, "PLN", "2026-08-02", "src_current", ""),
+                    (7, "techno_x", "spring_techno_package", "spring_expression_electric70_automatic", "optional", "", "PLN", "", "src_brochure", ""),
+                    (8, "dc40_x", "spring_dc40_charging_option", "spring_expression_electric70_automatic", "optional", "", "PLN", "", "src_brochure", ""),
+                ],
+            )
+            self.write_csv(
+                spring_master / "configuration_attribute_availability.csv",
+                (
+                    "id", "code", "configuration_code", "attribute_code",
+                    "availability_status", "observation_date", "source_code", "notes",
+                ),
+                [
+                    (1, "type2_standard_e", "spring_essential_electric70_automatic", "type2_charging_cable_supplied", "standard", "2026-07-31", "src_current", ""),
+                    (2, "type2_standard_x", "spring_expression_electric70_automatic", "type2_charging_cable_supplied", "standard", "2026-08-02", "src_saved", ""),
+                    (3, "type2_standard_r", "spring_extreme_electric100_automatic", "type2_charging_cable_supplied", "standard", "2026-08-02", "src_saved", ""),
+                ],
+            )
+            spring_historical = collect_commercial_components(
+                spring_repository,
+                spring_codes,
+                "2026-02-19",
+            )
+            spring_current = collect_commercial_components(
+                spring_repository,
+                spring_codes,
+                "2026-08-08",
+            )
+
+        for configuration_code in spring_codes:
+            historical_codes = {
+                item["code"] for item in spring_historical[configuration_code]
+            }
+            current_codes = {
+                item["code"] for item in spring_current[configuration_code]
+            }
+            self.assertIn("spring_type2_charging_cable_option", historical_codes)
+            self.assertNotIn("spring_type2_charging_cable_option", current_codes)
+            self.assertIn(
+                "spring_domestic_socket_charging_cable_option",
+                current_codes,
+            )
+        current_unpriced = {
+            (configuration_code, item["code"])
+            for configuration_code, items in spring_current.items()
+            for item in items
+            if item["amount"] is None
+        }
+        self.assertEqual(
+            current_unpriced,
+            {
+                (
+                    "spring_expression_electric70_automatic",
+                    "spring_techno_package",
+                ),
+                (
+                    "spring_expression_electric70_automatic",
+                    "spring_dc40_charging_option",
+                ),
+            },
+        )
+        reconciliation = json.loads(
+            (
+                REPOSITORY
+                / "data"
+                / "reporting"
+                / "spring_type2_current_selector_reconciliation_20260808.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(reconciliation["selector_offer_rows_after"], 164)
+        self.assertEqual(reconciliation["unpriced_selector_offer_rows_after"], 2)
+        self.assertEqual(reconciliation["historical_mapping_rows_preserved"], 3)
+
         pricing_script = (
             REPOSITORY
             / "tools"
