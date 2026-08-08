@@ -47,7 +47,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
                 "mixed_model_scope_count": 2,
                 "active_configuration_count": 84,
                 "within_scope_pair_count": 133,
-                "catalog_price_recorded_count": 81,
+                "catalog_price_recorded_count": 84,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
                 "recommendations_generated": False,
@@ -71,7 +71,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             "sandero_iii": (7, 3, 63900, 80500, 7, 0),
             "sandero_stepway_iii": (8, 3, 71700, 89400, 8, 0),
             "jogger": (22, 4, 77900, 118050, 22, 0),
-            "duster_iii": (30, 5, 82000, 123600, 27, 3),
+            "duster_iii": (30, 5, 82000, 126100, 30, 0),
             "bigster": (14, 4, 101400, 137600, 14, 0),
             "spring": (3, 3, 73500, 85900, 3, 0),
         }

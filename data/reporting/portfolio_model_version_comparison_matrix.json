@@ -637,9 +637,9 @@
         "state": "recorded",
         "currency": "PLN",
         "minimum": 90000,
-        "maximum": 112100,
-        "recorded_count": 8,
-        "missing_count": 1
+        "maximum": 119900,
+        "recorded_count": 9,
+        "missing_count": 0
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -713,9 +713,9 @@
         "state": "recorded",
         "currency": "PLN",
         "minimum": 96000,
-        "maximum": 118100,
-        "recorded_count": 8,
-        "missing_count": 1
+        "maximum": 125900,
+        "recorded_count": 9,
+        "missing_count": 0
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -789,9 +789,9 @@
         "state": "recorded",
         "currency": "PLN",
         "minimum": 96000,
-        "maximum": 118300,
-        "recorded_count": 8,
-        "missing_count": 1
+        "maximum": 126100,
+        "recorded_count": 9,
+        "missing_count": 0
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",

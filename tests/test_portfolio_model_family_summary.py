@@ -120,7 +120,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_iii": (7, 3, 63900, 80500, "recorded", [5], 7, 0),
             "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5], 8, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
-            "duster_iii": (30, 5, 82000, 123600, "not_stated", [], 27, 3),
+            "duster_iii": (30, 5, 82000, 126100, "not_stated", [], 30, 0),
             "bigster": (14, 4, 101400, 137600, "not_stated", [], 14, 0),
             "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
