@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Data Products v1.19.1 Publication",
+  "phase": "Sandero and Sandero Stepway Configurator Data Completion",
   "reference_delivery": {
-    "name": "Data Products v1.19.1 Publication",
-    "pull_request": 620,
-    "head_sha": "e3a43a999a40f920bceab655cdfdac5856119a07",
-    "quality_run": 31248397833
+    "name": "Sandero and Sandero Stepway Configurator Data Completion",
+    "pull_request": 621,
+    "head_sha": "3e90eb541a3b8cf806813c680ea0c3b748e77193",
+    "quality_run": 31249330669
   },
   "baseline": {
     "tests": 1885,
@@ -27,37 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "data_products_v1_19_1_publication_001",
-    "kind": "data_product_release",
-    "name": "Data Products v1.19.1 Publication",
-    "status": "complete",
-    "goal": "Publish immutable v1.19.1 assets from the exact source SHA after double-build, offline-workspace and public-download verification.",
-    "manifest_paths": [
-      "data/reporting/data_products_v1_19_1_publication.json",
-      "data/reporting/spring_type2_current_selector_reconciliation_20260808.json",
-      "project/STATE_SUMMARY.md",
-      "project/packages/data-products-v1.19.1-publication-20260808.md",
-      "project/state.json",
-      "tools/data_product_release.py",
-      "tools/reporting/commercial_offers.py",
-      "tools/reporting/configuration_shortlist_technical_observation_release_integration.py",
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_v12_pricing.js",
-      "tools/reporting/configuration_shortlist_selection.js",
-      "tools/reporting/configuration_comparison_bundle.py",
-      "data/reporting/configurator_ui_grade_appearance_coverage_20260807.json",
-      "data/reporting/cross_model_configurator_commercial_data.json",
-      "data/reporting/cross_model_configurator_standard_equipment.json",
-      "data/reporting/cross_model_configurator_technical_data.json",
-      "data/reporting/cross_model_configurator_conflict_closure.json"
-    ]
-  },
-  "next_package": {
     "package_id": "sandero_stepway_configurator_data_completion_001",
     "kind": "configurator_data_completion",
     "name": "Sandero and Sandero Stepway Configurator Data Completion",
-    "status": "planned",
+    "status": "complete",
     "goal": "Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.",
+    "manifest_paths": [
+      "project/sources/dacia-pl-sandero-stepway-current-configurator-scope-20260808.json",
+      "data/reporting/sandero_stepway_configurator_data_completion_20260808.json",
+      "project/packages/sandero-stepway-configurator-data-completion-001-20260808.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "configuration_shortlist_task_first_explorer_ui_001",
+    "kind": "configurator_interface",
+    "name": "Configuration Shortlist Task-First Explorer UI",
+    "status": "planned",
+    "goal": "Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.",
     "manifest_paths": []
   },
   "autonomy": {
