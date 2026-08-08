@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Sandero and Sandero Stepway Configurator Data Completion",
+  "phase": "Configuration Shortlist Task-First Explorer UI",
   "reference_delivery": {
-    "name": "Sandero and Sandero Stepway Configurator Data Completion",
-    "pull_request": 621,
-    "head_sha": "3e90eb541a3b8cf806813c680ea0c3b748e77193",
-    "quality_run": 31249330669
+    "name": "Configuration Shortlist Task-First Explorer UI",
+    "pull_request": 622,
+    "head_sha": "bdaed57b98295609fe43785afc78675d44cd59e7",
+    "quality_run": 31249865486
   },
   "baseline": {
     "tests": 1885,
@@ -27,25 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_configurator_data_completion_001",
-    "kind": "configurator_data_completion",
-    "name": "Sandero and Sandero Stepway Configurator Data Completion",
+    "package_id": "configuration_shortlist_task_first_explorer_ui_001",
+    "kind": "configurator_interface",
+    "name": "Configuration Shortlist Task-First Explorer UI",
     "status": "complete",
-    "goal": "Complete source-backed current configurator data for Sandero and Sandero Stepway, prioritizing the exact Design choices available for each relevant configuration before generating the next configurator-choice interface version.",
+    "goal": "Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.",
     "manifest_paths": [
-      "project/sources/dacia-pl-sandero-stepway-current-configurator-scope-20260808.json",
-      "data/reporting/sandero_stepway_configurator_data_completion_20260808.json",
-      "project/packages/sandero-stepway-configurator-data-completion-001-20260808.md",
+      "tools/reporting/configuration_shortlist_equipment_groups.js",
+      "tools/reporting/configuration_shortlist_equipment_groups.css",
+      "data/reporting/configuration_shortlist_task_first_explorer_ui_20260808.json",
+      "project/packages/configuration-shortlist-task-first-explorer-ui-001-20260808.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "configuration_shortlist_task_first_explorer_ui_001",
-    "kind": "configurator_interface",
-    "name": "Configuration Shortlist Task-First Explorer UI",
+    "package_id": "cross_model_current_completeness_review_001",
+    "kind": "cross_model_completeness_review",
+    "name": "Cross-Model Current Completeness Review",
     "status": "planned",
-    "goal": "Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.",
+    "goal": "Audit every current Dacia model family side by side for configuration identity, prices, technical data, standard equipment, commercial packages/options, appearance and exact configurator evidence, distinguishing source-complete, partial, source-blocked and unresolved scope before selecting the next data-completion target.",
     "manifest_paths": []
   },
   "autonomy": {

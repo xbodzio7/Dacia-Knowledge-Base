@@ -217,7 +217,6 @@
     if (!observation || card.querySelector(".configurator-observation-evidence")) return;
     card.insertAdjacentHTML("beforeend", evidenceMarkup(observation));
   };
-
   const setMetric = (selector, value) => {
     const element = document.querySelector(selector);
     if (element) element.textContent = String(value);
@@ -580,6 +579,104 @@
 
   const api = { MARKER, STEPS, stepAvailability, stepStatus };
   if (typeof globalThis !== "undefined") globalThis.DkbConfiguratorSteps = api;
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
+    else initialize();
+  }
+})();
+
+(function () {
+  "use strict";
+  const MARKER = "configuration_shortlist_task_first_explorer_v1";
+  const TASKS = Object.freeze([
+    {
+      id: "configure",
+      label: "Skonfiguruj samochód",
+      description: "Wybierz model, wersję, silnik i dostępne źródłowo elementy konfiguracji.",
+      target: "#configurator-step-navigation",
+    },
+    {
+      id: "compare",
+      label: "Porównaj wersje",
+      description: "Zaznacz co najmniej dwa warianty i porównaj dane, wyposażenie oraz ceny.",
+      target: "#selection-panel",
+    },
+    {
+      id: "browse",
+      label: "Przeglądaj modele",
+      description: "Przejdź od modelu do wersji bez rozpoczynania od technicznych filtrów.",
+      target: "#models-picker, #models",
+    },
+    {
+      id: "sources",
+      label: "Sprawdź źródła",
+      description: "Zobacz dokładne obserwacje producenta i granice kompletności danych.",
+      target: "#configurator-observation-filters, .configurator-observation-evidence",
+    },
+  ]);
+
+  const focusTarget = (target) => {
+    if (!target) return false;
+    if (target.tagName === "DETAILS") target.open = true;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const focusable = target.matches("button,input,select,a[href],summary")
+      ? target
+      : target.querySelector("button:not([disabled]),input:not([disabled]),select:not([disabled]),a[href],summary");
+    if (focusable) focusable.focus({ preventScroll: true });
+    return true;
+  };
+
+  const initialize = () => {
+    const main = document.querySelector("main");
+    const metrics = document.querySelector(".metrics");
+    if (!main || !metrics || document.querySelector("#task-first-explorer")) return;
+
+    document.documentElement.dataset.taskFirstExplorer = MARKER;
+    const shell = document.createElement("section");
+    shell.id = "task-first-explorer";
+    shell.className = "task-first-explorer";
+    shell.dataset.taskFirstExplorer = MARKER;
+    shell.setAttribute("aria-labelledby", "task-first-heading");
+    shell.innerHTML = `<div class="task-first-heading-row">
+      <div>
+        <p class="eyebrow">Dacia Knowledge Base</p>
+        <h2 id="task-first-heading">Co chcesz zrobić?</h2>
+        <p>Najpierw wybierz zadanie. Szczegółowe filtry i dane źródłowe pozostają dostępne niżej, ale nie blokują rozpoczęcia pracy.</p>
+      </div>
+      <aside class="task-first-evidence-note" aria-label="Zakres danych">
+        <strong>Bez zgadywania danych</strong>
+        <span>Pełne selektory są pokazywane tylko dla potwierdzonych wyborów. Wybrane obserwacje i luki źródłowe pozostają oznaczone jako takie.</span>
+      </aside>
+    </div>
+    <div class="task-first-grid">${TASKS.map((task, index) => `<button type="button" class="task-first-action" data-task-first-action="${task.id}">
+      <span class="task-first-number">0${index + 1}</span>
+      <span class="task-first-copy"><strong>${task.label}</strong><small>${task.description}</small></span>
+      <span class="task-first-arrow" aria-hidden="true">→</span>
+    </button>`).join("")}</div>
+    <div class="task-first-scope-legend" aria-label="Znaczenie stanów danych">
+      <span><b>Wybór</b> — pełna lista potwierdzona źródłem</span>
+      <span><b>Obserwacja</b> — zapisany stan konkretnej konfiguracji</span>
+      <span><b>Poziom wersji</b> — informacja nieprzenoszona automatycznie na silnik/skrzynię</span>
+      <span><b>Brak źródła</b> — interfejs nie tworzy fikcyjnego selektora</span>
+    </div>`;
+    main.insertBefore(shell, metrics);
+
+    shell.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-task-first-action]");
+      if (!button) return;
+      const task = TASKS.find((item) => item.id === button.dataset.taskFirstAction);
+      if (!task) return;
+      let target = document.querySelector(task.target);
+      if (task.id === "sources" && target?.tagName === "DETAILS") target.open = true;
+      if (!focusTarget(target) && task.id === "sources") {
+        target = document.querySelector("#results-heading");
+        focusTarget(target);
+      }
+    });
+  };
+
+  const api = { MARKER, TASKS };
+  if (typeof globalThis !== "undefined") globalThis.DkbTaskFirstExplorer = api;
   if (typeof document !== "undefined") {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
     else initialize();
