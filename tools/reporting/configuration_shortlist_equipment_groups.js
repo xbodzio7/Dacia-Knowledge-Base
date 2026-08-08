@@ -134,7 +134,7 @@
     for (const [selector, values] of [
       ["#configurator-selected-colours", stored.colours],
       ["#configurator-selected-wheels", stored.wheels],
-      ["#configurator-selected-upholsteries", stored.upholstery],
+      ["#configurator-selected-upholsteries", stored.upholsteries],
       ["#configurator-standard-equipment", stored.standard_equipment],
       ["#configurator-technical-data", stored.technical_data],
     ]) {
