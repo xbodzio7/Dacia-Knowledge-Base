@@ -12,6 +12,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
@@ -276,7 +278,7 @@ def verify_projection_scopes() -> None:
     model_counts = Counter(models.values())
     ensure(model_counts["sandero_iii"] == 7, "active Sandero count differs")
     ensure(model_counts["jogger"] == 22, "active Jogger count differs")
-    ensure(model_counts["duster_iii"] == 27, "active Duster count differs")
+    ensure(model_counts["duster_iii"] == 30, "active Duster count differs")
 
     targets = source_relationship_targets()
     ensure({source: len(codes) for source, codes in targets.items()} == EXPECTED_RELATIONSHIPS, "source relationship counts differ")
@@ -290,8 +292,12 @@ def verify_projection_scopes() -> None:
         for code, row in configurations.items()
         if models.get(code) == "duster_iii" and "4x4" in row.get("powertrain_label", "")
     }
-    ensure(len(active_duster_4x4) == 3, "active Duster 4x4 count differs")
+    ensure(len(active_duster_4x4) == 6, "active Duster 4x4 count differs")
     ensure(active_duster_4x4.isdisjoint(duster_targets), "Duster 4x4 target was broadened into source relationships")
+    ensure(
+        DUSTER_HYBRIDG150_CONFIGURATION_CODES <= active_duster_4x4,
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
 
 
 def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:

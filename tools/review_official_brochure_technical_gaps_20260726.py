@@ -11,6 +11,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 REPORT = ROOT / "data" / "reporting" / "official_brochure_technical_gap_review.json"
@@ -299,7 +301,15 @@ def verify_non_import_boundaries() -> None:
         )
     else:
         ensure(not exact_catalog, "an exact Sandero or Stepway TCe catalogue configuration now exists")
-    ensure(not any(code.startswith("duster_iii_") and "hybridg150" in code for code in configurations), "an exact Duster hybrid-G 150 configuration now exists")
+    later_duster_configurations = {
+        code
+        for code in configurations
+        if code.startswith("duster_iii_") and "hybridg150" in code
+    }
+    ensure(
+        later_duster_configurations == DUSTER_HYBRIDG150_CONFIGURATION_CODES,
+        "later exact Duster hybrid-G 150 catalogue scope differs",
+    )
 
 
 def check() -> None:

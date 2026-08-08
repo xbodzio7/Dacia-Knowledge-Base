@@ -9,10 +9,10 @@
   },
   "summary": {
     "model_family_count": 6,
-    "active_configuration_count": 81,
-    "reporting_scope_count": 22,
+    "active_configuration_count": 84,
+    "reporting_scope_count": 23,
     "provenance_source_count": 33,
-    "source_configuration_relationship_count": 251,
+    "source_configuration_relationship_count": 254,
     "configurations_without_provenance_count": 0,
     "cross_scope_pairs_generated": false,
     "ranking_generated": false,
@@ -136,7 +136,7 @@
     {
       "model_code": "duster_iii",
       "model_name": "Duster",
-      "configuration_count": 27,
+      "configuration_count": 30,
       "version_count": 5,
       "catalog_price": {
         "state": "recorded",
@@ -144,7 +144,7 @@
         "minimum": 82000,
         "maximum": 123600,
         "recorded_count": 27,
-        "missing_count": 0
+        "missing_count": 3
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",
@@ -157,17 +157,18 @@
         "Eco-G 120 4x2",
         "hybrid 140 4x2",
         "hybrid 155 4x2",
+        "hybrid-G 150 4x4",
         "mild hybrid 130 4x2",
         "mild hybrid 130 4x4",
         "mild hybrid 140 4x2"
       ],
-      "reporting_scope_count": 8,
-      "exclusive_scope_count": 8,
+      "reporting_scope_count": 9,
+      "exclusive_scope_count": 9,
       "shared_scope_count": 0,
       "provenance": {
         "source_count": 8,
-        "relationship_count": 62,
-        "configuration_coverage_count": 27,
+        "relationship_count": 65,
+        "configuration_coverage_count": 30,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-10-20",
         "latest_document_date": "2026-07-25"

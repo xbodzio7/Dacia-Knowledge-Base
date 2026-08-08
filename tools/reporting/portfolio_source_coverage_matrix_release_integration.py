@@ -122,8 +122,8 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError("portfolio source coverage matrix summary is missing")
     expected = {
         "provenance_source_count": 33,
-        "source_configuration_relationship_count": 251,
-        "active_configuration_count": 81,
+        "source_configuration_relationship_count": 254,
+        "active_configuration_count": 84,
         "active_version_count": 22,
         "model_family_count": 6,
         "configurations_without_provenance_count": 0,
@@ -241,13 +241,13 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
 
     if len(source_codes) != len(set(source_codes)):
         raise ReleaseError("portfolio source coverage matrix duplicates source codes")
-    if relationship_count != 251:
+    if relationship_count != 254:
         raise ReleaseError(
             "portfolio source coverage matrix relationship total differs"
         )
-    if len(configuration_codes) != 81:
+    if len(configuration_codes) != 84:
         raise ReleaseError(
-            "portfolio source coverage matrix must cover 81 configurations"
+            "portfolio source coverage matrix must cover 84 configurations"
         )
     if len(version_codes) != 22:
         raise ReleaseError(
@@ -272,7 +272,7 @@ def _write_v1_15_0_release_notes(payload: Path, version: str) -> None:
 
 This minor release adds the verified portfolio source coverage matrix in JSON,
 CSV and standalone HTML. It exposes all 33 active provenance sources used by the
-current portfolio and preserves all 251 explicit source-to-configuration
+current portfolio and preserves all 254 explicit source-to-configuration
 relationships, together with exact registered external or local identities,
 SHA-256 values and covered model-family, version and configuration codes.
 

@@ -69,9 +69,9 @@ def _copy_verified_family_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError("portfolio family JSON summary is missing")
     expected = {
         "model_family_count": 6,
-        "active_configuration_count": 81,
-        "reporting_scope_count": 22,
-        "source_configuration_relationship_count": 251,
+        "active_configuration_count": 84,
+        "reporting_scope_count": 23,
+        "source_configuration_relationship_count": 254,
         "configurations_without_provenance_count": 0,
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
@@ -111,9 +111,9 @@ def _write_release_notes(payload: Path, version: str) -> None:
 ## v1.12.0 portfolio model-family product
 
 This minor release adds the verified portfolio model-family summary in JSON,
-Markdown and standalone HTML. It covers all six canonical families, 81 active
-configurations and 22 existing reporting scopes, with 33 source records and
-251 explicit source-to-configuration relationships.
+Markdown and standalone HTML. It covers all six canonical families, 84 active
+configurations and 23 existing reporting scopes, with 33 source records and
+254 explicit source-to-configuration relationships.
 
 The family product is copied byte-for-byte from the committed verified outputs,
 and the existing cross-model offline page links to it using a relative path.

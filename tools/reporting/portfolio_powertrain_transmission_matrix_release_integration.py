@@ -79,9 +79,9 @@ def _copy(repository: Path, payload: Path) -> None:
     ]
     if (
         matrix.get("matrix_version") != 1
-        or summary.get("active_configuration_count") != 81
-        or len(codes) != 81
-        or len(set(codes)) != 81
+        or summary.get("active_configuration_count") != 84
+        or len(codes) != 84
+        or len(set(codes)) != 84
     ):
         raise ReleaseError("powertrain matrix coverage differs")
     for key in (
@@ -108,7 +108,7 @@ def _write_v1_16_0_release_notes(payload: Path, version: str) -> None:
 ## v1.16.0 powertrain and transmission matrix
 
 This minor release adds the verified portfolio powertrain and transmission
-matrix in JSON, CSV and standalone HTML. It groups all 81 active configurations
+matrix in JSON, CSV and standalone HTML. It groups all 84 active configurations
 only by their exact recorded powertrain label and transmission type and exposes
 the covered model, version and configuration identities for every group.
 

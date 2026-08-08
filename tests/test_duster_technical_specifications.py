@@ -224,8 +224,8 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             ROOT, ROOT / "data" / "reporting" / "configuration_completeness.json"
         )
         self.assertEqual(report["scope"]["reporting_configurations"], 7)
-        self.assertEqual(report["scope"]["repository_status_configurations"], 81)
-        self.assertEqual(report["scope"]["excluded_configurations"], 74)
+        self.assertEqual(report["scope"]["repository_status_configurations"], 84)
+        self.assertEqual(report["scope"]["excluded_configurations"], 77)
 
     def test_repository_totals_match_technical_package(self) -> None:
         self.assertGreaterEqual(len(self.all_values), 1831)

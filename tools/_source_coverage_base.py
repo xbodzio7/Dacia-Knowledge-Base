@@ -759,7 +759,8 @@ def collect_report(
             },
         ]
         for area in area_rows:
-            area_summary[area["status"]] += 1
+            status = area["status"]
+            area_summary[status] = area_summary.get(status, 0) + 1
 
         observation_dates: dict[str, list[str]] = {}
         for label, rows, field in (

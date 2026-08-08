@@ -102,7 +102,7 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
         analysis = json.loads(
             (ROOT / "data/reporting/existing_configuration_missing_data_analysis.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(analysis["summary"]["completeness_scope_count"], 23)
+        self.assertEqual(analysis["summary"]["completeness_scope_count"], 24)
         self.assertEqual(analysis["summary"]["missing_technical_count"], 97)
 
     def test_importer_verify_mode_passes(self) -> None:

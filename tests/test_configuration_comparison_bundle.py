@@ -61,17 +61,17 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
 
     def test_scope_inventory_maps_all_active_configurations_once(self) -> None:
         scopes = discover_scopes(REPOSITORY)
-        self.assertEqual(len(scopes), 22)
+        self.assertEqual(len(scopes), 23)
         codes = [
             code
             for scope in scopes
             for code in scope.configuration_codes
         ]
-        self.assertEqual(len(codes), 81)
-        self.assertEqual(len(set(codes)), 81)
+        self.assertEqual(len(codes), 84)
+        self.assertEqual(len(set(codes)), 84)
         self.assertEqual(
             sum(scope.slug.startswith("duster_") for scope in scopes),
-            8,
+            9,
         )
         self.assertEqual(
             sum(scope.slug.startswith("jogger_") for scope in scopes),

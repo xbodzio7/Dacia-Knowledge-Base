@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Active configurations: 81
-- Completeness scopes: 23
-- Scoped configurations: 88
+- Active configurations: 84
+- Completeness scopes: 24
+- Scoped configurations: 91
 - Missing technical slots: 97
 - Missing equipment slots: 36
 - Explicitly classified not applicable: 0

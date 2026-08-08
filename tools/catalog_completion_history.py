@@ -20,14 +20,28 @@ ADDED_CONFIGURATION_CODES = frozenset(
     }
 )
 ADDED_SCOPE_SLUG = "sandero_tce100_stepway_tce110_manual"
+DUSTER_HYBRIDG150_CONFIGURATION_CODES = frozenset(
+    {
+        "duster_iii_expression_hybridg150_4x4_automatic",
+        "duster_iii_extreme_hybridg150_4x4_automatic",
+        "duster_iii_journey_hybridg150_4x4_automatic",
+    }
+)
 LATER_CONFIGURATION_CODES = frozenset(
     {
         "spring_essential_electric70_automatic",
         "spring_expression_electric70_automatic",
         "spring_extreme_electric100_automatic",
+        *DUSTER_HYBRIDG150_CONFIGURATION_CODES,
     }
 )
-LATER_SCOPE_SLUGS = frozenset({"spring_electric70_automatic", "spring_electric100_automatic"})
+LATER_SCOPE_SLUGS = frozenset(
+    {
+        "spring_electric70_automatic",
+        "spring_electric100_automatic",
+        "duster_hybridg150_4x4",
+    }
+)
 
 T = TypeVar("T", bound=Mapping[str, str])
 

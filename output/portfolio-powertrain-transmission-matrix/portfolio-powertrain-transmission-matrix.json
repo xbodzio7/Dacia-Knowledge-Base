@@ -603,9 +603,12 @@
       "configuration_codes": [
         "bigster_expression_hybridg150_4x4_automatic",
         "bigster_extreme_hybridg150_4x4_automatic",
-        "bigster_journey_hybridg150_4x4_automatic"
+        "bigster_journey_hybridg150_4x4_automatic",
+        "duster_iii_expression_hybridg150_4x4_automatic",
+        "duster_iii_extreme_hybridg150_4x4_automatic",
+        "duster_iii_journey_hybridg150_4x4_automatic"
       ],
-      "configuration_count": 3,
+      "configuration_count": 6,
       "configurations": [
         {
           "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
@@ -627,20 +630,45 @@
           "model_name": "Bigster",
           "version_code": "bigster_journey",
           "version_name": "Journey"
+        },
+        {
+          "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+          "model_code": "duster_iii",
+          "model_name": "Duster",
+          "version_code": "duster_iii_expression",
+          "version_name": "Expression"
+        },
+        {
+          "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+          "model_code": "duster_iii",
+          "model_name": "Duster",
+          "version_code": "duster_iii_extreme",
+          "version_name": "Extreme"
+        },
+        {
+          "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+          "model_code": "duster_iii",
+          "model_name": "Duster",
+          "version_code": "duster_iii_journey",
+          "version_name": "Journey"
         }
       ],
       "model_codes": [
-        "bigster"
+        "bigster",
+        "duster_iii"
       ],
-      "model_count": 1,
+      "model_count": 2,
       "powertrain_label": "hybrid-G 150 4x4",
       "transmission_type": "automatic",
       "version_codes": [
         "bigster_expression",
         "bigster_extreme",
-        "bigster_journey"
+        "bigster_journey",
+        "duster_iii_expression",
+        "duster_iii_extreme",
+        "duster_iii_journey"
       ],
-      "version_count": 3
+      "version_count": 6
     },
     {
       "configuration_codes": [
@@ -1000,7 +1028,7 @@
     }
   ],
   "summary": {
-    "active_configuration_count": 81,
+    "active_configuration_count": 84,
     "active_model_count": 6,
     "active_version_count": 22,
     "inferred_values_generated": false,

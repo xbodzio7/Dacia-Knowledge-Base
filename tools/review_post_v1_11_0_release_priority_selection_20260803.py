@@ -8,6 +8,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from catalog_completion_history import DUSTER_HYBRIDG150_CONFIGURATION_CODES
+
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_JSON = ROOT / "data/reporting/post_v1_11_0_release_priority_selection_review.json"
@@ -60,6 +62,32 @@ def source_registry_summary() -> dict[str, Any]:
     }
 
 
+def historical_completeness_summary(payload: dict[str, Any]) -> dict[str, Any]:
+    """Preserve the 2026-08-03 review denominator after later catalog additions."""
+    summary = dict(payload["summary"])
+    later_rows = [
+        item
+        for item in payload.get("configurations", [])
+        if item.get("configuration_code") in DUSTER_HYBRIDG150_CONFIGURATION_CODES
+    ]
+    if not later_rows:
+        return summary
+    if {
+        item.get("configuration_code") for item in later_rows
+    } != DUSTER_HYBRIDG150_CONFIGURATION_CODES:
+        raise RuntimeError("later Duster hybrid-G 150 completeness scope differs")
+    if any(
+        item.get("scope_file") != "duster_hybridg150_4x4_completeness.json"
+        or item.get("expected_technical") != 0
+        or item.get("expected_equipment") != 0
+        for item in later_rows
+    ):
+        raise RuntimeError("later Duster identity-only completeness boundary differs")
+    summary["active_configuration_count"] -= len(later_rows)
+    summary["completeness_scope_count"] -= 1
+    return summary
+
+
 def build_report() -> dict[str, Any]:
     publication = read_json(
         ROOT / "data/reporting/data_products_v1_11_0_publication.json"
@@ -68,7 +96,7 @@ def build_report() -> dict[str, Any]:
         ROOT / "data/reporting/existing_configuration_missing_data_analysis.json"
     )
     roadmap = (ROOT / "project/ROADMAP.md").read_text(encoding="utf-8")
-    summary = completeness["summary"]
+    summary = historical_completeness_summary(completeness)
 
     if publication["status"] != "complete":
         raise RuntimeError("v1.11.0 publication is not complete")

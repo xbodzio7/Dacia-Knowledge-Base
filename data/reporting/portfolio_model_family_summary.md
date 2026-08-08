@@ -7,11 +7,11 @@ This report groups the current active configurations by canonical model family. 
 ## Portfolio
 
 - model families: 6;
-- active configurations: 81;
-- reporting scopes: 22;
-- within-scope pairs: 130;
+- active configurations: 84;
+- reporting scopes: 23;
+- within-scope pairs: 133;
 - provenance sources: 33;
-- source-to-configuration relationships: 251;
+- source-to-configuration relationships: 254;
 - configurations without provenance: 0.
 
 ## Family overview
@@ -21,7 +21,7 @@ This report groups the current active configurations by canonical model family. 
 | Sandero | 7 | 3 | 3 | 63 900 PLN–80 500 PLN | 8 | 2026-02-02–2026-07-24 |
 | Sandero Stepway | 8 | 3 | 3 | 71 700 PLN–89 400 PLN | 11 | 2026-02-02–2026-07-24 |
 | Jogger | 22 | 4 | 4 | 77 900 PLN–118 050 PLN | 4 | 2025-12-17–2026-07-24 |
-| Duster | 27 | 5 | 8 | 82 000 PLN–123 600 PLN | 8 | 2025-10-20–2026-07-25 |
+| Duster | 30 | 5 | 9 | 82 000 PLN–123 600 PLN | 8 | 2025-10-20–2026-07-25 |
 | Bigster | 14 | 4 | 4 | 101 400 PLN–137 600 PLN | 2 | 2025-12-10–2026-07-03 |
 | Spring | 3 | 3 | 2 | 73 500 PLN–85 900 PLN | 4 | 2026-02-19–2026-08-02 |
 
@@ -93,19 +93,19 @@ This report groups the current active configurations by canonical model family. 
 ## Duster
 
 - model code: `duster_iii`;
-- configurations: 27;
+- configurations: 30;
 - versions: 5;
-- powertrains: Eco-G 100 4x2 / Eco-G 120 4x2 / hybrid 140 4x2 / hybrid 155 4x2 / mild hybrid 130 4x2 / mild hybrid 130 4x4 / mild hybrid 140 4x2;
+- powertrains: Eco-G 100 4x2 / Eco-G 120 4x2 / hybrid 140 4x2 / hybrid 155 4x2 / hybrid-G 150 4x4 / mild hybrid 130 4x2 / mild hybrid 130 4x4 / mild hybrid 140 4x2;
 - transmissions: automatic / manual;
 - recorded seat values: nie podano;
-- reporting scopes: 8 (8 exclusive, 0 shared);
-- explicit provenance: 8 sources and 62 source-configuration relationships.
+- reporting scopes: 9 (9 exclusive, 0 shared);
+- explicit provenance: 8 sources and 65 source-configuration relationships.
 
 ### Sources
 
 - `src_pl_duster_mini_brochure_20251020` — 2025-10-20, `brochure_pdf`, 10 configurations, SHA-256 `84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8` — DACIA DUSTER mini broszura.
 - `src_pl_duster_price_my26_py25_20260206` — 2026-02-06, `configuration_pdf`, 24 configurations, SHA-256 `f6126fd4546031c643248b0e19639aa5736e54f8088567460681c938be3932b7` — DACIA DUSTER cennik MY26 PY25.
-- `src_pl_duster_price_my26_20260703` — 2026-07-03, `configuration_pdf`, 13 configurations, SHA-256 `40bb4f3db9019c500fcb4c759f5ad395aa3b35a68bb22aa74f031fefe09727f2` — DACIA DUSTER cennik MY26.
+- `src_pl_duster_price_my26_20260703` — 2026-07-03, `configuration_pdf`, 16 configurations, SHA-256 `40bb4f3db9019c500fcb4c759f5ad395aa3b35a68bb22aa74f031fefe09727f2` — DACIA DUSTER cennik MY26.
 - `src_pl_duster_ecog120_automatic_engine_20260724` — 2026-07-24, `web_snapshot`, 3 configurations, SHA-256 `9914402753c100f9a9ecb65c01bf454d90d6f18d6e09df00b74342377cba9ebc` — Dacia Polska Duster Eco-G 120 automatic intrinsic engine data.
 - `src_pl_duster_ecog120_automatic_stock_20260724` — 2026-07-24, `web_snapshot`, 3 configurations, SHA-256 `a25c2244699b463343879fb1d1fa995793666d3e5619da2021acd81404688e98` — Dacia Polska exact Duster Eco-G 120 automatic stock cards.
 - `src_pl_duster_exact_stock_equipment_20260724` — 2026-07-24, `web_snapshot`, 3 configurations, SHA-256 `e4428bcee5f7f1fe6bb9ae6152852667f552f9abee0c09b7215bd4c8fc3f050a` — Dacia Polska exact Duster Eco-G 120 automatic stock equipment cards.
