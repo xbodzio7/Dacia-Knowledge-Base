@@ -861,9 +861,9 @@
         "state": "recorded",
         "currency": "PLN",
         "minimum": 82000,
-        "maximum": 123600,
-        "recorded_count": 27,
-        "missing_count": 3
+        "maximum": 126100,
+        "recorded_count": 30,
+        "missing_count": 0
       },
       "recorded_seat_values": [],
       "seat_summary_state": "not_stated",

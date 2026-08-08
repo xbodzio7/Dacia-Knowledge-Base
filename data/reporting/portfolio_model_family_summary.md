@@ -21,7 +21,7 @@ This report groups the current active configurations by canonical model family. 
 | Sandero | 7 | 3 | 3 | 63 900 PLN–80 500 PLN | 8 | 2026-02-02–2026-07-24 |
 | Sandero Stepway | 8 | 3 | 3 | 71 700 PLN–89 400 PLN | 11 | 2026-02-02–2026-07-24 |
 | Jogger | 22 | 4 | 4 | 77 900 PLN–118 050 PLN | 4 | 2025-12-17–2026-07-24 |
-| Duster | 30 | 5 | 9 | 82 000 PLN–123 600 PLN | 8 | 2025-10-20–2026-07-25 |
+| Duster | 30 | 5 | 9 | 82 000 PLN–126 100 PLN | 8 | 2025-10-20–2026-07-25 |
 | Bigster | 14 | 4 | 4 | 101 400 PLN–137 600 PLN | 2 | 2025-12-10–2026-07-03 |
 | Spring | 3 | 3 | 2 | 73 500 PLN–85 900 PLN | 4 | 2026-02-19–2026-08-02 |
 

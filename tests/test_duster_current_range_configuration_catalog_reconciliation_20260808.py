@@ -21,6 +21,11 @@ CONFIGURATION_CODES = {
     "duster_iii_extreme_hybridg150_4x4_automatic",
     "duster_iii_journey_hybridg150_4x4_automatic",
 }
+EXPECTED_CURRENT_PRICES = {
+    "duster_iii_expression_hybridg150_4x4_automatic": 119900,
+    "duster_iii_extreme_hybridg150_4x4_automatic": 125900,
+    "duster_iii_journey_hybridg150_4x4_automatic": 126100,
+}
 COMPLETENESS_SPEC = REPORTING / "duster_hybridg150_4x4_completeness.json"
 EVIDENCE_SPEC = REPORTING / "duster_hybridg150_4x4_gap_evidence.spec"
 RECONCILIATION = (
@@ -66,7 +71,7 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
         self.assertEqual(len(relationships), 3)
         self.assertTrue(all(row["relationship"] == "documents" for row in relationships))
 
-    def test_identity_only_scope_preserves_the_price_handoff(self) -> None:
+    def test_identity_only_scope_preserves_observation_boundaries(self) -> None:
         spec = json.loads(COMPLETENESS_SPEC.read_text(encoding="utf-8"))
         evidence = json.loads(EVIDENCE_SPEC.read_text(encoding="utf-8"))
         self.assertEqual(
@@ -81,12 +86,23 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
         self.assertEqual(spec["equipment_attributes"], [])
         self.assertEqual(evidence, {"as_of": "2026-07-03", "decisions": [], "version": 1})
 
-        prices = [
-            row
+    def test_exact_current_catalog_prices_are_recorded(self) -> None:
+        prices = {
+            row["configuration_code"]: row
             for row in rows(MASTER / "configuration_prices.csv")
             if row["configuration_code"] in CONFIGURATION_CODES
-        ]
-        self.assertEqual(prices, [])
+        }
+        self.assertEqual(
+            {code: int(row["amount"]) for code, row in prices.items()},
+            EXPECTED_CURRENT_PRICES,
+        )
+        self.assertEqual({row["market"] for row in prices.values()}, {"PL"})
+        self.assertEqual(
+            {row["price_type"] for row in prices.values()}, {"catalog_gross"}
+        )
+        self.assertEqual({row["currency_code"] for row in prices.values()}, {"PLN"})
+        self.assertEqual({row["price_date"] for row in prices.values()}, {"2026-07-03"})
+        self.assertEqual({row["source_code"] for row in prices.values()}, {SOURCE_CODE})
 
     def test_reporting_tools_cover_identity_without_projecting_observations(self) -> None:
         completeness = configuration_completeness.collect_report(
@@ -105,9 +121,10 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
         self.assertEqual(coverage["source_registration"]["registered"], 1)
         self.assertEqual(coverage["source_registration"]["missing"], 0)
         self.assertEqual(coverage["records"]["identity_links"]["missing"], 0)
-        self.assertEqual(coverage["records"]["prices"]["missing"], 3)
+        self.assertEqual(coverage["records"]["prices"]["missing"], 0)
         self.assertEqual(comparison["scope"]["pair_count"], 3)
-        self.assertEqual(comparison["summary"]["total_differences"], 0)
+        self.assertEqual(comparison["summary"]["prices"]["different"], 3)
+        self.assertEqual(comparison["summary"]["total_differences"], 3)
 
     def test_reconciliation_receipt_preserves_existing_rows_and_prices(self) -> None:
         report = json.loads(RECONCILIATION.read_text(encoding="utf-8"))

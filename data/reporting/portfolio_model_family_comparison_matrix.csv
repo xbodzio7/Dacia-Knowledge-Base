@@ -2,6 +2,6 @@ model_code,model_name,configuration_count,version_count,price_state,price_curren
 sandero_iii,Sandero,7,3,recorded,PLN,63900,80500,7,0,recorded,5,automatic|manual,Eco-G 120|TCe 100,3,1,2,8,29,7,0,2026-02-02,2026-07-24
 sandero_stepway_iii,Sandero Stepway,8,3,recorded,PLN,71700,89400,8,0,recorded,5,automatic|manual,Eco-G 120|TCe 110,3,1,2,11,36,8,0,2026-02-02,2026-07-24
 jogger,Jogger,22,4,recorded,PLN,77900,118050,22,0,recorded,5|7,automatic|manual,Eco-G 120|TCe 110|hybrid 155,4,4,0,4,88,22,0,2025-12-17,2026-07-24
-duster_iii,Duster,30,5,recorded,PLN,82000,123600,27,3,not_stated,,automatic|manual,Eco-G 100 4x2|Eco-G 120 4x2|hybrid 140 4x2|hybrid 155 4x2|hybrid-G 150 4x4|mild hybrid 130 4x2|mild hybrid 130 4x4|mild hybrid 140 4x2,9,9,0,8,65,30,0,2025-10-20,2026-07-25
+duster_iii,Duster,30,5,recorded,PLN,82000,126100,30,0,not_stated,,automatic|manual,Eco-G 100 4x2|Eco-G 120 4x2|hybrid 140 4x2|hybrid 155 4x2|hybrid-G 150 4x4|mild hybrid 130 4x2|mild hybrid 130 4x4|mild hybrid 140 4x2,9,9,0,8,65,30,0,2025-10-20,2026-07-25
 bigster,Bigster,14,4,recorded,PLN,101400,137600,14,0,not_stated,,automatic|manual,hybrid 155 4x2|hybrid-G 150 4x4|mild hybrid 140 4x2|mild hybrid-G 140 4x2,4,4,0,2,28,14,0,2025-12-10,2026-07-03
 spring,Spring,3,3,recorded,PLN,73500,85900,3,0,recorded,4,automatic,electric 100|electric 70,2,2,0,4,8,3,0,2026-02-19,2026-08-02
