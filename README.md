@@ -1295,7 +1295,7 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1902 testów, 47 pliki CSV, 12007 rekordów
+Zweryfikowany model obejmuje 1908 testów, 47 pliki CSV, 12007 rekordów
 danych, 51 relacje między tabelami, 3664 wartości konfiguracji, 139 skalarnych specyfikacji importu, 316 zakresów konfiguracji i 24
 specyfikacji zakresów oraz 5911 rekordów dostępności wyposażenia.
 Katalog zawiera 387 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
@@ -1309,6 +1309,12 @@ wybranych seryjnych kół i tapicerek oraz 40 płatnych opcji fabrycznych.
 Nie wyceniono niewybranych kolorów, nie przeniesiono opcji między wersjami,
 a wcześniejsze datowane obserwacje — w tym cena pakietu EASY 1600 PLN —
 pozostają zachowane obok bieżącej ceny 1400 PLN.
+
+Pełne akordeony tych samych 15 stanów są zachowane jako dokładny snapshot:
+1029 pozycji wyposażenia seryjnego oraz 679 par etykieta/wartość danych
+technicznych. Snapshot nie obejmuje akcesoriów, finansowania ani opcji
+dodatkowych i sam w sobie nie zatwierdza importu — wspólne lub opisane nazwą
+modelu wartości wymagają najpierw bezpiecznego uzgodnienia z katalogiem.
 
 ## Development workflow
 
