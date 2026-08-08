@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "source_code": "src_pl_sandero_stepway_current_configurator_scope_20260808",
+  "source_type": "official_web_review_with_repository_archive_context",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-08",
+  "volatility": "dynamic_official_web",
+  "goal": "Reconfirm the complete current Sandero and Sandero Stepway grade/powertrain/transmission inventory and determine which Design choice surfaces are reproducibly source-complete without projection.",
+  "official_pages": [
+    {
+      "model_id": "sandero",
+      "grade": "essential",
+      "grade_code": "ENS_ACLASS00M$SERIELIM1",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM1",
+      "configurations": [
+        {"configuration_code": "sandero_iii_essential_tce100_manual", "powertrain": "TCe 100", "transmission": "manual", "catalog_price_pln": 63900}
+      ],
+      "design_scope": "exact_default_configurator_complete",
+      "design_note": "The official generic configurator reproducibly exposes the exact Essential TCe 100 manual state with three colours and prices, one wheel choice and one upholstery choice."
+    },
+    {
+      "model_id": "sandero",
+      "grade": "expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM3",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+      "configurations": [
+        {"configuration_code": "sandero_iii_expression_tce100_manual", "powertrain": "TCe 100", "transmission": "manual", "catalog_price_pln": 68000},
+        {"configuration_code": "sandero_iii_expression_ecog120_manual", "powertrain": "Eco-G 120", "transmission": "manual", "catalog_price_pln": 68000},
+        {"configuration_code": "sandero_iii_expression_ecog120_automatic", "powertrain": "Eco-G 120", "transmission": "automatic", "catalog_price_pln": 74900}
+      ],
+      "design_scope": "dynamic_panel_not_reproducibly_exposed",
+      "design_note": "The current grade page confirms all three engine/transmission states and prices but does not expose a complete deterministic Design list in accessible page text."
+    },
+    {
+      "model_id": "sandero",
+      "grade": "journey",
+      "grade_code": "ENS_ACLASS00M$SERIESPE1",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+      "configurations": [
+        {"configuration_code": "sandero_iii_journey_tce100_manual", "powertrain": "TCe 100", "transmission": "manual", "catalog_price_pln": 73600},
+        {"configuration_code": "sandero_iii_journey_ecog120_manual", "powertrain": "Eco-G 120", "transmission": "manual", "catalog_price_pln": 73600},
+        {"configuration_code": "sandero_iii_journey_ecog120_automatic", "powertrain": "Eco-G 120", "transmission": "automatic", "catalog_price_pln": 80500}
+      ],
+      "design_scope": "complete_grade_list_not_exact_engine_price_catalogue",
+      "design_note": "The grade page visibly lists seven colours, 16-inch TAMIA wheels and denim upholstery, but does not prove engine-specific Design prices or exact applicability for all three powertrain/transmission states.",
+      "visible_grade_design": {
+        "colours": ["biel alpejska", "niebieski iron", "szary schiste", "sandstone", "żółty amber", "zielony cedar", "szary urban"],
+        "wheels": ["16\" felgi aluminiowe TAMIA"],
+        "upholstery": ["tapicerka materiałowa w kolorze denim i czarnymi wstawkami"]
+      }
+    },
+    {
+      "model_id": "sandero_stepway",
+      "grade": "essential",
+      "grade_code": "ENS_ACLASS00M$SERIELIM2",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM2",
+      "configurations": [
+        {"configuration_code": "sandero_stepway_iii_essential_tce110_manual", "powertrain": "TCe 110", "transmission": "manual", "catalog_price_pln": 71700},
+        {"configuration_code": "sandero_stepway_iii_essential_ecog120_manual", "powertrain": "Eco-G 120", "transmission": "manual", "catalog_price_pln": 71700}
+      ],
+      "design_scope": "one_exact_default_configurator_complete_one_source_blocked",
+      "design_note": "The official generic configurator reproducibly exposes the exact Essential TCe 110 manual state with three colours and prices. Its palette is not projected to Eco-G 120."
+    },
+    {
+      "model_id": "sandero_stepway",
+      "grade": "expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM4",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+      "configurations": [
+        {"configuration_code": "sandero_stepway_iii_expression_tce110_manual", "powertrain": "TCe 110", "transmission": "manual", "catalog_price_pln": 76400},
+        {"configuration_code": "sandero_stepway_iii_expression_ecog120_manual", "powertrain": "Eco-G 120", "transmission": "manual", "catalog_price_pln": 76400},
+        {"configuration_code": "sandero_stepway_iii_expression_ecog120_automatic", "powertrain": "Eco-G 120", "transmission": "automatic", "catalog_price_pln": 83300}
+      ],
+      "design_scope": "dynamic_panel_not_reproducibly_exposed",
+      "design_note": "The current grade page confirms all three engine/transmission states and prices but does not expose a complete deterministic Design list in accessible page text."
+    },
+    {
+      "model_id": "sandero_stepway",
+      "grade": "extreme",
+      "grade_code": "ENS_ACLASS00M$SERIESPE2",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE2",
+      "configurations": [
+        {"configuration_code": "sandero_stepway_iii_extreme_tce110_manual", "powertrain": "TCe 110", "transmission": "manual", "catalog_price_pln": 82500},
+        {"configuration_code": "sandero_stepway_iii_extreme_ecog120_manual", "powertrain": "Eco-G 120", "transmission": "manual", "catalog_price_pln": 82500},
+        {"configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic", "powertrain": "Eco-G 120", "transmission": "automatic", "catalog_price_pln": 89400}
+      ],
+      "design_scope": "dynamic_panel_not_reproducibly_exposed",
+      "design_note": "The current grade page confirms all three engine/transmission states and prices but does not expose a complete deterministic Design list in accessible page text."
+    }
+  ],
+  "generic_configurator_pages": [
+    {
+      "model_id": "sandero",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+      "reproducible_exact_default_configuration": "sandero_iii_essential_tce100_manual",
+      "complete_visible_colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "niebieski iron", "price_pln": 2500},
+        {"name": "szary schiste", "price_pln": 2500}
+      ]
+    },
+    {
+      "model_id": "sandero_stepway",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+      "reproducible_exact_default_configuration": "sandero_stepway_iii_essential_tce110_manual",
+      "complete_visible_colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500}
+      ]
+    }
+  ],
+  "repository_archive_context": {
+    "path": "Archiwum/conversations/Dacia.htm",
+    "role": "historical_context_only",
+    "observed_user_file_names": [
+      "NOWE SANDERO expression Eco-G 120 f.pdf",
+      "NOWE SANDERO journey Eco-G 120 f.pdf",
+      "NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf",
+      "NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.pdf",
+      "NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf"
+    ],
+    "standalone_source_files_present_in_repository": false,
+    "new_exact_design_facts_imported_from_file_names": false,
+    "reason": "The archive proves that those user-supplied configuration PDFs existed in the historical conversation, but the names alone do not preserve their full bytes, exact configuration state or Design choice tables. Already assimilated canonical observations remain valid; no new facts are reconstructed from filenames."
+  },
+  "normalization_rules": [
+    "Current grade/powertrain/transmission identity and catalogue price may be recorded when printed together on the same official grade page.",
+    "A complete grade-level Design list is not promoted to an exact engine/transmission price catalogue.",
+    "A reproducible default configurator palette is not projected to another engine, transmission or grade.",
+    "A selected appearance observation is not promoted to a complete choice list.",
+    "Historical conversation filenames provide provenance context only unless the underlying document content is independently preserved and attributable.",
+    "No synthetic configurator deep links or hidden-state assumptions are permitted."
+  ],
+  "summary": {
+    "current_grade_pages_reviewed": 6,
+    "current_exact_configuration_surfaces": 15,
+    "current_exact_configuration_surfaces_inventory_and_price_verified": 15,
+    "reproducible_exact_complete_design_surfaces": 2,
+    "source_blocked_exact_design_surfaces": 13,
+    "complete_visible_grade_design_surfaces": 1,
+    "new_master_data_rows_created": 0
+  }
+}
