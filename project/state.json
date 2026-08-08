@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Post-v1.18.0 Residual Gap Closure",
+  "phase": "Data Products v1.19.0 Release Preparation",
   "reference_delivery": {
-    "name": "Data Products v1.18.0 Publication",
-    "pull_request": 560,
-    "head_sha": "a13587ff0bf9d683d7a450f0fbb15aa610693f03",
-    "quality_run": 31051935089
+    "name": "Configurator Commercial Selection Bundle Metadata 001",
+    "pull_request": 609,
+    "head_sha": "60c03aa4d47509516e3bfa98c8b6d06ac346cf83",
+    "quality_run": 31221967097
   },
   "baseline": {
     "tests": 1885,
@@ -27,23 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_v1_18_configurator_and_shop_milestone_review_003",
-    "kind": "milestone_review",
-    "name": "Post-v1.18.0 Configurator and Shop Milestone Review 003",
-    "status": "complete",
-    "goal": "Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.",
-    "manifest_paths": [
-      "project/reviews/post-v1.18.0-configurator-and-shop-milestone-review-003-20260808.md",
-      "project/state.json",
-      "project/STATE_SUMMARY.md"
-    ]
-  },
-  "next_package": {
     "package_id": "data_products_v1_19_0_release_preparation_001",
     "kind": "release_preparation",
     "name": "Data Products v1.19.0 Release Preparation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.",
+    "manifest_paths": [
+      "project/STATE_SUMMARY.md",
+      "project/packages/data-products-v1.19.0-release-preparation-20260808.md",
+      "project/state.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "data_products_v1_19_0_publication_001",
+    "kind": "publication",
+    "name": "Data Products v1.19.0 Publication",
+    "status": "planned",
+    "goal": "Publish immutable Data Products v1.19.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.",
     "manifest_paths": []
   },
   "autonomy": {

@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.18.0 Residual Gap Closure**
+**Data Products v1.19.0 Release Preparation**
 
 ## Reference delivery
 
-- Package: Data Products v1.18.0 Publication
-- Pull Request: #560
-- Verified head: `a13587ff0bf9d683d7a450f0fbb15aa610693f03`
-- Quality run: #31051935089
+- Package: Configurator Commercial Selection Bundle Metadata 001
+- Pull Request: #609
+- Verified head: `60c03aa4d47509516e3bfa98c8b6d06ac346cf83`
+- Quality run: #31221967097
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-v1.18.0 Configurator and Shop Milestone Review 003** — `complete`
+**Data Products v1.19.0 Release Preparation** — `complete`
 
-Review the completed configurator/UI package interval together with New Spring current-shop retry cycle 002, reconcile durable evidence and workflow outcomes, and select the highest-priority unblocked next package without expanding source or architecture scope.
+Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.
 
 ## Next package
 
-**Data Products v1.19.0 Release Preparation** — `planned`
+**Data Products v1.19.0 Publication** — `planned`
 
-Integrate the completed post-v1.18.0 configurator navigation, commercial selection, deterministic summary, persistence, JSON export and comparison-bundle metadata behavior into a reproducible v1.19.0 release candidate, run the required independent double build and verification, and stop before public tag or release creation.
+Publish immutable Data Products v1.19.0 from an exact verified source SHA with byte-identical double build, public-download verification and durable receipt.
 
 ## Autonomy
 
