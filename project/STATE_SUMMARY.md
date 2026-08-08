@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Post-v1.19.0 Selector Correctness**
+**Data Products v1.19.1 Release Preparation**
 
 ## Reference delivery
 
-- Package: Data Products v1.19.0 Publication
-- Pull Request: #615
-- Verified head: `c121e600de48576f2da53cba2eb42075b6632504`
-- Quality run: #31245016492
+- Package: Spring Type 2 Current Selector Reconciliation
+- Pull Request: #617
+- Verified head: `324221d889e22c8be43e131bd60f7ef14328df52`
+- Quality run: #31246369245
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring Type 2 Current Selector Reconciliation** — `complete`
+**Data Products v1.19.1 Release Preparation** — `complete`
 
-Reconcile the current Spring commercial-selector view so the three preserved February brochure Type 2 optional mappings are not exposed as current selectable offers when later exact-current canonical availability proves the supplied Type 2 cable is standard for Essential 70, Expression 70 and Extreme 100, while preserving historical source records and avoiding generic compatibility or temporal-precedence inference.
+Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.
 
 ## Next package
 
-**Data Products v1.19.1 Release Preparation** — `planned`
+**Data Products v1.19.1 Publication** — `planned`
 
-Prepare a reproducible v1.19.1 patch release candidate that delivers the bounded Spring Type 2 current-selector correction on top of immutable v1.19.0, using the established exact-source deterministic release pipeline and stopping before public tag or release creation.
+Publish immutable Data Products v1.19.1 from an exact verified source SHA with byte-identical double build, offline-workspace verification, public-download verification and a durable publication receipt while preserving v1.19.0 immutability.
 
 ## Autonomy
 
