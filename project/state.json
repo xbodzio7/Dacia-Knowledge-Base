@@ -7,12 +7,12 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Configuration Shortlist Task-First Explorer UI",
+  "phase": "Non-Spring Current Configurator Data Completion",
   "reference_delivery": {
-    "name": "Configuration Shortlist Task-First Explorer UI",
-    "pull_request": 622,
-    "head_sha": "bdaed57b98295609fe43785afc78675d44cd59e7",
-    "quality_run": 31249865486
+    "name": "Non-Spring Current Configurator Data Completion",
+    "pull_request": 623,
+    "head_sha": "ec5039c82a0204aed6a86d60d76faa609067cb5a",
+    "quality_run": 31259125316
   },
   "baseline": {
     "tests": 1885,
@@ -27,26 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configuration_shortlist_task_first_explorer_ui_001",
-    "kind": "configurator_interface",
-    "name": "Configuration Shortlist Task-First Explorer UI",
+    "package_id": "non_spring_current_configurator_data_completion_001",
+    "kind": "configurator_data_completion",
+    "name": "Non-Spring Current Configurator Data Completion",
     "status": "complete",
-    "goal": "Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.",
+    "goal": "Complete the source-backed current configurator evidence scope for every current Dacia family other than Spring, reusing completed Sandero/Stepway scope and adding Duster, Jogger and Bigster without cross-configuration projection.",
     "manifest_paths": [
-      "tools/reporting/configuration_shortlist_equipment_groups.js",
-      "tools/reporting/configuration_shortlist_equipment_groups.css",
-      "data/reporting/configuration_shortlist_task_first_explorer_ui_20260808.json",
-      "project/packages/configuration-shortlist-task-first-explorer-ui-001-20260808.md",
+      "project/sources/dacia-pl-non-spring-current-configurator-scope-20260808.json",
+      "data/reporting/non_spring_current_configurator_data_completion_20260808.json",
+      "project/packages/non-spring-current-configurator-data-completion-001-20260808.md",
       "project/state.json",
       "project/STATE_SUMMARY.md"
     ]
   },
   "next_package": {
-    "package_id": "cross_model_current_completeness_review_001",
-    "kind": "cross_model_completeness_review",
-    "name": "Cross-Model Current Completeness Review",
+    "package_id": "duster_current_range_configuration_catalog_reconciliation_001",
+    "kind": "configuration_catalog_reconciliation",
+    "name": "Duster Current Range Configuration Catalog Reconciliation",
     "status": "planned",
-    "goal": "Audit every current Dacia model family side by side for configuration identity, prices, technical data, standard equipment, commercial packages/options, appearance and exact configurator evidence, distinguishing source-complete, partial, source-blocked and unresolved scope before selecting the next data-completion target.",
+    "goal": "Reconcile canonical Duster configurations with the current official range by adding the three source-backed hybrid-G 150 4x4 surfaces and retiring prior-phase active surfaces without losing historical evidence.",
     "manifest_paths": []
   },
   "autonomy": {
