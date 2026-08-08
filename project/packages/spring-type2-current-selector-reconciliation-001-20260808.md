@@ -71,6 +71,8 @@ Direct regression coverage is embedded in the existing configuration-shortlist t
 5. the existing offer-plus-selected-state behavior remains intact;
 6. the deterministic reconciliation report records 164 current offers and 2 unpriced rows.
 
+The first full CI pass correctly identified two older assertions that still treated the preserved historical Type 2 mappings as current selector rows. Those existing tests were updated in the same package to preserve their historical-master assertions while aligning current UI expectations with the exact chronology: Essential is suppressed from 2026-07-31, and Expression/Extreme from 2026-08-02. No test method was added, so the discovery baseline remains unchanged.
+
 ## Delivery
 
 This is a user-facing correction to the already published v1.19.0 configurator behavior. The public v1.19.0 release remains immutable.
