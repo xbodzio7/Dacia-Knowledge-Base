@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Configuration Shortlist Task-First Explorer UI**
+**Non-Spring Current Configurator Data Completion**
 
 ## Reference delivery
 
-- Package: Configuration Shortlist Task-First Explorer UI
-- Pull Request: #622
-- Verified head: `bdaed57b98295609fe43785afc78675d44cd59e7`
-- Quality run: #31249865486
+- Package: Non-Spring Current Configurator Data Completion
+- Pull Request: #623
+- Verified head: `ec5039c82a0204aed6a86d60d76faa609067cb5a`
+- Quality run: #31259125316
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configuration Shortlist Task-First Explorer UI** — `complete`
+**Non-Spring Current Configurator Data Completion** — `complete`
 
-Replace the filter-first entry experience with a task-first Dacia explorer that prioritizes configure, compare, browse-model and source-review workflows while preserving exact evidence scope, offline use and existing data semantics.
+Complete the source-backed current configurator evidence scope for every current Dacia family other than Spring, reusing completed Sandero/Stepway scope and adding Duster, Jogger and Bigster without cross-configuration projection.
 
 ## Next package
 
-**Cross-Model Current Completeness Review** — `planned`
+**Duster Current Range Configuration Catalog Reconciliation** — `planned`
 
-Audit every current Dacia model family side by side for configuration identity, prices, technical data, standard equipment, commercial packages/options, appearance and exact configurator evidence, distinguishing source-complete, partial, source-blocked and unresolved scope before selecting the next data-completion target.
+Reconcile canonical Duster configurations with the current official range by adding the three source-backed hybrid-G 150 4x4 surfaces and retiring prior-phase active surfaces without losing historical evidence.
 
 ## Autonomy
 

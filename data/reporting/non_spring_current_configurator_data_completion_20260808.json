@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "kind": "non_spring_current_configurator_data_completion",
+  "captured_on": "2026-08-08",
+  "market": "PL",
+  "source_path": "project/sources/dacia-pl-non-spring-current-configurator-scope-20260808.json",
+  "scope": {
+    "excluded_model_family": "spring",
+    "families": [
+      {
+        "model_id": "sandero",
+        "status": "completed_existing_package",
+        "current_exact_surfaces": 7,
+        "reproducible_exact_complete_design_surfaces": 1,
+        "evidence_path": "project/sources/dacia-pl-sandero-stepway-current-configurator-scope-20260808.json"
+      },
+      {
+        "model_id": "sandero_stepway",
+        "status": "completed_existing_package",
+        "current_exact_surfaces": 8,
+        "reproducible_exact_complete_design_surfaces": 1,
+        "evidence_path": "project/sources/dacia-pl-sandero-stepway-current-configurator-scope-20260808.json"
+      },
+      {
+        "model_id": "duster",
+        "status": "source_scope_complete_registry_followup_required",
+        "current_live_surfaces": 16,
+        "current_registry_matches": 13,
+        "current_candidates_absent_from_registry": 3,
+        "prior_phase_registry_surfaces_still_active": 14,
+        "real_grade_preset_links": 4,
+        "reproducible_exact_complete_design_surfaces": 1,
+        "grade_preset_design_surfaces_observed": 3
+      },
+      {
+        "model_id": "jogger",
+        "status": "source_scope_complete_with_exact_boundaries",
+        "current_exact_surfaces_in_registry": 22,
+        "reproducible_exact_complete_design_surfaces": 2,
+        "seating_scopes": [5, 7],
+        "non_default_exact_design": "source_bounded"
+      },
+      {
+        "model_id": "bigster",
+        "status": "source_scope_complete_with_exact_boundaries",
+        "current_exact_surfaces_in_registry": 14,
+        "real_grade_preset_links": 4,
+        "reproducible_exact_complete_design_surfaces": 1,
+        "additional_grade_preset_design_surfaces_observed": 1
+      }
+    ]
+  },
+  "totals": {
+    "non_spring_model_families": 5,
+    "current_non_spring_exact_surfaces": 67,
+    "reproducible_exact_complete_design_surfaces": 6,
+    "newly_reviewed_families": 3,
+    "previously_completed_families_reused": 2,
+    "master_data_mutated": false
+  },
+  "findings": [
+    "All five non-Spring current model families now have an explicit current official configurator/source-completeness scope in the repository.",
+    "The earlier Sandero/Sandero Stepway completion remains valid and is reused rather than duplicated.",
+    "Duster exposes real current grade preset links and current Design/commercial evidence, but its canonical configuration registry is not aligned with the current live range.",
+    "Three current Duster hybrid-G 150 4x4 grade surfaces are absent from the canonical configuration registry while fourteen prior-phase Duster surfaces remain active.",
+    "Jogger five-seat and seven-seat exact default surfaces are independently reproducible and remain separate evidence scopes.",
+    "Bigster exposes real current grade preset links and a reproducible current exact default; non-default observations are not projected across engine identities.",
+    "Source completion does not mean every dynamic Design choice is available for every exact engine/transmission surface; inaccessible target states remain explicitly bounded rather than fabricated."
+  ],
+  "next_package": {
+    "package_id": "duster_current_range_configuration_catalog_reconciliation_001",
+    "reason": "Current Duster source evidence is stronger than the canonical registry: three current hybrid-G 150 4x4 surfaces are missing and fourteen prior-phase surfaces remain active. Canonical identity must be reconciled before exact current Duster completeness can be represented correctly downstream."
+  },
+  "semantic_boundaries": [
+    "No cross-grade, cross-powertrain, cross-transmission or cross-seat projection.",
+    "No selected appearance promoted to a complete choice catalogue.",
+    "No synthetic configurator deep links.",
+    "No absence interpreted as unavailability.",
+    "No canonical Duster status change until the dedicated current-range reconciliation package."
+  ],
+  "status": "complete"
+}
