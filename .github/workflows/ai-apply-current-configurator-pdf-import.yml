@@ -33,23 +33,39 @@ jobs:
           sudo apt-get install --yes --no-install-recommends poppler-utils
           python -m pip install --disable-pip-version-check pypdf
 
+      - name: Capture pre-import canonical value baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' > /tmp/current-configurator-baseline-max-id.txt
+          import csv
+          from pathlib import Path
+          path=Path('data/master/configuration_attribute_values.csv')
+          with path.open(encoding='utf-8-sig', newline='') as handle:
+              rows=list(csv.DictReader(handle))
+          print(max((int(row['id']) for row in rows), default=0))
+          PY
+          echo "Baseline max value id: $(cat /tmp/current-configurator-baseline-max-id.txt)"
+
       - name: Apply complete current configurator PDF assimilation
         shell: bash
         run: |
           set -euo pipefail
+          baseline="$(cat /tmp/current-configurator-baseline-max-id.txt)"
           python tools/import_current_configurator_pdfs_20260809.py --apply
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
-          python tools/reconcile_current_configurator_values_20260810.py --apply
+          python tools/reconcile_current_configurator_values_20260810.py --baseline-max-id "$baseline" --apply
 
       - name: Verify importer idempotency
         shell: bash
         run: |
           set -euo pipefail
+          baseline="$(cat /tmp/current-configurator-baseline-max-id.txt)"
           python tools/import_current_configurator_pdfs_20260809.py > /tmp/import-pass1-second-run.txt
           cp data/reporting/dacia_configurator_pdf_canonical_import_20260809.json /tmp/import-pass1-second-run.json
           python tools/import_current_configurator_pdfs_completion_20260809.py > /tmp/import-pass2-second-run.txt
           cp data/reporting/dacia_configurator_pdf_completion_import_20260809.json /tmp/import-pass2-second-run.json
-          python tools/reconcile_current_configurator_values_20260810.py > /tmp/reconcile-second-run.txt
+          python tools/reconcile_current_configurator_values_20260810.py --baseline-max-id "$baseline" > /tmp/reconcile-second-run.txt
           python - <<'PY'
           import json
           from pathlib import Path
@@ -76,9 +92,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          baseline="$(cat /tmp/current-configurator-baseline-max-id.txt)"
           python tools/import_current_configurator_pdfs_20260809.py --apply
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
-          python tools/reconcile_current_configurator_values_20260810.py --apply
+          python tools/reconcile_current_configurator_values_20260810.py --baseline-max-id "$baseline" --apply
 
       - name: Run full quality gate
         shell: bash
