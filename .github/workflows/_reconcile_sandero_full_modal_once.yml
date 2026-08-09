@@ -20,27 +20,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install test dependency
-        run: python -m pip install pytest
       - name: Apply reconciliation
         run: python tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py --apply
       - name: Verify reconciliation
         run: python tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py --verify
-      - name: Diagnose focused contracts
+      - name: Diagnose canonical business keys
         run: |
-          echo '=== matching test definitions ==='
-          grep -R -n -E 'source_configuration_pair_uniqueness|source_code_snake_case|source_configuration_relationship_enum|source_configurations_reference_existing_codes|source_type_enum|sources_expected_count|duplicate_business_keys_are_disallowed|availability_status_enum|all_rows_reference_existing_codes' . --include='*.py' || true
-          echo '=== full quality failure detail ==='
-          set +e
-          python tools/dkb.py quality > /tmp/quality.log 2>&1
-          status=$?
-          tail -n 500 /tmp/quality.log
-          exit $status
-      - name: Commit verified generated changes
-        run: |
-          git rm .github/workflows/_reconcile_sandero_full_modal_once.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/master data/reporting tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py
-          git commit -m "data: reconcile Sandero full-modal canonical observations"
-          git push origin HEAD
+          python - <<'PY'
+          import csv, re
+          from collections import Counter
+          from pathlib import Path
+          root=Path('data/master')
+          def rows(name):
+              with (root/name).open(encoding='utf-8-sig',newline='') as f: return list(csv.DictReader(f))
+          configs={r['code'] for r in rows('configurations.csv')}
+          attrs={r['code'] for r in rows('attributes.csv')}
+          sources={r['code'] for r in rows('sources.csv')}
+          for name in ('configuration_attribute_values.csv','configuration_attribute_availability.csv'):
+              rs=rows(name)
+              keys=Counter((r['configuration_code'],r['attribute_code'],r['observation_date']) for r in rs)
+              dup=[(k,n) for k,n in keys.items() if n>1]
+              missing=[r for r in rs if r['configuration_code'] not in configs or r['attribute_code'] not in attrs or r['source_code'] not in sources]
+              print(name,'rows',len(rs),'duplicates',len(dup),'missing refs',len(missing))
+              print('duplicate sample',dup[:30])
+              print('missing sample',missing[:10])
+          av=rows('configuration_attribute_availability.csv')
+          print('availability statuses',Counter(r['availability_status'] for r in av))
+          src=rows('sources.csv')
+          print('bad source codes',[r['code'] for r in src if not re.fullmatch(r'[a-z0-9]+(?:_[a-z0-9]+)*',r['code'])])
+          sc=rows('source_configurations.csv')
+          print('relationships',Counter(r['relationship'] for r in sc))
+          print('source types',Counter(r['source_type'] for r in src))
+          print('source count',len(src),'source-config count',len(sc))
+          PY
