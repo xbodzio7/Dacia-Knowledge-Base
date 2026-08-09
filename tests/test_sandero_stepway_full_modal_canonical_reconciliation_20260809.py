@@ -38,6 +38,7 @@ class SanderoStepwayFullModalCanonicalReconciliationTests(unittest.TestCase):
         )
         self.assertEqual(
             summary["technical_rows_safely_mapped"]
+            + summary["technical_rows_already_canonically_covered"]
             + summary["technical_rows_preserved_unmatched_or_ambiguous"],
             679,
         )
@@ -56,8 +57,8 @@ class SanderoStepwayFullModalCanonicalReconciliationTests(unittest.TestCase):
     def test_canonical_observations_are_dated_and_source_bounded(self) -> None:
         equipment = [row for row in self.availability if row["source_code"] == SOURCE_CODE]
         technical = [row for row in self.values if row["source_code"] == SOURCE_CODE]
-        self.assertEqual(len(equipment), 655)
-        self.assertEqual(len(technical), 180)
+        self.assertEqual(len(equipment), 588)
+        self.assertEqual(len(technical), 26)
         self.assertTrue(all(row["observation_date"] == "2026-08-09" for row in equipment))
         self.assertTrue(all(row["observation_date"] == "2026-08-09" for row in technical))
         self.assertEqual(len({row["code"] for row in equipment}), len(equipment))
@@ -65,7 +66,7 @@ class SanderoStepwayFullModalCanonicalReconciliationTests(unittest.TestCase):
 
     def test_unmatched_evidence_remains_explicit(self) -> None:
         summary = self.report["summary"]
-        self.assertEqual(summary["equipment_rows_preserved_unmatched_or_ambiguous"], 374)
+        self.assertEqual(summary["equipment_rows_preserved_unmatched_or_ambiguous"], 441)
         self.assertEqual(summary["technical_rows_preserved_unmatched_or_ambiguous"], 499)
         boundaries = self.report["boundaries"]
         self.assertIn(

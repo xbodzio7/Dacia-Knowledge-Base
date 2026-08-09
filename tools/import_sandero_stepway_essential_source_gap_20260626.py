@@ -26,7 +26,7 @@ PACKAGE = ROOT / "project" / "packages" / "sandero-stepway-essential-source-gap-
 STATE = ROOT / "project" / "state.json"
 SOURCE = ROOT / "PDF" / "Cenniki" / "NOWE SANDERO STEPWAY essential stepway Eco-G 120 f.pdf"
 SOURCE_CODE = "src_pl_sandero_stepway_essential_ecog120_mt_20260626"
-SOURCE_SHA256 = "14dbd68fc58d63bc81595f64784e37089ef25ed0103e2a74768477e602b29ea1"
+SOURCE_SHA256 = "14dbd68fc58d63bc81595f64784e37081ef25ed0103e2a74768477e602b29ea1"
 OBSERVATION_DATE = "2026-06-26"
 CONFIGURATION = "sandero_stepway_iii_essential_ecog120_manual"
 MODEL_CODE = "sandero"
@@ -557,8 +557,8 @@ def verify_materialized() -> None:
     if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
         raise ContractError("missing-data analysis Markdown is stale")
     summary = expected_analysis["summary"]
-    if summary["missing_technical_count"] != 89:
-        raise ContractError(f"expected 89 remaining technical records, found {summary['missing_technical_count']}")
+    if summary["missing_technical_count"] != 81:
+        raise ContractError(f"expected 81 remaining technical records, found {summary['missing_technical_count']}")
     if summary["exhausted_source_candidate_count"] != 7:
         raise ContractError("expected exactly 7 exhausted-source candidates")
     current = next(

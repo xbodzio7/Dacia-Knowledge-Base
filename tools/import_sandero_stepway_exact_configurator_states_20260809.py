@@ -315,7 +315,7 @@ def build() -> dict[str, tuple[list[str], list[dict[str, str]]]]:
 
 def expected_counts() -> dict[str, int]:
     return {
-        "sources.csv": 37,
+        "sources.csv": 38,
         "source_configurations.csv": 269,
         "commercial_items.csv": 50,
         "commercial_item_attributes.csv": 103,

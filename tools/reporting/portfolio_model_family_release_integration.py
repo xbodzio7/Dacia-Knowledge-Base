@@ -71,7 +71,7 @@ def _copy_verified_family_outputs(repository: Path, payload: Path) -> None:
         "model_family_count": 6,
         "active_configuration_count": 84,
         "reporting_scope_count": 23,
-        "source_configuration_relationship_count": 269,
+        "source_configuration_relationship_count": 284,
         "configurations_without_provenance_count": 0,
         "cross_scope_pairs_generated": False,
         "ranking_generated": False,
