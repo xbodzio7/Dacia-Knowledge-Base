@@ -57,9 +57,18 @@ jobs:
           replace('tests/test_post_v1_11_0_release_priority_selection_20260803.py',
               'rows = [\n                row for row in csv.DictReader(handle)\n                if not row.get("document_date") or row.get("document_date") <= "2026-08-03"\n            ]',
               'rows = [\n                row for row in csv.DictReader(handle)\n                if row.get("code") != "' + SOURCE + '"\n            ]')
-          replace('tests/version_matrix_checks.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
-          replace('tests/version_matrix_checks.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
+
+          for path in ('tests/version_matrix_checks.py', 'tests/source_matrix_checks.py'):
+              replace(path, '"provenance_source_count": 34', '"provenance_source_count": 35')
+              replace(path, '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
           replace('tests/version_matrix_checks.py', 'testcase.assertEqual(relation_total, 269)', 'testcase.assertEqual(relation_total, 284)')
+          replace('tests/source_matrix_checks.py', 'testcase.assertEqual(len(records), 34)', 'testcase.assertEqual(len(records), 35)')
+          replace('tests/source_matrix_checks.py', 'testcase.assertEqual(relationship_total, 269)', 'testcase.assertEqual(relationship_total, 284)')
+          replace('tests/source_matrix_checks.py', 'testcase.assertEqual(len(csv_rows), 34)', 'testcase.assertEqual(len(csv_rows), 35)')
+          replace('tests/source_matrix_checks.py', 'sum(int(row["relationship_count"]) for row in csv_rows),\n        269,', 'sum(int(row["relationship_count"]) for row in csv_rows),\n        284,')
+          replace('tests/source_matrix_checks.py', 'html_text.count("<tr>"), 35', 'html_text.count("<tr>"), 36')
+          replace('tests/source_matrix_checks.py', 'html_text.count("SHA-256 "), 34', 'html_text.count("SHA-256 "), 35')
+
           replace('tools/reporting/portfolio_model_family_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
@@ -72,8 +81,14 @@ jobs:
           replace('tools/reporting/portfolio_source_coverage_matrix.py', 'f"expected 34 used provenance sources, found {len(relations_by_source)}"', 'f"expected 35 used provenance sources, found {len(relations_by_source)}"')
           replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if sum(record["relationship_count"] for record in records) != 269:', 'if sum(record["relationship_count"] for record in records) != 284:')
           replace('tools/reporting/portfolio_source_coverage_matrix.py', '"source rows do not preserve all 269 relationships exactly once"', '"source rows do not preserve all 284 relationships exactly once"')
+
           replace('tests/test_portfolio_model_family_release_integration.py', 'summary["source_configuration_relationship_count"],\n                269,', 'summary["source_configuration_relationship_count"],\n                284,')
           replace('tests/test_portfolio_model_family_release_integration.py', 'self.assertEqual(version_summary["provenance_source_count"], 34)', 'self.assertEqual(version_summary["provenance_source_count"], 35)')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'for row in version_matrix["versions"]\n            ),\n            269,', 'for row in version_matrix["versions"]\n            ),\n            284,')
+          replace('tests/test_portfolio_model_family_release_integration.py', '"provenance_source_count": 34,\n            "source_configuration_relationship_count": 269,', '"provenance_source_count": 35,\n            "source_configuration_relationship_count": 284,')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'self.assertEqual(len(source_rows), 34)', 'self.assertEqual(len(source_rows), 35)')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'self.assertEqual(len({row["source_code"] for row in source_rows}), 34)', 'self.assertEqual(len({row["source_code"] for row in source_rows}), 35)')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'sum(row["relationship_count"] for row in source_rows),\n            269,', 'sum(row["relationship_count"] for row in source_rows),\n            284,')
 
           path = 'tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py'
           for old, new in (
@@ -99,20 +114,18 @@ jobs:
               'for row in read_csv_rows(repository / "data/master" / filename, table):\n            if row.get("source_code") == "' + SOURCE + '":\n                continue\n            configuration_code = row.get("configuration_code", "")')
 
           sys.path.insert(0, 'tools')
-          import existing_configuration_missing_data_analysis as analysis
           root = Path('.').resolve()
+          import existing_configuration_missing_data_analysis as analysis
           payload = analysis.collect(root)
           analysis.write_json(root / 'data/reporting/existing_configuration_missing_data_analysis.json', payload)
           (root / 'data/reporting/existing_configuration_missing_data_analysis.md').write_text(analysis.render_markdown(payload), encoding='utf-8')
 
           import portfolio_model_version_comparison_matrix as vm
-          rc = vm.main([
-              '--json', 'data/reporting/portfolio_model_version_comparison_matrix.json',
-              '--csv', 'data/reporting/portfolio_model_version_comparison_matrix.csv',
-              '--html', 'data/reporting/portfolio_model_version_comparison_matrix.html',
-          ], repository=root)
-          if rc != 0:
-              raise SystemExit(f'version matrix refresh failed: {rc}')
+          if vm.main(['--json','data/reporting/portfolio_model_version_comparison_matrix.json','--csv','data/reporting/portfolio_model_version_comparison_matrix.csv','--html','data/reporting/portfolio_model_version_comparison_matrix.html'], repository=root) != 0:
+              raise SystemExit('version matrix refresh failed')
+          import portfolio_source_coverage_matrix as sm
+          if sm.main(['--json','data/reporting/portfolio_source_coverage_matrix.json','--csv','data/reporting/portfolio_source_coverage_matrix.csv','--html','data/reporting/portfolio_source_coverage_matrix.html'], repository=root) != 0:
+              raise SystemExit('source matrix refresh failed')
           PY
       - name: Run full quality and persist result
         shell: bash
