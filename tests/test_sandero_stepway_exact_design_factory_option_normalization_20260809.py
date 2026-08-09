@@ -167,7 +167,7 @@ class SanderoStepwayExactDesignFactoryOptionNormalizationTests(unittest.TestCase
 
     def test_master_row_counts_match_the_closed_package(self) -> None:
         self.assertEqual(len(self.sources), 38)
-        self.assertEqual(len(self.source_configurations), 269)
+        self.assertEqual(len(self.source_configurations), 284)
         self.assertEqual(len(self.items), 50)
         self.assertEqual(len(self.item_attributes), 103)
         self.assertEqual(len(self.mappings), 322)

@@ -41,7 +41,7 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
         completeness = self.report["completeness"]
         self.assertEqual(completeness["active_configuration_count"], 81)
         self.assertEqual(completeness["missing_technical_count"], 81)
-        self.assertEqual(completeness["missing_equipment_count"], 36)
+        self.assertEqual(completeness["missing_equipment_count"], 12)
         self.assertEqual(completeness["candidate_count"], 7)
         self.assertEqual(completeness["exhausted_source_candidate_count"], 7)
         self.assertEqual(completeness["eligible_candidate_count"], 0)
