@@ -1,0 +1,87 @@
+name: AI Dacia configurator selector enumeration
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-dacia-configurator-selector-enumeration.yml
+
+permissions:
+  contents: write
+
+jobs:
+  enumerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --quiet selenium
+      - name: Enumerate radio groups by grade
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,time
+          from pathlib import Path
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+
+          pages={
+            'sandero':'https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html',
+            'sandero_stepway':'https://www.dacia.pl/samochody/sandero-stepway/konfigurator.html',
+            'jogger_5':'https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html',
+            'jogger_7':'https://www.dacia.pl/samochody/jogger-7/konfigurator.html',
+            'duster':'https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html',
+            'bigster':'https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html',
+            'spring':'https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html',
+          }
+          opts=Options(); opts.add_argument('--headless=new'); opts.add_argument('--no-sandbox'); opts.add_argument('--disable-dev-shm-usage'); opts.add_argument('--window-size=1600,1200'); opts.add_argument('--lang=pl-PL')
+          d=webdriver.Chrome(options=opts)
+          result={}
+          def radios():
+            return d.execute_script(r'''
+              const out={};
+              for (const el of document.querySelectorAll('input[type="radio"]')) {
+                const name=el.name||'(unnamed)';
+                const id=el.id||'';
+                let label='';
+                if(id){const l=document.querySelector(`label[for="${CSS.escape(id)}"]`); if(l) label=(l.innerText||'').trim().replace(/\s+/g,' ');}
+                if(!label){const p=el.closest('label,[role="radio"],li,article,section,div'); if(p) label=(p.innerText||'').trim().replace(/\s+/g,' ').slice(0,400);}
+                (out[name]??=[]).push({id,value:el.value,label,checked:el.checked,disabled:el.disabled,display:getComputedStyle(el).display});
+              }
+              return out;
+            ''')
+          try:
+            for family,url in pages.items():
+              d.get(url); time.sleep(9)
+              grade_group=radios().get('config-grades',[])
+              family_out={'initial_groups':radios(),'grades':{}}
+              for g in grade_group:
+                try:
+                  el=d.find_element(By.ID,g['id'])
+                  d.execute_script('arguments[0].click()',el)
+                  time.sleep(3)
+                  family_out['grades'][g['value']]={'groups':radios()}
+                except Exception as e:
+                  family_out['grades'][g['value']]={'error':repr(e)}
+              result[family]=family_out
+              print(family,'grades',list(family_out['grades']),flush=True)
+          finally:
+            d.quit()
+          Path('project/sources/dacia-pl-configurator-selector-enumeration-20260809.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit enumeration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/sources/dacia-pl-configurator-selector-enumeration-20260809.json
+          git commit -m "chore(source): enumerate current configurator selector groups"
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
