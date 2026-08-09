@@ -48,7 +48,9 @@ jobs:
           python tools/align_jogger_elasticity_completeness_context.py
           python - <<'PY'
           import json
-          from tools import review_post_v1_11_0_release_priority_selection_20260803 as m
+          import sys
+          sys.path.insert(0, 'tools')
+          import review_post_v1_11_0_release_priority_selection_20260803 as m
           report = m.build_report()
           m.REPORT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           m.REPORT_MD.write_text(m.render_markdown(report), encoding='utf-8')
