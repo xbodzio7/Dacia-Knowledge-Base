@@ -41,11 +41,11 @@ jobs:
             tail -n 600 /tmp/reconcile-quality.log
             exit "$status"
           fi
-          rm -f .reconcile-quality.log
+          git rm -f .reconcile-quality.log 2>/dev/null || true
           git rm .github/workflows/_reconcile_sandero_full_modal_once.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/master data/reporting tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py
+          git add data/master data/reporting tools tests project
           git commit -m "data: reconcile Sandero full-modal canonical observations"
           git push origin HEAD
           cat /tmp/reconcile-quality.log
