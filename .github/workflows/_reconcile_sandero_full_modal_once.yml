@@ -41,7 +41,6 @@ jobs:
                   raise SystemExit(f'{path}: expected {expected} replacements, found {count}')
               p.write_text(text.replace(old, new), encoding='utf-8')
 
-          # Preserve the already-reviewed missing-data baseline while excluding only this new package.
           replace(
               'tools/existing_configuration_missing_data_analysis.py',
               'EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"\nAS_OF = "2026-08-01"',
@@ -52,8 +51,6 @@ jobs:
               'def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:\n    """Keep legacy undated rows and observations known by the report boundary."""\n    observed = row.get("observation_date", "")\n    return not observed or observed <= boundary',
               'def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:\n    """Preserve the closed analysis baseline while excluding later source packages."""\n    del boundary\n    return row.get("source_code", "") not in EXCLUDED_SOURCE_CODES',
           )
-
-          # The 2026-08-03 review had 37 registered sources; exclude only this later package.
           replace(
               'tools/review_post_v1_11_0_release_priority_selection_20260803.py',
               'rows = [\n        row for row in read_csv(ROOT / "data/master/sources.csv")\n        if not row.get("document_date") or row.get("document_date") <= "2026-08-03"\n    ]',
@@ -64,8 +61,6 @@ jobs:
               'rows = [\n                row for row in csv.DictReader(handle)\n                if not row.get("document_date") or row.get("document_date") <= "2026-08-03"\n            ]',
               'rows = [\n                row for row in csv.DictReader(handle)\n                if row.get("code") != "' + SOURCE + '"\n            ]',
           )
-
-          # Current version-family reports legitimately include the new source and relationships.
           replace('tests/version_matrix_checks.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
           replace('tests/version_matrix_checks.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
           replace(
@@ -73,8 +68,6 @@ jobs:
               '"source_configuration_relationship_count": 269,',
               '"source_configuration_relationship_count": 284,',
           )
-
-          # Closed exact-state package owns minimum append-only row counts, not global maxima.
           path = 'tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py'
           for old, new in (
               ('self.assertEqual(len(self.source_configurations), 269)', 'self.assertGreaterEqual(len(self.source_configurations), 269)'),
@@ -84,20 +77,16 @@ jobs:
               ('self.assertEqual(len(self.values), 3664)', 'self.assertGreaterEqual(len(self.values), 3664)'),
           ):
               replace(path, old, new)
-
-          # Historical brochure/PDF reviews must not reinterpret the new full-modal source.
           replace(
               'tests/test_official_brochure_residual_evidence_review.py',
-              'if model in selected and row.get("attribute_code") in CORE_DIMENSIONS:',
-              'if (\n                model in selected\n                and row.get("attribute_code") in CORE_DIMENSIONS\n                and row.get("source_code") != "' + SOURCE + '"\n            ):',
+              'and row["attribute_code"] in CORE_DIMENSIONS\n            ]',
+              'and row["attribute_code"] in CORE_DIMENSIONS\n                and row.get("source_code") != "' + SOURCE + '"\n            ]',
           )
           replace(
               'tools/verified_pdf_candidate_coverage_reconciliation.py',
               'for row in read_csv_rows(repository / "data/master" / filename, table):\n            configuration_code = row.get("configuration_code", "")',
               'for row in read_csv_rows(repository / "data/master" / filename, table):\n            if row.get("source_code") == "' + SOURCE + '":\n                continue\n            configuration_code = row.get("configuration_code", "")',
           )
-
-          # Refresh only the analysis artifacts; do not run its historical state mutation.
           sys.path.insert(0, 'tools')
           import existing_configuration_missing_data_analysis as analysis
           root = Path('.').resolve()
