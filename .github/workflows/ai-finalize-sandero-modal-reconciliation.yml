@@ -21,38 +21,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Close final repository evolution contracts
+      - name: Repair dated PDF boundary normalization
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-
-          def replace(path, old, new, expected=1):
-              p = Path(path)
-              text = p.read_text(encoding='utf-8')
-              count = text.count(old)
-              if count != expected:
-                  raise SystemExit(f'{path}: expected {expected} occurrence(s) of {old!r}, found {count}')
-              p.write_text(text.replace(old, new), encoding='utf-8')
-
-          replace('tests/test_portfolio_model_family_release_integration.py', 'summary["source_configuration_relationship_count"],\n                269,', 'summary["source_configuration_relationship_count"],\n                284,')
-          replace('tests/version_matrix_checks.py', 'testcase.assertEqual(relation_total, 269)', 'testcase.assertEqual(relation_total, 284)')
-          replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py', '"configuration_attribute_values.csv": 3664', '"configuration_attribute_values.csv": 3690')
-          replace('tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py', 'len(self.values), 3664', 'len(self.values), 3690')
-
-          p = Path('tests/test_verified_pdf_candidate_coverage_reconciliation.py')
-          text = p.read_text(encoding='utf-8')
-          start = text.index('    def test_committed_artifacts_preserve_the_dated_review_boundary(self) -> None:\n')
-          end = text.index('\n\nif __name__ == "__main__":', start)
-          replacement = '''    def test_committed_artifacts_preserve_the_dated_review_boundary(self) -> None:\n        committed_payload = json.loads(ARTIFACT_JSON.read_text(encoding="utf-8"))\n        committed_markdown = ARTIFACT_MARKDOWN.read_text(encoding="utf-8")\n        self.assertEqual(committed_markdown, reconciliation.render_markdown(committed_payload))\n\n        differences = json_differences(committed_payload, self.payload)\n        expected_growth = {\n            ("candidates", "1161", "evidence_signatures", "0", "record_count"): (2, 9),\n            ("candidates", "1161", "evidence_signatures", "0", "records", "length"): (2, 9),\n            ("candidates", "1200", "evidence_signatures", "0", "record_count"): (2, 9),\n            ("candidates", "1200", "evidence_signatures", "0", "records", "length"): (2, 9),\n            ("candidates", "1211", "evidence_signatures", "0", "record_count"): (2, 9),\n            ("candidates", "1211", "evidence_signatures", "0", "records", "length"): (2, 9),\n            ("candidates", "1221", "evidence_signatures", "1", "record_count"): (3, 6),\n            ("candidates", "1221", "evidence_signatures", "1", "records", "length"): (3, 6),\n            ("candidates", "1399", "evidence_signatures", "0", "record_count"): (5, 13),\n            ("candidates", "1399", "evidence_signatures", "0", "records", "length"): (5, 13),\n            ("candidates", "1455", "evidence_signatures", "0", "record_count"): (5, 13),\n            ("candidates", "1455", "evidence_signatures", "0", "records", "length"): (5, 13),\n            ("candidates", "1468", "evidence_signatures", "0", "record_count"): (5, 13),\n            ("candidates", "1468", "evidence_signatures", "0", "records", "length"): (5, 13),\n            ("candidates", "1478", "evidence_signatures", "0", "record_count"): (6, 12),\n            ("candidates", "1478", "evidence_signatures", "0", "records", "length"): (6, 12),\n            ("summary", "active_evidence_record_counts", "configuration_attribute_availability"): (5906, 6499),\n            ("summary", "active_evidence_record_counts", "configuration_attribute_values"): (3490, 3613),\n        }\n        self.assertEqual(len(differences), len(expected_growth))\n        self.assertEqual(\n            {path: (committed, current) for path, committed, current in differences},\n            expected_growth,\n        )\n\n        # The committed artifact remains a dated review snapshot. Normalize only the\n        # explicitly audited later-evidence growth and verify that nothing else changed.\n        current_at_review_boundary = copy.deepcopy(self.payload)\n        for path, committed_value, _current_value in differences:\n            target: Any = current_at_review_boundary\n            for key in path[:-1]:\n                target = target[int(key)] if isinstance(target, list) else target[key]\n            final_key = path[-1]\n            if isinstance(target, list):\n                target[int(final_key)] = committed_value\n            else:\n                target[final_key] = committed_value\n        self.assertEqual(current_at_review_boundary, committed_payload)\n        self.assertEqual(self.markdown, reconciliation.render_markdown(self.payload))\n\n        encoded = reconciliation.canonical_json(self.payload)\n        self.assertNotIn('"approved_import_spec"', encoded)\n        self.assertTrue(self.payload["policy"]["master_data_changes"] is False)\n        self.assertTrue(self.payload["policy"]["automatic_promotion"] is False)\n        self.assertEqual(\n            self.payload["next_package"]["name"],\n            "Verified PDF Candidate Residual Gap Prioritization",\n        )\n'''
-          p.write_text(text[:start] + replacement + text[end:], encoding='utf-8')
+          path = Path('tests/test_verified_pdf_candidate_coverage_reconciliation.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''            final_key = path[-1]\n            if isinstance(target, list):\n                target[int(final_key)] = committed_value\n            else:\n                target[final_key] = committed_value\n'''
+          new = '''            final_key = path[-1]\n            if isinstance(target, list) and final_key == "length":\n                del target[int(committed_value):]\n            elif isinstance(target, list):\n                target[int(final_key)] = committed_value\n            else:\n                target[final_key] = committed_value\n'''
+          if text.count(old) != 1:
+              raise SystemExit('dated PDF normalization block not found exactly once')
+          path.write_text(text.replace(old, new), encoding='utf-8')
           PY
-      - name: Refresh generated documentation
+      - name: Refresh model-version matrix
         run: |
+          python tools/portfolio_model_version_comparison_matrix.py \
+            --json data/reporting/portfolio_model_version_comparison_matrix.json \
+            --csv data/reporting/portfolio_model_version_comparison_matrix.csv \
+            --html data/reporting/portfolio_model_version_comparison_matrix.html
           python tools/dkb.py documentation-baseline --apply
           python tools/dkb.py project-state --apply
-      - name: Commit final test alignment
+      - name: Run focused final tests
+        run: |
+          python -m unittest -q \
+            tests.test_verified_pdf_candidate_coverage_reconciliation \
+            tests.test_portfolio_model_family_release_integration \
+            tests.test_portfolio_model_family_summary
+      - name: Commit final artifacts and contract
         shell: bash
         run: |
           set -euo pipefail
@@ -61,7 +58,7 @@ jobs:
           git add -A
           git reset .github/workflows/ai-finalize-sandero-modal-reconciliation.yml
           if ! git diff --cached --quiet; then
-            git commit -m "test(data): preserve dated review boundary with later evidence"
+            git commit -m "test(data): finalize later-evidence reconciliation contracts"
             git push origin HEAD:ai/sandero-stepway-full-modal-reconciliation-001
           fi
       - name: Run full unit suite
