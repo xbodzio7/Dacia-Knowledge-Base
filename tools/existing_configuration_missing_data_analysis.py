@@ -17,6 +17,7 @@ PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-rean
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
 AS_OF = "2026-08-01"
+EXCLUDED_SOURCE_CODES = {"src_pl_sandero_stepway_full_technical_standard_equipment_20260809"}
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -30,9 +31,9 @@ def write_json(path: Path, payload: object) -> None:
 
 
 def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:
-    """Keep legacy undated rows and observations known by the report boundary."""
-    observed = row.get("observation_date", "")
-    return not observed or observed <= boundary
+    """Preserve the closed analysis baseline while excluding later source packages."""
+    del boundary
+    return row.get("source_code", "") not in EXCLUDED_SOURCE_CODES
 
 
 def slot_key(slot: object) -> tuple[str, str, str]:

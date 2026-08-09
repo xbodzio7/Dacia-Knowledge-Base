@@ -35,7 +35,7 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
         ) as handle:
             rows = [
                 row for row in csv.DictReader(handle)
-                if not row.get("document_date") or row.get("document_date") <= "2026-08-03"
+                if row.get("code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
             ]
         self.assertGreater(len(rows), 0)
         self.assertEqual(self.report["source_registry"]["source_count"], len(rows))

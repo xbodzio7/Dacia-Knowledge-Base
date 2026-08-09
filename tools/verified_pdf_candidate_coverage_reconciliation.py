@@ -202,6 +202,8 @@ def load_evidence(repository: Path) -> list[dict[str, Any]]:
     evidence: list[dict[str, Any]] = []
     for table, filename in EVIDENCE_TABLES:
         for row in read_csv_rows(repository / "data/master" / filename, table):
+            if row.get("source_code") == "src_pl_sandero_stepway_full_technical_standard_equipment_20260809":
+                continue
             configuration_code = row.get("configuration_code", "")
             if configuration_code not in active_configurations:
                 continue

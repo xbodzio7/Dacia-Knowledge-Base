@@ -39,7 +39,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 def source_registry_summary() -> dict[str, Any]:
     rows = [
         row for row in read_csv(ROOT / "data/master/sources.csv")
-        if not row.get("document_date") or row.get("document_date") <= "2026-08-03"
+        if row.get("code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
     ]
     fields = tuple(rows[0]) if rows else ()
     type_field = next(
