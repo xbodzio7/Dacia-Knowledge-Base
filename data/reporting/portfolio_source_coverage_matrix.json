@@ -3,8 +3,8 @@
   "kind": "portfolio_source_coverage_matrix",
   "as_of": "2026-08-09",
   "summary": {
-    "provenance_source_count": 34,
-    "source_configuration_relationship_count": 269,
+    "provenance_source_count": 35,
+    "source_configuration_relationship_count": 284,
     "active_configuration_count": 84,
     "active_version_count": 22,
     "model_family_count": 6,
@@ -1386,6 +1386,59 @@
       "sha256": "9f8779f5478fef02537e39793ac67a6ce07876d137b80f3cc77cf38293dd0991",
       "status": "active",
       "notes": "Interactive exact-state capture of all 15 current Sandero and Sandero Stepway grade and engine/transmission surfaces. Choices and priced factory options remain configuration-bounded.",
+      "relationship_count": 15,
+      "relationship_types": [
+        "documents"
+      ],
+      "configuration_count": 15,
+      "configuration_codes": [
+        "sandero_iii_essential_tce100_manual",
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_expression_tce100_manual",
+        "sandero_iii_journey_ecog120_automatic",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_iii_journey_tce100_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_essential_tce110_manual",
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_expression_tce110_manual",
+        "sandero_stepway_iii_extreme_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_manual",
+        "sandero_stepway_iii_extreme_tce110_manual"
+      ],
+      "version_count": 6,
+      "version_codes": [
+        "sandero_iii_essential",
+        "sandero_iii_expression",
+        "sandero_iii_journey",
+        "sandero_stepway_iii_essential",
+        "sandero_stepway_iii_expression",
+        "sandero_stepway_iii_extreme"
+      ],
+      "model_family_count": 2,
+      "model_codes": [
+        "sandero_iii",
+        "sandero_stepway_iii"
+      ],
+      "model_names": [
+        "Sandero",
+        "Sandero Stepway"
+      ]
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_full_technical_standard_equipment_20260809",
+      "source_type": "web_snapshot",
+      "title": "Dacia Polska full Sandero and Sandero Stepway technical and standard-equipment configurator snapshot",
+      "publisher": "Dacia",
+      "market": "PL",
+      "document_date": "2026-08-09",
+      "external_reference": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+      "file_path": "project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json",
+      "sha256": "f03ad3d2f7fa17fb45f53082f72f7e01cbca050268fc7e90356345d3de5452aa",
+      "status": "active",
+      "notes": "Literal full-modal configurator snapshot. Canonical reconciliation imports only exact safe matches; ambiguous evidence remains in the source artifact.",
       "relationship_count": 15,
       "relationship_types": [
         "documents"
