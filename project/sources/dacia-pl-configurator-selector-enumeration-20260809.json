@@ -1,0 +1,1832 @@
+{
+  "sandero": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-TCe100",
+          "label": "TCe 100",
+          "value": "TCe 100"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-journey",
+          "label": "journey",
+          "value": "journey"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe100",
+              "label": "TCe 100",
+              "value": "TCe 100"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe100",
+              "label": "TCe 100",
+              "value": "TCe 100"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "journey": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe100",
+              "label": "TCe 100",
+              "value": "TCe 100"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "sandero_stepway": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-TCe110",
+          "label": "TCe 110",
+          "value": "TCe 110"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-Eco-G120",
+          "label": "Eco-G 120",
+          "value": "Eco-G 120"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-stepwayessential",
+          "label": "stepway essential",
+          "value": "stepway essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-stepwayexpression",
+          "label": "stepway expression",
+          "value": "stepway expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-stepwayextreme",
+          "label": "stepway extreme",
+          "value": "stepway extreme"
+        }
+      ]
+    },
+    "grades": {
+      "stepway essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayessential",
+              "label": "stepway essential",
+              "value": "stepway essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayexpression",
+              "label": "stepway expression",
+              "value": "stepway expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayextreme",
+              "label": "stepway extreme",
+              "value": "stepway extreme"
+            }
+          ]
+        }
+      },
+      "stepway expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayessential",
+              "label": "stepway essential",
+              "value": "stepway essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayexpression",
+              "label": "stepway expression",
+              "value": "stepway expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayextreme",
+              "label": "stepway extreme",
+              "value": "stepway extreme"
+            }
+          ]
+        }
+      },
+      "stepway extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayessential",
+              "label": "stepway essential",
+              "value": "stepway essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayexpression",
+              "label": "stepway expression",
+              "value": "stepway expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-stepwayextreme",
+              "label": "stepway extreme",
+              "value": "stepway extreme"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "jogger_5": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-Eco-G120",
+          "label": "Eco-G 120",
+          "value": "Eco-G 120"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-extreme",
+          "label": "extreme",
+          "value": "extreme"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-journey",
+          "label": "journey",
+          "value": "journey"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "journey": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "jogger_7": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-Eco-G120",
+          "label": "Eco-G 120",
+          "value": "Eco-G 120"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-extreme",
+          "label": "extreme",
+          "value": "extreme"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-journey",
+          "label": "journey",
+          "value": "journey"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "journey": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-TCe110",
+              "label": "TCe 110",
+              "value": "TCe 110"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "duster": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-Eco-G120",
+          "label": "Eco-G 120",
+          "value": "Eco-G 120"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-extreme",
+          "label": "extreme",
+          "value": "extreme"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-journey",
+          "label": "journey",
+          "value": "journey"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "journey": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120",
+              "label": "Eco-G 120",
+              "value": "Eco-G 120"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-Eco-G120auto",
+              "label": "Eco-G 120 auto",
+              "value": "Eco-G 120 auto"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid155",
+              "label": "hybrid 155",
+              "value": "hybrid 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "bigster": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-mildhybrid140",
+          "label": "mild hybrid 140",
+          "value": "mild hybrid 140"
+        },
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-mildhybrid-G140",
+          "label": "mild hybrid-G 140",
+          "value": "mild hybrid-G 140"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-extreme",
+          "label": "extreme",
+          "value": "extreme"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-journey",
+          "label": "journey",
+          "value": "journey"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid-G140",
+              "label": "mild hybrid-G 140",
+              "value": "mild hybrid-G 140"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid-G140",
+              "label": "mild hybrid-G 140",
+              "value": "mild hybrid-G 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-HYBRID155",
+              "label": "HYBRID 155",
+              "value": "HYBRID 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid-G140",
+              "label": "mild hybrid-G 140",
+              "value": "mild hybrid-G 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-HYBRID155",
+              "label": "HYBRID 155",
+              "value": "HYBRID 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      },
+      "journey": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid140",
+              "label": "mild hybrid 140",
+              "value": "mild hybrid 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-mildhybrid-G140",
+              "label": "mild hybrid-G 140",
+              "value": "mild hybrid-G 140"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-hybrid-G1504x4",
+              "label": "hybrid-G 150 4x4",
+              "value": "hybrid-G 150 4x4"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-HYBRID155",
+              "label": "HYBRID 155",
+              "value": "HYBRID 155"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-journey",
+              "label": "journey",
+              "value": "journey"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "spring": {
+    "initial_groups": {
+      "config-engines": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-engines-electric70",
+          "label": "electric 70",
+          "value": "electric 70"
+        }
+      ],
+      "config-grades": [
+        {
+          "checked": true,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-essential",
+          "label": "essential",
+          "value": "essential"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-extreme",
+          "label": "extreme",
+          "value": "extreme"
+        },
+        {
+          "checked": false,
+          "disabled": false,
+          "display": "block",
+          "id": "config-grades-expression",
+          "label": "expression",
+          "value": "expression"
+        }
+      ]
+    },
+    "grades": {
+      "essential": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-electric70",
+              "label": "electric 70",
+              "value": "electric 70"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            }
+          ]
+        }
+      },
+      "extreme": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-electric100",
+              "label": "electric 100",
+              "value": "electric 100"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            }
+          ]
+        }
+      },
+      "expression": {
+        "groups": {
+          "config-engines": [
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-engines-electric70",
+              "label": "electric 70",
+              "value": "electric 70"
+            }
+          ],
+          "config-grades": [
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-essential",
+              "label": "essential",
+              "value": "essential"
+            },
+            {
+              "checked": false,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-extreme",
+              "label": "extreme",
+              "value": "extreme"
+            },
+            {
+              "checked": true,
+              "disabled": false,
+              "display": "block",
+              "id": "config-grades-expression",
+              "label": "expression",
+              "value": "expression"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
