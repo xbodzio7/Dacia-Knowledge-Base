@@ -16,6 +16,7 @@ OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
+AS_OF = "2026-08-01"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -26,6 +27,12 @@ def rows(path: Path) -> list[dict[str, str]]:
 def write_json(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:
+    """Keep legacy undated rows and observations known by the report boundary."""
+    observed = row.get("observation_date", "")
+    return not observed or observed <= boundary
 
 
 def slot_key(slot: object) -> tuple[str, str, str]:
@@ -91,6 +98,7 @@ def collect(repository: Path = ROOT) -> dict[str, object]:
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_values.csv")
+        if observed_by(row)
     }
     ranges = {
         (
@@ -100,10 +108,12 @@ def collect(repository: Path = ROOT) -> dict[str, object]:
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_value_ranges.csv")
+        if observed_by(row)
     }
     availability = {
         (row["configuration_code"], row["attribute_code"])
         for row in rows(master / "configuration_attribute_availability.csv")
+        if observed_by(row)
     }
     exhausted = exhausted_source_reviews(reporting)
 
@@ -233,7 +243,7 @@ def collect(repository: Path = ROOT) -> dict[str, object]:
     }
     return {
         "version": 2,
-        "as_of": "2026-08-01",
+        "as_of": AS_OF,
         "kind": "existing_configuration_missing_data_analysis",
         "summary": summary,
         "configurations": config_results,
