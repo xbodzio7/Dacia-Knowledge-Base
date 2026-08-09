@@ -10,22 +10,22 @@
     "offline_workspace_verification": "PASS"
   },
   "source_registry": {
-    "source_count": 37,
+    "source_count": 38,
     "source_type_counts": {
       "brochure_pdf": 6,
       "configuration_pdf": 14,
       "normalized_snapshot": 5,
-      "web_snapshot": 12
+      "web_snapshot": 13
     },
     "source_status_counts": {
-      "active": 37
+      "active": 38
     }
   },
   "completeness": {
     "active_configuration_count": 81,
     "completeness_scope_count": 23,
-    "missing_technical_count": 89,
-    "missing_equipment_count": 36,
+    "missing_technical_count": 81,
+    "missing_equipment_count": 12,
     "candidate_count": 7,
     "exhausted_source_candidate_count": 7,
     "eligible_candidate_count": 0

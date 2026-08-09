@@ -25,12 +25,12 @@
 
 - Tests: 1912
 - Master CSV files: 47
-- Master rows: 12858
-- Configuration values: 3844
+- Master rows: 12637
+- Configuration values: 3690
 - Configuration import specifications: 139
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
-- Availability records: 6566
+- Availability records: 6499
 - Canonical attributes: 387
 - Attribute categories: 30
 

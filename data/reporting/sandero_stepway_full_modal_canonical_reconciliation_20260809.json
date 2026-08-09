@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "package_id": "sandero_stepway_full_modal_canonical_reconciliation_001",
   "source_code": "src_pl_sandero_stepway_full_modal_20260809",
   "summary": {
@@ -11,9 +11,10 @@
     "source_registered": 1,
     "source_configuration_relationships": 15,
     "canonical_equipment_observations": 588,
-    "canonical_technical_observations": 180,
+    "canonical_technical_observations": 26,
     "equipment_rows_safely_mapped": 588,
-    "technical_rows_safely_mapped": 180,
+    "technical_rows_safely_mapped": 26,
+    "technical_rows_already_canonically_covered": 154,
     "equipment_rows_preserved_unmatched_or_ambiguous": 441,
     "technical_rows_preserved_unmatched_or_ambiguous": 499
   },
@@ -68,6 +69,12 @@
     "tyre_repair_kit": 15
   },
   "resolved_technical_attributes": {
+    "kerb_weight": 8,
+    "number_of_seats": 2,
+    "turning_circle": 8,
+    "unbraked_trailer_weight": 8
+  },
+  "already_covered_technical_attributes": {
     "braked_trailer_weight": 15,
     "cylinder_count": 15,
     "engine_displacement": 15,
@@ -75,11 +82,11 @@
     "gear_count": 15,
     "gross_train_weight": 15,
     "gross_vehicle_weight": 15,
-    "kerb_weight": 15,
-    "number_of_seats": 15,
+    "kerb_weight": 7,
+    "number_of_seats": 13,
     "top_speed": 15,
-    "turning_circle": 15,
-    "unbraked_trailer_weight": 15
+    "turning_circle": 7,
+    "unbraked_trailer_weight": 7
   },
   "unresolved_equipment_literals": [
     {
@@ -428,7 +435,7 @@
   "boundaries": [
     "Equipment is normalized only when the exact literal has one unique prior canonical mapping and that mapping proves status standard.",
     "Negative or base-state standard-equipment literals do not prove not_available or optional factory availability.",
-    "Technical rows are normalized only through the explicit label allow-list and simple scalar parser.",
+    "Technical rows fill only previously missing unqualified canonical scalar slots; already covered slots remain source evidence only.",
     "Composite, model-qualified, mixed-fuel and otherwise ambiguous values remain literal source evidence and are not projected.",
     "Absence from a standard-equipment modal never implies not_available."
   ]

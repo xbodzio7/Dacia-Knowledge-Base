@@ -5,11 +5,11 @@ Status: **complete**
 ## Canonical evidence
 
 - published release: `data-products-v1.11.0` from `0f9a76228ef374d7982421c5a246f00fe7378a94`;
-- registered sources: 37;
+- registered sources: 38;
 - active configurations: 81;
 - completeness scopes: 23;
-- missing technical slots: 89;
-- missing equipment slots: 36;
+- missing technical slots: 81;
+- missing equipment slots: 12;
 - source candidates: 7;
 - exhausted candidates: 7;
 - eligible candidates: 0.
