@@ -127,7 +127,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             "A1:M338",
             "A1:L25",
             "A1:AS243",
-            "A1:K13",
+            "A1:K14",
             "A1:E9",
         )
         with ZipFile(self.workbook_path) as archive:
