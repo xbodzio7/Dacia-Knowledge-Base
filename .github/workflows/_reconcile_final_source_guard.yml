@@ -40,6 +40,7 @@ jobs:
               ('m["relationship_rows"], 269', 'm["relationship_rows"], 284'),
               ('["relationship_rows"],269', '["relationship_rows"],284'),
               ('["relationship_rows"], 269', '["relationship_rows"], 284'),
+              ('source_html.count("<tr>"), 35', 'source_html.count("<tr>"), 36'),
           )
 
           candidates = [Path('tools/reporting/portfolio_source_coverage_matrix_release_integration.py')]
