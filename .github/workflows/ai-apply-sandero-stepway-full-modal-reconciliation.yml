@@ -1,0 +1,42 @@
+name: AI apply Sandero Stepway full modal reconciliation
+
+on:
+  push:
+    branches:
+      - ai/sandero-stepway-full-modal-reconciliation-001
+    paths:
+      - .github/workflows/ai-apply-sandero-stepway-full-modal-reconciliation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/sandero-stepway-full-modal-reconciliation-001
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Reconcile captured modal rows
+        run: python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --apply
+      - name: Commit generated canonical observations
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/master/sources.csv data/master/source_configurations.csv \
+            data/master/configuration_attribute_values.csv \
+            data/master/configuration_attribute_availability.csv \
+            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.json \
+            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.md
+          if git diff --cached --quiet; then
+            echo "No reconciliation changes to commit."
+            exit 0
+          fi
+          git commit -m "data(sandero): reconcile full configurator modals"
+          git push origin HEAD:ai/sandero-stepway-full-modal-reconciliation-001
