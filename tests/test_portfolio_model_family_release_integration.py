@@ -186,7 +186,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.assertFalse(summary["inferred_values_generated"])
 
         version_summary = version_matrix["summary"]
-        self.assertEqual(version_summary["provenance_source_count"], 34)
+        self.assertEqual(version_summary["provenance_source_count"], 35)
         self.assertEqual(version_summary["active_version_count"], 22)
         self.assertFalse(version_summary["configuration_pairs_generated"])
         self.assertEqual(len(version_matrix["versions"]), 22)
@@ -202,15 +202,15 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
                 row["provenance"]["relationship_count"]
                 for row in version_matrix["versions"]
             ),
-            269,
+            284,
         )
 
         self.assertEqual(source_matrix["kind"], "portfolio_source_coverage_matrix")
         self.assertEqual(source_matrix["version"], 1)
         source_summary = source_matrix["summary"]
         expected_summary = {
-            "provenance_source_count": 34,
-            "source_configuration_relationship_count": 269,
+            "provenance_source_count": 35,
+            "source_configuration_relationship_count": 284,
             "active_configuration_count": 84,
             "active_version_count": 22,
             "model_family_count": 6,
@@ -224,11 +224,11 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.assertEqual(source_summary[key], value)
 
         source_rows = source_matrix["sources"]
-        self.assertEqual(len(source_rows), 34)
-        self.assertEqual(len({row["source_code"] for row in source_rows}), 34)
+        self.assertEqual(len(source_rows), 35)
+        self.assertEqual(len({row["source_code"] for row in source_rows}), 35)
         self.assertEqual(
             sum(row["relationship_count"] for row in source_rows),
-            269,
+            284,
         )
         self.assertEqual(
             len(
@@ -290,7 +290,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
         self.assertEqual(family_html.count('data-state="not_stated"'), 2)
         self.assertEqual(version_html.count("<tr>"), 23)
         self.assertIn("No version is ranked or recommended", version_html)
-        self.assertEqual(source_html.count("<tr>"), 35)
+        self.assertEqual(source_html.count("<tr>"), 36)
         self.assertIn("Portfolio Source Coverage Matrix", source_html)
         self.assertIn("https://", source_html)
 

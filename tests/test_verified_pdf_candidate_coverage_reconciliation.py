@@ -412,7 +412,14 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
             for key in path[:-1]:
                 target = target[int(key)] if isinstance(target, list) else target[key]
             final_key = path[-1]
-            if isinstance(target, list):
+            if isinstance(target, list) and final_key == "length":
+                historical: Any = committed_payload
+                for key in path[:-1]:
+                    historical = (
+                        historical[int(key)] if isinstance(historical, list) else historical[key]
+                    )
+                target[:] = copy.deepcopy(historical)
+            elif isinstance(target, list):
                 target[int(final_key)] = committed_value
             else:
                 target[final_key] = committed_value
