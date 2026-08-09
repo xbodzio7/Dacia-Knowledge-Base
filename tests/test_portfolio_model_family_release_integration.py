@@ -174,7 +174,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.assertEqual(summary["reporting_scope_count"], 23)
             self.assertEqual(
                 summary["source_configuration_relationship_count"],
-                269,
+                284,
             )
             self.assertEqual(
                 summary["configurations_without_provenance_count"],
@@ -186,7 +186,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.assertFalse(summary["inferred_values_generated"])
 
         version_summary = version_matrix["summary"]
-        self.assertEqual(version_summary["provenance_source_count"], 34)
+        self.assertEqual(version_summary["provenance_source_count"], 35)
         self.assertEqual(version_summary["active_version_count"], 22)
         self.assertFalse(version_summary["configuration_pairs_generated"])
         self.assertEqual(len(version_matrix["versions"]), 22)

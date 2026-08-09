@@ -109,6 +109,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
                 and row.get("source_code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
                 and row.get("source_code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
                 and row.get("source_code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
+                and row.get("source_code") != "src_pl_sandero_stepway_full_technical_standard_equipment_20260809"
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }
