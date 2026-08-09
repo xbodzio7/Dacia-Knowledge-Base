@@ -36,6 +36,10 @@ jobs:
               ('m["source_rows"], 34', 'm["source_rows"], 35'),
               ('["source_rows"], 34', '["source_rows"], 35'),
               ('["source_rows"],34', '["source_rows"],35'),
+              ('m["relationship_rows"],269', 'm["relationship_rows"],284'),
+              ('m["relationship_rows"], 269', 'm["relationship_rows"], 284'),
+              ('["relationship_rows"],269', '["relationship_rows"],284'),
+              ('["relationship_rows"], 269', '["relationship_rows"], 284'),
           )
 
           candidates = [Path('tools/reporting/portfolio_source_coverage_matrix_release_integration.py')]
