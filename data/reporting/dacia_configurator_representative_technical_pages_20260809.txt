@@ -1,0 +1,380 @@
+================================================================================
+jogger_essential_5seat_ecog120_manual
+
+--- PAGE 5 ---
+DANE TECHNICZNE
+Pojemność zbiornika paliwa (l)
+pojemność zbiornika paliwa (l) 50
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 7.3
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 119
+Emisja CO2 cykl mieszany WLTP (g/km) 132
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 5.8
+Osiągi
+Prędkość maksymalna (km/h) 180
+400 m ze startu zatrzymanego (s) 32,6
+Przyspieszenie 0-100 km/h (s) 10,9
+Układ napędowy
+Rodzaj napędu przedni
+Typ nadwozia
+Liczba drzwi 5
+Rodzaj nadwozia kombi
+Układ kierowniczy
+Średnica zawracania (m) 11,39
+Koła i opony
+Opony standardowe 205/60 R16 92H
+Dopuszczalna masa całkowita
+Maksymalna masa przyczepy bez hamulca (kg) 680
+Maksymalna masa całkowita zespołu pojazdów (kg) 2965
+Maksymalna masa przyczepy z hamulcem (kg) 1200
+Maksymalna ładowność (kg) 393
+Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1375
+Maksymalna masa całkowita pojazdu (kg) 1765
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: EMOA9V
+5
+
+--- PAGE 6 ---
+Silnik
+Liczba zaworów 12
+Procedura homologacji 1
+Moc maksymalna kW (KM) 90 (122) LPG / 84 (114)
+Protokół homologacji WLTP
+Maksymalny moment obrotowy w Nm 197 przy 1750 (LPG) / 190 przy 2000
+Rodzaj paliwa benzyna + LPG
+Liczba cylindrów 3
+Pojemność skokowa (cm3) 1199
+Norma emisji spalin Euro 6e BIS
+Wymiary
+Wysokość pojazdu nieobciążonego z relingami (mm) 1675 (5m.) / 1673 (7m.)
+Zwis przedni 833
+Wysokość bez obciążenia z otwartą klapą tylną 2009
+Długość całkowita 4550
+Szerokość całkowita 1784
+Zwis tylny 819
+Wysokość całkowita 1689 (5m.) / 1684 (7m.)
+Szerokość całkowita z lusterkami zewnętrznymi 1853/2012 (złożone/rozłożone)
+Szerokość dolnej części bagażnika 1018
+Rozstaw osi 2898
+Prześwit pojazdu 160-195
+Typ techniczny
+Typ techniczny DJFRLSNC6XC17M500C
+Liczba miejsc siedzących 5
+Skrzynia biegów
+Liczba biegów do przodu 6
+Rodzaj skrzyni biegów manualna
+Aerodynamika
+Poziom hałasu przy 50 km/h (dB) 68
+Pojemność bagażnika (dm3 VDA)
+Pojemność przestrzeni bagażowej min. (dm3) 708 dm3 (829 l)(5-m.) / 160 dm3 (212 l)(7-
+m.)
+Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3) 1819 dm3 (2094 l)(5-m.) / 1807 dm3 (2085
+l)(7-m.)
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: EMOA9V
+6
+
+--- PAGE 7 ---
+WYKRES WYDAJNOŚCI
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 7.3
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 119
+Emisja CO2 cykl mieszany WLTP (g/km) 132
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 5.8
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: EMOA9V
+7
+================================================================================
+duster_iii_essential_ecog120_4x2_manual
+
+--- PAGE 5 ---
+DANE TECHNICZNE
+Pojemność zbiornika paliwa (l)
+pojemność zbiornika paliwa (l) 51
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 7.5
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 121
+Emisja CO2 cykl mieszany WLTP (g/km) 136
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 6.0
+Osiągi
+Prędkość maksymalna (km/h) 180
+1000 m ze startu zatrzymanego (s) 32.9
+400 m ze startu zatrzymanego (s) 18.2
+Przyspieszenie 0-100 km/h (s) 11,0
+Układ napędowy
+Rodzaj napędu 4x2
+Typ nadwozia
+Liczba drzwi 5
+Rodzaj nadwozia SUV
+Układ kierowniczy
+Średnica zawracania (m) 10.86
+Koła i opony
+Opony standardowe 215/70 R16 100H
+Dopuszczalna masa całkowita
+Maksymalna masa całkowita zespołu pojazdów (kg) 3305
+Maksymalna masa przyczepy bez hamulca (kg) 695
+Maksymalna masa przyczepy z hamulcem (kg) 1500
+Maksymalna ładowność (kg) 411
+Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1394
+Maksymalna masa całkowita pojazdu (kg) 1805
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: CBF3TU
+5
+
+--- PAGE 6 ---
+Silnik
+Liczba zaworów 12
+Procedura homologacji 1
+Moc maksymalna kW (KM) 84 (114) ben. / 90 (122) LPG
+Protokół homologacji WLTP
+Maksymalny moment obrotowy w Nm 190 / 200 (LPG)
+Rodzaj paliwa benzyna + LPG
+Liczba cylindrów 3
+Norma emisji spalin EURO6
+Pojemność skokowa (cm3) 1199
+Wymiary
+Zwis przedni 857
+Wysokość pojazdu nieobciążonego z relingami (mm) 1656
+Długość całkowita 4343
+Szerokość całkowita 1921
+Wysokość bez obciążenia z otwartą klapą tylną 2092
+Zwis tylny 828
+Wysokość całkowita 2092
+Szerokość całkowita z lusterkami zewnętrznymi 2069
+Szerokość dolnej części bagażnika 980
+Rozstaw osi 2657
+Prześwit pojazdu 171/209 (przy maks. obciążeniu/prześwit
+pojazdu nieobciążonego)
+Typ techniczny
+Typ techniczny DJFPL2NC6XB2AM500C
+Liczba miejsc siedzących 5
+Skrzynia biegów
+Rodzaj skrzyni biegów manualna
+Liczba biegów do przodu 6
+Aerodynamika
+Poziom hałasu przy 50 km/h (dB) 66
+Pojemność bagażnika (dm3 VDA)
+Pojemność przestrzeni bagażowej min. (dm3) 453 dm3 / 513 l
+Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3) 1545 dm3 / 1632 l
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: CBF3TU
+6
+
+--- PAGE 7 ---
+WYKRES WYDAJNOŚCI
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 7.5
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 121
+Emisja CO2 cykl mieszany WLTP (g/km) 136
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 6.0
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: CBF3TU
+7
+================================================================================
+bigster_essential_mildhybrid140_4x2_manual
+
+--- PAGE 5 ---
+DANE TECHNICZNE
+Pojemność zbiornika paliwa (l)
+pojemność zbiornika paliwa (l) 50
+Bateria i ładowanie
+pojemność akumulatora 0,839 kWh
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 5,4
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 122
+Emisja CO2 cykl mieszany WLTP (g/km) 122
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 5.4
+Osiągi
+Prędkość maksymalna (km/h) 180
+1000 m ze startu zatrzymanego (s) 30,7
+400 m ze startu zatrzymanego (s) 17,5
+Przyspieszenie 0-100 km/h (s) 9,8
+Układ napędowy
+Rodzaj napędu 4x2
+Typ nadwozia
+Liczba drzwi 5
+Rodzaj nadwozia SUV Long
+Układ kierowniczy
+Średnica zawracania (m) 10,97
+Koła i opony
+Opony standardowe 215/65/R17 99 / 6.5 J17 EC32
+Dopuszczalna masa całkowita
+Maksymalna masa całkowita zespołu pojazdów (kg) 3390
+Maksymalna masa przyczepy bez hamulca (kg) 710
+Maksymalna masa przyczepy z hamulcem (kg) 1500
+Maksymalna ładowność (kg) 464
+Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1350
+Maksymalna masa całkowita pojazdu (kg) 1890
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: TJWZTD
+5
+
+--- PAGE 6 ---
+Silnik
+Liczba zaworów 12
+Procedura homologacji 1
+Moc maksymalna kW (KM) 103 (140)
+Protokół homologacji WLTP
+Rodzaj paliwa benzyna mild hybrid
+Maksymalny moment obrotowy w Nm 230
+Liczba cylindrów 3
+Pojemność skokowa (cm3) 1199
+Norma emisji spalin Euro 6
+Wymiary
+Wysokość pojazdu nieobciążonego z relingami (mm) 1662
+Zwis przedni 854
+Długość całkowita 4570
+Wysokość bez obciążenia z otwartą klapą tylną 2069
+Szerokość całkowita 1812
+Zwis tylny 1015
+Szerokość całkowita z lusterkami zewnętrznymi 2069
+Wysokość całkowita 1657 / 1706 (z relingami)
+Szerokość dolnej części bagażnika 980
+Rozstaw osi 2702
+Prześwit pojazdu 194 / 220 nieobciążony
+Typ techniczny
+Typ techniczny DJFSG2MH6XB16M500C
+Liczba miejsc siedzących 5
+Skrzynia biegów
+Liczba biegów do przodu 6
+Rodzaj skrzyni biegów manualna 6 biegów
+Aerodynamika
+Poziom hałasu przy 50 km/h (dB) 64
+Pojemność bagażnika (dm3 VDA)
+Pojemność przestrzeni bagażowej min. (dm3) 667 dm3 / 702 l
+Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3) 1937 dm3 / 2002 l
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: TJWZTD
+6
+
+--- PAGE 7 ---
+WYKRES WYDAJNOŚCI
+Zużycie paliwa i emisja spalin WLTP
+Zużycie paliwa cykl mieszany WLTP*LPG (l/100km) 5,4
+Emisja CO2 cykl mieszany WLTP*LPG (g/km) 122
+Emisja CO2 cykl mieszany WLTP (g/km) 122
+Zużycie paliwa cykl mieszany WLTP (l/100 km) 5.4
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: TJWZTD
+7
+================================================================================
+spring_essential_electric70_automatic
+
+--- PAGE 5 ---
+DANE TECHNICZNE
+Bateria i ładowanie
+pojemność akumulatora 24,3 kWh
+ładowanie AC 7 kW
+napięcie nominalne 354 V
+więcej o ładowaniu AC ładowanie z Walboxa 7 kW z 20% do 100%
+w 3 godziny 20 minut
+Zużycie paliwa i emisja spalin WLTP
+EV - zasięg w cyklu mieszanym WLTP E-TECH (km) 221
+Emisja CO2 cykl mieszany WLTP (g/km) 0 g/km
+EV - zużycie energii elektrycznej w cyklu mieszanym WLTP (kWh/100 km) 12.7
+Osiągi
+Prędkość maksymalna (km/h) 130
+1000 m ze startu zatrzymanego (s) 35.3
+400 m ze startu zatrzymanego (s) nd
+Przyspieszenie 0-100 km/h (s) 12.3
+Układ napędowy
+Rodzaj napędu przedni
+Typ nadwozia
+Liczba drzwi 5
+Rodzaj nadwozia hatchaback
+Układ kierowniczy
+Średnica zawracania (m) 9.6
+Koła i opony
+Opony standardowe 165/70 R14 81T
+Dopuszczalna masa całkowita
+Maksymalna masa całkowita zespołu pojazdów (kg) nd
+Maksymalna masa przyczepy bez hamulca (kg) nd
+Maksymalna masa przyczepy z hamulcem (kg) nd
+Maksymalna ładowność (kg) 274
+Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 993
+Maksymalna masa całkowita pojazdu (kg) 1344
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: MXPMV7
+5
+
+--- PAGE 6 ---
+Silnik
+Procedura homologacji 1
+Moc maksymalna kW (KM) 52 (70)
+Protokół homologacji WLTP
+Rodzaj paliwa elektryczny
+Maksymalny moment obrotowy w Nm 137
+Pojemność skokowa (cm3) nie dotyczy
+Norma emisji spalin nie dotyczy
+Wymiary
+Wysokość pojazdu nieobciążonego z relingami (mm) b.d.
+Zwis przedni 683
+Długość całkowita 3701
+Wysokość bez obciążenia z otwartą klapą tylną 1902
+Szerokość całkowita 1583
+Zwis tylny 595
+Szerokość całkowita z lusterkami zewnętrznymi 1767
+Wysokość całkowita 1489
+Szerokość dolnej części bagażnika 788
+Rozstaw osi 2423
+Prześwit pojazdu 115.3/146.1(obciążony/nieobciążony)
+Typ techniczny
+Typ techniczny DBGBV2M40EB06100C0
+Liczba miejsc siedzących 4
+Skrzynia biegów
+Liczba biegów do przodu 1
+Rodzaj skrzyni biegów automatyczna
+Aerodynamika
+Poziom hałasu przy 50 km/h (dB) 62
+Pojemność bagażnika (dm3 VDA)
+Pojemność przestrzeni bagażowej min. (dm3) 288 dm3 / 308 L
+Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3) 975 dm3 / 1004 L
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: MXPMV7
+6
+
+--- PAGE 7 ---
+WYKRES WYDAJNOŚCI
+Zużycie paliwa i emisja spalin WLTP
+EV - zasięg w cyklu mieszanym WLTP E-TECH (km) 221
+Emisja CO2 cykl mieszany WLTP (g/km) 0 g/km
+EV - zużycie energii elektrycznej w cyklu mieszanym WLTP (kWh/100 km) 12.7
+Powróć do swojej konfiguracji
+Konfiguracja modelu 09/08/2026
+Znajdź swoją spersonalizowaną konfigurację:
+Na stronie internetowejKlikając w powyższy link „Wróć do mojej konfiguracji”Skanując kod QR
+W salonie:- Podając swojemu doradcy kod konfiguracji: MXPMV7
+7
