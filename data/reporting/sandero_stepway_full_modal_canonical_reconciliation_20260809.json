@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "package_id": "sandero_stepway_full_modal_canonical_reconciliation_001",
   "source_code": "src_pl_sandero_stepway_full_modal_20260809",
   "summary": {
@@ -8,13 +8,13 @@
     "captured_rows": 1708,
     "equipment_rows": 1029,
     "technical_rows": 679,
-    "source_added": 1,
-    "source_configuration_rows_added": 15,
-    "canonical_equipment_observations_added": 655,
-    "canonical_technical_observations_added": 180,
-    "equipment_rows_safely_mapped": 655,
+    "source_registered": 1,
+    "source_configuration_relationships": 15,
+    "canonical_equipment_observations": 588,
+    "canonical_technical_observations": 180,
+    "equipment_rows_safely_mapped": 588,
     "technical_rows_safely_mapped": 180,
-    "equipment_rows_preserved_unmatched_or_ambiguous": 374,
+    "equipment_rows_preserved_unmatched_or_ambiguous": 441,
     "technical_rows_preserved_unmatched_or_ambiguous": 499
   },
   "resolved_equipment_attributes": {
@@ -29,7 +29,6 @@
     "central_locking": 15,
     "connected_services": 15,
     "driver_front_airbag": 15,
-    "driver_seat_belt_height_adjustment": 15,
     "driver_seat_height_adjustment": 14,
     "electronic_parking_brake": 8,
     "emergency_call_ecall": 15,
@@ -39,13 +38,11 @@
     "front_seat_belt_pretensioners": 15,
     "front_windows_power": 3,
     "gear_shift_indicator": 11,
-    "heated_steering_wheel": 15,
-    "heated_windscreen": 15,
     "high_filtering_glass": 15,
     "instrument_cluster_colour_7": 6,
     "instrument_cluster_tft_3_5": 9,
     "isofix_rear": 15,
-    "keyless_entry": 15,
+    "keyless_entry": 6,
     "lane_keep_assist": 15,
     "led_daytime_running_lights": 15,
     "led_headlights": 15,
@@ -54,17 +51,15 @@
     "onboard_computer": 15,
     "one_touch_turn_signals": 15,
     "one_touch_windows": 12,
-    "parking_assist_system": 7,
     "passenger_front_airbag": 15,
     "rear_parking_sensors": 9,
     "rear_seat_belt_pretensioners": 15,
     "rear_seat_folding": 14,
     "rear_three_point_seat_belts": 15,
     "rear_view_camera": 9,
-    "rear_windows_power": 15,
+    "rear_windows_power": 12,
     "safe_distance_warning": 15,
     "seat_belt_reminder": 15,
-    "side_mirrors_electric_adjustment": 3,
     "steering_wheel_height_adjustment": 3,
     "steering_wheel_reach_adjustment": 12,
     "third_brake_light": 15,
@@ -124,6 +119,10 @@
       "occurrences": 12
     },
     {
+      "literal": "bez automatycznego parkowania",
+      "occurrences": 7
+    },
+    {
       "literal": "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
       "occurrences": 13
     },
@@ -148,6 +147,10 @@
       "occurrences": 1
     },
     {
+      "literal": "kierownica nieogrzewana",
+      "occurrences": 15
+    },
+    {
       "literal": "kierownica pokryta skórą ekologiczną",
       "occurrences": 12
     },
@@ -168,8 +171,16 @@
       "occurrences": 15
     },
     {
+      "literal": "korek wlewu paliwa (bez keyless entry)",
+      "occurrences": 9
+    },
+    {
       "literal": "kryterium techniczne niezbędne do zamówienia klimatyzacji",
       "occurrences": 14
+    },
+    {
+      "literal": "lusterka boczne regulowane ręcznie od wewnątrz za pomocą pokrętła",
+      "occurrences": 3
     },
     {
       "literal": "modułowe relingi dachowe",
@@ -189,6 +200,10 @@
     },
     {
       "literal": "ograniczenie prędkości do 180 km/h",
+      "occurrences": 15
+    },
+    {
+      "literal": "pas bezpieczeństwa kierowcy bez regulacji wysokości",
       "occurrences": 15
     },
     {
@@ -226,6 +241,14 @@
     {
       "literal": "system wspomagania parkowania przód/tył",
       "occurrences": 6
+    },
+    {
+      "literal": "szyba przednia nieogrzewana",
+      "occurrences": 15
+    },
+    {
+      "literal": "szyby tylne otwierane ręcznie",
+      "occurrences": 3
     },
     {
       "literal": "tapicerka materiałowa",
@@ -403,7 +426,8 @@
     }
   ],
   "boundaries": [
-    "Equipment is normalized only when the exact literal has one unique canonical attribute/status mapping in prior verified availability notes.",
+    "Equipment is normalized only when the exact literal has one unique prior canonical mapping and that mapping proves status standard.",
+    "Negative or base-state standard-equipment literals do not prove not_available or optional factory availability.",
     "Technical rows are normalized only through the explicit label allow-list and simple scalar parser.",
     "Composite, model-qualified, mixed-fuel and otherwise ambiguous values remain literal source evidence and are not projected.",
     "Absence from a standard-equipment modal never implies not_available."
