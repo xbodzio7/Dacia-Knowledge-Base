@@ -1,0 +1,45 @@
+name: AI capture final DKB quality failure
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-dkb-quality-diagnostic-20260809.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Run quality and persist compact diagnostic
+        shell: bash
+        run: |
+          set +e
+          python tools/dkb.py quality > /tmp/dkb-quality.log 2>&1
+          code=$?
+          set -e
+          mkdir -p project/diagnostics
+          {
+            echo "exit_code=$code"
+            echo "=== MATCHES ==="
+            grep -n -E 'FAIL|ERROR|Traceback|RuntimeError|AssertionError|expected|Expected|stale|differs|mismatch|missing|FAILED' /tmp/dkb-quality.log | tail -n 250 || true
+            echo "=== TAIL ==="
+            tail -n 400 /tmp/dkb-quality.log
+          } > project/diagnostics/dkb-quality-20260809.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/diagnostics/dkb-quality-20260809.txt
+          git commit -m "chore(diagnostic): capture DKB quality failure" || true
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
+          exit 0
