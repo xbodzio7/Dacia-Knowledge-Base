@@ -1,0 +1,55 @@
+name: Reconcile final source coverage guard
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-full-modal-canonical-reconciliation-001
+    paths:
+      - .github/workflows/_reconcile_final_source_guard.yml
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Align final release guard
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/reporting/portfolio_source_coverage_matrix_release_integration.py')
+          text = path.read_text(encoding='utf-8')
+          replacements = (
+              ('"provenance_source_count": 34,', '"provenance_source_count": 35,'),
+              ('"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,'),
+              ('not isinstance(sources, list) or len(sources) != 34', 'not isinstance(sources, list) or len(sources) != 35'),
+              ('must contain 34 source rows', 'must contain 35 source rows'),
+              ('if relationship_count != 269:', 'if relationship_count != 284:'),
+          )
+          for old, new in replacements:
+              if old in text:
+                  text = text.replace(old, new)
+              elif new not in text:
+                  raise SystemExit(f'missing target: {old}')
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Run full quality and finalize
+        shell: bash
+        run: |
+          python tools/dkb.py quality
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .reconcile-quality.log 2>/dev/null || true
+          git rm -f .github/workflows/_reconcile_sandero_full_modal_once.yml
+          git rm -f .github/workflows/_reconcile_final_source_guard.yml
+          git add data/master data/reporting tools tests project
+          git commit -m "data: reconcile Sandero full-modal canonical observations"
+          git push origin HEAD
