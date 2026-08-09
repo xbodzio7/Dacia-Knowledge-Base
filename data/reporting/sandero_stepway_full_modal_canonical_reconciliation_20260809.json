@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "package_id": "sandero_stepway_full_modal_canonical_reconciliation_001",
+  "source_code": "src_pl_sandero_stepway_full_modal_20260809",
+  "summary": {
+    "observed_on": "2026-08-09",
+    "configuration_surfaces": 15,
+    "captured_rows": 1708,
+    "equipment_rows": 1029,
+    "technical_rows": 679,
+    "source_added": 1,
+    "source_configuration_rows_added": 15,
+    "canonical_equipment_observations_added": 655,
+    "canonical_technical_observations_added": 180,
+    "equipment_rows_safely_mapped": 655,
+    "technical_rows_safely_mapped": 180,
+    "equipment_rows_preserved_unmatched_or_ambiguous": 374,
+    "technical_rows_preserved_unmatched_or_ambiguous": 499
+  },
+  "resolved_equipment_attributes": {
+    "adjustable_boot_floor": 2,
+    "alcohol_interlock_preparation": 15,
+    "anti_lock_braking_system": 15,
+    "automatic_climate_control": 6,
+    "automatic_door_locking": 15,
+    "automatic_emergency_braking": 15,
+    "blind_spot_monitoring": 6,
+    "boot_compartment_lighting": 15,
+    "central_locking": 15,
+    "connected_services": 15,
+    "driver_front_airbag": 15,
+    "driver_seat_belt_height_adjustment": 15,
+    "driver_seat_height_adjustment": 14,
+    "electronic_parking_brake": 8,
+    "emergency_call_ecall": 15,
+    "emergency_stop_signal": 15,
+    "fog_lights": 6,
+    "front_centre_armrest": 12,
+    "front_seat_belt_pretensioners": 15,
+    "front_windows_power": 3,
+    "gear_shift_indicator": 11,
+    "heated_steering_wheel": 15,
+    "heated_windscreen": 15,
+    "high_filtering_glass": 15,
+    "instrument_cluster_colour_7": 6,
+    "instrument_cluster_tft_3_5": 9,
+    "isofix_rear": 15,
+    "keyless_entry": 15,
+    "lane_keep_assist": 15,
+    "led_daytime_running_lights": 15,
+    "led_headlights": 15,
+    "manual_air_conditioning": 8,
+    "manual_day_night_rearview_mirror": 15,
+    "onboard_computer": 15,
+    "one_touch_turn_signals": 15,
+    "one_touch_windows": 12,
+    "parking_assist_system": 7,
+    "passenger_front_airbag": 15,
+    "rear_parking_sensors": 9,
+    "rear_seat_belt_pretensioners": 15,
+    "rear_seat_folding": 14,
+    "rear_three_point_seat_belts": 15,
+    "rear_view_camera": 9,
+    "rear_windows_power": 15,
+    "safe_distance_warning": 15,
+    "seat_belt_reminder": 15,
+    "side_mirrors_electric_adjustment": 3,
+    "steering_wheel_height_adjustment": 3,
+    "steering_wheel_reach_adjustment": 12,
+    "third_brake_light": 15,
+    "traffic_sign_recognition": 15,
+    "tyre_pressure_monitoring_system": 15,
+    "tyre_repair_kit": 15
+  },
+  "resolved_technical_attributes": {
+    "braked_trailer_weight": 15,
+    "cylinder_count": 15,
+    "engine_displacement": 15,
+    "fuel_tank_capacity": 15,
+    "gear_count": 15,
+    "gross_train_weight": 15,
+    "gross_vehicle_weight": 15,
+    "kerb_weight": 15,
+    "number_of_seats": 15,
+    "top_speed": 15,
+    "turning_circle": 15,
+    "unbraked_trailer_weight": 15
+  },
+  "unresolved_equipment_literals": [
+    {
+      "literal": "15\" stalowe obręcze kół - wzór ELMA",
+      "occurrences": 1
+    },
+    {
+      "literal": "16\" felgi aluminiowe",
+      "occurrences": 6
+    },
+    {
+      "literal": "16\" felgi aluminiowe TAMIA",
+      "occurrences": 3
+    },
+    {
+      "literal": "16\" felgi aluminiowe TAMIA BI-TON",
+      "occurrences": 2
+    },
+    {
+      "literal": "16\" felgi aluminiowe TAMIA BLACK",
+      "occurrences": 3
+    },
+    {
+      "literal": "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+      "occurrences": 6
+    },
+    {
+      "literal": "ESP z systemem wspomagania ruszania pod górę",
+      "occurrences": 15
+    },
+    {
+      "literal": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "occurrences": 3
+    },
+    {
+      "literal": "antena w kształcie \"płetwy rekina\"",
+      "occurrences": 12
+    },
+    {
+      "literal": "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+      "occurrences": 13
+    },
+    {
+      "literal": "brak świateł przeciwmgielnych",
+      "occurrences": 9
+    },
+    {
+      "literal": "dwa światła cofania",
+      "occurrences": 15
+    },
+    {
+      "literal": "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+      "occurrences": 12
+    },
+    {
+      "literal": "filtr cząstek stałych",
+      "occurrences": 15
+    },
+    {
+      "literal": "fotel kierowcy z regulacją wzdłużną bez regulacji wysokości",
+      "occurrences": 1
+    },
+    {
+      "literal": "kierownica pokryta skórą ekologiczną",
+      "occurrences": 12
+    },
+    {
+      "literal": "kierownica z pianki",
+      "occurrences": 3
+    },
+    {
+      "literal": "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+      "occurrences": 6
+    },
+    {
+      "literal": "kluczyk z 3 przyciskami",
+      "occurrences": 9
+    },
+    {
+      "literal": "komunikaty w języku polskim",
+      "occurrences": 15
+    },
+    {
+      "literal": "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+      "occurrences": 14
+    },
+    {
+      "literal": "modułowe relingi dachowe",
+      "occurrences": 6
+    },
+    {
+      "literal": "niska konsola środkowa z otwartym schowkiem",
+      "occurrences": 3
+    },
+    {
+      "literal": "normalny dach",
+      "occurrences": 15
+    },
+    {
+      "literal": "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+      "occurrences": 12
+    },
+    {
+      "literal": "ograniczenie prędkości do 180 km/h",
+      "occurrences": 15
+    },
+    {
+      "literal": "poduszki boczne z przodu + poduszki kurtynowe",
+      "occurrences": 15
+    },
+    {
+      "literal": "regulator-ogranicznik prędkości",
+      "occurrences": 15
+    },
+    {
+      "literal": "relingi dachowe",
+      "occurrences": 2
+    },
+    {
+      "literal": "right content",
+      "occurrences": 15
+    },
+    {
+      "literal": "stalowe obręcze kół 15\"",
+      "occurrences": 1
+    },
+    {
+      "literal": "stalowe obręcze kół 16\"",
+      "occurrences": 8
+    },
+    {
+      "literal": "system multimedialny Media Control (radio DAB, 2 głośniki, Bluetooth, 1xUSB, aplikacja DMC)",
+      "occurrences": 3
+    },
+    {
+      "literal": "system ogrzewania z cyrkulacją powietrza",
+      "occurrences": 1
+    },
+    {
+      "literal": "system wspomagania parkowania przód/tył",
+      "occurrences": 6
+    },
+    {
+      "literal": "tapicerka materiałowa",
+      "occurrences": 15
+    },
+    {
+      "literal": "tapicerka materiałowa stepway",
+      "occurrences": 5
+    },
+    {
+      "literal": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "occurrences": 4
+    },
+    {
+      "literal": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "occurrences": 3
+    },
+    {
+      "literal": "tryb ECO",
+      "occurrences": 15
+    },
+    {
+      "literal": "tylne oparcie kanapy nieskładane",
+      "occurrences": 1
+    },
+    {
+      "literal": "wymóg termiczny wnętrza pojazdu",
+      "occurrences": 9
+    },
+    {
+      "literal": "zestaw ochronny ANTIGRAVIL",
+      "occurrences": 15
+    },
+    {
+      "literal": "światła automatyczne, wycieraczki automatyczne",
+      "occurrences": 15
+    }
+  ],
+  "unresolved_technical_labels": [
+    {
+      "label": "1000 m ze startu zatrzymanego (s)",
+      "occurrences": 15
+    },
+    {
+      "label": "Długość całkowita",
+      "occurrences": 15
+    },
+    {
+      "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+      "occurrences": 15
+    },
+    {
+      "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+      "occurrences": 9
+    },
+    {
+      "label": "Liczba drzwi",
+      "occurrences": 15
+    },
+    {
+      "label": "Liczba zaworów",
+      "occurrences": 15
+    },
+    {
+      "label": "Maksymalna ładowność (kg)",
+      "occurrences": 15
+    },
+    {
+      "label": "Maksymalny moment obrotowy w Nm",
+      "occurrences": 15
+    },
+    {
+      "label": "Moc maksymalna kW (KM)",
+      "occurrences": 15
+    },
+    {
+      "label": "Norma emisji spalin",
+      "occurrences": 15
+    },
+    {
+      "label": "Opony standardowe",
+      "occurrences": 15
+    },
+    {
+      "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+      "occurrences": 15
+    },
+    {
+      "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+      "occurrences": 15
+    },
+    {
+      "label": "Poziom hałasu przy 50 km/h (dB)",
+      "occurrences": 15
+    },
+    {
+      "label": "Procedura homologacji",
+      "occurrences": 15
+    },
+    {
+      "label": "Protokół homologacji",
+      "occurrences": 15
+    },
+    {
+      "label": "Prześwit pojazdu",
+      "occurrences": 15
+    },
+    {
+      "label": "Przyspieszenie 0-100 km/h (s)",
+      "occurrences": 15
+    },
+    {
+      "label": "Rodzaj nadwozia",
+      "occurrences": 15
+    },
+    {
+      "label": "Rodzaj napędu",
+      "occurrences": 15
+    },
+    {
+      "label": "Rodzaj paliwa",
+      "occurrences": 15
+    },
+    {
+      "label": "Rodzaj skrzyni biegów",
+      "occurrences": 15
+    },
+    {
+      "label": "Rozstaw osi",
+      "occurrences": 15
+    },
+    {
+      "label": "Szerokość całkowita",
+      "occurrences": 15
+    },
+    {
+      "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+      "occurrences": 15
+    },
+    {
+      "label": "Szerokość dolnej części bagażnika",
+      "occurrences": 15
+    },
+    {
+      "label": "Typ techniczny",
+      "occurrences": 15
+    },
+    {
+      "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+      "occurrences": 15
+    },
+    {
+      "label": "Wysokość całkowita",
+      "occurrences": 15
+    },
+    {
+      "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+      "occurrences": 15
+    },
+    {
+      "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+      "occurrences": 15
+    },
+    {
+      "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+      "occurrences": 10
+    },
+    {
+      "label": "Zwis przedni",
+      "occurrences": 15
+    },
+    {
+      "label": "Zwis tylny",
+      "occurrences": 15
+    }
+  ],
+  "boundaries": [
+    "Equipment is normalized only when the exact literal has one unique canonical attribute/status mapping in prior verified availability notes.",
+    "Technical rows are normalized only through the explicit label allow-list and simple scalar parser.",
+    "Composite, model-qualified, mixed-fuel and otherwise ambiguous values remain literal source evidence and are not projected.",
+    "Absence from a standard-equipment modal never implies not_available."
+  ]
+}
