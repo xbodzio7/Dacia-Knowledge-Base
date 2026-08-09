@@ -29,6 +29,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           import sys
 
           root = Path('.')
@@ -43,15 +44,23 @@ jobs:
                   raise SystemExit(f'{path}: replacement target not found')
               p.write_text(text.replace(old, new), encoding='utf-8')
 
+          def regex_replace(path, pattern, repl, expected=1, flags=0):
+              p = root / path
+              text = p.read_text(encoding='utf-8')
+              updated, count = re.subn(pattern, repl, text, flags=flags)
+              if count != expected:
+                  raise SystemExit(f'{path}: expected {expected} regex replacements, found {count}')
+              p.write_text(updated, encoding='utf-8')
+
           # Historical Duster tests must evaluate their original 2026-06-26 reporting boundary.
           for path in (
               'tests/test_duster_catalog_bootstrap.py',
               'tests/test_duster_technical_specifications.py',
           ):
-              replace(
+              regex_replace(
                   path,
-                  'ROOT / "data" / "reporting" / "configuration_completeness.json"\n        )',
-                  'ROOT / "data" / "reporting" / "configuration_completeness.json",\n            as_of_value="2026-06-26",\n        )',
+                  r'(report = configuration_completeness\.collect_report\(\n(?:.|\n)*?ROOT\s*/\s*"data"\s*/\s*"reporting"\s*/\s*"configuration_completeness\.json",?)(\n\s*\))',
+                  r'\1,\n            as_of_value="2026-06-26",\2',
                   expected=1,
               )
 
@@ -128,7 +137,6 @@ jobs:
           for old, new in replacements.items():
               replace(path, old, new)
 
-          # Current workbook has one additional provenance/source row.
           replace(
               'tests/test_configuration_comparison_workbook.py',
               '"A1:K13"',
