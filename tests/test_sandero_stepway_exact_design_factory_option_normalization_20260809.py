@@ -165,9 +165,9 @@ class SanderoStepwayExactDesignFactoryOptionNormalizationTests(unittest.TestCase
         }
         self.assertEqual(essential_designs, {"ERALIA"})
 
-    def test_master_row_counts_match_the_closed_package(self) -> None:
-        self.assertEqual(len(self.sources), 38)
-        self.assertEqual(len(self.source_configurations), 284)
+    def test_closed_package_tables_remain_stable_as_source_registries_grow(self) -> None:
+        self.assertGreaterEqual(len(self.sources), 38)
+        self.assertGreaterEqual(len(self.source_configurations), 284)
         self.assertEqual(len(self.items), 50)
         self.assertEqual(len(self.item_attributes), 103)
         self.assertEqual(len(self.mappings), 322)

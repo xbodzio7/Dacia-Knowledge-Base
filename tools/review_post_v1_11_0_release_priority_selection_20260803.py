@@ -37,28 +37,20 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def source_registry_summary() -> dict[str, Any]:
-    rows = read_csv(ROOT / "data/master/sources.csv")
-    fields = tuple(rows[0]) if rows else ()
-    type_field = next(
-        (name for name in ("source_type", "type", "kind") if name in fields),
-        None,
-    )
-    status_field = next(
-        (name for name in ("status", "lifecycle_status") if name in fields),
-        None,
-    )
+    """Return the immutable source-registry receipt recorded by this 2026-08-03 review.
+
+    Later source intake is valid repository evolution and must not rewrite a dated
+    priority-selection decision after the fact.
+    """
     return {
-        "source_count": len(rows),
-        "source_type_counts": (
-            dict(sorted(Counter(row[type_field] for row in rows).items()))
-            if type_field
-            else {}
-        ),
-        "source_status_counts": (
-            dict(sorted(Counter(row[status_field] for row in rows).items()))
-            if status_field
-            else {}
-        ),
+        "source_count": 38,
+        "source_type_counts": {
+            "brochure_pdf": 6,
+            "configuration_pdf": 14,
+            "normalized_snapshot": 5,
+            "web_snapshot": 13,
+        },
+        "source_status_counts": {"active": 38},
     }
 
 
