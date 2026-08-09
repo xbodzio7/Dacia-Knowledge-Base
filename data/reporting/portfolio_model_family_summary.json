@@ -9,8 +9,8 @@
     "mixed_model_scope_count": 2,
     "active_configuration_count": 84,
     "within_scope_pair_count": 133,
-    "provenance_source_count": 34,
-    "source_configuration_relationship_count": 269,
+    "provenance_source_count": 35,
+    "source_configuration_relationship_count": 284,
     "configurations_with_provenance_count": 84,
     "configurations_without_provenance_count": 0,
     "cross_scope_pairs_generated": false,
@@ -78,8 +78,8 @@
         "sandero_tce100_stepway_tce110_manual"
       ],
       "provenance": {
-        "source_count": 9,
-        "relationship_count": 36,
+        "source_count": 10,
+        "relationship_count": 43,
         "configuration_coverage_count": 7,
         "missing_configuration_count": 0,
         "earliest_document_date": "2026-02-02",
@@ -88,7 +88,7 @@
           "brochure_pdf": 1,
           "configuration_pdf": 3,
           "normalized_snapshot": 2,
-          "web_snapshot": 3
+          "web_snapshot": 4
         },
         "sources": [
           {
@@ -288,6 +288,31 @@
             "relationships": [
               "documents"
             ]
+          },
+          {
+            "source_code": "src_pl_sandero_stepway_full_technical_standard_equipment_20260809",
+            "source_type": "web_snapshot",
+            "title": "Dacia Polska full Sandero and Sandero Stepway technical and standard-equipment configurator snapshot",
+            "publisher": "Dacia",
+            "market": "PL",
+            "document_date": "2026-08-09",
+            "external_reference": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+            "file_path": "project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json",
+            "sha256": "f03ad3d2f7fa17fb45f53082f72f7e01cbca050268fc7e90356345d3de5452aa",
+            "status": "active",
+            "configuration_count": 7,
+            "configuration_codes": [
+              "sandero_iii_essential_tce100_manual",
+              "sandero_iii_expression_ecog120_automatic",
+              "sandero_iii_expression_ecog120_manual",
+              "sandero_iii_expression_tce100_manual",
+              "sandero_iii_journey_ecog120_automatic",
+              "sandero_iii_journey_ecog120_manual",
+              "sandero_iii_journey_tce100_manual"
+            ],
+            "relationships": [
+              "documents"
+            ]
           }
         ]
       }
@@ -346,8 +371,8 @@
         "sandero_tce100_stepway_tce110_manual"
       ],
       "provenance": {
-        "source_count": 12,
-        "relationship_count": 44,
+        "source_count": 13,
+        "relationship_count": 52,
         "configuration_coverage_count": 8,
         "missing_configuration_count": 0,
         "earliest_document_date": "2026-02-02",
@@ -356,7 +381,7 @@
           "brochure_pdf": 1,
           "configuration_pdf": 6,
           "normalized_snapshot": 2,
-          "web_snapshot": 3
+          "web_snapshot": 4
         },
         "sources": [
           {
@@ -603,6 +628,32 @@
             "external_reference": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
             "file_path": "project/sources/dacia-pl-sandero-stepway-exact-configurator-states-20260809.json",
             "sha256": "9f8779f5478fef02537e39793ac67a6ce07876d137b80f3cc77cf38293dd0991",
+            "status": "active",
+            "configuration_count": 8,
+            "configuration_codes": [
+              "sandero_stepway_iii_essential_ecog120_manual",
+              "sandero_stepway_iii_essential_tce110_manual",
+              "sandero_stepway_iii_expression_ecog120_automatic",
+              "sandero_stepway_iii_expression_ecog120_manual",
+              "sandero_stepway_iii_expression_tce110_manual",
+              "sandero_stepway_iii_extreme_ecog120_automatic",
+              "sandero_stepway_iii_extreme_ecog120_manual",
+              "sandero_stepway_iii_extreme_tce110_manual"
+            ],
+            "relationships": [
+              "documents"
+            ]
+          },
+          {
+            "source_code": "src_pl_sandero_stepway_full_technical_standard_equipment_20260809",
+            "source_type": "web_snapshot",
+            "title": "Dacia Polska full Sandero and Sandero Stepway technical and standard-equipment configurator snapshot",
+            "publisher": "Dacia",
+            "market": "PL",
+            "document_date": "2026-08-09",
+            "external_reference": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this;https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g;https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+            "file_path": "project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json",
+            "sha256": "f03ad3d2f7fa17fb45f53082f72f7e01cbca050268fc7e90356345d3de5452aa",
             "status": "active",
             "configuration_count": 8,
             "configuration_codes": [

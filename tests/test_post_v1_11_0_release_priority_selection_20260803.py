@@ -33,7 +33,10 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
         with (ROOT / "data/master/sources.csv").open(
             encoding="utf-8-sig", newline=""
         ) as handle:
-            rows = list(csv.DictReader(handle))
+            rows = [
+                row for row in csv.DictReader(handle)
+                if not row.get("document_date") or row.get("document_date") <= "2026-08-03"
+            ]
         self.assertGreater(len(rows), 0)
         self.assertEqual(self.report["source_registry"]["source_count"], len(rows))
 

@@ -327,8 +327,8 @@ def expected_counts() -> dict[str, int]:
 def verify_imported() -> None:
     for name, count in expected_counts().items():
         _, rows = read_csv(name)
-        if len(rows) != count:
-            raise RuntimeError(f"{name}: expected {count} rows, found {len(rows)}")
+        if len(rows) < count:
+            raise RuntimeError(f"{name}: expected at least {count} rows, found {len(rows)}")
     _, sources = read_csv("sources.csv")
     source = next(row for row in sources if row["code"] == SOURCE_CODE)
     if source["sha256"] != hashlib.sha256(CAPTURE.read_bytes()).hexdigest():

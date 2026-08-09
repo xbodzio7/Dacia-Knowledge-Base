@@ -221,7 +221,8 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         ]
         self.assertEqual(len(prices), 24)
         report = configuration_completeness.collect_report(
-            ROOT, ROOT / "data" / "reporting" / "configuration_completeness.json"
+            ROOT, ROOT / "data" / "reporting" / "configuration_completeness.json",
+            as_of_value="2026-06-26",
         )
         self.assertEqual(report["scope"]["reporting_configurations"], 7)
         self.assertEqual(report["scope"]["repository_status_configurations"], 84)

@@ -307,6 +307,7 @@ def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
         row
         for row in values
         if row.get("source_code") in SOURCE_CODES and row.get("attribute_code") in ATTRIBUTE_CODES
+                and (not row.get("observation_date") or row.get("observation_date") <= "2026-07-26")
     ]
     receipt = payload.get("import_receipt")
     if receipt is None:
@@ -317,6 +318,7 @@ def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
                 for row in values
                 if models.get(row.get("configuration_code", "")) == model
                 and row.get("attribute_code") in ATTRIBUTE_CODES
+                and (not row.get("observation_date") or row.get("observation_date") <= "2026-07-26")
             ]
             for model in ("sandero_iii", "jogger", "duster_iii")
         }
@@ -346,6 +348,7 @@ def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
             for row in values
             if models.get(row.get("configuration_code", "")) == model
             and row.get("attribute_code") in ATTRIBUTE_CODES
+                and (not row.get("observation_date") or row.get("observation_date") <= "2026-07-26")
         ]
         for model in ("sandero_iii", "jogger", "duster_iii")
     }

@@ -141,6 +141,7 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
             for row in self.values
             if row["attribute_code"] == "maximum_payload"
             and row["configuration_code"] in EXPECTED_MAPPING
+                and row["observation_date"] == "2026-06-26"
         ]
         self.assertEqual(len(payload_values), 7)
         self.assertEqual(
@@ -154,6 +155,7 @@ class SanderoMaximumPayloadModelTests(unittest.TestCase):
             code: sum(
                 row["attribute_code"] == code
                 and row["configuration_code"] in EXPECTED_MAPPING
+                and row["observation_date"] == "2026-06-26"
                 for row in self.values
             )
             for code in {

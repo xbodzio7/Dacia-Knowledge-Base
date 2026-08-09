@@ -37,7 +37,10 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def source_registry_summary() -> dict[str, Any]:
-    rows = read_csv(ROOT / "data/master/sources.csv")
+    rows = [
+        row for row in read_csv(ROOT / "data/master/sources.csv")
+        if not row.get("document_date") or row.get("document_date") <= "2026-08-03"
+    ]
     fields = tuple(rows[0]) if rows else ()
     type_field = next(
         (name for name in ("source_type", "type", "kind") if name in fields),

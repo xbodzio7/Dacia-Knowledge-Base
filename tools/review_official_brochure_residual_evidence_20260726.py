@@ -191,7 +191,11 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     selected: dict[str, list[dict[str, str]]] = {model: [] for model in MODEL_CODES}
     for row in values:
         model = models.get(row.get("configuration_code", ""), "")
-        if model in selected and row.get("attribute_code") in CORE_DIMENSIONS:
+        if (
+            model in selected
+            and row.get("attribute_code") in CORE_DIMENSIONS
+            and (not row.get("observation_date") or row.get("observation_date") <= "2026-07-26")
+        ):
             selected[model].append(row)
 
     receipt = payload.get("follow_up_import_receipt")

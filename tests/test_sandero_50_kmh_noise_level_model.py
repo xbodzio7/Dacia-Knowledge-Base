@@ -104,6 +104,7 @@ class Sandero50KmhNoiseLevelModelTests(unittest.TestCase):
             row
             for row in self.values
             if row["attribute_code"] == "noise_level_at_50_kmh"
+            and row["observation_date"] == "2026-06-26"
         ]
         self.assertEqual(len(noise_values), 7)
         self.assertEqual(
