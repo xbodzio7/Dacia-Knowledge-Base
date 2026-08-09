@@ -1,0 +1,105 @@
+name: AI apply current configurator PDF import
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-apply-current-configurator-pdf-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install PDF extraction backends
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          python -m pip install --disable-pip-version-check pypdf
+
+      - name: Apply complete current configurator PDF assimilation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/import_current_configurator_pdfs_20260809.py --apply
+          python tools/import_current_configurator_pdfs_completion_20260809.py --apply
+
+      - name: Verify importer idempotency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/import_current_configurator_pdfs_20260809.py > /tmp/import-pass1-second-run.txt
+          cp data/reporting/dacia_configurator_pdf_canonical_import_20260809.json /tmp/import-pass1-second-run.json
+          python tools/import_current_configurator_pdfs_completion_20260809.py > /tmp/import-pass2-second-run.txt
+          cp data/reporting/dacia_configurator_pdf_completion_import_20260809.json /tmp/import-pass2-second-run.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          checks = [
+              (Path('/tmp/import-pass1-second-run.json'), ('values_added','ranges_added','availability_added','prices_added')),
+              (Path('/tmp/import-pass2-second-run.json'), ('attributes_added','values_added','ranges_added','availability_added','cargo_contexts_added')),
+          ]
+          bad=[]
+          for path, keys in checks:
+              data=json.loads(path.read_text(encoding='utf-8'))
+              summary=data['summary']
+              for key in keys:
+                  if int(summary.get(key,0)) != 0:
+                      bad.append(f'{path.name}: {key}={summary.get(key)}')
+          if bad:
+              raise SystemExit('Importer is not idempotent: ' + '; '.join(bad))
+          print('Importer idempotency: OK')
+          PY
+
+      - name: Restore apply-mode audit reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/import_current_configurator_pdfs_20260809.py --apply
+          python tools/import_current_configurator_pdfs_completion_20260809.py --apply
+
+      - name: Run full quality gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/dkb.py quality \
+            --concise \
+            --database "${RUNNER_TEMP}/dacia_knowledge_base.sqlite" \
+            --log-file "${RUNNER_TEMP}/quality.log" \
+            --summary-json "${RUNNER_TEMP}/quality-summary.json"
+          cp "${RUNNER_TEMP}/quality.log" data/reporting/dkb-quality-current-configurator-20260809.txt
+          cp "${RUNNER_TEMP}/quality-summary.json" data/reporting/dkb-quality-current-configurator-20260809.json
+
+      - name: Commit quality-gated data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/master \
+                  data/reporting/dacia_configurator_pdf_canonical_import_20260809.json \
+                  data/reporting/dacia_configurator_pdf_completion_import_20260809.json \
+                  data/reporting/dkb-quality-current-configurator-20260809.txt \
+                  data/reporting/dkb-quality-current-configurator-20260809.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+            exit 0
+          fi
+          git commit -m "data(configurator): assimilate current Dacia PDF portfolio"
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
