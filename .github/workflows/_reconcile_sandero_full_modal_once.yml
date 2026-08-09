@@ -63,6 +63,12 @@ jobs:
           replace('tools/reporting/portfolio_model_family_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
+          replace('tools/reporting/portfolio_model_version_comparison_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
+          replace('tools/reporting/portfolio_model_version_comparison_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if active_relationship_count != 269:', 'if active_relationship_count != 284:')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', '"expected 269 active source-to-configuration relationships, "', '"expected 284 active source-to-configuration relationships, "')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if len(relations_by_source) != 34:', 'if len(relations_by_source) != 35:')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'f"expected 34 used provenance sources, found {len(relations_by_source)}"', 'f"expected 35 used provenance sources, found {len(relations_by_source)}"')
           replace('tests/test_portfolio_model_family_release_integration.py', 'summary["source_configuration_relationship_count"],\n                269,', 'summary["source_configuration_relationship_count"],\n                284,')
           replace('tests/test_portfolio_model_family_release_integration.py', 'self.assertEqual(version_summary["provenance_source_count"], 34)', 'self.assertEqual(version_summary["provenance_source_count"], 35)')
 
