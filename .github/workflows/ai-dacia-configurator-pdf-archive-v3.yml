@@ -1,0 +1,241 @@
+name: AI archive all current Dacia configurator PDFs v3
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-dacia-configurator-pdf-archive-v3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install browser and PDF tooling
+        run: python -m pip install --quiet selenium pypdf requests
+      - name: Download and validate all current native configurator PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, hashlib, html, json, re, shutil, time, unicodedata
+          from pathlib import Path
+          import requests
+          from pypdf import PdfReader
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+          from selenium.webdriver.support.ui import WebDriverWait
+
+          OBS_DATE='2026-08-09'; EXPECTED_COUNT=70
+          pages=[
+            ('sandero',None,'https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html'),
+            ('sandero_stepway',None,'https://www.dacia.pl/samochody/sandero-stepway/konfigurator.html'),
+            ('jogger_5',5,'https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html'),
+            ('jogger_7',7,'https://www.dacia.pl/samochody/jogger-7/konfigurator.html'),
+            ('duster',None,'https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html'),
+            ('bigster',None,'https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html'),
+            ('spring',None,'https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html'),
+          ]
+          root=Path.cwd(); archive_root=root/'PDF'/'Konfiguratory'/OBS_DATE
+          if archive_root.exists(): shutil.rmtree(archive_root)
+          archive_root.mkdir(parents=True)
+          browser_download=Path('/tmp/dacia-browser-download').resolve()
+          if browser_download.exists(): shutil.rmtree(browser_download)
+          browser_download.mkdir(parents=True)
+
+          def norm(s):
+            s=unicodedata.normalize('NFKC',s or '').replace('\u00a0',' ')
+            return re.sub(r'\s+',' ',s).strip().casefold()
+
+          with (root/'data/master/configurations.csv').open(encoding='utf-8',newline='') as f:
+            configs=[r for r in csv.DictReader(f) if r['status']=='active']
+
+          def canonical_match(family,seat_count,grade,engine):
+            g=norm(grade)
+            if family=='sandero_stepway': g=g.removeprefix('stepway '); version=f'sandero_stepway_iii_{g.replace(" ","_")}'
+            elif family=='sandero': version=f'sandero_iii_{g.replace(" ","_")}'
+            elif family.startswith('jogger_'): version=f'jogger_{g.replace(" ","_")}'
+            elif family=='duster': version=f'duster_iii_{g.replace(" ","_")}'
+            elif family=='bigster': version=f'bigster_{g.replace(" ","_")}'
+            elif family=='spring': version=f'spring_{g.replace(" ","_")}'
+            else: raise AssertionError(family)
+            e=re.sub(r'\s+auto$','',engine,flags=re.I).strip(); el=norm(e)
+            powertrain=e+' 4x2' if family in {'duster','bigster'} and el in {'eco-g 120','mild hybrid 140','mild hybrid-g 140','hybrid 155'} else e
+            automatic=norm(engine).endswith(' auto') or el.startswith('hybrid 155') or el.startswith('hybrid-g 150') or family=='spring'
+            transmission='automatic' if automatic else 'manual'
+            matches=[r for r in configs if norm(r['version_code'])==norm(version) and norm(r['powertrain_label'])==norm(powertrain) and r['transmission_type']==transmission]
+            if family.startswith('jogger_'):
+              matches=[r for r in matches if f'_{seat_count}seat_' in r['code']]
+            if len(matches)!=1:
+              raise RuntimeError(f'Canonical mapping not unique: {family=} {seat_count=} {grade=} {engine=} -> {[(r["code"],r["powertrain_label"],r["transmission_type"]) for r in matches]}')
+            return matches[0]
+
+          opts=Options(); opts.add_argument('--headless=new'); opts.add_argument('--no-sandbox'); opts.add_argument('--disable-dev-shm-usage'); opts.add_argument('--window-size=1600,1200'); opts.add_argument('--lang=pl-PL')
+          opts.set_capability('goog:loggingPrefs',{'performance':'ALL'})
+          opts.add_experimental_option('prefs',{'download.default_directory':str(browser_download),'download.prompt_for_download':False,'download.directory_upgrade':True,'plugins.always_open_pdf_externally':True})
+          driver=webdriver.Chrome(options=opts); driver.execute_cdp_cmd('Network.enable',{}); driver.execute_cdp_cmd('Page.setDownloadBehavior',{'behavior':'allow','downloadPath':str(browser_download)})
+
+          def accept_cookies():
+            for txt in ['Akceptuj wszystkie','Akceptuj','Zaakceptuj wszystkie','Zgadzam się']:
+              try:
+                for el in driver.find_elements(By.XPATH,f"//*[self::button or self::a][contains(normalize-space(.), '{txt}')]"):
+                  driver.execute_script('arguments[0].click()',el); time.sleep(1); return
+              except Exception: pass
+
+          def wait_selectors(name,timeout=60):
+            WebDriverWait(driver,timeout).until(lambda d: len(d.find_elements(By.CSS_SELECTOR,f'input[type="radio"][name="{name}"]'))>0)
+
+          def load_page(family,url):
+            last=None
+            for attempt in range(1,4):
+              try:
+                print(f'OPEN {family} attempt {attempt}',flush=True); driver.get(url); time.sleep(3); accept_cookies(); wait_selectors('config-grades',60); print('  ready',flush=True); return
+              except Exception as exc:
+                last=exc; print('  retry because',repr(exc),flush=True); time.sleep(3*attempt)
+            raise RuntimeError(f'Cannot load {family}: {last!r}')
+
+          def radios(name):
+            return driver.execute_script(r'''
+              const n=arguments[0]; return [...document.querySelectorAll(`input[type="radio"][name="${CSS.escape(n)}"]`)]
+                .map(el=>({id:el.id,value:el.value,disabled:el.disabled})).filter(x=>x.id&&!x.disabled);
+            ''',name)
+
+          def click_radio(rid):
+            WebDriverWait(driver,45).until(lambda d: len(d.find_elements(By.ID,rid))>0); driver.execute_script('arguments[0].click()',driver.find_element(By.ID,rid)); WebDriverWait(driver,45).until(lambda d:d.find_element(By.ID,rid).is_selected()); time.sleep(2.5)
+
+          def session_from_browser():
+            s=requests.Session()
+            for c in driver.get_cookies():
+              try: s.cookies.set(c['name'],c['value'],domain=c.get('domain'),path=c.get('path','/'))
+              except Exception: s.cookies.set(c['name'],c['value'])
+            return s
+
+          def signed_url_from_body(body):
+            body=html.unescape(body or '')
+            try:
+              obj=json.loads(body)
+              stack=[obj]
+              while stack:
+                x=stack.pop()
+                if isinstance(x,str) and x.startswith('http') and ('.pdf' in x.lower() or 'docs-download' in x): return x
+                if isinstance(x,dict): stack.extend(x.values())
+                elif isinstance(x,list): stack.extend(x)
+            except Exception: pass
+            m=re.search(r'https?[^"\\\s]+\.pdf\?[^"\\\s]+',body)
+            return m.group(0).replace('\\u0026','&').replace('\\/','/') if m else None
+
+          def get_native_pdf():
+            for p in browser_download.iterdir():
+              if p.is_file(): p.unlink()
+            try: driver.get_log('performance')
+            except Exception: pass
+            clicked=driver.execute_script(r'''
+              const els=[...document.querySelectorAll('button,[role="button"]')].filter(el=>((el.innerText||el.getAttribute('aria-label')||'').toLowerCase().includes('pobierz pdf')));
+              if(!els.length) return false; const t=els.find(el=>el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden')||els[0]; t.scrollIntoView({block:'center'}); t.click(); return true;
+            ''')
+            if not clicked: raise RuntimeError('Pobierz PDF control missing')
+            deadline=time.time()+75; signed=None; seen=[]; session=session_from_browser(); ua=driver.execute_script('return navigator.userAgent')
+            while time.time()<deadline:
+              # Classic browser download fallback.
+              pdfs=list(browser_download.glob('*.pdf')); partial=list(browser_download.glob('*.crdownload'))
+              if pdfs and not partial:
+                p=max(pdfs,key=lambda x:x.stat().st_mtime); raw=p.read_bytes()
+                if raw.startswith(b'%PDF-') and len(raw)>10000: return raw,p.name,'browser'
+              try: logs=driver.get_log('performance')
+              except Exception: logs=[]
+              for entry in logs:
+                try: msg=json.loads(entry['message'])['message']
+                except Exception: continue
+                if msg.get('method')!='Network.responseReceived': continue
+                params=msg.get('params',{}); resp=params.get('response',{}); u=resp.get('url',''); mime=resp.get('mimeType',''); request_id=params.get('requestId')
+                if '/wired/commerce/v2/models/docs/pdf' in u:
+                  seen.append(('generator',u,mime))
+                  try:
+                    body=driver.execute_cdp_cmd('Network.getResponseBody',{'requestId':request_id}).get('body',''); candidate=signed_url_from_body(body)
+                    if candidate: signed=candidate
+                  except Exception as exc: seen.append(('body-error',repr(exc),''))
+                if mime=='application/pdf' or ('docs-download' in u and '.pdf' in u.lower()): signed=u; seen.append(('pdf',u,mime))
+              if signed:
+                r=session.get(signed,headers={'User-Agent':ua,'Referer':driver.current_url},timeout=60)
+                if r.ok and r.content.startswith(b'%PDF-') and len(r.content)>10000:
+                  filename='native-configurator.pdf'; cd=r.headers.get('content-disposition',''); m=re.search(r'filename\*?=(?:UTF-8\'\')?["\']?([^"\';]+)',cd,re.I)
+                  if m: filename=m.group(1)
+                  return r.content,filename,'signed_url'
+              time.sleep(1)
+            raise RuntimeError(f'Native PDF unavailable after click; network={seen[-8:]}')
+
+          manifest={'source_kind':'dacia_pl_current_configurator_native_pdf_archive','observed_date':OBS_DATE,'origin':'https://www.dacia.pl/konfiguruj.html','native_exports_only':True,'expected_configuration_count':EXPECTED_COUNT,'documents':[]}
+          try:
+            for family,seat,url in pages:
+              load_page(family,url); grades=radios('config-grades')
+              for grade in grades:
+                click_radio(grade['id']); wait_selectors('config-engines',45); engines=radios('config-engines')
+                for engine in engines:
+                  click_radio(engine['id']); canonical=canonical_match(family,seat,grade['value'],engine['value']); print(' PDF',canonical['code'],'|',grade['value'],'|',engine['value'],flush=True)
+                  raw,original_name,method=get_native_pdf(); tmp=Path('/tmp/current-native.pdf'); tmp.write_bytes(raw); reader=PdfReader(str(tmp)); text='\n'.join((p.extract_text() or '') for p in reader.pages[:3])
+                  if not reader.pages: raise RuntimeError('zero-page PDF')
+                  if norm(grade['value'].replace('stepway ','')) not in norm(text): raise RuntimeError(f'grade mismatch for {canonical["code"]}')
+                  m=re.search(r'kod konfiguracji:\s*([A-Z0-9]{6})',text,re.I)
+                  if not m: raise RuntimeError(f'configuration code missing in {canonical["code"]}')
+                  destdir=archive_root/family; destdir.mkdir(parents=True,exist_ok=True); dest=destdir/f'{canonical["code"]}.pdf'; dest.write_bytes(raw)
+                  manifest['documents'].append({'family':family,'seat_count':seat,'grade':grade['value'],'engine':engine['value'],'configuration_code':canonical['code'],'dacia_configuration_code':m.group(1).upper(),'source_url':driver.current_url,'original_filename':original_name,'capture_method':method,'file_path':dest.relative_to(root).as_posix(),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'pages':len(reader.pages)})
+          finally: driver.quit()
+
+          docs=manifest['documents']; counts={}
+          for d in docs: counts[d['family']]=counts.get(d['family'],0)+1
+          print('CAPTURED',len(docs),counts,flush=True)
+          if len(docs)!=70: raise RuntimeError(f'expected 70, got {len(docs)} {counts}')
+          if len({d['configuration_code'] for d in docs})!=70: raise RuntimeError('duplicate canonical codes')
+          if len({d['sha256'] for d in docs})!=70: raise RuntimeError('duplicate PDF binaries')
+          if len({d['dacia_configuration_code'] for d in docs})!=70: raise RuntimeError('duplicate Dacia configuration codes')
+          manifest.update(configuration_count=70,family_counts=counts,total_bytes=sum(d['bytes'] for d in docs),total_pages=sum(d['pages'] for d in docs))
+          Path('project/sources/dacia-pl-configurator-native-pdf-archive-20260809.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          sp=Path('data/master/sources.csv'); rp=Path('data/master/source_configurations.csv')
+          with sp.open(encoding='utf-8',newline='') as f: sources=list(csv.DictReader(f)); sf=list(sources[0])
+          with rp.open(encoding='utf-8',newline='') as f: rels=list(csv.DictReader(f)); rf=list(rels[0])
+          prefix='src_pl_cfgpdf_'; old={r['code'] for r in sources if r['code'].startswith(prefix) and r['code'].endswith('_20260809')}; sources=[r for r in sources if r['code'] not in old]; rels=[r for r in rels if r['source_code'] not in old]
+          sid=max(int(r['id']) for r in sources)+1; rid=max(int(r['id']) for r in rels)+1
+          for d in sorted(docs,key=lambda x:x['configuration_code']):
+            sc=f"{prefix}{d['configuration_code']}_20260809"
+            sources.append({'id':str(sid),'code':sc,'source_type':'configuration_pdf','title':f"Dacia configurator {d['configuration_code']} — {d['grade']} {d['engine']}",'publisher':'Dacia','market':'PL','document_date':OBS_DATE,'external_reference':d['dacia_configuration_code'],'file_path':d['file_path'],'sha256':d['sha256'],'status':'active','notes':'Native PDF generated by the official current Dacia Poland configurator; binary archived unchanged, file renamed only to the canonical configuration code.'})
+            rels.append({'id':str(rid),'source_code':sc,'configuration_code':d['configuration_code'],'relationship':'documents','notes':'Exact official configurator PDF generated for this configuration on 2026-08-09.'}); sid+=1; rid+=1
+          with sp.open('w',encoding='utf-8',newline='') as f: w=csv.DictWriter(f,fieldnames=sf,lineterminator='\n'); w.writeheader(); w.writerows(sources)
+          with rp.open('w',encoding='utf-8',newline='') as f: w=csv.DictWriter(f,fieldnames=rf,lineterminator='\n'); w.writeheader(); w.writerows(rels)
+          print(json.dumps({'captured':70,'families':counts,'bytes':manifest['total_bytes'],'pages':manifest['total_pages'],'sources':len(sources),'relations':len(rels)},ensure_ascii=False,indent=2),flush=True)
+          PY
+      - name: Verify archive before commit
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          from pathlib import Path
+          from pypdf import PdfReader
+          m=json.loads(Path('project/sources/dacia-pl-configurator-native-pdf-archive-20260809.json').read_text(encoding='utf-8')); assert m['configuration_count']==70 and len(m['documents'])==70
+          for d in m['documents']:
+            p=Path(d['file_path']); raw=p.read_bytes(); assert raw.startswith(b'%PDF-'); assert hashlib.sha256(raw).hexdigest()==d['sha256']; assert len(PdfReader(str(p)).pages)==d['pages']
+          with open('data/master/sources.csv',encoding='utf-8',newline='') as f:s=list(csv.DictReader(f))
+          with open('data/master/source_configurations.csv',encoding='utf-8',newline='') as f:r=list(csv.DictReader(f))
+          codes={x['code'] for x in s if x['code'].startswith('src_pl_cfgpdf_') and x['code'].endswith('_20260809')}; assert len(codes)==70; assert sum(1 for x in r if x['source_code'] in codes)==70
+          print('PASS: 70 native Dacia PDFs / 70 source rows / 70 exact relations')
+          PY
+      - name: Commit native archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PDF/Konfiguratory/2026-08-09 project/sources/dacia-pl-configurator-native-pdf-archive-20260809.json data/master/sources.csv data/master/source_configurations.csv
+          git commit -m "data(source): archive all current Dacia configurator PDFs"
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
