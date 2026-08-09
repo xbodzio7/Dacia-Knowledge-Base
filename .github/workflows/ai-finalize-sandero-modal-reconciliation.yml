@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Repair remaining provenance and dated-review contracts
+      - name: Apply final repository-evolution contracts
         shell: bash
         run: |
           set -euo pipefail
@@ -36,59 +36,36 @@ jobs:
                   raise SystemExit(f'{path}: expected {expected} occurrence(s) of {old!r}, found {count}')
               p.write_text(text.replace(old, new), encoding='utf-8')
 
-          # Source-coverage product now includes one additional exact source and 15 exact relationships.
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              'if active_relationship_count != 269:',
-              'if active_relationship_count != 284:',
-          )
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              '"expected 269 active source-to-configuration relationships, "',
-              '"expected 284 active source-to-configuration relationships, "',
-          )
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              'if len(relations_by_source) != 34:',
-              'if len(relations_by_source) != 35:',
-          )
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              'f"expected 34 used provenance sources, found {len(relations_by_source)}"',
-              'f"expected 35 used provenance sources, found {len(relations_by_source)}"',
-          )
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              'if sum(record["relationship_count"] for record in records) != 269:',
-              'if sum(record["relationship_count"] for record in records) != 284:',
-          )
-          replace(
-              'tools/reporting/portfolio_source_coverage_matrix.py',
-              '"source rows do not preserve all 269 relationships exactly once"',
-              '"source rows do not preserve all 284 relationships exactly once"',
-          )
+          # Current source-coverage contracts.
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if active_relationship_count != 269:', 'if active_relationship_count != 284:')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', '"expected 269 active source-to-configuration relationships, "', '"expected 284 active source-to-configuration relationships, "')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if len(relations_by_source) != 34:', 'if len(relations_by_source) != 35:')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'f"expected 34 used provenance sources, found {len(relations_by_source)}"', 'f"expected 35 used provenance sources, found {len(relations_by_source)}"')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', 'if sum(record["relationship_count"] for record in records) != 269:', 'if sum(record["relationship_count"] for record in records) != 284:')
+          replace('tools/reporting/portfolio_source_coverage_matrix.py', '"source rows do not preserve all 269 relationships exactly once"', '"source rows do not preserve all 284 relationships exactly once"')
 
           replace('tests/source_matrix_checks.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
           replace('tests/source_matrix_checks.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
           replace('tests/source_matrix_checks.py', 'testcase.assertEqual(len(records), 34)', 'testcase.assertEqual(len(records), 35)')
           replace('tests/source_matrix_checks.py', 'testcase.assertEqual(relationship_total, 269)', 'testcase.assertEqual(relationship_total, 284)')
           replace('tests/source_matrix_checks.py', 'testcase.assertEqual(len(csv_rows), 34)', 'testcase.assertEqual(len(csv_rows), 35)')
-          replace(
-              'tests/source_matrix_checks.py',
-              'sum(int(row["relationship_count"]) for row in csv_rows),\n        269,',
-              'sum(int(row["relationship_count"]) for row in csv_rows),\n        284,',
-          )
+          replace('tests/source_matrix_checks.py', 'sum(int(row["relationship_count"]) for row in csv_rows),\n        269,', 'sum(int(row["relationship_count"]) for row in csv_rows),\n        284,')
           replace('tests/source_matrix_checks.py', 'html_text.count("<tr>"), 35', 'html_text.count("<tr>"), 36')
           replace('tests/source_matrix_checks.py', 'html_text.count("SHA-256 "), 34', 'html_text.count("SHA-256 "), 35')
+
+          # Release-integration validators validate current committed products, while
+          # historical v1.15.0 release-note prose below remains intentionally immutable.
+          replace('tools/reporting/portfolio_source_coverage_matrix_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
+          replace('tools/reporting/portfolio_source_coverage_matrix_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
+          replace('tools/reporting/portfolio_source_coverage_matrix_release_integration.py', 'if not isinstance(sources, list) or len(sources) != 34:', 'if not isinstance(sources, list) or len(sources) != 35:')
+          replace('tools/reporting/portfolio_source_coverage_matrix_release_integration.py', '"portfolio source coverage matrix must contain 34 source rows"', '"portfolio source coverage matrix must contain 35 source rows"')
+          replace('tools/reporting/portfolio_source_coverage_matrix_release_integration.py', 'if relationship_count != 269:', 'if relationship_count != 284:')
 
           replace('tools/reporting/portfolio_model_version_comparison_release_integration.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
           replace('tools/reporting/portfolio_model_version_comparison_release_integration.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
           replace('tools/reporting/portfolio_model_version_comparison_release_integration.py', 'if relationship_count != 269:', 'if relationship_count != 284:')
 
-          # json_differences represents list growth as a synthetic (..., "length") path.
-          # Restore the exact historical list from the committed dated artifact rather
-          # than truncating the current sorted list, because later evidence can sort
-          # before older evidence.
+          # Preserve the dated PDF review exactly while allowing later evidence growth.
           path = Path('tests/test_verified_pdf_candidate_coverage_reconciliation.py')
           text = path.read_text(encoding='utf-8')
           old = '''            final_key = path[-1]\n            if isinstance(target, list):\n                target[int(final_key)] = committed_value\n            else:\n                target[final_key] = committed_value\n'''
@@ -97,7 +74,7 @@ jobs:
               raise SystemExit('dated PDF normalization block not found exactly once')
           path.write_text(text.replace(old, new), encoding='utf-8')
           PY
-      - name: Refresh provenance-dependent reporting artifacts
+      - name: Refresh provenance-dependent artifacts
         run: |
           python tools/portfolio_source_coverage_matrix.py \
             --json data/reporting/portfolio_source_coverage_matrix.json \
@@ -114,8 +91,7 @@ jobs:
           python -m unittest -q \
             tests.test_verified_pdf_candidate_coverage_reconciliation \
             tests.test_portfolio_model_family_release_integration \
-            tests.test_portfolio_model_family_summary \
-            tests.test_portfolio_source_coverage_matrix
+            tests.test_portfolio_model_family_summary
       - name: Commit final artifacts and contracts
         shell: bash
         run: |
