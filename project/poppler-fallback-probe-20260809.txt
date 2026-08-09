@@ -1,0 +1,5 @@
+pdftotext_chars=0
+pdftohtml_xml_chars=0
+--- pdftohtml text nodes ---
+nodes= 0 chars= 0
+
