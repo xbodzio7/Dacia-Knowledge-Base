@@ -59,7 +59,6 @@ def norm(text: str) -> str:
 def note_literal(note: str) -> str | None:
     if not note:
         return None
-    # Historical equipment imports consistently preserve the source literal after ': '.
     if ": " not in note:
         return None
     return note.split(": ", 1)[1].strip()
@@ -100,22 +99,29 @@ def build():
     values = tables["configuration_attribute_values.csv"][1]
     availability = tables["configuration_attribute_availability.csv"][1]
 
-    # Reuse only mappings already proven by historical source literals. A literal is eligible
-    # only when every historical occurrence resolves to the same canonical attribute/status pair.
+    # The modal is explicitly a STANDARD-equipment surface. An exact literal can therefore
+    # prove that something is standard, but a negative/base-state literal cannot prove that
+    # the feature is unavailable as a factory option or package. Reuse only unique historical
+    # literal mappings whose canonical status is standard.
     literal_candidates: dict[str, set[tuple[str, str]]] = defaultdict(set)
     for row in availability:
+        if row.get("source_code") == SOURCE_CODE:
+            continue
         literal = note_literal(row.get("notes", ""))
         if literal:
-            literal_candidates[norm(literal)].add((row["attribute_code"], row["availability_status"]))
-    literal_map = {
-        literal: next(iter(pairs))
-        for literal, pairs in literal_candidates.items()
-        if len(pairs) == 1
-    }
+            literal_candidates[norm(literal)].add(
+                (row["attribute_code"], row["availability_status"])
+            )
+    literal_map: dict[str, tuple[str, str]] = {}
+    for literal, pairs in literal_candidates.items():
+        if len(pairs) != 1:
+            continue
+        attribute_code, status = next(iter(pairs))
+        if status == "standard":
+            literal_map[literal] = (attribute_code, status)
 
-    source_added = False
     if not any(row["code"] == SOURCE_CODE for row in sources):
-        source_added = append_unique(
+        append_unique(
             sources,
             {
                 "id": str(next_id(sources)),
@@ -129,13 +135,10 @@ def build():
                 "file_path": str(CAPTURE.relative_to(ROOT)).replace("\\", "/"),
                 "sha256": hashlib.sha256(CAPTURE.read_bytes()).hexdigest(),
                 "status": "active",
-                "notes": "Exact configuration-bounded full-modal snapshot; only deterministic literal equipment mappings and simple scalar technical observations are normalized.",
+                "notes": "Exact configuration-bounded full-modal snapshot; only proven standard equipment and simple scalar technical observations are normalized.",
             },
         )
 
-    source_config_added = 0
-    technical_added = 0
-    equipment_added = 0
     technical_rows = 0
     equipment_rows = 0
     technical_unresolved: dict[str, int] = defaultdict(int)
@@ -146,15 +149,19 @@ def build():
     for config in capture["configurations"]:
         configuration_code = config["configuration_code"]
         relationship_key = (SOURCE_CODE, configuration_code)
-        if not any((row["source_code"], row["configuration_code"]) == relationship_key for row in source_configs):
-            source_configs.append({
-                "id": str(next_id(source_configs)),
-                "source_code": SOURCE_CODE,
-                "configuration_code": configuration_code,
-                "relationship": "documents",
-                "notes": "Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.",
-            })
-            source_config_added += 1
+        if not any(
+            (row["source_code"], row["configuration_code"]) == relationship_key
+            for row in source_configs
+        ):
+            source_configs.append(
+                {
+                    "id": str(next_id(source_configs)),
+                    "source_code": SOURCE_CODE,
+                    "configuration_code": configuration_code,
+                    "relationship": "documents",
+                    "notes": "Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.",
+                }
+            )
 
         for group in config["equipment"]:
             for item in group["items"]:
@@ -165,17 +172,19 @@ def build():
                     continue
                 attribute_code, status = mapped
                 code = f"{configuration_code}_{attribute_code}_20260809_full_modal"
-                if append_unique(availability, {
-                    "id": str(next_id(availability)),
-                    "code": code,
-                    "configuration_code": configuration_code,
-                    "attribute_code": attribute_code,
-                    "availability_status": status,
-                    "observation_date": DATE,
-                    "source_code": SOURCE_CODE,
-                    "notes": f"Exact full-modal literal: {item}",
-                }):
-                    equipment_added += 1
+                append_unique(
+                    availability,
+                    {
+                        "id": str(next_id(availability)),
+                        "code": code,
+                        "configuration_code": configuration_code,
+                        "attribute_code": attribute_code,
+                        "availability_status": status,
+                        "observation_date": DATE,
+                        "source_code": SOURCE_CODE,
+                        "notes": f"Exact full-modal standard-equipment literal: {item}",
+                    },
+                )
                 equipment_resolved[attribute_code] += 1
 
         for group in config["technical"]:
@@ -195,20 +204,31 @@ def build():
                     technical_unresolved[label] += 1
                     continue
                 code = f"{configuration_code}_{attribute_code}_20260809_full_modal"
-                if append_unique(values, {
-                    "id": str(next_id(values)),
-                    "code": code,
-                    "configuration_code": configuration_code,
-                    "attribute_code": attribute_code,
-                    "fuel_type_code": "",
-                    "gear_number": "",
-                    "value": value,
-                    "observation_date": DATE,
-                    "source_code": SOURCE_CODE,
-                    "notes": f"Exact full-modal label/value: {label}: {item['value']}",
-                }):
-                    technical_added += 1
+                append_unique(
+                    values,
+                    {
+                        "id": str(next_id(values)),
+                        "code": code,
+                        "configuration_code": configuration_code,
+                        "attribute_code": attribute_code,
+                        "fuel_type_code": "",
+                        "gear_number": "",
+                        "value": value,
+                        "observation_date": DATE,
+                        "source_code": SOURCE_CODE,
+                        "notes": f"Exact full-modal label/value: {label}: {item['value']}",
+                    },
+                )
                 technical_resolved[attribute_code] += 1
+
+    source_registered = any(row["code"] == SOURCE_CODE for row in sources)
+    source_relationship_count = sum(
+        row["source_code"] == SOURCE_CODE for row in source_configs
+    )
+    source_equipment_count = sum(
+        row["source_code"] == SOURCE_CODE for row in availability
+    )
+    source_technical_count = sum(row["source_code"] == SOURCE_CODE for row in values)
 
     summary = {
         "observed_on": DATE,
@@ -216,17 +236,21 @@ def build():
         "captured_rows": equipment_rows + technical_rows,
         "equipment_rows": equipment_rows,
         "technical_rows": technical_rows,
-        "source_added": int(source_added),
-        "source_configuration_rows_added": source_config_added,
-        "canonical_equipment_observations_added": equipment_added,
-        "canonical_technical_observations_added": technical_added,
+        "source_registered": int(source_registered),
+        "source_configuration_relationships": source_relationship_count,
+        "canonical_equipment_observations": source_equipment_count,
+        "canonical_technical_observations": source_technical_count,
         "equipment_rows_safely_mapped": sum(equipment_resolved.values()),
         "technical_rows_safely_mapped": sum(technical_resolved.values()),
-        "equipment_rows_preserved_unmatched_or_ambiguous": sum(equipment_unresolved.values()),
-        "technical_rows_preserved_unmatched_or_ambiguous": sum(technical_unresolved.values()),
+        "equipment_rows_preserved_unmatched_or_ambiguous": sum(
+            equipment_unresolved.values()
+        ),
+        "technical_rows_preserved_unmatched_or_ambiguous": sum(
+            technical_unresolved.values()
+        ),
     }
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "package_id": "sandero_stepway_full_modal_canonical_reconciliation_001",
         "source_code": SOURCE_CODE,
         "summary": summary,
@@ -241,7 +265,8 @@ def build():
             for key, count in sorted(technical_unresolved.items())
         ],
         "boundaries": [
-            "Equipment is normalized only when the exact literal has one unique canonical attribute/status mapping in prior verified availability notes.",
+            "Equipment is normalized only when the exact literal has one unique prior canonical mapping and that mapping proves status standard.",
+            "Negative or base-state standard-equipment literals do not prove not_available or optional factory availability.",
             "Technical rows are normalized only through the explicit label allow-list and simple scalar parser.",
             "Composite, model-qualified, mixed-fuel and otherwise ambiguous values remain literal source evidence and are not projected.",
             "Absence from a standard-equipment modal never implies not_available.",
@@ -252,20 +277,31 @@ def build():
 
 def render_md(report: dict) -> str:
     s = report["summary"]
-    return f"""# Sandero Stepway Full Modal Canonical Reconciliation\n\nDate: {DATE}\n\n## Result\n\n- reconciled all {s['captured_rows']} captured rows across {s['configuration_surfaces']} exact configurator states;\n- safely mapped {s['equipment_rows_safely_mapped']} equipment rows through unique previously verified literal mappings;\n- safely mapped {s['technical_rows_safely_mapped']} technical rows through an explicit scalar allow-list;\n- preserved {s['equipment_rows_preserved_unmatched_or_ambiguous']} equipment rows and {s['technical_rows_preserved_unmatched_or_ambiguous']} technical rows as unmatched/ambiguous evidence;\n- added {s['canonical_equipment_observations_added']} dated equipment observations and {s['canonical_technical_observations_added']} dated technical observations;\n- registered the full-modal snapshot and its {s['source_configuration_rows_added']} exact source-to-configuration relationships.\n\n## Safety boundaries\n\nNo inheritance is inferred between grades or powertrains. No missing equipment line becomes `not_available`. Composite/model-qualified dimensions and mixed petrol/LPG strings remain literal evidence.\n"""
+    return f"""# Sandero Stepway Full Modal Canonical Reconciliation\n\nDate: {DATE}\n\n## Result\n\n- reconciled all {s['captured_rows']} captured rows across {s['configuration_surfaces']} exact configurator states;\n- safely mapped {s['equipment_rows_safely_mapped']} equipment rows as proven standard equipment;\n- safely mapped {s['technical_rows_safely_mapped']} technical rows through an explicit scalar allow-list;\n- preserved {s['equipment_rows_preserved_unmatched_or_ambiguous']} equipment rows and {s['technical_rows_preserved_unmatched_or_ambiguous']} technical rows as unmatched/ambiguous evidence;\n- materialized {s['canonical_equipment_observations']} dated standard-equipment observations and {s['canonical_technical_observations']} dated technical observations;\n- registered the full-modal snapshot and its {s['source_configuration_relationships']} exact source-to-configuration relationships.\n\n## Safety boundaries\n\nThe standard-equipment modal proves only `standard` status. Negative/base-state literals are not promoted to `not_available` or `optional`. No inheritance is inferred between grades or powertrains. Composite/model-qualified dimensions and mixed petrol/LPG strings remain literal evidence.\n"""
 
 
 def apply(tables, report) -> None:
-    for name in ("sources.csv", "source_configurations.csv", "configuration_attribute_values.csv", "configuration_attribute_availability.csv"):
+    for name in (
+        "sources.csv",
+        "source_configurations.csv",
+        "configuration_attribute_values.csv",
+        "configuration_attribute_availability.csv",
+    ):
         fields, _old = tables[name]
         rows = {
             "sources.csv": tables["sources.csv"][1],
             "source_configurations.csv": tables["source_configurations.csv"][1],
-            "configuration_attribute_values.csv": tables["configuration_attribute_values.csv"][1],
-            "configuration_attribute_availability.csv": tables["configuration_attribute_availability.csv"][1],
+            "configuration_attribute_values.csv": tables[
+                "configuration_attribute_values.csv"
+            ][1],
+            "configuration_attribute_availability.csv": tables[
+                "configuration_attribute_availability.csv"
+            ][1],
         }[name]
         write_csv(name, fields, rows)
-    REPORT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    REPORT_JSON.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     REPORT_MD.write_text(render_md(report), encoding="utf-8")
 
 
