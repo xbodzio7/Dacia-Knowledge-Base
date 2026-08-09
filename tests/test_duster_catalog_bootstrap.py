@@ -145,7 +145,7 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
     def test_reporting_subset_remains_sandero_only(self) -> None:
         report = configuration_completeness.collect_report(
             ROOT,
-            ROOT / "data" / "reporting" / "configuration_completeness.json",,
+            ROOT / "data" / "reporting" / "configuration_completeness.json",
             as_of_value="2026-06-26",
         )
         scope = report["scope"]
