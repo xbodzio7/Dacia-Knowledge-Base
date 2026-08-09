@@ -1,0 +1,115 @@
+name: AI Dacia configurator PDF probe
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-dacia-configurator-pdf-probe.yml
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install tooling
+        run: |
+          python -m pip install --quiet selenium pypdf
+      - name: Download one native configurator PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, time
+          from pathlib import Path
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+          from pypdf import PdfReader
+
+          out = Path('/tmp/dacia-pdf-probe').resolve()
+          out.mkdir(parents=True, exist_ok=True)
+          opts = Options()
+          opts.add_argument('--headless=new')
+          opts.add_argument('--no-sandbox')
+          opts.add_argument('--disable-dev-shm-usage')
+          opts.add_argument('--window-size=1600,1200')
+          opts.add_argument('--lang=pl-PL')
+          opts.add_experimental_option('prefs', {
+              'download.default_directory': str(out),
+              'download.prompt_for_download': False,
+              'download.directory_upgrade': True,
+              'plugins.always_open_pdf_externally': True,
+          })
+          driver = webdriver.Chrome(options=opts)
+          try:
+              driver.execute_cdp_cmd('Page.setDownloadBehavior', {'behavior':'allow','downloadPath':str(out)})
+              url='https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html'
+              driver.get(url)
+              time.sleep(10)
+              for txt in ['Akceptuj wszystkie','Akceptuj','Zaakceptuj wszystkie','Zgadzam się']:
+                  try:
+                      for el in driver.find_elements(By.XPATH, f"//*[self::button or self::a][contains(normalize-space(.), '{txt}')]"):
+                          if el.is_displayed():
+                              driver.execute_script('arguments[0].click()', el); time.sleep(1); raise StopIteration
+                  except StopIteration:
+                      break
+                  except Exception:
+                      pass
+              buttons = driver.find_elements(By.XPATH, "//button[contains(normalize-space(.), 'Pobierz PDF')]")
+              visible = [b for b in buttons if b.is_displayed()]
+              if not visible:
+                  raise SystemExit('No visible Pobierz PDF button')
+              print('PDF buttons:', len(visible), flush=True)
+              driver.execute_script('arguments[0].scrollIntoView({block:"center"})', visible[0])
+              time.sleep(1)
+              driver.execute_script('arguments[0].click()', visible[0])
+              deadline=time.time()+90
+              pdf=None
+              while time.time()<deadline:
+                  candidates=[p for p in out.iterdir() if p.suffix.lower()=='.pdf' and not p.name.endswith('.crdownload')]
+                  partial=list(out.glob('*.crdownload'))
+                  if candidates and not partial:
+                      pdf=max(candidates,key=lambda p:p.stat().st_mtime)
+                      if pdf.stat().st_size>10000:
+                          break
+                  time.sleep(1)
+              if pdf is None:
+                  raise SystemExit('PDF download did not complete')
+              raw=pdf.read_bytes()
+              if not raw.startswith(b'%PDF-'):
+                  raise SystemExit('Downloaded file is not PDF')
+              reader=PdfReader(str(pdf))
+              meta={
+                  'filename': pdf.name,
+                  'bytes': len(raw),
+                  'sha256': hashlib.sha256(raw).hexdigest(),
+                  'pages': len(reader.pages),
+                  'source_url': driver.current_url,
+                  'title': driver.title,
+              }
+              print(json.dumps(meta,ensure_ascii=False,indent=2),flush=True)
+              dest=Path('project/sources/dacia-pl-configurator-native-pdf-probe-20260809.json')
+              dest.write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          finally:
+              driver.quit()
+          PY
+      - name: Commit probe metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/sources/dacia-pl-configurator-native-pdf-probe-20260809.json
+          git commit -m "chore(source): verify native configurator PDF download"
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
