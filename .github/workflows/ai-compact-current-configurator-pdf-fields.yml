@@ -1,0 +1,109 @@
+name: AI compact current configurator PDF fields
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-compact-current-configurator-pdf-fields.yml
+
+permissions:
+  contents: write
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Compact fields
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,re,unicodedata
+          from collections import defaultdict,Counter
+          from pathlib import Path
+          root=Path.cwd()
+          report=json.loads((root/'data/reporting/dacia_configurator_pdf_gap_analysis_20260809.json').read_text(encoding='utf-8'))
+          ledger=json.loads((root/'project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json').read_text(encoding='utf-8'))
+
+          def norm(s):
+              s=unicodedata.normalize('NFKC',s or '').replace('\u00a0',' ')
+              return re.sub(r'\s+',' ',s.strip())
+
+          # Explicit suffix boundaries cover the actual Dacia PDF technical layout.
+          prefix_rules=[
+            r'^(.*?\))\s+(.+)$',
+            r'^(Moc maksymalna kW \(KM\))\s+(.+)$',
+            r'^(Maksymalny moment obrotowy w Nm)\s+(.+)$',
+            r'^(Rodzaj napędu)\s+(.+)$', r'^(Rodzaj nadwozia)\s+(.+)$',
+            r'^(Rodzaj paliwa)\s+(.+)$', r'^(Norma emisji spalin)\s+(.+)$',
+            r'^(Typ techniczny)\s+(.+)$', r'^(Rodzaj skrzyni biegów)\s+(.+)$',
+            r'^(Procedura homologacji)\s+(.+)$', r'^(Protokół homologacji)\s+(.+)$',
+            r'^(Długość całkowita)\s+(.+)$', r'^(Szerokość całkowita)\s+(.+)$',
+            r'^(Wysokość całkowita)\s+(.+)$', r'^(Rozstaw osi)\s+(.+)$',
+            r'^(Zwis przedni)\s+(.+)$', r'^(Zwis tylny)\s+(.+)$',
+            r'^(Szerokość dolnej części bagażnika)\s+(.+)$',
+            r'^(Szerokość całkowita z lusterkami zewnętrznymi)\s+(.+)$',
+            r'^(Wysokość bez obciążenia z otwartą klapą tylną)\s+(.+)$',
+            r'^(Prześwit pojazdu)\s+(.+)$',
+            r'^(Opony standardowe)\s+(.+)$',
+            r'^(Liczba zaworów)\s+(.+)$', r'^(Liczba cylindrów)\s+(.+)$',
+            r'^(Liczba miejsc siedzących)\s+(.+)$', r'^(Liczba biegów do przodu)\s+(.+)$',
+          ]
+          skip={'WYKRES WYDAJNOŚCI','naprawczym','pojazdu nieobciążonego)','dół)','right content'}
+          groups=defaultdict(lambda:{'examples':[],'occurrences':0,'families':set(),'configs':set(),'pages':set()})
+          unparsed=Counter()
+          for d in report['documents']:
+              for item in d['technical_lines']:
+                  line=norm(item['line'])
+                  if line in skip: continue
+                  label=value=None
+                  for rule in prefix_rules:
+                      m=re.match(rule,line,re.I)
+                      if m:
+                          label=norm(m.group(1)); value=norm(m.group(2)); break
+                  if label is None:
+                      # Generic numeric-tail rule for labels without parenthesized units.
+                      m=re.match(r'^(.*?\D)\s+(-?\d[\d.,/\- ]*(?:\s*[A-Za-z%]+)?)$',line)
+                      if m and len(m.group(1).strip())>=4:
+                          label=norm(m.group(1)); value=norm(m.group(2))
+                  if label is None:
+                      unparsed[line]+=1; continue
+                  g=groups[label]; g['occurrences']+=1; g['families'].add(d['family']); g['configs'].add(d['configuration_code']); g['pages'].add(item['page'])
+                  if len(g['examples'])<6 and value not in [x['value'] for x in g['examples']]:
+                      g['examples'].append({'value':value,'configuration_code':d['configuration_code'],'page':item['page']})
+
+          # family/page section inventory to see every non-technical information surface too.
+          sections=defaultdict(Counter)
+          for d in ledger['documents']:
+              for p in d['pages_ledger']:
+                  for s in p.get('sections',[]): sections[d['family']][s]+=1
+
+          out={
+            'kind':'dacia_current_configurator_pdf_compact_field_inventory',
+            'observed_date':'2026-08-09',
+            'summary':{'technical_labels':len(groups),'unparsed_lines':len(unparsed),'unmatched_standard_lines':len(report['unmatched_standard_lines'])},
+            'technical_fields':[{'label':label,'occurrences':g['occurrences'],'families':sorted(g['families']),'configuration_count':len(g['configs']),'pages':sorted(g['pages']),'examples':g['examples']} for label,g in sorted(groups.items())],
+            'unparsed_technical_lines':[{'line':x,'occurrences':n} for x,n in unparsed.most_common()],
+            'unmatched_standard_lines':report['unmatched_standard_lines'],
+            'section_inventory':{fam:dict(sorted(c.items())) for fam,c in sorted(sections.items())},
+          }
+          path=root/'data/reporting/dacia_configurator_pdf_compact_field_inventory_20260809.json'
+          path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out['summary'],ensure_ascii=False,indent=2))
+          PY
+      - name: Commit compact inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reporting/dacia_configurator_pdf_compact_field_inventory_20260809.json
+          git commit -m "data(reporting): inventory configurator PDF fields"
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
