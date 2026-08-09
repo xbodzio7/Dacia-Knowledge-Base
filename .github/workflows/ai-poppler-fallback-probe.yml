@@ -1,0 +1,51 @@
+name: AI poppler fallback probe
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-poppler-fallback-probe.yml
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+      - name: Probe alternate Poppler extraction
+        shell: bash
+        run: |
+          set -euo pipefail
+          p='PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf'
+          command -v pdftotext || true
+          command -v pdftohtml || true
+          pdftotext -f 3 -l 3 -layout "$p" /tmp/page3.txt || true
+          pdftohtml -f 3 -l 3 -xml -hidden -nodrm "$p" /tmp/page3.xml >/tmp/pdftohtml.log 2>&1 || true
+          {
+            echo "pdftotext_chars=$(wc -c </tmp/page3.txt 2>/dev/null || echo 0)"
+            echo "pdftohtml_xml_chars=$(wc -c </tmp/page3.xml 2>/dev/null || echo 0)"
+            echo '--- pdftohtml text nodes ---'
+            python - <<'PY'
+          from pathlib import Path
+          import html,re
+          p=Path('/tmp/page3.xml')
+          text=p.read_text(encoding='utf-8',errors='replace') if p.exists() else ''
+          nodes=[html.unescape(re.sub(r'<[^>]+>','',x)).strip() for x in re.findall(r'<text\b[^>]*>(.*?)</text>',text,re.S|re.I)]
+          joined='\n'.join(x for x in nodes if x)
+          print('nodes=',len(nodes),'chars=',len(joined))
+          print(joined[:1800])
+          PY
+          } > project/poppler-fallback-probe-20260809.txt
+      - name: Commit receipt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/poppler-fallback-probe-20260809.txt
+          git commit -m "chore(quality): capture alternate Poppler extraction probe"
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809 || true
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809 || true
