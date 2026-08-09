@@ -61,7 +61,10 @@ jobs:
 
           replace('tests/version_matrix_checks.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
           replace('tests/version_matrix_checks.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
+          replace('tests/version_matrix_checks.py', 'testcase.assertEqual(relation_total, 269)', 'testcase.assertEqual(relation_total, 284)')
           replace('tools/reporting/portfolio_model_family_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
+          replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
+          replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
 
           path = 'tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py'
           for old, new in (
