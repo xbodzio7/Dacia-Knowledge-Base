@@ -6,6 +6,7 @@ on:
       - ai/dacia-configurator-pdf-archive-20260809
     paths:
       - .github/workflows/ai-apply-current-configurator-pdf-import.yml
+      - tools/reconcile_current_configurator_values_20260810.py
 
 permissions:
   contents: write
@@ -38,6 +39,7 @@ jobs:
           set -euo pipefail
           python tools/import_current_configurator_pdfs_20260809.py --apply
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
+          python tools/reconcile_current_configurator_values_20260810.py --apply
 
       - name: Verify importer idempotency
         shell: bash
@@ -47,6 +49,7 @@ jobs:
           cp data/reporting/dacia_configurator_pdf_canonical_import_20260809.json /tmp/import-pass1-second-run.json
           python tools/import_current_configurator_pdfs_completion_20260809.py > /tmp/import-pass2-second-run.txt
           cp data/reporting/dacia_configurator_pdf_completion_import_20260809.json /tmp/import-pass2-second-run.json
+          python tools/reconcile_current_configurator_values_20260810.py > /tmp/reconcile-second-run.txt
           python - <<'PY'
           import json
           from pathlib import Path
@@ -61,6 +64,9 @@ jobs:
               for key in keys:
                   if int(summary.get(key,0)) != 0:
                       bad.append(f'{path.name}: {key}={summary.get(key)}')
+          reconcile_text=Path('/tmp/reconcile-second-run.txt').read_text(encoding='utf-8')
+          if 'canonical current-value reconciliations: 0' not in reconcile_text:
+              bad.append('reconciler would still modify canonical current values')
           if bad:
               raise SystemExit('Importer is not idempotent: ' + '; '.join(bad))
           print('Importer idempotency: OK')
@@ -72,6 +78,7 @@ jobs:
           set -euo pipefail
           python tools/import_current_configurator_pdfs_20260809.py --apply
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
+          python tools/reconcile_current_configurator_values_20260810.py --apply
 
       - name: Run full quality gate
         shell: bash
