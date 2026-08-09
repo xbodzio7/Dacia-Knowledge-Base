@@ -12,39 +12,39 @@
 
 ## Phase
 
-**Sandero Stepway Full Technical and Standard Equipment Capture**
+**Sandero Stepway Full Modal Canonical Reconciliation**
 
 ## Reference delivery
 
-- Package: Sandero Stepway Exact Design and Factory Option Normalization
-- Pull Request: #627
-- Verified head: `19cf4271e4c6a94924e86ac068812cbfffa49d1e`
-- Quality run: #31283920649
+- Package: Sandero Stepway Full Technical and Standard Equipment Capture
+- Pull Request: #628
+- Verified head: `d2f466ab319cd07559033d1bf69624f4e9c752d4`
+- Quality run: #31284310939
 
 ## Verified baseline
 
-- Tests: 1908
+- Tests: 1912
 - Master CSV files: 47
-- Master rows: 12007
-- Configuration values: 3664
+- Master rows: 12858
+- Configuration values: 3844
 - Configuration import specifications: 139
 - Configuration value ranges: 316
 - Configuration range import specifications: 24
-- Availability records: 5911
+- Availability records: 6566
 - Canonical attributes: 387
 - Attribute categories: 30
 
 ## Current package
 
-**Sandero Stepway Full Technical and Standard Equipment Capture** — `complete`
+**Sandero Stepway Full Modal Canonical Reconciliation** — `complete`
 
-Capture the complete standard-equipment and technical-specification accordions for all 15 exact current Sandero and Stepway configurator states while preserving literal configuration boundaries and authorizing no ambiguous canonical import.
+Reconcile all 1,708 captured technical and standard-equipment rows against canonical observations, normalize only exact safe missing or newer matches, and preserve ambiguous or unmatched literal evidence without guessing.
 
 ## Next package
 
-**Sandero Stepway Full Modal Canonical Reconciliation** — `planned`
+**Sandero Stepway Full Modal Residual Review** — `planned`
 
-Reconcile all 1,708 captured technical and standard-equipment rows against canonical observations, normalize only exact safe missing or newer matches, and preserve ambiguous or unmatched literal evidence without guessing.
+Review the bounded set of 873 unmatched or ambiguous full-modal rows and normalize only residual observations that gain exact source-backed canonical mappings, while preserving composite and model-qualified evidence without projection.
 
 ## Autonomy
 
