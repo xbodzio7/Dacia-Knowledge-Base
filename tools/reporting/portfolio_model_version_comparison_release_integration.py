@@ -171,7 +171,7 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError(
             "portfolio model-version matrix must cover 84 configurations once"
         )
-    if relationship_count != 269:
+    if relationship_count != 284:
         raise ReleaseError(
             "portfolio model-version matrix relationship total differs"
         )

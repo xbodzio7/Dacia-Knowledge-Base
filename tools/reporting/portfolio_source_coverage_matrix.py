@@ -260,9 +260,9 @@ def collect_matrix(repository: Path) -> dict[str, Any]:
             }
         )
 
-    if sum(record["relationship_count"] for record in records) != 269:
+    if sum(record["relationship_count"] for record in records) != 284:
         raise PortfolioSourceCoverageMatrixError(
-            "source rows do not preserve all 269 relationships exactly once"
+            "source rows do not preserve all 284 relationships exactly once"
         )
     if {
         code
