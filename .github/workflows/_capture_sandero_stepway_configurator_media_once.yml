@@ -1,0 +1,81 @@
+name: Capture Sandero Stepway configurator media once
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-configurator-media-001
+    paths:
+      - .github/workflows/_capture_sandero_stepway_configurator_media_once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect exact-state media
+        shell: bash
+        run: |
+          python - <<'PY'
+          import html
+          import json
+          import re
+          import urllib.request
+          from pathlib import Path
+
+          source = json.loads(Path('project/sources/dacia-pl-sandero-stepway-exact-configurator-states-20260809.json').read_text(encoding='utf-8'))
+          url_re = re.compile(r'https://3dv2?\.renault\.com/[^"\'<>\\ ]+')
+          results = []
+          for cfg in source['configurations']:
+              req = urllib.request.Request(cfg['exact_state_url'], headers={
+                  'User-Agent': 'Mozilla/5.0 Dacia-Knowledge-Base/1.0',
+                  'Accept-Language': 'pl-PL,pl;q=0.9,en;q=0.5',
+              })
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  text = response.read().decode('utf-8', errors='replace')
+              decoded = html.unescape(text).replace('\\u0026', '&').replace('\\/', '/')
+              urls = sorted(set(url_re.findall(decoded)))
+              contexts = []
+              for url in urls:
+                  pos = decoded.find(url)
+                  context = re.sub(r'\s+', ' ', decoded[max(0, pos-260):pos+len(url)+260])
+                  contexts.append({'url': url, 'context': context})
+              results.append({
+                  'configuration_code': cfg['configuration_code'],
+                  'exact_state_url': cfg['exact_state_url'],
+                  'expected': {
+                      'colours': cfg['colours'],
+                      'wheels': cfg['wheels'],
+                      'upholsteries': cfg['upholsteries'],
+                  },
+                  'media_url_count': len(urls),
+                  'media': contexts,
+              })
+          payload = {
+              'version': 1,
+              'observed_on': source['observed_on'],
+              'configuration_count': len(results),
+              'configurations': results,
+          }
+          Path('.configurator-media-diagnostic.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps({
+              'configurations': len(results),
+              'media_urls': sum(item['media_url_count'] for item in results),
+              'per_configuration': {item['configuration_code']: item['media_url_count'] for item in results},
+          }, ensure_ascii=False, indent=2))
+          PY
+      - name: Persist diagnostic
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .configurator-media-diagnostic.json
+          git commit -m "ci: capture configurator media diagnostic"
+          git push origin HEAD
