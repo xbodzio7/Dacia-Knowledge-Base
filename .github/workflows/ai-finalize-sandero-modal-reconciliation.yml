@@ -1,0 +1,79 @@
+name: AI finalize Sandero modal reconciliation
+
+on:
+  push:
+    branches:
+      - ai/sandero-stepway-full-modal-reconciliation-001
+    paths:
+      - .github/workflows/ai-finalize-sandero-modal-reconciliation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/sandero-stepway-full-modal-reconciliation-001
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Rematerialize current source observations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          root = Path('.')
+          source = 'src_pl_sandero_stepway_full_modal_20260809'
+          for rel in ('data/master/configuration_attribute_values.csv','data/master/configuration_attribute_availability.csv'):
+              path = root / rel
+              with path.open(encoding='utf-8-sig', newline='') as f:
+                  reader = csv.DictReader(f)
+                  fields = list(reader.fieldnames or [])
+                  rows = [r for r in reader if r.get('source_code') != source]
+              with path.open('w', encoding='utf-8', newline='') as f:
+                  w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+                  w.writeheader(); w.writerows(rows)
+          PY
+          python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --apply
+      - name: Refresh dependent deterministic reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/align_jogger_elasticity_completeness_context.py
+          python - <<'PY'
+          import json
+          from tools import review_post_v1_11_0_release_priority_selection_20260803 as m
+          report = m.build_report()
+          m.REPORT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          m.REPORT_MD.write_text(m.render_markdown(report), encoding='utf-8')
+          m.PACKAGE_DOC.write_text(m.render_package(report), encoding='utf-8')
+          PY
+          python tools/portfolio_model_family_summary.py \
+            --json data/reporting/portfolio_model_family_summary.json \
+            --markdown data/reporting/portfolio_model_family_summary.md \
+            --html data/reporting/portfolio_model_family_summary.html
+          python tools/portfolio_model_family_comparison_matrix.py \
+            --json data/reporting/portfolio_model_family_comparison_matrix.json \
+            --csv data/reporting/portfolio_model_family_comparison_matrix.csv \
+            --html data/reporting/portfolio_model_family_comparison_matrix.html
+          python tools/dkb.py documentation-baseline --apply
+          python tools/dkb.py project-state --apply
+      - name: Commit refreshed data and reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset .github/workflows/ai-finalize-sandero-modal-reconciliation.yml
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix(data): finalize conservative modal reconciliation"
+          git push origin HEAD:ai/sandero-stepway-full-modal-reconciliation-001
+      - name: Run full unit suite on refreshed tree
+        run: python -m unittest discover -s tests -p "test_*.py" -q
