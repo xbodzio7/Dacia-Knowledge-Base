@@ -268,3 +268,18 @@ id,source_code,configuration_code,relationship,notes
 267,src_pl_sandero_stepway_exact_configurator_states_20260809,sandero_stepway_iii_extreme_ecog120_automatic,documents,Exact official configurator state selected interactively on 2026-08-09; stable conf URL preserved in the registered snapshot.
 268,src_pl_sandero_stepway_exact_configurator_states_20260809,sandero_stepway_iii_extreme_ecog120_manual,documents,Exact official configurator state selected interactively on 2026-08-09; stable conf URL preserved in the registered snapshot.
 269,src_pl_sandero_stepway_exact_configurator_states_20260809,sandero_stepway_iii_extreme_tce110_manual,documents,Exact official configurator state selected interactively on 2026-08-09; stable conf URL preserved in the registered snapshot.
+270,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_essential_tce100_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+271,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_expression_ecog120_automatic,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+272,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_expression_ecog120_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+273,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_expression_tce100_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+274,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_journey_ecog120_automatic,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+275,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_journey_ecog120_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+276,src_pl_sandero_stepway_full_modal_20260809,sandero_iii_journey_tce100_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+277,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_essential_ecog120_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+278,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_essential_tce110_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+279,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_expression_ecog120_automatic,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+280,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_expression_ecog120_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+281,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_expression_tce110_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+282,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_extreme_ecog120_automatic,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+283,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_extreme_ecog120_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.
+284,src_pl_sandero_stepway_full_modal_20260809,sandero_stepway_iii_extreme_tce110_manual,documents,Exact configurator state; full standard-equipment and technical modals captured on 2026-08-09.

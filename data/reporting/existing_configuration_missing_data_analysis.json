@@ -6,8 +6,8 @@
     "active_configuration_count": 84,
     "completeness_scope_count": 24,
     "scoped_configuration_count": 91,
-    "missing_technical_count": 89,
-    "missing_equipment_count": 36,
+    "missing_technical_count": 81,
+    "missing_equipment_count": 12,
     "classified_not_applicable_count": 0,
     "candidate_count": 7,
     "exhausted_source_candidate_count": 7,
@@ -1078,7 +1078,7 @@
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "scope_file": "sandero_ecog120_automatic_completeness.json",
       "expected_technical": 61,
-      "missing_technical": 20,
+      "missing_technical": 16,
       "missing_technical_slots": [
         {
           "attribute_code": "cargo_volume_vda",
@@ -1126,11 +1126,6 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "kerb_weight",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "maximum_payload",
           "fuel_type_code": "",
           "gear_number": ""
@@ -1142,11 +1137,6 @@
         },
         {
           "attribute_code": "number_of_doors",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "number_of_seats",
           "fuel_type_code": "",
           "gear_number": ""
         },
@@ -1166,40 +1156,18 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "turning_circle",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "unbraked_trailer_weight",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "wheel_finish",
           "fuel_type_code": "",
           "gear_number": ""
         }
       ],
       "expected_equipment": 69,
-      "missing_equipment": 16,
+      "missing_equipment": 4,
       "missing_equipment_attributes": [
-        "connected_services",
         "driver_seat_belt_height_adjustment",
-        "emergency_stop_signal",
-        "front_seat_belt_pretensioners",
         "gear_shift_indicator",
         "heated_windscreen",
-        "high_filtering_glass",
-        "isofix_rear",
-        "manual_day_night_rearview_mirror",
-        "one_touch_turn_signals",
-        "parking_assist_system",
-        "rear_seat_belt_pretensioners",
-        "rear_three_point_seat_belts",
-        "safe_distance_warning",
-        "seat_belt_reminder",
-        "third_brake_light"
+        "parking_assist_system"
       ],
       "classified_not_applicable": 0
     },
@@ -1209,7 +1177,7 @@
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "scope_file": "sandero_ecog120_automatic_completeness.json",
       "expected_technical": 61,
-      "missing_technical": 20,
+      "missing_technical": 16,
       "missing_technical_slots": [
         {
           "attribute_code": "cargo_volume_vda",
@@ -1257,11 +1225,6 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "kerb_weight",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "maximum_payload",
           "fuel_type_code": "",
           "gear_number": ""
@@ -1273,11 +1236,6 @@
         },
         {
           "attribute_code": "number_of_doors",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "number_of_seats",
           "fuel_type_code": "",
           "gear_number": ""
         },
@@ -1297,40 +1255,18 @@
           "gear_number": ""
         },
         {
-          "attribute_code": "turning_circle",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
-          "attribute_code": "unbraked_trailer_weight",
-          "fuel_type_code": "",
-          "gear_number": ""
-        },
-        {
           "attribute_code": "wheel_finish",
           "fuel_type_code": "",
           "gear_number": ""
         }
       ],
       "expected_equipment": 69,
-      "missing_equipment": 16,
+      "missing_equipment": 4,
       "missing_equipment_attributes": [
-        "connected_services",
         "driver_seat_belt_height_adjustment",
-        "emergency_stop_signal",
-        "front_seat_belt_pretensioners",
         "gear_shift_indicator",
         "heated_windscreen",
-        "high_filtering_glass",
-        "isofix_rear",
-        "manual_day_night_rearview_mirror",
-        "one_touch_turn_signals",
-        "parking_assist_system",
-        "rear_seat_belt_pretensioners",
-        "rear_three_point_seat_belts",
-        "safe_distance_warning",
-        "seat_belt_reminder",
-        "third_brake_light"
+        "parking_assist_system"
       ],
       "classified_not_applicable": 0
     },
@@ -1708,9 +1644,9 @@
       "model_code": "sandero",
       "source_code": "src_pl_sandero_official_web_configurations_20260723",
       "configuration_count": 2,
-      "missing_technical": 40,
-      "missing_equipment": 32,
-      "weighted_impact": 152,
+      "missing_technical": 32,
+      "missing_equipment": 8,
+      "weighted_impact": 104,
       "selection_status": "source_exhausted_not_stated",
       "source_review_path": "sandero_official_web_source_gap_review.json"
     },
