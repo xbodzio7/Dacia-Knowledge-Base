@@ -19,6 +19,7 @@ EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
 AS_OF = "2026-08-01"
 EXCLUDED_SOURCE_CODES = {"src_pl_sandero_stepway_full_technical_standard_equipment_20260809"}
 EXCLUDED_SOURCE_CODES = {"src_pl_sandero_stepway_full_technical_standard_equipment_20260809"}
+EXCLUDED_SOURCE_CODES = {"src_pl_sandero_stepway_full_technical_standard_equipment_20260809"}
 
 
 def rows(path: Path) -> list[dict[str, str]]:
