@@ -37,9 +37,13 @@ jobs:
               p = Path(path)
               text = p.read_text(encoding='utf-8')
               count = text.count(old)
-              if count != expected:
-                  raise SystemExit(f'{path}: expected {expected} replacements, found {count}')
-              p.write_text(text.replace(old, new), encoding='utf-8')
+              if count == expected:
+                  p.write_text(text.replace(old, new), encoding='utf-8')
+                  return
+              if count == 0 and new in text:
+                  print(f'{path}: already patched')
+                  return
+              raise SystemExit(f'{path}: expected {expected} replacements, found {count}')
 
           replace('tools/existing_configuration_missing_data_analysis.py',
               'EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"\nAS_OF = "2026-08-01"',
@@ -73,9 +77,10 @@ jobs:
           text = p.read_text(encoding='utf-8')
           old = 'if self.models.get(row["configuration_code"]) == model\n                and row["attribute_code"] in CORE_DIMENSIONS'
           new = 'if self.models.get(row["configuration_code"]) == model\n                and row["attribute_code"] in CORE_DIMENSIONS\n                and row.get("source_code") != "' + SOURCE + '"'
-          if old not in text:
+          if old in text:
+              p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          elif new not in text:
               raise SystemExit('official brochure residual test: target not found')
-          p.write_text(text.replace(old, new, 1), encoding='utf-8')
 
           replace('tools/verified_pdf_candidate_coverage_reconciliation.py',
               'for row in read_csv_rows(repository / "data/master" / filename, table):\n            configuration_code = row.get("configuration_code", "")',
