@@ -1,0 +1,18 @@
+pages= 9
+page3_chars= 1755
+page3_nonspace= 1533
+page3_prefix= 'WYPOSAŻENIE SERYJNE\nWYGLĄD\n16" stalowe obręcze kół typu Flexwheel - wzór ATARA\ntapicerka materiałowa w kolorze czarnym i wstawkami denim\nantena w kształcie "płetwy rekina"\ntapicerka materiałowa\nstalowe obręcze kół 16"\nMULTIMEDIA\nkomunikaty w języku polskim\nkomputer pokładowy\nusługi online\nnowy system multimedialny Media Display (dotykowy ekran 10",\nbezprzewodowa replikacja smartfona)\nzestaw wskaźników TFT 3,5"\nKOMFORT I WNĘTRZE\nfotel kierowcy z regulacją wysokości\ntylne oparcie kanapy składane 1/3 i 2/3\nkorek wlewu paliwa (bez keyless entry)\nkierownica pokryta skórą ekologiczną\nszyby o wysokiej zdolności filtrującej\nkluczyk z 3 przyciskami\nelektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem\ntemperatury\nluterko wsteczne z ustawieniem dzień/noc\nszyby tylne regulowane elektrycznie\nszyby przednie regulowane elektrycznie z włącznikiem\nimpulsowym po stronie kierowcy\nkryterium techniczne niezbędne do zamówienia klimatyzacji\nnormalny dach\nśrodkowa konsola ze schowkiem i podłokietni'
+JSON source-page review written to /tmp/gap-review.json
+Markdown source-page review written to /tmp/gap-review.md
+Configuration gap source page review
+------------------------------------
+As of                 : 2026-06-26
+Review targets        : 35
+Found                 : 0
+Not stated            : 35
+Still ambiguous       : 0
+Candidate values      : 0
+Reviewed source pages : 14
+Incomplete pages      : 0
+Automatic import       : disabled
+review_exit_code=0
