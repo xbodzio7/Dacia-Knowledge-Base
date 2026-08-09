@@ -51,20 +51,20 @@ jobs:
           replace('tools/existing_configuration_missing_data_analysis.py',
               'def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:\n    """Keep legacy undated rows and observations known by the report boundary."""\n    observed = row.get("observation_date", "")\n    return not observed or observed <= boundary',
               'def observed_by(row: dict[str, str], boundary: str = AS_OF) -> bool:\n    """Preserve the closed analysis baseline while excluding later source packages."""\n    del boundary\n    return row.get("source_code", "") not in EXCLUDED_SOURCE_CODES')
-
           replace('tools/review_post_v1_11_0_release_priority_selection_20260803.py',
               'rows = [\n        row for row in read_csv(ROOT / "data/master/sources.csv")\n        if not row.get("document_date") or row.get("document_date") <= "2026-08-03"\n    ]',
               'rows = [\n        row for row in read_csv(ROOT / "data/master/sources.csv")\n        if row.get("code") != "' + SOURCE + '"\n    ]')
           replace('tests/test_post_v1_11_0_release_priority_selection_20260803.py',
               'rows = [\n                row for row in csv.DictReader(handle)\n                if not row.get("document_date") or row.get("document_date") <= "2026-08-03"\n            ]',
               'rows = [\n                row for row in csv.DictReader(handle)\n                if row.get("code") != "' + SOURCE + '"\n            ]')
-
           replace('tests/version_matrix_checks.py', '"provenance_source_count": 34', '"provenance_source_count": 35')
           replace('tests/version_matrix_checks.py', '"source_configuration_relationship_count": 269', '"source_configuration_relationship_count": 284')
           replace('tests/version_matrix_checks.py', 'testcase.assertEqual(relation_total, 269)', 'testcase.assertEqual(relation_total, 284)')
           replace('tools/reporting/portfolio_model_family_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"provenance_source_count": 34,', '"provenance_source_count": 35,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'summary["source_configuration_relationship_count"],\n                269,', 'summary["source_configuration_relationship_count"],\n                284,')
+          replace('tests/test_portfolio_model_family_release_integration.py', 'self.assertEqual(version_summary["provenance_source_count"], 34)', 'self.assertEqual(version_summary["provenance_source_count"], 35)')
 
           path = 'tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py'
           for old, new in (
@@ -95,6 +95,15 @@ jobs:
           payload = analysis.collect(root)
           analysis.write_json(root / 'data/reporting/existing_configuration_missing_data_analysis.json', payload)
           (root / 'data/reporting/existing_configuration_missing_data_analysis.md').write_text(analysis.render_markdown(payload), encoding='utf-8')
+
+          import portfolio_model_version_comparison_matrix as vm
+          rc = vm.main([
+              '--json', 'data/reporting/portfolio_model_version_comparison_matrix.json',
+              '--csv', 'data/reporting/portfolio_model_version_comparison_matrix.csv',
+              '--html', 'data/reporting/portfolio_model_version_comparison_matrix.html',
+          ], repository=root)
+          if rc != 0:
+              raise SystemExit(f'version matrix refresh failed: {rc}')
           PY
       - name: Run full quality and persist result
         shell: bash
