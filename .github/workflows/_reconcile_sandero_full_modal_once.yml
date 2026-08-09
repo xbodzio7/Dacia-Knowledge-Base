@@ -26,6 +26,25 @@ jobs:
         run: python tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py --apply
       - name: Verify reconciliation
         run: python tools/import_sandero_stepway_full_modal_canonical_reconciliation_20260809.py --verify
+      - name: Diagnose schema contracts
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          for name in ('sources.csv','source_configurations.csv','configuration_attribute_availability.csv'):
+              path = Path('data/master') / name
+              with path.open(encoding='utf-8-sig', newline='') as fh:
+                  reader = csv.DictReader(fh)
+                  rows = list(reader)
+              print('\n===', name, '===')
+              print('headers:', reader.fieldnames)
+              print('tail:')
+              for row in rows[-4:]: print(row)
+          PY
+          set +e
+          python -m pytest tests -k 'source_configuration_pair_uniqueness or source_code_snake_case or source_configuration_relationship_enum or source_configurations_reference_existing_codes or source_type_enum or sources_expected_count or configuration_attribute_availability' -vv --tb=long
+          status=$?
+          exit $status
       - name: Full quality gate
         run: python tools/dkb.py quality
       - name: Commit verified generated changes
