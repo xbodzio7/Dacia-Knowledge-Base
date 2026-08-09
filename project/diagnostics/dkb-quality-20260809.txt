@@ -1,0 +1,516 @@
+exit_code=1
+=== MATCHES ===
+13:test_reports_missing_column (test_association_intervals.AssociationIntervalValidationTests.test_reports_missing_column) ... ok
+14:test_reports_missing_file (test_association_intervals.AssociationIntervalValidationTests.test_reports_missing_file) ... ok
+22:test_reports_missing_parent_code (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_parent_code) ... ok
+23:test_reports_missing_parent_column (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_parent_column) ... ok
+24:test_reports_missing_relation_column (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_relation_column) ... ok
+25:test_reports_missing_relation_file (test_association_ranges.AssociationRangeValidationTests.test_reports_missing_relation_file) ... ok
+87:test_06_missing_signature (test_bigster_equipment_page21_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+113:test_06_missing_signature (test_bigster_equipment_page22_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+195:test_selected_signatures_rejects_missing_signature (test_bigster_technical_page20_ambiguity_review.BigsterPage20ReviewUnitTests.test_selected_signatures_rejects_missing_signature) ... ok
+263:test_missing_one_context_is_not_compared_to_another (test_brochure_cargo_context_reporting_foundation.BrochureCargoContextReportingFoundationTests.test_missing_one_context_is_not_compared_to_another) ... ok
+355:test_builds_database_with_expected_data (test_build_sqlite.SqliteBuildTests.test_builds_database_with_expected_data) ... ok
+390:test_extract_html_argument_rejects_missing_or_duplicate_paths (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_extract_html_argument_rejects_missing_or_duplicate_paths) ... ok
+422:test_rejects_gap_set_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_gap_set_mismatch) ... ok
+423:test_rejects_source_metadata_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_source_metadata_mismatch) ... ok
+437:test_rejects_missing_source_configuration_pair (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_missing_source_configuration_pair) ... ok
+438:test_rejects_plan_content_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_content_mismatch) ... ok
+439:test_rejects_plan_decision_set_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_decision_set_mismatch) ... ok
+449:test_source_hash_mismatch_is_rejected (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_source_hash_mismatch_is_rejected) ... ok
+457:test_rejects_gap_set_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_gap_set_mismatch) ... ok
+458:test_rejects_input_report_date_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_input_report_date_mismatch) ... ok
+477:test_seat_filter_excludes_missing_values_explicitly (test_configuration_shortlist.ConfigurationShortlistTests.test_seat_filter_excludes_missing_values_explicitly) ... ok
+661:test_missing_seat_summaries_remain_not_stated (test_cross_model_comparison_view.CrossModelComparisonViewTests.test_missing_seat_summaries_remain_not_stated) ... ok
+718:test_reports_missing_file (test_csv_validator.CsvValidatorTests.test_reports_missing_file) ... ok
+724:test_cli_verifies_existing_release_and_expected_identity (test_data_product_release.DataProductReleaseTests.test_cli_verifies_existing_release_and_expected_identity) ... error: verified release version does not match --version
+745:test_rejects_tag_manifest_commit_mismatch_transactionally (test_data_product_release_download.DataProductReleaseDownloadTests.test_rejects_tag_manifest_commit_mismatch_transactionally) ... ok
+746:test_rejects_unexpected_public_asset_url (test_data_product_release_download.DataProductReleaseDownloadTests.test_rejects_unexpected_public_asset_url) ... ok
+806:test_patch_contract_records_filtering_and_missing_data_semantics (test_data_products_v1_8_1_release_preparation.DataProductsV181ReleasePreparationTests.test_patch_contract_records_filtering_and_missing_data_semantics) ... ok
+831:test_reports_missing_command_script (test_dkb_cli.DkbCliTests.test_reports_missing_command_script) ... ok
+837:test_rejects_missing_markers (test_documentation_baseline.DocumentationBaselineTests.test_rejects_missing_markers) ... ok
+838:test_rejects_sqlite_mismatch (test_documentation_baseline.DocumentationBaselineTests.test_rejects_sqlite_mismatch) ... ok
+892:test_comparisons_have_expected_complete_pairs (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_comparisons_have_expected_complete_pairs) ... ok
+896:test_scopes_have_expected_technical_slots_and_fifty_eight_equipment_attributes (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_scopes_have_expected_technical_slots_and_fifty_eight_equipment_attributes) ... ok
+897:test_scopes_select_expected_current_configurations (test_duster_ecog120_reporting_scope.DusterReportingScopeTests.test_scopes_select_expected_current_configurations) ... ok
+936:test_06_missing_signature (test_duster_mini_equipment_page22_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+961:test_06_missing_signature (test_duster_mini_equipment_page23_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+991:test_missing_signature (test_duster_mini_technical_page20_ambiguity_review.UnitTests.test_missing_signature) ... ok
+1017:test_missing_signature (test_duster_mini_technical_page21_ambiguity_review.UnitTests.test_missing_signature) ... ok
+1040:test_missing_and_unknown_equipment_are_never_inferred_available (test_equipment_filter_regression_model_price_order.EquipmentFilterRegressionModelPriceOrderTests.test_missing_and_unknown_equipment_are_never_inferred_available) ... ok
+1044:test_exhausted_sources_remain_visible_but_cannot_be_selected (test_existing_configuration_missing_data_analysis.ExistingConfigurationMissingDataAnalysisTests.test_exhausted_sources_remain_visible_but_cannot_be_selected) ... ok
+1045:test_missing_slots_are_not_negative_and_candidates_are_ranked (test_existing_configuration_missing_data_analysis.ExistingConfigurationMissingDataAnalysisTests.test_missing_slots_are_not_negative_and_candidates_are_ranked) ... ok
+1046:test_not_applicable_slots_are_not_reported_missing (test_existing_configuration_missing_data_analysis.ExistingConfigurationMissingDataAnalysisTests.test_not_applicable_slots_are_not_reported_missing) ... ok
+1047:test_rendering_and_checked_outputs_are_deterministic (test_existing_configuration_missing_data_analysis.ExistingConfigurationMissingDataAnalysisTests.test_rendering_and_checked_outputs_are_deterministic) ... ok
+1048:test_report_has_stable_contract (test_existing_configuration_missing_data_analysis.ExistingConfigurationMissingDataAnalysisTests.test_report_has_stable_contract) ... ok
+1053:test_registered_source_hash_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_hash_mismatch_is_rejected) ... ok
+1054:test_registered_source_text_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_text_mismatch_is_rejected) ... ok
+1055:test_rejects_attribute_contract_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_attribute_contract_mismatch) ... ok
+1060:test_rejects_source_configuration_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_source_configuration_mismatch) ... ok
+1066:test_verify_rejects_missing_rows (test_import_configuration_values.ImportConfigurationValuesTests.test_verify_rejects_missing_rows) ... ok
+1068:test_interface_distinguishes_missing_states_and_provenance (test_interface_source_coverage_repair_20260801.InterfaceSourceCoverageRepairTests.test_interface_distinguishes_missing_states_and_provenance) ... ok
+1108:test_six_pairs_have_expected_types_and_are_comparable (test_jogger_ecog120_automatic_reporting_scope.JoggerEcoG120AutomaticReportingScopeTests.test_six_pairs_have_expected_types_and_are_comparable) ... ok
+1114:test_fifteen_pairs_have_expected_types_and_are_comparable (test_jogger_ecog120_manual_reporting_scope.JoggerEcoG120ManualReportingScopeTests.test_fifteen_pairs_have_expected_types_and_are_comparable) ... ok
+1149:test_06_missing_signature (test_jogger_equipment_page20_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+1173:test_06_missing_signature (test_jogger_equipment_page21_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+1195:test_fifteen_pairs_have_expected_types_and_are_comparable (test_jogger_hybrid155_automatic_reporting_scope.JoggerHybrid155AutomaticReportingScopeTests.test_fifteen_pairs_have_expected_types_and_are_comparable) ... ok
+1263:test_fifteen_pairs_have_expected_types_and_are_comparable (test_jogger_tce110_manual_reporting_scope.JoggerTce110ManualReportingScopeTests.test_fifteen_pairs_have_expected_types_and_are_comparable) ... ok
+1286:test_missing_signature (test_jogger_technical_page19_ambiguity_review.Unit.test_missing_signature) ... ok
+1293:test_deferred_ranges_and_semantic_mismatches_are_absent (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_deferred_ranges_and_semantic_mismatches_are_absent) ... ok
+1321:test_rejects_missing_data_directory (test_normalize_csv_encoding.NormalizeCsvEncodingTests.test_rejects_missing_data_directory) ... ok
+1367:test_failed_push_writes_fail_handoff (test_package_publish.PackagePublishTests.test_failed_push_writes_fail_handoff) ... ERROR: git push -u origin tooling/test failed with exit code 1
+1370:test_finish_failure_writes_fail_handoff (test_package_publish.PackagePublishTests.test_finish_failure_writes_fail_handoff) ... ERROR: package-finish failed with exit code 7
+1376:test_rejects_additional_staged_path (test_package_publish.PackagePublishTests.test_rejects_additional_staged_path) ... ERROR: package-publish requires an empty staging area before start: ['extra.txt']
+1379:test_rejects_additional_untracked_path (test_package_publish.PackagePublishTests.test_rejects_additional_untracked_path) ... ERROR: working tree path manifest differs
+1380:expected: ['tools/example.py']
+1520:===== FAIL =====
+1538:===== FAIL =====
+1592:Quality receipt rejected: receipt field differs: branch
+1687:===== FAIL =====
+1695:===== FAIL =====
+1799:test_review_manifest_rejects_path_mismatch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_path_mismatch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-n2cebay6/remote
+1906:test_captured_mode_stops_after_first_failure (test_quality.QualityTests.test_captured_mode_stops_after_first_failure) ... ==> First: FAIL
+2061:test_reports_missing_reference (test_references.ReferenceValidationTests.test_reports_missing_reference) ... ok
+2062:test_reports_missing_source_column (test_references.ReferenceValidationTests.test_reports_missing_source_column) ... ok
+2086:test_reports_missing_exists_target_column (test_rule_contracts.RuleContractValidationTests.test_reports_missing_exists_target_column) ... ok
+2087:test_reports_missing_exists_target_file (test_rule_contracts.RuleContractValidationTests.test_reports_missing_exists_target_file) ... ok
+2088:test_reports_missing_required_column (test_rule_contracts.RuleContractValidationTests.test_reports_missing_required_column) ... ok
+2089:test_reports_missing_rules_file (test_rule_contracts.RuleContractValidationTests.test_reports_missing_rules_file) ... ok
+2096:test_reports_missing_exists_target_column (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_target_column) ... ok
+2097:test_reports_missing_exists_target_file (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_target_file) ... ok
+2098:test_reports_missing_exists_value (test_rule_execution.RuleExecutionTests.test_reports_missing_exists_value) ... ok
+2099:test_reports_missing_rules_file (test_rule_execution.RuleExecutionTests.test_reports_missing_rules_file) ... ok
+2100:test_reports_missing_subject_file (test_rule_execution.RuleExecutionTests.test_reports_missing_subject_file) ... ok
+2131:test_source_coverage_preserves_partial_and_missing_sections (test_sandero_ecog120_manual_reporting_scope.SanderoEcoG120ManualReportingScopeTests.test_source_coverage_preserves_partial_and_missing_sections) ... ok
+2133:test_availability_dataset_has_expected_shape_and_count (test_sandero_equipment_availability.SanderoCoreEquipmentAvailabilityTests.test_availability_dataset_has_expected_shape_and_count) ... ok
+2161:test_06_missing_signature (test_sandero_equipment_page18_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+2186:test_06_missing_signature (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+2249:test_torque_ranges_preserve_missing_automatic_petrol_boundary (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_torque_ranges_preserve_missing_automatic_petrol_boundary) ... ok
+2256:test_package_has_expected_ids_shape_and_count (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_has_expected_ids_shape_and_count) ... ok
+2296:test_source_coverage_preserves_partial_and_missing_sections (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_source_coverage_preserves_partial_and_missing_sections) ... ok
+2297:test_two_prices_are_present_and_the_pair_price_differs (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_two_prices_are_present_and_the_pair_price_differs) ... ok
+2318:test_06_missing_signature (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+2319:test_07_missing_rejection_reason (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_07_missing_rejection_reason) ... ok
+2397:test_minimum_row_signature_mismatch (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_signature_mismatch) ... ok
+2410:test_missing_signature (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+2436:test_missing_signature (test_sandero_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+2466:test_distinguishes_missing_source_from_missing_record (test_source_coverage.SourceCoverageTests.test_distinguishes_missing_source_from_missing_record) ... ok
+2471:test_rejects_observation_source_mismatch (test_source_coverage.SourceCoverageTests.test_rejects_observation_source_mismatch) ... ok
+2473:test_sections_distinguish_partial_and_missing (test_source_coverage.SourceCoverageTests.test_sections_distinguish_partial_and_missing) ... ok
+2558:test_reports_missing_end_column (test_statuses.StatusValidationTests.test_reports_missing_end_column) ... ok
+2559:test_reports_missing_file (test_statuses.StatusValidationTests.test_reports_missing_file) ... ok
+2560:test_reports_missing_status_column (test_statuses.StatusValidationTests.test_reports_missing_status_column) ... ok
+2572:test_real_reconciliation_has_expected_candidate_partition (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_real_reconciliation_has_expected_candidate_partition) ... ok
+2589:test_build_rejects_missing_or_duplicate_candidate_assignment (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_build_rejects_missing_or_duplicate_candidate_assignment) ... ok
+2612:test_evidence_count_mismatch_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_count_mismatch_is_rejected) ... ok
+2624:test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpydrw2ewb/missing.sqlite
+2626:test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+2628:test_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_database) ... ok
+2629:test_reports_missing_table (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_table) ... ok
+2630:test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+2631:test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+2632:test_reports_unexpected_table (test_verify_sqlite.SqliteVerificationTests.test_reports_unexpected_table) ... ok
+2639:test_reports_missing_columns (test_year_ranges.YearRangeValidationTests.test_reports_missing_columns) ... ok
+2640:test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_reports_missing_file) ... ok
+2960:ERROR: cannot extract page 3: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf
+=== TAIL ===
+test_checks_file_with_only_code (test_uniqueness.UniqueColumnValidationTests.test_checks_file_with_only_code) ... ok
+test_ignores_file_without_key_columns (test_uniqueness.UniqueColumnValidationTests.test_ignores_file_without_key_columns) ... ok
+test_reports_case_insensitive_duplicate_code (test_uniqueness.UniqueColumnValidationTests.test_reports_case_insensitive_duplicate_code) ... ok
+test_reports_duplicate_id (test_uniqueness.UniqueColumnValidationTests.test_reports_duplicate_id) ... ok
+test_reports_empty_code (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_code) ... ok
+test_reports_empty_id (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_id) ... ok
+test_scans_all_master_csv_files (test_uniqueness.UniqueColumnValidationTests.test_scans_all_master_csv_files) ... ok
+test_validate_command_executes_complete_validator (test_validate_cli.ValidateCliIntegrationTests.test_validate_command_executes_complete_validator) ... ok
+test_committed_artifacts_preserve_the_dated_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_committed_artifacts_preserve_the_dated_review_boundary) ... ok
+test_real_reconciliation_has_expected_candidate_partition (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_real_reconciliation_has_expected_candidate_partition) ... ok
+test_build_assigns_every_selected_candidate_once (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_build_assigns_every_selected_candidate_once) ... ok
+test_candidate_tokens_prefer_left_table_label (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_candidate_tokens_prefer_left_table_label) ... ok
+test_duplicate_selected_candidate_is_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_duplicate_selected_candidate_is_rejected) ... ok
+test_equipment_match_requires_same_model_and_availability_table (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_equipment_match_requires_same_model_and_availability_table) ... ok
+test_heading_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_heading_is_explicit_non_import) ... ok
+test_match_key_is_unicode_and_punctuation_stable (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_match_key_is_unicode_and_punctuation_stable) ... ok
+test_multiple_signatures_are_ambiguous (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_multiple_signatures_are_ambiguous) ... ok
+test_no_match_is_unresolved_not_negative_evidence (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_no_match_is_unresolved_not_negative_evidence) ... ok
+test_numbered_footnote_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_numbered_footnote_is_explicit_non_import) ... ok
+test_ordered_match_requires_two_tokens (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_ordered_match_requires_two_tokens) ... ok
+test_render_and_json_are_deterministic (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_render_and_json_are_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_single_signature_is_already_covered (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_single_signature_is_already_covered) ... ok
+test_target_groups_require_exact_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_target_groups_require_exact_review_boundary) ... ok
+test_technical_match_requires_same_source_and_page (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_technical_match_requires_same_source_and_page) ... ok
+test_anchor_candidates_match_ledger_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_anchor_candidates_match_ledger_exactly) ... ok
+test_build_rejects_missing_or_duplicate_candidate_assignment (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_build_rejects_missing_or_duplicate_candidate_assignment) ... ok
+test_controlled_decisions_and_statuses_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_controlled_decisions_and_statuses_are_exact) ... ok
+test_decision_candidate_totals_recalculate_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_decision_candidate_totals_recalculate_exactly) ... ok
+test_every_candidate_is_assigned_exactly_once (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_every_candidate_is_assigned_exactly_once) ... ok
+test_evidence_references_are_repository_relative_and_present (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_evidence_references_are_repository_relative_and_present) ... ok
+test_group_candidate_counts_match_membership (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_candidate_counts_match_membership) ... ok
+test_group_order_is_stable_by_source_and_page (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_order_is_stable_by_source_and_page) ... ok
+test_metadata_and_summary_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_metadata_and_summary_are_exact) ... ok
+test_outputs_and_next_package_remain_review_only (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_outputs_and_next_package_remain_review_only) ... ok
+test_policy_preserves_non_import_boundaries (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_policy_preserves_non_import_boundaries) ... ok
+test_repeated_generation_is_byte_identical (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_repeated_generation_is_byte_identical) ... ok
+test_source_page_ranges_partition_all_114_pages (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_source_page_ranges_partition_all_114_pages) ... ok
+test_verify_detects_json_drift (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_verify_detects_json_drift) ... ok
+test_real_repository_partition_and_highest_priority (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationRepositoryTests.test_real_repository_partition_and_highest_priority) ... ok
+test_boundary_key_contains_source_domain_page_status (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_boundary_key_contains_source_domain_page_status) ... ok
+test_build_assigns_each_residual_candidate_once (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_assigns_each_residual_candidate_once) ... ok
+test_build_preserves_status_boundary (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_preserves_status_boundary) ... ok
+test_build_selects_only_residual_statuses (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_selects_only_residual_statuses) ... ok
+test_candidate_sort_key_uses_lines_then_id (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_candidate_sort_key_uses_lines_then_id) ... ok
+test_canonical_json_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_canonical_json_is_deterministic) ... ok
+test_chunks_reject_non_positive_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_reject_non_positive_size) ... ok
+test_chunks_respect_maximum_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_respect_maximum_size) ... ok
+test_duplicate_reconciliation_candidate_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_duplicate_reconciliation_candidate_is_rejected) ... ok
+test_evidence_count_mismatch_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_count_mismatch_is_rejected) ... ok
+test_evidence_counts_preserve_all_references (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_counts_preserve_all_references) ... ok
+test_make_package_preserves_candidate_identity_and_text (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_preserves_candidate_identity_and_text) ... ok
+test_make_package_rejects_cross_boundary_candidate (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_rejects_cross_boundary_candidate) ... ok
+test_no_residual_candidates_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_no_residual_candidates_is_rejected) ... ok
+test_package_group_order_prefers_ambiguous (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_ambiguous) ... ok
+test_package_group_order_prefers_larger_group (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_larger_group) ... ok
+test_package_group_order_prefers_technical (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_technical) ... ok
+test_render_markdown_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_render_markdown_is_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_verify_output_detects_drift (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_verify_output_detects_drift) ... ok
+test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpydrw2ewb/missing.sqlite
+ok
+test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
+test_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_database) ... ok
+test_reports_missing_table (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_table) ... ok
+test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+test_reports_unexpected_table (test_verify_sqlite.SqliteVerificationTests.test_reports_unexpected_table) ... ok
+test_accepts_closed_range (test_year_ranges.YearRangeValidationTests.test_accepts_closed_range) ... ok
+test_accepts_open_range (test_year_ranges.YearRangeValidationTests.test_accepts_open_range) ... ok
+test_rejects_empty_required_start_year (test_year_ranges.YearRangeValidationTests.test_rejects_empty_required_start_year) ... ok
+test_rejects_invalid_end_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_end_year_format) ... ok
+test_rejects_invalid_start_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_start_year_format) ... ok
+test_rejects_reversed_range (test_year_ranges.YearRangeValidationTests.test_rejects_reversed_range) ... ok
+test_reports_missing_columns (test_year_ranges.YearRangeValidationTests.test_reports_missing_columns) ... ok
+test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_reports_missing_file) ... ok
+test_scans_all_configured_files (test_year_ranges.YearRangeValidationTests.test_scans_all_configured_files) ... ok
+
+----------------------------------------------------------------------
+Ran 1915 tests in 124.929s
+
+OK (skipped=15)
+Stepway Essential source-gap observations: PASS (3 values + 3 ranges + 2 scope corrections)
+Stepway Expression automatic source-gap observations: PASS (3 values + 3 ranges + 1 availability)
+Stepway Expression source-gap observations: PASS (3 values + 3 ranges)
+Stepway Extreme automatic source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+Stepway Extreme source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+Spring commercial packages: PASS (5 items, 18 memberships, 7 mappings)
+Building SQLite database: /tmp/tmp23xilvdh/test.sqlite
+Source directory: /tmp/tmp23xilvdh/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp23xilvdh/test.sqlite
+Building SQLite database: /tmp/tmp2dq4k_9c/test.sqlite
+Source directory: /tmp/tmp2dq4k_9c/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp2dq4k_9c/test.sqlite
+Building SQLite database: /tmp/tmp1kvdtm60/test.sqlite
+Source directory: /tmp/tmp1kvdtm60/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp1kvdtm60/test.sqlite
+Building SQLite database: /tmp/tmp7li55qg3/test.sqlite
+Source directory: /tmp/tmp7li55qg3/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp7li55qg3/test.sqlite
+Building SQLite database: /tmp/tmpxqukbl5o/test.sqlite
+Source directory: /tmp/tmpxqukbl5o/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpxqukbl5o/test.sqlite
+Building SQLite database: /tmp/tmphjl3v6_z/test.sqlite
+Source directory: /tmp/tmphjl3v6_z/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmphjl3v6_z/test.sqlite
+
+==> Check CSV encoding
+CSV files checked : 103
+Already UTF-8     : 103
+Windows-1250      : 0
+Unreadable        : 0
+
+All CSV files are already valid UTF-8.
+
+==> Validate repository data
+======================================================================
+DKB Validator v0.10
+======================================================================
+Repository : /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base
+Python     : 3.13.14
+
+1. Sprawdzanie struktury repozytorium
+   ✅ OK
+
+2. Walidacja plików CSV
+   ✅ data/imports/bigster_commercial_item_attributes_20260703.csv
+   ✅ data/imports/bigster_commercial_item_configurations_20260703.csv
+   ✅ data/imports/bigster_commercial_items_20260703.csv
+   ✅ data/imports/bigster_equipment_availability_20260703.csv
+   ✅ data/imports/duster_equipment_availability_appearance.csv
+   ✅ data/imports/duster_equipment_availability_control.csv
+   ✅ data/imports/interface_source_coverage_repair_20260801.csv
+   ✅ data/imports/jogger_equipment_availability_comfort_20260401.csv
+   ✅ data/imports/jogger_equipment_availability_safety_20260401.csv
+   ✅ data/imports/jogger_fog_lights_20260703.csv
+   ✅ data/imports/reviewed_gap_state_materialization_20260802.csv
+   ✅ data/imports/sandero_residual_source_closure_20260801.csv
+   ✅ data/imports/sandero_stepway_essential_source_gap_20260626.csv
+   ✅ data/imports/sandero_stepway_expression_auto_source_gap_20260626.csv
+   ✅ data/imports/sandero_stepway_expression_source_gap_20260626.csv
+   ✅ data/imports/sandero_stepway_extreme_auto_source_gap_20260626.csv
+   ✅ data/imports/sandero_stepway_extreme_source_gap_20260626.csv
+   ✅ data/imports/spring_commercial_item_attributes_20260219.csv
+   ✅ data/imports/spring_commercial_item_configurations_20260219.csv
+   ✅ data/imports/spring_commercial_items_20260219.csv
+   ✅ data/imports/spring_equipment_availability_20260219.csv
+   ✅ data/imports/spring_exterior_colour_options_20260219.csv
+   ✅ data/imports/spring_nonconflicting_common_technical_20260219.csv
+   ✅ data/imports/spring_technical_20260219.csv
+   ✅ data/master/attribute_categories.csv
+   ✅ data/master/attribute_enum_domains.csv
+   ✅ data/master/attributes.csv
+   ✅ data/master/body_types.csv
+   ✅ data/master/categories.csv
+   ✅ data/master/commercial_item_attributes.csv
+   ✅ data/master/commercial_item_configurations.csv
+   ✅ data/master/commercial_items.csv
+   ✅ data/master/configuration_attribute_availability.csv
+   ✅ data/master/configuration_attribute_value_ranges.csv
+   ✅ data/master/configuration_attribute_values.csv
+   ✅ data/master/configuration_cargo_volume_contexts.csv
+   ✅ data/master/configuration_prices.csv
+   ✅ data/master/configurations.csv
+   ✅ data/master/currencies.csv
+   ✅ data/master/domains.csv
+   ✅ data/master/engines.csv
+   ✅ data/master/enums/aspiration_types.csv
+   ✅ data/master/enums/battery_chemistries.csv
+   ✅ data/master/enums/cargo_compartment_types.csv
+   ✅ data/master/enums/cargo_measurement_bases.csv
+   ✅ data/master/enums/cargo_seat_states.csv
+   ✅ data/master/enums/commercial_item_types.csv
+   ✅ data/master/enums/context_presence_states.csv
+   ✅ data/master/enums/cylinder_configurations.csv
+   ✅ data/master/enums/drive_types.csv
+   ✅ data/master/enums/electric_motor_types.csv
+   ✅ data/master/enums/emission_standards.csv
+   ✅ data/master/enums/engine_types.csv
+   ✅ data/master/enums/equipment_availability_statuses.csv
+   ✅ data/master/enums/fuel_types.csv
+   ✅ data/master/enums/injection_types.csv
+   ✅ data/master/enums/recommended_fuels.csv
+   ✅ data/master/enums/transmission_type.csv
+   ✅ data/master/gearboxes.csv
+   ✅ data/master/model_engines.csv
+   ✅ data/master/model_gearboxes.csv
+   ✅ data/master/models.csv
+   ✅ data/master/segments.csv
+   ✅ data/master/source_configurations.csv
+   ✅ data/master/source_models.csv
+   ✅ data/master/source_versions.csv
+   ✅ data/master/sources.csv
+   ✅ data/master/units.csv
+   ✅ data/master/validation_rules.csv
+   ✅ data/master/value_types.csv
+   ✅ data/master/versions.csv
+   ✅ data/reporting/configurator_ui_current_exact_choices_20260807.csv
+   ✅ data/reporting/cross_model_colour_document_reconciliation_20260806.csv
+   ✅ data/reporting/cross_model_nonconfigurator_catalog_coverage_matrix_20260806.csv
+   ✅ data/reporting/dacia_configurator_pdf_page_inventory_20260809.csv
+   ✅ data/reporting/exact_current_colour_price_list_normalization_20260806.csv
+   ✅ data/reporting/official_bigster_accessory_catalog_compatibility_20260806.csv
+   ✅ data/reporting/official_bigster_accessory_price_list_20260806.csv
+   ✅ data/reporting/official_duster_accessory_catalog_compatibility_20260806.csv
+   ✅ data/reporting/official_duster_accessory_price_list_20260806.csv
+   ✅ data/reporting/official_jogger_accessory_price_list_20260806.csv
+   ✅ data/reporting/official_jogger_uk_catalog_reference_matrix_20260806.csv
+   ✅ data/reporting/official_model_price_list_reconciliation_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_first_pass_summary_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_reconciliation_001_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_reconciliation_002_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_reconciliation_003_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_reconciliation_004_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_retry_001_20260807.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_retry_002_20260807.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260807.csv
+   ✅ data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260808.csv
+   ✅ data/reporting/official_new_spring_accessory_price_list_20240417.csv
+   ✅ data/reporting/official_new_spring_accessory_price_list_extract_20260806.csv
+   ✅ data/reporting/official_new_spring_accessory_shop_unreviewed_queue_20260806.csv
+   ✅ data/reporting/portfolio_model_family_comparison_matrix.csv
+   ✅ data/reporting/portfolio_model_version_comparison_matrix.csv
+   ✅ data/reporting/portfolio_source_coverage_matrix.csv
+   ✅ data/reporting/sandero_stepway_exact_default_colour_choice_capture_20260806.csv
+   ✅ data/reporting/spring_essential_exact_colour_choice_capture_20260806.csv
+   ✅ output/portfolio-powertrain-transmission-matrix/portfolio-powertrain-transmission-matrix.csv
+   ✅ project/source-audit/legacy-pdf-source-inventory-20260802.csv
+
+3. Walidacja unikalności kluczy
+   ✅ OK (64 kolumn kluczowych)
+
+4. Walidacja relacji między tabelami
+   ✅ OK (51 relacji)
+
+5. Walidacja kontekstu wybranego biegu
+   ✅ OK (3690 rekordów)
+
+6. Walidacja zakresów lat
+   ✅ OK (80 rekordów, 4 reguły)
+
+7. Walidacja statusów i cyklu życia
+   ✅ OK (735 rekordów, 26 reguł)
+
+8. Walidacja okresów dostępności powiązań
+   ✅ OK (77 kontroli, 3 reguły)
+
+9. Walidacja nakładających się okresów powiązań
+   ✅ OK (47 rekordów, 2 reguły)
+
+10. Walidacja kontraktu reguł danych
+   ✅ OK (8 reguł)
+
+11. Wykonywanie reguł danych
+   ✅ OK (8 reguł, 387 rekordów)
+
+12. Zbieranie statystyk
+   Plików CSV : 47
+   Wierszy    : 12777
+
+13. Generowanie raportu
+   ✅ Raport zapisany: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/reports/validation_report.md
+
+==> Build SQLite database
+Building SQLite database: /tmp/dkb-quality-3jctfnad/dacia_knowledge_base.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 12 rows
+  data/master/attributes.csv -> attributes: 387 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 103 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 322 rows
+  data/master/commercial_items.csv -> commercial_items: 50 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 6499 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 316 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 3690 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 320 rows
+  data/master/configuration_prices.csv -> configuration_prices: 132 rows
+  data/master/configurations.csv -> configurations: 84 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 2 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/electric_motor_types.csv -> electric_motor_types: 1 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 354 rows
+  data/master/source_models.csv -> source_models: 37 rows
+  data/master/source_versions.csv -> source_versions: 69 rows
+  data/master/sources.csv -> sources: 108 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 22 rows
+Database ready: /tmp/dkb-quality-3jctfnad/dacia_knowledge_base.sqlite
+
+==> Verify SQLite database
+SQLite verification: PASS
+Tables verified: 47
+Rows verified: 12777
+
+==> Check documentation baseline
+Documentation baseline blocks: PASS
+JSON baseline written to /tmp/dkb-quality-3jctfnad/documentation-baseline.json
+Markdown baseline written to /tmp/dkb-quality-3jctfnad/documentation-baseline.md
+Documentation baseline
+----------------------
+Tests                : 1915
+Master CSV files     : 47
+Master rows          : 12777
+Configuration values : 3690
+Import specs         : 139
+Value ranges         : 316
+Range import specs   : 24
+Availability records : 6499
+Attributes           : 387
+Attribute categories : 30
+SQLite tables        : 47 (verified)
+SQLite rows          : 12777 (verified)
+
+==> Generate configuration completeness report
+JSON completeness report written to /tmp/dkb-quality-3jctfnad/configuration-completeness.json
+Markdown completeness report written to /tmp/dkb-quality-3jctfnad/configuration-completeness.md
+Configuration data completeness
+-------------------------------
+As of                  : 2026-08-09
+Active configurations  : 7
+Technical coverage      : 95.24%
+Technical gaps          : 20
+Equipment coverage      : 99.59%
+Equipment gaps          : 2
+
+==> Generate source coverage report
+JSON source coverage report written to /tmp/dkb-quality-3jctfnad/source-coverage.json
+Markdown source coverage report written to /tmp/dkb-quality-3jctfnad/source-coverage.md
+Source coverage
+---------------
+As of                  : 2026-08-09
+Registered sources     : 7/7
+Missing sources        : 0
+Technical coverage     : 95.24%
+Technical record gaps  : 20
+Equipment coverage     : 99.59%
+Equipment record gaps  : 2
+Missing sections       : 0
+
+==> Generate configuration gap triage report
+JSON gap triage report written to /tmp/dkb-quality-3jctfnad/configuration-gap-triage.json
+Markdown gap triage report written to /tmp/dkb-quality-3jctfnad/configuration-gap-triage.md
+Configuration gap triage
+------------------------
+As of                    : 2026-08-09
+Total candidates         : 22
+Technical candidates     : 20
+Equipment candidates     : 2
+Source-registration gaps : 0
+Source verification      : 22
+Priority assignment       : disabled
+Automatic import          : disabled
+
+==> Verify configuration gap source page review
+ERROR: cannot extract page 3: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf
+
+Quality checks failed at: Verify configuration gap source page review (exit code 1)
