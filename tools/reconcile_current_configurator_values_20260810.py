@@ -7,12 +7,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VALUES = ROOT / "data/master/configuration_attribute_values.csv"
+CARGO_CONTEXTS = ROOT / "data/master/configuration_cargo_volume_contexts.csv"
 
 
 def read_rows() -> tuple[list[str], list[dict[str, str]]]:
     with VALUES.open(encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         return list(reader.fieldnames or []), list(reader)
+
+
+def read_contextual_value_codes() -> set[str]:
+    if not CARGO_CONTEXTS.is_file():
+        return set()
+    with CARGO_CONTEXTS.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        return {
+            (row.get("configuration_attribute_value_code") or "").strip()
+            for row in reader
+            if (row.get("configuration_attribute_value_code") or "").strip()
+        }
 
 
 def write_rows(fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -42,6 +55,7 @@ def load_baseline_codes(path: Path) -> set[str]:
 
 def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
     fields, rows = read_rows()
+    contextual_codes = read_contextual_value_codes()
     groups: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         groups[canonical_key(row)].append(row)
@@ -53,9 +67,20 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
         if len(same) <= 1:
             continue
 
-        imported = [
+        # Cargo-volume values with explicit measurement/seat/spare-wheel context
+        # are intentionally multi-valued. They are not canonical collisions and
+        # must be evaluated through configuration_cargo_volume_contexts.csv.
+        relevant = [
             row
             for row in same
+            if (row.get("code") or "").strip() not in contextual_codes
+        ]
+        if len(relevant) <= 1:
+            continue
+
+        imported = [
+            row
+            for row in relevant
             if (row.get("code") or "").strip() not in baseline_codes
         ]
 
@@ -67,14 +92,14 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
 
         prior = [
             row
-            for row in same
+            for row in relevant
             if (row.get("code") or "").strip() in baseline_codes
         ]
 
         # Stay deliberately narrow. A more complicated shape can represent a
         # real source conflict or an importer bug and must remain visible rather
         # than being guessed away automatically.
-        if len(imported) != 1 or len(prior) != 1 or len(same) != 2:
+        if len(imported) != 1 or len(prior) != 1 or len(relevant) != 2:
             raise SystemExit(
                 "Unsafe canonical collision introduced by current PDF import; "
                 "refusing automatic reconciliation: "
