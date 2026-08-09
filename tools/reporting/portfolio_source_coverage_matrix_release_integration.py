@@ -121,8 +121,8 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
     if not isinstance(summary, dict):
         raise ReleaseError("portfolio source coverage matrix summary is missing")
     expected = {
-        "provenance_source_count": 35,
-        "source_configuration_relationship_count": 284,
+        "provenance_source_count": 105,
+        "source_configuration_relationship_count": 354,
         "active_configuration_count": 84,
         "active_version_count": 22,
         "model_family_count": 6,
@@ -140,9 +140,9 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
             )
 
     sources = matrix.get("sources")
-    if not isinstance(sources, list) or len(sources) != 35:
+    if not isinstance(sources, list) or len(sources) != 105:
         raise ReleaseError(
-            "portfolio source coverage matrix must contain 35 source rows"
+            "portfolio source coverage matrix must contain 105 source rows"
         )
 
     source_codes: list[str] = []
@@ -241,7 +241,7 @@ def _copy_verified_source_outputs(repository: Path, payload: Path) -> None:
 
     if len(source_codes) != len(set(source_codes)):
         raise ReleaseError("portfolio source coverage matrix duplicates source codes")
-    if relationship_count != 284:
+    if relationship_count != 354:
         raise ReleaseError(
             "portfolio source coverage matrix relationship total differs"
         )

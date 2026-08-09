@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1912
+- Tests: 1915
 - Master CSV files: 47
-- Master rows: 12637
+- Master rows: 12777
 - Configuration values: 3690
 - Configuration import specifications: 139
 - Configuration value ranges: 316

@@ -107,8 +107,8 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
         "active_version_count": 22,
         "active_configuration_count": 84,
         "reporting_scope_count": 23,
-        "provenance_source_count": 35,
-        "source_configuration_relationship_count": 284,
+        "provenance_source_count": 105,
+        "source_configuration_relationship_count": 354,
         "configurations_without_provenance_count": 0,
         "configuration_pairs_generated": False,
         "cross_scope_pairs_generated": False,
@@ -171,7 +171,7 @@ def _copy_verified_version_outputs(repository: Path, payload: Path) -> None:
         raise ReleaseError(
             "portfolio model-version matrix must cover 84 configurations once"
         )
-    if relationship_count != 284:
+    if relationship_count != 354:
         raise ReleaseError(
             "portfolio model-version matrix relationship total differs"
         )
