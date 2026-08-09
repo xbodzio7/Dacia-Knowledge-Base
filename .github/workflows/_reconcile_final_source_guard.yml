@@ -20,26 +20,40 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Align final release guard
+      - name: Align final release guard and tests
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('tools/reporting/portfolio_source_coverage_matrix_release_integration.py')
-          text = path.read_text(encoding='utf-8')
+
           replacements = (
               ('"provenance_source_count": 34,', '"provenance_source_count": 35,'),
               ('"source_configuration_relationship_count": 269,', '"source_configuration_relationship_count": 284,'),
               ('not isinstance(sources, list) or len(sources) != 34', 'not isinstance(sources, list) or len(sources) != 35'),
               ('must contain 34 source rows', 'must contain 35 source rows'),
               ('if relationship_count != 269:', 'if relationship_count != 284:'),
+              ('m["source_rows"],34', 'm["source_rows"],35'),
+              ('m["source_rows"], 34', 'm["source_rows"], 35'),
+              ('["source_rows"], 34', '["source_rows"], 35'),
+              ('["source_rows"],34', '["source_rows"],35'),
           )
-          for old, new in replacements:
-              if old in text:
+
+          candidates = [Path('tools/reporting/portfolio_source_coverage_matrix_release_integration.py')]
+          candidates += list(Path('tests').rglob('*.py'))
+          changed = []
+          for path in candidates:
+              if not path.is_file():
+                  continue
+              text = path.read_text(encoding='utf-8')
+              original = text
+              for old, new in replacements:
                   text = text.replace(old, new)
-              elif new not in text:
-                  raise SystemExit(f'missing target: {old}')
-          path.write_text(text, encoding='utf-8')
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+          print('patched:', *changed, sep='\n- ')
+          if not changed:
+              raise SystemExit('no final source-coverage guards required patching')
           PY
       - name: Run full quality and finalize
         shell: bash
@@ -50,6 +64,6 @@ jobs:
           git rm -f .reconcile-quality.log 2>/dev/null || true
           git rm -f .github/workflows/_reconcile_sandero_full_modal_once.yml
           git rm -f .github/workflows/_reconcile_final_source_guard.yml
-          git add data/master data/reporting tools tests project
+          git add data/master data/reporting tools tests project .github/workflows
           git commit -m "data: reconcile Sandero full-modal canonical observations"
           git push origin HEAD
