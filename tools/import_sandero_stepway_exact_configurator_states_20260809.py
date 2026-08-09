@@ -320,7 +320,7 @@ def expected_counts() -> dict[str, int]:
         "commercial_items.csv": 50,
         "commercial_item_attributes.csv": 103,
         "commercial_item_configurations.csv": 322,
-        "configuration_attribute_values.csv": 3664,
+        "configuration_attribute_values.csv": 3690,
     }
 
 

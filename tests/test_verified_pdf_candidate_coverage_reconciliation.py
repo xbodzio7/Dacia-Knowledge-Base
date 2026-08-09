@@ -378,21 +378,37 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
         self.assertEqual(committed_markdown, reconciliation.render_markdown(committed_payload))
 
         differences = json_differences(committed_payload, self.payload)
-        self.assertEqual(len(differences), 2)
-        recognized = {
-            "configuration_attribute_availability": (5906, 5911),
-            "configuration_attribute_values": (3490, 3587),
+        expected_growth = {
+            ("candidates", "1161", "evidence_signatures", "0", "record_count"): (2, 9),
+            ("candidates", "1161", "evidence_signatures", "0", "records", "length"): (2, 9),
+            ("candidates", "1200", "evidence_signatures", "0", "record_count"): (2, 9),
+            ("candidates", "1200", "evidence_signatures", "0", "records", "length"): (2, 9),
+            ("candidates", "1211", "evidence_signatures", "0", "record_count"): (2, 9),
+            ("candidates", "1211", "evidence_signatures", "0", "records", "length"): (2, 9),
+            ("candidates", "1221", "evidence_signatures", "1", "record_count"): (3, 6),
+            ("candidates", "1221", "evidence_signatures", "1", "records", "length"): (3, 6),
+            ("candidates", "1399", "evidence_signatures", "0", "record_count"): (5, 13),
+            ("candidates", "1399", "evidence_signatures", "0", "records", "length"): (5, 13),
+            ("candidates", "1455", "evidence_signatures", "0", "record_count"): (5, 13),
+            ("candidates", "1455", "evidence_signatures", "0", "records", "length"): (5, 13),
+            ("candidates", "1468", "evidence_signatures", "0", "record_count"): (5, 13),
+            ("candidates", "1468", "evidence_signatures", "0", "records", "length"): (5, 13),
+            ("candidates", "1478", "evidence_signatures", "0", "record_count"): (6, 12),
+            ("candidates", "1478", "evidence_signatures", "0", "records", "length"): (6, 12),
+            ("summary", "active_evidence_record_counts", "configuration_attribute_availability"): (5906, 6499),
+            ("summary", "active_evidence_record_counts", "configuration_attribute_values"): (3490, 3613),
         }
-        current_with_historical_counts = copy.deepcopy(self.payload)
-        seen: set[str] = set()
-        for path, committed_value, current_value in differences:
-            joined = ".".join(path)
-            matched = next((name for name in recognized if name in joined), None)
-            self.assertIsNotNone(matched, joined)
-            assert matched is not None
-            self.assertEqual((committed_value, current_value), recognized[matched])
-            seen.add(matched)
-            target: Any = current_with_historical_counts
+        self.assertEqual(len(differences), len(expected_growth))
+        self.assertEqual(
+            {path: (committed, current) for path, committed, current in differences},
+            expected_growth,
+        )
+
+        # The committed artifact remains a dated review snapshot. Normalize only the
+        # explicitly audited later-evidence growth and verify that nothing else changed.
+        current_at_review_boundary = copy.deepcopy(self.payload)
+        for path, committed_value, _current_value in differences:
+            target: Any = current_at_review_boundary
             for key in path[:-1]:
                 target = target[int(key)] if isinstance(target, list) else target[key]
             final_key = path[-1]
@@ -400,8 +416,7 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
                 target[int(final_key)] = committed_value
             else:
                 target[final_key] = committed_value
-        self.assertEqual(seen, set(recognized))
-        self.assertEqual(current_with_historical_counts, committed_payload)
+        self.assertEqual(current_at_review_boundary, committed_payload)
         self.assertEqual(self.markdown, reconciliation.render_markdown(self.payload))
 
         encoded = reconciliation.canonical_json(self.payload)

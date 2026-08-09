@@ -174,7 +174,7 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
             self.assertEqual(summary["reporting_scope_count"], 23)
             self.assertEqual(
                 summary["source_configuration_relationship_count"],
-                269,
+                284,
             )
             self.assertEqual(
                 summary["configurations_without_provenance_count"],

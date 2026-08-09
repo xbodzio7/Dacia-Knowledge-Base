@@ -145,7 +145,7 @@ def run_version_matrix_checks(testcase: Any, repository: Path) -> None:
         set(configuration_codes),
         {row["code"] for row in active_configurations},
     )
-    testcase.assertEqual(relation_total, 269)
+    testcase.assertEqual(relation_total, 284)
 
     anchors = {record["version_code"]: record for record in records}
     testcase.assertEqual(

@@ -171,7 +171,7 @@ class SanderoStepwayExactDesignFactoryOptionNormalizationTests(unittest.TestCase
         self.assertEqual(len(self.items), 50)
         self.assertEqual(len(self.item_attributes), 103)
         self.assertEqual(len(self.mappings), 322)
-        self.assertEqual(len(self.values), 3664)
+        self.assertEqual(len(self.values), 3690)
 
 
 if __name__ == "__main__":
