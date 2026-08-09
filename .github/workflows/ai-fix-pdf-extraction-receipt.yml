@@ -1,0 +1,120 @@
+name: AI fix PDF extraction with hash-bound receipts
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-fix-pdf-extraction-receipt.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Generate only needed extraction receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --quiet pypdf
+          python - <<'PY'
+          import csv,hashlib,json,re,subprocess,unicodedata
+          from pathlib import Path
+          from pypdf import PdfReader
+
+          root=Path.cwd(); master=root/'data/master'
+          def compact(text):
+            t=text.translate(str.maketrans({'ł':'l','Ł':'L'})); d=unicodedata.normalize('NFKD',t)
+            return ''.join(c for c in d.casefold() if c.isalnum() and not unicodedata.combining(c))
+          def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+          with (master/'sources.csv').open(encoding='utf-8-sig',newline='') as f:
+            sources={r['code']:r for r in csv.DictReader(f)}
+          pairs=set()
+          note_re=re.compile(r'^Source page ([1-9][0-9]*)')
+          for name in ('configuration_attribute_values.csv','configuration_attribute_availability.csv','configuration_prices.csv'):
+            with (master/name).open(encoding='utf-8-sig',newline='') as f:
+              for r in csv.DictReader(f):
+                m=note_re.match(r.get('notes','').strip())
+                sc=r.get('source_code','')
+                if m and sc in sources and sources[sc].get('file_path','').lower().endswith('.pdf'):
+                  pairs.add((sc,int(m.group(1))))
+          receipts=[]
+          for sc,page in sorted(pairs):
+            src=sources[sc]; path=root/src['file_path']
+            if not path.is_file(): continue
+            cp=subprocess.run(['pdftotext','-f',str(page),'-l',str(page),'-layout',str(path),'-'],capture_output=True)
+            live=cp.stdout.decode('utf-8',errors='replace') if cp.returncode==0 else ''
+            if compact(live): continue
+            reader=PdfReader(str(path))
+            if len(reader.pages)<page: continue
+            text=reader.pages[page-1].extract_text() or ''
+            if not compact(text): continue
+            receipts.append({
+              'source_code':sc,
+              'file_path':src['file_path'],
+              'file_sha256':sha(path),
+              'page':page,
+              'text_sha256':hashlib.sha256(text.encode('utf-8')).hexdigest(),
+              'text':text,
+              'reason':'Live Poppler text extraction returned no usable text; receipt generated once with pypdf and bound to the exact source binary SHA-256.',
+            })
+          payload={'version':1,'kind':'pdf_page_text_extraction_receipts','generated_date':'2026-08-09','entries':receipts}
+          out=root/'project/sources/pdf-page-text-extraction-receipts-20260809.json'
+          out.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('receipt_entries=',len(receipts))
+          for r in receipts: print(r['source_code'],r['page'],len(r['text']))
+          if not receipts: raise SystemExit('expected at least one needed receipt')
+          PY
+      - name: Patch generic extractor to use receipts only after live backends fail
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/import_configuration_values.py')
+          text=p.read_text(encoding='utf-8')
+          marker='''def extract_page_candidates(path: Path, page: int) -> list[tuple[str, str]]:\n    \"\"\"Extract one PDF page through available deterministic text backends.\"\"\"\n'''
+          helper='''def _receipt_page_candidate(path: Path, page: int) -> tuple[str, str] | None:\n    \"\"\"Return a hash-bound extraction receipt when live PDF backends yield no text.\"\"\"\n    repository = Path(__file__).resolve().parents[1]\n    receipt_path = (\n        repository\n        / \"project\"\n        / \"sources\"\n        / \"pdf-page-text-extraction-receipts-20260809.json\"\n    )\n    if not receipt_path.is_file():\n        return None\n    try:\n        payload = json.loads(receipt_path.read_text(encoding=\"utf-8\"))\n    except (OSError, json.JSONDecodeError):\n        return None\n    try:\n        relative = path.resolve().relative_to(repository.resolve()).as_posix()\n    except ValueError:\n        return None\n    actual_sha: str | None = None\n    for entry in payload.get(\"entries\", []):\n        if not isinstance(entry, Mapping):\n            continue\n        if entry.get(\"file_path\") != relative or entry.get(\"page\") != page:\n            continue\n        expected_sha = entry.get(\"file_sha256\")\n        text = entry.get(\"text\")\n        text_sha = entry.get(\"text_sha256\")\n        if not isinstance(expected_sha, str) or not isinstance(text, str):\n            continue\n        if not isinstance(text_sha, str):\n            continue\n        if actual_sha is None:\n            actual_sha = _file_sha256(path)\n        _ensure(\n            actual_sha == expected_sha,\n            f\"PDF extraction receipt source SHA-256 differs: {path}\",\n        )\n        _ensure(\n            hashlib.sha256(text.encode(\"utf-8\")).hexdigest() == text_sha,\n            f\"PDF extraction receipt text SHA-256 differs: {path} page {page}\",\n        )\n        if _compact_text(text):\n            return \"hash-bound-receipt\", text\n    return None\n\n\n'''+marker
+          if helper in text:
+            pass
+          elif text.count(marker)==1:
+            text=text.replace(marker,helper)
+          else:
+            raise SystemExit('extract_page_candidates marker not found exactly once')
+          old='''    unique: list[tuple[str, str]] = []\n    signatures: set[str] = set()\n'''
+          new='''    if not candidates:\n        receipt = _receipt_page_candidate(path, page)\n        if receipt is not None:\n            candidates.append(receipt)\n\n    unique: list[tuple[str, str]] = []\n    signatures: set[str] = set()\n'''
+          if new in text:
+            pass
+          elif text.count(old)==1:
+            text=text.replace(old,new)
+          else:
+            raise SystemExit('candidate dedupe marker not found exactly once')
+          p.write_text(text,encoding='utf-8')
+          PY
+      - name: Verify fix without pypdf installed
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip uninstall --yes pypdf
+          python tools/dkb.py configuration-gap-source-review --verify --json /tmp/gap.json --markdown /tmp/gap.md
+          python -m unittest -q tests.test_import_configuration_values
+      - name: Commit fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/import_configuration_values.py project/sources/pdf-page-text-extraction-receipts-20260809.json
+          git commit -m "fix(source): add hash-bound PDF text receipt fallback"
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
