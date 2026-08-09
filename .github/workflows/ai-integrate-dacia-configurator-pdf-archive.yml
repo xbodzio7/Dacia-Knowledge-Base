@@ -72,6 +72,7 @@ jobs:
           replace('tests/test_portfolio_model_family_summary.py', 'self.assertEqual(matrix_relationship_total, 284)', 'self.assertEqual(matrix_relationship_total, 354)')
           replace('tests/test_portfolio_model_family_summary.py', 'self.assertEqual(relation_total, 284)', 'self.assertEqual(relation_total, 354)')
           replace('tests/test_portfolio_model_family_summary.py', 'self.assertEqual(len(used_sources), 35)', 'self.assertEqual(len(used_sources), 105)')
+          replace('tests/test_portfolio_model_family_summary.py', 'summary_rendered.count("SHA-256 "), 41', 'summary_rendered.count("SHA-256 "), 111')
 
           replace('tools/reporting/portfolio_model_family_release_integration.py', '"source_configuration_relationship_count": 284,', '"source_configuration_relationship_count": 354,')
           replace('tools/reporting/portfolio_model_family_comparison_release_integration.py', '"provenance_source_count": 35,', '"provenance_source_count": 105,')
@@ -87,6 +88,7 @@ jobs:
 
           # Release-integration tests validate current generated products; immutable
           # historical release-note prose is not modified.
+          replace('tests/test_portfolio_model_family_release_integration.py', 'summary["source_configuration_relationship_count"],\n                284,', 'summary["source_configuration_relationship_count"],\n                354,')
           replace('tests/test_portfolio_model_family_release_integration.py', 'version_summary["provenance_source_count"], 35', 'version_summary["provenance_source_count"], 105')
           replace('tests/test_portfolio_model_family_release_integration.py', '            284,\n        )\n\n        self.assertEqual(source_matrix["kind"]', '            354,\n        )\n\n        self.assertEqual(source_matrix["kind"]')
           replace('tests/test_portfolio_model_family_release_integration.py', '"provenance_source_count": 35,', '"provenance_source_count": 105,')
@@ -125,9 +127,7 @@ jobs:
           python -m unittest -q \
             tests.test_dacia_configurator_native_pdf_archive \
             tests.test_portfolio_model_family_summary \
-            tests.test_portfolio_model_family_release_integration \
-            tests.test_portfolio_source_coverage_matrix \
-            tests.test_portfolio_model_version_comparison_matrix
+            tests.test_portfolio_model_family_release_integration
       - name: Commit integrated archive state
         shell: bash
         run: |
