@@ -7,8 +7,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VALUES = ROOT / "data/master/configuration_attribute_values.csv"
-IMPORT_DATE = "2026-08-09"
-IMPORT_CODE_MARKER = "20260809"
 
 
 def read_rows() -> tuple[list[str], list[dict[str, str]]]:
@@ -33,14 +31,11 @@ def canonical_key(row: dict[str, str]) -> tuple[str, str, str, str]:
     )
 
 
-def is_current_import(row: dict[str, str]) -> bool:
-    return (
-        (row.get("observation_date") or "").strip() == IMPORT_DATE
-        and IMPORT_CODE_MARKER in (row.get("code") or "")
-    )
+def row_id(row: dict[str, str]) -> int:
+    return int((row.get("id") or "0").strip())
 
 
-def reconcile(apply: bool = False) -> int:
+def reconcile(baseline_max_id: int, apply: bool = False) -> int:
     fields, rows = read_rows()
     groups: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in rows:
@@ -53,26 +48,35 @@ def reconcile(apply: bool = False) -> int:
         if len(same) <= 1:
             continue
 
-        imported = [row for row in same if is_current_import(row)]
-        prior = [row for row in same if not is_current_import(row)]
+        imported = [row for row in same if row_id(row) > baseline_max_id]
+        prior = [row for row in same if row_id(row) <= baseline_max_id]
 
-        # This tool is intentionally narrow: it only resolves a collision between
-        # one pre-existing canonical current value and one value imported from the
-        # saved 2026-08-09 configurator PDFs. Any other shape remains an error.
+        # Resolve only collisions introduced by this exact import run. The
+        # baseline ID is captured before either importer executes, so rows from
+        # earlier Sandero/Stepway work on the same observation date cannot be
+        # mistaken for newly inserted rows.
         if len(imported) != 1 or len(prior) != 1 or len(same) != 2:
             raise SystemExit(
                 "Unsafe canonical collision; refusing automatic reconciliation: "
-                f"key={key!r}, rows={[row.get('id') for row in same]!r}"
+                f"key={key!r}, baseline_max_id={baseline_max_id}, "
+                f"rows={[row.get('id') for row in same]!r}"
             )
 
         current = imported[0]
         existing = prior[0]
 
-        # Preserve the stable row identity/code in case anything refers to it,
-        # while replacing the current value and its provenance with the newer,
-        # explicit saved-configurator observation.
+        # Preserve stable identity/code in case another table refers to the
+        # canonical row, but supersede its current value and provenance with the
+        # newer explicit saved-configurator observation.
         for field in fields:
-            if field in {"id", "code", "configuration_code", "attribute_code", "fuel_type_code", "gear_number"}:
+            if field in {
+                "id",
+                "code",
+                "configuration_code",
+                "attribute_code",
+                "fuel_type_code",
+                "gear_number",
+            }:
                 continue
             existing[field] = current.get(field, "")
 
@@ -95,9 +99,10 @@ def reconcile(apply: bool = False) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--baseline-max-id", required=True, type=int)
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
-    reconcile(apply=args.apply)
+    reconcile(baseline_max_id=args.baseline_max_id, apply=args.apply)
     return 0
 
 
