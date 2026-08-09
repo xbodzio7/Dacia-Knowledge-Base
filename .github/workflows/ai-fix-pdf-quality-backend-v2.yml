@@ -1,0 +1,51 @@
+name: AI fix PDF quality backend v2
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-fix-pdf-quality-backend-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Patch and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/quality.yml')
+          text=p.read_text(encoding='utf-8')
+          old='''      - name: Install PDF text extraction backend\n        if: matrix.python-version == '3.14'\n        run: |\n          if ! command -v pdftotext >/dev/null 2>&1; then\n            sudo apt-get update\n            sudo apt-get install --yes --no-install-recommends poppler-utils\n          fi\n          pdftotext -v\n'''
+          new='''      - name: Install PDF text extraction backends\n        if: matrix.python-version == '3.14'\n        run: |\n          if ! command -v pdftotext >/dev/null 2>&1; then\n            sudo apt-get update\n            sudo apt-get install --yes --no-install-recommends poppler-utils\n          fi\n          python -m pip install --disable-pip-version-check --quiet pypdf\n          pdftotext -v\n          python -c "import pypdf; print(f'pypdf {pypdf.__version__}')"\n'''
+          if old in text:
+              text=text.replace(old,new)
+          elif new not in text:
+              raise SystemExit('PDF backend block not found')
+          p.write_text(text,encoding='utf-8')
+          PY
+          python -m pip install --disable-pip-version-check --quiet pypdf
+          python tools/dkb.py configuration-gap-source-review --verify --json /tmp/gap.json --markdown /tmp/gap.md
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/quality.yml
+          if ! git diff --cached --quiet; then git commit -m "fix(quality): install deterministic PDF fallback backend"; fi
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
