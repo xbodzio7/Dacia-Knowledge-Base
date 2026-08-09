@@ -1,0 +1,225 @@
+name: AI analyze current configurator PDF gaps
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-analyze-current-configurator-pdf-gaps.yml
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Build PDF gap analysis
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, json, re, unicodedata
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path.cwd()
+          master = root / 'data/master'
+          ledger = json.loads((root / 'project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json').read_text(encoding='utf-8'))
+
+          def rows(name):
+              with (master / name).open(encoding='utf-8-sig', newline='') as f:
+                  return list(csv.DictReader(f))
+
+          def norm(text):
+              text = unicodedata.normalize('NFKC', text or '').replace('\u00a0', ' ')
+              return re.sub(r'\s+', ' ', text.strip().casefold())
+
+          def value_norm(text):
+              t = norm(text).replace(',', '.')
+              t = re.sub(r'\s+', ' ', t)
+              return t
+
+          def note_literals(note):
+              out = []
+              if not note:
+                  return out
+              patterns = [
+                  r'(?:literal|source text|source row|source wording|original wording|exact wording|equipment):\s*(.+)$',
+                  r':\s*(.+)$',
+              ]
+              for p in patterns:
+                  m = re.search(p, note, re.I)
+                  if m:
+                      candidate = m.group(1).strip()
+                      if candidate:
+                          out.append(candidate)
+              return out
+
+          values = rows('configuration_attribute_values.csv')
+          availability = rows('configuration_attribute_availability.csv')
+          prices = rows('configuration_prices.csv')
+          attrs = {r['code']: r for r in rows('attributes.csv')}
+
+          value_by_config = defaultdict(list)
+          for r in values:
+              value_by_config[r['configuration_code']].append(r)
+          price_by_config = defaultdict(list)
+          for r in prices:
+              price_by_config[r['configuration_code']].append(r)
+
+          literal_pairs = defaultdict(set)
+          literal_examples = defaultdict(list)
+          for r in availability:
+              if r.get('availability_status') != 'standard':
+                  continue
+              for lit in note_literals(r.get('notes','')):
+                  n = norm(lit)
+                  if len(n) < 5:
+                      continue
+                  literal_pairs[n].add(r['attribute_code'])
+                  if len(literal_examples[n]) < 3:
+                      literal_examples[n].append({'attribute_code': r['attribute_code'], 'notes': r.get('notes','')})
+          literal_map = {k: next(iter(v)) for k,v in literal_pairs.items() if len(v) == 1}
+
+          technical_lines = Counter()
+          technical_line_context = defaultdict(lambda: {'families': set(), 'configs': set(), 'pages': set()})
+          equipment_matches = defaultdict(lambda: {'configs': set(), 'families': set(), 'occurrences': 0})
+          equipment_unmatched_lines = Counter()
+          docs_out = []
+
+          footer_needles = ('powróć do swojej konfiguracji','konfiguracja modelu','znajdź swoją spersonalizowaną konfigurację','na stronie internetowej','w salonie:','skanując kod qr')
+          heading_exact = {
+              'dane techniczne','wyposażenie seryjne','wygląd','multimedia','komfort i wnętrze','widoczność i oświetlenie',
+              'prowadzenie pojazdu','ogrzewanie i wentylacja','bezpieczeństwo','elementy personalizacji zewnętrznej',
+              'silnik','wymiary','skrzynia biegów','aerodynamika','osiągi','układ napędowy','typ nadwozia','układ kierowniczy',
+              'koła i opony','dopuszczalna masa całkowita','zużycie paliwa i emisja spalin wltp','pojemność zbiornika paliwa (l)',
+              'pojemność bagażnika (dm3 vda)','typ techniczny','ładowanie','akumulator','zasięg','zużycie energii'
+          }
+
+          for doc in ledger['documents']:
+              config = doc['configuration_code']
+              family = doc['family']
+              alltext = '\n'.join(p['text'] for p in doc['pages_ledger'])
+              summary_text = '\n'.join(p['text'] for p in doc['pages_ledger'] if 1 <= p['page'] <= 2)
+              price_match = re.search(r'Cena wybranej konfiguracji\s*\n\s*([0-9 ]+)\s*zł', summary_text, re.I)
+              selected_price = re.sub(r'\s+','',price_match.group(1)) if price_match else ''
+              selections = {}
+              lines = [x.strip() for x in summary_text.splitlines() if x.strip()]
+              for label in ('Kolor','Felgi','Tapicerka'):
+                  try:
+                      i = lines.index(label)
+                  except ValueError:
+                      continue
+                  if i+1 < len(lines):
+                      selections[label.casefold()] = lines[i+1]
+
+              technical_doc_lines = []
+              for p in doc['pages_ledger']:
+                  if 'technical' not in p.get('sections',[]):
+                      continue
+                  for raw in p['text'].splitlines():
+                      line = raw.strip()
+                      n = norm(line)
+                      if not line or n in heading_exact or any(k in n for k in footer_needles):
+                          continue
+                      if line.isdigit() and int(line) == p['page']:
+                          continue
+                      technical_lines[line] += 1
+                      technical_doc_lines.append({'page': p['page'], 'line': line})
+                      ctx = technical_line_context[line]
+                      ctx['families'].add(family); ctx['configs'].add(config); ctx['pages'].add(p['page'])
+
+              standard_pages = [p for p in doc['pages_ledger'] if 'standard_equipment' in p.get('sections',[])]
+              standard_text_norm = norm('\n'.join(p['text'] for p in standard_pages))
+              matched_attrs = []
+              for lit, attr in literal_map.items():
+                  if lit in standard_text_norm:
+                      key = (lit, attr)
+                      equipment_matches[key]['configs'].add(config)
+                      equipment_matches[key]['families'].add(family)
+                      equipment_matches[key]['occurrences'] += 1
+                      matched_attrs.append(attr)
+
+              for p in standard_pages:
+                  for raw in p['text'].splitlines():
+                      line = raw.strip(); n = norm(line)
+                      if not line or n in heading_exact or any(k in n for k in footer_needles):
+                          continue
+                      if line.isdigit() and int(line) == p['page']:
+                          continue
+                      if len(n) >= 5 and not any(lit in n or n in lit for lit in literal_map):
+                          equipment_unmatched_lines[line] += 1
+
+              docs_out.append({
+                  'configuration_code': config,
+                  'family': family,
+                  'source_code': doc['source_code'],
+                  'selected_price_pln': selected_price,
+                  'selected_design': selections,
+                  'existing_value_rows': len(value_by_config[config]),
+                  'existing_price_rows': len(price_by_config[config]),
+                  'matched_standard_attributes': sorted(set(matched_attrs)),
+                  'technical_lines': technical_doc_lines,
+              })
+
+          report = {
+              'kind': 'dacia_current_configurator_pdf_gap_analysis',
+              'observed_date': '2026-08-09',
+              'source_ledger': 'project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json',
+              'summary': {
+                  'documents': len(docs_out),
+                  'pages': ledger['summary']['pages'],
+                  'distinct_technical_lines': len(technical_lines),
+                  'unique_positive_standard_literal_mappings': len(literal_map),
+                  'matched_standard_literal_attribute_pairs': len(equipment_matches),
+                  'unmatched_standard_lines': len(equipment_unmatched_lines),
+              },
+              'documents': docs_out,
+              'technical_lines': [
+                  {
+                      'line': line,
+                      'occurrences': count,
+                      'families': sorted(technical_line_context[line]['families']),
+                      'configuration_count': len(technical_line_context[line]['configs']),
+                      'pages': sorted(technical_line_context[line]['pages']),
+                  }
+                  for line, count in technical_lines.most_common()
+              ],
+              'positive_standard_literal_matches': [
+                  {
+                      'literal': lit,
+                      'attribute_code': attr,
+                      'occurrences': meta['occurrences'],
+                      'configuration_count': len(meta['configs']),
+                      'families': sorted(meta['families']),
+                  }
+                  for (lit, attr), meta in sorted(equipment_matches.items())
+              ],
+              'unmatched_standard_lines': [
+                  {'line': line, 'occurrences': count}
+                  for line, count in equipment_unmatched_lines.most_common()
+              ],
+          }
+          out = root / 'data/reporting/dacia_configurator_pdf_gap_analysis_20260809.json'
+          out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
+          PY
+      - name: Commit analysis
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reporting/dacia_configurator_pdf_gap_analysis_20260809.json
+          git commit -m "data(reporting): analyze current configurator PDF gaps"
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
