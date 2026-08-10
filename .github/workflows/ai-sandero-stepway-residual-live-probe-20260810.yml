@@ -18,13 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Recompute conservative full-modal plan without writing data
-        run: |
-          python - <<'PY'
-          import json
-          from tools.import_sandero_stepway_full_modal_reconciliation_20260809 import build
-          _tables, report = build()
-          print('LIVE_SUMMARY=' + json.dumps(report['summary'], ensure_ascii=False, sort_keys=True))
-          PY
-      - name: Classify the complete live residual
-        run: python tools/review_sandero_stepway_full_modal_residual_20260810.py
+      - name: Recompute live conservative boundary
+        run: python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py
+      - name: Verify residual review report
+        run: python -m unittest tests.test_sandero_stepway_full_modal_residual_review_20260810 -v
