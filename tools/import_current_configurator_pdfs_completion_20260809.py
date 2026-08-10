@@ -332,7 +332,9 @@ def build(apply=False):
           ("wysoka konsola środkowa z chłodzonym podłokietnik","high console with cooled armrest"),
           ("panel centralny z otwartym schowkiem bez podłokietnika","open storage without armrest"),
         ]:
-            if pat in st: add_value(config,"centre_console_variant",val,source,3,pat)
+            if pat in st:
+                add_value(config,"centre_console_variant",val,source,3,pat)
+                break
         if "wysoka konsola środkowa z chłodzonym podłokietnik" in st: add_standard(config,"cooled_centre_armrest",source,"wysoka konsola środkowa z chłodzonym podłokietnik")
         if "szyby tylne otwierane ręcznie" in st or "tylne szyby opuszczane ręcznie" in st: add_value(config,"rear_windows_power","false",source,3,"rear windows manually operated")
         if "ręcznie sterowane lusterka" in st or "lusterka boczne regulowane ręcznie" in st: add_value(config,"side_mirrors_electric_adjustment","false",source,3,"side mirrors manually adjusted")
