@@ -109,7 +109,7 @@ jobs:
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
           python tools/reconcile_current_configurator_values_20260810.py --baseline-codes-file "$baseline" --apply
 
-      - name: Refresh deterministic dependent reports
+      - name: Refresh deterministic dependent reports and documentation
         shell: bash
         run: |
           set -euo pipefail
@@ -135,6 +135,7 @@ jobs:
             --json data/reporting/portfolio_model_version_comparison_matrix.json \
             --csv data/reporting/portfolio_model_version_comparison_matrix.csv \
             --html data/reporting/portfolio_model_version_comparison_matrix.html
+          python tools/dkb.py documentation-baseline --apply
           git diff --check
 
       - name: Run full quality gate
@@ -170,7 +171,8 @@ jobs:
                   data/reporting/portfolio_model_version_comparison_matrix.csv \
                   data/reporting/portfolio_model_version_comparison_matrix.html \
                   data/reporting/dkb-quality-current-configurator-20260809.txt \
-                  data/reporting/dkb-quality-current-configurator-20260809.json
+                  data/reporting/dkb-quality-current-configurator-20260809.json \
+                  CHANGELOG.md README.md project/SESSION_STATE.md
           if git diff --cached --quiet; then
             echo "No data changes to commit"
             exit 0
