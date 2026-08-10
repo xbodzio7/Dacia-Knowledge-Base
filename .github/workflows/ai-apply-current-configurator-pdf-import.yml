@@ -1,5 +1,5 @@
 name: AI apply current configurator PDF import
-# Trigger after verified regression-closure commit 72cb327.
+# Full import gate: refresh all deterministic reports affected by current observations.
 
 on:
   push:
@@ -107,6 +107,34 @@ jobs:
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply
           python tools/reconcile_current_configurator_values_20260810.py --baseline-codes-file "$baseline" --apply
 
+      - name: Refresh deterministic dependent reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from tools import existing_configuration_missing_data_analysis as analysis
+          payload = analysis.collect(analysis.ROOT)
+          analysis.write_json(analysis.OUT_JSON, payload)
+          analysis.OUT_MD.write_text(analysis.render_markdown(payload), encoding='utf-8')
+          print(
+              'Missing technical slots:',
+              payload['summary']['missing_technical_count'],
+          )
+          PY
+          python tools/portfolio_model_family_summary.py \
+            --json data/reporting/portfolio_model_family_summary.json \
+            --markdown data/reporting/portfolio_model_family_summary.md \
+            --html data/reporting/portfolio_model_family_summary.html
+          python tools/portfolio_model_family_comparison_matrix.py \
+            --json data/reporting/portfolio_model_family_comparison_matrix.json \
+            --csv data/reporting/portfolio_model_family_comparison_matrix.csv \
+            --html data/reporting/portfolio_model_family_comparison_matrix.html
+          python tools/portfolio_model_version_comparison_matrix.py \
+            --json data/reporting/portfolio_model_version_comparison_matrix.json \
+            --csv data/reporting/portfolio_model_version_comparison_matrix.csv \
+            --html data/reporting/portfolio_model_version_comparison_matrix.html
+          git diff --check
+
       - name: Run full quality gate
         shell: bash
         run: |
@@ -119,7 +147,7 @@ jobs:
           cp "${RUNNER_TEMP}/quality.log" data/reporting/dkb-quality-current-configurator-20260809.txt
           cp "${RUNNER_TEMP}/quality-summary.json" data/reporting/dkb-quality-current-configurator-20260809.json
 
-      - name: Commit quality-gated data
+      - name: Commit quality-gated data and dependent reports
         shell: bash
         run: |
           set -euo pipefail
@@ -128,12 +156,24 @@ jobs:
           git add data/master \
                   data/reporting/dacia_configurator_pdf_canonical_import_20260809.json \
                   data/reporting/dacia_configurator_pdf_completion_import_20260809.json \
+                  data/reporting/existing_configuration_missing_data_analysis.json \
+                  data/reporting/existing_configuration_missing_data_analysis.md \
+                  data/reporting/portfolio_model_family_summary.json \
+                  data/reporting/portfolio_model_family_summary.md \
+                  data/reporting/portfolio_model_family_summary.html \
+                  data/reporting/portfolio_model_family_comparison_matrix.json \
+                  data/reporting/portfolio_model_family_comparison_matrix.csv \
+                  data/reporting/portfolio_model_family_comparison_matrix.html \
+                  data/reporting/portfolio_model_version_comparison_matrix.json \
+                  data/reporting/portfolio_model_version_comparison_matrix.csv \
+                  data/reporting/portfolio_model_version_comparison_matrix.html \
                   data/reporting/dkb-quality-current-configurator-20260809.txt \
                   data/reporting/dkb-quality-current-configurator-20260809.json
           if git diff --cached --quiet; then
             echo "No data changes to commit"
             exit 0
           fi
+          git diff --cached --check
           git commit -m "data(configurator): assimilate current Dacia PDF portfolio"
           git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
