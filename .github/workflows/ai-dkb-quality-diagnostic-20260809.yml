@@ -21,7 +21,9 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.14'
+      - name: Install deterministic PDF fallback backend
+        run: python -m pip install --disable-pip-version-check --quiet pypdf
       - name: Run quality and persist compact diagnostic
         shell: bash
         run: |
@@ -40,6 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add project/diagnostics/dkb-quality-20260809.txt
-          git commit -m "chore(diagnostic): capture DKB quality failure" || true
+          git commit -m "chore(diagnostic): capture DKB quality result" || true
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
           exit 0
