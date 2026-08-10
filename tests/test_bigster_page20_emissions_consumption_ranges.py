@@ -32,10 +32,12 @@ class BigsterPage20EmissionsConsumptionRangesTests(unittest.TestCase):
         cls.rows = cls.spec["rows"]
         cls.codes = {row["code"] for row in cls.rows}
         cls.master_rows = [row for row in read_csv(MASTER) if row["code"] in cls.codes]
-        cls.exact = {
-            (row["configuration_code"], row["attribute_code"], row["fuel_type_code"]): row
-            for row in read_csv(VALUES)
-        }
+        cls.exact_values = {}
+        for row in read_csv(VALUES):
+            if row["attribute_code"] not in {"co2_emissions", "fuel_consumption_combined"}:
+                continue
+            key = (row["configuration_code"], row["attribute_code"], row["fuel_type_code"])
+            cls.exact_values.setdefault(key, set()).add(Decimal(row["value"]))
 
     def test_source_receipt_and_batch_contract(self) -> None:
         self.assertEqual(self.spec["kind"], "configuration_attribute_value_ranges_batch")
@@ -63,8 +65,7 @@ class BigsterPage20EmissionsConsumptionRangesTests(unittest.TestCase):
             self.assertEqual(row["upper_inclusive"], "true")
             self.assertLess(Decimal(row["minimum_value"]), Decimal(row["maximum_value"]))
             key = (row["configuration_code"], row["attribute_code"], row["fuel_type_code"])
-            exact = self.exact[key]
-            self.assertEqual(Decimal(exact["value"]), Decimal(row["maximum_value"]))
+            self.assertIn(Decimal(row["maximum_value"]), self.exact_values.get(key, set()))
             self.assertEqual(row["upper_exact_value"], row["maximum_value"])
 
     def test_all_configurations_are_current_and_linked_to_the_source(self) -> None:

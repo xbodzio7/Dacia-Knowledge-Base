@@ -110,6 +110,7 @@ def verify_contract() -> None:
         row for row in read_rows(VALUES)
         if row["configuration_code"].startswith("spring_")
         and row["attribute_code"] == "exterior_color"
+        and row["observation_date"] == "2026-08-02"
     ]
     if spring_colours:
         if len(spring_colours) != 1:

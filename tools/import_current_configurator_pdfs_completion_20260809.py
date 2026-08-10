@@ -289,7 +289,7 @@ def build(apply=False):
                 if m:
                     v=m.group(1); add_value(config,"overall_height_source_stated",v,source,page,raw)
                     nums=re.findall(r"\d+",v)
-                    if family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"overall_height",nums[0] if family=="jogger_5" else nums[1],source,page,raw)
+                    if family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"overall_height",nums[0] if family=="jogger_5" else (nums[2] if len(nums)>=4 and nums[1]=="5" and nums[3]=="7" else nums[1]),source,page,raw)
                     elif len(nums)==1: add_value(config,"overall_height",nums[0],source,page,raw)
                     continue
                 m=re.match(r"Prześwit pojazdu\s+([0-9.,]+)\s*/\s*([0-9.,]+).*obciążon.*nieobciążon",s,re.I)

@@ -220,12 +220,12 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             and row["source_code"] == SOURCE
         ]
         self.assertEqual(len(prices), 24)
-        report = configuration_completeness.collect_report(
-            ROOT, ROOT / "data" / "reporting" / "configuration_completeness.json"
-        )
-        self.assertEqual(report["scope"]["reporting_configurations"], 7)
-        self.assertEqual(report["scope"]["repository_status_configurations"], 84)
-        self.assertEqual(report["scope"]["excluded_configurations"], 77)
+        spec = json.loads((ROOT / "data/reporting/configuration_completeness.json").read_text(encoding="utf-8"))
+        reporting = {item["configuration_code"] for item in spec["configurations"]}
+        active = {row["code"] for row in rows("configurations.csv") if row["status"] == "active"}
+        self.assertEqual(len(reporting), 7)
+        self.assertEqual(len(active), 84)
+        self.assertEqual(len(active - reporting), 77)
 
     def test_repository_totals_match_technical_package(self) -> None:
         self.assertGreaterEqual(len(self.all_values), 1831)

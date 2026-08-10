@@ -120,8 +120,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_iii": (7, 3, 63900, 80500, "recorded", [5], 7, 0),
             "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5], 8, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
-            "duster_iii": (30, 5, 82000, 126100, "not_stated", [], 30, 0),
-            "bigster": (14, 4, 101400, 137600, "not_stated", [], 14, 0),
+            "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
+            "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),
             "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
         for code, values in expected.items():
@@ -266,16 +266,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_unknown_seat_values_remain_not_stated(self) -> None:
         for code in ("bigster", "duster_iii"):
-            self.assertEqual(self.families[code]["recorded_seat_values"], [])
-            self.assertEqual(
-                self.families[code]["seat_summary_state"], "not_stated"
-            )
-            self.assertEqual(
-                self.matrix_families[code]["recorded_seat_values"], []
-            )
-            self.assertEqual(
-                self.matrix_families[code]["seat_summary_state"], "not_stated"
-            )
+            self.assertEqual(self.families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.families[code]["seat_summary_state"], "recorded")
+            self.assertEqual(self.matrix_families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.matrix_families[code]["seat_summary_state"], "recorded")
         self.assertEqual(self.families["spring"]["recorded_seat_values"], [4])
         self.assertEqual(self.families["jogger"]["recorded_seat_values"], [5, 7])
         self.assertEqual(
@@ -306,8 +300,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         rows = list(csv.DictReader(io.StringIO(matrix_csv)))
         self.assertEqual(tuple(rows[0]), CSV_COLUMNS)
         self.assertEqual(len(rows), 6)
-        self.assertEqual(rows[3]["seat_summary_state"], "not_stated")
-        self.assertEqual(rows[3]["recorded_seat_values"], "")
+        self.assertEqual(rows[3]["seat_summary_state"], "recorded")
+        self.assertEqual(rows[3]["recorded_seat_values"], "5")
 
     def test_html_is_standalone_and_exposes_source_hashes(self) -> None:
         summary_rendered = render_summary_html(self.summary)
@@ -318,7 +312,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertEqual(summary_rendered.count('class="family"'), 6)
         self.assertEqual(summary_rendered.count("SHA-256 "), 111)
         self.assertIn(
-            'data-state="not_stated">nie podano</dd>', summary_rendered
+            'data-state="recorded"', summary_rendered
         )
         self.assertIn(
             "nie tworzy par między zakresami", summary_rendered.lower()
@@ -333,7 +327,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("https://", lowered)
         self.assertEqual(matrix_rendered.count("<tr>"), 7)
         self.assertEqual(
-            matrix_rendered.count('data-state="not_stated"'), 2
+            matrix_rendered.count('data-state="not_stated"'), 0
         )
         self.assertIn("creates no configuration pair", matrix_rendered)
         self.assertIn(

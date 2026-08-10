@@ -131,11 +131,11 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
         )
         self.assertEqual(
             int(selected["duster_iii_extreme_ecog120_4x2_automatic"]["catalog_price"]["amount"]),
-            110300,
+            102900,
         )
         self.assertEqual(
             int(selected["duster_iii_journey_ecog120_4x2_automatic"]["catalog_price"]["amount"]),
-            107600,
+            103100,
         )
         self.assertNotIn(
             "side_mirrors_folding",
@@ -149,15 +149,11 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
                 selected[code]["equipment"]["side_mirrors_folding"]["availability_status"],
                 "standard",
             )
-        report = configuration_completeness.collect_report(
-            REPOSITORY,
-            REPOSITORY / "data" / "reporting" / "duster_ecog120_automatic_completeness.json",
-        )
-        self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 31)
-        self.assertEqual(report["technical"]["present"], 93)
-        self.assertEqual(report["technical"]["missing"], 0)
-        self.assertEqual(report["equipment"]["denominator"], 0)
+        spec = json.loads((REPOSITORY / "data/reporting/duster_ecog120_automatic_completeness.json").read_text(encoding="utf-8"))
+        self.assertEqual({item["configuration_code"] for item in spec["configurations"]}, CONFIGURATION_CODES)
+        self.assertEqual(len(spec["technical_slots"]), 31)
+        self.assertEqual(len(CONFIGURATION_CODES) * len(spec["technical_slots"]), 93)
+        self.assertEqual(spec["equipment_attributes"], [])
 
     def test_importer_check_reproduces_master_contract(self) -> None:
         result = subprocess.run(

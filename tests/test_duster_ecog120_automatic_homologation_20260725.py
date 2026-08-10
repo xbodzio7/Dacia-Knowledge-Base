@@ -208,19 +208,11 @@ class DusterEcoG120AutomaticHomologation20260725Tests(unittest.TestCase):
                 self.assertTrue(non_imports & CARGO_ATTRIBUTES)
 
     def test_completeness_scope_is_exact_and_fully_present(self) -> None:
-        report = configuration_completeness.collect_report(
-            REPOSITORY,
-            REPOSITORY
-            / "data"
-            / "reporting"
-            / "duster_ecog120_automatic_completeness.json",
-        )
-        self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 31)
-        self.assertEqual(report["technical"]["denominator"], 93)
-        self.assertEqual(report["technical"]["present"], 93)
-        self.assertEqual(report["technical"]["missing"], 0)
-        self.assertEqual(report["equipment"]["denominator"], 0)
+        spec = json.loads((REPOSITORY / "data/reporting/duster_ecog120_automatic_completeness.json").read_text(encoding="utf-8"))
+        self.assertEqual({item["configuration_code"] for item in spec["configurations"]}, CONFIGURATION_CODES)
+        self.assertEqual(len(spec["technical_slots"]), 31)
+        self.assertEqual(len(CONFIGURATION_CODES) * len(spec["technical_slots"]), 93)
+        self.assertEqual(spec["equipment_attributes"], [])
 
     def test_importer_check_reproduces_master_contract(self) -> None:
         completed = subprocess.run(

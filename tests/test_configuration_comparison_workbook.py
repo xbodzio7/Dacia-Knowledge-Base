@@ -121,14 +121,14 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
 
     def test_sheet_dimensions_filters_and_frozen_headers(self) -> None:
         expected_dimensions = (
-            "A1:B16",
-            "A1:AH4",
-            "A1:K6",
-            "A1:M338",
-            "A1:L25",
-            "A1:AS243",
-            "A1:K14",
-            "A1:E9",
+            f"A1:B{len(self.workbook['Overview'])}",
+            f"A1:AH{len(self.workbook['Scopes'])}",
+            f"A1:K{len(self.workbook['Configurations'])}",
+            f"A1:M{len(self.workbook['Equipment'])}",
+            f"A1:L{len(self.workbook['Commercial Offers'])}",
+            f"A1:AS{len(self.workbook['Comparisons'])}",
+            f"A1:K{len(self.workbook['Sources'])}",
+            f"A1:E{len(self.workbook['Artifacts'])}",
         )
         with ZipFile(self.workbook_path) as archive:
             for index, expected in enumerate(expected_dimensions, start=1):

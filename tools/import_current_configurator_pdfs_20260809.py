@@ -409,7 +409,7 @@ def build(apply=False):
                 if label=="Wysokość pojazdu nieobciążonego z relingami (mm)":
                     nums=re.findall(r"\d+",val)
                     if family in ("duster","bigster") and nums: add_value(config,"roof_height_with_rails",nums[0],source,page,raw)
-                    elif family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"roof_height_with_rails",nums[0] if family=="jogger_5" else nums[1],source,page,raw)
+                    elif family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"roof_height_with_rails",nums[0] if family=="jogger_5" else (nums[2] if len(nums)>=4 and nums[1]=="5" and nums[3]=="7" else nums[1]),source,page,raw)
                     elif family=="sandero_stepway" and nums: add_value(config,"roof_height_with_rails",nums[0],source,page,raw)
                     else: record_defer("technical",raw,"height_with_rails_not_applicable_or_ambiguous")
                     continue

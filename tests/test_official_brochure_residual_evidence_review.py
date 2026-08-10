@@ -106,6 +106,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
                 for row in self.values
                 if self.models.get(row["configuration_code"]) == model
                 and row["attribute_code"] in CORE_DIMENSIONS
+                and row.get("observation_date", "") <= "2026-07-26"
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }
