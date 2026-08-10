@@ -1,5 +1,6 @@
 name: AI apply current configurator PDF import
 # Full import gate: refresh all deterministic reports affected by current observations.
+# Trigger after dated source-coverage scope fix.
 
 on:
   push:
