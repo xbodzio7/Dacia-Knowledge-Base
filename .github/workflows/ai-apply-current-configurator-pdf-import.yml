@@ -1,4 +1,5 @@
 name: AI apply current configurator PDF import
+# Trigger after verified regression-closure commit 72cb327.
 
 on:
   push:
