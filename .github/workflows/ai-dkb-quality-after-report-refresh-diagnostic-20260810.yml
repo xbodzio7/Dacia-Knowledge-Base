@@ -1,5 +1,5 @@
 name: AI diagnose full quality after report refresh
-# Rerun after preserving dated reporting contracts.
+# Reproduce the full configurator gate through documentation refresh.
 
 on:
   push:
@@ -74,6 +74,8 @@ jobs:
             --csv data/reporting/portfolio_model_version_comparison_matrix.csv \
             --html data/reporting/portfolio_model_version_comparison_matrix.html \
             >> /tmp/report-refresh.log 2>&1
+          python tools/dkb.py documentation-baseline --apply \
+            >> /tmp/report-refresh.log 2>&1
 
           set +e
           python tools/dkb.py quality \
@@ -95,11 +97,11 @@ jobs:
             tail -n 45 /tmp/import-stage2.log || true
             tail -n 45 /tmp/reconcile.log || true
             echo
-            echo "=== REPORT REFRESH ==="
+            echo "=== REPORT + DOCUMENTATION REFRESH ==="
             cat /tmp/report-refresh.log || true
             echo
             echo "=== QUALITY FAILURE INDEX ==="
-            grep -n -E '^FAIL:|^ERROR:|AssertionError:|RuntimeError:|ContractError:|FAILED \(|error:|ERROR: checker failed|Quality receipt rejected|quality receipt|stale|differs|mismatch|duplicate|expected .* found|uses attribute .* expected' /tmp/dkb-quality-stdout.log | tail -n 800 || true
+            grep -n -E '^FAIL:|^ERROR:|AssertionError:|RuntimeError:|ContractError:|FAILED \(|error:|ERROR: checker failed|Quality receipt rejected|quality receipt|stale|differs|mismatch|duplicate|expected .* found|uses attribute .* expected|baseline drift' /tmp/dkb-quality-stdout.log | tail -n 800 || true
             echo
             echo "=== QUALITY STDOUT TAIL ==="
             tail -n 1000 /tmp/dkb-quality-stdout.log || true
@@ -128,7 +130,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add project/diagnostics/dkb-quality-after-report-refresh-20260810.txt
           if ! git diff --cached --quiet; then
-            git commit -m "chore(diagnostic): capture quality after report refresh"
+            git commit -m "chore(diagnostic): capture quality after documentation refresh"
             git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
             git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
           fi
