@@ -6,6 +6,8 @@ on:
       - ai/dacia-configurator-pdf-archive-20260809
     paths:
       - .github/workflows/ai-apply-current-configurator-pdf-import.yml
+      - tools/import_current_configurator_pdfs_20260809.py
+      - tools/import_current_configurator_pdfs_completion_20260809.py
       - tools/reconcile_current_configurator_values_20260810.py
 
 permissions:
