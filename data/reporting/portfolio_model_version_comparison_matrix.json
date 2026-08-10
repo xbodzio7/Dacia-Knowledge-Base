@@ -586,8 +586,10 @@
         "recorded_count": 2,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "manual"
       ],
@@ -641,8 +643,10 @@
         "recorded_count": 9,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -717,8 +721,10 @@
         "recorded_count": 9,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -793,8 +799,10 @@
         "recorded_count": 9,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -906,8 +914,10 @@
         "recorded_count": 2,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "manual"
       ],
@@ -956,8 +966,10 @@
         "recorded_count": 4,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -1013,8 +1025,10 @@
         "recorded_count": 4,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -1070,8 +1084,10 @@
         "recorded_count": 4,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"

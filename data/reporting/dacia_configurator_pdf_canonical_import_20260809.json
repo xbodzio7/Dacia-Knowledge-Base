@@ -1,16 +1,15 @@
 {
   "kind": "dacia_current_configurator_pdf_canonical_import",
   "observed_date": "2026-08-09",
-  "mode": "dry-run",
+  "mode": "apply",
   "summary": {
-    "prices_already_covered": 68,
-    "values_added": 1617,
-    "values_already_covered": 1374,
-    "availability_already_covered": 1441,
-    "ranges_added": 24,
+    "prices_already_covered": 70,
+    "values_already_covered": 2991,
+    "availability_already_covered": 2015,
+    "ranges_already_covered": 21,
     "technical_duplicate_page_rows": 242,
-    "availability_added": 373,
-    "prices_added": 2,
+    "degenerate_ranges_materialized_as_scalars": 3,
+    "values_code_existing": 3,
     "documents": 70,
     "pages": 654,
     "deferred_total": 380

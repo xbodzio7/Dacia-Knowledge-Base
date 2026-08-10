@@ -178,8 +178,8 @@ id,code,category,name,data_type,unit,description,status
 180,approach_angle,Dimensions,Approach angle,decimal,deg,Maximum approach angle,active
 181,departure_angle,Dimensions,Departure angle,decimal,deg,Maximum departure angle,active
 182,ramp_breakover_angle,Dimensions,Ramp breakover angle,decimal,deg,Maximum ramp breakover angle,active
-183,ground_clearance_unladen,Dimensions,Ground clearance (unladen),integer,mm,Ground clearance with no payload,active
-184,ground_clearance_laden,Dimensions,Ground clearance (laden),integer,mm,Ground clearance at maximum authorised mass,active
+183,ground_clearance_unladen,Dimensions,Ground clearance (unladen),decimal,mm,Ground clearance with no payload,active
+184,ground_clearance_laden,Dimensions,Ground clearance (laden),decimal,mm,Ground clearance at maximum authorised mass,active
 185,maximum_wading_depth,Dimensions,Maximum wading depth,integer,mm,Maximum water fording depth,active
 186,load_sill_height,Dimensions,Load sill height,integer,mm,Height of luggage compartment loading sill,active
 187,cargo_opening_width,Dimensions,Cargo opening width,integer,mm,Width of luggage compartment opening,active
@@ -386,3 +386,32 @@ id,code,category,name,data_type,unit,description,status
 392,payload,Weights,Payload,integer,kg,Source-stated payload observation. Exact values use the scalar table and bounded intervals use the range table; distinct from an explicitly stated maximum payload.,active
 393,type2_charging_cable_supplied,Electric System,Type 2 charging cable supplied,boolean,,Physical Type 2 charging cable supplied with the vehicle for wallbox and public-terminal charging; distinct from the vehicle charging-connector standard.,active
 394,domestic_socket_charging_cable,Electric System,Domestic-socket charging cable,boolean,,Charging cable enabling vehicle charging from a domestic mains socket; represented independently from the supplied Type 2 cable.,active
+395,standing_400m,Performance,Standing 400 metres,decimal,s,Time required to cover 400 metres from standstill as stated by the source.,active
+396,body_style_source_stated,Exterior,Source-stated body style,string,,Body-style wording exactly as stated by the source without remapping to a project taxonomy.,active
+397,technical_type_code,Powertrain,Technical type code,string,,Manufacturer or homologation technical type code exactly as stated by the source.,active
+398,gearbox_source_description,Transmission,Source-stated gearbox description,string,,Transmission description exactly as stated by the source.,active
+399,traction_battery_capacity_source_stated,Electric System,Source-stated traction battery capacity,decimal,kWh,"Traction-battery capacity exactly as stated without classifying it as gross, net or usable.",active
+400,cargo_floor_width,Dimensions,Cargo floor width,integer,mm,Width of the lower part of the luggage compartment exactly as stated by the source.,active
+401,height_with_tailgate_open,Dimensions,Height with tailgate open,integer,mm,Overall source-stated vehicle height with the rear tailgate open.,active
+402,overall_height_source_stated,Dimensions,Source-stated overall height,string,,Complete overall-height wording retained when a source gives multiple contextual values in one field.,active
+403,homologation_procedure_code,Emissions,Homologation procedure code,string,,Source-stated homologation procedure identifier.,active
+404,homologation_protocol,Emissions,Homologation protocol,string,,"Source-stated homologation protocol, such as WLTP.",active
+405,ac_charging_time_20_100_source_stated,Electric System,AC charge time 20-100% source-stated,string,,Exact source-stated AC charging duration from 20% to 100%.,active
+406,electric_motor_torque_rpm,Electric System,Electric motor maximum torque RPM,integer,rpm,Source-stated electric-motor speed corresponding to maximum stated torque.,active
+407,reversing_lights_count,Lighting,Reversing lights count,integer,,Number of reversing lamps explicitly stated for the configuration.,active
+408,factory_speed_limit,Performance,Factory speed limit,integer,km/h,Explicit source-stated vehicle speed limitation.,active
+409,second_row_lighting,Lighting,Second-row lighting,boolean,,Dedicated lighting for the second seating row.,active
+410,rear_headrest_count,Seats,Rear headrest count,integer,,Number of rear head restraints explicitly stated by the source.,active
+411,cargo_cover,Capacities,Cargo cover,boolean,,Roller blind or parcel cover for the luggage compartment.,active
+412,factory_lpg_system,Engine,Factory LPG system,boolean,,Factory-installed LPG system explicitly stated by the source.,active
+413,steering_wheel_material,Steering,Steering wheel material,string,,Source-stated steering-wheel covering or material.,active
+414,centre_console_variant,Seats,Centre console variant,string,,Source-stated centre-console construction or storage arrangement.,active
+415,key_count,Doors,Supplied key count,integer,,Number of vehicle keys explicitly stated as supplied.,active
+416,boot_floor_carpet,Capacities,Boot floor carpet,boolean,,Carpet or trim covering on the luggage-compartment floor.,active
+417,roof_type_source_stated,Exterior,Source-stated roof type,string,,Roof construction wording exactly as stated by the source.,active
+418,cooled_centre_armrest,HVAC,Cooled centre armrest storage,boolean,,Centre armrest or its storage compartment has cooling functionality.,active
+419,dust_seals,Exterior,Dust seals,boolean,,Additional dust seals explicitly stated by the source.,active
+420,seatback_pockets,Seats,Seatback pockets,boolean,,Storage pockets on the rear of seat backs.,active
+421,speaker_count,Infotainment,Speaker count,integer,,Number of loudspeakers explicitly stated for the multimedia system.,active
+422,dab_radio,Infotainment,DAB radio,boolean,,Digital Audio Broadcasting radio explicitly stated by the source.,active
+423,interface_language_source_stated,Infotainment,Source-stated interface language,string,,Vehicle interface or message language explicitly stated by the source.,active

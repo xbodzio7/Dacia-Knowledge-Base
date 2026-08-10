@@ -1670,8 +1670,10 @@
         "recorded_count": 30,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -2274,8 +2276,10 @@
         "recorded_count": 14,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"

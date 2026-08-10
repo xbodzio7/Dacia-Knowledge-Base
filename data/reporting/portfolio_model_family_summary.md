@@ -138,7 +138,7 @@ This report groups the current active configurations by canonical model family. 
 - versions: 5;
 - powertrains: Eco-G 100 4x2 / Eco-G 120 4x2 / hybrid 140 4x2 / hybrid 155 4x2 / hybrid-G 150 4x4 / mild hybrid 130 4x2 / mild hybrid 130 4x4 / mild hybrid 140 4x2;
 - transmissions: automatic / manual;
-- recorded seat values: nie podano;
+- recorded seat values: 5;
 - reporting scopes: 9 (9 exclusive, 0 shared);
 - explicit provenance: 24 sources and 81 source-configuration relationships.
 
@@ -176,7 +176,7 @@ This report groups the current active configurations by canonical model family. 
 - versions: 4;
 - powertrains: hybrid 155 4x2 / hybrid-G 150 4x4 / mild hybrid 140 4x2 / mild hybrid-G 140 4x2;
 - transmissions: automatic / manual;
-- recorded seat values: nie podano;
+- recorded seat values: 5;
 - reporting scopes: 4 (4 exclusive, 0 shared);
 - explicit provenance: 16 sources and 42 source-configuration relationships.
 
