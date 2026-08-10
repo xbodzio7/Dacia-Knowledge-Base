@@ -23,9 +23,8 @@ jobs:
           python - <<'PY'
           import json
           from tools.import_sandero_stepway_full_modal_reconciliation_20260809 import build
-
           _tables, report = build()
           print('LIVE_SUMMARY=' + json.dumps(report['summary'], ensure_ascii=False, sort_keys=True))
-          print('LIVE_UNRESOLVED_EQUIPMENT=' + json.dumps(report['unresolved_equipment_literals'], ensure_ascii=False))
-          print('LIVE_UNRESOLVED_TECHNICAL=' + json.dumps(report['unresolved_technical_labels'], ensure_ascii=False))
           PY
+      - name: Classify the complete live residual
+        run: python tools/review_sandero_stepway_full_modal_residual_20260810.py
