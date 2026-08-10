@@ -1,5 +1,5 @@
 name: AI diagnose full quality after report refresh
-# Reproduce the full configurator gate through documentation refresh.
+# Reproduce the full configurator gate through completeness and documentation refresh.
 
 on:
   push:
@@ -52,7 +52,8 @@ jobs:
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply > /tmp/import-stage2.log 2>&1
           python tools/reconcile_current_configurator_values_20260810.py --baseline-codes-file "$baseline" --apply > /tmp/reconcile.log 2>&1
 
-          python - <<'PY' > /tmp/report-refresh.log 2>&1
+          python tools/extend_configuration_completeness_spec_20260810.py --apply > /tmp/report-refresh.log 2>&1
+          python - <<'PY' >> /tmp/report-refresh.log 2>&1
           from tools import existing_configuration_missing_data_analysis as analysis
           payload = analysis.collect(analysis.ROOT)
           analysis.write_json(analysis.OUT_JSON, payload)
@@ -97,11 +98,11 @@ jobs:
             tail -n 45 /tmp/import-stage2.log || true
             tail -n 45 /tmp/reconcile.log || true
             echo
-            echo "=== REPORT + DOCUMENTATION REFRESH ==="
+            echo "=== COMPLETENESS + REPORT + DOCUMENTATION REFRESH ==="
             cat /tmp/report-refresh.log || true
             echo
             echo "=== QUALITY FAILURE INDEX ==="
-            grep -n -E '^FAIL:|^ERROR:|AssertionError:|RuntimeError:|ContractError:|FAILED \(|error:|ERROR: checker failed|Quality receipt rejected|quality receipt|stale|differs|mismatch|duplicate|expected .* found|uses attribute .* expected|baseline drift' /tmp/dkb-quality-stdout.log | tail -n 800 || true
+            grep -n -E '^FAIL:|^ERROR:|AssertionError:|RuntimeError:|ContractError:|FAILED \(|error:|ERROR: checker failed|Quality receipt rejected|quality receipt|stale|differs|mismatch|duplicate|expected .* found|uses attribute .* expected|baseline drift|absent from spec' /tmp/dkb-quality-stdout.log | tail -n 800 || true
             echo
             echo "=== QUALITY STDOUT TAIL ==="
             tail -n 1000 /tmp/dkb-quality-stdout.log || true
@@ -130,7 +131,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add project/diagnostics/dkb-quality-after-report-refresh-20260810.txt
           if ! git diff --cached --quiet; then
-            git commit -m "chore(diagnostic): capture quality after documentation refresh"
+            git commit -m "chore(diagnostic): capture quality after completeness extension"
             git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
             git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
           fi
