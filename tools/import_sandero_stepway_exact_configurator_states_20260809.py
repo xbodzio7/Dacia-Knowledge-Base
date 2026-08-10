@@ -318,7 +318,6 @@ def expected_counts() -> dict[str, int]:
         "commercial_items.csv": 50,
         "commercial_item_attributes.csv": 103,
         "commercial_item_configurations.csv": 322,
-        "configuration_attribute_values.csv": 3690,
     }
 
 
@@ -327,6 +326,11 @@ def verify_imported() -> None:
         _, rows = read_csv(name)
         if len(rows) != count:
             raise RuntimeError(f"{name}: expected {count} rows, found {len(rows)}")
+
+    _, values = read_csv("configuration_attribute_values.csv")
+    owned_values = [row for row in values if row["source_code"] == SOURCE_CODE]
+    if len(owned_values) != 60:
+        raise RuntimeError(f"exact-state source: expected 60 owned configuration values, found {len(owned_values)}")
 
     _, sources = read_csv("sources.csv")
     matching_sources = [row for row in sources if row["code"] == SOURCE_CODE]

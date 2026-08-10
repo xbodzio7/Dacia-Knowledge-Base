@@ -153,13 +153,13 @@ def build(apply=False):
         key=f"{kind}:{reason}"; deferred[key]+=1
         if len(examples[key])<12: examples[key].append(text)
 
-    def add_value(config, attr, value, source, page, raw, fuel="", gear=""):
+    def add_value(config, attr, value, source, page, raw, fuel="", gear="", force_distinct=False):
         nonlocal value_id
         if attr not in attrs:
             record_defer("value", raw, f"attribute_missing:{attr}"); return False
         value=str(value)
         same = [r for r in values if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel and r.get("gear_number","")==gear]
-        if any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False
+        if not force_distinct and any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False
         code=f"{config}_{attr}_{fuel or 'all'}_20260809_cfgpdf"
         if any(r["code"]==code for r in values): counters["values_code_existing"]+=1; return False
         values.append({"id":str(value_id),"code":code,"configuration_code":config,"attribute_code":attr,"fuel_type_code":fuel,"gear_number":gear,"value":value,"observation_date":DATE,"source_code":source,"notes":f"Exact saved configurator PDF, page {page}: {raw}"})
@@ -170,6 +170,9 @@ def build(apply=False):
         if attr not in attrs:
             record_defer("range", raw, f"attribute_missing:{attr}"); return False
         lo,hi=str(lo),str(hi)
+        if lo == hi:
+            counters["degenerate_ranges_materialized_as_scalars"] += 1
+            return add_value(config, attr, lo, source, page, raw, fuel=fuel, force_distinct=True)
         same=[r for r in ranges if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel]
         if any(r["minimum_value"]==lo and r["maximum_value"]==hi for r in same): counters["ranges_already_covered"]+=1; return False
         code=f"{config}_{attr}_{fuel or 'all'}_range_20260809_cfgpdf"

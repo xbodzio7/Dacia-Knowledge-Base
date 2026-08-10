@@ -171,7 +171,8 @@ class SanderoStepwayExactDesignFactoryOptionNormalizationTests(unittest.TestCase
         self.assertEqual(len(self.items), 50)
         self.assertEqual(len(self.item_attributes), 103)
         self.assertEqual(len(self.mappings), 322)
-        self.assertEqual(len(self.values), 3690)
+        owned_values = [row for row in self.values if row["source_code"] == SOURCE_CODE]
+        self.assertEqual(len(owned_values), 60)
 
 
 if __name__ == "__main__":

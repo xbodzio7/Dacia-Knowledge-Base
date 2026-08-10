@@ -260,6 +260,7 @@ def _verify_no_petrol_co2() -> None:
         row
         for row in _read_rows(MASTER / "configuration_attribute_values.csv")
         if row.get("configuration_code") in CONFIGURATION_CODES
+        and row.get("source_code") == SOURCE_CODE
         and row.get("attribute_code") == "co2_emissions"
         and row.get("fuel_type_code") == "petrol"
     ]
