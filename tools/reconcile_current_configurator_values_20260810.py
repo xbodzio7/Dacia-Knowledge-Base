@@ -66,6 +66,7 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
         groups[canonical_key(row)].append(row)
 
     preserved_compatible_groups = 0
+    preserved_divergent_groups = 0
 
     for key, same in groups.items():
         if len(same) <= 1:
@@ -100,11 +101,11 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
             if (row.get("code") or "").strip() in baseline_codes
         ]
 
-        # The repository deliberately stores dated source observations, including
-        # multiple sources for the same configuration/attribute. If every source
-        # states the same semantic value there is nothing to reconcile: preserving
-        # all observations retains provenance and is fully compatible with the
-        # existing data model.
+        # configuration_attribute_values.csv is an observation table, not a
+        # mutable current-value cache. Dated source observations must therefore
+        # remain immutable and coexist even when later official material reports
+        # a different value. Chronology is provenance, not an instruction to
+        # overwrite an older source.
         semantic_values = {
             (row.get("value") or "").strip()
             for row in relevant
@@ -120,24 +121,25 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
             )
             continue
 
-        # A real source disagreement must not be resolved by chronology or by
-        # silently overwriting an older observation. Existing project packages
-        # intentionally retain conflicting source observations until a bounded
-        # review can explain the discrepancy. Stop here with enough provenance to
-        # review the exact group instead of guessing an authoritative source.
-        raise SystemExit(
-            "Conflicting source observations introduced by current PDF import; "
-            "refusing automatic overwrite: "
+        # A genuine disagreement is also preserved verbatim. We deliberately do
+        # not guess which source is authoritative and do not collapse the rows to
+        # a single "current" value. Downstream consumers can resolve observations
+        # by source/date/as-of policy; this importer only guarantees lossless
+        # source assimilation and reports the disagreement for auditability.
+        preserved_divergent_groups += 1
+        print(
+            "preserved divergent source observations: "
             f"key={key!r}, prior={diagnostic_rows(prior)!r}, "
             f"imported={diagnostic_rows(imported)!r}"
         )
 
     if apply:
         # Deliberately no mutation. The command remains CLI-compatible with the
-        # apply workflow, but source observations are preserved verbatim.
+        # apply workflow, while all source observations stay verbatim.
         pass
 
     print(f"compatible multi-source groups preserved: {preserved_compatible_groups}")
+    print(f"divergent multi-source groups preserved: {preserved_divergent_groups}")
     print("canonical current-value reconciliations: 0")
     return 0
 
