@@ -1,4 +1,4 @@
-name: AI inspect post-import semantic collisions
+name: AI repair overlapping console aliases
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  inspect:
+  repair:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,38 +21,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.14'
-      - name: Reproduce import and capture semantic collisions
+      - name: Patch longest-match console parsing
         shell: bash
         run: |
           set -euo pipefail
-          python tools/import_current_configurator_pdfs_20260809.py --apply >/tmp/stage1.log
-          python tools/import_current_configurator_pdfs_completion_20260809.py --apply >/tmp/stage2.log
-          python - <<'PY' >/tmp/collisions.txt
-          import csv
-          from collections import defaultdict
+          python - <<'PY'
           from pathlib import Path
-          path=Path('data/master/configuration_attribute_values.csv')
-          with path.open(encoding='utf-8-sig',newline='') as f:
-              rows=list(csv.DictReader(f))
-          groups=defaultdict(list)
-          for r in rows:
-              key=(r['configuration_code'],r['attribute_code'],r.get('fuel_type_code',''),r.get('gear_number',''),r.get('observation_date',''),r.get('context_code',''))
-              groups[key].append(r)
-          collisions=[(k,v) for k,v in groups.items() if len(v)>1]
-          print(f'collision_groups={len(collisions)}')
-          for key, items in sorted(collisions):
-              if key[4] != '2026-08-09':
-                  continue
-              print('\nKEY',repr(key))
-              for r in items:
-                  print({x:r.get(x,'') for x in ('id','code','value','source_code','notes')})
+          p=Path('tools/import_current_configurator_pdfs_completion_20260809.py')
+          text=p.read_text(encoding='utf-8')
+          old='''        ]:\n            if pat in st: add_value(config,"centre_console_variant",val,source,3,pat)\n'''
+          new='''        ]:\n            if pat in st:\n                add_value(config,"centre_console_variant",val,source,3,pat)\n                break\n'''
+          if old not in text:
+              raise SystemExit('centre-console alias block not found')
+          p.write_text(text.replace(old,new,1),encoding='utf-8')
           PY
-          cp /tmp/collisions.txt /tmp/report.txt
-          git reset --hard HEAD
-          cp /tmp/report.txt project/diagnostics/dkb-quality-20260809.txt
+          python -m py_compile tools/import_current_configurator_pdfs_completion_20260809.py
+          git diff --check
+      - name: Commit parser repair
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add project/diagnostics/dkb-quality-20260809.txt
-          git commit -m "chore(diagnostic): capture semantic collisions" || true
+          git add tools/import_current_configurator_pdfs_completion_20260809.py
+          git commit -m "fix(import): prefer specific console equipment alias"
           git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
