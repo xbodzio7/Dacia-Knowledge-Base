@@ -1,6 +1,6 @@
 name: AI apply current configurator PDF import
 # Full import gate: refresh all deterministic reports affected by current observations.
-# Trigger after dated source-coverage scope fix.
+# Commit the exact generated tree that passed the full quality gate.
 
 on:
   push:
@@ -154,35 +154,28 @@ jobs:
           cp "${RUNNER_TEMP}/quality.log" data/reporting/dkb-quality-current-configurator-20260809.txt
           cp "${RUNNER_TEMP}/quality-summary.json" data/reporting/dkb-quality-current-configurator-20260809.json
 
-      - name: Commit quality-gated data and dependent reports
+      - name: Commit exact quality-gated generated tree
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/master \
-                  data/reporting/configuration_completeness.json \
-                  data/reporting/dacia_configurator_pdf_canonical_import_20260809.json \
-                  data/reporting/dacia_configurator_pdf_completion_import_20260809.json \
-                  data/reporting/existing_configuration_missing_data_analysis.json \
-                  data/reporting/existing_configuration_missing_data_analysis.md \
-                  data/reporting/portfolio_model_family_summary.json \
-                  data/reporting/portfolio_model_family_summary.md \
-                  data/reporting/portfolio_model_family_summary.html \
-                  data/reporting/portfolio_model_family_comparison_matrix.json \
-                  data/reporting/portfolio_model_family_comparison_matrix.csv \
-                  data/reporting/portfolio_model_family_comparison_matrix.html \
-                  data/reporting/portfolio_model_version_comparison_matrix.json \
-                  data/reporting/portfolio_model_version_comparison_matrix.csv \
-                  data/reporting/portfolio_model_version_comparison_matrix.html \
-                  data/reporting/dkb-quality-current-configurator-20260809.txt \
-                  data/reporting/dkb-quality-current-configurator-20260809.json \
-                  CHANGELOG.md README.md project/SESSION_STATE.md
+
+          # The runner starts from a clean checkout. Every working-tree change here
+          # was produced by the import/report/documentation pipeline that just passed
+          # the full quality gate, so stage that exact tested tree rather than keeping
+          # a brittle hand-maintained output list.
+          git status --short
+          git add -A
           if git diff --cached --quiet; then
-            echo "No data changes to commit"
+            echo "No generated changes to commit"
             exit 0
           fi
           git diff --cached --check
+          git diff --cached --name-status
           git commit -m "data(configurator): assimilate current Dacia PDF portfolio"
-          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+
+          # Do not rebase a tested generated commit onto an untested remote state.
+          # A concurrent branch update will make this push fail safely; rerunning the
+          # workflow then regenerates and retests the package from the new HEAD.
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
