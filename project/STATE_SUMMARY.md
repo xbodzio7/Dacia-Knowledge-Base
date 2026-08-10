@@ -12,14 +12,14 @@
 
 ## Phase
 
-**Sandero Stepway Full Modal Canonical Reconciliation**
+**Dacia Current Configurator PDF Portfolio Assimilation**
 
 ## Reference delivery
 
-- Package: Sandero Stepway Full Technical and Standard Equipment Capture
-- Pull Request: #628
-- Verified head: `d2f466ab319cd07559033d1bf69624f4e9c752d4`
-- Quality run: #31284310939
+- Package: Sandero Stepway Full Modal Canonical Reconciliation
+- Pull Request: #629
+- Verified head: `3312ef32b7d34a2a1dfbf2e182c68cd7b81fd318`
+- Quality run: #31328077301
 
 ## Verified baseline
 
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Sandero Stepway Full Modal Canonical Reconciliation** — `complete`
+**Dacia Current Configurator PDF Portfolio Assimilation** — `complete`
 
-Reconcile all 1,708 captured technical and standard-equipment rows against canonical observations, normalize only exact safe missing or newer matches, and preserve ambiguous or unmatched literal evidence without guessing.
+Archive and assimilate the complete 2026-08-09 Dacia Poland configurator PDF portfolio across 70 exact configurations, importing only source-backed prices, technical values/ranges, cargo contexts and positive equipment observations while preserving ambiguous or negative wording as evidence without inference.
 
 ## Next package
 
