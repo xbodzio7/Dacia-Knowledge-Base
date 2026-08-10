@@ -1,4 +1,4 @@
-name: AI repair scalar pairs and historical scopes
+name: AI verify scalar and historical scope repairs
 
 on:
   push:
@@ -28,62 +28,31 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-
           def replace(path, old, new, count=1):
               p=Path(path); text=p.read_text(encoding='utf-8')
-              if old not in text:
-                  raise SystemExit(f'{path}: target missing: {old!r}')
-              p.write_text(text.replace(old,new,count), encoding='utf-8')
+              if old not in text: raise SystemExit(f'{path}: target missing: {old!r}')
+              p.write_text(text.replace(old,new,count),encoding='utf-8')
 
-          # Equal endpoints are exact scalar observations, not invalid ranges.
-          replace(
-              'tools/import_current_configurator_pdfs_20260809.py',
-              '    def add_value(config, attr, value, source, page, raw, fuel="", gear=""):\n',
-              '    def add_value(config, attr, value, source, page, raw, fuel="", gear="", force_distinct=False):\n'
-          )
-          replace(
-              'tools/import_current_configurator_pdfs_20260809.py',
-              '        if any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False\n',
-              '        if not force_distinct and any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False\n'
-          )
-          replace(
-              'tools/import_current_configurator_pdfs_20260809.py',
-              '        lo,hi=str(lo),str(hi)\n        same=[r for r in ranges if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel]\n',
-              '        lo,hi=str(lo),str(hi)\n        if lo == hi:\n            counters["degenerate_ranges_materialized_as_scalars"] += 1\n            return add_value(config, attr, lo, source, page, raw, fuel=fuel, force_distinct=True)\n        same=[r for r in ranges if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel]\n'
-          )
+          replace('tools/import_current_configurator_pdfs_20260809.py','    def add_value(config, attr, value, source, page, raw, fuel="", gear=""):\n','    def add_value(config, attr, value, source, page, raw, fuel="", gear="", force_distinct=False):\n')
+          replace('tools/import_current_configurator_pdfs_20260809.py','        if any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False\n','        if not force_distinct and any(r["value"]==value for r in same): counters["values_already_covered"]+=1; return False\n')
+          replace('tools/import_current_configurator_pdfs_20260809.py','        lo,hi=str(lo),str(hi)\n        same=[r for r in ranges if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel]\n','        lo,hi=str(lo),str(hi)\n        if lo == hi:\n            counters["degenerate_ranges_materialized_as_scalars"] += 1\n            return add_value(config, attr, lo, source, page, raw, fuel=fuel, force_distinct=True)\n        same=[r for r in ranges if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel]\n')
+          replace('tests/test_attribute_enum_domains.py','        self.assertEqual(len(enum_rows), 245)\n','        self.assertGreaterEqual(len(enum_rows), 245)\n')
 
-          # Growing append-only registries must not invalidate closed historical packages.
-          replace('tests/test_attribute_enum_domains.py',
-                  '        self.assertEqual(len(enum_rows), 245)\n',
-                  '        self.assertGreaterEqual(len(enum_rows), 245)\n')
-
-          p=Path('tests/test_configuration_value_ranges.py')
-          text=p.read_text(encoding='utf-8')
+          p=Path('tests/test_configuration_value_ranges.py'); text=p.read_text(encoding='utf-8')
           marker='def write_csv(path: Path, fields: list[str] | tuple[str, ...], rows: list[list[str]]) -> None:\n'
           helper='def read_csv_rows(path: Path) -> list[dict[str, str]]:\n    with path.open(encoding="utf-8-sig", newline="") as handle:\n        return list(csv.DictReader(handle))\n\n\n'
-          if helper not in text:
-              if marker not in text: raise SystemExit('range helper marker missing')
-              text=text.replace(marker,helper+marker,1)
+          if helper not in text: text=text.replace(marker,helper+marker,1)
           text=text.replace('        self.assertEqual(len(rows[1:]), 316)\n','        self.assertGreaterEqual(len(rows[1:]), 316)\n',1)
           text=text.replace('        self.assertEqual(checked, 316)\n        self.assertEqual(errors, [])\n','        self.assertEqual(checked, len(read_csv_rows(MASTER / "configuration_attribute_value_ranges.csv")))\n        self.assertEqual(errors, [])\n',1)
           text=text.replace('            self.assertEqual(count, 316)\n','            self.assertEqual(count, len(read_csv_rows(MASTER / "configuration_attribute_value_ranges.csv")))\n',1)
           p.write_text(text,encoding='utf-8')
 
-          replace('tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py',
-                  '        self.assertEqual(len(self.values), 3690)\n',
-                  '        owned_values = [row for row in self.values if row["source_code"] == SOURCE_CODE]\n        self.assertEqual(len(owned_values), 60)\n')
-          replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py',
-                  '        "commercial_item_configurations.csv": 322,\n        "configuration_attribute_values.csv": 3690,\n',
-                  '        "commercial_item_configurations.csv": 322,\n')
-          replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py',
-                  '    _, sources = read_csv("sources.csv")\n',
-                  '    _, values = read_csv("configuration_attribute_values.csv")\n    owned_values = [row for row in values if row["source_code"] == SOURCE_CODE]\n    if len(owned_values) != 60:\n        raise RuntimeError(\n            f"exact-state source: expected 60 owned configuration values, found {len(owned_values)}"\n        )\n\n    _, sources = read_csv("sources.csv")\n')
-
-          # The 2026-07-03 catalogue asserted only that this source did not split CO2 by fuel.
-          for path in ('tests/test_duster_ecog120_automatic_cargo_20260725.py','tools/import_duster_ecog120_automatic_cargo_20260725.py'):
-              replace(path,
-                      '            and row["attribute_code"] == "co2_emissions"\n' if path.startswith('tests/') else '        and row.get("attribute_code") == "co2_emissions"\n',
-                      ('            and row["source_code"] == SOURCE_CODE\n            and row["attribute_code"] == "co2_emissions"\n') if path.startswith('tests/') else ('        and row.get("source_code") == SOURCE_CODE\n        and row.get("attribute_code") == "co2_emissions"\n'))
+          replace('tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py','        self.assertEqual(len(self.values), 3690)\n','        owned_values = [row for row in self.values if row["source_code"] == SOURCE_CODE]\n        self.assertEqual(len(owned_values), 60)\n')
+          replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py','        "commercial_item_configurations.csv": 322,\n        "configuration_attribute_values.csv": 3690,\n','        "commercial_item_configurations.csv": 322,\n')
+          replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py','    _, sources = read_csv("sources.csv")\n','    _, values = read_csv("configuration_attribute_values.csv")\n    owned_values = [row for row in values if row["source_code"] == SOURCE_CODE]\n    if len(owned_values) != 60:\n        raise RuntimeError(f"exact-state source: expected 60 owned configuration values, found {len(owned_values)}")\n\n    _, sources = read_csv("sources.csv")\n')
+          replace('tests/test_duster_ecog120_automatic_cargo_20260725.py','            and row["attribute_code"] == "co2_emissions"\n','            and row["source_code"] == SOURCE_CODE\n            and row["attribute_code"] == "co2_emissions"\n')
+          replace('tools/import_duster_ecog120_automatic_cargo_20260725.py','        and row.get("attribute_code") == "co2_emissions"\n','        and row.get("source_code") == SOURCE_CODE\n        and row.get("attribute_code") == "co2_emissions"\n')
+          replace('tests/test_duster_ecog120_automatic_cargo_20260725.py','            / "duster_ecog120_automatic_completeness.json",\n        )\n','            / "duster_ecog120_automatic_completeness.json",\n            "2026-07-03",\n        )\n')
           PY
           python -m compileall -q tools tests
           git diff --check
@@ -93,21 +62,7 @@ jobs:
           set -euo pipefail
           python tools/import_current_configurator_pdfs_20260809.py --apply >/tmp/stage1.log
           python tools/import_current_configurator_pdfs_completion_20260809.py --apply >/tmp/stage2.log
-          python - <<'PY'
-          from pathlib import Path
-          import sys
-          sys.path.insert(0, str(Path.cwd()))
-          from tools.validators.value_ranges import validate_configuration_value_ranges
-          checked, errors = validate_configuration_value_ranges(Path.cwd())
-          print(f'ranges_checked={checked}')
-          if errors:
-              raise SystemExit('\n'.join(errors))
-          PY
-          python -m unittest -v \
-            tests.test_attribute_enum_domains \
-            tests.test_configuration_value_ranges \
-            tests.test_sandero_stepway_exact_design_factory_option_normalization_20260809 \
-            tests.test_duster_ecog120_automatic_cargo_20260725
+          python -m unittest -v tests.test_attribute_enum_domains tests.test_configuration_value_ranges tests.test_sandero_stepway_exact_design_factory_option_normalization_20260809 tests.test_duster_ecog120_automatic_cargo_20260725
           python tools/import_sandero_stepway_exact_configurator_states_20260809.py --verify
           python tools/import_duster_ecog120_automatic_cargo_20260725.py --check
           git restore data/master data/reporting || true
@@ -118,13 +73,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/import_current_configurator_pdfs_20260809.py \
-                  tools/import_duster_ecog120_automatic_cargo_20260725.py \
-                  tools/import_sandero_stepway_exact_configurator_states_20260809.py \
-                  tests/test_attribute_enum_domains.py \
-                  tests/test_configuration_value_ranges.py \
-                  tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py \
-                  tests/test_duster_ecog120_automatic_cargo_20260725.py
-          git commit -m "fix(import): preserve exact scalar source pairs"
+          git add tools/import_current_configurator_pdfs_20260809.py tools/import_duster_ecog120_automatic_cargo_20260725.py tools/import_sandero_stepway_exact_configurator_states_20260809.py tests/test_attribute_enum_domains.py tests/test_configuration_value_ranges.py tests/test_sandero_stepway_exact_design_factory_option_normalization_20260809.py tests/test_duster_ecog120_automatic_cargo_20260725.py
+          git commit -m "fix(import): preserve scalar observations and historical scopes"
           git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
