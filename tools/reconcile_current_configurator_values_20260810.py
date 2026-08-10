@@ -28,13 +28,6 @@ def read_contextual_value_codes() -> set[str]:
         }
 
 
-def write_rows(fields: list[str], rows: list[dict[str, str]]) -> None:
-    with VALUES.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(rows)
-
-
 def canonical_key(row: dict[str, str]) -> tuple[str, str, str, str]:
     return (
         (row.get("configuration_code") or "").strip(),
@@ -47,21 +40,32 @@ def canonical_key(row: dict[str, str]) -> tuple[str, str, str, str]:
 def load_baseline_codes(path: Path) -> set[str]:
     if not path.is_file():
         raise SystemExit(f"Baseline code snapshot does not exist: {path}")
-    codes = {line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()}
+    codes = {
+        line.strip()
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
     if not codes:
         raise SystemExit(f"Baseline code snapshot is empty: {path}")
     return codes
 
 
+def diagnostic_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    fields = ("id", "code", "value", "observation_date", "source_code", "notes")
+    return [
+        {field: (row.get(field) or "").strip() for field in fields}
+        for row in rows
+    ]
+
+
 def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
-    fields, rows = read_rows()
+    _, rows = read_rows()
     contextual_codes = read_contextual_value_codes()
     groups: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         groups[canonical_key(row)].append(row)
 
-    remove_ids: set[str] = set()
-    reconciled = 0
+    preserved_compatible_groups = 0
 
     for key, same in groups.items():
         if len(same) <= 1:
@@ -85,8 +89,8 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
         ]
 
         # Pre-existing multi-source groups are valid repository history and are
-        # outside this repair's scope. Only a collision introduced by one of the
-        # two current-PDF importers may be reconciled here.
+        # outside this guard's scope. Only a group touched by one of the current
+        # configurator-PDF importers needs evaluation here.
         if not imported:
             continue
 
@@ -96,49 +100,46 @@ def reconcile(baseline_codes: set[str], apply: bool = False) -> int:
             if (row.get("code") or "").strip() in baseline_codes
         ]
 
-        # Stay deliberately narrow. A more complicated shape can represent a
-        # real source conflict or an importer bug and must remain visible rather
-        # than being guessed away automatically.
-        if len(imported) != 1 or len(prior) != 1 or len(relevant) != 2:
-            raise SystemExit(
-                "Unsafe canonical collision introduced by current PDF import; "
-                "refusing automatic reconciliation: "
-                f"key={key!r}, prior_codes={[row.get('code') for row in prior]!r}, "
-                f"imported_codes={[row.get('code') for row in imported]!r}"
+        # The repository deliberately stores dated source observations, including
+        # multiple sources for the same configuration/attribute. If every source
+        # states the same semantic value there is nothing to reconcile: preserving
+        # all observations retains provenance and is fully compatible with the
+        # existing data model.
+        semantic_values = {
+            (row.get("value") or "").strip()
+            for row in relevant
+        }
+        if len(semantic_values) == 1:
+            preserved_compatible_groups += 1
+            print(
+                "preserved compatible source observations: "
+                f"configuration={key[0]} attribute={key[1]} "
+                f"fuel={key[2] or '-'} gear={key[3] or '-'} "
+                f"value={next(iter(semantic_values))!r} "
+                f"prior={len(prior)} imported={len(imported)}"
             )
+            continue
 
-        current = imported[0]
-        existing = prior[0]
-
-        # Preserve the stable canonical identity/code, but supersede its current
-        # value and provenance with the newer explicit saved-configurator fact.
-        for field in fields:
-            if field in {
-                "id",
-                "code",
-                "configuration_code",
-                "attribute_code",
-                "fuel_type_code",
-                "gear_number",
-            }:
-                continue
-            existing[field] = current.get(field, "")
-
-        remove_ids.add(current.get("id", ""))
-        reconciled += 1
-        print(
-            "reconciled canonical current value: "
-            f"configuration={key[0]} attribute={key[1]} "
-            f"fuel={key[2] or '-'} gear={key[3] or '-'} "
-            f"kept_code={existing.get('code')} removed_import_code={current.get('code')}"
+        # A real source disagreement must not be resolved by chronology or by
+        # silently overwriting an older observation. Existing project packages
+        # intentionally retain conflicting source observations until a bounded
+        # review can explain the discrepancy. Stop here with enough provenance to
+        # review the exact group instead of guessing an authoritative source.
+        raise SystemExit(
+            "Conflicting source observations introduced by current PDF import; "
+            "refusing automatic overwrite: "
+            f"key={key!r}, prior={diagnostic_rows(prior)!r}, "
+            f"imported={diagnostic_rows(imported)!r}"
         )
 
-    if apply and reconciled:
-        rows = [row for row in rows if row.get("id", "") not in remove_ids]
-        write_rows(fields, rows)
+    if apply:
+        # Deliberately no mutation. The command remains CLI-compatible with the
+        # apply workflow, but source observations are preserved verbatim.
+        pass
 
-    print(f"canonical current-value reconciliations: {reconciled}")
-    return reconciled
+    print(f"compatible multi-source groups preserved: {preserved_compatible_groups}")
+    print("canonical current-value reconciliations: 0")
+    return 0
 
 
 def main() -> int:
@@ -146,8 +147,7 @@ def main() -> int:
     parser.add_argument("--baseline-codes-file", required=True, type=Path)
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
-    baseline_codes = load_baseline_codes(args.baseline_codes_file)
-    reconcile(baseline_codes=baseline_codes, apply=args.apply)
+    reconcile(baseline_codes=load_baseline_codes(args.baseline_codes_file), apply=args.apply)
     return 0
 
 
