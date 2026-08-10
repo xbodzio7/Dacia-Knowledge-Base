@@ -11,6 +11,7 @@ NEGATIVE = {"bez automatycznego parkowania", "bez podłogi bagażnika ustawianej
 SAFE_MARKERS = ("obręcze kół", "felgi aluminiowe", "esp z systemem", "tapicerka materiałowa", "płetwy rekina", "dwa światła cofania", "filtr cząstek stałych", "fotel kierowcy z regulacją wzdłużną", "kierownica pokryta skórą ekologiczną", "kierownica z pianki", "kluczyk z 3 przyciskami", "komunikaty w języku polskim", "lusterka boczne regulowane ręcznie", "relingi dachowe", "niska konsola środkowa", "normalny dach", "system multimedialny media", "ograniczenie prędkości do 180", "poduszki boczne z przodu", "regulator-ogranicznik", "system wspomagania parkowania przód/tył", "szyby tylne otwierane ręcznie", "tryb eco", "tylne oparcie kanapy nieskładane", "światła automatyczne, wycieraczki automatyczne")
 TECH_CONTEXT = {"Emisja CO2 cykl mieszany WLTP (g/km)", "Emisja CO2 cykl mieszany WLTP*LPG (g/km)", "Maksymalny moment obrotowy w Nm", "Moc maksymalna kW (KM)", "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)", "Pojemność przestrzeni bagażowej min. (dm3)", "Wysokość bez obciążenia z otwartą klapą tylną", "Zużycie paliwa cykl mieszany WLTP (l/100 km)", "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)"}
 TECH_PRESERVE = {"Prześwit pojazdu", "Szerokość całkowita", "Szerokość całkowita z lusterkami zewnętrznymi", "Wysokość pojazdu nieobciążonego z relingami (mm)"}
+TECHNICAL_TARGET_HINTS = {"Liczba drzwi": ["number_of_doors"]}
 
 
 def build_report() -> dict:
@@ -36,7 +37,7 @@ def build_report() -> dict:
     expected = {"safe_equipment": 286, "preserve_negative_or_base": 59, "preserve_equipment_unmapped": 96, "safe_technical_scalar": 315, "safe_technical_contextual": 124, "preserve_technical_context": 60}
     if dict(counts) != expected:
         raise RuntimeError(f"policy split changed: {dict(counts)!r}")
-    return {"schema_version": 1, "package_id": "sandero_stepway_full_modal_residual_review_001", "reviewed_on": "2026-08-10", "summary": {"historical_planned_residual_rows": 873, "current_residual_rows": 940, "safe_normalization_candidate_rows": 725, "preserved_evidence_rows": 215}, "policy_counts": dict(sorted(counts.items())), "technical_target_hints": {"Liczba drzwi": ["number_of_doors"]}}
+    return {"schema_version": 1, "package_id": "sandero_stepway_full_modal_residual_review_001", "reviewed_on": "2026-08-10", "summary": {"historical_planned_residual_rows": 873, "current_residual_rows": 940, "safe_normalization_candidate_rows": 725, "preserved_evidence_rows": 215}, "policy_counts": dict(sorted(counts.items())), "technical_target_hints": TECHNICAL_TARGET_HINTS}
 
 
 if __name__ == "__main__":
