@@ -269,9 +269,18 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
         cross_model = self.contents[
             "cross-model/cross-model-comparison-view.html"
         ].decode("utf-8")
+        family_matrix = json.loads(
+            self.contents[
+                "model-families/portfolio_model_family_comparison_matrix.json"
+            ]
+        )
         family_html = self.contents[FAMILY_MATRIX_HTML].decode("utf-8")
         version_html = self.contents[VERSION_MATRIX_HTML].decode("utf-8")
         source_html = self.contents[SOURCE_MATRIX_HTML].decode("utf-8")
+        expected_not_stated = sum(
+            row["seat_summary_state"] == "not_stated"
+            for row in family_matrix["families"]
+        )
 
         self.assertEqual(cross_model.count(FAMILY_HTML_HREF), 1)
         self.assertIn("exact source provenance", cross_model)
@@ -287,7 +296,10 @@ class PortfolioModelFamilyReleaseIntegrationTests(unittest.TestCase):
 
         self.assertIn("creates no configuration pair", family_html)
         self.assertIn("creates no configuration pair", version_html)
-        self.assertEqual(family_html.count('data-state="not_stated"'), 2)
+        self.assertEqual(
+            family_html.count('data-state="not_stated"'),
+            expected_not_stated,
+        )
         self.assertEqual(version_html.count("<tr>"), 23)
         self.assertIn("No version is ranked or recommended", version_html)
         self.assertEqual(source_html.count("<tr>"), 106)

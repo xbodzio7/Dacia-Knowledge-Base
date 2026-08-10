@@ -10,6 +10,8 @@ on:
       - tools/import_current_configurator_pdfs_20260809.py
       - tools/import_current_configurator_pdfs_completion_20260809.py
       - tools/reconcile_current_configurator_values_20260810.py
+      - tools/review_post_v1_11_0_release_priority_selection_20260803.py
+      - tests/test_portfolio_model_family_release_integration.py
 
 permissions:
   contents: write
