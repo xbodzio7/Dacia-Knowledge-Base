@@ -32,8 +32,8 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
     testcase.assertEqual(
         summary,
         {
-            "provenance_source_count": 35,
-            "source_configuration_relationship_count": 284,
+            "provenance_source_count": 105,
+            "source_configuration_relationship_count": 354,
             "active_configuration_count": 84,
             "active_version_count": 22,
             "model_family_count": 6,
@@ -68,7 +68,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         relations_by_source[relation["source_code"]].append(relation)
 
     records = matrix["sources"]
-    testcase.assertEqual(len(records), 35)
+    testcase.assertEqual(len(records), 105)
     testcase.assertEqual(
         {record["source_code"] for record in records},
         set(relations_by_source),
@@ -129,7 +129,7 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
         covered_versions.update(expected_versions)
         covered_models.update(expected_models)
 
-    testcase.assertEqual(relationship_total, 284)
+    testcase.assertEqual(relationship_total, 354)
     testcase.assertEqual(covered_configurations, set(configurations))
     testcase.assertEqual(covered_versions, set(versions))
     testcase.assertEqual(
@@ -146,18 +146,18 @@ def run_source_matrix_checks(testcase: Any, repository: Path) -> None:
     testcase.assertEqual(json.loads(json_text), matrix)
     csv_rows = list(csv.DictReader(io.StringIO(csv_text)))
     testcase.assertEqual(tuple(csv_rows[0]), CSV_COLUMNS)
-    testcase.assertEqual(len(csv_rows), 35)
+    testcase.assertEqual(len(csv_rows), 105)
     testcase.assertEqual(
         sum(int(row["relationship_count"]) for row in csv_rows),
-        284,
+        354,
     )
     lowered = html_text.lower()
     testcase.assertTrue(html_text.startswith("<!doctype html>"))
     testcase.assertNotIn("<script", lowered)
     testcase.assertNotIn("<img", lowered)
     testcase.assertNotIn("<link", lowered)
-    testcase.assertEqual(html_text.count("<tr>"), 36)
-    testcase.assertEqual(html_text.count("SHA-256 "), 35)
+    testcase.assertEqual(html_text.count("<tr>"), 106)
+    testcase.assertEqual(html_text.count("SHA-256 "), 105)
     testcase.assertIn("creates no source quality score", html_text)
     testcase.assertIn("No source is preferred or rejected", html_text)
 

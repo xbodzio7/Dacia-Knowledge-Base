@@ -153,6 +153,7 @@ def latest(
 def parse_scope(
     repository: Path,
     spec_path: Path,
+    as_of: date | None = None,
 ) -> dict[str, Any]:
     master = repository / "data" / "master"
     spec = read_json(spec_path)
@@ -219,6 +220,11 @@ def parse_scope(
     for item in spec["technical_slots"]:
         if not isinstance(item, dict):
             raise ComparisonError("invalid technical slot in spec")
+        effective_from_value = str(item.get("effective_from", ""))
+        if effective_from_value:
+            effective_from = iso_date(effective_from_value, "technical slot effective_from")
+            if as_of is not None and effective_from > as_of:
+                continue
         slot = (
             str(item.get("attribute_code", "")),
             str(item.get("fuel_type_code", "")),
@@ -520,7 +526,6 @@ def collect_report(
         raise ComparisonError(
             f"unsupported pair type filter: {pair_type_filter!r}"
         )
-    scope = parse_scope(repository, completeness_spec)
     evidence_payload = read_json(evidence_spec)
     evidence_date_value = str(evidence_payload.get("as_of", ""))
     as_of = iso_date(
@@ -528,6 +533,7 @@ def collect_report(
         "--as-of",
     )
     evidence = evidence_index(evidence_spec, as_of)
+    scope = parse_scope(repository, completeness_spec, as_of)
 
     master = repository / "data" / "master"
     prices = read_csv(master / "configuration_prices.csv")

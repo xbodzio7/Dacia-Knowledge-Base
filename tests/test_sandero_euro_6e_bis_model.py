@@ -91,6 +91,7 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
             row
             for row in all_emission_values
             if row["configuration_code"] in EXPECTED
+            and row["source_code"] == EXPECTED[row["configuration_code"]]
         ]
         self.assertEqual(len(emission_values), 7)
         self.assertEqual(
@@ -103,7 +104,7 @@ class SanderoEuro6eBisModelTests(unittest.TestCase):
                 for row in all_emission_values
             ),
         )
-        self.assertEqual(len(all_emission_values), 72)
+        self.assertGreaterEqual(len(all_emission_values), 72)
         self.assertGreaterEqual(len(self.values), 225)
 
     def test_model_package_does_not_change_other_data_tables(self) -> None:

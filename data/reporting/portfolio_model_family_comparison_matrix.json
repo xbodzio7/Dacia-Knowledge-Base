@@ -11,8 +11,8 @@
     "model_family_count": 6,
     "active_configuration_count": 84,
     "reporting_scope_count": 23,
-    "provenance_source_count": 35,
-    "source_configuration_relationship_count": 284,
+    "provenance_source_count": 105,
+    "source_configuration_relationship_count": 354,
     "configurations_without_provenance_count": 0,
     "cross_scope_pairs_generated": false,
     "ranking_generated": false,
@@ -49,8 +49,8 @@
       "exclusive_scope_count": 1,
       "shared_scope_count": 2,
       "provenance": {
-        "source_count": 10,
-        "relationship_count": 43,
+        "source_count": 17,
+        "relationship_count": 50,
         "configuration_coverage_count": 7,
         "missing_configuration_count": 0,
         "earliest_document_date": "2026-02-02",
@@ -86,8 +86,8 @@
       "exclusive_scope_count": 1,
       "shared_scope_count": 2,
       "provenance": {
-        "source_count": 13,
-        "relationship_count": 52,
+        "source_count": 21,
+        "relationship_count": 60,
         "configuration_coverage_count": 8,
         "missing_configuration_count": 0,
         "earliest_document_date": "2026-02-02",
@@ -125,12 +125,12 @@
       "exclusive_scope_count": 4,
       "shared_scope_count": 0,
       "provenance": {
-        "source_count": 4,
-        "relationship_count": 88,
+        "source_count": 26,
+        "relationship_count": 110,
         "configuration_coverage_count": 22,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-12-17",
-        "latest_document_date": "2026-07-24"
+        "latest_document_date": "2026-08-09"
       }
     },
     {
@@ -146,8 +146,10 @@
         "recorded_count": 30,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -166,12 +168,12 @@
       "exclusive_scope_count": 9,
       "shared_scope_count": 0,
       "provenance": {
-        "source_count": 8,
-        "relationship_count": 65,
+        "source_count": 24,
+        "relationship_count": 81,
         "configuration_coverage_count": 30,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-10-20",
-        "latest_document_date": "2026-07-25"
+        "latest_document_date": "2026-08-09"
       }
     },
     {
@@ -187,8 +189,10 @@
         "recorded_count": 14,
         "missing_count": 0
       },
-      "recorded_seat_values": [],
-      "seat_summary_state": "not_stated",
+      "recorded_seat_values": [
+        5
+      ],
+      "seat_summary_state": "recorded",
       "transmission_values": [
         "automatic",
         "manual"
@@ -203,12 +207,12 @@
       "exclusive_scope_count": 4,
       "shared_scope_count": 0,
       "provenance": {
-        "source_count": 2,
-        "relationship_count": 28,
+        "source_count": 16,
+        "relationship_count": 42,
         "configuration_coverage_count": 14,
         "missing_configuration_count": 0,
         "earliest_document_date": "2025-12-10",
-        "latest_document_date": "2026-07-03"
+        "latest_document_date": "2026-08-09"
       }
     },
     {
@@ -239,12 +243,12 @@
       "exclusive_scope_count": 2,
       "shared_scope_count": 0,
       "provenance": {
-        "source_count": 4,
-        "relationship_count": 8,
+        "source_count": 7,
+        "relationship_count": 11,
         "configuration_coverage_count": 3,
         "missing_configuration_count": 0,
         "earliest_document_date": "2026-02-19",
-        "latest_document_date": "2026-08-02"
+        "latest_document_date": "2026-08-09"
       }
     }
   ]

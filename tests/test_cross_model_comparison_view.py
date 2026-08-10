@@ -87,10 +87,10 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.assertEqual(price["currency"], "PLN")
 
     def test_missing_seat_summaries_remain_not_stated(self) -> None:
-        self.assertEqual(self.models["bigster"]["recorded_seat_values"], [])
-        self.assertEqual(self.models["bigster"]["seat_summary_state"], "not_stated")
-        self.assertEqual(self.models["duster_iii"]["recorded_seat_values"], [])
-        self.assertEqual(self.models["duster_iii"]["seat_summary_state"], "not_stated")
+        self.assertEqual(self.models["bigster"]["recorded_seat_values"], [5])
+        self.assertEqual(self.models["bigster"]["seat_summary_state"], "recorded")
+        self.assertEqual(self.models["duster_iii"]["recorded_seat_values"], [5])
+        self.assertEqual(self.models["duster_iii"]["seat_summary_state"], "recorded")
         self.assertEqual(self.models["spring"]["recorded_seat_values"], [4])
         self.assertEqual(self.models["spring"]["seat_summary_state"], "recorded")
         self.assertEqual(self.models["jogger"]["recorded_seat_values"], [5, 7])
@@ -195,7 +195,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         rendered = render_html(self.view)
         self.assertNotIn("<script", rendered.lower())
         self.assertNotIn("http://", rendered.lower())
-        self.assertIn('data-state="not_stated">nie podano</dd>', rendered)
+        self.assertIn('data-state="recorded"', rendered)
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]

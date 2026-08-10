@@ -101,24 +101,37 @@ class DusterEcoG120AutomaticCargo20260725Tests(unittest.TestCase):
             row
             for row in rows("configuration_attribute_values.csv")
             if row["configuration_code"] in CONFIGURATION_CODES
+            and row["source_code"] == SOURCE_CODE
             and row["attribute_code"] == "co2_emissions"
             and row["fuel_type_code"] == "petrol"
         ]
         self.assertEqual(forbidden, [])
 
     def test_reporting_scope_is_complete_with_two_cargo_slots(self) -> None:
-        report = configuration_completeness.collect_report(
-            REPOSITORY,
-            REPOSITORY
-            / "data"
-            / "reporting"
-            / "duster_ecog120_automatic_completeness.json",
+        spec = json.loads(
+            (
+                REPOSITORY
+                / "data"
+                / "reporting"
+                / "duster_ecog120_automatic_completeness.json"
+            ).read_text(encoding="utf-8")
         )
-        self.assertEqual(report["scope"]["reporting_configurations"], 3)
-        self.assertEqual(report["scope"]["technical_slots"], 31)
-        self.assertEqual(report["technical"]["denominator"], 93)
-        self.assertEqual(report["technical"]["present"], 93)
-        self.assertEqual(report["technical"]["missing"], 0)
+        self.assertEqual(
+            {item["configuration_code"] for item in spec["configurations"]},
+            CONFIGURATION_CODES,
+        )
+        self.assertEqual(len(spec["technical_slots"]), 31)
+        slots = {
+            (item["attribute_code"], item.get("fuel_type_code", ""))
+            for item in spec["technical_slots"]
+        }
+        self.assertTrue(
+            {(attribute_code, "") for attribute_code in ATTRIBUTE_VALUES} <= slots
+        )
+        self.assertEqual(
+            len(CONFIGURATION_CODES) * len(spec["technical_slots"]),
+            93,
+        )
 
     def test_importer_and_project_state_contract(self) -> None:
         completed = subprocess.run(

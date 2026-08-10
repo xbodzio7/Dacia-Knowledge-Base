@@ -302,7 +302,7 @@ def verify_projection_scopes() -> None:
 
 def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
     _, models = active_configuration_models()
-    values = rows(MASTER / "configuration_attribute_values.csv")
+    values = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("observation_date", "") <= "2026-07-26"]
     brochure_generic = [
         row
         for row in values

@@ -202,6 +202,9 @@ def load_evidence(repository: Path) -> list[dict[str, Any]]:
     evidence: list[dict[str, Any]] = []
     for table, filename in EVIDENCE_TABLES:
         for row in read_csv_rows(repository / "data/master" / filename, table):
+            observation_date = row.get("observation_date", "").strip()
+            if observation_date and observation_date > RECONCILED_ON:
+                continue
             configuration_code = row.get("configuration_code", "")
             if configuration_code not in active_configurations:
                 continue

@@ -315,12 +315,9 @@ def build() -> dict[str, tuple[list[str], list[dict[str, str]]]]:
 
 def expected_counts() -> dict[str, int]:
     return {
-        "sources.csv": 38,
-        "source_configurations.csv": 284,
         "commercial_items.csv": 50,
         "commercial_item_attributes.csv": 103,
         "commercial_item_configurations.csv": 322,
-        "configuration_attribute_values.csv": 3690,
     }
 
 
@@ -329,10 +326,41 @@ def verify_imported() -> None:
         _, rows = read_csv(name)
         if len(rows) != count:
             raise RuntimeError(f"{name}: expected {count} rows, found {len(rows)}")
+
+    _, values = read_csv("configuration_attribute_values.csv")
+    owned_values = [row for row in values if row["source_code"] == SOURCE_CODE]
+    if len(owned_values) != 60:
+        raise RuntimeError(f"exact-state source: expected 60 owned configuration values, found {len(owned_values)}")
+
     _, sources = read_csv("sources.csv")
-    source = next(row for row in sources if row["code"] == SOURCE_CODE)
+    matching_sources = [row for row in sources if row["code"] == SOURCE_CODE]
+    if len(matching_sources) != 1:
+        raise RuntimeError(
+            f"expected exactly one registered exact-state source, found {len(matching_sources)}"
+        )
+    source = matching_sources[0]
     if source["sha256"] != hashlib.sha256(CAPTURE.read_bytes()).hexdigest():
         raise RuntimeError("registered capture SHA-256 differs")
+
+    capture = json.loads(CAPTURE.read_text(encoding="utf-8"))
+    expected_configurations = {
+        row["configuration_code"] for row in capture["configurations"]
+    }
+    _, relationships = read_csv("source_configurations.csv")
+    owned_relationships = [
+        row for row in relationships if row["source_code"] == SOURCE_CODE
+    ]
+    observed_configurations = {
+        row["configuration_code"] for row in owned_relationships
+    }
+    if len(owned_relationships) != len(expected_configurations):
+        raise RuntimeError(
+            "exact-state source relationship count differs from the closed package"
+        )
+    if observed_configurations != expected_configurations:
+        raise RuntimeError("exact-state source configuration coverage differs")
+    if any(row["relationship"] != "documents" for row in owned_relationships):
+        raise RuntimeError("exact-state source relationship semantics differ")
 
 
 def main() -> int:

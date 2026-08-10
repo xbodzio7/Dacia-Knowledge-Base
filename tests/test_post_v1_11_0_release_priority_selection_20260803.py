@@ -29,13 +29,20 @@ class PostV111ReleasePrioritySelectionReviewTest(unittest.TestCase):
         self.assertTrue(publication["double_build_byte_identity"])
         self.assertEqual(publication["offline_workspace_verification"], "PASS")
 
-    def test_source_registry_receipt_matches_canonical_rows(self) -> None:
-        with (ROOT / "data/master/sources.csv").open(
-            encoding="utf-8-sig", newline=""
-        ) as handle:
-            rows = list(csv.DictReader(handle))
-        self.assertGreater(len(rows), 0)
-        self.assertEqual(self.report["source_registry"]["source_count"], len(rows))
+    def test_source_registry_receipt_preserves_the_review_boundary(self) -> None:
+        self.assertEqual(
+            self.report["source_registry"],
+            {
+                "source_count": 38,
+                "source_type_counts": {
+                    "brochure_pdf": 6,
+                    "configuration_pdf": 14,
+                    "normalized_snapshot": 5,
+                    "web_snapshot": 13,
+                },
+                "source_status_counts": {"active": 38},
+            },
+        )
 
     def test_no_source_backed_candidate_is_eligible(self) -> None:
         completeness = self.report["completeness"]

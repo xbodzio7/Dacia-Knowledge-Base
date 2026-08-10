@@ -57,8 +57,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "mixed_model_scope_count": 2,
                 "active_configuration_count": 84,
                 "within_scope_pair_count": 133,
-                "provenance_source_count": 35,
-                "source_configuration_relationship_count": 284,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
                 "configurations_with_provenance_count": 84,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
@@ -87,8 +87,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "model_family_count": 6,
                 "active_configuration_count": 84,
                 "reporting_scope_count": 23,
-                "provenance_source_count": 35,
-                "source_configuration_relationship_count": 284,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -120,8 +120,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_iii": (7, 3, 63900, 80500, "recorded", [5], 7, 0),
             "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5], 8, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
-            "duster_iii": (30, 5, 82000, 126100, "not_stated", [], 30, 0),
-            "bigster": (14, 4, 101400, 137600, "not_stated", [], 14, 0),
+            "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
+            "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),
             "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
         for code, values in expected.items():
@@ -145,12 +145,12 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_exact_provenance_counts_and_date_ranges_are_preserved(self) -> None:
         expected = {
-            "sandero_iii": (10, 43, "2026-02-02", "2026-08-09"),
-            "sandero_stepway_iii": (13, 52, "2026-02-02", "2026-08-09"),
-            "jogger": (4, 88, "2025-12-17", "2026-07-24"),
-            "duster_iii": (8, 65, "2025-10-20", "2026-07-25"),
-            "bigster": (2, 28, "2025-12-10", "2026-07-03"),
-            "spring": (4, 8, "2026-02-19", "2026-08-02"),
+            "sandero_iii": (17, 50, "2026-02-02", "2026-08-09"),
+            "sandero_stepway_iii": (21, 60, "2026-02-02", "2026-08-09"),
+            "jogger": (26, 110, "2025-12-17", "2026-08-09"),
+            "duster_iii": (24, 81, "2025-10-20", "2026-08-09"),
+            "bigster": (16, 42, "2025-12-10", "2026-08-09"),
+            "spring": (7, 11, "2026-02-19", "2026-08-09"),
         }
         matrix_relationship_total = 0
         for code, values in expected.items():
@@ -182,7 +182,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 284)
+        self.assertEqual(matrix_relationship_total, 354)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -204,8 +204,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 284)
-        self.assertEqual(len(used_sources), 35)
+        self.assertEqual(relation_total, 354)
+        self.assertEqual(len(used_sources), 105)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -266,16 +266,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_unknown_seat_values_remain_not_stated(self) -> None:
         for code in ("bigster", "duster_iii"):
-            self.assertEqual(self.families[code]["recorded_seat_values"], [])
-            self.assertEqual(
-                self.families[code]["seat_summary_state"], "not_stated"
-            )
-            self.assertEqual(
-                self.matrix_families[code]["recorded_seat_values"], []
-            )
-            self.assertEqual(
-                self.matrix_families[code]["seat_summary_state"], "not_stated"
-            )
+            self.assertEqual(self.families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.families[code]["seat_summary_state"], "recorded")
+            self.assertEqual(self.matrix_families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.matrix_families[code]["seat_summary_state"], "recorded")
         self.assertEqual(self.families["spring"]["recorded_seat_values"], [4])
         self.assertEqual(self.families["jogger"]["recorded_seat_values"], [5, 7])
         self.assertEqual(
@@ -306,8 +300,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         rows = list(csv.DictReader(io.StringIO(matrix_csv)))
         self.assertEqual(tuple(rows[0]), CSV_COLUMNS)
         self.assertEqual(len(rows), 6)
-        self.assertEqual(rows[3]["seat_summary_state"], "not_stated")
-        self.assertEqual(rows[3]["recorded_seat_values"], "")
+        self.assertEqual(rows[3]["seat_summary_state"], "recorded")
+        self.assertEqual(rows[3]["recorded_seat_values"], "5")
 
     def test_html_is_standalone_and_exposes_source_hashes(self) -> None:
         summary_rendered = render_summary_html(self.summary)
@@ -316,9 +310,9 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 41)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 111)
         self.assertIn(
-            'data-state="not_stated">nie podano</dd>', summary_rendered
+            'data-state="recorded"', summary_rendered
         )
         self.assertIn(
             "nie tworzy par między zakresami", summary_rendered.lower()
@@ -333,7 +327,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("https://", lowered)
         self.assertEqual(matrix_rendered.count("<tr>"), 7)
         self.assertEqual(
-            matrix_rendered.count('data-state="not_stated"'), 2
+            matrix_rendered.count('data-state="not_stated"'), 0
         )
         self.assertIn("creates no configuration pair", matrix_rendered)
         self.assertIn(

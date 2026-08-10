@@ -187,7 +187,7 @@ def verify_active_scopes() -> None:
 
 def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     models = active_configuration_models()
-    values = rows(MASTER / "configuration_attribute_values.csv")
+    values = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("observation_date", "") <= "2026-07-26"]
     selected: dict[str, list[dict[str, str]]] = {model: [] for model in MODEL_CODES}
     for row in values:
         model = models.get(row.get("configuration_code", ""), "")

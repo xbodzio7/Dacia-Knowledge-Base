@@ -75,7 +75,10 @@ def exhausted_source_reviews(reporting: Path) -> dict[tuple[str, str], str]:
     return exhausted
 
 
-def collect(repository: Path = ROOT) -> dict[str, object]:
+def collect(
+    repository: Path = ROOT,
+    scope_as_of_value: str | None = None,
+) -> dict[str, object]:
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
     configurations = {
@@ -112,7 +115,14 @@ def collect(repository: Path = ROOT) -> dict[str, object]:
     scope_files = sorted(reporting.glob("*_completeness.json"))
     for path in scope_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
-        technical = [slot_key(item) for item in payload.get("technical_slots", [])]
+        technical = [
+            slot_key(item)
+            for item in payload.get("technical_slots", [])
+            if not scope_as_of_value
+            or not isinstance(item, dict)
+            or not item.get("effective_from")
+            or str(item.get("effective_from")) <= scope_as_of_value
+        ]
         equipment = [str(item) for item in payload.get("equipment_attributes", [])]
         not_applicable = payload.get("not_applicable", {})
         technical_na = na_keys(

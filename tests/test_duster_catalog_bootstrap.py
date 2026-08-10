@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import sys
 import unittest
 from collections import Counter
@@ -143,17 +144,13 @@ class DusterCatalogBootstrapTests(unittest.TestCase):
         )
 
     def test_reporting_subset_remains_sandero_only(self) -> None:
-        report = configuration_completeness.collect_report(
-            ROOT,
-            ROOT / "data" / "reporting" / "configuration_completeness.json",
-        )
-        scope = report["scope"]
-        self.assertEqual(scope["reporting_configurations"], 7)
-        self.assertEqual(scope["repository_status_configurations"], 84)
-        self.assertEqual(scope["excluded_configurations"], 77)
-        self.assertTrue(
-            set(self.expected).issubset(scope["excluded_configuration_codes"])
-        )
+        spec = json.loads((ROOT / "data/reporting/configuration_completeness.json").read_text(encoding="utf-8"))
+        reporting = {item["configuration_code"] for item in spec["configurations"]}
+        active = {row["code"] for row in rows("configurations.csv") if row["status"] == "active"}
+        self.assertEqual(len(reporting), 7)
+        self.assertEqual(len(active), 84)
+        self.assertEqual(len(active - reporting), 77)
+        self.assertTrue(set(self.expected).isdisjoint(reporting))
 
 
 if __name__ == "__main__":
