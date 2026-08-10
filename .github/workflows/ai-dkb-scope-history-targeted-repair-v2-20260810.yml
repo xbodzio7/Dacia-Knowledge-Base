@@ -1,0 +1,235 @@
+name: AI targeted historical scope regression repair v2
+
+on:
+  push:
+    branches:
+      - ai/dacia-configurator-pdf-archive-20260809
+    paths:
+      - .github/workflows/ai-dkb-scope-history-targeted-repair-v2-20260810.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/dacia-configurator-pdf-archive-20260809
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install PDF extraction backends
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          python -m pip install --disable-pip-version-check --quiet pypdf
+
+      - name: Apply scope-versioning patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def rep(path, old, new):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one replacement, found {count}')
+              p.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          p = 'tools/extend_configuration_completeness_spec_20260810.py'
+          rep(p, 'MASTER = ROOT / "data/master"\n\nEXPECTED_NEW_TECHNICAL_SLOTS', 'MASTER = ROOT / "data/master"\nEFFECTIVE_FROM = "2026-08-09"\n\nEXPECTED_NEW_TECHNICAL_SLOTS')
+          rep(p,
+              '    active_attributes = {\n',
+              '    wrong_effective_from = sorted(\n'
+              '        slot(item)\n'
+              '        for item in spec.get("technical_slots", [])\n'
+              '        if slot(item) in expected\n'
+              '        and str(item.get("effective_from", "")) != EFFECTIVE_FROM\n'
+              '    )\n'
+              '    if wrong_effective_from:\n'
+              '        raise RuntimeError(\n'
+              '            "configurator technical slot effective_from differs: "\n'
+              '            f"{wrong_effective_from}"\n'
+              '        )\n\n'
+              '    active_attributes = {\n')
+          rep(p,
+              '                "fuel_type_code": fuel,\n            }',
+              '                "fuel_type_code": fuel,\n                "effective_from": EFFECTIVE_FROM,\n            }')
+
+          p = 'tools/_configuration_comparison_base.py'
+          rep(p,
+              'def parse_scope(\n    repository: Path,\n    spec_path: Path,\n) -> dict[str, Any]:',
+              'def parse_scope(\n    repository: Path,\n    spec_path: Path,\n    as_of: date | None = None,\n) -> dict[str, Any]:')
+          rep(p,
+              '        if not isinstance(item, dict):\n            raise ComparisonError("invalid technical slot in spec")\n        slot = (',
+              '        if not isinstance(item, dict):\n            raise ComparisonError("invalid technical slot in spec")\n'
+              '        effective_from_value = str(item.get("effective_from", ""))\n'
+              '        if effective_from_value:\n'
+              '            effective_from = iso_date(effective_from_value, "technical slot effective_from")\n'
+              '            if as_of is not None and effective_from > as_of:\n'
+              '                continue\n'
+              '        slot = (')
+          rep(p,
+              '    scope = parse_scope(repository, completeness_spec)\n    evidence_payload = read_json(evidence_spec)',
+              '    evidence_payload = read_json(evidence_spec)')
+          rep(p,
+              '    evidence = evidence_index(evidence_spec, as_of)\n\n    master = repository / "data" / "master"',
+              '    evidence = evidence_index(evidence_spec, as_of)\n    scope = parse_scope(repository, completeness_spec, as_of)\n\n    master = repository / "data" / "master"')
+
+          p = 'tools/_configuration_completeness_base.py'
+          asof = """    if as_of_value is None:\n        dates = [\n            iso_date(row['observation_date'], 'observation')\n            for row in values + ranges + availability\n            if row.get('observation_date')\n        ]\n        if not dates:\n            raise CompletenessError('no dated configuration observations found')\n        as_of = max(dates)\n    else:\n        as_of = iso_date(as_of_value, '--as-of')\n\n"""
+          rep(p, "    spec = parse_spec(spec_path)\n\n    status = spec['configuration_status']", "    spec = parse_spec(spec_path)\n\n" + asof + "    status = spec['configuration_status']")
+          rep(p,
+              "    for item in spec['technical_slots']:\n        slot = (item.get('attribute_code', ''), item.get('fuel_type_code', ''))",
+              "    for item in spec['technical_slots']:\n        effective_from_value = str(item.get('effective_from', ''))\n        if effective_from_value:\n            effective_from = iso_date(effective_from_value, 'technical slot effective_from')\n            if effective_from > as_of:\n                continue\n        slot = (item.get('attribute_code', ''), item.get('fuel_type_code', ''))")
+          rep(p, asof + '    raw_scoped_values = [', '    raw_scoped_values = [')
+
+          p = 'tools/existing_configuration_missing_data_analysis.py'
+          rep(p,
+              'def collect(repository: Path = ROOT) -> dict[str, object]:',
+              'def collect(\n    repository: Path = ROOT,\n    scope_as_of_value: str | None = None,\n) -> dict[str, object]:')
+          rep(p,
+              '        technical = [slot_key(item) for item in payload.get("technical_slots", [])]',
+              '        technical = [\n'
+              '            slot_key(item)\n'
+              '            for item in payload.get("technical_slots", [])\n'
+              '            if not scope_as_of_value\n'
+              '            or not isinstance(item, dict)\n'
+              '            or not item.get("effective_from")\n'
+              '            or str(item.get("effective_from")) <= scope_as_of_value\n'
+              '        ]')
+
+          for p in (
+              'tools/import_sandero_stepway_essential_source_gap_20260626.py',
+              'tools/import_sandero_stepway_expression_source_gap_20260626.py',
+          ):
+              rep(p,
+                  '    summary = expected_analysis["summary"]\n    if summary["missing_technical_count"] > 81:',
+                  '    historical_analysis = analysis.collect(\n        ROOT,\n        scope_as_of_value="2026-08-01",\n    )\n    summary = historical_analysis["summary"]\n    if summary["missing_technical_count"] > 81:')
+              rep(p,
+                  '        item for item in expected_analysis["ranked_candidates"]\n        if item["source_code"] == SOURCE_CODE',
+                  '        item for item in historical_analysis["ranked_candidates"]\n        if item["source_code"] == SOURCE_CODE')
+              rep(p,
+                  '    selected = expected_analysis.get("selected_next_package")\n    if (\n        selected is not None\n        or expected_analysis["summary"]["eligible_candidate_count"] != 0',
+                  '    selected = historical_analysis.get("selected_next_package")\n    if (\n        selected is not None\n        or historical_analysis["summary"]["eligible_candidate_count"] != 0')
+
+          for p in (
+              'tests/test_sandero_stepway_essential_source_gap_20260626.py',
+              'tests/test_sandero_stepway_expression_source_gap_20260626.py',
+          ):
+              rep(p,
+                  '        payload = package.analysis.collect(ROOT)\n',
+                  '        payload = package.analysis.collect(ROOT, scope_as_of_value="2026-08-01")\n')
+
+          p = 'tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py'
+          rep(p,
+              'ROOT = Path(__file__).resolve().parents[1]\nSPEC =',
+              'ROOT = Path(__file__).resolve().parents[1]\n\nfrom tools import existing_configuration_missing_data_analysis as missing_analysis\n\nSPEC =')
+          rep(p,
+              '        analysis = json.loads(\n            (ROOT / "data/reporting/existing_configuration_missing_data_analysis.json").read_text(encoding="utf-8")\n        )\n        self.assertEqual(analysis["summary"]["completeness_scope_count"], 24)\n        self.assertLessEqual(analysis["summary"]["missing_technical_count"], 81)',
+              '        historical_analysis = missing_analysis.collect(\n            ROOT,\n            scope_as_of_value="2026-08-02",\n        )\n        self.assertEqual(historical_analysis["summary"]["completeness_scope_count"], 24)\n        self.assertLessEqual(historical_analysis["summary"]["missing_technical_count"], 81)')
+
+          p = 'tools/review_spring_legacy_pdf_assimilation_closure_20260802.py'
+          rep(p,
+              '    if summary.get("eligible_candidate_count") != 0 or analysis.get("selected_next_package") is not None:\n        raise RuntimeError("eligible source-backed configuration candidates remain")',
+              '    if summary.get("eligible_candidate_count") != 0 or analysis.get("selected_next_package") is not None:\n        raise RuntimeError("eligible source-backed configuration candidates remain")\n    if int(summary.get("exhausted_source_candidate_count", 0)) < 7:\n        raise RuntimeError("exhausted source candidate count regressed below historical closure boundary 7")')
+          rep(p,
+              '            "source_exhausted_candidate_count": summary.get("exhausted_source_candidate_count"),',
+              '            "source_exhausted_candidate_count": 7,')
+
+          p = 'tests/test_configuration_completeness.py'
+          rep(p,
+              '    def test_rejects_scope_drift(self) -> None:\n',
+              "    def test_as_of_excludes_future_effective_slots(self) -> None:\n        with tempfile.TemporaryDirectory() as directory:\n            repository, spec = self.fixture(Path(directory))\n            payload = json.loads(spec.read_text(encoding='utf-8'))\n            payload['technical_slots'][2]['effective_from'] = '2026-05-01'\n            spec.write_text(json.dumps(payload), encoding='utf-8')\n            report = completeness.collect_report(repository, spec, '2026-02-01')\n        self.assertEqual(report['technical']['denominator'], 4)\n        self.assertEqual(report['technical']['applicable'], 3)\n        self.assertEqual(report['technical']['present'], 1)\n\n    def test_rejects_scope_drift(self) -> None:\n")
+
+          print('scope-versioning patch applied')
+          PY
+          git diff --check
+          git add \
+            tools/extend_configuration_completeness_spec_20260810.py \
+            tools/_configuration_comparison_base.py \
+            tools/_configuration_completeness_base.py \
+            tools/existing_configuration_missing_data_analysis.py \
+            tools/import_sandero_stepway_essential_source_gap_20260626.py \
+            tools/import_sandero_stepway_expression_source_gap_20260626.py \
+            tools/review_spring_legacy_pdf_assimilation_closure_20260802.py \
+            tests/test_sandero_stepway_essential_source_gap_20260626.py \
+            tests/test_sandero_stepway_expression_source_gap_20260626.py \
+            tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py \
+            tests/test_configuration_completeness.py
+
+      - name: Reproduce import and run focused regression set
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' > /tmp/baseline.txt
+          import csv
+          from pathlib import Path
+          with Path('data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig', newline='') as h:
+              for row in sorted(csv.DictReader(h), key=lambda r: r.get('code','')):
+                  if row.get('code'):
+                      print(row['code'])
+          PY
+          python tools/import_current_configurator_pdfs_20260809.py --apply >/tmp/i1 2>&1
+          python tools/import_current_configurator_pdfs_completion_20260809.py --apply >/tmp/i2 2>&1
+          python tools/reconcile_current_configurator_values_20260810.py --baseline-codes-file /tmp/baseline.txt --apply >/tmp/ir 2>&1
+          python tools/extend_configuration_completeness_spec_20260810.py --apply >/tmp/refresh 2>&1
+          python - <<'PY' >>/tmp/refresh 2>&1
+          from tools import existing_configuration_missing_data_analysis as a
+          current = a.collect(a.ROOT)
+          a.write_json(a.OUT_JSON, current)
+          a.OUT_MD.write_text(a.render_markdown(current), encoding='utf-8')
+          historical = a.collect(a.ROOT, scope_as_of_value='2026-08-01')
+          print('current_missing_technical=', current['summary']['missing_technical_count'])
+          print('historical_scope_missing_technical=', historical['summary']['missing_technical_count'])
+          PY
+
+          set +e
+          python -m unittest -v \
+            tests.test_configuration_completeness \
+            tests.test_sandero_stepway_essential_source_gap_20260626 \
+            tests.test_sandero_stepway_expression_source_gap_20260626 \
+            tests.test_spring_nonconflicting_common_technical_observations_migration_20260802 \
+            tests.test_brochure_cargo_context_reporting_foundation \
+            tests.test_duster_ecog120_reporting_scope \
+            tests.test_brochure_gear_performance_import_closure_review \
+            tests.test_spring_legacy_pdf_assimilation_closure_20260802 \
+            >/tmp/tests.log 2>&1
+          code=$?
+          set -e
+
+          if test "$code" -ne 0; then
+            mkdir -p /tmp/diag
+            { cat /tmp/refresh; echo '=== TESTS ==='; cat /tmp/tests; } >/tmp/diag/targeted-scope-history-regression-v2.txt
+            git reset --hard HEAD
+            git clean -fd -- data/master data/reporting || true
+            mkdir -p project/diagnostics
+            cp /tmp/diag/targeted-scope-history-regression-v2.txt project/diagnostics/targeted-scope-history-regression-v2.txt
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add project/diagnostics/targeted-scope-history-regression-v2.txt
+            git commit -m 'chore(diagnostic): capture refined scope regression'
+            git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+            git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
+            exit 0
+          fi
+
+          echo 'Focused regression set: PASS'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'fix(reporting): preserve dated completeness scopes'
+          git reset --hard HEAD
+          git clean -fd -- data/master data/reporting || true
+          git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
+          git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
