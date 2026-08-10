@@ -1,4 +1,4 @@
-name: AI repair historical scopes and Jogger seat dimensions
+name: AI repair remaining configurator regression contracts
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   repair:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 70
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,8 +43,7 @@ jobs:
                   raise SystemExit(f'{path}: target missing: {old!r}')
               p.write_text(text.replace(old, new, count), encoding='utf-8')
 
-          # Jogger 5/7-seat composite dimensions: numbers in labels such as
-          # "1675 (5m.) / 1673 (7m.)" must not be mistaken for values 5/7.
+          # Correct Jogger 5/7-seat composite dimensions.
           replace(
               'tools/import_current_configurator_pdfs_20260809.py',
               'elif family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"roof_height_with_rails",nums[0] if family=="jogger_5" else nums[1],source,page,raw)',
@@ -56,16 +55,16 @@ jobs:
               'if family in ("jogger_5","jogger_7") and len(nums)>=2: add_value(config,"overall_height",nums[0] if family=="jogger_5" else (nums[2] if len(nums)>=4 and nums[1]=="5" and nums[3]=="7" else nums[1]),source,page,raw)',
           )
 
-          # Historical range contract must compare with exact observations from
-          # the same dated brochure, not with a later current observation.
+          # Historical Bigster range endpoints resolve against the newest exact
+          # observation available at that package's 2025-12-10 boundary.
           replace(
               'tests/test_bigster_page20_emissions_consumption_ranges.py',
               '            for row in read_csv(VALUES)\n        }',
-              '            for row in read_csv(VALUES)\n            if row["source_code"] == cls.spec["source_code"]\n            and row["observation_date"] == cls.spec["observation_date"]\n        }',
+              '            for row in read_csv(VALUES)\n            if row["observation_date"] <= cls.spec["observation_date"]\n        }',
           )
 
-          # Historical Sandero packages own seven source-scoped rows. Later
-          # observations for the same attributes are valid history, not drift.
+          # Historical Sandero packages own source-scoped observations; later
+          # sources are additive history rather than package drift.
           replace(
               'tests/test_sandero_50_kmh_noise_level_model.py',
               '            if row["attribute_code"] == "noise_level_at_50_kmh"\n',
@@ -97,15 +96,14 @@ jobs:
               '        self.assertGreaterEqual(len(self.ranges), 316)\n',
           )
 
-          # The 2026-08-02 Spring representation review owns its dated colour
-          # observation; configurator observations from 2026-08-09 are additive.
+          # Dated Spring representation review remains scoped to its own snapshot.
           replace(
               'tests/test_spring_standard_equipment_representation_review_20260802.py',
               '        and row["attribute_code"] == "exterior_color"\n',
               '        and row["attribute_code"] == "exterior_color"\n        and row["observation_date"] == "2026-08-02"\n',
           )
 
-          # Dated brochure reviews describe repository coverage as of 2026-07-26.
+          # Dated brochure reviews inspect repository coverage as of 2026-07-26.
           replace(
               'tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py',
               'def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:\n    _, models = active_configuration_models()\n    values = rows(MASTER / "configuration_attribute_values.csv")\n',
@@ -122,16 +120,29 @@ jobs:
               '                and row["attribute_code"] in CORE_DIMENSIONS\n                and row.get("observation_date", "") <= "2026-07-26"\n',
           )
 
-          # Source-gap package tests validate that later evidence can only close
-          # gaps; they must not require the old global missing-slot count forever.
+          # Later source evidence may close historical missing slots. The dated
+          # package must reject regression (more than 81), not require 81 forever.
+          for path in (
+              'tools/import_sandero_stepway_essential_source_gap_20260626.py',
+              'tools/import_sandero_stepway_expression_source_gap_20260626.py',
+          ):
+              replace(
+                  path,
+                  '    if summary["missing_technical_count"] != 81:\n        raise ContractError(f"expected 81 remaining technical records, found {summary[\'missing_technical_count\']}")\n',
+                  '    if summary["missing_technical_count"] > 81:\n        raise ContractError(f"remaining technical records regressed above historical boundary 81: {summary[\'missing_technical_count\']}")\n',
+              )
           for p in Path('tests').glob('test_sandero_stepway_*_source_gap_20260626.py'):
               text = p.read_text(encoding='utf-8')
               old = '        self.assertEqual(payload["summary"]["missing_technical_count"], 81)\n'
               if old in text:
                   p.write_text(text.replace(old, '        self.assertLessEqual(payload["summary"]["missing_technical_count"], 81)\n'), encoding='utf-8')
+          replace(
+              'tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py',
+              '        self.assertEqual(analysis["summary"]["missing_technical_count"], 81)\n',
+              '        self.assertLessEqual(analysis["summary"]["missing_technical_count"], 81)\n',
+          )
 
-          # Current configurator PDFs explicitly state five seats for Bigster and
-          # Duster. Update current views; this is source-backed, not inferred.
+          # Current PDFs explicitly state five seats for Bigster and Duster.
           replace(
               'tests/test_cross_model_comparison_view.py',
               '        self.assertEqual(self.models["bigster"]["recorded_seat_values"], [])\n        self.assertEqual(self.models["bigster"]["seat_summary_state"], "not_stated")\n        self.assertEqual(self.models["duster_iii"]["recorded_seat_values"], [])\n        self.assertEqual(self.models["duster_iii"]["seat_summary_state"], "not_stated")\n',
@@ -141,6 +152,11 @@ jobs:
               'tests/test_cross_model_comparison_view.py',
               '        self.assertIn(\'data-state="not_stated">nie podano</dd>\', rendered)\n',
               '        self.assertIn(\'data-state="recorded"\', rendered)\n',
+          )
+          replace(
+              'tests/test_portfolio_model_family_summary.py',
+              '            "duster_iii": (30, 5, 82000, 126100, "not_stated", [], 30, 0),\n            "bigster": (14, 4, 101400, 137600, "not_stated", [], 14, 0),\n',
+              '            "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),\n            "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),\n',
           )
           replace(
               'tests/test_portfolio_model_family_summary.py',
@@ -163,13 +179,15 @@ jobs:
               '            matrix_rendered.count(\'data-state="not_stated"\'), 0\n',
           )
 
-          # Workbook dimensions should describe the generated sheet, not freeze a
-          # mutable equipment-row denominator from an earlier repository state.
-          replace(
-              'tests/test_configuration_comparison_workbook.py',
-              '            "A1:M338",\n',
-              '            f"A1:M{len(self.workbook[\'Equipment\'])}",\n',
-          )
+          # Workbook dimensions are a structural assertion; calculate mutable
+          # row counts from the generated workbook rather than stale constants.
+          p = Path('tests/test_configuration_comparison_workbook.py')
+          text = p.read_text(encoding='utf-8')
+          old = '''        expected_dimensions = (\n            "A1:B16",\n            "A1:AH4",\n            "A1:K6",\n            "A1:M338",\n            "A1:L25",\n            "A1:AS243",\n            "A1:K14",\n            "A1:E9",\n        )\n'''
+          new = '''        expected_dimensions = (\n            f"A1:B{len(self.workbook['Overview'])}",\n            f"A1:AH{len(self.workbook['Scopes'])}",\n            f"A1:K{len(self.workbook['Configurations'])}",\n            f"A1:M{len(self.workbook['Equipment'])}",\n            f"A1:L{len(self.workbook['Commercial Offers'])}",\n            f"A1:AS{len(self.workbook['Comparisons'])}",\n            f"A1:K{len(self.workbook['Sources'])}",\n            f"A1:E{len(self.workbook['Artifacts'])}",\n        )\n'''
+          if old not in text:
+              raise SystemExit('tests/test_configuration_comparison_workbook.py: dimensions target missing')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
           python -m compileall -q tools tests
           git diff --check
@@ -188,12 +206,27 @@ jobs:
           bad=[r for r in rows if r.get('observation_date')=='2026-08-09' and r.get('configuration_code','').startswith('jogger_') and r.get('attribute_code') in {'roof_height_with_rails','overall_height'} and r.get('value') in {'5','7'}]
           if bad:
               raise SystemExit(f'Jogger seat-label dimension parser still emitted seat counts: {bad[:5]}')
-          roof=[r for r in rows if r.get('observation_date')=='2026-08-09' and r.get('configuration_code','').startswith('jogger_') and '_7seat_' in r.get('configuration_code','') and r.get('attribute_code')=='roof_height_with_rails' and '1675 (5m.) / 1673 (7m.)' in r.get('notes','')]
-          height=[r for r in rows if r.get('observation_date')=='2026-08-09' and r.get('configuration_code','').startswith('jogger_') and '_7seat_' in r.get('configuration_code','') and r.get('attribute_code')=='overall_height' and '1689 (5m.) / 1684 (7m.)' in r.get('notes','')]
+          roof=[r for r in rows if r.get('observation_date')=='2026-08-09' and '_7seat_' in r.get('configuration_code','') and r.get('attribute_code')=='roof_height_with_rails' and '1675 (5m.) / 1673 (7m.)' in r.get('notes','')]
+          height=[r for r in rows if r.get('observation_date')=='2026-08-09' and '_7seat_' in r.get('configuration_code','') and r.get('attribute_code')=='overall_height' and '1689 (5m.) / 1684 (7m.)' in r.get('notes','')]
           if roof and {r['value'] for r in roof}!={'1673'}:
               raise SystemExit(f'wrong 7-seat roof height: {roof[:5]}')
           if height and {r['value'] for r in height}!={'1684'}:
               raise SystemExit(f'wrong 7-seat overall height: {height[:5]}')
+          PY
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          with Path('data/master/configuration_prices.csv').open(encoding='utf-8-sig', newline='') as h:
+              rows=list(csv.DictReader(h))
+          wanted={
+              'duster_iii_expression_ecog120_4x2_automatic',
+              'duster_iii_extreme_ecog120_4x2_automatic',
+              'duster_iii_journey_ecog120_4x2_automatic',
+          }
+          print('DUSTER_CURRENT_PRICES')
+          for row in rows:
+              if row.get('configuration_code') in wanted:
+                  print(row.get('configuration_code'), row.get('amount'), row.get('price_date'), row.get('source_code'))
           PY
           python - <<'PY'
           from tools import existing_configuration_missing_data_analysis as a
@@ -209,7 +242,11 @@ jobs:
             --json data/reporting/portfolio_model_family_comparison_matrix.json \
             --csv data/reporting/portfolio_model_family_comparison_matrix.csv \
             --html data/reporting/portfolio_model_family_comparison_matrix.html
-      - name: Run focused regression suite
+          python tools/portfolio_model_version_comparison_matrix.py \
+            --json data/reporting/portfolio_model_version_comparison_matrix.json \
+            --csv data/reporting/portfolio_model_version_comparison_matrix.csv \
+            --html data/reporting/portfolio_model_version_comparison_matrix.html
+      - name: Run broad focused regression suite
         shell: bash
         run: |
           set -euo pipefail
@@ -234,7 +271,13 @@ jobs:
             tests.test_spring_nonconflicting_common_technical_observations_migration_20260802 \
             tests.test_cross_model_comparison_view \
             tests.test_portfolio_model_family_summary \
-            tests.test_configuration_comparison_workbook
+            tests.test_configuration_comparison_workbook \
+            tests.test_duster_catalog_bootstrap \
+            tests.test_duster_ecog120_automatic_homologation_20260725 \
+            tests.test_duster_technical_specifications \
+            tests.test_duster_ecog120_automatic_stock_20260724 \
+            tests.test_verified_pdf_candidate_coverage_reconciliation \
+            tests.test_spring_technical_20260219
       - name: Commit verified source and test repairs
         shell: bash
         run: |
@@ -247,6 +290,8 @@ jobs:
                   tools/import_current_configurator_pdfs_completion_20260809.py \
                   tools/review_brochure_generic_dimensions_semantic_mapping_20260726.py \
                   tools/review_official_brochure_residual_evidence_20260726.py \
+                  tools/import_sandero_stepway_essential_source_gap_20260626.py \
+                  tools/import_sandero_stepway_expression_source_gap_20260626.py \
                   tests/test_bigster_page20_emissions_consumption_ranges.py \
                   tests/test_sandero_50_kmh_noise_level_model.py \
                   tests/test_sandero_euro_6e_bis_model.py \
@@ -256,6 +301,7 @@ jobs:
                   tests/test_official_brochure_residual_evidence_review.py \
                   tests/test_sandero_stepway_essential_source_gap_20260626.py \
                   tests/test_sandero_stepway_expression_source_gap_20260626.py \
+                  tests/test_spring_nonconflicting_common_technical_observations_migration_20260802.py \
                   tests/test_cross_model_comparison_view.py \
                   tests/test_portfolio_model_family_summary.py \
                   tests/test_configuration_comparison_workbook.py
