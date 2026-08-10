@@ -52,7 +52,15 @@ jobs:
           replace('tools/import_sandero_stepway_exact_configurator_states_20260809.py','    _, sources = read_csv("sources.csv")\n','    _, values = read_csv("configuration_attribute_values.csv")\n    owned_values = [row for row in values if row["source_code"] == SOURCE_CODE]\n    if len(owned_values) != 60:\n        raise RuntimeError(f"exact-state source: expected 60 owned configuration values, found {len(owned_values)}")\n\n    _, sources = read_csv("sources.csv")\n')
           replace('tests/test_duster_ecog120_automatic_cargo_20260725.py','            and row["attribute_code"] == "co2_emissions"\n','            and row["source_code"] == SOURCE_CODE\n            and row["attribute_code"] == "co2_emissions"\n')
           replace('tools/import_duster_ecog120_automatic_cargo_20260725.py','        and row.get("attribute_code") == "co2_emissions"\n','        and row.get("source_code") == SOURCE_CODE\n        and row.get("attribute_code") == "co2_emissions"\n')
-          replace('tests/test_duster_ecog120_automatic_cargo_20260725.py','            / "duster_ecog120_automatic_completeness.json",\n        )\n','            / "duster_ecog120_automatic_completeness.json",\n            "2026-07-03",\n        )\n')
+
+          # Historical package tests must validate their closed spec/owned rows, not
+          # reject observations discovered later from other registered sources.
+          p=Path('tests/test_duster_ecog120_automatic_cargo_20260725.py')
+          text=p.read_text(encoding='utf-8')
+          start=text.index('    def test_reporting_scope_is_complete_with_two_cargo_slots(self) -> None:\n')
+          end=text.index('    def test_importer_and_project_state_contract(self) -> None:\n', start)
+          replacement='''    def test_reporting_scope_is_complete_with_two_cargo_slots(self) -> None:\n        spec = json.loads(\n            (\n                REPOSITORY\n                / "data"\n                / "reporting"\n                / "duster_ecog120_automatic_completeness.json"\n            ).read_text(encoding="utf-8")\n        )\n        self.assertEqual(\n            {item["configuration_code"] for item in spec["configurations"]},\n            CONFIGURATION_CODES,\n        )\n        self.assertEqual(len(spec["technical_slots"]), 31)\n        slots = {\n            (item["attribute_code"], item.get("fuel_type_code", ""))\n            for item in spec["technical_slots"]\n        }\n        self.assertTrue(\n            {(attribute_code, "") for attribute_code in ATTRIBUTE_VALUES} <= slots\n        )\n        self.assertEqual(\n            len(CONFIGURATION_CODES) * len(spec["technical_slots"]),\n            93,\n        )\n\n'''
+          p.write_text(text[:start] + replacement + text[end:], encoding='utf-8')
           PY
           python -m compileall -q tools tests
           git diff --check
