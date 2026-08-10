@@ -16,15 +16,16 @@ Read the following documents and state resources in exactly this order:
 2. `STATE_SUMMARY.md`
 3. `AUTONOMOUS_MAINTAINER.md`
 4. `ACCELERATED_MILESTONE_CLOSURE.md`
-5. `AI_WORKING_AGREEMENT.md`
-6. `AI_CONTEXT.md`
-7. `SOURCE_ASSIMILATION_STANDARD.md`
-8. `DOCUMENTATION_STANDARD.md`
-9. `DOCUMENT_TYPES.md`
-10. `GLOSSARY.md`
-11. `DECISIONS.md`
-12. `SESSION_STATE.md`
-13. `ROADMAP.md`
+5. `WORKFLOW_PROFILES.md`
+6. `AI_WORKING_AGREEMENT.md`
+7. `AI_CONTEXT.md`
+8. `SOURCE_ASSIMILATION_STANDARD.md`
+9. `DOCUMENTATION_STANDARD.md`
+10. `DOCUMENT_TYPES.md`
+11. `GLOSSARY.md`
+12. `DECISIONS.md`
+13. `SESSION_STATE.md`
+14. `ROADMAP.md`
 
 `README.md` may be consulted if additional project context is required.
 
