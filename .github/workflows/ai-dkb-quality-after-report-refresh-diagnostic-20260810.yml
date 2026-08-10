@@ -1,5 +1,5 @@
 name: AI diagnose full quality after report refresh
-# Reproduce the full configurator gate through completeness and documentation refresh.
+# Reproduce the current full configurator gate through completeness and documentation refresh.
 
 on:
   push:
