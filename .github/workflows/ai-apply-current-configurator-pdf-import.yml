@@ -7,6 +7,8 @@ on:
       - ai/dacia-configurator-pdf-archive-20260809
     paths:
       - .github/workflows/ai-apply-current-configurator-pdf-import.yml
+      - data/reporting/configuration_completeness.json
+      - tools/extend_configuration_completeness_spec_20260810.py
       - tools/import_current_configurator_pdfs_20260809.py
       - tools/import_current_configurator_pdfs_completion_20260809.py
       - tools/reconcile_current_configurator_values_20260810.py
@@ -113,6 +115,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python tools/extend_configuration_completeness_spec_20260810.py --apply
           python - <<'PY'
           from tools import existing_configuration_missing_data_analysis as analysis
           payload = analysis.collect(analysis.ROOT)
@@ -157,6 +160,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/master \
+                  data/reporting/configuration_completeness.json \
                   data/reporting/dacia_configurator_pdf_canonical_import_20260809.json \
                   data/reporting/dacia_configurator_pdf_completion_import_20260809.json \
                   data/reporting/existing_configuration_missing_data_analysis.json \
