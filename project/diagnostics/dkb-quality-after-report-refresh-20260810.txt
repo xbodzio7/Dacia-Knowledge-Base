@@ -1,5 +1,5 @@
 quality_exit_code=1
-head_sha=0c53f3f49087735946f420d70b62d7f408663732
+head_sha=f731b6f29fb317c1a774e77a2edf7c5ccd8761e8
 
 === IMPORT SUMMARY TAIL ===
 {
@@ -77,7 +77,7 @@ compatible multi-source groups preserved: 0
 divergent multi-source groups preserved: 280
 canonical current-value reconciliations: 0
 
-=== REPORT REFRESH ===
+=== REPORT + DOCUMENTATION REFRESH ===
 missing_technical_count= 58
 Portfolio model-family summary
 ------------------------------
@@ -104,9 +104,27 @@ Reporting scopes      : 23
 Source relationships  : 354
 Configuration pairs   : none
 Rankings              : none
+Updated documentation baseline blocks:
+  CHANGELOG.md
+  README.md
+  project/SESSION_STATE.md
+Documentation baseline
+----------------------
+Tests                : 1915
+Master CSV files     : 47
+Master rows          : 16556
+Configuration values : 6682
+Import specs         : 139
+Value ranges         : 345
+Range import specs   : 24
+Availability records : 6931
+Attributes           : 416
+Attribute categories : 30
+SQLite tables        : 47 (derived)
+SQLite rows          : 16556 (derived)
 
 === QUALITY FAILURE INDEX ===
-8:ERROR: documentation baseline drift detected:
+9:ERROR: observed technical slots are absent from spec: [('body_style_source_stated', ''), ('cargo_floor_width', ''), ('centre_console_variant', ''), ('drive_layout', ''), ('factory_speed_limit', ''), ('fuel_type', ''), ('gearbox_source_description', ''), ('gearbox_type', ''), ('ground_clearance_laden', ''), ('ground_clearance_unladen', ''), ('height_with_tailgate_open', ''), ('homologation_procedure_code', ''), ('homologation_protocol', ''), ('interface_language_source_stated', ''), ('key_count', ''), ('minimum_kerb_weight', ''), ('overall_height_source_stated', ''), ('rear_windows_power', ''), ('reversing_lights_count', ''), ('roof_height_with_rails', ''), ('roof_type_source_stated', ''), ('side_mirrors_electric_adjustment', ''), ('speaker_count', ''), ('steering_wheel_material', ''), ('technical_type_code', '')]
 
 === QUALITY STDOUT TAIL ===
 ==> Compile Python sources: PASS
@@ -115,34 +133,12 @@ Rankings              : none
 ==> Validate repository data: PASS
 ==> Build SQLite database: PASS
 ==> Verify SQLite database: PASS
-==> Check documentation baseline: FAIL
-ERROR: documentation baseline drift detected:
-  CHANGELOG.md
-  README.md
-  project/SESSION_STATE.md
-Run: python tools/dkb.py documentation-baseline --apply
-Quality checks failed at: Check documentation baseline (exit code 1). Full log: /home/runner/work/_temp/quality.log
+==> Check documentation baseline: PASS
+==> Generate configuration completeness report: FAIL
+ERROR: observed technical slots are absent from spec: [('body_style_source_stated', ''), ('cargo_floor_width', ''), ('centre_console_variant', ''), ('drive_layout', ''), ('factory_speed_limit', ''), ('fuel_type', ''), ('gearbox_source_description', ''), ('gearbox_type', ''), ('ground_clearance_laden', ''), ('ground_clearance_unladen', ''), ('height_with_tailgate_open', ''), ('homologation_procedure_code', ''), ('homologation_protocol', ''), ('interface_language_source_stated', ''), ('key_count', ''), ('minimum_kerb_weight', ''), ('overall_height_source_stated', ''), ('rear_windows_power', ''), ('reversing_lights_count', ''), ('roof_height_with_rails', ''), ('roof_type_source_stated', ''), ('side_mirrors_electric_adjustment', ''), ('speaker_count', ''), ('steering_wheel_material', ''), ('technical_type_code', '')]
+Quality checks failed at: Generate configuration completeness report (exit code 1). Full log: /home/runner/work/_temp/quality.log
 
 === QUALITY LOG TAIL ===
-test_boundaries (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_boundaries) ... ok
-test_committed_outputs (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_committed_outputs) ... ok
-test_decision_partition (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_decision_partition) ... ok
-test_markdown (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_markdown) ... ok
-test_maximum_continuation (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_continuation) ... ok
-test_maximum_label (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_label) ... ok
-test_minimum_row_signature_mismatch (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_signature_mismatch) ... ok
-test_minimum_row_source_facts (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_source_facts) ... ok
-test_next_package (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_next_package) ... ok
-test_policy (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_policy) ... ok
-test_source_receipt (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_source_receipt) ... ok
-test_steering_rejects_other_attributes (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_rejects_other_attributes) ... ok
-test_steering_signature (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_signature) ... ok
-test_summary (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_summary) ... ok
-test_tce_value_remains_unattached (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_tce_value_remains_unattached) ... ok
-test_drift (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_drift) ... ok
-test_fact (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_fact) ... ok
-test_import_policy (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_import_policy) ... ok
-test_manifest (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_manifest) ... ok
 test_missing_signature (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
 test_package (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_package) ... ok
 test_restricted (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_restricted) ... ok
@@ -357,7 +353,7 @@ test_render_markdown_is_deterministic (test_verified_pdf_candidate_residual_gap_
 test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_restricted_output_paths_are_rejected) ... ok
 test_verify_output_detects_drift (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_verify_output_detects_drift) ... ok
 test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
-test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmplg9mc06u/missing.sqlite
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpow00xrtc/missing.sqlite
 ok
 test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
 test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
@@ -377,7 +373,7 @@ test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_report
 test_scans_all_configured_files (test_year_ranges.YearRangeValidationTests.test_scans_all_configured_files) ... ok
 
 ----------------------------------------------------------------------
-Ran 1915 tests in 181.005s
+Ran 1915 tests in 171.842s
 
 OK
 Exit code: 0
@@ -617,18 +613,37 @@ Exit code: 0
 ===== Check documentation baseline =====
 Command: /opt/hostedtoolcache/Python/3.14.6/x64/bin/python /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/dkb.py documentation-baseline --check --database /home/runner/work/_temp/dacia_knowledge_base.sqlite --json /home/runner/work/_temp/documentation-baseline.json --markdown /home/runner/work/_temp/documentation-baseline.md
 
+--- stdout ---
+Documentation baseline blocks: PASS
+JSON baseline written to /home/runner/work/_temp/documentation-baseline.json
+Markdown baseline written to /home/runner/work/_temp/documentation-baseline.md
+Documentation baseline
+----------------------
+Tests                : 1915
+Master CSV files     : 47
+Master rows          : 16556
+Configuration values : 6682
+Import specs         : 139
+Value ranges         : 345
+Range import specs   : 24
+Availability records : 6931
+Attributes           : 416
+Attribute categories : 30
+SQLite tables        : 47 (verified)
+SQLite rows          : 16556 (verified)
+Exit code: 0
+
+===== Generate configuration completeness report =====
+Command: /opt/hostedtoolcache/Python/3.14.6/x64/bin/python /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/dkb.py configuration-completeness --json /home/runner/work/_temp/configuration-completeness.json --markdown /home/runner/work/_temp/configuration-completeness.md
+
 --- stderr ---
-ERROR: documentation baseline drift detected:
-  CHANGELOG.md
-  README.md
-  project/SESSION_STATE.md
-Run: python tools/dkb.py documentation-baseline --apply
+ERROR: observed technical slots are absent from spec: [('body_style_source_stated', ''), ('cargo_floor_width', ''), ('centre_console_variant', ''), ('drive_layout', ''), ('factory_speed_limit', ''), ('fuel_type', ''), ('gearbox_source_description', ''), ('gearbox_type', ''), ('ground_clearance_laden', ''), ('ground_clearance_unladen', ''), ('height_with_tailgate_open', ''), ('homologation_procedure_code', ''), ('homologation_protocol', ''), ('interface_language_source_stated', ''), ('key_count', ''), ('minimum_kerb_weight', ''), ('overall_height_source_stated', ''), ('rear_windows_power', ''), ('reversing_lights_count', ''), ('roof_height_with_rails', ''), ('roof_type_source_stated', ''), ('side_mirrors_electric_adjustment', ''), ('speaker_count', ''), ('steering_wheel_material', ''), ('technical_type_code', '')]
 Exit code: 1
 
 === QUALITY SUMMARY JSON ===
 {
   "exit_code": 1,
-  "generated_at": "2026-08-10T13:04:57.770270+00:00",
+  "generated_at": "2026-08-10T13:15:39.125586+00:00",
   "status": "FAIL",
   "steps": [
     {
@@ -662,8 +677,13 @@ Exit code: 1
       "status": "PASS"
     },
     {
-      "exit_code": 1,
+      "exit_code": 0,
       "label": "Check documentation baseline",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 1,
+      "label": "Generate configuration completeness report",
       "status": "FAIL"
     }
   ],
