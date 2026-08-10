@@ -11,6 +11,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SPEC_PATH = ROOT / "data/reporting/configuration_completeness.json"
 MASTER = ROOT / "data/master"
+EFFECTIVE_FROM = "2026-08-09"
 
 EXPECTED_NEW_TECHNICAL_SLOTS = tuple(
     (code, "")
@@ -96,6 +97,18 @@ def verify(spec: dict[str, Any]) -> None:
     if missing:
         raise RuntimeError(f"expected configurator technical slots missing from spec: {missing}")
 
+    wrong_effective_from = sorted(
+        slot(item)
+        for item in spec.get("technical_slots", [])
+        if slot(item) in expected
+        and str(item.get("effective_from", "")) != EFFECTIVE_FROM
+    )
+    if wrong_effective_from:
+        raise RuntimeError(
+            "configurator technical slot effective_from differs: "
+            f"{wrong_effective_from}"
+        )
+
     active_attributes = {
         row.get("code", "")
         for row in read_csv(MASTER / "attributes.csv")
@@ -128,6 +141,7 @@ def apply() -> int:
             {
                 "attribute_code": attribute,
                 "fuel_type_code": fuel,
+                "effective_from": EFFECTIVE_FROM,
             }
         )
     technical.sort(

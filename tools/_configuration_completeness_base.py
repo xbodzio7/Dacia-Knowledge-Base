@@ -128,6 +128,18 @@ def collect_report(
     )
     spec = parse_spec(spec_path)
 
+    if as_of_value is None:
+        dates = [
+            iso_date(row['observation_date'], 'observation')
+            for row in values + ranges + availability
+            if row.get('observation_date')
+        ]
+        if not dates:
+            raise CompletenessError('no dated configuration observations found')
+        as_of = max(dates)
+    else:
+        as_of = iso_date(as_of_value, '--as-of')
+
     status = spec['configuration_status']
     active_configurations = sorted(
         row['code'] for row in configurations if row.get('status') == status
@@ -165,6 +177,11 @@ def collect_report(
     }
     slots: list[tuple[str, str]] = []
     for item in spec['technical_slots']:
+        effective_from_value = str(item.get('effective_from', ''))
+        if effective_from_value:
+            effective_from = iso_date(effective_from_value, 'technical slot effective_from')
+            if effective_from > as_of:
+                continue
         slot = (item.get('attribute_code', ''), item.get('fuel_type_code', ''))
         if not slot[0] or slot in slots:
             raise CompletenessError('invalid or duplicate technical slot in spec')
@@ -194,18 +211,6 @@ def collect_report(
         (item.get('configuration_code', ''), item.get('attribute_code', ''))
         for item in raw_na.get('equipment', [])
     }
-
-    if as_of_value is None:
-        dates = [
-            iso_date(row['observation_date'], 'observation')
-            for row in values + ranges + availability
-            if row.get('observation_date')
-        ]
-        if not dates:
-            raise CompletenessError('no dated configuration observations found')
-        as_of = max(dates)
-    else:
-        as_of = iso_date(as_of_value, '--as-of')
 
     raw_scoped_values = [
         row for row in values if row.get('configuration_code') in configuration_sources

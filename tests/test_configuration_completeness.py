@@ -135,6 +135,17 @@ class ConfigurationCompletenessTests(unittest.TestCase):
         self.assertEqual(report['technical']['present'], 1)
         self.assertEqual(report['equipment']['recorded'], 0)
 
+    def test_as_of_excludes_future_effective_slots(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, spec = self.fixture(Path(directory))
+            payload = json.loads(spec.read_text(encoding='utf-8'))
+            payload['technical_slots'][2]['effective_from'] = '2026-05-01'
+            spec.write_text(json.dumps(payload), encoding='utf-8')
+            report = completeness.collect_report(repository, spec, '2026-02-01')
+        self.assertEqual(report['technical']['denominator'], 4)
+        self.assertEqual(report['technical']['applicable'], 3)
+        self.assertEqual(report['technical']['present'], 1)
+
     def test_rejects_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, spec = self.fixture(Path(directory))

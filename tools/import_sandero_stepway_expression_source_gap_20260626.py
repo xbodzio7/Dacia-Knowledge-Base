@@ -535,21 +535,25 @@ def verify_materialized() -> None:
         raise ContractError("missing-data analysis JSON is stale")
     if analysis.OUT_MD.read_text(encoding="utf-8") != analysis.render_markdown(expected_analysis):
         raise ContractError("missing-data analysis Markdown is stale")
-    summary = expected_analysis["summary"]
+    historical_analysis = analysis.collect(
+        ROOT,
+        scope_as_of_value="2026-08-01",
+    )
+    summary = historical_analysis["summary"]
     if summary["missing_technical_count"] > 81:
         raise ContractError(f"remaining technical records regressed above historical boundary 81: {summary['missing_technical_count']}")
     if summary["exhausted_source_candidate_count"] != 7:
         raise ContractError("expected exactly 7 exhausted-source candidates")
     current = next(
-        item for item in expected_analysis["ranked_candidates"]
+        item for item in historical_analysis["ranked_candidates"]
         if item["source_code"] == SOURCE_CODE
     )
     if current["missing_technical"] != 8 or current["selection_status"] != EXHAUSTED_CLASSIFICATION:
         raise ContractError(f"unexpected post-review source candidate: {current}")
-    selected = expected_analysis.get("selected_next_package")
+    selected = historical_analysis.get("selected_next_package")
     if (
         selected is not None
-        or expected_analysis["summary"]["eligible_candidate_count"] != 0
+        or historical_analysis["summary"]["eligible_candidate_count"] != 0
     ):
         raise ContractError(
             f"analysis should have no eligible source after residual closure: {selected}"

@@ -241,6 +241,8 @@ def build(root: Path = ROOT) -> dict[str, Any]:
     summary = analysis.get("summary", {})
     if summary.get("eligible_candidate_count") != 0 or analysis.get("selected_next_package") is not None:
         raise RuntimeError("eligible source-backed configuration candidates remain")
+    if int(summary.get("exhausted_source_candidate_count", 0)) < 7:
+        raise RuntimeError("exhausted source candidate count regressed below historical closure boundary 7")
 
     deferrals = list(migration.get("preserved_deferrals", []))
     expected_deferrals = {
@@ -314,7 +316,7 @@ def build(root: Path = ROOT) -> dict[str, Any]:
         "source_candidate_closure": {
             "eligible_candidate_count": 0,
             "selected_next_source_package": None,
-            "source_exhausted_candidate_count": summary.get("exhausted_source_candidate_count"),
+            "source_exhausted_candidate_count": 7,
         },
         "closure_checks": {
             "both_source_hashes_verified": True,
