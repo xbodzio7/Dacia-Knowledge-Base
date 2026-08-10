@@ -118,16 +118,19 @@ def build(apply=False):
         if code in attrs_by_code and attrs_by_code[code]["data_type"]=="integer":
             attrs_by_code[code]["data_type"]="decimal"; counters["attribute_types_widened"]+=1
 
-    def add_value(config, attr, value, source, page, raw, fuel="", suffix="cfgpdf2"):
+    def add_value(config, attr, value, source, page, raw, fuel="", suffix="cfgpdf2", force_distinct=False):
         nonlocal value_id
         if attr not in attrs_by_code:
             defer("missing_attribute", f"{attr}: {raw}"); return None
         value=str(value).replace(",",".") if attrs_by_code[attr]["data_type"] in ("integer","decimal") else str(value)
-        same=[r for r in values if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel and r["value"]==value]
-        if same: counters["values_already_covered"]+=1; return same[-1]["code"]
         base=f"{config}_{attr}_{fuel or 'all'}_20260809_{suffix}"
-        code=base; n=2
         existing={r["code"] for r in values}
+        if force_distinct and base in existing:
+            counters["values_already_covered"]+=1; return base
+        if not force_distinct:
+            same=[r for r in values if r["configuration_code"]==config and r["attribute_code"]==attr and r.get("fuel_type_code","")==fuel and r["value"]==value]
+            if same: counters["values_already_covered"]+=1; return same[-1]["code"]
+        code=base; n=2
         while code in existing: code=f"{base}_{n}"; n+=1
         row={"id":str(value_id),"code":code,"configuration_code":config,"attribute_code":attr,"fuel_type_code":fuel,"gear_number":"","value":value,"observation_date":DATE,"source_code":source,"notes":f"Exact saved configurator PDF, page {page}: {raw}"}
         values.append(row); value_id+=1; counters["values_added"]+=1; return code
@@ -167,11 +170,11 @@ def build(apply=False):
         m=re.search(r"(\d+)\s+z kołem\s*/\s*(\d+)\s*\((\d+)\s*l\)\s*z zestawem",txt,re.I)
         if m:
             for val,basis,spare,kit,attr,tag in [
-                (m.group(1),"vda_iso_3832","present","","cargo_volume_vda","spare_vda"),
-                (m.group(2),"vda_iso_3832","","present","cargo_volume_vda","kit_vda"),
+                (m.group(1),"vda_iso_3832","present","","boot_capacity","spare_vda"),
+                (m.group(2),"vda_iso_3832","","present","boot_capacity","kit_vda"),
                 (m.group(3),"ordinary_litre","","present","boot_capacity","kit_litre"),
             ]:
-                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}")
+                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}",force_distinct=True)
                 add_context(vc,basis,state,"","source_stated_total" if state=="folded" else "main_luggage_compartment",spare,kit,raw)
             return True
         # Jogger shared 5-seat / 7-seat table.
@@ -180,21 +183,21 @@ def build(apply=False):
             is7="jogger_7" in config
             vda=m.group(3) if is7 else m.group(1); litre=m.group(4) if is7 else m.group(2)
             third="upright" if (is7 and state=="upright") else "folded" if (is7 and state=="folded") else ""
-            for val,basis,attr,tag in [(vda,"vda_iso_3832","cargo_volume_vda","vda"),(litre,"ordinary_litre","boot_capacity","litre")]:
-                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}")
+            for val,basis,attr,tag in [(vda,"vda_iso_3832","boot_capacity","vda"),(litre,"ordinary_litre","boot_capacity","litre")]:
+                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}",force_distinct=True)
                 add_context(vc,basis,state,third,"source_stated_total" if state=="folded" else "main_luggage_compartment",note=raw)
             return True
         # Most Bigster/Duster/Spring rows: VDA dm3 plus ordinary litre.
         m=re.search(r"(\d+)\s*dm3\s*/\s*(\d+)\s*l",txt,re.I)
         if m:
-            for val,basis,attr,tag in [(m.group(1),"vda_iso_3832","cargo_volume_vda","vda"),(m.group(2),"ordinary_litre","boot_capacity","litre")]:
-                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}")
+            for val,basis,attr,tag in [(m.group(1),"vda_iso_3832","boot_capacity","vda"),(m.group(2),"ordinary_litre","boot_capacity","litre")]:
+                vc=add_value(config,attr,val,source,page,raw,suffix=f"cargo_{state}_{tag}",force_distinct=True)
                 add_context(vc,basis,state,"","source_stated_total" if state=="folded" else "main_luggage_compartment",note=raw)
             return True
         # A source may state only one dm3 figure.
         m=re.search(r"(\d+)\s*dm3",txt,re.I)
         if m:
-            vc=add_value(config,"cargo_volume_vda",m.group(1),source,page,raw,suffix=f"cargo_{state}_vda")
+            vc=add_value(config,"boot_capacity",m.group(1),source,page,raw,suffix=f"cargo_{state}_vda",force_distinct=True)
             add_context(vc,"vda_iso_3832",state,"","source_stated_total" if state=="folded" else "main_luggage_compartment",note=raw)
             return True
         defer("cargo_unparsed", raw); return False
